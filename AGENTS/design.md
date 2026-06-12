@@ -12,9 +12,10 @@ The current mood:
 - Consumer-friendly open-source tool.
 - Big rounded shapes.
 - Soft white cards.
-- Bright green brand energy.
-- Small yellow doodle accents.
+- Blue infrastructure/trust brand energy.
+- Small yellow dot and doodle accents.
 - Compact but playful app cards.
+- Green is reserved for status signals such as open source, active, healthy, or verified.
 
 ## Typography
 
@@ -55,10 +56,13 @@ Current CSS variables:
 --soft: #efefec;
 --line: rgba(26, 26, 26, 0.1);
 
+--brand: #1d63e9;
+--brand-dark: #0f45b7;
+--brand-soft: #eaf3ff;
 --green: #03bf18;
 --green-dark: #018d14;
 --green-soft: #e9f9e9;
---yellow: #f4c900;
+--yellow: #f6c400;
 
 --blue-soft: #e8f1ff;
 --purple-soft: #f1e7ff;
@@ -68,18 +72,18 @@ Current CSS variables:
 Brand anchor:
 
 ```css
-#03bf18
+#1d63e9
 ```
 
 Playful accent yellow:
 
 ```css
-#f4c900
+#f6c400
 ```
 
-The palette should remain simple: warm off-white background, black text, bright green, sparing yellow doodles, and soft pastel pills.
+The palette should remain simple: warm off-white background, deep text, bright blue brand surfaces, sparing yellow dots/doodles, green status pills, and soft pastel supporting pills.
 
-Avoid generic purple/blue SaaS gradients as a dominant theme.
+Hard rule: no gradients anywhere in the design. Use flat colors, borders, shadows, and illustration shapes instead.
 
 ## Dark Mode
 
@@ -88,14 +92,14 @@ Dark mode should preserve the same playful identity rather than becoming flat bl
 Current dark-mode direction:
 
 - Root selector: `data-theme="dark"` on the `html` element.
-- Main background: deep green-black, currently `#101510`.
-- Main text: soft off-white, currently `#f3f7f0`.
-- Muted text: sage grey, currently `#aab6a8`.
-- Card surface: translucent dark green, currently `rgba(25, 32, 25, 0.86)`.
-- Strong surface: `#171f17`.
-- Nav surface: `rgba(20, 26, 20, 0.9)`.
-- Icon button surface: `#202920`.
-- Brand green brightens slightly to `#04d61d`.
+- Main background: near-black with a slight blue bias, currently `#0d0f14`.
+- Main text: soft off-white, currently `#f8faff`.
+- Muted text: cool grey-blue, currently `#c0c9dd`.
+- Card surface: translucent dark neutral-blue, currently `rgba(20, 23, 31, 0.9)`.
+- Strong surface: `#151923`.
+- Nav surface: `rgba(17, 20, 28, 0.94)`.
+- Icon button surface: `#202532`.
+- Brand blue brightens slightly to `#4b8cff`.
 - Pastel badges become muted translucent color fields rather than bright light pills.
 - Shadows become deeper but still soft, not harsh.
 
@@ -119,7 +123,7 @@ Current radius tokens:
 Actual usage:
 
 - Top nav: `28px`.
-- Hero green panel: `52px`.
+- Hero visual/stat panel: `52px`.
 - App cards: `24px`.
 - Collection/sidebar card: `24px`.
 - Search input: `22px`.
@@ -146,7 +150,7 @@ The initial homepage structure:
 
 1. Floating rounded top nav.
 2. Big left headline.
-3. Green visual/stat card on the right.
+3. Soft blue visual/stat card on the right.
 4. Search row plus category pills.
 5. Content grid with a left featured collection card and app cards.
 6. Bottom confidence strip.
@@ -158,7 +162,7 @@ The first screen should still be the product surface. Personality is welcome, bu
 Primary buttons:
 
 ```css
-background: #03bf18;
+background: #1d63e9;
 color: white;
 border-radius: 999px;
 font-weight: 900;
@@ -201,13 +205,13 @@ The current prototype uses mostly CSS-drawn placeholders rather than an icon lib
 - CSS-drawn sun/moon theme icon.
 - CSS-drawn check badges.
 - CSS-drawn app logo placeholders.
-- CSS-drawn mascot, cart, and lock illustration.
+- CSS-drawn server shelf, app tiles, and lock illustration.
 
 Future direction:
 
 - Use `lucide-react` for functional UI icons.
 - Use real app logos or carefully designed colorful marks for apps.
-- Keep mascot and doodle art custom for brand moments.
+- Keep homelab/server/tool illustrations custom for brand moments.
 - Do not overuse decorative icons where data density matters.
 
 ## Badges And Pills
@@ -244,13 +248,13 @@ color: #b97700;
 
 Current style:
 
-- Bright green panels.
-- Simple mascot shapes.
+- Bright blue panels.
+- Simple server, storage, tool, and app-tile shapes.
 - Yellow doodle strokes.
 - White lock illustration.
 - Slightly toy-like geometry.
 - No stock images.
-- No heavy gradient blob backgrounds.
+- No gradients.
 
 Illustrations should make self-hosting feel approachable without making the app childish.
 
@@ -269,14 +273,15 @@ Use larger breathing room in hero areas and tighter density in app grids and ope
 ## Design Rules To Keep
 
 - Use dark text on warm off-white for light mode.
-- Let bright green be the brand anchor.
+- Let blue be the brand anchor.
+- Keep green for health/status signals.
 - Use yellow doodles sparingly as playful accents.
 - Round almost everything, but do not make it childish.
 - Keep labels and headlines friendly and often lowercase.
 - Keep cards compact and practical.
 - Make directory/product content visible on the first screen.
 - Avoid fake enterprise seriousness.
-- Avoid generic SaaS gradients.
+- Do not use gradients anywhere.
 - Avoid stock images.
 - Prefer visual personality, but keep app data scannable.
 

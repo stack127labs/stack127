@@ -111,7 +111,8 @@ export default function Home() {
           <span className="doodle doodle-one" aria-hidden="true" />
           <h1 id="page-title">
             find the best <br />
-            self-hosted apps<span>.</span>
+            <span className="hero-emphasis">self-hosted apps</span>
+            <span className="hero-dot">.</span>
           </h1>
           <p>
             Discover, compare, and run self-hosted software with full control
@@ -151,16 +152,20 @@ export default function Home() {
             </div>
             <p>Find practical apps for privacy, media, automation, and more.</p>
           </div>
-          <div className="mascot-scene" aria-hidden="true">
-            <div className="chick">
-              <span className="cap">h</span>
-              <span className="face" />
-            </div>
-            <div className="cart">
+          <div className="server-scene" aria-hidden="true">
+            <div className="plant">
               <span />
+            </div>
+            <div className="server-stack">
               <span />
               <span />
             </div>
+            <div className="app-tiles">
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="storage-bin" />
           </div>
         </aside>
       </section>
