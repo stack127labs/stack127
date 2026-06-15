@@ -2,14 +2,14 @@
   --background: #f7f7f5;
   --surface: rgba(255, 255, 255, 0.82);
   --surface-strong: #ffffff;
-  --nav-surface: rgba(255, 255, 255, 0.88);
+  --nav-surface: rgba(255, 255, 255, 0.96);
   --icon-surface: #f4f4f2;
   --hero-pill-surface: #ffffff;
   --collection-button-surface: #ffffff;
   --collection-pill-surface: #1e1e1e;
   --confidence-surface: #f1f7ff;
   --confidence-border: rgba(29, 99, 233, 0.28);
-  --nav-shadow: 0 16px 50px rgba(20, 20, 20, 0.07);
+  --nav-shadow: none;
   --placeholder: #a0a0a0;
   --text: #191919;
   --muted: #6a6a6a;
@@ -39,14 +39,14 @@
   --background: #0d0f14;
   --surface: rgba(20, 23, 31, 0.9);
   --surface-strong: #151923;
-  --nav-surface: rgba(17, 20, 28, 0.94);
+  --nav-surface: rgba(17, 20, 28, 0.96);
   --icon-surface: #202532;
   --hero-pill-surface: #edf4ff;
   --collection-button-surface: #edf4ff;
   --collection-pill-surface: #11151d;
   --confidence-surface: #121b2b;
   --confidence-border: rgba(74, 134, 255, 0.36);
-  --nav-shadow: 0 18px 56px rgba(0, 0, 0, 0.24);
+  --nav-shadow: none;
   --placeholder: #869186;
   --text: #f8faff;
   --muted: #c0c9dd;
@@ -114,23 +114,28 @@ button {
 .site-shell {
   width: min(1500px, calc(100% - 64px));
   margin: 0 auto;
-  padding: 18px 0 34px;
+  padding: 0 0 34px;
+}
+
+.site-header {
+  background: var(--nav-surface);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--nav-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .top-nav {
   align-items: center;
-  background: var(--nav-surface);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  box-shadow: var(--nav-shadow);
   display: grid;
   gap: 24px;
   grid-template-columns: 1fr auto 1fr;
-  min-height: 78px;
-  padding: 0 48px;
-  position: sticky;
-  top: 18px;
-  z-index: 10;
+  margin: 0 auto;
+  min-height: 74px;
+  padding: 0;
+  width: min(1500px, calc(100% - 64px));
 }
 
 .brand {
@@ -1759,30 +1764,36 @@ button {
 }
 
 .directory-shell {
-  max-width: 1580px;
+  max-width: none;
+  padding: 0;
+  width: 100%;
 }
 
 .directory-page {
   align-items: start;
   display: grid;
-  gap: 26px;
-  grid-template-columns: minmax(320px, 0.36fr) minmax(0, 0.64fr);
-  padding: 30px 28px 36px;
+  gap: 0;
+  grid-template-columns: minmax(310px, 33vw) minmax(0, 1fr);
+  min-height: calc(100vh - 75px);
+  padding: 0;
 }
 
 .directory-sidebar {
+  border-right: 1px solid var(--line);
+  height: calc(100vh - 75px);
+  overflow-y: auto;
   position: sticky;
-  top: 112px;
+  top: 75px;
 }
 
 .directory-filter-panel {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  box-shadow: var(--card-shadow);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
   display: grid;
   gap: 22px;
-  padding: 22px;
+  padding: 28px clamp(22px, 3vw, 44px) 34px;
 }
 
 .filter-panel-heading {
@@ -1912,6 +1923,7 @@ button {
 
 .directory-results {
   min-width: 0;
+  padding: 30px clamp(24px, 3vw, 48px) 44px;
 }
 
 .directory-results-header {
@@ -2220,12 +2232,16 @@ button {
     width: min(100% - 28px, 760px);
   }
 
+  .directory-shell {
+    width: 100%;
+  }
+
   .top-nav {
     align-items: start;
     grid-template-columns: 1fr auto;
     min-height: auto;
-    padding: 20px;
-    position: static;
+    padding: 16px 0;
+    width: min(100% - 28px, 760px);
   }
 
   .nav-links {
@@ -2357,11 +2373,21 @@ button {
   }
 
   .directory-sidebar {
+    border-bottom: 1px solid var(--line);
+    border-right: 0;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
     position: static;
   }
 
   .directory-filter-panel {
     gap: 18px;
+    padding: 24px 22px;
+  }
+
+  .directory-results {
+    padding: 24px 22px 36px;
   }
 
   .filter-options {

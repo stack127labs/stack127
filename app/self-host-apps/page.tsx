@@ -289,112 +289,114 @@ export default async function SelfHostAppsPage({
   const categoryMap = new Map(categoryOptions.map((option) => [option.value, option.label]));
 
   return (
-    <main className="site-shell directory-shell">
+    <>
       <SiteNav />
 
-      <section className="directory-page">
-        <aside className="directory-sidebar" aria-label="Self-hosted app filters">
-          <form className="directory-filter-panel" action="/self-host-apps">
-            <div className="filter-panel-heading">
-              <p>directory controls</p>
-              <h1>self-hosted apps</h1>
-            </div>
+      <main className="site-shell directory-shell">
+        <section className="directory-page">
+          <aside className="directory-sidebar" aria-label="Self-hosted app filters">
+            <form className="directory-filter-panel" action="/self-host-apps">
+              <div className="filter-panel-heading">
+                <p>directory controls</p>
+                <h1>self-hosted apps</h1>
+              </div>
 
-            <label className="directory-search">
-              <span>Search</span>
-              <input
-                defaultValue={getString(params, "q")}
-                name="q"
-                placeholder="Immich, DNS, photos..."
-                type="search"
+              <label className="directory-search">
+                <span>Search</span>
+                <input
+                  defaultValue={getString(params, "q")}
+                  name="q"
+                  placeholder="Immich, DNS, photos..."
+                  type="search"
+                />
+              </label>
+
+              <label className="directory-select">
+                <span>Sort</span>
+                <select defaultValue={sort} name="sort">
+                  {sortOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              <CheckboxGroup
+                name="category"
+                options={categoryOptions}
+                selected={getValues(params, "category")}
+                title="Category"
               />
-            </label>
+              <CheckboxGroup
+                name="docker"
+                options={dockerOptions}
+                selected={getValues(params, "docker")}
+                title="Docker"
+              />
+              <CheckboxGroup
+                name="ram"
+                options={ramOptions}
+                selected={getValues(params, "ram")}
+                title="RAM"
+              />
+              <CheckboxGroup
+                name="storage"
+                options={storageOptions}
+                selected={getValues(params, "storage")}
+                title="Storage"
+              />
+              <CheckboxGroup
+                name="maintenance"
+                options={maintenanceOptions}
+                selected={getValues(params, "maintenance")}
+                title="Health"
+              />
+              <CheckboxGroup
+                name="signal"
+                options={[
+                  { label: "Has mobile app", value: "mobile" },
+                  { label: "Needs database", value: "database" },
+                  { label: "Compose ready", value: "compose" },
+                ]}
+                selected={getValues(params, "signal")}
+                title="Signals"
+              />
 
-            <label className="directory-select">
-              <span>Sort</span>
-              <select defaultValue={sort} name="sort">
-                {sortOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
+              <div className="filter-actions">
+                <button type="submit">apply filters</button>
+                <Link href="/self-host-apps">reset</Link>
+              </div>
+            </form>
+          </aside>
+
+          <section className="directory-results" aria-label="Self-hosted app results">
+            <div className="directory-results-header">
+              <div>
+                <p>{filteredApps.length} apps found</p>
+                <h2>Find apps that fit your server, storage, and setup comfort.</h2>
+              </div>
+              <Link href="/self-host-apps?docker=official&sort=healthy">healthy docker apps</Link>
+            </div>
+
+            <ActiveFilters categoryMap={categoryMap} params={params} />
+
+            {filteredApps.length > 0 ? (
+              <div className="directory-card-grid">
+                {filteredApps.map((app) => (
+                  <DirectoryAppCard app={app} key={app.slug} />
                 ))}
-              </select>
-            </label>
-
-            <CheckboxGroup
-              name="category"
-              options={categoryOptions}
-              selected={getValues(params, "category")}
-              title="Category"
-            />
-            <CheckboxGroup
-              name="docker"
-              options={dockerOptions}
-              selected={getValues(params, "docker")}
-              title="Docker"
-            />
-            <CheckboxGroup
-              name="ram"
-              options={ramOptions}
-              selected={getValues(params, "ram")}
-              title="RAM"
-            />
-            <CheckboxGroup
-              name="storage"
-              options={storageOptions}
-              selected={getValues(params, "storage")}
-              title="Storage"
-            />
-            <CheckboxGroup
-              name="maintenance"
-              options={maintenanceOptions}
-              selected={getValues(params, "maintenance")}
-              title="Health"
-            />
-            <CheckboxGroup
-              name="signal"
-              options={[
-                { label: "Has mobile app", value: "mobile" },
-                { label: "Needs database", value: "database" },
-                { label: "Compose ready", value: "compose" },
-              ]}
-              selected={getValues(params, "signal")}
-              title="Signals"
-            />
-
-            <div className="filter-actions">
-              <button type="submit">apply filters</button>
-              <Link href="/self-host-apps">reset</Link>
-            </div>
-          </form>
-        </aside>
-
-        <section className="directory-results" aria-label="Self-hosted app results">
-          <div className="directory-results-header">
-            <div>
-              <p>{filteredApps.length} apps found</p>
-              <h2>Find apps that fit your server, storage, and setup comfort.</h2>
-            </div>
-            <Link href="/self-host-apps?docker=official&sort=healthy">healthy docker apps</Link>
-          </div>
-
-          <ActiveFilters categoryMap={categoryMap} params={params} />
-
-          {filteredApps.length > 0 ? (
-            <div className="directory-card-grid">
-              {filteredApps.map((app) => (
-                <DirectoryAppCard app={app} key={app.slug} />
-              ))}
-            </div>
-          ) : (
-            <div className="directory-empty">
-              <h2>No apps match those filters.</h2>
-              <p>Try clearing one resource or health filter first.</p>
-              <Link href="/self-host-apps">show all apps</Link>
-            </div>
-          )}
+              </div>
+            ) : (
+              <div className="directory-empty">
+                <h2>No apps match those filters.</h2>
+                <p>Try clearing one resource or health filter first.</p>
+                <Link href="/self-host-apps">show all apps</Link>
+              </div>
+            )}
+          </section>
         </section>
-      </section>
-    </main>
+      </main>
+    </>
   );
 }
