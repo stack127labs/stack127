@@ -1,27 +1,28 @@
 begin;
 
-insert into public.categories (slug, name, description)
+insert into public.categories (slug, name, description, icon_key)
 values
-  ('photos', 'Photos', 'Photo backup, management, and gallery apps.'),
-  ('cloud-workspace', 'Cloud Workspace', 'Files, calendars, contacts, notes, photos, and collaboration tools in one private workspace.'),
-  ('media', 'Media', 'Media servers and streaming libraries.'),
-  ('home-automation', 'Home Automation', 'Smart home control and automation tools.'),
-  ('password-managers', 'Password Managers', 'Password vaults and secrets tools.'),
-  ('documents', 'Documents', 'Document capture, search, and archive apps.'),
-  ('monitoring', 'Monitoring', 'Uptime, observability, and status monitoring tools.'),
-  ('dns', 'DNS', 'DNS, ad blocking, and network filtering tools.'),
-  ('development-tools', 'Development Tools', 'Source control, automation, and developer infrastructure.')
+  ('photos', 'Photos', 'Photo backup, management, and gallery apps.', 'images'),
+  ('cloud-workspace', 'Cloud Workspace', 'Files, calendars, contacts, notes, photos, and collaboration tools in one private workspace.', 'folder-sync'),
+  ('media', 'Media', 'Media servers and streaming libraries.', 'tv'),
+  ('home-automation', 'Home Automation', 'Smart home control and automation tools.', 'house-plug'),
+  ('password-managers', 'Password Managers', 'Password vaults and secrets tools.', 'key-round'),
+  ('documents', 'Documents', 'Document capture, search, and archive apps.', 'file-text'),
+  ('monitoring', 'Monitoring', 'Uptime, observability, and status monitoring tools.', 'activity'),
+  ('dns', 'DNS', 'DNS, ad blocking, and network filtering tools.', 'network'),
+  ('development-tools', 'Development Tools', 'Source control, automation, and developer infrastructure.', 'code-2'),
+  ('content-management', 'Content Management', 'CMS, editorial workflows, and content publishing tools.', 'newspaper')
 on conflict (slug) do update
 set
   name = excluded.name,
   description = excluded.description,
+  icon_key = excluded.icon_key,
   updated_at = now();
 
 insert into public.self_host_apps (
   slug,
   name,
   description,
-  category_id,
   status,
   screenshots,
   youtube_video_url,
@@ -85,7 +86,6 @@ values
     'immich',
     'Immich',
     'Photo and video backup app that gives you a private Google Photos-style library on your own server.',
-    (select id from public.categories where slug = 'photos'),
     'published',
     '[
       {"url":"https://raw.githubusercontent.com/immich-app/immich/main/docs/static/img/screenshot-light.webp","type":"web","caption":"Web photo library in light mode","source":"official_repo"},
@@ -156,7 +156,6 @@ Do not rely on exported photos alone unless you are comfortable losing app struc
     'nextcloud',
     'Nextcloud',
     'Private cloud workspace for files, photos, calendars, contacts, notes, sharing, and collaboration.',
-    (select id from public.categories where slug = 'cloud-workspace'),
     'published',
     '[
       {"url":"https://nextcloud.com/files/","type":"web","caption":"Nextcloud Files product page with interface screenshots","source":"official_site"},
@@ -227,7 +226,6 @@ For a family or team server, schedule database dumps plus file-level or snapshot
     'jellyfin',
     'Jellyfin',
     'Media server that streams your movies, shows, music, and personal videos from your own library.',
-    (select id from public.categories where slug = 'media'),
     'published',
     '[
       {"url":"https://jellyfin.org/","type":"web","caption":"Official Jellyfin site with interface previews","source":"official_site"},
@@ -298,7 +296,6 @@ If you can rebuild metadata from filenames, losing app data is annoying but reco
     'home-assistant',
     'Home Assistant',
     'Local-first smart home platform for devices, automations, dashboards, sensors, and routines.',
-    (select id from public.categories where slug = 'home-automation'),
     'published',
     '[
       {"url":"https://demo.home-assistant.io","type":"demo","caption":"Official interactive demo dashboard","source":"official_demo"},
@@ -369,7 +366,6 @@ For deeper setups, trim recorder/history retention so the database does not grow
     'vaultwarden',
     'Vaultwarden',
     'Lightweight Bitwarden-compatible password manager server for personal and small-team vaults.',
-    (select id from public.categories where slug = 'password-managers'),
     'published',
     '[
       {"url":"https://github.com/dani-garcia/vaultwarden/wiki","type":"docs","caption":"Official Vaultwarden wiki","source":"official_repo"},
@@ -440,7 +436,6 @@ For SQLite installs, stop the container or use a safe database backup method bef
     'paperless-ngx',
     'Paperless-ngx',
     'Document archive that scans, OCRs, tags, and searches your paper and PDF documents.',
-    (select id from public.categories where slug = 'documents'),
     'published',
     '[
       {"url":"https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/dev/docs/assets/screenshots/dashboard.png","type":"web","caption":"Dashboard screenshot","source":"official_repo"},
@@ -511,7 +506,6 @@ For important records, keep one local backup and one offsite backup. Test restor
     'uptime-kuma',
     'Uptime Kuma',
     'Friendly uptime monitor for websites, services, ports, containers, and status pages.',
-    (select id from public.categories where slug = 'monitoring'),
     'published',
     '[
       {"url":"https://uptime.kuma.pet","type":"web","caption":"Official product site with UI preview","source":"official_site"},
@@ -582,7 +576,6 @@ The bigger resilience question is placement. A second tiny VPS or remote node ca
     'pi-hole',
     'Pi-hole',
     'Network-wide DNS sinkhole that blocks ads and trackers for devices on your home network.',
-    (select id from public.categories where slug = 'dns'),
     'published',
     '[
       {"url":"https://pi-hole.net","type":"web","caption":"Official Pi-hole site with dashboard preview","source":"official_site"},
@@ -653,7 +646,6 @@ For reliability, run a second DNS resolver or have a documented router fallback.
     'adguard-home',
     'AdGuard Home',
     'Network-wide DNS server for ad blocking, tracker blocking, parental controls, and DNS filtering.',
-    (select id from public.categories where slug = 'dns'),
     'published',
     '[
       {"url":"https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/snap/gui/adguard-home-web.png","type":"web","caption":"Web dashboard screenshot","source":"official_repo"},
@@ -724,7 +716,6 @@ As with Pi-hole, resilience is mostly about DNS availability. A second DNS insta
     'gitea',
     'Gitea',
     'Lightweight self-hosted Git service for repositories, issues, pull requests, packages, and releases.',
-    (select id from public.categories where slug = 'development-tools'),
     'published',
     '[
       {"url":"https://about.gitea.com","type":"web","caption":"Official Gitea site with product UI","source":"official_site"},
@@ -790,12 +781,81 @@ For teams, schedule database dumps plus file backups and test restore into a sep
     'Original HomeLabHQ copy. YouTube link is a verified third-party tutorial.',
     true,
     '2026-06-14T07:45:00Z'
+  ),
+  (
+    'basebuddy',
+    'BaseBuddy',
+    'Content editor that turns existing Supabase or Postgres tables into a friendly CMS without reshaping your database.',
+    'published',
+    '[
+      {"url":"https://basebuddycms.com/docs/screenshots/app-editor-dirty-save.jpg","type":"web","caption":"BaseBuddy editor with dirty-field save state","source":"official_site"},
+      {"url":"https://basebuddycms.com/home/mapping-product-composition.png","type":"web","caption":"Existing database fields mapped into an editor","source":"official_site"},
+      {"url":"https://basebuddycms.com/docs/screenshots/app-media-library.jpg","type":"web","caption":"Media library for Supabase Storage or S3 files","source":"official_site"}
+    ]'::jsonb,
+    null,
+    'BaseBuddy runs as a Node app with pnpm and is built around an existing Supabase or Postgres content database. The install path starts by cloning the repo, installing dependencies, setting the auth secret and content database URL, then opening onboarding on port 8080.
+
+Before using it with real content, decide where BaseBuddy app state will live: a local persistent basebuddy-data folder or Postgres/Supabase app-state tables. If you want media and files, also prepare Supabase Storage or S3-compatible storage and make sure those credentials are stored in environment variables.',
+    'BaseBuddy is interesting when you already have Supabase or Postgres tables and want an editor instead of a raw database admin screen. It is early, so it should be tested on staging first, but the direction is useful for builders who do not want to move into a fixed CMS schema.',
+    array['Existing Supabase or Postgres content databases', 'Small teams that need a safer editor than direct database access', 'Projects that want CMS features without adopting a fixed CMS schema']::text[],
+    array['People who want a mature all-purpose CMS ecosystem today', 'Teams that need Docker-first packaging right away', 'Static sites that do not need a database-backed editor']::text[],
+    array['Very young project with a small GitHub footprint', 'No official Docker image found during this check', 'App-state and content database backups need to be planned together']::text[],
+    'https://basebuddycms.com',
+    'https://github.com/basebuddy-cms/basebuddy',
+    'https://demo.basebuddycms.com',
+    null,
+    'https://github.com/basebuddy-cms/basebuddy/blob/main/INSTALL.md',
+    'https://basebuddycms.com/docs',
+    array['node', 'pnpm']::text[],
+    'none',
+    false,
+    true,
+    array['postgres', 'supabase']::text[],
+    false,
+    false,
+    array['web']::text[],
+    null,
+    1024,
+    null,
+    'BaseBuddy stores editor app state either in a local basebuddy-data folder or in Postgres/Supabase app-state tables. Your content remains in the connected content database. Media and files can use Supabase Storage or S3-compatible storage when configured.',
+    'A small Node server is enough for light editorial use. Database performance and durable storage matter more than raw CPU.',
+    null,
+    'Back up three things based on how you deploy it: the BaseBuddy app-state backend, the content database it edits, and any media or object storage connected to mapped fields. If app state lives in basebuddy-data, include that folder in persistent backups. If it lives in Postgres or Supabase, include the basebuddy schema tables.
+
+Do restore testing before giving editors real access. A content database backup without BaseBuddy mappings can leave you with the data but not the editor setup. App-state backup without content data is also incomplete.',
+    'moderate',
+    'high',
+    'RAID is not the main safety control for BaseBuddy. Use reliable storage for the database and media layer, then keep database-aware and offsite backups. RAID can help uptime on a home server, but it will not recover bad edits, broken mappings, deleted files, or leaked credentials.',
+    true,
+    'active',
+    '2026-05-31T05:08:04Z',
+    '2026-05-31T05:07:01Z',
+    'basebuddy-cms',
+    'basebuddy',
+    7,
+    1,
+    0,
+    0,
+    'v0.2.0',
+    '2026-05-31T05:08:04Z',
+    '2026-05-31T05:07:01Z',
+    18,
+    2,
+    2,
+    '2026-05-31T05:07:39Z',
+    '2026-06-15T15:28:31Z',
+    array['WordPress admin', 'Custom internal CMS', 'Direct database editing']::text[],
+    '[]'::jsonb,
+    '[{"type":"small_vps_or_home_server","label":"Small VPS or home server with persistent storage","reason":"BaseBuddy itself should be light, but the content database, app-state backend, and media storage need durable backups.","affiliate_url":null,"image_url":null,"price_note":"Start with reliable storage and backups before scaling compute."}]'::jsonb,
+    'medium',
+    'Original HomeLabHQ copy. Official site, GitHub repo, and install guide checked on 2026-06-15. No YouTube video or official Docker image found during this pass.',
+    true,
+    '2026-06-15T15:28:31Z'
   )
 on conflict (slug) do update
 set
   name = excluded.name,
   description = excluded.description,
-  category_id = excluded.category_id,
   status = excluded.status,
   screenshots = excluded.screenshots,
   youtube_video_url = excluded.youtube_video_url,
@@ -855,25 +915,67 @@ set
   last_checked_at = excluded.last_checked_at,
   updated_at = now();
 
+delete from public.self_host_app_categories link
+using public.self_host_apps app
+where link.app_id = app.id
+  and app.slug in (
+    'immich',
+    'nextcloud',
+    'jellyfin',
+    'home-assistant',
+    'vaultwarden',
+    'paperless-ngx',
+    'uptime-kuma',
+    'pi-hole',
+    'adguard-home',
+    'gitea',
+    'basebuddy'
+  );
+
+insert into public.self_host_app_categories (app_id, category_id)
+select app.id, category.id
+from (
+  values
+    ('immich', 'photos'),
+    ('nextcloud', 'cloud-workspace'),
+    ('nextcloud', 'photos'),
+    ('nextcloud', 'documents'),
+    ('jellyfin', 'media'),
+    ('home-assistant', 'home-automation'),
+    ('vaultwarden', 'password-managers'),
+    ('paperless-ngx', 'documents'),
+    ('uptime-kuma', 'monitoring'),
+    ('pi-hole', 'dns'),
+    ('adguard-home', 'dns'),
+    ('gitea', 'development-tools'),
+    ('basebuddy', 'content-management'),
+    ('basebuddy', 'development-tools')
+) as app_category(app_slug, category_slug)
+join public.self_host_apps app on app.slug = app_category.app_slug
+join public.categories category on category.slug = app_category.category_slug
+on conflict (app_id, category_id) do nothing;
+
 update public.self_host_apps app
 set
   icon_url = icons.icon_url,
   icon_source = 'selfh.st/icons',
+  license = icons.license,
   good_fit = app.best_for,
   watch_outs = array_cat(app.not_best_for, app.known_issues)
 from (
   values
-    ('immich', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/immich.svg'),
-    ('nextcloud', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/nextcloud.svg'),
-    ('jellyfin', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/jellyfin.svg'),
-    ('home-assistant', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/home-assistant.svg'),
-    ('vaultwarden', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/vaultwarden.svg'),
-    ('paperless-ngx', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/paperless-ngx.svg'),
-    ('uptime-kuma', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/uptime-kuma.svg'),
-    ('pi-hole', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/pi-hole.svg'),
-    ('adguard-home', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/adguard-home.svg'),
-    ('gitea', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/gitea.svg')
-) as icons(slug, icon_url)
+    ('immich', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/immich.svg', 'AGPL-3.0'),
+    ('nextcloud', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/nextcloud.svg', 'AGPL-3.0'),
+    ('jellyfin', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/jellyfin.svg', 'GPL-2.0'),
+    ('home-assistant', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/home-assistant.svg', 'Apache-2.0'),
+    ('vaultwarden', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/vaultwarden.svg', 'AGPL-3.0'),
+    ('paperless-ngx', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/paperless-ngx.svg', 'GPL-3.0'),
+    ('uptime-kuma', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/uptime-kuma.svg', 'MIT'),
+    ('pi-hole', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/pi-hole.svg', 'EUPL-1.2'),
+    ('adguard-home', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/adguard-home.svg', 'GPL-3.0'),
+    ('gitea', 'https://cdn.jsdelivr.net/gh/selfhst/icons/svg/gitea.svg', 'MIT'),
+    ('basebuddy', 'https://basebuddycms.com/basebuddy-icon.svg', 'AGPL-3.0')
+) as icons(slug, icon_url, license)
 where app.slug = icons.slug;
 
 update public.self_host_apps
@@ -921,7 +1023,8 @@ from (
     ('uptime-kuma', '2026-06-14'::date, 87958, 7984, 757, null::integer, '2.4.0', '2026-05-31T00:55:12Z'::timestamptz, '2026-06-13T11:47:21Z'::timestamptz, 150, null::integer, 130),
     ('pi-hole', '2026-06-14'::date, 59258, 3224, 45, null::integer, 'v6.4.2', '2026-04-24T21:56:33Z'::timestamptz, '2026-06-10T18:30:12Z'::timestamptz, 72, null::integer, 125),
     ('adguard-home', '2026-06-14'::date, 34824, 2386, 1261, null::integer, 'v0.107.77', '2026-06-02T12:52:16Z'::timestamptz, '2026-06-11T14:08:31Z'::timestamptz, 56, null::integer, 240),
-    ('gitea', '2026-06-14'::date, 56274, 6789, 2753, null::integer, 'v1.26.2', '2026-05-20T18:51:45Z'::timestamptz, '2026-06-13T10:14:03Z'::timestamptz, 535, null::integer, 229)
+    ('gitea', '2026-06-14'::date, 56274, 6789, 2753, null::integer, 'v1.26.2', '2026-05-20T18:51:45Z'::timestamptz, '2026-06-13T10:14:03Z'::timestamptz, 535, null::integer, 229),
+    ('basebuddy', '2026-06-15'::date, 7, 1, 0, 0, 'v0.2.0', '2026-05-31T05:08:04Z'::timestamptz, '2026-05-31T05:07:01Z'::timestamptz, 18, 2, 2)
 ) as snapshot(slug, snapshot_date, stars, forks, open_issues, open_pull_requests, latest_release, latest_release_at, last_commit_at, commit_count_90d, release_count_90d, release_count)
 join public.self_host_apps app on app.slug = snapshot.slug
 on conflict (app_id, snapshot_date) do update

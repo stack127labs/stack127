@@ -2,7 +2,7 @@ Yes. Human speed is the right call here.
 
 I’d start with **one main table** called `self_host_apps`, but I would still add **one small history table** for GitHub stats later, because 90-day stats do not belong well inside the main app row.
 
-I would also have one simple `categories` table and use `category_id` in the main table. That keeps categories clean without over-normalizing the rest of the product too early.
+I would also have one simple `categories` table and link apps to categories through `self_host_app_categories`. Apps can honestly belong to more than one category without forcing an artificial primary bucket.
 
 For V1, this is the shape I’d use.
 
@@ -17,9 +17,26 @@ id
 slug
 name
 description
+icon_key
 created_at
 updated_at
 ```
+
+`icon_key` stores the visual icon reference for that category, such as `images`, `network`, or `code-2`. The frontend maps these keys to our icon renderer and falls back safely if a key is missing.
+
+```sql
+self_host_app_categories
+```
+
+**App Category Links**
+
+```text
+app_id
+category_id
+created_at
+```
+
+Use this join table for all app/category membership. Do not store category IDs as an array on `self_host_apps`, and do not force a primary category unless we intentionally add that idea later.
 
 ```sql
 self_host_apps
@@ -32,7 +49,6 @@ id
 slug
 name
 description
-category_id
 status
 created_at
 updated_at

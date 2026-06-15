@@ -83,14 +83,15 @@ Rules:
 - Specific to the app.
 - Do not say "open source" or "self-hosted" unless that is the main point, because most apps in this database are both.
 
-### `category_id`
+### Categories
 
-Choose the best existing category. If the category feels wrong, note it before creating new categories.
+Choose every existing category that clearly applies to the app. Do not force a single primary category when the app genuinely spans multiple areas.
+When a new category is created, give it a unique `icon_key` that visually explains the category and does not repeat another category icon.
 
 Examples:
 
 - Immich: `photos`
-- Nextcloud: `cloud-workspace`, not only `file-sync`
+- Nextcloud: `cloud-workspace`, `photos`, `documents`
 - Jellyfin: `media`
 - Home Assistant: `home-automation`
 

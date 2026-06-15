@@ -1,5 +1,23 @@
 import type { Metadata } from "next";
+import {
+  Atkinson_Hyperlegible,
+  Atkinson_Hyperlegible_Mono,
+} from "next/font/google";
 import "./globals.css";
+
+const atkinson = Atkinson_Hyperlegible({
+  display: "swap",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-atkinson",
+  weight: ["400", "700"],
+});
+
+const atkinsonMono = Atkinson_Hyperlegible_Mono({
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-atkinson-mono",
+});
 
 export const metadata: Metadata = {
   title: "HomeLabHQ",
@@ -12,7 +30,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      className={`${atkinson.variable} ${atkinsonMono.variable}`}
+      lang="en"
+      suppressHydrationWarning
+    >
       <body>
         <script
           dangerouslySetInnerHTML={{

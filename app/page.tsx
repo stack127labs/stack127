@@ -17,7 +17,7 @@ function AppLogo({ app }: { app: AppSummary }) {
 function getTags(app: AppSummary) {
   return [
     app.docker_support === "official" ? "docker" : null,
-    app.category_name?.toLowerCase(),
+    app.categories[0]?.name.toLowerCase(),
     app.supported_platforms.includes("ios") ||
     app.supported_platforms.includes("android")
       ? "mobile"

@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAppBySlug, type AppDetail, type Screenshot } from "@/lib/apps";
+import { CategoryIcon } from "../../category-icon";
 import { SiteNav } from "../../site-nav";
 
 export const dynamic = "force-dynamic";
@@ -177,7 +178,18 @@ export default async function AppDetailPage({ params }: PageProps) {
             <div className="detail-title-row">
               <AppIcon app={app} />
               <div>
-                <p className="category-chip">{app.category_name ?? "self-hosted app"}</p>
+                <div className="category-chip-row" aria-label="App categories">
+                  {app.categories.length > 0 ? (
+                    app.categories.map((category) => (
+                      <span className="category-chip" key={category.slug}>
+                        <CategoryIcon iconKey={category.icon_key} />
+                        {category.name}
+                      </span>
+                    ))
+                  ) : (
+                    <span className="category-chip">self-hosted app</span>
+                  )}
+                </div>
                 <h1>{app.name}</h1>
               </div>
             </div>

@@ -19,29 +19,26 @@ The current mood:
 
 ## Typography
 
-Current font stack:
+Current font system:
 
 ```css
-Arial Rounded MT Bold,
-Avenir Next,
-Inter,
-ui-rounded,
-system-ui,
--apple-system,
-BlinkMacSystemFont,
-"Segoe UI",
-sans-serif
+--font-sans: var(--font-atkinson), system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", sans-serif;
+--font-mono: var(--font-atkinson-mono), ui-monospace, SFMono-Regular, Menlo,
+  Monaco, Consolas, "Liberation Mono", monospace;
+--font-brand: Arial Rounded MT Bold, Avenir Next, var(--font-sans);
 ```
 
-The visual feel mostly comes from `Arial Rounded MT Bold` where available. It gives the chunky, friendly, rounded headline style.
+The site uses Atkinson Hyperlegible as the primary reading font and Atkinson Hyperlegible Mono for technical details. The goal is long-session readability, especially for app descriptions, setup notes, comparisons, backup guidance, docs, and future blog content.
 
 Usage:
 
-- Logo, nav, and headlines use the heavy rounded style.
-- Body and secondary text lean on `Avenir Next`, `Inter`, or system UI.
+- The logo uses the brand font token only.
+- Nav, headlines, body text, filters, cards, and long-form content use Atkinson Hyperlegible.
+- Code, commands, ports, versions, Docker details, resource specs, GitHub stats, and compact technical badges can use Atkinson Hyperlegible Mono.
 - Global letter spacing stays normal.
-- Logo and hero headline use tighter spacing.
-- Lowercase labels and headlines are preferred for friendliness.
+- The logo can keep modest negative spacing for visual identity, but avoid using the brand font for headings unless explicitly requested.
+- Lowercase labels and headings are preferred for friendliness when the UI context supports it.
 
 ## Core Colors
 
@@ -115,23 +112,24 @@ Theme behavior:
 Current radius tokens:
 
 ```css
---radius-xl: 22px;
---radius-lg: 14px;
---radius-md: 10px;
+--radius-xl: 12px;
+--radius-lg: 8px;
+--radius-md: 6px;
+--radius-sm: 4px;
+--radius-pill: 8px;
 ```
 
 Actual usage:
 
-- Top nav: `14px`.
-- Hero visual/stat panel: `22px`.
-- App cards: `12px`.
-- Collection/sidebar card: `14px`.
-- Search input: `12px`.
-- Confidence strip: `14px`.
-- Pills and primary buttons: `999px`.
-- Small icon buttons: circular.
+- Top nav: square/full-width with no rounded container.
+- Hero visual/stat panel: `12px`.
+- App and directory cards: `8px`.
+- Search/select inputs: `6px`.
+- Confidence strip and main content panels: `8px`.
+- Pills, badges, and primary buttons: `8px`.
+- Small icon buttons: `8px`.
 
-Use a modern low-radius system: colorful and friendly through palette, typography, icons, and illustrations, but structurally closer to a practical productivity/infrastructure app. Pills should stay fully rounded.
+Use a modern low-radius system: colorful and friendly through palette, typography, icons, and illustrations, but structurally closer to a practical productivity/infrastructure app. Avoid fully rounded pill shapes for normal UI; reserve circles for true circular icons, avatars, checks, and illustration details.
 
 ## Shadows
 
@@ -164,7 +162,7 @@ Primary buttons:
 ```css
 background: #1d63e9;
 color: white;
-border-radius: 999px;
+border-radius: 8px;
 font-weight: 900;
 box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.12);
 ```
@@ -173,7 +171,7 @@ Secondary buttons:
 
 - White background.
 - Black text.
-- Fully rounded.
+- Low-radius rectangle.
 - Soft shadow or subtle border.
 
 ## Cards
@@ -181,7 +179,7 @@ Secondary buttons:
 App cards:
 
 - White translucent surface.
-- `24px` radius.
+- `8px` radius.
 - `1px` subtle border.
 - Soft shadow.
 - Compact icon plus text layout.
@@ -219,7 +217,7 @@ Future direction:
 Badge direction:
 
 - Lowercase text.
-- Rounded pill.
+- Low-radius compact rectangle.
 - Soft pastel background.
 - High-contrast label.
 - Small and compact.

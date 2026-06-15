@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { RefreshCw, Scale, Star } from "lucide-react";
+import { FaGithub } from "react-icons/fa6";
 import type { DirectoryApp } from "@/lib/apps";
+import { CategoryIcon } from "../category-icon";
 
 export function getRamTier(app: DirectoryApp) {
   const ram = app.ram_recommended_mb;
@@ -24,26 +27,30 @@ export function getRamTier(app: DirectoryApp) {
 }
 
 export function getStorageTier(app: DirectoryApp) {
-  const slug = app.category_slug;
+  const categorySlugs = new Set(app.categories.map((category) => category.slug));
 
-  if (slug === "dns") {
-    return "tiny";
+  if (categorySlugs.has("media")) {
+    return "very high";
   }
 
-  if (slug === "monitoring" || slug === "password-managers" || slug === "home-automation") {
-    return "low";
-  }
-
-  if (slug === "documents" || slug === "development-tools") {
-    return "medium";
-  }
-
-  if (slug === "photos" || slug === "cloud-workspace") {
+  if (categorySlugs.has("photos") || categorySlugs.has("cloud-workspace")) {
     return "high";
   }
 
-  if (slug === "media") {
-    return "very high";
+  if (categorySlugs.has("documents") || categorySlugs.has("development-tools")) {
+    return "medium";
+  }
+
+  if (
+    categorySlugs.has("monitoring") ||
+    categorySlugs.has("password-managers") ||
+    categorySlugs.has("home-automation")
+  ) {
+    return "low";
+  }
+
+  if (categorySlugs.has("dns")) {
+    return "tiny";
   }
 
   return "depends";
@@ -55,12 +62,26 @@ export function hasMobileApp(app: DirectoryApp) {
 
 function formatStars(value: number | null) {
   if (value === null) {
-    return "unknown";
+    return "unknown stars";
   }
 
-  return new Intl.NumberFormat("en", {
+  const formatted = new Intl.NumberFormat("en", {
     maximumFractionDigits: 1,
     notation: value > 9999 ? "compact" : "standard",
+  }).format(value);
+
+  return `${formatted} stars`;
+}
+
+function formatUpdatedDate(value: Date | null) {
+  if (!value) {
+    return "not checked";
+  }
+
+  return new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
   }).format(value);
 }
 
@@ -73,13 +94,9 @@ function maintenanceLabel(app: DirectoryApp) {
 }
 
 export function DirectoryAppCard({ app }: { app: DirectoryApp }) {
-  const dockerLabel = app.docker_support === "official" ? "docker" : app.docker_support ?? "docker unknown";
-  const goodFit = app.good_fit[0];
-  const dependency = app.requires_database
-    ? app.database_types[0] ?? "database"
-    : app.compose_support
-      ? "compose"
-      : app.deployment_methods[0];
+  const updatedAt = app.github_last_commit_at ?? app.github_latest_release_at;
+  const visibleCategories = app.categories.slice(0, 2);
+  const extraCategoryCount = Math.max(app.categories.length - visibleCategories.length, 0);
 
   return (
     <Link className="directory-card" href={`/apps/${app.slug}`}>
@@ -98,11 +115,38 @@ export function DirectoryAppCard({ app }: { app: DirectoryApp }) {
         </div>
       </div>
 
-      <div className="directory-badges" aria-label="App signals">
-        <span>{app.category_name ?? "uncategorized"}</span>
-        <span>{dockerLabel}</span>
-        {dependency ? <span>{dependency}</span> : null}
-        {hasMobileApp(app) ? <span>mobile</span> : null}
+      <div className="directory-meta-list" aria-label="App metadata">
+        <div className="meta-category-row">
+          <span className="meta-label">category:</span>
+          {visibleCategories.length > 0 ? (
+            <>
+              {visibleCategories.map((category) => (
+                <span className="category-badge" key={category.slug}>
+                  <CategoryIcon iconKey={category.icon_key} />
+                  {category.name}
+                </span>
+              ))}
+              {extraCategoryCount > 0 ? (
+                <span className="category-more">+{extraCategoryCount}</span>
+              ) : null}
+            </>
+          ) : (
+            <span className="category-badge">uncategorized</span>
+          )}
+        </div>
+        <span>
+          <FaGithub aria-hidden="true" className="meta-icon github" size={16} />
+          {formatStars(app.github_stars)}
+          <Star aria-hidden="true" className="meta-icon stars" size={14} strokeWidth={2.2} />
+        </span>
+        <span>
+          <Scale aria-hidden="true" className="meta-icon license" size={16} strokeWidth={2.2} />
+          {app.license ?? "license unknown"}
+        </span>
+        <span>
+          <RefreshCw aria-hidden="true" className="meta-icon updated" size={16} strokeWidth={2.2} />
+          updated: {formatUpdatedDate(updatedAt)}
+        </span>
       </div>
 
       <div className="directory-card-stats">
@@ -118,13 +162,7 @@ export function DirectoryAppCard({ app }: { app: DirectoryApp }) {
           <strong>{app.backup_difficulty?.replaceAll("_", " ") ?? "unknown"}</strong>
           setup care
         </span>
-        <span>
-          <strong>{formatStars(app.github_stars)}</strong>
-          stars
-        </span>
       </div>
-
-      {goodFit ? <p className="directory-card-fit">{goodFit}</p> : null}
     </Link>
   );
 }

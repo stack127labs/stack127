@@ -387,7 +387,6 @@ Fields:
 - `website_url`
 - `source_code_url`
 - `license`
-- `primary_category_id`
 - `created_at`
 - `updated_at`
 
@@ -401,8 +400,9 @@ Fields:
 - `slug`
 - `name`
 - `description`
+- `icon_key`
 
-### `app_categories`
+### `self_host_app_categories`
 
 Many-to-many app/category mapping.
 
@@ -524,4 +524,3 @@ Fields:
 - `provider`
 - `disclosure_required`
 - `active`
-

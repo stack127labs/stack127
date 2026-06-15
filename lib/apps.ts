@@ -22,6 +22,12 @@ export type HardwareRecommendation = {
   price_note?: string | null;
 };
 
+export type AppCategory = {
+  name: string;
+  slug: string;
+  icon_key: string | null;
+};
+
 export type AppSummary = {
   slug: string;
   name: string;
@@ -32,11 +38,11 @@ export type AppSummary = {
   supported_platforms: string[];
   deployment_methods: string[];
   docker_support: string | null;
-  category_name: string | null;
-  category_slug: string | null;
+  categories: AppCategory[];
 };
 
 export type DirectoryApp = AppSummary & {
+  license: string | null;
   compose_support: boolean | null;
   requires_database: boolean | null;
   database_types: string[];
@@ -47,6 +53,9 @@ export type DirectoryApp = AppSummary & {
   maintenance_status: string | null;
   github_stars: number | null;
   github_latest_release: string | null;
+  github_latest_release_at: Date | null;
+  github_last_commit_at: Date | null;
+  github_updated_at: Date | null;
   github_checked_at: Date | null;
   last_checked_at: Date | null;
   client_apps: ClientApp[];
@@ -110,33 +119,68 @@ const summaryColumns = `
   app.supported_platforms,
   app.deployment_methods,
   app.docker_support,
-  category.name as category_name,
-  category.slug as category_slug
+  category_set.categories
+`;
+
+const categoryJoin = `
+  left join lateral (
+    select coalesce(
+      jsonb_agg(
+        jsonb_build_object(
+          'name', category.name,
+          'slug', category.slug,
+          'icon_key', category.icon_key
+        )
+        order by category.name
+      ),
+      '[]'::jsonb
+    ) as categories
+    from public.self_host_app_categories app_category
+    join public.categories category on category.id = app_category.category_id
+    where app_category.app_id = app.id
+  ) category_set on true
 `;
 
 function normalizeJsonArray<T>(value: unknown): T[] {
   return Array.isArray(value) ? (value as T[]) : [];
 }
 
+function normalizeCategories(value: unknown): AppCategory[] {
+  return normalizeJsonArray<AppCategory>(value).filter(
+    (category) =>
+      typeof category.name === "string" &&
+      typeof category.slug === "string",
+  );
+}
+
 export async function getPublishedApps(): Promise<AppSummary[]> {
-  const result = await pool.query<AppSummary>(
+  const result = await pool.query<Omit<AppSummary, "categories"> & { categories: unknown }>(
     `
       select ${summaryColumns}
       from public.self_host_apps app
-      left join public.categories category on category.id = app.category_id
+      ${categoryJoin}
       where app.published = true
       order by app.name asc
     `,
   );
 
-  return result.rows;
+  return result.rows.map((app) => ({
+    ...app,
+    categories: normalizeCategories(app.categories),
+  }));
 }
 
 export async function getDirectoryApps(): Promise<DirectoryApp[]> {
-  const result = await pool.query<Omit<DirectoryApp, "client_apps"> & { client_apps: unknown }>(
+  const result = await pool.query<
+    Omit<DirectoryApp, "categories" | "client_apps"> & {
+      categories: unknown;
+      client_apps: unknown;
+    }
+  >(
     `
       select
         ${summaryColumns},
+        app.license,
         app.compose_support,
         app.requires_database,
         app.database_types,
@@ -147,11 +191,14 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
         app.maintenance_status,
         app.github_stars,
         app.github_latest_release,
+        app.github_latest_release_at,
+        app.github_last_commit_at,
+        app.github_updated_at,
         app.github_checked_at,
         app.last_checked_at,
         app.client_apps
       from public.self_host_apps app
-      left join public.categories category on category.id = app.category_id
+      ${categoryJoin}
       where app.published = true
       order by app.name asc
     `,
@@ -159,12 +206,15 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
 
   return result.rows.map((app) => ({
     ...app,
+    categories: normalizeCategories(app.categories),
     client_apps: normalizeJsonArray<ClientApp>(app.client_apps),
   }));
 }
 
 export async function getAppBySlug(slug: string): Promise<AppDetail | null> {
-  const result = await pool.query<Omit<AppDetail, "alternatives">>(
+  const result = await pool.query<
+    Omit<AppDetail, "alternatives" | "categories"> & { categories: unknown }
+  >(
     `
       select
         ${summaryColumns},
@@ -214,7 +264,7 @@ export async function getAppBySlug(slug: string): Promise<AppDetail | null> {
         app.last_checked_at,
         app.alternative_app_ids
       from public.self_host_apps app
-      left join public.categories category on category.id = app.category_id
+      ${categoryJoin}
       where app.slug = $1
       limit 1
     `,
@@ -232,22 +282,28 @@ export async function getAppBySlug(slug: string): Promise<AppDetail | null> {
   let alternatives: AppSummary[] = [];
 
   if (alternativeIds && alternativeIds.length > 0) {
-    const alternativesResult = await pool.query<AppSummary>(
+    const alternativesResult = await pool.query<
+      Omit<AppSummary, "categories"> & { categories: unknown }
+    >(
       `
         select ${summaryColumns}
         from public.self_host_apps app
-        left join public.categories category on category.id = app.category_id
+        ${categoryJoin}
         where app.id = any($1::uuid[])
         order by app.name asc
       `,
       [alternativeIds],
     );
 
-    alternatives = alternativesResult.rows;
+    alternatives = alternativesResult.rows.map((alternative) => ({
+      ...alternative,
+      categories: normalizeCategories(alternative.categories),
+    }));
   }
 
   return {
     ...app,
+    categories: normalizeCategories(app.categories),
     screenshots: normalizeJsonArray<Screenshot>(app.screenshots),
     client_apps: normalizeJsonArray<ClientApp>(app.client_apps),
     hardware_recommendations: normalizeJsonArray<HardwareRecommendation>(
