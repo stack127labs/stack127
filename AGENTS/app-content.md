@@ -1,0 +1,538 @@
+# HomeLabHQ App Content Instructions
+
+Use this file when adding or updating details for one self-hosted app. The goal is to create one high-quality app record that is useful to smart beginners in self-hosting.
+
+Do not treat this as bulk data entry. Research the app, write HomeLabHQ-original copy, and only automate facts that are safe to automate.
+
+## Audience And Voice
+
+Write for smart beginners.
+
+They may know what Docker, GitHub, DNS, backups, or a VPS are, but they may not know what matters before choosing an app. Explain practical tradeoffs clearly without dumbing things down.
+
+Voice rules:
+
+- Write original HomeLabHQ copy. Do not copy descriptions, docs, README text, marketing copy, or video descriptions.
+- Use simple, direct language.
+- Avoid hype.
+- Avoid analogies.
+- Avoid em dashes.
+- Prefer useful specifics over generic praise.
+- Say what the app does, what it needs, what can go wrong, and who it is good for.
+- If a fact is uncertain, say so in `notes` or lower `data_confidence`.
+
+## Research Order
+
+For one app, check these sources first:
+
+1. Official website.
+2. Official documentation.
+3. Official source repository.
+4. Official Docker image or container registry page.
+5. Official demo, if available.
+6. Official client app links, if available.
+7. GitHub release and repository metadata.
+8. Community or third-party YouTube video only if no official intro/trailer exists or if the third-party video is clearly useful.
+
+Do not rely on a random blog post when an official source exists.
+
+## Manual Fields
+
+These should be manually written by the agent after research. Do not generate them by copying source text.
+
+### `name`
+
+Use the official app name.
+
+Examples:
+
+- `Immich`
+- `Nextcloud`
+- `Paperless-ngx`
+
+### `slug`
+
+Use lowercase URL-safe text.
+
+Examples:
+
+- `immich`
+- `paperless-ngx`
+- `home-assistant`
+
+### `description`
+
+Write one short sentence that explains what the app actually does.
+
+Good:
+
+```text
+Photo and video backup app that gives you a private Google Photos-style library on your own server.
+```
+
+Bad:
+
+```text
+Open-source self-hosted photo management solution.
+```
+
+Rules:
+
+- One sentence.
+- Beginner-friendly.
+- Specific to the app.
+- Do not say "open source" or "self-hosted" unless that is the main point, because most apps in this database are both.
+
+### `category_id`
+
+Choose the best existing category. If the category feels wrong, note it before creating new categories.
+
+Examples:
+
+- Immich: `photos`
+- Nextcloud: `cloud-workspace`, not only `file-sync`
+- Jellyfin: `media`
+- Home Assistant: `home-automation`
+
+### `icon_url`
+
+Use a square-friendly app icon or logo URL.
+
+Preferred sources:
+
+1. Official logo asset from the app website or repo.
+2. Official organization/repository avatar if it represents the app well.
+3. A curated self-hosted icon source, such as `selfh.st/icons`, when official square assets are not easy to use.
+
+Rules:
+
+- Prefer SVG or high-resolution PNG.
+- The icon should work inside a square tile.
+- Do not use random screenshots as icons.
+- Store the source label in `icon_source`.
+
+### `get_started`
+
+Write 1 to 2 short paragraphs.
+
+Purpose:
+
+- Explain the normal hosting path.
+- Mention what the user should already be comfortable with.
+- Mention the important setup decisions before real use.
+
+Include:
+
+- Main install method, such as Docker Compose, package, binary, appliance, or OS image.
+- Required supporting services, such as Postgres, Redis, MariaDB, object storage, or none.
+- Basic operational concerns, such as HTTPS, storage path, DNS, backups, or update process.
+
+Do not write a step-by-step tutorial here. Link install docs separately.
+
+### `verdict`
+
+Write a short HomeLabHQ opinion.
+
+Purpose:
+
+- Say what the app is especially good at.
+- Mention the main tradeoff.
+- Mention if there are better alternatives for some users.
+
+Tone:
+
+- Practical.
+- Honest.
+- Not sales copy.
+
+### `good_fit`
+
+Use 2 to 4 short entries.
+
+Examples:
+
+- `Private photo and video backup`
+- `Families replacing Google Photos or iCloud Photos`
+- `Users who want polished mobile apps and smart search`
+
+### `watch_outs`
+
+Use 2 to 4 short entries.
+
+Examples:
+
+- `Tiny VPS installs with little storage`
+- `People who do not want to manage a database and media backups`
+
+### `known_issues`
+
+Use practical warnings, not random bug tracker items. These may also be folded into `watch_outs` for the UI.
+
+Examples:
+
+- `Storage grows quickly with original media`
+- `Database and upload folders must be protected together`
+- `Transcoding can change hardware requirements completely`
+
+### `storage_and_data_notes`
+
+Explain where the app stores important data.
+
+Include:
+
+- User files or media.
+- Database.
+- Config.
+- Generated files, thumbnails, cache, metadata, logs, uploads, or attachments.
+- What grows over time.
+
+This field combines old `storage_model` and `storage_notes`. Do not split them again.
+
+### `backup_details`
+
+Write 1 to 2 useful paragraphs.
+
+Purpose:
+
+- Explain what must be backed up together.
+- Explain what a restore should prove.
+- Mention special backup risks for this app.
+
+Include:
+
+- Database backup needs.
+- File/media/config backup needs.
+- Whether exports are useful.
+- Whether snapshots are enough.
+- Whether offsite backups matter.
+
+Do not say only "Back up the database and files." That is too thin.
+
+### `backup_difficulty`
+
+Choose one:
+
+```text
+very_easy
+easy
+moderate
+hard
+expert
+unknown
+```
+
+Base this on how many moving parts must be restored together.
+
+### `backup_criticality`
+
+Choose one:
+
+```text
+low
+medium
+high
+critical
+unknown
+```
+
+Use `critical` for personal photos, passwords, documents, primary files, source code, or home automation that people depend on.
+
+### `raid_notes`
+
+Explain RAID only where useful.
+
+Rules:
+
+- Always say RAID is not backup when relevant.
+- Be precise when possible.
+- Mention mirrored disks, RAIDZ1, or RAIDZ2 only if the app stores enough important data for that advice to matter.
+- For lightweight apps, say a second instance or good backup may be more useful than RAID.
+
+Examples:
+
+- Photo library: mirrored disks, RAIDZ1, or RAIDZ2 can help uptime, but offsite backup is still required.
+- DNS blocker: RAID is usually not useful. A second DNS instance is more useful.
+
+### `hardware_recommendations`
+
+Keep this useful but not overbuilt for now.
+
+Use JSON with one or two practical recommendations.
+
+Example:
+
+```json
+[
+  {
+    "type": "mini_pc_or_nas",
+    "label": "Mini PC or NAS with reliable storage",
+    "reason": "Prioritize storage capacity, backup drives, and enough RAM for the database plus app jobs.",
+    "affiliate_url": null,
+    "image_url": null,
+    "price_note": "Use existing hardware first if storage is planned well."
+  }
+]
+```
+
+Do not invent affiliate links or prices.
+
+### `notes`
+
+Use this for internal editorial context.
+
+Examples:
+
+- `YouTube link is a verified third-party explainer.`
+- `GitHub release count includes prereleases.`
+- `Resource requirements are estimates and need deeper testing.`
+
+### `data_confidence`
+
+Choose one:
+
+```text
+high
+medium
+low
+unknown
+```
+
+Use `medium` when the app profile is researched but not hands-on tested.
+
+## Media Fields
+
+### `screenshots`
+
+Use an array of screenshot references.
+
+Preferred sources:
+
+1. Official repo raw image.
+2. Official docs image.
+3. Official product page with screenshot.
+4. Official demo page.
+
+Format:
+
+```json
+[
+  {
+    "url": "https://...",
+    "type": "web",
+    "caption": "Web dashboard screenshot",
+    "source": "official_repo"
+  }
+]
+```
+
+Recommended `type` values:
+
+```text
+web
+mobile
+desktop
+cli
+demo
+docs
+clients
+docker
+```
+
+Rules:
+
+- Prefer direct image URLs where easy.
+- If direct image URLs are hard, use official product/demo/docs pages as temporary references.
+- Do not scrape or hotlink random third-party screenshots.
+- Add captions in our words.
+
+### `youtube_video_url`
+
+Use one video only for now.
+
+Priority:
+
+1. Official trailer, intro, demo, or product video.
+2. High-quality third-party explainer.
+3. Null if no useful video is found.
+
+Rules:
+
+- Verify the video URL and title.
+- If third-party, mention that in `notes`.
+- Do not use shorts unless there is no better option.
+- Do not use a video only because it ranks first.
+
+## Link Fields
+
+Gather these manually from official sources:
+
+```text
+website_url
+source_code_url
+demo_url
+docker_url
+install_docs_url
+docs_url
+```
+
+Rules:
+
+- Prefer official website and docs.
+- Prefer official container image over community image.
+- Use `demo_url` only if it is official or clearly maintained.
+- If source code is not GitHub, use GitLab, Forgejo, Codeberg, or the official hosted Git link.
+
+## Deployment Fields
+
+Fill these based on official docs:
+
+```text
+deployment_methods
+docker_support
+compose_support
+requires_database
+database_types
+requires_redis
+requires_object_storage
+supported_platforms
+ram_required_mb
+ram_recommended_mb
+storage_required_gb
+cpu_notes
+gpu_notes
+```
+
+Rules:
+
+- Do not fake exact RAM or storage requirements.
+- Use null when unknown.
+- Use `cpu_notes` and `gpu_notes` for practical workload notes.
+- For `docker_support`, choose `official`, `community`, `none`, or `unknown`.
+
+## Client Apps
+
+Use `client_apps` JSON for official or compatible clients.
+
+Format:
+
+```json
+[
+  {
+    "platform": "iOS",
+    "url": "https://...",
+    "official": true
+  }
+]
+```
+
+Rules:
+
+- Use official app store links where possible.
+- If an app uses compatible clients from another project, set `official` to `false` and explain in `notes`.
+
+## GitHub Automation Fields
+
+These should be gathered through automation when the source repo is on GitHub.
+
+Current app row fields:
+
+```text
+github_owner
+github_repo
+github_stars
+github_forks
+github_open_issues
+github_open_pull_requests
+github_latest_release
+github_latest_release_at
+github_last_commit_at
+github_commit_count_90d
+github_release_count_90d
+github_release_count
+github_updated_at
+github_checked_at
+```
+
+Snapshot table fields:
+
+```text
+app_id
+snapshot_date
+stars
+forks
+open_issues
+open_pull_requests
+latest_release
+latest_release_at
+last_commit_at
+commit_count_90d
+release_count_90d
+release_count
+```
+
+Automation rules:
+
+- Use GitHub API, not scraped GitHub HTML.
+- Public GitHub clone counts are generally not available for repos we do not own. Do not invent clone counts.
+- `github_open_issues` from the repo API can include pull requests depending on endpoint. If exact issue vs PR split matters, use the GitHub Search API or GraphQL.
+- `github_release_count` can be derived from GitHub Releases pagination. Note if it includes prereleases.
+- Prefer latest non-prerelease for `github_latest_release` when a stable release exists.
+- Set `github_checked_at` to the time automation ran.
+- Insert a snapshot row for each automation run so historical trends can be built later.
+
+## Alternatives And Replacements
+
+### `alternative_app_ids`
+
+Use IDs from our own database only.
+
+Rules:
+
+- Link close alternatives, not every related app.
+- Keep this sparse at first.
+
+### `replaces_apps`
+
+List non-self-hosted or closed services the app can reasonably replace.
+
+Examples:
+
+- `Google Photos`
+- `iCloud Photos`
+- `Dropbox`
+- `Plex`
+- `UptimeRobot`
+
+Do not overclaim replacement if the app only covers a small part of the product.
+
+## One-App Workflow
+
+When asked to write details for one app:
+
+1. Identify official website, docs, source repo, install docs, Docker image, demo, and clients.
+2. If GitHub is used, run metadata automation for current stats and release data.
+3. Find official screenshots or screenshot pages.
+4. Find one useful YouTube video or leave it null.
+5. Write original HomeLabHQ copy for description, get started, verdict, storage/data notes, backup details, and RAID notes.
+6. Fill structured fields conservatively.
+7. Insert or update only that one app row.
+8. Insert one GitHub snapshot row if GitHub automation was run.
+9. Verify the row exists and key fields are not empty.
+
+## Quality Checklist
+
+Before finishing one app, check:
+
+- Description is one original sentence.
+- Get started is 1 to 2 short paragraphs.
+- Verdict is useful and opinionated.
+- Icon URL is present when a usable app icon exists.
+- Backup details explain strategy, not just a generic backup reminder.
+- RAID notes are precise and do not imply RAID is backup.
+- Screenshots are present or `notes` explains why not.
+- YouTube video is present or `notes` explains why not.
+- Official links are filled where available.
+- GitHub stats are automated if the app is on GitHub.
+- No copied marketing text.
+- No em dashes.
+- No fake precision for RAM, storage, or hardware.

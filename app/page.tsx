@@ -1,110 +1,62 @@
-import { ThemeToggle } from "./theme-toggle";
+import Link from "next/link";
+import { getPublishedApps, type AppSummary } from "@/lib/apps";
+import { SiteNav } from "./site-nav";
 
-const apps = [
-  {
-    name: "Immich",
-    description: "Photo and video backup for your own server.",
-    icon: "immich",
-    tags: ["open source", "docker", "mobile"],
-  },
-  {
-    name: "Nextcloud",
-    description: "Files, calendars, notes, and collaboration.",
-    icon: "nextcloud",
-    tags: ["open source", "docker", "web"],
-  },
-  {
-    name: "Jellyfin",
-    description: "Personal media server for movies and music.",
-    icon: "jellyfin",
-    tags: ["open source", "docker", "media"],
-  },
-  {
-    name: "Home Assistant",
-    description: "Open-source home automation platform.",
-    icon: "homeassistant",
-    tags: ["open source", "docker", "iot"],
-  },
-  {
-    name: "Vaultwarden",
-    description: "Lightweight password manager server.",
-    icon: "vaultwarden",
-    tags: ["open source", "docker", "security"],
-  },
-  {
-    name: "Paperless-ngx",
-    description: "Document management for scanned files.",
-    icon: "paperless",
-    tags: ["open source", "docker", "docs"],
-  },
-  {
-    name: "NocoDB",
-    description: "Turn databases into smart spreadsheets.",
-    icon: "nocodb",
-    tags: ["open source", "docker", "web"],
-  },
-  {
-    name: "Uptime Kuma",
-    description: "Self-hosted uptime and monitoring tracker.",
-    icon: "kuma",
-    tags: ["open source", "docker", "monitoring"],
-  },
-];
+export const dynamic = "force-dynamic";
 
 const categories = ["All apps", "Media", "Productivity", "Security", "Monitoring", "More"];
 
-function AppLogo({ type }: { type: string }) {
-  return <span className={`app-logo ${type}`} aria-hidden="true" />;
+function AppLogo({ app }: { app: AppSummary }) {
+  return (
+    <span className="app-logo image-logo" aria-hidden="true">
+      {app.icon_url ? <img alt="" src={app.icon_url} /> : app.name.slice(0, 1)}
+    </span>
+  );
 }
 
-function AppCard({ app }: { app: (typeof apps)[number] }) {
+function getTags(app: AppSummary) {
+  return [
+    app.docker_support === "official" ? "docker" : null,
+    app.category_name?.toLowerCase(),
+    app.supported_platforms.includes("ios") ||
+    app.supported_platforms.includes("android")
+      ? "mobile"
+      : app.supported_platforms[0],
+  ].filter(Boolean) as string[];
+}
+
+function AppCard({ app }: { app: AppSummary }) {
+  const tags = getTags(app).slice(0, 3);
+
   return (
-    <article className="app-card">
-      <button className="save-button" aria-label={`Save ${app.name}`}>
+    <Link className="app-card" href={`/apps/${app.slug}`}>
+      <span className="save-button" aria-hidden="true">
         <span />
-      </button>
+      </span>
       <div className="app-card-main">
-        <AppLogo type={app.icon} />
+        <AppLogo app={app} />
         <div>
           <h3>{app.name}</h3>
           <p>{app.description}</p>
         </div>
       </div>
       <div className="tag-row">
-        {app.tags.map((tag) => (
+        {tags.map((tag) => (
           <span className={`tag ${tag.replace(/\s+/g, "-")}`} key={tag}>
             {tag}
           </span>
         ))}
       </div>
-    </article>
+    </Link>
   );
 }
 
-export default function Home() {
+export default async function Home() {
+  const apps = await getPublishedApps();
+
   return (
     <main className="site-shell">
-      <nav className="top-nav" aria-label="Main navigation">
-        <a className="brand" href="#">
-          homelabhq<span>.</span>
-        </a>
-        <div className="nav-links">
-          <a href="#">apps</a>
-          <a href="#">categories</a>
-          <a href="#">compare</a>
-          <a href="#">guides</a>
-          <a href="#">blog</a>
-        </div>
-        <div className="nav-actions">
-          <ThemeToggle />
-          <button className="icon-button" aria-label="Saved apps">
-            <span className="bookmark-icon" />
-          </button>
-          <a className="browse-button" href="#">
-            browse apps <span>{"->"}</span>
-          </a>
-        </div>
-      </nav>
+      <SiteNav />
 
       <section className="hero-grid" aria-labelledby="page-title">
         <div className="hero-copy">
@@ -200,7 +152,7 @@ export default function Home() {
 
         <div className="app-grid">
           {apps.map((app) => (
-            <AppCard app={app} key={app.name} />
+            <AppCard app={app} key={app.slug} />
           ))}
         </div>
       </section>

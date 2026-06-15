@@ -115,23 +115,23 @@ Theme behavior:
 Current radius tokens:
 
 ```css
---radius-xl: 34px;
---radius-lg: 24px;
---radius-md: 18px;
+--radius-xl: 22px;
+--radius-lg: 14px;
+--radius-md: 10px;
 ```
 
 Actual usage:
 
-- Top nav: `28px`.
-- Hero visual/stat panel: `52px`.
-- App cards: `24px`.
-- Collection/sidebar card: `24px`.
-- Search input: `22px`.
-- Confidence strip: `26px`.
+- Top nav: `14px`.
+- Hero visual/stat panel: `22px`.
+- App cards: `12px`.
+- Collection/sidebar card: `14px`.
+- Search input: `12px`.
+- Confidence strip: `14px`.
 - Pills and primary buttons: `999px`.
 - Small icon buttons: circular.
 
-Use large soft radii everywhere, but keep content cards compact. Pills should be fully rounded.
+Use a modern low-radius system: colorful and friendly through palette, typography, icons, and illustrations, but structurally closer to a practical productivity/infrastructure app. Pills should stay fully rounded.
 
 ## Shadows
 
