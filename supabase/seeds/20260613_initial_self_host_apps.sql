@@ -11,7 +11,10 @@ values
   ('monitoring', 'Monitoring', 'Uptime, observability, and status monitoring tools.', 'activity'),
   ('dns', 'DNS', 'DNS, ad blocking, and network filtering tools.', 'network'),
   ('development-tools', 'Development Tools', 'Source control, automation, and developer infrastructure.', 'code-2'),
-  ('content-management', 'Content Management', 'CMS, editorial workflows, and content publishing tools.', 'newspaper')
+  ('content-management', 'Content Management', 'CMS, editorial workflows, and content publishing tools.', 'newspaper'),
+  ('bookmarks', 'Bookmarks', 'Bookmark managers, read-it-later tools, and web archive apps.', 'bookmark'),
+  ('recipes', 'Recipes', 'Recipe managers, meal planners, and kitchen organization tools.', 'utensils'),
+  ('dashboards', 'Dashboards', 'Home dashboards, start pages, and service launchers.', 'layout-dashboard')
 on conflict (slug) do update
 set
   name = excluded.name,
@@ -148,7 +151,7 @@ Do not rely on exported photos alone unless you are comfortable losing app struc
     '[{"platform":"iOS","url":"https://apps.apple.com/us/app/immich/id1613945652","official":true},{"platform":"Android","url":"https://play.google.com/store/apps/details?id=app.alextran.immich","official":true}]'::jsonb,
     '[{"type":"mini_pc_or_nas","label":"Mini PC or NAS with reliable storage","reason":"Prioritize storage capacity, backup drives, and enough RAM for Postgres plus media jobs before chasing raw CPU.","affiliate_url":null,"image_url":null,"price_note":"Use existing hardware first if storage is planned well."}]'::jsonb,
     'medium',
-    'Original HomeLabHQ copy. YouTube link is a verified third-party explainer. GitHub release count includes public GitHub releases and may include prereleases.',
+    'Original version127 copy. YouTube link is a verified third-party explainer. GitHub release count includes public GitHub releases and may include prereleases.',
     true,
     '2026-06-14T07:45:00Z'
   ),
@@ -218,7 +221,7 @@ For a family or team server, schedule database dumps plus file-level or snapshot
     '[{"platform":"iOS","url":"https://apps.apple.com/app/nextcloud/id1125420102","official":true},{"platform":"Android","url":"https://play.google.com/store/apps/details?id=com.nextcloud.client","official":true},{"platform":"Desktop","url":"https://nextcloud.com/install/#install-clients","official":true}]'::jsonb,
     '[{"type":"small_server_or_vps","label":"Small server, NAS, or VPS with database-friendly storage","reason":"Nextcloud rewards reliable storage, enough RAM, and a properly configured database/cache setup.","affiliate_url":null,"image_url":null,"price_note":"Avoid undersized VPS plans for multi-user sync."}]'::jsonb,
     'medium',
-    'Original HomeLabHQ copy. YouTube link is an official Nextcloud video. Screenshot entries currently point to official product pages where direct image assets can be curated later.',
+    'Original version127 copy. YouTube link is an official Nextcloud video. Screenshot entries currently point to official product pages where direct image assets can be curated later.',
     true,
     '2026-06-14T07:45:00Z'
   ),
@@ -288,7 +291,7 @@ If you can rebuild metadata from filenames, losing app data is annoying but reco
     '[{"platform":"iOS","url":"https://apps.apple.com/app/jellyfin-mobile/id1480192618","official":true},{"platform":"Android","url":"https://play.google.com/store/apps/details?id=org.jellyfin.mobile","official":true},{"platform":"TV","url":"https://jellyfin.org/downloads/clients/","official":true}]'::jsonb,
     '[{"type":"mini_pc_with_storage","label":"Mini PC plus media storage","reason":"Great for direct play. Add stronger CPU/GPU only if transcoding is part of the plan.","affiliate_url":null,"image_url":null,"price_note":"Client format support matters as much as server power."}]'::jsonb,
     'medium',
-    'Original HomeLabHQ copy. YouTube link is a verified third-party overview/comparison.',
+    'Original version127 copy. YouTube link is a verified third-party overview/comparison.',
     true,
     '2026-06-14T07:45:00Z'
   ),
@@ -358,7 +361,7 @@ For deeper setups, trim recorder/history retention so the database does not grow
     '[{"platform":"iOS","url":"https://apps.apple.com/app/home-assistant/id1099568401","official":true},{"platform":"Android","url":"https://play.google.com/store/apps/details?id=io.homeassistant.companion.android","official":true}]'::jsonb,
     '[{"type":"dedicated_mini_pc_or_appliance","label":"Dedicated mini PC or Home Assistant appliance","reason":"Stability matters more than raw performance once automations are part of daily life.","affiliate_url":null,"image_url":null,"price_note":"Avoid fragile SD-card-only installs for important homes."}]'::jsonb,
     'medium',
-    'Original HomeLabHQ copy. YouTube link is a verified third-party beginner guide.',
+    'Original version127 copy. YouTube link is a verified third-party beginner guide.',
     true,
     '2026-06-14T07:45:00Z'
   ),
@@ -428,7 +431,7 @@ For SQLite installs, stop the container or use a safe database backup method bef
     '[{"platform":"iOS","url":"https://apps.apple.com/app/bitwarden-password-manager/id1137397744","official":false},{"platform":"Android","url":"https://play.google.com/store/apps/details?id=com.x8bit.bitwarden","official":false},{"platform":"Desktop","url":"https://bitwarden.com/download/","official":false}]'::jsonb,
     '[{"type":"tiny_vps_or_home_server","label":"Small VPS or low-power home server","reason":"The app is light, but the host must be maintained, patched, and backed up well.","affiliate_url":null,"image_url":null,"price_note":"Tiny resources are fine; weak operations are not."}]'::jsonb,
     'medium',
-    'Original HomeLabHQ copy. Screenshots point to compatible client docs because Vaultwarden uses Bitwarden clients. YouTube link is a verified third-party comparison.',
+    'Original version127 copy. Screenshots point to compatible client docs because Vaultwarden uses Bitwarden clients. YouTube link is a verified third-party comparison.',
     true,
     '2026-06-14T07:45:00Z'
   ),
@@ -498,7 +501,7 @@ For important records, keep one local backup and one offsite backup. Test restor
     '[]'::jsonb,
     '[{"type":"small_home_server","label":"Small home server with reliable storage","reason":"OCR likes some CPU, but storage reliability and backup workflow matter more for most homes.","affiliate_url":null,"image_url":null,"price_note":"A modest mini PC or NAS-style setup is enough for many users."}]'::jsonb,
     'medium',
-    'Original HomeLabHQ copy. YouTube link is a verified third-party tutorial. GitHub release count includes prereleases; latest release column uses latest non-prerelease.',
+    'Original version127 copy. YouTube link is a verified third-party tutorial. GitHub release count includes prereleases; latest release column uses latest non-prerelease.',
     true,
     '2026-06-14T07:45:00Z'
   ),
@@ -568,7 +571,7 @@ The bigger resilience question is placement. A second tiny VPS or remote node ca
     '[]'::jsonb,
     '[{"type":"tiny_vps_or_separate_node","label":"Tiny VPS or separate always-on node","reason":"Monitoring is more useful when it runs outside the services it checks.","affiliate_url":null,"image_url":null,"price_note":"A tiny external VPS can be better than powerful local-only monitoring."}]'::jsonb,
     'medium',
-    'Original HomeLabHQ copy. YouTube link is a verified third-party setup guide.',
+    'Original version127 copy. YouTube link is a verified third-party setup guide.',
     true,
     '2026-06-14T07:45:00Z'
   ),
@@ -638,7 +641,7 @@ For reliability, run a second DNS resolver or have a documented router fallback.
     '[]'::jsonb,
     '[{"type":"tiny_always_on_device","label":"Tiny always-on device or VM","reason":"Pi-hole is light; reliability and network placement matter more than hardware power.","affiliate_url":null,"image_url":null,"price_note":"A low-power device is enough for most homes."}]'::jsonb,
     'medium',
-    'Original HomeLabHQ copy. YouTube link is a verified third-party explainer.',
+    'Original version127 copy. YouTube link is a verified third-party explainer.',
     true,
     '2026-06-14T07:45:00Z'
   ),
@@ -708,7 +711,7 @@ As with Pi-hole, resilience is mostly about DNS availability. A second DNS insta
     '[]'::jsonb,
     '[{"type":"tiny_always_on_device","label":"Tiny always-on device or VM","reason":"The service is light; network placement and uptime matter more than compute.","affiliate_url":null,"image_url":null,"price_note":"Most homes do not need special hardware."}]'::jsonb,
     'medium',
-    'Original HomeLabHQ copy. YouTube link is a verified third-party tutorial. GitHub release count includes prereleases; latest release column uses latest non-prerelease.',
+    'Original version127 copy. YouTube link is a verified third-party tutorial. GitHub release count includes prereleases; latest release column uses latest non-prerelease.',
     true,
     '2026-06-14T07:45:00Z'
   ),
@@ -778,7 +781,7 @@ For teams, schedule database dumps plus file backups and test restore into a sep
     '[]'::jsonb,
     '[{"type":"small_vps_or_home_server","label":"Small VPS or home server with backed-up storage","reason":"Gitea itself is light, but repository data should be treated as critical project history.","affiliate_url":null,"image_url":null,"price_note":"Storage and backup quality matter more than CPU for small installs."}]'::jsonb,
     'medium',
-    'Original HomeLabHQ copy. YouTube link is a verified third-party tutorial.',
+    'Original version127 copy. YouTube link is a verified third-party tutorial.',
     true,
     '2026-06-14T07:45:00Z'
   ),
@@ -848,7 +851,7 @@ Do restore testing before giving editors real access. A content database backup 
     '[]'::jsonb,
     '[{"type":"small_vps_or_home_server","label":"Small VPS or home server with persistent storage","reason":"BaseBuddy itself should be light, but the content database, app-state backend, and media storage need durable backups.","affiliate_url":null,"image_url":null,"price_note":"Start with reliable storage and backups before scaling compute."}]'::jsonb,
     'medium',
-    'Original HomeLabHQ copy. Official site, GitHub repo, and install guide checked on 2026-06-15. No YouTube video or official Docker image found during this pass.',
+    'Original version127 copy. Official site, GitHub repo, and install guide checked on 2026-06-15. No YouTube video or official Docker image found during this pass.',
     true,
     '2026-06-15T15:28:31Z'
   )

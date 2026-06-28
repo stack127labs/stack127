@@ -1,12 +1,16 @@
 {
-  "name": "homelabhq",
+  "name": "version127",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3333",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start -p 3333",
+    "lint": "next lint",
+    "selfhost:draft": "node scripts/self-host-apps/draft-github.mjs",
+    "selfhost:github": "node scripts/self-host-apps/enrich-github.mjs",
+    "selfhost:validate": "node scripts/self-host-apps/validate-app.mjs",
+    "selfhost:upsert": "node scripts/self-host-apps/upsert-app.mjs"
   },
   "dependencies": {
     "@types/pg": "^8.20.0",

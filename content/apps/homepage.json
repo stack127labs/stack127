@@ -1,0 +1,294 @@
+{
+  "slug": "homepage",
+  "name": "Homepage",
+  "description": "Custom home dashboard that puts your services, links, widgets, and server status on one clean start page.",
+  "status": "published",
+  "published": true,
+  "categories": [
+    "dashboards"
+  ],
+  "media": {
+    "icon_url": null,
+    "icon_source": null,
+    "screenshots": [
+      {
+        "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/homepage_demo.png",
+        "type": "web",
+        "caption": "Dashboard layout with service groups, widgets, and quick links.",
+        "source": "official_repo"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/homepage_demo_clip.png",
+        "type": "web",
+        "caption": "Homepage demo showing the app dashboard in use.",
+        "source": "official_repo"
+      }
+    ],
+    "youtube_video_url": null
+  },
+  "editorial": {
+    "get_started": "Most people run Homepage with Docker Compose. You mount a local config folder into the container, expose port 3000, and then place it behind your normal reverse proxy if you want it on a private domain. The official Docker docs also show Docker run, Kubernetes, Unraid, and source install paths.\n\nBefore using it seriously, decide where your config files live and whether you want Docker socket access for automatic service discovery. Docker socket access should be read-only and treated carefully, because it lets the dashboard inspect container metadata.",
+    "verdict": "Homepage is a strong fit when you want one polished launch page for a homelab without adding a database or account system. The main tradeoff is that most of the power comes from YAML config, so it rewards people who are comfortable keeping service links, widgets, and secrets organized in files.",
+    "good_fit": [
+      "Homelab start pages",
+      "Dashboards for Docker services and status widgets",
+      "Users who prefer config files over an admin UI"
+    ],
+    "watch_outs": [
+      "People who want a no-config visual editor",
+      "Public dashboards that expose private service names",
+      "Setups where Docker socket access cannot be safely limited"
+    ],
+    "known_issues": [
+      "Service discovery depends on clean labels and Docker access.",
+      "Widget secrets need to be handled like other server secrets."
+    ]
+  },
+  "links": {
+    "website_url": "https://gethomepage.dev/",
+    "source_code_url": "https://github.com/gethomepage/homepage",
+    "demo_url": null,
+    "docker_url": "https://github.com/gethomepage/homepage/pkgs/container/homepage",
+    "install_docs_url": "https://gethomepage.dev/installation/docker/",
+    "docs_url": "https://gethomepage.dev/"
+  },
+  "deployment": {
+    "deployment_methods": [
+      "docker",
+      "docker-compose",
+      "kubernetes",
+      "unraid",
+      "source"
+    ],
+    "docker_support": "official",
+    "compose_support": true,
+    "requires_database": false,
+    "database_types": [],
+    "requires_redis": false,
+    "requires_object_storage": false,
+    "supported_platforms": [
+      "web"
+    ]
+  },
+  "resources": {
+    "ram_required_mb": null,
+    "ram_recommended_mb": null,
+    "storage_required_gb": null,
+    "cpu_notes": "Lightweight for normal dashboard use. Widget refreshes and integrations matter more than CPU.",
+    "gpu_notes": null
+  },
+  "data": {
+    "storage_and_data_notes": "Homepage mainly stores configuration files, service definitions, bookmarks, widget settings, and any secrets you choose to provide through files or environment variables. It does not need a database for the normal Docker setup.",
+    "backup_details": "Back up the mounted config directory and any environment or secret files used by the container. A restore should prove that the same config folder can be mounted into a fresh container and that service widgets still load with the expected credentials.\n\nIf you use Docker labels for service discovery, remember that part of the dashboard state lives in your container labels, not only in the Homepage config folder. Keep your Compose files or deployment manifests backed up with the dashboard config.",
+    "backup_difficulty": "very_easy",
+    "backup_criticality": "medium",
+    "raid_notes": "RAID is usually not important for Homepage itself. The useful protection is a versioned copy of the config folder and deployment files. RAID can help the server stay online, but it is not a backup."
+  },
+  "maintenance": {
+    "actively_maintained": true,
+    "maintenance_status": "active",
+    "last_release_at": "2026-06-09T18:04:57Z",
+    "last_commit_at": "2026-06-13T16:14:58Z"
+  },
+  "license": "GPL-3.0",
+  "github": {
+    "owner": "gethomepage",
+    "repo": "homepage",
+    "stars": 30676,
+    "forks": 1963,
+    "open_issues": 0,
+    "open_pull_requests": 2,
+    "latest_release": "v1.13.2",
+    "latest_release_at": "2026-06-09T18:04:57Z",
+    "last_commit_at": "2026-06-13T16:14:58Z",
+    "commit_count_90d": 150,
+    "release_count_90d": 6,
+    "release_count": 125,
+    "updated_at": "2026-06-15T17:42:31Z",
+    "checked_at": "2026-06-15T19:25:04.569Z"
+  },
+  "alternative_app_ids": [],
+  "replaces_apps": [
+    "Browser start pages",
+    "Static bookmark pages",
+    "Simple service dashboards"
+  ],
+  "client_apps": [],
+  "hardware_recommendations": [
+    {
+      "type": "existing_server",
+      "label": "Any always-on homelab server",
+      "reason": "Homepage is lightweight, so it usually belongs on the same Docker host or management server that already runs your reverse proxy and service stack.",
+      "affiliate_url": null,
+      "image_url": null,
+      "price_note": "Use existing hardware first."
+    }
+  ],
+  "data_confidence": "medium",
+  "notes": "GitHub facts were generated through the GitHub API. Docker image and install path were checked against official Homepage Docker docs. Screenshot URLs are official repository assets.",
+  "last_checked_at": "2026-06-15T19:25:04.569Z",
+  "automation": {
+    "last_github_refresh": "2026-06-15T19:25:04.569Z",
+    "github_refresh_candidates": {
+      "icon_urls": [],
+      "screenshots": [
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/homepage_demo.png",
+          "type": "web",
+          "caption": "homepage demo",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/homepage_demo.webp",
+          "type": "web",
+          "caption": "homepage demo",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/homepage_demo_clip.png",
+          "type": "web",
+          "caption": "homepage demo clip",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/homepage_demo_clip.webp",
+          "type": "web",
+          "caption": "homepage demo clip",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/blossom_valley.jpg",
+          "type": "web",
+          "caption": "blossom valley",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/banner_dark@2x.png",
+          "type": "web",
+          "caption": "banner dark@2x",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/banner_dark@2x.webp",
+          "type": "web",
+          "caption": "banner dark@2x",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/banner_light@2x.png",
+          "type": "web",
+          "caption": "banner light@2x",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/banner_light@2x.webp",
+          "type": "web",
+          "caption": "banner light@2x",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/blossom_valley_blur.jpg",
+          "type": "web",
+          "caption": "blossom valley blur",
+          "source": "official_repo"
+        }
+      ],
+      "readme_links": [
+        {
+          "label": "Docker Service Discovery",
+          "url": "https://gethomepage.dev/configs/docker/#automatic-service-discovery"
+        },
+        {
+          "label": "Service",
+          "url": "https://gethomepage.dev/widgets/"
+        },
+        {
+          "label": "Information Providers",
+          "url": "https://gethomepage.dev/widgets/"
+        },
+        {
+          "label": "Settings",
+          "url": "https://gethomepage.dev/configs/settings/"
+        },
+        {
+          "label": "please check out the homepage documentation",
+          "url": "http://gethomepage.dev"
+        },
+        {
+          "label": "homepage documentation website",
+          "url": "https://gethomepage.dev/"
+        },
+        {
+          "label": "pnpm",
+          "url": "https://pnpm.io/"
+        },
+        {
+          "label": "http://localhost:3000",
+          "url": "http://localhost:3000"
+        },
+        {
+          "label": "Next.js",
+          "url": "https://nextjs.org/"
+        },
+        {
+          "label": "https://gethomepage.dev/",
+          "url": "https://gethomepage.dev/"
+        },
+        {
+          "label": "Discussions",
+          "url": "https://github.com/gethomepage/homepage/discussions"
+        },
+        {
+          "label": "troubleshooting guide",
+          "url": "https://gethomepage.dev/troubleshooting/"
+        },
+        {
+          "label": "CONTRIBUTING.md",
+          "url": "https://github.com/gethomepage/homepage/blob/dev/CONTRIBUTING.md"
+        },
+        {
+          "label": "@shamoon",
+          "url": "https://github.com/shamoon"
+        }
+      ],
+      "readme_link_candidates": {
+        "docs_url": "http://gethomepage.dev",
+        "install_docs_url": null,
+        "demo_url": null,
+        "docker_url": null
+      },
+      "dockerfiles": [
+        ".devcontainer/Dockerfile",
+        "Dockerfile"
+      ],
+      "compose_files": [],
+      "docs_files": [
+        "docs/CNAME",
+        "docs/assets",
+        "docs/assets/banner_dark@2x.png",
+        "docs/assets/banner_dark@2x.webp",
+        "docs/assets/banner_light@2x.png",
+        "docs/assets/banner_light@2x.webp",
+        "docs/assets/blossom_valley.jpg",
+        "docs/assets/blossom_valley_blur.jpg",
+        "docs/assets/favicon.ico",
+        "docs/assets/homepage_demo.png",
+        "docs/assets/homepage_demo.webp",
+        "docs/assets/homepage_demo_clip.png",
+        "docs/assets/homepage_demo_clip.webp",
+        "docs/assets/light_squircle@2x.png",
+        "docs/assets/light_squircle@2x.webp",
+        "docs/assets/sections.png",
+        "docs/assets/sections.webp",
+        "docs/assets/widget_stocks_demo.png",
+        "docs/configs",
+        "docs/configs/bookmarks.md"
+      ],
+      "package_files": [
+        "package.json",
+        "pnpm-lock.yaml",
+        "pyproject.toml"
+      ]
+    }
+  }
+}

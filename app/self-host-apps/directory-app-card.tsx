@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { RefreshCw, Scale, Star } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import type { DirectoryApp } from "@/lib/apps";
@@ -99,7 +98,7 @@ export function DirectoryAppCard({ app }: { app: DirectoryApp }) {
   const extraCategoryCount = Math.max(app.categories.length - visibleCategories.length, 0);
 
   return (
-    <Link className="directory-card" href={`/apps/${app.slug}`}>
+    <article className="directory-card">
       <div className="directory-card-top">
         <span className="directory-card-icon" aria-hidden="true">
           {app.icon_url ? <img alt="" src={app.icon_url} /> : app.name.slice(0, 1)}
@@ -163,6 +162,6 @@ export function DirectoryAppCard({ app }: { app: DirectoryApp }) {
           setup care
         </span>
       </div>
-    </Link>
+    </article>
   );
 }

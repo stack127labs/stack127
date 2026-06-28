@@ -91,7 +91,7 @@ youtube_video_url
 ]
 ```
 
-**Editorial / HomeLabHQ Opinion**
+**Editorial / version127 Opinion**
 
 ```text
 get_started text
@@ -101,7 +101,7 @@ watch_outs text[]
 known_issues text[]
 ```
 
-This is the most valuable part. This is where HomeLabHQ becomes more than a directory.
+This is the most valuable part. This is where version127 becomes more than a directory.
 
 **Links**
 

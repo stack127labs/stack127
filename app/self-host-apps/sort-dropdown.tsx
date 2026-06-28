@@ -19,7 +19,7 @@ export function SortDropdown({
 
   return (
     <div className="directory-select" data-custom-select>
-      <span>Sort</span>
+      <span className="field-label-line">Sort</span>
       <input name={name} type="hidden" value={selected} />
       <div className="custom-select">
         <button

@@ -1,46 +1,53 @@
 "use client";
 
+import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
 type Theme = "light" | "dark";
 
 function getInitialTheme(): Theme {
   if (typeof window === "undefined") {
-    return "light";
+    return "dark";
   }
 
-  const storedTheme = window.localStorage.getItem("homelabhq-theme");
+  const storedTheme = window.localStorage.getItem("version127-theme");
 
   if (storedTheme === "light" || storedTheme === "dark") {
     return storedTheme;
   }
 
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return "dark";
 }
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    setTheme(getInitialTheme());
+    const initialTheme = getInitialTheme();
+
+    setTheme(initialTheme);
+    document.documentElement.dataset.theme = initialTheme;
   }, []);
 
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    window.localStorage.setItem("homelabhq-theme", theme);
-  }, [theme]);
-
   const nextTheme = theme === "dark" ? "light" : "dark";
+
+  function handleThemeChange() {
+    setTheme(nextTheme);
+    document.documentElement.dataset.theme = nextTheme;
+    window.localStorage.setItem("version127-theme", nextTheme);
+  }
+
+  const ThemeIcon = nextTheme === "light" ? Sun : Moon;
 
   return (
     <button
       aria-label={`Switch to ${nextTheme} mode`}
       aria-pressed={theme === "dark"}
       className="icon-button theme-toggle"
-      onClick={() => setTheme(nextTheme)}
+      onClick={handleThemeChange}
       type="button"
     >
-      <span className={theme === "dark" ? "moon-icon" : "sun-icon"} />
+      <ThemeIcon className="theme-icon" aria-hidden="true" strokeWidth={2} />
     </button>
   );
 }

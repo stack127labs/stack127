@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "photos",
+    "name": "Photos",
+    "description": "Photo backup, management, and gallery apps.",
+    "icon_key": "images"
+  },
+  {
+    "slug": "cloud-workspace",
+    "name": "Cloud Workspace",
+    "description": "Files, calendars, contacts, notes, photos, and collaboration tools in one private workspace.",
+    "icon_key": "folder-sync"
+  },
+  {
+    "slug": "media",
+    "name": "Media",
+    "description": "Media servers and streaming libraries.",
+    "icon_key": "tv"
+  },
+  {
+    "slug": "home-automation",
+    "name": "Home Automation",
+    "description": "Smart home control and automation tools.",
+    "icon_key": "house-plug"
+  },
+  {
+    "slug": "password-managers",
+    "name": "Password Managers",
+    "description": "Password vaults and secrets tools.",
+    "icon_key": "key-round"
+  },
+  {
+    "slug": "documents",
+    "name": "Documents",
+    "description": "Document capture, search, and archive apps.",
+    "icon_key": "file-text"
+  },
+  {
+    "slug": "monitoring",
+    "name": "Monitoring",
+    "description": "Uptime, observability, and status monitoring tools.",
+    "icon_key": "activity"
+  },
+  {
+    "slug": "dns",
+    "name": "DNS",
+    "description": "DNS, ad blocking, and network filtering tools.",
+    "icon_key": "network"
+  },
+  {
+    "slug": "development-tools",
+    "name": "Development Tools",
+    "description": "Source control, automation, and developer infrastructure.",
+    "icon_key": "code-2"
+  },
+  {
+    "slug": "content-management",
+    "name": "Content Management",
+    "description": "CMS, editorial workflows, and content publishing tools.",
+    "icon_key": "newspaper"
+  },
+  {
+    "slug": "bookmarks",
+    "name": "Bookmarks",
+    "description": "Bookmark managers, read-it-later tools, and web archive apps.",
+    "icon_key": "bookmark"
+  },
+  {
+    "slug": "recipes",
+    "name": "Recipes",
+    "description": "Recipe managers, meal planners, and kitchen organization tools.",
+    "icon_key": "utensils"
+  },
+  {
+    "slug": "dashboards",
+    "name": "Dashboards",
+    "description": "Home dashboards, start pages, and service launchers.",
+    "icon_key": "layout-dashboard"
+  },
+  {
+    "slug": "whiteboards",
+    "name": "Whiteboards",
+    "description": "Diagramming, sketching, and collaborative canvas tools.",
+    "icon_key": "pencil-ruler"
+  }
+]

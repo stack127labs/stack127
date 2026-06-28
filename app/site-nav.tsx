@@ -5,24 +5,27 @@ export function SiteNav() {
   return (
     <header className="site-header">
       <nav className="top-nav" aria-label="Main navigation">
-        <Link className="brand" href="/">
-          homelabhq<span>.</span>
+        <Link className="brand" href="/" aria-label="version127 home">
+          <img
+            alt="version127 logo"
+            className="brand-logo-image brand-logo-image-light"
+            height={219}
+            src="/logos/version127-logo-black.png"
+            width={1173}
+          />
+          <img
+            alt="version127 logo"
+            className="brand-logo-image brand-logo-image-dark"
+            height={219}
+            src="/logos/version127-logo-white.png"
+            width={1175}
+          />
         </Link>
         <div className="nav-links">
-          <Link href="/self-host-apps">apps</Link>
-          <a href="#">categories</a>
-          <a href="#">compare</a>
-          <a href="#">guides</a>
-          <a href="#">blog</a>
+          <Link href="/self-host-apps">self-host apps</Link>
         </div>
         <div className="nav-actions">
           <ThemeToggle />
-          <button className="icon-button" aria-label="Saved apps">
-            <span className="bookmark-icon" />
-          </button>
-          <Link className="browse-button" href="/self-host-apps">
-            browse apps <span>{"->"}</span>
-          </Link>
         </div>
       </nav>
     </header>

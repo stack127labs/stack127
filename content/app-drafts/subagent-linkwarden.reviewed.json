@@ -1,0 +1,160 @@
+{
+  "slug": "linkwarden",
+  "name": "Linkwarden",
+  "description": "Bookmark manager that saves links, archives pages as HTML, PDF, and screenshots, and gives teams shared collections plus reader view.",
+  "status": "published",
+  "published": true,
+  "categories": [
+    "bookmarks"
+  ],
+  "media": {
+    "icon_url": "https://raw.githubusercontent.com/linkwarden/linkwarden/main/apps/web/public/icon.png",
+    "icon_source": "official_repo",
+    "screenshots": [
+      {
+        "url": "https://raw.githubusercontent.com/linkwarden/linkwarden/main/apps/web/public/linkwarden_dark.png",
+        "type": "web",
+        "caption": "Linkwarden dashboard in dark mode.",
+        "source": "official_repo"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/linkwarden/linkwarden/main/apps/web/public/linkwarden_light.png",
+        "type": "web",
+        "caption": "Linkwarden dashboard in light mode.",
+        "source": "official_repo"
+      }
+    ],
+    "youtube_video_url": null
+  },
+  "editorial": {
+    "get_started": "Start with the official Docker Compose install. It pulls the Linkwarden app image, starts PostgreSQL, starts Meilisearch, mounts app archive data under `./data`, and exposes the web app on port 3000.\n\nBefore adding real bookmarks, change every required secret in `.env`, set `NEXTAUTH_URL` to your final domain, decide whether signups should remain open, and put the app behind HTTPS. If you plan to preserve lots of pages, place the data, database, and search volumes on storage that is backed up and has room to grow.",
+    "verdict": "Linkwarden is a polished pick when bookmarks are more than browser shortcuts. It works best for people who want saved pages to remain readable later, with team collections, annotations, mobile apps, and search. The tradeoff is that preservation creates real data to care for: database state, archived files, search indexes, and secrets all need a sane backup plan.",
+    "good_fit": [
+      "Researchers, writers, and builders who save links for later use",
+      "Small teams collecting shared reference material",
+      "People replacing Pocket, Raindrop.io, or messy browser bookmark folders"
+    ],
+    "watch_outs": [
+      "Very small servers with little spare RAM or storage",
+      "Users who want a bookmark list without archive files or search services",
+      "Public-facing installs where signup, OAuth, and preserved HTML isolation are not planned"
+    ],
+    "known_issues": [
+      "The Docker Compose stack includes PostgreSQL, Meilisearch, and an app data volume, so upgrades and restores touch more than one directory.",
+      "Saved page screenshots, PDFs, HTML captures, uploads, and RSS imports can make storage grow over time.",
+      "The docs call out favicon fetch errors as common and usually harmless, but they may still confuse new operators when reading logs."
+    ]
+  },
+  "links": {
+    "website_url": "https://linkwarden.app/",
+    "source_code_url": "https://github.com/linkwarden/linkwarden",
+    "demo_url": "https://demo.linkwarden.app/",
+    "docker_url": "https://github.com/linkwarden/linkwarden/pkgs/container/linkwarden",
+    "install_docs_url": "https://docs.linkwarden.app/self-hosting/installation",
+    "docs_url": "https://docs.linkwarden.app/"
+  },
+  "deployment": {
+    "deployment_methods": [
+      "docker",
+      "docker-compose",
+      "source"
+    ],
+    "docker_support": "official",
+    "compose_support": true,
+    "requires_database": true,
+    "database_types": [
+      "postgresql"
+    ],
+    "requires_redis": false,
+    "requires_object_storage": false,
+    "supported_platforms": [
+      "web",
+      "ios",
+      "android",
+      "pwa"
+    ]
+  },
+  "resources": {
+    "ram_required_mb": null,
+    "ram_recommended_mb": 4096,
+    "storage_required_gb": null,
+    "cpu_notes": "Normal browsing is modest, but archive capture, PDF generation, full text indexing, RSS imports, and optional AI tagging can create short bursts of work.",
+    "gpu_notes": null
+  },
+  "data": {
+    "storage_and_data_notes": "A normal Docker Compose install stores application state in PostgreSQL, preserved pages and uploads in the mounted `./data` folder, and search index data in `./meili_data`. The default compose file also keeps PostgreSQL files under `./pgdata`. Optional S3-compatible storage can move uploaded or preserved content out of the local data folder, but that bucket then becomes part of the app's data estate.",
+    "backup_details": "Back up the PostgreSQL database, the Linkwarden data folder, the `.env` file with secrets, and the Compose file together. If you use the default local Docker layout, include `./pgdata`, `./data`, and enough deployment context to recreate the same services. Meilisearch data can often be rebuilt from the database and archived content, but backing up `./meili_data` can make a restore faster and less surprising.\n\nA real restore test should prove that users can log in, collections and permissions are intact, saved pages still open, screenshots and PDFs are available, and search works after the stack is recreated. If S3-compatible storage is enabled, restore testing must also include the bucket and credentials.",
+    "backup_difficulty": "moderate",
+    "backup_criticality": "high",
+    "raid_notes": "RAID can help keep the Linkwarden host online if a disk fails, but it does not replace backups. For archive-heavy installs, mirrored or redundant storage is useful for uptime, while versioned backups of PostgreSQL, data files, secrets, and any object storage bucket are what protect the bookmark library from deletion, corruption, or a bad upgrade."
+  },
+  "maintenance": {
+    "actively_maintained": true,
+    "maintenance_status": "active",
+    "last_release_at": "2026-04-22T23:15:02Z",
+    "last_commit_at": "2026-04-23T02:33:23Z"
+  },
+  "license": "AGPL-3.0",
+  "github": {
+    "owner": "linkwarden",
+    "repo": "linkwarden",
+    "stars": 18627,
+    "forks": 789,
+    "open_issues": 599,
+    "open_pull_requests": 42,
+    "latest_release": "v2.14.1",
+    "latest_release_at": "2026-04-22T23:15:02Z",
+    "last_commit_at": "2026-04-23T02:33:23Z",
+    "commit_count_90d": 32,
+    "release_count_90d": 2,
+    "release_count": 65,
+    "updated_at": "2026-06-16T02:53:53Z",
+    "checked_at": "2026-06-16T03:39:15.012Z"
+  },
+  "alternative_app_ids": [],
+  "replaces_apps": [
+    "Pocket",
+    "Raindrop.io",
+    "Pinboard",
+    "Browser bookmark folders",
+    "Shared read-it-later lists"
+  ],
+  "client_apps": [
+    {
+      "platform": "iOS",
+      "url": "https://apps.apple.com/app/linkwarden/id6752550960",
+      "official": true
+    },
+    {
+      "platform": "Android",
+      "url": "https://play.google.com/store/apps/details?id=app.linkwarden",
+      "official": true
+    },
+    {
+      "platform": "browser extension",
+      "url": "https://github.com/linkwarden/browser-extension",
+      "official": true
+    }
+  ],
+  "hardware_recommendations": [
+    {
+      "type": "existing_server",
+      "label": "Existing Docker host with 4 GB RAM",
+      "reason": "The official docs say Linkwarden ran smoothly on a 4 GB VPS, and the normal Compose stack is a good fit for an always-on homelab host that already runs a reverse proxy.",
+      "affiliate_url": null,
+      "image_url": null,
+      "price_note": "Use current hardware first if it has storage headroom."
+    },
+    {
+      "type": "mini_pc_or_nas",
+      "label": "Mini PC or NAS-backed Docker host",
+      "reason": "Large saved-page archives benefit from reliable storage, scheduled backups, and enough disk space for database, preserved content, and search data.",
+      "affiliate_url": null,
+      "image_url": null,
+      "price_note": "Prioritize backup capacity over extra CPU."
+    }
+  ],
+  "data_confidence": "medium",
+  "notes": "GitHub facts were generated through the local GitHub draft script on 2026-06-16. Official website, docs, demo, GHCR package page, selected repo image URLs, browser extension repo, and Google Play page were checked. The iOS App Store URL came from the official Linkwarden README but was not independently fetched in this run. No hands-on Linkwarden deployment, mobile login, SSO, AI tagging, S3 storage, or restore test was performed.",
+  "last_checked_at": "2026-06-16T03:41:49.000Z"
+}

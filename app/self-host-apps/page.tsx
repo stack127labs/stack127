@@ -1,8 +1,8 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { getDirectoryApps, type DirectoryApp } from "@/lib/apps";
+import { AppShell } from "../app-shell";
 import { CategoryIcon } from "../category-icon";
-import { SiteNav } from "../site-nav";
 import {
   DirectoryAppCard,
   getRamTier,
@@ -719,121 +719,116 @@ export default async function SelfHostAppsPage({
     .sort((a, b) => a.label.localeCompare(b.label));
   const licenseMap = new Map(licenseOptions.map((option) => [option.value, option.label]));
 
+  const sidebar = (
+    <form
+      action="/self-host-apps"
+      className="directory-filter-panel"
+      data-default-sort="popular"
+      data-live-filter-form
+    >
+      <div className="filter-panel-heading">
+        <h1>self-hosted apps.</h1>
+      </div>
+
+      <label className="directory-search">
+        <span>Search</span>
+        <input
+          defaultValue={getString(params, "q")}
+          name="q"
+          placeholder="Immich, DNS, photos..."
+          type="search"
+        />
+      </label>
+
+      <SortDropdown name="sort" options={sortOptions} value={sort} />
+
+      <TagSelectGroup
+        name="category"
+        options={categoryOptions}
+        selected={getValues(params, "category")}
+        title="Category"
+      />
+      <CheckboxGroup
+        name="docker"
+        options={dockerOptions}
+        selected={getValues(params, "docker")}
+        title="Docker"
+      />
+      <RadioGroup
+        name="ram"
+        options={ramOptions}
+        selected={selectedRam}
+        title="RAM"
+      />
+      <StorageSlider
+        clearHref={removeFilterHref(params, "storage")}
+        options={storageOptions}
+        selected={selectedStorage}
+      />
+      <CheckboxGroup
+        name="maintenance"
+        options={maintenanceOptions}
+        selected={getValues(params, "maintenance")}
+        title="Health"
+      />
+      <CheckboxGroup
+        name="signal"
+        options={[
+          { label: "Has mobile app", value: "mobile" },
+          { label: "Needs database", value: "database" },
+          { label: "Compose ready", value: "compose" },
+        ]}
+        selected={getValues(params, "signal")}
+        title="Signals"
+      />
+      <StarsMinSlider options={starsOptions} selected={selectedStarsMin} />
+      <TagSelectGroup
+        name="license"
+        options={licenseOptions}
+        selected={getValues(params, "license")}
+        title="License"
+      />
+
+      <div className="filter-actions">
+        <Link href="/self-host-apps">reset</Link>
+      </div>
+      <LiveFilterController />
+    </form>
+  );
+
   return (
-    <>
-      <SiteNav />
+    <AppShell
+      mainLabel="Self-hosted app results"
+      sidebar={sidebar}
+      sidebarLabel="Self-hosted app filters"
+    >
+      <div className="directory-results">
+        <div className="directory-results-header">
+          <div>
+            <h2>Find apps that fit your server, storage, and setup comfort.</h2>
+          </div>
+        </div>
 
-      <main className="site-shell directory-shell">
-        <section className="directory-page">
-          <aside className="directory-sidebar" aria-label="Self-hosted app filters">
-            <form
-              action="/self-host-apps"
-              className="directory-filter-panel"
-              data-default-sort="popular"
-              data-live-filter-form
-            >
-              <div className="filter-panel-heading">
-                <h1>self-hosted apps</h1>
-              </div>
+        <ActiveFilters
+          categoryMap={categoryMap}
+          licenseMap={licenseMap}
+          params={params}
+        />
 
-              <label className="directory-search">
-                <span>Search</span>
-                <input
-                  defaultValue={getString(params, "q")}
-                  name="q"
-                  placeholder="Immich, DNS, photos..."
-                  type="search"
-                />
-              </label>
-
-              <SortDropdown name="sort" options={sortOptions} value={sort} />
-
-              <TagSelectGroup
-                name="category"
-                options={categoryOptions}
-                selected={getValues(params, "category")}
-                title="Category"
-              />
-              <CheckboxGroup
-                name="docker"
-                options={dockerOptions}
-                selected={getValues(params, "docker")}
-                title="Docker"
-              />
-              <RadioGroup
-                name="ram"
-                options={ramOptions}
-                selected={selectedRam}
-                title="RAM"
-              />
-              <StorageSlider
-                clearHref={removeFilterHref(params, "storage")}
-                options={storageOptions}
-                selected={selectedStorage}
-              />
-              <CheckboxGroup
-                name="maintenance"
-                options={maintenanceOptions}
-                selected={getValues(params, "maintenance")}
-                title="Health"
-              />
-              <CheckboxGroup
-                name="signal"
-                options={[
-                  { label: "Has mobile app", value: "mobile" },
-                  { label: "Needs database", value: "database" },
-                  { label: "Compose ready", value: "compose" },
-                ]}
-                selected={getValues(params, "signal")}
-                title="Signals"
-              />
-              <StarsMinSlider
-                options={starsOptions}
-                selected={selectedStarsMin}
-              />
-              <TagSelectGroup
-                name="license"
-                options={licenseOptions}
-                selected={getValues(params, "license")}
-                title="License"
-              />
-
-              <div className="filter-actions">
-                <Link href="/self-host-apps">reset</Link>
-              </div>
-              <LiveFilterController />
-            </form>
-          </aside>
-
-          <section className="directory-results" aria-label="Self-hosted app results">
-            <div className="directory-results-header">
-              <div>
-                <h2>Find apps that fit your server, storage, and setup comfort.</h2>
-              </div>
-            </div>
-
-            <ActiveFilters
-              categoryMap={categoryMap}
-              licenseMap={licenseMap}
-              params={params}
-            />
-
-            {filteredApps.length > 0 ? (
-              <div className="directory-card-grid">
-                {filteredApps.map((app) => (
-                  <DirectoryAppCard app={app} key={app.slug} />
-                ))}
-              </div>
-            ) : (
-              <div className="directory-empty">
-                <h2>No apps match those filters.</h2>
-                <p>Try clearing one resource or health filter first.</p>
-                <Link href="/self-host-apps">show all apps</Link>
-              </div>
-            )}
-          </section>
-        </section>
-      </main>
-    </>
+        {filteredApps.length > 0 ? (
+          <div className="directory-card-grid">
+            {filteredApps.map((app) => (
+              <DirectoryAppCard app={app} key={app.slug} />
+            ))}
+          </div>
+        ) : (
+          <div className="directory-empty">
+            <h2>No apps match those filters.</h2>
+            <p>Try clearing one resource or health filter first.</p>
+            <Link href="/self-host-apps">show all apps</Link>
+          </div>
+        )}
+      </div>
+    </AppShell>
   );
 }

@@ -1,10 +1,10 @@
-# HomeLabHQ Design Direction
+# version127 Design Direction
 
-This file captures the current visual baseline from the first HomeLabHQ homepage prototype. Treat this as the design-system seed. Details can evolve, but future UI should preserve the same core personality unless intentionally redesigned.
+This file captures the current visual baseline from the first version127 homepage prototype. Treat this as the design-system seed. Details can evolve, but future UI should preserve the same core personality unless intentionally redesigned.
 
 ## Identity
 
-HomeLabHQ should feel playful, soft, app-like, and friendly. It should not feel like a cold developer dashboard or a generic SaaS marketing page.
+version127 should feel playful, soft, app-like, and friendly. It should not feel like a cold developer dashboard or a generic SaaS marketing page.
 
 The current mood:
 
@@ -89,22 +89,22 @@ Dark mode should preserve the same playful identity rather than becoming flat bl
 Current dark-mode direction:
 
 - Root selector: `data-theme="dark"` on the `html` element.
-- Main background: near-black with a slight blue bias, currently `#0d0f14`.
-- Main text: soft off-white, currently `#f8faff`.
-- Muted text: cool grey-blue, currently `#c0c9dd`.
-- Card surface: translucent dark neutral-blue, currently `rgba(20, 23, 31, 0.9)`.
-- Strong surface: `#151923`.
-- Nav surface: `rgba(17, 20, 28, 0.94)`.
-- Icon button surface: `#202532`.
+- Main background: almost black but softer than pure black, currently `#080808`.
+- Main text: soft off-white, currently `#f2f2f2`.
+- Muted text: neutral grey, currently `#b9b9b9`.
+- Card surface: translucent near-black, currently `rgba(18, 18, 18, 0.94)`.
+- Strong surface: `#121212`.
+- Nav surface: `rgba(10, 10, 10, 0.96)`.
+- Icon button surface: `#181818`.
 - Brand blue brightens slightly to `#4b8cff`.
-- Pastel badges become muted translucent color fields rather than bright light pills.
+- Pastel badges become muted charcoal color fields rather than bright light pills.
 - Shadows become deeper but still soft, not harsh.
 
 Theme behavior:
 
 - The theme toggle lives in the top nav.
 - The button switches between a CSS-drawn sun icon and moon icon.
-- The selected mode is persisted in `localStorage` as `homelabhq-theme`.
+- The selected mode is persisted in `localStorage` as `version127-theme`.
 - A small pre-hydration script applies the saved/system theme before React renders to avoid a light-mode flash.
 
 ## Radius

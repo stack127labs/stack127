@@ -1,0 +1,284 @@
+{
+  "slug": "homepage",
+  "name": "homepage",
+  "description": "",
+  "status": "draft",
+  "published": false,
+  "categories": [
+    "dashboards"
+  ],
+  "media": {
+    "icon_url": null,
+    "icon_source": null,
+    "screenshots": [],
+    "youtube_video_url": null
+  },
+  "editorial": {
+    "get_started": "",
+    "verdict": "",
+    "good_fit": [],
+    "watch_outs": [],
+    "known_issues": []
+  },
+  "links": {
+    "website_url": "https://gethomepage.dev",
+    "source_code_url": "https://github.com/gethomepage/homepage",
+    "demo_url": null,
+    "docker_url": null,
+    "install_docs_url": null,
+    "docs_url": "http://gethomepage.dev"
+  },
+  "deployment": {
+    "deployment_methods": [
+      "docker"
+    ],
+    "docker_support": "official",
+    "compose_support": null,
+    "requires_database": null,
+    "database_types": [],
+    "requires_redis": null,
+    "requires_object_storage": null,
+    "supported_platforms": [
+      "web"
+    ]
+  },
+  "resources": {
+    "ram_required_mb": null,
+    "ram_recommended_mb": null,
+    "storage_required_gb": null,
+    "cpu_notes": null,
+    "gpu_notes": null
+  },
+  "data": {
+    "storage_and_data_notes": "",
+    "backup_details": "",
+    "backup_difficulty": "unknown",
+    "backup_criticality": "unknown",
+    "raid_notes": ""
+  },
+  "maintenance": {
+    "actively_maintained": true,
+    "maintenance_status": "active",
+    "last_release_at": "2026-06-09T18:04:57Z",
+    "last_commit_at": "2026-06-13T16:14:58Z"
+  },
+  "license": "GPL-3.0",
+  "github": {
+    "owner": "gethomepage",
+    "repo": "homepage",
+    "stars": 30676,
+    "forks": 1963,
+    "open_issues": 0,
+    "open_pull_requests": 2,
+    "latest_release": "v1.13.2",
+    "latest_release_at": "2026-06-09T18:04:57Z",
+    "last_commit_at": "2026-06-13T16:14:58Z",
+    "commit_count_90d": 150,
+    "release_count_90d": 6,
+    "release_count": 125,
+    "updated_at": "2026-06-15T17:42:31Z",
+    "checked_at": "2026-06-15T19:05:10.563Z"
+  },
+  "alternative_app_ids": [],
+  "replaces_apps": [],
+  "client_apps": [],
+  "hardware_recommendations": [],
+  "data_confidence": "unknown",
+  "notes": "",
+  "last_checked_at": "2026-06-15T19:05:10.563Z",
+  "automation": {
+    "generated_at": "2026-06-15T19:05:10.563Z",
+    "source": "github_api",
+    "repo": "gethomepage/homepage",
+    "repo_description": "A highly customizable homepage (or startpage / application dashboard) with Docker and service API integrations.",
+    "topics": [
+      "docker",
+      "homepage",
+      "nextjs",
+      "node",
+      "react",
+      "self-hosted",
+      "startpage"
+    ],
+    "primary_language": "JavaScript",
+    "language_hints": [
+      "JavaScript",
+      "Node",
+      "Python"
+    ],
+    "archived": false,
+    "fork": false,
+    "category_suggestions": [
+      {
+        "slug": "dashboards",
+        "reason": "dashboard or start page signals"
+      }
+    ],
+    "candidates": {
+      "icon_urls": [],
+      "screenshots": [
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/homepage_demo.png",
+          "type": "web",
+          "caption": "homepage demo",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/homepage_demo.webp",
+          "type": "web",
+          "caption": "homepage demo",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/homepage_demo_clip.png",
+          "type": "web",
+          "caption": "homepage demo clip",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/homepage_demo_clip.webp",
+          "type": "web",
+          "caption": "homepage demo clip",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/blossom_valley.jpg",
+          "type": "web",
+          "caption": "blossom valley",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/banner_dark@2x.png",
+          "type": "web",
+          "caption": "banner dark@2x",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/banner_dark@2x.webp",
+          "type": "web",
+          "caption": "banner dark@2x",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/banner_light@2x.png",
+          "type": "web",
+          "caption": "banner light@2x",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/banner_light@2x.webp",
+          "type": "web",
+          "caption": "banner light@2x",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/gethomepage/homepage/dev/docs/assets/blossom_valley_blur.jpg",
+          "type": "web",
+          "caption": "blossom valley blur",
+          "source": "official_repo"
+        }
+      ],
+      "readme_links": [
+        {
+          "label": "Docker Service Discovery",
+          "url": "https://gethomepage.dev/configs/docker/#automatic-service-discovery"
+        },
+        {
+          "label": "Service",
+          "url": "https://gethomepage.dev/widgets/"
+        },
+        {
+          "label": "Information Providers",
+          "url": "https://gethomepage.dev/widgets/"
+        },
+        {
+          "label": "Settings",
+          "url": "https://gethomepage.dev/configs/settings/"
+        },
+        {
+          "label": "please check out the homepage documentation",
+          "url": "http://gethomepage.dev"
+        },
+        {
+          "label": "homepage documentation website",
+          "url": "https://gethomepage.dev/"
+        },
+        {
+          "label": "pnpm",
+          "url": "https://pnpm.io/"
+        },
+        {
+          "label": "http://localhost:3000",
+          "url": "http://localhost:3000"
+        },
+        {
+          "label": "Next.js",
+          "url": "https://nextjs.org/"
+        },
+        {
+          "label": "https://gethomepage.dev/",
+          "url": "https://gethomepage.dev/"
+        },
+        {
+          "label": "Discussions",
+          "url": "https://github.com/gethomepage/homepage/discussions"
+        },
+        {
+          "label": "troubleshooting guide",
+          "url": "https://gethomepage.dev/troubleshooting/"
+        },
+        {
+          "label": "CONTRIBUTING.md",
+          "url": "https://github.com/gethomepage/homepage/blob/dev/CONTRIBUTING.md"
+        },
+        {
+          "label": "@shamoon",
+          "url": "https://github.com/shamoon"
+        }
+      ],
+      "readme_link_candidates": {
+        "docs_url": "http://gethomepage.dev",
+        "install_docs_url": null,
+        "demo_url": null,
+        "docker_url": null
+      },
+      "dockerfiles": [
+        ".devcontainer/Dockerfile",
+        "Dockerfile"
+      ],
+      "compose_files": [],
+      "docs_files": [
+        "docs/CNAME",
+        "docs/assets",
+        "docs/assets/banner_dark@2x.png",
+        "docs/assets/banner_dark@2x.webp",
+        "docs/assets/banner_light@2x.png",
+        "docs/assets/banner_light@2x.webp",
+        "docs/assets/blossom_valley.jpg",
+        "docs/assets/blossom_valley_blur.jpg",
+        "docs/assets/favicon.ico",
+        "docs/assets/homepage_demo.png",
+        "docs/assets/homepage_demo.webp",
+        "docs/assets/homepage_demo_clip.png",
+        "docs/assets/homepage_demo_clip.webp",
+        "docs/assets/light_squircle@2x.png",
+        "docs/assets/light_squircle@2x.webp",
+        "docs/assets/sections.png",
+        "docs/assets/sections.webp",
+        "docs/assets/widget_stocks_demo.png",
+        "docs/configs",
+        "docs/configs/bookmarks.md"
+      ],
+      "package_files": [
+        "package.json",
+        "pnpm-lock.yaml",
+        "pyproject.toml"
+      ]
+    },
+    "manual_checklist": [
+      "Write original description, get_started, verdict, storage/data notes, backup details, and raid notes.",
+      "Verify website, docs, install docs, Docker image, screenshots, client apps, and YouTube video manually.",
+      "Keep useful candidates and delete wrong or unverified candidate values before moving to content/apps."
+    ]
+  }
+}

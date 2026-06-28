@@ -1,0 +1,282 @@
+{
+  "slug": "immich",
+  "name": "immich",
+  "description": "",
+  "status": "draft",
+  "published": false,
+  "categories": [
+    "photos",
+    "media"
+  ],
+  "media": {
+    "icon_url": null,
+    "icon_source": null,
+    "screenshots": [],
+    "youtube_video_url": null
+  },
+  "editorial": {
+    "get_started": "",
+    "verdict": "",
+    "good_fit": [],
+    "watch_outs": [],
+    "known_issues": []
+  },
+  "links": {
+    "website_url": "https://immich.app",
+    "source_code_url": "https://github.com/immich-app/immich",
+    "demo_url": null,
+    "docker_url": null,
+    "install_docs_url": "https://docs.immich.app/install/requirements",
+    "docs_url": "https://docs.immich.app/"
+  },
+  "deployment": {
+    "deployment_methods": [
+      "docker",
+      "docker-compose"
+    ],
+    "docker_support": "official",
+    "compose_support": true,
+    "requires_database": null,
+    "database_types": [],
+    "requires_redis": null,
+    "requires_object_storage": null,
+    "supported_platforms": [
+      "web"
+    ]
+  },
+  "resources": {
+    "ram_required_mb": null,
+    "ram_recommended_mb": null,
+    "storage_required_gb": null,
+    "cpu_notes": null,
+    "gpu_notes": null
+  },
+  "data": {
+    "storage_and_data_notes": "",
+    "backup_details": "",
+    "backup_difficulty": "unknown",
+    "backup_criticality": "unknown",
+    "raid_notes": ""
+  },
+  "maintenance": {
+    "actively_maintained": true,
+    "maintenance_status": "active",
+    "last_release_at": "2026-04-13T14:53:55Z",
+    "last_commit_at": "2026-06-15T15:10:05Z"
+  },
+  "license": "AGPL-3.0",
+  "github": {
+    "owner": "immich-app",
+    "repo": "immich",
+    "stars": 103451,
+    "forks": 5863,
+    "open_issues": 460,
+    "open_pull_requests": 187,
+    "latest_release": "v2.7.5",
+    "latest_release_at": "2026-04-13T14:53:55Z",
+    "last_commit_at": "2026-06-15T15:10:05Z",
+    "commit_count_90d": 718,
+    "release_count_90d": 10,
+    "release_count": 297,
+    "updated_at": "2026-06-15T18:49:54Z",
+    "checked_at": "2026-06-15T19:05:11.449Z"
+  },
+  "alternative_app_ids": [],
+  "replaces_apps": [],
+  "client_apps": [],
+  "hardware_recommendations": [],
+  "data_confidence": "unknown",
+  "notes": "",
+  "last_checked_at": "2026-06-15T19:05:11.449Z",
+  "automation": {
+    "generated_at": "2026-06-15T19:05:11.449Z",
+    "source": "github_api",
+    "repo": "immich-app/immich",
+    "repo_description": "High performance self-hosted photo and video management solution.",
+    "topics": [
+      "backup-tool",
+      "flutter",
+      "google-photos",
+      "google-photos-alternative",
+      "javascript",
+      "mobile-app",
+      "nestjs",
+      "nodejs",
+      "photo-gallery",
+      "photos",
+      "photos-management",
+      "self-hosted",
+      "svelte",
+      "sveltekit",
+      "typescript",
+      "videos"
+    ],
+    "primary_language": "TypeScript",
+    "language_hints": [
+      "TypeScript",
+      "Node",
+      "Python"
+    ],
+    "archived": false,
+    "fork": false,
+    "category_suggestions": [
+      {
+        "slug": "photos",
+        "reason": "photo or gallery signals"
+      },
+      {
+        "slug": "media",
+        "reason": "media library signals"
+      }
+    ],
+    "candidates": {
+      "icon_urls": [
+        {
+          "url": "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo-inline-dark.svg",
+          "type": "web",
+          "caption": "immich logo inline dark",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo-inline-light.svg",
+          "type": "web",
+          "caption": "immich logo inline light",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo-stacked-dark.svg",
+          "type": "web",
+          "caption": "immich logo stacked dark",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo-stacked-light.svg",
+          "type": "web",
+          "caption": "immich logo stacked light",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo.svg",
+          "type": "web",
+          "caption": "immich logo",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo-inline-dark.png",
+          "type": "web",
+          "caption": "immich logo inline dark",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo-inline-light.png",
+          "type": "web",
+          "caption": "immich logo inline light",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo-stacked-dark.png",
+          "type": "web",
+          "caption": "immich logo stacked dark",
+          "source": "official_repo"
+        }
+      ],
+      "screenshots": [],
+      "readme_links": [
+        {
+          "label": "3-2-1",
+          "url": "https://www.backblaze.com/blog/the-3-2-1-backup-strategy/"
+        },
+        {
+          "label": "Documentation",
+          "url": "https://docs.immich.app/"
+        },
+        {
+          "label": "About",
+          "url": "https://docs.immich.app/overview/introduction"
+        },
+        {
+          "label": "Installation",
+          "url": "https://docs.immich.app/install/requirements"
+        },
+        {
+          "label": "Roadmap",
+          "url": "https://immich.app/roadmap"
+        },
+        {
+          "label": "Translations",
+          "url": "https://docs.immich.app/developer/translations"
+        },
+        {
+          "label": "Contributing",
+          "url": "https://docs.immich.app/overview/support-the-project"
+        },
+        {
+          "label": "here",
+          "url": "https://demo.immich.app"
+        },
+        {
+          "label": "here",
+          "url": "https://docs.immich.app/developer/translations"
+        }
+      ],
+      "readme_link_candidates": {
+        "docs_url": "https://docs.immich.app/",
+        "install_docs_url": "https://docs.immich.app/install/requirements",
+        "demo_url": "https://demo.immich.app",
+        "docker_url": null
+      },
+      "dockerfiles": [
+        "machine-learning/Dockerfile",
+        "packages/cli/Dockerfile",
+        "packages/e2e-auth-server/Dockerfile",
+        "server/Dockerfile"
+      ],
+      "compose_files": [
+        "docker/docker-compose.yml",
+        "e2e/docker-compose.yml"
+      ],
+      "docs_files": [
+        "deployment/modules/cloudflare/docs/.terraform.lock.hcl",
+        "deployment/modules/cloudflare/docs/config.tf",
+        "deployment/modules/cloudflare/docs/domain.tf",
+        "deployment/modules/cloudflare/docs/locals.tf",
+        "deployment/modules/cloudflare/docs/providers.tf",
+        "deployment/modules/cloudflare/docs/remote-state.tf",
+        "deployment/modules/cloudflare/docs/terragrunt.hcl",
+        "deployment/modules/cloudflare/docs/variables.tf",
+        "docs/.gitignore",
+        "docs/.prettierignore",
+        "docs/.prettierrc",
+        "docs/README.md",
+        "docs/babel.config.js",
+        "docs/docs",
+        "docs/docs/FAQ.mdx",
+        "docs/docs/administration",
+        "docs/docs/administration/_category_.json",
+        "docs/docs/administration/backup-and-restore.md",
+        "docs/docs/administration/email-notification.mdx",
+        "docs/docs/administration/img"
+      ],
+      "package_files": [
+        ".github/package.json",
+        "docs/package.json",
+        "e2e/package.json",
+        "machine-learning/pyproject.toml",
+        "package.json",
+        "packages/cli/package.json",
+        "packages/e2e-auth-server/package.json",
+        "packages/plugin-core/package.json",
+        "packages/plugin-sdk/package.json",
+        "packages/sdk/package.json",
+        "pnpm-lock.yaml",
+        "server/package.json",
+        "web/package.json"
+      ]
+    },
+    "manual_checklist": [
+      "Write original description, get_started, verdict, storage/data notes, backup details, and raid notes.",
+      "Verify website, docs, install docs, Docker image, screenshots, client apps, and YouTube video manually.",
+      "Keep useful candidates and delete wrong or unverified candidate values before moving to content/apps."
+    ]
+  }
+}

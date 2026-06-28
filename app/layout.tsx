@@ -1,27 +1,21 @@
 import type { Metadata } from "next";
-import {
-  Atkinson_Hyperlegible,
-  Atkinson_Hyperlegible_Mono,
-} from "next/font/google";
+import { SiteNav } from "./site-nav";
 import "./globals.css";
 
-const atkinson = Atkinson_Hyperlegible({
-  display: "swap",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-atkinson",
-  weight: ["400", "700"],
-});
-
-const atkinsonMono = Atkinson_Hyperlegible_Mono({
-  display: "swap",
-  subsets: ["latin"],
-  variable: "--font-atkinson-mono",
-});
-
 export const metadata: Metadata = {
-  title: "HomeLabHQ",
-  description: "Discover practical self-hosted apps for your home lab.",
+  title: "version127",
+  description:
+    "Discover practical open-source apps, technical guides, automation ideas, and useful tools for builders.",
+  icons: {
+    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -31,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className={`${atkinson.variable} ${atkinsonMono.variable}`}
+      data-theme="dark"
       lang="en"
       suppressHydrationWarning
     >
@@ -40,15 +34,16 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
 try {
-  const storedTheme = window.localStorage.getItem("homelabhq-theme");
+  const storedTheme = window.localStorage.getItem("version127-theme");
   const theme = storedTheme === "light" || storedTheme === "dark"
     ? storedTheme
-    : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    : "dark";
   document.documentElement.dataset.theme = theme;
 } catch (_) {}
             `,
           }}
         />
+        <SiteNav />
         {children}
       </body>
     </html>

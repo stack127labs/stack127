@@ -1,0 +1,129 @@
+{
+  "slug": "excalidraw",
+  "name": "Excalidraw",
+  "description": "Sketch-style whiteboard app for diagrams, wireframes, notes, and quick visual planning.",
+  "status": "published",
+  "published": true,
+  "categories": [
+    "whiteboards"
+  ],
+  "media": {
+    "icon_url": "https://raw.githubusercontent.com/excalidraw/excalidraw/master/dev-docs/static/img/logo.svg",
+    "icon_source": "official_repo",
+    "screenshots": [
+      {
+        "url": "https://raw.githubusercontent.com/excalidraw/excalidraw/master/dev-docs/static/img/og-image-2.png",
+        "type": "web",
+        "caption": "Excalidraw canvas preview with hand-drawn style shapes and notes.",
+        "source": "official_repo"
+      }
+    ],
+    "youtube_video_url": null
+  },
+  "editorial": {
+    "get_started": "The simplest homelab path is to build the official Dockerfile or use the repository's Docker Compose file, then put the static web app behind your usual reverse proxy. The container serves the built app with nginx and does not need Postgres, Redis, or object storage for a basic personal whiteboard.\n\nBefore treating it as a shared team tool, decide whether browser-local autosave and manual `.excalidraw` exports are enough. The public Excalidraw app has collaboration and share features, but a basic self-hosted static deployment should be tested for the exact collaboration, sharing, and storage behavior you expect before relying on it.",
+    "verdict": "Excalidraw is excellent when you want a fast, low-friction canvas for diagrams and rough planning without running a heavy workspace suite. The main tradeoff is that a basic self-hosted install is more like a lightweight web app than a full managed diagram platform, so persistence, sharing, and collaboration deserve a quick test in your own setup.",
+    "good_fit": [
+      "Quick diagrams and whiteboard sketches",
+      "Homelabs that want a lightweight browser tool",
+      "People who like portable `.excalidraw` files"
+    ],
+    "watch_outs": [
+      "Teams expecting a full Miro-style workspace",
+      "Users who need server-managed document storage by default",
+      "Setups where collaboration and share links must be fully private and tested"
+    ],
+    "known_issues": [
+      "A basic static deployment relies heavily on browser storage and exported files.",
+      "Real-time collaboration and sharing behavior should be verified separately for self-hosted use.",
+      "There is no database to back up unless you add your own surrounding services."
+    ]
+  },
+  "links": {
+    "website_url": "https://excalidraw.com/",
+    "source_code_url": "https://github.com/excalidraw/excalidraw",
+    "demo_url": "https://excalidraw.com/",
+    "docker_url": "https://github.com/excalidraw/excalidraw/blob/master/Dockerfile",
+    "install_docs_url": "https://github.com/excalidraw/excalidraw/blob/master/docker-compose.yml",
+    "docs_url": "https://docs.excalidraw.com/docs/introduction/development"
+  },
+  "deployment": {
+    "deployment_methods": [
+      "docker",
+      "docker-compose",
+      "source"
+    ],
+    "docker_support": "official",
+    "compose_support": true,
+    "requires_database": false,
+    "database_types": [],
+    "requires_redis": false,
+    "requires_object_storage": false,
+    "supported_platforms": [
+      "web"
+    ]
+  },
+  "resources": {
+    "ram_required_mb": null,
+    "ram_recommended_mb": null,
+    "storage_required_gb": null,
+    "cpu_notes": "Lightweight once built because the app is served as static web assets. Browser performance matters more than server CPU for normal drawing.",
+    "gpu_notes": null
+  },
+  "data": {
+    "storage_and_data_notes": "A basic Excalidraw deployment serves the web app and keeps drawings local to the user's browser unless they export files or use configured sharing features. Important user data is usually the exported `.excalidraw`, PNG, or SVG files, plus any reverse proxy and deployment configuration you maintain around the app.",
+    "backup_details": "Back up the Compose file, Docker build settings, reverse proxy config, and any environment files used to serve the app. A restore should prove that a fresh container serves the editor at the expected URL and that users can open previously exported `.excalidraw` files.\n\nBecause the default app workflow can be local-first, do not assume a server backup protects every drawing. Encourage users to export important canvases, sync them through their normal file backup system, and test collaboration or share-link behavior before depending on it for long-lived work.",
+    "backup_difficulty": "easy",
+    "backup_criticality": "medium",
+    "raid_notes": "RAID is usually not important for Excalidraw itself because the basic app has little server-side state. Protect exported drawing files with normal file backups. RAID can help the host stay online, but it is not a backup."
+  },
+  "maintenance": {
+    "actively_maintained": true,
+    "maintenance_status": "active",
+    "last_release_at": "2026-04-21T08:43:20Z",
+    "last_commit_at": "2026-06-15T16:19:20Z"
+  },
+  "license": "MIT",
+  "github": {
+    "owner": "excalidraw",
+    "repo": "excalidraw",
+    "stars": 125419,
+    "forks": 14032,
+    "open_issues": 2204,
+    "open_pull_requests": 955,
+    "latest_release": "v0.18.1",
+    "latest_release_at": "2026-04-21T08:43:20Z",
+    "last_commit_at": "2026-06-15T16:19:20Z",
+    "commit_count_90d": 43,
+    "release_count_90d": 1,
+    "release_count": 15,
+    "updated_at": "2026-06-16T04:36:14Z",
+    "checked_at": "2026-06-16T05:35:09.459Z"
+  },
+  "alternative_app_ids": [],
+  "replaces_apps": [
+    "Miro",
+    "FigJam",
+    "Whimsical",
+    "Online whiteboard tools"
+  ],
+  "client_apps": [],
+  "hardware_recommendations": [
+    {
+      "type": "existing_server",
+      "label": "Any always-on Docker host",
+      "reason": "Excalidraw's basic self-hosted app is lightweight enough to run beside a reverse proxy or dashboard on an existing homelab machine.",
+      "affiliate_url": null,
+      "image_url": null,
+      "price_note": "Use existing hardware first."
+    }
+  ],
+  "data_confidence": "medium",
+  "notes": "GitHub facts were generated through the GitHub API on 2026-06-16. Official repo links verified the Dockerfile, Docker Compose file, MIT license, Excalidraw.com app features, and docs. Self-hosted collaboration and share-link behavior were not hands-on tested, so the record keeps those as watch outs.",
+  "last_checked_at": "2026-06-16T05:35:09.459Z",
+  "automation": {
+    "last_github_refresh": "2026-06-16T05:35:09.459Z",
+    "source": "github_api",
+    "repo": "excalidraw/excalidraw"
+  }
+}

@@ -1,0 +1,343 @@
+{
+  "slug": "linkwarden",
+  "name": "linkwarden",
+  "description": "",
+  "status": "draft",
+  "published": false,
+  "categories": [
+    "bookmarks"
+  ],
+  "media": {
+    "icon_url": null,
+    "icon_source": null,
+    "screenshots": [],
+    "youtube_video_url": null
+  },
+  "editorial": {
+    "get_started": "",
+    "verdict": "",
+    "good_fit": [],
+    "watch_outs": [],
+    "known_issues": []
+  },
+  "links": {
+    "website_url": "https://linkwarden.app",
+    "source_code_url": "https://github.com/linkwarden/linkwarden",
+    "demo_url": null,
+    "docker_url": null,
+    "install_docs_url": "https://docs.linkwarden.app/self-hosting/installation",
+    "docs_url": "https://docs.linkwarden.app"
+  },
+  "deployment": {
+    "deployment_methods": [
+      "docker",
+      "docker-compose"
+    ],
+    "docker_support": "official",
+    "compose_support": true,
+    "requires_database": null,
+    "database_types": [],
+    "requires_redis": null,
+    "requires_object_storage": null,
+    "supported_platforms": [
+      "web"
+    ]
+  },
+  "resources": {
+    "ram_required_mb": null,
+    "ram_recommended_mb": null,
+    "storage_required_gb": null,
+    "cpu_notes": null,
+    "gpu_notes": null
+  },
+  "data": {
+    "storage_and_data_notes": "",
+    "backup_details": "",
+    "backup_difficulty": "unknown",
+    "backup_criticality": "unknown",
+    "raid_notes": ""
+  },
+  "maintenance": {
+    "actively_maintained": true,
+    "maintenance_status": "active",
+    "last_release_at": "2026-04-22T23:15:02Z",
+    "last_commit_at": "2026-04-23T02:33:23Z"
+  },
+  "license": "AGPL-3.0",
+  "github": {
+    "owner": "linkwarden",
+    "repo": "linkwarden",
+    "stars": 18627,
+    "forks": 789,
+    "open_issues": 599,
+    "open_pull_requests": 42,
+    "latest_release": "v2.14.1",
+    "latest_release_at": "2026-04-22T23:15:02Z",
+    "last_commit_at": "2026-04-23T02:33:23Z",
+    "commit_count_90d": 32,
+    "release_count_90d": 2,
+    "release_count": 65,
+    "updated_at": "2026-06-16T02:53:53Z",
+    "checked_at": "2026-06-16T03:39:15.012Z"
+  },
+  "alternative_app_ids": [],
+  "replaces_apps": [],
+  "client_apps": [],
+  "hardware_recommendations": [],
+  "data_confidence": "unknown",
+  "notes": "",
+  "last_checked_at": "2026-06-16T03:39:15.012Z",
+  "automation": {
+    "generated_at": "2026-06-16T03:39:15.012Z",
+    "source": "github_api",
+    "repo": "linkwarden/linkwarden",
+    "repo_description": "⚡️⚡️⚡️ Self-hosted collaborative bookmark manager to collect, read, annotate, and fully preserve what matters, all in one place.",
+    "topics": [
+      "bookmark",
+      "bookmark-manager",
+      "collaboration",
+      "nextjs",
+      "react-native",
+      "read-it-later",
+      "self-hosted",
+      "typescript"
+    ],
+    "primary_language": "TypeScript",
+    "language_hints": [
+      "TypeScript",
+      "Node"
+    ],
+    "archived": false,
+    "fork": false,
+    "category_suggestions": [
+      {
+        "slug": "bookmarks",
+        "reason": "bookmark or read-it-later signals"
+      }
+    ],
+    "candidates": {
+      "icon_urls": [
+        {
+          "url": "https://raw.githubusercontent.com/linkwarden/linkwarden/main/apps/mobile/assets/images/icon.png",
+          "type": "mobile",
+          "caption": "icon",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/linkwarden/linkwarden/main/apps/mobile/assets/images/splash-icon.png",
+          "type": "mobile",
+          "caption": "splash icon",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/linkwarden/linkwarden/main/apps/web/public/icon.png",
+          "type": "web",
+          "caption": "icon",
+          "source": "official_repo"
+        }
+      ],
+      "screenshots": [
+        {
+          "url": "https://raw.githubusercontent.com/linkwarden/linkwarden/main/apps/mobile/assets/images/linkwarden.png",
+          "type": "mobile",
+          "caption": "linkwarden",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/linkwarden/linkwarden/main/apps/web/public/android-chrome-192x192.png",
+          "type": "mobile",
+          "caption": "android chrome 192x192",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/linkwarden/linkwarden/main/apps/web/public/android-chrome-512x512.png",
+          "type": "mobile",
+          "caption": "android chrome 512x512",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/linkwarden/linkwarden/main/assets/star_repo.gif",
+          "type": "web",
+          "caption": "Star Us",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/linkwarden/linkwarden/main/apps/web/public/linkwarden_dark.png",
+          "type": "web",
+          "caption": "linkwarden dark",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/linkwarden/linkwarden/main/apps/web/public/linkwarden_light.png",
+          "type": "web",
+          "caption": "linkwarden light",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/linkwarden/linkwarden/main/apps/mobile/assets/images/maskable_logo.png",
+          "type": "mobile",
+          "caption": "maskable logo",
+          "source": "official_repo"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/linkwarden/linkwarden/main/apps/web/public/logo_maskable.png",
+          "type": "web",
+          "caption": "logo maskable",
+          "source": "official_repo"
+        }
+      ],
+      "readme_links": [
+        {
+          "label": "« LAUNCH DEMO »",
+          "url": "https://demo.linkwarden.app"
+        },
+        {
+          "label": "Cloud",
+          "url": "https://cloud.linkwarden.app"
+        },
+        {
+          "label": "Website",
+          "url": "https://linkwarden.app"
+        },
+        {
+          "label": "Features",
+          "url": "https://github.com/linkwarden/linkwarden#features"
+        },
+        {
+          "label": "Docs",
+          "url": "https://docs.linkwarden.app"
+        },
+        {
+          "label": "Link Rot",
+          "url": "https://en.wikipedia.org/wiki/Link_rot"
+        },
+        {
+          "label": "Cloud",
+          "url": "https://linkwarden.app/#pricing"
+        },
+        {
+          "label": "Installation documentation",
+          "url": "https://docs.linkwarden.app/self-hosting/installation"
+        },
+        {
+          "label": "archive.org",
+          "url": "https://archive.org"
+        },
+        {
+          "label": "here",
+          "url": "https://github.com/linkwarden/browser-extension"
+        },
+        {
+          "label": "Floccus",
+          "url": "https://floccus.org"
+        },
+        {
+          "label": "guide",
+          "url": "https://docs.linkwarden.app/Usage/upload-from-singlefile"
+        },
+        {
+          "label": "**Linkwarden Cloud**",
+          "url": "https://linkwarden.app/#pricing"
+        },
+        {
+          "label": "**Self-hosted Linkwarden**",
+          "url": "https://docs.linkwarden.app/self-hosting/installation"
+        },
+        {
+          "label": "builds",
+          "url": "https://github.com/linkwarden/builds"
+        },
+        {
+          "label": "popular suggestions",
+          "url": "https://github.com/linkwarden/linkwarden/issues?q=is%3Aissue%20is%3Aopen%20sort%3Areactions-%2B1-desc"
+        },
+        {
+          "label": "new issue",
+          "url": "https://github.com/linkwarden/linkwarden/issues/new?assignees=&labels=enhancement&projects=&template=feature_request.md&title="
+        },
+        {
+          "label": "public roadmap",
+          "url": "https://github.com/orgs/linkwarden/projects/1"
+        },
+        {
+          "label": "My Links",
+          "url": "https://apps.apple.com/ca/app/my-links-for-linkwarden/id6504573402"
+        },
+        {
+          "label": "source code",
+          "url": "https://github.com/JGeek00/my-links"
+        },
+        {
+          "label": "LinkDroid",
+          "url": "https://fossdroid.com/a/linkdroid-for-linkwarden.html"
+        },
+        {
+          "label": "source code",
+          "url": "https://github.com/Dacid99/LinkDroid-for-Linkwarden"
+        },
+        {
+          "label": "LinkGuardian",
+          "url": "https://github.com/Elbullazul/LinkGuardian"
+        },
+        {
+          "label": "StarWarden",
+          "url": "https://github.com/rtuszik/starwarden"
+        },
+        {
+          "label": "link-my-harmony",
+          "url": "https://github.com/xiebaiyuan/link-my-harmony"
+        },
+        {
+          "label": "popular suggestions",
+          "url": "https://github.com/linkwarden/linkwarden/issues?q=is%3Aissue%20is%3Aopen%20sort%3Areactions-%2B1-desc"
+        },
+        {
+          "label": "@daniel31x13",
+          "url": "https://github.com/daniel31x13"
+        },
+        {
+          "label": "Crowdin page",
+          "url": "https://crowdin.com/project/linkwarden"
+        },
+        {
+          "label": "security@linkwarden.app",
+          "url": "https://github.com/linkwarden/linkwarden/blob/main/mailto:security@linkwarden.app"
+        },
+        {
+          "label": "Cloud",
+          "url": "https://linkwarden.app/#pricing"
+        }
+      ],
+      "readme_link_candidates": {
+        "docs_url": "https://docs.linkwarden.app",
+        "install_docs_url": "https://docs.linkwarden.app/self-hosting/installation",
+        "demo_url": "https://demo.linkwarden.app",
+        "docker_url": null
+      },
+      "dockerfiles": [
+        "Dockerfile"
+      ],
+      "compose_files": [
+        "docker-compose.yml"
+      ],
+      "docs_files": [],
+      "package_files": [
+        "apps/mobile/package.json",
+        "apps/web/package.json",
+        "apps/worker/package.json",
+        "package.json",
+        "packages/filesystem/package.json",
+        "packages/lib/package.json",
+        "packages/prisma/package.json",
+        "packages/router/package.json",
+        "packages/types/package.json",
+        "yarn.lock"
+      ]
+    },
+    "manual_checklist": [
+      "Write original description, get_started, verdict, storage/data notes, backup details, and raid notes.",
+      "Verify website, docs, install docs, Docker image, screenshots, client apps, and YouTube video manually.",
+      "Keep useful candidates and delete wrong or unverified candidate values before moving to content/apps."
+    ]
+  }
+}

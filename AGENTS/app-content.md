@@ -1,8 +1,8 @@
-# HomeLabHQ App Content Instructions
+# version127 App Content Instructions
 
 Use this file when adding or updating details for one self-hosted app. The goal is to create one high-quality app record that is useful to smart beginners in self-hosting.
 
-Do not treat this as bulk data entry. Research the app, write HomeLabHQ-original copy, and only automate facts that are safe to automate.
+Do not treat this as bulk data entry. Research the app, write version127-original copy, and only automate facts that are safe to automate.
 
 ## Audience And Voice
 
@@ -12,7 +12,7 @@ They may know what Docker, GitHub, DNS, backups, or a VPS are, but they may not 
 
 Voice rules:
 
-- Write original HomeLabHQ copy. Do not copy descriptions, docs, README text, marketing copy, or video descriptions.
+- Write original version127 copy. Do not copy descriptions, docs, README text, marketing copy, or video descriptions.
 - Use simple, direct language.
 - Avoid hype.
 - Avoid analogies.
@@ -132,7 +132,7 @@ Do not write a step-by-step tutorial here. Link install docs separately.
 
 ### `verdict`
 
-Write a short HomeLabHQ opinion.
+Write a short version127 opinion.
 
 Purpose:
 
@@ -510,15 +510,48 @@ Do not overclaim replacement if the app only covers a small part of the product.
 
 When asked to write details for one app:
 
-1. Identify official website, docs, source repo, install docs, Docker image, demo, and clients.
-2. If GitHub is used, run metadata automation for current stats and release data.
-3. Find official screenshots or screenshot pages.
-4. Find one useful YouTube video or leave it null.
-5. Write original HomeLabHQ copy for description, get started, verdict, storage/data notes, backup details, and RAID notes.
-6. Fill structured fields conservatively.
-7. Insert or update only that one app row.
-8. Insert one GitHub snapshot row if GitHub automation was run.
-9. Verify the row exists and key fields are not empty.
+1. Read `AGENTS/self-host-app-data-workflow.md` and `scripts/self-host-apps/README.md`.
+2. If the app uses GitHub, create a draft:
+
+```sh
+npm run selfhost:draft -- --repo owner/name
+```
+
+3. Treat `content/app-drafts/*.generated.json` as a research draft only. Do not upsert it.
+4. Identify official website, docs, source repo, install docs, Docker image, demo, screenshots, YouTube video, and clients.
+5. Verify candidate links from the draft before copying them into a reviewed record.
+6. Move or rewrite the record into `content/apps/<slug>.json` only after writing the manual fields.
+7. Write original version127 copy for description, get started, verdict, storage/data notes, backup details, and RAID notes.
+8. Fill structured fields conservatively. Keep unknown numeric requirements as `null`.
+9. Run strict validation:
+
+```sh
+npm run selfhost:validate -- --file content/apps/<slug>.json
+```
+
+10. Run a local dry-run upsert first:
+
+```sh
+npm run selfhost:upsert -- --file content/apps/<slug>.json --dry-run
+```
+
+11. Insert or update only that one app row in the local database unless the user explicitly asks for production.
+12. Verify the database row, category links, and GitHub snapshot with a readback query.
+
+## Workflow Test Mode
+
+When another agent asks you to test this workflow, do not promote the app into the reviewed dataset by default.
+
+In workflow test mode:
+
+- Keep the reviewed record at `content/app-drafts/subagent-<slug>.reviewed.json`.
+- Run strict validation on that file.
+- Run `selfhost:upsert` with `--dry-run` only.
+- Do not write to `content/apps`.
+- Do not run a committed database upsert.
+- Do not edit workflow docs, scripts, package scripts, migrations, or schema files.
+
+Only the main agent decides whether a test record should later move into `content/apps`.
 
 ## Quality Checklist
 
