@@ -12,16 +12,16 @@ const globalForPg = globalThis as typeof globalThis & {
   homeLabHqPgPool?: Pool;
 };
 
-export const pool =
-  globalForPg.homeLabHqPgPool ??
-  new Pool({
-    connectionString: databaseUrl(),
-    connectionTimeoutMillis: 15000,
-    idleTimeoutMillis: 10000,
-    max: 4,
-    query_timeout: 15000,
-  });
+export function getPool() {
+  if (!globalForPg.homeLabHqPgPool) {
+    globalForPg.homeLabHqPgPool = new Pool({
+      connectionString: databaseUrl(),
+      connectionTimeoutMillis: 15000,
+      idleTimeoutMillis: 10000,
+      max: 4,
+      query_timeout: 15000,
+    });
+  }
 
-if (process.env.NODE_ENV !== "production") {
-  globalForPg.homeLabHqPgPool = pool;
+  return globalForPg.homeLabHqPgPool;
 }

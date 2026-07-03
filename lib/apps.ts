@@ -1,4 +1,4 @@
-import { pool } from "./db";
+import { getPool } from "./db";
 
 export type AppCategory = {
   name: string;
@@ -79,7 +79,7 @@ function normalizeCategories(value: unknown): AppCategory[] {
 }
 
 export async function getSelfHostAppsStats(): Promise<SelfHostAppsStats> {
-  const result = await pool.query<{
+  const result = await getPool().query<{
     active_count: number | string;
     app_count: number | string;
     category_count: number | string;
@@ -122,7 +122,7 @@ export async function getSelfHostAppsStats(): Promise<SelfHostAppsStats> {
 }
 
 export async function getSelfHostAppsModifiedAt(): Promise<Date | null> {
-  const result = await pool.query<{ modified_at: Date | string | null }>(
+  const result = await getPool().query<{ modified_at: Date | string | null }>(
     `
       select greatest(
         coalesce(
@@ -172,7 +172,7 @@ export async function getSelfHostAppsModifiedAt(): Promise<Date | null> {
 }
 
 export async function getDirectoryApps(): Promise<DirectoryApp[]> {
-  const result = await pool.query<
+  const result = await getPool().query<
     Omit<DirectoryApp, "categories"> & { categories: unknown }
   >(
     `
