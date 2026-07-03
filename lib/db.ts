@@ -1,4 +1,7 @@
+import dns from "node:dns";
 import { Pool } from "pg";
+
+dns.setDefaultResultOrder("ipv4first");
 
 function databaseUrl() {
   if (!process.env.DATABASE_URL) {
