@@ -1,8 +1,12 @@
 import { Pool } from "pg";
 
-const connectionString =
-  process.env.DATABASE_URL ??
-  "postgresql://postgres:postgres@127.0.0.1:54332/postgres";
+function databaseUrl() {
+  if (!process.env.DATABASE_URL) {
+    throw new Error("DATABASE_URL is required. Use .env.local locally and production env values in deploy.");
+  }
+
+  return process.env.DATABASE_URL;
+}
 
 const globalForPg = globalThis as typeof globalThis & {
   homeLabHqPgPool?: Pool;
@@ -11,11 +15,11 @@ const globalForPg = globalThis as typeof globalThis & {
 export const pool =
   globalForPg.homeLabHqPgPool ??
   new Pool({
-    connectionString,
+    connectionString: databaseUrl(),
     connectionTimeoutMillis: 15000,
     idleTimeoutMillis: 10000,
     max: 4,
-    query_timeout: 5000,
+    query_timeout: 15000,
   });
 
 if (process.env.NODE_ENV !== "production") {

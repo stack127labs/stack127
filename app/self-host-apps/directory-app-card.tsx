@@ -1,10 +1,11 @@
-import { RefreshCw, Scale, Star } from "lucide-react";
+import Link from "next/link";
+import { Box, Database, Scale, Star } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import type { DirectoryApp } from "@/lib/apps";
 import { CategoryIcon } from "../category-icon";
 
 export function getRamTier(app: DirectoryApp) {
-  const ram = app.ram_recommended_mb;
+  const ram = app.ram_mb;
 
   if (ram === null) {
     return "unknown";
@@ -26,83 +27,128 @@ export function getRamTier(app: DirectoryApp) {
 }
 
 export function getStorageTier(app: DirectoryApp) {
-  const categorySlugs = new Set(app.categories.map((category) => category.slug));
-
-  if (categorySlugs.has("media")) {
-    return "very high";
-  }
-
-  if (categorySlugs.has("photos") || categorySlugs.has("cloud-workspace")) {
-    return "high";
-  }
-
-  if (categorySlugs.has("documents") || categorySlugs.has("development-tools")) {
-    return "medium";
-  }
-
-  if (
-    categorySlugs.has("monitoring") ||
-    categorySlugs.has("password-managers") ||
-    categorySlugs.has("home-automation")
-  ) {
-    return "low";
-  }
-
-  if (categorySlugs.has("dns")) {
-    return "tiny";
-  }
-
-  return "depends";
+  return app.storage_profile;
 }
 
 export function hasMobileApp(app: DirectoryApp) {
-  return app.supported_platforms.includes("ios") || app.supported_platforms.includes("android");
+  return app.platforms.includes("ios") || app.platforms.includes("android");
 }
 
-function formatStars(value: number | null) {
+export function formatStars(value: number | null) {
   if (value === null) {
-    return "unknown stars";
+    return "unknown";
   }
 
-  const formatted = new Intl.NumberFormat("en", {
+  return new Intl.NumberFormat("en", {
     maximumFractionDigits: 1,
     notation: value > 9999 ? "compact" : "standard",
-  }).format(value);
-
-  return `${formatted} stars`;
-}
-
-function formatUpdatedDate(value: Date | null) {
-  if (!value) {
-    return "not checked";
-  }
-
-  return new Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
   }).format(value);
 }
 
 function maintenanceLabel(app: DirectoryApp) {
-  if (app.actively_maintained) {
-    return "active";
-  }
-
-  return app.maintenance_status?.replaceAll("_", " ") ?? "unknown";
+  return app.maintenance_status.replaceAll("_", " ");
 }
 
-export function DirectoryAppCard({ app }: { app: DirectoryApp }) {
-  const updatedAt = app.github_last_commit_at ?? app.github_latest_release_at;
+const generatedIconColors = [
+  "#2563eb",
+  "#059669",
+  "#dc2626",
+  "#7c3aed",
+  "#ca8a04",
+  "#0891b2",
+  "#be123c",
+  "#4b5563",
+];
+
+function hashText(value: string) {
+  return [...value].reduce((total, character) => total + character.charCodeAt(0), 0);
+}
+
+function iconLabel(name: string) {
+  const words = name.match(/[A-Za-z0-9]+/g) ?? [name];
+  const label = words.length > 1
+    ? `${words[0]?.[0] ?? ""}${words[1]?.[0] ?? ""}`
+    : (words[0] ?? name).slice(0, 2);
+
+  return label.toUpperCase();
+}
+
+function generatedIconUrl(app: DirectoryApp) {
+  const color = generatedIconColors[hashText(app.slug) % generatedIconColors.length];
+  const label = iconLabel(app.name);
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <rect width="64" height="64" rx="14" fill="${color}"/>
+      <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="ui-sans-serif, system-ui, sans-serif" font-size="23" font-weight="700">${label}</text>
+    </svg>
+  `.trim();
+
+  return `data:image/svg+xml,${encodeURIComponent(svg)}`;
+}
+
+export function getDirectoryAppIconUrl(app: DirectoryApp) {
+  return app.icon_url ?? generatedIconUrl(app);
+}
+
+export function DirectoryAppIcon({
+  app,
+  className,
+}: {
+  app: DirectoryApp;
+  className: string;
+}) {
+  const iconUrl = getDirectoryAppIconUrl(app);
+  const initial = app.name.slice(0, 1);
+
+  if (!iconUrl) {
+    return (
+      <span className={className} aria-hidden="true">
+        {initial}
+      </span>
+    );
+  }
+
+  return (
+    <span className={className} aria-hidden="true" data-app-icon>
+      <img
+        alt=""
+        loading="lazy"
+        onError={(event) => {
+          const image = event.currentTarget;
+          const fallback = generatedIconUrl(app);
+
+          if (fallback && image.src !== fallback) {
+            image.src = fallback;
+            return;
+          }
+
+          image.closest("[data-app-icon]")?.setAttribute("data-image-failed", "true");
+        }}
+        src={iconUrl}
+      />
+      <span className="app-icon-letter">{initial}</span>
+    </span>
+  );
+}
+
+export function DirectoryAppCard({
+  app,
+  href,
+  onSelect,
+  selected = false,
+}: {
+  app: DirectoryApp;
+  href?: string;
+  onSelect?: (slug: string) => void;
+  selected?: boolean;
+}) {
   const visibleCategories = app.categories.slice(0, 2);
   const extraCategoryCount = Math.max(app.categories.length - visibleCategories.length, 0);
 
-  return (
-    <article className="directory-card">
+  const content = (
+    <>
       <div className="directory-card-top">
-        <span className="directory-card-icon" aria-hidden="true">
-          {app.icon_url ? <img alt="" src={app.icon_url} /> : app.name.slice(0, 1)}
-        </span>
+        <DirectoryAppIcon app={app} className="directory-card-icon" />
         <div>
           <div className="directory-card-title-row">
             <h2>{app.name}</h2>
@@ -110,13 +156,12 @@ export function DirectoryAppCard({ app }: { app: DirectoryApp }) {
               {maintenanceLabel(app)}
             </span>
           </div>
-          <p>{app.description}</p>
+          <p>{app.summary}</p>
         </div>
       </div>
 
       <div className="directory-meta-list" aria-label="App metadata">
         <div className="meta-category-row">
-          <span className="meta-label">category:</span>
           {visibleCategories.length > 0 ? (
             <>
               {visibleCategories.map((category) => (
@@ -140,28 +185,62 @@ export function DirectoryAppCard({ app }: { app: DirectoryApp }) {
         </span>
         <span>
           <Scale aria-hidden="true" className="meta-icon license" size={16} strokeWidth={2.2} />
-          {app.license ?? "license unknown"}
-        </span>
-        <span>
-          <RefreshCw aria-hidden="true" className="meta-icon updated" size={16} strokeWidth={2.2} />
-          updated: {formatUpdatedDate(updatedAt)}
+          {app.license ?? "unknown"}
         </span>
       </div>
 
       <div className="directory-card-stats">
         <span>
           <strong>{getRamTier(app)}</strong>
-          RAM
+          ram
         </span>
         <span>
           <strong>{getStorageTier(app)}</strong>
           storage
         </span>
         <span>
-          <strong>{app.backup_difficulty?.replaceAll("_", " ") ?? "unknown"}</strong>
-          setup care
+          <strong>{app.compose_support ? "compose" : app.docker_support}</strong>
+          deploy
         </span>
       </div>
-    </article>
+
+      <div className="directory-card-flags" aria-hidden="true">
+        {app.requires_database ? (
+          <span>
+            <Database size={14} />
+            db
+          </span>
+        ) : null}
+        {app.docker_support !== "none" ? (
+          <span>
+            <Box size={14} />
+            docker
+          </span>
+        ) : null}
+      </div>
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link
+        aria-current={selected ? "true" : undefined}
+        className="directory-card"
+        href={href}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <button
+      aria-pressed={selected}
+      className="directory-card"
+      onClick={() => onSelect?.(app.slug)}
+      type="button"
+    >
+      {content}
+    </button>
   );
 }

@@ -1,0 +1,1813 @@
+{
+  "apps": [
+    {
+      "slug": "immich",
+      "name": "Immich",
+      "summary": "Photo and video backup app for building a private Google Photos-style library.",
+      "icon_url": "/app-icons/immich.png",
+      "website_url": "https://immich.app",
+      "repository_url": "https://github.com/immich-app/immich",
+      "docs_url": "https://docs.immich.app/",
+      "install_docs_url": "https://docs.immich.app/install/docker-compose/",
+      "docker_url": "https://github.com/immich-app/immich/pkgs/container/immich-server",
+      "license": "AGPL-3.0",
+      "publisher_name": "Immich",
+      "publisher_type": "community",
+      "publisher_url": "https://immich.app",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "postgres"
+      ],
+      "ram_mb": 4096,
+      "storage_profile": "high",
+      "platforms": [
+        "web",
+        "ios",
+        "android"
+      ],
+      "categories": [
+        "photos"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "immich",
+        "source_url": "https://immich.app"
+      }
+    },
+    {
+      "slug": "excalidraw",
+      "name": "Excalidraw",
+      "summary": "Sketch-style whiteboard for diagrams, notes, and quick visual planning.",
+      "icon_url": "/app-icons/excalidraw.png",
+      "website_url": "https://excalidraw.com",
+      "repository_url": "https://github.com/excalidraw/excalidraw",
+      "docs_url": "https://docs.excalidraw.com/",
+      "install_docs_url": "https://github.com/excalidraw/excalidraw/blob/master/docker-compose.yml",
+      "docker_url": "https://hub.docker.com/r/excalidraw/excalidraw",
+      "license": "MIT",
+      "publisher_name": "Excalidraw",
+      "publisher_type": "company",
+      "publisher_url": "https://excalidraw.com",
+      "maintenance_status": "active",
+      "docker_support": "community",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "low",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "whiteboards"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "excalidraw",
+        "source_url": "https://excalidraw.com"
+      }
+    },
+    {
+      "slug": "home-assistant",
+      "name": "Home Assistant",
+      "summary": "Local home automation hub for devices, scenes, dashboards, and routines.",
+      "icon_url": "/app-icons/home-assistant.png",
+      "website_url": "https://www.home-assistant.io",
+      "repository_url": "https://github.com/home-assistant/core",
+      "docs_url": "https://www.home-assistant.io/docs/",
+      "install_docs_url": "https://www.home-assistant.io/installation/",
+      "docker_url": "https://hub.docker.com/r/homeassistant/home-assistant",
+      "license": "Apache-2.0",
+      "publisher_name": "Open Home Foundation",
+      "publisher_type": "foundation",
+      "publisher_url": "https://www.openhomefoundation.org",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 2048,
+      "storage_profile": "medium",
+      "platforms": [
+        "web",
+        "ios",
+        "android"
+      ],
+      "categories": [
+        "home-automation"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "home-assistant",
+        "source_url": "https://www.home-assistant.io"
+      }
+    },
+    {
+      "slug": "linkwarden",
+      "name": "Linkwarden",
+      "summary": "Bookmark manager for saving pages, preserving copies, and organizing research links.",
+      "icon_url": "/app-icons/linkwarden.png",
+      "website_url": "https://linkwarden.app",
+      "repository_url": "https://github.com/linkwarden/linkwarden",
+      "docs_url": "https://docs.linkwarden.app",
+      "install_docs_url": "https://docs.linkwarden.app/self-hosting/installation",
+      "docker_url": "https://github.com/linkwarden/linkwarden/pkgs/container/linkwarden",
+      "license": "AGPL-3.0",
+      "publisher_name": "Linkwarden",
+      "publisher_type": "company",
+      "publisher_url": "https://linkwarden.app",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "postgres"
+      ],
+      "ram_mb": 2048,
+      "storage_profile": "medium",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "bookmarks"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "linkwarden",
+        "source_url": "https://linkwarden.app"
+      }
+    },
+    {
+      "slug": "uptime-kuma",
+      "name": "Uptime Kuma",
+      "summary": "Status monitor for tracking websites, APIs, containers, and local services.",
+      "icon_url": "/app-icons/uptime-kuma.png",
+      "website_url": "https://uptime.kuma.pet",
+      "repository_url": "https://github.com/louislam/uptime-kuma",
+      "docs_url": "https://github.com/louislam/uptime-kuma/wiki",
+      "install_docs_url": "https://github.com/louislam/uptime-kuma/wiki/%F0%9F%94%A7-How-to-Install",
+      "docker_url": "https://hub.docker.com/r/louislam/uptime-kuma",
+      "license": "MIT",
+      "publisher_name": "Louis Lam",
+      "publisher_type": "individual",
+      "publisher_url": "https://github.com/louislam",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "low",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "monitoring"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "uptime-kuma",
+        "source_url": "https://uptime.kuma.pet"
+      }
+    },
+    {
+      "slug": "pi-hole",
+      "name": "Pi-hole",
+      "summary": "Network DNS blocker for filtering ads and trackers before they reach devices.",
+      "icon_url": "/app-icons/pi-hole.png",
+      "website_url": "https://pi-hole.net",
+      "repository_url": "https://github.com/pi-hole/pi-hole",
+      "docs_url": "https://docs.pi-hole.net",
+      "install_docs_url": "https://docs.pi-hole.net/main/basic-install/",
+      "docker_url": "https://hub.docker.com/r/pihole/pihole",
+      "license": "EUPL-1.2",
+      "publisher_name": "Pi-hole",
+      "publisher_type": "community",
+      "publisher_url": "https://pi-hole.net",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "tiny",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "dns"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "pi-hole",
+        "source_url": "https://pi-hole.net"
+      }
+    },
+    {
+      "slug": "nextcloud",
+      "name": "Nextcloud",
+      "summary": "File sync and collaboration suite for documents, calendars, contacts, and sharing.",
+      "icon_url": "/app-icons/nextcloud.png",
+      "website_url": "https://nextcloud.com",
+      "repository_url": "https://github.com/nextcloud/server",
+      "docs_url": "https://docs.nextcloud.com/server/latest/admin_manual/",
+      "install_docs_url": "https://docs.nextcloud.com/server/latest/admin_manual/installation/",
+      "docker_url": "https://hub.docker.com/_/nextcloud",
+      "license": "AGPL-3.0",
+      "publisher_name": "Nextcloud GmbH",
+      "publisher_type": "company",
+      "publisher_url": "https://nextcloud.com",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "postgres",
+        "mysql",
+        "mariadb"
+      ],
+      "ram_mb": 2048,
+      "storage_profile": "high",
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "desktop"
+      ],
+      "categories": [
+        "files",
+        "collaboration"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "nextcloud",
+        "source_url": "https://nextcloud.com"
+      }
+    },
+    {
+      "slug": "jellyfin",
+      "name": "Jellyfin",
+      "summary": "Media server for streaming movies, shows, music, and live TV across devices.",
+      "icon_url": "/app-icons/jellyfin.png",
+      "website_url": "https://jellyfin.org",
+      "repository_url": "https://github.com/jellyfin/jellyfin",
+      "docs_url": "https://jellyfin.org/docs/",
+      "install_docs_url": "https://jellyfin.org/docs/general/installation/",
+      "docker_url": "https://hub.docker.com/r/jellyfin/jellyfin",
+      "license": "GPL-2.0",
+      "publisher_name": "Jellyfin",
+      "publisher_type": "community",
+      "publisher_url": "https://jellyfin.org",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 2048,
+      "storage_profile": "high",
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "tv",
+        "desktop"
+      ],
+      "categories": [
+        "media"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "jellyfin",
+        "source_url": "https://jellyfin.org"
+      }
+    },
+    {
+      "slug": "vaultwarden",
+      "name": "Vaultwarden",
+      "summary": "Lightweight Bitwarden-compatible password server for personal and team vaults.",
+      "icon_url": "/app-icons/vaultwarden.png",
+      "website_url": "https://github.com/dani-garcia/vaultwarden",
+      "repository_url": "https://github.com/dani-garcia/vaultwarden",
+      "docs_url": "https://github.com/dani-garcia/vaultwarden/wiki",
+      "install_docs_url": "https://github.com/dani-garcia/vaultwarden/wiki/Using-Docker-Compose",
+      "docker_url": "https://hub.docker.com/r/vaultwarden/server",
+      "license": "AGPL-3.0",
+      "publisher_name": "Daniel Garcia",
+      "publisher_type": "individual",
+      "publisher_url": "https://github.com/dani-garcia",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "low",
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "desktop"
+      ],
+      "categories": [
+        "passwords"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "vaultwarden",
+        "source_url": "https://github.com/dani-garcia/vaultwarden"
+      }
+    },
+    {
+      "slug": "gitea",
+      "name": "Gitea",
+      "summary": "Git hosting app for repositories, pull requests, issues, and package registries.",
+      "icon_url": "/app-icons/gitea.png",
+      "website_url": "https://about.gitea.com",
+      "repository_url": "https://github.com/go-gitea/gitea",
+      "docs_url": "https://docs.gitea.com",
+      "install_docs_url": "https://docs.gitea.com/installation/install-with-docker",
+      "docker_url": "https://hub.docker.com/r/gitea/gitea",
+      "license": "MIT",
+      "publisher_name": "Gitea",
+      "publisher_type": "community",
+      "publisher_url": "https://about.gitea.com",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "sqlite",
+        "postgres",
+        "mysql",
+        "mariadb"
+      ],
+      "ram_mb": 1024,
+      "storage_profile": "medium",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "developer-tools",
+        "git"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "gitea",
+        "source_url": "https://about.gitea.com"
+      }
+    },
+    {
+      "slug": "forgejo",
+      "name": "Forgejo",
+      "summary": "Community Git forge for repositories, code review, issues, and project tracking.",
+      "icon_url": "/app-icons/forgejo.png",
+      "website_url": "https://forgejo.org",
+      "repository_url": "https://codeberg.org/forgejo/forgejo",
+      "docs_url": "https://forgejo.org/docs/latest/",
+      "install_docs_url": "https://forgejo.org/docs/latest/admin/installation/docker/",
+      "docker_url": "https://codeberg.org/forgejo/forgejo/packages",
+      "license": "MIT",
+      "publisher_name": "Forgejo",
+      "publisher_type": "community",
+      "publisher_url": "https://forgejo.org",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "sqlite",
+        "postgres",
+        "mysql"
+      ],
+      "ram_mb": 1024,
+      "storage_profile": "medium",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "developer-tools",
+        "git"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "forgejo",
+        "source_url": "https://forgejo.org"
+      }
+    },
+    {
+      "slug": "gitlab",
+      "name": "GitLab",
+      "summary": "DevOps suite for Git repositories, merge requests, CI pipelines, and registries.",
+      "icon_url": "/app-icons/gitlab.png",
+      "website_url": "https://about.gitlab.com",
+      "repository_url": "https://gitlab.com/gitlab-org/gitlab",
+      "docs_url": "https://docs.gitlab.com",
+      "install_docs_url": "https://docs.gitlab.com/ee/install/docker.html",
+      "docker_url": "https://hub.docker.com/r/gitlab/gitlab-ce",
+      "license": "MIT",
+      "publisher_name": "GitLab Inc.",
+      "publisher_type": "company",
+      "publisher_url": "https://about.gitlab.com",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "postgres"
+      ],
+      "ram_mb": 4096,
+      "storage_profile": "high",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "developer-tools",
+        "git"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "gitlab",
+        "source_url": "https://about.gitlab.com"
+      }
+    },
+    {
+      "slug": "grafana",
+      "name": "Grafana",
+      "summary": "Observability dashboard for visualizing metrics, logs, traces, and alerts.",
+      "icon_url": "/app-icons/grafana.png",
+      "website_url": "https://grafana.com/oss/grafana/",
+      "repository_url": "https://github.com/grafana/grafana",
+      "docs_url": "https://grafana.com/docs/grafana/latest/",
+      "install_docs_url": "https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/",
+      "docker_url": "https://hub.docker.com/r/grafana/grafana",
+      "license": "AGPL-3.0",
+      "publisher_name": "Grafana Labs",
+      "publisher_type": "company",
+      "publisher_url": "https://grafana.com",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 1024,
+      "storage_profile": "medium",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "monitoring",
+        "dashboards"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "grafana",
+        "source_url": "https://grafana.com/oss/grafana/"
+      }
+    },
+    {
+      "slug": "prometheus",
+      "name": "Prometheus",
+      "summary": "Metrics collection system for scraping targets, storing time series, and alerting.",
+      "icon_url": "/app-icons/prometheus.png",
+      "website_url": "https://prometheus.io",
+      "repository_url": "https://github.com/prometheus/prometheus",
+      "docs_url": "https://prometheus.io/docs/introduction/overview/",
+      "install_docs_url": "https://prometheus.io/docs/prometheus/latest/installation/",
+      "docker_url": "https://hub.docker.com/r/prom/prometheus",
+      "license": "Apache-2.0",
+      "publisher_name": "Cloud Native Computing Foundation",
+      "publisher_type": "foundation",
+      "publisher_url": "https://www.cncf.io",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 1024,
+      "storage_profile": "depends",
+      "platforms": [
+        "web",
+        "cli"
+      ],
+      "categories": [
+        "monitoring"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "prometheus",
+        "source_url": "https://prometheus.io"
+      }
+    },
+    {
+      "slug": "netdata",
+      "name": "Netdata",
+      "summary": "Real-time monitoring agent for server metrics, health checks, and alerts.",
+      "icon_url": "/app-icons/netdata.png",
+      "website_url": "https://www.netdata.cloud",
+      "repository_url": "https://github.com/netdata/netdata",
+      "docs_url": "https://learn.netdata.cloud/docs",
+      "install_docs_url": "https://learn.netdata.cloud/docs/netdata-agent/installation/docker",
+      "docker_url": "https://hub.docker.com/r/netdata/netdata",
+      "license": "GPL-3.0",
+      "publisher_name": "Netdata",
+      "publisher_type": "company",
+      "publisher_url": "https://www.netdata.cloud",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "medium",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "monitoring"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "netdata",
+        "source_url": "https://www.netdata.cloud"
+      }
+    },
+    {
+      "slug": "nginx-proxy-manager",
+      "name": "Nginx Proxy Manager",
+      "summary": "Web UI for managing Nginx reverse proxies, SSL certificates, and hosts.",
+      "icon_url": "/app-icons/nginx-proxy-manager.png",
+      "website_url": "https://nginxproxymanager.com",
+      "repository_url": "https://github.com/NginxProxyManager/nginx-proxy-manager",
+      "docs_url": "https://nginxproxymanager.com/guide/",
+      "install_docs_url": "https://nginxproxymanager.com/setup/",
+      "docker_url": "https://hub.docker.com/r/jc21/nginx-proxy-manager",
+      "license": "MIT",
+      "publisher_name": "Nginx Proxy Manager",
+      "publisher_type": "community",
+      "publisher_url": "https://nginxproxymanager.com",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "sqlite",
+        "mysql",
+        "mariadb"
+      ],
+      "ram_mb": 512,
+      "storage_profile": "low",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "networking",
+        "reverse-proxy"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "nginx-proxy-manager",
+        "source_url": "https://nginxproxymanager.com"
+      }
+    },
+    {
+      "slug": "traefik",
+      "name": "Traefik",
+      "summary": "Cloud-native reverse proxy for routing HTTP, TCP, and container traffic.",
+      "icon_url": "/app-icons/traefik.png",
+      "website_url": "https://traefik.io/traefik",
+      "repository_url": "https://github.com/traefik/traefik",
+      "docs_url": "https://doc.traefik.io/traefik/",
+      "install_docs_url": "https://doc.traefik.io/traefik/getting-started/quick-start/",
+      "docker_url": "https://hub.docker.com/_/traefik",
+      "license": "MIT",
+      "publisher_name": "Traefik Labs",
+      "publisher_type": "company",
+      "publisher_url": "https://traefik.io",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "tiny",
+      "platforms": [
+        "web",
+        "cli"
+      ],
+      "categories": [
+        "networking",
+        "reverse-proxy"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "traefik",
+        "source_url": "https://traefik.io/traefik"
+      }
+    },
+    {
+      "slug": "caddy",
+      "name": "Caddy",
+      "summary": "Web server and reverse proxy with automatic HTTPS and simple configuration.",
+      "icon_url": "/app-icons/caddy.png",
+      "website_url": "https://caddyserver.com",
+      "repository_url": "https://github.com/caddyserver/caddy",
+      "docs_url": "https://caddyserver.com/docs/",
+      "install_docs_url": "https://caddyserver.com/docs/running#docker-compose",
+      "docker_url": "https://hub.docker.com/_/caddy",
+      "license": "Apache-2.0",
+      "publisher_name": "Caddy",
+      "publisher_type": "community",
+      "publisher_url": "https://caddyserver.com",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 256,
+      "storage_profile": "tiny",
+      "platforms": [
+        "cli"
+      ],
+      "categories": [
+        "networking",
+        "reverse-proxy"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "caddy",
+        "source_url": "https://caddyserver.com"
+      }
+    },
+    {
+      "slug": "authelia",
+      "name": "Authelia",
+      "summary": "Authentication gateway for adding login and two-factor checks before apps.",
+      "icon_url": "/app-icons/authelia.png",
+      "website_url": "https://www.authelia.com",
+      "repository_url": "https://github.com/authelia/authelia",
+      "docs_url": "https://www.authelia.com/overview/prologue/introduction/",
+      "install_docs_url": "https://www.authelia.com/integration/deployment/docker/",
+      "docker_url": "https://hub.docker.com/r/authelia/authelia",
+      "license": "Apache-2.0",
+      "publisher_name": "Authelia",
+      "publisher_type": "community",
+      "publisher_url": "https://www.authelia.com",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "low",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "security",
+        "identity"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "authelia",
+        "source_url": "https://www.authelia.com"
+      }
+    },
+    {
+      "slug": "authentik",
+      "name": "Authentik",
+      "summary": "Identity provider for SSO, OAuth, SAML, LDAP, and access policies.",
+      "icon_url": "/app-icons/authentik.png",
+      "website_url": "https://goauthentik.io",
+      "repository_url": "https://github.com/goauthentik/authentik",
+      "docs_url": "https://docs.goauthentik.io/docs/",
+      "install_docs_url": "https://docs.goauthentik.io/docs/install-config/install/docker-compose",
+      "docker_url": "https://github.com/goauthentik/authentik/pkgs/container/server",
+      "license": "MIT",
+      "publisher_name": "Authentik Security",
+      "publisher_type": "company",
+      "publisher_url": "https://goauthentik.io",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "postgres",
+        "redis"
+      ],
+      "ram_mb": 2048,
+      "storage_profile": "medium",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "security",
+        "identity"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "authentik",
+        "source_url": "https://goauthentik.io"
+      }
+    },
+    {
+      "slug": "keycloak",
+      "name": "Keycloak",
+      "summary": "Identity and access manager for SSO, user federation, and application login.",
+      "icon_url": "/app-icons/keycloak.png",
+      "website_url": "https://www.keycloak.org",
+      "repository_url": "https://github.com/keycloak/keycloak",
+      "docs_url": "https://www.keycloak.org/documentation",
+      "install_docs_url": "https://www.keycloak.org/server/containers",
+      "docker_url": "https://quay.io/repository/keycloak/keycloak",
+      "license": "Apache-2.0",
+      "publisher_name": "Keycloak",
+      "publisher_type": "community",
+      "publisher_url": "https://www.keycloak.org",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "postgres",
+        "mysql",
+        "mariadb"
+      ],
+      "ram_mb": 2048,
+      "storage_profile": "medium",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "security",
+        "identity"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "keycloak",
+        "source_url": "https://www.keycloak.org"
+      }
+    },
+    {
+      "slug": "paperless-ngx",
+      "name": "Paperless-ngx",
+      "summary": "Document organizer for scanning, OCR, tagging, and searching household paperwork.",
+      "icon_url": "/app-icons/paperless-ngx.png",
+      "website_url": "https://docs.paperless-ngx.com",
+      "repository_url": "https://github.com/paperless-ngx/paperless-ngx",
+      "docs_url": "https://docs.paperless-ngx.com",
+      "install_docs_url": "https://docs.paperless-ngx.com/setup/",
+      "docker_url": "https://hub.docker.com/r/paperlessngx/paperless-ngx",
+      "license": "GPL-3.0",
+      "publisher_name": "Paperless-ngx",
+      "publisher_type": "community",
+      "publisher_url": "https://docs.paperless-ngx.com",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "postgres",
+        "sqlite",
+        "mariadb"
+      ],
+      "ram_mb": 2048,
+      "storage_profile": "high",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "documents"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "paperless-ngx",
+        "source_url": "https://docs.paperless-ngx.com"
+      }
+    },
+    {
+      "slug": "mealie",
+      "name": "Mealie",
+      "summary": "Recipe manager for meal planning, shopping lists, and household cooking notes.",
+      "icon_url": "/app-icons/mealie.png",
+      "website_url": "https://mealie.io",
+      "repository_url": "https://github.com/mealie-recipes/mealie",
+      "docs_url": "https://docs.mealie.io",
+      "install_docs_url": "https://docs.mealie.io/documentation/getting-started/installation/installation-checklist/",
+      "docker_url": "https://hub.docker.com/r/hkotel/mealie",
+      "license": "AGPL-3.0",
+      "publisher_name": "Mealie",
+      "publisher_type": "community",
+      "publisher_url": "https://mealie.io",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "sqlite",
+        "postgres"
+      ],
+      "ram_mb": 1024,
+      "storage_profile": "medium",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "recipes"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "mealie",
+        "source_url": "https://mealie.io"
+      }
+    },
+    {
+      "slug": "actual-budget",
+      "name": "Actual Budget",
+      "summary": "Personal finance app for budgeting, account tracking, and transaction review.",
+      "icon_url": "/app-icons/actual-budget.png",
+      "website_url": "https://actualbudget.org",
+      "repository_url": "https://github.com/actualbudget/actual",
+      "docs_url": "https://actualbudget.org/docs/",
+      "install_docs_url": "https://actualbudget.org/docs/install/",
+      "docker_url": "https://hub.docker.com/r/actualbudget/actual-server",
+      "license": "MIT",
+      "publisher_name": "Actual Budget",
+      "publisher_type": "community",
+      "publisher_url": "https://actualbudget.org",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "low",
+      "platforms": [
+        "web",
+        "desktop"
+      ],
+      "categories": [
+        "finance"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "actual-budget",
+        "source_url": "https://actualbudget.org"
+      }
+    },
+    {
+      "slug": "firefly-iii",
+      "name": "Firefly III",
+      "summary": "Finance manager for tracking accounts, budgets, bills, and spending patterns.",
+      "icon_url": "/app-icons/firefly-iii.png",
+      "website_url": "https://www.firefly-iii.org",
+      "repository_url": "https://github.com/firefly-iii/firefly-iii",
+      "docs_url": "https://docs.firefly-iii.org",
+      "install_docs_url": "https://docs.firefly-iii.org/how-to/firefly-iii/installation/docker/",
+      "docker_url": "https://hub.docker.com/r/fireflyiii/core",
+      "license": "AGPL-3.0",
+      "publisher_name": "Firefly III",
+      "publisher_type": "community",
+      "publisher_url": "https://www.firefly-iii.org",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "mysql",
+        "mariadb",
+        "postgres"
+      ],
+      "ram_mb": 1024,
+      "storage_profile": "medium",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "finance"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "firefly-iii",
+        "source_url": "https://www.firefly-iii.org"
+      }
+    },
+    {
+      "slug": "freshrss",
+      "name": "FreshRSS",
+      "summary": "RSS reader for subscribing to feeds, saving articles, and syncing reading state.",
+      "icon_url": "/app-icons/freshrss.png",
+      "website_url": "https://freshrss.org",
+      "repository_url": "https://github.com/FreshRSS/FreshRSS",
+      "docs_url": "https://freshrss.github.io/FreshRSS/en/",
+      "install_docs_url": "https://freshrss.github.io/FreshRSS/en/admins/10_ServerConfig.html",
+      "docker_url": "https://hub.docker.com/r/freshrss/freshrss",
+      "license": "AGPL-3.0",
+      "publisher_name": "FreshRSS",
+      "publisher_type": "community",
+      "publisher_url": "https://freshrss.org",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "low",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "rss"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "freshrss",
+        "source_url": "https://freshrss.org"
+      }
+    },
+    {
+      "slug": "miniflux",
+      "name": "Miniflux",
+      "summary": "Minimal feed reader for fast RSS reading, filtering, and API integrations.",
+      "icon_url": "/app-icons/miniflux.png",
+      "website_url": "https://miniflux.app",
+      "repository_url": "https://github.com/miniflux/v2",
+      "docs_url": "https://miniflux.app/docs/",
+      "install_docs_url": "https://miniflux.app/docs/installation.html",
+      "docker_url": "https://hub.docker.com/r/miniflux/miniflux",
+      "license": "Apache-2.0",
+      "publisher_name": "Miniflux",
+      "publisher_type": "community",
+      "publisher_url": "https://miniflux.app",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "postgres"
+      ],
+      "ram_mb": 256,
+      "storage_profile": "low",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "rss"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "miniflux",
+        "source_url": "https://miniflux.app"
+      }
+    },
+    {
+      "slug": "wallabag",
+      "name": "Wallabag",
+      "summary": "Read-it-later app for saving articles, extracting text, and organizing reading.",
+      "icon_url": "/app-icons/wallabag.png",
+      "website_url": "https://wallabag.org",
+      "repository_url": "https://github.com/wallabag/wallabag",
+      "docs_url": "https://doc.wallabag.org",
+      "install_docs_url": "https://doc.wallabag.org/admin/installation/installation/",
+      "docker_url": "https://hub.docker.com/r/wallabag/wallabag",
+      "license": "MIT",
+      "publisher_name": "Wallabag",
+      "publisher_type": "community",
+      "publisher_url": "https://wallabag.org",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "sqlite",
+        "mysql",
+        "postgres"
+      ],
+      "ram_mb": 1024,
+      "storage_profile": "medium",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "read-it-later"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "wallabag",
+        "source_url": "https://wallabag.org"
+      }
+    },
+    {
+      "slug": "joplin-server",
+      "name": "Joplin Server",
+      "summary": "Sync server for Joplin notes, notebooks, attachments, and shared data.",
+      "icon_url": "/app-icons/joplin-server.png",
+      "website_url": "https://joplinapp.org",
+      "repository_url": "https://github.com/laurent22/joplin",
+      "docs_url": "https://joplinapp.org/help/",
+      "install_docs_url": "https://github.com/laurent22/joplin/tree/dev/packages/server",
+      "docker_url": "https://hub.docker.com/r/joplin/server",
+      "license": "AGPL-3.0",
+      "publisher_name": "Joplin",
+      "publisher_type": "community",
+      "publisher_url": "https://joplinapp.org",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "postgres"
+      ],
+      "ram_mb": 1024,
+      "storage_profile": "medium",
+      "platforms": [
+        "web",
+        "desktop",
+        "ios",
+        "android"
+      ],
+      "categories": [
+        "notes"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "joplin-server",
+        "source_url": "https://joplinapp.org"
+      }
+    },
+    {
+      "slug": "syncthing",
+      "name": "Syncthing",
+      "summary": "Peer-to-peer file sync tool for keeping folders aligned across devices.",
+      "icon_url": "/app-icons/syncthing.png",
+      "website_url": "https://syncthing.net",
+      "repository_url": "https://github.com/syncthing/syncthing",
+      "docs_url": "https://docs.syncthing.net",
+      "install_docs_url": "https://docs.syncthing.net/intro/getting-started.html",
+      "docker_url": "https://hub.docker.com/r/syncthing/syncthing",
+      "license": "MPL-2.0",
+      "publisher_name": "Syncthing",
+      "publisher_type": "community",
+      "publisher_url": "https://syncthing.net",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "depends",
+      "platforms": [
+        "web",
+        "desktop",
+        "android",
+        "cli"
+      ],
+      "categories": [
+        "files",
+        "sync"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "syncthing",
+        "source_url": "https://syncthing.net"
+      }
+    },
+    {
+      "slug": "seafile",
+      "name": "Seafile",
+      "summary": "File sync and sharing server for libraries, teams, and document access.",
+      "icon_url": "/app-icons/seafile.png",
+      "website_url": "https://www.seafile.com",
+      "repository_url": "https://github.com/haiwen/seafile",
+      "docs_url": "https://manual.seafile.com",
+      "install_docs_url": "https://manual.seafile.com/latest/setup/setup_ce_by_docker/",
+      "docker_url": "https://hub.docker.com/r/seafileltd/seafile-mc",
+      "license": "GPL-2.0",
+      "publisher_name": "Seafile",
+      "publisher_type": "company",
+      "publisher_url": "https://www.seafile.com",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": true,
+      "database_types": [
+        "mysql",
+        "mariadb"
+      ],
+      "ram_mb": 2048,
+      "storage_profile": "high",
+      "platforms": [
+        "web",
+        "desktop",
+        "ios",
+        "android"
+      ],
+      "categories": [
+        "files",
+        "sync"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "seafile",
+        "source_url": "https://www.seafile.com"
+      }
+    },
+    {
+      "slug": "filebrowser",
+      "name": "File Browser",
+      "summary": "Browser-based file manager for uploading, moving, sharing, and managing files.",
+      "icon_url": "/app-icons/filebrowser.png",
+      "website_url": "https://filebrowser.org",
+      "repository_url": "https://github.com/filebrowser/filebrowser",
+      "docs_url": "https://filebrowser.org",
+      "install_docs_url": "https://filebrowser.org/installation",
+      "docker_url": "https://hub.docker.com/r/filebrowser/filebrowser",
+      "license": "Apache-2.0",
+      "publisher_name": "File Browser",
+      "publisher_type": "community",
+      "publisher_url": "https://filebrowser.org",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 256,
+      "storage_profile": "depends",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "files"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "filebrowser",
+        "source_url": "https://filebrowser.org"
+      }
+    },
+    {
+      "slug": "gotify",
+      "name": "Gotify",
+      "summary": "Notification server for sending app and automation alerts to clients.",
+      "icon_url": "/app-icons/gotify.png",
+      "website_url": "https://gotify.net",
+      "repository_url": "https://github.com/gotify/server",
+      "docs_url": "https://gotify.net/docs/",
+      "install_docs_url": "https://gotify.net/docs/install",
+      "docker_url": "https://hub.docker.com/r/gotify/server",
+      "license": "MIT",
+      "publisher_name": "Gotify",
+      "publisher_type": "community",
+      "publisher_url": "https://gotify.net",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 256,
+      "storage_profile": "tiny",
+      "platforms": [
+        "web",
+        "android"
+      ],
+      "categories": [
+        "notifications"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "gotify",
+        "source_url": "https://gotify.net"
+      }
+    },
+    {
+      "slug": "ntfy",
+      "name": "ntfy",
+      "summary": "Push notification service for sending alerts over HTTP topics and clients.",
+      "icon_url": "/app-icons/ntfy.png",
+      "website_url": "https://ntfy.sh",
+      "repository_url": "https://github.com/binwiederhier/ntfy",
+      "docs_url": "https://docs.ntfy.sh",
+      "install_docs_url": "https://docs.ntfy.sh/install/",
+      "docker_url": "https://hub.docker.com/r/binwiederhier/ntfy",
+      "license": "Apache-2.0",
+      "publisher_name": "ntfy",
+      "publisher_type": "community",
+      "publisher_url": "https://ntfy.sh",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 256,
+      "storage_profile": "low",
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "cli"
+      ],
+      "categories": [
+        "notifications"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "ntfy",
+        "source_url": "https://ntfy.sh"
+      }
+    },
+    {
+      "slug": "adguard-home",
+      "name": "AdGuard Home",
+      "summary": "Network DNS filter for blocking ads, trackers, and unsafe domains.",
+      "icon_url": "/app-icons/adguard-home.png",
+      "website_url": "https://adguard.com/en/adguard-home/overview.html",
+      "repository_url": "https://github.com/AdguardTeam/AdGuardHome",
+      "docs_url": "https://github.com/AdguardTeam/AdGuardHome/wiki",
+      "install_docs_url": "https://github.com/AdguardTeam/AdGuardHome/wiki/Docker",
+      "docker_url": "https://hub.docker.com/r/adguard/adguardhome",
+      "license": "GPL-3.0",
+      "publisher_name": "AdGuard",
+      "publisher_type": "company",
+      "publisher_url": "https://adguard.com",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "low",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "dns"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "adguard-home",
+        "source_url": "https://adguard.com/en/adguard-home/overview.html"
+      }
+    },
+    {
+      "slug": "wg-easy",
+      "name": "wg-easy",
+      "summary": "WireGuard manager for creating VPN clients and managing peer access.",
+      "icon_url": "/app-icons/wg-easy.png",
+      "website_url": "https://github.com/wg-easy/wg-easy",
+      "repository_url": "https://github.com/wg-easy/wg-easy",
+      "docs_url": "https://github.com/wg-easy/wg-easy/wiki",
+      "install_docs_url": "https://github.com/wg-easy/wg-easy#installation",
+      "docker_url": "https://github.com/wg-easy/wg-easy/pkgs/container/wg-easy",
+      "license": "AGPL-3.0",
+      "publisher_name": "wg-easy",
+      "publisher_type": "community",
+      "publisher_url": "https://github.com/wg-easy",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "low",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "vpn",
+        "networking"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "wg-easy",
+        "source_url": "https://github.com/wg-easy/wg-easy"
+      }
+    },
+    {
+      "slug": "headscale",
+      "name": "Headscale",
+      "summary": "Control server for running a Tailscale-compatible private network.",
+      "icon_url": "/app-icons/headscale.png",
+      "website_url": "https://headscale.net",
+      "repository_url": "https://github.com/juanfont/headscale",
+      "docs_url": "https://headscale.net/stable/",
+      "install_docs_url": "https://headscale.net/stable/setup/install/container/",
+      "docker_url": "https://github.com/juanfont/headscale/pkgs/container/headscale",
+      "license": "BSD-3-Clause",
+      "publisher_name": "Headscale",
+      "publisher_type": "community",
+      "publisher_url": "https://headscale.net",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "low",
+      "platforms": [
+        "cli"
+      ],
+      "categories": [
+        "vpn",
+        "networking"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "headscale",
+        "source_url": "https://headscale.net"
+      }
+    },
+    {
+      "slug": "photoprism",
+      "name": "PhotoPrism",
+      "summary": "Photo library app for browsing, tagging, searching, and organizing image collections.",
+      "icon_url": "/app-icons/photoprism.png",
+      "website_url": "https://www.photoprism.app",
+      "repository_url": "https://github.com/photoprism/photoprism",
+      "docs_url": "https://docs.photoprism.app",
+      "install_docs_url": "https://docs.photoprism.app/getting-started/docker-compose/",
+      "docker_url": "https://hub.docker.com/r/photoprism/photoprism",
+      "license": "AGPL-3.0",
+      "publisher_name": "PhotoPrism",
+      "publisher_type": "company",
+      "publisher_url": "https://www.photoprism.app",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 2048,
+      "storage_profile": "high",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "photos"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "photoprism",
+        "source_url": "https://www.photoprism.app"
+      }
+    },
+    {
+      "slug": "calibre-web",
+      "name": "Calibre-Web",
+      "summary": "Web library for browsing, reading, and sending ebooks from a Calibre database.",
+      "icon_url": "/app-icons/calibre-web.png",
+      "website_url": "https://github.com/janeczku/calibre-web",
+      "repository_url": "https://github.com/janeczku/calibre-web",
+      "docs_url": "https://github.com/janeczku/calibre-web/wiki",
+      "install_docs_url": "https://github.com/janeczku/calibre-web/wiki/Setup-Reverse-Proxy",
+      "docker_url": "https://hub.docker.com/r/linuxserver/calibre-web",
+      "license": "GPL-3.0",
+      "publisher_name": "Calibre-Web",
+      "publisher_type": "community",
+      "publisher_url": "https://github.com/janeczku/calibre-web",
+      "maintenance_status": "active",
+      "docker_support": "community",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "depends",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "ebooks"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "calibre-web",
+        "source_url": "https://github.com/janeczku/calibre-web"
+      }
+    },
+    {
+      "slug": "audiobookshelf",
+      "name": "Audiobookshelf",
+      "summary": "Audiobook and podcast server for streaming libraries with progress sync.",
+      "icon_url": "/app-icons/audiobookshelf.png",
+      "website_url": "https://www.audiobookshelf.org",
+      "repository_url": "https://github.com/advplyr/audiobookshelf",
+      "docs_url": "https://www.audiobookshelf.org/docs",
+      "install_docs_url": "https://www.audiobookshelf.org/docs#docker-compose-install",
+      "docker_url": "https://hub.docker.com/r/advplyr/audiobookshelf",
+      "license": "GPL-3.0",
+      "publisher_name": "Audiobookshelf",
+      "publisher_type": "community",
+      "publisher_url": "https://www.audiobookshelf.org",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "high",
+      "platforms": [
+        "web",
+        "ios",
+        "android"
+      ],
+      "categories": [
+        "media",
+        "books"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "audiobookshelf",
+        "source_url": "https://www.audiobookshelf.org"
+      }
+    },
+    {
+      "slug": "navidrome",
+      "name": "Navidrome",
+      "summary": "Music server for streaming personal audio libraries through Subsonic clients.",
+      "icon_url": "/app-icons/navidrome.png",
+      "website_url": "https://www.navidrome.org",
+      "repository_url": "https://github.com/navidrome/navidrome",
+      "docs_url": "https://www.navidrome.org/docs/",
+      "install_docs_url": "https://www.navidrome.org/docs/installation/docker/",
+      "docker_url": "https://hub.docker.com/r/deluan/navidrome",
+      "license": "GPL-3.0",
+      "publisher_name": "Navidrome",
+      "publisher_type": "community",
+      "publisher_url": "https://www.navidrome.org",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 256,
+      "storage_profile": "depends",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "media",
+        "music"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "navidrome",
+        "source_url": "https://www.navidrome.org"
+      }
+    },
+    {
+      "slug": "jellyseerr",
+      "name": "Jellyseerr",
+      "summary": "Media request manager for Jellyfin, Sonarr, and Radarr libraries.",
+      "icon_url": "/app-icons/jellyseerr.png",
+      "website_url": "https://github.com/seerr-team/seerr",
+      "repository_url": "https://github.com/seerr-team/seerr",
+      "docs_url": "https://docs.seerr.dev/",
+      "install_docs_url": "https://docs.seerr.dev/",
+      "docker_url": "https://hub.docker.com/r/fallenbagel/jellyseerr",
+      "license": "MIT",
+      "publisher_name": "Jellyseerr",
+      "publisher_type": "community",
+      "publisher_url": "https://github.com/seerr-team/seerr",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 1024,
+      "storage_profile": "low",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "media",
+        "requests"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "jellyseerr",
+        "source_url": "https://github.com/seerr-team/seerr"
+      }
+    },
+    {
+      "slug": "sonarr",
+      "name": "Sonarr",
+      "summary": "TV library manager for monitoring series, grabbing releases, and organizing files.",
+      "icon_url": "/app-icons/sonarr.png",
+      "website_url": "https://sonarr.tv",
+      "repository_url": "https://github.com/Sonarr/Sonarr",
+      "docs_url": "https://wiki.servarr.com/sonarr",
+      "install_docs_url": "https://wiki.servarr.com/docker-guide",
+      "docker_url": "https://hub.docker.com/r/linuxserver/sonarr",
+      "license": "GPL-3.0",
+      "publisher_name": "Sonarr",
+      "publisher_type": "community",
+      "publisher_url": "https://sonarr.tv",
+      "maintenance_status": "active",
+      "docker_support": "community",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "depends",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "media",
+        "automation"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "sonarr",
+        "source_url": "https://sonarr.tv"
+      }
+    },
+    {
+      "slug": "radarr",
+      "name": "Radarr",
+      "summary": "Movie library manager for monitoring releases, downloads, and file organization.",
+      "icon_url": "/app-icons/radarr.png",
+      "website_url": "https://radarr.video",
+      "repository_url": "https://github.com/Radarr/Radarr",
+      "docs_url": "https://wiki.servarr.com/radarr",
+      "install_docs_url": "https://wiki.servarr.com/docker-guide",
+      "docker_url": "https://hub.docker.com/r/linuxserver/radarr",
+      "license": "GPL-3.0",
+      "publisher_name": "Radarr",
+      "publisher_type": "community",
+      "publisher_url": "https://radarr.video",
+      "maintenance_status": "active",
+      "docker_support": "community",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "depends",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "media",
+        "automation"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "radarr",
+        "source_url": "https://radarr.video"
+      }
+    },
+    {
+      "slug": "lidarr",
+      "name": "Lidarr",
+      "summary": "Music library manager for monitoring artists, releases, and audio files.",
+      "icon_url": "/app-icons/lidarr.png",
+      "website_url": "https://lidarr.audio",
+      "repository_url": "https://github.com/Lidarr/Lidarr",
+      "docs_url": "https://wiki.servarr.com/lidarr",
+      "install_docs_url": "https://wiki.servarr.com/docker-guide",
+      "docker_url": "https://hub.docker.com/r/linuxserver/lidarr",
+      "license": "GPL-3.0",
+      "publisher_name": "Lidarr",
+      "publisher_type": "community",
+      "publisher_url": "https://lidarr.audio",
+      "maintenance_status": "active",
+      "docker_support": "community",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "depends",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "media",
+        "automation"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "lidarr",
+        "source_url": "https://lidarr.audio"
+      }
+    },
+    {
+      "slug": "bazarr",
+      "name": "Bazarr",
+      "summary": "Subtitle manager for searching and syncing subtitles for movie and TV libraries.",
+      "icon_url": "/app-icons/bazarr.png",
+      "website_url": "https://www.bazarr.media",
+      "repository_url": "https://github.com/morpheus65535/bazarr",
+      "docs_url": "https://wiki.bazarr.media",
+      "install_docs_url": "https://wiki.bazarr.media/Getting-Started/Installation/",
+      "docker_url": "https://hub.docker.com/r/linuxserver/bazarr",
+      "license": "GPL-3.0",
+      "publisher_name": "Bazarr",
+      "publisher_type": "community",
+      "publisher_url": "https://www.bazarr.media",
+      "maintenance_status": "active",
+      "docker_support": "community",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "depends",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "media",
+        "automation"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "bazarr",
+        "source_url": "https://www.bazarr.media"
+      }
+    },
+    {
+      "slug": "prowlarr",
+      "name": "Prowlarr",
+      "summary": "Indexer manager for connecting media automation apps to search providers.",
+      "icon_url": "/app-icons/prowlarr.png",
+      "website_url": "https://prowlarr.com",
+      "repository_url": "https://github.com/Prowlarr/Prowlarr",
+      "docs_url": "https://wiki.servarr.com/prowlarr",
+      "install_docs_url": "https://wiki.servarr.com/docker-guide",
+      "docker_url": "https://hub.docker.com/r/linuxserver/prowlarr",
+      "license": "GPL-3.0",
+      "publisher_name": "Prowlarr",
+      "publisher_type": "community",
+      "publisher_url": "https://prowlarr.com",
+      "maintenance_status": "active",
+      "docker_support": "community",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "depends",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "media",
+        "automation"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "prowlarr",
+        "source_url": "https://prowlarr.com"
+      }
+    },
+    {
+      "slug": "qbittorrent",
+      "name": "qBittorrent",
+      "summary": "Torrent client with a web interface for downloads, queues, and remote control.",
+      "icon_url": "/app-icons/qbittorrent.png",
+      "website_url": "https://www.qbittorrent.org",
+      "repository_url": "https://github.com/qbittorrent/qBittorrent",
+      "docs_url": "https://github.com/qbittorrent/qBittorrent/wiki",
+      "install_docs_url": "https://github.com/qbittorrent/qBittorrent/wiki/Installing-qBittorrent",
+      "docker_url": "https://hub.docker.com/r/linuxserver/qbittorrent",
+      "license": "GPL-2.0",
+      "publisher_name": "qBittorrent",
+      "publisher_type": "community",
+      "publisher_url": "https://www.qbittorrent.org",
+      "maintenance_status": "active",
+      "docker_support": "community",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "depends",
+      "platforms": [
+        "web",
+        "desktop"
+      ],
+      "categories": [
+        "downloads"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "qbittorrent",
+        "source_url": "https://www.qbittorrent.org"
+      }
+    },
+    {
+      "slug": "portainer",
+      "name": "Portainer",
+      "summary": "Container management UI for Docker, Compose stacks, environments, and access control.",
+      "icon_url": "/app-icons/portainer.png",
+      "website_url": "https://www.portainer.io",
+      "repository_url": "https://github.com/portainer/portainer",
+      "docs_url": "https://docs.portainer.io",
+      "install_docs_url": "https://docs.portainer.io/start/install-ce/server/docker/linux",
+      "docker_url": "https://hub.docker.com/r/portainer/portainer-ce",
+      "license": "Zlib",
+      "publisher_name": "Portainer",
+      "publisher_type": "company",
+      "publisher_url": "https://www.portainer.io",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "low",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "containers",
+        "admin"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "portainer",
+        "source_url": "https://www.portainer.io"
+      }
+    },
+    {
+      "slug": "homepage",
+      "name": "Homepage",
+      "summary": "Personal dashboard for service links, widgets, bookmarks, and server status.",
+      "icon_url": "/app-icons/homepage.png",
+      "website_url": "https://gethomepage.dev",
+      "repository_url": "https://github.com/gethomepage/homepage",
+      "docs_url": "https://gethomepage.dev/",
+      "install_docs_url": "https://gethomepage.dev/installation/",
+      "docker_url": "https://ghcr.io/gethomepage/homepage",
+      "license": "GPL-3.0",
+      "publisher_name": "Homepage",
+      "publisher_type": "community",
+      "publisher_url": "https://gethomepage.dev",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "compose_support": true,
+      "requires_database": false,
+      "database_types": [],
+      "ram_mb": 512,
+      "storage_profile": "low",
+      "platforms": [
+        "web"
+      ],
+      "categories": [
+        "dashboards"
+      ],
+      "summary_confidence": "high",
+      "source_payload": {
+        "source": "version127_curated_batch",
+        "source_key": "homepage",
+        "source_url": "https://gethomepage.dev"
+      }
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "self-host-apps:import-awesome-selfhosted",
+    "command": "npm run self-host-apps:import-awesome-selfhosted -- --out scripts/self-host-apps/batches/YYYY-MM-DD-awesome-selfhosted.json",
+    "purpose": "Parse the live Awesome Selfhosted Markdown list into normalized version127 self-host app batch records."
+  },
+  {
+    "name": "self-host-apps:import-awesome",
+    "command": "npm run self-host-apps:import-awesome -- --url <url> --limit 50 --dry-run",
+    "purpose": "Discover app candidates from Awesome-style JSON or Markdown sources."
+  },
+  {
+    "name": "self-host-apps:import-github-topic",
+    "command": "npm run self-host-apps:import-github-topic -- --topic self-hosted --limit 50 --dry-run",
+    "purpose": "Discover app candidates from GitHub repository topics."
+  },
+  {
+    "name": "self-host-apps:reset-categories",
+    "command": "npm run self-host-apps:reset-categories -- --dry-run",
+    "purpose": "Reset category rows and app category links to the controlled Version127 self-host app taxonomy."
+  },
+  {
+    "name": "self-host-apps:draft-all",
+    "command": "npm run self-host-apps:draft-all -- --dry-run",
+    "purpose": "Mark every self-host app as draft before publishing only reviewed/enriched batches."
+  },
+  {
+    "name": "self-host-apps:select-enrichment-batch",
+    "command": "npm run self-host-apps:select-enrichment-batch -- --limit 100 --out scripts/self-host-apps/batches/YYYY-MM-DD-enrichment-001.json",
+    "purpose": "Write a deterministic enrichment queue from local app rows with missing data."
+  },
+  {
+    "name": "self-host-apps:enrich-github-batch",
+    "command": "npm run self-host-apps:enrich-github-batch -- --file scripts/self-host-apps/batches/YYYY-MM-DD-enrichment-001.json --overrides scripts/self-host-apps/batches/YYYY-MM-DD-enrichment-001-overrides.json --limit 100 --dry-run",
+    "purpose": "Enrich and publish GitHub-backed rows with verified repository, release, Docker, maintainer, resource, and provenance fields."
+  },
+  {
+    "name": "self-host-apps:refresh-github",
+    "command": "npm run self-host-apps:refresh-github -- --slug immich --dry-run",
+    "purpose": "Refresh GitHub stars, release, and commit facts for existing rows."
+  },
+  {
+    "name": "self-host-apps:validate",
+    "command": "npm run self-host-apps:validate -- --file app.json",
+    "purpose": "Validate one normalized self-host app record before upsert."
+  },
+  {
+    "name": "self-host-apps:upsert",
+    "command": "npm run self-host-apps:upsert -- --file app.json --dry-run",
+    "purpose": "Upsert one normalized self-host app record and category links."
+  },
+  {
+    "name": "self-host-apps:upsert-batch",
+    "command": "npm run self-host-apps:upsert-batch -- --file scripts/self-host-apps/batches/curated-apps.json --publish --dry-run --limit 100 --offset 0 --chunk-size 100",
+    "purpose": "Upsert a reviewed batch as draft or published rows while preserving category links and source metadata."
+  },
+  {
+    "name": "self-host-apps:cache-icons",
+    "command": "npm run self-host-apps:cache-icons -- --file scripts/self-host-apps/batches/2026-07-01-curated-50.json",
+    "purpose": "Cache favicon-style app icons locally and update batch icon_url values."
+  },
+  {
+    "name": "self-host-apps:audit-summaries",
+    "command": "npm run self-host-apps:audit-summaries",
+    "purpose": "Audit database or file records for weak summaries."
+  },
+  {
+    "name": "self-host-apps:audit-links",
+    "command": "npm run self-host-apps:audit-links -- --limit 100",
+    "purpose": "Audit stored app links with HTTP HEAD/GET checks."
+  }
+]

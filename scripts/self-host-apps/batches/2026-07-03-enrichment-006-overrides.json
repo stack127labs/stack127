@@ -1,0 +1,20 @@
+{
+  "overrides": {
+    "snappymail": {
+      "website_url": "https://github.com/the-djmaze/snappymail",
+      "note": "Reviewed override: https://snappymail.eu timed out during batch URL verification; official GitHub repository returned 200."
+    },
+    "socioboard": {
+      "website_url": "https://github.com/socioboard/Socioboard-5.0",
+      "note": "Reviewed override: http://www.socioboard.org timed out during batch URL verification; official GitHub repository returned 200."
+    },
+    "srs": {
+      "website_url": "https://github.com/ossrs/srs",
+      "note": "Reviewed override: https://ossrs.io failed during batch URL verification; official GitHub repository returned 200."
+    },
+    "sshwifty": {
+      "website_url": "https://github.com/nirui/sshwifty",
+      "note": "Reviewed override: https://sshwifty-demo.nirui.org returned 501 during batch URL verification; official GitHub repository returned 200."
+    }
+  }
+}

@@ -154,47 +154,6 @@ function updateStorageSlider(slider: HTMLInputElement) {
   }
 }
 
-function formatStars(value: number) {
-  return new Intl.NumberFormat("en", {
-    maximumFractionDigits: 1,
-    notation: value >= 10000 ? "compact" : "standard",
-  }).format(value);
-}
-
-function updateStarsSlider(slider: HTMLInputElement) {
-  const root = slider.closest<HTMLElement>("[data-stars-slider-root]");
-
-  if (!root) {
-    return;
-  }
-
-  const index = Number(slider.value);
-  const values = slider.dataset.starsSliderValues?.split("|") ?? [];
-  const labels = slider.dataset.starsSliderLabels?.split("|") ?? [];
-  const input = root.querySelector<HTMLInputElement>("[data-stars-slider-value]");
-  const current = root.querySelector<HTMLElement>("[data-stars-slider-current]");
-
-  if (!input || !values[index]) {
-    return;
-  }
-
-  const position = `${index * (100 / (values.length - 1))}%`;
-
-  root.style.setProperty("--stars-slider-fill-left", position);
-  root.style.setProperty("--stars-slider-position", position);
-  input.value = values[index] === "0" ? "" : values[index];
-
-  if (current) {
-    current.textContent = labels[index] ?? `${formatStars(Number(values[index]))}+`;
-  }
-
-  for (const [stepIndex, step] of root
-    .querySelectorAll<HTMLElement>("[data-stars-slider-step]")
-    .entries()) {
-    step.classList.toggle("active", stepIndex >= index);
-  }
-}
-
 export function LiveFilterController() {
   const pathname = usePathname();
   const router = useRouter();
@@ -241,10 +200,6 @@ export function LiveFilterController() {
         scheduleRange();
       }
 
-      if (target instanceof HTMLInputElement && target.matches("[data-stars-slider]")) {
-        updateStarsSlider(target);
-        scheduleRange();
-      }
     };
 
     const handleChange = (event: Event) => {
@@ -266,14 +221,6 @@ export function LiveFilterController() {
         applyFilters();
       }
 
-      if (target instanceof HTMLInputElement && target.matches("[data-stars-slider]")) {
-        if (rangeTimer) {
-          clearTimeout(rangeTimer);
-        }
-
-        updateStarsSlider(target);
-        applyFilters();
-      }
     };
 
     const handleSubmit = (event: SubmitEvent) => {

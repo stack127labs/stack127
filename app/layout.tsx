@@ -1,11 +1,45 @@
 import type { Metadata } from "next";
+import { absoluteUrl, defaultDescription, siteName, siteUrl } from "@/lib/seo";
+import { JsonLd } from "./json-ld";
 import { SiteNav } from "./site-nav";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "version127",
-  description:
-    "Discover practical open-source apps, technical guides, automation ideas, and useful tools for builders.",
+  metadataBase: siteUrl,
+  applicationName: siteName,
+  title: {
+    default: siteName,
+    template: `%s | ${siteName}`,
+  },
+  description: defaultDescription,
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    follow: true,
+    index: true,
+  },
+  openGraph: {
+    description: defaultDescription,
+    images: [
+      {
+        alt: siteName,
+        height: 512,
+        url: "/android-chrome-512x512.png",
+        width: 512,
+      },
+    ],
+    siteName,
+    title: siteName,
+    type: "website",
+    url: "/",
+  },
+  twitter: {
+    card: "summary",
+    description: defaultDescription,
+    images: ["/android-chrome-512x512.png"],
+    title: siteName,
+  },
   icons: {
     apple: "/apple-touch-icon.png",
     icon: [
@@ -17,6 +51,29 @@ export const metadata: Metadata = {
     ],
   },
 };
+
+const siteStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    description: defaultDescription,
+    name: siteName,
+    publisher: {
+      "@type": "Organization",
+      name: siteName,
+      url: absoluteUrl("/"),
+    },
+    url: absoluteUrl("/"),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    email: "version127@proton.me",
+    logo: absoluteUrl("/android-chrome-512x512.png"),
+    name: siteName,
+    url: absoluteUrl("/"),
+  },
+];
 
 export default function RootLayout({
   children,
@@ -43,6 +100,7 @@ try {
             `,
           }}
         />
+        <JsonLd data={siteStructuredData} />
         <SiteNav />
         {children}
       </body>

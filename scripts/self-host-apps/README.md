@@ -1,103 +1,43 @@
-# Self-Host App Data Scripts
+# Self-Host Apps Pipeline
 
-These commands support the version127 self-host app workflow. They are GitHub-first helpers, not a replacement for manual editorial verification.
+This folder owns data collection and validation for `/self-host-apps`.
 
-## Draft From GitHub
+The public page stays minimal, but the pipeline keeps enough source metadata to audit every imported fact.
 
-```sh
-npm run selfhost:draft -- --repo owner/name
-```
+## Flow
 
-Creates `content/app-drafts/<slug>.generated.json`.
+1. Discover candidates from Awesome-style lists, GitHub topics, and other directories.
+2. Store raw source payloads in `self_host_apps_sources`.
+3. Normalize into the active `self_host_apps` schema.
+4. Rewrite summaries using version127 rules.
+5. Validate links, enums, categories, and summary quality.
+6. Upsert rows, category links, and field source metadata.
+7. Audit links and summaries before larger imports.
 
-Drafts can include candidate links, screenshots, icons, and categories under `automation`. Treat those as leads only.
+## Summary Rule
 
-Do not upsert generated drafts. A draft must be reviewed, rewritten with original version127 copy, moved to `content/apps`, and passed through strict validation first.
+`summary` replaces the old `description` field.
 
-Generated fields that are usually safe to keep after review:
+It must be one short original sentence that explains what the app actually does. Do not copy README, docs, marketing copy, or directory text.
 
-- `github`
-- `license`
-- `maintenance.last_release_at`
-- `maintenance.last_commit_at`
-- `links.source_code_url`
-
-Generated fields that must be manually verified before keeping:
-
-- `categories`
-- `links.website_url`
-- `links.docs_url`
-- `links.install_docs_url`
-- `links.demo_url`
-- `links.docker_url`
-- `media.icon_url`
-- `media.screenshots`
-- `deployment`
-
-## Refresh GitHub Facts
-
-```sh
-npm run selfhost:github -- --file content/apps/name.json
-```
-
-Updates reliable GitHub-derived fields on an existing JSON file:
-
-- Stars, forks, issue and PR counts.
-- Latest stable release.
-- Release count.
-- Last commit.
-- 90-day commit and release counts.
-- Candidate repo images and README links for review.
-
-## Validate
-
-```sh
-npm run selfhost:validate -- --file content/apps/name.json
-```
-
-Use `--draft` for generated or incomplete records:
-
-```sh
-npm run selfhost:validate -- --file content/app-drafts/name.generated.json --draft
-```
-
-Strict validation is required before upserting to the database.
-
-## Upsert To Local DB
-
-```sh
-npm run selfhost:upsert -- --file content/apps/name.json
-```
-
-Default database URL:
+Good:
 
 ```text
-postgresql://postgres:postgres@127.0.0.1:54332/postgres
+Photo and video backup app for building a private Google Photos-style library.
 ```
 
-The upsert writes one app, refreshes that app's category links, ensures categories from `content/categories.json` exist, and inserts or updates one GitHub snapshot for the checked date.
-
-Use `--dry-run` to validate database writes without committing:
-
-```sh
-npm run selfhost:upsert -- --file content/apps/name.json -- --dry-run
-```
-
-Production upserts require explicit user approval.
-
-## Workflow Test Mode
-
-For subagent workflow tests, keep reviewed records under:
+Bad:
 
 ```text
-content/app-drafts/subagent-<slug>.reviewed.json
+Open-source self-hosted photo management solution.
 ```
 
-Then run:
+Avoid generic filler such as `open source`, `self-hosted`, `solution`, `powerful`, `ultimate`, and `all-in-one` unless it is truly essential to the app.
 
-```sh
-npm run selfhost:validate -- --file content/app-drafts/subagent-<slug>.reviewed.json
-npm run selfhost:upsert -- --file content/app-drafts/subagent-<slug>.reviewed.json --dry-run
-```
+## Commands
 
-Do not commit the database upsert or move the test record into `content/apps` unless the main agent explicitly promotes it.
+See `scripts.json` in this folder for the command index.
+
+Durable package scripts use the page slug prefix, for example `self-host-apps:refresh-github`.
+
+Temporary one-off scripts belong in `scripts/self-host-apps/temp/` and should be deleted after use.

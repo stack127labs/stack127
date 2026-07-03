@@ -1,0 +1,13 @@
+{
+  "notes": "Manual overrides for the fourth 100 GitHub-backed draft enrichment rows. Values here replace URLs that failed batch-specific link verification.",
+  "overrides": {
+    "mumble": {
+      "docs_url": "https://github.com/mumble-voip/mumble",
+      "note": "Mumble wiki returned 503 during batch URL verification; use the official repository README as the stable docs fallback."
+    },
+    "nullboard": {
+      "website_url": "https://github.com/apankrat/nullboard",
+      "note": "Nullboard preview URL failed during batch URL verification; use the official source repository as the stable project URL."
+    }
+  }
+}

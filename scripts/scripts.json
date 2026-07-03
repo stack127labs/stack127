@@ -1,0 +1,14 @@
+[
+  {
+    "surface": "self-host-apps",
+    "folder": "scripts/self-host-apps",
+    "manifest": "scripts/self-host-apps/scripts.json",
+    "purpose": "Discovery, validation, enrichment, auditing, and upsert helpers for /self-host-apps."
+  },
+  {
+    "surface": "version127",
+    "folder": "scripts/version127",
+    "manifest": null,
+    "purpose": "Sitewide durable scripts that are not owned by one page."
+  }
+]

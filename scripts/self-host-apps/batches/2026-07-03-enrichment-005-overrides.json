@@ -1,0 +1,12 @@
+{
+  "overrides": {
+    "picsur": {
+      "website_url": "https://github.com/CaramelFur/Picsur",
+      "note": "Website https://picsur.org timed out during batch URL verification; using the official GitHub repository as the stable project URL."
+    },
+    "red-eclipse-2": {
+      "website_url": "https://www.redeclipse.net",
+      "note": "Bare website https://redeclipse.net refused HTTPS during batch URL verification; https://www.redeclipse.net returned 200."
+    }
+  }
+}

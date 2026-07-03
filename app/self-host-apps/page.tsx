@@ -1,14 +1,26 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import { getDirectoryApps, type DirectoryApp } from "@/lib/apps";
+import {
+  getDirectoryApps,
+  getSelfHostAppsModifiedAt,
+  type DirectoryApp,
+} from "@/lib/apps";
+import {
+  buildWebPageStructuredData,
+  hasPublicQueryParams,
+  latestIsoDate,
+  pageDates,
+} from "@/lib/seo";
 import { AppShell } from "../app-shell";
 import { CategoryIcon } from "../category-icon";
+import { JsonLd } from "../json-ld";
 import {
-  DirectoryAppCard,
   getRamTier,
   getStorageTier,
   hasMobileApp,
 } from "./directory-app-card";
+import { DirectoryAppBrowser } from "./directory-app-browser";
 import { LiveFilterController } from "./live-filter-controller";
 import { SortDropdown } from "./sort-dropdown";
 
@@ -38,36 +50,55 @@ const storageOptions: FilterOption[] = [
   { label: "Low", value: "low" },
   { label: "Medium", value: "medium" },
   { label: "High", value: "high" },
-  { label: "Very high", value: "very high" },
+  { label: "Depends", value: "depends" },
 ];
 
 const maintenanceOptions: FilterOption[] = [
   { label: "Active", value: "active" },
-  { label: "Slow but alive", value: "slow_but_alive" },
-  { label: "Possibly stale", value: "possibly_stale" },
+  { label: "Slow", value: "slow" },
+  { label: "Stale", value: "stale" },
   { label: "Archived", value: "archived" },
+  { label: "Unknown", value: "unknown" },
 ];
 
 const sortOptions: FilterOption[] = [
   { label: "Most popular", value: "popular" },
   { label: "Name", value: "name" },
   { label: "Lowest RAM", value: "lowest-ram" },
-  { label: "Easiest care", value: "easiest" },
   { label: "Healthiest", value: "healthy" },
-];
-
-const starsOptions: FilterOption[] = [
-  { label: "0+ stars", value: "0" },
-  { label: "1K+", value: "1000" },
-  { label: "5K+", value: "5000" },
-  { label: "10K+", value: "10000" },
-  { label: "50K+", value: "50000" },
-  { label: "100K+", value: "100000" },
 ];
 
 const ramTierOrder = ramOptions.map((option) => option.value);
 const storageTierOrder = storageOptions.map((option) => option.value);
-const starsValues = starsOptions.map((option) => Number(option.value));
+const pageSize = 30;
+const selfHostAppsDescription =
+  "Browse self-hosted apps by category, Docker support, resource needs, project health, and official links.";
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<SearchParams>;
+}): Promise<Metadata> {
+  const params = await searchParams;
+  const hasQueryParams = hasPublicQueryParams(params);
+
+  return {
+    alternates: {
+      canonical: "/self-host-apps",
+    },
+    description: selfHostAppsDescription,
+    openGraph: {
+      description: selfHostAppsDescription,
+      title: "Self-host apps | version127",
+      url: "/self-host-apps",
+    },
+    robots: {
+      follow: true,
+      index: !hasQueryParams,
+    },
+    title: "Self-host apps",
+  };
+}
 
 function optionsMap(options: FilterOption[]) {
   return new Map(options.map((option) => [option.value, option.label]));
@@ -87,7 +118,6 @@ const signalOptionLabels = new Map([
 const filterLabels = new Map([
   ["category", "Category"],
   ["docker", "Docker"],
-  ["license", "License"],
   ["ram", "RAM"],
   ["storage", "Storage"],
   ["maintenance", "Health"],
@@ -116,29 +146,10 @@ function getKnownValue(params: SearchParams, key: string, values: string[]) {
   return values.includes(value) ? value : "";
 }
 
-function getNumberParam(params: SearchParams, key: string) {
-  const value = Number(getString(params, key));
+function getPage(params: SearchParams) {
+  const value = Number(getString(params, "page"));
 
-  return Number.isFinite(value) ? value : null;
-}
-
-function getStarsMin(params: SearchParams) {
-  const value = getNumberParam(params, "stars_min") ?? 0;
-
-  return starsValues.includes(value) ? value : 0;
-}
-
-function formatStars(value: number) {
-  return new Intl.NumberFormat("en", {
-    maximumFractionDigits: 1,
-    notation: value >= 10000 ? "compact" : "standard",
-  }).format(value);
-}
-
-function formatStarsMinimum(value: number) {
-  const option = starsOptions.find((starsOption) => Number(starsOption.value) === value);
-
-  return option?.label ?? (value > 0 ? `${formatStars(value)}+` : "0+ stars");
+  return Number.isInteger(value) && value > 1 ? value : 1;
 }
 
 function matchesSearch(app: DirectoryApp, query: string) {
@@ -148,10 +159,9 @@ function matchesSearch(app: DirectoryApp, query: string) {
 
   const haystack = [
     app.name,
-    app.description,
+    app.summary,
+    app.publisher_name,
     ...app.categories.map((category) => category.name),
-    ...app.good_fit,
-    ...app.watch_outs,
   ]
     .filter(Boolean)
     .join(" ")
@@ -161,11 +171,7 @@ function matchesSearch(app: DirectoryApp, query: string) {
 }
 
 function maintenanceValue(app: DirectoryApp) {
-  if (app.actively_maintained) {
-    return "active";
-  }
-
-  return app.maintenance_status ?? "unknown";
+  return app.maintenance_status;
 }
 
 function getTierIndex(order: string[], value: string) {
@@ -204,18 +210,13 @@ function compareBySort(a: DirectoryApp, b: DirectoryApp, sort: string) {
   }
 
   if (sort === "lowest-ram") {
-    return (a.ram_recommended_mb ?? Number.MAX_SAFE_INTEGER) -
-      (b.ram_recommended_mb ?? Number.MAX_SAFE_INTEGER);
-  }
-
-  if (sort === "easiest") {
-    const order = ["very_easy", "easy", "moderate", "hard", "expert", "unknown"];
-    return order.indexOf(a.backup_difficulty ?? "unknown") -
-      order.indexOf(b.backup_difficulty ?? "unknown");
+    return (a.ram_mb ?? Number.MAX_SAFE_INTEGER) -
+      (b.ram_mb ?? Number.MAX_SAFE_INTEGER);
   }
 
   if (sort === "healthy") {
-    return Number(b.actively_maintained) - Number(a.actively_maintained) ||
+    return Number(b.maintenance_status === "active") -
+      Number(a.maintenance_status === "active") ||
       (b.github_stars ?? 0) - (a.github_stars ?? 0);
   }
 
@@ -251,16 +252,136 @@ function sortApps(apps: DirectoryApp[], sort: string, params: SearchParams) {
   });
 }
 
+function formatDate(value: Date | string | null) {
+  if (!value) {
+    return "unknown";
+  }
+
+  return new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(value));
+}
+
+function formatCrawlerPublisher(app: DirectoryApp) {
+  if (!app.publisher_name) {
+    return app.publisher_type;
+  }
+
+  return app.publisher_type === "unknown"
+    ? app.publisher_name
+    : `${app.publisher_name} (${app.publisher_type})`;
+}
+
+function formatCrawlerList(values: string[]) {
+  return values.length > 0 ? values.join(", ") : "unknown";
+}
+
+function DirectoryCrawlerRecords({ apps }: { apps: DirectoryApp[] }) {
+  return (
+    <details className="directory-crawl-records">
+      <summary>full app records</summary>
+      <div className="directory-crawl-record-list">
+        {apps.map((app) => (
+          <article className="directory-crawl-record" key={app.slug}>
+            <h2>{app.name}</h2>
+            <p>{app.summary}</p>
+            <dl>
+              <div>
+                <dt>slug</dt>
+                <dd>{app.slug}</dd>
+              </div>
+              <div>
+                <dt>categories</dt>
+                <dd>{formatCrawlerList(app.categories.map((category) => category.name))}</dd>
+              </div>
+              <div>
+                <dt>publisher</dt>
+                <dd>{formatCrawlerPublisher(app)}</dd>
+              </div>
+              <div>
+                <dt>website</dt>
+                <dd>
+                  {app.website_url ? <a href={app.website_url}>{app.website_url}</a> : "unknown"}
+                </dd>
+              </div>
+              <div>
+                <dt>source code</dt>
+                <dd>
+                  {app.repository_url ? <a href={app.repository_url}>{app.repository_url}</a> : "unknown"}
+                </dd>
+              </div>
+              <div>
+                <dt>install docs</dt>
+                <dd>
+                  {app.install_docs_url ? <a href={app.install_docs_url}>{app.install_docs_url}</a> : "unknown"}
+                </dd>
+              </div>
+              <div>
+                <dt>docs</dt>
+                <dd>
+                  {app.docs_url ? <a href={app.docs_url}>{app.docs_url}</a> : "unknown"}
+                </dd>
+              </div>
+              <div>
+                <dt>docker</dt>
+                <dd>
+                  {app.docker_url ? <a href={app.docker_url}>{app.docker_url}</a> : app.docker_support}
+                </dd>
+              </div>
+              <div>
+                <dt>license</dt>
+                <dd>{app.license ?? "unknown"}</dd>
+              </div>
+              <div>
+                <dt>platforms</dt>
+                <dd>{formatCrawlerList(app.platforms)}</dd>
+              </div>
+              <div>
+                <dt>database</dt>
+                <dd>{app.requires_database ? formatCrawlerList(app.database_types) : "no"}</dd>
+              </div>
+              <div>
+                <dt>ram</dt>
+                <dd>{getRamTier(app)}</dd>
+              </div>
+              <div>
+                <dt>storage</dt>
+                <dd>{getStorageTier(app)}</dd>
+              </div>
+              <div>
+                <dt>maintenance</dt>
+                <dd>{app.maintenance_status}</dd>
+              </div>
+              <div>
+                <dt>latest release</dt>
+                <dd>{app.github_latest_release ?? "unknown"}</dd>
+              </div>
+              <div>
+                <dt>latest release date</dt>
+                <dd>{formatDate(app.github_latest_release_at)}</dd>
+              </div>
+              <div>
+                <dt>last commit</dt>
+                <dd>{formatDate(app.github_last_commit_at)}</dd>
+              </div>
+            </dl>
+          </article>
+        ))}
+      </div>
+    </details>
+  );
+}
+
 function filterApps(apps: DirectoryApp[], params: SearchParams) {
   const query = getString(params, "q").trim();
   const categories = getValues(params, "category");
   const dockerSupported = getValues(params, "docker").includes("supported");
-  const licenses = getValues(params, "license");
   const ram = getKnownValue(params, "ram", ramTierOrder);
   const storage = getKnownValue(params, "storage", storageTierOrder);
   const maintenance = getValues(params, "maintenance");
   const signals = getValues(params, "signal");
-  const starsMin = getStarsMin(params);
 
   return apps.filter((app) => {
     if (!matchesSearch(app, query)) {
@@ -275,10 +396,6 @@ function filterApps(apps: DirectoryApp[], params: SearchParams) {
     }
 
     if (dockerSupported && !["official", "community"].includes(app.docker_support ?? "")) {
-      return false;
-    }
-
-    if (licenses.length > 0 && !licenses.includes(app.license ?? "")) {
       return false;
     }
 
@@ -306,10 +423,6 @@ function filterApps(apps: DirectoryApp[], params: SearchParams) {
       return false;
     }
 
-    if (starsMin > 0 && (app.github_stars === null || app.github_stars < starsMin)) {
-      return false;
-    }
-
     return true;
   });
 }
@@ -326,12 +439,38 @@ function removeFilterHref(params: SearchParams, key: string, value?: string) {
     const values = Array.isArray(paramValue) ? paramValue : paramValue ? [paramValue] : [];
 
     for (const current of values) {
+      if (paramKey === "app" || paramKey === "page") {
+        continue;
+      }
+
       if (paramKey === key && (!value || current === value)) {
         continue;
       }
 
       next.append(paramKey, current);
     }
+  }
+
+  return buildHref(next);
+}
+
+function pageHref(params: SearchParams, page: number) {
+  const next = new URLSearchParams();
+
+  for (const [paramKey, paramValue] of Object.entries(params)) {
+    if (paramKey === "app" || paramKey === "page") {
+      continue;
+    }
+
+    const values = Array.isArray(paramValue) ? paramValue : paramValue ? [paramValue] : [];
+
+    for (const current of values) {
+      next.append(paramKey, current);
+    }
+  }
+
+  if (page > 1) {
+    next.set("page", String(page));
   }
 
   return buildHref(next);
@@ -463,78 +602,6 @@ function RadioGroup({
   );
 }
 
-function StarsMinSlider({
-  options,
-  selected,
-}: {
-  options: FilterOption[];
-  selected: number;
-}) {
-  const selectedIndex = Math.max(
-    0,
-    options.findIndex((option) => Number(option.value) === selected),
-  );
-  const sliderPosition = `${selectedIndex * (100 / (options.length - 1))}%`;
-  const selectedLabel = options[selectedIndex]?.label ?? "0+ stars";
-
-  return (
-    <fieldset className="filter-group stars-slider-group">
-      <legend>GitHub stars</legend>
-
-      <div
-        className="stars-slider-shell"
-        data-stars-slider-root
-        style={
-          {
-            "--stars-slider-fill-left": sliderPosition,
-            "--stars-slider-position": sliderPosition,
-          } as CSSProperties
-        }
-      >
-        <input
-          data-stars-slider-value
-          defaultValue={selected > 0 ? selected : ""}
-          name="stars_min"
-          type="hidden"
-        />
-        <div className="storage-slider-current" aria-live="polite">
-          <span data-stars-slider-current>{selectedLabel}</span>
-        </div>
-        <div className="stars-slider-bar">
-          <div className="stars-slider-track" aria-hidden="true">
-            <i className="stars-slider-fill" />
-            {options.map((option, index) => (
-              <span
-                className={index >= selectedIndex ? "active" : ""}
-                data-stars-slider-step
-                key={option.value}
-                style={
-                  {
-                    "--stars-slider-step-position": `${index * (100 / (options.length - 1))}%`,
-                  } as CSSProperties
-                }
-              />
-            ))}
-            <i className="stars-slider-thumb" />
-          </div>
-          <input
-            aria-label="Minimum GitHub stars"
-            className="stars-slider-range"
-            data-stars-slider
-            data-stars-slider-labels={options.map((option) => option.label).join("|")}
-            data-stars-slider-values={options.map((option) => option.value).join("|")}
-            defaultValue={selectedIndex}
-            max={options.length - 1}
-            min="0"
-            step="1"
-            type="range"
-          />
-        </div>
-      </div>
-    </fieldset>
-  );
-}
-
 function StorageSlider({
   options,
   selected,
@@ -613,11 +680,9 @@ function StorageSlider({
 }
 
 function ActiveFilters({
-  licenseMap,
   params,
   categoryMap,
 }: {
-  licenseMap: Map<string, string>;
   params: SearchParams;
   categoryMap: Map<string, string>;
 }) {
@@ -625,14 +690,13 @@ function ActiveFilters({
   const valueLabels = new Map([
     ["category", categoryMap],
     ["docker", dockerOptionLabels],
-    ["license", licenseMap],
     ["ram", ramOptionLabels],
     ["storage", storageOptionLabels],
     ["maintenance", maintenanceOptionLabels],
     ["signal", signalOptionLabels],
   ]);
 
-  for (const key of ["category", "docker", "license", "ram", "storage", "maintenance", "signal"]) {
+  for (const key of ["category", "docker", "ram", "storage", "maintenance", "signal"]) {
     for (const value of getValues(params, key)) {
       const groupLabel = filterLabels.get(key) ?? key;
       const valueLabel = valueLabels.get(key)?.get(value) ?? value.replaceAll("_", " ");
@@ -654,17 +718,6 @@ function ActiveFilters({
       key: "q",
       label: `Search: ${query}`,
       value: query,
-    });
-  }
-
-  const starsMin = getStarsMin(params);
-
-  if (starsMin > 0) {
-    chips.push({
-      href: removeFilterHref(params, "stars_min"),
-      key: "stars",
-      label: `Stars: ${formatStarsMinimum(starsMin)}`,
-      value: String(starsMin),
     });
   }
 
@@ -693,12 +746,19 @@ export default async function SelfHostAppsPage({
   searchParams: Promise<SearchParams>;
 }) {
   const params = await searchParams;
-  const apps = await getDirectoryApps();
+  const [apps, selfHostModifiedAt] = await Promise.all([
+    getDirectoryApps(),
+    getSelfHostAppsModifiedAt(),
+  ]);
+  const dateModified = latestIsoDate(pageDates.selfHostApps.updated, selfHostModifiedAt);
   const sort = getString(params, "sort") || "popular";
   const selectedRam = getKnownValue(params, "ram", ramTierOrder);
   const selectedStorage = getKnownValue(params, "storage", storageTierOrder);
-  const selectedStarsMin = getStarsMin(params);
   const filteredApps = sortApps(filterApps(apps, params), sort, params);
+  const totalPages = Math.max(1, Math.ceil(filteredApps.length / pageSize));
+  const currentPage = Math.min(getPage(params), totalPages);
+  const startIndex = (currentPage - 1) * pageSize;
+  const paginatedApps = filteredApps.slice(startIndex, startIndex + pageSize);
   const categoryOptions = [...new Map(
     apps
       .flatMap((app) => app.categories)
@@ -714,10 +774,6 @@ export default async function SelfHostAppsPage({
     .map(([, option]) => option)
     .sort((a, b) => a.label.localeCompare(b.label));
   const categoryMap = new Map(categoryOptions.map((option) => [option.value, option.label]));
-  const licenseOptions = [...new Set(apps.map((app) => app.license).filter(Boolean) as string[])]
-    .map((license) => ({ label: license, value: license }))
-    .sort((a, b) => a.label.localeCompare(b.label));
-  const licenseMap = new Map(licenseOptions.map((option) => [option.value, option.label]));
 
   const sidebar = (
     <form
@@ -781,13 +837,6 @@ export default async function SelfHostAppsPage({
         selected={getValues(params, "signal")}
         title="Signals"
       />
-      <StarsMinSlider options={starsOptions} selected={selectedStarsMin} />
-      <TagSelectGroup
-        name="license"
-        options={licenseOptions}
-        selected={getValues(params, "license")}
-        title="License"
-      />
 
       <div className="filter-actions">
         <Link href="/self-host-apps">reset</Link>
@@ -797,38 +846,67 @@ export default async function SelfHostAppsPage({
   );
 
   return (
-    <AppShell
-      mainLabel="Self-hosted app results"
-      sidebar={sidebar}
-      sidebarLabel="Self-hosted app filters"
-    >
-      <div className="directory-results">
-        <div className="directory-results-header">
-          <div>
-            <h2>Find apps that fit your server, storage, and setup comfort.</h2>
+    <>
+      <JsonLd
+        data={buildWebPageStructuredData({
+          dateModified,
+          datePublished: pageDates.selfHostApps.published,
+          description: selfHostAppsDescription,
+          name: "self-host apps",
+          path: "/self-host-apps",
+          type: "CollectionPage",
+        })}
+      />
+      <AppShell
+        mainLabel="Self-hosted app results"
+        sidebar={sidebar}
+        sidebarLabel="Self-hosted app filters"
+      >
+        <div className="directory-results">
+          <div className="directory-results-header">
+            <div>
+              <h2>Find apps that fit your server, storage, and setup comfort.</h2>
+            </div>
           </div>
+
+          <ActiveFilters
+            categoryMap={categoryMap}
+            params={params}
+          />
+
+          {paginatedApps.length > 0 ? (
+            <>
+              <DirectoryAppBrowser apps={paginatedApps} />
+              <DirectoryCrawlerRecords apps={paginatedApps} />
+              {totalPages > 1 ? (
+                <nav className="directory-pagination" aria-label="Self-hosted app pages">
+                  <Link
+                    aria-disabled={currentPage === 1}
+                    href={pageHref(params, Math.max(1, currentPage - 1))}
+                  >
+                    prev
+                  </Link>
+                  <span>
+                    {currentPage} / {totalPages}
+                  </span>
+                  <Link
+                    aria-disabled={currentPage === totalPages}
+                    href={pageHref(params, Math.min(totalPages, currentPage + 1))}
+                  >
+                    next
+                  </Link>
+                </nav>
+              ) : null}
+            </>
+          ) : (
+            <div className="directory-empty">
+              <h2>No apps match those filters.</h2>
+              <p>Try clearing one resource or health filter first.</p>
+              <Link href="/self-host-apps">show all apps</Link>
+            </div>
+          )}
         </div>
-
-        <ActiveFilters
-          categoryMap={categoryMap}
-          licenseMap={licenseMap}
-          params={params}
-        />
-
-        {filteredApps.length > 0 ? (
-          <div className="directory-card-grid">
-            {filteredApps.map((app) => (
-              <DirectoryAppCard app={app} key={app.slug} />
-            ))}
-          </div>
-        ) : (
-          <div className="directory-empty">
-            <h2>No apps match those filters.</h2>
-            <p>Try clearing one resource or health filter first.</p>
-            <Link href="/self-host-apps">show all apps</Link>
-          </div>
-        )}
-      </div>
-    </AppShell>
+      </AppShell>
+    </>
   );
 }

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Version127 Self-Host Enrichment"
+  short_description: "Enrich 100 draft self-host apps"
+  default_prompt: "Use $version127-self-host-enrichment to enrich the next 100 draft self-host apps and publish only verified rows."

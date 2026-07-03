@@ -1,0 +1,234 @@
+{
+  "reviewed_at": "2026-07-03",
+  "notes": "Manual category overrides for the third 100 GitHub-backed draft enrichment rows. Categories are based on project purpose, not raw imported headings or keyword matching.",
+  "overrides": {
+    "kinto": {
+      "categories": ["databases", "developer-tools"],
+      "summary": "JSON storage service for syncing, sharing, and versioning application data."
+    },
+    "kiwi-irc": { "categories": ["communication"] },
+    "kiwix-serve": {
+      "categories": ["wikis", "ebooks-libraries"],
+      "summary": "HTTP server for browsing offline ZIM archives such as Wikipedia dumps."
+    },
+    "known": { "categories": ["content-publishing", "communities-social"] },
+    "kodi": { "categories": ["media-servers"] },
+    "koel": { "categories": ["music-audio", "media-servers"] },
+    "koha": {
+      "categories": ["ebooks-libraries", "business-commerce"],
+      "summary": "Library management system for cataloging, circulation, acquisitions, and patron workflows."
+    },
+    "komga": {
+      "categories": ["ebooks-libraries", "documents-pdfs", "media-servers"],
+      "summary": "Comic and manga server with OPDS, library browsing, and a web reader."
+    },
+    "kong": {
+      "categories": ["developer-tools", "networking-dns"],
+      "summary": "API gateway for routing, securing, and observing services and microservice traffic."
+    },
+    "kottster": {
+      "categories": ["developer-tools", "databases"],
+      "summary": "Admin panel builder that connects to databases and generates editable data views.",
+      "website_url": "https://github.com/kottster/kottster",
+      "note": "Project website did not resolve during batch 003 link audit; website_url uses the official GitHub repository."
+    },
+    "krayin": { "categories": ["business-commerce"] },
+    "kriss-feed": { "categories": ["bookmarks-read-it-later"] },
+    "kutt": { "categories": ["developer-tools"] },
+    "kyoo": {
+      "categories": ["media-servers"],
+      "summary": "Media browser for anime, shows, and movies with transcoding and watch history."
+    },
+    "lago": {
+      "categories": ["finance-budgeting", "developer-tools"],
+      "summary": "Usage-based billing system for metering events, pricing plans, invoices, and customer billing."
+    },
+    "lancache": { "categories": ["games", "networking-dns"] },
+    "langfuse": {
+      "categories": ["ai-ml", "developer-tools", "monitoring-status"],
+      "summary": "LLM observability app for tracing prompts, evaluating outputs, and debugging AI apps."
+    },
+    "languagetool": {
+      "categories": ["developer-tools", "documents-pdfs"],
+      "summary": "Grammar and style checker with APIs and server support for multiple languages."
+    },
+    "leafwiki": { "categories": ["wikis", "knowledge-notes"] },
+    "leantime": { "categories": ["project-task-management"] },
+    "ledgersmb": {
+      "categories": ["finance-budgeting", "business-commerce"],
+      "summary": "Accounting and ERP system for invoices, orders, projects, budgeting, and double-entry bookkeeping."
+    },
+    "leed": { "categories": ["bookmarks-read-it-later"] },
+    "lemmy": { "categories": ["communities-social", "communication"] },
+    "leon": { "categories": ["automation", "ai-ml"] },
+    "lha": {
+      "categories": ["home-automation-iot", "automation"],
+      "summary": "Home automation app with Blockly, Lua, and integrations for Hue, ConBee, and Z-Wave JS."
+    },
+    "libre-translate": { "categories": ["ai-ml", "developer-tools"] },
+    "librechat": {
+      "categories": ["ai-ml", "communication", "search"],
+      "summary": "Multi-provider AI chat app with user accounts, plugins, search, and OpenAI-compatible workflows."
+    },
+    "libredesk": { "categories": ["business-commerce", "communication"] },
+    "librekb": {
+      "categories": ["knowledge-notes", "wikis"],
+      "summary": "PHP knowledge base for publishing and organizing support or internal documentation."
+    },
+    "librephotos": {
+      "categories": ["photos-galleries", "ai-ml"],
+      "summary": "Photo library with face recognition, albums, timelines, and Google Photos-style browsing."
+    },
+    "libretime": { "categories": ["music-audio", "media-servers"] },
+    "lidatube": { "categories": ["media-servers", "music-audio", "automation"] },
+    "lidify": { "categories": ["music-audio", "automation"] },
+    "lila": { "categories": ["games", "communities-social"] },
+    "limbas": {
+      "categories": ["business-commerce", "databases", "developer-tools"],
+      "website_url": "https://github.com/limbas/limbas",
+      "note": "Project website has a certificate chain issue in Node fetch during batch 003 link audit; website_url uses the official GitHub repository."
+    },
+    "limesurvey": { "categories": ["forms-polls-events"] },
+    "linkace": {
+      "categories": ["bookmarks-read-it-later", "storage-backup"],
+      "summary": "Bookmark archive with link monitoring, tagging, backups, and a REST API."
+    },
+    "linkding": { "categories": ["bookmarks-read-it-later"] },
+    "linkstack": {
+      "categories": ["communities-social", "dashboards"],
+      "summary": "Link-in-bio page builder with branded buttons and an admin interface."
+    },
+    "listaway": { "categories": ["project-task-management", "knowledge-notes"] },
+    "listmonk": { "categories": ["email-newsletters", "communication"] },
+    "litlyx": {
+      "categories": ["dashboards", "ai-ml"],
+      "summary": "Web analytics dashboard with event tracking, AI-assisted insights, and privacy-focused reporting."
+    },
+    "littlelink": { "categories": ["dashboards", "communities-social"] },
+    "livebook": {
+      "categories": ["developer-tools", "knowledge-notes"],
+      "summary": "Collaborative notebook for Markdown, Elixir code, diagrams, and reproducible workflows."
+    },
+    "livecodes": {
+      "categories": ["developer-tools", "learning-courses"],
+      "summary": "Browser code playground for frontend frameworks, languages, previews, and shareable examples."
+    },
+    "liwan": { "categories": ["dashboards", "security-privacy"] },
+    "llm-harbor": { "categories": ["ai-ml", "developer-tools"] },
+    "llmkube": { "categories": ["ai-ml", "developer-tools", "system-admin-hosting"] },
+    "lms": {
+      "categories": ["music-audio", "media-servers"],
+      "website_url": "https://github.com/epoupon/lms",
+      "note": "Demo website returned HTTP 400 during batch 003 link audit; website_url uses the official GitHub repository."
+    },
+    "local-content-share": {
+      "categories": ["file-sharing-sync"],
+      "summary": "Local network app for sharing text snippets and files between nearby devices."
+    },
+    "local-deep-research": {
+      "categories": ["ai-ml", "search", "documents-pdfs"],
+      "summary": "Research assistant for searching sources, extracting PDFs, and storing encrypted local notes."
+    },
+    "localai": {
+      "categories": ["ai-ml", "developer-tools"],
+      "summary": "Local AI inference server with OpenAI-compatible APIs for text, image, and audio models."
+    },
+    "localess": {
+      "categories": ["content-publishing", "ai-ml"],
+      "summary": "Translation and content management app for localizing websites and apps with AI help."
+    },
+    "loomio": { "categories": ["communities-social", "communication"] },
+    "lowdefy": {
+      "categories": ["developer-tools", "dashboards"],
+      "summary": "YAML and JSON framework for building internal tools, admin panels, and dashboards."
+    },
+    "luanti": { "categories": ["games"] },
+    "lubelogger": {
+      "categories": ["knowledge-notes", "finance-budgeting"],
+      "summary": "Vehicle maintenance tracker for service records, fuel logs, reminders, and costs."
+    },
+    "lura": { "categories": ["developer-tools", "networking-dns"] },
+    "lychee": { "categories": ["photos-galleries"] },
+    "lyrion-music-server": { "categories": ["music-audio", "media-servers"] },
+    "magento-open-source": {
+      "categories": ["business-commerce"],
+      "summary": "E-commerce system for product catalogs, storefronts, checkout, and order management.",
+      "website_url": "https://github.com/magento/magento2",
+      "note": "Magento website check timed out during batch 003 link audit; website_url uses the official GitHub repository."
+    },
+    "mail-archiver": {
+      "categories": ["email-newsletters", "storage-backup", "search"],
+      "summary": "Email archive for syncing, searching, exporting, and preserving mail from multiple accounts."
+    },
+    "mail-in-a-box": { "categories": ["email-newsletters", "system-admin-hosting"] },
+    "mailcow": { "categories": ["email-newsletters", "system-admin-hosting"] },
+    "mainsail": {
+      "categories": ["home-automation-iot", "monitoring-status"],
+      "summary": "Web interface for controlling and monitoring Klipper-powered 3D printers."
+    },
+    "manage-my-damn-life": { "categories": ["calendars-contacts", "project-task-management"] },
+    "managemeals": { "categories": ["recipes-food"] },
+    "manifest": {
+      "categories": ["developer-tools"],
+      "summary": "Backend generator that defines APIs, data models, and admin behavior from a YAML file."
+    },
+    "manticore-search": { "categories": ["search", "databases"] },
+    "mantisbt": { "categories": ["project-task-management", "developer-tools"] },
+    "many-notes": { "categories": ["knowledge-notes"] },
+    "manyfold": {
+      "categories": ["knowledge-notes", "file-sharing-sync"],
+      "summary": "Digital asset manager for organizing, previewing, and sharing 3D printing files."
+    },
+    "mastodon": { "categories": ["communities-social", "communication"] },
+    "matchering": { "categories": ["music-audio", "automation"] },
+    "mathesar": {
+      "categories": ["databases", "business-commerce"],
+      "summary": "Postgres UI for editing, organizing, and collaborating on relational data."
+    },
+    "matomo": { "categories": ["dashboards", "security-privacy"] },
+    "mautic": { "categories": ["email-newsletters", "automation", "business-commerce"] },
+    "maza-ad-blocking": { "categories": ["networking-dns", "security-privacy"] },
+    "medama-analytics": { "categories": ["dashboards", "security-privacy"] },
+    "mediacms": { "categories": ["content-publishing", "media-servers"] },
+    "mediamtx": {
+      "categories": ["media-servers", "video-conferencing", "networking-dns"],
+      "summary": "Realtime media server for publishing, proxying, recording, and playing video or audio streams."
+    },
+    "medusa": {
+      "categories": ["media-servers", "automation"],
+      "summary": "TV show library manager that watches for episodes and automates downloads.",
+      "website_url": "https://github.com/pymedusa/Medusa",
+      "note": "Project website returned HTTP 404 during batch 003 link audit; website_url uses the official GitHub repository."
+    },
+    "medusajs": {
+      "categories": ["business-commerce", "developer-tools"],
+      "summary": "Headless commerce backend for products, carts, checkout, orders, and custom storefronts."
+    },
+    "meelo": { "categories": ["music-audio", "media-servers"] },
+    "meilisearch": { "categories": ["search", "developer-tools"] },
+    "meme-search": {
+      "categories": ["ai-ml", "search", "photos-galleries"],
+      "summary": "AI meme search app that extracts image descriptions and indexes them for semantic search."
+    },
+    "memos": { "categories": ["knowledge-notes"] },
+    "mere-medical": {
+      "categories": ["health-fitness", "security-privacy"],
+      "summary": "Medical record manager for collecting and organizing patient portal data offline."
+    },
+    "meshcentral": { "categories": ["remote-access", "system-admin-hosting", "security-privacy"] },
+    "metabase": { "categories": ["dashboards", "databases"] },
+    "metube": { "categories": ["media-servers"] },
+    "microweber": { "categories": ["content-publishing", "business-commerce"] },
+    "mikochi": { "categories": ["file-sharing-sync", "media-servers"] },
+    "mindustry": { "categories": ["games"] },
+    "mindwendel": { "categories": ["project-task-management", "forms-polls-events"] },
+    "minimal-git-server": { "categories": ["developer-tools"] },
+    "miniserve": { "categories": ["file-sharing-sync", "developer-tools"] },
+    "minthcm": { "categories": ["business-commerce"] },
+    "mirotalk-c2c": { "categories": ["video-conferencing", "communication"] },
+    "mirotalk-p2p": {
+      "categories": ["video-conferencing", "communication"],
+      "summary": "Peer-to-peer video meeting app with screen sharing, chat, and browser-based rooms."
+    }
+  }
+}

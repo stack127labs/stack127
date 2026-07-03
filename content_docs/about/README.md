@@ -1,0 +1,7 @@
+# About Page
+
+Route: `/about`
+
+Keep this page direct and low-hype. It should explain Version127 as a practical technical directory that starts with self-host apps and can expand into tools, references, AI agents, home automation, networking, SEO, and related technical pages.
+
+Use the shared `.prose` reading typography. Keep section headings lowercase and end them with a dot.

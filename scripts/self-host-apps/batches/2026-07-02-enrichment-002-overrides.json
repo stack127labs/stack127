@@ -1,0 +1,217 @@
+{
+  "reviewed_at": "2026-07-02",
+  "notes": "Manual category overrides for the second 100 GitHub-backed draft enrichment rows. Categories are based on project purpose, not raw imported headings or keyword matching.",
+  "overrides": {
+    "go-feature-flag": {
+      "categories": ["developer-tools"],
+      "summary": "Feature flag server for managing rollout rules, SDK keys, and evaluation across apps."
+    },
+    "go-doxy": {
+      "categories": ["networking-dns", "system-admin-hosting"],
+      "summary": "Reverse proxy with a web UI for routing traffic to Docker containers and waking idle services."
+    },
+    "goaccess": {
+      "categories": ["monitoring-status", "dashboards"],
+      "summary": "Web log analyzer that turns server access logs into real-time terminal and browser reports."
+    },
+    "goatcounter": {
+      "categories": ["dashboards", "security-privacy"],
+      "summary": "Privacy-friendly web analytics for tracking page views without personal data profiles."
+    },
+    "gobookmarks": {
+      "categories": ["bookmarks-read-it-later", "dashboards"],
+      "summary": "Start page that renders bookmarks from GitHub, GitLab, or local Git repositories."
+    },
+    "gocron": { "categories": ["automation", "system-admin-hosting"] },
+    "gogs": {
+      "categories": ["developer-tools", "project-task-management"],
+      "summary": "Git hosting service for repositories, issues, pull requests, and team access."
+    },
+    "gokapi": {
+      "categories": ["file-sharing-sync", "security-privacy"],
+      "summary": "Temporary file sharing server with expiring downloads and optional encryption."
+    },
+    "gollum": { "categories": ["wikis", "developer-tools"] },
+    "gonic": { "categories": ["music-audio", "media-servers"] },
+    "google-webfonts-helper": { "categories": ["developer-tools", "content-publishing"] },
+    "gossa": { "categories": ["file-sharing-sync"] },
+    "gotenberg": {
+      "categories": ["developer-tools", "documents-pdfs"],
+      "summary": "API server for converting HTML, Markdown, Office files, and URLs into PDFs."
+    },
+    "gramps-web": { "categories": ["knowledge-notes"] },
+    "graphhopper": { "categories": ["maps-travel", "developer-tools"] },
+    "graphweaver": { "categories": ["developer-tools", "databases"] },
+    "grist": {
+      "categories": ["documents-pdfs", "business-commerce"],
+      "summary": "Spreadsheet-database app for relational tables, formulas, and access-controlled business data."
+    },
+    "grocy": {
+      "categories": ["recipes-food", "home-automation-iot"],
+      "summary": "Household management app for groceries, chores, batteries, recipes, and inventory."
+    },
+    "group-office": {
+      "categories": ["calendars-contacts", "communication", "documents-pdfs"],
+      "summary": "Groupware suite for email, calendars, files, projects, and CRM-style collaboration."
+    },
+    "guacamole": { "categories": ["remote-access", "security-privacy"] },
+    "habitica": {
+      "categories": ["project-task-management", "health-fitness", "games"],
+      "summary": "Habit and task tracker that turns daily goals into a role-playing game."
+    },
+    "halo": {
+      "categories": ["content-publishing"],
+      "summary": "Blog and website CMS with themes, plugins, and a web admin interface."
+    },
+    "handbrake-web": {
+      "categories": ["media-servers", "automation"],
+      "summary": "Web interface for managing HandBrake video transcoding jobs on headless servers."
+    },
+    "haraka": {
+      "categories": ["email-newsletters", "system-admin-hosting"],
+      "summary": "Plugin-based SMTP server for building and operating custom mail pipelines."
+    },
+    "harbor": {
+      "categories": ["developer-tools", "security-privacy", "storage-backup"],
+      "summary": "Container image registry for storing, signing, scanning, and distributing OCI artifacts."
+    },
+    "hasura": {
+      "categories": ["developer-tools", "databases"],
+      "summary": "GraphQL engine that exposes databases as realtime APIs with permissions and event triggers."
+    },
+    "haven": { "categories": ["content-publishing", "bookmarks-read-it-later"] },
+    "healthchecks": {
+      "categories": ["monitoring-status", "automation"],
+      "summary": "Cron and background job monitor that alerts when scheduled pings stop arriving."
+    },
+    "hedgedoc": {
+      "categories": ["knowledge-notes", "documents-pdfs"],
+      "summary": "Collaborative Markdown editor for real-time notes, meeting docs, and shared writing."
+    },
+    "heimdall": { "categories": ["dashboards"] },
+    "helium": { "categories": ["project-task-management", "learning-courses"] },
+    "hemmelig": {
+      "categories": ["security-privacy"],
+      "summary": "Encrypted secret sharing app for sending passwords and notes with controlled access."
+    },
+    "heyform": { "categories": ["forms-polls-events"] },
+    "hi-events": { "categories": ["forms-polls-events", "business-commerce"] },
+    "hiccup": {
+      "categories": ["dashboards", "search"],
+      "summary": "Static start page for organizing service links with built-in search and local editing."
+    },
+    "hister": {
+      "categories": ["search", "security-privacy"],
+      "summary": "Personal search engine that indexes visited websites, local files, and offline previews."
+    },
+    "hitkeep": { "categories": ["dashboards", "security-privacy", "business-commerce"] },
+    "hitobito": { "categories": ["communities-social", "forms-polls-events"] },
+    "hive-pal": { "categories": ["business-commerce", "home-automation-iot"] },
+    "homarr": { "categories": ["dashboards"] },
+    "homebox-sysadminsmedia": { "categories": ["knowledge-notes", "business-commerce"] },
+    "homepage-by-gethomepage": { "categories": ["dashboards", "monitoring-status"] },
+    "homepage-by-tomershvueli": { "categories": ["dashboards"] },
+    "homer": { "categories": ["dashboards"] },
+    "hoppscotch-community-edition": { "categories": ["developer-tools"] },
+    "htmly": { "categories": ["content-publishing"] },
+    "hubleys": { "categories": ["dashboards"] },
+    "huginn": { "categories": ["automation", "monitoring-status"] },
+    "huly": { "categories": ["project-task-management", "knowledge-notes"] },
+    "humhub": { "categories": ["communities-social", "communication"] },
+    "hypersomnia": { "categories": ["games"] },
+    "hyperswitch": {
+      "categories": ["finance-budgeting", "developer-tools"],
+      "summary": "Payment routing layer for connecting multiple processors behind one API."
+    },
+    "hyphanet": {
+      "categories": ["security-privacy", "file-sharing-sync", "communication"],
+      "summary": "Anonymous network for sharing files, publishing sites, and using forums over Freenet-style routing."
+    },
+    "i-librarian": {
+      "categories": ["documents-pdfs", "knowledge-notes"],
+      "summary": "Reference library for organizing PDFs, papers, notes, and research metadata."
+    },
+    "ideon": {
+      "categories": ["project-task-management", "knowledge-notes", "developer-tools"],
+      "summary": "Canvas workspace for combining repositories, notes, links, and tasks in one project view."
+    },
+    "ifm": { "categories": ["file-sharing-sync"] },
+    "ihatemoney": { "categories": ["finance-budgeting"] },
+    "ilias": { "categories": ["learning-courses"] },
+    "imgcompress": {
+      "categories": ["photos-galleries", "ai-ml"],
+      "summary": "Docker image tool for compressing, resizing, converting, and background-removing images locally."
+    },
+    "imgproxy": { "categories": ["photos-galleries", "developer-tools"] },
+    "immich-kiosk": { "categories": ["photos-galleries", "dashboards"] },
+    "indico": { "categories": ["forms-polls-events"] },
+    "infisical-community-edition": { "categories": ["security-privacy", "developer-tools"] },
+    "inginious": { "categories": ["learning-courses", "developer-tools"] },
+    "inspircd": { "categories": ["communication"] },
+    "inventree": { "categories": ["business-commerce"] },
+    "invidious": { "categories": ["media-servers", "security-privacy"] },
+    "invoiceplane": { "categories": ["finance-budgeting", "business-commerce"] },
+    "invoiceshelf": { "categories": ["finance-budgeting", "business-commerce"] },
+    "iobroker": {
+      "categories": ["home-automation-iot", "automation"],
+      "summary": "Home automation controller for connecting smart devices, metering, rules, and dashboards."
+    },
+    "iodine": { "categories": ["networking-dns", "remote-access"] },
+    "iredmail": { "categories": ["email-newsletters", "system-admin-hosting"] },
+    "islandora": { "categories": ["documents-pdfs", "ebooks-libraries"] },
+    "isponsorblocktv": {
+      "categories": ["media-servers", "automation"],
+      "summary": "Companion service that skips sponsored segments and mutes ads on YouTube TV clients."
+    },
+    "it-tools-by-sharevb": {
+      "categories": ["developer-tools"],
+      "summary": "Browser-based toolbox with converters, encoders, generators, and developer utilities."
+    },
+    "itflow": { "categories": ["business-commerce", "project-task-management", "finance-budgeting"] },
+    "janus": { "categories": ["video-conferencing", "communication"] },
+    "jarr": { "categories": ["bookmarks-read-it-later"] },
+    "jetlog": { "categories": ["maps-travel"] },
+    "jitsi-meet": { "categories": ["video-conferencing", "communication"] },
+    "jitsi-video-bridge": { "categories": ["video-conferencing", "communication"] },
+    "joomla": { "categories": ["content-publishing"] },
+    "joplin": {
+      "categories": ["knowledge-notes"],
+      "summary": "Markdown note app with encryption and sync support across desktop and mobile."
+    },
+    "jotty": { "categories": ["knowledge-notes"] },
+    "judge0-ce": {
+      "categories": ["developer-tools", "learning-courses"],
+      "summary": "Code execution API for compiling and running programs in isolated workers."
+    },
+    "juntagrico": { "categories": ["business-commerce", "communities-social"] },
+    "jupyterlab": { "categories": ["developer-tools", "learning-courses"] },
+    "kamailio": { "categories": ["communication", "networking-dns"] },
+    "kanboard": { "categories": ["project-task-management"] },
+    "kaneo": { "categories": ["project-task-management"] },
+    "karakeep": { "categories": ["bookmarks-read-it-later", "ai-ml"] },
+    "karaoke-eternal": {
+      "categories": ["music-audio", "media-servers"],
+      "summary": "Browser-based karaoke server where guests can search and queue songs from their phones."
+    },
+    "kavita": { "categories": ["ebooks-libraries", "documents-pdfs"] },
+    "keeper-sh": { "categories": ["calendars-contacts", "automation"] },
+    "keila": { "categories": ["email-newsletters", "communication"] },
+    "kestra": { "categories": ["automation", "developer-tools", "monitoring-status"] },
+    "keystonejs": {
+      "categories": ["content-publishing", "developer-tools"],
+      "summary": "Headless CMS and app framework for building editable data models with an admin UI."
+    },
+    "khoj": {
+      "categories": ["ai-ml", "knowledge-notes", "search"],
+      "summary": "Personal AI assistant for searching notes, documents, web pages, and connected knowledge sources."
+    },
+    "kill-bill": {
+      "categories": ["finance-budgeting", "business-commerce"],
+      "summary": "Subscription billing system for invoices, payments, usage tracking, and account workflows."
+    },
+    "kimai": {
+      "categories": ["project-task-management", "business-commerce"],
+      "summary": "Time tracking app for recording work hours, projects, activities, and billable reports."
+    }
+  }
+}
