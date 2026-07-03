@@ -101,7 +101,7 @@ export async function getSelfHostAppsStats(): Promise<SelfHostAppsStats> {
         ) as category_count,
         count(*) filter (
           where app.published = true
-            and app.docker_support = 'supported'
+            and app.docker_support in ('official', 'community')
         ) as docker_count,
         count(*) filter (
           where app.published = true
