@@ -30,6 +30,7 @@ import { CategoryIcon } from "../category-icon";
 import {
   DirectoryAppCard,
   DirectoryAppIcon,
+  formatDatabaseRequirement,
   formatStars,
   getRamTier,
   getStorageTier,
@@ -106,7 +107,7 @@ function AppDetailsOverlay({
     ["license", app.license ?? "unknown", Scale],
     ["docker", app.docker_support, Box],
     ["compose", app.compose_support ? "yes" : "unknown", Layers],
-    ["database", app.requires_database ? app.database_types.join(", ") || "yes" : "no", Database],
+    ["database", formatDatabaseRequirement(app), Database],
     ["ram", getRamTier(app), Server],
     ["storage", getStorageTier(app), HardDrive],
     ["platforms", formatPlatforms(app.platforms), MonitorSmartphone],

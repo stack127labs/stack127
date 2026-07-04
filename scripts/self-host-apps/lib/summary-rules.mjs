@@ -97,9 +97,24 @@ export function validateSummary(summary) {
   }
 
   const sentenceCount = (text.match(/[.!?](\s|$)/g) ?? []).length;
+  const wordCount = text.split(/\s+/).filter(Boolean).length;
   if (sentenceCount > 1) errors.push("summary must be one sentence");
   if (text.length > 160) warnings.push("summary should stay under 160 characters");
+  if (text.length < 50) warnings.push("summary is too short to be useful");
+  if (wordCount < 8) warnings.push("summary should explain the app in at least 8 words");
   if (text.includes("—")) errors.push("summary must not contain an em dash");
+  if (/^[^:]{2,48}:\s+\S/.test(text)) {
+    warnings.push("summary should not repeat the app name with a colon");
+  }
+  if (/^A[n]?\s+/i.test(text)) {
+    warnings.push("summary should start with the useful thing, not an article");
+  }
+  if (
+    wordCount <= 6 &&
+    /\b(app|tool|platform|dashboard|manager|server|system|repository|software|project)\.$/i.test(text)
+  ) {
+    warnings.push("summary is too generic");
+  }
 
   for (const pattern of bannedSummaryPatterns) {
     if (pattern.test(text)) {

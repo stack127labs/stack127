@@ -16,6 +16,7 @@ import { AppShell } from "../app-shell";
 import { CategoryIcon } from "../category-icon";
 import { JsonLd } from "../json-ld";
 import {
+  formatDatabaseRequirement,
   getRamTier,
   getStorageTier,
   hasMobileApp,
@@ -340,7 +341,7 @@ function DirectoryCrawlerRecords({ apps }: { apps: DirectoryApp[] }) {
               </div>
               <div>
                 <dt>database</dt>
-                <dd>{app.requires_database ? formatCrawlerList(app.database_types) : "no"}</dd>
+                <dd>{formatDatabaseRequirement(app)}</dd>
               </div>
               <div>
                 <dt>ram</dt>

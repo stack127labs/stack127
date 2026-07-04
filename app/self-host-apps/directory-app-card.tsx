@@ -45,6 +45,18 @@ export function formatStars(value: number | null) {
   }).format(value);
 }
 
+export function formatDatabaseRequirement(app: DirectoryApp) {
+  if (app.requires_database === null) {
+    return "unknown";
+  }
+
+  if (app.database_types.length > 0) {
+    return app.database_types.join(", ");
+  }
+
+  return app.requires_database ? "yes" : "no";
+}
+
 function maintenanceLabel(app: DirectoryApp) {
   return app.maintenance_status.replaceAll("_", " ");
 }
