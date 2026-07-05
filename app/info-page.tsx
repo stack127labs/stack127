@@ -38,6 +38,7 @@ export function InfoPage({ children, title }: InfoPageProps) {
   return (
     <AppShell
       mainLabel={title}
+      menuLabel="Pages"
       sidebar={<InfoSidebar title={title} />}
       sidebarLabel={`${title} sidebar`}
     >

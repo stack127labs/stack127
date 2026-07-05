@@ -860,6 +860,7 @@ export default async function SelfHostAppsPage({
       />
       <AppShell
         mainLabel="Self-hosted app results"
+        menuLabel="Filters"
         sidebar={sidebar}
         sidebarLabel="Self-hosted app filters"
       >

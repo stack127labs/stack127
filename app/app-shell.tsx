@@ -1,11 +1,14 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { AppSidebar } from "./app-sidebar";
 
 type AppShellProps = {
   children?: ReactNode;
   mainLabel?: string;
   sidebar?: ReactNode;
   sidebarLabel?: string;
+  /** Label shown next to the mobile hamburger, e.g. "Lessons" or "Filters". */
+  menuLabel?: string;
 };
 
 export function AppShell({
@@ -13,13 +16,18 @@ export function AppShell({
   mainLabel = "Page content",
   sidebar,
   sidebarLabel = "Page sidebar",
+  menuLabel = "Menu",
 }: AppShellProps) {
   return (
     <main className="app-shell">
       <section className="app-page">
-        <aside className="app-sidebar" aria-label={sidebarLabel}>
-          {sidebar}
-        </aside>
+        {sidebar ? (
+          <AppSidebar label={sidebarLabel} menuLabel={menuLabel}>
+            {sidebar}
+          </AppSidebar>
+        ) : (
+          <aside className="app-sidebar" aria-label={sidebarLabel} />
+        )}
         <section className="app-main" aria-label={mainLabel}>
           <div className="app-main-content">{children}</div>
           <footer className="app-footer" aria-label="Site footer">

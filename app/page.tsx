@@ -62,6 +62,7 @@ export default async function Home() {
       />
       <AppShell
         mainLabel="Home"
+        menuLabel="Menu"
         sidebar={<HomeSidebar />}
         sidebarLabel="Home sidebar"
       >
