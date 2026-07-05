@@ -1,0 +1,74 @@
+name: Refresh self-host app GitHub facts
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Maximum rows to refresh. Use 0 with all=true."
+        default: "500"
+        required: false
+      all:
+        description: "Refresh every matching row instead of using limit."
+        default: false
+        required: false
+        type: boolean
+      dry_run:
+        description: "Run without writing database updates."
+        default: false
+        required: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: self-host-apps-refresh-github
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      GITHUB_TOKEN: ${{ secrets.VERSION127_GITHUB_TOKEN || github.token }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Refresh GitHub facts
+        run: |
+          args=(
+            "--published-only"
+            "--batch-size" "40"
+          )
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ "${{ inputs.all }}" = "true" ]; then
+              args+=("--all")
+            else
+              args+=("--limit" "${{ inputs.limit || '500' }}")
+            fi
+
+            if [ "${{ inputs.dry_run }}" = "true" ]; then
+              args+=("--dry-run")
+            fi
+          else
+            args+=("--limit" "500")
+            args+=("--max-age-hours" "12")
+          fi
+
+          npm run self-host-apps:refresh-github -- "${args[@]}"
