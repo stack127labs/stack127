@@ -58,12 +58,14 @@ function graphqlString(value) {
 function repositoryQuery(rows) {
   const fields = rows
     .map((row, index) => {
-      const repo = parseRepo(row.repository_url);
-      row.github_owner = repo.owner;
-      row.github_repo = repo.repo;
+      if (!row.github_owner || !row.github_repo) {
+        const repo = parseRepo(row.repository_url);
+        row.github_owner = repo.owner;
+        row.github_repo = repo.repo;
+      }
 
       return `
-        repo${index}: repository(owner: ${graphqlString(repo.owner)}, name: ${graphqlString(repo.repo)}) {
+        repo${index}: repository(owner: ${graphqlString(row.github_owner)}, name: ${graphqlString(row.github_repo)}) {
           stargazerCount
           isArchived
           licenseInfo {
@@ -142,6 +144,61 @@ async function rowsToRefresh(client, args) {
   return result.rows;
 }
 
+async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) {
+  if (!repository) throw new Error("repository not found or inaccessible");
+
+  const release = latestReleaseFrom(repository);
+  const lastCommitAt = lastCommitFrom(repository);
+  const license =
+    repository.licenseInfo?.spdxId && repository.licenseInfo.spdxId !== "NOASSERTION"
+      ? repository.licenseInfo.spdxId
+      : null;
+
+  const facts = {
+    github_owner: row.github_owner,
+    github_repo: row.github_repo,
+    github_stars: repository.stargazerCount,
+    github_latest_release: release.tag,
+    github_latest_release_at: release.publishedAt,
+    github_last_commit_at: lastCommitAt,
+    github_checked_at: checkedAt,
+    license,
+    maintenance_status: maintenanceStatus(repository, lastCommitAt),
+  };
+
+  if (!dryRun) {
+    await client.query(
+      `
+        update public.self_host_apps
+        set
+          github_owner = $2,
+          github_repo = $3,
+          github_stars = $4,
+          github_latest_release = $5,
+          github_latest_release_at = $6,
+          github_last_commit_at = $7,
+          github_checked_at = $8,
+          license = coalesce(license, $9),
+          maintenance_status = $10,
+          updated_at = now()
+        where slug = $1
+      `,
+      [
+        row.slug,
+        facts.github_owner,
+        facts.github_repo,
+        facts.github_stars,
+        facts.github_latest_release,
+        facts.github_latest_release_at,
+        facts.github_last_commit_at,
+        facts.github_checked_at,
+        facts.license,
+        facts.maintenance_status,
+      ],
+    );
+  }
+}
+
 async function main() {
   const args = parseArgs();
   const batchSize = Math.min(numberArg(args, "batch-size", 40), 80);
@@ -154,71 +211,46 @@ async function main() {
     let failed = 0;
 
     for (let index = 0; index < rows.length; index += batchSize) {
-      const batch = rows.slice(index, index + batchSize);
+      const selectedBatch = rows.slice(index, index + batchSize);
+      const batch = [];
+
+      for (const row of selectedBatch) {
+        try {
+          const repo = parseRepo(row.repository_url);
+          row.github_owner = repo.owner;
+          row.github_repo = repo.repo;
+          batch.push(row);
+        } catch (error) {
+          failed += 1;
+          console.warn(`warning ${row.slug}: ${error.message}`);
+        }
+      }
+
+      if (batch.length === 0) continue;
       let data;
 
       try {
         data = await githubGraphql(repositoryQuery(batch));
       } catch (error) {
-        failed += batch.length;
         console.warn(`warning batch ${index / batchSize + 1}: ${error.message}`);
+        for (const row of batch) {
+          try {
+            const singleData = await githubGraphql(repositoryQuery([row]));
+            await writeRepositoryFacts(client, row, singleData.repo0, checkedAt, Boolean(args["dry-run"]));
+            refreshed += 1;
+            console.log(`Refreshed GitHub facts: ${row.slug}`);
+          } catch (singleError) {
+            failed += 1;
+            console.warn(`warning ${row.slug}: ${singleError.message}`);
+          }
+        }
         continue;
       }
 
       for (const [batchIndex, row] of batch.entries()) {
         try {
           const repository = data[`repo${batchIndex}`];
-          if (!repository) throw new Error("repository not found or inaccessible");
-
-          const release = latestReleaseFrom(repository);
-          const lastCommitAt = lastCommitFrom(repository);
-          const license = repository.licenseInfo?.spdxId && repository.licenseInfo.spdxId !== "NOASSERTION"
-            ? repository.licenseInfo.spdxId
-            : null;
-
-          const facts = {
-            github_owner: row.github_owner,
-            github_repo: row.github_repo,
-            github_stars: repository.stargazerCount,
-            github_latest_release: release.tag,
-            github_latest_release_at: release.publishedAt,
-            github_last_commit_at: lastCommitAt,
-            github_checked_at: checkedAt,
-            license,
-            maintenance_status: maintenanceStatus(repository, lastCommitAt),
-          };
-
-          if (!args["dry-run"]) {
-            await client.query(
-              `
-                update public.self_host_apps
-                set
-                  github_owner = $2,
-                  github_repo = $3,
-                  github_stars = $4,
-                  github_latest_release = $5,
-                  github_latest_release_at = $6,
-                  github_last_commit_at = $7,
-                  github_checked_at = $8,
-                  license = coalesce(license, $9),
-                  maintenance_status = $10,
-                  updated_at = now()
-                where slug = $1
-              `,
-              [
-                row.slug,
-                facts.github_owner,
-                facts.github_repo,
-                facts.github_stars,
-                facts.github_latest_release,
-                facts.github_latest_release_at,
-                facts.github_last_commit_at,
-                facts.github_checked_at,
-                facts.license,
-                facts.maintenance_status,
-              ],
-            );
-          }
+          await writeRepositoryFacts(client, row, repository, checkedAt, Boolean(args["dry-run"]));
           refreshed += 1;
           console.log(`Refreshed GitHub facts: ${row.slug}`);
         } catch (error) {

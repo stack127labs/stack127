@@ -100,6 +100,11 @@
     "purpose": "Reset risky inferred database and Docker facts to unknown/null before publication. Use this before the stricter QA gate when a broad import or enrichment pass inferred facts from weak source text."
   },
   {
+    "name": "self-host-apps:publish-github-backed",
+    "command": "npm run self-host-apps:publish-github-backed -- --dry-run",
+    "purpose": "Publish GitHub-backed app rows refreshed within --max-age-hours 24 and draft stale/failed GitHub or non-GitHub rows unless keep flags are passed. Use this when the directory should stay visible while soft QA issues remain in the backlog."
+  },
+  {
     "name": "self-host-apps:sync-local-to-prod",
     "command": "npm run self-host-apps:sync-local-to-prod -- --dry-run",
     "purpose": "Mirror the verified local self-host app tables into production: apps, category taxonomy, category joins, raw sources, and field provenance. Production rows missing locally are drafted, not deleted."

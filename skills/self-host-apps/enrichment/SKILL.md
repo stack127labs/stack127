@@ -7,7 +7,7 @@ description: Enrich Version127 self-host app draft rows in repeatable batches of
 
 Use this skill in `/Users/ravitejaknts/projects/HomeLabHQ` for the Version127 `/self-host-apps` database workflow.
 
-Core rule: gathered apps enter as `draft`. A row becomes `published` only after the 100-app enrichment pass verifies its key facts, summary, categories, links, and image/icon state. Keep uncertain or failed rows in `draft`.
+Core rule: gathered apps enter as `draft`. A row becomes `published` after the enrichment pass verifies that it is listable: reachable official/project source, usable summary, controlled categories, stable links, and valid image/icon state. Keep unreachable, duplicate, broken-icon, or non-GitHub rows in `draft`; keep uncertain field-level facts as `unknown`/`null` instead of hiding an otherwise listable GitHub-backed row.
 
 ## First Checks
 
@@ -66,8 +66,9 @@ Before changing data:
 7. Verify the result:
 
    - Published count increased by the intended number.
-   - Failed or uncertain apps remain draft.
-   - No published app has a missing category, broken icon, missing official docs/install link, or weak summary.
+   - Failed, unreachable, duplicate, non-GitHub, or broken-icon apps remain draft.
+   - No published app has a missing category, broken icon, missing official docs/install link, or broken summary.
+   - Soft gaps such as unknown Docker support, unknown database requirement, missing license, or a summary that needs polish are reported for later QA instead of mass-drafting GitHub-backed rows.
    - Field provenance exists where the schema supports it, usually from `version127_enrichment`.
    - `/self-host-apps` still renders and pagination/filtering still works.
 

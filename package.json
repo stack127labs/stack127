@@ -27,6 +27,7 @@
     "self-host-apps:icon-integrity": "node scripts/self-host-apps/icon-integrity.mjs",
     "self-host-apps:apply-qa-overrides": "node scripts/self-host-apps/apply-qa-overrides.mjs",
     "self-host-apps:sanitize-risky-facts": "node scripts/self-host-apps/sanitize-risky-facts.mjs",
+    "self-host-apps:publish-github-backed": "node scripts/self-host-apps/publish-github-backed.mjs",
     "self-host-apps:sync-local-to-prod": "node scripts/self-host-apps/sync-local-to-prod.mjs"
   },
   "dependencies": {

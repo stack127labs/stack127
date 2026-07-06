@@ -55,7 +55,7 @@ Open-source self-hosted bookmark management solution.
 2. Preserve raw imported payloads in `self_host_apps_sources`.
 3. Normalize rows into the active schema.
 4. Map imported categories into the controlled taxonomy.
-5. Keep imported rows as draft until reviewed.
+5. Keep newly imported rows as draft until reviewed.
 6. Select review batches with `self-host-apps:select-enrichment-batch`.
 7. Enrich GitHub-backed batches with `self-host-apps:enrich-github-batch`.
 8. Rewrite summaries with the version127 rules.
@@ -63,6 +63,7 @@ Open-source self-hosted bookmark management solution.
 10. Upsert rows, category joins, source payloads, and field sources with `self-host-apps:upsert` or `self-host-apps:upsert-batch`.
 11. Refresh GitHub facts with `self-host-apps:refresh-github`.
 12. Run `self-host-apps:qa-gate`, `self-host-apps:qa-report`, `self-host-apps:icon-integrity`, `self-host-apps:audit-summaries`, and `self-host-apps:audit-links` before large batches or production syncs.
+13. Use `self-host-apps:publish-github-backed` after a broad GitHub refresh when recently refreshed GitHub-backed rows should stay visible while softer QA issues remain in the cleanup backlog.
 
 ## Volatile GitHub Facts
 
@@ -76,7 +77,7 @@ The scheduled workflow `.github/workflows/self-host-apps-refresh-github.yml` run
 
 Use `self-host-apps:qa-report` to rank published rows by risky facts, weak summaries, missing licenses, weak Docker proof, database uncertainty, and icon problems.
 
-Use `self-host-apps:qa-gate` to separate hard publish blockers from soft review warnings. Production should not ship rows with gate blockers.
+Use `self-host-apps:qa-gate` to separate hard publish blockers from soft review warnings. Production should not ship rows with broken icons, broken summaries, database contradictions, or risky Docker proof. Weak summaries, missing licenses, unknown Docker support, and unknown database facts belong in `self-host-apps:qa-report`; they should not automatically hide a GitHub-backed row.
 
 Use `self-host-apps:icon-integrity` to keep published app icons local, valid PNG files, and large enough for the UI.
 
@@ -84,7 +85,7 @@ Use `self-host-apps:sanitize-risky-facts` when a broad enrichment pass inferred 
 
 Use `self-host-apps:apply-qa-overrides` only with reviewed batch files under `scripts/self-host-apps/batches/`. Each override should update only the verified fields and include `field_sources` for important facts such as summary, license, database requirement, Docker support, and install docs.
 
-Do not let broad repository text infer database or Docker support. Use official install docs, compose files, package pages, or explicit project documentation. If a row cannot be verified, keep it draft.
+Do not let broad repository text infer database or Docker support. Use official install docs, compose files, package pages, or explicit project documentation. If a GitHub-backed row is reachable and recently refreshed but a fact cannot be verified, keep the uncertain field `unknown` or `null`, publish the row when the hard gate is clean, and leave the specific fact for a later QA pass. Keep non-GitHub, stale, unreachable, duplicate, or broken-icon rows draft.
 
 Run `self-host-apps:reset-categories` when imports or old data need to be remapped into the current taxonomy.
 Run `self-host-apps:draft-all` before a major review pass when only enriched rows should be visible.

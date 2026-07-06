@@ -1,0 +1,54 @@
+[
+  {
+    "slug": "calibre",
+    "summary": "Ebook library manager for organizing, converting, syncing, and reading digital books."
+  },
+  {
+    "slug": "chiefonboarding",
+    "summary": "Employee onboarding app for guiding new hires through Slack and web workflows."
+  },
+  {
+    "slug": "colanode",
+    "summary": "Local-first team workspace for chat, docs, files, and database-style collaboration."
+  },
+  {
+    "slug": "fess",
+    "summary": "Enterprise search server for crawling sites, files, and data sources."
+  },
+  {
+    "slug": "graylog",
+    "summary": "Log management server for collecting, searching, and analyzing machine data."
+  },
+  {
+    "slug": "librespeed",
+    "summary": "Browser-based speed test you can host without Flash or external telemetry."
+  },
+  {
+    "slug": "notesnook",
+    "summary": "Encrypted notes app with sync server support for private note storage."
+  },
+  {
+    "slug": "openmeetings",
+    "summary": "Web conferencing app for video meetings, whiteboards, messaging, and screen sharing."
+  },
+  {
+    "slug": "openpanel",
+    "summary": "Web hosting control panel for managing Linux sites, servers, domains, and services."
+  },
+  {
+    "slug": "saltcorn",
+    "summary": "No-code builder for creating database-backed business apps."
+  },
+  {
+    "slug": "typo3",
+    "summary": "Enterprise content management system for building and maintaining large websites."
+  },
+  {
+    "slug": "vvveb-cms",
+    "summary": "CMS and ecommerce builder for creating websites, blogs, and online stores."
+  },
+  {
+    "slug": "wave",
+    "summary": "Collaborative listening app where people take turns playing media from services like YouTube."
+  }
+]
