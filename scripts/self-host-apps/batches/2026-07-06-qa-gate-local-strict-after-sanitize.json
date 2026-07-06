@@ -1,0 +1,1074 @@
+{
+  "generated_at": "2026-07-06T09:34:27.160Z",
+  "published": 1322,
+  "blocked_count": 763,
+  "draft_blocked": 763,
+  "blocker_counts": {
+    "summary_under_8_words": 613,
+    "summary_too_short": 554,
+    "summary_vague_adjective": 184,
+    "summary_generic": 118,
+    "summary_article_start": 26,
+    "summary_name_colon": 6
+  },
+  "blocked_rows": [
+    {
+      "slug": "dockerizalo",
+      "name": "Dockerizalo",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Simple container deployment and management app.",
+      "repository_url": "https://github.com/undernightcore/dockerizalo",
+      "website_url": "https://github.com/undernightcore/dockerizalo",
+      "docker_url": null
+    },
+    {
+      "slug": "frames",
+      "name": "Frames",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Modern streaming video on demand app.",
+      "repository_url": "https://github.com/eleven-am/frames",
+      "website_url": "https://github.com/eleven-am/frames",
+      "docker_url": null
+    },
+    {
+      "slug": "ghostfile",
+      "name": "GhostFile",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Lightweight, one-time file upload server.",
+      "repository_url": "https://github.com/jon6fingrs/ghostfile",
+      "website_url": "https://github.com/jon6fingrs/ghostfile",
+      "docker_url": null
+    },
+    {
+      "slug": "kanidm",
+      "name": "Kanidm",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Modern and simple identity management app.",
+      "repository_url": "https://github.com/kanidm/kanidm",
+      "website_url": "https://kanidm.com",
+      "docker_url": null
+    },
+    {
+      "slug": "kite-kubernetes",
+      "name": "Kite",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Lightweight Kubernetes dashboard.",
+      "repository_url": "https://github.com/kite-org/kite",
+      "website_url": "https://kite-demo.zzde.me",
+      "docker_url": null
+    },
+    {
+      "slug": "littlelink",
+      "name": "LittleLink",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_article_start",
+        "summary_vague_adjective"
+      ],
+      "summary": "A lightweight DIY Linktree alternative.",
+      "repository_url": "https://github.com/sethcottle/littlelink",
+      "website_url": "https://littlelink.io",
+      "docker_url": null
+    },
+    {
+      "slug": "logchef",
+      "name": "Logchef",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Lightweight log analytics app.",
+      "repository_url": "https://github.com/mr-karan/logchef",
+      "website_url": "https://logchef.app",
+      "docker_url": null
+    },
+    {
+      "slug": "lunar",
+      "name": "Lunar",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Modern headless e-commerce app.",
+      "repository_url": "https://github.com/lunarphp/lunar",
+      "website_url": "https://lunarphp.com",
+      "docker_url": null
+    },
+    {
+      "slug": "nanote",
+      "name": "Nanote",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Lightweight note-taking app.",
+      "repository_url": "https://github.com/omarmir/nanote",
+      "website_url": "https://github.com/omarmir/nanote",
+      "docker_url": null
+    },
+    {
+      "slug": "nezha",
+      "name": "Nezha",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Lightweight server monitoring tool.",
+      "repository_url": "https://github.com/nezhahq/nezha",
+      "website_url": "https://nezhahq.github.io",
+      "docker_url": null
+    },
+    {
+      "slug": "notediscovery",
+      "name": "NoteDiscovery",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Lightweight Obsidian-like note-taking app.",
+      "repository_url": "https://github.com/gamosoft/NoteDiscovery",
+      "website_url": "https://www.notediscovery.com",
+      "docker_url": null
+    },
+    {
+      "slug": "peekaping",
+      "name": "Peekaping",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Modern uptime monitoring app.",
+      "repository_url": "https://github.com/0xfurai/peekaping",
+      "website_url": "https://peekaping.com",
+      "docker_url": null
+    },
+    {
+      "slug": "piler",
+      "name": "Piler",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Feature-rich email archiving app.",
+      "repository_url": "https://github.com/jsuto/piler",
+      "website_url": "https://www.mailpiler.org",
+      "docker_url": null
+    },
+    {
+      "slug": "sharkord",
+      "name": "Sharkord",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Lightweight real-time communication app.",
+      "repository_url": "https://github.com/Sharkord/sharkord",
+      "website_url": "https://sharkord.com",
+      "docker_url": null
+    },
+    {
+      "slug": "superset",
+      "name": "Superset",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Modern data exploration and visualization app.",
+      "repository_url": "https://github.com/apache/superset",
+      "website_url": "https://superset.apache.org",
+      "docker_url": null
+    },
+    {
+      "slug": "ticky",
+      "name": "Ticky",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Modern Kanban app.",
+      "repository_url": "https://github.com/dkorecko/Ticky",
+      "website_url": "https://github.com/dkorecko/Ticky",
+      "docker_url": null
+    },
+    {
+      "slug": "uptime-kuma",
+      "name": "Uptime Kuma",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_article_start",
+        "summary_generic"
+      ],
+      "summary": "A fancy monitoring tool.",
+      "repository_url": "https://github.com/louislam/uptime-kuma",
+      "website_url": "https://uptime.kuma.pet",
+      "docker_url": "https://hub.docker.com/r/louislam/uptime-kuma"
+    },
+    {
+      "slug": "workout-cool",
+      "name": "Workout.cool",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Modern fitness coaching app.",
+      "repository_url": "https://github.com/Snouzy/workout-cool",
+      "website_url": "https://workout.cool",
+      "docker_url": null
+    },
+    {
+      "slug": "accent",
+      "name": "Accent",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Developer-oriented translation tool.",
+      "repository_url": "https://github.com/mirego/accent",
+      "website_url": "https://www.accent.reviews",
+      "docker_url": null
+    },
+    {
+      "slug": "airtrail",
+      "name": "AirTrail",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Personal flight tracking system.",
+      "repository_url": "https://github.com/johanohly/AirTrail",
+      "website_url": "http://airtrail.johan.ohly.dk",
+      "docker_url": null
+    },
+    {
+      "slug": "alf-io",
+      "name": "Alf.io",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Ticket reservation system.",
+      "repository_url": "https://github.com/alfio-event/alf.io",
+      "website_url": "https://alf.io",
+      "docker_url": null
+    },
+    {
+      "slug": "analog",
+      "name": "ANALOG",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_article_start"
+      ],
+      "summary": "A minimal analytics tool to self-host.",
+      "repository_url": "https://github.com/orangecoloured/analog",
+      "website_url": "https://github.com/orangecoloured/analog",
+      "docker_url": null
+    },
+    {
+      "slug": "ansible",
+      "name": "Ansible",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Radically simple IT automation.",
+      "repository_url": "https://github.com/ansible/ansible",
+      "website_url": "https://www.ansible.com",
+      "docker_url": null
+    },
+    {
+      "slug": "asterisk",
+      "name": "Asterisk",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "The official Asterisk Project repository.",
+      "repository_url": "https://github.com/asterisk/asterisk",
+      "website_url": "https://www.asterisk.org",
+      "docker_url": null
+    },
+    {
+      "slug": "astuto",
+      "name": "Astuto",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Customer feedback tool.",
+      "repository_url": "https://github.com/astuto/astuto",
+      "website_url": "https://github.com/astuto/astuto",
+      "docker_url": null
+    },
+    {
+      "slug": "atlas-cmms",
+      "name": "Atlas CMMS",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Maintenance management system.",
+      "repository_url": "https://github.com/Grashjs/cmms",
+      "website_url": "https://atlas-cmms.com",
+      "docker_url": null
+    },
+    {
+      "slug": "atsumeru",
+      "name": "Atsumeru",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "mangas/comics/light novels media server.",
+      "repository_url": "https://github.com/Atsumeru-xyz/Atsumeru",
+      "website_url": "https://atsumeru.xyz",
+      "docker_url": null
+    },
+    {
+      "slug": "audiobookshelf",
+      "name": "Audiobookshelf",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Audiobook and podcast server.",
+      "repository_url": "https://github.com/advplyr/audiobookshelf",
+      "website_url": "https://audiobookshelf.org",
+      "docker_url": null
+    },
+    {
+      "slug": "aureus",
+      "name": "Aureus",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Comprehensive enterprise resource planning app.",
+      "repository_url": "https://github.com/aureuserp/aureuserp",
+      "website_url": "https://aureuserp.com",
+      "docker_url": null
+    },
+    {
+      "slug": "auto-mcs",
+      "name": "auto-mcs",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Cross-app Minecraft server manager.",
+      "repository_url": "https://github.com/macarooni-man/auto-mcs",
+      "website_url": "https://www.auto-mcs.com",
+      "docker_url": null
+    },
+    {
+      "slug": "backuppc",
+      "name": "BackupPC",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "High-performance backups to a server.",
+      "repository_url": "https://github.com/backuppc/backuppc",
+      "website_url": "https://github.com/backuppc/backuppc",
+      "docker_url": null
+    },
+    {
+      "slug": "beszel",
+      "name": "Beszel",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Lightweight server monitoring hub.",
+      "repository_url": "https://github.com/henrygd/beszel",
+      "website_url": "https://beszel.dev",
+      "docker_url": null
+    },
+    {
+      "slug": "bicimon",
+      "name": "Bicimon",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Bike Speedometer as Progressive Web App.",
+      "repository_url": "https://github.com/knrdl/bicimon",
+      "website_url": "https://github.com/knrdl/bicimon",
+      "docker_url": null
+    },
+    {
+      "slug": "bknd",
+      "name": "bknd",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Lightweight Firebase/Supabase alternative.",
+      "repository_url": "https://github.com/bknd-io/bknd",
+      "website_url": "https://bknd.io",
+      "docker_url": null
+    },
+    {
+      "slug": "black-candy",
+      "name": "Black Candy",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Music streaming server.",
+      "repository_url": "https://github.com/blackcandy-org/blackcandy",
+      "website_url": "https://github.com/blackcandy-org/blackcandy",
+      "docker_url": null
+    },
+    {
+      "slug": "bookheaven",
+      "name": "BookHeaven",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "EBook management and reading app.",
+      "repository_url": "https://github.com/BookHeaven/BookHeaven.Server",
+      "website_url": "https://bookheaven.ggarrido.dev",
+      "docker_url": null
+    },
+    {
+      "slug": "cal-diy",
+      "name": "Cal.diy",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Online appointment scheduling system.",
+      "repository_url": "https://github.com/calcom/cal.diy",
+      "website_url": "https://cal.diy",
+      "docker_url": null
+    },
+    {
+      "slug": "calorific",
+      "name": "Calorific",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Simple calorie tracking.",
+      "repository_url": "https://github.com/xdpirate/calorific",
+      "website_url": "https://github.com/xdpirate/calorific",
+      "docker_url": null
+    },
+    {
+      "slug": "cerbos",
+      "name": "Cerbos",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Policy-based authorization app.",
+      "repository_url": "https://github.com/cerbos/cerbos",
+      "website_url": "https://cerbos.dev",
+      "docker_url": null
+    },
+    {
+      "slug": "checkmate",
+      "name": "Checkmate",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Server monitoring app.",
+      "repository_url": "https://github.com/bluewave-labs/Checkmate",
+      "website_url": "https://checkmate.so",
+      "docker_url": null
+    },
+    {
+      "slug": "chyrp-lite",
+      "name": "Chyrp Lite",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Extra-awesome, extra-lightweight blog engine.",
+      "repository_url": "https://github.com/xenocrat/chyrp-lite",
+      "website_url": "https://chyrplite.net",
+      "docker_url": null
+    },
+    {
+      "slug": "cloudbeaver",
+      "name": "CloudBeaver",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Cloud Database Manager.",
+      "repository_url": "https://github.com/dbeaver/cloudbeaver",
+      "website_url": "https://dbeaver.com",
+      "docker_url": null
+    },
+    {
+      "slug": "container-hub",
+      "name": "Container Hub",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Simple, lightweight UI for container registries.",
+      "repository_url": "https://github.com/eznix86/docker-registry-ui",
+      "website_url": "https://github.com/eznix86/docker-registry-ui",
+      "docker_url": null
+    },
+    {
+      "slug": "coolify",
+      "name": "Coolify",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Software deployment and management app.",
+      "repository_url": "https://github.com/coollabsio/coolify",
+      "website_url": "https://coolify.io",
+      "docker_url": null
+    },
+    {
+      "slug": "corecontrol",
+      "name": "CoreControl",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Server infrastructure management dashboard.",
+      "repository_url": "https://github.com/crocofied/CoreObs",
+      "website_url": "https://corecontrol.xyz",
+      "docker_url": null
+    },
+    {
+      "slug": "dailytxt",
+      "name": "DailyTxT",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Encrypted Diary Web-App.",
+      "repository_url": "https://github.com/PhiTux/DailyTxT",
+      "website_url": "https://hub.docker.com/r/phitux/dailytxt",
+      "docker_url": null
+    },
+    {
+      "slug": "dashlit",
+      "name": "DashLit",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Simple server startpage.",
+      "repository_url": "https://github.com/codewec/dashlit",
+      "website_url": "https://dashlit.cwec.dev",
+      "docker_url": null
+    },
+    {
+      "slug": "dbgate",
+      "name": "DbGate",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Cross-app database manager.",
+      "repository_url": "https://github.com/dbgate/dbgate",
+      "website_url": "https://www.dbgate.io",
+      "docker_url": null
+    },
+    {
+      "slug": "diaspora",
+      "name": "diaspora",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Distributed social networking server.",
+      "repository_url": "https://github.com/diaspora/diaspora",
+      "website_url": "https://diasporafoundation.org",
+      "docker_url": null
+    },
+    {
+      "slug": "docat",
+      "name": "DOCAT",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Host your docs, Simple, Versioned, Fancy.",
+      "repository_url": "https://github.com/docat-org/docat",
+      "website_url": "https://github.com/docat-org/docat",
+      "docker_url": null
+    },
+    {
+      "slug": "dumbassets",
+      "name": "DumbAssets",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Stupidly simple asset tracker.",
+      "repository_url": "https://github.com/DumbWareio/DumbAssets",
+      "website_url": "https://dumbassets.dumbware.io",
+      "docker_url": null
+    },
+    {
+      "slug": "dumbbudget",
+      "name": "DumbBudget",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Stupidly simple personal budget.",
+      "repository_url": "https://github.com/DumbWareio/DumbBudget",
+      "website_url": "https://github.com/DumbWareio/DumbBudget",
+      "docker_url": null
+    },
+    {
+      "slug": "dumbdo",
+      "name": "DumbDo",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Stupidly simple to-do list.",
+      "repository_url": "https://github.com/DumbWareio/DumbDo",
+      "website_url": "https://github.com/DumbWareio/DumbDo",
+      "docker_url": null
+    },
+    {
+      "slug": "dumbdrop",
+      "name": "DumbDrop",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Stupidly simple file uploads.",
+      "repository_url": "https://github.com/DumbWareio/DumbDrop",
+      "website_url": "https://github.com/DumbWareio/DumbDrop",
+      "docker_url": null
+    },
+    {
+      "slug": "dumbkan",
+      "name": "DumbKan",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Stupidly simple Kanban boards.",
+      "repository_url": "https://github.com/DumbWareio/DumbKan",
+      "website_url": "https://github.com/DumbWareio/DumbKan",
+      "docker_url": null
+    },
+    {
+      "slug": "dumbpad",
+      "name": "DumbPad",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Stupidly simple modern notepad.",
+      "repository_url": "https://github.com/DumbWareio/DumbPad",
+      "website_url": "https://github.com/DumbWareio/DumbPad",
+      "docker_url": null
+    },
+    {
+      "slug": "eddrit",
+      "name": "eddrit",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Lightweight alternative frontend for Reddit.",
+      "repository_url": "https://github.com/corenting/eddrit",
+      "website_url": "https://eddrit.com",
+      "docker_url": null
+    },
+    {
+      "slug": "espial",
+      "name": "Espial",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "An, web bookmarking server.",
+      "repository_url": "https://github.com/jonschoning/espial",
+      "website_url": "https://github.com/jonschoning/espial",
+      "docker_url": null
+    },
+    {
+      "slug": "evershop",
+      "name": "EverShop",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Typescript E-commerce app.",
+      "repository_url": "https://github.com/evershopcommerce/evershop",
+      "website_url": "https://evershop.io",
+      "docker_url": null
+    },
+    {
+      "slug": "eziwiki",
+      "name": "eziwiki",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Lightweight wiki and documentation generator.",
+      "repository_url": "https://github.com/i3months/eziwiki",
+      "website_url": "https://eziwiki.vercel.app",
+      "docker_url": null
+    },
+    {
+      "slug": "fedora-commons-repository",
+      "name": "Fedora Commons Repository",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Fedora Repository.",
+      "repository_url": "https://github.com/fcrepo/fcrepo",
+      "website_url": "https://wiki.lyrasis.org/display/FF/Fedora+Repository+Home",
+      "docker_url": null
+    },
+    {
+      "slug": "feedbin",
+      "name": "Feedbin",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Simple, fast, and nice looking RSS reader.",
+      "repository_url": "https://github.com/feedbin/feedbin",
+      "website_url": "https://feedbin.com",
+      "docker_url": null
+    },
+    {
+      "slug": "ferrishare",
+      "name": "FerriShare",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Simple file sharing app with E2E encryption.",
+      "repository_url": "https://github.com/TobiasMarschner/ferrishare",
+      "website_url": "https://ferrishare-demo.tobiasm.dev",
+      "docker_url": null
+    },
+    {
+      "slug": "figranium",
+      "name": "Figranium",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Browser automation and extraction tool.",
+      "repository_url": "https://github.com/figranium/figranium",
+      "website_url": "https://figranium.dev",
+      "docker_url": null
+    },
+    {
+      "slug": "firefox-account-server",
+      "name": "Firefox Account Server",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Host your own Firefox accounts server.",
+      "repository_url": "https://github.com/mozilla/fxa",
+      "website_url": "https://mozilla.github.io/ecosystem-platform",
+      "docker_url": null
+    },
+    {
+      "slug": "fladder",
+      "name": "Fladder",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Simple Jellyfin frontend.",
+      "repository_url": "https://github.com/DonutWare/Fladder",
+      "website_url": "https://donutware.github.io/Fladder",
+      "docker_url": null
+    },
+    {
+      "slug": "flint",
+      "name": "Flint",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Lightweight tool for managing Linux VMs.",
+      "repository_url": "https://github.com/0xchasercat/flint",
+      "website_url": "https://github.com/0xchasercat/flint",
+      "docker_url": null
+    },
+    {
+      "slug": "frappe-helpdesk",
+      "name": "Frappe Helpdesk",
+      "blockers": [
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "summary": "Modern, Streamlined, and Customer Service Software.",
+      "repository_url": "https://github.com/frappe/helpdesk",
+      "website_url": "https://frappe.io/helpdesk",
+      "docker_url": null
+    },
+    {
+      "slug": "fusion",
+      "name": "Fusion",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Lightweight RSS aggregator and reader.",
+      "repository_url": "https://github.com/0x2E/fusion",
+      "website_url": "https://github.com/0x2E/fusion",
+      "docker_url": null
+    },
+    {
+      "slug": "gitit",
+      "name": "Gitit",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_article_start"
+      ],
+      "summary": "A wiki using HAppS, pandoc, and git.",
+      "repository_url": "https://github.com/jgm/gitit",
+      "website_url": "https://github.com/jgm/gitit",
+      "docker_url": null
+    },
+    {
+      "slug": "glass-keep",
+      "name": "Glass Keep",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Glassy Keep-style notes app.",
+      "repository_url": "https://github.com/nikunjsingh93/react-glass-keep",
+      "website_url": "https://github.com/nikunjsingh93/react-glass-keep",
+      "docker_url": null
+    },
+    {
+      "slug": "gossa",
+      "name": "Gossa",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Light and simple webserver for your files.",
+      "repository_url": "https://github.com/pldubouilh/gossa",
+      "website_url": "https://github.com/pldubouilh/gossa",
+      "docker_url": null
+    },
+    {
+      "slug": "growchief",
+      "name": "GrowChief",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Social media automation tool.",
+      "repository_url": "https://github.com/growchief/growchief",
+      "website_url": "https://growchief.com",
+      "docker_url": null
+    },
+    {
+      "slug": "hamsterbase-tasks",
+      "name": "HamsterBase Tasks",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "HamsterBase Tasks app.",
+      "repository_url": "https://github.com/hamsterbase/tasks",
+      "website_url": "https://tasks.hamsterbase.com",
+      "docker_url": null
+    },
+    {
+      "slug": "hollo",
+      "name": "Hollo",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Federated single-user microblogging software.",
+      "repository_url": "https://github.com/fedify-dev/hollo",
+      "website_url": "https://docs.hollo.social",
+      "docker_url": null
+    },
+    {
+      "slug": "home-assistant",
+      "name": "Home Assistant",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Home automation app.",
+      "repository_url": "https://github.com/home-assistant/core",
+      "website_url": "https://www.home-assistant.io",
+      "docker_url": null
+    },
+    {
+      "slug": "hoppscotch-community-edition",
+      "name": "Hoppscotch Community Edition",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Fast and beautiful API request builder.",
+      "repository_url": "https://github.com/hoppscotch/hoppscotch",
+      "website_url": "https://hoppscotch.io",
+      "docker_url": null
+    },
+    {
+      "slug": "ifm",
+      "name": "IFM",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Single script file manager.",
+      "repository_url": "https://github.com/misterunknown/ifm",
+      "website_url": "https://github.com/misterunknown/ifm",
+      "docker_url": null
+    },
+    {
+      "slug": "ignidash",
+      "name": "Ignidash",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "summary": "Personal finance planning app.",
+      "repository_url": "https://github.com/schelskedevco/ignidash",
+      "website_url": "https://ignidash.com",
+      "docker_url": null
+    },
+    {
+      "slug": "ironcalc",
+      "name": "IronCalc",
+      "blockers": [
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "summary": "Modern in-browser spreadsheet engine.",
+      "repository_url": "https://github.com/ironcalc/IronCalc",
+      "website_url": "https://www.ironcalc.com",
+      "docker_url": null
+    }
+  ]
+}

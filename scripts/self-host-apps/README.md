@@ -47,6 +47,8 @@ Temporary one-off scripts belong in `scripts/self-host-apps/temp/` and should be
 
 Use `self-host-apps:qa-report` to rank published rows for field-level repair. Use `self-host-apps:apply-qa-overrides` only with reviewed JSON files in `scripts/self-host-apps/batches/`; do not use it for guessed facts.
 
+Use `self-host-apps:sanitize-risky-facts` before the final gate when broad enrichment has inferred database or Docker fields from weak source text. It resets those risky fields to unknown/null instead of publishing fake precision.
+
 Use `self-host-apps:icon-integrity` to verify that published icons are local PNG files with usable dimensions. Cache or repair icons before production syncs.
 
 Use `self-host-apps:sync-local-to-prod -- --dry-run` after local QA passes. The sync mirrors local self-host app rows, taxonomy, category links, raw source payloads, and field provenance into production. Production-only app rows are drafted instead of deleted, so stale rows stop showing publicly without losing data.

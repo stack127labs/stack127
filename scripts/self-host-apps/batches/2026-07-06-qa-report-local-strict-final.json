@@ -1,0 +1,356 @@
+{
+  "generated_at": "2026-07-06T09:35:03.740Z",
+  "published": 559,
+  "issue_counts": {
+    "database_unknown": 558,
+    "docker_unknown": 520,
+    "install_docs_readme_fallback": 512,
+    "docs_readme_fallback": 474,
+    "release_missing": 75,
+    "release_missing_recent_commit": 72,
+    "summary_vague_adjective": 2
+  },
+  "queue_count": 559,
+  "top_queue": [
+    {
+      "slug": "discourse",
+      "name": "Discourse",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 47403,
+      "summary": "Advanced forum / community app based on Ruby and JS.",
+      "repository_url": "https://github.com/discourse/discourse",
+      "website_url": "https://www.discourse.org"
+    },
+    {
+      "slug": "goaccess",
+      "name": "GoAccess",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 20683,
+      "summary": "Web log analyzer that turns server access logs into real-time terminal and browser reports.",
+      "repository_url": "https://github.com/allinurl/goaccess",
+      "website_url": "https://goaccess.io"
+    },
+    {
+      "slug": "languagetool",
+      "name": "LanguageTool",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 14650,
+      "summary": "Grammar and style checker with APIs and server support for multiple languages.",
+      "repository_url": "https://github.com/languagetool-org/languagetool",
+      "website_url": "https://languagetool.org"
+    },
+    {
+      "slug": "iodine",
+      "name": "iodine",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 7925,
+      "summary": "IPv4 over DNS tunnel app, enabling you to start up a socks5 proxy listener.",
+      "repository_url": "https://github.com/yarrick/iodine",
+      "website_url": "https://code.kryo.se/iodine"
+    },
+    {
+      "slug": "openmediavault",
+      "name": "OpenMediaVault",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 6829,
+      "summary": "Network attached storage (NAS) app based on Debian Linux, It contains services like SSH, (S)FTP, SMB/CIFS, DAAP media server, RSync, BitTorrent and many more.",
+      "repository_url": "https://github.com/openmediavault/openmediavault",
+      "website_url": "https://www.openmediavault.org"
+    },
+    {
+      "slug": "the-battle-for-wesnoth",
+      "name": "The Battle for Wesnoth",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 6753,
+      "summary": "An, turn-based strategy game with a high fantasy theme.",
+      "repository_url": "https://github.com/wesnoth/wesnoth",
+      "website_url": "https://www.wesnoth.org"
+    },
+    {
+      "slug": "aimeos",
+      "name": "Aimeos",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 5421,
+      "summary": "E-commerce framework for building custom online shops, market places and complex B2B applications scaling to billions of items with Laravel.",
+      "repository_url": "https://github.com/aimeos/aimeos",
+      "website_url": "https://aimeos.org/Laravel"
+    },
+    {
+      "slug": "mirotalk-p2p",
+      "name": "MiroTalk P2P",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 4617,
+      "summary": "Peer-to-peer video meeting app with screen sharing, chat, and browser-based rooms.",
+      "repository_url": "https://github.com/miroslavpejic85/mirotalk",
+      "website_url": "https://p2p.mirotalk.com"
+    },
+    {
+      "slug": "apostrophe",
+      "name": "Apostrophe",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 4585,
+      "summary": "CMS with a focus on extensible in-context editing tools.",
+      "repository_url": "https://github.com/apostrophecms/apostrophe",
+      "website_url": "https://apostrophecms.com"
+    },
+    {
+      "slug": "guacamole",
+      "name": "Guacamole",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 3892,
+      "summary": "Clientless remote desktop gateway supporting standard protocols like VNC and RDP.",
+      "repository_url": "https://github.com/apache/guacamole-server",
+      "website_url": "https://guacamole.apache.org"
+    },
+    {
+      "slug": "wbo",
+      "name": "WBO",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 2616,
+      "summary": "Web Whiteboard to collaborate in real-time on schemas, drawings, and notes.",
+      "repository_url": "https://github.com/lovasoa/whitebophir",
+      "website_url": "https://wbo.ophir.dev"
+    },
+    {
+      "slug": "fava",
+      "name": "Fava",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 2523,
+      "summary": "Web frontend of Beancount, a text based double-entry accounting system.",
+      "repository_url": "https://github.com/beancount/fava",
+      "website_url": "https://beancount.github.io/fava"
+    },
+    {
+      "slug": "chitchatter",
+      "name": "Chitchatter",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 2298,
+      "summary": "Peer-to-peer chat app that is serverless, decentralized, and ephemeral.",
+      "repository_url": "https://github.com/jeremyckahn/chitchatter",
+      "website_url": "https://chitchatter.im"
+    },
+    {
+      "slug": "maza-ad-blocking",
+      "name": "Maza ad blocking",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 1861,
+      "summary": "Local ad blocker, Like Pi-hole but local and using your operating system.",
+      "repository_url": "https://github.com/tanrax/maza-ad-blocking",
+      "website_url": "https://maza-ad-blocking.andros.dev"
+    },
+    {
+      "slug": "iredmail",
+      "name": "iRedMail",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 1818,
+      "summary": "Full-featured mail server app based on Postfix and Dovecot.",
+      "repository_url": "https://github.com/iredmail/iRedMail",
+      "website_url": "https://www.iredmail.org"
+    },
+    {
+      "slug": "apache-solr",
+      "name": "Apache Solr",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 1639,
+      "summary": "Enterprise search app featuring full-text search, hit highlighting, faceted search, real-time indexing, dynamic clustering, and rich document.",
+      "repository_url": "https://github.com/apache/solr",
+      "website_url": "https://solr.apache.org"
+    },
+    {
+      "slug": "hypersomnia",
+      "name": "Hypersomnia",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 1588,
+      "summary": "Competitive top-down shooter blending Counter-Strike with Hotline Miami, Runs on Linux, Windows, MacOS and the Web.",
+      "repository_url": "https://github.com/TeamHypersomnia/Hypersomnia",
+      "website_url": "https://hypersomnia.io"
+    },
+    {
+      "slug": "opensips",
+      "name": "openSIPS",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 1488,
+      "summary": "SIP proxy/server for voice, video, IM, presence and any other SIP extensions.",
+      "repository_url": "https://github.com/OpenSIPS/opensips",
+      "website_url": "https://opensips.org"
+    },
+    {
+      "slug": "revive-adserver",
+      "name": "Revive Adserver",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 1481,
+      "summary": "Ad serving system, Formerly known as OpenX Adserver and phpAdsNew.",
+      "repository_url": "https://github.com/revive-adserver/revive-adserver",
+      "website_url": "http://www.revive-adserver.com/download"
+    },
+    {
+      "slug": "galene",
+      "name": "Galene",
+      "score": 235,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 1344,
+      "summary": "Video conferencing server that is easy to deploy and that requires moderate server resources.",
+      "repository_url": "https://github.com/jech/galene",
+      "website_url": "https://galene.org"
+    }
+  ]
+}

@@ -10,6 +10,8 @@ const dockerHighRiskPattern =
   /(devcontainer|dev-container|compose\.dev|docker-compose\.dev|\/test|testing|ci|e2e|vendor|\.github|\.ddev)/i;
 const badSummaryPattern =
   /\b(open[- ]source|self[- ]hosted|solution|powerful|ultimate|all-in-one|modern and elegant|easy-to-use)\b/i;
+const vagueSummaryPattern =
+  /\b(simple|powerful|modern|lightweight|easy-to-use|feature-rich|all-in-one|beautiful|awesome|elegant|robust|seamless|user-friendly)\b/i;
 
 function iconBlockers(row) {
   if (!row.icon_url?.startsWith("/app-icons/")) return ["icon_not_local"];
@@ -33,8 +35,18 @@ function summaryBlockers(row) {
   const result = validateSummary(text);
 
   if (result.errors.length > 0) issues.push("summary_invalid");
+  for (const warning of result.warnings) {
+    if (warning.includes("too short")) issues.push("summary_too_short");
+    if (warning.includes("at least 8")) issues.push("summary_under_8_words");
+    if (warning.includes("too generic")) issues.push("summary_generic");
+    if (warning.includes("start with")) issues.push("summary_article_start");
+    if (warning.includes("name with a colon")) issues.push("summary_name_colon");
+    if (warning.includes("weak phrase")) issues.push("summary_weak_phrase");
+  }
   if (!text || text.length < 18) issues.push("summary_too_thin");
   if (badSummaryPattern.test(text)) issues.push("summary_boilerplate");
+  if (vagueSummaryPattern.test(text)) issues.push("summary_vague_adjective");
+  if (/^(a|an|the)[,\s]+/i.test(text)) issues.push("summary_article_start");
   if (/^(and|or)\s/i.test(text)) issues.push("summary_bad_start");
   if (/^the official (source code )?repository\b/i.test(text)) issues.push("summary_bad_start");
   if (/^mirror of\b/i.test(text)) issues.push("summary_mirror_text");

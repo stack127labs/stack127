@@ -1,0 +1,399 @@
+{
+  "generated_at": "2026-07-06T09:30:58.550Z",
+  "published": 1322,
+  "issue_counts": {
+    "install_docs_readme_fallback": 1270,
+    "docs_readme_fallback": 1186,
+    "summary_under_8_words": 613,
+    "database_unknown": 602,
+    "summary_too_short": 554,
+    "release_missing": 174,
+    "docker_weak_url": 172,
+    "release_missing_recent_commit": 157,
+    "summary_vague_adjective": 133,
+    "docker_unknown": 126,
+    "summary_generic": 118,
+    "summary_article_start": 26,
+    "summary_name_colon": 6
+  },
+  "queue_count": 1293,
+  "top_queue": [
+    {
+      "slug": "xibo",
+      "name": "Xibo",
+      "score": 320,
+      "issues": [
+        "database_unknown",
+        "docker_weak_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 718,
+      "summary": "Digital signage app.",
+      "repository_url": "https://github.com/xibosignage/xibo",
+      "website_url": "https://xibosignage.com"
+    },
+    {
+      "slug": "kriss-feed",
+      "name": "Kriss Feed",
+      "score": 310,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 289,
+      "summary": "Simple and smart (or stupid) feed reader.",
+      "repository_url": "https://github.com/tontof/kriss_feed",
+      "website_url": "https://github.com/tontof/kriss_feed"
+    },
+    {
+      "slug": "gitit",
+      "name": "Gitit",
+      "score": 305,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_article_start"
+      ],
+      "github_stars": 2275,
+      "summary": "A wiki using HAppS, pandoc, and git.",
+      "repository_url": "https://github.com/jgm/gitit",
+      "website_url": "https://github.com/jgm/gitit"
+    },
+    {
+      "slug": "lunar",
+      "name": "Lunar",
+      "score": 300,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 3566,
+      "summary": "Modern headless e-commerce app.",
+      "repository_url": "https://github.com/lunarphp/lunar",
+      "website_url": "https://lunarphp.com"
+    },
+    {
+      "slug": "janus",
+      "name": "Janus",
+      "score": 295,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 9127,
+      "summary": "General-purpose, lightweight, minimalist WebRTC Server.",
+      "repository_url": "https://github.com/meetecho/janus-gateway",
+      "website_url": "https://janus.conf.meetecho.com"
+    },
+    {
+      "slug": "zero-k",
+      "name": "Zero-K",
+      "score": 290,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 812,
+      "summary": "RTS game running on the Spring/Recoil engine.",
+      "repository_url": "https://github.com/ZeroK-RTS/Zero-K",
+      "website_url": "https://zero-k.info"
+    },
+    {
+      "slug": "bicimon",
+      "name": "Bicimon",
+      "score": 290,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 62,
+      "summary": "Bike Speedometer as Progressive Web App.",
+      "repository_url": "https://github.com/knrdl/bicimon",
+      "website_url": "https://github.com/knrdl/bicimon"
+    },
+    {
+      "slug": "civitai-data-manager",
+      "name": "Civitai Data Manager",
+      "score": 290,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 58,
+      "summary": "Civitai model metadata backups and management.",
+      "repository_url": "https://github.com/jmsltnv/civitai-data-manager",
+      "website_url": "https://github.com/jmsltnv/civitai-data-manager"
+    },
+    {
+      "slug": "rss-librarian",
+      "name": "RSS Librarian",
+      "score": 290,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 50,
+      "summary": "Read later service for RSS purists.",
+      "repository_url": "https://github.com/thefranke/rss-librarian",
+      "website_url": "https://www.rsslibrarian.ch/librarian.php"
+    },
+    {
+      "slug": "biblioreads",
+      "name": "BiblioReads",
+      "score": 285,
+      "issues": [
+        "database_unknown",
+        "docker_weak_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 322,
+      "summary": "Goodreads frontend focused on privacy.",
+      "repository_url": "https://github.com/nesaku/BiblioReads",
+      "website_url": "https://biblioreads.eu.org"
+    },
+    {
+      "slug": "snapcast",
+      "name": "Snapcast",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 7741,
+      "summary": "Synchronous multiroom audio server.",
+      "repository_url": "https://github.com/snapcast/snapcast",
+      "website_url": "https://github.com/snapcast/snapcast"
+    },
+    {
+      "slug": "librum",
+      "name": "Librum",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 5304,
+      "summary": "Ebook reader and manager.",
+      "repository_url": "https://github.com/Librum-Reader/Librum",
+      "website_url": "https://librumreader.com"
+    },
+    {
+      "slug": "backuppc",
+      "name": "BackupPC",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 1614,
+      "summary": "High-performance backups to a server.",
+      "repository_url": "https://github.com/backuppc/backuppc",
+      "website_url": "https://github.com/backuppc/backuppc"
+    },
+    {
+      "slug": "openreads",
+      "name": "Openreads",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 1566,
+      "summary": "Privacy-oriented and cross-app book tracking app.",
+      "repository_url": "https://github.com/mateusz-bak/openreads",
+      "website_url": "https://github.com/mateusz-bak/openreads"
+    },
+    {
+      "slug": "pluxml",
+      "name": "PluXml",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 233,
+      "summary": "XML-based blog/CMS app.",
+      "repository_url": "https://github.com/pluxml/PluXml",
+      "website_url": "http://pluxml.org"
+    },
+    {
+      "slug": "suroi",
+      "name": "Suroi",
+      "score": 275,
+      "issues": [
+        "database_unknown",
+        "docker_weak_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_article_start"
+      ],
+      "github_stars": 477,
+      "summary": "An 2D battle royale game inspired by surviv.io.",
+      "repository_url": "https://github.com/HasangerGames/suroi",
+      "website_url": "https://suroi.io"
+    },
+    {
+      "slug": "atsumeru",
+      "name": "Atsumeru",
+      "score": 275,
+      "issues": [
+        "database_unknown",
+        "docker_weak_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 184,
+      "summary": "mangas/comics/light novels media server.",
+      "repository_url": "https://github.com/Atsumeru-xyz/Atsumeru",
+      "website_url": "https://atsumeru.xyz"
+    },
+    {
+      "slug": "yacy",
+      "name": "Yacy",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 3974,
+      "summary": "Peer based, decentralized search engine server.",
+      "repository_url": "https://github.com/yacy/yacy_search_server",
+      "website_url": "http://yacy.net"
+    },
+    {
+      "slug": "dailytxt",
+      "name": "DailyTxT",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 486,
+      "summary": "Encrypted Diary Web-App.",
+      "repository_url": "https://github.com/PhiTux/DailyTxT",
+      "website_url": "https://hub.docker.com/r/phitux/dailytxt"
+    },
+    {
+      "slug": "kresus",
+      "name": "Kresus",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 336,
+      "summary": "Personal finance manager.",
+      "repository_url": "https://github.com/kresusapp/kresus",
+      "website_url": "https://kresus.org"
+    }
+  ]
+}

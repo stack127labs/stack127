@@ -80,6 +80,8 @@ Use `self-host-apps:qa-gate` to separate hard publish blockers from soft review 
 
 Use `self-host-apps:icon-integrity` to keep published app icons local, valid PNG files, and large enough for the UI.
 
+Use `self-host-apps:sanitize-risky-facts` when a broad enrichment pass inferred database or Docker facts from README text, Dockerfiles, dev compose files, or source-list blurbs. Reset weak facts to `unknown` or `null` instead of publishing false confidence.
+
 Use `self-host-apps:apply-qa-overrides` only with reviewed batch files under `scripts/self-host-apps/batches/`. Each override should update only the verified fields and include `field_sources` for important facts such as summary, license, database requirement, Docker support, and install docs.
 
 Do not let broad repository text infer database or Docker support. Use official install docs, compose files, package pages, or explicit project documentation. If a row cannot be verified, keep it draft.

@@ -95,6 +95,11 @@
     "purpose": "Apply reviewed field-level QA fixes and source provenance for selected self-host app rows without re-upserting unrelated data."
   },
   {
+    "name": "self-host-apps:sanitize-risky-facts",
+    "command": "npm run self-host-apps:sanitize-risky-facts -- --dry-run",
+    "purpose": "Reset risky inferred database and Docker facts to unknown/null before publication. Use this before the stricter QA gate when a broad import or enrichment pass inferred facts from weak source text."
+  },
+  {
     "name": "self-host-apps:sync-local-to-prod",
     "command": "npm run self-host-apps:sync-local-to-prod -- --dry-run",
     "purpose": "Mirror the verified local self-host app tables into production: apps, category taxonomy, category joins, raw sources, and field provenance. Production rows missing locally are drafted, not deleted."

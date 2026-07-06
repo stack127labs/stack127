@@ -1,0 +1,133 @@
+{
+  "generated_at": "2026-07-06T09:35:44.087Z",
+  "published": 559,
+  "blocked_count": 11,
+  "draft_blocked": 11,
+  "blocker_counts": {
+    "summary_article_start": 9,
+    "summary_vague_adjective": 2
+  },
+  "blocked_rows": [
+    {
+      "slug": "4ga-boards",
+      "name": "4ga Boards",
+      "blockers": [
+        "summary_vague_adjective"
+      ],
+      "summary": "Straightforward realtime kanban boards management for intuitive task tracking, 4ga Boards features an elegant dark mode, collapsible todo lists, and.",
+      "repository_url": "https://github.com/RARgames/4gaBoards",
+      "website_url": "https://4gaboards.com",
+      "docker_url": null
+    },
+    {
+      "slug": "alfresco-community-edition",
+      "name": "Alfresco Community Edition",
+      "blockers": [
+        "summary_article_start"
+      ],
+      "summary": "The Enterprise Content Management software that handles any type of content, allowing users to easily share and collaborate on content.",
+      "repository_url": "https://github.com/Alfresco/alfresco-community-repo",
+      "website_url": "https://www.alfresco.com/it/ecm-software/alfresco-community-edition",
+      "docker_url": null
+    },
+    {
+      "slug": "cups",
+      "name": "CUPS",
+      "blockers": [
+        "summary_article_start"
+      ],
+      "summary": "The Common Unix Print System uses Internet Printing Protocol (IPP) to support printing to local and network printers.",
+      "repository_url": "https://github.com/OpenPrinting/cups",
+      "website_url": "https://openprinting.github.io/cups",
+      "docker_url": null
+    },
+    {
+      "slug": "cyberchef",
+      "name": "CyberChef",
+      "blockers": [
+        "summary_article_start"
+      ],
+      "summary": "The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis.",
+      "repository_url": "https://github.com/gchq/CyberChef",
+      "website_url": "https://gchq.github.io/CyberChef",
+      "docker_url": null
+    },
+    {
+      "slug": "donetick",
+      "name": "Donetick",
+      "blockers": [
+        "summary_vague_adjective"
+      ],
+      "summary": "Donetick an, user-friendly app for managing tasks and chores, featuring customizable options to help you and others stay organized.",
+      "repository_url": "https://github.com/donetick/donetick",
+      "website_url": "https://donetick.com",
+      "docker_url": null
+    },
+    {
+      "slug": "scoold",
+      "name": "Scoold",
+      "blockers": [
+        "summary_article_start"
+      ],
+      "summary": "The Stack Overflow clone for your team (or hosted).",
+      "repository_url": "https://github.com/Erudika/scoold",
+      "website_url": "https://scoold.com",
+      "docker_url": null
+    },
+    {
+      "slug": "simplex-chat",
+      "name": "SimpleX Chat",
+      "blockers": [
+        "summary_article_start"
+      ],
+      "summary": "The most private and secure chat and applications app - now with double ratchet E2E encryption.",
+      "repository_url": "https://github.com/simplex-chat/simplex-chat",
+      "website_url": "https://simplex.chat",
+      "docker_url": null
+    },
+    {
+      "slug": "tasks-md",
+      "name": "Tasks.md",
+      "blockers": [
+        "summary_article_start"
+      ],
+      "summary": "A, file based task management board that supports Markdown syntax.",
+      "repository_url": "https://github.com/BaldissaraMatheus/Tasks.md",
+      "website_url": "https://hub.docker.com/r/baldissaramatheus/tasks.md",
+      "docker_url": null
+    },
+    {
+      "slug": "teleport",
+      "name": "Teleport",
+      "blockers": [
+        "summary_article_start"
+      ],
+      "summary": "The easiest, and most secure way to access and protect all of your infrastructure.",
+      "repository_url": "https://github.com/gravitational/teleport",
+      "website_url": "https://goteleport.com",
+      "docker_url": null
+    },
+    {
+      "slug": "the-battle-for-wesnoth",
+      "name": "The Battle for Wesnoth",
+      "blockers": [
+        "summary_article_start"
+      ],
+      "summary": "An, turn-based strategy game with a high fantasy theme.",
+      "repository_url": "https://github.com/wesnoth/wesnoth",
+      "website_url": "https://www.wesnoth.org",
+      "docker_url": null
+    },
+    {
+      "slug": "yourls",
+      "name": "YOURLS",
+      "blockers": [
+        "summary_article_start"
+      ],
+      "summary": "The standard, and customizable, URL shortener in PHP.",
+      "repository_url": "https://github.com/YOURLS/YOURLS",
+      "website_url": "https://yourls.org",
+      "docker_url": null
+    }
+  ]
+}
