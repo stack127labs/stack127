@@ -1,0 +1,398 @@
+{
+  "apps": [
+    {
+      "slug": "chatwoot",
+      "summary": "Customer support inbox for live chat, email, social channels, and help-center conversations.",
+      "license": "MIT Expat core; enterprise features separately licensed",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["postgresql", "redis"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://hub.docker.com/r/chatwoot/chatwoot",
+      "docs_url": "https://developers.chatwoot.com/self-hosted",
+      "install_docs_url": "https://developers.chatwoot.com/self-hosted/deployment/docker",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://developers.chatwoot.com/self-hosted" },
+        { "field_name": "license", "source_url": "https://github.com/chatwoot/chatwoot/blob/develop/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://developers.chatwoot.com/self-hosted/deployment/docker" },
+        { "field_name": "docker_support", "source_url": "https://hub.docker.com/r/chatwoot/chatwoot" },
+        { "field_name": "install_docs_url", "source_url": "https://developers.chatwoot.com/self-hosted/deployment/docker" }
+      ]
+    },
+    {
+      "slug": "kener",
+      "summary": "Status-page app for publishing uptime, incident, and maintenance updates.",
+      "license": "MIT",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["sqlite", "postgresql", "mysql", "mariadb", "redis"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://hub.docker.com/r/rajnandan1/kener",
+      "docs_url": "https://kener.ing/docs/v4/getting-started/introduction",
+      "install_docs_url": "https://kener.ing/docs/v4/getting-started/quick-start",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://kener.ing/docs/v4/getting-started/introduction" },
+        { "field_name": "license", "source_url": "https://github.com/rajnandan1/kener/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/rajnandan1/kener/blob/main/docker-compose.yml" },
+        { "field_name": "docker_support", "source_url": "https://hub.docker.com/r/rajnandan1/kener" },
+        { "field_name": "install_docs_url", "source_url": "https://kener.ing/docs/v4/getting-started/quick-start" }
+      ]
+    },
+    {
+      "slug": "foundry-virtual-tabletop",
+      "summary": "Virtual tabletop server for running browser-based role-playing game sessions.",
+      "license": "Proprietary EULA",
+      "published": true,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "none",
+      "compose_support": false,
+      "docker_url": null,
+      "docs_url": "https://foundryvtt.com/kb/",
+      "install_docs_url": "https://foundryvtt.com/article/installation/",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://foundryvtt.com/kb/" },
+        { "field_name": "license", "source_url": "https://foundryvtt.com/article/license/" },
+        { "field_name": "requires_database", "source_url": "https://foundryvtt.com/article/configuration/" },
+        { "field_name": "docker_support", "source_url": "https://foundryvtt.com/article/installation/" },
+        { "field_name": "install_docs_url", "source_url": "https://foundryvtt.com/article/installation/" }
+      ]
+    },
+    {
+      "slug": "filepizza",
+      "summary": "Browser-based peer-to-peer file transfer app with short sharing links.",
+      "license": "BSD-3-Clause",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["redis"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/kern/filepizza/blob/main/docker-compose.production.yml",
+      "docs_url": "https://github.com/kern/filepizza",
+      "install_docs_url": "https://github.com/kern/filepizza#development",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/kern/filepizza" },
+        { "field_name": "license", "source_url": "https://github.com/kern/filepizza/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/kern/filepizza#configuration" },
+        { "field_name": "docker_support", "source_url": "https://github.com/kern/filepizza/blob/main/docker-compose.production.yml" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/kern/filepizza#development" }
+      ]
+    },
+    {
+      "slug": "world-monitor",
+      "summary": "Global intelligence dashboard for monitoring news, markets, flights, ships, and infrastructure signals.",
+      "license": "AGPL-3.0-or-later",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["redis"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/koala73/worldmonitor/blob/main/docker-compose.yml",
+      "docs_url": "https://www.worldmonitor.app/docs/documentation",
+      "install_docs_url": "https://github.com/koala73/worldmonitor/blob/main/SELF_HOSTING.md",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://www.worldmonitor.app/docs/documentation" },
+        { "field_name": "license", "source_url": "https://github.com/koala73/worldmonitor/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/koala73/worldmonitor/blob/main/SELF_HOSTING.md" },
+        { "field_name": "docker_support", "source_url": "https://github.com/koala73/worldmonitor/blob/main/docker-compose.yml" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/koala73/worldmonitor/blob/main/SELF_HOSTING.md" }
+      ]
+    },
+    {
+      "slug": "cobalt",
+      "summary": "Web app and API for saving public media links as downloadable files.",
+      "license": "AGPL-3.0",
+      "published": true,
+      "requires_database": null,
+      "database_types": ["redis"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/imputnet/cobalt/blob/main/docs/run-an-instance.md",
+      "docs_url": "https://github.com/imputnet/cobalt/tree/main/docs",
+      "install_docs_url": "https://github.com/imputnet/cobalt/blob/main/docs/run-an-instance.md",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/imputnet/cobalt/tree/main/docs" },
+        { "field_name": "license", "source_url": "https://github.com/imputnet/cobalt/blob/main/LICENSE.md" },
+        { "field_name": "requires_database", "source_url": "https://github.com/imputnet/cobalt/blob/main/docs/api-env-variables.md", "confidence": "medium", "note": "Redis-related variables exist, but core requirement can vary by deployment." },
+        { "field_name": "docker_support", "source_url": "https://github.com/imputnet/cobalt/blob/main/docs/run-an-instance.md" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/imputnet/cobalt/blob/main/docs/run-an-instance.md" }
+      ]
+    },
+    {
+      "slug": "the-one-file",
+      "summary": "Diagramming app with an optional Docker collaboration server for shared editable rooms.",
+      "license": "Unlicense",
+      "published": true,
+      "requires_database": null,
+      "database_types": ["redis"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/gelatinescreams/The-One-File/blob/main/theonefile_verse/docker-compose.yml",
+      "docs_url": "https://github.com/gelatinescreams/The-One-File",
+      "install_docs_url": "https://github.com/gelatinescreams/The-One-File/tree/main/theonefile_verse",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/gelatinescreams/The-One-File" },
+        { "field_name": "license", "source_url": "https://github.com/gelatinescreams/The-One-File/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/gelatinescreams/The-One-File/tree/main/theonefile_verse", "confidence": "medium", "note": "Redis appears tied to optional collaboration server." },
+        { "field_name": "docker_support", "source_url": "https://github.com/gelatinescreams/The-One-File/blob/main/theonefile_verse/docker-compose.yml" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/gelatinescreams/The-One-File/tree/main/theonefile_verse" }
+      ]
+    },
+    {
+      "slug": "keepassxc",
+      "summary": "Desktop password manager for encrypted local KDBX vaults.",
+      "license": "GPL-2.0-or-GPL-3.0",
+      "published": false,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "none",
+      "compose_support": false,
+      "docker_url": null,
+      "docs_url": "https://keepassxc.org/docs/",
+      "install_docs_url": "https://github.com/keepassxreboot/keepassxc/blob/develop/INSTALL.md",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/keepassxreboot/keepassxc#core-features" },
+        { "field_name": "license", "source_url": "https://github.com/keepassxreboot/keepassxc/blob/develop/COPYING" },
+        { "field_name": "requires_database", "source_url": "https://github.com/keepassxreboot/keepassxc#core-features" },
+        { "field_name": "docker_support", "source_url": "https://github.com/keepassxreboot/keepassxc#core-features", "note": "Drafted because official sources describe a desktop app, not a self-hosted server app." }
+      ]
+    },
+    {
+      "slug": "defguard",
+      "summary": "Access-management server for WireGuard VPN, identity, MFA, and network policy.",
+      "license": "AGPL-3.0 core; enterprise directory separately licensed",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["postgresql"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/DefGuard/defguard/blob/stable/2.x/docker-compose.yaml",
+      "docs_url": "https://docs.defguard.net",
+      "install_docs_url": "https://docs.defguard.net/getting-started/one-line-install",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://docs.defguard.net" },
+        { "field_name": "license", "source_url": "https://github.com/DefGuard/defguard/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/DefGuard/defguard/blob/stable/2.x/docker-compose.yaml" },
+        { "field_name": "docker_support", "source_url": "https://github.com/DefGuard/defguard/blob/stable/2.x/docker-compose.yaml" },
+        { "field_name": "install_docs_url", "source_url": "https://docs.defguard.net/getting-started/one-line-install" }
+      ]
+    },
+    {
+      "slug": "dub",
+      "summary": "Link attribution app for short links, conversion tracking, and partner campaigns.",
+      "license": "AGPL-3.0 core; enterprise directories separately licensed",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["mysql", "redis", "tinybird"],
+      "docker_support": "none",
+      "compose_support": false,
+      "docker_url": null,
+      "docs_url": "https://dub.co/docs",
+      "install_docs_url": "https://dub.co/docs/self-hosting",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://dub.co/docs" },
+        { "field_name": "license", "source_url": "https://github.com/dubinc/dub/blob/main/LICENSE.md" },
+        { "field_name": "requires_database", "source_url": "https://dub.co/docs/self-hosting" },
+        { "field_name": "docker_support", "source_url": "https://dub.co/docs/self-hosting" },
+        { "field_name": "install_docs_url", "source_url": "https://dub.co/docs/self-hosting" }
+      ]
+    },
+    {
+      "slug": "redis-commander",
+      "summary": "Web UI for browsing and editing keys across Redis servers, Sentinel setups, and clusters.",
+      "license": "MIT",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["redis"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/joeferner/redis-commander/pkgs/container/redis-commander",
+      "docs_url": "https://github.com/joeferner/redis-commander/tree/master/docs",
+      "install_docs_url": "https://github.com/joeferner/redis-commander#install-and-run",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/joeferner/redis-commander#features" },
+        { "field_name": "license", "source_url": "https://github.com/joeferner/redis-commander/blob/master/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/joeferner/redis-commander#features" },
+        { "field_name": "docker_support", "source_url": "https://github.com/joeferner/redis-commander/pkgs/container/redis-commander" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/joeferner/redis-commander#install-and-run" }
+      ]
+    },
+    {
+      "slug": "cryptgeon",
+      "summary": "Encrypted note and file sharing service with view or expiration limits.",
+      "license": "MIT",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["redis"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://hub.docker.com/r/cupcakearmy/cryptgeon",
+      "docs_url": "https://github.com/cupcakearmy/cryptgeon",
+      "install_docs_url": "https://github.com/cupcakearmy/cryptgeon#deployment",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/cupcakearmy/cryptgeon" },
+        { "field_name": "license", "source_url": "https://github.com/cupcakearmy/cryptgeon/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/cupcakearmy/cryptgeon#environment-variables" },
+        { "field_name": "docker_support", "source_url": "https://hub.docker.com/r/cupcakearmy/cryptgeon" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/cupcakearmy/cryptgeon#deployment" }
+      ]
+    },
+    {
+      "slug": "eigenfocus",
+      "summary": "Project manager with boards, issues, labels, file attachments, time tracking, and focus timers.",
+      "license": "Custom source-available internal-use license",
+      "published": true,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://hub.docker.com/r/eigenfocus/eigenfocus",
+      "docs_url": "https://github.com/Eigenfocus/eigenfocus",
+      "install_docs_url": "https://github.com/Eigenfocus/eigenfocus#installation",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/Eigenfocus/eigenfocus" },
+        { "field_name": "license", "source_url": "https://github.com/Eigenfocus/eigenfocus/blob/main/LICENSE.md" },
+        { "field_name": "requires_database", "source_url": "https://github.com/Eigenfocus/eigenfocus#docker-compose" },
+        { "field_name": "docker_support", "source_url": "https://hub.docker.com/r/eigenfocus/eigenfocus" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/Eigenfocus/eigenfocus#installation" }
+      ]
+    },
+    {
+      "slug": "umbrelos",
+      "summary": "Home server OS for running personal cloud services and app-store apps.",
+      "license": "PolyForm Noncommercial 1.0.0",
+      "published": false,
+      "requires_database": null,
+      "database_types": [],
+      "docker_support": "none",
+      "compose_support": false,
+      "docker_url": null,
+      "docs_url": "https://umbrel.com/umbrelos",
+      "install_docs_url": "https://github.com/getumbrel/umbrel/wiki/Install-umbrelOS-on-x86-Systems",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://umbrel.com/umbrelos" },
+        { "field_name": "license", "source_url": "https://github.com/getumbrel/umbrel/blob/master/LICENSE.md" },
+        { "field_name": "requires_database", "source_url": "https://github.com/getumbrel/umbrel#installing-umbrelos", "confidence": "medium", "note": "Drafted because this is an OS entry, not a normal app row." },
+        { "field_name": "docker_support", "source_url": "https://github.com/getumbrel/umbrel#installing-umbrelos" }
+      ]
+    },
+    {
+      "slug": "openvpn",
+      "summary": "VPN daemon for building encrypted routed or bridged private networks.",
+      "license": "GPL-2.0 with linking exceptions",
+      "published": false,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "unknown",
+      "compose_support": null,
+      "docker_url": null,
+      "docs_url": "https://openvpn.net/community-docs/how-to.html",
+      "install_docs_url": "https://github.com/OpenVPN/openvpn/blob/master/INSTALL",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://openvpn.net/community-docs/how-to.html" },
+        { "field_name": "license", "source_url": "https://github.com/OpenVPN/openvpn/blob/master/COPYRIGHT.GPL" },
+        { "field_name": "requires_database", "source_url": "https://openvpn.net/community-docs/how-to.html" },
+        { "field_name": "docker_support", "source_url": "https://openvpn.net/community-docs/how-to.html", "note": "Drafted because no official Community OpenVPN container source was found." }
+      ]
+    },
+    {
+      "slug": "duplicacy",
+      "summary": "Cross-platform backup tool using lock-free deduplication across local and cloud storage.",
+      "license": "Duplicacy custom commercial license",
+      "published": false,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "unknown",
+      "compose_support": null,
+      "docker_url": null,
+      "docs_url": "https://duplicacy.com/guide.html",
+      "install_docs_url": "https://github.com/gilbertchen/duplicacy/wiki/Installation",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://duplicacy.com/guide.html" },
+        { "field_name": "license", "source_url": "https://duplicacy.com/pricing.html" },
+        { "field_name": "requires_database", "source_url": "https://github.com/gilbertchen/duplicacy#features" },
+        { "field_name": "docker_support", "source_url": "https://duplicacy.com/guide.html", "note": "Drafted because no official container image was found." }
+      ]
+    },
+    {
+      "slug": "gamevault",
+      "summary": "Server and client stack for organizing and streaming DRM-free games from a private file server.",
+      "license": "CC BY-NC-SA 4.0",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["postgresql", "sqlite"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://hub.docker.com/r/phalcode/gamevault-backend",
+      "docs_url": "https://gamevau.lt/docs/",
+      "install_docs_url": "https://gamevau.lt/docs/server-docs/setup/docker-compose/",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://gamevau.lt/docs/" },
+        { "field_name": "license", "source_url": "https://github.com/Phalcode/gamevault-backend/blob/master/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://gamevau.lt/docs/server-docs/setup/docker-compose/" },
+        { "field_name": "docker_support", "source_url": "https://hub.docker.com/r/phalcode/gamevault-backend" },
+        { "field_name": "install_docs_url", "source_url": "https://gamevau.lt/docs/server-docs/setup/docker-compose/" }
+      ]
+    },
+    {
+      "slug": "cyrus-imap",
+      "summary": "Mail server providing IMAP, POP3, JMAP, CalDAV, CardDAV, and WebDAV access.",
+      "license": "CMU BSD-style permissive license",
+      "published": false,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "unknown",
+      "compose_support": null,
+      "docker_url": null,
+      "docs_url": "https://www.cyrusimap.org/",
+      "install_docs_url": "https://www.cyrusimap.org/imap/download/installation.html",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://www.cyrusimap.org/" },
+        { "field_name": "license", "source_url": "https://github.com/cyrusimap/cyrus-imapd/blob/master/COPYING" },
+        { "field_name": "requires_database", "source_url": "https://github.com/cyrusimap/cyrus-imapd#what-is-cyrus" },
+        { "field_name": "docker_support", "source_url": "https://www.cyrusimap.org/imap/download/installation.html", "note": "Drafted because official install docs do not show an official container image." }
+      ]
+    },
+    {
+      "slug": "pyshelf",
+      "summary": "Terminal-installed ebook server for scanning, searching, and downloading EPUB and MOBI libraries.",
+      "license": "GPL-3.0",
+      "published": false,
+      "requires_database": null,
+      "database_types": [],
+      "docker_support": "unknown",
+      "compose_support": null,
+      "docker_url": null,
+      "docs_url": "https://github.com/th3r00t/pyShelf",
+      "install_docs_url": "https://github.com/th3r00t/pyShelf#installation",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/th3r00t/pyShelf" },
+        { "field_name": "license", "source_url": "https://github.com/th3r00t/pyShelf/blob/master/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/th3r00t/pyShelf#installation", "confidence": "medium", "note": "Drafted until database/storage model is explicit." },
+        { "field_name": "docker_support", "source_url": "https://github.com/th3r00t/pyShelf#installation" }
+      ]
+    },
+    {
+      "slug": "circled-me",
+      "summary": "Community server for private photo backup, albums, chat, and audio or video calls.",
+      "license": "MIT",
+      "published": false,
+      "requires_database": true,
+      "database_types": ["sqlite", "mysql"],
+      "docker_support": "official",
+      "compose_support": false,
+      "docker_url": "https://hub.docker.com/r/gubble/circled-server",
+      "docs_url": "https://github.com/circled-me/server",
+      "install_docs_url": "https://github.com/circled-me/server#compiling-and-running-the-server",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/circled-me/server" },
+        { "field_name": "license", "source_url": "https://github.com/circled-me/server/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/circled-me/server#circledme-community-server" },
+        { "field_name": "docker_support", "source_url": "https://hub.docker.com/r/gubble/circled-server" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/circled-me/server#compiling-and-running-the-server", "note": "Drafted because the official README says it is still in development." }
+      ]
+    }
+  ]
+}

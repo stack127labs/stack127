@@ -1,0 +1,204 @@
+{
+  "apps": [
+    {
+      "slug": "tdarr",
+      "summary": "Coordinates server and node workers to transcode, remux, and health-check media libraries with FFmpeg or HandBrake.",
+      "license": "Tdarr EULA",
+      "published": true,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://docs.tdarr.io/docs/installation/docker/run-compose/",
+      "docs_url": "https://docs.tdarr.io/",
+      "install_docs_url": "https://docs.tdarr.io/docs/installation/docker/run-compose/",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://docs.tdarr.io/" },
+        { "field_name": "license", "source_url": "https://docs.tdarr.io/docs/other/terms-of-use/" },
+        { "field_name": "requires_database", "source_url": "https://docs.tdarr.io/docs/installation/docker/run-compose/" },
+        { "field_name": "docker_support", "source_url": "https://docs.tdarr.io/docs/installation/docker/run-compose/" },
+        { "field_name": "install_docs_url", "source_url": "https://docs.tdarr.io/docs/installation/docker/run-compose/" }
+      ]
+    },
+    {
+      "slug": "librechat",
+      "summary": "Runs a multi-user AI chat interface with model switching, agents, plugins, search, and admin controls.",
+      "license": "MIT",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["mongodb", "postgresql", "meilisearch"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://www.librechat.ai/docs/local/docker",
+      "docs_url": "https://www.librechat.ai/docs",
+      "install_docs_url": "https://www.librechat.ai/docs/local/docker",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://www.librechat.ai/docs" },
+        { "field_name": "license", "source_url": "https://github.com/danny-avila/LibreChat/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/danny-avila/LibreChat/blob/main/docker-compose.yml" },
+        { "field_name": "docker_support", "source_url": "https://www.librechat.ai/docs/local/docker" },
+        { "field_name": "install_docs_url", "source_url": "https://www.librechat.ai/docs/local/docker" }
+      ]
+    },
+    {
+      "slug": "casaos",
+      "summary": "Turns a Linux device into a personal cloud dashboard for managing apps, storage, and home server services.",
+      "license": "Apache-2.0",
+      "published": true,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "none",
+      "compose_support": false,
+      "docker_url": null,
+      "docs_url": "https://wiki.casaos.io/",
+      "install_docs_url": "https://wiki.casaos.io/en/get-started",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://wiki.casaos.io/" },
+        { "field_name": "license", "source_url": "https://github.com/IceWhaleTech/CasaOS/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://wiki.casaos.io/en/get-started" },
+        { "field_name": "docker_support", "source_url": "https://wiki.casaos.io/en/get-started" },
+        { "field_name": "install_docs_url", "source_url": "https://wiki.casaos.io/en/get-started" }
+      ]
+    },
+    {
+      "slug": "cadvisor",
+      "summary": "Collects and exports resource usage and performance metrics for running containers.",
+      "license": "Apache-2.0",
+      "published": true,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "official",
+      "compose_support": false,
+      "docker_url": "https://github.com/google/cadvisor/blob/master/README.md",
+      "docs_url": "https://github.com/google/cadvisor#readme",
+      "install_docs_url": "https://github.com/google/cadvisor/blob/master/README.md",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/google/cadvisor#readme" },
+        { "field_name": "license", "source_url": "https://github.com/google/cadvisor/blob/master/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/google/cadvisor/blob/master/docs/storage/README.md" },
+        { "field_name": "docker_support", "source_url": "https://github.com/google/cadvisor/blob/master/README.md" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/google/cadvisor/blob/master/README.md" }
+      ]
+    },
+    {
+      "slug": "8mb-local",
+      "summary": "Compresses uploaded videos to target sizes with FFmpeg, GPU acceleration, and CPU fallback.",
+      "license": "CC BY-NC 4.0",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["redis"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/JMS1717/8mb.local/blob/main/README.md",
+      "docs_url": "https://github.com/JMS1717/8mb.local#readme",
+      "install_docs_url": "https://github.com/JMS1717/8mb.local#installation",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/JMS1717/8mb.local#readme" },
+        { "field_name": "license", "source_url": "https://github.com/JMS1717/8mb.local/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/JMS1717/8mb.local/blob/main/README.md" },
+        { "field_name": "docker_support", "source_url": "https://github.com/JMS1717/8mb.local/blob/main/README.md" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/JMS1717/8mb.local#installation" }
+      ]
+    },
+    {
+      "slug": "valkey",
+      "summary": "Redis-compatible key-value data store for caching, queues, and real-time workloads.",
+      "license": "BSD-3-Clause",
+      "published": true,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "official",
+      "compose_support": false,
+      "docker_url": "https://valkey.io/download/",
+      "docs_url": "https://valkey.io/topics/quickstart/",
+      "install_docs_url": "https://valkey.io/download/",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://valkey.io/" },
+        { "field_name": "license", "source_url": "https://github.com/valkey-io/valkey/blob/unstable/COPYING" },
+        { "field_name": "requires_database", "source_url": "https://github.com/valkey-io/valkey" },
+        { "field_name": "docker_support", "source_url": "https://valkey.io/download/" },
+        { "field_name": "install_docs_url", "source_url": "https://valkey.io/download/" }
+      ]
+    },
+    {
+      "slug": "unbound",
+      "summary": "Runs a validating recursive DNS resolver with caching and modern DNS privacy features.",
+      "license": "BSD-3-Clause",
+      "published": true,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "none",
+      "compose_support": false,
+      "docker_url": null,
+      "docs_url": "https://unbound.docs.nlnetlabs.nl/",
+      "install_docs_url": "https://nlnetlabs.nl/documentation/unbound/howto-setup/",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://unbound.docs.nlnetlabs.nl/" },
+        { "field_name": "license", "source_url": "https://github.com/NLnetLabs/unbound/blob/master/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/NLnetLabs/unbound" },
+        { "field_name": "docker_support", "source_url": "https://nlnetlabs.nl/documentation/unbound/howto-setup/" },
+        { "field_name": "install_docs_url", "source_url": "https://nlnetlabs.nl/documentation/unbound/howto-setup/" }
+      ]
+    },
+    {
+      "slug": "bitcart",
+      "summary": "Runs a cryptocurrency payment processor with merchant APIs, admin tools, stores, and coin daemons.",
+      "license": "MIT",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["postgresql", "redis"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/bitcart/bitcart-docker",
+      "docs_url": "https://docs.bitcart.ai/",
+      "install_docs_url": "https://github.com/bitcart/bitcart-docker#using-provided-scripts-easy",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://docs.bitcart.ai/" },
+        { "field_name": "license", "source_url": "https://github.com/bitcart/bitcart/blob/master/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/bitcart/bitcart-docker#configuration" },
+        { "field_name": "docker_support", "source_url": "https://github.com/bitcart/bitcart-docker" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/bitcart/bitcart-docker#using-provided-scripts-easy" }
+      ]
+    },
+    {
+      "slug": "esphome",
+      "summary": "Builds and manages firmware configurations for ESP-based home automation devices.",
+      "license": "MIT and GPL-3.0 split",
+      "published": true,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "official",
+      "compose_support": false,
+      "docker_url": "https://esphome.io/guides/getting_started_command_line.html",
+      "docs_url": "https://esphome.io/",
+      "install_docs_url": "https://esphome.io/guides/getting_started_command_line.html",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://esphome.io/" },
+        { "field_name": "license", "source_url": "https://github.com/esphome/esphome/blob/dev/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://esphome.io/guides/getting_started_command_line.html" },
+        { "field_name": "docker_support", "source_url": "https://esphome.io/guides/getting_started_command_line.html" },
+        { "field_name": "install_docs_url", "source_url": "https://esphome.io/guides/getting_started_command_line.html" }
+      ]
+    },
+    {
+      "slug": "cap-captcha",
+      "summary": "Runs a CAPTCHA backend that issues proof-of-work challenges and verifies tokens for forms.",
+      "license": "Apache-2.0",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["valkey"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://trycap.dev/guide/standalone/",
+      "docs_url": "https://trycap.dev/guide/",
+      "install_docs_url": "https://trycap.dev/guide/standalone/",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://trycap.dev/guide/" },
+        { "field_name": "license", "source_url": "https://github.com/tiagozip/cap/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://trycap.dev/guide/standalone/" },
+        { "field_name": "docker_support", "source_url": "https://trycap.dev/guide/standalone/" },
+        { "field_name": "install_docs_url", "source_url": "https://trycap.dev/guide/standalone/" }
+      ]
+    }
+  ]
+}

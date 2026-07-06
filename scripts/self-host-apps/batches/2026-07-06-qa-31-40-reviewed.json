@@ -1,0 +1,203 @@
+{
+  "apps": [
+    {
+      "slug": "crowdsec-manager",
+      "summary": "Dashboard for managing CrowdSec alerts, decisions, allowlists, logs, backups, and proxy integration.",
+      "license": "MIT",
+      "published": true,
+      "requires_database": false,
+      "database_types": ["sqlite"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/hhftechnology/crowdsec_manager/blob/main/docker-compose.yml",
+      "docs_url": "https://crowdsec-manager.hhf.technology/",
+      "install_docs_url": "https://github.com/hhftechnology/crowdsec_manager#quick-start",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://crowdsec-manager.hhf.technology/" },
+        { "field_name": "license", "source_url": "https://github.com/hhftechnology/crowdsec_manager/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/hhftechnology/crowdsec_manager/blob/main/docker-compose.yml" },
+        { "field_name": "docker_support", "source_url": "https://github.com/hhftechnology/crowdsec_manager/blob/main/docker-compose.yml" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/hhftechnology/crowdsec_manager#quick-start" }
+      ]
+    },
+    {
+      "slug": "guardian-plex",
+      "summary": "Plex access-control dashboard for approving devices, blocking sessions, and applying user policies.",
+      "license": null,
+      "published": false,
+      "requires_database": false,
+      "database_types": ["sqlite"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/HydroshieldMKII/Guardian/blob/main/docker-compose.example.yml",
+      "docs_url": "https://github.com/HydroshieldMKII/Guardian#readme",
+      "install_docs_url": "https://github.com/HydroshieldMKII/Guardian#docker-recommended",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/HydroshieldMKII/Guardian#readme" },
+        { "field_name": "license", "source_url": "https://github.com/HydroshieldMKII/Guardian", "confidence": "low", "note": "Drafted because no official license file or metadata was found." },
+        { "field_name": "requires_database", "source_url": "https://github.com/HydroshieldMKII/Guardian/blob/main/docker-compose.example.yml" },
+        { "field_name": "docker_support", "source_url": "https://github.com/HydroshieldMKII/Guardian/blob/main/docker-compose.example.yml", "note": "Drafted because README warns maintenance and security patches may be slow." }
+      ]
+    },
+    {
+      "slug": "unraid-guardian",
+      "summary": "Unraid recovery tool that exports container templates, compose files, settings, and restore scripts.",
+      "license": "MIT plus additional Unraid integration terms",
+      "published": true,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/stephondoestech/unraid-config-guardian/blob/main/docker-compose.yml",
+      "docs_url": "https://github.com/stephondoestech/unraid-config-guardian#readme",
+      "install_docs_url": "https://github.com/stephondoestech/unraid-config-guardian#quick-install-on-fresh-unraid",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/stephondoestech/unraid-config-guardian#readme" },
+        { "field_name": "license", "source_url": "https://github.com/stephondoestech/unraid-config-guardian/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/stephondoestech/unraid-config-guardian/blob/main/docker-compose.yml" },
+        { "field_name": "docker_support", "source_url": "https://github.com/stephondoestech/unraid-config-guardian/blob/main/docker-compose.yml" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/stephondoestech/unraid-config-guardian#quick-install-on-fresh-unraid" }
+      ]
+    },
+    {
+      "slug": "odoo",
+      "summary": "Business app suite for CRM, sales, accounting, inventory, projects, websites, and manufacturing.",
+      "license": "LGPL-3.0",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["postgresql"],
+      "docker_support": "official",
+      "compose_support": false,
+      "docker_url": "https://hub.docker.com/_/odoo",
+      "docs_url": "https://www.odoo.com/documentation/19.0/",
+      "install_docs_url": "https://www.odoo.com/documentation/19.0/administration/on_premise/packages.html",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://www.odoo.com/documentation/19.0/" },
+        { "field_name": "license", "source_url": "https://github.com/odoo/odoo/blob/19.0/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://www.odoo.com/documentation/19.0/administration/on_premise/source.html#postgresql" },
+        { "field_name": "docker_support", "source_url": "https://hub.docker.com/_/odoo" },
+        { "field_name": "install_docs_url", "source_url": "https://www.odoo.com/documentation/19.0/administration/on_premise/packages.html" }
+      ]
+    },
+    {
+      "slug": "spacebar",
+      "summary": "Discord-compatible chat server with API, gateway, CDN, clients, and voice components.",
+      "license": "AGPL-3.0",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["sqlite", "postgresql"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://docs.spacebar.chat/setup/server/docker/",
+      "docs_url": "https://docs.spacebar.chat/",
+      "install_docs_url": "https://docs.spacebar.chat/setup/server/",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://docs.spacebar.chat/" },
+        { "field_name": "license", "source_url": "https://github.com/spacebarchat/spacebarchat/blob/master/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://docs.spacebar.chat/setup/server/database/" },
+        { "field_name": "docker_support", "source_url": "https://docs.spacebar.chat/setup/server/docker/" },
+        { "field_name": "install_docs_url", "source_url": "https://docs.spacebar.chat/setup/server/" }
+      ]
+    },
+    {
+      "slug": "opnsense",
+      "summary": "FreeBSD-based firewall and router distribution with a web GUI, API, VPNs, IDS, and traffic shaping.",
+      "license": "BSD-2-Clause",
+      "published": true,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "none",
+      "compose_support": false,
+      "docker_url": null,
+      "docs_url": "https://docs.opnsense.org/",
+      "install_docs_url": "https://docs.opnsense.org/manual/install.html",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://docs.opnsense.org/" },
+        { "field_name": "license", "source_url": "https://github.com/opnsense/core/blob/master/COPYRIGHT" },
+        { "field_name": "requires_database", "source_url": "https://docs.opnsense.org/manual/install.html" },
+        { "field_name": "docker_support", "source_url": "https://docs.opnsense.org/manual/install.html" },
+        { "field_name": "install_docs_url", "source_url": "https://docs.opnsense.org/manual/install.html" }
+      ]
+    },
+    {
+      "slug": "tiddlywiki",
+      "summary": "Personal wiki that runs as a single HTML file or a Node.js-backed notebook.",
+      "license": "BSD-3-Clause",
+      "published": true,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "none",
+      "compose_support": false,
+      "docker_url": null,
+      "docs_url": "https://tiddlywiki.com/",
+      "install_docs_url": "https://tiddlywiki.com/static/Installing%2520TiddlyWiki%2520on%2520Node.js.html",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://tiddlywiki.com/" },
+        { "field_name": "license", "source_url": "https://github.com/TiddlyWiki/TiddlyWiki5/blob/master/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://tiddlywiki.com/static/Installing%2520TiddlyWiki%2520on%2520Node.js.html" },
+        { "field_name": "docker_support", "source_url": "https://tiddlywiki.com/static/Installing%2520TiddlyWiki%2520on%2520Node.js.html" },
+        { "field_name": "install_docs_url", "source_url": "https://tiddlywiki.com/static/Installing%2520TiddlyWiki%2520on%2520Node.js.html" }
+      ]
+    },
+    {
+      "slug": "speed-test-by-openspeedtest",
+      "summary": "Static browser speed-test page for measuring LAN, office, or cloud network performance.",
+      "license": "MIT",
+      "published": true,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "official",
+      "compose_support": false,
+      "docker_url": "https://github.com/openspeedtest/Speed-Test#docker-install-instructions",
+      "docs_url": "https://github.com/openspeedtest/Speed-Test#readme",
+      "install_docs_url": "https://github.com/openspeedtest/Speed-Test#self-hosted-on-premise--docker-imagesource-code",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/openspeedtest/Speed-Test#why-openspeedtest" },
+        { "field_name": "license", "source_url": "https://github.com/openspeedtest/Speed-Test/blob/master/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/openspeedtest/Speed-Test#why-openspeedtest" },
+        { "field_name": "docker_support", "source_url": "https://github.com/openspeedtest/Speed-Test#docker-install-instructions" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/openspeedtest/Speed-Test#self-hosted-on-premise--docker-imagesource-code" }
+      ]
+    },
+    {
+      "slug": "dashdot",
+      "summary": "Server dashboard for monitoring CPU, storage, RAM, network, and GPU stats on small private servers.",
+      "license": "MIT",
+      "published": true,
+      "requires_database": false,
+      "database_types": [],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://getdashdot.com/docs/installation/docker-compose",
+      "docs_url": "https://getdashdot.com/docs",
+      "install_docs_url": "https://getdashdot.com/docs/installation/docker-compose",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://getdashdot.com/docs" },
+        { "field_name": "license", "source_url": "https://github.com/MauriceNino/dashdot/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://getdashdot.com/docs/installation/docker-compose" },
+        { "field_name": "docker_support", "source_url": "https://getdashdot.com/docs/installation/docker-compose" },
+        { "field_name": "install_docs_url", "source_url": "https://getdashdot.com/docs/installation/docker-compose" }
+      ]
+    },
+    {
+      "slug": "alexandrie",
+      "summary": "Knowledge-base app with Markdown editing, workspaces, search, permissions, Kanban, and offline PWA support.",
+      "license": "MIT",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["mysql"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/Smaug6739/Alexandrie/blob/main/docker-compose.yml",
+      "docs_url": "https://github.com/Smaug6739/Alexandrie/tree/main/docs",
+      "install_docs_url": "https://github.com/Smaug6739/Alexandrie/tree/main/docs#quick-start",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://github.com/Smaug6739/Alexandrie/tree/main/docs" },
+        { "field_name": "license", "source_url": "https://github.com/Smaug6739/Alexandrie/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/Smaug6739/Alexandrie/tree/main/docs#4-database--mysql" },
+        { "field_name": "docker_support", "source_url": "https://github.com/Smaug6739/Alexandrie/blob/main/docker-compose.yml" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/Smaug6739/Alexandrie/tree/main/docs#quick-start" }
+      ]
+    }
+  ]
+}

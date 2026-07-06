@@ -9,6 +9,7 @@
     "lint": "next lint",
     "self-host-apps:import-awesome": "node scripts/self-host-apps/import-awesome.mjs",
     "self-host-apps:import-awesome-selfhosted": "node scripts/self-host-apps/import-awesome-selfhosted.mjs",
+    "self-host-apps:import-selfhst": "node scripts/self-host-apps/import-selfhst.mjs",
     "self-host-apps:import-github-topic": "node scripts/self-host-apps/import-github-topic.mjs",
     "self-host-apps:refresh-github": "node scripts/self-host-apps/refresh-github.mjs",
     "self-host-apps:validate": "node scripts/self-host-apps/validate-row.mjs",
@@ -20,7 +21,12 @@
     "self-host-apps:enrich-github-batch": "node scripts/self-host-apps/enrich-github-batch.mjs",
     "self-host-apps:cache-icons": "node scripts/self-host-apps/cache-icons.mjs",
     "self-host-apps:audit-summaries": "node scripts/self-host-apps/audit-summaries.mjs",
-    "self-host-apps:audit-links": "node scripts/self-host-apps/audit-links.mjs"
+    "self-host-apps:audit-links": "node scripts/self-host-apps/audit-links.mjs",
+    "self-host-apps:qa-report": "node scripts/self-host-apps/qa-report.mjs",
+    "self-host-apps:qa-gate": "node scripts/self-host-apps/qa-gate.mjs",
+    "self-host-apps:icon-integrity": "node scripts/self-host-apps/icon-integrity.mjs",
+    "self-host-apps:apply-qa-overrides": "node scripts/self-host-apps/apply-qa-overrides.mjs",
+    "self-host-apps:sync-local-to-prod": "node scripts/self-host-apps/sync-local-to-prod.mjs"
   },
   "dependencies": {
     "@types/pg": "^8.20.0",

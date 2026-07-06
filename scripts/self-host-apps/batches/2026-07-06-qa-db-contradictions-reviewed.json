@@ -1,0 +1,158 @@
+{
+  "apps": [
+    {
+      "slug": "affine-community-edition",
+      "summary": "Knowledge base and whiteboard workspace for notes, docs, planning, and collaborative canvases.",
+      "license": "MIT plus MPL-2.0 and enterprise split",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["postgresql", "redis"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/toeverything/AFFiNE/blob/canary/.docker/selfhost/compose.yml",
+      "docs_url": "https://docs.affine.pro/self-host-affine/",
+      "install_docs_url": "https://github.com/toeverything/AFFiNE/tree/canary/.docker/selfhost",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://docs.affine.pro/self-host-affine/" },
+        { "field_name": "license", "source_url": "https://github.com/toeverything/AFFiNE/blob/canary/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/toeverything/AFFiNE/blob/canary/.docker/selfhost/compose.yml" },
+        { "field_name": "docker_support", "source_url": "https://github.com/toeverything/AFFiNE/blob/canary/.docker/selfhost/compose.yml" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/toeverything/AFFiNE/tree/canary/.docker/selfhost" }
+      ]
+    },
+    {
+      "slug": "casaos",
+      "summary": "Home server dashboard for managing files, storage, and Docker apps from a simple web UI.",
+      "license": "Apache-2.0",
+      "published": true,
+      "requires_database": false,
+      "database_types": ["sqlite"],
+      "docker_support": "none",
+      "compose_support": false,
+      "docker_url": null,
+      "docs_url": "https://wiki.casaos.io/en/home",
+      "install_docs_url": "https://wiki.casaos.io/en/get-started",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://wiki.casaos.io/en/home" },
+        { "field_name": "license", "source_url": "https://github.com/IceWhaleTech/CasaOS/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/IceWhaleTech/CasaOS/blob/main/pkg/sqlite/db.go" },
+        { "field_name": "docker_support", "source_url": "https://wiki.casaos.io/en/get-started" },
+        { "field_name": "install_docs_url", "source_url": "https://wiki.casaos.io/en/get-started" }
+      ]
+    },
+    {
+      "slug": "dockflare",
+      "summary": "Cloudflare Tunnel controller that exposes Docker services from container labels.",
+      "license": "GPL-3.0",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["redis"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/ChrispyBacon-dev/DockFlare/blob/stable/docker-compose.yml",
+      "docs_url": "https://dockflare.app",
+      "install_docs_url": "https://github.com/ChrispyBacon-dev/DockFlare/blob/stable/dockflare/app/templates/docs/en/Quick-Start-Docker-Compose.md",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://dockflare.app" },
+        { "field_name": "license", "source_url": "https://github.com/ChrispyBacon-dev/DockFlare/blob/stable/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/ChrispyBacon-dev/DockFlare/blob/stable/docker-compose.yml" },
+        { "field_name": "docker_support", "source_url": "https://github.com/ChrispyBacon-dev/DockFlare/blob/stable/docker-compose.yml" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/ChrispyBacon-dev/DockFlare/blob/stable/dockflare/app/templates/docs/en/Quick-Start-Docker-Compose.md" }
+      ]
+    },
+    {
+      "slug": "gokapi",
+      "license": "AGPL-3.0",
+      "published": true,
+      "requires_database": false,
+      "database_types": ["sqlite"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/Forceu/Gokapi/blob/master/docker-compose.yaml",
+      "docs_url": "https://gokapi.readthedocs.io/",
+      "install_docs_url": "https://gokapi.readthedocs.io/en/latest/setup.html",
+      "field_sources": [
+        { "field_name": "license", "source_url": "https://github.com/Forceu/Gokapi/blob/master/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://gokapi.readthedocs.io/en/latest/setup.html#database" },
+        { "field_name": "docker_support", "source_url": "https://github.com/Forceu/Gokapi/blob/master/docker-compose.yaml" },
+        { "field_name": "install_docs_url", "source_url": "https://gokapi.readthedocs.io/en/latest/setup.html" }
+      ]
+    },
+    {
+      "slug": "heimdall",
+      "summary": "Dashboard for organizing web application links and viewing selected app status widgets.",
+      "license": "MIT",
+      "published": true,
+      "requires_database": false,
+      "database_types": ["sqlite"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://docs.linuxserver.io/images/docker-heimdall/",
+      "docs_url": "https://heimdall.site",
+      "install_docs_url": "https://docs.linuxserver.io/images/docker-heimdall/",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://heimdall.site" },
+        { "field_name": "license", "source_url": "https://github.com/linuxserver/Heimdall/blob/2.x/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/linuxserver/Heimdall/blob/2.x/config/database.php" },
+        { "field_name": "docker_support", "source_url": "https://docs.linuxserver.io/images/docker-heimdall/" },
+        { "field_name": "install_docs_url", "source_url": "https://docs.linuxserver.io/images/docker-heimdall/" }
+      ]
+    },
+    {
+      "slug": "judge0-ce",
+      "license": "GPL-3.0",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["postgresql", "redis"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/judge0/judge0/blob/master/docker-compose.yml",
+      "docs_url": "https://ce.judge0.com",
+      "install_docs_url": "https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure",
+      "field_sources": [
+        { "field_name": "license", "source_url": "https://github.com/judge0/judge0/blob/master/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/judge0/judge0/blob/master/docker-compose.yml" },
+        { "field_name": "docker_support", "source_url": "https://github.com/judge0/judge0/blob/master/docker-compose.yml" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure" }
+      ]
+    },
+    {
+      "slug": "pangolin",
+      "license": "AGPL-3.0 plus Fossorial Commercial License",
+      "published": true,
+      "requires_database": false,
+      "database_types": ["sqlite"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/fosrl/pangolin/blob/main/install/config/docker-compose.yml",
+      "docs_url": "https://docs.pangolin.net/",
+      "install_docs_url": "https://docs.pangolin.net/self-host/quick-install",
+      "field_sources": [
+        { "field_name": "license", "source_url": "https://github.com/fosrl/pangolin/blob/main/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/fosrl/pangolin/blob/main/server/db/sqlite/driver.ts" },
+        { "field_name": "docker_support", "source_url": "https://github.com/fosrl/pangolin/blob/main/install/config/docker-compose.yml" },
+        { "field_name": "install_docs_url", "source_url": "https://docs.pangolin.net/self-host/quick-install" }
+      ]
+    },
+    {
+      "slug": "pixelfed",
+      "summary": "Federated photo-sharing server for running an Instagram-style community on ActivityPub.",
+      "license": "AGPL-3.0",
+      "published": true,
+      "requires_database": true,
+      "database_types": ["mysql", "redis"],
+      "docker_support": "official",
+      "compose_support": true,
+      "docker_url": "https://github.com/pixelfed/pixelfed/blob/dev/docker-compose.yml",
+      "docs_url": "https://docs.pixelfed.org/",
+      "install_docs_url": "https://github.com/pixelfed/pixelfed/blob/dev/DOCKER_COMPOSE_SETUP.md",
+      "field_sources": [
+        { "field_name": "summary", "source_url": "https://docs.pixelfed.org/" },
+        { "field_name": "license", "source_url": "https://github.com/pixelfed/pixelfed/blob/dev/LICENSE" },
+        { "field_name": "requires_database", "source_url": "https://github.com/pixelfed/pixelfed/blob/dev/docker-compose.yml" },
+        { "field_name": "docker_support", "source_url": "https://github.com/pixelfed/pixelfed/blob/dev/docker-compose.yml" },
+        { "field_name": "install_docs_url", "source_url": "https://github.com/pixelfed/pixelfed/blob/dev/DOCKER_COMPOSE_SETUP.md" }
+      ]
+    }
+  ]
+}

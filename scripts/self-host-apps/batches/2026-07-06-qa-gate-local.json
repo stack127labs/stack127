@@ -1,0 +1,1373 @@
+{
+  "generated_at": "2026-07-06T08:45:12.341Z",
+  "published": 1785,
+  "blocked_count": 463,
+  "blocker_counts": {
+    "docker_high_risk_url": 271,
+    "license_missing": 154,
+    "database_types_without_requirement": 40,
+    "summary_too_thin": 15,
+    "summary_bad_start": 11,
+    "summary_boilerplate": 8,
+    "summary_mirror_text": 1
+  },
+  "blocked_rows": [
+    {
+      "slug": "librespeed",
+      "name": "LibreSpeed",
+      "blockers": [
+        "summary_too_thin",
+        "summary_bad_start",
+        "docker_high_risk_url"
+      ],
+      "summary": "and speed test.",
+      "repository_url": "https://github.com/librespeed/speedtest",
+      "website_url": "https://librespeed.org",
+      "docker_url": "https://github.com/librespeed/speedtest/blob/master/docker/test/docker-compose.yml"
+    },
+    {
+      "slug": "openpanel",
+      "name": "OpenPanel",
+      "blockers": [
+        "summary_bad_start",
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "And flexible web hosting control panel for Linux.",
+      "repository_url": "https://github.com/stefanpejcic/OpenPanel",
+      "website_url": "https://openpanel.com",
+      "docker_url": "https://github.com/stefanpejcic/OpenPanel/blob/main/configuration/docker/compose/1.0/docker-compose.yml"
+    },
+    {
+      "slug": "bookwyrm",
+      "name": "BookWyrm",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Social network for reading, books, and reviews.",
+      "repository_url": "https://github.com/bookwyrm-social/bookwyrm",
+      "website_url": "http://joinbookwyrm.com",
+      "docker_url": "https://github.com/bookwyrm-social/bookwyrm/blob/main/docker-compose-init_letsencrypt.yml"
+    },
+    {
+      "slug": "bugsink",
+      "name": "Bugsink",
+      "blockers": [
+        "summary_too_thin",
+        "license_missing"
+      ],
+      "summary": "Error tracking.",
+      "repository_url": "https://github.com/bugsink/bugsink",
+      "website_url": "https://www.bugsink.com",
+      "docker_url": "https://github.com/bugsink/bugsink/blob/main/docker-compose-sample.yaml"
+    },
+    {
+      "slug": "canine",
+      "name": "Canine",
+      "blockers": [
+        "summary_boilerplate",
+        "docker_high_risk_url"
+      ],
+      "summary": "Easy-to-use and intuitive deployment app for Kubernetes.",
+      "repository_url": "https://github.com/CanineHQ/canine",
+      "website_url": "https://canine.sh",
+      "docker_url": "https://github.com/CanineHQ/canine/blob/main/docker-compose.dev.yml"
+    },
+    {
+      "slug": "cially",
+      "name": "Cially",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "In-depth insights and analytics for Discord servers.",
+      "repository_url": "https://github.com/cially/cially",
+      "website_url": "https://cially.org",
+      "docker_url": "https://github.com/cially/cially/blob/v2.x/docker/docker-compose.yaml"
+    },
+    {
+      "slug": "cinephage",
+      "name": "Cinephage",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Media management app.",
+      "repository_url": "https://github.com/MoldyTaint/Cinephage",
+      "website_url": "https://github.com/MoldyTaint/Cinephage",
+      "docker_url": "https://github.com/MoldyTaint/Cinephage/blob/main/.devcontainer/docker-compose.yml"
+    },
+    {
+      "slug": "corteza",
+      "name": "Corteza",
+      "blockers": [
+        "summary_too_thin",
+        "docker_high_risk_url"
+      ],
+      "summary": "Low-code app.",
+      "repository_url": "https://github.com/cortezaproject/corteza",
+      "website_url": "https://cortezaproject.org",
+      "docker_url": "https://github.com/cortezaproject/corteza/blob/2024.9.x/.github/workflows/assets/docker-compose.yaml"
+    },
+    {
+      "slug": "dawarich",
+      "name": "Dawarich",
+      "blockers": [
+        "database_types_without_requirement",
+        "docker_high_risk_url"
+      ],
+      "summary": "Visualize your location history, track your movements, and analyze your travel patterns with complete privacy and control.",
+      "repository_url": "https://github.com/Freika/dawarich",
+      "website_url": "https://dawarich.app/?utm_source=github&utm_medium=project_description",
+      "docker_url": "https://github.com/Freika/dawarich/blob/master/.devcontainer/docker-compose.yml"
+    },
+    {
+      "slug": "docking-station",
+      "name": "Docking Station",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Web app for managing and updating Docker containers.",
+      "repository_url": "https://github.com/LooLzzz/docking-station",
+      "website_url": "https://github.com/LooLzzz/docking-station",
+      "docker_url": "https://github.com/LooLzzz/docking-station/blob/main/.devcontainer/docker-compose.yaml"
+    },
+    {
+      "slug": "dokku",
+      "name": "Dokku",
+      "blockers": [
+        "summary_too_thin",
+        "docker_high_risk_url"
+      ],
+      "summary": "App-as-a-service.",
+      "repository_url": "https://github.com/dokku/dokku",
+      "website_url": "https://dokku.com",
+      "docker_url": "https://github.com/dokku/dokku/blob/master/.devcontainer/Dockerfile"
+    },
+    {
+      "slug": "dokploy",
+      "name": "Dokploy",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Application deployment and management app.",
+      "repository_url": "https://github.com/Dokploy/dokploy",
+      "website_url": "https://dokploy.com",
+      "docker_url": "https://github.com/Dokploy/dokploy/blob/canary/.devcontainer/Dockerfile"
+    },
+    {
+      "slug": "emqx",
+      "name": "EMQX",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "The most scalable and reliable MQTT broker for AI, IoT, IIoT and connected vehicles.",
+      "repository_url": "https://github.com/emqx/emqx",
+      "website_url": "https://www.emqx.com",
+      "docker_url": "https://github.com/emqx/emqx/blob/master/.ci/docker-compose-file/docker-compose-alloydb.yaml"
+    },
+    {
+      "slug": "etesync",
+      "name": "EteSync",
+      "blockers": [
+        "database_types_without_requirement",
+        "docker_high_risk_url"
+      ],
+      "summary": "Secure syncing for contacts, calendars, tasks, and notes.",
+      "repository_url": "https://github.com/etesync/server",
+      "website_url": "https://www.etesync.com",
+      "docker_url": "https://github.com/etesync/server/blob/master/docker/test-server/Dockerfile"
+    },
+    {
+      "slug": "flowforge",
+      "name": "FlowForge",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Connect, Collect, Build, and Scale with FlowFuse.",
+      "repository_url": "https://github.com/FlowFuse/flowfuse",
+      "website_url": "https://flowfuse.com",
+      "docker_url": "https://github.com/FlowFuse/flowfuse/blob/main/ci/Dockerfile"
+    },
+    {
+      "slug": "graylog",
+      "name": "Graylog",
+      "blockers": [
+        "summary_bad_start",
+        "license_missing"
+      ],
+      "summary": "and open log management app.",
+      "repository_url": "https://github.com/Graylog2/graylog2-server",
+      "website_url": "https://www.graylog.org",
+      "docker_url": "https://github.com/Graylog2/graylog2-server/blob/master/data-node/migration/docker-compose.yml"
+    },
+    {
+      "slug": "journiv",
+      "name": "Journiv",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Private journaling app.",
+      "repository_url": "https://github.com/journiv/journiv-app",
+      "website_url": "https://www.journiv.com",
+      "docker_url": "https://github.com/journiv/journiv-app/blob/main/docker-compose.dev.sqlite.yml"
+    },
+    {
+      "slug": "keila",
+      "name": "Keila",
+      "blockers": [
+        "summary_too_thin",
+        "docker_high_risk_url"
+      ],
+      "summary": "Newsletter Tool.",
+      "repository_url": "https://github.com/pentacent/keila",
+      "website_url": "https://keila.io",
+      "docker_url": "https://github.com/pentacent/keila/blob/main/.devcontainer/docker-compose.yml"
+    },
+    {
+      "slug": "laudspeaker",
+      "name": "Laudspeaker",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Customer and product engagement app.",
+      "repository_url": "https://github.com/laudspeaker/laudspeaker",
+      "website_url": "https://laudspeaker.com/?ref=github",
+      "docker_url": "https://github.com/laudspeaker/laudspeaker/blob/staging/docker-compose.dev.yml"
+    },
+    {
+      "slug": "lingarr",
+      "name": "Lingarr",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Automatically translate subtitle files to a desired language.",
+      "repository_url": "https://github.com/lingarr-translate/lingarr",
+      "website_url": "https://github.com/lingarr-translate/lingarr",
+      "docker_url": "https://github.com/lingarr-translate/lingarr/blob/main/docker-compose.dev.yml"
+    },
+    {
+      "slug": "listaway",
+      "name": "Listaway",
+      "blockers": [
+        "summary_too_thin",
+        "docker_high_risk_url"
+      ],
+      "summary": "Listaway app.",
+      "repository_url": "https://github.com/jeffrpowell/listaway",
+      "website_url": "https://github.com/jeffrpowell/listaway",
+      "docker_url": "https://github.com/jeffrpowell/listaway/blob/main/.devcontainer/amd64/docker-compose.yml"
+    },
+    {
+      "slug": "mautic",
+      "name": "Mautic",
+      "blockers": [
+        "database_types_without_requirement",
+        "docker_high_risk_url"
+      ],
+      "summary": "Marketing automation software (email, social and more).",
+      "repository_url": "https://github.com/mautic/mautic",
+      "website_url": "https://www.mautic.org",
+      "docker_url": "https://github.com/mautic/mautic/blob/7.x/.ddev/docker-compose.phpmyadmin.yaml"
+    },
+    {
+      "slug": "musicseerr",
+      "name": "Musicseerr",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Music request and discovery for Lidarr.",
+      "repository_url": "https://github.com/HabiRabbu/Musicseerr",
+      "website_url": "https://musicseerr.com",
+      "docker_url": "https://github.com/HabiRabbu/Musicseerr/blob/main/docker-compose.dev.yml"
+    },
+    {
+      "slug": "n8n",
+      "name": "n8n",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Workflow automation tool for automating tasks.",
+      "repository_url": "https://github.com/n8n-io/n8n",
+      "website_url": "https://n8n.io",
+      "docker_url": "https://github.com/n8n-io/n8n/blob/master/.devcontainer/docker-compose.yml"
+    },
+    {
+      "slug": "nocodb",
+      "name": "NocoDB",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Turn any SQL-based database into a smart spreadsheet.",
+      "repository_url": "https://github.com/nocodb/nocodb",
+      "website_url": "https://nocodb.com",
+      "docker_url": "https://github.com/nocodb/nocodb/blob/develop/.github/uffizzi/docker-compose.uffizzi.yml"
+    },
+    {
+      "slug": "openmeetings",
+      "name": "Openmeetings",
+      "blockers": [
+        "summary_mirror_text",
+        "license_missing"
+      ],
+      "summary": "Mirror of Apache Openmeetings.",
+      "repository_url": "https://github.com/apache/openmeetings",
+      "website_url": "https://openmeetings.apache.org/index.html",
+      "docker_url": null
+    },
+    {
+      "slug": "semaphore",
+      "name": "Semaphore",
+      "blockers": [
+        "summary_too_thin",
+        "license_missing"
+      ],
+      "summary": "CI/CD app.",
+      "repository_url": "https://github.com/semaphoreio/semaphore",
+      "website_url": "https://semaphore.io",
+      "docker_url": "https://github.com/semaphoreio/semaphore/blob/main/artifacthub/docker-compose.yml"
+    },
+    {
+      "slug": "snapotter",
+      "name": "SnapOtter",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Image manipulator and converter.",
+      "repository_url": "https://github.com/snapotter-hq/SnapOtter",
+      "website_url": "https://snapotter.com",
+      "docker_url": "https://github.com/snapotter-hq/SnapOtter/blob/main/docker-compose.dev.yml"
+    },
+    {
+      "slug": "standard-notes",
+      "name": "Standard Notes",
+      "blockers": [
+        "database_types_without_requirement",
+        "docker_high_risk_url"
+      ],
+      "summary": "Simple and private notes app, Protect your privacy while getting more done, That's Standard Notes.",
+      "repository_url": "https://github.com/standardnotes/app",
+      "website_url": "https://standardnotes.com",
+      "docker_url": "https://github.com/standardnotes/app/blob/main/packages/mobile/.devcontainer/Dockerfile"
+    },
+    {
+      "slug": "stirling-pdf",
+      "name": "Stirling-PDF",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Local hosted web app that allows you to perform various operations on PDF files, such as merging, splitting, file conversions and OCR.",
+      "repository_url": "https://github.com/Stirling-Tools/Stirling-PDF",
+      "website_url": "https://stirling.com",
+      "docker_url": "https://github.com/Stirling-Tools/Stirling-PDF/blob/main/.github/workflows/docker-compose-tests.yml"
+    },
+    {
+      "slug": "tandoor-recipes",
+      "name": "Tandoor Recipes",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Recipes, meal planning, and shopping lists.",
+      "repository_url": "https://github.com/TandoorRecipes/recipes",
+      "website_url": "https://docs.tandoor.dev",
+      "docker_url": "https://github.com/TandoorRecipes/recipes/blob/develop/docs/install/docker/apache-proxy/docker-compose.yml"
+    },
+    {
+      "slug": "tracearr",
+      "name": "Tracearr",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Streaming access manager for Plex, Jellyfin, and Emby.",
+      "repository_url": "https://github.com/connorgallopo/Tracearr",
+      "website_url": "https://www.tracearr.com",
+      "docker_url": "https://github.com/connorgallopo/Tracearr/blob/main/docker/docker-compose.dev.yml"
+    },
+    {
+      "slug": "tyk",
+      "name": "Tyk",
+      "blockers": [
+        "database_types_without_requirement",
+        "docker_high_risk_url"
+      ],
+      "summary": "Tyk API Gateway written in Go, supporting REST, GraphQL, TCP and gRPC protocols.",
+      "repository_url": "https://github.com/TykTechnologies/tyk",
+      "website_url": "https://tyk.io",
+      "docker_url": "https://github.com/TykTechnologies/tyk/blob/master/ci/smoke-tests/plugin-aliasing/docker-compose.yml"
+    },
+    {
+      "slug": "windmill",
+      "name": "Windmill",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Developer infrastructure for internal tools.",
+      "repository_url": "https://github.com/windmill-labs/windmill",
+      "website_url": "https://windmill.dev",
+      "docker_url": "https://github.com/windmill-labs/windmill/blob/main/.devcontainer/docker-compose.yml"
+    },
+    {
+      "slug": "zincsearch",
+      "name": "ZincSearch",
+      "blockers": [
+        "license_missing",
+        "docker_high_risk_url"
+      ],
+      "summary": "Search engine that requires minimal resources (alternative to Elasticsearch).",
+      "repository_url": "https://github.com/zincsearch/zincsearch",
+      "website_url": "https://zincsearch-docs.zinc.dev",
+      "docker_url": "https://github.com/zincsearch/zincsearch/blob/main/.devcontainer/Dockerfile"
+    },
+    {
+      "slug": "015",
+      "name": "015",
+      "blockers": [
+        "database_types_without_requirement"
+      ],
+      "summary": "Temporary file sharing app, Focused on providing one-time, temporary file and text upload, processing, and sharing services.",
+      "repository_url": "https://github.com/keven1024/015",
+      "website_url": "https://send.fudaoyuan.icu",
+      "docker_url": "https://github.com/keven1024/015/blob/main/docker-compose.yml"
+    },
+    {
+      "slug": "13ft-ladder",
+      "name": "13ft Ladder",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Web interface for blocking ads and paywalls.",
+      "repository_url": "https://github.com/wasi-master/13ft",
+      "website_url": "https://13ft-ladder.vercel.app",
+      "docker_url": "https://github.com/wasi-master/13ft/blob/main/docker-compose.dev.yaml"
+    },
+    {
+      "slug": "ackify",
+      "name": "Ackify",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Proof of read app for internal documents.",
+      "repository_url": "https://github.com/kOlapsis/ackify",
+      "website_url": "https://ackify.eu",
+      "docker_url": "https://github.com/kOlapsis/ackify/blob/main/compose.e2e.yml"
+    },
+    {
+      "slug": "activepieces",
+      "name": "Activepieces",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "No-code business automation tool like Zapier or Tray, For example, you can send a Slack notification for each new Trello card.",
+      "repository_url": "https://github.com/activepieces/activepieces",
+      "website_url": "https://www.activepieces.com",
+      "docker_url": "https://github.com/activepieces/activepieces/blob/main/.devcontainer/docker-compose.yml"
+    },
+    {
+      "slug": "actual",
+      "name": "Actual",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "A local-first personal finance app.",
+      "repository_url": "https://github.com/actualbudget/actual",
+      "website_url": "https://actualbudget.org",
+      "docker_url": "https://github.com/actualbudget/actual/blob/master/.devcontainer/docker-compose.yml"
+    },
+    {
+      "slug": "adminer",
+      "name": "Adminer",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Database management in a single PHP file.",
+      "repository_url": "https://github.com/vrana/adminer",
+      "website_url": "https://www.adminer.org",
+      "docker_url": null
+    },
+    {
+      "slug": "adventurelog",
+      "name": "AdventureLog",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Travel tracker and trip planner.",
+      "repository_url": "https://github.com/seanmorley15/AdventureLog",
+      "website_url": "https://adventurelog.app",
+      "docker_url": "https://github.com/seanmorley15/AdventureLog/blob/main/.github/.docker-compose-database.yml"
+    },
+    {
+      "slug": "agenta",
+      "name": "Agenta",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "The LLMOps app: prompt playground, prompt management, LLM evaluation, and LLM observability place.",
+      "repository_url": "https://github.com/Agenta-AI/agenta",
+      "website_url": "http://www.agenta.ai",
+      "docker_url": "https://github.com/Agenta-AI/agenta/blob/main/hosting/docker-compose/ee/docker-compose.dev.yml"
+    },
+    {
+      "slug": "akaunting",
+      "name": "Akaunting",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Online accounting software for small businesses and freelancers.",
+      "repository_url": "https://github.com/akaunting/akaunting",
+      "website_url": "https://akaunting.com",
+      "docker_url": "https://github.com/akaunting/akaunting#readme"
+    },
+    {
+      "slug": "algernon",
+      "name": "Algernon",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Small self-contained pure-Go web server with Lua, Markdown, HTTP/2, QUIC, Redis and PostgreSQL support.",
+      "repository_url": "https://github.com/xyproto/algernon",
+      "website_url": "https://algernon.roboticoverlords.org",
+      "docker_url": "https://github.com/xyproto/algernon/blob/main/vendor/github.com/lib/pq/compose.yaml"
+    },
+    {
+      "slug": "amurex",
+      "name": "Amurex",
+      "blockers": [
+        "database_types_without_requirement"
+      ],
+      "summary": "Simple yet AI meeting assistant.",
+      "repository_url": "https://github.com/thepersonalaicompany/amurex-backend",
+      "website_url": "https://api.amurex.ai",
+      "docker_url": "https://github.com/thepersonalaicompany/amurex-backend/blob/main/compose.yaml"
+    },
+    {
+      "slug": "anchor-notes",
+      "name": "Anchor",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Offline-first note-taking app.",
+      "repository_url": "https://github.com/ZhFahim/anchor",
+      "website_url": "https://github.com/ZhFahim/anchor",
+      "docker_url": "https://github.com/ZhFahim/anchor/blob/main/docker-compose.dev.yml"
+    },
+    {
+      "slug": "antville",
+      "name": "Antville",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Free, project aimed at the development of a high performance, feature rich weblog hosting software.",
+      "repository_url": "https://github.com/antville/antville",
+      "website_url": "https://antville.org",
+      "docker_url": "https://github.com/antville/antville#readme"
+    },
+    {
+      "slug": "anubis",
+      "name": "Anubis",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Web AI firewall utility which protects upstream resources from scraper bots.",
+      "repository_url": "https://github.com/TecharoHQ/anubis",
+      "website_url": "https://anubis.techaro.lol",
+      "docker_url": "https://github.com/TecharoHQ/anubis/blob/main/.devcontainer/docker-compose.yaml"
+    },
+    {
+      "slug": "anycable",
+      "name": "AnyCable",
+      "blockers": [
+        "database_types_without_requirement"
+      ],
+      "summary": "Realtime server for reliable two-way communication to power-up any backend.",
+      "repository_url": "https://github.com/anycable/anycable",
+      "website_url": "https://anycable.io",
+      "docker_url": "https://github.com/anycable/anycable/blob/main/.dockerdev/compose.yml"
+    },
+    {
+      "slug": "arcane",
+      "name": "Arcane",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Web Docker management interface.",
+      "repository_url": "https://github.com/getarcaneapp/arcane",
+      "website_url": "https://getarcane.app",
+      "docker_url": "https://github.com/getarcaneapp/arcane/blob/main/.devcontainer/compose.yaml"
+    },
+    {
+      "slug": "asciinema",
+      "name": "asciinema",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Web app for hosting asciicasts.",
+      "repository_url": "https://github.com/asciinema/asciinema-server",
+      "website_url": "https://docs.asciinema.org/manual/server",
+      "docker_url": "https://github.com/asciinema/asciinema-server/blob/develop/dev/docker-compose.yml"
+    },
+    {
+      "slug": "atomic-crm",
+      "name": "Atomic CRM",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Full-featured customer relationship manager.",
+      "repository_url": "https://github.com/marmelab/atomic-crm",
+      "website_url": "http://marmelab.com/atomic-crm",
+      "docker_url": "https://github.com/marmelab/atomic-crm/blob/main/.devcontainer/Dockerfile"
+    },
+    {
+      "slug": "authman",
+      "name": "Authman",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Cross-app 2FA TOTP server with mobile and desktop apps.",
+      "repository_url": "https://github.com/simular/authman-server",
+      "website_url": "https://github.com/simular/authman-server",
+      "docker_url": null
+    },
+    {
+      "slug": "automatisch",
+      "name": "Automatisch",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "The Zapier alternative, Build workflow automation without spending time and money.",
+      "repository_url": "https://github.com/automatisch/automatisch",
+      "website_url": "https://automatisch.io",
+      "docker_url": "https://github.com/automatisch/automatisch/blob/main/.devcontainer/docker-compose.yml"
+    },
+    {
+      "slug": "awesome-sysadmin",
+      "name": "Awesome Sysadmin",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Curated list of amazingly awesome sysadmin resources.",
+      "repository_url": "https://github.com/awesome-foss/awesome-sysadmin",
+      "website_url": "https://sysadmin.awesome-selfhosted.net",
+      "docker_url": "https://github.com/awesome-foss/awesome-sysadmin#readme"
+    },
+    {
+      "slug": "azuracast",
+      "name": "AzuraCast",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Modern and accessible web radio management suite.",
+      "repository_url": "https://github.com/AzuraCast/AzuraCast",
+      "website_url": "https://www.azuracast.com",
+      "docker_url": "https://github.com/AzuraCast/AzuraCast/blob/main/docker-compose.dev.yml"
+    },
+    {
+      "slug": "backrest",
+      "name": "Backrest",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Web UI and orchestrator for restic backup.",
+      "repository_url": "https://github.com/garethgeorge/backrest",
+      "website_url": "https://garethgeorge.github.io/backrest",
+      "docker_url": "https://github.com/garethgeorge/backrest/blob/main/.devcontainer/Dockerfile"
+    },
+    {
+      "slug": "bar-assistant",
+      "name": "Bar Assistant",
+      "blockers": [
+        "database_types_without_requirement"
+      ],
+      "summary": "Manage your home bar while adding your ingredients, searching for cocktails and creating custom cocktail recipes.",
+      "repository_url": "https://github.com/karlomikus/bar-assistant",
+      "website_url": "https://barassistant.app",
+      "docker_url": "https://github.com/karlomikus/bar-assistant/blob/develop/docker-compose.yml"
+    },
+    {
+      "slug": "bencher",
+      "name": "Bencher",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Suite of continuous benchmarking tools designed to catch performance regressions in CI.",
+      "repository_url": "https://github.com/bencherdev/bencher",
+      "website_url": "https://bencher.dev",
+      "docker_url": "https://github.com/bencherdev/bencher/blob/main/docker-compose.yml"
+    },
+    {
+      "slug": "bentopdf",
+      "name": "BentoPDF",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Privacy-first, -side PDF toolkit that allows you to manipulate, edit, merge, and process PDF files directly in your browser.",
+      "repository_url": "https://github.com/alam00000/bentopdf",
+      "website_url": "https://bentopdf.com",
+      "docker_url": "https://github.com/alam00000/bentopdf/blob/main/docker-compose.dev.yml"
+    },
+    {
+      "slug": "bewcloud",
+      "name": "bewCloud",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "File sharing + sync, notes, and photos (alternative to Nextcloud and ownCloud's RSS reader).",
+      "repository_url": "https://github.com/bewcloud/bewcloud",
+      "website_url": "https://bewcloud.com",
+      "docker_url": "https://github.com/bewcloud/bewcloud/blob/main/docker-compose.dev.yml"
+    },
+    {
+      "slug": "binpastes",
+      "name": "BinPastes",
+      "blockers": [
+        "summary_boilerplate"
+      ],
+      "summary": "An easy-to-use pastebin for self-hosters.",
+      "repository_url": "https://github.com/querwurzel/BinPastes",
+      "website_url": "https://github.com/querwurzel/BinPastes",
+      "docker_url": null
+    },
+    {
+      "slug": "bitwarden",
+      "name": "Bitwarden",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Password manager with a webapp, browser extension, and mobile app.",
+      "repository_url": "https://github.com/bitwarden/server",
+      "website_url": "https://bitwarden.com",
+      "docker_url": "https://github.com/bitwarden/server/blob/main/.devcontainer/bitwarden_common/docker-compose.yml"
+    },
+    {
+      "slug": "borg",
+      "name": "Borg",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Deduplicating archiver with compression and encryption.",
+      "repository_url": "https://github.com/borgbackup/borg",
+      "website_url": "https://www.borgbackup.org",
+      "docker_url": null
+    },
+    {
+      "slug": "borg-backup-server",
+      "name": "Borg Backup Server",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Centrally manage BorgBackup across endpoints.",
+      "repository_url": "https://github.com/marcpope/borgbackupserver",
+      "website_url": "https://www.borgbackupserver.com",
+      "docker_url": "https://github.com/marcpope/borgbackupserver/blob/main/docker-compose.yml"
+    },
+    {
+      "slug": "borg-ui",
+      "name": "Borg UI",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Modern web interface for Borg Backup.",
+      "repository_url": "https://github.com/karanhudia/borg-ui",
+      "website_url": "https://docs.borgui.com",
+      "docker_url": "https://github.com/karanhudia/borg-ui/blob/main/docker-compose.dev.yml"
+    },
+    {
+      "slug": "briefing",
+      "name": "Briefing",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Secure direct video group chat.",
+      "repository_url": "https://github.com/holtwick/briefing",
+      "website_url": "https://brie.fi/ng",
+      "docker_url": "https://github.com/holtwick/briefing/blob/master/docker-compose.development.yml"
+    },
+    {
+      "slug": "budgetbee",
+      "name": "BudgetBee",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Personal finance management system.",
+      "repository_url": "https://github.com/budgetbee/budgetbee",
+      "website_url": "https://budgetbee.github.io/budgetbee",
+      "docker_url": "https://github.com/budgetbee/budgetbee/blob/main/.devcontainer/docker-compose.yml"
+    },
+    {
+      "slug": "budibase",
+      "name": "Budibase",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Low-code app for building apps.",
+      "repository_url": "https://github.com/Budibase/budibase",
+      "website_url": "https://budibase.com",
+      "docker_url": "https://github.com/Budibase/budibase/blob/master/hosting/docker-compose.build.yaml"
+    },
+    {
+      "slug": "bulwark",
+      "name": "Bulwark",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Webmail client for Stalwart Mail.",
+      "repository_url": "https://github.com/bulwarkmail/webmail",
+      "website_url": "https://bulwarkmail.org",
+      "docker_url": "https://github.com/bulwarkmail/webmail/blob/main/docker-compose.yml"
+    },
+    {
+      "slug": "bunkerm",
+      "name": "BunkerM",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Mosquitto (MQTT) broker with web UI.",
+      "repository_url": "https://github.com/bunkeriot/BunkerM",
+      "website_url": "https://www.bunkerai.dev",
+      "docker_url": "https://github.com/bunkeriot/BunkerM/blob/main/docker-compose.dev.yml"
+    },
+    {
+      "slug": "cachet",
+      "name": "Cachet",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Status page monitoring system.",
+      "repository_url": "https://github.com/cachethq/cachet",
+      "website_url": "https://cachethq.io",
+      "docker_url": null
+    },
+    {
+      "slug": "caddymanager",
+      "name": "CaddyManager",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Web interface for managing Caddy.",
+      "repository_url": "https://github.com/caddymanager/caddymanager",
+      "website_url": "https://github.com/caddymanager/caddymanager",
+      "docker_url": "https://github.com/caddymanager/caddymanager/blob/main/docker-compose.build.yml"
+    },
+    {
+      "slug": "calibre",
+      "name": "Calibre",
+      "blockers": [
+        "summary_bad_start"
+      ],
+      "summary": "The official source code repository for the calibre ebook manager.",
+      "repository_url": "https://github.com/kovidgoyal/calibre",
+      "website_url": "https://calibre-ebook.com",
+      "docker_url": "https://github.com/kovidgoyal/calibre#readme"
+    },
+    {
+      "slug": "caprover",
+      "name": "CapRover",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "App, database, and webserver deployment app.",
+      "repository_url": "https://github.com/caprover/caprover",
+      "website_url": "https://caprover.com",
+      "docker_url": "https://github.com/caprover/caprover#readme"
+    },
+    {
+      "slug": "cert-warden",
+      "name": "Cert Warden",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Centralized certificate management.",
+      "repository_url": "https://github.com/gregtwallace/certwarden",
+      "website_url": "https://www.certwarden.com",
+      "docker_url": "https://github.com/gregtwallace/certwarden/blob/master/docker-compose.yml"
+    },
+    {
+      "slug": "chibisafe",
+      "name": "Chibisafe",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Blazing fast file vault written in TypeScript, .",
+      "repository_url": "https://github.com/chibisafe/chibisafe",
+      "website_url": "https://chibisafe.app",
+      "docker_url": "https://github.com/chibisafe/chibisafe/blob/master/docker-compose.dev.yml"
+    },
+    {
+      "slug": "chiefonboarding",
+      "name": "ChiefOnboarding",
+      "blockers": [
+        "summary_bad_start"
+      ],
+      "summary": "and employee onboarding app, Onboard new hires through Slack or the web portal.",
+      "repository_url": "https://github.com/chiefonboarding/ChiefOnboarding",
+      "website_url": "https://chiefonboarding.com",
+      "docker_url": "https://github.com/chiefonboarding/ChiefOnboarding/blob/master/docker-compose.yml"
+    },
+    {
+      "slug": "ckan",
+      "name": "CKAN",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Make open data websites.",
+      "repository_url": "https://github.com/ckan/ckan",
+      "website_url": "https://ckan.org",
+      "docker_url": "https://github.com/ckan/ckan/blob/master/.devcontainer/docker-compose.yml"
+    },
+    {
+      "slug": "clamav",
+      "name": "ClamAV",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Antivirus engine for detecting malicious threats.",
+      "repository_url": "https://github.com/Cisco-Talos/clamav",
+      "website_url": "https://www.clamav.net",
+      "docker_url": "https://github.com/Cisco-Talos/clamav/blob/main/.devcontainer/clamav-almalinux/Dockerfile"
+    },
+    {
+      "slug": "claper",
+      "name": "Claper",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "The tool to interact with your audience.",
+      "repository_url": "https://github.com/ClaperCo/Claper",
+      "website_url": "https://claper.co",
+      "docker_url": "https://github.com/ClaperCo/Claper/blob/dev/compose.dev.yml"
+    },
+    {
+      "slug": "cleanuparr",
+      "name": "Cleanuparr",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Automated cleanup of unwanted or blocked media files.",
+      "repository_url": "https://github.com/Cleanuparr/Cleanuparr",
+      "website_url": "https://github.com/Cleanuparr/Cleanuparr",
+      "docker_url": "https://github.com/Cleanuparr/Cleanuparr/blob/main/e2e/docker-compose.e2e.yml"
+    },
+    {
+      "slug": "cloudflared",
+      "name": "Cloudflared",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Tunneling proxy for Cloudflare traffic.",
+      "repository_url": "https://github.com/cloudflare/cloudflared",
+      "website_url": "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel",
+      "docker_url": "https://github.com/cloudflare/cloudflared/blob/master/.ci/image/Dockerfile"
+    },
+    {
+      "slug": "cloudpanel",
+      "name": "CloudPanel",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Server configuration and management with a focus on simplicity.",
+      "repository_url": "https://github.com/cloudpanel-io/cloudpanel-ce",
+      "website_url": "https://github.com/cloudpanel-io/cloudpanel-ce",
+      "docker_url": null
+    },
+    {
+      "slug": "cloudreve",
+      "name": "Cloudreve",
+      "blockers": [
+        "database_types_without_requirement"
+      ],
+      "summary": "File management and sharing system, supports multiple storage providers.",
+      "repository_url": "https://github.com/cloudreve/cloudreve",
+      "website_url": "https://cloudreve.org",
+      "docker_url": "https://github.com/cloudreve/cloudreve/blob/master/docker-compose.yml"
+    },
+    {
+      "slug": "cobalt",
+      "name": "Cobalt",
+      "blockers": [
+        "database_types_without_requirement"
+      ],
+      "summary": "Web app and API for saving public media links as downloadable files.",
+      "repository_url": "https://github.com/imputnet/cobalt",
+      "website_url": "https://cobalt.tools",
+      "docker_url": "https://github.com/imputnet/cobalt/blob/main/docs/run-an-instance.md"
+    },
+    {
+      "slug": "code-server",
+      "name": "code-server",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "VS Code in the browser, hosted on a remote server.",
+      "repository_url": "https://github.com/coder/code-server",
+      "website_url": "https://coder.com",
+      "docker_url": "https://github.com/coder/code-server/blob/main/ci/release-image/Dockerfile"
+    },
+    {
+      "slug": "coder",
+      "name": "Coder",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Remote development machines on your own infrastructure.",
+      "repository_url": "https://github.com/coder/coder",
+      "website_url": "https://coder.com",
+      "docker_url": "https://github.com/coder/coder/blob/main/compose.dev.yaml"
+    },
+    {
+      "slug": "colanode",
+      "name": "Colanode",
+      "blockers": [
+        "summary_bad_start"
+      ],
+      "summary": "And local-first Slack and Notion alternative that puts you in control of your data.",
+      "repository_url": "https://github.com/colanode/colanode",
+      "website_url": "https://colanode.com",
+      "docker_url": "https://github.com/colanode/colanode/blob/main/hosting/docker/docker-compose.yaml"
+    },
+    {
+      "slug": "collective-access-providence",
+      "name": "Collective Access - Providence",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Cataloguing and data/media management application.",
+      "repository_url": "https://github.com/collectiveaccess/providence",
+      "website_url": "https://collectiveaccess.org",
+      "docker_url": "https://github.com/collectiveaccess/providence/blob/master/.github/workflows/composer.yml"
+    },
+    {
+      "slug": "concrete-5-cms",
+      "name": "Concrete 5 CMS",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Content management system.",
+      "repository_url": "https://github.com/concretecms/concretecms",
+      "website_url": "https://www.concretecms.org",
+      "docker_url": "https://github.com/concretecms/concretecms/blob/9.5.x/.github/workflows/composer-detection.yml"
+    },
+    {
+      "slug": "convoy",
+      "name": "Convoy",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "High-performance webhooks gateway.",
+      "repository_url": "https://github.com/frain-dev/convoy",
+      "website_url": "https://getconvoy.io",
+      "docker_url": "https://github.com/frain-dev/convoy/blob/main/configs/docker-compose.templ.yml"
+    },
+    {
+      "slug": "coral",
+      "name": "Coral",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Better commenting experience from Vox Media.",
+      "repository_url": "https://github.com/coralproject/talk",
+      "website_url": "https://coralproject.net",
+      "docker_url": "https://github.com/coralproject/talk/blob/develop/docker-compose.yml"
+    },
+    {
+      "slug": "cosmos-server",
+      "name": "Cosmos",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Home server application gateway and manager.",
+      "repository_url": "https://github.com/azukaar/Cosmos-Server",
+      "website_url": "https://cosmos-cloud.io",
+      "docker_url": "https://github.com/azukaar/Cosmos-Server/blob/master/dockerfile"
+    },
+    {
+      "slug": "crontab-guru",
+      "name": "Crontab Guru",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Web and CLI-based cron job management.",
+      "repository_url": "https://github.com/cronitorio/cronitor-cli",
+      "website_url": "https://cronitor.io/docs/using-cronitor-cli",
+      "docker_url": "https://github.com/cronitorio/cronitor-cli/blob/master/docker-compose.yml"
+    },
+    {
+      "slug": "crosswatch",
+      "name": "CrossWatch",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Sync media watch statuses across platforms.",
+      "repository_url": "https://github.com/cenodude/CrossWatch",
+      "website_url": "https://wiki.crosswatch.app",
+      "docker_url": "https://github.com/cenodude/CrossWatch/blob/main/docker-compose.yml"
+    },
+    {
+      "slug": "crowdsec",
+      "name": "CrowdSec",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Crowd-sourced protection against malicious IPs.",
+      "repository_url": "https://github.com/crowdsecurity/crowdsec",
+      "website_url": "https://crowdsec.net",
+      "docker_url": "https://github.com/crowdsecurity/crowdsec/blob/master/test/localstack/docker-compose.yml"
+    },
+    {
+      "slug": "cup-updates",
+      "name": "Cup",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Docker container updates made easy.",
+      "repository_url": "https://github.com/sergi0g/cup",
+      "website_url": "https://cup.sergi0g.dev",
+      "docker_url": "https://github.com/sergi0g/cup/blob/main/.github/actions/build-image/Dockerfile"
+    },
+    {
+      "slug": "cypht",
+      "name": "Cypht",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Feed reader for your email accounts.",
+      "repository_url": "https://github.com/cypht-org/cypht",
+      "website_url": "http://cypht.org",
+      "docker_url": "https://github.com/cypht-org/cypht/blob/master/docker-compose.dev.yaml"
+    },
+    {
+      "slug": "cytube",
+      "name": "CyTube",
+      "blockers": [
+        "database_types_without_requirement"
+      ],
+      "summary": "Synchronize media, chat, and more for an arbitrary number of channels.",
+      "repository_url": "https://github.com/calzoneman/sync",
+      "website_url": "https://github.com/calzoneman/sync",
+      "docker_url": null
+    },
+    {
+      "slug": "czkawka",
+      "name": "Czkawka",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Find and remove duplicate files and folders.",
+      "repository_url": "https://github.com/qarmin/czkawka",
+      "website_url": "https://github.com/qarmin/czkawka",
+      "docker_url": "https://github.com/qarmin/czkawka/blob/master/misc/docker/Dockerfile"
+    },
+    {
+      "slug": "dashwise",
+      "name": "Dashwise",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Homelab dashboard.",
+      "repository_url": "https://github.com/andreasmolnardev/dashwise",
+      "website_url": "https://dashwise-next.vercel.app",
+      "docker_url": "https://github.com/andreasmolnardev/dashwise/blob/dev/docker-compose.dev.yaml"
+    },
+    {
+      "slug": "databag",
+      "name": "Databag",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Fast & lightweight messenger.",
+      "repository_url": "https://github.com/balzack/databag",
+      "website_url": "https://github.com/balzack/databag",
+      "docker_url": "https://github.com/balzack/databag/blob/main/docker-compose.dev.yml"
+    },
+    {
+      "slug": "databasus",
+      "name": "Databasus",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "PostgreSQL backup tool.",
+      "repository_url": "https://github.com/databasus/databasus",
+      "website_url": "https://databasus.com",
+      "docker_url": "https://github.com/databasus/databasus/blob/main/agent/verification/e2e/docker-compose.yml"
+    },
+    {
+      "slug": "ddns-updater",
+      "name": "DDNS Updater",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Periodic DNS record updates across DNS providers.",
+      "repository_url": "https://github.com/qdm12/ddns-updater",
+      "website_url": "https://hub.docker.com/r/qmcgaw/ddns-updater",
+      "docker_url": "https://github.com/qdm12/ddns-updater/blob/master/.devcontainer/docker-compose.yml"
+    },
+    {
+      "slug": "ddracenetwork",
+      "name": "DDraceNetwork",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Cooperative platformer version of DDRace, a Teeworlds modification featuring unique cooperative gameplay.",
+      "repository_url": "https://github.com/ddnet/ddnet",
+      "website_url": "https://ddnet.org",
+      "docker_url": "https://github.com/ddnet/ddnet/blob/master/Dockerfile"
+    },
+    {
+      "slug": "deployrr",
+      "name": "Deployrr",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Automated homelab setups using Docker.",
+      "repository_url": "https://github.com/SimpleHomelab/Deployrr",
+      "website_url": "https://www.deployrr.app",
+      "docker_url": "https://github.com/SimpleHomelab/Deployrr/blob/main/apps/core/authelia/compose.yml"
+    },
+    {
+      "slug": "directus",
+      "name": "Directus",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Headless CMS and backend for custom builds.",
+      "repository_url": "https://github.com/directus/directus",
+      "website_url": "https://directus.com",
+      "docker_url": "https://github.com/directus/directus/blob/main/docker-compose.yml"
+    },
+    {
+      "slug": "diskover",
+      "name": "Diskover",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "File indexer, search engine, and data management app.",
+      "repository_url": "https://github.com/diskoverdata/diskover-community",
+      "website_url": "https://diskoverdata.com",
+      "docker_url": "https://github.com/diskoverdata/diskover-community/blob/master/diskover-web/vendor/elasticsearch/elasticsearch/.ci/Dockerfile"
+    },
+    {
+      "slug": "diyhue",
+      "name": "diyHue",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Hue Bridge emulator.",
+      "repository_url": "https://github.com/diyhue/diyHue",
+      "website_url": "https://diyhue.org",
+      "docker_url": "https://github.com/diyhue/diyHue/blob/master/.build/docker-compose.yml"
+    },
+    {
+      "slug": "docker-staticmaps",
+      "name": "docker-staticmaps",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "API for rendering static map images.",
+      "repository_url": "https://github.com/dietrichmax/docker-staticmaps",
+      "website_url": "https://dietrichmax.github.io/docker-staticmaps",
+      "docker_url": "https://github.com/dietrichmax/docker-staticmaps/blob/main/docker/docker-compose.yml"
+    },
+    {
+      "slug": "docker-volume-backup",
+      "name": "Docker Volume Backup",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Backup Docker volumes to compatible storage backends.",
+      "repository_url": "https://github.com/offen/docker-volume-backup",
+      "website_url": "https://offen.github.io/docker-volume-backup",
+      "docker_url": "https://github.com/offen/docker-volume-backup/blob/main/test/age-passphrase/docker-compose.yml"
+    },
+    {
+      "slug": "dockge",
+      "name": "Dockge",
+      "blockers": [
+        "summary_boilerplate"
+      ],
+      "summary": "Easy-to-use docker compose stack manager.",
+      "repository_url": "https://github.com/louislam/dockge",
+      "website_url": "https://dockge.kuma.pet",
+      "docker_url": "https://github.com/louislam/dockge/blob/master/compose.yaml"
+    },
+    {
+      "slug": "dockhand",
+      "name": "Dockhand",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Docker management and orchestration app.",
+      "repository_url": "https://github.com/Finsys/dockhand",
+      "website_url": "https://dockhand.pro",
+      "docker_url": "https://github.com/Finsys/dockhand/blob/main/docker-compose-postgresql.yaml"
+    },
+    {
+      "slug": "docs",
+      "name": "Docs",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Collaborative note taking, wiki and documentation app that scales.",
+      "repository_url": "https://github.com/suitenumerique/docs",
+      "website_url": "https://docs.numerique.gouv.fr",
+      "docker_url": "https://github.com/suitenumerique/docs/blob/main/compose-e2e.yml"
+    },
+    {
+      "slug": "dollardollar-bill-y-all",
+      "name": "DollarDollar Bill Y'all",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Expense tracking and bill-splitting application.",
+      "repository_url": "https://github.com/harung1993/dollardollar",
+      "website_url": "https://github.com/harung1993/dollardollar",
+      "docker_url": "https://github.com/harung1993/dollardollar/blob/main/docker-compose.dev.yml"
+    },
+    {
+      "slug": "dpaste",
+      "name": "dpaste",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Simple pastebin with multiple text and code option, with short url result easy to remember.",
+      "repository_url": "https://github.com/DarrenOfficial/dpaste",
+      "website_url": "https://dpaste.org",
+      "docker_url": "https://github.com/DarrenOfficial/dpaste/blob/master/docker-compose.yml"
+    },
+    {
+      "slug": "dragonfly",
+      "name": "DragonFly",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "The DragonFly Mail Agent, a small Mail Transport Agent (MTA), designed for home and office use.",
+      "repository_url": "https://github.com/corecode/dma",
+      "website_url": "https://github.com/corecode/dma",
+      "docker_url": null
+    },
+    {
+      "slug": "drivebase",
+      "name": "Drivebase",
+      "blockers": [
+        "license_missing"
+      ],
+      "summary": "Cloud-agnostic file management app.",
+      "repository_url": "https://github.com/drivebase/drivebase",
+      "website_url": "https://drivebase.io",
+      "docker_url": "https://github.com/drivebase/drivebase/blob/main/compose.prod.yml"
+    }
+  ]
+}
