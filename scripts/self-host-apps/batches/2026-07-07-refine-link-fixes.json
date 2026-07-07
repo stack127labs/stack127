@@ -1,0 +1,91 @@
+{
+  "overrides": {
+    "amurex": {
+      "website_url": "https://github.com/thepersonalaicompany/amurex-backend"
+    },
+    "astroluma": {
+      "website_url": "https://github.com/Sanjeet990/Astroluma"
+    },
+    "cially": {
+      "website_url": "https://github.com/cially/cially"
+    },
+    "coral": {
+      "publisher_url": "https://github.com/coralproject"
+    },
+    "corecontrol": {
+      "website_url": "https://github.com/crocofied/CoreObs"
+    },
+    "cozy-cloud": {
+      "website_url": "https://github.com/cozy/cozy-stack"
+    },
+    "cyrus-imap": {
+      "install_docs_url": "https://www.cyrusimap.org/"
+    },
+    "eventcatalog": {
+      "docs_url": "https://github.com/event-catalog/eventcatalog"
+    },
+    "files-sharing": {
+      "website_url": "https://github.com/axeloz/filesharing"
+    },
+    "fli-so": {
+      "website_url": "https://github.com/thisuxhq/fli.so"
+    },
+    "fluxer": {
+      "website_url": "https://github.com/fluxerapp/fluxer",
+      "docs_url": "https://github.com/fluxerapp/fluxer"
+    },
+    "friendica": {
+      "website_url": "https://github.com/friendica/friendica"
+    },
+    "gamevault": {
+      "docs_url": "https://gamevau.lt"
+    },
+    "gramps": {
+      "website_url": "https://github.com/gramps-project/gramps"
+    },
+    "growchief": {
+      "website_url": "https://github.com/growchief/growchief"
+    },
+    "halo": {
+      "website_url": "https://github.com/halo-dev/halo"
+    },
+    "hortusfox": {
+      "website_url": "https://github.com/danielbrendel/hortusfox-web"
+    },
+    "invio": {
+      "website_url": "https://github.com/kittendevv/Invio"
+    },
+    "kite-kubernetes": {
+      "website_url": "https://github.com/kite-org/kite"
+    },
+    "laudspeaker": {
+      "website_url": "https://github.com/laudspeaker/laudspeaker"
+    },
+    "maloja": {
+      "website_url": "https://github.com/krateng/maloja"
+    },
+    "markopolis": {
+      "website_url": "https://github.com/rishikanthc/markopolis"
+    },
+    "microbin": {
+      "website_url": "https://github.com/szabodanika/microbin"
+    },
+    "openreader": {
+      "website_url": "https://github.com/richardr1126/openreader"
+    },
+    "quassel-irc": {
+      "website_url": "https://github.com/quassel/quassel"
+    },
+    "shotshare": {
+      "website_url": "https://github.com/mdshack/shotshare"
+    },
+    "spacebar": {
+      "docker_url": null,
+      "docker_support": "unknown",
+      "compose_support": null
+    },
+    "squirrel-servers-manager": {
+      "website_url": "https://github.com/SquirrelCorporation/SquirrelServersManager"
+    }
+  }
+}

@@ -7,7 +7,7 @@ import { withClient } from "./lib/db.mjs";
 import { validateSummary } from "./lib/summary-rules.mjs";
 
 const dockerHighRiskPattern =
-  /(devcontainer|dev-container|compose\.dev|docker-compose\.dev|\/test|testing|ci|e2e|vendor|\.github|\.ddev)/i;
+  /(^|\/)(\.github|\.ci|\.devcontainer|dev|vendor|test|tests|testing|ci|e2e(?:[-_][^/]*)?|fixtures?|examples?|docker-compose-examples|test-infrastructure|tests_integration)(\/|$)|devcontainer|dev-container|compose\.dev|docker-compose\.dev|docker-compose[-.]ci|compose[-.]ci|example|gitpod|\.ddev/i;
 function iconBlockers(row) {
   if (!row.icon_url?.startsWith("/app-icons/")) return ["icon_not_local"];
   const file = path.join(process.cwd(), "public", row.icon_url);

@@ -1,0 +1,416 @@
+[
+  {
+    "slug": "statping-ng",
+    "summary": "Tracks website checks, incidents, service status, and uptime history for status pages.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dockpeek",
+    "summary": "Shows exposed Docker container ports, service endpoints, and network details in a dashboard.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "gmail-cleaner",
+    "summary": "Reviews, filters, and deletes Gmail inbox messages in bulk cleanup workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "podsync",
+    "summary": "Turns YouTube channels and playlists into podcast feeds that audio players can subscribe to.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "apaxy",
+    "summary": "Styles Apache directory listings so file indexes are cleaner to scan and browse.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "smokeping",
+    "summary": "Graphs network latency, packet loss, and alert conditions from repeated ping checks.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "authgear",
+    "summary": "Handles user sign-in, identity flows, sessions, and authentication integrations for apps.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "statistics-for-strava",
+    "summary": "Builds Strava activity dashboards with charts, training history, and personal statistics.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "timetagger",
+    "summary": "Tracks time with timeline entries, projects, work logs, and reporting views.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "maloja",
+    "summary": "Collects music scrobbles and turns listening history into charts, artists, and personal stats.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "kubetail",
+    "summary": "Streams Kubernetes pod logs and searches workload output from a browser dashboard.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "adguardhome-sync",
+    "summary": "Copies AdGuard Home blocklists, filters, clients, and DNS settings across instances.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "self-hosted-gateway",
+    "summary": "Routes local Docker services through controlled tunnels and gateway rules.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "explo",
+    "summary": "Explores artists, albums, and listening recommendations for finding new music.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "sabredav",
+    "summary": "Provides WebDAV, CalDAV, and CardDAV server building blocks for calendars, contacts, and files.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "elgg",
+    "summary": "Runs social community sites with profiles, groups, activity feeds, users, and plugins.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "trip",
+    "summary": "Saves points of interest on a map for trip planning and place lists.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "flint",
+    "summary": "Creates, runs, and manages lightweight Linux virtual machines from one VM manager.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "snappymail",
+    "summary": "Reads, sends, searches, and manages email accounts from a browser webmail client.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "lms",
+    "summary": "Streams local music libraries through a browser with browsing, playback, and queue controls.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "briefing",
+    "summary": "Runs private group video calls directly between participants.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "birdnet-analyzer",
+    "summary": "Identifies bird species from audio recordings with machine learning analysis.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "cypht",
+    "summary": "Checks email accounts and RSS feeds together from one browser inbox.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "traggo",
+    "summary": "Logs work sessions with tags and reports tracked time by label, project, or activity.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "secluso",
+    "summary": "Runs Raspberry Pi security cameras with encrypted video access and privacy controls.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "lowcoder",
+    "summary": "Builds internal dashboards, forms, workflows, and business tools from visual components.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "atomic-server",
+    "summary": "Serves linked records with tables, real-time updates, full-text search, and data APIs.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "qbit-manage",
+    "summary": "Automates qBittorrent tagging, cleanup, file moves, and rule enforcement.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "degoog",
+    "summary": "Aggregates searches across multiple providers through configurable plugins and query routing.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "rackula",
+    "summary": "Visualizes server rack layouts for arranging equipment and documenting rack positions.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "doco-cd",
+    "summary": "Updates Docker Compose stacks through continuous delivery workflows and deployment hooks.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "borg-ui",
+    "summary": "Shows BorgBackup repositories, archives, backup jobs, schedules, and status in a web UI.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "peanut",
+    "summary": "Monitors network UPS battery status, load, runtime, power events, and alerts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "lute",
+    "summary": "Helps language learners read texts, save terms, review vocabulary, and track progress.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "tugtainer",
+    "summary": "Backs up Docker container volumes, configs, metadata, and restore data.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "otter-wiki",
+    "summary": "Writes Markdown wiki pages, links notes, and stores documentation history in Git.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "databag",
+    "summary": "Provides private messaging with encrypted conversations, contacts, and lightweight chat clients.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "yamlresume",
+    "summary": "Stores resume data in YAML and exports versioned CVs for publishing or sharing.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "tirreno",
+    "summary": "Tracks user behavior, fraud signals, and abuse patterns for security analytics.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "domain-locker",
+    "summary": "Tracks domain portfolios with expiry dates, DNS records, registrar details, and notes.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "unpackerr",
+    "summary": "Extracts downloaded media archives before Sonarr, Radarr, and other arr tools import them.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "watcharr",
+    "summary": "Tracks movies, shows, anime, and games with user accounts, lists, and viewing history.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "debops",
+    "summary": "Automates Debian server roles, services, users, and infrastructure configuration with Ansible.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nodecast-tv",
+    "summary": "Plays IPTV channels and stream playlists through a browser-based TV viewer.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "inspircd",
+    "summary": "Runs IRC chat networks with channels, users, server linking, modules, and IRCv3 features.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "cup-updates",
+    "summary": "Checks Docker container image versions and reports available updates for running services.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "emoncms",
+    "summary": "Collects energy sensor readings and turns them into logs, dashboards, graphs, and reports.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "farmos",
+    "summary": "Manages farm records, maps, logs, assets, people, and agricultural planning data.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "excalidash",
+    "summary": "Organizes Excalidraw boards, sketches, files, dashboards, and workspace shortcuts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "portnote",
+    "summary": "Documents services, exposed ports, hosts, protocols, and network notes in one tracker.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "fredy",
+    "summary": "Monitors real estate listings and sends alerts when homes match saved filters.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "runson",
+    "summary": "Manages GitHub Actions runners on AWS-backed infrastructure for CI jobs.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mybb",
+    "summary": "Runs discussion forums with users, threads, moderation, plugins, themes, and community tools.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "filesync",
+    "summary": "Syncs encrypted folders and transfers files between trusted devices in real time.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "torrra",
+    "summary": "Downloads torrents from the command line and manages direct torrent fetches.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "rustypaste",
+    "summary": "Shares paste snippets, uploaded files, temporary links, and command-line uploads.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "uguu",
+    "summary": "Hosts temporary file uploads that expire after a configured retention period.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "weewx",
+    "summary": "Collects weather station data, generates reports, and publishes forecasts from sensor readings.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dumbassets",
+    "summary": "Catalogs personal assets with item records, locations, values, ownership details, and notes.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "aurral",
+    "summary": "Handles Lidarr artist requests, music discovery, collection planning, and library additions.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "fittrackee",
+    "summary": "Tracks workouts, routes, sports, activity history, and personal fitness progress.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "atlas-network",
+    "summary": "Discovers network devices and visualizes services, hosts, links, and topology.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "pigeonpod",
+    "summary": "Turns YouTube channels into podcast feeds that can be played in podcast apps.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "gossa",
+    "summary": "Serves web file browsing for shared folders, downloads, previews, and directory navigation.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nzb-dav",
+    "summary": "Mounts Usenet NZB downloads through WebDAV for streaming and file access.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "portabase",
+    "summary": "Creates portable custom databases with tables, forms, filters, and personal records.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "norish",
+    "summary": "Helps households plan meals, collect recipes, choose cooking ideas, and manage lists.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "materialious",
+    "summary": "Browses and watches videos through an Invidious frontend styled with Material Design.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "anchor-notes",
+    "summary": "Writes, syncs, and organizes offline-first personal notes across devices.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  }
+]

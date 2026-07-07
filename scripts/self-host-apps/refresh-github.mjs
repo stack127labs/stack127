@@ -178,7 +178,10 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
           github_latest_release_at = $6,
           github_last_commit_at = $7,
           github_checked_at = $8,
-          license = coalesce(license, $9),
+          license = case
+            when license is null or lower(license) = 'unknown' then coalesce($9, license)
+            else license
+          end,
           maintenance_status = $10,
           updated_at = now()
         where slug = $1

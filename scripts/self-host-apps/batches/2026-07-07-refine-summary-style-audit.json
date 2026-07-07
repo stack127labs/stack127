@@ -1,0 +1,184 @@
+{
+  "overrides": {
+    "acp-admin": {
+      "summary": "CSA admin app for managing members, subscriptions, deliveries, pickup locations, invoices, and emails."
+    },
+    "admidio": {
+      "summary": "Membership management app for clubs and groups with roles, profiles, lists, events, and permissions."
+    },
+    "amusewiki": {
+      "summary": "Publishing system for collaborative text archives built around Muse markup and book-style output."
+    },
+    "answer": {
+      "summary": "Q&A community app for product support, customer support, knowledge sharing, and user discussions."
+    },
+    "audioserve": {
+      "summary": "Audio server for streaming audiobooks, podcasts, and music from folders with playback position sync."
+    },
+    "buddypress": {
+      "summary": "WordPress plugin that adds profiles, activity streams, groups, and community features to a site."
+    },
+    "chitchatter": {
+      "summary": "Peer-to-peer chat app for ephemeral browser conversations without a central message server."
+    },
+    "clipcascade": {
+      "summary": "Clipboard sync utility that keeps copied text available across your devices automatically."
+    },
+    "d8a-tech": {
+      "summary": "Private analytics collector that stores user activity from Google Analytics-style events in your database."
+    },
+    "damselfly": {
+      "summary": "Photo manager for large image libraries with search, EXIF tags, face detection, and object recognition."
+    },
+    "django-crm": {
+      "summary": "CRM for tracking leads, tasks, contacts, email marketing, and sales work in Django."
+    },
+    "docmost": {
+      "summary": "Collaborative wiki and docs app for teams writing notes, pages, and internal documentation."
+    },
+    "draw-io": {
+      "summary": "Browser diagram editor for flowcharts, architecture diagrams, whiteboards, and general visual planning."
+    },
+    "fasten-health": {
+      "summary": "Personal and family health record manager for collecting medical data in one place."
+    },
+    "filegator": {
+      "summary": "Multi-user file manager with a web interface for browsing, uploading, and sharing server files."
+    },
+    "flagsmith": {
+      "summary": "Feature flag and remote config service for managing rollouts across apps and environments."
+    },
+    "galene": {
+      "summary": "Video conferencing server focused on lightweight deployment and moderate server resource usage."
+    },
+    "grav": {
+      "summary": "Flat-file CMS for publishing websites from files without a traditional database."
+    },
+    "kapowarr": {
+      "summary": "Comic library manager for tracking series, issues, downloads, and reading progress in an arr-style workflow."
+    },
+    "kasm-workspaces": {
+      "summary": "Streams containerized desktops and browser apps such as Ubuntu, Chrome, and office tools to users."
+    },
+    "koillection": {
+      "summary": "Collection manager for cataloging items, metadata, photos, and custom fields."
+    },
+    "linkding": {
+      "summary": "Minimal bookmark manager with tags, search, archiving, and browser-friendly save flows."
+    },
+    "mealie": {
+      "summary": "Recipe manager and meal planner with shopping lists, household sharing, and import tools."
+    },
+    "mopidy": {
+      "summary": "Extensible Python music server for playing local libraries and streaming services."
+    },
+    "myip": {
+      "summary": "IP toolbox for checking public IPs, geolocation, DNS leaks, WebRTC details, and network tests."
+    },
+    "open-eclass": {
+      "summary": "E-learning app for courses, assignments, announcements, exercises, and online classroom material."
+    },
+    "open-source-pos": {
+      "summary": "Retail point-of-sale system for sales, customers, inventory, reports, and store checkout workflows."
+    },
+    "openmediavault": {
+      "summary": "Debian-based NAS manager for file sharing, media services, backups, SSH, FTP, SMB, and rsync."
+    },
+    "openproject": {
+      "summary": "Project management app for tasks, roadmaps, timelines, team planning, and issue tracking."
+    },
+    "ossn": {
+      "summary": "Social network engine for profiles, activity feeds, groups, relationships, and community sites."
+    },
+    "password-pusher": {
+      "summary": "Secure sharing app for expiring passwords, notes, files, and secret links."
+    },
+    "pinepods": {
+      "summary": "Podcast manager with users, subscriptions, listening progress, downloads, and shared device state."
+    },
+    "pingvin-share-x": {
+      "summary": "File sharing app for upload links, expiration rules, recipients, and quick transfers."
+    },
+    "pomerium": {
+      "summary": "Identity-aware access proxy for protecting internal apps with contextual authorization."
+    },
+    "portkey": {
+      "summary": "Start page for organizing links, custom pages, and personal shortcuts in one web portal."
+    },
+    "posthog": {
+      "summary": "Product analytics suite with web analytics, session replay, feature flags, and error tracking."
+    },
+    "rallly": {
+      "summary": "Scheduling app for finding meeting times, collecting availability, and coordinating events."
+    },
+    "readflow": {
+      "summary": "News reader and read-it-later app for saving articles and following feeds."
+    },
+    "rybbit": {
+      "summary": "Web analytics app for page views, events, sessions, and privacy-friendly product metrics."
+    },
+    "screego": {
+      "summary": "Screen sharing server for quickly broadcasting a browser tab or desktop to other people."
+    },
+    "seaweedfs": {
+      "summary": "Distributed storage system for S3 object storage, file volumes, metadata, and large file sets."
+    },
+    "shkeeper": {
+      "summary": "Cryptocurrency payment gateway for accepting coin payments through stores, CMS integrations, or custom apps."
+    },
+    "simple-url-shortener": {
+      "summary": "URL shortener for creating compact links with users, history, and MySQL or SQLite storage."
+    },
+    "spree-commerce": {
+      "summary": "Rails commerce engine for building storefronts, product catalogs, carts, and checkout flows."
+    },
+    "sshwifty": {
+      "summary": "Browser-based SSH and Telnet client for opening remote terminal sessions through a web UI."
+    },
+    "stackstorm": {
+      "summary": "Event-driven automation engine for runbooks, remediation, deployments, and infrastructure workflows."
+    },
+    "swingmusic": {
+      "summary": "Music streaming server for browsing local audio files and playing them from the web."
+    },
+    "tagspaces": {
+      "summary": "Offline document manager for tagging, browsing, and organizing local files."
+    },
+    "tasmota": {
+      "summary": "ESP firmware for local device control through MQTT, web UI, HTTP, serial commands, timers, and rules."
+    },
+    "tileserver-gl": {
+      "summary": "Map tile server for vector and raster maps with GL styles and server-side rendering."
+    },
+    "traccar": {
+      "summary": "GPS tracking server for devices, trips, live positions, geofences, and mobile clients."
+    },
+    "typebot": {
+      "summary": "Chatbot builder for designing conversational forms, embeds, workflows, and lead capture flows."
+    },
+    "uvdesk": {
+      "summary": "Helpdesk system for support tickets, mailboxes, workflows, teams, and customer communication."
+    },
+    "viseron": {
+      "summary": "Local NVR with object detection, motion detection, face recognition, and camera recording."
+    },
+    "wackowiki": {
+      "summary": "Lightweight multilingual wiki engine for collaborative pages, editing, and site documentation."
+    },
+    "webthings-gateway": {
+      "summary": "Smart home gateway for managing WebThings devices, rules, adapters, and local automation."
+    },
+    "webtrees": {
+      "summary": "Genealogy app for building, sharing, and collaborating on family trees online."
+    },
+    "wondercms": {
+      "summary": "Small flat-file CMS for editing lightweight websites without a database."
+    },
+    "writing": {
+      "summary": "Distraction-free browser text editor with Markdown and LaTeX support."
+    },
+    "yaffa": {
+      "summary": "Personal finance app for long-term planning, accounts, budgets, and financial tracking."
+    }
+  }
+}

@@ -1,0 +1,542 @@
+[
+  {
+    "slug": "kanba",
+    "summary": "Kanban board for organizing projects, tasks, and team collaboration.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dockman",
+    "summary": "Docker Compose helper for reducing compose files into shorter, reusable service definitions.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "configarr",
+    "summary": "Configuration sync tool for keeping Radarr and Sonarr settings aligned across instances.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "wiki-go",
+    "summary": "Flat-file wiki app that stores pages without a database.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "photofield",
+    "summary": "Photo viewer for browsing large image libraries quickly.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "youlag",
+    "summary": "FreshRSS extension for changing themes and adding video features.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "soulbeet",
+    "summary": "Music tool for finding tracks and downloading songs into a local library.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "booklogr",
+    "summary": "Personal book tracker for cataloging reads, authors, notes, and reading progress.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "vocard",
+    "summary": "Discord music bot with queue controls, playback customization, and chat commands.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mybibliotecha",
+    "summary": "Personal library tracker for cataloging books and reading activity.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "cloudlog",
+    "summary": "Amateur radio logbook for recording contacts and checking station activity from anywhere.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "kuvasz",
+    "summary": "Uptime monitor for checking services, SSL certificates, and availability alerts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "yt-dlp-web-player",
+    "summary": "Web player for streaming videos through yt-dlp from a browser.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "lab-dash",
+    "summary": "Dashboard for managing apps, servers, and common lab administration tasks.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "owntracks-frontend",
+    "summary": "Web interface for viewing and managing location data from OwnTracks.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "pluton",
+    "summary": "Backup tool for copying files across local disks and cloud storage targets.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "omeka",
+    "summary": "Web publishing app for library, museum, archive, and scholarly collections.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "sub-wave",
+    "summary": "Internet radio app for running a personal station from a local audio library.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "planarally",
+    "summary": "Virtual tabletop for maps, tokens, fog of war, and offline play sessions.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "webhook-tester",
+    "summary": "Webhook testing tool for inspecting incoming requests, payloads, headers, and delivery behavior.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "wikidocs",
+    "summary": "Markdown wiki engine that stores pages as flat files without a database.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "flashpaper",
+    "summary": "Encrypted secret sharing app for one-time passwords, notes, and sensitive text.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "middleware-manager",
+    "summary": "Traefik manager for editing middleware, routers, and server rules from a web UI.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nextcloud-social",
+    "summary": "Nextcloud app that adds federated social networking to a Nextcloud instance.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "quetre",
+    "summary": "Quora frontend for reading questions and answers with a lighter interface.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "foldergram",
+    "summary": "Photo and video gallery that presents folders with an Instagram-style layout.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mantrae",
+    "summary": "Traefik management UI for configuring routers, services, and middleware.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "chyrp-lite",
+    "summary": "Blog engine for publishing lightweight posts, pages, and themes.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "its-mytabs",
+    "summary": "Guitar tab viewer and player for practicing songs in the browser.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dockerizalo",
+    "summary": "Container deployment app for managing Docker services from a web interface.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "podfetch",
+    "summary": "Podcast downloader for saving episodes and serving them to podcast apps.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "bunkerm",
+    "summary": "Mosquitto MQTT broker bundle with a web UI for broker management.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "suroi",
+    "summary": "2D battle royale game inspired by surviv.io, playable from a browser.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "hollo",
+    "summary": "Single-user microblogging server for publishing posts over federated social protocols.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "auto-mcs",
+    "summary": "Minecraft server manager for creating, running, and backing up game servers across devices.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "prunemate",
+    "summary": "Docker cleanup helper for removing unused images and recovering disk space.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nimtable",
+    "summary": "Web interface for browsing and managing Apache Iceberg tables.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "calagopus",
+    "summary": "Game server panel for deploying, monitoring, and managing Minecraft, Hytale, and other servers.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "subtrackr",
+    "summary": "Subscription tracker for recording recurring costs, renewals, and service details.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dumbpad",
+    "summary": "Notepad app for writing and saving quick text notes in a browser.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "perfice",
+    "summary": "Self-tracking app for logging habits, metrics, and personal life data.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "expressa",
+    "summary": "API builder with an admin interface for creating and managing backend endpoints.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "invoice-builder",
+    "summary": "Invoicing app for creating quotes, bills, and client payment records.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "medialyze",
+    "summary": "Media library analyzer for scanning large collections and reporting file details.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "crontab-guru",
+    "summary": "Cron editor and explainer for building schedules from a web or CLI tool.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "trailarr",
+    "summary": "Media trailer manager for downloading and organizing trailers alongside movie libraries.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "quickdrop",
+    "summary": "File sharing app for sending files through short-lived browser links.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "sip-irrigation-control",
+    "summary": "Sprinkler controller for scheduling irrigation zones and managing watering programs.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "spectrum-2",
+    "summary": "Instant messaging transport that bridges XMPP with other chat networks.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "plainpad",
+    "summary": "Note-taking app for writing and organizing notes through a browser-based interface.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "scraparr",
+    "summary": "Prometheus exporter that exposes monitoring metrics from *arr media apps.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "scratch-map",
+    "summary": "Travel map for marking visited places with a scratch-off style view.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "maintenant",
+    "summary": "Monitoring app for checking many services from a single container.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "jellyplist",
+    "summary": "Playlist sync tool for copying Spotify playlists into Jellyfin.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "couchcms",
+    "summary": "Content management system aimed at designers building editable client websites.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "sonobarr",
+    "summary": "Lidarr companion for discovering music recommendations from Last.fm.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "anonymousoverflow",
+    "summary": "Stack Overflow frontend for reading questions and answers with less tracking.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nextcloud-forms",
+    "summary": "Nextcloud app for building forms, surveys, and response collection pages.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "tigase",
+    "summary": "Java XMPP server for running chat, messaging, and federation services.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mataroa",
+    "summary": "Minimal blogging app for publishing posts without a heavy CMS.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "subscription-manager",
+    "summary": "Subscription tracker for monitoring recurring expenses and renewal dates.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "seelf",
+    "summary": "Go deployment app for launching and managing services on your own server.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ghostboard",
+    "summary": "Real-time text board for sharing synchronized notes across multiple browsers.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ferrishare",
+    "summary": "Encrypted file sharing app for sending files with end-to-end protection.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dashlit",
+    "summary": "Server startpage for linking services and checking lab shortcuts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "jetlog",
+    "summary": "Flight tracker for recording trips and viewing personal aviation history.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dollardollar-bill-y-all",
+    "summary": "Expense tracker for splitting bills and tracking shared costs.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "habitsync",
+    "summary": "Habit tracker with social features for sharing progress and accountability.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "openchangelog",
+    "summary": "Changelog site generator for publishing product updates from configuration.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "fx",
+    "summary": "Microblogging service for publishing short posts on a personal site.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "storyden",
+    "summary": "Forum app for running bulletin-board communities and discussion spaces.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "gitsave",
+    "summary": "Git backup tool for copying repositories on a schedule.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "yeetfile",
+    "summary": "Encrypted file vault for sharing files with controlled access.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "plone",
+    "summary": "Content management system for building and maintaining websites.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "fail2ban-report",
+    "summary": "Fail2Ban dashboard for reviewing bans, logs, and security events.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mosparo",
+    "summary": "Spam protection tool for replacing CAPTCHA checks on forms.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "moocup",
+    "summary": "Screenshot editor for creating polished mockups from browser or app captures.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "unifi-voucher-site",
+    "summary": "UniFi guest network tool for generating and managing Wi-Fi vouchers.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "coreshop",
+    "summary": "Pimcore plugin for managing e-commerce catalog, cart, and checkout features.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "airpipe",
+    "summary": "Peer-to-peer file transfer app for moving files directly between devices.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "supysonic",
+    "summary": "Subsonic-compatible music server API implementation written in Python.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "origamivault",
+    "summary": "Secret sharing app for encrypting notes and exchanging them with QR codes.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "skysend",
+    "summary": "Encrypted sharing app for sending files and notes through the browser.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "trala",
+    "summary": "Traefik dashboard for viewing services and managing reverse proxy routes.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "poeticmetric",
+    "summary": "Web analytics tool for tracking traffic with a privacy-focused event model.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "neos",
+    "summary": "Content management system for building websites with the Neos and TYPO3 Neos lineage.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "surmai",
+    "summary": "Travel organizer for planning and tracking personal or family trips.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "minne",
+    "summary": "Read-later app for saving pages and building a personal knowledge base.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "properdocs",
+    "summary": "Documentation site generator that can replace MkDocs in existing projects.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "rangarr",
+    "summary": "Media automation tool for running searches across *arr applications.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  }
+]

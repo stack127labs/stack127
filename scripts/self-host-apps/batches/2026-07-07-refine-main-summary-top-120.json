@@ -1,0 +1,470 @@
+[
+  {
+    "slug": "deployrr",
+    "summary": "Docker deployment builder for setting up common homelab services and compose stacks.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "m3u-editor",
+    "summary": "IPTV playlist editor for filtering channels, updating groups, and managing M3U sources.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "streamystats",
+    "summary": "Jellyfin analytics dashboard for playback history, library trends, and user activity.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "bulwark",
+    "summary": "Webmail client built for Stalwart Mail accounts and browser-based mailbox access.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "koffan",
+    "summary": "Shared shopping list app for households that need real-time grocery planning.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "musicseerr",
+    "summary": "Lidarr request app for discovering albums and sending music requests to automation tools.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "medama-analytics",
+    "summary": "Web analytics server for page views, referrers, and lightweight traffic reports.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dumbdrop",
+    "summary": "File upload page for receiving, storing, and sharing quick browser uploads.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "frames",
+    "summary": "Video-on-demand app for organizing streams, libraries, and browser playback.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "medikeep",
+    "summary": "Personal health record app for tracking medical details, contacts, and documents.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nextcloud-office",
+    "summary": "Nextcloud integration for editing office documents through Collabora Online.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "pasta",
+    "summary": "Plex helper for changing audio and subtitle tracks across library items.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "flowforge",
+    "summary": "Node-RED management app for running, deploying, and scaling flows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dumbbudget",
+    "summary": "Personal budgeting app for tracking income, expenses, and spending categories.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "kriss-feed",
+    "summary": "RSS reader for collecting feeds, reading entries, and filtering updates.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "omoide",
+    "summary": "Photo and video library with AI-assisted search, tagging, and media browsing.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "silicon-notes",
+    "summary": "Personal knowledge base for writing notes and keeping lightweight documentation.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "whorang",
+    "summary": "Doorbell intelligence app for detecting visitors and summarizing camera events.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "borg-backup-server",
+    "summary": "Web dashboard for managing BorgBackup repositories, clients, and backup jobs.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "private-captcha",
+    "summary": "CAPTCHA service focused on bot checks without third-party tracking scripts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dumbdo",
+    "summary": "Task list app for creating todos, marking progress, and keeping small lists.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ties-link-sharing",
+    "summary": "Federated bookmark app for saving links, sharing collections, and following updates.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nextbeats",
+    "summary": "Browser music player for lofi streams, playlists, themes, and focus sessions.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mantium",
+    "summary": "Manga tracker dashboard for following series, sources, reading progress, and updates.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "redirecterr",
+    "summary": "Overseerr request filter that redirects media requests based on custom rules.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "docker-staticmaps",
+    "summary": "Static map image API for rendering map tiles through a containerized service.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "gitit",
+    "summary": "Git-backed wiki that stores pages as files and renders them with Pandoc.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "starbase-80",
+    "summary": "Docker homepage for grouping services, links, status items, and shortcuts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dumbwhois",
+    "summary": "Whois lookup page for checking domain ownership and registration details.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "workout-cool",
+    "summary": "Fitness coaching app for exercises, routines, workout plans, and progress tracking.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "sandstorm",
+    "summary": "Personal server runtime for installing and isolating web apps per user.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "kanidm",
+    "summary": "Identity management server for accounts, authentication, groups, and access control.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "lunar",
+    "summary": "Headless commerce app for managing products, orders, carts, and storefront data.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "peekaping",
+    "summary": "Uptime monitor for checking services, alerts, incidents, and response history.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nametag",
+    "summary": "Personal CRM for tracking contacts, conversations, reminders, and relationships.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ddracenetwork",
+    "summary": "Cooperative Teeworlds game server and client with race maps and online play.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "openolat",
+    "summary": "Learning management system for courses, assessments, communication, and education workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ticky",
+    "summary": "Kanban board app for managing cards, columns, tasks, and project progress.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dragonfly",
+    "summary": "Lightweight mail transfer agent for sending system and office email.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "honey",
+    "summary": "Personal services homepage for listing links, status entries, and dashboard shortcuts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "janus",
+    "summary": "WebRTC server for video rooms, streaming, recording, and communication gateways.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "zentao",
+    "summary": "Scrum project management app for product planning, tasks, bugs, and releases.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "pretalx",
+    "summary": "Conference planning app for calls for papers, scheduling, speakers, and event workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "jellyfin-rewind",
+    "summary": "Year-in-review app for Jellyfin music history, listening stats, and playback summaries.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "vert",
+    "summary": "File conversion app that runs conversions in the browser or on-device workers.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "piped",
+    "summary": "YouTube frontend for watching videos with subscriptions, feeds, and fewer tracking calls.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "rstudio-server",
+    "summary": "Browser IDE for writing R code, managing projects, and running analysis.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "stringer",
+    "summary": "RSS reader for private feed subscriptions, unread queues, and browser reading.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "convert-to-it",
+    "summary": "File converter for changing documents, images, audio, and video formats.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "moodist",
+    "summary": "Ambient sound mixer for focus sessions, background noise, and custom soundscapes.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "tvheadend",
+    "summary": "TV streaming and DVR server for tuners, channels, recordings, and EPG data.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "readarr",
+    "summary": "Book collection manager for tracking authors, releases, downloads, and library files.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mpd",
+    "summary": "Music daemon for playing local audio libraries through clients and remote controls.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "pretix",
+    "summary": "Event ticketing app for sales, check-in, orders, and attendee management.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "azimutt",
+    "summary": "Database explorer for visualizing schemas, relationships, documentation, and query context.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ara-records-ansible",
+    "summary": "Ansible reporting app for recording playbook runs, results, hosts, and task output.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mantisbt",
+    "summary": "Bug tracker for reporting issues, assigning work, and following software fixes.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "timeful",
+    "summary": "Group scheduling app for finding meeting times and sharing availability.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "unblink",
+    "summary": "Camera monitoring app that uses vision models to describe events and alerts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "modx",
+    "summary": "Content management framework for building websites with templates, pages, and custom fields.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nefarious",
+    "summary": "Media automation app for requesting movies and shows through download tools.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "convos",
+    "summary": "Browser IRC client for persistent chats, channels, notifications, and multi-user access.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "selfh-st-icons",
+    "summary": "Dashboard icon library for service logos, color variants, and custom icon downloads.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "lancache",
+    "summary": "Game download cache for reducing repeated LAN downloads from supported stores.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "zero-k",
+    "summary": "Real-time strategy game built on the Spring engine with online multiplayer.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "tiny-tiny-rss",
+    "summary": "RSS reader and aggregator for feeds, filtering, labels, and browser reading.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "postmarks",
+    "summary": "Single-user bookmarking app with ActivityPub sharing and tagged saved links.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "velld",
+    "summary": "Backup dashboard for scheduling database backups and reviewing backup history.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "positive-intentions-chat",
+    "summary": "Browser chat app for decentralized conversations, rooms, and peer-to-peer messaging.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "lurker",
+    "summary": "Read-only Reddit frontend for browsing posts, comments, and communities in the browser.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "biblioreads",
+    "summary": "Goodreads-style frontend for browsing books, reviews, and reading activity.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "minuspod",
+    "summary": "Podcast server that downloads episodes and removes ads from audio files.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "couchtube",
+    "summary": "YouTube frontend that plays videos like live TV channels on a couch-friendly screen.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "typetype",
+    "summary": "YouTube frontend for browsing channels, videos, and playlists with reduced tracking.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "meetable",
+    "summary": "Event aggregator for collecting event pages, dates, locations, and attendee details.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "evergreen",
+    "summary": "Integrated library system for cataloging, circulation, patrons, and library workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "karakeep-homedash",
+    "summary": "Compact dashboard for showing saved Karakeep links on a home screen.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "bookhaven",
+    "summary": "Browser ePub reader for opening books, saving progress, and reading online.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  }
+]

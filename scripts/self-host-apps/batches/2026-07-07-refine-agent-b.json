@@ -1,0 +1,1049 @@
+[
+  {
+    "slug": "code-server",
+    "summary": "Browser-based VS Code server for editing projects on a remote machine.",
+    "docs_url": "https://coder.com/docs/code-server",
+    "install_docs_url": "https://coder.com/docs/code-server/install",
+    "docker_support": "official",
+    "docker_url": "https://hub.docker.com/r/codercom/code-server",
+    "requires_database": false,
+    "database_types": [],
+    "license": "MIT",
+    "platforms": ["web"],
+    "publisher_name": "Coder",
+    "publisher_type": "company",
+    "publisher_url": "https://coder.com",
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://github.com/coder/code-server",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://coder.com/docs/code-server",
+        "confidence": "high"
+      },
+      {
+        "field_name": "install_docs_url",
+        "source_url": "https://coder.com/docs/code-server/install",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_support",
+        "source_url": "https://coder.com/docs/code-server/install",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_url",
+        "source_url": "https://coder.com/docs/code-server/install",
+        "confidence": "high"
+      },
+      {
+        "field_name": "requires_database",
+        "source_url": "https://coder.com/docs/code-server/install",
+        "confidence": "high"
+      },
+      {
+        "field_name": "database_types",
+        "source_url": "https://coder.com/docs/code-server/install",
+        "confidence": "high"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/coder/code-server/blob/main/LICENSE",
+        "confidence": "high"
+      },
+      {
+        "field_name": "platforms",
+        "source_url": "https://github.com/coder/code-server",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_name",
+        "source_url": "https://coder.com",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_type",
+        "source_url": "https://coder.com",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_url",
+        "source_url": "https://coder.com",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "grafana",
+    "summary": "Dashboard app for visualizing metrics, logs, traces, and alert data.",
+    "docs_url": "https://grafana.com/docs/grafana/latest/",
+    "install_docs_url": "https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/",
+    "docker_support": "official",
+    "docker_url": "https://hub.docker.com/r/grafana/grafana",
+    "requires_database": false,
+    "database_types": [],
+    "license": "AGPL-3.0",
+    "platforms": ["web"],
+    "publisher_name": "Grafana Labs",
+    "publisher_type": "company",
+    "publisher_url": "https://grafana.com",
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://grafana.com/docs/grafana/latest/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://grafana.com/docs/grafana/latest/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "install_docs_url",
+        "source_url": "https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_support",
+        "source_url": "https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_url",
+        "source_url": "https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "requires_database",
+        "source_url": "https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#database",
+        "confidence": "high"
+      },
+      {
+        "field_name": "database_types",
+        "source_url": "https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#database",
+        "confidence": "high"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/grafana/grafana/blob/main/LICENSE",
+        "confidence": "high"
+      },
+      {
+        "field_name": "platforms",
+        "source_url": "https://grafana.com/docs/grafana/latest/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_name",
+        "source_url": "https://grafana.com",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_type",
+        "source_url": "https://grafana.com",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_url",
+        "source_url": "https://grafana.com",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "caddy",
+    "summary": "Web server and reverse proxy with automatic HTTPS and Caddyfile configuration.",
+    "docs_url": "https://caddyserver.com/docs/",
+    "install_docs_url": "https://caddyserver.com/docs/running#docker-compose",
+    "docker_support": "official",
+    "docker_url": "https://hub.docker.com/_/caddy",
+    "requires_database": false,
+    "database_types": [],
+    "license": "Apache-2.0",
+    "platforms": ["cli"],
+    "publisher_name": "Caddy",
+    "publisher_type": "community",
+    "publisher_url": "https://caddyserver.com",
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://caddyserver.com/docs/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://caddyserver.com/docs/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "install_docs_url",
+        "source_url": "https://caddyserver.com/docs/running#docker-compose",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_support",
+        "source_url": "https://caddyserver.com/docs/running#docker-compose",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_url",
+        "source_url": "https://caddyserver.com/docs/running#docker-compose",
+        "confidence": "high"
+      },
+      {
+        "field_name": "requires_database",
+        "source_url": "https://caddyserver.com/docs/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "database_types",
+        "source_url": "https://caddyserver.com/docs/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/caddyserver/caddy/blob/master/LICENSE",
+        "confidence": "high"
+      },
+      {
+        "field_name": "platforms",
+        "source_url": "https://caddyserver.com/docs/running",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_name",
+        "source_url": "https://caddyserver.com",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_type",
+        "source_url": "https://caddyserver.com",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_url",
+        "source_url": "https://caddyserver.com",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "superset",
+    "summary": "Business intelligence web app for exploring datasets and building dashboards.",
+    "docs_url": "https://superset.apache.org/docs/intro",
+    "install_docs_url": "https://superset.apache.org/docs/installation/docker-compose/",
+    "docker_support": "official",
+    "docker_url": "https://hub.docker.com/r/apache/superset",
+    "requires_database": true,
+    "database_types": ["postgresql"],
+    "license": "Apache-2.0",
+    "platforms": ["web"],
+    "publisher_name": "Apache Software Foundation",
+    "publisher_type": "foundation",
+    "publisher_url": "https://www.apache.org",
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://superset.apache.org/docs/intro",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://superset.apache.org/docs/intro",
+        "confidence": "high"
+      },
+      {
+        "field_name": "install_docs_url",
+        "source_url": "https://superset.apache.org/docs/installation/docker-compose/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_support",
+        "source_url": "https://superset.apache.org/docs/installation/docker-compose/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_url",
+        "source_url": "https://superset.apache.org/docs/installation/docker-compose/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "requires_database",
+        "source_url": "https://superset.apache.org/docs/installation/docker-compose/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "database_types",
+        "source_url": "https://superset.apache.org/docs/installation/docker-compose/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/apache/superset/blob/master/LICENSE.txt",
+        "confidence": "high"
+      },
+      {
+        "field_name": "platforms",
+        "source_url": "https://superset.apache.org/docs/intro",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_name",
+        "source_url": "https://superset.apache.org",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_type",
+        "source_url": "https://superset.apache.org",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_url",
+        "source_url": "https://www.apache.org",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "appflowy",
+    "summary": "Workspace app for documents, databases, tasks, and project notes.",
+    "docs_url": "https://docs.appflowy.io/docs/appflowy/readme.md",
+    "install_docs_url": "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+    "docker_support": "official",
+    "docker_url": "https://hub.docker.com/r/appflowyio/appflowy_client",
+    "requires_database": false,
+    "database_types": [],
+    "license": "AGPL-3.0",
+    "platforms": ["desktop"],
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://docs.appflowy.io/docs/appflowy/readme.md",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://docs.appflowy.io/docs/appflowy/readme.md",
+        "confidence": "high"
+      },
+      {
+        "field_name": "install_docs_url",
+        "source_url": "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_support",
+        "source_url": "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_url",
+        "source_url": "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+        "confidence": "high"
+      },
+      {
+        "field_name": "requires_database",
+        "source_url": "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+        "confidence": "medium"
+      },
+      {
+        "field_name": "database_types",
+        "source_url": "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+        "confidence": "medium"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/AppFlowy-IO/AppFlowy/blob/main/LICENSE",
+        "confidence": "high"
+      },
+      {
+        "field_name": "platforms",
+        "source_url": "https://docs.appflowy.io/docs/appflowy/install-appflowy/installation-methods/installing-with-docker.md",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "strapi",
+    "summary": "Headless CMS for modeling content and delivering APIs from a web admin UI.",
+    "docs_url": "https://docs.strapi.io/cms/intro",
+    "install_docs_url": "https://docs.strapi.io/cms/installation/docker",
+    "docker_support": "official",
+    "docker_url": "https://docs.strapi.io/cms/installation/docker",
+    "requires_database": true,
+    "database_types": ["sqlite", "postgresql", "mysql", "mariadb"],
+    "license": "MIT Expat core; enterprise features separately licensed",
+    "platforms": ["web"],
+    "publisher_name": "Strapi Solutions SAS",
+    "publisher_type": "company",
+    "publisher_url": "https://strapi.io",
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://docs.strapi.io/cms/intro",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://docs.strapi.io/cms/intro",
+        "confidence": "high"
+      },
+      {
+        "field_name": "install_docs_url",
+        "source_url": "https://docs.strapi.io/cms/installation/docker",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_support",
+        "source_url": "https://docs.strapi.io/cms/installation/docker",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_url",
+        "source_url": "https://docs.strapi.io/cms/installation/docker",
+        "confidence": "high"
+      },
+      {
+        "field_name": "requires_database",
+        "source_url": "https://docs.strapi.io/cms/configurations/database",
+        "confidence": "high"
+      },
+      {
+        "field_name": "database_types",
+        "source_url": "https://docs.strapi.io/cms/configurations/database",
+        "confidence": "high"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/strapi/strapi/blob/develop/LICENSE",
+        "confidence": "high"
+      },
+      {
+        "field_name": "platforms",
+        "source_url": "https://docs.strapi.io/cms/intro",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_name",
+        "source_url": "https://github.com/strapi/strapi/blob/develop/LICENSE",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_type",
+        "source_url": "https://strapi.io",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_url",
+        "source_url": "https://strapi.io",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "revealjs",
+    "summary": "HTML presentation framework for building slide decks that run in a browser.",
+    "docs_url": "https://revealjs.com/",
+    "install_docs_url": "https://revealjs.com/installation/",
+    "requires_database": false,
+    "database_types": [],
+    "license": "MIT",
+    "platforms": ["web"],
+    "publisher_name": "Hakim El Hattab",
+    "publisher_type": "individual",
+    "publisher_url": "https://hakim.se",
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://revealjs.com/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://revealjs.com/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "install_docs_url",
+        "source_url": "https://revealjs.com/installation/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "requires_database",
+        "source_url": "https://revealjs.com/installation/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "database_types",
+        "source_url": "https://revealjs.com/installation/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/hakimel/reveal.js/blob/master/LICENSE",
+        "confidence": "high"
+      },
+      {
+        "field_name": "platforms",
+        "source_url": "https://revealjs.com/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_name",
+        "source_url": "https://github.com/hakimel/reveal.js/blob/master/LICENSE",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_type",
+        "source_url": "https://github.com/hakimel/reveal.js/blob/master/LICENSE",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_url",
+        "source_url": "https://hakim.se",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "affine-community-edition",
+    "summary": "Workspace app for documents, whiteboards, knowledge notes, and team collaboration.",
+    "docs_url": "https://docs.affine.pro/self-host-affine/",
+    "install_docs_url": "https://docs.affine.pro/self-host-affine/install/docker-compose-recommend",
+    "docker_support": "official",
+    "docker_url": "https://docs.affine.pro/self-host-affine/references/docker-compose-yml",
+    "requires_database": true,
+    "database_types": ["postgresql", "redis"],
+    "license": "Mixed MIT and backend server license",
+    "platforms": ["web", "desktop", "ios", "android"],
+    "publisher_name": "AFFiNE",
+    "publisher_type": "company",
+    "publisher_url": "https://affine.pro",
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://docs.affine.pro/self-host-affine/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://docs.affine.pro/self-host-affine/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "install_docs_url",
+        "source_url": "https://docs.affine.pro/self-host-affine/install/docker-compose-recommend",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_support",
+        "source_url": "https://docs.affine.pro/self-host-affine/install/docker-compose-recommend",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_url",
+        "source_url": "https://docs.affine.pro/self-host-affine/references/docker-compose-yml",
+        "confidence": "high"
+      },
+      {
+        "field_name": "requires_database",
+        "source_url": "https://docs.affine.pro/self-host-affine/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "database_types",
+        "source_url": "https://docs.affine.pro/self-host-affine/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/toeverything/AFFiNE/blob/canary/LICENSE",
+        "confidence": "medium"
+      },
+      {
+        "field_name": "platforms",
+        "source_url": "https://docs.affine.pro/self-host-affine/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_name",
+        "source_url": "https://affine.pro",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_type",
+        "source_url": "https://affine.pro",
+        "confidence": "medium"
+      },
+      {
+        "field_name": "publisher_url",
+        "source_url": "https://affine.pro",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "ansible",
+    "summary": "Automation tool for configuring systems, deploying apps, and running repeatable playbooks.",
+    "docs_url": "https://docs.ansible.com/ansible/latest/index.html",
+    "install_docs_url": "https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html",
+    "requires_database": false,
+    "database_types": [],
+    "license": "GPL-3.0",
+    "platforms": ["cli"],
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://docs.ansible.com/ansible/latest/index.html",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://docs.ansible.com/ansible/latest/index.html",
+        "confidence": "high"
+      },
+      {
+        "field_name": "install_docs_url",
+        "source_url": "https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html",
+        "confidence": "high"
+      },
+      {
+        "field_name": "requires_database",
+        "source_url": "https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html",
+        "confidence": "high"
+      },
+      {
+        "field_name": "database_types",
+        "source_url": "https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html",
+        "confidence": "high"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/ansible/ansible/blob/devel/COPYING",
+        "confidence": "high"
+      },
+      {
+        "field_name": "platforms",
+        "source_url": "https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "unsloth-studio",
+    "summary": "Interface for training and fine-tuning local language models with Unsloth tools.",
+    "docs_url": "https://docs.unsloth.ai/",
+    "license": "AGPL-3.0 for studio; Apache-2.0 for core library",
+    "publisher_name": "Unsloth AI",
+    "publisher_type": "company",
+    "publisher_url": "https://unsloth.ai",
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://docs.unsloth.ai/",
+        "confidence": "medium"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://docs.unsloth.ai/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/unslothai/unsloth/blob/main/LICENSE",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_name",
+        "source_url": "https://unsloth.ai",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_type",
+        "source_url": "https://unsloth.ai",
+        "confidence": "medium"
+      },
+      {
+        "field_name": "publisher_url",
+        "source_url": "https://unsloth.ai",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "docusaurus",
+    "summary": "Static site generator for documentation sites, blogs, and versioned project docs.",
+    "docs_url": "https://docusaurus.io/docs",
+    "install_docs_url": "https://docusaurus.io/docs/installation",
+    "requires_database": false,
+    "database_types": [],
+    "license": "MIT",
+    "platforms": ["web", "cli"],
+    "publisher_name": "Facebook, Inc. and affiliates",
+    "publisher_type": "company",
+    "publisher_url": "https://github.com/facebook/docusaurus",
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://docusaurus.io/docs",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://docusaurus.io/docs",
+        "confidence": "high"
+      },
+      {
+        "field_name": "install_docs_url",
+        "source_url": "https://docusaurus.io/docs/installation",
+        "confidence": "high"
+      },
+      {
+        "field_name": "requires_database",
+        "source_url": "https://docusaurus.io/docs/installation",
+        "confidence": "high"
+      },
+      {
+        "field_name": "database_types",
+        "source_url": "https://docusaurus.io/docs/installation",
+        "confidence": "high"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/facebook/docusaurus/blob/main/LICENSE",
+        "confidence": "high"
+      },
+      {
+        "field_name": "platforms",
+        "source_url": "https://docusaurus.io/docs",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_name",
+        "source_url": "https://github.com/facebook/docusaurus/blob/main/LICENSE",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_type",
+        "source_url": "https://github.com/facebook/docusaurus/blob/main/LICENSE",
+        "confidence": "medium"
+      },
+      {
+        "field_name": "publisher_url",
+        "source_url": "https://github.com/facebook/docusaurus",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "prometheus",
+    "summary": "Metrics system for scraping targets, storing time series, and evaluating alerts.",
+    "docs_url": "https://prometheus.io/docs/introduction/overview/",
+    "install_docs_url": "https://prometheus.io/docs/prometheus/latest/installation/",
+    "docker_support": "official",
+    "docker_url": "https://hub.docker.com/r/prom/prometheus",
+    "requires_database": false,
+    "database_types": [],
+    "license": "Apache-2.0",
+    "platforms": ["web", "cli"],
+    "publisher_name": "Cloud Native Computing Foundation",
+    "publisher_type": "foundation",
+    "publisher_url": "https://www.cncf.io",
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://prometheus.io/docs/introduction/overview/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://prometheus.io/docs/introduction/overview/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "install_docs_url",
+        "source_url": "https://prometheus.io/docs/prometheus/latest/installation/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_support",
+        "source_url": "https://prometheus.io/docs/prometheus/latest/installation/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_url",
+        "source_url": "https://prometheus.io/docs/prometheus/latest/installation/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "requires_database",
+        "source_url": "https://prometheus.io/docs/prometheus/latest/storage/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "database_types",
+        "source_url": "https://prometheus.io/docs/prometheus/latest/storage/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/prometheus/prometheus/blob/main/LICENSE",
+        "confidence": "high"
+      },
+      {
+        "field_name": "platforms",
+        "source_url": "https://prometheus.io/docs/prometheus/latest/installation/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_name",
+        "source_url": "https://prometheus.io/community/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_type",
+        "source_url": "https://www.cncf.io/projects/prometheus/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_url",
+        "source_url": "https://www.cncf.io/projects/prometheus/",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "traefik",
+    "summary": "Reverse proxy for routing HTTP, TCP, and container traffic in dynamic environments.",
+    "docs_url": "https://doc.traefik.io/traefik/",
+    "install_docs_url": "https://doc.traefik.io/traefik/getting-started/quick-start/",
+    "docker_support": "official",
+    "docker_url": "https://hub.docker.com/_/traefik",
+    "requires_database": false,
+    "database_types": [],
+    "license": "MIT",
+    "platforms": ["web", "cli"],
+    "publisher_name": "Traefik Labs",
+    "publisher_type": "company",
+    "publisher_url": "https://traefik.io",
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://doc.traefik.io/traefik/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://doc.traefik.io/traefik/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "install_docs_url",
+        "source_url": "https://doc.traefik.io/traefik/getting-started/quick-start/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_support",
+        "source_url": "https://doc.traefik.io/traefik/getting-started/quick-start/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_url",
+        "source_url": "https://doc.traefik.io/traefik/getting-started/quick-start/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "requires_database",
+        "source_url": "https://doc.traefik.io/traefik/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "database_types",
+        "source_url": "https://doc.traefik.io/traefik/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/traefik/traefik/blob/master/LICENSE.md",
+        "confidence": "high"
+      },
+      {
+        "field_name": "platforms",
+        "source_url": "https://doc.traefik.io/traefik/",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_name",
+        "source_url": "https://traefik.io",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_type",
+        "source_url": "https://traefik.io",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_url",
+        "source_url": "https://traefik.io",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "nocodb",
+    "summary": "Spreadsheet-style database UI for building tables, forms, and API-backed workflows.",
+    "docs_url": "https://nocodb.com/docs",
+    "install_docs_url": "https://nocodb.com/docs/self-hosting/installation/quickstart",
+    "docker_support": "official",
+    "docker_url": "https://hub.docker.com/r/nocodb/nocodb",
+    "requires_database": true,
+    "database_types": ["postgresql", "redis"],
+    "license": "Sustainable Use License 1.0",
+    "platforms": ["web"],
+    "publisher_name": "NocoDB",
+    "publisher_type": "company",
+    "publisher_url": "https://nocodb.com",
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://nocodb.com/docs",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://nocodb.com/docs",
+        "confidence": "high"
+      },
+      {
+        "field_name": "install_docs_url",
+        "source_url": "https://nocodb.com/docs/self-hosting/installation/quickstart",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_support",
+        "source_url": "https://nocodb.com/docs/self-hosting/installation/quickstart",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_url",
+        "source_url": "https://nocodb.com/docs/self-hosting/installation/quickstart",
+        "confidence": "high"
+      },
+      {
+        "field_name": "requires_database",
+        "source_url": "https://nocodb.com/docs/self-hosting/installation/quickstart",
+        "confidence": "high"
+      },
+      {
+        "field_name": "database_types",
+        "source_url": "https://nocodb.com/docs/self-hosting/installation/quickstart",
+        "confidence": "high"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/nocodb/nocodb/blob/develop/LICENSE.md",
+        "confidence": "high"
+      },
+      {
+        "field_name": "platforms",
+        "source_url": "https://nocodb.com/docs",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_name",
+        "source_url": "https://nocodb.com",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_type",
+        "source_url": "https://nocodb.com",
+        "confidence": "medium"
+      },
+      {
+        "field_name": "publisher_url",
+        "source_url": "https://nocodb.com",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "vaultwarden",
+    "summary": "Bitwarden-compatible password server for personal and team vaults.",
+    "docs_url": "https://github.com/dani-garcia/vaultwarden/wiki",
+    "install_docs_url": "https://github.com/dani-garcia/vaultwarden/wiki/Using-Docker-Compose",
+    "docker_support": "official",
+    "docker_url": "https://hub.docker.com/r/vaultwarden/server",
+    "requires_database": false,
+    "database_types": [],
+    "license": "AGPL-3.0",
+    "platforms": ["web", "ios", "android", "desktop"],
+    "publisher_name": "Daniel Garcia",
+    "publisher_type": "individual",
+    "publisher_url": "https://github.com/dani-garcia",
+    "field_sources": [
+      {
+        "field_name": "summary",
+        "source_url": "https://github.com/dani-garcia/vaultwarden",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docs_url",
+        "source_url": "https://github.com/dani-garcia/vaultwarden/wiki",
+        "confidence": "high"
+      },
+      {
+        "field_name": "install_docs_url",
+        "source_url": "https://github.com/dani-garcia/vaultwarden/wiki/Using-Docker-Compose",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_support",
+        "source_url": "https://github.com/dani-garcia/vaultwarden/wiki/Using-Docker-Compose",
+        "confidence": "high"
+      },
+      {
+        "field_name": "docker_url",
+        "source_url": "https://github.com/dani-garcia/vaultwarden/wiki/Using-Docker",
+        "confidence": "high"
+      },
+      {
+        "field_name": "requires_database",
+        "source_url": "https://github.com/dani-garcia/vaultwarden/wiki/Using-Docker",
+        "confidence": "high"
+      },
+      {
+        "field_name": "database_types",
+        "source_url": "https://github.com/dani-garcia/vaultwarden/wiki/Using-Docker",
+        "confidence": "high"
+      },
+      {
+        "field_name": "license",
+        "source_url": "https://github.com/dani-garcia/vaultwarden/blob/main/LICENSE.txt",
+        "confidence": "high"
+      },
+      {
+        "field_name": "platforms",
+        "source_url": "https://github.com/dani-garcia/vaultwarden",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_name",
+        "source_url": "https://github.com/dani-garcia/vaultwarden/blob/main/LICENSE.txt",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_type",
+        "source_url": "https://github.com/dani-garcia/vaultwarden/blob/main/LICENSE.txt",
+        "confidence": "high"
+      },
+      {
+        "field_name": "publisher_url",
+        "source_url": "https://github.com/dani-garcia",
+        "confidence": "high"
+      }
+    ]
+  }
+]

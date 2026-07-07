@@ -1,0 +1,207 @@
+[
+  {
+    "slug": "opencut",
+    "summary": "Video editor for cutting, arranging, and exporting projects across web, desktop, and mobile.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/OpenCut-app/OpenCut", "confidence": "high" }]
+  },
+  {
+    "slug": "memos",
+    "summary": "Memo and note-taking app with a SQLite-backed server and lightweight web interface.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/usememos/memos", "confidence": "high" }]
+  },
+  {
+    "slug": "rclone",
+    "summary": "Command-line tool for syncing, copying, mounting, and managing files across cloud storage providers.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/rclone/rclone", "confidence": "high" }]
+  },
+  {
+    "slug": "coolify",
+    "summary": "Deployment app for running services, databases, and projects on your own servers.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/coollabsio/coolify", "confidence": "high" }]
+  },
+  {
+    "slug": "ghost",
+    "summary": "Publishing system for running blogs, newsletters, memberships, and editorial websites.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/TryGhost/Ghost", "confidence": "high" }]
+  },
+  {
+    "slug": "jellyfin",
+    "summary": "Media server for organizing, streaming, and managing movies, shows, music, and live TV.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/jellyfin/jellyfin", "confidence": "high" }]
+  },
+  {
+    "slug": "mastodon",
+    "summary": "Federated social networking server for running communities that communicate across ActivityPub.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/mastodon/mastodon", "confidence": "high" }]
+  },
+  {
+    "slug": "huginn",
+    "summary": "Automation app for building agents that watch events, trigger actions, and connect services.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/huginn/huginn", "confidence": "high" }]
+  },
+  {
+    "slug": "cal-diy",
+    "summary": "Scheduling app for booking meetings, sharing availability, and managing appointments.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/calcom/cal.diy", "confidence": "high" }]
+  },
+  {
+    "slug": "rsshub",
+    "summary": "RSS feed generator for turning websites, services, and social feeds into subscribable feeds.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/DIYgod/RSSHub", "confidence": "high" }]
+  },
+  {
+    "slug": "sentry",
+    "summary": "Error tracking and performance monitoring app for debugging production software.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/getsentry/sentry", "confidence": "high" }]
+  },
+  {
+    "slug": "logseq",
+    "summary": "Outliner and knowledge base for linking notes, tasks, journals, and local-first research.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/logseq/logseq", "confidence": "high" }]
+  },
+  {
+    "slug": "photoprism",
+    "summary": "Photo library for browsing, indexing, searching, and organizing image collections.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/photoprism/photoprism", "confidence": "high" }]
+  },
+  {
+    "slug": "it-tools",
+    "summary": "Browser toolbox with developer utilities for encoding, networking, crypto, dates, and text work.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/CorentinTh/it-tools", "confidence": "high" }]
+  },
+  {
+    "slug": "outline",
+    "summary": "Team knowledge base for writing, organizing, and sharing internal documentation.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/outline/outline", "confidence": "high" }]
+  },
+  {
+    "slug": "novu",
+    "summary": "Notification infrastructure for managing email, SMS, chat, push, and in-app messages.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/novuhq/novu", "confidence": "high" }]
+  },
+  {
+    "slug": "portainer",
+    "summary": "Container management UI for administering Docker, Swarm, Kubernetes, and related environments.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/portainer/portainer", "confidence": "high" }]
+  },
+  {
+    "slug": "erpnext",
+    "summary": "ERP suite for accounting, inventory, sales, purchasing, HR, projects, and operations.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/frappe/erpnext", "confidence": "high" }]
+  },
+  {
+    "slug": "directus",
+    "summary": "Data app and API layer for managing SQL databases through dashboards and generated APIs.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/directus/directus", "confidence": "high" }]
+  },
+  {
+    "slug": "1panel",
+    "summary": "Server control panel for managing Linux hosts, containers, websites, databases, and backups.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/1Panel-dev/1Panel", "confidence": "high" }]
+  },
+  {
+    "slug": "vane",
+    "summary": "AI answering engine for searching sources and returning cited responses.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/ItzCrazyKns/Vane", "confidence": "medium" }]
+  },
+  {
+    "slug": "dokploy",
+    "summary": "Deployment panel for hosting apps, databases, and Docker services on your own server.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/Dokploy/dokploy", "confidence": "high" }]
+  },
+  {
+    "slug": "adguard-home",
+    "summary": "Network DNS server for blocking ads, trackers, and unwanted domains across devices.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/AdguardTeam/AdGuardHome", "confidence": "high" }]
+  },
+  {
+    "slug": "restic",
+    "summary": "Backup tool for encrypting, deduplicating, and storing snapshots across local or remote storage.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/restic/restic", "confidence": "high" }]
+  },
+  {
+    "slug": "web-check",
+    "summary": "Web intelligence dashboard for checking domains, DNS, headers, security, hosting, and metadata.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/lissy93/web-check", "confidence": "high" }]
+  },
+  {
+    "slug": "glances",
+    "summary": "System monitoring app for checking CPU, memory, disks, containers, processes, and services.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/nicolargo/glances", "confidence": "high" }]
+  },
+  {
+    "slug": "changedetection-io",
+    "summary": "Website change monitor for tracking page updates and sending alerts when content changes.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/dgtlmoon/changedetection.io", "confidence": "high" }]
+  },
+  {
+    "slug": "dokku",
+    "summary": "Git-push deployment app for running Heroku-style apps on your own server.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/dokku/dokku", "confidence": "high" }]
+  },
+  {
+    "slug": "czkawka",
+    "summary": "Desktop cleanup tool for finding duplicate files, empty folders, broken files, and similar media.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/qarmin/czkawka", "confidence": "high" }]
+  },
+  {
+    "slug": "atuin",
+    "summary": "Shell history manager for syncing commands, searching history, and sharing snippets across machines.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/atuinsh/atuin", "confidence": "high" }]
+  },
+  {
+    "slug": "nanoclaw",
+    "summary": "AI chat assistant for running OpenClaw-style conversations with a lighter local setup.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/nanocoai/nanoclaw", "confidence": "medium" }]
+  },
+  {
+    "slug": "rustfs",
+    "summary": "Distributed object storage server built in Rust for S3-compatible storage workloads.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/rustfs/rustfs", "confidence": "high" }]
+  },
+  {
+    "slug": "loki",
+    "summary": "Log aggregation system for collecting, querying, and storing application and infrastructure logs.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/grafana/loki", "confidence": "high" }]
+  },
+  {
+    "slug": "signoz",
+    "summary": "Observability app for viewing traces, metrics, logs, dashboards, and alerts.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/SigNoz/signoz", "confidence": "high" }]
+  },
+  {
+    "slug": "mindustry",
+    "summary": "Factory-building tower defense game with automation, resource chains, and multiplayer servers.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/Anuken/Mindustry", "confidence": "high" }]
+  },
+  {
+    "slug": "budibase",
+    "summary": "Low-code builder for creating internal tools, forms, workflows, and database-backed apps.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/Budibase/budibase", "confidence": "high" }]
+  },
+  {
+    "slug": "ente",
+    "summary": "Encrypted storage app for photos, videos, files, passwords, and authentication codes.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/ente-io/ente", "confidence": "high" }]
+  },
+  {
+    "slug": "actual",
+    "summary": "Personal finance app for budgeting, account tracking, imports, and local-first money management.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/actualbudget/actual", "confidence": "high" }]
+  },
+  {
+    "slug": "netbird",
+    "summary": "WireGuard-based private networking app for connecting devices, users, and services securely.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/netbirdio/netbird", "confidence": "high" }]
+  },
+  {
+    "slug": "zulip",
+    "summary": "Team chat server that organizes conversations into streams and topic-based threads.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/zulip/zulip", "confidence": "high" }]
+  },
+  {
+    "slug": "dockge",
+    "summary": "Docker Compose stack manager for editing, deploying, and monitoring compose projects.",
+    "field_sources": [{ "field_name": "summary", "source_url": "https://github.com/louislam/dockge", "confidence": "high" }]
+  }
+]

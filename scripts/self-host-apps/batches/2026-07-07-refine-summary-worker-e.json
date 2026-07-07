@@ -1,0 +1,452 @@
+[
+  {
+    "slug": "workout-tracker",
+    "summary": "Tracks runs, workouts, GPX routes, and activity history in a personal fitness log.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "geopulse",
+    "summary": "Records trips, visited places, timelines, and movement history for personal location tracking.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "journiv",
+    "summary": "Keeps private journal entries, memories, and personal notes in a focused writing workspace.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "known",
+    "summary": "Publishes articles, notes, photos, bookmarks, and status updates from a personal site.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "tasktrove",
+    "summary": "Organizes tasks, project lists, and personal work plans in a web task board.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "proxcenter",
+    "summary": "Manages Proxmox hosts, virtual machines, containers, and server resources from a web UI.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "pretalx",
+    "summary": "Handles conference proposals, speaker coordination, schedules, and event planning workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "bencher",
+    "summary": "Tracks benchmark results in CI so teams can spot performance regressions over time.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "lingarr",
+    "summary": "Translates subtitle files into chosen languages for media libraries and video workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "deployrr",
+    "summary": "Builds Docker compose stacks for common homelab services and deployment presets.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "m3u-editor",
+    "summary": "Edits IPTV M3U playlists, channel groups, filters, and source updates from a web UI.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "streamystats",
+    "summary": "Shows Jellyfin playback history, library trends, and user activity in an analytics dashboard.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "cinephage",
+    "summary": "Organizes movie and show libraries with collection metadata and media browsing.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ignis",
+    "summary": "Opens Obsidian vault content in a browser for reading, browsing, and managing notes.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "bulwark",
+    "summary": "Provides browser-based webmail access for Stalwart Mail accounts and mailboxes.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "simple-machines-forum",
+    "summary": "Runs community forums with boards, topics, member accounts, moderation, and themes.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "lunalytics",
+    "summary": "Monitors uptime checks, service incidents, and availability history from a web dashboard.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "fast-music-remover",
+    "summary": "Removes background music and noise from audio tracks for cleaner speech or media clips.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "koffan",
+    "summary": "Shares household shopping lists with real-time grocery planning for families or roommates.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "posio",
+    "summary": "Runs a geography guessing game where players identify places and compete in multiplayer rounds.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "openmeetings",
+    "summary": "Hosts video meetings, whiteboards, chat, screen sharing, and recording workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "enigma-1-2-bbs",
+    "summary": "Runs a multi-user BBS with message areas, legacy door games, and terminal-style access.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "musicseerr",
+    "summary": "Sends music requests to Lidarr after users discover albums and artists.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "medama-analytics",
+    "summary": "Tracks page views, referrers, and lightweight traffic reports for websites.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "viniplay",
+    "summary": "Plays IPTV playlists and manages streaming channels through a browser interface.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mirotalk-c2c",
+    "summary": "Embeds encrypted cam-to-cam video calls and screen sharing into websites with iframe support.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "wapy-dev",
+    "summary": "Manages subscriptions, recurring plans, products, and customer billing records.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "medikeep",
+    "summary": "Stores personal health records, medical contacts, documents, and care details.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "operately",
+    "summary": "Manages startup goals, projects, processes, and team work in one operational workspace.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nextcloud-office",
+    "summary": "Connects Nextcloud with Collabora Online for browser-based document editing.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "pasta",
+    "summary": "Changes Plex audio and subtitle tracks across multiple library items in bulk.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "christmas-community",
+    "summary": "Coordinates family gift lists so people can share wishes and avoid duplicate gifts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "docking-station",
+    "summary": "Manages Docker containers, image updates, and service status from a web app.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "flowforge",
+    "summary": "Manages Node-RED instances, flow deployments, and scaling across teams or servers.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "jellyfin-rewind",
+    "summary": "Creates year-in-review summaries from Jellyfin music listening history and playback stats.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "family-accounting-tool",
+    "summary": "Tracks shared expenses, personal spending, and household finance splits for partners.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "sprout-track",
+    "summary": "Logs baby diapers, feedings, sleep, pumping, and other childcare activity history.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "spacepad",
+    "summary": "Shows meeting room occupancy, availability, and status on a display-friendly web page.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "drivebase",
+    "summary": "Browses, organizes, and manages files across connected cloud storage accounts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "omoide",
+    "summary": "Organizes photo and video libraries with tagging, AI-assisted search, and media browsing.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "silicon-notes",
+    "summary": "Stores personal notes and lightweight documentation in a small knowledge base.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "replex",
+    "summary": "Transforms traffic between Plex servers and clients for custom proxy workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "honey",
+    "summary": "Lists personal services, links, status entries, and dashboard shortcuts on a homepage.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ydlaping",
+    "summary": "Exposes a youtube-dl REST API for starting downloads on a remote server.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "whorang",
+    "summary": "Detects doorbell visitors and summarizes camera events for home entry monitoring.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "borg-backup-server",
+    "summary": "Manages BorgBackup repositories, client access, and backup job status from a web dashboard.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "cially",
+    "summary": "Shows Discord server activity, member trends, and community analytics in a dashboard.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "private-captcha",
+    "summary": "Provides CAPTCHA checks for bot protection without relying on third-party tracking scripts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ties-link-sharing",
+    "summary": "Saves bookmarks, shares link collections, and follows federated updates from other users.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "pixelfin",
+    "summary": "Generates browsable HTML photo galleries from Jellyfin image libraries.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mantium",
+    "summary": "Tracks manga series, source updates, reading progress, and dashboard views.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "redirecterr",
+    "summary": "Routes Overseerr media requests through custom filters before sending them to automation tools.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "docker-staticmaps",
+    "summary": "Serves static map images from tile data through a containerized map rendering API.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "tymeslot",
+    "summary": "Shares availability, books time slots, and coordinates meeting schedules with other people.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "sparkybudget",
+    "summary": "Tracks accounts, income, expenses, and spending plans for personal budgeting.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "eziwiki",
+    "summary": "Generates lightweight wiki and documentation pages from plain project content.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "antville",
+    "summary": "Runs weblog hosting sites with publishing, community features, and site management.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "oddmuse",
+    "summary": "Runs a Perl-based wiki engine that stores pages without requiring a separate database.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "snippets-library",
+    "summary": "Stores code snippets, developer notes, search, and reusable examples in one library.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "elysian",
+    "summary": "Backs up and syncs browser bookmarks across devices and storage locations.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "authman",
+    "summary": "Serves two-factor TOTP codes across apps with mobile and desktop clients.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "transmission",
+    "summary": "Downloads and manages BitTorrent transfers through desktop, web, and daemon interfaces.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "filestash",
+    "summary": "Provides browser file management across storage backends, servers, and data sources.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "uncloud",
+    "summary": "Clusters servers and runs containers with lightweight orchestration for small deployments.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "pimcore",
+    "summary": "Manages product data, digital assets, customer data, and commerce content.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "peergos",
+    "summary": "Combines encrypted file storage, sharing, social features, and app protocol support.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mbin",
+    "summary": "Aggregates federated posts, links, threads, and microblog updates for community discussion.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "revel",
+    "summary": "Manages community events, ticketing, attendees, and event publishing workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "sip3",
+    "summary": "Monitors SIP and VoIP traffic for troubleshooting calls, metrics, and network behavior.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "jackett",
+    "summary": "Exposes torrent tracker results through an API for media automation apps.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "freshrss",
+    "summary": "Collects RSS feeds into a web reader with subscriptions, categories, and article history.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "libre-translate",
+    "summary": "Provides machine translation through a web UI and API for text translation jobs.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "cloudflared",
+    "summary": "Connects services to Cloudflare tunnels for proxying traffic without opening inbound ports.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "oauth2-proxy",
+    "summary": "Adds OAuth authentication in front of web apps through a reverse proxy.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "flaresolverr",
+    "summary": "Runs a proxy service that solves Cloudflare challenges for compatible request clients.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  }
+]

@@ -1,0 +1,302 @@
+[
+  {
+    "slug": "tandoor-recipes",
+    "summary": "Recipe manager for planning meals, organizing ingredients, and building shopping lists.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "vuetorrent",
+    "summary": "Vue.js interface for managing qBittorrent downloads from a cleaner browser UI.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "calibre-web-automated",
+    "summary": "Ebook library app that pairs Calibre-Web browsing with automated Calibre management tasks.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mox",
+    "summary": "Mail server package for running SMTP, IMAP, webmail, DNS checks, and security defaults.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "duplicacy",
+    "summary": "Backup tool for deduplicated snapshots across local disks, network storage, and cloud targets.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "isso",
+    "summary": "Comment system for adding threaded discussions to websites without using Disqus.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "umbraco",
+    "summary": "CMS for managing structured website content, editors, media, templates, and publishing workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mediacms",
+    "summary": "Video and media CMS for publishing libraries, user uploads, playlists, and API-backed catalogs.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "unbound",
+    "summary": "Recursive DNS resolver with validation, caching, forwarding, and DNS privacy features.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dokuwiki",
+    "summary": "File-based wiki engine for documentation sites, knowledge bases, namespaces, and revision history.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nexterm",
+    "summary": "Server access manager for organizing SSH, VNC, and RDP connections from a browser.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "homarr",
+    "summary": "Dashboard for arranging service links, widgets, integrations, and status panels.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dim",
+    "summary": "Media manager for organizing movies, shows, and library metadata with a lightweight setup.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "rustpad",
+    "summary": "Collaborative code editor for sharing a live text buffer with multiple users.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nextcloud-memories",
+    "summary": "Nextcloud photo app for browsing timelines, albums, metadata, maps, and image libraries.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dispatcharr",
+    "summary": "IPTV manager for organizing streams, channel lineups, electronic program guides, and playback sources.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dagu",
+    "summary": "Workflow scheduler for defining cron-style jobs, dependencies, retries, logs, and browser controls.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "vernemq",
+    "summary": "Distributed MQTT broker for routing IoT messages across clustered nodes and client connections.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "commafeed",
+    "summary": "RSS reader for following feeds, organizing subscriptions, and reading articles in a Google Reader-style layout.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "modoboa",
+    "summary": "Mail hosting admin app for managing domains, mailboxes, aliases, policies, and webmail access.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "opnform",
+    "summary": "Form builder for creating surveys, collecting responses, and publishing shareable forms.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "slskd",
+    "summary": "Soulseek server app for searching, sharing, and downloading music through a web interface.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "redlib",
+    "summary": "Private Reddit front end for browsing posts, comments, communities, and media without Reddit scripts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ddclient",
+    "summary": "Dynamic DNS updater for keeping provider records pointed at changing home or server IPs.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "microweber",
+    "summary": "Website and shop builder for editing pages, managing content, and running an online store.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "basic-memory",
+    "summary": "Knowledge store for LLM projects that saves notes, links, and context in plain Markdown.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "shopware-community-edition",
+    "summary": "Ecommerce system for managing products, storefronts, orders, customers, and checkout flows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "adventurelog",
+    "summary": "Travel tracker for logging trips, planning adventures, saving locations, and sharing travel history.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "oxicloud",
+    "summary": "Cloud storage app for managing files, folders, sharing, and encrypted personal storage.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "kometa",
+    "summary": "Plex metadata automation script for updating collections, overlays, posters, and library organization.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "weechat",
+    "summary": "Terminal chat client for IRC and extensible messaging through scripts, relays, and plugins.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "converse-js",
+    "summary": "Browser XMPP chat client for messaging, group chats, contacts, and embedded web conversations.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ergo",
+    "summary": "IRCv3 server with built-in services, account management, history, and bouncer features.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "opengist",
+    "summary": "Git-backed pastebin for sharing snippets, managing revisions, and browsing public or private gists.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ovenmediaengine",
+    "summary": "Streaming server for ingesting live video and delivering sub-second latency playback.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "youtubedl-material",
+    "summary": "Material Design web app for downloading videos, managing queues, and organizing media from supported sites.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "vito",
+    "summary": "Server control panel for provisioning servers, deploying apps, managing databases, and configuring sites.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ddns-updater",
+    "summary": "Dynamic DNS updater for refreshing DNS records across providers on a schedule.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "gladys",
+    "summary": "Home assistant for controlling devices, building automations, and keeping smart home data local.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "willow",
+    "summary": "Local voice assistant runtime for speech commands, wake words, and hardware integrations.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "kill-the-newsletter",
+    "summary": "Email-to-Atom converter for reading newsletter issues inside an RSS feed reader.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mirotalk-sfu",
+    "summary": "WebRTC video conferencing server for browser meetings, screen sharing, chat, and SFU-based calls.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "gramps",
+    "summary": "Genealogy web app for building family trees, editing records, and collaborating on ancestry research.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "littlelink",
+    "summary": "Personal link page for collecting profile, social, donation, and project links in one place.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "yopass",
+    "summary": "Secret sharing app for sending passwords, files, and short messages with expiring links.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "silex",
+    "summary": "No-code website builder for designing pages visually and exporting static sites.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ytdl-sub",
+    "summary": "Video subscription downloader for saving YouTube media, metadata, and channel updates.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "kamailio",
+    "summary": "SIP server for routing VoIP calls, handling registrations, proxying traffic, and building telecom services.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "autobrr",
+    "summary": "Download automation app for matching indexer announces and sending releases to torrent or Usenet clients.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "music-assistant",
+    "summary": "Music library controller for combining local libraries, streaming services, players, and multi-room playback.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  }
+]

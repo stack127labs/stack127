@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "bugsink",
+    "requires_database": true,
+    "database_types": ["sqlite", "mysql", "postgres"],
+    "field_sources": [
+      {
+        "field_name": "requires_database",
+        "source": "official_source_qa",
+        "source_url": "https://www.bugsink.com/docs/installation/",
+        "confidence": "high",
+        "note": "Bugsink stores issue data in SQLite, MySQL, or PostgreSQL. SQLite can be embedded, but the app still uses a database."
+      },
+      {
+        "field_name": "database_types",
+        "source": "official_source_qa",
+        "source_url": "https://www.bugsink.com/docs/installation/",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "caddymanager",
+    "requires_database": true,
+    "database_types": ["sqlite", "mongodb"],
+    "field_sources": [
+      {
+        "field_name": "requires_database",
+        "source": "official_source_qa",
+        "source_url": "https://github.com/caddymanager/caddymanager",
+        "confidence": "high",
+        "note": "CaddyManager stores app data in SQLite by default, with MongoDB as an optional backend."
+      },
+      {
+        "field_name": "database_types",
+        "source": "official_source_qa",
+        "source_url": "https://github.com/caddymanager/caddymanager",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "slug": "ihatemoney",
+    "requires_database": true,
+    "database_types": ["sqlite", "postgres", "mariadb"],
+    "field_sources": [
+      {
+        "field_name": "requires_database",
+        "source": "official_source_qa",
+        "source_url": "https://ihatemoney.readthedocs.io/en/latest/installation.html",
+        "confidence": "high",
+        "note": "IHateMoney stores shared expense data in a configured database backend."
+      },
+      {
+        "field_name": "database_types",
+        "source": "official_source_qa",
+        "source_url": "https://ihatemoney.readthedocs.io/en/latest/installation.html",
+        "confidence": "high"
+      }
+    ]
+  }
+]

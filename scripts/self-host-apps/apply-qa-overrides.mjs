@@ -6,8 +6,20 @@ import { withClient } from "./lib/db.mjs";
 
 const appColumns = [
   "summary",
+  "icon_url",
   "license",
   "published",
+  "publisher_name",
+  "publisher_type",
+  "publisher_url",
+  "maintenance_status",
+  "github_owner",
+  "github_repo",
+  "github_stars",
+  "github_latest_release",
+  "github_latest_release_at",
+  "github_last_commit_at",
+  "github_checked_at",
   "requires_database",
   "database_types",
   "docker_support",
@@ -17,21 +29,68 @@ const appColumns = [
   "install_docs_url",
   "website_url",
   "repository_url",
+  "ram_mb",
+  "storage_profile",
+  "platforms",
+  "summary_source",
+  "summary_confidence",
 ];
 
 function recordsFromInput(input) {
   if (Array.isArray(input)) return input;
   if (Array.isArray(input.apps)) return input.apps;
+  if (input.overrides && typeof input.overrides === "object") {
+    return Object.entries(input.overrides).map(([slug, record]) => ({ slug, ...record }));
+  }
   return [input];
 }
 
 function sqlValue(column, parameter) {
-  if (column === "database_types") return `${parameter}::text[]`;
+  if (["database_types", "platforms"].includes(column)) return `${parameter}::text[]`;
   return parameter;
 }
 
-async function upsertFieldSources(client, appId, record) {
-  for (const source of record.field_sources ?? []) {
+async function replaceCategoryLinks(client, appId, categories) {
+  await client.query("delete from public.self_host_apps_categories_join_table where app_id = $1", [appId]);
+  if (!Array.isArray(categories) || categories.length === 0) return;
+
+  const categoryResult = await client.query(
+    "select id, slug from public.self_host_apps_categories where slug = any($1::text[])",
+    [categories],
+  );
+  const idsBySlug = new Map(categoryResult.rows.map((row) => [row.slug, row.id]));
+  const missing = categories.filter((slug) => !idsBySlug.has(slug));
+  if (missing.length > 0) throw new Error(`Missing categories: ${missing.join(", ")}`);
+
+  for (const slug of categories) {
+    await client.query(
+      `
+        insert into public.self_host_apps_categories_join_table (app_id, category_id)
+        values ($1, $2)
+        on conflict (app_id, category_id) do nothing
+      `,
+      [appId, idsBySlug.get(slug)],
+    );
+  }
+}
+
+async function upsertFieldSources(client, appId, record, currentRow) {
+  const explicitSources = record.field_sources ?? [];
+  const fallbackSourceUrl = record.source_url ?? currentRow.repository_url ?? currentRow.website_url;
+  const generatedSources =
+    fallbackSourceUrl && explicitSources.length === 0
+      ? appColumns
+          .filter((column) => Object.hasOwn(record, column))
+          .map((column) => ({
+            field_name: column,
+            source: record.source ?? "official_source_qa",
+            source_url: fallbackSourceUrl,
+            confidence: record.confidence ?? "high",
+            note: record.note ?? null,
+          }))
+      : [];
+
+  for (const source of [...explicitSources, ...generatedSources]) {
     if (!source.field_name || !source.source_url) continue;
     await client.query(
       `
@@ -73,8 +132,12 @@ async function applyRecord(client, record, dryRun) {
     return;
   }
 
-  const current = await client.query("select id from public.self_host_apps where slug = $1", [record.slug]);
+  const current = await client.query("select id, repository_url, website_url from public.self_host_apps where slug = $1", [
+    record.slug,
+  ]);
   if (current.rowCount === 0) throw new Error(`Missing app row: ${record.slug}`);
+  const currentRow = current.rows[0];
+  const appId = currentRow.id;
 
   if (columns.length > 0) {
     const values = [record.slug, ...columns.map((column) => record[column])];
@@ -94,7 +157,11 @@ async function applyRecord(client, record, dryRun) {
     );
   }
 
-  await upsertFieldSources(client, current.rows[0].id, record);
+  if (Object.hasOwn(record, "categories")) {
+    await replaceCategoryLinks(client, appId, record.categories);
+  }
+
+  await upsertFieldSources(client, appId, record, currentRow);
   console.log(`${dryRun ? "Checked" : "Applied"} QA override: ${record.slug}`);
 }
 

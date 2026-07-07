@@ -1,0 +1,542 @@
+[
+  {
+    "slug": "secrover",
+    "summary": "Security report manager for recording findings, evidence, remediation notes, and review status.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "touitomamout",
+    "summary": "Social cross-posting tool for copying tweets into Mastodon and Bluesky accounts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "fedora-commons-repository",
+    "summary": "Digital repository system for storing, managing, and exposing structured Fedora content.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "meerkat-crm",
+    "summary": "Personal CRM for tracking contacts, relationships, notes, and follow-ups outside a sales pipeline.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "repliqate",
+    "summary": "Backup manager for Docker environments with modular jobs, targets, and restore workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "easywi",
+    "summary": "Web control panel for managing game servers, voice servers, users, and hosting services.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "giftmanager",
+    "summary": "Gift planning app for collecting ideas, assigning recipients, and coordinating family purchases.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "receipt-wrangler",
+    "summary": "Receipt tracker for storing purchase records, organizing expenses, and reviewing spending history.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ziit",
+    "summary": "Code time tracker for measuring development activity across projects and work sessions.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "comic-library-utilities",
+    "summary": "Comic library toolkit for organizing large collections, metadata, files, and reading lists.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dock-dploy",
+    "summary": "Docker Compose editor for visually building, reviewing, and managing compose files.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "clean-slate",
+    "summary": "Calorie tracker for logging meals, reviewing intake, and following nutrition goals without judgment.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "jellysweep",
+    "summary": "Jellyfin cleanup tool for finding stale media, reviewing libraries, and removing unwanted files.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "bubo-reader",
+    "summary": "Minimal RSS reader for following feeds, scanning new posts, and keeping subscriptions tidy.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "autocaliweb",
+    "summary": "Calibre web interface for browsing, searching, and managing an ebook library.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "lufin",
+    "summary": "File sharing service for uploading files, creating share links, and controlling file availability.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "imagor-studio",
+    "summary": "Image gallery and editor for browsing pictures, previewing changes, and applying live edits.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "container-hub",
+    "summary": "Container registry interface for browsing images, tags, repositories, and registry metadata.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mailflow",
+    "summary": "Webmail client for reading, sending, searching, and organizing mail from multiple accounts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mkcert-web-ui",
+    "summary": "Web interface for mkcert certificate generation, local certificate requests, and development TLS setup.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mqtt-web-interface",
+    "summary": "MQTT web interface for viewing broker messages, topics, and live device traffic.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "medialytics",
+    "summary": "Plex analytics dashboard for viewing media server statistics, library usage, and playback trends.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nextcloud-tables",
+    "summary": "Nextcloud table builder for creating structured lists, lightweight workflows, and internal data views.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "pepperminty-wiki",
+    "summary": "Single-file wiki engine for editing pages, linking notes, and running a small documentation site.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "tootik",
+    "summary": "Federated microblogging server for publishing short posts and interacting across ActivityPub networks.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ackify",
+    "summary": "Document acknowledgment app for sharing internal files and tracking who has read them.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "eda",
+    "summary": "Data analysis web app for exploring datasets, creating visualizations, and reviewing results in a browser.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mytinytodo",
+    "summary": "Todo list manager for creating tasks, grouping lists, and tracking small personal projects.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "cmyflix",
+    "summary": "Media catalog app with a Netflix-style interface for browsing movies and shows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "liwan",
+    "summary": "Privacy-focused web analytics for tracking page views, referrers, and site traffic trends.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "letterfeed",
+    "summary": "Email-to-RSS bridge for turning incoming messages into feeds that can be read from an RSS client.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "superbin",
+    "summary": "Sharing app for files, shortened URLs, and pastebin-style text snippets.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "anibridge",
+    "summary": "Anime activity sync tool for keeping watch progress aligned between tracking services.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "html2rss",
+    "summary": "RSS generator for turning website pages into feeds when a native feed is missing.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "markopolis",
+    "summary": "Markdown server with a web app and API for browsing, editing, and serving Markdown files.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "shotshare",
+    "summary": "Image sharing app for uploading screenshots or pictures and sending shareable links.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "sortarr",
+    "summary": "Sonarr and Radarr insights tool for reviewing media libraries, sorting, and collection status.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "eddrit",
+    "summary": "Reddit frontend for browsing posts and comments through a lighter web interface.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "priviblur",
+    "summary": "Tumblr frontend for browsing blogs, posts, and media with fewer client-side tracking surfaces.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "medassist",
+    "summary": "Medication manager for scheduling doses, tracking daily reminders, and reviewing medicine routines.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "sama",
+    "summary": "Chat server for hosting real-time conversations, rooms, and user-managed messaging.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "over-syncerr",
+    "summary": "Webhook handler for coordinating subtitle requests, media events, and subtitle management tasks.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "simpledms",
+    "summary": "Document management system for organizing small-business files with metadata-driven sorting.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "habitat-social",
+    "summary": "Local community social app for groups, neighborhood updates, and shared discussions.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nutritrace",
+    "summary": "Nutrition tracker for logging meals, reviewing intake, and following personal diet goals.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "tamari",
+    "summary": "Recipe manager for saving dishes, organizing ingredients, and browsing a personal cooking library.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "d9",
+    "summary": "Directus maintenance project for keeping related code, fixes, and service updates organized.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "flare",
+    "summary": "File sharing app with upload links and screenshot-tool support for ShareX, Spectacle, and Flameshot.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "foodcoopshop",
+    "summary": "Food cooperative shop software for managing orders, products, members, and pickup workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "live-blog",
+    "summary": "Live blogging tool for publishing rolling event updates, posts, and editorial coverage.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "homarr-iframes",
+    "summary": "Homarr iframe widgets for embedding external pages and service views inside dashboards.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nimbus",
+    "summary": "Homelab dashboard with drag-and-drop layout editing, service cards, and visual configuration.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "piglet",
+    "summary": "Household budget tracker for recording income, expenses, categories, and monthly balances.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mergeable",
+    "summary": "GitHub pull request inbox for reviewing pending work, notifications, and repository activity.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "monitarr",
+    "summary": "Radarr and Sonarr monitor for checking downloads, media requests, and automation status.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "task-keeper",
+    "summary": "Server-backed list editor for managing tasks, notes, and structured text lists.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "shared-moments",
+    "summary": "Private couples journal for saving memories, dates, photos, and shared life events.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "thrifty",
+    "summary": "Monthly finance tracker for logging income, expenses, budgets, and spending patterns.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "geo2tz",
+    "summary": "Timezone lookup service for converting latitude and longitude coordinates into time zone data.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "atria",
+    "summary": "Event management tool for organizing attendees, networking, schedules, and professional gatherings.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "calorific",
+    "summary": "Calorie tracker for logging food, reviewing daily totals, and monitoring nutrition habits.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dribdat",
+    "summary": "Hackathon project board for running challenges, collecting teams, and tracking event submissions.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dropserver",
+    "summary": "Personal web service host for running apps and managing user-controlled service spaces.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "spendspentspent",
+    "summary": "Expense tracker for recording spending, reviewing categories, and following personal budgets.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "liquor-locker",
+    "summary": "Bar inventory manager for tracking bottles, recipes, recommendations, and home bar stock.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "swetrix",
+    "summary": "Web analytics service for measuring traffic, page views, referrers, and site performance signals.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "stencilbox",
+    "summary": "Static site generator that turns YAML content into fast, structured websites.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "fork-recipes",
+    "summary": "Recipe manager for saving dishes, organizing ingredients, and browsing cooking notes.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "docker-php-startpage",
+    "summary": "PHP startpage for Docker setups with service links, status checks, and quick dashboard access.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "bicimon",
+    "summary": "Bike speedometer web app for viewing ride speed and cycling stats from a browser.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "snypy",
+    "summary": "Code snippet manager for storing reusable fragments, searching notes, and sharing examples internally.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "civitai-data-manager",
+    "summary": "Civitai metadata manager for backing up model details, files, and collection data.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "limbas",
+    "summary": "Low-code database framework for building data-driven business apps and internal tools.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "dynamodb-dashboard",
+    "summary": "DynamoDB web dashboard for browsing tables, inspecting records, and managing database data.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "w",
+    "summary": "Lightweight wiki for writing pages, linking notes, and maintaining small documentation spaces.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "music-service",
+    "summary": "Music automation service for monitoring releases, downloading tracks, and syncing online music.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "rss-librarian",
+    "summary": "RSS read-later service for saving feed items, organizing articles, and reading them later.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "faridoon",
+    "summary": "Quote archive for saving chat excerpts, publishing selected quotes, and sharing them with others.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "libreserver",
+    "summary": "Debian home server configuration project for setting up personal services on local hardware.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "pomjs",
+    "summary": "Password generator for creating random passwords from a small web or JavaScript tool.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "analog",
+    "summary": "Minimal web analytics tool for tracking page views and basic traffic without a hosted vendor.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "shifter",
+    "summary": "Django file sharing app for uploading files, creating links, and moving files through a browser.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "deepsubx",
+    "summary": "Subtitle translation tool that uses the DeepL API to translate media subtitles.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "flox",
+    "summary": "Watch list manager for tracking movies, series, anime, watched items, and planned viewing.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "geoposler",
+    "summary": "Email campaign manager for creating mailings, managing recipients, and sending newsletters.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "hive-pal",
+    "summary": "Beekeeping manager for tracking hives, inspections, colony health, and mobile field notes.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "bbyen",
+    "summary": "YouTube subscription notifier that sends email updates when followed channels publish videos.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "aastro",
+    "summary": "Go API gateway for routing service requests and centralizing backend entry points.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "hymnoscribe",
+    "summary": "Hymn sheet editor for creating, formatting, and organizing printable worship music sheets.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "request-inbox",
+    "summary": "API and webhook testing inbox for capturing requests, inspecting payloads, and debugging integrations.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  }
+]

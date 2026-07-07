@@ -1,0 +1,592 @@
+{
+  "generated_at": "2026-07-07T08:29:12.571Z",
+  "rows_checked": 1811,
+  "urls_checked": 10411,
+  "ok_count": 10342,
+  "blocked_count": 26,
+  "bad_count": 43,
+  "blocked": [
+    {
+      "slug": "asterisk",
+      "field": "website_url",
+      "url": "https://www.asterisk.org",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://www.asterisk.org/"
+    },
+    {
+      "slug": "beatbump",
+      "field": "website_url",
+      "url": "https://beatbump.io",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://beatbump.io/"
+    },
+    {
+      "slug": "chevereto",
+      "field": "website_url",
+      "url": "https://chevereto.com",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://chevereto.com/"
+    },
+    {
+      "slug": "cloudlog",
+      "field": "website_url",
+      "url": "http://www.cloudlog.co.uk",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://www.magicbug.co.uk/cloudlog/"
+    },
+    {
+      "slug": "cypht",
+      "field": "website_url",
+      "url": "http://cypht.org",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "http://cypht.org/"
+    },
+    {
+      "slug": "firefly-iii",
+      "field": "docs_url",
+      "url": "https://docs.firefly-iii.org/",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://docs.firefly-iii.org/"
+    },
+    {
+      "slug": "firefly-iii",
+      "field": "install_docs_url",
+      "url": "https://docs.firefly-iii.org/how-to/firefly-iii/installation/docker/",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://docs.firefly-iii.org/how-to/firefly-iii/installation/docker/"
+    },
+    {
+      "slug": "firefly-iii",
+      "field": "website_url",
+      "url": "https://firefly-iii.org",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://firefly-iii.org/"
+    },
+    {
+      "slug": "homarr-iframes",
+      "field": "website_url",
+      "url": "https://ko-fi.com/diogovalentte",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://ko-fi.com/diogovalentte"
+    },
+    {
+      "slug": "ilias",
+      "field": "website_url",
+      "url": "http://www.ilias.de/docu/goto_docu_cat_582.html",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://docu.ilias.de/goto_docu_cat_582.html"
+    },
+    {
+      "slug": "mantium",
+      "field": "website_url",
+      "url": "https://ko-fi.com/diogovalentte",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://ko-fi.com/diogovalentte"
+    },
+    {
+      "slug": "opencart",
+      "field": "website_url",
+      "url": "https://www.opencart.com",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://www.opencart.com/"
+    },
+    {
+      "slug": "openvpn",
+      "field": "website_url",
+      "url": "http://community.openvpn.net",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://community.openvpn.net/"
+    },
+    {
+      "slug": "paperless-ngx",
+      "field": "docs_url",
+      "url": "http://docs.paperless-ngx.com",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://docs.paperless-ngx.com/"
+    },
+    {
+      "slug": "paperless-ngx",
+      "field": "website_url",
+      "url": "http://docs.paperless-ngx.com",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://docs.paperless-ngx.com/"
+    },
+    {
+      "slug": "phpbb",
+      "field": "website_url",
+      "url": "https://www.phpbb.com",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://www.phpbb.com/"
+    },
+    {
+      "slug": "seerrbridge",
+      "field": "website_url",
+      "url": "https://soluify.com",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://soluify.com/"
+    },
+    {
+      "slug": "simple-machines-forum",
+      "field": "website_url",
+      "url": "https://www.simplemachines.org",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://www.simplemachines.org/"
+    },
+    {
+      "slug": "transmission",
+      "field": "website_url",
+      "url": "https://transmissionbt.com",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://transmissionbt.com/"
+    },
+    {
+      "slug": "umbraco",
+      "field": "website_url",
+      "url": "https://umbraco.com",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://umbraco.com/"
+    },
+    {
+      "slug": "vocard",
+      "field": "website_url",
+      "url": "https://vocard.xyz",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://vocard.xyz/"
+    },
+    {
+      "slug": "web-check",
+      "field": "website_url",
+      "url": "https://web-check.xyz",
+      "state": "blocked",
+      "status": 429,
+      "final_url": "https://web-check.xyz/"
+    },
+    {
+      "slug": "xwiki",
+      "field": "docs_url",
+      "url": "http://platform.xwiki.org",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://www.xwiki.org/"
+    },
+    {
+      "slug": "xwiki",
+      "field": "website_url",
+      "url": "http://platform.xwiki.org",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "https://www.xwiki.org/"
+    },
+    {
+      "slug": "yamlresume",
+      "field": "website_url",
+      "url": "https://yamlresume.dev",
+      "state": "blocked",
+      "status": 429,
+      "final_url": "https://yamlresume.dev/"
+    },
+    {
+      "slug": "zoneminder",
+      "field": "website_url",
+      "url": "http://www.zoneminder.com",
+      "state": "blocked",
+      "status": 403,
+      "final_url": "http://www.zoneminder.com/"
+    }
+  ],
+  "bad": [
+    {
+      "slug": "amurex",
+      "field": "website_url",
+      "url": "https://api.amurex.ai",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://api.amurex.ai",
+      "error": "fetch failed"
+    },
+    {
+      "slug": "astroluma",
+      "field": "website_url",
+      "url": "https://getastroluma.com",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://getastroluma.com",
+      "error": "fetch failed"
+    },
+    {
+      "slug": "cially",
+      "field": "website_url",
+      "url": "https://cially.org",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://cially.org",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "coral",
+      "field": "publisher_url",
+      "url": "https://product.voxmedia.com",
+      "state": "bad",
+      "status": 500,
+      "final_url": "https://product.voxmedia.com/"
+    },
+    {
+      "slug": "corecontrol",
+      "field": "website_url",
+      "url": "https://corecontrol.xyz",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://corecontrol.xyz",
+      "error": "fetch failed"
+    },
+    {
+      "slug": "cozy-cloud",
+      "field": "website_url",
+      "url": "https://cozy.io/",
+      "state": "bad",
+      "status": 402,
+      "final_url": "https://cozy.io/"
+    },
+    {
+      "slug": "cyrus-imap",
+      "field": "install_docs_url",
+      "url": "https://www.cyrusimap.org/imap/download/installation.html",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://www.cyrusimap.org/imap/download/installation.html"
+    },
+    {
+      "slug": "eventcatalog",
+      "field": "docs_url",
+      "url": "https://www.eventcatalog.dev/docs/",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://www.eventcatalog.dev/docs/"
+    },
+    {
+      "slug": "fedora-commons-repository",
+      "field": "repository_url",
+      "url": "https://github.com/fcrepo/fcrepo",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://github.com/fcrepo/fcrepo",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "files-sharing",
+      "field": "website_url",
+      "url": "https://filesharing.webinno.fr",
+      "state": "bad",
+      "status": 502,
+      "final_url": "https://filesharing.webinno.fr/"
+    },
+    {
+      "slug": "fli-so",
+      "field": "website_url",
+      "url": "https://fli.so",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://fli.so",
+      "error": "fetch failed"
+    },
+    {
+      "slug": "fluidcalendar",
+      "field": "website_url",
+      "url": "https://github.com/dotnetfactory/fluid-calendar",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://github.com/dotnetfactory/fluid-calendar",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "fluxer",
+      "field": "docs_url",
+      "url": "https://docs.fluxer.app/operator/get-started",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://docs.fluxer.app/operator/get-started",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "fluxer",
+      "field": "website_url",
+      "url": "https://docs.fluxer.app/operator/get-started",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://docs.fluxer.app/operator/get-started",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "friendica",
+      "field": "website_url",
+      "url": "https://friendi.ca",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://friendi.ca",
+      "error": "fetch failed"
+    },
+    {
+      "slug": "gamevault",
+      "field": "docs_url",
+      "url": "https://gamevau.lt/docs/",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://gamevau.lt/docs/"
+    },
+    {
+      "slug": "geoposler",
+      "field": "docker_url",
+      "url": "https://github.com/garanda21/geoposler/blob/HEAD/Dockerfile",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://github.com/garanda21/geoposler/blob/HEAD/Dockerfile",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "gramps",
+      "field": "website_url",
+      "url": "https://gramps-project.org",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://gramps-project.org",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "growchief",
+      "field": "website_url",
+      "url": "https://growchief.com",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://www.growchief.com/"
+    },
+    {
+      "slug": "halo",
+      "field": "website_url",
+      "url": "https://www.halo.run",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://www.halo.run/"
+    },
+    {
+      "slug": "hedgedoc",
+      "field": "docker_url",
+      "url": "https://github.com/hedgedoc/hedgedoc/blob/HEAD/docker/docker-compose.yml",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://github.com/hedgedoc/hedgedoc/blob/HEAD/docker/docker-compose.yml",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "hortusfox",
+      "field": "website_url",
+      "url": "https://www.hortusfox.com",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://www.hortusfox.com/"
+    },
+    {
+      "slug": "invio",
+      "field": "website_url",
+      "url": "https://invio.dev",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://invio.dev/"
+    },
+    {
+      "slug": "kite-kubernetes",
+      "field": "website_url",
+      "url": "https://kite-demo.zzde.me",
+      "state": "bad",
+      "status": 530,
+      "final_url": "https://kite-demo.zzde.me/"
+    },
+    {
+      "slug": "laudspeaker",
+      "field": "website_url",
+      "url": "https://laudspeaker.com/?ref=github",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://laudspeaker.com/?ref=github",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "maloja",
+      "field": "website_url",
+      "url": "https://maloja.krateng.ch",
+      "state": "bad",
+      "status": 502,
+      "final_url": "https://maloja.krateng.ch/"
+    },
+    {
+      "slug": "markopolis",
+      "field": "website_url",
+      "url": "https://markopolis.app",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://markopolis.app",
+      "error": "fetch failed"
+    },
+    {
+      "slug": "microbin",
+      "field": "website_url",
+      "url": "https://microbin.eu",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://microbin.eu/"
+    },
+    {
+      "slug": "mistserver",
+      "field": "website_url",
+      "url": "https://mistserver.org",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://mistserver.org",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "omoide",
+      "field": "repository_url",
+      "url": "https://github.com/EinAeffchen/Omoide",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://github.com/EinAeffchen/Omoide",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "openreader",
+      "field": "website_url",
+      "url": "https://openreader.richardr.dev",
+      "state": "bad",
+      "status": 451,
+      "final_url": "https://openreader.richardr.dev/"
+    },
+    {
+      "slug": "password-pusher",
+      "field": "repository_url",
+      "url": "https://github.com/pglombardo/PasswordPusher",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://github.com/pglombardo/PasswordPusher",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "planka",
+      "field": "docker_url",
+      "url": "https://github.com/plankanban/planka/pkgs/container/planka",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://github.com/plankanban/planka/pkgs/container/planka",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "quassel-irc",
+      "field": "docs_url",
+      "url": "https://github.com/quassel/quassel#readme",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://github.com/quassel/quassel#readme",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "quassel-irc",
+      "field": "website_url",
+      "url": "https://quassel-irc.org",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://quassel-irc.org",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "reiverr",
+      "field": "docs_url",
+      "url": "https://github.com/aleksilassila/reiverr#readme",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://github.com/aleksilassila/reiverr#readme",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "scanopy",
+      "field": "docker_url",
+      "url": "https://github.com/scanopy/scanopy/blob/HEAD/docker-compose.yml",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://github.com/scanopy/scanopy/blob/HEAD/docker-compose.yml",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "shotshare",
+      "field": "website_url",
+      "url": "https://demo.shotshare.dev",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://demo.shotshare.dev",
+      "error": "fetch failed"
+    },
+    {
+      "slug": "snapcast",
+      "field": "docs_url",
+      "url": "https://github.com/snapcast/snapcast#readme",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://github.com/snapcast/snapcast#readme",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "spacebar",
+      "field": "docker_url",
+      "url": "https://docs.spacebar.chat/setup/server/docker/",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://docs.spacebar.chat/setup/server/docker/"
+    },
+    {
+      "slug": "spacepad",
+      "field": "website_url",
+      "url": "https://spacepad.io",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://spacepad.io",
+      "error": "This operation was aborted"
+    },
+    {
+      "slug": "squirrel-servers-manager",
+      "field": "website_url",
+      "url": "https://squirrelserversmanager.io",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://squirrelserversmanager.io",
+      "error": "fetch failed"
+    },
+    {
+      "slug": "step-ca",
+      "field": "docker_url",
+      "url": "https://github.com/smallstep/certificates/blob/HEAD/docker/Dockerfile",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://github.com/smallstep/certificates/blob/HEAD/docker/Dockerfile",
+      "error": "This operation was aborted"
+    }
+  ]
+}

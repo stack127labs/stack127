@@ -1,0 +1,283 @@
+{
+  "generated_at": "2026-07-07T08:30:44.310Z",
+  "checked": 43,
+  "ok": 14,
+  "blocked": 0,
+  "bad": [
+    {
+      "slug": "amurex",
+      "field": "website_url",
+      "url": "https://api.amurex.ai",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://api.amurex.ai",
+      "error": "fetch failed",
+      "ok": false
+    },
+    {
+      "slug": "astroluma",
+      "field": "website_url",
+      "url": "https://getastroluma.com",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://getastroluma.com",
+      "error": "fetch failed",
+      "ok": false
+    },
+    {
+      "slug": "cially",
+      "field": "website_url",
+      "url": "https://cially.org",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://cially.org",
+      "error": "fetch failed",
+      "ok": false
+    },
+    {
+      "slug": "coral",
+      "field": "publisher_url",
+      "url": "https://product.voxmedia.com",
+      "state": "bad",
+      "status": 500,
+      "final_url": "https://product.voxmedia.com/",
+      "ok": false
+    },
+    {
+      "slug": "corecontrol",
+      "field": "website_url",
+      "url": "https://corecontrol.xyz",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://corecontrol.xyz",
+      "error": "fetch failed",
+      "ok": false
+    },
+    {
+      "slug": "cozy-cloud",
+      "field": "website_url",
+      "url": "https://cozy.io/",
+      "state": "bad",
+      "status": 402,
+      "final_url": "https://cozy.io/",
+      "ok": false
+    },
+    {
+      "slug": "cyrus-imap",
+      "field": "install_docs_url",
+      "url": "https://www.cyrusimap.org/imap/download/installation.html",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://www.cyrusimap.org/imap/download/installation.html",
+      "ok": false
+    },
+    {
+      "slug": "eventcatalog",
+      "field": "docs_url",
+      "url": "https://www.eventcatalog.dev/docs/",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://www.eventcatalog.dev/docs/",
+      "ok": false
+    },
+    {
+      "slug": "files-sharing",
+      "field": "website_url",
+      "url": "https://filesharing.webinno.fr",
+      "state": "bad",
+      "status": 502,
+      "final_url": "https://filesharing.webinno.fr/",
+      "ok": false
+    },
+    {
+      "slug": "fli-so",
+      "field": "website_url",
+      "url": "https://fli.so",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://fli.so",
+      "error": "fetch failed",
+      "ok": false
+    },
+    {
+      "slug": "fluxer",
+      "field": "docs_url",
+      "url": "https://docs.fluxer.app/operator/get-started",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://docs.fluxer.app/operator/get-started",
+      "error": "fetch failed",
+      "ok": false
+    },
+    {
+      "slug": "fluxer",
+      "field": "website_url",
+      "url": "https://docs.fluxer.app/operator/get-started",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://docs.fluxer.app/operator/get-started",
+      "error": "fetch failed",
+      "ok": false
+    },
+    {
+      "slug": "friendica",
+      "field": "website_url",
+      "url": "https://friendi.ca",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://friendi.ca",
+      "error": "fetch failed",
+      "ok": false
+    },
+    {
+      "slug": "gamevault",
+      "field": "docs_url",
+      "url": "https://gamevau.lt/docs/",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://gamevau.lt/docs/",
+      "ok": false
+    },
+    {
+      "slug": "gramps",
+      "field": "website_url",
+      "url": "https://gramps-project.org",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://gramps-project.org",
+      "error": "This operation was aborted",
+      "ok": false
+    },
+    {
+      "slug": "growchief",
+      "field": "website_url",
+      "url": "https://growchief.com",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://www.growchief.com/",
+      "ok": false
+    },
+    {
+      "slug": "halo",
+      "field": "website_url",
+      "url": "https://www.halo.run",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://www.halo.run/",
+      "ok": false
+    },
+    {
+      "slug": "hortusfox",
+      "field": "website_url",
+      "url": "https://www.hortusfox.com",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://www.hortusfox.com/",
+      "ok": false
+    },
+    {
+      "slug": "invio",
+      "field": "website_url",
+      "url": "https://invio.dev",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://invio.dev/",
+      "ok": false
+    },
+    {
+      "slug": "kite-kubernetes",
+      "field": "website_url",
+      "url": "https://kite-demo.zzde.me",
+      "state": "bad",
+      "status": 530,
+      "final_url": "https://kite-demo.zzde.me/",
+      "ok": false
+    },
+    {
+      "slug": "laudspeaker",
+      "field": "website_url",
+      "url": "https://laudspeaker.com/?ref=github",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://laudspeaker.com/?ref=github",
+      "error": "fetch failed",
+      "ok": false
+    },
+    {
+      "slug": "maloja",
+      "field": "website_url",
+      "url": "https://maloja.krateng.ch",
+      "state": "bad",
+      "status": 502,
+      "final_url": "https://maloja.krateng.ch/",
+      "ok": false
+    },
+    {
+      "slug": "markopolis",
+      "field": "website_url",
+      "url": "https://markopolis.app",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://markopolis.app",
+      "error": "fetch failed",
+      "ok": false
+    },
+    {
+      "slug": "microbin",
+      "field": "website_url",
+      "url": "https://microbin.eu",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://microbin.eu/",
+      "ok": false
+    },
+    {
+      "slug": "openreader",
+      "field": "website_url",
+      "url": "https://openreader.richardr.dev",
+      "state": "bad",
+      "status": 451,
+      "final_url": "https://openreader.richardr.dev/",
+      "ok": false
+    },
+    {
+      "slug": "quassel-irc",
+      "field": "website_url",
+      "url": "https://quassel-irc.org",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://quassel-irc.org",
+      "error": "fetch failed",
+      "ok": false
+    },
+    {
+      "slug": "shotshare",
+      "field": "website_url",
+      "url": "https://demo.shotshare.dev",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://demo.shotshare.dev",
+      "error": "fetch failed",
+      "ok": false
+    },
+    {
+      "slug": "spacebar",
+      "field": "docker_url",
+      "url": "https://docs.spacebar.chat/setup/server/docker/",
+      "state": "bad",
+      "status": 404,
+      "final_url": "https://docs.spacebar.chat/setup/server/docker/",
+      "ok": false
+    },
+    {
+      "slug": "squirrel-servers-manager",
+      "field": "website_url",
+      "url": "https://squirrelserversmanager.io",
+      "state": "bad",
+      "status": "error",
+      "final_url": "https://squirrelserversmanager.io",
+      "error": "fetch failed",
+      "ok": false
+    }
+  ]
+}

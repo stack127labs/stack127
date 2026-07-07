@@ -22,13 +22,16 @@
     "self-host-apps:cache-icons": "node scripts/self-host-apps/cache-icons.mjs",
     "self-host-apps:audit-summaries": "node scripts/self-host-apps/audit-summaries.mjs",
     "self-host-apps:audit-links": "node scripts/self-host-apps/audit-links.mjs",
+    "self-host-apps:audit-links-fast": "node scripts/self-host-apps/audit-links-fast.mjs",
     "self-host-apps:qa-report": "node scripts/self-host-apps/qa-report.mjs",
     "self-host-apps:qa-gate": "node scripts/self-host-apps/qa-gate.mjs",
     "self-host-apps:icon-integrity": "node scripts/self-host-apps/icon-integrity.mjs",
     "self-host-apps:apply-qa-overrides": "node scripts/self-host-apps/apply-qa-overrides.mjs",
+    "self-host-apps:refine-github-facts": "node scripts/self-host-apps/refine-github-facts.mjs",
     "self-host-apps:sanitize-risky-facts": "node scripts/self-host-apps/sanitize-risky-facts.mjs",
     "self-host-apps:publish-github-backed": "node scripts/self-host-apps/publish-github-backed.mjs",
-    "self-host-apps:sync-local-to-prod": "node scripts/self-host-apps/sync-local-to-prod.mjs"
+    "self-host-apps:sync-local-to-prod": "node scripts/self-host-apps/sync-local-to-prod.mjs",
+    "version127:marker-art": "node scripts/version127/marker-art/generate.mjs"
   },
   "dependencies": {
     "@types/pg": "^8.20.0",
@@ -44,6 +47,7 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "playwright": "^1.60.0",
+    "roughjs": "^4.6.6",
     "typescript": "^5.9.3"
   }
 }

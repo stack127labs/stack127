@@ -1,0 +1,302 @@
+[
+  {
+    "slug": "glauth",
+    "summary": "LDAP authentication server for accounts, groups, service logins, and directory-backed access.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "scriberr",
+    "summary": "Audio transcription app for uploading recordings and turning speech into searchable text.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "grimoire",
+    "summary": "Bookmark manager for saving links, organizing collections, and searching saved pages.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "spliit",
+    "summary": "Shared expense tracker for groups who need balances, payments, and settlement totals.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "sablier",
+    "summary": "Container scheduler for starting services on demand and stopping idle workloads.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "checkcle",
+    "summary": "Monitoring app for checking app health, service status, metrics, and alerts.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "misago",
+    "summary": "Forum app for topics, replies, users, moderation, notifications, and community discussions.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "chibisafe",
+    "summary": "File upload vault for storing images, files, albums, and shareable links.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "shelf",
+    "summary": "Asset management app for tracking equipment, reservations, checkouts, and maintenance.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "opentripplanner",
+    "summary": "Trip planner for routing across walking, cycling, transit, and multimodal journeys.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "open-web-analytics",
+    "summary": "Web analytics app for tracking visits, referrers, pages, and site usage.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "krakend",
+    "summary": "API gateway for routing microservices, transforming requests, and managing backend traffic.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mazanoke",
+    "summary": "Browser image compressor for shrinking images locally before upload or sharing.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "libredesk",
+    "summary": "Customer support desk for live chat, email conversations, inboxes, and agent workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "docker-socket-proxy",
+    "summary": "Docker API proxy for exposing selected socket endpoints with reduced access.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "matchering",
+    "summary": "Audio mastering app for matching a track's loudness and tone against a reference.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "immich-power-tools",
+    "summary": "Immich utility app for organizing libraries, managing assets, and cleaning photo metadata.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "versitygw",
+    "summary": "S3 gateway for exposing file systems through object storage-compatible APIs.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "stoat",
+    "summary": "Chat app for conversations, users, channels, and browser-based team messaging.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "sqlpage",
+    "summary": "SQL-driven website builder for creating dynamic pages directly from database queries.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "squidex",
+    "summary": "Headless CMS for managing structured content, APIs, assets, and editorial workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "yt-dlp-web-ui",
+    "summary": "Web interface for yt-dlp downloads, queues, video metadata, and download history.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "bytestash",
+    "summary": "Code snippet app for saving commands, notes, tags, and reusable text blocks.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "asciinema",
+    "summary": "Terminal recording host for uploading, browsing, and sharing asciicast sessions.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "documize",
+    "summary": "Docs and wiki app for team knowledge, pages, workflows, and document organization.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "jellystat",
+    "summary": "Jellyfin statistics dashboard for playback history, users, libraries, and viewing trends.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mstream",
+    "summary": "Music streaming server for browsing local audio libraries and playing tracks remotely.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "voidauth",
+    "summary": "User management and SSO app for accounts, sessions, and authentication flows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "reitti",
+    "summary": "Location tracking app for maps, movement history, visits, and travel analysis.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "docspell",
+    "summary": "Document organizer for scanning, tagging, searching, and archiving personal paperwork.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "portracker",
+    "summary": "Port monitor for discovering exposed ports, tracking services, and watching network changes.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "logdy",
+    "summary": "Real-time log viewer for streaming logs, filtering events, and inspecting command output.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "live-helper-chat",
+    "summary": "Live chat support app for website conversations, agents, visitors, and support queues.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "zim",
+    "summary": "Desktop wiki app for writing linked notes, notebooks, pages, and personal documentation.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "npmplus",
+    "summary": "Nginx Proxy Manager fork with extra proxy features, certificates, and admin controls.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "nextcloud-talk",
+    "summary": "Nextcloud app for chat, video calls, audio calls, rooms, and team communication.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "mini-qr",
+    "summary": "QR code app for generating, scanning, styling, and sharing custom QR codes.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "fusion",
+    "summary": "RSS reader for subscribing to feeds, browsing entries, and organizing updates.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "traduora",
+    "summary": "Translation management app for projects, locales, keys, teams, and localization workflows.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "znc",
+    "summary": "IRC bouncer for keeping sessions online, replaying messages, and connecting clients.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "corteza",
+    "summary": "Low-code business app builder for CRM records, workflows, pages, and internal tools.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "maintainerr",
+    "summary": "Plex cleanup app for finding watched media and automating removal rules.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "ferron",
+    "summary": "Rust web server for serving sites, reverse proxying, and handling HTTP traffic.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "broadcastchannel",
+    "summary": "Microblog app that turns Telegram channel posts into a public web feed.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "shellhub",
+    "summary": "SSH access server for remotely managing Linux devices through terminal and web sessions.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "owncloud-infinite-scale",
+    "summary": "File sync and share server for folders, users, permissions, and collaborative storage.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "movim",
+    "summary": "Federated XMPP social app for posts, chats, communities, feeds, and group conversations.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "cloud-commander",
+    "summary": "Browser file manager with terminal access for managing server files and commands.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "games-on-whales",
+    "summary": "Game streaming stack for running desktops and games in containers and streaming them remotely.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  },
+  {
+    "slug": "sipcapture-homer",
+    "summary": "VoIP monitoring app for capturing SIP traffic, troubleshooting calls, and analyzing sessions.",
+    "summary_source": "version127_manual_refinement",
+    "summary_confidence": "medium"
+  }
+]
