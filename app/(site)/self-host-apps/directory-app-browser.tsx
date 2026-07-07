@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 import { FaDocker, FaGithub } from "react-icons/fa6";
 import type { DirectoryApp } from "@/lib/apps";
-import { CategoryIcon } from "../category-icon";
+import { CategoryIcon } from "../../category-icon";
 import {
   DirectoryAppCard,
   DirectoryAppIcon,
@@ -132,7 +132,7 @@ function AppDetailsOverlay({
         <div className="app-detail-heading">
           <DirectoryAppIcon app={app} className="app-detail-icon" />
           <div>
-            <h2>{app.name}.</h2>
+            <h2>{app.name}</h2>
           </div>
           <button
             aria-label="Close app details"

@@ -1,36 +1,8 @@
 import Link from "next/link";
-import type { Metadata } from "next";
-import { getSelfHostAppsModifiedAt, getSelfHostAppsStats } from "@/lib/apps";
-import {
-  buildWebPageStructuredData,
-  defaultDescription,
-  latestIsoDate,
-  pageDates,
-  siteName,
-} from "@/lib/seo";
-import { AppShell } from "./app-shell";
-import { JsonLd } from "./json-ld";
+import { getSelfHostAppsStats } from "@/lib/apps";
+import { AppShell } from "../app-shell";
 
 export const dynamic = "force-dynamic";
-
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "/",
-  },
-  description: defaultDescription,
-  openGraph: {
-    description: defaultDescription,
-    title: siteName,
-    url: "/",
-  },
-  robots: {
-    follow: true,
-    index: true,
-  },
-  title: {
-    absolute: siteName,
-  },
-};
 
 function HomeSidebar() {
   return (
@@ -43,29 +15,15 @@ function HomeSidebar() {
 }
 
 export default async function Home() {
-  const [stats, selfHostModifiedAt] = await Promise.all([
-    getSelfHostAppsStats(),
-    getSelfHostAppsModifiedAt(),
-  ]);
-  const dateModified = latestIsoDate(pageDates.home.updated, selfHostModifiedAt);
+  const stats = await getSelfHostAppsStats();
 
   return (
-    <>
-      <JsonLd
-        data={buildWebPageStructuredData({
-          dateModified,
-          datePublished: pageDates.home.published,
-          description: defaultDescription,
-          name: siteName,
-          path: "/",
-        })}
-      />
-      <AppShell
-        mainLabel="Home"
-        menuLabel="Menu"
-        sidebar={<HomeSidebar />}
-        sidebarLabel="Home sidebar"
-      >
+    <AppShell
+      mainLabel="Home"
+      menuLabel="Menu"
+      sidebar={<HomeSidebar />}
+      sidebarLabel="Home sidebar"
+    >
         <section className="home-hero" aria-labelledby="home-title">
           <div className="home-hero-copy">
             <h1 id="home-title">
@@ -75,7 +33,7 @@ export default async function Home() {
 
           <Link className="home-self-host-card" href="/self-host-apps">
             <div>
-              <h2>self-host apps.</h2>
+              <h2>Self-host apps</h2>
               <p>
                 Browse practical apps by category, resources, Docker support,
                 project health, and platform signals.
@@ -102,7 +60,6 @@ export default async function Home() {
             </dl>
           </Link>
         </section>
-      </AppShell>
-    </>
+    </AppShell>
   );
 }

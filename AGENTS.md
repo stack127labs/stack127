@@ -17,6 +17,12 @@ Version127 is a compact technical directory site. It should grow into multiple r
 - Pages are repo-owned Next.js routes under `app/`.
 - Do not use Supabase-backed dynamic routing for normal site pages unless the user explicitly asks for it.
 - Keep page URLs stable and human-readable.
+- Public publication is controlled only by `public.version127_pages`.
+- Do not add `metadata`, `generateMetadata`, robots rules, canonical URLs, sitemap dates, or page JSON-LD inside page route files.
+- Exact published slugs in `version127_pages` are `index, follow` and appear in `/sitemap.xml`.
+- Routes outside a published root return `404`, even if code exists in the repo.
+- Child routes under a published root may render, but are `noindex, follow` unless their exact slug is also published in `version127_pages`.
+- Query-param variants of a published page are `noindex, follow` and stay out of the sitemap.
 
 ## Docs
 

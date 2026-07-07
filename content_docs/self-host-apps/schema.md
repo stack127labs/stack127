@@ -188,4 +188,4 @@ Stores manual corrections that should override import output.
 
 No per-app pages for now. Selecting an app opens an in-page details panel powered by the same structured row.
 
-The `/self-host-apps` route also renders complete app records in the server HTML for crawlers and AI agents. Pagination pages use `noindex, follow`.
+The `/self-host-apps` route also renders complete app records in the server HTML for crawlers and AI agents. The route is public because `self-host-apps` has a published row in `public.version127_pages`. Query-param pagination and filters use the central registry rule: renderable, `noindex, follow`, and excluded from the sitemap.

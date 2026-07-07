@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Box, Database, Scale, Star } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import type { DirectoryApp } from "@/lib/apps";
-import { CategoryIcon } from "../category-icon";
+import { CategoryIcon } from "../../category-icon";
 
 export function getRamTier(app: DirectoryApp) {
   const ram = app.ram_mb;

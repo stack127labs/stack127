@@ -1,38 +1,14 @@
-import type { Metadata } from "next";
-import { buildWebPageStructuredData, pageDates } from "@/lib/seo";
-import { InfoPage } from "../info-page";
-import { JsonLd } from "../json-ld";
-
-const description = "Simple terms for using version127.";
-
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "/terms",
-  },
-  description,
-  title: "Terms of Use",
-};
+import { InfoPage } from "../../info-page";
 
 export default function TermsPage() {
   return (
-    <>
-      <JsonLd
-        data={buildWebPageStructuredData({
-          dateModified: pageDates.terms.updated,
-          datePublished: pageDates.terms.published,
-          description,
-          name: "terms",
-          path: "/terms",
-          type: "TermsOfService",
-        })}
-      />
-      <InfoPage title="terms.">
+    <InfoPage title="Terms">
         <p className="info-lede">
           These terms are here to keep expectations clear. Version127 is a directory and reference site, not a managed service, marketplace, security auditor, or professional advice provider.
         </p>
 
         <section>
-          <h2>Using the site.</h2>
+          <h2>Using the site</h2>
           <p>
             You can read, search, and use Version127 for personal or professional research. The site can include directories, reference pages, calculators, technical explainers, setup notes, comparison tables, recommendations, and links to external resources.
           </p>
@@ -42,7 +18,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2>Information accuracy.</h2>
+          <h2>Information accuracy</h2>
           <p>
             We try to keep technical information accurate, useful, and clearly sourced where it matters. That includes the data and stats we present, the logic and assumptions our tools and calculators use, and any buying guidance or step-by-step explanations we provide on the site.
           </p>
@@ -52,7 +28,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2>No warranties.</h2>
+          <h2>No warranties</h2>
           <p>
             Version127 is provided as-is. We do not promise that every page, link, calculation, explanation, recommendation, image, table, or technical note will always be complete, current, secure, available, or suitable for your setup.
           </p>
@@ -62,7 +38,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2>Third-party resources.</h2>
+          <h2>Third-party resources</h2>
           <p>
             Version127 can mention or link to projects, products, services, docs, repositories, app stores, marketplaces, communities, brands, logos, and trademarks that belong to other people or companies.
           </p>
@@ -72,7 +48,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2>Actions you take.</h2>
+          <h2>Actions you take</h2>
           <p>
             Some pages may point you toward commands, downloads, configuration changes, calculators, product choices, automation ideas, networking changes, or third-party websites. You are responsible for checking the details before using them.
           </p>
@@ -82,7 +58,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2>Changes.</h2>
+          <h2>Changes</h2>
           <p>
             We can update the site, pages, data, features, and these terms as Version127 evolves. The site may add new directories, tools, calculators, references, analytics, monetization, or editorial workflows over time.
           </p>
@@ -91,7 +67,6 @@ export default function TermsPage() {
           </p>
           <p className="info-updated">Last updated: July 2, 2026.</p>
         </section>
-      </InfoPage>
-    </>
+    </InfoPage>
   );
 }

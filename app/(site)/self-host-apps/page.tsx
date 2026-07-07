@@ -1,20 +1,8 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import {
-  getDirectoryApps,
-  getSelfHostAppsModifiedAt,
-  type DirectoryApp,
-} from "@/lib/apps";
-import {
-  buildWebPageStructuredData,
-  hasPublicQueryParams,
-  latestIsoDate,
-  pageDates,
-} from "@/lib/seo";
-import { AppShell } from "../app-shell";
-import { CategoryIcon } from "../category-icon";
-import { JsonLd } from "../json-ld";
+import { getDirectoryApps, type DirectoryApp } from "@/lib/apps";
+import { AppShell } from "../../app-shell";
+import { CategoryIcon } from "../../category-icon";
 import {
   formatDatabaseRequirement,
   getRamTier,
@@ -72,34 +60,6 @@ const sortOptions: FilterOption[] = [
 const ramTierOrder = ramOptions.map((option) => option.value);
 const storageTierOrder = storageOptions.map((option) => option.value);
 const pageSize = 30;
-const selfHostAppsDescription =
-  "Browse self-hosted apps by category, Docker support, resource needs, project health, and official links.";
-
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: Promise<SearchParams>;
-}): Promise<Metadata> {
-  const params = await searchParams;
-  const hasQueryParams = hasPublicQueryParams(params);
-
-  return {
-    alternates: {
-      canonical: "/self-host-apps",
-    },
-    description: selfHostAppsDescription,
-    openGraph: {
-      description: selfHostAppsDescription,
-      title: "Self-host apps | version127",
-      url: "/self-host-apps",
-    },
-    robots: {
-      follow: true,
-      index: !hasQueryParams,
-    },
-    title: "Self-host apps",
-  };
-}
 
 function optionsMap(options: FilterOption[]) {
   return new Map(options.map((option) => [option.value, option.label]));
@@ -747,11 +707,7 @@ export default async function SelfHostAppsPage({
   searchParams: Promise<SearchParams>;
 }) {
   const params = await searchParams;
-  const [apps, selfHostModifiedAt] = await Promise.all([
-    getDirectoryApps(),
-    getSelfHostAppsModifiedAt(),
-  ]);
-  const dateModified = latestIsoDate(pageDates.selfHostApps.updated, selfHostModifiedAt);
+  const apps = await getDirectoryApps();
   const sort = getString(params, "sort") || "popular";
   const selectedRam = getKnownValue(params, "ram", ramTierOrder);
   const selectedStorage = getKnownValue(params, "storage", storageTierOrder);
@@ -784,7 +740,7 @@ export default async function SelfHostAppsPage({
       data-live-filter-form
     >
       <div className="filter-panel-heading">
-        <h1>self-hosted apps.</h1>
+        <h1>Self-hosted apps</h1>
       </div>
 
       <label className="directory-search">
@@ -847,28 +803,24 @@ export default async function SelfHostAppsPage({
   );
 
   return (
-    <>
-      <JsonLd
-        data={buildWebPageStructuredData({
-          dateModified,
-          datePublished: pageDates.selfHostApps.published,
-          description: selfHostAppsDescription,
-          name: "self-host apps",
-          path: "/self-host-apps",
-          type: "CollectionPage",
-        })}
-      />
-      <AppShell
-        mainLabel="Self-hosted app results"
-        menuLabel="Filters"
-        sidebar={sidebar}
-        sidebarLabel="Self-hosted app filters"
-      >
+    <AppShell
+      mainLabel="Self-hosted app results"
+      menuLabel="Filters"
+      sidebar={sidebar}
+      sidebarLabel="Self-hosted app filters"
+    >
         <div className="directory-results">
           <div className="directory-results-header">
             <div>
-              <h2>Find apps that fit your server, storage, and setup comfort.</h2>
+              <h2>Find apps that fit your server, storage, and setup comfort</h2>
             </div>
+            <a
+              href="https://github.com/version127/version127-datasets/tree/main/self-host-apps"
+              rel="noreferrer"
+              target="_blank"
+            >
+              CSV on GitHub
+            </a>
           </div>
 
           <ActiveFilters
@@ -902,13 +854,12 @@ export default async function SelfHostAppsPage({
             </>
           ) : (
             <div className="directory-empty">
-              <h2>No apps match those filters.</h2>
+              <h2>No apps match those filters</h2>
               <p>Try clearing one resource or health filter first.</p>
               <Link href="/self-host-apps">show all apps</Link>
             </div>
           )}
         </div>
-      </AppShell>
-    </>
+    </AppShell>
   );
 }

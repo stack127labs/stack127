@@ -1,56 +1,38 @@
 import type { Metadata } from "next";
+import { Shantell_Sans } from "next/font/google";
 import { absoluteUrl, defaultDescription, siteName, siteUrl } from "@/lib/seo";
 import { JsonLd } from "./json-ld";
 import { SiteNav } from "./site-nav";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  metadataBase: siteUrl,
-  applicationName: siteName,
-  title: {
-    default: siteName,
-    template: `%s | ${siteName}`,
-  },
-  description: defaultDescription,
-  alternates: {
-    canonical: "/",
-  },
-  robots: {
-    follow: true,
-    index: true,
-  },
-  openGraph: {
-    description: defaultDescription,
-    images: [
-      {
-        alt: siteName,
-        height: 512,
-        url: "/android-chrome-512x512.png",
-        width: 512,
-      },
-    ],
-    siteName,
-    title: siteName,
-    type: "website",
-    url: "/",
-  },
-  twitter: {
-    card: "summary",
-    description: defaultDescription,
-    images: ["/android-chrome-512x512.png"],
-    title: siteName,
-  },
-  icons: {
-    apple: "/apple-touch-icon.png",
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
-    ],
-  },
-};
+export const dynamic = "force-dynamic";
+
+// handwritten font used only inside marker art figures
+const markerFont = Shantell_Sans({
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-marker",
+  weight: ["500", "700"],
+});
+
+function baseMetadata(): Metadata {
+  return {
+    metadataBase: siteUrl,
+    applicationName: siteName,
+    icons: {
+      apple: "/apple-touch-icon.png",
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+        { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+      ],
+    },
+  };
+}
+
+export const metadata: Metadata = baseMetadata();
 
 const siteStructuredData = [
   {
@@ -75,6 +57,19 @@ const siteStructuredData = [
   },
 ];
 
+function AppIcons() {
+  return (
+    <>
+      <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+      <link href="/favicon.ico" rel="icon" sizes="any" />
+      <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+      <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+      <link href="/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png" />
+      <link href="/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png" />
+    </>
+  );
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -82,10 +77,14 @@ export default function RootLayout({
 }>) {
   return (
     <html
+      className={markerFont.variable}
       data-theme="dark"
       lang="en"
       suppressHydrationWarning
     >
+      <head>
+        <AppIcons />
+      </head>
       <body>
         <script
           dangerouslySetInnerHTML={{

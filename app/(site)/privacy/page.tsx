@@ -1,38 +1,14 @@
-import type { Metadata } from "next";
-import { buildWebPageStructuredData, pageDates } from "@/lib/seo";
-import { InfoPage } from "../info-page";
-import { JsonLd } from "../json-ld";
-
-const description = "How version127 handles analytics, contact emails, logs, and external links.";
-
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "/privacy",
-  },
-  description,
-  title: "Privacy Policy",
-};
+import { InfoPage } from "../../info-page";
 
 export default function PrivacyPage() {
   return (
-    <>
-      <JsonLd
-        data={buildWebPageStructuredData({
-          dateModified: pageDates.privacy.updated,
-          datePublished: pageDates.privacy.published,
-          description,
-          name: "privacy",
-          path: "/privacy",
-          type: "PrivacyPolicy",
-        })}
-      />
-      <InfoPage title="privacy.">
+    <InfoPage title="Privacy">
         <p className="info-lede">
           Version127 is a technical directory. We try to collect as little personal information as we can while still keeping the site useful, fast, and safe.
         </p>
 
         <section>
-          <h2>What we collect.</h2>
+          <h2>What we collect</h2>
           <p>
             Version127 is hosted on a VPS we manage, with Cloudflare in front of it for DNS, edge CDN, caching, performance, and basic security protection. That means a normal page request may pass through Cloudflare first, then reach the Version127 server.
           </p>
@@ -48,7 +24,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2>How we use it.</h2>
+          <h2>How we use it</h2>
           <p>
             We use Cloudflare and server logs to keep pages reachable, cache static assets, understand failures, reduce spam or abusive traffic, and protect the VPS from obvious attacks. These logs are operational. They are not meant to become a reader profile.
           </p>
@@ -61,7 +37,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2>What we share.</h2>
+          <h2>What we share</h2>
           <p>
             We do not sell personal information. Cloudflare will receive and process traffic information because it sits in front of the site as the CDN and security edge. Our VPS provider may process server-level information because the site runs on its infrastructure.
           </p>
@@ -71,7 +47,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2>External links.</h2>
+          <h2>External links</h2>
           <p>
             Version127 links to project websites, source repositories, docs, Docker pages, app stores, community pages, and other third-party sites. Opening those links can send information to those sites, including your IP address, browser details, and the fact that you came from Version127.
           </p>
@@ -81,7 +57,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2>Your choices.</h2>
+          <h2>Your choices</h2>
           <p>
             You can use browser settings, content blockers, DNS tools, tracker blocking, private browsing, or similar tools to limit analytics and third-party requests. The site should still be useful without an account or login.
           </p>
@@ -91,7 +67,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2>Changes.</h2>
+          <h2>Changes</h2>
           <p>
             Version127 is early and will change. If we add new analytics, ads, affiliate links, accounts, comments, newsletters, saved lists, uploads, or other features that change what data is collected, this page should be updated before or alongside that change.
           </p>
@@ -100,7 +76,6 @@ export default function PrivacyPage() {
           </p>
           <p className="info-updated">Last updated: July 2, 2026.</p>
         </section>
-      </InfoPage>
-    </>
+    </InfoPage>
   );
 }
