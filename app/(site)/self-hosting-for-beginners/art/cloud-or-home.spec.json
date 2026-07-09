@@ -1,0 +1,22 @@
+{
+  "id": "self-hosting-for-beginners--cloud-or-home",
+  "page": "self-hosting-for-beginners",
+  "type": "flow",
+  "takeaway": "The same app can run in a company cloud or on a server you own at home.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 101,
+  "width": 340,
+  "height": 230,
+  "data": {
+    "nodes": [
+        { "id": "phone", "kind": "icon", "icon": "phone", "label": "your phone", "x": 46, "y": 116, "s": 28 },
+        { "id": "cloud", "kind": "icon", "icon": "cloud", "label": "cloud app", "sub": "their box", "tone": "sub", "x": 190, "y": 68, "s": 34 },
+        { "id": "home", "kind": "icon", "icon": "server", "label": "home server", "sub": "your box", "tone": "primary", "x": 190, "y": 166, "s": 34 }
+    ],
+    "edges": [
+        { "from": "phone", "to": "cloud", "label": "usual way", "tone": "sub", "curve": -0.12 },
+        { "from": "phone", "to": "home", "label": "self host", "tone": "primary", "curve": 0.12, "labelOffset": 38 }
+    ]
+  }
+}

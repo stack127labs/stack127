@@ -1,0 +1,12 @@
+{
+  "overrides": {
+    "datasette": {
+      "website_url": "https://github.com/simonw/datasette",
+      "note": "https://datasette.io timed out during batch URL verification; official GitHub repository returned 200."
+    },
+    "debops": {
+      "website_url": "https://github.com/debops/debops",
+      "note": "https://debops.org failed to connect during batch URL verification; official GitHub repository returned 200."
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "install-your-os--os-online-checklist",
+  "page": "self-hosting-for-beginners/install-your-os",
+  "type": "steps",
+  "takeaway": "The OS install is done only after SSH works and the server IP is reserved.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 106,
+  "data": {
+    "items": [
+      { "label": "flash usb", "icon": "usb" },
+      { "label": "install os", "icon": "monitor" },
+      { "label": "enable ssh", "icon": "terminal", "tone": "primary" },
+      { "label": "find ip", "icon": "wifi" },
+      { "label": "reserve ip", "icon": "router", "tone": "primary" }
+    ]
+  }
+}

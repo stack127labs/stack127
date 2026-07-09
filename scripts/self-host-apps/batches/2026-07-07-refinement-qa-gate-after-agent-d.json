@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-07-07T05:46:43.584Z",
+  "published": 1811,
+  "blocked_count": 3,
+  "draft_blocked": 0,
+  "blocker_counts": {
+    "database_contradiction": 3
+  },
+  "blocked_rows": [
+    {
+      "slug": "bugsink",
+      "name": "Bugsink",
+      "blockers": [
+        "database_contradiction"
+      ],
+      "summary": "Error tracking server for collecting stack traces, grouping issues, alerts, teams, and project events.",
+      "repository_url": "https://github.com/bugsink/bugsink",
+      "website_url": "https://www.bugsink.com/",
+      "docker_url": "https://hub.docker.com/r/bugsink/bugsink"
+    },
+    {
+      "slug": "caddymanager",
+      "name": "CaddyManager",
+      "blockers": [
+        "database_contradiction"
+      ],
+      "summary": "Web UI for managing Caddy servers, Caddyfile configs, users, API keys, metrics, and audit logs.",
+      "repository_url": "https://github.com/caddymanager/caddymanager",
+      "website_url": "https://github.com/caddymanager/caddymanager",
+      "docker_url": null
+    },
+    {
+      "slug": "ihatemoney",
+      "name": "IHateMoney",
+      "blockers": [
+        "database_contradiction"
+      ],
+      "summary": "Shared budget app for tracking expenses, who paid, who benefited, and how to settle balances.",
+      "repository_url": "https://github.com/spiral-project/ihatemoney",
+      "website_url": "https://ihatemoney.org/",
+      "docker_url": "https://hub.docker.com/r/ihatemoney/ihatemoney"
+    }
+  ]
+}

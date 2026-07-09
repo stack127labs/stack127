@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>version127 · art style lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Patrick+Hand&family=Kalam:wght@400;700&family=Shantell+Sans:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/roughjs@4.6.6/bundled/rough.js"></script>
+<style>
+  :root{color-scheme:dark}
+  *{box-sizing:border-box}
+  body{margin:0;background:#0a0a0a;color:#ececec;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+  .wrap{max-width:1280px;margin:0 auto;padding:36px 24px 90px}
+  header.top h1{font-family:'Gochi Hand',cursive;font-size:2.4rem;margin:0 0 10px}
+  header.top p{max-width:860px;color:#b9b9b9;font-size:.95rem;margin:6px 0}
+  header.top .hint{color:#8b8b8b;font-size:.85rem}
+  nav.pills{position:sticky;top:0;z-index:9;display:flex;gap:8px;flex-wrap:wrap;padding:12px 0;background:rgba(10,10,10,.94);border-bottom:1px solid #1e1e1e;backdrop-filter:blur(6px)}
+  nav.pills a{border:1px solid #2c2c2c;border-radius:999px;padding:5px 13px;color:#c9c9c9;text-decoration:none;font-size:.83rem}
+  nav.pills a:hover{border-color:#4b8cff;color:#fff}
+  section.style{margin-top:64px;scroll-margin-top:70px}
+  .style-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 16px}
+  .style-head h2{margin:0;font-size:1.75rem;font-weight:400}
+  .style-head .cfg{font:12px ui-monospace,Menlo,monospace;color:#8b8b8b;background:#141414;border:1px solid #242424;border-radius:6px;padding:3px 9px}
+  .style-head p.blurb{width:100%;margin:6px 0 0;color:#a8a8a8;max-width:880px;font-size:.92rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;margin-top:20px}
+  .fig{background:#111;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 14px 10px}
+  .fig h4{margin:0 0 8px;font:600 10.5px ui-monospace,Menlo,monospace;letter-spacing:.09em;text-transform:uppercase;color:#8b8b8b}
+  .fig svg{width:100%;height:auto;display:block}
+  section.paper-bg .fig{background:#f7f3e9;border-color:#d8d0bc}
+  section.paper-bg .fig h4{color:#877f68}
+  .err{color:#ff9aa7;font:12px ui-monospace,Menlo,monospace;margin-top:6px}
+  footer{margin-top:80px;color:#767676;font-size:.8rem;border-top:1px solid #1d1d1d;padding-top:18px}
+  .load-warn{display:none;margin:18px 0;padding:12px 16px;border:1px solid #5a2530;border-radius:8px;color:#ff9aa7;font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <h1>art style lab.</h1>
+  <p>six candidate styles for version127 artwork. every style renders the same nine figures with the same data: bar chart, donut, line chart, flow diagram, decision tree, step path, icon set, logic gates, and annotations. only the style changes, so you can compare them fairly.</p>
+  <p>everything is drawn at runtime with rough.js, the same library excalidraw is built on. every shape uses a fixed seed, so a style renders identically on every reload. whichever style wins becomes a config object first, then a small set of react components for the site.</p>
+  <p class="hint">judge with the two second squint test: can you get each figure without reading? then ask if it feels like version127. open this file directly in a browser; it needs internet once for the fonts and rough.js.</p>
+  <div class="load-warn" id="loadwarn">rough.js failed to load. check your connection and reload.</div>
+</header>
+<nav class="pills" id="pills"></nav>
+<main id="styles"></main>
+<footer>internal dev file, not part of the site build · created 2026-07-07, last updated 2026-07-07</footer>
+</div>
+<script>
+//JS-START
+(function(){
+var NS='http://www.w3.org/2000/svg';
+if(!window.rough){document.getElementById('loadwarn').style.display='block';return;}
+
+/* ---------- the six style configs. the winner becomes design tokens. ---------- */
+var STYLES=[
+ {id:'chalk',name:'chalkboard mono.',font:"'Gochi Hand',cursive",
+  bg:'#111111',ink:'#f2f2f2',sub:'#9a9a9a',grid:'rgba(255,255,255,.14)',
+  pal:['#f2f2f2','#cfcfcf','#9f9f9f','#6f6f6f'],
+  fill:'hachure',rough:1.6,sw:1.6,gap:5,
+  blurb:'one ink, hachure fills, zero color. reads like chalk on a board. the calmest option and the easiest to keep consistent forever.'},
+ {id:'accent',name:'site accent.',font:"'Gochi Hand',cursive",
+  bg:'#111111',ink:'#ececec',sub:'#8d97ad',grid:'rgba(255,255,255,.13)',
+  pal:['#4b8cff','#91b8ff','#c9d9ff','#5f6b83'],
+  fill:'hachure',rough:1.4,sw:1.6,gap:5,
+  blurb:'same hand drawn bones, but the only hue is the version127 blue. slots straight into the existing design tokens.'},
+ {id:'pastel',name:'pastel sketch.',font:"'Patrick Hand',cursive",
+  bg:'#111111',ink:'#e9ecef',sub:'#9aa4ae',grid:'rgba(255,255,255,.12)',
+  pal:['#a5d8ff','#b2f2bb','#ffc9c9','#ffec99'],
+  fill:'hachure',rough:1.5,sw:1.5,gap:4.5,
+  blurb:'the classic excalidraw palette on dark. friendly, and the extra hues make categories readable at a glance.'},
+ {id:'marker',name:'bold marker.',font:"'Shantell Sans',cursive",
+  bg:'#111111',ink:'#f5f5f5',sub:'#a3a3a3',grid:'rgba(255,255,255,.12)',
+  pal:['#4dabf7','#69db7c','#ff8787','#ffd43b'],
+  fill:'zigzag',rough:2.1,sw:2.6,gap:7,
+  blurb:'thick strokes, loud fills, comic energy. strongest for hero art, heaviest for dense diagrams.'},
+ {id:'paper',name:'paper light.',font:"'Kalam',cursive",
+  bg:'#f7f3e9',ink:'#20201d',sub:'#6b6b6b',grid:'rgba(0,0,0,.16)',
+  pal:['#1971c2','#2f9e44','#e03131','#f08c00'],
+  fill:'hachure',rough:1.4,sw:1.5,gap:4.5,paper:true,
+  blurb:'dark ink on warm paper, like a notebook scan dropped into the dark ui. maximum figure contrast against the site background.'},
+ {id:'clean',name:'clean flat (control).',font:"ui-sans-serif,system-ui,sans-serif",
+  bg:'#111111',ink:'#ececec',sub:'#8f8f8f',grid:'rgba(255,255,255,.12)',
+  pal:['#4b8cff','#67f278','#ff9aa7','#ffd583'],
+  fill:'solid',rough:0.5,sw:1.6,gap:5,
+  blurb:'the control group: the same figures with roughness near zero and flat fills. compare against this to confirm hand drawn is the right call.'}
+];
+
+/* ---------- tiny svg + rough helpers ---------- */
+function el(tag,attrs,parent){var n=document.createElementNS(NS,tag);for(var k in attrs)n.setAttribute(k,attrs[k]);if(parent)parent.appendChild(n);return n;}
+function txt(svg,S,x,y,str,o){o=o||{};
+ var t=el('text',{x:x,y:y,fill:o.color||S.ink,'font-family':o.mono?'ui-monospace,Menlo,monospace':S.font,'font-size':o.size||13,'text-anchor':o.anchor||'start'},svg);
+ if(o.bold)t.setAttribute('font-weight',700);
+ if(o.rot)t.setAttribute('transform','rotate('+o.rot+' '+x+' '+y+')');
+ t.textContent=str;return t;}
+function dot(svg,x,y,r,c){el('circle',{cx:x,cy:y,r:r,fill:c},svg);}
+function group(svg,transform){return el('g',transform?{transform:transform}:{},svg);}
+
+/* deterministic rough options: seed increments per shape, reset per figure */
+function opt(S,st,over){st.seed++;
+ var o={stroke:S.ink,strokeWidth:S.sw,roughness:S.rough,bowing:1,fillStyle:S.fill,fillWeight:S.sw*0.5,hachureGap:S.gap,seed:st.seed};
+ if(over)for(var k in over)o[k]=over[k];
+ return o;}
+
+function arrow(host,rc,S,st,x1,y1,x2,y2,o){
+ o=o||{};var c=o.color||S.ink,sw=o.sw||S.sw,bx=x1,by=y1;
+ if(o.curve){var mx=(x1+x2)/2-(y2-y1)*o.curve,my=(y1+y2)/2+(x2-x1)*o.curve;
+   host.appendChild(rc.curve([[x1,y1],[mx,my],[x2,y2]],opt(S,st,{stroke:c,strokeWidth:sw})));bx=mx;by=my;}
+ else host.appendChild(rc.line(x1,y1,x2,y2,opt(S,st,{stroke:c,strokeWidth:sw})));
+ var ang=Math.atan2(y2-by,x2-bx),L=8+sw*1.6;
+ [2.6,-2.6].forEach(function(d){host.appendChild(rc.line(x2,y2,x2+L*Math.cos(ang+d),y2+L*Math.sin(ang+d),opt(S,st,{stroke:c,strokeWidth:sw})));});
+}
+
+/* ---------- hand drawn icon set (all built from rough primitives) ---------- */
+var ICON={
+ server:function(v,rc,S,st,cx,cy,s,c){var top=cy-0.62*s,h=1.24*s;
+  v.appendChild(rc.rectangle(cx-0.52*s,top,1.04*s,h,opt(S,st,{stroke:c})));
+  v.appendChild(rc.line(cx-0.52*s,top+h/3,cx+0.52*s,top+h/3,opt(S,st,{stroke:c})));
+  v.appendChild(rc.line(cx-0.52*s,top+2*h/3,cx+0.52*s,top+2*h/3,opt(S,st,{stroke:c})));
+  dot(v,cx+0.3*s,top+h/6,0.05*s+1,c);dot(v,cx+0.3*s,top+h/2,0.05*s+1,c);dot(v,cx+0.3*s,top+5*h/6,0.05*s+1,c);},
+ router:function(v,rc,S,st,cx,cy,s,c){
+  v.appendChild(rc.rectangle(cx-0.6*s,cy-0.05*s,1.2*s,0.5*s,opt(S,st,{stroke:c})));
+  v.appendChild(rc.line(cx-0.3*s,cy-0.05*s,cx-0.42*s,cy-0.6*s,opt(S,st,{stroke:c})));
+  v.appendChild(rc.line(cx+0.3*s,cy-0.05*s,cx+0.42*s,cy-0.6*s,opt(S,st,{stroke:c})));
+  dot(v,cx-0.15*s,cy+0.2*s,1.6,c);dot(v,cx+0.15*s,cy+0.2*s,1.6,c);},
+ phone:function(v,rc,S,st,cx,cy,s,c){
+  v.appendChild(rc.rectangle(cx-0.3*s,cy-0.58*s,0.6*s,1.16*s,opt(S,st,{stroke:c})));
+  v.appendChild(rc.line(cx-0.1*s,cy+0.42*s,cx+0.1*s,cy+0.42*s,opt(S,st,{stroke:c})));},
+ laptop:function(v,rc,S,st,cx,cy,s,c){
+  v.appendChild(rc.rectangle(cx-0.5*s,cy-0.48*s,s,0.7*s,opt(S,st,{stroke:c})));
+  v.appendChild(rc.line(cx-0.66*s,cy+0.36*s,cx+0.66*s,cy+0.36*s,opt(S,st,{stroke:c,strokeWidth:S.sw+0.5})));},
+ disk:function(v,rc,S,st,cx,cy,s,c){
+  v.appendChild(rc.ellipse(cx,cy-0.32*s,0.95*s,0.38*s,opt(S,st,{stroke:c})));
+  v.appendChild(rc.line(cx-0.475*s,cy-0.32*s,cx-0.475*s,cy+0.3*s,opt(S,st,{stroke:c})));
+  v.appendChild(rc.line(cx+0.475*s,cy-0.32*s,cx+0.475*s,cy+0.3*s,opt(S,st,{stroke:c})));
+  v.appendChild(rc.arc(cx,cy+0.3*s,0.95*s,0.38*s,0,Math.PI,false,opt(S,st,{stroke:c})));},
+ cloud:function(v,rc,S,st,cx,cy,s,c){var f=s/30;
+  var d='M'+(cx-26*f)+' '+(cy+9*f)
+   +' C'+(cx-38*f)+' '+(cy+3*f)+' '+(cx-31*f)+' '+(cy-12*f)+' '+(cx-14*f)+' '+(cy-9*f)
+   +' C'+(cx-9*f)+' '+(cy-22*f)+' '+(cx+11*f)+' '+(cy-22*f)+' '+(cx+15*f)+' '+(cy-9*f)
+   +' C'+(cx+31*f)+' '+(cy-12*f)+' '+(cx+38*f)+' '+(cy+3*f)+' '+(cx+26*f)+' '+(cy+9*f)+' Z';
+  v.appendChild(rc.path(d,opt(S,st,{stroke:c})));},
+ lock:function(v,rc,S,st,cx,cy,s,c){
+  v.appendChild(rc.rectangle(cx-0.42*s,cy-0.02*s,0.84*s,0.62*s,opt(S,st,{stroke:c})));
+  v.appendChild(rc.arc(cx,cy-0.02*s,0.56*s,0.72*s,Math.PI,2*Math.PI,false,opt(S,st,{stroke:c})));
+  dot(v,cx,cy+0.28*s,0.06*s+0.8,c);},
+ shield:function(v,rc,S,st,cx,cy,s,c){
+  var d='M'+(cx-0.42*s)+' '+(cy-0.34*s)
+   +' Q'+cx+' '+(cy-0.5*s)+' '+(cx+0.42*s)+' '+(cy-0.34*s)
+   +' C'+(cx+0.45*s)+' '+(cy+0.06*s)+' '+(cx+0.26*s)+' '+(cy+0.36*s)+' '+cx+' '+(cy+0.52*s)
+   +' C'+(cx-0.26*s)+' '+(cy+0.36*s)+' '+(cx-0.45*s)+' '+(cy+0.06*s)+' '+(cx-0.42*s)+' '+(cy-0.34*s)+' Z';
+  v.appendChild(rc.path(d,opt(S,st,{stroke:c})));
+  v.appendChild(rc.linearPath([[cx-0.16*s,cy],[cx-0.04*s,cy+0.14*s],[cx+0.2*s,cy-0.14*s]],opt(S,st,{stroke:c})));},
+ wifi:function(v,rc,S,st,cx,cy,s,c){
+  [0.55,1.0,1.45].forEach(function(m){var dd=m*s;
+   v.appendChild(rc.arc(cx,cy+0.32*s,dd,dd*0.85,Math.PI*1.16,Math.PI*1.84,false,opt(S,st,{stroke:c})));});
+  dot(v,cx,cy+0.32*s,0.07*s+0.8,c);},
+ box:function(v,rc,S,st,cx,cy,s,c){
+  v.appendChild(rc.rectangle(cx-0.5*s,cy-0.16*s,s,0.64*s,opt(S,st,{stroke:c})));
+  v.appendChild(rc.polygon([[cx-0.5*s,cy-0.16*s],[cx-0.26*s,cy-0.42*s],[cx+0.74*s,cy-0.42*s],[cx+0.5*s,cy-0.16*s]],opt(S,st,{stroke:c})));
+  v.appendChild(rc.polygon([[cx+0.5*s,cy-0.16*s],[cx+0.74*s,cy-0.42*s],[cx+0.74*s,cy+0.22*s],[cx+0.5*s,cy+0.48*s]],opt(S,st,{stroke:c})));},
+ usb:function(v,rc,S,st,cx,cy,s,c){
+  v.appendChild(rc.rectangle(cx-0.55*s,cy-0.18*s,0.74*s,0.36*s,opt(S,st,{stroke:c})));
+  v.appendChild(rc.rectangle(cx+0.19*s,cy-0.11*s,0.34*s,0.22*s,opt(S,st,{stroke:c})));
+  v.appendChild(rc.line(cx+0.27*s,cy-0.04*s,cx+0.4*s,cy-0.04*s,opt(S,st,{stroke:c})));
+  v.appendChild(rc.line(cx+0.27*s,cy+0.05*s,cx+0.4*s,cy+0.05*s,opt(S,st,{stroke:c})));},
+ monitor:function(v,rc,S,st,cx,cy,s,c){
+  v.appendChild(rc.rectangle(cx-0.5*s,cy-0.42*s,s,0.68*s,opt(S,st,{stroke:c})));
+  v.appendChild(rc.line(cx,cy+0.26*s,cx,cy+0.4*s,opt(S,st,{stroke:c})));
+  v.appendChild(rc.line(cx-0.2*s,cy+0.42*s,cx+0.2*s,cy+0.42*s,opt(S,st,{stroke:c})));},
+ smile:function(v,rc,S,st,cx,cy,s,c){
+  v.appendChild(rc.circle(cx,cy,0.95*s,opt(S,st,{stroke:c})));
+  dot(v,cx-0.16*s,cy-0.08*s,0.05*s+0.8,c);dot(v,cx+0.16*s,cy-0.08*s,0.05*s+0.8,c);
+  v.appendChild(rc.arc(cx,cy+0.04*s,0.5*s,0.42*s,Math.PI*0.15,Math.PI*0.85,false,opt(S,st,{stroke:c})));}
+};
+
+/* ---------- the nine figures. same data in every style. ---------- */
+
+function figBars(v,rc,S,st){
+ var rows=[['immich',2.5],['jellyfin',1.8],['uptime kuma',0.3],['memos',0.2],['pi-hole',0.1]];
+ txt(v,S,100,22,'ram used, GB',{size:11,color:S.sub});
+ v.appendChild(rc.line(98,28,98,216,opt(S,st,{stroke:S.sub})));
+ rows.forEach(function(r,i){
+  var y=36+i*38,w=Math.max(r[1]*66,6),heavy=i<2,c=heavy?S.pal[2]:S.pal[1];
+  txt(v,S,92,y+15,r[0],{anchor:'end',size:12.5});
+  v.appendChild(rc.rectangle(100,y,w,20,opt(S,st,{stroke:c,fill:c})));
+  txt(v,S,106+w,y+14,r[1]+'',{size:11,mono:true,color:S.sub});
+ });
+ txt(v,S,318,24,'the heavy ones',{anchor:'end',size:12.5,color:S.sub});
+ arrow(v,rc,S,st,300,32,274,46,{color:S.pal[2],curve:0.35});
+}
+
+function figDonut(v,rc,S,st){
+ var cx=100,cy=126,D=150,a=-Math.PI/2;
+ var segs=[['apps',0.40,S.pal[0]],['cache',0.25,S.pal[3]],['free',0.35,S.pal[1]]];
+ segs.forEach(function(s,i){var a2=a+s[1]*2*Math.PI;
+  v.appendChild(rc.arc(cx,cy,D,D,a,a2,true,opt(S,st,{stroke:s[2],fill:s[2],hachureAngle:41+i*49})));a=a2;});
+ v.appendChild(rc.circle(cx,cy,84,opt(S,st,{stroke:S.ink,fill:S.bg,fillStyle:'solid'})));
+ txt(v,S,cx,cy+2,'16 GB',{anchor:'middle',size:17,bold:true});
+ txt(v,S,cx,cy+20,'total ram',{anchor:'middle',size:10.5,color:S.sub});
+ segs.forEach(function(s,i){var y=74+i*34;
+  v.appendChild(rc.rectangle(200,y-12,15,15,opt(S,st,{stroke:s[2],fill:s[2]})));
+  txt(v,S,224,y,s[0]+' · '+Math.round(s[1]*100)+'%',{size:12.5});});
+}
+
+function figLine(v,rc,S,st){
+ function X(h){return 46+h*(272/24);} function Y(w){return 190-w*1.6;}
+ txt(v,S,46,20,'watts, over one day',{size:11,color:S.sub});
+ [40,80].forEach(function(w){
+  v.appendChild(rc.line(46,Y(w),318,Y(w),opt(S,st,{stroke:S.grid,roughness:0.6})));
+  txt(v,S,40,Y(w)+4,w+'',{anchor:'end',size:10,mono:true,color:S.sub});});
+ v.appendChild(rc.line(46,190,318,190,opt(S,st,{stroke:S.sub})));
+ v.appendChild(rc.line(46,190,46,28,opt(S,st,{stroke:S.sub})));
+ txt(v,S,40,194,'0',{anchor:'end',size:10,mono:true,color:S.sub});
+ [[0,'0h'],[12,'12h'],[24,'24h']].forEach(function(t){txt(v,S,X(t[0]),206,t[1],{anchor:'middle',size:10,mono:true,color:S.sub});});
+ var hrs=[0,3,6,9,12,15,18,21,24];
+ var tower=[78,76,80,83,79,85,81,78,80],mini=[12,11,12,14,13,15,12,11,12];
+ v.appendChild(rc.curve(hrs.map(function(h,i){return [X(h),Y(tower[i])];}),opt(S,st,{stroke:S.pal[2],strokeWidth:S.sw+0.4})));
+ v.appendChild(rc.curve(hrs.map(function(h,i){return [X(h),Y(mini[i])];}),opt(S,st,{stroke:S.pal[0],strokeWidth:S.sw+0.4})));
+ hrs.forEach(function(h,i){dot(v,X(h),Y(mini[i]),2,S.pal[0]);});
+ txt(v,S,316,Y(80)-10,'old tower',{anchor:'end',size:12.5,color:S.pal[2]});
+ txt(v,S,316,Y(12)-12,'mini pc',{anchor:'end',size:12.5,color:S.pal[0]});
+ txt(v,S,110,120,'6x less power',{size:12.5,color:S.sub});
+ arrow(v,rc,S,st,150,128,168,158,{color:S.sub,curve:0.25});
+}
+
+function figFlow(v,rc,S,st){
+ var inkOn=S.fill==='solid'?'#141414':S.ink;
+ ICON.phone(v,rc,S,st,38,68,26,S.ink);txt(v,S,38,102,'phone',{anchor:'middle',size:11,color:S.sub});
+ ICON.laptop(v,rc,S,st,40,168,28,S.ink);txt(v,S,40,204,'laptop',{anchor:'middle',size:11,color:S.sub});
+ ICON.router(v,rc,S,st,150,116,30,S.ink);txt(v,S,150,152,'router',{anchor:'middle',size:11,color:S.sub});
+ arrow(v,rc,S,st,56,74,124,108,{});
+ arrow(v,rc,S,st,60,162,124,124,{});
+ arrow(v,rc,S,st,172,112,219,112,{});
+ v.appendChild(rc.rectangle(224,40,100,182,opt(S,st,{stroke:S.pal[0],strokeWidth:S.sw+0.6})));
+ txt(v,S,274,62,'server',{anchor:'middle',size:14,color:S.pal[0],bold:true});
+ v.appendChild(rc.rectangle(240,76,68,46,opt(S,st,{stroke:S.ink,fill:S.pal[1]})));
+ txt(v,S,274,104,'app',{anchor:'middle',size:12.5,color:inkOn});
+ ICON.disk(v,rc,S,st,274,158,30,S.ink);
+ txt(v,S,274,196,'storage',{anchor:'middle',size:11,color:S.sub});
+ txt(v,S,274,212,'your data',{anchor:'middle',size:10,color:S.sub});
+}
+
+function figDecision(v,rc,S,st){
+ var inkOn=S.fill==='solid'?'#141414':S.ink;
+ v.appendChild(rc.rectangle(135,14,70,30,opt(S,st,{stroke:S.ink})));
+ txt(v,S,170,34,'new app',{anchor:'middle',size:12.5});
+ arrow(v,rc,S,st,170,46,170,62,{});
+ v.appendChild(rc.polygon([[170,66],[234,104],[170,142],[106,104]],opt(S,st,{stroke:S.pal[3],fill:S.pal[3]})));
+ txt(v,S,170,100,'need it away',{anchor:'middle',size:11,color:inkOn});
+ txt(v,S,170,114,'from home?',{anchor:'middle',size:11,color:inkOn});
+ arrow(v,rc,S,st,106,104,72,156,{color:S.pal[1]});
+ txt(v,S,84,120,'no',{size:12,color:S.pal[1]});
+ arrow(v,rc,S,st,234,104,266,156,{color:S.pal[0]});
+ txt(v,S,246,120,'yes',{size:12,color:S.pal[0]});
+ v.appendChild(rc.rectangle(16,160,124,46,opt(S,st,{stroke:S.pal[1]})));
+ txt(v,S,78,180,'keep it home only',{anchor:'middle',size:12});
+ txt(v,S,78,197,'✓ safe default',{anchor:'middle',size:10.5,color:S.sub});
+ v.appendChild(rc.rectangle(202,160,124,46,opt(S,st,{stroke:S.pal[0]})));
+ txt(v,S,264,180,'use tailscale',{anchor:'middle',size:12});
+ txt(v,S,264,197,'private tunnel',{anchor:'middle',size:10.5,color:S.sub});
+}
+
+function figSteps(v,rc,S,st){
+ var inkOn=S.fill==='solid'?'#141414':S.ink;
+ var nodes=[[60,64,'flash usb','usb'],[170,64,'install os','monitor'],[280,64,'ssh in','term'],[280,158,'run docker','box'],[170,158,'first app!','smile']];
+ arrow(v,rc,S,st,88,64,142,64,{});arrow(v,rc,S,st,198,64,252,64,{});
+ arrow(v,rc,S,st,280,92,280,130,{});arrow(v,rc,S,st,252,158,198,158,{});
+ nodes.forEach(function(n,i){
+  var c=S.pal[i%S.pal.length];
+  v.appendChild(rc.circle(n[0],n[1],52,opt(S,st,{stroke:c,fill:c,hachureGap:S.gap*1.9})));
+  if(n[3]==='term')txt(v,S,n[0],n[1]+5,'>_',{anchor:'middle',size:15,mono:true,bold:true,color:inkOn});
+  else ICON[n[3]](v,rc,S,st,n[0],n[1],20,inkOn);
+  v.appendChild(rc.circle(n[0]-23,n[1]-21,18,opt(S,st,{stroke:S.ink,fill:S.bg,fillStyle:'solid'})));
+  txt(v,S,n[0]-23,n[1]-17,''+(i+1),{anchor:'middle',size:11,mono:true,bold:true});
+  txt(v,S,n[0],n[1]+42,n[2],{anchor:'middle',size:11,color:S.sub});
+ });
+}
+
+function figIcons(v,rc,S,st){
+ var items=[['server','server'],['router','router'],['phone','phone'],['laptop','laptop'],['disk','disk'],
+            ['cloud','cloud'],['lock','lock'],['shield','shield'],['wifi','wifi'],['box','container']];
+ items.forEach(function(it,i){
+  var cx=40+(i%5)*66,cy=i<5?58:154,c=S.pal[i%S.pal.length];
+  ICON[it[0]](v,rc,S,st,cx,cy,30,c);
+  txt(v,S,cx,cy+44,it[1],{anchor:'middle',size:10.5,color:S.sub});
+ });
+}
+
+function figGates(v,rc,S,st){
+ v.appendChild(rc.path('M120 26 h30 c32 0 32 44 0 44 h-30 z',opt(S,st,{stroke:S.pal[0],fill:S.pal[0]})));
+ v.appendChild(rc.line(78,38,120,38,opt(S,st,{})));v.appendChild(rc.line(78,58,120,58,opt(S,st,{})));
+ v.appendChild(rc.line(176,48,214,48,opt(S,st,{})));
+ txt(v,S,72,42,'a',{anchor:'end',size:11,mono:true,color:S.sub});txt(v,S,72,62,'b',{anchor:'end',size:11,mono:true,color:S.sub});
+ txt(v,S,222,53,'and · needs both',{size:12.5});
+ v.appendChild(rc.path('M118 96 q16 22 0 44 q30 -4 46 -22 q-16 -18 -46 -22 z',opt(S,st,{stroke:S.pal[1],fill:S.pal[1]})));
+ v.appendChild(rc.line(78,108,126,108,opt(S,st,{})));v.appendChild(rc.line(78,128,126,128,opt(S,st,{})));
+ v.appendChild(rc.line(170,118,214,118,opt(S,st,{})));
+ txt(v,S,72,112,'a',{anchor:'end',size:11,mono:true,color:S.sub});txt(v,S,72,132,'b',{anchor:'end',size:11,mono:true,color:S.sub});
+ txt(v,S,222,123,'or · either one',{size:12.5});
+ v.appendChild(rc.polygon([[120,168],[120,208],[156,188]],opt(S,st,{stroke:S.pal[2],fill:S.pal[2]})));
+ v.appendChild(rc.circle(162,188,10,opt(S,st,{stroke:S.pal[2]})));
+ v.appendChild(rc.line(78,188,120,188,opt(S,st,{})));
+ v.appendChild(rc.line(168,188,214,188,opt(S,st,{})));
+ txt(v,S,72,192,'a',{anchor:'end',size:11,mono:true,color:S.sub});
+ txt(v,S,222,193,'not · inverts',{size:12.5});
+}
+
+function figAnnot(v,rc,S,st){
+ txt(v,S,88,66,'backups',{anchor:'middle',size:21,bold:true});
+ v.appendChild(rc.ellipse(88,60,150,56,opt(S,st,{stroke:S.pal[0],strokeWidth:S.sw+0.5})));
+ var g=group(v,'rotate(-3 257 60)');
+ g.appendChild(rc.rectangle(198,28,118,64,opt(S,st,{stroke:S.ink,fill:S.pal[3],fillStyle:'solid'})));
+ txt(g,S,257,54,'test your',{anchor:'middle',size:13,color:'#161616'});
+ txt(g,S,257,72,'restores!',{anchor:'middle',size:13,color:'#161616'});
+ arrow(v,rc,S,st,198,64,168,64,{color:S.sub,curve:0.45});
+ txt(v,S,24,140,'copies: 3 · drives: 2 · offsite: 1',{size:13.5});
+ var d='M24 150';for(var i=0;i<14;i++)d+=' q8 -7 16 0';
+ v.appendChild(rc.path(d,opt(S,st,{stroke:S.pal[0],strokeWidth:S.sw+0.5,roughness:S.rough*0.5})));
+ txt(v,S,24,196,'port forwarding',{size:14,color:S.sub});
+ v.appendChild(rc.line(18,197,150,190,opt(S,st,{stroke:S.pal[2],strokeWidth:S.sw+0.6})));
+ v.appendChild(rc.line(18,191,150,198,opt(S,st,{stroke:S.pal[2],strokeWidth:S.sw+0.6})));
+ txt(v,S,158,186,'skip',{size:11,color:S.pal[2]});
+ el('rect',{x:206,y:180,width:120,height:24,fill:S.pal[1],'fill-opacity':0.32,transform:'rotate(-2 266 192)',rx:3},v);
+ txt(v,S,212,197,'automate it',{size:13.5});
+}
+
+var FIGS=[
+ ['bar chart · ram per app',figBars],
+ ['donut · where 16 gb goes',figDonut],
+ ['line chart · power draw, one day',figLine],
+ ['flow · the five pieces',figFlow],
+ ['decision · expose an app or not',figDecision],
+ ['steps · the install path',figSteps],
+ ['icon set',figIcons],
+ ['logic gates',figGates],
+ ['annotations · notes, strikes, highlights',figAnnot]
+];
+
+/* ---------- build the page ---------- */
+function cfgLine(S){return S.font.split(',')[0].replace(/'/g,'')+' · rough '+S.rough+' · stroke '+S.sw+' · '+S.fill;}
+var pills=document.getElementById('pills'),main=document.getElementById('styles');
+STYLES.forEach(function(S,si){
+ var a=document.createElement('a');a.href='#style-'+S.id;a.textContent=S.name.replace(/\.$/,'');pills.appendChild(a);
+ var sec=document.createElement('section');sec.className='style'+(S.paper?' paper-bg':'');sec.id='style-'+S.id;
+ var head=document.createElement('div');head.className='style-head';
+ head.innerHTML='<h2 style="font-family:'+S.font.replace(/"/g,'&quot;')+'">'+S.name+'</h2>'
+  +'<span class="cfg">'+cfgLine(S)+'</span>'
+  +'<p class="blurb">'+S.blurb+'</p>';
+ sec.appendChild(head);
+ var grid=document.createElement('div');grid.className='grid';sec.appendChild(grid);
+ FIGS.forEach(function(F,fi){
+  var card=document.createElement('div');card.className='fig';
+  var h=document.createElement('h4');h.textContent=F[0];card.appendChild(h);
+  var svg=el('svg',{viewBox:'0 0 340 240'});card.appendChild(svg);grid.appendChild(card);
+  var st={seed:1000+si*991+fi*97};
+  try{F[1](svg,rough.svg(svg),S,st);}
+  catch(e){var p=document.createElement('div');p.className='err';p.textContent='draw error: '+e.message;card.appendChild(p);}
+ });
+ main.appendChild(sec);
+});
+})();
+//JS-END
+</script>
+</body>
+</html>

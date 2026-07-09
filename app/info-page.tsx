@@ -18,7 +18,7 @@ function InfoSidebar({ title }: { title: string }) {
   return (
     <div className="directory-filter-panel info-sidebar-panel">
       <div className="filter-panel-heading">
-        <h1>{title}</h1>
+        <p className="filter-panel-title">{title}</p>
       </div>
       <nav className="info-sidebar-links" aria-label="Info pages">
         {links.map((link) => (
@@ -43,6 +43,7 @@ export function InfoPage({ children, title }: InfoPageProps) {
       sidebarLabel={`${title} sidebar`}
     >
       <article className="info-page prose">
+        <h1>{title}</h1>
         {children}
       </article>
     </AppShell>

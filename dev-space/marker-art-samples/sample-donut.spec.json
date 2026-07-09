@@ -1,0 +1,17 @@
+{
+  "id": "sample-donut",
+  "type": "donut",
+  "takeaway": "Apps use less than half of a 16 GB server; the rest is cache and free memory.",
+  "source": "sample data from the art style lab",
+  "dataAsOf": "2026-07-07",
+  "seed": 11,
+  "data": {
+    "centerLabel": "16 GB",
+    "centerSub": "total ram",
+    "segments": [
+      { "label": "apps", "value": 40, "tone": "primary" },
+      { "label": "cache", "value": 25, "tone": "note" },
+      { "label": "free", "value": 35, "tone": "good" }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "overrides": {
+    "bluecherry": {
+      "website_url": "https://github.com/bluecherrydvr/bluecherry-apps",
+      "note": "Official project website returned 530 during batch URL audit; using the official GitHub repository as the stable website fallback."
+    }
+  }
+}

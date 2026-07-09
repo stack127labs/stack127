@@ -86,19 +86,6 @@ export default function RootLayout({
         <AppIcons />
       </head>
       <body>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-try {
-  const storedTheme = window.localStorage.getItem("version127-theme");
-  const theme = storedTheme === "light" || storedTheme === "dark"
-    ? storedTheme
-    : "dark";
-  document.documentElement.dataset.theme = theme;
-} catch (_) {}
-            `,
-          }}
-        />
         <JsonLd data={siteStructuredData} />
         <SiteNav />
         {children}

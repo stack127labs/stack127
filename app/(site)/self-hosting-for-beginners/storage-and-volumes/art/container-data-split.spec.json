@@ -1,0 +1,19 @@
+{
+  "id": "storage-and-volumes--container-data-split",
+  "page": "self-hosting-for-beginners/storage-and-volumes",
+  "type": "survival",
+  "takeaway": "The container can be replaced, but the mapped data folder must survive.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 111,
+  "width": 420,
+  "height": 230,
+  "data": {
+    "replaceable": "container",
+    "replaceSub": "replaceable",
+    "folder": "./data",
+    "folderSub": "keep this",
+    "disk": "server disk",
+    "writes": "writes"
+  }
+}

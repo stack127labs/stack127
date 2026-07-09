@@ -1,0 +1,20 @@
+{
+  "owncloud-infinite-scale": {
+    "website_url": "https://doc.owncloud.com/ocis/next/",
+    "docs_url": "https://doc.owncloud.com/ocis/next/",
+    "install_docs_url": "https://doc.owncloud.com/ocis/next/",
+    "note": "Override broken repo homepage /ocis/ URL with current official Infinite Scale docs URL verified by HTTP 200."
+  },
+  "pad-ws": {
+    "website_url": "https://github.com/coderamp-labs/pad.ws",
+    "note": "Use official GitHub repository as website because the pad.ws vanity domain timed out during verification."
+  },
+  "peppermint": {
+    "website_url": "https://github.com/Peppermint-Lab/peppermint",
+    "note": "Use official GitHub repository as website because peppermint.sh no longer resolved during verification."
+  },
+  "postmarks": {
+    "website_url": "https://sharepostmarks.org/",
+    "note": "Use the current official redirect target from postmarks.glitch.me verified by HTTP 200."
+  }
+}

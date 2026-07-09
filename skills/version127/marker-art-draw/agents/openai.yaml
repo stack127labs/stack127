@@ -1,0 +1,4 @@
+interface:
+  display_name: "Marker Art Draw"
+  short_description: "Build approved marker art figures"
+  default_prompt: "Use $marker-art-draw to build approved marker art figures for this Version127 page."

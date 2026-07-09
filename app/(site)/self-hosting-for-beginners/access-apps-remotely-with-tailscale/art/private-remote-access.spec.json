@@ -1,0 +1,18 @@
+{
+  "id": "access-apps-remotely-with-tailscale--private-remote-access",
+  "page": "self-hosting-for-beginners/access-apps-remotely-with-tailscale",
+  "type": "tunnel",
+  "takeaway": "Use Tailscale for private remote access, and expose an app publicly only when others need it.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 115,
+  "width": 420,
+  "height": 230,
+  "data": {
+    "remote": "away phone",
+    "internet": "internet",
+    "server": "home server",
+    "tunnel": "tailscale tunnel",
+    "blocked": "no public port"
+  }
+}

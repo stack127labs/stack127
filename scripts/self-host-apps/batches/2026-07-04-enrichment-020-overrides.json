@@ -1,0 +1,41 @@
+{
+  "zabbix": {
+    "summary": "Monitoring system for tracking servers, networks, applications, and service health.",
+    "docs_url": "https://www.zabbix.com/documentation/current/en/manual/installation/containers",
+    "install_docs_url": "https://www.zabbix.com/documentation/current/en/manual/installation/containers",
+    "docker_url": "https://www.zabbix.com/documentation/current/en/manual/installation/containers",
+    "note": "Official Zabbix container installation documentation verified on 2026-07-04."
+  },
+  "zaneops": {
+    "summary": "Deployment panel for running apps, databases, static sites, and scheduled jobs."
+  },
+  "zen-notes": {
+    "summary": "Markdown note app for writing and organizing plain-text notes in a browser."
+  },
+  "zensical": {
+    "summary": "Static site generator for building documentation and content-driven websites."
+  },
+  "zerobyte": {
+    "summary": "Backup manager for scheduling jobs and sending archives to remote storage."
+  },
+  "zigbee2mqtt": {
+    "summary": "Bridge that connects Zigbee devices to MQTT for home automation.",
+    "docs_url": "https://www.zigbee2mqtt.io/guide/installation/01_linux.html",
+    "install_docs_url": "https://www.zigbee2mqtt.io/guide/installation/02_docker.html",
+    "docker_url": "https://www.zigbee2mqtt.io/guide/installation/02_docker.html",
+    "note": "Official Zigbee2MQTT Linux and Docker installation docs verified on 2026-07-04."
+  },
+  "zipcaptions": {
+    "summary": "Browser transcription app for generating captions from local audio files."
+  },
+  "zitadel": {
+    "summary": "Identity management server for login, access control, and application authentication.",
+    "docs_url": "https://zitadel.com/docs/self-hosting/deploy/overview",
+    "install_docs_url": "https://zitadel.com/docs/self-hosting/deploy/compose",
+    "docker_url": "https://zitadel.com/docs/self-hosting/deploy/compose",
+    "note": "Official Zitadel deploy overview and compose docs verified on 2026-07-04."
+  },
+  "ztnet": {
+    "summary": "Web controller for managing ZeroTier networks, members, and routes."
+  }
+}

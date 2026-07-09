@@ -1,0 +1,16 @@
+{
+  "id": "install-your-first-app--first-app-loop",
+  "page": "self-hosting-for-beginners/install-your-first-app",
+  "type": "workbench",
+  "takeaway": "A first app is just a folder, a compose file, one start command, and a browser URL.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 109,
+  "width": 430,
+  "height": 230,
+  "data": {
+    "folder": "app folder",
+    "command": "up -d",
+    "open": "open url"
+  }
+}

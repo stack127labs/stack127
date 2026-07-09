@@ -1,0 +1,17 @@
+{
+  "id": "sample-steps",
+  "type": "steps",
+  "takeaway": "The install path: flash a USB, install the OS, connect over SSH, set up Docker, run your first app.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-07",
+  "seed": 17,
+  "data": {
+    "items": [
+      { "label": "flash usb", "icon": "usb" },
+      { "label": "install os", "icon": "monitor" },
+      { "label": "ssh in", "icon": "terminal" },
+      { "label": "run docker", "icon": "box" },
+      { "label": "first app!", "icon": "smile" }
+    ]
+  }
+}

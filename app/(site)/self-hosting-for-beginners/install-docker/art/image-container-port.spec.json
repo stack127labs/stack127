@@ -1,0 +1,20 @@
+{
+  "id": "install-docker--image-container-port",
+  "page": "self-hosting-for-beginners/install-docker",
+  "type": "portMap",
+  "takeaway": "Docker runs an image as a container, and the container is reached through a port.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 108,
+  "width": 430,
+  "height": 220,
+  "data": {
+    "client": "browser",
+    "clientSub": "server ip:8080",
+    "server": "server",
+    "container": "container",
+    "containerSub": "port 80",
+    "hostPort": ":8080",
+    "map": "8080 -> 80"
+  }
+}

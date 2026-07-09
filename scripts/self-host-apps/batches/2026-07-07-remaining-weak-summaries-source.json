@@ -1,0 +1,1085 @@
+{
+  "generated_at": "2026-07-07T06:13:01.236Z",
+  "rows": [
+    {
+      "slug": "kanba",
+      "name": "Kanba",
+      "summary": "Project management and collaboration.",
+      "github_stars": 631
+    },
+    {
+      "slug": "dockman",
+      "name": "Dockman",
+      "summary": "Docker Compose file simplification.",
+      "github_stars": 628
+    },
+    {
+      "slug": "configarr",
+      "name": "Configarr",
+      "summary": "Simplified config sync for Radarr and Sonarr.",
+      "github_stars": 624
+    },
+    {
+      "slug": "wiki-go",
+      "name": "Wiki-Go",
+      "summary": "Modern, feature-rich, databaseless flat-file wiki app.",
+      "github_stars": 596
+    },
+    {
+      "slug": "photofield",
+      "name": "Photofield",
+      "summary": "Experimental fast photo viewer.",
+      "github_stars": 594
+    },
+    {
+      "slug": "youlag",
+      "name": "Youlag",
+      "summary": "Theme and video extension for FreshRSS.",
+      "github_stars": 593
+    },
+    {
+      "slug": "soulbeet",
+      "name": "Soulbeet",
+      "summary": "Music downloads and discovery.",
+      "github_stars": 590
+    },
+    {
+      "slug": "booklogr",
+      "name": "BookLogr",
+      "summary": "Manage your personal book library with ease.",
+      "github_stars": 589
+    },
+    {
+      "slug": "vocard",
+      "name": "Vocard",
+      "summary": "Highly customizable Discord music bot.",
+      "github_stars": 575
+    },
+    {
+      "slug": "mybibliotecha",
+      "name": "MyBibliotheca",
+      "summary": "Personal library and reading tracker.",
+      "github_stars": 573
+    },
+    {
+      "slug": "cloudlog",
+      "name": "Cloudlog",
+      "summary": "Log your amateur radio contacts anywhere.",
+      "github_stars": 570
+    },
+    {
+      "slug": "kuvasz",
+      "name": "Kuvasz",
+      "summary": "Uptime and SSL monitoring.",
+      "github_stars": 567
+    },
+    {
+      "slug": "yt-dlp-web-player",
+      "name": "YT-DLP Web Player",
+      "summary": "Web video player powered by yt-dlp.",
+      "github_stars": 558
+    },
+    {
+      "slug": "lab-dash",
+      "name": "Lab Dash",
+      "summary": "Application and server management dashboard.",
+      "github_stars": 552
+    },
+    {
+      "slug": "owntracks-frontend",
+      "name": "OwnTracks Frontend",
+      "summary": "Advanced interface for the OwnTracks ecosystem.",
+      "github_stars": 545
+    },
+    {
+      "slug": "pluton",
+      "name": "Pluton",
+      "summary": "Secure backups across local and cloud storage.",
+      "github_stars": 545
+    },
+    {
+      "slug": "omeka",
+      "name": "Omeka",
+      "summary": "A flexible web publishing app for the display of library, museum and scholarly collections, archives and exhibitions.",
+      "github_stars": 542
+    },
+    {
+      "slug": "sub-wave",
+      "name": "SUB/WAVE",
+      "summary": "Personal internet radio station.",
+      "github_stars": 539
+    },
+    {
+      "slug": "planarally",
+      "name": "PlanarAlly",
+      "summary": "Virtual tabletop with offline capabilities.",
+      "github_stars": 532
+    },
+    {
+      "slug": "webhook-tester",
+      "name": "WebHook Tester",
+      "summary": "Tool for testing WebHooks and more.",
+      "github_stars": 510
+    },
+    {
+      "slug": "wikidocs",
+      "name": "WikiDocs",
+      "summary": "Databaseless markdown flat-file wiki engine.",
+      "github_stars": 508
+    },
+    {
+      "slug": "flashpaper",
+      "name": "FlashPaper",
+      "summary": "One-time encrypted password and secret sharing.",
+      "github_stars": 504
+    },
+    {
+      "slug": "middleware-manager",
+      "name": "Middleware Manager",
+      "summary": "Traefik middleware, router, and server manager.",
+      "github_stars": 501
+    },
+    {
+      "slug": "nextcloud-social",
+      "name": "Nextcloud Social",
+      "summary": "Nextcloud app for federated networking.",
+      "github_stars": 499
+    },
+    {
+      "slug": "quetre",
+      "name": "Quetre",
+      "summary": "Alternative frontend for Quora.",
+      "github_stars": 498
+    },
+    {
+      "slug": "foldergram",
+      "name": "Foldergram",
+      "summary": "Instagram-inspired photo and video gallery.",
+      "github_stars": 497
+    },
+    {
+      "slug": "mantrae",
+      "name": "Mantrae",
+      "summary": "User-friendly Traefik management interface.",
+      "github_stars": 490
+    },
+    {
+      "slug": "chyrp-lite",
+      "name": "Chyrp Lite",
+      "summary": "Extra-awesome, extra-lightweight blog engine.",
+      "github_stars": 488
+    },
+    {
+      "slug": "its-mytabs",
+      "name": "It's MyTabs",
+      "summary": "Guitar tab viewer and player.",
+      "github_stars": 488
+    },
+    {
+      "slug": "dockerizalo",
+      "name": "Dockerizalo",
+      "summary": "Simple container deployment and management app.",
+      "github_stars": 485
+    },
+    {
+      "slug": "podfetch",
+      "name": "PodFetch",
+      "summary": "Sleek and efficient podcast downloader.",
+      "github_stars": 485
+    },
+    {
+      "slug": "bunkerm",
+      "name": "BunkerM",
+      "summary": "Mosquitto (MQTT) broker with web UI.",
+      "github_stars": 484
+    },
+    {
+      "slug": "suroi",
+      "name": "Suroi",
+      "summary": "An 2D battle royale game inspired by surviv.io.",
+      "github_stars": 478
+    },
+    {
+      "slug": "hollo",
+      "name": "Hollo",
+      "summary": "Federated single-user microblogging software.",
+      "github_stars": 474
+    },
+    {
+      "slug": "auto-mcs",
+      "name": "auto-mcs",
+      "summary": "Cross-app Minecraft server manager.",
+      "github_stars": 468
+    },
+    {
+      "slug": "prunemate",
+      "name": "PruneMate",
+      "summary": "Docker image and resource cleanup helper.",
+      "github_stars": 468
+    },
+    {
+      "slug": "nimtable",
+      "name": "Nimtable",
+      "summary": "Web interface for Apache Iceberg.",
+      "github_stars": 466
+    },
+    {
+      "slug": "calagopus",
+      "name": "Calagopus",
+      "summary": "Modern game server management panel, Deploy, monitor, and manage Minecraft, Hytale, and other game servers with industry-leading performance.",
+      "github_stars": 464
+    },
+    {
+      "slug": "subtrackr",
+      "name": "Subtrackr",
+      "summary": "Subscription management application.",
+      "github_stars": 456
+    },
+    {
+      "slug": "dumbpad",
+      "name": "DumbPad",
+      "summary": "Stupidly simple modern notepad.",
+      "github_stars": 455
+    },
+    {
+      "slug": "perfice",
+      "name": "Perfice",
+      "summary": "Self-tracking app for various life metrics.",
+      "github_stars": 453
+    },
+    {
+      "slug": "expressa",
+      "name": "Expressa",
+      "summary": "API creation middleware with an admin interface.",
+      "github_stars": 451
+    },
+    {
+      "slug": "invoice-builder",
+      "name": "Invoice Builder",
+      "summary": "Invoice and quoting app for freelancers.",
+      "github_stars": 451
+    },
+    {
+      "slug": "medialyze",
+      "name": "Medialyze",
+      "summary": "Media library analysis for large collections.",
+      "github_stars": 437
+    },
+    {
+      "slug": "crontab-guru",
+      "name": "Crontab Guru",
+      "summary": "Web and CLI-based cron job management.",
+      "github_stars": 431
+    },
+    {
+      "slug": "trailarr",
+      "name": "Trailarr",
+      "summary": "Download and manage trailers for media libraries.",
+      "github_stars": 429
+    },
+    {
+      "slug": "quickdrop",
+      "name": "QuickDrop",
+      "summary": "Easy-to-use file sharing application.",
+      "github_stars": 425
+    },
+    {
+      "slug": "sip-irrigation-control",
+      "name": "SIP Irrigation Control",
+      "summary": "Software for sprinkler/irrigation control.",
+      "github_stars": 419
+    },
+    {
+      "slug": "spectrum-2",
+      "name": "Spectrum 2",
+      "summary": "Spectrum 2 is an instant messaging transport.",
+      "github_stars": 418
+    },
+    {
+      "slug": "plainpad",
+      "name": "Plainpad",
+      "summary": "Modern note taking application for the cloud, utilizing the best features of progressive web apps technology.",
+      "github_stars": 416
+    },
+    {
+      "slug": "scraparr",
+      "name": "Scraparr",
+      "summary": "Prometheus exporter for *arr apps.",
+      "github_stars": 407
+    },
+    {
+      "slug": "scratch-map",
+      "name": "Scratch Map",
+      "summary": "Scratch-off style map for tracking travels.",
+      "github_stars": 396
+    },
+    {
+      "slug": "maintenant",
+      "name": "Maintenant",
+      "summary": "Monitor everything with a single container.",
+      "github_stars": 380
+    },
+    {
+      "slug": "jellyplist",
+      "name": "Jellyplist",
+      "summary": "Sync Spotify playlists to Jellyfin.",
+      "github_stars": 377
+    },
+    {
+      "slug": "couchcms",
+      "name": "CouchCMS",
+      "summary": "CMS for designers.",
+      "github_stars": 375
+    },
+    {
+      "slug": "sonobarr",
+      "name": "Sonobarr",
+      "summary": "Music discovery for Lidarr users via Last.fm.",
+      "github_stars": 375
+    },
+    {
+      "slug": "anonymousoverflow",
+      "name": "Anonymous Overflow",
+      "summary": "Privacy frontend for StackOverflow.",
+      "github_stars": 373
+    },
+    {
+      "slug": "nextcloud-forms",
+      "name": "Nextcloud Forms",
+      "summary": "Simple form and survey app for Nextcloud.",
+      "github_stars": 373
+    },
+    {
+      "slug": "tigase",
+      "name": "Tigase",
+      "summary": "XMPP server implementation in Java.",
+      "github_stars": 357
+    },
+    {
+      "slug": "mataroa",
+      "name": "Mataroa",
+      "summary": "Naked blogging app for minimalists.",
+      "github_stars": 356
+    },
+    {
+      "slug": "subscription-manager",
+      "name": "Subscription Manager",
+      "summary": "Track subscriptions and manage expenses.",
+      "github_stars": 348
+    },
+    {
+      "slug": "seelf",
+      "name": "seelf",
+      "summary": "Lightweight deployment app written in Go.",
+      "github_stars": 344
+    },
+    {
+      "slug": "ghostboard",
+      "name": "Ghostboard",
+      "summary": "Real-time synchronized text sharing.",
+      "github_stars": 341
+    },
+    {
+      "slug": "ferrishare",
+      "name": "FerriShare",
+      "summary": "Simple file sharing app with E2E encryption.",
+      "github_stars": 336
+    },
+    {
+      "slug": "dashlit",
+      "name": "DashLit",
+      "summary": "Simple server startpage.",
+      "github_stars": 330
+    },
+    {
+      "slug": "jetlog",
+      "name": "jetlog",
+      "summary": "Personal flight tracker and viewer.",
+      "github_stars": 330
+    },
+    {
+      "slug": "dollardollar-bill-y-all",
+      "name": "DollarDollar Bill Y'all",
+      "summary": "Expense tracking and bill-splitting application.",
+      "github_stars": 326
+    },
+    {
+      "slug": "habitsync",
+      "name": "HabitSync",
+      "summary": "Habit tracking app with social features.",
+      "github_stars": 324
+    },
+    {
+      "slug": "openchangelog",
+      "name": "Openchangelog",
+      "summary": "Easy to configure and changelog website.",
+      "github_stars": 322
+    },
+    {
+      "slug": "fx",
+      "name": "fx",
+      "summary": "An efficient (micro)blogging service that you can self-host.",
+      "github_stars": 319
+    },
+    {
+      "slug": "storyden",
+      "name": "Storyden",
+      "summary": "Fresh take on bulletin board forum software.",
+      "github_stars": 315
+    },
+    {
+      "slug": "gitsave",
+      "name": "GitSave",
+      "summary": "Easily back up git repositories on a schedule.",
+      "github_stars": 311
+    },
+    {
+      "slug": "yeetfile",
+      "name": "YeetFile",
+      "summary": "Encrypted file sharing vault service.",
+      "github_stars": 311
+    },
+    {
+      "slug": "plone",
+      "name": "Plone",
+      "summary": "CMS system.",
+      "github_stars": 309
+    },
+    {
+      "slug": "fail2ban-report",
+      "name": "Fail2Ban-Report",
+      "summary": "Web dashboard for Fail2Ban logging.",
+      "github_stars": 307
+    },
+    {
+      "slug": "mosparo",
+      "name": "mosparo",
+      "summary": "The modern spam protection tool, It replaces other captcha methods with a simple and easy to use spam protection app.",
+      "github_stars": 298
+    },
+    {
+      "slug": "moocup",
+      "name": "Moocup",
+      "summary": "Visual editor for stunning screenshots.",
+      "github_stars": 295
+    },
+    {
+      "slug": "unifi-voucher-site",
+      "name": "UniFi Voucher Site",
+      "summary": "Generate and manage UniFi network guest vouchers.",
+      "github_stars": 294
+    },
+    {
+      "slug": "coreshop",
+      "name": "CoreShop",
+      "summary": "E-commerce plugin for Pimcore.",
+      "github_stars": 292
+    },
+    {
+      "slug": "airpipe",
+      "name": "AirPipe",
+      "summary": "P2P file transfers between devices.",
+      "github_stars": 291
+    },
+    {
+      "slug": "supysonic",
+      "name": "Supysonic",
+      "summary": "Python implementation of the Subsonic server API.",
+      "github_stars": 290
+    },
+    {
+      "slug": "origamivault",
+      "name": "OrigamiVault",
+      "summary": "Encrypt secrets and share them with QR codes.",
+      "github_stars": 274
+    },
+    {
+      "slug": "skysend",
+      "name": "SkySend",
+      "summary": "Encrypted file and note sharing.",
+      "github_stars": 274
+    },
+    {
+      "slug": "trala",
+      "name": "TraLa",
+      "summary": "Simple, modern dashboard for Traefik services.",
+      "github_stars": 272
+    },
+    {
+      "slug": "poeticmetric",
+      "name": "PoeticMetric",
+      "summary": "Privacy-focused web analytics.",
+      "github_stars": 268
+    },
+    {
+      "slug": "neos",
+      "name": "Neos",
+      "summary": "Neos or TYPO3 Neos (for version 1) is a modern, CMS.",
+      "github_stars": 267
+    },
+    {
+      "slug": "surmai",
+      "name": "Surmai",
+      "summary": "Personal and family travel organizer.",
+      "github_stars": 267
+    },
+    {
+      "slug": "minne",
+      "name": "Minne",
+      "summary": "Read-later and personal knowledge management.",
+      "github_stars": 256
+    },
+    {
+      "slug": "properdocs",
+      "name": "ProperDocs",
+      "summary": "Drop-in replacement for MkDocs.",
+      "github_stars": 255
+    },
+    {
+      "slug": "rangarr",
+      "name": "Rangarr",
+      "summary": "Automate media searches across the *arr stack.",
+      "github_stars": 255
+    },
+    {
+      "slug": "secrover",
+      "name": "Secrover",
+      "summary": "Security reports.",
+      "github_stars": 255
+    },
+    {
+      "slug": "touitomamout",
+      "name": "Touitomamout",
+      "summary": "Easily sync tweets to Mastodon and Bluesky.",
+      "github_stars": 253
+    },
+    {
+      "slug": "fedora-commons-repository",
+      "name": "Fedora Commons Repository",
+      "summary": "Fedora Repository.",
+      "github_stars": 252
+    },
+    {
+      "slug": "meerkat-crm",
+      "name": "Meerkat CRM",
+      "summary": "Simple CRM for the personal life.",
+      "github_stars": 252
+    },
+    {
+      "slug": "repliqate",
+      "name": "Repliqate",
+      "summary": "Modular backup app for Docker environments.",
+      "github_stars": 250
+    },
+    {
+      "slug": "easywi",
+      "name": "EasyWI",
+      "summary": "Gameserver, Voiceserver Webinterface.",
+      "github_stars": 246
+    },
+    {
+      "slug": "giftmanager",
+      "name": "GiftManager",
+      "summary": "Gift idea manager for families.",
+      "github_stars": 246
+    },
+    {
+      "slug": "receipt-wrangler",
+      "name": "Receipt Wrangler",
+      "summary": "Receipt Wrangler application.",
+      "github_stars": 245
+    },
+    {
+      "slug": "ziit",
+      "name": "Ziit",
+      "summary": "The Swiss army knife of code time tracking.",
+      "github_stars": 240
+    },
+    {
+      "slug": "comic-library-utilities",
+      "name": "Comic Library Utilities",
+      "summary": "Toolset for managing large comic libraries.",
+      "github_stars": 239
+    },
+    {
+      "slug": "dock-dploy",
+      "name": "Dock-Dploy",
+      "summary": "Visually build and manage Docker Compose files.",
+      "github_stars": 239
+    },
+    {
+      "slug": "clean-slate",
+      "name": "Clean Slate",
+      "summary": "Calorie tracking without judgement.",
+      "github_stars": 237
+    },
+    {
+      "slug": "jellysweep",
+      "name": "Jellysweep",
+      "summary": "Smart cleanup tool for Jellyfin media servers.",
+      "github_stars": 237
+    },
+    {
+      "slug": "bubo-reader",
+      "name": "Bubo Reader",
+      "summary": "Irrationally minimal RSS feed reader.",
+      "github_stars": 234
+    },
+    {
+      "slug": "autocaliweb",
+      "name": "Autocaliweb",
+      "summary": "Clean web interface for Calibre.",
+      "github_stars": 233
+    },
+    {
+      "slug": "lufin",
+      "name": "Lufin",
+      "summary": "Modern file sharing service.",
+      "github_stars": 228
+    },
+    {
+      "slug": "imagor-studio",
+      "name": "Imagor Studio",
+      "summary": "Image gallery and live editing web app.",
+      "github_stars": 225
+    },
+    {
+      "slug": "container-hub",
+      "name": "Container Hub",
+      "summary": "Simple, lightweight UI for container registries.",
+      "github_stars": 222
+    },
+    {
+      "slug": "mailflow",
+      "name": "MailFlow",
+      "summary": "Unified webmail client.",
+      "github_stars": 219
+    },
+    {
+      "slug": "mkcert-web-ui",
+      "name": "mkcert Web UI",
+      "summary": "Modern web interface for mkcert.",
+      "github_stars": 218
+    },
+    {
+      "slug": "mqtt-web-interface",
+      "name": "MQTT Web Interface",
+      "summary": "Lightweight web interface for MQTT visualization.",
+      "github_stars": 214
+    },
+    {
+      "slug": "medialytics",
+      "name": "Medialytics",
+      "summary": "Plex media server statistics.",
+      "github_stars": 213
+    },
+    {
+      "slug": "nextcloud-tables",
+      "name": "Nextcloud Tables",
+      "summary": "No-code apps and tables.",
+      "github_stars": 208
+    },
+    {
+      "slug": "pepperminty-wiki",
+      "name": "Pepperminty Wiki",
+      "summary": "Complete wiki engine contained in a single file.",
+      "github_stars": 206
+    },
+    {
+      "slug": "tootik",
+      "name": "Tootik",
+      "summary": "Federated nano-blogging service with federation.",
+      "github_stars": 204
+    },
+    {
+      "slug": "ackify",
+      "name": "Ackify",
+      "summary": "Proof of read app for internal documents.",
+      "github_stars": 202
+    },
+    {
+      "slug": "eda",
+      "name": "EDA",
+      "summary": "Web app for data analysis and visualization.",
+      "github_stars": 201
+    },
+    {
+      "slug": "mytinytodo",
+      "name": "myTinyTodo",
+      "summary": "Your tiny todo list.",
+      "github_stars": 198
+    },
+    {
+      "slug": "cmyflix",
+      "name": "cmyflix",
+      "summary": "Cmyflix, a Netflix clone.",
+      "github_stars": 195
+    },
+    {
+      "slug": "liwan",
+      "name": "Liwan",
+      "summary": "Privacy-first web analytics.",
+      "github_stars": 194
+    },
+    {
+      "slug": "letterfeed",
+      "name": "LetterFeed",
+      "summary": "Transform e-mail into RSS feeds.",
+      "github_stars": 193
+    },
+    {
+      "slug": "superbin",
+      "name": "SuperBin",
+      "summary": "File sharing, URL shortening, and pastebin.",
+      "github_stars": 190
+    },
+    {
+      "slug": "anibridge",
+      "name": "AniBridge",
+      "summary": "Sync anime watch activity across platforms.",
+      "github_stars": 187
+    },
+    {
+      "slug": "html2rss",
+      "name": "html2rss",
+      "summary": "Generate RSS feeds for any website.",
+      "github_stars": 181
+    },
+    {
+      "slug": "markopolis",
+      "name": "Markopolis",
+      "summary": "Web app and API server for Markdown files.",
+      "github_stars": 180
+    },
+    {
+      "slug": "shotshare",
+      "name": "ShotShare",
+      "summary": "Image sharing application.",
+      "github_stars": 179
+    },
+    {
+      "slug": "sortarr",
+      "name": "Sortarr",
+      "summary": "Sonarr and Radarr library insights.",
+      "github_stars": 179
+    },
+    {
+      "slug": "eddrit",
+      "name": "eddrit",
+      "summary": "Lightweight alternative frontend for Reddit.",
+      "github_stars": 178
+    },
+    {
+      "slug": "priviblur",
+      "name": "Priviblur",
+      "summary": "Privacy-focused alternative frontend to Tumblr.",
+      "github_stars": 163
+    },
+    {
+      "slug": "medassist",
+      "name": "MedAssist",
+      "summary": "Daily medication reminders and management.",
+      "github_stars": 158
+    },
+    {
+      "slug": "sama",
+      "name": "SAMA",
+      "summary": "Next-Gen chat server and.",
+      "github_stars": 158
+    },
+    {
+      "slug": "over-syncerr",
+      "name": "Overr-Syncerr",
+      "summary": "Webhook handler for subtitle management.",
+      "github_stars": 157
+    },
+    {
+      "slug": "simpledms",
+      "name": "SimpleDMS",
+      "summary": "Easy-to-use, metadata-driven, document management system (DMS) for small businesses that sorts documents almost by itself.",
+      "github_stars": 153
+    },
+    {
+      "slug": "habitat-social",
+      "name": "Habitat",
+      "summary": "Social app for local communities.",
+      "github_stars": 143
+    },
+    {
+      "slug": "nutritrace",
+      "name": "NutriTrace",
+      "summary": "Personal nutrition tracker.",
+      "github_stars": 134
+    },
+    {
+      "slug": "tamari",
+      "name": "Tamari",
+      "summary": "A fully-featured recipe manager web app built using Python and the Flask Framework.",
+      "github_stars": 134
+    },
+    {
+      "slug": "d9",
+      "name": "d9",
+      "summary": "D9 - openSource maintenance of directus.",
+      "github_stars": 130
+    },
+    {
+      "slug": "flare",
+      "name": "Flare",
+      "summary": "A modern, lightning-fast file sharing app built for self-hosting, Created with support for ShareX, KDE Spectacle, Flameshot, and easy to set up.",
+      "github_stars": 122
+    },
+    {
+      "slug": "foodcoopshop",
+      "name": "FoodCoopShop",
+      "summary": "User-friendly software for food-coops.",
+      "github_stars": 122
+    },
+    {
+      "slug": "live-blog",
+      "name": "Live Blog",
+      "summary": "Live blogging app for professionals.",
+      "github_stars": 117
+    },
+    {
+      "slug": "homarr-iframes",
+      "name": "Homarr iFrames",
+      "summary": "IFrames designed for Homarr dashboards.",
+      "github_stars": 115
+    },
+    {
+      "slug": "nimbus",
+      "name": "Nimbus",
+      "summary": "Modern drag-and-drop homelab dashboard with visual editor and simple configuration.",
+      "github_stars": 115
+    },
+    {
+      "slug": "piglet",
+      "name": "Piglet",
+      "summary": "Simple web app for managing household budgets.",
+      "github_stars": 110
+    },
+    {
+      "slug": "mergeable",
+      "name": "Mergeable",
+      "summary": "Better inbox for GitHub pull requests.",
+      "github_stars": 107
+    },
+    {
+      "slug": "monitarr",
+      "name": "Monitarr",
+      "summary": "Monitor downloads from Radarr and Sonarr.",
+      "github_stars": 103
+    },
+    {
+      "slug": "task-keeper",
+      "name": "Task Keeper",
+      "summary": "List editor for power users, backed by a server.",
+      "github_stars": 102
+    },
+    {
+      "slug": "shared-moments",
+      "name": "Shared Moments",
+      "summary": "A website designed for couples to capture and preserve their special moments.",
+      "github_stars": 101
+    },
+    {
+      "slug": "thrifty",
+      "name": "Thrifty",
+      "summary": "Simple monthly income and expense tracker.",
+      "github_stars": 97
+    },
+    {
+      "slug": "geo2tz",
+      "name": "Geo2tz",
+      "summary": "Get the timezone from geo coordinates (lat, lon).",
+      "github_stars": 96
+    },
+    {
+      "slug": "atria",
+      "name": "Atria",
+      "summary": "Professional event management and networking.",
+      "github_stars": 95
+    },
+    {
+      "slug": "calorific",
+      "name": "Calorific",
+      "summary": "Simple calorie tracking.",
+      "github_stars": 92
+    },
+    {
+      "slug": "dribdat",
+      "name": "Dribdat",
+      "summary": "Challenge boards for sweeter hackathons.",
+      "github_stars": 88
+    },
+    {
+      "slug": "dropserver",
+      "name": "Dropserver",
+      "summary": "An application app for your personal web services.",
+      "github_stars": 87
+    },
+    {
+      "slug": "spendspentspent",
+      "name": "SpendSpentSpent",
+      "summary": "Easy-to-use expense tracker.",
+      "github_stars": 75
+    },
+    {
+      "slug": "liquor-locker",
+      "name": "Liquor Locker",
+      "summary": "Bar management with AI-powered recommendations.",
+      "github_stars": 70
+    },
+    {
+      "slug": "swetrix",
+      "name": "Swetrix",
+      "summary": "Web analytics to satisfy all your needs.",
+      "github_stars": 70
+    },
+    {
+      "slug": "stencilbox",
+      "name": "StencilBox",
+      "summary": "Build YAML into simple and speedy static sites.",
+      "github_stars": 68
+    },
+    {
+      "slug": "fork-recipes",
+      "name": "Fork Recipes",
+      "summary": "Manage your food recipes with simplicity.",
+      "github_stars": 67
+    },
+    {
+      "slug": "docker-php-startpage",
+      "name": "docker-php-startpage",
+      "summary": "PHP-based startpage and status monitor in Docker.",
+      "github_stars": 64
+    },
+    {
+      "slug": "bicimon",
+      "name": "Bicimon",
+      "summary": "Bike Speedometer as Progressive Web App.",
+      "github_stars": 62
+    },
+    {
+      "slug": "snypy",
+      "name": "SnyPy",
+      "summary": "On-prem code snippet manager.",
+      "github_stars": 62
+    },
+    {
+      "slug": "civitai-data-manager",
+      "name": "Civitai Data Manager",
+      "summary": "Civitai model metadata backups and management.",
+      "github_stars": 58
+    },
+    {
+      "slug": "limbas",
+      "name": "Limbas",
+      "summary": "Low-code database framework that fits your needs.",
+      "github_stars": 58
+    },
+    {
+      "slug": "dynamodb-dashboard",
+      "name": "DynamoDB Dashboard",
+      "summary": "Web GUI dashboard for DynamoDB.",
+      "github_stars": 54
+    },
+    {
+      "slug": "w",
+      "name": "W",
+      "summary": "light-weight experimental wiki.",
+      "github_stars": 54
+    },
+    {
+      "slug": "music-service",
+      "name": "Music Service",
+      "summary": "Monitor, download, and sync online music.",
+      "github_stars": 52
+    },
+    {
+      "slug": "rss-librarian",
+      "name": "RSS Librarian",
+      "summary": "Read later service for RSS purists.",
+      "github_stars": 50
+    },
+    {
+      "slug": "faridoon",
+      "name": "Faridoon",
+      "summary": "Save and publish chat quotes for others to see.",
+      "github_stars": 49
+    },
+    {
+      "slug": "libreserver",
+      "name": "LibreServer",
+      "summary": "Home server configuration based on Debian.",
+      "github_stars": 49
+    },
+    {
+      "slug": "pomjs",
+      "name": "POMjs",
+      "summary": "Random password generator.",
+      "github_stars": 47
+    },
+    {
+      "slug": "analog",
+      "name": "ANALOG",
+      "summary": "A minimal analytics tool to self-host.",
+      "github_stars": 42
+    },
+    {
+      "slug": "shifter",
+      "name": "Shifter",
+      "summary": "Simple, file-sharing web app, powered by Django.",
+      "github_stars": 42
+    },
+    {
+      "slug": "deepsubx",
+      "name": "DeepSubX",
+      "summary": "Use DeepL API to translate media subtitles.",
+      "github_stars": 36
+    },
+    {
+      "slug": "flox",
+      "name": "Flox",
+      "summary": "Movie, series, and anime watch list.",
+      "github_stars": 33
+    },
+    {
+      "slug": "geoposler",
+      "name": "Geoposler",
+      "summary": "E-mail campaign management application.",
+      "github_stars": 33
+    },
+    {
+      "slug": "hive-pal",
+      "name": "Hive-Pal",
+      "summary": "A comprehensive mobile-first beekeeping management application to track hives, inspections, and colony health.",
+      "github_stars": 30
+    },
+    {
+      "slug": "bbyen",
+      "name": "BBYEN",
+      "summary": "YouTube subscription e-mail notifications.",
+      "github_stars": 18
+    },
+    {
+      "slug": "aastro",
+      "name": "Aastro",
+      "summary": "Extensible API Gateway written in Go.",
+      "github_stars": 15
+    },
+    {
+      "slug": "hymnoscribe",
+      "name": "HymnoScribe",
+      "summary": "Comprehensive tool for creating hymn sheets.",
+      "github_stars": 7
+    },
+    {
+      "slug": "request-inbox",
+      "name": "Request Inbox",
+      "summary": "The simplest way to test your APIs and webhooks.",
+      "github_stars": 5
+    }
+  ]
+}

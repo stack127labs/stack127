@@ -1,0 +1,473 @@
+{
+  "generated_at": "2026-07-07T07:51:25.117Z",
+  "published": 1811,
+  "blocked_count": 42,
+  "draft_blocked": 0,
+  "blocker_counts": {
+    "docker_high_risk_url": 42
+  },
+  "blocked_rows": [
+    {
+      "slug": "asciinema",
+      "name": "asciinema",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Terminal recording host for uploading, browsing, and sharing asciicast sessions.",
+      "repository_url": "https://github.com/asciinema/asciinema-server",
+      "website_url": "https://docs.asciinema.org/manual/server",
+      "docker_url": "https://github.com/asciinema/asciinema-server/blob/HEAD/dev/docker-compose.yml"
+    },
+    {
+      "slug": "cially",
+      "name": "Cially",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Shows Discord server activity, member trends, and community analytics in a dashboard.",
+      "repository_url": "https://github.com/cially/cially",
+      "website_url": "https://cially.org",
+      "docker_url": "https://github.com/cially/cially/blob/HEAD/docker/docker-compose.yaml"
+    },
+    {
+      "slug": "cinephage",
+      "name": "Cinephage",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Organizes movie and show libraries with collection metadata and media browsing.",
+      "repository_url": "https://github.com/MoldyTaint/Cinephage",
+      "website_url": "https://github.com/MoldyTaint/Cinephage",
+      "docker_url": "https://github.com/MoldyTaint/Cinephage/blob/HEAD/docker-compose.yaml"
+    },
+    {
+      "slug": "circled-me",
+      "name": "circled.me",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Community server for private photo backup, albums, chat, and audio or video calls.",
+      "repository_url": "https://github.com/circled-me/server",
+      "website_url": "https://circled.me",
+      "docker_url": "https://github.com/circled-me/server/blob/HEAD/docker-compose-example.yaml"
+    },
+    {
+      "slug": "ckan",
+      "name": "CKAN",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Data portal app for publishing datasets, metadata, organizations, and public data catalogs.",
+      "repository_url": "https://github.com/ckan/ckan",
+      "website_url": "https://ckan.org",
+      "docker_url": "https://github.com/ckan/ckan/blob/HEAD/test-infrastructure/docker-compose.yml"
+    },
+    {
+      "slug": "dpaste",
+      "name": "dpaste",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Simple pastebin with multiple text and code option, with short url result easy to remember.",
+      "repository_url": "https://github.com/DarrenOfficial/dpaste",
+      "website_url": "https://dpaste.org",
+      "docker_url": "https://github.com/DarrenOfficial/dpaste/blob/HEAD/docker-compose.yml"
+    },
+    {
+      "slug": "etesync",
+      "name": "EteSync",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Secure syncing for contacts, calendars, tasks, and notes.",
+      "repository_url": "https://github.com/etesync/server",
+      "website_url": "https://www.etesync.com",
+      "docker_url": "https://github.com/etesync/server/blob/HEAD/docker/test-server/Dockerfile"
+    },
+    {
+      "slug": "exercise-diary",
+      "name": "Exercise Diary",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Workout diary with GitHub-style yearly visualization.",
+      "repository_url": "https://github.com/aceberg/ExerciseDiary",
+      "website_url": "https://hub.docker.com/r/aceberg/exercisediary",
+      "docker_url": "https://github.com/aceberg/ExerciseDiary/blob/HEAD/docker-compose.yml"
+    },
+    {
+      "slug": "fast-music-remover",
+      "name": "Fast Music Remover",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Removes background music and noise from audio tracks for cleaner speech or media clips.",
+      "repository_url": "https://github.com/omeryusufyagci/fast-music-remover",
+      "website_url": "https://github.com/omeryusufyagci/fast-music-remover",
+      "docker_url": "https://github.com/omeryusufyagci/fast-music-remover/blob/HEAD/docker-compose.yml"
+    },
+    {
+      "slug": "foodsoft",
+      "name": "Foodsoft",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Manage a non-profit food coop (product catalog, ordering, accounting, job scheduling).",
+      "repository_url": "https://github.com/foodcoops/foodsoft",
+      "website_url": "https://foodcoops.net",
+      "docker_url": "https://github.com/foodcoops/foodsoft/blob/HEAD/docker-compose.ci.yml"
+    },
+    {
+      "slug": "fork-recipes",
+      "name": "Fork Recipes",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Recipe manager for saving dishes, organizing ingredients, and browsing cooking notes.",
+      "repository_url": "https://github.com/mikebgrep/fork.recipes",
+      "website_url": "https://mikebgrep.github.io/forkapi",
+      "docker_url": "https://github.com/mikebgrep/fork.recipes/blob/HEAD/docker-compose-sqlite.yml"
+    },
+    {
+      "slug": "gerrit",
+      "name": "Gerrit",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Code review and project management tool for Git-based projects.",
+      "repository_url": "https://github.com/GerritCodeReview/gerrit",
+      "website_url": "https://www.gerritcodereview.com",
+      "docker_url": "https://github.com/GerritCodeReview/gerrit/blob/HEAD/e2e-tests/Dockerfile"
+    },
+    {
+      "slug": "go-feature-flag",
+      "name": "GO Feature Flag",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Feature flag server for managing rollout rules, SDK keys, and evaluation across apps.",
+      "repository_url": "https://github.com/thomaspoignant/go-feature-flag",
+      "website_url": "https://gofeatureflag.org",
+      "docker_url": "https://github.com/thomaspoignant/go-feature-flag/blob/HEAD/cmd/relayproxy/testdata/prometheus-grafana/compose.yaml"
+    },
+    {
+      "slug": "grist",
+      "name": "Grist",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Spreadsheet-database app for relational tables, formulas, and access-controlled business data.",
+      "repository_url": "https://github.com/gristlabs/grist-core",
+      "website_url": "https://www.getgrist.com",
+      "docker_url": "https://github.com/gristlabs/grist-core/blob/HEAD/docker-compose-examples/grist-local-testing/docker-compose.yml"
+    },
+    {
+      "slug": "hister",
+      "name": "Hister",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Personal search engine that indexes visited websites, local files, and offline previews.",
+      "repository_url": "https://github.com/asciimoo/hister",
+      "website_url": "https://hister.org",
+      "docker_url": "https://github.com/asciimoo/hister/blob/HEAD/compose.yml"
+    },
+    {
+      "slug": "leafwiki",
+      "name": "LeafWiki",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Fast wiki for people who think in folders, not feeds, Fast editing, Tree navigation, Markdown on disk.",
+      "repository_url": "https://github.com/perber/leafwiki",
+      "website_url": "https://leafwiki.com",
+      "docker_url": "https://github.com/perber/leafwiki/blob/HEAD/e2e-proxy/docker-compose.yml"
+    },
+    {
+      "slug": "local-deep-research",
+      "name": "Local Deep Research",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Research assistant for searching sources, extracting PDFs, and storing encrypted local notes.",
+      "repository_url": "https://github.com/LearningCircuit/local-deep-research",
+      "website_url": "https://github.com/LearningCircuit/local-deep-research",
+      "docker_url": "https://github.com/LearningCircuit/local-deep-research/blob/HEAD/docker-compose.yml"
+    },
+    {
+      "slug": "mazanoke",
+      "name": "Mazanoke",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Browser image compressor for shrinking images locally before upload or sharing.",
+      "repository_url": "https://github.com/civilblur/mazanoke",
+      "website_url": "https://mazanoke.com",
+      "docker_url": "https://github.com/civilblur/mazanoke/blob/HEAD/compose.yaml"
+    },
+    {
+      "slug": "mealie",
+      "name": "Mealie",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Mealie is a recipe manager and meal planner with a RestAPI backend and a reactive frontend application built in Vue for a pleasant user experience for the.",
+      "repository_url": "https://github.com/mealie-recipes/mealie",
+      "website_url": "https://docs.mealie.io",
+      "docker_url": "https://github.com/mealie-recipes/mealie/blob/HEAD/docker/docker-compose.yml"
+    },
+    {
+      "slug": "mediamtx",
+      "name": "MediaMTX",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Realtime media server for publishing, proxying, recording, and playing video or audio streams.",
+      "repository_url": "https://github.com/bluenviron/mediamtx",
+      "website_url": "https://mediamtx.org",
+      "docker_url": "https://github.com/bluenviron/mediamtx/blob/HEAD/internal/teste2e/images/vlc/Dockerfile"
+    },
+    {
+      "slug": "neodb",
+      "name": "NeoDB",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Federated tracker for books, movies, games, music, collections, ratings, and personal activity.",
+      "repository_url": "https://github.com/neodb-social/neodb",
+      "website_url": "https://neodb.net",
+      "docker_url": "https://github.com/neodb-social/neodb/blob/HEAD/compose.yml"
+    },
+    {
+      "slug": "neonlink",
+      "name": "NeonLink",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Bookmark service with unique design and simple installation with Docker.",
+      "repository_url": "https://github.com/AlexSciFier/neonlink",
+      "website_url": "https://github.com/AlexSciFier/neonlink",
+      "docker_url": "https://github.com/AlexSciFier/neonlink/blob/HEAD/docker-compose.yml"
+    },
+    {
+      "slug": "nextcloud-social",
+      "name": "Nextcloud Social",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Nextcloud app that adds federated social networking to a Nextcloud instance.",
+      "repository_url": "https://github.com/nextcloud/social",
+      "website_url": "https://apps.nextcloud.com/apps/social",
+      "docker_url": "https://github.com/nextcloud/social/blob/HEAD/cypress/docker-compose.yml"
+    },
+    {
+      "slug": "nginx-proxy-manager",
+      "name": "Nginx Proxy Manager",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Web UI for managing Nginx proxy hosts, SSL certificates, redirects, and access lists.",
+      "repository_url": "https://github.com/NginxProxyManager/nginx-proxy-manager",
+      "website_url": "https://nginxproxymanager.com",
+      "docker_url": "https://github.com/NginxProxyManager/nginx-proxy-manager/blob/HEAD/docker/docker-compose.ci.yml"
+    },
+    {
+      "slug": "norish",
+      "name": "Norish",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Helps households plan meals, collect recipes, choose cooking ideas, and manage lists.",
+      "repository_url": "https://github.com/norish-recipes/norish",
+      "website_url": "https://github.com/norish-recipes/norish",
+      "docker_url": "https://github.com/norish-recipes/norish/blob/HEAD/docker/compose.base.yaml"
+    },
+    {
+      "slug": "openpanel",
+      "name": "OpenPanel",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Web hosting control panel for managing Linux sites, servers, domains, and services.",
+      "repository_url": "https://github.com/stefanpejcic/OpenPanel",
+      "website_url": "https://openpanel.com",
+      "docker_url": "https://github.com/stefanpejcic/OpenPanel/blob/HEAD/configuration/docker/compose/docker-compose.yml"
+    },
+    {
+      "slug": "openrouteservice",
+      "name": "OpenRouteService",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Route service with directions, isochrones, time-distance matrix, route optimization, etc.",
+      "repository_url": "https://github.com/GIScience/openrouteservice",
+      "website_url": "https://openrouteservice.org",
+      "docker_url": "https://github.com/GIScience/openrouteservice/blob/HEAD/docker-compose.yml"
+    },
+    {
+      "slug": "owncloud-infinite-scale",
+      "name": "ownCloud Infinite Scale",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "File sync and share server for folders, users, permissions, and collaborative storage.",
+      "repository_url": "https://github.com/owncloud/ocis",
+      "website_url": "https://doc.owncloud.com/ocis/next/",
+      "docker_url": "https://github.com/owncloud/ocis/blob/HEAD/Dockerfile"
+    },
+    {
+      "slug": "recipesage",
+      "name": "RecipeSage",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Recipe keeper, meal plan organizer, and shopping list manager that can import recipes directly from any URL.",
+      "repository_url": "https://github.com/julianpoy/RecipeSage",
+      "website_url": "https://recipesage.com",
+      "docker_url": "https://github.com/julianpoy/RecipeSage/blob/HEAD/docker-compose.yml"
+    },
+    {
+      "slug": "recipya",
+      "name": "Recipya",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Clean, simple and recipe manager your whole family will enjoy.",
+      "repository_url": "https://github.com/reaper47/recipya",
+      "website_url": "https://old.recipya.ca",
+      "docker_url": "https://github.com/reaper47/recipya/blob/HEAD/deploy/compose.yaml"
+    },
+    {
+      "slug": "rocket-chat",
+      "name": "Rocket.Chat",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "The Secure CommsOS for mission-critical operations.",
+      "repository_url": "https://github.com/RocketChat/Rocket.Chat",
+      "website_url": "https://rocket.chat",
+      "docker_url": "https://github.com/RocketChat/Rocket.Chat/blob/HEAD/docker-compose-ci.yml"
+    },
+    {
+      "slug": "roundcube",
+      "name": "Roundcube",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Browser-based IMAP with an application-like user interface.",
+      "repository_url": "https://github.com/roundcube/roundcubemail",
+      "website_url": "https://roundcube.net",
+      "docker_url": "https://github.com/roundcube/roundcubemail/blob/HEAD/.ci/compose.yaml"
+    },
+    {
+      "slug": "se2eend",
+      "name": "sE2EEnd",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "End-to-end encrypted file sharing with password protection, download limits, and auto-expiration, integrated with Keycloak for authentication.",
+      "repository_url": "https://github.com/sE2EEnd/sE2EEnd",
+      "website_url": "https://se2eend.github.io/sE2EEnd",
+      "docker_url": "https://github.com/sE2EEnd/sE2EEnd/blob/HEAD/docker-compose.yml"
+    },
+    {
+      "slug": "socialhome",
+      "name": "Socialhome",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Federated and decentralized profile builder and social network engine.",
+      "repository_url": "https://github.com/jaywink/socialhome",
+      "website_url": "https://codeberg.org/socialhome/socialhome",
+      "docker_url": "https://github.com/jaywink/socialhome/blob/HEAD/docker/Dockerfile"
+    },
+    {
+      "slug": "socioboard",
+      "name": "Socioboard",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Social media management, analytics, and reporting app supporting nine social media networks out-of-the-box.",
+      "repository_url": "https://github.com/socioboard/Socioboard-5.0",
+      "website_url": "https://github.com/socioboard/Socioboard-5.0",
+      "docker_url": "https://github.com/socioboard/Socioboard-5.0/blob/HEAD/docker/docker-compose.yaml"
+    },
+    {
+      "slug": "spoolman",
+      "name": "Spoolman",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Keep track of your inventory of 3D-printer filament spools.",
+      "repository_url": "https://github.com/Donkie/Spoolman",
+      "website_url": "https://github.com/Donkie/Spoolman",
+      "docker_url": "https://github.com/Donkie/Spoolman/blob/HEAD/tests_integration/docker-compose-sqlite.yml"
+    },
+    {
+      "slug": "startos",
+      "name": "StartOS",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Browser-based, graphical Operating System (OS) that makes running a personal server as easy as running a personal computer.",
+      "repository_url": "https://github.com/Start9Labs/start-technologies",
+      "website_url": "https://start9.com",
+      "docker_url": "https://github.com/Start9Labs/start-technologies/blob/HEAD/projects/start-os/build/image-recipe/Dockerfile"
+    },
+    {
+      "slug": "stencilbox",
+      "name": "StencilBox",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Static site generator that turns YAML content into fast, structured websites.",
+      "repository_url": "https://github.com/jamesread/StencilBox",
+      "website_url": "https://jamesread.github.io/StencilBox",
+      "docker_url": "https://github.com/jamesread/StencilBox/blob/HEAD/Dockerfile"
+    },
+    {
+      "slug": "tandoor-recipes",
+      "name": "Tandoor Recipes",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Recipe manager for planning meals, organizing ingredients, and building shopping lists.",
+      "repository_url": "https://github.com/TandoorRecipes/recipes",
+      "website_url": "https://docs.tandoor.dev",
+      "docker_url": "https://github.com/TandoorRecipes/recipes/blob/HEAD/docs/install/docker/plain/docker-compose.yml"
+    },
+    {
+      "slug": "tracim",
+      "name": "Tracim",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Collaborative app for team collaboration: file,threads,notes,agenda,etc.",
+      "repository_url": "https://github.com/tracim/tracim",
+      "website_url": "https://tracim.fr",
+      "docker_url": "https://github.com/tracim/tracim/blob/HEAD/backend/docker-compose.yml"
+    },
+    {
+      "slug": "woodpecker-ci",
+      "name": "Woodpecker CI",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "CI/CD engine for running pipelines, builds, plugins, and repository automation.",
+      "repository_url": "https://github.com/woodpecker-ci/woodpecker",
+      "website_url": "https://woodpecker-ci.org",
+      "docker_url": "https://github.com/woodpecker-ci/woodpecker/blob/HEAD/docker-compose.gitpod.yaml"
+    },
+    {
+      "slug": "zero-totp",
+      "name": "Zero-TOTP",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Complete, reliable, secure and zero-trust webapp based on zero-knowledge encryption to store your TOTP codes.",
+      "repository_url": "https://github.com/SeaweedbrainCY/zero-totp",
+      "website_url": "https://zero-totp.com",
+      "docker_url": "https://github.com/SeaweedbrainCY/zero-totp/blob/HEAD/e2e-tests/docker-compose.yml"
+    }
+  ]
+}

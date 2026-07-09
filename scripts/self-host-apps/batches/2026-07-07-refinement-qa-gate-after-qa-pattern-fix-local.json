@@ -1,0 +1,198 @@
+{
+  "generated_at": "2026-07-07T07:54:20.610Z",
+  "published": 1811,
+  "blocked_count": 17,
+  "draft_blocked": 0,
+  "blocker_counts": {
+    "docker_high_risk_url": 17
+  },
+  "blocked_rows": [
+    {
+      "slug": "algernon",
+      "name": "Algernon",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Small self-contained pure-Go web server with Lua, Markdown, HTTP/2, QUIC, Redis and PostgreSQL support.",
+      "repository_url": "https://github.com/xyproto/algernon",
+      "website_url": "https://algernon.roboticoverlords.org",
+      "docker_url": "https://github.com/xyproto/algernon/blob/HEAD/containers/dev/Containerfile"
+    },
+    {
+      "slug": "apache-airflow",
+      "name": "Apache Airflow",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "App to programmatically author, schedule, and monitor workflows.",
+      "repository_url": "https://github.com/apache/airflow",
+      "website_url": "https://airflow.apache.org",
+      "docker_url": "https://github.com/apache/airflow/blob/HEAD/providers/informatica/dev/docker-compose.yml"
+    },
+    {
+      "slug": "asciinema",
+      "name": "asciinema",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Terminal recording host for uploading, browsing, and sharing asciicast sessions.",
+      "repository_url": "https://github.com/asciinema/asciinema-server",
+      "website_url": "https://docs.asciinema.org/manual/server",
+      "docker_url": "https://github.com/asciinema/asciinema-server/blob/HEAD/dev/docker-compose.yml"
+    },
+    {
+      "slug": "bitwarden",
+      "name": "Bitwarden",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Password manager with a webapp, browser extension, and mobile app.",
+      "repository_url": "https://github.com/bitwarden/server",
+      "website_url": "https://bitwarden.com",
+      "docker_url": "https://github.com/bitwarden/server/blob/HEAD/dev/docker-compose.yml"
+    },
+    {
+      "slug": "bunkerweb",
+      "name": "BunkerWeb",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Next-gen web app Firewall (WAF) that will protect your web services.",
+      "repository_url": "https://github.com/bunkerity/bunkerweb",
+      "website_url": "https://www.bunkerweb.io",
+      "docker_url": "https://github.com/bunkerity/bunkerweb/blob/HEAD/misc/dev/docker-compose.yml"
+    },
+    {
+      "slug": "checkmate",
+      "name": "Checkmate",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Server monitor for uptime checks, incidents, dashboards, and alert notifications.",
+      "repository_url": "https://github.com/bluewave-labs/Checkmate",
+      "website_url": "https://checkmate.so",
+      "docker_url": "https://github.com/bluewave-labs/Checkmate/blob/HEAD/docker/dev/docker-compose.yaml"
+    },
+    {
+      "slug": "dolibarr",
+      "name": "Dolibarr",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "ERP and CRM app for managing customers, invoices, products, projects, and business records.",
+      "repository_url": "https://github.com/Dolibarr/dolibarr",
+      "website_url": "https://www.dolibarr.org",
+      "docker_url": "https://github.com/Dolibarr/dolibarr/blob/HEAD/dev/build/docker/docker-compose.yml"
+    },
+    {
+      "slug": "huly",
+      "name": "Huly",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Team workspace for project management, issues, documents, chat, planning, and collaboration.",
+      "repository_url": "https://github.com/hcengineering/platform",
+      "website_url": "https://huly.io",
+      "docker_url": "https://github.com/hcengineering/platform/blob/HEAD/dev/docker-compose.yaml"
+    },
+    {
+      "slug": "logchef",
+      "name": "Logchef",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Log analytics app for querying application logs, filtering events, reviewing fields, and saving searches.",
+      "repository_url": "https://github.com/mr-karan/logchef",
+      "website_url": "https://logchef.app",
+      "docker_url": "https://github.com/mr-karan/logchef/blob/HEAD/dev/docker-compose.yml"
+    },
+    {
+      "slug": "maloja",
+      "name": "Maloja",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Collects music scrobbles and turns listening history into charts, artists, and personal stats.",
+      "repository_url": "https://github.com/krateng/maloja",
+      "website_url": "https://maloja.krateng.ch",
+      "docker_url": "https://github.com/krateng/maloja/blob/HEAD/dev/docker-compose.yml"
+    },
+    {
+      "slug": "metabase",
+      "name": "Metabase",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Easy way for everyone in your company to ask questions and learn from data.",
+      "repository_url": "https://github.com/metabase/metabase",
+      "website_url": "https://metabase.com",
+      "docker_url": "https://github.com/metabase/metabase/blob/HEAD/dev/docker-compose.yml"
+    },
+    {
+      "slug": "openslides",
+      "name": "OpenSlides",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Presentation and assembly system for managing and projecting agenda, motions and elections of an assembly.",
+      "repository_url": "https://github.com/OpenSlides/OpenSlides",
+      "website_url": "https://openslides.com",
+      "docker_url": "https://github.com/OpenSlides/OpenSlides/blob/HEAD/dev/docker/docker-compose.test.yml"
+    },
+    {
+      "slug": "perses",
+      "name": "Perses",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Declarative dashboard for observability visualization.",
+      "repository_url": "https://github.com/perses/perses",
+      "website_url": "https://perses.dev",
+      "docker_url": "https://github.com/perses/perses/blob/HEAD/dev/docker-compose.yaml"
+    },
+    {
+      "slug": "receipt-wrangler",
+      "name": "Receipt Wrangler",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Receipt tracker for storing purchase records, organizing expenses, and reviewing spending history.",
+      "repository_url": "https://github.com/Receipt-Wrangler/receipt-wrangler",
+      "website_url": "https://receiptwrangler.io",
+      "docker_url": "https://github.com/Receipt-Wrangler/receipt-wrangler/blob/HEAD/api/dev/docker-compose.yaml"
+    },
+    {
+      "slug": "safebucket",
+      "name": "Safebucket",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "File sharing app with pluggable infrastructure, where uploads and downloads go directly between and S3-compatible storage.",
+      "repository_url": "https://github.com/safebucket/safebucket",
+      "website_url": "https://docs.safebucket.io",
+      "docker_url": "https://github.com/safebucket/safebucket/blob/HEAD/deployments/dev/docker-compose.yml"
+    },
+    {
+      "slug": "whodb",
+      "name": "WhoDB",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Database explorer for browsing schemas, running queries, and inspecting data through a web UI.",
+      "repository_url": "https://github.com/clidey/whodb",
+      "website_url": "https://whodb.com",
+      "docker_url": "https://github.com/clidey/whodb/blob/HEAD/dev/docker-compose.yml"
+    },
+    {
+      "slug": "wiki-js",
+      "name": "Wiki.js",
+      "blockers": [
+        "docker_high_risk_url"
+      ],
+      "summary": "Wiki app for writing documentation with Markdown, permissions, search, and Git-backed storage.",
+      "repository_url": "https://github.com/requarks/wiki",
+      "website_url": "https://js.wiki",
+      "docker_url": "https://github.com/requarks/wiki/blob/HEAD/dev/containers/docker-compose.yml"
+    }
+  ]
+}

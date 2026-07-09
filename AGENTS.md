@@ -41,10 +41,14 @@ Version127 is a compact technical directory site. It should grow into multiple r
 
 ## Skills
 
-- Page-specific Codex skills live under `skills/<page-slug>/<skill-name>/`.
-- Sitewide Codex skills live under `skills/version127/<skill-name>/`.
-- Keep repo skills as the canonical source; global Codex skill installs should be copied or symlinked from the repo.
+- Page-specific agent skills live under `skills/<page-slug>/<skill-name>/`.
+- Sitewide agent skills live under `skills/version127/<skill-name>/`.
+- Keep repo skills as the canonical source.
+- `.agents/skills` and `.claude/skills` are symlink adapters to `skills/`; do not replace them with copied folders.
+- Global Codex or Claude-facing skill installs should be copied or symlinked from the repo.
 - For self-host app work, use skills under `skills/self-host-apps/` before creating new ad hoc workflows.
+- For Version127 page work, read `skills/version127/test-driven-page/SKILL.md` before changing routes, SEO behavior, or publication state.
+- For generated cover image intake, read `skills/version127/cover-image-intake/SKILL.md`; remove junk metadata but keep clean SEO-friendly metadata in the final JPG when tooling supports it.
 
 ## Environment
 

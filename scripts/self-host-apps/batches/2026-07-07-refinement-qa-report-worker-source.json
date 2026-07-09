@@ -1,0 +1,5161 @@
+{
+  "generated_at": "2026-07-07T05:48:55.023Z",
+  "published": 1811,
+  "issue_counts": {
+    "database_unknown": 1766,
+    "docker_unknown": 1722,
+    "install_docs_readme_fallback": 1686,
+    "docs_readme_fallback": 1574,
+    "summary_under_8_words": 554,
+    "summary_too_short": 478,
+    "release_missing": 229,
+    "release_missing_recent_commit": 204,
+    "license_missing": 132,
+    "summary_vague_adjective": 128,
+    "summary_generic": 47,
+    "summary_article_start": 25,
+    "summary_name_colon": 10,
+    "summary_weak_phrase": 1
+  },
+  "queue_count": 1777,
+  "top_queue": [
+    {
+      "slug": "awesome-sysadmin",
+      "name": "Awesome Sysadmin",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 34529,
+      "summary": "Curated sysadmin resource list covering server software, tools, and operations topics.",
+      "repository_url": "https://github.com/awesome-foss/awesome-sysadmin",
+      "website_url": "https://sysadmin.awesome-selfhosted.net"
+    },
+    {
+      "slug": "mosquitto",
+      "name": "Mosquitto",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 11033,
+      "summary": "MQTT broker for routing messages between IoT devices, sensors, apps, and automations.",
+      "repository_url": "https://github.com/eclipse-mosquitto/mosquitto",
+      "website_url": "https://mosquitto.org"
+    },
+    {
+      "slug": "graylog",
+      "name": "Graylog",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 8078,
+      "summary": "Log management server for collecting, searching, and analyzing machine data.",
+      "repository_url": "https://github.com/Graylog2/graylog2-server",
+      "website_url": "https://www.graylog.org"
+    },
+    {
+      "slug": "sandstorm",
+      "name": "Sandstorm",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 7046,
+      "summary": "Personal server runtime for installing and isolating web apps per user.",
+      "repository_url": "https://github.com/sandstorm-io/sandstorm",
+      "website_url": "https://sandstorm.org"
+    },
+    {
+      "slug": "pgadmin",
+      "name": "pgAdmin",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 3692,
+      "summary": "PostgreSQL administration app for managing servers, databases, queries, and schema objects.",
+      "repository_url": "https://github.com/pgadmin-org/pgadmin4",
+      "website_url": "https://www.pgadmin.org"
+    },
+    {
+      "slug": "global-threat-map",
+      "name": "Global Threat Map",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 1684,
+      "summary": "Threat intelligence map for viewing real-time security events and global activity.",
+      "repository_url": "https://github.com/unicodeveloper/globalthreatmap",
+      "website_url": "https://globalthreatmap.up.railway.app"
+    },
+    {
+      "slug": "pictshare",
+      "name": "PictShare",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 919,
+      "summary": "Image hosting service with upload, resizing, sharing, and API-based image delivery.",
+      "repository_url": "https://github.com/HaschekSolutions/pictshare",
+      "website_url": "https://www.pictshare.net"
+    },
+    {
+      "slug": "flow-like",
+      "name": "Flow-Like",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 909,
+      "summary": "Visual workflow builder for connecting actions, services, and automation steps.",
+      "repository_url": "https://github.com/Rheosoph/flow-like",
+      "website_url": "https://flow-like.com"
+    },
+    {
+      "slug": "listenarr",
+      "name": "Listenarr",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 797,
+      "summary": "Audiobook request and management app for tracking titles and automating downloads.",
+      "repository_url": "https://github.com/Listenarrs/Listenarr",
+      "website_url": "https://getlistenarr.com"
+    },
+    {
+      "slug": "nutify",
+      "name": "Nutify",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 793,
+      "summary": "UPS monitoring dashboard for checking power events, battery state, and connected devices.",
+      "repository_url": "https://github.com/DartSteven/Nutify",
+      "website_url": "https://github.com/DartSteven/Nutify"
+    },
+    {
+      "slug": "ddracenetwork",
+      "name": "DDraceNetwork",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 792,
+      "summary": "Cooperative Teeworlds game server and client with race maps and online play.",
+      "repository_url": "https://github.com/ddnet/ddnet",
+      "website_url": "https://ddnet.org"
+    },
+    {
+      "slug": "novus-mail",
+      "name": "Nortix Mail",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 710,
+      "summary": "Disposable email server for receiving temporary addresses and testing email workflows.",
+      "repository_url": "https://github.com/Zhoros/NortixMail",
+      "website_url": "https://github.com/Zhoros/NortixMail"
+    },
+    {
+      "slug": "openpanel",
+      "name": "OpenPanel",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 691,
+      "summary": "Web hosting control panel for managing Linux sites, servers, domains, and services.",
+      "repository_url": "https://github.com/stefanpejcic/OpenPanel",
+      "website_url": "https://openpanel.com"
+    },
+    {
+      "slug": "cert-warden",
+      "name": "Cert Warden",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 592,
+      "summary": "Certificate management app for tracking, renewing, and distributing TLS certificates.",
+      "repository_url": "https://github.com/gregtwallace/certwarden",
+      "website_url": "https://www.certwarden.com"
+    },
+    {
+      "slug": "dockerizalo",
+      "name": "Dockerizalo",
+      "score": 300,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 485,
+      "summary": "Simple container deployment and management app.",
+      "repository_url": "https://github.com/undernightcore/dockerizalo",
+      "website_url": "https://github.com/undernightcore/dockerizalo"
+    },
+    {
+      "slug": "openolat",
+      "name": "OpenOLAT",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 430,
+      "summary": "Learning management system for courses, assessments, communication, and education workflows.",
+      "repository_url": "https://github.com/OpenOLAT/OpenOLAT",
+      "website_url": "https://www.openolat.org"
+    },
+    {
+      "slug": "luna",
+      "name": "Luna",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 401,
+      "summary": "Calendar frontend and aggregator for viewing events from multiple calendar sources.",
+      "repository_url": "https://github.com/Opisek/luna",
+      "website_url": "https://github.com/Opisek/luna"
+    },
+    {
+      "slug": "feeds-fun",
+      "name": "Feeds Fun",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 374,
+      "summary": "Feed reader for organizing news with tags, scoring rules, and AI-assisted filtering.",
+      "repository_url": "https://github.com/Tiendil/feeds.fun",
+      "website_url": "https://feeds.fun"
+    },
+    {
+      "slug": "dragonfly",
+      "name": "DragonFly",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 260,
+      "summary": "Lightweight mail transfer agent for sending system and office email.",
+      "repository_url": "https://github.com/corecode/dma",
+      "website_url": "https://github.com/corecode/dma"
+    },
+    {
+      "slug": "workout-challenge",
+      "name": "Workout Challenge",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 148,
+      "summary": "Workout challenge tracker for groups that want shared fitness goals and progress logs.",
+      "repository_url": "https://github.com/vanalmsick/workout_challenge",
+      "website_url": "https://github.com/vanalmsick/workout_challenge"
+    },
+    {
+      "slug": "tenzu",
+      "name": "Tenzu",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 82,
+      "summary": "Project launch companion for organizing startup tasks, resources, and delivery steps.",
+      "repository_url": "https://github.com/BIRU-Scop/tenzu-back",
+      "website_url": "http://tenzu.net"
+    },
+    {
+      "slug": "obskurnee",
+      "name": "Obskurnee",
+      "score": 300,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "github_stars": 27,
+      "summary": "Book club app for collecting suggestions and voting on which book to read next.",
+      "repository_url": "https://github.com/zblesk/obskurnee",
+      "website_url": "https://github.com/zblesk/obskurnee"
+    },
+    {
+      "slug": "monitarr",
+      "name": "Monitarr",
+      "score": 290,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 103,
+      "summary": "Monitor downloads from Radarr and Sonarr.",
+      "repository_url": "https://github.com/nickshanks347/monitarr",
+      "website_url": "https://github.com/nickshanks347/monitarr"
+    },
+    {
+      "slug": "swetrix",
+      "name": "Swetrix",
+      "score": 290,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 70,
+      "summary": "Web analytics to satisfy all your needs.",
+      "repository_url": "https://github.com/Swetrix/selfhosting",
+      "website_url": "https://swetrix.com"
+    },
+    {
+      "slug": "docker-php-startpage",
+      "name": "docker-php-startpage",
+      "score": 290,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 64,
+      "summary": "PHP-based startpage and status monitor in Docker.",
+      "repository_url": "https://github.com/loganmarchione/docker-php-startpage",
+      "website_url": "https://github.com/loganmarchione/docker-php-startpage"
+    },
+    {
+      "slug": "bicimon",
+      "name": "Bicimon",
+      "score": 290,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 62,
+      "summary": "Bike Speedometer as Progressive Web App.",
+      "repository_url": "https://github.com/knrdl/bicimon",
+      "website_url": "https://github.com/knrdl/bicimon"
+    },
+    {
+      "slug": "civitai-data-manager",
+      "name": "Civitai Data Manager",
+      "score": 290,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 58,
+      "summary": "Civitai model metadata backups and management.",
+      "repository_url": "https://github.com/jmsltnv/civitai-data-manager",
+      "website_url": "https://github.com/jmsltnv/civitai-data-manager"
+    },
+    {
+      "slug": "rss-librarian",
+      "name": "RSS Librarian",
+      "score": 290,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 50,
+      "summary": "Read later service for RSS purists.",
+      "repository_url": "https://github.com/thefranke/rss-librarian",
+      "website_url": "https://www.rsslibrarian.ch/librarian.php"
+    },
+    {
+      "slug": "libreserver",
+      "name": "LibreServer",
+      "score": 290,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 49,
+      "summary": "Home server configuration based on Debian.",
+      "repository_url": "https://github.com/bashrc2/libreserver",
+      "website_url": "https://libreserver.org"
+    },
+    {
+      "slug": "deepsubx",
+      "name": "DeepSubX",
+      "score": 290,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 36,
+      "summary": "Use DeepL API to translate media subtitles.",
+      "repository_url": "https://github.com/garanda21/deepsubx",
+      "website_url": "https://github.com/garanda21/deepsubx"
+    },
+    {
+      "slug": "managarr",
+      "name": "Managarr",
+      "score": 285,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short"
+      ],
+      "github_stars": 746,
+      "summary": "TUI and CLI tool for managing *arr apps.",
+      "repository_url": "https://github.com/Dark-Alex-17/managarr",
+      "website_url": "https://github.com/Dark-Alex-17/managarr"
+    },
+    {
+      "slug": "origamivault",
+      "name": "OrigamiVault",
+      "score": 285,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short"
+      ],
+      "github_stars": 274,
+      "summary": "Encrypt secrets and share them with QR codes.",
+      "repository_url": "https://github.com/origamivault/origamivault",
+      "website_url": "https://github.com/origamivault/origamivault"
+    },
+    {
+      "slug": "task-keeper",
+      "name": "Task Keeper",
+      "score": 285,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short"
+      ],
+      "github_stars": 102,
+      "summary": "List editor for power users, backed by a server.",
+      "repository_url": "https://github.com/nymanjens/piga",
+      "website_url": "https://github.com/nymanjens/piga"
+    },
+    {
+      "slug": "mattermost",
+      "name": "Mattermost",
+      "score": 280,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_under_8_words"
+      ],
+      "github_stars": 38344,
+      "summary": "Internal chat and collaboration for organizations.",
+      "repository_url": "https://github.com/mattermost/mattermost",
+      "website_url": "https://mattermost.com"
+    },
+    {
+      "slug": "diaspora",
+      "name": "diaspora",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 13654,
+      "summary": "Distributed social networking server.",
+      "repository_url": "https://github.com/diaspora/diaspora",
+      "website_url": "https://diasporafoundation.org"
+    },
+    {
+      "slug": "kopia",
+      "name": "Kopia",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 13600,
+      "summary": "Cross-app backup tool.",
+      "repository_url": "https://github.com/kopia/kopia",
+      "website_url": "https://kopia.io"
+    },
+    {
+      "slug": "borg",
+      "name": "Borg",
+      "score": 280,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_under_8_words"
+      ],
+      "github_stars": 13485,
+      "summary": "Deduplicating archiver with compression and encryption.",
+      "repository_url": "https://github.com/borgbackup/borg",
+      "website_url": "https://www.borgbackup.org"
+    },
+    {
+      "slug": "audiobookshelf",
+      "name": "Audiobookshelf",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 13434,
+      "summary": "Audiobook and podcast server.",
+      "repository_url": "https://github.com/advplyr/audiobookshelf",
+      "website_url": "https://audiobookshelf.org"
+    },
+    {
+      "slug": "aureus",
+      "name": "Aureus",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 11389,
+      "summary": "Comprehensive enterprise resource planning app.",
+      "repository_url": "https://github.com/aureuserp/aureuserp",
+      "website_url": "https://aureuserp.com"
+    },
+    {
+      "slug": "woocommerce",
+      "name": "WooCommerce",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 10387,
+      "summary": "WordPress based e-commerce app.",
+      "repository_url": "https://github.com/woocommerce/woocommerce",
+      "website_url": "https://woocommerce.com"
+    },
+    {
+      "slug": "nezha",
+      "name": "Nezha",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 10223,
+      "summary": "Lightweight server monitoring tool.",
+      "repository_url": "https://github.com/nezhahq/nezha",
+      "website_url": "https://nezhahq.github.io"
+    },
+    {
+      "slug": "evershop",
+      "name": "EverShop",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 10168,
+      "summary": "Typescript E-commerce app.",
+      "repository_url": "https://github.com/evershopcommerce/evershop",
+      "website_url": "https://evershop.io"
+    },
+    {
+      "slug": "checkmate",
+      "name": "Checkmate",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 10156,
+      "summary": "Server monitoring app.",
+      "repository_url": "https://github.com/bluewave-labs/Checkmate",
+      "website_url": "https://checkmate.so"
+    },
+    {
+      "slug": "prestashop",
+      "name": "PrestaShop",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 9137,
+      "summary": "Fully scalable e-commerce app.",
+      "repository_url": "https://github.com/PrestaShop/PrestaShop",
+      "website_url": "https://www.prestashop-project.org"
+    },
+    {
+      "slug": "tube-archivist",
+      "name": "Tube Archivist",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 8251,
+      "summary": "Your YouTube media server.",
+      "repository_url": "https://github.com/tubearchivist/tubearchivist",
+      "website_url": "https://www.tubearchivist.com"
+    },
+    {
+      "slug": "opencart",
+      "name": "OpenCart",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 8155,
+      "summary": "Shopping cart app.",
+      "repository_url": "https://github.com/opencart/opencart",
+      "website_url": "https://www.opencart.com"
+    },
+    {
+      "slug": "portabase",
+      "name": "Portabase",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 1088,
+      "summary": "Database backup and restore tool.",
+      "repository_url": "https://github.com/Portabase/portabase",
+      "website_url": "https://portabase.io"
+    },
+    {
+      "slug": "anchor-notes",
+      "name": "Anchor",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 1064,
+      "summary": "Offline-first note-taking app.",
+      "repository_url": "https://github.com/ZhFahim/anchor",
+      "website_url": "https://github.com/ZhFahim/anchor"
+    },
+    {
+      "slug": "ontime",
+      "name": "Ontime",
+      "score": 280,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_under_8_words"
+      ],
+      "github_stars": 909,
+      "summary": "Timers for event rundowns, scheduling, and cueing.",
+      "repository_url": "https://github.com/cpvalente/ontime",
+      "website_url": "https://www.getontime.no"
+    },
+    {
+      "slug": "espial",
+      "name": "Espial",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 894,
+      "summary": "An, web bookmarking server.",
+      "repository_url": "https://github.com/jonschoning/espial",
+      "website_url": "https://github.com/jonschoning/espial"
+    },
+    {
+      "slug": "investbrain",
+      "name": "Investbrain",
+      "score": 280,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_under_8_words"
+      ],
+      "github_stars": 863,
+      "summary": "Manage and track investment portfolio performance.",
+      "repository_url": "https://github.com/investbrainapp/investbrain",
+      "website_url": "https://investbra.in"
+    },
+    {
+      "slug": "neodb",
+      "name": "NeoDB",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 849,
+      "summary": "Federated tracking server.",
+      "repository_url": "https://github.com/neodb-social/neodb",
+      "website_url": "https://neodb.net"
+    },
+    {
+      "slug": "concrete-5-cms",
+      "name": "Concrete 5 CMS",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 846,
+      "summary": "Content management system.",
+      "repository_url": "https://github.com/concretecms/concretecms",
+      "website_url": "https://www.concretecms.org"
+    },
+    {
+      "slug": "servas",
+      "name": "Servas",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 821,
+      "summary": "Bookmark management tool.",
+      "repository_url": "https://github.com/beromir/Servas",
+      "website_url": "https://servas.app"
+    },
+    {
+      "slug": "mydia",
+      "name": "Mydia",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 761,
+      "summary": "Media management app.",
+      "repository_url": "https://github.com/getmydia/mydia",
+      "website_url": "http://www.mydia.dev"
+    },
+    {
+      "slug": "logchef",
+      "name": "Logchef",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 760,
+      "summary": "Lightweight log analytics app.",
+      "repository_url": "https://github.com/mr-karan/logchef",
+      "website_url": "https://logchef.app"
+    },
+    {
+      "slug": "poznote",
+      "name": "Poznote",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 712,
+      "summary": "Personal note-taking and documentation app.",
+      "repository_url": "https://github.com/timothepoznanski/poznote",
+      "website_url": "https://poznote.com"
+    },
+    {
+      "slug": "atlas-cmms",
+      "name": "Atlas CMMS",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 673,
+      "summary": "Maintenance management system.",
+      "repository_url": "https://github.com/Grashjs/cmms",
+      "website_url": "https://atlas-cmms.com"
+    },
+    {
+      "slug": "drop",
+      "name": "Drop",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 662,
+      "summary": "Drop is an game distribution app.",
+      "repository_url": "https://github.com/Drop-OSS/drop",
+      "website_url": "https://droposs.org"
+    },
+    {
+      "slug": "vaultls",
+      "name": "VaulTLS",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 653,
+      "summary": "MTLS certificate manager.",
+      "repository_url": "https://github.com/7ritn/VaulTLS",
+      "website_url": "https://github.com/7ritn/VaulTLS"
+    },
+    {
+      "slug": "budgetbee",
+      "name": "BudgetBee",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 638,
+      "summary": "Personal finance management system.",
+      "repository_url": "https://github.com/budgetbee/budgetbee",
+      "website_url": "https://budgetbee.github.io/budgetbee"
+    },
+    {
+      "slug": "lab-dash",
+      "name": "Lab Dash",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 552,
+      "summary": "Application and server management dashboard.",
+      "repository_url": "https://github.com/AnthonyGress/lab-dash",
+      "website_url": "https://github.com/AnthonyGress/lab-dash"
+    },
+    {
+      "slug": "red-eclipse-2",
+      "name": "Red Eclipse 2",
+      "score": 280,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_under_8_words"
+      ],
+      "github_stars": 527,
+      "summary": "Arena first-person shooter similar to Unreal Tournament.",
+      "repository_url": "https://github.com/redeclipse/base",
+      "website_url": "https://www.redeclipse.net"
+    },
+    {
+      "slug": "middleware-manager",
+      "name": "Middleware Manager",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 501,
+      "summary": "Traefik middleware, router, and server manager.",
+      "repository_url": "https://github.com/hhftechnology/middleware-manager",
+      "website_url": "https://forum.hhf.technology/t/enhancing-your-pangolin-deployment-with-middleware-manager"
+    },
+    {
+      "slug": "suroi",
+      "name": "Suroi",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_article_start"
+      ],
+      "github_stars": 478,
+      "summary": "An 2D battle royale game inspired by surviv.io.",
+      "repository_url": "https://github.com/HasangerGames/suroi",
+      "website_url": "https://suroi.io"
+    },
+    {
+      "slug": "auto-mcs",
+      "name": "auto-mcs",
+      "score": 280,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 468,
+      "summary": "Cross-app Minecraft server manager.",
+      "repository_url": "https://github.com/macarooni-man/auto-mcs",
+      "website_url": "https://www.auto-mcs.com"
+    },
+    {
+      "slug": "tandoor-recipes",
+      "name": "Tandoor Recipes",
+      "score": 275,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 8449,
+      "summary": "Recipes, meal planning, and shopping lists.",
+      "repository_url": "https://github.com/TandoorRecipes/recipes",
+      "website_url": "https://docs.tandoor.dev"
+    },
+    {
+      "slug": "crosswatch",
+      "name": "CrossWatch",
+      "score": 275,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 639,
+      "summary": "Sync media watch statuses across platforms.",
+      "repository_url": "https://github.com/cenodude/CrossWatch",
+      "website_url": "https://wiki.crosswatch.app"
+    },
+    {
+      "slug": "crontab-guru",
+      "name": "Crontab Guru",
+      "score": 275,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 431,
+      "summary": "Web and CLI-based cron job management.",
+      "repository_url": "https://github.com/cronitorio/cronitor-cli",
+      "website_url": "https://cronitor.io/docs/using-cronitor-cli"
+    },
+    {
+      "slug": "properdocs",
+      "name": "ProperDocs",
+      "score": 275,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 255,
+      "summary": "Drop-in replacement for MkDocs.",
+      "repository_url": "https://github.com/ProperDocs/properdocs",
+      "website_url": "https://properdocs.org"
+    },
+    {
+      "slug": "nullboard",
+      "name": "Nullboard",
+      "score": 265,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing"
+      ],
+      "github_stars": 4141,
+      "summary": "Single-page kanban board for compact task lists, columns, and quick planning.",
+      "repository_url": "https://github.com/apankrat/nullboard",
+      "website_url": "https://github.com/apankrat/nullboard"
+    },
+    {
+      "slug": "dumbassets",
+      "name": "DumbAssets",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 1172,
+      "summary": "Stupidly simple asset tracker.",
+      "repository_url": "https://github.com/DumbWareio/DumbAssets",
+      "website_url": "https://dumbassets.dumbware.io"
+    },
+    {
+      "slug": "gossa",
+      "name": "Gossa",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 1095,
+      "summary": "Light and simple webserver for your files.",
+      "repository_url": "https://github.com/pldubouilh/gossa",
+      "website_url": "https://github.com/pldubouilh/gossa"
+    },
+    {
+      "slug": "materialious",
+      "name": "Materialious",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 1074,
+      "summary": "Modern Material Design frontend for Invidious.",
+      "repository_url": "https://github.com/Materialious/Materialious",
+      "website_url": "https://materialio.us"
+    },
+    {
+      "slug": "nextexplorer",
+      "name": "NextExplorer",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 958,
+      "summary": "Modern web file explorer.",
+      "repository_url": "https://github.com/nxzai/NextExplorer",
+      "website_url": "https://explorer.nxz.ai"
+    },
+    {
+      "slug": "koito",
+      "name": "Koito",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 928,
+      "summary": "Modern music scrobbler.",
+      "repository_url": "https://github.com/gabehf/Koito",
+      "website_url": "https://koito.io"
+    },
+    {
+      "slug": "docat",
+      "name": "DOCAT",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 903,
+      "summary": "Host your docs, Simple, Versioned, Fancy.",
+      "repository_url": "https://github.com/docat-org/docat",
+      "website_url": "https://github.com/docat-org/docat"
+    },
+    {
+      "slug": "textpattern",
+      "name": "Textpattern",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 875,
+      "summary": "Flexible, elegant and easy-to-use CMS.",
+      "repository_url": "https://github.com/textpattern/textpattern",
+      "website_url": "https://textpattern.com"
+    },
+    {
+      "slug": "wygiwyh",
+      "name": "WYGIWYH",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 863,
+      "summary": "Simple and finance tracker.",
+      "repository_url": "https://github.com/eitchtee/WYGIWYH",
+      "website_url": "https://wygiwyh-demo.herculino.com"
+    },
+    {
+      "slug": "wol",
+      "name": "wol",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 687,
+      "summary": "Simple Wake-on-LAN web interface.",
+      "repository_url": "https://github.com/Trugamr/wol",
+      "website_url": "https://github.com/Trugamr/wol"
+    },
+    {
+      "slug": "mantrae",
+      "name": "Mantrae",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 490,
+      "summary": "User-friendly Traefik management interface.",
+      "repository_url": "https://github.com/MizuchiLabs/mantrae",
+      "website_url": "https://mantrae.pages.dev"
+    },
+    {
+      "slug": "dumbpad",
+      "name": "DumbPad",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 455,
+      "summary": "Stupidly simple modern notepad.",
+      "repository_url": "https://github.com/DumbWareio/DumbPad",
+      "website_url": "https://github.com/DumbWareio/DumbPad"
+    },
+    {
+      "slug": "quickdrop",
+      "name": "QuickDrop",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 425,
+      "summary": "Easy-to-use file sharing application.",
+      "repository_url": "https://github.com/RoastSlav/quickdrop",
+      "website_url": "https://github.com/RoastSlav/quickdrop"
+    },
+    {
+      "slug": "nextcloud-forms",
+      "name": "Nextcloud Forms",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 373,
+      "summary": "Simple form and survey app for Nextcloud.",
+      "repository_url": "https://github.com/nextcloud/forms",
+      "website_url": "https://apps.nextcloud.com/apps/forms"
+    },
+    {
+      "slug": "ferrishare",
+      "name": "FerriShare",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 336,
+      "summary": "Simple file sharing app with E2E encryption.",
+      "repository_url": "https://github.com/TobiasMarschner/ferrishare",
+      "website_url": "https://ferrishare-demo.tobiasm.dev"
+    },
+    {
+      "slug": "dashlit",
+      "name": "DashLit",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 330,
+      "summary": "Simple server startpage.",
+      "repository_url": "https://github.com/codewec/dashlit",
+      "website_url": "https://dashlit.cwec.dev"
+    },
+    {
+      "slug": "trala",
+      "name": "TraLa",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 272,
+      "summary": "Simple, modern dashboard for Traefik services.",
+      "repository_url": "https://github.com/dannybouwers/trala",
+      "website_url": "https://www.trala.fyi"
+    },
+    {
+      "slug": "meerkat-crm",
+      "name": "Meerkat CRM",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 252,
+      "summary": "Simple CRM for the personal life.",
+      "repository_url": "https://github.com/fbuchner/meerkat-crm",
+      "website_url": "https://fbuchner.github.io/meerkat-crm"
+    },
+    {
+      "slug": "lufin",
+      "name": "Lufin",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 228,
+      "summary": "Modern file sharing service.",
+      "repository_url": "https://github.com/VityaSchel/lufin",
+      "website_url": "https://github.com/VityaSchel/lufin"
+    },
+    {
+      "slug": "container-hub",
+      "name": "Container Hub",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 222,
+      "summary": "Simple, lightweight UI for container registries.",
+      "repository_url": "https://github.com/eznix86/docker-registry-ui",
+      "website_url": "https://github.com/eznix86/docker-registry-ui"
+    },
+    {
+      "slug": "mkcert-web-ui",
+      "name": "mkcert Web UI",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 218,
+      "summary": "Modern web interface for mkcert.",
+      "repository_url": "https://github.com/jeffcaldwellca/mkcertWeb",
+      "website_url": "https://github.com/jeffcaldwellca/mkcertWeb"
+    },
+    {
+      "slug": "foodcoopshop",
+      "name": "FoodCoopShop",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 122,
+      "summary": "User-friendly software for food-coops.",
+      "repository_url": "https://github.com/foodcoopshop/foodcoopshop",
+      "website_url": "https://www.foodcoopshop.com"
+    },
+    {
+      "slug": "piglet",
+      "name": "Piglet",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 110,
+      "summary": "Simple web app for managing household budgets.",
+      "repository_url": "https://github.com/k3nd0x/piglet",
+      "website_url": "https://hub.docker.com/r/k3nd0x/piglet"
+    },
+    {
+      "slug": "thrifty",
+      "name": "Thrifty",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 97,
+      "summary": "Simple monthly income and expense tracker.",
+      "repository_url": "https://github.com/tiehfood/thrifty",
+      "website_url": "https://buymeacoffee.com/tiehfood"
+    },
+    {
+      "slug": "calorific",
+      "name": "Calorific",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 92,
+      "summary": "Simple calorie tracking.",
+      "repository_url": "https://github.com/xdpirate/calorific",
+      "website_url": "https://github.com/xdpirate/calorific"
+    },
+    {
+      "slug": "spendspentspent",
+      "name": "SpendSpentSpent",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 75,
+      "summary": "Easy-to-use expense tracker.",
+      "repository_url": "https://github.com/lamarios/SpendSpentSpent",
+      "website_url": "https://lamarios.github.io/SpendSpentSpent"
+    },
+    {
+      "slug": "woli-webgui",
+      "name": "WoLi WebGUI",
+      "score": 265,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing"
+      ],
+      "github_stars": 55,
+      "summary": "Extremely lightweight image for sending WoL magic packets.",
+      "repository_url": "https://github.com/RemyFV/WoLi-webgui",
+      "website_url": "https://github.com/RemyFV/WoLi-webgui"
+    },
+    {
+      "slug": "shifter",
+      "name": "Shifter",
+      "score": 265,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 42,
+      "summary": "Simple, file-sharing web app, powered by Django.",
+      "repository_url": "https://github.com/TobySuch/Shifter",
+      "website_url": "https://github.com/TobySuch/Shifter"
+    },
+    {
+      "slug": "lemmy",
+      "name": "Lemmy",
+      "score": 260,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_article_start"
+      ],
+      "github_stars": 14485,
+      "summary": "A decentralised discussion app for communities.",
+      "repository_url": "https://github.com/LemmyNet/lemmy",
+      "website_url": "https://join-lemmy.org"
+    },
+    {
+      "slug": "mailcow",
+      "name": "Mailcow",
+      "score": 260,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_name_colon"
+      ],
+      "github_stars": 13058,
+      "summary": "Mailcow: dockerized - + = .",
+      "repository_url": "https://github.com/mailcow/mailcow-dockerized",
+      "website_url": "https://mailcow.email"
+    },
+    {
+      "slug": "isso",
+      "name": "Isso",
+      "score": 260,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_article_start"
+      ],
+      "github_stars": 5286,
+      "summary": "A Disqus alternative.",
+      "repository_url": "https://github.com/isso-comments/isso",
+      "website_url": "https://isso-comments.de"
+    },
+    {
+      "slug": "littlelink",
+      "name": "LittleLink",
+      "score": 260,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_article_start"
+      ],
+      "github_stars": 3007,
+      "summary": "A lightweight DIY Linktree alternative.",
+      "repository_url": "https://github.com/sethcottle/littlelink",
+      "website_url": "https://littlelink.io"
+    },
+    {
+      "slug": "opentripplanner",
+      "name": "OpenTripPlanner",
+      "score": 260,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_article_start"
+      ],
+      "github_stars": 2682,
+      "summary": "An multi-modal trip planner.",
+      "repository_url": "https://github.com/opentripplanner/OpenTripPlanner",
+      "website_url": "http://www.opentripplanner.org"
+    },
+    {
+      "slug": "saltcorn",
+      "name": "Saltcorn",
+      "score": 260,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_under_8_words"
+      ],
+      "github_stars": 2029,
+      "summary": "No-code builder for creating database-backed business apps.",
+      "repository_url": "https://github.com/saltcorn/saltcorn",
+      "website_url": "https://saltcorn.com"
+    },
+    {
+      "slug": "databunker",
+      "name": "Databunker",
+      "score": 260,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_under_8_words"
+      ],
+      "github_stars": 1472,
+      "summary": "Secure Vault for Customer PII/PHI/PCI/KYC Records.",
+      "repository_url": "https://github.com/securitybunker/databunker",
+      "website_url": "https://databunker.org"
+    },
+    {
+      "slug": "rackpad",
+      "name": "Rackpad",
+      "score": 260,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_under_8_words"
+      ],
+      "github_stars": 198,
+      "summary": "Infrastructure inventory and operations workspace.",
+      "repository_url": "https://github.com/Kobii-git/rackpad",
+      "website_url": "https://rackpad.net"
+    },
+    {
+      "slug": "flexisip",
+      "name": "Flexisip",
+      "score": 260,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_under_8_words"
+      ],
+      "github_stars": 186,
+      "summary": "Linphone.org mirror for flexisip (git://git.linphone.org/flexisip.git).",
+      "repository_url": "https://github.com/BelledonneCommunications/flexisip",
+      "website_url": "https://www.linphone.org/en/flexisip-sip-server"
+    },
+    {
+      "slug": "authportal",
+      "name": "AuthPortal",
+      "score": 260,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_under_8_words"
+      ],
+      "github_stars": 97,
+      "summary": "Authentication gateway for Plex, Jellyfin, or Emby.",
+      "repository_url": "https://github.com/modom-ofn/auth-portal",
+      "website_url": "https://github.com/modom-ofn/auth-portal"
+    },
+    {
+      "slug": "analog",
+      "name": "ANALOG",
+      "score": 260,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_article_start"
+      ],
+      "github_stars": 42,
+      "summary": "A minimal analytics tool to self-host.",
+      "repository_url": "https://github.com/orangecoloured/analog",
+      "website_url": "https://github.com/orangecoloured/analog"
+    },
+    {
+      "slug": "sentry",
+      "name": "Sentry",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 44240,
+      "summary": "Error tracking and performance monitoring app for debugging production software.",
+      "repository_url": "https://github.com/getsentry/sentry",
+      "website_url": "https://sentry.io"
+    },
+    {
+      "slug": "outline",
+      "name": "Outline",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 39530,
+      "summary": "Team knowledge base for writing, organizing, and sharing internal documentation.",
+      "repository_url": "https://github.com/outline/outline",
+      "website_url": "https://www.getoutline.com"
+    },
+    {
+      "slug": "directus",
+      "name": "Directus",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 36424,
+      "summary": "Data app and API layer for managing SQL databases through dashboards and generated APIs.",
+      "repository_url": "https://github.com/directus/directus",
+      "website_url": "https://directus.com"
+    },
+    {
+      "slug": "dokploy",
+      "name": "Dokploy",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 35411,
+      "summary": "Deployment panel for hosting apps, databases, and Docker services on your own server.",
+      "repository_url": "https://github.com/Dokploy/dokploy",
+      "website_url": "https://dokploy.com"
+    },
+    {
+      "slug": "glances",
+      "name": "Glances",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 33049,
+      "summary": "System monitoring app for checking CPU, memory, disks, containers, processes, and services.",
+      "repository_url": "https://github.com/nicolargo/glances",
+      "website_url": "http://nicolargo.github.io/glances"
+    },
+    {
+      "slug": "czkawka",
+      "name": "Czkawka",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 31939,
+      "summary": "Desktop cleanup tool for finding duplicate files, empty folders, broken files, and similar media.",
+      "repository_url": "https://github.com/qarmin/czkawka",
+      "website_url": "https://github.com/qarmin/czkawka"
+    },
+    {
+      "slug": "signoz",
+      "name": "SigNoz",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 28286,
+      "summary": "Observability app for viewing traces, metrics, logs, dashboards, and alerts.",
+      "repository_url": "https://github.com/SigNoz/signoz",
+      "website_url": "https://signoz.io"
+    },
+    {
+      "slug": "budibase",
+      "name": "Budibase",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 28101,
+      "summary": "Low-code builder for creating internal tools, forms, workflows, and database-backed apps.",
+      "repository_url": "https://github.com/Budibase/budibase",
+      "website_url": "https://budibase.com"
+    },
+    {
+      "slug": "netbird",
+      "name": "NetBird",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 26828,
+      "summary": "WireGuard-based private networking app for connecting devices, users, and services securely.",
+      "repository_url": "https://github.com/netbirdio/netbird",
+      "website_url": "https://netbird.io"
+    },
+    {
+      "slug": "nocobase",
+      "name": "NocoBase",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 23258,
+      "summary": "No-code app builder for creating business systems, databases, workflows, and admin panels.",
+      "repository_url": "https://github.com/nocobase/nocobase",
+      "website_url": "https://www.nocobase.com"
+    },
+    {
+      "slug": "teable",
+      "name": "Teable",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 21436,
+      "summary": "Postgres-backed spreadsheet database for building tables, views, forms, and team workflows.",
+      "repository_url": "https://github.com/teableio/teable",
+      "website_url": "https://teable.ai"
+    },
+    {
+      "slug": "fail2ban",
+      "name": "Fail2Ban",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 18114,
+      "summary": "Intrusion prevention tool that bans hosts after repeated failed logins or suspicious activity.",
+      "repository_url": "https://github.com/fail2ban/fail2ban",
+      "website_url": "http://www.fail2ban.org"
+    },
+    {
+      "slug": "windmill",
+      "name": "Windmill",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 17077,
+      "summary": "Developer automation app for scripts, workflows, internal tools, jobs, and approval flows.",
+      "repository_url": "https://github.com/windmill-labs/windmill",
+      "website_url": "https://windmill.dev"
+    },
+    {
+      "slug": "emqx",
+      "name": "EMQX",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 16478,
+      "summary": "The most scalable and reliable MQTT broker for AI, IoT, IIoT and connected vehicles.",
+      "repository_url": "https://github.com/emqx/emqx",
+      "website_url": "https://www.emqx.com"
+    },
+    {
+      "slug": "cachet",
+      "name": "Cachet",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 15114,
+      "summary": "Status page app for publishing service incidents, components, metrics, and uptime notes.",
+      "repository_url": "https://github.com/cachethq/cachet",
+      "website_url": "https://cachethq.io"
+    },
+    {
+      "slug": "caprover",
+      "name": "CapRover",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 15087,
+      "summary": "Deployment panel for running apps, databases, HTTPS, and web services on Docker servers.",
+      "repository_url": "https://github.com/caprover/caprover",
+      "website_url": "https://caprover.com"
+    },
+    {
+      "slug": "seafile",
+      "name": "Seafile",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 14931,
+      "summary": "File hosting and sharing app primary for teams and organizations.",
+      "repository_url": "https://github.com/haiwen/seafile",
+      "website_url": "http://seafile.com"
+    },
+    {
+      "slug": "luanti",
+      "name": "Luanti",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 13193,
+      "summary": "Luanti (formerly Minetest) is an voxel game-creation app with easy modding and game creation.",
+      "repository_url": "https://github.com/luanti-org/luanti",
+      "website_url": "https://www.luanti.org"
+    },
+    {
+      "slug": "akaunting",
+      "name": "Akaunting",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 9933,
+      "summary": "Online accounting software for small businesses and freelancers.",
+      "repository_url": "https://github.com/akaunting/akaunting",
+      "website_url": "https://akaunting.com"
+    },
+    {
+      "slug": "privatebin",
+      "name": "PrivateBin",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 8427,
+      "summary": "Minimalist pastebin/discussion board where the server has zero knowledge of hosted data.",
+      "repository_url": "https://github.com/PrivateBin/PrivateBin",
+      "website_url": "https://privatebin.info"
+    },
+    {
+      "slug": "requestly",
+      "name": "Requestly",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 6718,
+      "summary": "Developer tool for building, testing, and debuging web apps.",
+      "repository_url": "https://github.com/requestly/requestly",
+      "website_url": "https://requestly.com"
+    },
+    {
+      "slug": "cosmos-server",
+      "name": "Cosmos",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 6011,
+      "summary": "Home server gateway for managing apps, routing traffic, and exposing services safely.",
+      "repository_url": "https://github.com/azukaar/Cosmos-Server",
+      "website_url": "https://cosmos-cloud.io"
+    },
+    {
+      "slug": "scrypted",
+      "name": "Scrypted",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 5778,
+      "summary": "Camera and smart home video bridge for HomeKit, Google Home, Alexa, and NVR workflows.",
+      "repository_url": "https://github.com/koush/scrypted",
+      "website_url": "https://scrypted.app"
+    },
+    {
+      "slug": "solidus",
+      "name": "Solidus",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 5316,
+      "summary": "Free, ecommerce app that gives you complete control over your store.",
+      "repository_url": "https://github.com/solidusio/solidus",
+      "website_url": "https://solidus.io"
+    },
+    {
+      "slug": "dockhand",
+      "name": "Dockhand",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 5096,
+      "summary": "Docker management app for administering containers, services, images, and server state.",
+      "repository_url": "https://github.com/Finsys/dockhand",
+      "website_url": "https://dockhand.pro"
+    },
+    {
+      "slug": "rustpad",
+      "name": "Rustpad",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4048,
+      "summary": "Minimal collaborative code editor.",
+      "repository_url": "https://github.com/ekzhang/rustpad",
+      "website_url": "https://rustpad.io"
+    },
+    {
+      "slug": "tolgee",
+      "name": "Tolgee",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 4017,
+      "summary": "Developer & translator friendly web localization app enabling users to translate directly in the app they develop.",
+      "repository_url": "https://github.com/tolgee/tolgee-platform",
+      "website_url": "https://tolgee.io"
+    },
+    {
+      "slug": "peppermint",
+      "name": "Peppermint",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 3144,
+      "summary": "Help desk app for managing tickets, customers, notes, and support workflows.",
+      "repository_url": "https://github.com/Peppermint-Lab/peppermint",
+      "website_url": "https://github.com/Peppermint-Lab/peppermint"
+    },
+    {
+      "slug": "mirotalk-sfu",
+      "name": "MiroTalk SFU",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 3030,
+      "summary": "Simple, secure, scalable real-time video conferences up to 4k, compatible with all browsers and platforms.",
+      "repository_url": "https://github.com/miroslavpejic85/mirotalksfu",
+      "website_url": "https://sfu.mirotalk.com"
+    },
+    {
+      "slug": "laudspeaker",
+      "name": "Laudspeaker",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 2609,
+      "summary": "Customer messaging app for product emails, journeys, events, and engagement workflows.",
+      "repository_url": "https://github.com/laudspeaker/laudspeaker",
+      "website_url": "https://laudspeaker.com/?ref=github"
+    },
+    {
+      "slug": "stoat",
+      "name": "Stoat",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 2526,
+      "summary": "Stoat is a user-first chat app built with modern web technologies.",
+      "repository_url": "https://github.com/stoatchat/self-hosted",
+      "website_url": "https://stoat.chat"
+    },
+    {
+      "slug": "znc",
+      "name": "ZNC",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 2119,
+      "summary": "Advanced IRC bouncer.",
+      "repository_url": "https://github.com/znc/znc",
+      "website_url": "https://znc.in"
+    },
+    {
+      "slug": "tracearr",
+      "name": "Tracearr",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 2054,
+      "summary": "Streaming access manager for Plex, Jellyfin, and Emby.",
+      "repository_url": "https://github.com/connorgallopo/Tracearr",
+      "website_url": "https://www.tracearr.com"
+    },
+    {
+      "slug": "notifuse",
+      "name": "Notifuse",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 2002,
+      "summary": "Email sending app for newsletters, transactional messages, contacts, and delivery tracking.",
+      "repository_url": "https://github.com/Notifuse/notifuse",
+      "website_url": "https://www.notifuse.com"
+    },
+    {
+      "slug": "cloudpanel",
+      "name": "CloudPanel",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 1842,
+      "summary": "Server configuration and management with a focus on simplicity.",
+      "repository_url": "https://github.com/cloudpanel-io/cloudpanel-ce",
+      "website_url": "https://github.com/cloudpanel-io/cloudpanel-ce"
+    },
+    {
+      "slug": "aptabase",
+      "name": "Aptabase",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 1741,
+      "summary": "Privacy first and simple analytics for mobile and desktop apps.",
+      "repository_url": "https://github.com/aptabase/aptabase",
+      "website_url": "https://aptabase.com"
+    },
+    {
+      "slug": "maloja",
+      "name": "Maloja",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 1740,
+      "summary": "Music scrobble database for personal listening.",
+      "repository_url": "https://github.com/krateng/maloja",
+      "website_url": "https://maloja.krateng.ch"
+    },
+    {
+      "slug": "self-hosted-gateway",
+      "name": "Self-Hosted Gateway",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 1726,
+      "summary": "Docker native tunneling to localhost.",
+      "repository_url": "https://github.com/hintjen/selfhosted-gateway",
+      "website_url": "https://gethomerun.app"
+    },
+    {
+      "slug": "semaphore",
+      "name": "Semaphore",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 1553,
+      "summary": "CI/CD system for running builds, tests, deployments, and automation pipelines.",
+      "repository_url": "https://github.com/semaphoreio/semaphore",
+      "website_url": "https://semaphore.io"
+    },
+    {
+      "slug": "zaneops",
+      "name": "ZaneOps",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 1352,
+      "summary": "Deployment panel for running apps, databases, static sites, and scheduled jobs.",
+      "repository_url": "https://github.com/zane-ops/zane-ops",
+      "website_url": "https://zaneops.dev"
+    },
+    {
+      "slug": "hoodik",
+      "name": "Hoodik",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 1298,
+      "summary": "Encrypted file storage app for uploading, sharing, and managing private cloud files.",
+      "repository_url": "https://github.com/hudikhq/hoodik",
+      "website_url": "https://github.com/hudikhq/hoodik"
+    },
+    {
+      "slug": "workout-tracker",
+      "name": "Workout Tracker",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 1234,
+      "summary": "Workout tracking web app geared towards running and other GPX-based activities.",
+      "repository_url": "https://github.com/jovandeginste/workout-tracker",
+      "website_url": "https://github.com/jovandeginste/workout-tracker"
+    },
+    {
+      "slug": "geopulse",
+      "name": "GeoPulse",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 1216,
+      "summary": "Location tracking app for collecting trips, places, timelines, and movement history.",
+      "repository_url": "https://github.com/tess1o/geopulse",
+      "website_url": "https://tess1o.github.io/geopulse"
+    },
+    {
+      "slug": "journiv",
+      "name": "Journiv",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 1151,
+      "summary": "Private journaling app for writing entries, tracking memories, and keeping personal notes.",
+      "repository_url": "https://github.com/journiv/journiv-app",
+      "website_url": "https://www.journiv.com"
+    },
+    {
+      "slug": "known",
+      "name": "Known",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 1120,
+      "summary": "Social publishing app for posting articles, notes, images, bookmarks, and updates.",
+      "repository_url": "https://github.com/idno/idno",
+      "website_url": "https://withknown.com/opensource"
+    },
+    {
+      "slug": "tasktrove",
+      "name": "TaskTrove",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 1076,
+      "summary": "Task management app for planning work, organizing lists, and tracking personal projects.",
+      "repository_url": "https://github.com/dohsimpson/TaskTrove",
+      "website_url": "https://tasktrove.io"
+    },
+    {
+      "slug": "proxcenter",
+      "name": "ProxCenter",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 1009,
+      "summary": "Proxmox web interface for managing virtualization hosts, guests, and server resources.",
+      "repository_url": "https://github.com/adminsyspro/proxcenter-ui",
+      "website_url": "https://www.proxcenter.io"
+    },
+    {
+      "slug": "pretalx",
+      "name": "pretalx",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 924,
+      "summary": "Conference planning app for calls for papers, scheduling, speakers, and event workflows.",
+      "repository_url": "https://github.com/pretalx/pretalx",
+      "website_url": "https://pretalx.com"
+    },
+    {
+      "slug": "bencher",
+      "name": "Bencher",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 866,
+      "summary": "Suite of continuous benchmarking tools designed to catch performance regressions in CI.",
+      "repository_url": "https://github.com/bencherdev/bencher",
+      "website_url": "https://bencher.dev"
+    },
+    {
+      "slug": "lingarr",
+      "name": "Lingarr",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 814,
+      "summary": "Automatically translate subtitle files to a desired language.",
+      "repository_url": "https://github.com/lingarr-translate/lingarr",
+      "website_url": "https://github.com/lingarr-translate/lingarr"
+    },
+    {
+      "slug": "deployrr",
+      "name": "Deployrr",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 787,
+      "summary": "Docker deployment builder for setting up common homelab services and compose stacks.",
+      "repository_url": "https://github.com/SimpleHomelab/Deployrr",
+      "website_url": "https://www.deployrr.app"
+    },
+    {
+      "slug": "m3u-editor",
+      "name": "m3u-editor",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 781,
+      "summary": "IPTV playlist editor for filtering channels, updating groups, and managing M3U sources.",
+      "repository_url": "https://github.com/m3ue/m3u-editor",
+      "website_url": "https://m3ue.sparkison.dev"
+    },
+    {
+      "slug": "streamystats",
+      "name": "Streamystats",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 766,
+      "summary": "Jellyfin analytics dashboard for playback history, library trends, and user activity.",
+      "repository_url": "https://github.com/fredrikburmester/streamystats",
+      "website_url": "https://github.com/fredrikburmester/streamystats"
+    },
+    {
+      "slug": "cinephage",
+      "name": "Cinephage",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 765,
+      "summary": "Media library app for organizing movies, shows, and related collection metadata.",
+      "repository_url": "https://github.com/MoldyTaint/Cinephage",
+      "website_url": "https://github.com/MoldyTaint/Cinephage"
+    },
+    {
+      "slug": "ignis",
+      "name": "Ignis",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 739,
+      "summary": "Browser-based Obsidian companion for reading and managing notes through a web interface.",
+      "repository_url": "https://github.com/Nystik-gh/ignis",
+      "website_url": "https://github.com/Nystik-gh/ignis"
+    },
+    {
+      "slug": "bulwark",
+      "name": "Bulwark",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 734,
+      "summary": "Webmail client built for Stalwart Mail accounts and browser-based mailbox access.",
+      "repository_url": "https://github.com/bulwarkmail/webmail",
+      "website_url": "https://bulwarkmail.org"
+    },
+    {
+      "slug": "simple-machines-forum",
+      "name": "Simple Machines Forum",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 734,
+      "summary": "Free, professional grade software package that allows you to set up your own online community within minutes.",
+      "repository_url": "https://github.com/SimpleMachines/SMF",
+      "website_url": "https://www.simplemachines.org"
+    },
+    {
+      "slug": "lunalytics",
+      "name": "Lunalytics",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 728,
+      "summary": "Uptime monitoring app for tracking service checks, incidents, and availability.",
+      "repository_url": "https://github.com/KSJaay/Lunalytics",
+      "website_url": "https://lunalytics.xyz"
+    },
+    {
+      "slug": "fast-music-remover",
+      "name": "Fast Music Remover",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 719,
+      "summary": "Lightweight background music and noise remover.",
+      "repository_url": "https://github.com/omeryusufyagci/fast-music-remover",
+      "website_url": "https://github.com/omeryusufyagci/fast-music-remover"
+    },
+    {
+      "slug": "koffan",
+      "name": "Koffan",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 718,
+      "summary": "Shared shopping list app for households that need real-time grocery planning.",
+      "repository_url": "https://github.com/PanSalut/Koffan",
+      "website_url": "https://github.com/PanSalut/Koffan"
+    },
+    {
+      "slug": "posio",
+      "name": "Posio",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 688,
+      "summary": "Geography multiplayer game.",
+      "repository_url": "https://github.com/abrenaut/posio",
+      "website_url": "https://posio.abrenaut.com"
+    },
+    {
+      "slug": "openmeetings",
+      "name": "Openmeetings",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 683,
+      "summary": "Web conferencing app for video meetings, whiteboards, messaging, and screen sharing.",
+      "repository_url": "https://github.com/apache/openmeetings",
+      "website_url": "https://openmeetings.apache.org/index.html"
+    },
+    {
+      "slug": "enigma-1-2-bbs",
+      "name": "Enigma 1/2 BBS",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 655,
+      "summary": "Enigma 1/2 is a modern, multi-app BBS engine with unlimited \"callers\" and legacy DOS door game support.",
+      "repository_url": "https://github.com/NuSkooler/enigma-bbs",
+      "website_url": "https://nuskooler.github.io/enigma-bbs"
+    },
+    {
+      "slug": "musicseerr",
+      "name": "Musicseerr",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 640,
+      "summary": "Lidarr request app for discovering albums and sending music requests to automation tools.",
+      "repository_url": "https://github.com/HabiRabbu/Musicseerr",
+      "website_url": "https://musicseerr.com"
+    },
+    {
+      "slug": "medama-analytics",
+      "name": "Medama Analytics",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 635,
+      "summary": "Web analytics server for page views, referrers, and lightweight traffic reports.",
+      "repository_url": "https://github.com/medama-io/medama",
+      "website_url": "https://oss.medama.io"
+    },
+    {
+      "slug": "viniplay",
+      "name": "ViniPlay",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 529,
+      "summary": "IPTV player for watching playlists and managing streaming channels through a web UI.",
+      "repository_url": "https://github.com/ardoviniandrea/ViniPlay",
+      "website_url": "https://github.com/ardoviniandrea/ViniPlay"
+    },
+    {
+      "slug": "mirotalk-c2c",
+      "name": "MiroTalk C2C",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 510,
+      "summary": "Real-time cam-2-cam video calls & screen sharing, end-to-end encrypted, to embed in any website with a simple iframe.",
+      "repository_url": "https://github.com/miroslavpejic85/mirotalkc2c",
+      "website_url": "https://c2c.mirotalk.com"
+    },
+    {
+      "slug": "wapy-dev",
+      "name": "Wapy.dev",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 493,
+      "summary": "Subscription management app for tracking recurring products, plans, and customer billing.",
+      "repository_url": "https://github.com/meceware/wapy.dev",
+      "website_url": "https://www.wapy.dev"
+    },
+    {
+      "slug": "medikeep",
+      "name": "MediKeep",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 492,
+      "summary": "Personal health record app for tracking medical details, contacts, and documents.",
+      "repository_url": "https://github.com/afairgiant/MediKeep",
+      "website_url": "https://github.com/afairgiant/MediKeep"
+    },
+    {
+      "slug": "operately",
+      "name": "Operately",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 491,
+      "summary": "Startup app for managing projects, goals, and processes.",
+      "repository_url": "https://github.com/operately/operately",
+      "website_url": "https://operately.com"
+    },
+    {
+      "slug": "nextcloud-office",
+      "name": "Nextcloud Office",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 446,
+      "summary": "Nextcloud integration for editing office documents through Collabora Online.",
+      "repository_url": "https://github.com/nextcloud/richdocuments",
+      "website_url": "https://nextcloud.com/collaboraonline"
+    },
+    {
+      "slug": "pasta",
+      "name": "PASTA",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 438,
+      "summary": "Plex helper for changing audio and subtitle tracks across library items.",
+      "repository_url": "https://github.com/cglatot/pasta",
+      "website_url": "https://www.pastatool.com"
+    },
+    {
+      "slug": "christmas-community",
+      "name": "Christmas Community",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 417,
+      "summary": "Create a simple place for your entire family to use to find gifts that people want, and to avoid double-gifting.",
+      "repository_url": "https://github.com/Wingysam/Christmas-Community",
+      "website_url": "https://github.com/Wingysam/Christmas-Community"
+    },
+    {
+      "slug": "docking-station",
+      "name": "Docking Station",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 414,
+      "summary": "Web app for managing and updating Docker containers.",
+      "repository_url": "https://github.com/LooLzzz/docking-station",
+      "website_url": "https://github.com/LooLzzz/docking-station"
+    },
+    {
+      "slug": "flowforge",
+      "name": "FlowForge",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 393,
+      "summary": "Node-RED management app for running, deploying, and scaling flows.",
+      "repository_url": "https://github.com/FlowFuse/flowfuse",
+      "website_url": "https://flowfuse.com"
+    },
+    {
+      "slug": "jellyfin-rewind",
+      "name": "Jellyfin Rewind",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 364,
+      "summary": "Year-in-review app for Jellyfin music history, listening stats, and playback summaries.",
+      "repository_url": "https://github.com/Chaphasilor/jellyfin-rewind",
+      "website_url": "https://jellyfin-rewind.chaphasilor.xyz"
+    },
+    {
+      "slug": "family-accounting-tool",
+      "name": "Family Accounting Tool",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 355,
+      "summary": "Web finance management tool for partners with partially shared expenses.",
+      "repository_url": "https://github.com/nymanjens/facto",
+      "website_url": "https://github.com/nymanjens/facto"
+    },
+    {
+      "slug": "sprout-track",
+      "name": "Sprout Track",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 317,
+      "summary": "Track baby diapers, feedings, naps, pumping, and other activities.",
+      "repository_url": "https://github.com/Oak-and-Sprout/sprout-track",
+      "website_url": "https://www.sprout-track.com"
+    },
+    {
+      "slug": "spacepad",
+      "name": "Spacepad",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 291,
+      "summary": "Meeting room display for showing occupancy, availability, and room status.",
+      "repository_url": "https://github.com/magweter/spacepad",
+      "website_url": "https://spacepad.io"
+    },
+    {
+      "slug": "drivebase",
+      "name": "Drivebase",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 286,
+      "summary": "File management app for browsing, organizing, and working with cloud storage accounts.",
+      "repository_url": "https://github.com/drivebase/drivebase",
+      "website_url": "https://drivebase.io"
+    },
+    {
+      "slug": "omoide",
+      "name": "Omoide",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 263,
+      "summary": "Photo and video library with AI-assisted search, tagging, and media browsing.",
+      "repository_url": "https://github.com/EinAeffchen/Omoide",
+      "website_url": "https://github.com/EinAeffchen/Omoide"
+    },
+    {
+      "slug": "silicon-notes",
+      "name": "Silicon Notes",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 262,
+      "summary": "Personal knowledge base for writing notes and keeping lightweight documentation.",
+      "repository_url": "https://github.com/cu/silicon",
+      "website_url": "https://github.com/cu/silicon"
+    },
+    {
+      "slug": "replex",
+      "name": "Replex",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 254,
+      "summary": "Proxy for transforming the communication between a Plex server and clients.",
+      "repository_url": "https://github.com/lostb1t/replex",
+      "website_url": "https://github.com/lostb1t/replex"
+    },
+    {
+      "slug": "honey",
+      "name": "Honey",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 243,
+      "summary": "Personal services homepage for listing links, status entries, and dashboard shortcuts.",
+      "repository_url": "https://github.com/dani3l0/honey",
+      "website_url": "https://demos-honey.djank.me"
+    },
+    {
+      "slug": "ydlaping",
+      "name": "ydlaping",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 239,
+      "summary": "Simple youtube-dl REST API to launch downloads on a distant server.",
+      "repository_url": "https://github.com/Totonyus/ydl_api_ng",
+      "website_url": "https://github.com/Totonyus/ydl_api_ng"
+    },
+    {
+      "slug": "whorang",
+      "name": "WhoRang",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 227,
+      "summary": "Doorbell intelligence app for detecting visitors and summarizing camera events.",
+      "repository_url": "https://github.com/Beast12/who-rang",
+      "website_url": "https://github.com/Beast12/who-rang"
+    },
+    {
+      "slug": "borg-backup-server",
+      "name": "Borg Backup Server",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 224,
+      "summary": "Web dashboard for managing BorgBackup repositories, clients, and backup jobs.",
+      "repository_url": "https://github.com/marcpope/borgbackupserver",
+      "website_url": "https://www.borgbackupserver.com"
+    },
+    {
+      "slug": "cially",
+      "name": "Cially",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 215,
+      "summary": "Discord analytics dashboard for viewing server activity, member trends, and community insights.",
+      "repository_url": "https://github.com/cially/cially",
+      "website_url": "https://cially.org"
+    },
+    {
+      "slug": "private-captcha",
+      "name": "Private Captcha",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 182,
+      "summary": "CAPTCHA service focused on bot checks without third-party tracking scripts.",
+      "repository_url": "https://github.com/PrivateCaptcha/PrivateCaptcha",
+      "website_url": "https://privatecaptcha.com"
+    },
+    {
+      "slug": "ties-link-sharing",
+      "name": "Ties",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 162,
+      "summary": "Federated bookmark app for saving links, sharing collections, and following updates.",
+      "repository_url": "https://github.com/raffomania/ties",
+      "website_url": "https://demo.ties.pub"
+    },
+    {
+      "slug": "pixelfin",
+      "name": "Pixelfin",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 152,
+      "summary": "Photo gallery generator for turning Jellyfin image libraries into browsable HTML galleries.",
+      "repository_url": "https://github.com/nothing2obvi/pixelfin",
+      "website_url": "https://github.com/nothing2obvi/pixelfin"
+    },
+    {
+      "slug": "mantium",
+      "name": "Mantium",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 143,
+      "summary": "Manga tracker dashboard for following series, sources, reading progress, and updates.",
+      "repository_url": "https://github.com/diogovalentte/mantium",
+      "website_url": "https://ko-fi.com/diogovalentte"
+    },
+    {
+      "slug": "redirecterr",
+      "name": "Redirecterr",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 138,
+      "summary": "Overseerr request filter that redirects media requests based on custom rules.",
+      "repository_url": "https://github.com/varthe/Redirecterr",
+      "website_url": "https://github.com/varthe/Redirecterr"
+    },
+    {
+      "slug": "docker-staticmaps",
+      "name": "docker-staticmaps",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 127,
+      "summary": "Static map image API for rendering map tiles through a containerized service.",
+      "repository_url": "https://github.com/dietrichmax/docker-staticmaps",
+      "website_url": "https://dietrichmax.github.io/docker-staticmaps"
+    },
+    {
+      "slug": "tymeslot",
+      "name": "Tymeslot",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 122,
+      "summary": "Scheduling app for sharing availability, booking time slots, and coordinating meetings.",
+      "repository_url": "https://github.com/Tymeslot/tymeslot",
+      "website_url": "https://tymeslot.app"
+    },
+    {
+      "slug": "sparkybudget",
+      "name": "SparkyBudget",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 110,
+      "summary": "Personal budgeting app for tracking accounts, expenses, income, and spending plans.",
+      "repository_url": "https://github.com/CodeWithCJ/SparkyBudget",
+      "website_url": "https://github.com/CodeWithCJ/SparkyBudget"
+    },
+    {
+      "slug": "eziwiki",
+      "name": "eziwiki",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 100,
+      "summary": "Lightweight wiki and documentation generator.",
+      "repository_url": "https://github.com/i3months/eziwiki",
+      "website_url": "https://eziwiki.vercel.app"
+    },
+    {
+      "slug": "antville",
+      "name": "Antville",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 91,
+      "summary": "Free, project aimed at the development of a high performance, feature rich weblog hosting software.",
+      "repository_url": "https://github.com/antville/antville",
+      "website_url": "https://antville.org"
+    },
+    {
+      "slug": "oddmuse",
+      "name": "Oddmuse",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_vague_adjective"
+      ],
+      "github_stars": 89,
+      "summary": "Simple wiki engine written in Perl, No database required.",
+      "repository_url": "https://github.com/kensanata/oddmuse",
+      "website_url": "https://oddmuse.org"
+    },
+    {
+      "slug": "snippets-library",
+      "name": "Snippets Library",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 65,
+      "summary": "Code snippet manager for saving, organizing, searching, and reusing developer notes.",
+      "repository_url": "https://github.com/cojocaru-david/snippetslibrary.com",
+      "website_url": "https://snippetslibrary.com"
+    },
+    {
+      "slug": "elysian",
+      "name": "Elysian",
+      "score": 255,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 62,
+      "summary": "Backup and sync tool for browser bookmarks.",
+      "repository_url": "https://github.com/Aadityajoshi151/Elysian",
+      "website_url": "https://github.com/Aadityajoshi151/Elysian"
+    },
+    {
+      "slug": "authman",
+      "name": "Authman",
+      "score": 255,
+      "issues": [
+        "license_missing",
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "github_stars": 9,
+      "summary": "Cross-app 2FA TOTP server with mobile and desktop apps.",
+      "repository_url": "https://github.com/simular/authman-server",
+      "website_url": "https://github.com/simular/authman-server"
+    },
+    {
+      "slug": "transmission",
+      "name": "Transmission",
+      "score": 250,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 14924,
+      "summary": "Official Transmission BitTorrent client repository.",
+      "repository_url": "https://github.com/transmission/transmission",
+      "website_url": "https://transmissionbt.com"
+    },
+    {
+      "slug": "filestash",
+      "name": "Filestash",
+      "score": 250,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_name_colon"
+      ],
+      "github_stars": 14353,
+      "summary": "File_folder: File Management app / Universal Data Access Layer (without FUSE).",
+      "repository_url": "https://github.com/mickael-kerjean/filestash",
+      "website_url": "https://www.filestash.app"
+    },
+    {
+      "slug": "uncloud",
+      "name": "Uncloud",
+      "score": 250,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 5327,
+      "summary": "Lightweight clustering and container orchestration tool.",
+      "repository_url": "https://github.com/psviderski/uncloud",
+      "website_url": "https://uncloud.run"
+    },
+    {
+      "slug": "pimcore",
+      "name": "Pimcore",
+      "score": 250,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 3796,
+      "summary": "Multi-channel experience and engagement management app.",
+      "repository_url": "https://github.com/pimcore/pimcore",
+      "website_url": "http://www.pimcore.com"
+    },
+    {
+      "slug": "peergos",
+      "name": "Peergos",
+      "score": 250,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_article_start"
+      ],
+      "github_stars": 2432,
+      "summary": "A p2p, secure file storage, social network and application protocol.",
+      "repository_url": "https://github.com/Peergos/Peergos",
+      "website_url": "https://peergos.org"
+    },
+    {
+      "slug": "mbin",
+      "name": "Mbin",
+      "score": 250,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 425,
+      "summary": "Federated content aggregator and microblogging app.",
+      "repository_url": "https://github.com/MbinOrg/mbin",
+      "website_url": "https://joinmbin.org"
+    },
+    {
+      "slug": "revel",
+      "name": "Revel",
+      "score": 250,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 95,
+      "summary": "Community-focused event management and ticketing app.",
+      "repository_url": "https://github.com/letsrevel/revel-backend",
+      "website_url": "https://www.letsrevel.io"
+    },
+    {
+      "slug": "sip3",
+      "name": "SIP3",
+      "score": 250,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 80,
+      "summary": "VoIP troubleshooting and monitoring app.",
+      "repository_url": "https://github.com/sip3io/sip3-captain-ce",
+      "website_url": "https://sip3.io/"
+    },
+    {
+      "slug": "jackett",
+      "name": "Jackett",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 15686,
+      "summary": "API support for torrent trackers.",
+      "repository_url": "https://github.com/Jackett/Jackett",
+      "website_url": "https://github.com/Jackett/Jackett"
+    },
+    {
+      "slug": "freshrss",
+      "name": "FreshRSS",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 15484,
+      "summary": "RSS feed aggregator.",
+      "repository_url": "https://github.com/FreshRSS/FreshRSS",
+      "website_url": "https://freshrss.org"
+    },
+    {
+      "slug": "libre-translate",
+      "name": "Libre Translate",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 15361,
+      "summary": "Machine Translation API.",
+      "repository_url": "https://github.com/LibreTranslate/LibreTranslate",
+      "website_url": "https://libretranslate.com"
+    },
+    {
+      "slug": "cloudflared",
+      "name": "Cloudflared",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 14715,
+      "summary": "Tunneling proxy for Cloudflare traffic.",
+      "repository_url": "https://github.com/cloudflare/cloudflared",
+      "website_url": "https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel"
+    },
+    {
+      "slug": "oauth2-proxy",
+      "name": "OAuth2 Proxy",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 14633,
+      "summary": "Reverse proxy and authentication middleware.",
+      "repository_url": "https://github.com/oauth2-proxy/oauth2-proxy",
+      "website_url": "https://oauth2-proxy.github.io/oauth2-proxy"
+    },
+    {
+      "slug": "flaresolverr",
+      "name": "FlareSolverr",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 14614,
+      "summary": "Proxy server to bypass Cloudflare protection.",
+      "repository_url": "https://github.com/FlareSolverr/FlareSolverr",
+      "website_url": "https://github.com/FlareSolverr/FlareSolverr"
+    },
+    {
+      "slug": "crowdsec",
+      "name": "CrowdSec",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 14141,
+      "summary": "Crowd-sourced protection against malicious IPs.",
+      "repository_url": "https://github.com/crowdsecurity/crowdsec",
+      "website_url": "https://crowdsec.net"
+    },
+    {
+      "slug": "snipe-it",
+      "name": "Snipe-IT",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 14024,
+      "summary": "Asset management for IT operations.",
+      "repository_url": "https://github.com/grokability/snipe-it",
+      "website_url": "https://snipeitapp.com"
+    },
+    {
+      "slug": "logto",
+      "name": "Logto",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 13914,
+      "summary": "Identity infrastructure for developers.",
+      "repository_url": "https://github.com/logto-io/logto",
+      "website_url": "https://logto.io"
+    },
+    {
+      "slug": "casdoor",
+      "name": "Casdoor",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 13885,
+      "summary": "Identity access management.",
+      "repository_url": "https://github.com/casdoor/casdoor",
+      "website_url": "https://casdoor.ai"
+    },
+    {
+      "slug": "semaphore-ui",
+      "name": "Semaphore UI",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 13848,
+      "summary": "Web interface for popular DevOps tools.",
+      "repository_url": "https://github.com/semaphoreui/semaphore",
+      "website_url": "https://semaphoreui.com"
+    },
+    {
+      "slug": "dozzle",
+      "name": "Dozzle",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 13470,
+      "summary": "Real-time log viewer for Docker containers.",
+      "repository_url": "https://github.com/amir20/dozzle",
+      "website_url": "https://dozzle.dev"
+    },
+    {
+      "slug": "element",
+      "name": "Element",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 13264,
+      "summary": "Fully-featured Matrix for Web, iOS & Android.",
+      "repository_url": "https://github.com/element-hq/element-web",
+      "website_url": "https://element.io"
+    },
+    {
+      "slug": "amnezia",
+      "name": "Amnezia",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 12820,
+      "summary": "VPN server and client.",
+      "repository_url": "https://github.com/amnezia-vpn/amnezia-client",
+      "website_url": "https://amnezia.org"
+    },
+    {
+      "slug": "formbricks",
+      "name": "Formbricks",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 12481,
+      "summary": "Qualtrics Alternative.",
+      "repository_url": "https://github.com/formbricks/formbricks",
+      "website_url": "https://formbricks.com"
+    },
+    {
+      "slug": "whoogle",
+      "name": "Whoogle",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 11565,
+      "summary": "Privacy-respecting metasearch engine.",
+      "repository_url": "https://github.com/benbusby/whoogle-search",
+      "website_url": "https://pypi.org/project/whoogle-search"
+    },
+    {
+      "slug": "komodo",
+      "name": "Komodo",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 11546,
+      "summary": "Build and deploy software on multiple servers.",
+      "repository_url": "https://github.com/moghtech/komodo",
+      "website_url": "https://komo.do"
+    },
+    {
+      "slug": "obsidian-livesync",
+      "name": "Obsidian LiveSync",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 11480,
+      "summary": "Community-implemented sync plugin for Obsidian.",
+      "repository_url": "https://github.com/vrtmrz/obsidian-livesync",
+      "website_url": "https://github.com/vrtmrz/obsidian-livesync"
+    },
+    {
+      "slug": "gatus",
+      "name": "Gatus",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 11449,
+      "summary": "Automated developer-oriented status page.",
+      "repository_url": "https://github.com/TwiN/gatus",
+      "website_url": "https://gatus.io"
+    },
+    {
+      "slug": "quickwit",
+      "name": "Quickwit",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 11390,
+      "summary": "Cloud-native search engine for observability.",
+      "repository_url": "https://github.com/quickwit-oss/quickwit",
+      "website_url": "https://quickwit.io"
+    },
+    {
+      "slug": "nginx-ui",
+      "name": "Nginx UI",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 11276,
+      "summary": "Yet another NGINX web interface.",
+      "repository_url": "https://github.com/0xJacky/nginx-ui",
+      "website_url": "https://nginxui.com"
+    },
+    {
+      "slug": "sonarqube",
+      "name": "SonarQube",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 10771,
+      "summary": "Automated code quality and security analysis.",
+      "repository_url": "https://github.com/SonarSource/sonarqube",
+      "website_url": "http://www.sonarqube.org"
+    },
+    {
+      "slug": "blinko",
+      "name": "Blinko",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 10658,
+      "summary": "Personal note tool with AI features.",
+      "repository_url": "https://github.com/blinkospace/blinko",
+      "website_url": "https://blinko.space"
+    },
+    {
+      "slug": "mailpit",
+      "name": "Mailpit",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 9799,
+      "summary": "Email testing tool and API for developers.",
+      "repository_url": "https://github.com/axllent/mailpit",
+      "website_url": "https://mailpit.axllent.org"
+    },
+    {
+      "slug": "fluxer",
+      "name": "Fluxer",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 9534,
+      "summary": "Instant messaging and VoIP app.",
+      "repository_url": "https://github.com/fluxerapp/fluxer",
+      "website_url": "https://docs.fluxer.app/operator/get-started"
+    },
+    {
+      "slug": "trek",
+      "name": "TREK",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 9456,
+      "summary": "Real-time collaborative travel planner.",
+      "repository_url": "https://github.com/mauriceboe/TREK",
+      "website_url": "https://demo.liketrek.com"
+    },
+    {
+      "slug": "miniflux",
+      "name": "Miniflux",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 9443,
+      "summary": "Minimalist news reader.",
+      "repository_url": "https://github.com/miniflux/v2",
+      "website_url": "https://miniflux.app"
+    },
+    {
+      "slug": "step-ca",
+      "name": "step-ca",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 8644,
+      "summary": "Online certificate authority.",
+      "repository_url": "https://github.com/smallstep/certificates",
+      "website_url": "https://smallstep.com/certificates"
+    },
+    {
+      "slug": "sylius",
+      "name": "Sylius",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 8498,
+      "summary": "Symfony2 powered full-stack app for eCommerce.",
+      "repository_url": "https://github.com/Sylius/Sylius",
+      "website_url": "https://sylius.com"
+    },
+    {
+      "slug": "vendure",
+      "name": "Vendure",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 8227,
+      "summary": "Headless commerce framework.",
+      "repository_url": "https://github.com/vendurehq/vendure",
+      "website_url": "https://www.vendure.io"
+    },
+    {
+      "slug": "a-dark-room",
+      "name": "A Dark Room",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 8164,
+      "summary": "Minimalist text adventure game for your browser.",
+      "repository_url": "https://github.com/doublespeakgames/adarkroom",
+      "website_url": "https://github.com/doublespeakgames/adarkroom"
+    },
+    {
+      "slug": "openttd",
+      "name": "OpenTTD",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 8037,
+      "summary": "Transport tycoon simulation game.",
+      "repository_url": "https://github.com/OpenTTD/OpenTTD",
+      "website_url": "https://www.openttd.org"
+    },
+    {
+      "slug": "scrutiny",
+      "name": "Scrutiny",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 7958,
+      "summary": "Hard drive S.M.A.R.T, monitoring application.",
+      "repository_url": "https://github.com/AnalogJ/scrutiny",
+      "website_url": "https://github.com/AnalogJ/scrutiny"
+    },
+    {
+      "slug": "phpmyadmin",
+      "name": "phpMyAdmin",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 7898,
+      "summary": "Web interface for MySQL and MariaDB.",
+      "repository_url": "https://github.com/phpmyadmin/phpmyadmin",
+      "website_url": "https://www.phpmyadmin.net"
+    },
+    {
+      "slug": "open-source-routing-machine-osrm",
+      "name": "Open Source Routing Machine (OSRM)",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 7863,
+      "summary": "Routing Machine - C++ backend.",
+      "repository_url": "https://github.com/Project-OSRM/osrm-backend",
+      "website_url": "https://discord.gg/CpWzBC9G7Z"
+    },
+    {
+      "slug": "buku",
+      "name": "Buku",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 7160,
+      "summary": "Bookmark manager and a personal textual mini-web.",
+      "repository_url": "https://github.com/jarun/buku",
+      "website_url": "https://github.com/jarun/Buku"
+    },
+    {
+      "slug": "eclipse-che",
+      "name": "Eclipse Che",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 7153,
+      "summary": "Workspace server and cloud IDE.",
+      "repository_url": "https://github.com/eclipse-che/che",
+      "website_url": "http://eclipse.org/che"
+    },
+    {
+      "slug": "soft-serve",
+      "name": "Soft Serve",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 7073,
+      "summary": "Git server for the command line.",
+      "repository_url": "https://github.com/charmbracelet/soft-serve",
+      "website_url": "https://github.com/charmbracelet/soft-serve"
+    },
+    {
+      "slug": "clamav",
+      "name": "ClamAV",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 6940,
+      "summary": "Antivirus engine for detecting malicious threats.",
+      "repository_url": "https://github.com/Cisco-Talos/clamav",
+      "website_url": "https://www.clamav.net"
+    },
+    {
+      "slug": "backrest",
+      "name": "Backrest",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 6865,
+      "summary": "Web UI and orchestrator for restic backup.",
+      "repository_url": "https://github.com/garethgeorge/backrest",
+      "website_url": "https://garethgeorge.github.io/backrest"
+    },
+    {
+      "slug": "humhub",
+      "name": "HumHub",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 6700,
+      "summary": "Flexible kit for private social networks.",
+      "repository_url": "https://github.com/humhub/humhub",
+      "website_url": "https://www.humhub.com"
+    },
+    {
+      "slug": "opensign",
+      "name": "OpenSign",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 6621,
+      "summary": "The & DocuSign alternative.",
+      "repository_url": "https://github.com/OpenSignLabs/OpenSign",
+      "website_url": "https://www.opensignlabs.com"
+    },
+    {
+      "slug": "lldap",
+      "name": "LLDAP",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 6354,
+      "summary": "Lightweight LDAP implementation.",
+      "repository_url": "https://github.com/lldap/lldap",
+      "website_url": "https://github.com/lldap/lldap"
+    },
+    {
+      "slug": "the-lounge",
+      "name": "The Lounge",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 6286,
+      "summary": "Web IRC.",
+      "repository_url": "https://github.com/thelounge/thelounge",
+      "website_url": "https://thelounge.chat"
+    },
+    {
+      "slug": "arcane",
+      "name": "Arcane",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 6261,
+      "summary": "Web Docker management interface.",
+      "repository_url": "https://github.com/getarcaneapp/arcane",
+      "website_url": "https://getarcane.app"
+    },
+    {
+      "slug": "rundeck",
+      "name": "Rundeck",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 6214,
+      "summary": "Orchestration tool for automation.",
+      "repository_url": "https://github.com/rundeck/rundeck",
+      "website_url": "http://rundeck.org"
+    },
+    {
+      "slug": "octobot",
+      "name": "OctoBot",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 6206,
+      "summary": "Cryptocurrency trading bot.",
+      "repository_url": "https://github.com/Drakkar-Software/OctoBot",
+      "website_url": "https://www.octobot.cloud"
+    },
+    {
+      "slug": "pulse",
+      "name": "Pulse",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 6109,
+      "summary": "Proxmox monitoring interface.",
+      "repository_url": "https://github.com/rcourtman/Pulse",
+      "website_url": "https://pulserelay.pro"
+    },
+    {
+      "slug": "glpi",
+      "name": "GLPI",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 6075,
+      "summary": "Asset and IT management software package.",
+      "repository_url": "https://github.com/glpi-project/glpi",
+      "website_url": "https://glpi-project.org"
+    },
+    {
+      "slug": "webmin",
+      "name": "Webmin",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 5944,
+      "summary": "Server management control panel.",
+      "repository_url": "https://github.com/webmin/webmin",
+      "website_url": "http://www.webmin.com"
+    },
+    {
+      "slug": "tinyproxy",
+      "name": "Tinyproxy",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 5900,
+      "summary": "Light-weight HTTP/HTTPS proxy daemon.",
+      "repository_url": "https://github.com/tinyproxy/tinyproxy",
+      "website_url": "https://tinyproxy.github.io"
+    },
+    {
+      "slug": "opencloud",
+      "name": "OpenCloud",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 5693,
+      "summary": "File Sharing and Collaboration app.",
+      "repository_url": "https://github.com/opencloud-eu/opencloud",
+      "website_url": "https://opencloud.eu"
+    },
+    {
+      "slug": "suitecrm",
+      "name": "SuiteCRM",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 5559,
+      "summary": "The award-winning, enterprise-class CRM.",
+      "repository_url": "https://github.com/SuiteCRM/SuiteCRM",
+      "website_url": "https://www.suitecrm.com"
+    },
+    {
+      "slug": "unison",
+      "name": "Unison",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 5392,
+      "summary": "Unison file synchronizer.",
+      "repository_url": "https://github.com/bcpierce00/unison",
+      "website_url": "https://www.cis.upenn.edu/~bcpierce/unison"
+    },
+    {
+      "slug": "wetty",
+      "name": "WeTTY",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 5333,
+      "summary": "Terminal in browser over http/https.",
+      "repository_url": "https://github.com/butlerx/wetty",
+      "website_url": "https://butlerx.github.io/wetty"
+    },
+    {
+      "slug": "shlink",
+      "name": "Shlink",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 5141,
+      "summary": "The definitive URL shortener.",
+      "repository_url": "https://github.com/shlinkio/shlink",
+      "website_url": "https://shlink.io"
+    },
+    {
+      "slug": "pinchflat",
+      "name": "Pinchflat",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 5122,
+      "summary": "Download YouTube content built using yt-dlp.",
+      "repository_url": "https://github.com/kieraneglin/pinchflat",
+      "website_url": "https://github.com/kieraneglin/pinchflat"
+    },
+    {
+      "slug": "joomla",
+      "name": "Joomla!",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 5103,
+      "summary": "Advanced Content Management System (CMS).",
+      "repository_url": "https://github.com/joomla/joomla-cms",
+      "website_url": "https://www.joomla.org"
+    },
+    {
+      "slug": "ckan",
+      "name": "CKAN",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 5068,
+      "summary": "Make open data websites.",
+      "repository_url": "https://github.com/ckan/ckan",
+      "website_url": "https://ckan.org"
+    },
+    {
+      "slug": "whodb",
+      "name": "WhoDB",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4917,
+      "summary": "Lightweight next-gen database explorer.",
+      "repository_url": "https://github.com/clidey/whodb",
+      "website_url": "https://whodb.com"
+    },
+    {
+      "slug": "unregistry",
+      "name": "Unregistry",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4816,
+      "summary": "Internal container image registry.",
+      "repository_url": "https://github.com/psviderski/unregistry",
+      "website_url": "https://uncloud.run"
+    },
+    {
+      "slug": "surveyjs",
+      "name": "SurveyJS",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4795,
+      "summary": "Surveys and forms.",
+      "repository_url": "https://github.com/surveyjs/survey-library",
+      "website_url": "https://surveyjs.io/form-library"
+    },
+    {
+      "slug": "diun",
+      "name": "Diun",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4763,
+      "summary": "Docker image update notifications.",
+      "repository_url": "https://github.com/crazy-max/diun",
+      "website_url": "https://crazymax.dev/diun"
+    },
+    {
+      "slug": "anonaddy",
+      "name": "AnonAddy",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4738,
+      "summary": "Email forwarding service for creating aliases.",
+      "repository_url": "https://github.com/anonaddy/anonaddy",
+      "website_url": "https://addy.io"
+    },
+    {
+      "slug": "vikunja",
+      "name": "Vikunja",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4685,
+      "summary": "The to-do app to organize your life.",
+      "repository_url": "https://github.com/go-vikunja/vikunja",
+      "website_url": "https://vikunja.io"
+    },
+    {
+      "slug": "ackee",
+      "name": "Ackee",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4677,
+      "summary": "Minimal, privacy-centric web analytics.",
+      "repository_url": "https://github.com/electerious/Ackee",
+      "website_url": "https://ackee.electerious.com"
+    },
+    {
+      "slug": "xyops",
+      "name": "xyOps",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4550,
+      "summary": "Workflow automation and server monitoring.",
+      "repository_url": "https://github.com/pixlcore/xyops",
+      "website_url": "https://github.com/pixlcore/xyops"
+    },
+    {
+      "slug": "octobox",
+      "name": "Octobox",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4476,
+      "summary": "Take back control of your GitHub Notifications.",
+      "repository_url": "https://github.com/octobox/octobox",
+      "website_url": "https://octobox.io"
+    },
+    {
+      "slug": "microbin",
+      "name": "MicroBin",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4440,
+      "summary": "File sharing and URL shortening web app.",
+      "repository_url": "https://github.com/szabodanika/microbin",
+      "website_url": "https://microbin.eu"
+    },
+    {
+      "slug": "fider",
+      "name": "Fider",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4404,
+      "summary": "Open app to collect and prioritize feedback.",
+      "repository_url": "https://github.com/getfider/fider",
+      "website_url": "https://fider.io"
+    },
+    {
+      "slug": "kubero",
+      "name": "Kubero",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4340,
+      "summary": "PaaS running on Kubernetes.",
+      "repository_url": "https://github.com/kubero-dev/kubero",
+      "website_url": "https://demo.kubero.dev"
+    },
+    {
+      "slug": "linuxserver-webtop",
+      "name": "Webtop",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4271,
+      "summary": "Desktop environments accessible via the browser.",
+      "repository_url": "https://github.com/linuxserver/docker-webtop",
+      "website_url": "https://github.com/linuxserver/docker-webtop"
+    },
+    {
+      "slug": "13ft-ladder",
+      "name": "13ft Ladder",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4225,
+      "summary": "Web interface for blocking ads and paywalls.",
+      "repository_url": "https://github.com/wasi-master/13ft",
+      "website_url": "https://13ft-ladder.vercel.app"
+    },
+    {
+      "slug": "pad-ws",
+      "name": "pad.ws",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 4135,
+      "summary": "Whiteboard IDE in the browser.",
+      "repository_url": "https://github.com/coderamp-labs/pad.ws",
+      "website_url": "https://github.com/coderamp-labs/pad.ws"
+    },
+    {
+      "slug": "octelium",
+      "name": "Octelium",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words",
+        "summary_generic"
+      ],
+      "github_stars": 3918,
+      "summary": "Unified zero trust secure access app.",
+      "repository_url": "https://github.com/octelium/octelium",
+      "website_url": "https://octelium.com/docs"
+    },
+    {
+      "slug": "seanime",
+      "name": "Seanime",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 3836,
+      "summary": "Media streaming server for anime and manga.",
+      "repository_url": "https://github.com/5rahim/seanime",
+      "website_url": "https://seanime.app"
+    },
+    {
+      "slug": "ampache",
+      "name": "Ampache",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 3800,
+      "summary": "Web based audio/video streaming application.",
+      "repository_url": "https://github.com/ampache/ampache",
+      "website_url": "http://ampache.org"
+    },
+    {
+      "slug": "bknd",
+      "name": "bknd",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 3729,
+      "summary": "Lightweight Firebase/Supabase alternative.",
+      "repository_url": "https://github.com/bknd-io/bknd",
+      "website_url": "https://bknd.io"
+    },
+    {
+      "slug": "olivetin",
+      "name": "OliveTin",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 3673,
+      "summary": "Web interface for running Linux shell commands.",
+      "repository_url": "https://github.com/OliveTin/OliveTin",
+      "website_url": "https://olivetin.app"
+    },
+    {
+      "slug": "wud",
+      "name": "WUD",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 3650,
+      "summary": "Notifications for Docker image updates.",
+      "repository_url": "https://github.com/getwud/wud",
+      "website_url": "https://getwud.github.io/wud"
+    },
+    {
+      "slug": "grimmory",
+      "name": "Grimmory",
+      "score": 245,
+      "issues": [
+        "database_unknown",
+        "docker_unknown",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_too_short",
+        "summary_under_8_words"
+      ],
+      "github_stars": 3644,
+      "summary": "Digital library organization and access.",
+      "repository_url": "https://github.com/grimmory-tools/grimmory",
+      "website_url": "https://grimmory.org"
+    }
+  ]
+}

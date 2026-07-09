@@ -1,0 +1,19 @@
+{
+  "id": "pick-your-first-server--first-server-choice",
+  "page": "self-hosting-for-beginners/pick-your-first-server",
+  "type": "tradeoff",
+  "takeaway": "Use hardware you already own first; buy a quiet mini PC only when the habit sticks.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 104,
+  "width": 430,
+  "data": {
+    "headers": ["choice", "cost", "noise", "best for"],
+    "cols": [132, 76, 74, 116],
+    "rows": [
+      { "cells": ["spare pc", "free", "varies", "first habit"], "tone": "primary" },
+      { "cells": ["old laptop", "free", "quiet", "practice"] },
+      { "cells": ["mini pc", "buy", "quiet", "later"] }
+    ]
+  }
+}

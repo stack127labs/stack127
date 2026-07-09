@@ -1,16 +1,38 @@
 #!/usr/bin/env node
 
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 
 const defaultOut = "scripts/self-host-apps/batches/enrichment-batch.json";
 
+function recordsFromInput(input) {
+  if (Array.isArray(input)) return input;
+  if (Array.isArray(input.apps)) return input.apps;
+  return [input];
+}
+
+async function excludedSlugsFromFiles(value) {
+  if (!value) return [];
+  const files = Array.isArray(value) ? value : String(value).split(",");
+  const slugs = new Set();
+
+  for (const file of files.map((item) => item.trim()).filter(Boolean)) {
+    const input = JSON.parse(await readFile(file, "utf8"));
+    for (const record of recordsFromInput(input)) {
+      if (record?.slug) slugs.add(record.slug);
+    }
+  }
+
+  return [...slugs];
+}
+
 async function main() {
   const args = parseArgs();
   const limit = numberArg(args, "limit", 100);
   const out = args.out ?? defaultOut;
+  const excludeSlugs = await excludedSlugsFromFiles(args["exclude-file"]);
 
   await withClient(async (client) => {
     const result = await client.query(
@@ -73,6 +95,7 @@ async function main() {
             on category.id = app_category.category_id
           where app.published = false
             and app.repository_url ~ '^https://github.com/[^/]+/[^/#?]+/?$'
+            and not (app.slug = any($2::text[]))
           group by app.id
         )
         select *
@@ -80,7 +103,7 @@ async function main() {
         order by missing_score desc, name asc
         limit $1
       `,
-      [limit],
+      [limit, excludeSlugs],
     );
 
     const batch = {
@@ -89,6 +112,7 @@ async function main() {
         limit,
         order: "missing_score desc, name asc",
         source: "local draft self_host_apps rows with GitHub repository URLs",
+        excluded_slugs: excludeSlugs.length,
       },
       apps: result.rows,
     };

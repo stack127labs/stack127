@@ -1,0 +1,9 @@
+{
+  "notes": "Manual overrides for enrichment batch 019. Keep empty unless official-source review finds a field that the automated GitHub pass cannot infer safely.",
+  "overrides": {
+    "tracktor": {
+      "website_url": "https://github.com/javedh-dev/tracktor",
+      "note": "Official project website returned 503 during batch 019 link verification; use the official GitHub repository as the website."
+    }
+  }
+}

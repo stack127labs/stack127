@@ -1,0 +1,21 @@
+{
+  "id": "linux-ssh-basics--ssh-runs-there",
+  "page": "self-hosting-for-beginners/linux-ssh-basics",
+  "type": "flow",
+  "takeaway": "After SSH connects, the commands you type on your laptop run on the server.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 107,
+  "width": 340,
+  "height": 220,
+  "data": {
+    "nodes": [
+      { "id": "laptop", "kind": "icon", "icon": "laptop", "label": "your laptop", "x": 58, "y": 106, "s": 34 },
+      { "id": "server", "kind": "group", "label": "server", "x": 206, "y": 48, "w": 104, "h": 124 },
+      { "id": "shell", "kind": "icon", "icon": "terminal", "label": "shell", "tone": "primary", "x": 258, "y": 104, "s": 34 }
+    ],
+    "edges": [
+      { "from": "laptop", "to": "server", "label": "ssh", "tone": "primary" }
+    ]
+  }
+}

@@ -16,7 +16,7 @@ Fields:
 
 | column | purpose |
 | --- | --- |
-| `slug` | URL path without leading slash, for example `self-host-apps` or `self-hosting/linux-ssh-basics` |
+| `slug` | URL path without leading slash, for example `self-host-apps` or `self-hosting-for-beginners/linux-ssh-basics` |
 | `meta_title` | Full browser/search title |
 | `meta_description` | Search description |
 | `is_published` | Whether the exact slug is a public SEO page |

@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-07-04T20:09:10.357Z",
+  "selection": {
+    "limit": 100,
+    "order": "missing_score desc, name asc",
+    "source": "local draft self_host_apps rows with GitHub repository URLs",
+    "excluded_slugs": 0
+  },
+  "apps": [
+    {
+      "slug": "trackly",
+      "name": "Trackly",
+      "summary": "Jellyfin music library interface and release notifications.",
+      "icon_url": "/app-icons/trackly.png",
+      "website_url": "https://github.com/7eventy7/trackly",
+      "repository_url": "https://github.com/7eventy7/trackly",
+      "docs_url": null,
+      "install_docs_url": null,
+      "docker_url": null,
+      "license": null,
+      "publisher_name": "7eventy7",
+      "publisher_type": "unknown",
+      "publisher_url": "https://github.com/7eventy7",
+      "maintenance_status": "unknown",
+      "github_owner": "7eventy7",
+      "github_repo": "trackly",
+      "github_stars": 63,
+      "github_latest_release": null,
+      "github_latest_release_at": null,
+      "github_last_commit_at": null,
+      "github_checked_at": "2026-03-27T00:00:00.000Z",
+      "docker_support": "unknown",
+      "compose_support": null,
+      "requires_database": null,
+      "database_types": [],
+      "ram_mb": null,
+      "storage_profile": "unknown",
+      "platforms": [
+        "web"
+      ],
+      "summary_source": "selfhst_rewrite",
+      "summary_confidence": "medium",
+      "categories": [
+        "monitoring-status",
+        "music-audio"
+      ],
+      "missing_score": 11
+    }
+  ]
+}

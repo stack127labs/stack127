@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-07-04T22:17:20.693Z",
+  "selection": {
+    "limit": 100,
+    "order": "missing_score desc, name asc",
+    "source": "local draft self_host_apps rows with GitHub repository URLs",
+    "excluded_slugs": 1
+  },
+  "apps": []
+}

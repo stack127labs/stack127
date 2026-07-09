@@ -1,0 +1,24 @@
+{
+  "id": "access-apps-safely-at-home--home-only-routing",
+  "page": "self-hosting-for-beginners/access-apps-safely-at-home",
+  "type": "flow",
+  "takeaway": "Home apps stay private because the router has no public rule sending traffic to them.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 114,
+  "width": 340,
+  "height": 240,
+  "data": {
+    "nodes": [
+      { "id": "internet", "kind": "icon", "icon": "cloud", "label": "internet", "tone": "sub", "x": 54, "y": 66, "s": 34 },
+      { "id": "router", "kind": "icon", "icon": "router", "label": "router", "x": 168, "y": 116, "s": 34 },
+      { "id": "server", "kind": "icon", "icon": "server", "label": "server", "sub": "192.168.x.x", "tone": "primary", "x": 286, "y": 160, "s": 34 },
+      { "id": "phone", "kind": "icon", "icon": "phone", "label": "home phone", "x": 54, "y": 178, "s": 28 }
+    ],
+    "edges": [
+      { "from": "internet", "to": "router", "label": "dropped", "tone": "warn" },
+      { "from": "phone", "to": "router", "label": "local", "tone": "primary" },
+      { "from": "router", "to": "server", "tone": "primary" }
+    ]
+  }
+}

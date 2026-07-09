@@ -51,7 +51,7 @@ The older `--text-*` tokens are still the compact UI scale. Use them for interfa
 - Keep paragraphs slightly less muted than metadata with `--color-text-prose`.
 - Use no default dividers between prose sections unless a specific reference page needs them.
 - Keep section spacing calm: enough air to scan, not enough to feel editorial or blog-like.
-- Use lowercase headings with the Version127 signature dot, for example `privacy.`, `what we collect.`, and `external links.`.
+- Write headings normally in the source text, for example `Privacy`, `What we collect`, and `External links`.
 - Use links in blue with subtle hover underline.
 
 ## Rules
@@ -72,8 +72,8 @@ The older `--text-*` tokens are still the compact UI scale. Use them for interfa
 - Use `--focus-ring` for focus states.
 - Use blue only for links, focus, selected states, and important actions.
 - Use green/yellow/red only for status.
-- User-facing headings should end with a dot.
-- Keep user-facing headings lowercase unless a proper noun or acronym needs its normal casing.
+- User-facing headings should not end with a decorative dot.
+- Keep user-facing headings in normal sentence case unless a proper noun or acronym needs different casing.
 - Prefer structured facts over prose.
 - Unknown is better than fake precision.
 
@@ -86,5 +86,7 @@ Cards should use stable grids, compact text, subtle hover borders, and no layout
 Drawers should use rows and dividers, sit above the top bar, and become full-screen on mobile.
 
 Filters should use the label plus horizontal-line pattern and share input height, radius, font size, and focus styles.
+
+Media figures should use `MediaFigure` from `app/media-figure.tsx`. Screenshots and photos use the `image` kind: borderless, centered, text-width by default, and height-capped so tall images stay contained. Generated visual explainers use the `diagram` kind so instructional SVGs can keep their framed treatment without forcing that frame onto real images.
 
 Shared footers should stay small: logo, essential legal links, and rights text only. Keep them inside the shell so every route has the same minimal baseline.

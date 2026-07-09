@@ -1,0 +1,27 @@
+{
+  "id": "understand-docker-compose--compose-parts",
+  "page": "self-hosting-for-beginners/understand-docker-compose",
+  "type": "composeMap",
+  "takeaway": "A compose file tells Docker the image, port, data folder, settings, and restart rule.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 110,
+  "width": 440,
+  "height": 250,
+  "data": {
+    "title": "compose.yml",
+    "lines": [
+      { "id": "image", "text": "image: fireflyiii/core" },
+      { "id": "ports", "text": "ports: 8080:8080", "tone": "primary" },
+      { "id": "volumes", "text": "volumes: ./data:/var", "tone": "primary" },
+      { "id": "env", "text": "environment: ..." },
+      { "id": "restart", "text": "restart: unless-stopped" }
+    ],
+    "callouts": [
+      { "line": "image", "label": "what runs", "sub": "the app package" },
+      { "line": "ports", "label": "how you open it", "sub": "browser address", "tone": "primary" },
+      { "line": "volumes", "label": "where data lives", "sub": "keep this folder", "tone": "primary" },
+      { "line": "restart", "label": "come back up", "sub": "after reboot" }
+    ]
+  }
+}

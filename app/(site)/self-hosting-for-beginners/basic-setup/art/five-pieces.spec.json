@@ -1,0 +1,26 @@
+{
+  "id": "basic-setup--five-pieces",
+  "page": "self-hosting-for-beginners/basic-setup",
+  "type": "flow",
+  "takeaway": "Your devices reach the app through the router. The app and its data live on the server.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 103,
+  "width": 340,
+  "height": 240,
+  "data": {
+    "nodes": [
+      { "id": "phone", "kind": "icon", "icon": "phone", "label": "phone", "x": 38, "y": 66, "s": 26 },
+      { "id": "laptop", "kind": "icon", "icon": "laptop", "label": "laptop", "x": 40, "y": 164, "s": 28 },
+      { "id": "router", "kind": "icon", "icon": "router", "label": "router", "x": 148, "y": 112, "s": 30 },
+      { "id": "server", "kind": "group", "label": "server", "x": 224, "y": 40, "w": 100, "h": 182 },
+      { "id": "app", "kind": "box", "label": "app", "tone": "primary", "x": 240, "y": 76, "w": 68, "h": 46 },
+      { "id": "storage", "kind": "icon", "icon": "disk", "label": "storage", "sub": "your data", "x": 274, "y": 158, "s": 30 }
+    ],
+    "edges": [
+      { "from": "phone", "to": "router" },
+      { "from": "laptop", "to": "router" },
+      { "from": "router", "to": "server" }
+    ]
+  }
+}

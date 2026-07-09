@@ -4,9 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3333",
+    "prebuild": "npm run test:static",
     "build": "next build",
     "start": "next start -p 3333",
-    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "lint": "npm run test:static",
+    "test": "npm run typecheck && npm run test:unit && npm run test:static",
+    "test:unit": "node --test tests/version127/*.test.mjs",
+    "test:static": "node scripts/version127/quality/static-policy.mjs",
+    "test:seo": "playwright test",
+    "test:seo:registry": "node --env-file=.env.database scripts/version127/quality/seo-registry-check.mjs",
+    "quality": "npm run test && npm run test:seo:registry && npm run test:seo && npm run build",
     "self-host-apps:import-awesome": "node scripts/self-host-apps/import-awesome.mjs",
     "self-host-apps:import-awesome-selfhosted": "node scripts/self-host-apps/import-awesome-selfhosted.mjs",
     "self-host-apps:import-selfhst": "node scripts/self-host-apps/import-selfhst.mjs",
@@ -31,7 +39,10 @@
     "self-host-apps:sanitize-risky-facts": "node scripts/self-host-apps/sanitize-risky-facts.mjs",
     "self-host-apps:publish-github-backed": "node scripts/self-host-apps/publish-github-backed.mjs",
     "self-host-apps:sync-local-to-prod": "node scripts/self-host-apps/sync-local-to-prod.mjs",
-    "version127:marker-art": "node scripts/version127/marker-art/generate.mjs"
+    "version127:marker-art": "node scripts/version127/marker-art/generate.mjs",
+    "version127:dataset:export": "node scripts/version127/github/export-dataset.mjs",
+    "version127:dataset:sync": "node scripts/version127/github/sync-dataset-repo.mjs",
+    "version127:tool:new": "node scripts/version127/github/create-tool-repo.mjs"
   },
   "dependencies": {
     "@types/pg": "^8.20.0",

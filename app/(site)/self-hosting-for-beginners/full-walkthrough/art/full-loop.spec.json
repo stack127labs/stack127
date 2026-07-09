@@ -1,0 +1,21 @@
+{
+  "id": "full-walkthrough--full-loop",
+  "page": "self-hosting-for-beginners/full-walkthrough",
+  "type": "roadmap",
+  "takeaway": "The full self-hosting loop goes from machine to app, then data, backup, and remote access.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 116,
+  "width": 480,
+  "height": 250,
+  "data": {
+    "groups": [
+      { "label": "machine", "icon": "server" },
+      { "label": "os + ssh", "icon": "terminal" },
+      { "label": "app", "icon": "box", "tone": "primary" },
+      { "label": "data", "icon": "disk" },
+      { "label": "backup", "icon": "shield", "tone": "primary" }
+    ],
+    "note": "remote access comes after the app is backed up"
+  }
+}

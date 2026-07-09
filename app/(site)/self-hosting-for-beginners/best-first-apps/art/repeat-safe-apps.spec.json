@@ -1,0 +1,18 @@
+{
+  "id": "best-first-apps--repeat-safe-apps",
+  "page": "self-hosting-for-beginners/best-first-apps",
+  "type": "steps",
+  "takeaway": "Repeat the install pattern on safe apps before trusting the server with serious data.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 112,
+  "data": {
+    "items": [
+      { "label": "pick safe app", "icon": "laptop" },
+      { "label": "copy compose", "icon": "terminal" },
+      { "label": "start it", "icon": "terminal" },
+      { "label": "check logs", "icon": "monitor" },
+      { "label": "repeat", "icon": "smile", "tone": "primary" }
+    ]
+  }
+}

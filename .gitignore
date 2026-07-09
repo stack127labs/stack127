@@ -1,7 +1,10 @@
 .next/
+.next-playwright/
 node_modules/
 out/
 dist/
+playwright-report/
+test-results/
 
 .env
 .env*

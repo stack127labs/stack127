@@ -1,0 +1,17 @@
+{
+  "id": "backups-before-serious-apps--backup-restore-proof",
+  "page": "self-hosting-for-beginners/backups-before-serious-apps",
+  "type": "restoreLoop",
+  "takeaway": "A backup only counts after the data is copied elsewhere and restored once.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 113,
+  "width": 420,
+  "height": 230,
+  "data": {
+    "live": "live data",
+    "copy": "copy away",
+    "restore": "restore test",
+    "trust": "trust it"
+  }
+}

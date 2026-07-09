@@ -1,0 +1,4 @@
+interface:
+  display_name: "Version127 Content Audit"
+  short_description: "Deep audits for written Version127 pages"
+  default_prompt: "Use $version127-content-audit to deeply audit these written pages against competitors, depth, and user flow."

@@ -1,0 +1,17 @@
+{
+  "id": "what-you-can-host--start-low-stakes",
+  "page": "self-hosting-for-beginners/what-you-can-host",
+  "type": "riskLadder",
+  "takeaway": "Start with low-stakes apps and wait for backups before trusting photos or passwords.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-08",
+  "seed": 102,
+  "data": {
+    "items": [
+      { "label": "practice", "sub": "low stakes" },
+      { "label": "useful", "sub": "some data" },
+      { "label": "serious", "sub": "photos, passwords", "tone": "warn" }
+    ],
+    "note": "backup first"
+  }
+}
