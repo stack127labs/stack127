@@ -1,65 +1,174 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { getSelfHostAppsStats } from "@/lib/apps";
+import {
+  getMainPublishedPages,
+  isHomeFeaturePage,
+  pathFromSlug,
+  type Version127Page,
+} from "@/lib/page-registry";
+import { lessons } from "@/lib/self-hosting-for-beginners";
+import { licenses } from "@/lib/software-licenses";
 import { AppShell } from "../app-shell";
 
 export const dynamic = "force-dynamic";
 
-function HomeSidebar() {
+type HomeStat = {
+  label: string;
+  value: string;
+};
+
+function HomeSidebar({ pages }: { pages: Version127Page[] }) {
   return (
     <div className="directory-filter-panel home-sidebar-panel">
-      <nav className="home-sidebar-nav" aria-label="Home navigation">
-        <Link href="/self-host-apps">self-host apps</Link>
+      <div className="filter-panel-heading">
+        <h1>version127</h1>
+      </div>
+      <nav className="home-sidebar-nav" aria-label="Main pages">
+        <ul>
+          {pages.map((page) => (
+            <li key={page.slug}>
+              <Link href={pathFromSlug(page.slug)}>{page.label}</Link>
+            </li>
+          ))}
+        </ul>
       </nav>
     </div>
   );
 }
 
+function buildCardStats(
+  page: Version127Page,
+  appStats: Awaited<ReturnType<typeof getSelfHostAppsStats>>,
+): HomeStat[] {
+  if (page.slug === "self-host-apps") {
+    return [{ label: "apps", value: appStats.appCount.toLocaleString("en-US") }];
+  }
+
+  if (page.slug === "self-hosting-for-beginners") {
+    const publishedLessons = lessons.filter((lesson) => lesson.published).length;
+    return [{ label: "lessons", value: publishedLessons.toLocaleString("en-US") }];
+  }
+
+  if (page.slug === "software-licenses-for-self-hosting") {
+    return [{ label: "licenses", value: licenses.length.toLocaleString("en-US") }];
+  }
+
+  return [];
+}
+
+function HomePageCard({
+  page,
+  stats,
+}: {
+  page: Version127Page;
+  stats: HomeStat[];
+}) {
+  return (
+    <Link className="home-page-card" href={pathFromSlug(page.slug)}>
+      <div className="home-page-card-copy">
+        <h2>{page.label}</h2>
+        <p>{page.meta_description}</p>
+      </div>
+      {stats.length > 0 ? (
+        <dl className="home-page-card-stats" aria-label={`${page.label} stats`}>
+          {stats.map((stat) => (
+            <div key={stat.label}>
+              <dt>{stat.label}</dt>
+              <dd>{stat.value}</dd>
+            </div>
+          ))}
+        </dl>
+      ) : null}
+    </Link>
+  );
+}
+
+function startHereItems(featureSlugs: Set<string>): { key: string; node: ReactNode }[] {
+  const items: { key: string; node: ReactNode }[] = [];
+
+  if (featureSlugs.has("self-hosting-for-beginners")) {
+    items.push({
+      key: "course",
+      node: (
+        <>
+          New to self-hosting? <Link href="/self-hosting-for-beginners">Open the course</Link>.
+        </>
+      ),
+    });
+  }
+
+  if (featureSlugs.has("self-host-apps")) {
+    items.push({
+      key: "apps",
+      node: (
+        <>
+          Looking for an app? <Link href="/self-host-apps">Browse the directory</Link>.
+        </>
+      ),
+    });
+  }
+
+  if (featureSlugs.has("software-licenses-for-self-hosting")) {
+    items.push({
+      key: "licenses",
+      node: (
+        <>
+          Checking a license label?{" "}
+          <Link href="/software-licenses-for-self-hosting">Read the license notes</Link>.
+        </>
+      ),
+    });
+  }
+
+  return items;
+}
+
 export default async function Home() {
-  const stats = await getSelfHostAppsStats();
+  const [mainPages, appStats] = await Promise.all([
+    getMainPublishedPages(),
+    getSelfHostAppsStats(),
+  ]);
+  const featurePages = mainPages.filter(isHomeFeaturePage);
+  const startItems = startHereItems(new Set(featurePages.map((page) => page.slug)));
 
   return (
     <AppShell
       mainLabel="Home"
-      menuLabel="Menu"
-      sidebar={<HomeSidebar />}
+      menuLabel="Pages"
+      sidebar={<HomeSidebar pages={mainPages} />}
       sidebarLabel="Home sidebar"
     >
-        <section className="home-hero" aria-labelledby="home-title">
-          <div className="home-hero-copy">
-            <h1 id="home-title">
-              Find useful technical tools, references, and directories.
-            </h1>
-          </div>
+      <section className="home-main" aria-labelledby="home-title">
+        <header className="home-intro">
+          <h1 id="home-title">Practical tools for self-hosting</h1>
+          <p className="home-lede">
+            Compact directories, a beginner course, and references you can scan without
+            wading through filler.
+          </p>
+        </header>
 
-          <Link className="home-self-host-card" href="/self-host-apps">
-            <div>
-              <h2>Self-host apps</h2>
-              <p>
-                Browse practical apps by category, resources, Docker support,
-                project health, and platform signals.
-              </p>
-            </div>
+        <div className="home-page-grid">
+          {featurePages.map((page) => (
+            <HomePageCard
+              key={page.slug}
+              page={page}
+              stats={buildCardStats(page, appStats)}
+            />
+          ))}
+        </div>
 
-            <dl className="home-self-host-stats" aria-label="Self-host app stats">
-              <div>
-                <dt>apps</dt>
-                <dd>{stats.appCount.toLocaleString("en-US")}</dd>
-              </div>
-              <div>
-                <dt>categories</dt>
-                <dd>{stats.categoryCount.toLocaleString("en-US")}</dd>
-              </div>
-              <div>
-                <dt>docker</dt>
-                <dd>{stats.dockerCount.toLocaleString("en-US")}</dd>
-              </div>
-              <div>
-                <dt>active</dt>
-                <dd>{stats.activeCount.toLocaleString("en-US")}</dd>
-              </div>
-            </dl>
-          </Link>
-        </section>
+        {startItems.length > 0 ? (
+          <section className="home-start" aria-labelledby="home-start-title">
+            <h2 id="home-start-title">Start here</h2>
+            <ul>
+              {startItems.map((item) => (
+                <li key={item.key}>{item.node}</li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+      </section>
     </AppShell>
   );
 }

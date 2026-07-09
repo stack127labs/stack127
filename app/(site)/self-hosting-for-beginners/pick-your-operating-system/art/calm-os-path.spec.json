@@ -2,7 +2,7 @@
   "id": "pick-your-operating-system--calm-os-path",
   "page": "self-hosting-for-beginners/pick-your-operating-system",
   "type": "stack",
-  "takeaway": "Debian or Ubuntu Server plus Docker is the calm first operating system path.",
+  "takeaway": "Start with Debian or Ubuntu Server, then add Docker for apps.",
   "source": "conceptual figure, no external data",
   "dataAsOf": "2026-07-08",
   "seed": 105,
@@ -10,10 +10,10 @@
   "data": {
     "layers": [
       { "label": "apps" },
-      { "label": "docker", "tone": "primary" },
-      { "label": "debian or ubuntu server" },
+      { "label": "docker" },
+      { "label": "debian or ubuntu server", "tone": "primary" },
       { "label": "your machine" }
     ],
-    "note": { "layer": 1, "text": "start here" }
+    "note": { "layer": 2, "text": "start here" }
   }
 }

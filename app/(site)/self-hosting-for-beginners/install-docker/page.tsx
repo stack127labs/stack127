@@ -2,6 +2,7 @@ import { getLesson } from "@/lib/self-hosting-for-beginners";
 import { MarkerArt } from "../../../marker-art";
 import { Callout, LessonLink, LessonPage } from "../course";
 import { imageContainerPortArt } from "./art/image-container-port";
+import { CodeBlock } from "../../../code-block";
 
 const lesson = getLesson("install-docker");
 
@@ -47,9 +48,7 @@ export default function Page() {
           also have a step-by-step apt method if you prefer). SSH into your server and run:
         </p>
 
-        <pre className="lesson-code">
-          <code>curl -fsSL https://get.docker.com | sh</code>
-        </pre>
+        <CodeBlock>curl -fsSL https://get.docker.com | sh</CodeBlock>
 
         <p>
           That installs Docker and the Compose plugin (the thing you'll actually use next lesson).
@@ -57,18 +56,14 @@ export default function Page() {
           have to type <code>sudo</code> before every command.
         </p>
 
-        <pre className="lesson-code">
-          <code>sudo usermod -aG docker $USER</code>
-        </pre>
+        <CodeBlock>sudo usermod -aG docker $USER</CodeBlock>
 
         <p>
           Log out and back in for that to take effect. Then check the whole thing works by running
           a tiny test container:
         </p>
 
-        <pre className="lesson-code">
-          <code>docker run hello-world</code>
-        </pre>
+        <CodeBlock>docker run hello-world</CodeBlock>
 
         <p>
           If you see a friendly "Hello from Docker!" message, you're done. Docker downloaded a tiny

@@ -3,6 +3,7 @@ import { MediaFigure } from "@/app/media-figure";
 import { MarkerArt } from "../../../marker-art";
 import { Callout, LessonLink, LessonPage } from "../course";
 import { osOnlineChecklistArt } from "./art/os-online-checklist";
+import { CodeBlock } from "../../../code-block";
 
 const lesson = getLesson("install-your-os");
 
@@ -67,6 +68,16 @@ export default function Page() {
           and try the next key.
         </p>
 
+        <MediaFigure
+          alt="Mini PC with a USB installer plugged into the front USB port before booting into the operating system installer"
+          caption="For a mini PC, the install really is this physical at first: plug in the USB installer, then boot from it."
+          height={900}
+          kind="image"
+          src="/course-images/self-hosting-for-beginners/mini-pc-usb-installer-boot.jpg"
+          title="Mini PC booting from a USB installer"
+          width={1200}
+        />
+
         <p>
           From there the installer walks you through it: language, keyboard, disk. Two choices in
           the middle matter more than the rest.
@@ -110,9 +121,7 @@ export default function Page() {
           lesson makes you comfortable with. For now, type exactly this and press enter:
         </p>
 
-        <pre className="lesson-code">
-          <code>ip a</code>
-        </pre>
+        <CodeBlock>ip a</CodeBlock>
 
         <p>
           Look for a line under your Ethernet connection like{" "}
@@ -130,6 +139,16 @@ export default function Page() {
           <code>192.168.1.1</code> or whatever is printed on the router's label, and logging in.
           Find your server in the device list, reserve its current address, and save.
         </p>
+
+        <MediaFigure
+          alt="Router address reservation screen showing a Mini-PC device reserved at 192.168.1.50"
+          caption="Your router may call it address reservation, DHCP reservation, or static lease. The goal is the same: keep the server on the same IP."
+          height={800}
+          kind="image"
+          src="/course-images/self-hosting-for-beginners/router-address-reservation.jpg"
+          title="Router address reservation screen for a mini PC"
+          width={1200}
+        />
 
         <Callout tone="warning" title="Don't skip the reservation">
           <p>

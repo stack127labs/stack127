@@ -3,6 +3,7 @@ import { getLesson } from "@/lib/self-hosting-for-beginners";
 import { MarkerArt } from "../../../marker-art";
 import { Callout, LessonLink, LessonPage } from "../course";
 import { fullLoopArt } from "./art/full-loop";
+import { CodeBlock } from "../../../code-block";
 
 const lesson = getLesson("full-walkthrough");
 
@@ -92,27 +93,19 @@ export default function Page() {
           (its compose file comes straight from the official docs). Connect and get current:
         </p>
 
-        <pre className="lesson-code">
-          <code>{`ssh yourname@192.168.1.50
-sudo apt update && sudo apt upgrade`}</code>
-        </pre>
+        <CodeBlock>{`ssh yourname@192.168.1.50
+sudo apt update && sudo apt upgrade`}</CodeBlock>
 
         <p>Give the app a home and write its compose file:</p>
 
-        <pre className="lesson-code">
-          <code>{`mkdir -p ~/apps/memos && cd ~/apps/memos
-nano docker-compose.yml`}</code>
-        </pre>
+        <CodeBlock>{`mkdir -p ~/apps/memos && cd ~/apps/memos
+nano docker-compose.yml`}</CodeBlock>
 
-        <pre className="lesson-code">
-          <code>{memosCompose}</code>
-        </pre>
+        <CodeBlock>{memosCompose}</CodeBlock>
 
         <p>Start it and open it:</p>
 
-        <pre className="lesson-code">
-          <code>docker compose up -d</code>
-        </pre>
+        <CodeBlock>docker compose up -d</CodeBlock>
 
         <p>
           In a browser, go to <code>http://192.168.1.50:5230</code> (your server's IP, port 5230),

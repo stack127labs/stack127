@@ -16,84 +16,75 @@
       "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
+    "/software-licenses-for-self-hosting": {
+      "state": "published",
+      "tests": [
+        "tests/version127/seo.spec.ts",
+        "tests/version127/software-licenses.test.mjs"
+      ]
+    },
     "/self-hosting-for-beginners": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/access-apps-remotely-with-tailscale": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/access-apps-safely-at-home": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/backups-before-serious-apps": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/basic-setup": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/best-first-apps": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/full-walkthrough": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/install-docker": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/install-your-first-app": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/install-your-os": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/linux-ssh-basics": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/pick-your-first-server": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/pick-your-operating-system": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/storage-and-volumes": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/understand-docker-compose": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/self-hosting-for-beginners/what-you-can-host": {
-      "state": "unpublished",
-      "reason": "Course pages are still in development and should stay out of the public index.",
+      "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
     "/terms": {

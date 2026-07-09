@@ -1,7 +1,9 @@
 import { getLesson } from "@/lib/self-hosting-for-beginners";
+import { MediaFigure } from "@/app/media-figure";
 import { MarkerArt } from "../../../marker-art";
 import { Callout, LessonLink, LessonPage } from "../course";
 import { firstAppLoopArt } from "./art/first-app-loop";
+import { CodeBlock } from "../../../code-block";
 
 const lesson = getLesson("install-your-first-app");
 
@@ -37,25 +39,29 @@ export default function Page() {
           tidy and separate:
         </p>
 
-        <pre className="lesson-code">
-          <code>{`mkdir -p ~/apps/excalidraw
-cd ~/apps/excalidraw`}</code>
-        </pre>
+        <CodeBlock>{`mkdir -p ~/apps/excalidraw
+cd ~/apps/excalidraw`}</CodeBlock>
 
         <h2>Write the compose file</h2>
         <p>
           Open a new file called <code>docker-compose.yml</code> with nano:
         </p>
 
-        <pre className="lesson-code">
-          <code>nano docker-compose.yml</code>
-        </pre>
+        <CodeBlock>nano docker-compose.yml</CodeBlock>
 
         <p>Type or paste in exactly this, then save with Ctrl+O, Enter, and exit with Ctrl+X:</p>
 
-        <pre className="lesson-code">
-          <code>{compose}</code>
-        </pre>
+        <CodeBlock>{compose}</CodeBlock>
+
+        <MediaFigure
+          alt="Nano editor showing a docker-compose.yml file for Excalidraw with image, container name, ports, and restart settings"
+          caption="This is the compose file open in nano. Save it, exit, and Docker will have the instructions it needs."
+          height={640}
+          kind="image"
+          src="/course-images/self-hosting-for-beginners/nano-docker-compose-excalidraw.jpg"
+          title="Editing docker-compose.yml for Excalidraw in nano"
+          width={1200}
+        />
 
         <p>
           Don't worry about what every line means yet; the next lesson reads this file line by
@@ -68,9 +74,7 @@ cd ~/apps/excalidraw`}</code>
         <h2>Start it</h2>
         <p>One command brings it to life:</p>
 
-        <pre className="lesson-code">
-          <code>docker compose up -d</code>
-        </pre>
+        <CodeBlock>docker compose up -d</CodeBlock>
 
         <p>
           Docker downloads the image the first time (give it a moment), then starts the container
@@ -84,9 +88,7 @@ cd ~/apps/excalidraw`}</code>
           followed by the port:
         </p>
 
-        <pre className="lesson-code">
-          <code>http://192.168.1.50:3030</code>
-        </pre>
+        <CodeBlock>http://192.168.1.50:3030</CodeBlock>
 
         <p>
           Swap in your own server's IP. That <code>:3030</code> is the port from the compose file,

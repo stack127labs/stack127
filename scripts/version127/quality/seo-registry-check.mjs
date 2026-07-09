@@ -5,8 +5,31 @@ import { Pool } from "pg";
 
 dns.setDefaultResultOrder("ipv4first");
 
-const expectedPublishedSlugs = ["", "about", "privacy", "self-host-apps", "terms"];
-const blockedPublishedPrefixes = ["self-hosting-for-beginners"];
+const expectedPublishedSlugs = [
+  "",
+  "about",
+  "privacy",
+  "self-host-apps",
+  "self-hosting-for-beginners",
+  "self-hosting-for-beginners/access-apps-remotely-with-tailscale",
+  "self-hosting-for-beginners/access-apps-safely-at-home",
+  "self-hosting-for-beginners/backups-before-serious-apps",
+  "self-hosting-for-beginners/basic-setup",
+  "self-hosting-for-beginners/best-first-apps",
+  "self-hosting-for-beginners/full-walkthrough",
+  "self-hosting-for-beginners/install-docker",
+  "self-hosting-for-beginners/install-your-first-app",
+  "self-hosting-for-beginners/install-your-os",
+  "self-hosting-for-beginners/linux-ssh-basics",
+  "self-hosting-for-beginners/pick-your-first-server",
+  "self-hosting-for-beginners/pick-your-operating-system",
+  "self-hosting-for-beginners/storage-and-volumes",
+  "self-hosting-for-beginners/understand-docker-compose",
+  "self-hosting-for-beginners/what-you-can-host",
+  "software-licenses-for-self-hosting",
+  "terms",
+];
+const blockedPublishedPrefixes = [];
 
 function databaseUrl() {
   if (!process.env.DATABASE_URL) {
@@ -31,7 +54,7 @@ async function main() {
   try {
     const result = await pool.query(
       `
-        select slug, meta_title, meta_description, is_published, page_type, sitemap_priority
+        select slug, label, meta_title, meta_description, is_published, page_type, sitemap_priority
         from public.version127_pages
         where is_published = true
         order by slug
@@ -54,6 +77,7 @@ async function main() {
     }
 
     for (const row of result.rows) {
+      if (!String(row.label ?? "").trim()) failures.push(`Missing label for ${row.slug || "/"}`);
       if (!String(row.meta_title ?? "").trim()) failures.push(`Missing meta_title for ${row.slug || "/"}`);
       if (!String(row.meta_description ?? "").trim()) {
         failures.push(`Missing meta_description for ${row.slug || "/"}`);

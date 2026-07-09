@@ -1,7 +1,9 @@
 import { getLesson } from "@/lib/self-hosting-for-beginners";
+import { MediaFigure } from "@/app/media-figure";
 import { MarkerArt } from "../../../marker-art";
 import { Callout, LessonLink, LessonPage } from "../course";
 import { sshRunsThereArt } from "./art/ssh-runs-there";
+import { CodeBlock } from "../../../code-block";
 
 const lesson = getLesson("linux-ssh-basics");
 
@@ -24,9 +26,7 @@ export default function Page() {
           install lesson:
         </p>
 
-        <pre className="lesson-code">
-          <code>ssh yourname@192.168.1.50</code>
-        </pre>
+        <CodeBlock>ssh yourname@192.168.1.50</CodeBlock>
 
         <p>
           Two first-time moments are worth knowing about so they don't throw you. The server will
@@ -35,6 +35,16 @@ export default function Page() {
           password, and the terminal shows nothing while you type, not even dots. That's normal.
           Type it blind and press enter.
         </p>
+
+        <MediaFigure
+          alt="Terminal showing the first SSH connection prompt with the server IP address and fingerprint value blurred"
+          caption="The first SSH login looks scarier than it is: check that you typed the right server address, type yes, then enter your password."
+          height={590}
+          kind="image"
+          src="/course-images/self-hosting-for-beginners/ssh-first-login-blurred.jpg"
+          title="First SSH connection prompt with sensitive values blurred"
+          width={1200}
+        />
 
         <p>
           Once you're in, the prompt changes to show the server's name, and that's your cue that
@@ -54,18 +64,14 @@ export default function Page() {
           generate the key pair:
         </p>
 
-        <pre className="lesson-code">
-          <code>ssh-keygen</code>
-        </pre>
+        <CodeBlock>ssh-keygen</CodeBlock>
 
         <p>
           Press enter through every question it asks; the defaults are fine. Then hand your public
           key to the server:
         </p>
 
-        <pre className="lesson-code">
-          <code>ssh-copy-id yourname@192.168.1.50</code>
-        </pre>
+        <CodeBlock>ssh-copy-id yourname@192.168.1.50</CodeBlock>
 
         <p>
           It asks for your server password one last time, and from then on{" "}
@@ -74,9 +80,7 @@ export default function Page() {
           whatever <code>.pub</code> filename <code>ssh-keygen</code> just printed:
         </p>
 
-        <pre className="lesson-code">
-          <code>{`type $env:USERPROFILE\\.ssh\\id_ed25519.pub | ssh yourname@192.168.1.50 "cat >> ~/.ssh/authorized_keys"`}</code>
-        </pre>
+        <CodeBlock>{`type $env:USERPROFILE\\.ssh\\id_ed25519.pub | ssh yourname@192.168.1.50 "cat >> ~/.ssh/authorized_keys"`}</CodeBlock>
 
         <h2>Looking around</h2>
         <p>
@@ -84,8 +88,7 @@ export default function Page() {
           everyday life in there:
         </p>
 
-        <pre className="lesson-code">
-          <code>{`pwd                  # print where you are right now
+        <CodeBlock>{`pwd                  # print where you are right now
 ls                   # list what's in this folder
 ls -la               # list everything, including hidden files
 cd apps              # go into the "apps" folder
@@ -95,8 +98,7 @@ mkdir backups        # create a folder
 cp file.txt copy.txt # copy a file
 mv old.txt new.txt   # move or rename a file
 rm file.txt          # delete a file (no recycle bin)
-cat file.txt         # print a file's contents`}</code>
-        </pre>
+cat file.txt         # print a file's contents`}</CodeBlock>
 
         <p>
           The one idea worth getting straight is a path: the address of a folder or file. Paths
@@ -114,10 +116,8 @@ cat file.txt         # print a file's contents`}</code>
           them:
         </p>
 
-        <pre className="lesson-code">
-          <code>{`sudo apt update
-sudo apt upgrade`}</code>
-        </pre>
+        <CodeBlock>{`sudo apt update
+sudo apt upgrade`}</CodeBlock>
 
         <p>
           <code>sudo</code> means "do this as the administrator," so it'll ask for your password.
@@ -142,9 +142,7 @@ sudo apt upgrade`}</code>
           properly in <LessonLink slug="install-your-first-app">a couple of lessons</LessonLink>.)
         </p>
 
-        <pre className="lesson-code">
-          <code>nano docker-compose.yml</code>
-        </pre>
+        <CodeBlock>nano docker-compose.yml</CodeBlock>
 
         <p>
           Arrow keys move the cursor, you type like normal, <kbd>Ctrl</kbd>+<kbd>O</kbd> then{" "}

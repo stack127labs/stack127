@@ -5,6 +5,8 @@ import { absoluteUrl, siteName, siteUrl } from "./seo";
 
 export type Version127Page = {
   slug: string;
+  /** Compact UI label for sidebars, home cards, and other chrome. */
+  label: string;
   meta_title: string;
   meta_description: string;
   is_published: boolean;
@@ -15,6 +17,8 @@ export type Version127Page = {
   page_type: string;
   sitemap_priority: number | string;
 };
+
+export { isHomeFeaturePage, isMainPageSlug } from "./page-registry-helpers";
 
 export type PagePublicationState =
   | {
@@ -41,6 +45,7 @@ export type PagePublicationState =
 const publishedPageSelect = `
   select
     slug,
+    label,
     meta_title,
     meta_description,
     is_published,
@@ -131,6 +136,23 @@ export const getPagePublicationState = cache(
 export const getPublishedSitemapPages = cache(async () => {
   const result = await getPool().query<Version127Page>(
     `${publishedPageSelect} order by slug asc`,
+  );
+
+  return result.rows;
+});
+
+/**
+ * Published root pages for site-wide navigation (home sidebar, etc.).
+ * Excludes the home row and any child route (slug contains `/`).
+ */
+export const getMainPublishedPages = cache(async () => {
+  const result = await getPool().query<Version127Page>(
+    `
+      ${publishedPageSelect}
+        and slug <> ''
+        and position('/' in slug) = 0
+      order by sitemap_priority desc, label asc
+    `,
   );
 
   return result.rows;

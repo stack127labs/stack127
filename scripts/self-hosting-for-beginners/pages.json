@@ -1,6 +1,7 @@
 [
   {
     "slug": "self-hosting-for-beginners",
+    "label": "self-hosting for beginners",
     "meta_title": "What Is Self-Hosting? A Beginner's Guide",
     "meta_description": "Self-hosting means running your own apps on a computer you control. Learn what it is, why people do it, and how to start, no Linux or Docker knowledge needed yet.",
     "page_type": "Course",
@@ -8,6 +9,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/what-you-can-host",
+    "label": "what I host",
     "meta_title": "What Can You Self-Host? Apps People Run",
     "meta_description": "Photos, passwords, notes, media, ad blocking and more. See what you can actually self-host, which apps are worth running first, and what's better to skip.",
     "page_type": "LearningResource",
@@ -15,6 +17,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/basic-setup",
+    "label": "the basic setup",
     "meta_title": "How Self-Hosting Works: The 5 Core Parts",
     "meta_description": "Every self-hosted setup is the same five parts: server, app, storage, network, and access. Understand how they fit together, with a real app as an example.",
     "page_type": "LearningResource",
@@ -22,6 +25,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/pick-your-first-server",
+    "label": "pick a server",
     "meta_title": "How to Choose a Home Server for Self-Hosting",
     "meta_description": "How to choose a first home server: what actually matters (RAM, storage, power, noise), why an old PC works to start, and when a mini PC or Raspberry Pi is worth buying.",
     "page_type": "LearningResource",
@@ -29,6 +33,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/pick-your-operating-system",
+    "label": "pick an OS",
     "meta_title": "How to Choose a Home Server OS",
     "meta_description": "How to choose an OS for your home server. Why plain Linux (Ubuntu or Debian) plus Docker is the safe pick, with honest notes on CasaOS, TrueNAS, Unraid and Proxmox.",
     "page_type": "LearningResource",
@@ -36,6 +41,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/install-your-os",
+    "label": "install the OS",
     "meta_title": "Install a Home Server OS & Find Its IP",
     "meta_description": "Flash a USB or use Raspberry Pi Imager, run the installer, enable SSH, connect the server to your network, find its IP, and give it a fixed address.",
     "page_type": "LearningResource",
@@ -43,6 +49,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/linux-ssh-basics",
+    "label": "linux + SSH",
     "meta_title": "Linux & SSH Basics to Run Your Home Server",
     "meta_description": "The little bit of Linux you need to run a server: connect over SSH, move around folders, edit files, and update the system with about ten commands.",
     "page_type": "LearningResource",
@@ -50,6 +57,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/install-docker",
+    "label": "meet Docker",
     "meta_title": "Install Docker for Self-Hosting",
     "meta_description": "Images, containers and ports explained simply, then install Docker and Compose on your server and run a test container to check everything works.",
     "page_type": "LearningResource",
@@ -57,6 +65,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/install-your-first-app",
+    "label": "install first app",
     "meta_title": "Install Your First Self-Hosted App with Docker",
     "meta_description": "A beginner walkthrough: make a folder, write a docker-compose.yml, run docker compose up, and open your first self-hosted app in the browser. No experience needed.",
     "page_type": "LearningResource",
@@ -64,6 +73,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/understand-docker-compose",
+    "label": "Docker Compose",
     "meta_title": "Docker Compose Explained for Self-Hosting",
     "meta_description": "Reading a docker-compose.yml for self-hosting: what image, ports, volumes, environment and restart mean, plus the commands to start, stop, log, and update apps.",
     "page_type": "LearningResource",
@@ -71,6 +81,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/storage-and-volumes",
+    "label": "storage & volumes",
     "meta_title": "Docker Volumes & Storage for Self-Hosting",
     "meta_description": "Where your self-hosted app data actually lives. Docker named volumes vs bind mounts, and how to keep your files safe when you update or rebuild a container.",
     "page_type": "LearningResource",
@@ -78,6 +89,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/best-first-apps",
+    "label": "best first apps",
     "meta_title": "Best Self-Hosted Apps for Beginners",
     "meta_description": "The best self-hosted apps for beginners to try first: Homepage, Memos, Linkwarden, FreshRSS and Uptime Kuma. Low-risk, useful, and easy to install with Docker.",
     "page_type": "LearningResource",
@@ -85,6 +97,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/backups-before-serious-apps",
+    "label": "backups",
     "meta_title": "How to Back Up Self-Hosted Apps",
     "meta_description": "What to back up, how to automate it, the 3-2-1 rule, and why to test a restore before you trust your server with photos, passwords, or anything you can't lose.",
     "page_type": "LearningResource",
@@ -92,6 +105,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/access-apps-safely-at-home",
+    "label": "access at home",
     "meta_title": "Access Self-Hosted Apps at Home",
     "meta_description": "Why server-ip:port is fine to start, using a dashboard as your front door, and the optional step up to real names and HTTPS with a reverse proxy.",
     "page_type": "LearningResource",
@@ -99,6 +113,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/access-apps-remotely-with-tailscale",
+    "label": "remote access",
     "meta_title": "Access a Home Server Remotely with Tailscale",
     "meta_description": "Reach your self-hosted apps from anywhere without exposing them. How Tailscale works, with honest takes on Cloudflare Tunnel, WireGuard and port forwarding.",
     "page_type": "LearningResource",
@@ -106,6 +121,7 @@
   },
   {
     "slug": "self-hosting-for-beginners/full-walkthrough",
+    "label": "full walkthrough",
     "meta_title": "Self-Hosting Walkthrough, Start to Finish",
     "meta_description": "The whole path in one checklist: server, OS, SSH, Docker, your first app, storage, backups, and remote access, every step tied together from a bare machine.",
     "page_type": "LearningResource",

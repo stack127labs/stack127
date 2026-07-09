@@ -2,6 +2,7 @@ import { getLesson } from "@/lib/self-hosting-for-beginners";
 import { MarkerArt } from "../../../marker-art";
 import { Callout, Faq, LessonLink, LessonPage } from "../course";
 import { privateRemoteAccessArt } from "./art/private-remote-access";
+import { CodeBlock } from "../../../code-block";
 
 const lesson = getLesson("access-apps-remotely-with-tailscale");
 
@@ -37,10 +38,8 @@ export default function Page() {
           want to reach it from. On the server:
         </p>
 
-        <pre className="lesson-code">
-          <code>{`curl -fsSL https://tailscale.com/install.sh | sh
-sudo tailscale up`}</code>
-        </pre>
+        <CodeBlock>{`curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up`}</CodeBlock>
 
         <p>
           That second command prints a link; open it, log in, and the server joins your private

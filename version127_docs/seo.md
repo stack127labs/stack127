@@ -17,6 +17,7 @@ Fields:
 | column | purpose |
 | --- | --- |
 | `slug` | URL path without leading slash, for example `self-host-apps` or `self-hosting-for-beginners/linux-ssh-basics` |
+| `label` | Compact UI label for sidebars, home cards, and other chrome. Keep short and lowercase unless a proper noun needs different casing |
 | `meta_title` | Full browser/search title |
 | `meta_description` | Search description |
 | `is_published` | Whether the exact slug is a public SEO page |
@@ -43,7 +44,28 @@ The route rules are intentionally simple:
 
 ## Current Sitemap Routes
 
+- `/`
+- `/about`
+- `/privacy`
+- `/terms`
 - `/self-host-apps`
+- `/self-hosting-for-beginners`
+- `/self-hosting-for-beginners/what-you-can-host`
+- `/self-hosting-for-beginners/basic-setup`
+- `/self-hosting-for-beginners/pick-your-first-server`
+- `/self-hosting-for-beginners/pick-your-operating-system`
+- `/self-hosting-for-beginners/install-your-os`
+- `/self-hosting-for-beginners/linux-ssh-basics`
+- `/self-hosting-for-beginners/install-docker`
+- `/self-hosting-for-beginners/install-your-first-app`
+- `/self-hosting-for-beginners/understand-docker-compose`
+- `/self-hosting-for-beginners/storage-and-volumes`
+- `/self-hosting-for-beginners/best-first-apps`
+- `/self-hosting-for-beginners/backups-before-serious-apps`
+- `/self-hosting-for-beginners/access-apps-safely-at-home`
+- `/self-hosting-for-beginners/access-apps-remotely-with-tailscale`
+- `/self-hosting-for-beginners/full-walkthrough`
+- `/software-licenses-for-self-hosting`
 
 ## Structured Data
 

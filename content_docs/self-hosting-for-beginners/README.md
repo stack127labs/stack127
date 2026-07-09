@@ -111,6 +111,7 @@ So every agent builds pages the same way:
 - Lessons are static routes: `app/self-hosting-for-beginners/<slug>/page.tsx`, with the root lesson at `app/self-hosting-for-beginners/page.tsx`. Do not use dynamic `[slug]` routing.
 - `lib/self-hosting-for-beginners.ts` is the single source of truth for the lesson list. Add the lesson there with slug, sidebar label, H1, and route-built status. The sidebar and prev/next links derive from it.
 - Wrap page content in the `LessonPage` shell from `app/self-hosting-for-beginners/course.tsx`.
+- Use `CodeBlock` from `app/code-block.tsx` for every copyable command or multi-line snippet. Do not hand-roll bare `<pre className="lesson-code">`.
 - Use `LessonLink` for links to other lessons. It renders plain text until the target lesson is published, so forward references never 404 and start linking automatically once built.
 - Do not add page metadata, canonical URLs, robots rules, sitemap dates, or JSON-LD in lesson route files.
 - Use `Callout` sparingly, `tone="note" | "warning" | "recommend"`, only for a genuine aside or warning. Aim for at most one per page.
@@ -182,7 +183,7 @@ Examples:
 
 Order and coverage are defined in `course-outline.md`; this table only tracks build status against it. Check a page done only after its route, content, sidebar link, visual, and internal links are complete. Publishing metadata belongs in `public.version127_pages`, not this tracker.
 
-The 16-lesson route spine is built in the repo and sets the voice. Publication is still controlled only by `public.version127_pages`; these built routes should remain unpublished until they are reviewed for launch.
+The 16-lesson route spine is built in the repo and sets the voice. Publication is still controlled only by `public.version127_pages`; each exact lesson slug should stay aligned with the production registry, sitemap checks, and route coverage manifest.
 
 | Done | Order | Sidebar label | Slug | Page H1 |
 | --- | ---: | --- | --- | --- |

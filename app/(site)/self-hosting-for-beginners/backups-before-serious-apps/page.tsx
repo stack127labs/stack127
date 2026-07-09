@@ -2,6 +2,8 @@ import { getLesson } from "@/lib/self-hosting-for-beginners";
 import { MarkerArt } from "../../../marker-art";
 import { Faq, LessonLink, LessonPage } from "../course";
 import { backupRestoreProofArt } from "./art/backup-restore-proof";
+import { threeTwoOneBackupsArt } from "./art/three-two-one-backups";
+import { CodeBlock } from "../../../code-block";
 
 const lesson = getLesson("backups-before-serious-apps");
 
@@ -58,11 +60,9 @@ export default function Page() {
           <code>mount</code> attaches it to a folder so you can use it.
         </p>
 
-        <pre className="lesson-code">
-          <code>{`lsblk                             # find the drive, e.g. sda1
+        <CodeBlock>{`lsblk                             # find the drive, e.g. sda1
 sudo mkdir -p /mnt/backup
-sudo mount /dev/sda1 /mnt/backup  # attach it at /mnt/backup`}</code>
-        </pre>
+sudo mount /dev/sda1 /mnt/backup  # attach it at /mnt/backup`}</CodeBlock>
 
         <p>
           A plain <code>mount</code> only lasts until the next reboot, and a backup that quietly
@@ -70,9 +70,7 @@ sudo mount /dev/sda1 /mnt/backup  # attach it at /mnt/backup`}</code>
           while you're at it. Ask the drive for its ID and type:
         </p>
 
-        <pre className="lesson-code">
-          <code>sudo blkid /dev/sda1</code>
-        </pre>
+        <CodeBlock>sudo blkid /dev/sda1</CodeBlock>
 
         <p>
           Copy the <code>UUID</code> and <code>TYPE</code> values it prints, then{" "}
@@ -80,9 +78,7 @@ sudo mount /dev/sda1 /mnt/backup  # attach it at /mnt/backup`}</code>
           where) and add one line at the bottom:
         </p>
 
-        <pre className="lesson-code">
-          <code>UUID=paste-your-uuid-here  /mnt/backup  ext4  defaults,nofail  0  2</code>
-        </pre>
+        <CodeBlock>UUID=paste-your-uuid-here  /mnt/backup  ext4  defaults,nofail  0  2</CodeBlock>
 
         <p>
           Swap <code>ext4</code> for whatever TYPE blkid showed, and keep <code>nofail</code>: it
@@ -99,9 +95,7 @@ sudo mount /dev/sda1 /mnt/backup  # attach it at /mnt/backup`}</code>
           run, only copies what changed:
         </p>
 
-        <pre className="lesson-code">
-          <code>rsync -a ~/apps/ /mnt/backup/apps/</code>
-        </pre>
+        <CodeBlock>rsync -a ~/apps/ /mnt/backup/apps/</CodeBlock>
 
         <p>
           Run it once and check the files landed. Then make the server do it every night instead of
@@ -109,9 +103,7 @@ sudo mount /dev/sda1 /mnt/backup  # attach it at /mnt/backup`}</code>
           at 3am daily.
         </p>
 
-        <pre className="lesson-code">
-          <code>0 3 * * * mountpoint -q /mnt/backup && rsync -a /home/yourname/apps/ /mnt/backup/apps/</code>
-        </pre>
+        <CodeBlock>0 3 * * * mountpoint -q /mnt/backup && rsync -a /home/yourname/apps/ /mnt/backup/apps/</CodeBlock>
 
         <p>
           Those five fields are minute, hour, day, month, weekday;{" "}
@@ -149,13 +141,11 @@ sudo mount /dev/sda1 /mnt/backup  # attach it at /mnt/backup`}</code>
           your rsync line, then simulate the disaster:
         </p>
 
-        <pre className="lesson-code">
-          <code>{`cd ~/apps/the-app
+        <CodeBlock>{`cd ~/apps/the-app
 docker compose down
 mv data data-broken                     # "lose" the data
 cp -r /mnt/backup/apps/the-app/data .   # pull it back from the backup
-docker compose up -d`}</code>
-        </pre>
+docker compose up -d`}</CodeBlock>
 
         <p>
           Open the app. If your stuff is there, your backup is real, and you now know the restore
@@ -172,6 +162,11 @@ docker compose up -d`}</code>
           or at a relative's house. You don't need all three on day one, but a backup that sits in
           the same box as the original won't save you from a fire or a theft.
         </p>
+
+        <MarkerArt
+          caption="The 3-2-1 idea means three copies, two storage types, and one copy away from home."
+          svg={threeTwoOneBackupsArt}
+        />
 
         <Faq
           items={[

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MediaFigure } from "@/app/media-figure";
 import { getLesson } from "@/lib/self-hosting-for-beginners";
 import { MarkerArt } from "../../../marker-art";
 import { LessonLink, LessonPage } from "../course";
@@ -23,6 +24,16 @@ export default function Page() {
           name and it just finds them. That was the moment I stopped paying Google for storage.
         </p>
 
+        <MediaFigure
+          alt="Immich photo timeline showing a self-hosted library with dated photo groups, albums, and search"
+          caption="Immich is the app that made self-hosting feel useful for me: my photos, backed up and searchable on my own server."
+          height={709}
+          kind="image"
+          src="/course-images/self-hosting-for-beginners/immich-photo-timeline-library.jpg"
+          title="Immich photo timeline for a self-hosted photo library"
+          width={1200}
+        />
+
         <p>
           For passwords, I use Vaultwarden, which speaks the same language as the Bitwarden apps, so
           I still use the normal Bitwarden extension and phone app, they just talk to my server
@@ -30,6 +41,16 @@ export default function Page() {
           of data you don't want to lose while you're still fiddling and breaking things, so save
           this until you're comfortable and have backups running.
         </p>
+
+        <MediaFigure
+          alt="Vaultwarden web login screen running on a self-hosted password manager"
+          caption="Vaultwarden is useful once the basics are stable, but I would not make passwords the first thing you trust to a new server."
+          height={711}
+          kind="image"
+          src="/course-images/self-hosting-for-beginners/vaultwarden-login.jpg"
+          title="Vaultwarden web login screen"
+          width={1200}
+        />
 
         <p>
           I also use Syncthing to sync my files and folders across devices, ExpenseOwl for simple
@@ -55,6 +76,16 @@ export default function Page() {
           viewing across that many people, paying for streaming actually works out cheaper and
           simpler than buying and storing all the media myself.
         </p>
+
+        <MediaFigure
+          alt="Jellyfin home screen showing movie and TV show libraries with continue watching rows"
+          caption="Jellyfin is the classic self-hosted media example: your own movie and show library, streamed from your server."
+          height={542}
+          kind="image"
+          src="/course-images/self-hosting-for-beginners/jellyfin-media-library.jpg"
+          title="Jellyfin media library home screen"
+          width={1024}
+        />
 
         <p>
           I gave Nextcloud a real go too, the all-in-one files, calendar, and contacts suite, but it

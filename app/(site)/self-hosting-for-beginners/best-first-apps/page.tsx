@@ -3,6 +3,7 @@ import { getLesson } from "@/lib/self-hosting-for-beginners";
 import { MarkerArt } from "../../../marker-art";
 import { LessonLink, LessonPage } from "../course";
 import { repeatSafeAppsArt } from "./art/repeat-safe-apps";
+import { CodeBlock } from "../../../code-block";
 
 const lesson = getLesson("best-first-apps");
 
@@ -67,7 +68,7 @@ export default function Page() {
           it a good step up once the simple ones feel easy.
         </p>
 
-        <h2>Uptime Kuma, the watcher</h2>
+        <h2>Uptime Kuma, to monitor your other apps</h2>
         <p>
           <a href="https://github.com/louislam/uptime-kuma" rel="noreferrer" target="_blank">
             Uptime Kuma
@@ -90,13 +91,10 @@ export default function Page() {
           your first app that keeps data:
         </p>
 
-        <pre className="lesson-code">
-          <code>{`mkdir -p ~/apps/uptime-kuma && cd ~/apps/uptime-kuma
-nano docker-compose.yml`}</code>
-        </pre>
+        <CodeBlock>{`mkdir -p ~/apps/uptime-kuma && cd ~/apps/uptime-kuma
+nano docker-compose.yml`}</CodeBlock>
 
-        <pre className="lesson-code">
-          <code>{`services:
+        <CodeBlock>{`services:
   uptime-kuma:
     image: louislam/uptime-kuma:1
     container_name: uptime-kuma
@@ -104,8 +102,7 @@ nano docker-compose.yml`}</code>
       - "3001:3001"
     volumes:
       - ./data:/app/data
-    restart: unless-stopped`}</code>
-        </pre>
+    restart: unless-stopped`}</CodeBlock>
 
         <p>
           <code>docker compose up -d</code>, open <code>server-ip:3001</code>, create your account,

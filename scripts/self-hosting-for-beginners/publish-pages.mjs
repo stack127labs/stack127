@@ -10,10 +10,9 @@
  *   node scripts/self-hosting-for-beginners/publish-pages.mjs --unpublish     # set is_published=false
  *   node scripts/self-hosting-for-beginners/publish-pages.mjs --database-url <url>
  *
- * Production note: the quality gate (scripts/version127/quality/seo-registry-check.mjs)
- * currently BLOCKS self-hosting slugs from being published. Publishing to
- * production is a deliberate act: remove the blocklist entry and add the slugs
- * to the expected list there in the same change.
+ * Production note: scripts/version127/quality/seo-registry-check.mjs is the
+ * expected-slug gate for published SEO pages. Keep that list aligned with this
+ * file before publishing or unpublishing course pages.
  */
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
@@ -66,9 +65,10 @@ try {
     await pool.query(
       `
         insert into public.version127_pages
-          (slug, meta_title, meta_description, is_published, published_at, page_type, sitemap_priority)
-        values ($1, $2, $3, $4, case when $4 then now() else null end, $5, $6)
+          (slug, label, meta_title, meta_description, is_published, published_at, page_type, sitemap_priority)
+        values ($1, $2, $3, $4, $5, case when $5 then now() else null end, $6, $7)
         on conflict (slug) do update set
+          label = excluded.label,
           meta_title = excluded.meta_title,
           meta_description = excluded.meta_description,
           page_type = excluded.page_type,
@@ -79,6 +79,7 @@ try {
       `,
       [
         page.slug,
+        page.label,
         page.meta_title,
         page.meta_description,
         !unpublish,
@@ -90,7 +91,7 @@ try {
   }
   console.log(
     `\n${pages.length} rows ${unpublish ? "unpublished" : "upserted"}.` +
-      "\nReminder: production publication also requires updating the blocklist in" +
+      "\nReminder: production publication must stay aligned with" +
       "\nscripts/version127/quality/seo-registry-check.mjs.",
   );
 } finally {

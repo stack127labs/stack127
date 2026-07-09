@@ -12,6 +12,7 @@ const links = [
   { href: "/privacy", label: "privacy" },
   { href: "/terms", label: "terms" },
   { href: "/self-host-apps", label: "self-host apps" },
+  { href: "/software-licenses-for-self-hosting", label: "software licenses" },
 ];
 
 function InfoSidebar({ title }: { title: string }) {

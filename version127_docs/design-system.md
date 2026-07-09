@@ -89,4 +89,6 @@ Filters should use the label plus horizontal-line pattern and share input height
 
 Media figures should use `MediaFigure` from `app/media-figure.tsx`. Screenshots and photos use the `image` kind: borderless, centered, text-width by default, and height-capped so tall images stay contained. Generated visual explainers use the `diagram` kind so instructional SVGs can keep their framed treatment without forcing that frame onto real images.
 
+Code snippets should use `CodeBlock` from `app/code-block.tsx`. Use it for one-line commands and multi-line blocks so every snippet gets the same framed mono treatment and a copy button. Pass the exact text as string children (template literals for multi-line). Optional `label` can show a filename or short caption in the toolbar. Do not hand-roll bare `<pre className="lesson-code">` on new pages; that class remains only as a legacy alias.
+
 Shared footers should stay small: logo, essential legal links, and rights text only. Keep them inside the shell so every route has the same minimal baseline.

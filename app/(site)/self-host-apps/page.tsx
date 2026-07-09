@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import { FaGithub } from "react-icons/fa6";
 import { getDirectoryApps, type DirectoryApp } from "@/lib/apps";
-import { getPublishedPage } from "@/lib/page-registry";
+import { findLicenseAnchor } from "@/lib/software-licenses";
 import { AppShell } from "../../app-shell";
 import { CategoryIcon } from "../../category-icon";
 import {
@@ -294,7 +295,17 @@ function DirectoryCrawlerRecords({ apps }: { apps: DirectoryApp[] }) {
               </div>
               <div>
                 <dt>license</dt>
-                <dd>{app.license ?? "unknown"}</dd>
+                <dd>
+                  {(() => {
+                    const label = app.license ?? "unknown";
+                    const anchor = findLicenseAnchor(app.license);
+                    return anchor ? (
+                      <Link href={`/software-licenses-for-self-hosting#${anchor}`}>{label}</Link>
+                    ) : (
+                      label
+                    );
+                  })()}
+                </dd>
               </div>
               <div>
                 <dt>platforms</dt>
@@ -709,9 +720,6 @@ export default async function SelfHostAppsPage({
 }) {
   const params = await searchParams;
   const apps = await getDirectoryApps();
-  // Cross-link to the course only once its registry row is published, so this
-  // never points at a gated 404.
-  const coursePage = await getPublishedPage("self-hosting-for-beginners").catch(() => null);
   const sort = getString(params, "sort") || "popular";
   const selectedRam = getKnownValue(params, "ram", ramTierOrder);
   const selectedStorage = getKnownValue(params, "storage", storageTierOrder);
@@ -744,12 +752,16 @@ export default async function SelfHostAppsPage({
       data-live-filter-form
     >
       <div className="filter-panel-heading">
-        <p className="filter-panel-title">Self-hosted apps</p>
-        {coursePage ? (
-          <p className="filter-panel-course-link">
-            New to self-hosting? <Link href="/self-hosting-for-beginners">Start with the course</Link>
-          </p>
-        ) : null}
+        <h1>Self-hosted apps</h1>
+        <a
+          className="filter-panel-github-link"
+          href="https://github.com/version127/version127-datasets/tree/main/self-host-apps"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <FaGithub aria-hidden="true" size={14} />
+          View on Github
+        </a>
       </div>
 
       <label className="directory-search">
@@ -820,17 +832,7 @@ export default async function SelfHostAppsPage({
     >
         <div className="directory-results">
           <div className="directory-results-header">
-            <div>
-              <h1>Self-hosted apps</h1>
-              <p>Find apps that fit your server, storage, and setup comfort.</p>
-            </div>
-            <a
-              href="https://github.com/version127/version127-datasets/tree/main/self-host-apps"
-              rel="noreferrer"
-              target="_blank"
-            >
-              CSV on GitHub
-            </a>
+            <h1>Find apps that fit your server, storage, and setup comfort.</h1>
           </div>
 
           <ActiveFilters

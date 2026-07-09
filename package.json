@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "npm run test:static",
     "test": "npm run typecheck && npm run test:unit && npm run test:static",
-    "test:unit": "node --test tests/version127/*.test.mjs",
+    "test:unit": "node --experimental-strip-types --test tests/version127/*.test.mjs",
     "test:static": "node scripts/version127/quality/static-policy.mjs",
     "test:seo": "playwright test",
     "test:seo:registry": "node --env-file=.env.database scripts/version127/quality/seo-registry-check.mjs",

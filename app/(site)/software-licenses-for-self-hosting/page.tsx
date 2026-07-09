@@ -1,0 +1,166 @@
+import Link from "next/link";
+import { AppShell } from "../../app-shell";
+import {
+  concepts,
+  licenseGroups,
+  licensePage,
+  licenses,
+  licensesInGroup,
+  type LicenseEntry,
+} from "@/lib/software-licenses";
+
+const factRows: { key: keyof LicenseEntry["facts"]; label: string }[] = [
+  { key: "osiOpenSource", label: "OSI open source" },
+  { key: "homeSelfHost", label: "Home self-host" },
+  { key: "commercialInternal", label: "Company internal use" },
+  { key: "modify", label: "Modify" },
+  { key: "redistribute", label: "Redistribute" },
+  { key: "offerAsService", label: "Offer as a service" },
+  { key: "copyleft", label: "Copyleft" },
+  { key: "notices", label: "Notices" },
+];
+
+function LicensesSidebar() {
+  return (
+    <div className="directory-filter-panel license-sidebar-panel">
+      <div className="filter-panel-heading">
+        <h1>Software licenses for self-hosters</h1>
+      </div>
+
+      <nav className="license-sidebar-nav" aria-label="License sections">
+        <div className="license-sidebar-group">
+          <p className="license-sidebar-group-title">Start here</p>
+          <ul>
+            {concepts.map((concept) => (
+              <li key={concept.id}>
+                <a href={`#${concept.id}`}>{concept.sidebarLabel}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {licenseGroups
+          .filter((group) => group.id !== "start-here")
+          .map((group) => {
+            const groupLicenses = licensesInGroup(group.id);
+            if (groupLicenses.length === 0) return null;
+
+            return (
+              <div className="license-sidebar-group" key={group.id}>
+                <p className="license-sidebar-group-title">{group.sidebarLabel}</p>
+                <ul>
+                  {groupLicenses.map((license) => (
+                    <li key={license.id}>
+                      <a href={`#${license.id}`}>{license.sidebarLabel}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+      </nav>
+    </div>
+  );
+}
+
+function LicenseSection({ license }: { license: LicenseEntry }) {
+  return (
+    <section className="license-section" id={license.id}>
+      <header className="license-section-header">
+        <h3>{license.name}</h3>
+        {license.spdx ? <p className="license-spdx">{license.spdx}</p> : null}
+      </header>
+
+      <p>{license.summary}</p>
+
+      <dl className="license-facts">
+        {factRows.map((row) => (
+          <div className="license-fact" key={row.key}>
+            <dt>{row.label}</dt>
+            <dd>{license.facts[row.key]}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <div className="license-audience">
+        <p>
+          <strong>If you are running this software:</strong>
+        </p>
+        {license.forUsers.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+      </div>
+
+      <div className="license-audience">
+        <p>
+          <strong>If you are choosing a license for your own app:</strong>
+        </p>
+        {license.forCreators.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+      </div>
+
+      <p className="license-official">
+        <a href={license.officialUrl} rel="noreferrer" target="_blank">
+          Official license text
+        </a>
+      </p>
+
+      {license.commonMistake ? (
+        <p className="license-mistake">
+          <strong>Common mistake:</strong> {license.commonMistake}
+        </p>
+      ) : null}
+    </section>
+  );
+}
+
+export default function SoftwareLicensesPage() {
+  return (
+    <AppShell
+      mainLabel={licensePage.title}
+      menuLabel="Licenses"
+      sidebar={<LicensesSidebar />}
+      sidebarLabel="Software licenses sidebar"
+    >
+      <article className="license-page prose">
+        <header className="license-page-header">
+          <h1>{licensePage.title}</h1>
+          <p className="info-lede">{licensePage.lede}</p>
+          <p className="license-disclaimer">{licensePage.notLegalAdvice}</p>
+          <p>
+            Use the sidebar to jump straight to a license label you already saw. The two short
+            notes below set the basics. The{" "}
+            <Link href="/self-host-apps">self-host apps</Link> directory uses the same short
+            names.
+          </p>
+        </header>
+
+        {concepts.map((concept) => (
+          <section className="license-section" id={concept.id} key={concept.id}>
+            <h2>{concept.title}</h2>
+            {concept.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </section>
+        ))}
+
+        {licenseGroups
+          .filter((group) => group.id !== "start-here")
+          .map((group) => {
+            const groupLicenses = licensesInGroup(group.id);
+            if (groupLicenses.length === 0) return null;
+
+            return (
+              <div className="license-group-block" key={group.id} id={group.id}>
+                <h2 className="license-group-heading">{group.title}</h2>
+                {groupLicenses.map((license) => (
+                  <LicenseSection key={license.id} license={license} />
+                ))}
+              </div>
+            );
+          })}
+      </article>
+    </AppShell>
+  );
+}

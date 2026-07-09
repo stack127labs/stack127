@@ -2,6 +2,7 @@ import { getLesson } from "@/lib/self-hosting-for-beginners";
 import { MarkerArt } from "../../../marker-art";
 import { Callout, LessonLink, LessonPage } from "../course";
 import { composePartsArt } from "./art/compose-parts";
+import { CodeBlock } from "../../../code-block";
 
 const lesson = getLesson("understand-docker-compose");
 
@@ -33,9 +34,7 @@ export default function Page() {
           lesson, annotated.
         </p>
 
-        <pre className="lesson-code">
-          <code>{compose}</code>
-        </pre>
+        <CodeBlock>{compose}</CodeBlock>
 
         <MarkerArt
           caption="A compose file tells Docker the image, port, data folder, settings, and restart rule."
@@ -75,9 +74,7 @@ export default function Page() {
           service:
         </p>
 
-        <pre className="lesson-code">
-          <code>{extras}</code>
-        </pre>
+        <CodeBlock>{extras}</CodeBlock>
 
         <p>
           <strong>volumes</strong> reads just like ports, <code>your-folder:app-folder</code>. It
@@ -93,13 +90,11 @@ export default function Page() {
         <h2>The five commands you'll actually use</h2>
         <p>Run these from inside the app's folder, next to its compose file:</p>
 
-        <pre className="lesson-code">
-          <code>{`docker compose up -d      # start (or apply changes), in the background
+        <CodeBlock>{`docker compose up -d      # start (or apply changes), in the background
 docker compose ps         # is it running?
 docker compose logs -f    # watch its output; Ctrl+C to stop watching
 docker compose down       # stop and remove the container
-docker compose pull       # download a newer image`}</code>
-        </pre>
+docker compose pull       # download a newer image`}</CodeBlock>
 
         <p>
           Updating an app is just two of those together: <code>docker compose pull</code> to grab

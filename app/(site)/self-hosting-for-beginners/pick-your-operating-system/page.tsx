@@ -57,7 +57,7 @@ export default function Page() {
         </p>
 
         <MarkerArt
-          caption="Debian or Ubuntu Server plus Docker is the calm first operating system path."
+          caption="Start with Debian or Ubuntu Server, then add Docker for apps."
           svg={calmOsPathArt}
         />
 
