@@ -1,191 +1,57 @@
-# Version127 Self-Host Apps Schema
+# Self-host apps data projection
 
-This directory is intentionally minimal. The database stores facts we can filter, sort, automate, and refresh. The UI can infer the rest.
+The sitewide data model is documented in `version127_docs/open-projects.md`. `/self-host-apps` does not own a separate app table.
 
-## Tables
+## Public query
 
-### `self_host_apps_categories`
+The page reads:
 
-Controlled taxonomy only. Do not create one-off categories from import source headings.
+```sql
+select *
+from public.open_projects
+where published = true
+  and self_hosting_status = 'self_hostable';
+```
 
-| column | type | notes |
-| --- | --- | --- |
-| `id` | `uuid` | Primary key, generated with `gen_random_uuid()` |
-| `slug` | `text` | Unique URL/filter value |
-| `name` | `text` | Display name |
-| `icon_key` | `text` | Optional frontend icon key |
-| `sort_order` | `integer` | Sidebar/card ordering |
-| `created_at` | `timestamptz` | Insert timestamp |
-| `updated_at` | `timestamptz` | Trigger-maintained timestamp |
+Categories come from `open_project_categories` through `open_project_categories_join_table`.
 
-Current category slugs:
+## Tables used by this page
 
-- `ai-ml`
-- `automation`
-- `bookmarks-read-it-later`
-- `business-commerce`
-- `calendars-contacts`
-- `communication`
-- `communities-social`
-- `content-publishing`
-- `dashboards`
-- `databases`
-- `developer-tools`
-- `documents-pdfs`
-- `ebooks-libraries`
-- `email-newsletters`
-- `file-sharing-sync`
-- `finance-budgeting`
-- `forms-polls-events`
-- `games`
-- `health-fitness`
-- `home-automation-iot`
-- `identity-access`
-- `knowledge-notes`
-- `learning-courses`
-- `maps-travel`
-- `media-servers`
-- `monitoring-status`
-- `music-audio`
-- `networking-dns`
-- `password-managers`
-- `photos-galleries`
-- `project-task-management`
-- `recipes-food`
-- `remote-access`
-- `search`
-- `security-privacy`
-- `storage-backup`
-- `system-admin-hosting`
-- `video-conferencing`
-- `wikis`
+- `open_projects`: shared curated project records.
+- `open_project_categories`: controlled categories.
+- `open_project_categories_join_table`: project/category relationships.
+- `open_project_candidates`: discovery staging.
+- `open_project_sources`: raw source payloads.
+- `open_project_field_sources`: provenance for verified fields.
+- `open_project_curated_overrides`: reviewed corrections.
+- `open_project_import_runs`: discovery and refresh runs.
 
-### `self_host_apps`
+## Self-hosting classification
 
-| column | type | notes |
-| --- | --- | --- |
-| `id` | `uuid` | Primary key, generated with `gen_random_uuid()` |
-| `slug` | `text` | Unique app key |
-| `name` | `text` | App name |
-| `summary` | `text` | One-line directory summary |
-| `icon_url` | `text` | Optional logo/icon URL |
-| `website_url` | `text` | Official website |
-| `repository_url` | `text` | Source repository |
-| `docs_url` | `text` | General docs |
-| `install_docs_url` | `text` | Install or usage docs |
-| `docker_url` | `text` | Docker/package link |
-| `license` | `text` | License label |
-| `publisher_name` | `text` | Maintainer, publisher, company, foundation, team, or person |
-| `publisher_type` | `text` | `company`, `foundation`, `community`, `individual`, `unknown` |
-| `publisher_url` | `text` | Maintainer/publisher website or profile |
-| `published` | `boolean` | Controls whether app appears publicly |
-| `maintenance_status` | `text` | `active`, `slow`, `stale`, `archived`, `unknown` |
-| `github_owner` | `text` | GitHub owner/org |
-| `github_repo` | `text` | GitHub repo name |
-| `github_stars` | `integer` | Current star snapshot |
-| `github_latest_release` | `text` | Latest release/tag snapshot |
-| `github_latest_release_at` | `timestamptz` | Latest release timestamp |
-| `github_last_commit_at` | `timestamptz` | Recent commit timestamp |
-| `github_checked_at` | `timestamptz` | Last automation/manual refresh timestamp |
-| `docker_support` | `text` | `official`, `community`, `none`, `unknown` |
-| `compose_support` | `boolean` | Has a clear Docker Compose path |
-| `requires_database` | `boolean` | Needs a separate database service |
-| `database_types` | `text[]` | Database engines, for example `postgres` |
-| `ram_mb` | `integer` | Practical low-end RAM estimate |
-| `storage_profile` | `text` | `tiny`, `low`, `medium`, `high`, `depends`, `unknown` |
-| `platforms` | `text[]` | `web`, `ios`, `android`, etc. |
-| `summary_source` | `text` | How the summary was produced, for example `curated` or `github_rewrite` |
-| `summary_confidence` | `text` | `high`, `medium`, `low`, `unknown` |
-| `created_at` | `timestamptz` | Insert timestamp |
-| `updated_at` | `timestamptz` | Trigger-maintained timestamp |
+`self_hosting_status` has exactly three values:
 
-### `self_host_apps_categories_join_table`
+- `self_hostable`
+- `not_self_hostable`
+- `unknown`
 
-| column | type | notes |
-| --- | --- | --- |
-| `app_id` | `uuid` | References `self_host_apps(id)` |
-| `category_id` | `uuid` | References `self_host_apps_categories(id)` |
-| `created_at` | `timestamptz` | Link timestamp |
+Do not add a confidence score. A project is shown on this page only after official sources support `self_hostable`.
 
-Primary key: `(app_id, category_id)`.
+## Category rules
 
-### `self_host_apps_import_runs`
+Use the controlled taxonomy in `scripts/self-host-apps/lib/categories.mjs`. Assign one to three categories by the project's actual purpose. Raw directory categories and GitHub topics remain source metadata until reviewed.
 
-Tracks bulk imports and refresh jobs.
+## Candidate states
 
-| column | type | notes |
-| --- | --- | --- |
-| `id` | `uuid` | Primary key, generated with `gen_random_uuid()` |
-| `source` | `text` | Import source, for example `awesome`, `github_topic`, or `manual` |
-| `source_url` | `text` | Source list or API URL |
-| `status` | `text` | `running`, `completed`, `failed`, `partial` |
-| `discovered_count` | `integer` | Candidate count |
-| `imported_count` | `integer` | New rows created |
-| `updated_count` | `integer` | Existing rows updated |
-| `error_count` | `integer` | Failed candidate count |
-| `notes` | `text` | Optional run notes |
-| `started_at` | `timestamptz` | Run start time |
-| `finished_at` | `timestamptz` | Run finish time |
-| `created_at` | `timestamptz` | Insert timestamp |
+- `new`: discovered but not deduped.
+- `duplicate`: matched an existing project or earlier candidate.
+- `queued`: unique and ready for a batch.
+- `enriching`: selected for official-source research.
+- `published`: converted into an `open_projects` row.
+- `needs_review`: enrichment could not verify a required fact.
+- `rejected`: not an eligible open project.
 
-### `self_host_apps_sources`
+Candidate identity uses canonical source-code URL first, then slug, homepage, and normalized name. Name-only matches require review.
 
-Stores raw source payloads so imported facts can be audited later.
+## Rendering
 
-| column | type | notes |
-| --- | --- | --- |
-| `id` | `uuid` | Primary key, generated with `gen_random_uuid()` |
-| `app_id` | `uuid` | Optional reference to `self_host_apps(id)` |
-| `import_run_id` | `uuid` | Optional reference to `self_host_apps_import_runs(id)` |
-| `source` | `text` | Source name |
-| `source_key` | `text` | Stable key inside that source |
-| `source_url` | `text` | Source URL |
-| `payload` | `jsonb` | Raw imported payload |
-| `imported_at` | `timestamptz` | Last import timestamp |
-
-Unique key: `(source, source_key)`.
-
-### `self_host_apps_field_sources`
-
-Tracks where specific fields came from and how confident the pipeline is.
-
-| column | type | notes |
-| --- | --- | --- |
-| `app_id` | `uuid` | References `self_host_apps(id)` |
-| `field_name` | `text` | Field being sourced |
-| `source` | `text` | Source name |
-| `source_url` | `text` | Source URL |
-| `confidence` | `text` | `high`, `medium`, `low`, `unknown` |
-| `checked_at` | `timestamptz` | Last checked timestamp |
-| `note` | `text` | Optional provenance note |
-
-Primary key: `(app_id, field_name)`.
-
-### `self_host_apps_curated_overrides`
-
-Stores manual corrections that should override import output.
-
-| column | type | notes |
-| --- | --- | --- |
-| `id` | `uuid` | Primary key, generated with `gen_random_uuid()` |
-| `app_id` | `uuid` | Optional reference to `self_host_apps(id)` |
-| `slug` | `text` | Optional slug when an app row does not exist yet |
-| `field_name` | `text` | Field to override |
-| `value` | `jsonb` | Curated value |
-| `note` | `text` | Reason for the override |
-| `updated_at` | `timestamptz` | Trigger-maintained timestamp |
-
-## Current Seed Apps
-
-- Immich
-- Excalidraw
-- Linkwarden
-- Uptime Kuma
-- Home Assistant
-- Pi-hole
-
-## Product Rules
-
-No per-app pages for now. Selecting an app opens an in-page details panel powered by the same structured row.
-
-The `/self-host-apps` route also renders complete app records in the server HTML for crawlers and AI agents. The route is public because `self-host-apps` has a published row in `public.version127_pages`. Query-param pagination and filters use the central registry rule: renderable, `noindex, follow`, and excluded from the sitemap.
+There are no per-project routes. Cards and the details drawer use the same server-loaded records. Complete records remain in server-rendered HTML so crawlers and AI agents can read the directory without executing the drawer interaction.

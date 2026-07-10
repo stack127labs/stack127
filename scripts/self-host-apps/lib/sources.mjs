@@ -34,8 +34,8 @@ export function parseAwesomeSource(text) {
 
 export function githubUrlFromCandidate(candidate) {
   const values = [
-    candidate.repository_url,
     candidate.source_code_url,
+    candidate.repository_url,
     candidate.source,
     candidate.url,
     candidate.website,

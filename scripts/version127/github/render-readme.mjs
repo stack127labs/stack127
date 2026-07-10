@@ -8,14 +8,18 @@ const datasetColumns = [
   ["summary", "Plain-language description of what the app does."],
   ["category_names", "Pipe-separated category names."],
   ["website_url", "Official website when available."],
-  ["repository_url", "Source repository when available."],
+  ["source_code_url", "Source-code repository when available."],
+  ["source_code_host", "Source-code host such as GitHub, GitLab, or Codeberg."],
   ["docs_url", "General documentation link when available."],
   ["license", "Project license label when available."],
+  ["license_type", "License family: permissive, copyleft, public domain, mixed, custom, or unknown."],
   ["docker_support", "Docker support: official, community, none, or unknown."],
   ["compose_support", "Whether a clear Compose path is known."],
   ["requires_database", "Whether a separate database service is required."],
   ["database_types", "Pipe-separated database engines when known."],
-  ["platforms", "Pipe-separated platform tags."],
+  ["surfaces", "Pipe-separated usable surfaces such as web, CLI, desktop, or mobile."],
+  ["github_primary_language", "Primary GitHub language when available."],
+  ["github_topics", "Pipe-separated raw GitHub topics when available."],
 ];
 
 function table(rows) {
@@ -40,7 +44,7 @@ Open CSV datasets for self-hosting, open-source tools, home automation, and prac
 
 Version127 turns technical directories into clean, downloadable datasets. The website gives you search, filters, sorting, and readable pages; this repository gives you the CSV files for analysis, reuse, citation, and automation.
 
-Start with the self-host apps dataset if you want a structured list of apps you can run on your own server, including project links, categories, Docker support, licenses, database needs, and platforms.
+Start with the self-host apps dataset if you want a structured list of apps you can run on your own server, including project links, categories, Docker support, licenses, database needs, and usable surfaces.
 
 | Dataset | CSV | Description | Rows | Updated |
 | --- | --- | --- | ---: | --- |
@@ -50,7 +54,7 @@ ${datasetRows}
 
 - Browse the CSV directly in GitHub's table preview.
 - Download the data for spreadsheets, scripts, dashboards, and research.
-- Compare self-host apps by category, Docker support, license, database needs, and platform.
+- Compare self-host apps by category, Docker support, license, database needs, and surface.
 - Link to Version127 when you cite or reuse the dataset.
 
 ## Browse Online
@@ -84,7 +88,7 @@ https://version127.com/self-host-apps
 
 ## Files
 
-- \`apps.csv\`: self-host app records with public project links, categories, Docker notes, database needs, licenses, and platforms.
+- \`apps.csv\`: self-host app records with public project links, categories, Docker notes, database needs, licenses, and surfaces.
 
 ## Dataset Size And Freshness
 
@@ -104,7 +108,7 @@ ${table(datasetColumns)}
 
 - Self-host app names, slugs, summaries, and Version127 categories.
 - Official websites, source repositories, and docs when available.
-- License, Docker, Compose, database, and platform fields.
+- License, Docker, Compose, database, surface, language, and GitHub topic fields.
 
 ## What Is Not Included
 

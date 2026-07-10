@@ -1,0 +1,55 @@
+name: Self-host app discovery
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "24 2,14 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: self-host-apps-discovery
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      GITHUB_TOKEN: ${{ secrets.VERSION127_GITHUB_TOKEN || github.token }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Discover Awesome Selfhosted candidates
+        run: npm run self-host-apps:discover-awesome-selfhosted -- --limit 5000 --write
+
+      - name: Discover selfh.st candidates
+        run: npm run self-host-apps:discover-selfhst -- --limit 5000 --write
+
+      - name: Discover selfhostedworld candidates
+        run: npm run self-host-apps:discover-selfhostedworld -- --limit 2000 --write
+
+      - name: Discover OpenAlternative candidates
+        run: npm run self-host-apps:discover-openalternative -- --limit 2000 --write
+
+      - name: Discover GitHub topic candidates
+        run: |
+          for topic in self-hosted homelab local-ai home-automation ai-agent; do
+            npm run self-host-apps:discover-github-topic -- --topic "$topic" --limit 100 --write
+          done
+
+      - name: Dedupe candidates
+        run: npm run self-host-apps:dedupe-candidates -- --limit 10000

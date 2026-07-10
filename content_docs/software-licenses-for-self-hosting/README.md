@@ -44,6 +44,6 @@ Use normal Version127 reference voice from `version127_docs/writing-style.md`, w
 
 ## Maintenance
 
-- Prefer licenses that appear in `self_host_apps.license` or that self-host operators and app authors commonly meet.
+- Prefer licenses that appear in `open_projects.license` or that self-host operators and project authors commonly meet.
 - When adding a license, update both user and creator notes, keep ids unique, and link official text.
 - Dual, custom, and product-specific EULAs usually extend the pattern sections rather than one essay per vendor.

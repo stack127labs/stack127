@@ -13,6 +13,7 @@ import {
   Box,
   Building2,
   CalendarClock,
+  Code2,
   Database,
   Globe,
   HardDrive,
@@ -62,8 +63,8 @@ function formatLatestRelease(app: DirectoryApp) {
   return `${app.github_latest_release} · ${formatDate(app.github_latest_release_at)}`;
 }
 
-function formatPlatforms(platforms: string[]) {
-  if (platforms.length === 0) {
+function formatPlatforms(surfaces: string[]) {
+  if (surfaces.length === 0) {
     return "unknown";
   }
 
@@ -75,7 +76,11 @@ function formatPlatforms(platforms: string[]) {
     web: "web",
   };
 
-  return platforms.map((platform) => labels[platform] ?? platform).join(", ");
+  return surfaces.map((platform) => labels[platform] ?? platform).join(", ");
+}
+
+function SourceCodeIcon({ host }: { host: string }) {
+  return host === "github" ? <FaGithub aria-hidden="true" /> : <Code2 aria-hidden="true" />;
 }
 
 function formatPublisher(app: DirectoryApp) {
@@ -110,7 +115,7 @@ function AppDetailsOverlay({
     ["database", formatDatabaseRequirement(app), Database],
     ["ram", getRamTier(app), Server],
     ["storage", getStorageTier(app), HardDrive],
-    ["platforms", formatPlatforms(app.platforms), MonitorSmartphone],
+    ["surfaces", formatPlatforms(app.surfaces), MonitorSmartphone],
     ["last commit", formatDate(app.github_last_commit_at), CalendarClock],
   ];
 
@@ -166,11 +171,11 @@ function AppDetailsOverlay({
               <ArrowRight aria-hidden="true" size={14} strokeWidth={2.2} />
             </a>
           ) : null}
-          {app.repository_url ? (
-            <a className="primary" href={app.repository_url} rel="noreferrer" target="_blank">
+          {app.source_code_url ? (
+            <a className="primary" href={app.source_code_url} rel="noreferrer" target="_blank">
               <span>
-                <FaGithub aria-hidden="true" />
-                github
+                <SourceCodeIcon host={app.source_code_host} />
+                {app.source_code_host === "github" ? "github" : "source code"}
               </span>
               <ArrowRight aria-hidden="true" size={14} strokeWidth={2.2} />
             </a>

@@ -16,7 +16,7 @@ A full review of the site, the niche, the competition, the docs, growth ideas, a
 
 **Behind the scenes (genuinely strong):**
 - A real data pipeline: imports from awesome-selfhosted, selfh.st, and GitHub topics; raw payload preservation, field-level provenance, controlled 39-category taxonomy, enrichment batches, GitHub fact refresh, summary/link audits, dry-run support.
-- Postgres/Supabase schema with structured facts: stars, last commit, latest release, docker support level, compose support, RAM, database requirements, platforms, license, maintenance status, publisher type.
+- Postgres/Supabase schema with structured facts: stars, last commit, latest release, docker support level, compose support, RAM, database requirements, surfaces, license, maintenance status, publisher type.
 - 1,536 cached app icons served locally.
 
 **Verdict on the foundation: 8.5/10.** This is better infrastructure than most directory sites ever build. The "structured facts over prose, null over fake precision" discipline is exactly what makes a directory defensible and AI-citable.

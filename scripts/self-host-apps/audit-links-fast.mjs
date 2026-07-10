@@ -6,7 +6,7 @@ import path from "node:path";
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 
-const linkFields = ["website_url", "repository_url", "docs_url", "install_docs_url", "docker_url", "publisher_url"];
+const linkFields = ["website_url", "source_code_url", "docs_url", "install_docs_url", "docker_url", "publisher_url"];
 const blockedStatuses = new Set([403, 429]);
 let cachedGithubToken;
 
@@ -95,11 +95,13 @@ async function main() {
   const publishedOnly = args["all"] ? false : true;
 
   const rows = await withClient(async (client) => {
-    const where = publishedOnly ? "where published = true" : "";
+    const where = publishedOnly
+      ? "where published = true and self_hosting_status = 'self_hostable'"
+      : "where self_hosting_status = 'self_hostable'";
     const result = await client.query(
       `
         select slug, ${linkFields.join(", ")}
-        from public.self_host_apps
+        from public.open_projects
         ${where}
         order by slug
         limit $1

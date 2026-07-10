@@ -1,64 +1,19 @@
-# version127 App Content Instructions
+# Self-host app content rules
 
-Use this file when adding or updating self-host app rows for the version127 directory.
+Use these rules when reviewing projects for `/self-host-apps`.
 
-## Current Direction
+## Facts
 
-The directory should stay minimal, structured, and easy to automate. Do not create prose-heavy app pages. The visible UI can stay compact, but the `/self-host-apps` page must expose the app facts in server-rendered HTML so search crawlers and AI agents can read the content without opening client-side drawers.
+- Use official websites, repositories, docs, releases, and container/package pages.
+- Set `self_hosting_status` only after checking official install or deployment evidence.
+- Use `unknown` or `null` when research does not support a fact.
+- Keep GitHub topics as raw metadata. Assign controlled categories by actual purpose.
+- Keep source payloads and field-level provenance for imported facts.
+- Do not add generic tags, verdicts, long descriptions, or per-project prose pages.
 
-Source of truth:
+## Summaries
 
-- `content_docs/self-host-apps/schema.md`
-- `supabase/migrations/20260629000000_create_version127_self_host_apps.sql`
-- `supabase/seeds/20260629_version127_self_host_apps.sql`
-- `scripts/self-host-apps/scripts.json`
-
-## App Row Shape
-
-Use the active schema fields:
-
-```text
-slug
-name
-summary
-icon_url
-website_url
-repository_url
-docs_url
-install_docs_url
-docker_url
-license
-publisher_name
-publisher_type
-publisher_url
-published
-maintenance_status
-github_owner
-github_repo
-github_stars
-github_latest_release
-github_latest_release_at
-github_last_commit_at
-github_checked_at
-docker_support
-compose_support
-requires_database
-database_types
-ram_mb
-storage_profile
-platforms
-summary_source
-summary_confidence
-category links
-field sources
-source payloads
-```
-
-## Summary Rule
-
-`summary` replaces the old long `description` style.
-
-Write one short original sentence that explains what the app actually does. The sentence should be direct enough for a directory card and specific enough for an agent to classify the app.
+Write one original sentence that says what the project helps users do. Keep it specific enough to identify the project without repeating that it is open source or self-hosted.
 
 Good:
 
@@ -69,18 +24,13 @@ Photo and video backup app for building a private Google Photos-style library.
 Bad:
 
 ```text
-Open-source self-hosted photo management solution.
+Powerful open-source self-hosted photo management solution.
 ```
 
-Avoid generic filler such as `open source`, `self-hosted`, `solution`, `platform`, `powerful`, `ultimate`, and `all-in-one` unless the word is essential to the app.
+Avoid filler such as `solution`, `powerful`, `ultimate`, `seamless`, and `all-in-one`.
 
-## Data Rules
+## Rendering
 
-- Keep `summary` to one clear line.
-- Prefer official websites, docs, repositories, and container links.
-- Use `unknown` or `null` instead of fake precision.
-- Keep fields filterable, sortable, refreshable, or inferable.
-- Do not add verdict, good fit, watch outs, install prose, screenshots, video fields, hardware recommendations, or long descriptions.
-- Keep app details inside `/self-host-apps` through the in-page details panel.
-- Put collection, validation, enrichment, and upsert scripts for this page under `scripts/self-host-apps`.
-- Add future page pipelines under their own page-scoped folder, then register them in `scripts/scripts.json`.
+Keep details in the `/self-host-apps` drawer. Render complete project facts in server HTML so search crawlers and AI agents do not need to execute the drawer.
+
+See `version127_docs/open-projects.md`, `content_docs/self-host-apps/schema.md`, and `content_docs/self-host-apps/data-workflow.md` for the data contract and workflow.

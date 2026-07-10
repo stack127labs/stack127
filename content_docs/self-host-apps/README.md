@@ -6,7 +6,7 @@ This page is a structured directory of self-hostable apps. It should stay minima
 
 ## Docs
 
-- `schema.md` documents the active Supabase schema.
+- `schema.md` documents this page's projection from the shared open-project model.
 - `content-rules.md` documents row shape and copy rules.
 - `data-workflow.md` documents discovery, validation, import, enrichment, and audit flow.
 
@@ -23,4 +23,5 @@ Temporary one-off scripts for this page belong in `scripts/self-host-apps/temp/`
 - Prefer official websites, docs, repositories, and container links.
 - Use `unknown` or `null` for unverified facts.
 - Preserve source payloads and field provenance for imported data.
+- Read `version127_docs/open-projects.md` before changing the shared tables.
 - Keep the page server-rendered enough for crawlers and AI agents to read app records without opening the drawer.

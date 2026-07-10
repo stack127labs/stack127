@@ -42,9 +42,9 @@ async function fetchIcon(url) {
 }
 
 function githubOwnerAvatar(row) {
-  if (!row.repository_url) return null;
+  if (!row.source_code_url) return null;
   try {
-    const url = new URL(row.repository_url);
+    const url = new URL(row.source_code_url);
     if (url.hostname !== "github.com") return null;
     const owner = url.pathname.split("/").filter(Boolean)[0];
     return owner ? `https://github.com/${owner}.png?size=256` : null;
@@ -96,7 +96,7 @@ async function writeFetchedIcon(client, row, url) {
 
   await client.query(
     `
-      update public.self_host_apps
+      update public.open_projects
       set icon_url = $2, updated_at = now()
       where slug = $1
     `,
@@ -134,9 +134,10 @@ async function main() {
   await withClient(async (client) => {
     const result = await client.query(
       `
-        select slug, name, icon_url, repository_url
-        from public.self_host_apps
+        select slug, name, icon_url, source_code_url
+        from public.open_projects
         where published = true
+          and self_hosting_status = 'self_hostable'
         order by slug
         limit $1
       `,

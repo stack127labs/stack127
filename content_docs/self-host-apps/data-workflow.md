@@ -1,41 +1,112 @@
-# Self-Host App Data Workflow
+# Self-host app data workflow
 
-This workflow is intentionally small for the current version127 direction, but it is built to scale into large imports without losing auditability.
+The durable flow is:
 
-## Source Of Truth
+```text
+discover -> candidate staging -> dedupe -> select 100 -> research and classify -> enrich -> QA -> publish -> refresh
+```
 
-- Schema: `content_docs/self-host-apps/schema.md`
-- Database migration: `supabase/migrations/20260629000000_create_version127_self_host_apps.sql`
-- Seed data: `supabase/seeds/20260629_version127_self_host_apps.sql`
-- Script index: `scripts/scripts.json`
-- Page pipeline: `scripts/self-host-apps/scripts.json`
+Discovery never publishes. Publication never happens from an external directory description alone.
 
-Do not recreate the old `content/apps` or `content/app-drafts` prose workflow. New collection and enrichment work belongs in `scripts/self-host-apps`.
+## Source of truth
 
-## Data Rules
+- Shared model: `version127_docs/open-projects.md`
+- Page projection: `content_docs/self-host-apps/schema.md`
+- Migration: `supabase/migrations/20260710111454_migrate_to_open_projects.sql`
+- Local baseline: `supabase/seeds/20260629_version127_open_projects.sql`
+- Script manifest: `scripts/self-host-apps/scripts.json`
+- Skills: `skills/self-host-apps/discovery/` and `skills/self-host-apps/enrichment/`
 
-- Store facts that can be filtered, sorted, refreshed, or inferred.
-- Keep one short `summary`; skip prose fields such as verdict, good fit, watch outs, install copy, and long descriptions.
-- Use `null` or `unknown` when a fact is not verified.
-- Prefer official websites, docs, repositories, and container links.
-- Use only the controlled category slugs in `content_docs/self-host-apps/schema.md`.
-- Do not import source-list headings as categories.
-- Keep app details inside `/self-host-apps` through the in-page details panel.
-- Keep `/self-host-apps` crawler-friendly by rendering complete app records in the server HTML, even when the human UI uses cards and a drawer.
+## 1. Discover
 
-## Summary Rules
+Durable sources write normalized rows to `open_project_candidates`:
 
-Summaries must be original one-line descriptions of what the app does.
+```bash
+npm run self-host-apps:discover-awesome-selfhosted -- --limit 5000 --write
+npm run self-host-apps:discover-selfhst -- --limit 5000 --write
+npm run self-host-apps:discover-selfhostedworld -- --limit 2000 --write
+npm run self-host-apps:discover-openalternative -- --limit 2000 --write
+npm run self-host-apps:discover-github-topic -- --topic self-hosted --limit 100 --write
+```
 
-Avoid broad filler:
+Store raw summaries, categories, topics, and payloads as discovery evidence. Do not reuse them as final copy or editorial classification.
 
-- `open source`
-- `self-hosted`
-- `solution`
-- `platform`
-- `powerful`
-- `ultimate`
-- `all-in-one`
+## 2. Dedupe
+
+```bash
+npm run self-host-apps:dedupe-candidates -- --dry-run
+npm run self-host-apps:dedupe-candidates
+```
+
+Match canonical source-code URL first, then slug and official homepage. Treat normalized-name matches as weak evidence and review them.
+
+## 3. Select a batch
+
+```bash
+npm run self-host-apps:select-candidate-batch -- --limit 100 --out scripts/self-host-apps/batches/YYYY-MM-DD-candidate-enrichment.json
+```
+
+Keep reviewed overrides beside the batch. Historical batch files using `repository_url` or `platforms` still load, but new files use `source_code_url` and `surfaces`.
+
+## 4. Research and classify
+
+Use official project sources: repository, website, install docs, release page, package/container page, and configuration examples.
+
+Before publication, decide `self_hosting_status`:
+
+- `self_hostable` when official sources show a user-controlled install or service deployment.
+- `not_self_hostable` when the open project is useful but not a self-host target.
+- `unknown` when the evidence is incomplete. Unknown candidates stay in review.
+
+Map one to three controlled categories by purpose. GitHub topics and source-list headings are not categories.
+
+## 5. Enrich and upsert
+
+```bash
+npm run self-host-apps:enrich-github-batch -- --file <batch> --overrides <reviewed-overrides> --limit 100 --dry-run
+npm run self-host-apps:enrich-github-batch -- --file <batch> --overrides <reviewed-overrides> --limit 100
+```
+
+The write updates `open_projects`, category links, field provenance, and candidate state in one transaction. A candidate with unknown self-hosting status is moved to `needs_review`, not published.
+
+For reviewed non-GitHub rows, use `self-host-apps:validate` and `self-host-apps:upsert` or `self-host-apps:upsert-batch`.
+
+## 6. Quality gates
+
+Run the checks that match the batch:
+
+```bash
+npm run self-host-apps:qa-gate
+npm run self-host-apps:qa-report
+npm run self-host-apps:icon-integrity
+npm run self-host-apps:audit-summaries
+npm run self-host-apps:audit-links-fast
+npm run typecheck
+npm run build
+```
+
+QA scripts report issues. They do not globally draft or publish projects. Apply researched corrections with `self-host-apps:apply-qa-overrides`.
+
+## 7. Production sync
+
+```bash
+npm run self-host-apps:sync-local-to-prod -- --dry-run
+npm run self-host-apps:sync-local-to-prod
+```
+
+The sync mirrors the shared project rows, category taxonomy, category links, source payloads, and field provenance. It refuses to run when local and production URLs are identical.
+
+Apply schema migrations before data sync. Verify row counts and the live `/self-host-apps` page afterward.
+
+## 8. Scheduled work
+
+`.github/workflows/self-host-apps-discovery.yml` runs twice daily. It fills candidate staging from directory and GitHub sources, then dedupes. It cannot publish.
+
+`.github/workflows/self-host-apps-refresh-github.yml` runs every 12 hours. It refreshes changing GitHub facts for published projects without changing summaries, categories, self-hosting classification, resource estimates, links, or publication state.
+
+## Summary rule
+
+Write one direct sentence about what the project helps a user do. Avoid boilerplate such as `open source`, `self-hosted`, `solution`, `powerful`, or `all-in-one` unless a term adds necessary meaning.
 
 Good:
 
@@ -46,87 +117,5 @@ Bookmark manager for saving pages, preserving copies, and organizing research li
 Bad:
 
 ```text
-Open-source self-hosted bookmark management solution.
+Powerful open-source self-hosted bookmark management solution.
 ```
-
-## Pipeline
-
-1. Discover candidates with `self-host-apps:import-awesome`, `self-host-apps:import-awesome-selfhosted`, `self-host-apps:import-selfhst`, or `self-host-apps:import-github-topic`.
-2. Preserve raw imported payloads in `self_host_apps_sources`.
-3. Normalize rows into the active schema.
-4. Map imported categories into the controlled taxonomy.
-5. Keep newly imported rows as draft until reviewed.
-6. Select review batches with `self-host-apps:select-enrichment-batch`.
-7. Enrich GitHub-backed batches with `self-host-apps:enrich-github-batch`.
-8. Rewrite summaries with the version127 rules.
-9. Validate records with `self-host-apps:validate`.
-10. Upsert rows, category joins, source payloads, and field sources with `self-host-apps:upsert` or `self-host-apps:upsert-batch`.
-11. Refresh GitHub facts with `self-host-apps:refresh-github`.
-12. Run `self-host-apps:qa-gate`, `self-host-apps:qa-report`, `self-host-apps:icon-integrity`, `self-host-apps:audit-summaries`, and `self-host-apps:audit-links` before large batches or production syncs.
-13. Use `self-host-apps:publish-github-backed` after a broad GitHub refresh when recently refreshed GitHub-backed rows should stay visible while softer QA issues remain in the cleanup backlog.
-
-## Volatile GitHub Facts
-
-Changing repository facts are refreshed separately from enrichment.
-
-Use `npm run self-host-apps:refresh-github -- --published-only --limit 500` to update stars, latest release, last commit date, maintenance status, `github_checked_at`, and missing license values.
-
-The scheduled workflow `.github/workflows/self-host-apps-refresh-github.yml` runs this every 12 hours against production. It must not change summaries, categories, Docker support, resource estimates, links, or publish state.
-
-## Quality Repair Pass
-
-Use `self-host-apps:qa-report` to rank published rows by risky facts, weak summaries, missing licenses, weak Docker proof, database uncertainty, and icon problems.
-
-Use `self-host-apps:qa-gate` to separate hard publish blockers from soft review warnings. Production should not ship rows with broken icons, broken summaries, database contradictions, or risky Docker proof. Weak summaries, missing licenses, unknown Docker support, and unknown database facts belong in `self-host-apps:qa-report`; they should not automatically hide a GitHub-backed row.
-
-Use `self-host-apps:icon-integrity` to keep published app icons local, valid PNG files, and large enough for the UI.
-
-Use `self-host-apps:sanitize-risky-facts` when a broad enrichment pass inferred database or Docker facts from README text, Dockerfiles, dev compose files, or source-list blurbs. Reset weak facts to `unknown` or `null` instead of publishing false confidence.
-
-Use `self-host-apps:apply-qa-overrides` only with reviewed batch files under `scripts/self-host-apps/batches/`. Each override should update only the verified fields and include `field_sources` for important facts such as summary, license, database requirement, Docker support, and install docs.
-
-Do not let broad repository text infer database or Docker support. Use official install docs, compose files, package pages, or explicit project documentation. If a GitHub-backed row is reachable and recently refreshed but a fact cannot be verified, keep the uncertain field `unknown` or `null`, publish the row when the hard gate is clean, and leave the specific fact for a later QA pass. Keep non-GitHub, stale, unreachable, duplicate, or broken-icon rows draft.
-
-Run `self-host-apps:reset-categories` when imports or old data need to be remapped into the current taxonomy.
-Run `self-host-apps:draft-all` before a major review pass when only enriched rows should be visible.
-
-Use `--dry-run` when the command supports it before writing large batches.
-
-## Production Sync
-
-Run `self-host-apps:sync-local-to-prod -- --dry-run` only after the local QA gate, icon integrity audit, and reviewed overrides are clean.
-
-The sync copies the verified local state for:
-
-- `self_host_apps`
-- `self_host_apps_categories`
-- `self_host_apps_categories_join_table`
-- `self_host_apps_sources`
-- `self_host_apps_field_sources`
-
-It does not delete production-only app rows. It drafts them so stale or unverified rows stop appearing publicly while the data remains recoverable.
-
-After a real sync, rerun `NODE_ENV=production self-host-apps:qa-gate` and an icon integrity check before calling the production data clean.
-
-## selfh.st Import
-
-`self-host-apps:import-selfhst` reads the selfh.st software directory JSON, dedupes against the current database, and writes a draft batch file.
-
-Duplicate checks run in this order:
-
-- canonical repository URL
-- exact slug
-- canonical website URL
-- normalized name
-
-The importer intentionally skips the selfh.st companion-app directory for now. Companion clients can become their own page or filter later, but they should not be mixed into the core self-host app import without review.
-
-## Environment
-
-Local self-host app scripts read `DATABASE_URL` from `.env.local` when no explicit database URL is provided. Production jobs should use the production `DATABASE_URL` from `.env.database`, either by loading that file in the process environment, running with `NODE_ENV=production`, or passing `--database-url`.
-
-Do not add hardcoded local database connection strings to scripts. Missing database config should fail loudly.
-
-## Local Updates
-
-For broad resets, update the migration and seed together. For individual test apps, prefer a validated JSON record and `self-host-apps:upsert`; update the seed when the sample data should remain part of the local baseline.

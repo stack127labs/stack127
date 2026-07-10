@@ -148,7 +148,7 @@ async function main() {
           summary,
           icon_url,
           website_url,
-          repository_url,
+          source_code_url,
           docs_url,
           install_docs_url,
           docker_url,
@@ -164,11 +164,12 @@ async function main() {
           database_types,
           ram_mb,
           storage_profile,
-          platforms,
+          surfaces,
           summary_source,
           summary_confidence
-        from public.self_host_apps
+        from public.open_projects
         where published = true
+          and self_hosting_status = 'self_hostable'
         order by slug
       `,
     );
@@ -185,7 +186,7 @@ async function main() {
         issues,
         github_stars: row.github_stars,
         summary: row.summary,
-        repository_url: row.repository_url,
+        source_code_url: row.source_code_url,
         website_url: row.website_url,
       };
     })

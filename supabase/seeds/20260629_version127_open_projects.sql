@@ -1,4 +1,4 @@
-insert into public.self_host_apps_categories (slug, name, icon_key, sort_order)
+insert into public.open_project_categories (slug, name, icon_key, sort_order)
 values
   ($$ai-ml$$, $$ai & ml$$, $$bot$$, 10),
   ($$automation$$, $$automation$$, $$bot$$, 20),
@@ -44,13 +44,13 @@ on conflict (slug) do update set
   icon_key = excluded.icon_key,
   sort_order = excluded.sort_order;
 
-insert into public.self_host_apps (
+insert into public.open_projects (
   slug,
   name,
   summary,
   icon_url,
   website_url,
-  repository_url,
+  source_code_url,
   docs_url,
   install_docs_url,
   docker_url,
@@ -73,7 +73,7 @@ insert into public.self_host_apps (
   database_types,
   ram_mb,
   storage_profile,
-  platforms,
+  surfaces,
   summary_source,
   summary_confidence
 )
@@ -281,7 +281,7 @@ on conflict (slug) do update set
   summary = excluded.summary,
   icon_url = excluded.icon_url,
   website_url = excluded.website_url,
-  repository_url = excluded.repository_url,
+  source_code_url = excluded.source_code_url,
   docs_url = excluded.docs_url,
   install_docs_url = excluded.install_docs_url,
   docker_url = excluded.docker_url,
@@ -304,13 +304,29 @@ on conflict (slug) do update set
   database_types = excluded.database_types,
   ram_mb = excluded.ram_mb,
   storage_profile = excluded.storage_profile,
-  platforms = excluded.platforms,
+  surfaces = excluded.surfaces,
   summary_source = excluded.summary_source,
   summary_confidence = excluded.summary_confidence;
 
-delete from public.self_host_apps_categories_join_table;
+update public.open_projects
+set
+  self_hosting_status = 'self_hostable',
+  source_code_host = case
+    when source_code_url like 'https://github.com/%' then 'github'
+    when source_code_url is not null then 'other'
+    else 'unknown'
+  end,
+  license_spdx_id = license,
+  license_type = case
+    when license ~* 'MIT|Apache|BSD|ISC' then 'permissive'::public.open_project_license_type
+    when license ~* 'AGPL|LGPL|GPL|MPL' then 'copyleft'::public.open_project_license_type
+    else 'unknown'::public.open_project_license_type
+  end
+where slug in ('immich', 'excalidraw', 'linkwarden', 'uptime-kuma', 'home-assistant', 'pi-hole');
 
-insert into public.self_host_apps_categories_join_table (app_id, category_id)
+delete from public.open_project_categories_join_table;
+
+insert into public.open_project_categories_join_table (project_id, category_id)
 select app.id, category.id
 from (
     values
@@ -322,6 +338,6 @@ from (
     ('home-assistant', 'automation'),
     ('pi-hole', 'networking-dns')
   ) as link(app_slug, category_slug)
-join public.self_host_apps app on app.slug = link.app_slug
-join public.self_host_apps_categories category on category.slug = link.category_slug
+join public.open_projects app on app.slug = link.app_slug
+join public.open_project_categories category on category.slug = link.category_slug
 on conflict do nothing;

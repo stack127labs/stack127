@@ -3,7 +3,7 @@
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 
-const linkFields = ["website_url", "repository_url", "docs_url", "install_docs_url", "docker_url", "publisher_url"];
+const linkFields = ["website_url", "source_code_url", "docs_url", "install_docs_url", "docker_url", "publisher_url"];
 const blockedStatuses = new Set([403, 429]);
 
 async function checkUrl(url) {
@@ -31,7 +31,9 @@ async function main() {
     const result = await client.query(
       `
         select slug, ${linkFields.join(", ")}
-        from public.self_host_apps
+        from public.open_projects
+        where published = true
+          and self_hosting_status = 'self_hostable'
         order by slug
         limit $1
       `,

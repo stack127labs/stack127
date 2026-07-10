@@ -16,14 +16,18 @@ const publicColumns = [
   "summary",
   "category_names",
   "website_url",
-  "repository_url",
+  "source_code_url",
+  "source_code_host",
   "docs_url",
   "license",
+  "license_type",
   "docker_support",
   "compose_support",
   "requires_database",
   "database_types",
-  "platforms",
+  "surfaces",
+  "github_primary_language",
+  "github_topics",
 ];
 
 const categoryJoin = `
@@ -31,9 +35,9 @@ const categoryJoin = `
     select
       coalesce(array_agg(category.slug order by category.sort_order, category.name), array[]::text[]) as category_slugs,
       coalesce(array_agg(category.name order by category.sort_order, category.name), array[]::text[]) as category_names
-    from public.self_host_apps_categories_join_table app_category
-    join public.self_host_apps_categories category on category.id = app_category.category_id
-    where app_category.app_id = app.id
+    from public.open_project_categories_join_table project_category
+    join public.open_project_categories category on category.id = project_category.category_id
+    where project_category.project_id = app.id
   ) category_set on true
 `;
 
@@ -59,11 +63,13 @@ function normalizeRow(row) {
     category_slugs: listValue(row.category_slugs),
     category_names: listValue(row.category_names),
     website_url: row.website_url,
-    repository_url: row.repository_url,
+    source_code_url: row.source_code_url,
+    source_code_host: row.source_code_host,
     docs_url: row.docs_url,
     install_docs_url: row.install_docs_url,
     docker_url: row.docker_url,
     license: row.license,
+    license_type: row.license_type,
     publisher_name: row.publisher_name,
     publisher_type: row.publisher_type,
     publisher_url: row.publisher_url,
@@ -78,7 +84,9 @@ function normalizeRow(row) {
     database_types: listValue(row.database_types),
     ram_mb: numberValue(row.ram_mb),
     storage_profile: row.storage_profile,
-    platforms: listValue(row.platforms),
+    surfaces: listValue(row.surfaces),
+    github_primary_language: row.github_primary_language,
+    github_topics: listValue(row.github_topics),
   };
 }
 
@@ -108,11 +116,13 @@ async function exportSelfHostApps({ outDir, databaseUrl }) {
           category_set.category_slugs,
           category_set.category_names,
           app.website_url,
-          app.repository_url,
+          app.source_code_url,
+          app.source_code_host,
           app.docs_url,
           app.install_docs_url,
           app.docker_url,
           app.license,
+          app.license_type,
           app.publisher_name,
           app.publisher_type,
           app.publisher_url,
@@ -127,11 +137,14 @@ async function exportSelfHostApps({ outDir, databaseUrl }) {
           app.database_types,
           app.ram_mb,
           app.storage_profile,
-          app.platforms,
+          app.surfaces,
+          app.github_primary_language,
+          app.github_topics,
           app.updated_at
-        from public.self_host_apps app
+        from public.open_projects app
         ${categoryJoin}
         where app.published = true
+          and app.self_hosting_status = 'self_hostable'
         order by lower(app.name), app.slug
       `,
     );

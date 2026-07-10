@@ -44,14 +44,18 @@ async function main() {
             app.summary,
             app.icon_url,
             app.website_url,
-            app.repository_url,
+            app.source_code_url,
+            app.source_code_host,
             app.docs_url,
             app.install_docs_url,
             app.docker_url,
             app.license,
+            app.license_type,
+            app.license_spdx_id,
             app.publisher_name,
             app.publisher_type,
             app.publisher_url,
+            app.self_hosting_status,
             app.maintenance_status,
             app.github_owner,
             app.github_repo,
@@ -66,7 +70,7 @@ async function main() {
             app.database_types,
             app.ram_mb,
             app.storage_profile,
-            app.platforms,
+            app.surfaces,
             app.summary_source,
             app.summary_confidence,
             coalesce(
@@ -88,13 +92,14 @@ async function main() {
               (app.storage_profile = 'unknown')::int +
               (app.icon_url is null)::int
             ) as missing_score
-          from public.self_host_apps app
-          left join public.self_host_apps_categories_join_table app_category
-            on app_category.app_id = app.id
-          left join public.self_host_apps_categories category
+          from public.open_projects app
+          left join public.open_project_categories_join_table app_category
+            on app_category.project_id = app.id
+          left join public.open_project_categories category
             on category.id = app_category.category_id
           where app.published = false
-            and app.repository_url ~ '^https://github.com/[^/]+/[^/#?]+/?$'
+            and app.self_hosting_status = 'self_hostable'
+            and app.source_code_url ~ '^https://github.com/[^/]+/[^/#?]+/?$'
             and not (app.slug = any($2::text[]))
           group by app.id
         )
@@ -111,7 +116,7 @@ async function main() {
       selection: {
         limit,
         order: "missing_score desc, name asc",
-        source: "local draft self_host_apps rows with GitHub repository URLs",
+        source: "local draft open_projects rows with GitHub repository URLs",
         excluded_slugs: excludeSlugs.length,
       },
       apps: result.rows,

@@ -69,8 +69,6 @@ function groupCounts(rows) {
 async function main() {
   const args = parseArgs();
   const limit = numberArg(args, "limit", 100);
-  const draftBlocked = Boolean(args["draft-blocked"]);
-  const dryRun = Boolean(args["dry-run"]);
 
   const rows = await withClient(async (client) => {
     const result = await client.query(
@@ -80,7 +78,7 @@ async function main() {
           name,
           summary,
           icon_url,
-          repository_url,
+          source_code_url,
           website_url,
           docs_url,
           install_docs_url,
@@ -89,8 +87,9 @@ async function main() {
           requires_database,
           database_types,
           docker_support
-        from public.self_host_apps
+        from public.open_projects
         where published = true
+          and self_hosting_status = 'self_hostable'
         order by slug
       `,
     );
@@ -99,22 +98,6 @@ async function main() {
       .map((row) => ({ ...row, blockers: rowBlockers(row) }))
       .filter((row) => row.blockers.length > 0)
       .sort((a, b) => b.blockers.length - a.blockers.length || a.slug.localeCompare(b.slug));
-
-    if (draftBlocked && blockedRows.length > 0) {
-      if (dryRun) {
-        console.log(`Dry run: would move ${blockedRows.length} blocked published row(s) back to draft.`);
-      } else {
-        await client.query(
-          `
-            update public.self_host_apps
-            set published = false, updated_at = now()
-            where slug = any($1::text[])
-          `,
-          [blockedRows.map((row) => row.slug)],
-        );
-        console.log(`Moved ${blockedRows.length} blocked published row(s) back to draft.`);
-      }
-    }
 
     return { rows: publishedRows, blockedRows };
   }, args["database-url"]);
@@ -125,14 +108,13 @@ async function main() {
     generated_at: new Date().toISOString(),
     published: rows.rows.length,
     blocked_count: blocked.length,
-    draft_blocked: draftBlocked && !dryRun ? blocked.length : 0,
     blocker_counts: groupCounts(blocked),
     blocked_rows: blocked.slice(0, limit).map((row) => ({
       slug: row.slug,
       name: row.name,
       blockers: row.blockers,
       summary: row.summary,
-      repository_url: row.repository_url,
+      source_code_url: row.source_code_url,
       website_url: row.website_url,
       docker_url: row.docker_url,
     })),

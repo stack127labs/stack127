@@ -47,7 +47,7 @@ export type LicenseEntry = {
   forCreators: string[];
   commonMistake: string | null;
   officialUrl: string;
-  /** Strings that may appear in self_host_apps.license for matching. */
+  /** Strings that may appear in open_projects.license for matching. */
   aliases: string[];
 };
 

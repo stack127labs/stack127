@@ -24,7 +24,7 @@ export default function AboutPage() {
             Small, fast, technical, and direct. The goal is to help you compare options, find official links, and understand the basics quickly without forcing you through a long article for every tiny answer.
           </p>
           <p>
-            We prefer structured facts over long reviews: project name, summary, links, license, publisher, platforms, release signal, categories, and practical metadata. If something is unknown, we would rather say unknown than pretend. License labels are explained on the{" "}
+            We prefer structured facts over long reviews: project name, summary, links, license, publisher, surfaces, release signal, categories, and practical metadata. If something is unknown, we would rather say unknown than pretend. License labels are explained on the{" "}
             <Link href="/software-licenses-for-self-hosting">software licenses</Link> reference.
           </p>
         </section>

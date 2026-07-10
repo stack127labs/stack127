@@ -3,76 +3,9 @@
 import { existsSync, readFileSync } from "node:fs";
 import pg from "pg";
 import { parseArgs, numberArg } from "./lib/args.mjs";
+import { projectColumns, projectRecordsetColumns } from "./lib/schema.mjs";
 
 const { Pool } = pg;
-
-const appColumns = [
-  "slug",
-  "name",
-  "summary",
-  "icon_url",
-  "website_url",
-  "repository_url",
-  "docs_url",
-  "install_docs_url",
-  "docker_url",
-  "license",
-  "publisher_name",
-  "publisher_type",
-  "publisher_url",
-  "published",
-  "maintenance_status",
-  "github_owner",
-  "github_repo",
-  "github_stars",
-  "github_latest_release",
-  "github_latest_release_at",
-  "github_last_commit_at",
-  "github_checked_at",
-  "docker_support",
-  "compose_support",
-  "requires_database",
-  "database_types",
-  "ram_mb",
-  "storage_profile",
-  "platforms",
-  "summary_source",
-  "summary_confidence",
-];
-
-const appRecordsetColumns = [
-  "slug text",
-  "name text",
-  "summary text",
-  "icon_url text",
-  "website_url text",
-  "repository_url text",
-  "docs_url text",
-  "install_docs_url text",
-  "docker_url text",
-  "license text",
-  "publisher_name text",
-  "publisher_type text",
-  "publisher_url text",
-  "published boolean",
-  "maintenance_status text",
-  "github_owner text",
-  "github_repo text",
-  "github_stars integer",
-  "github_latest_release text",
-  "github_latest_release_at timestamptz",
-  "github_last_commit_at timestamptz",
-  "github_checked_at timestamptz",
-  "docker_support text",
-  "compose_support boolean",
-  "requires_database boolean",
-  "database_types text[]",
-  "ram_mb integer",
-  "storage_profile text",
-  "platforms text[]",
-  "summary_source text",
-  "summary_confidence text",
-];
 
 function unquote(value) {
   return value.replace(/^['"]|['"]$/g, "");
@@ -121,39 +54,39 @@ async function fetchLocalState(client) {
   const categories = await client.query(
     `
       select slug, name, icon_key, sort_order
-      from public.self_host_apps_categories
+      from public.open_project_categories
       order by sort_order, slug
     `,
   );
   const apps = await client.query(
     `
-      select ${appColumns.join(", ")}
-      from public.self_host_apps
+      select ${projectColumns.join(", ")}
+      from public.open_projects
       order by slug
     `,
   );
   const categoryLinks = await client.query(
     `
       select app.slug as app_slug, category.slug as category_slug
-      from public.self_host_apps_categories_join_table link
-      join public.self_host_apps app on app.id = link.app_id
-      join public.self_host_apps_categories category on category.id = link.category_id
+      from public.open_project_categories_join_table link
+      join public.open_projects app on app.id = link.project_id
+      join public.open_project_categories category on category.id = link.category_id
       order by app.slug, category.slug
     `,
   );
   const sources = await client.query(
     `
       select app.slug as app_slug, source.source, source.source_key, source.source_url, source.payload
-      from public.self_host_apps_sources source
-      left join public.self_host_apps app on app.id = source.app_id
+      from public.open_project_sources source
+      left join public.open_projects app on app.id = source.project_id
       order by source.source, source.source_key
     `,
   );
   const fieldSources = await client.query(
     `
       select app.slug as app_slug, field.field_name, field.source, field.source_url, field.confidence, field.checked_at, field.note
-      from public.self_host_apps_field_sources field
-      join public.self_host_apps app on app.id = field.app_id
+      from public.open_project_field_sources field
+      join public.open_projects app on app.id = field.project_id
       order by app.slug, field.field_name
     `,
   );
@@ -179,7 +112,7 @@ async function upsertCategories(client, categories) {
   for (const category of categories) {
     await client.query(
       `
-        insert into public.self_host_apps_categories (slug, name, icon_key, sort_order)
+        insert into public.open_project_categories (slug, name, icon_key, sort_order)
         values ($1, $2, $3, $4)
         on conflict (slug) do update set
           name = excluded.name,
@@ -193,16 +126,16 @@ async function upsertCategories(client, categories) {
 }
 
 async function upsertApps(client, apps) {
-  const updates = appColumns
+  const updates = projectColumns
     .filter((column) => column !== "slug")
     .map((column) => `${column} = excluded.${column}`)
     .join(",\n          ");
 
   await client.query(
     `
-      insert into public.self_host_apps (${appColumns.join(", ")})
-      select ${appColumns.map((column) => `item.${column}`).join(", ")}
-      from jsonb_to_recordset($1::jsonb) as item(${appRecordsetColumns.join(", ")})
+      insert into public.open_projects (${projectColumns.join(", ")})
+      select ${projectColumns.map((column) => `item.${column}`).join(", ")}
+      from jsonb_to_recordset($1::jsonb) as item(${projectRecordsetColumns.join(", ")})
       on conflict (slug) do update set
         ${updates},
         updated_at = now()
@@ -216,8 +149,8 @@ async function fetchIdMaps(client, state) {
   const categorySlugs = state.categories.map((category) => category.slug);
 
   const [apps, categories] = await Promise.all([
-    client.query("select id, slug from public.self_host_apps where slug = any($1::text[])", [appSlugs]),
-    client.query("select id, slug from public.self_host_apps_categories where slug = any($1::text[])", [categorySlugs]),
+    client.query("select id, slug from public.open_projects where slug = any($1::text[])", [appSlugs]),
+    client.query("select id, slug from public.open_project_categories where slug = any($1::text[])", [categorySlugs]),
   ]);
 
   return {
@@ -230,7 +163,7 @@ async function replaceCategoryLinks(client, state, appIds, categoryIds) {
   console.log(`Replacing category links: ${state.categoryLinks.length}`);
   const ids = [...appIds.values()];
   if (ids.length > 0) {
-    await client.query("delete from public.self_host_apps_categories_join_table where app_id = any($1::uuid[])", [ids]);
+    await client.query("delete from public.open_project_categories_join_table where project_id = any($1::uuid[])", [ids]);
   }
 
   const appMap = [...appIds.entries()];
@@ -239,14 +172,14 @@ async function replaceCategoryLinks(client, state, appIds, categoryIds) {
   for (let index = 0; index < linkChunks.length; index += 1) {
     await client.query(
       `
-        insert into public.self_host_apps_categories_join_table (app_id, category_id)
-        select app_map.app_id, category_map.category_id
+        insert into public.open_project_categories_join_table (project_id, category_id)
+        select app_map.project_id, category_map.category_id
         from jsonb_to_recordset($1::jsonb) as item(app_slug text, category_slug text)
-        join unnest($2::text[], $3::uuid[]) as app_map(app_slug, app_id)
+        join unnest($2::text[], $3::uuid[]) as app_map(app_slug, project_id)
           on app_map.app_slug = item.app_slug
         join unnest($4::text[], $5::uuid[]) as category_map(category_slug, category_id)
           on category_map.category_slug = item.category_slug
-        on conflict (app_id, category_id) do nothing
+        on conflict (project_id, category_id) do nothing
       `,
       [
         JSON.stringify(linkChunks[index]),
@@ -272,9 +205,9 @@ async function upsertSources(client, state, appIds) {
     const chunk = sourceChunks[index];
     await client.query(
       `
-        insert into public.self_host_apps_sources (app_id, source, source_key, source_url, payload)
+        insert into public.open_project_sources (project_id, source, source_key, source_url, payload)
         select
-          map.app_id,
+          map.project_id,
           item.source,
           item.source_key,
           item.source_url,
@@ -286,10 +219,10 @@ async function upsertSources(client, state, appIds) {
           source_url text,
           payload jsonb
         )
-        left join unnest($2::text[], $3::uuid[]) as map(app_slug, app_id)
+        left join unnest($2::text[], $3::uuid[]) as map(app_slug, project_id)
           on map.app_slug = item.app_slug
         on conflict (source, source_key) do update set
-          app_id = excluded.app_id,
+          project_id = excluded.project_id,
           source_url = excluded.source_url,
           payload = excluded.payload,
           imported_at = now()
@@ -314,7 +247,7 @@ async function replaceFieldSources(client, state, appIds) {
   console.log(`Replacing field sources: ${state.fieldSources.length}`);
   const ids = [...appIds.values()];
   if (ids.length > 0) {
-    await client.query("delete from public.self_host_apps_field_sources where app_id = any($1::uuid[])", [ids]);
+    await client.query("delete from public.open_project_field_sources where project_id = any($1::uuid[])", [ids]);
   }
 
   const appSlugMap = [...appIds.entries()];
@@ -326,8 +259,8 @@ async function replaceFieldSources(client, state, appIds) {
     const chunk = fieldChunks[index];
     await client.query(
       `
-        insert into public.self_host_apps_field_sources (
-          app_id,
+        insert into public.open_project_field_sources (
+          project_id,
           field_name,
           source,
           source_url,
@@ -336,7 +269,7 @@ async function replaceFieldSources(client, state, appIds) {
           note
         )
         select
-          map.app_id,
+          map.project_id,
           item.field_name,
           item.source,
           item.source_url,
@@ -352,9 +285,9 @@ async function replaceFieldSources(client, state, appIds) {
           checked_at text,
           note text
         )
-        join unnest($2::text[], $3::uuid[]) as map(app_slug, app_id)
+        join unnest($2::text[], $3::uuid[]) as map(app_slug, project_id)
           on map.app_slug = item.app_slug
-        on conflict (app_id, field_name) do update set
+        on conflict (project_id, field_name) do update set
           source = excluded.source,
           source_url = excluded.source_url,
           confidence = excluded.confidence,
@@ -382,7 +315,7 @@ async function replaceFieldSources(client, state, appIds) {
 async function draftMissingProdRows(client, localSlugs) {
   const result = await client.query(
     `
-      update public.self_host_apps
+      update public.open_projects
       set published = false, updated_at = now()
       where not (slug = any($1::text[]))
         and published = true
@@ -401,7 +334,7 @@ async function counts(client) {
         count(*) filter (where published) as published,
         count(*) filter (where not published) as draft,
         count(*) as total
-      from public.self_host_apps
+      from public.open_projects
     `,
   );
   return result.rows[0];

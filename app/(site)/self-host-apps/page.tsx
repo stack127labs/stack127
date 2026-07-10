@@ -272,7 +272,7 @@ function DirectoryCrawlerRecords({ apps }: { apps: DirectoryApp[] }) {
               <div>
                 <dt>source code</dt>
                 <dd>
-                  {app.repository_url ? <a href={app.repository_url}>{app.repository_url}</a> : "unknown"}
+                  {app.source_code_url ? <a href={app.source_code_url}>{app.source_code_url}</a> : "unknown"}
                 </dd>
               </div>
               <div>
@@ -308,8 +308,12 @@ function DirectoryCrawlerRecords({ apps }: { apps: DirectoryApp[] }) {
                 </dd>
               </div>
               <div>
-                <dt>platforms</dt>
-                <dd>{formatCrawlerList(app.platforms)}</dd>
+                <dt>license type</dt>
+                <dd>{app.license_type}</dd>
+              </div>
+              <div>
+                <dt>surfaces</dt>
+                <dd>{formatCrawlerList(app.surfaces)}</dd>
               </div>
               <div>
                 <dt>database</dt>
@@ -338,6 +342,14 @@ function DirectoryCrawlerRecords({ apps }: { apps: DirectoryApp[] }) {
               <div>
                 <dt>last commit</dt>
                 <dd>{formatDate(app.github_last_commit_at)}</dd>
+              </div>
+              <div>
+                <dt>primary language</dt>
+                <dd>{app.github_primary_language ?? "unknown"}</dd>
+              </div>
+              <div>
+                <dt>github topics</dt>
+                <dd>{formatCrawlerList(app.github_topics)}</dd>
               </div>
             </dl>
           </article>

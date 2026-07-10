@@ -196,10 +196,10 @@ async function fetchApps(client) {
             filter (where category.slug is not null),
           array[]::text[]
         ) as old_category_slugs
-      from public.self_host_apps app
-      left join public.self_host_apps_categories_join_table app_category
-        on app_category.app_id = app.id
-      left join public.self_host_apps_categories category
+      from public.open_projects app
+      left join public.open_project_categories_join_table app_category
+        on app_category.project_id = app.id
+      left join public.open_project_categories category
         on category.id = app_category.category_id
       group by app.id
       order by app.name
@@ -213,7 +213,7 @@ async function upsertTaxonomy(client) {
   for (const category of selfHostAppCategories) {
     await client.query(
       `
-        insert into public.self_host_apps_categories (slug, name, icon_key, sort_order)
+        insert into public.open_project_categories (slug, name, icon_key, sort_order)
         values ($1, $2, $3, $4)
         on conflict (slug) do update set
           name = excluded.name,
@@ -227,20 +227,20 @@ async function upsertTaxonomy(client) {
 
 async function replaceLinks(client, appsWithCategories) {
   const categoryResult = await client.query(
-    "select id, slug from public.self_host_apps_categories where slug = any($1::text[])",
+    "select id, slug from public.open_project_categories where slug = any($1::text[])",
     [selfHostAppCategories.map((category) => category.slug)],
   );
   const categoryIds = new Map(categoryResult.rows.map((row) => [row.slug, row.id]));
 
-  await client.query("delete from public.self_host_apps_categories_join_table");
+  await client.query("delete from public.open_project_categories_join_table");
 
   for (const app of appsWithCategories) {
     for (const categorySlug of app.new_category_slugs) {
       await client.query(
         `
-          insert into public.self_host_apps_categories_join_table (app_id, category_id)
+          insert into public.open_project_categories_join_table (project_id, category_id)
           values ($1, $2)
-          on conflict (app_id, category_id) do nothing
+          on conflict (project_id, category_id) do nothing
         `,
         [app.id, categoryIds.get(categorySlug)],
       );
@@ -248,8 +248,8 @@ async function replaceLinks(client, appsWithCategories) {
 
     await client.query(
       `
-        insert into public.self_host_apps_field_sources (
-          app_id,
+        insert into public.open_project_field_sources (
+          project_id,
           field_name,
           source,
           source_url,
@@ -258,7 +258,7 @@ async function replaceLinks(client, appsWithCategories) {
           note
         )
         values ($1, 'categories', 'version127_taxonomy', null, 'medium', now(), $2)
-        on conflict (app_id, field_name) do update set
+        on conflict (project_id, field_name) do update set
           source = excluded.source,
           source_url = excluded.source_url,
           confidence = excluded.confidence,
@@ -298,7 +298,7 @@ async function main() {
     await replaceLinks(client, appsWithCategories);
 
     await client.query(
-      "delete from public.self_host_apps_categories where slug <> all($1::text[])",
+      "delete from public.open_project_categories where slug <> all($1::text[])",
       [selfHostAppCategories.map((category) => category.slug)],
     );
 

@@ -1,65 +1,65 @@
-# Self-Host Apps Pipeline
+# Self-host app scripts
 
-This folder owns data collection and validation for `/self-host-apps`.
-
-The public page stays minimal, but the pipeline keeps enough source metadata to audit every imported fact.
+This folder owns discovery, enrichment, and QA for `/self-host-apps`. The shared records live in `open_projects`; the page reads published rows classified as `self_hostable`.
 
 ## Flow
 
-1. Discover candidates from Awesome-style lists, selfh.st software data, GitHub topics, and other directories.
-2. Store raw source payloads in `self_host_apps_sources`.
-3. Normalize into the active `self_host_apps` schema.
-4. Rewrite summaries using version127 rules.
-5. Validate links, enums, categories, and summary quality.
-6. Upsert rows, category links, and field source metadata.
-7. Refresh GitHub facts separately for changing values.
-8. Run the QA report, icon integrity audit, link audit, and summary audit before larger imports or production syncs.
-
-## Summary Rule
-
-`summary` replaces the old `description` field.
-
-It must be one short original sentence that explains what the app actually does. Do not copy README, docs, marketing copy, or directory text.
-
-Good:
-
 ```text
-Photo and video backup app for building a private Google Photos-style library.
+discover -> open_project_candidates -> dedupe -> select 100 -> research -> enrich -> QA -> publish -> refresh
 ```
 
-Bad:
+All durable discovery commands write candidate rows. None can publish directly.
 
-```text
-Open-source self-hosted photo management solution.
-```
+## Discovery
 
-Avoid generic filler such as `open source`, `self-hosted`, `solution`, `powerful`, `ultimate`, and `all-in-one` unless it is truly essential to the app.
+- `discover-awesome-selfhosted.mjs`
+- `discover-selfhst.mjs`
+- `discover-github-topic.mjs`
+- `discover-html-directory.mjs`
+- `dedupe-candidates.mjs`
+- `select-candidate-batch.mjs`
 
-## Commands
+External summaries, categories, and topics remain raw candidate metadata until reviewed.
 
-See `scripts.json` in this folder for the command index.
+## Enrichment
 
-Durable package scripts use the page slug prefix, for example `self-host-apps:refresh-github`.
+- `select-enrichment-batch.mjs`
+- `enrich-github-batch.mjs`
+- `validate-row.mjs`
+- `upsert-app.mjs`
+- `upsert-batch.mjs`
+- `apply-qa-overrides.mjs`
+- `cache-icons.mjs`
+- `reset-categories.mjs`
 
-Temporary one-off scripts belong in `scripts/self-host-apps/temp/` and should be deleted after use.
+The shared column contract is in `lib/schema.mjs`. Historical batch files using `repository_url` or `platforms` remain readable, but new records use `source_code_url` and `surfaces`.
 
-`self-host-apps:import-selfhst` imports only the selfh.st software directory, removes existing rows by repository, slug, website, and normalized name, and keeps new rows as draft for the normal enrichment pass.
+## QA and production
 
-Use `self-host-apps:qa-report` to rank published rows for field-level repair. Use `self-host-apps:apply-qa-overrides` only with reviewed JSON files in `scripts/self-host-apps/batches/`; do not use it for guessed facts.
+- `qa-gate.mjs` reports publication blockers.
+- `qa-report.mjs` ranks repair work.
+- `audit-data-quality.mjs` reports risky facts.
+- `audit-summaries.mjs` checks summary style.
+- `audit-links.mjs` and `audit-links-fast.mjs` check links.
+- `icon-integrity.mjs` checks local icons.
+- `refresh-github.mjs` updates changing GitHub facts.
+- `sync-local-to-prod.mjs` mirrors verified shared data to production.
 
-Use `self-host-apps:sanitize-risky-facts` before the final gate when broad enrichment has inferred database or Docker fields from weak source text. It resets those risky fields to unknown/null instead of publishing fake precision.
+QA scripts do not globally draft or publish projects. Production sync follows a schema migration and a dry run.
 
-Use `self-host-apps:icon-integrity` to verify that published icons are local PNG files with usable dimensions. Cache or repair icons before production syncs.
+## Files
 
-Use `self-host-apps:sync-local-to-prod -- --dry-run` after local QA passes. The sync mirrors local self-host app rows, taxonomy, category links, raw source payloads, and field provenance into production. Production-only app rows are drafted instead of deleted, so stale rows stop showing publicly without losing data.
+- Durable batch and review files: `scripts/self-host-apps/batches/`
+- Temporary one-off scripts: `scripts/self-host-apps/temp/`
+- Command manifest: `scripts/self-host-apps/scripts.json`
+- Workflow docs: `content_docs/self-host-apps/data-workflow.md`
 
-## Scheduled Refresh
+Delete one-off scripts after use. Do not add them to `package.json`.
 
-`.github/workflows/self-host-apps-refresh-github.yml` runs every 12 hours and refreshes changing GitHub facts for published rows only.
+## Automation
 
-It updates stars, latest release, last commit date, maintenance status, GitHub checked time, and missing license values. It does not rewrite summaries, categories, Docker support, resource estimates, links, or published state.
+`.github/workflows/self-host-apps-discovery.yml` runs candidate discovery and dedupe twice daily.
 
-Required GitHub secrets:
+`.github/workflows/self-host-apps-refresh-github.yml` refreshes changing GitHub facts every 12 hours without changing summaries, categories, self-hosting status, resource facts, links, or publication state.
 
-- `DATABASE_URL`: production Postgres connection string.
-- `VERSION127_GITHUB_TOKEN`: optional personal token for higher GitHub API limits. The workflow falls back to GitHub Actions `GITHUB_TOKEN`.
+Both workflows require the production `DATABASE_URL` secret. `VERSION127_GITHUB_TOKEN` is optional; GitHub Actions falls back to its workflow token.

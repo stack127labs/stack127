@@ -7,6 +7,7 @@ import path from "node:path";
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { parseRepo } from "./lib/github.mjs";
+import { licenseTypeFromSpdx, projectColumns, projectSqlValue } from "./lib/schema.mjs";
 import { rewriteSummaryFromInputs } from "./lib/summary-rules.mjs";
 
 const githubApiBase = "https://api.github.com";
@@ -34,6 +35,7 @@ function githubToken() {
 function recordsFromInput(input) {
   if (Array.isArray(input)) return input;
   if (Array.isArray(input.apps)) return input.apps;
+  if (Array.isArray(input.candidates)) return input.candidates;
   return [input];
 }
 
@@ -197,7 +199,7 @@ function publisherType(owner) {
 }
 
 function summaryFor(app, repo) {
-  const existing = cleanSummary(app.summary, app.name);
+  const existing = cleanSummary(app.summary ?? app.summary_raw, app.name);
   const github = cleanSummary(repo.description, app.name);
   return summaryScore(existing) <= summaryScore(github) ? existing : github;
 }
@@ -211,9 +213,10 @@ function docsFor(app, repo) {
 }
 
 async function enrichApp(app) {
-  const parsed = parseRepo(app.repository_url);
+  const parsed = parseRepo(app.source_code_url);
   const repo = await githubJson(`/repos/${parsed.owner}/${parsed.repo}`);
   const repoUrl = repo.html_url;
+  const languages = await optionalGithubJson(`/repos/${parsed.owner}/${parsed.repo}/languages`);
   const releases = await optionalGithubJson(`/repos/${parsed.owner}/${parsed.repo}/releases`, { per_page: 20 });
   const latestRelease = latestStableRelease(releases);
   const commits = await optionalGithubJson(`/repos/${parsed.owner}/${parsed.repo}/commits`, {
@@ -248,26 +251,53 @@ async function enrichApp(app) {
 
   const iconPath = path.join("public", "app-icons", `${app.slug}.png`);
   const localIconUrl = existsSync(iconPath) ? `/app-icons/${app.slug}.png` : null;
+  const licenseSpdxId = repo.license?.spdx_id && repo.license.spdx_id !== "NOASSERTION"
+    ? repo.license.spdx_id
+    : app.license_spdx_id ?? null;
 
   return {
+    _candidate_id: app.id ?? null,
     slug: app.slug,
     name: app.name,
     summary: summaryFor(app, repo),
     icon_url: app.icon_url ?? localIconUrl ?? repo.owner?.avatar_url ?? null,
     website_url: cleanUrl(repo.homepage) ?? cleanUrl(app.website_url) ?? repoUrl,
-    repository_url: repoUrl,
+    source_code_url: repoUrl,
+    source_code_host: "github",
     docs_url: docsUrl ?? installDocsUrl,
     install_docs_url: installDocsUrl,
     docker_url: app.docker_url ?? dockerFileUrl ?? (hasDocker ? `${repoUrl}#readme` : null),
-    license: repo.license?.spdx_id && repo.license.spdx_id !== "NOASSERTION" ? repo.license.spdx_id : app.license,
+    license: licenseSpdxId ?? app.license,
+    license_type: licenseTypeFromSpdx(licenseSpdxId ?? app.license),
+    license_spdx_id: licenseSpdxId,
     publisher_name: repo.owner?.login ?? app.publisher_name,
     publisher_type: publisherType(repo.owner),
     publisher_url: repo.owner?.html_url ?? app.publisher_url,
     published: true,
+    self_hosting_status: app.self_hosting_status ?? "unknown",
     maintenance_status: maintenanceStatus(repo, lastCommitAt),
     github_owner: parsed.owner,
     github_repo: parsed.repo,
+    github_repo_id: repo.id ?? null,
+    github_node_id: repo.node_id ?? null,
+    github_full_name: repo.full_name ?? `${parsed.owner}/${parsed.repo}`,
+    github_owner_type: repo.owner?.type ?? null,
     github_stars: repo.stargazers_count,
+    github_forks: repo.forks_count ?? null,
+    github_watchers: repo.subscribers_count ?? repo.watchers_count ?? null,
+    github_open_issues: repo.open_issues_count ?? null,
+    github_primary_language: repo.language ?? null,
+    github_languages: languages ?? {},
+    github_topics: Array.isArray(repo.topics) ? repo.topics : [],
+    github_created_at: repo.created_at ?? null,
+    github_updated_at: repo.updated_at ?? null,
+    github_pushed_at: repo.pushed_at ?? null,
+    github_default_branch: repo.default_branch ?? null,
+    github_repo_size_kb: repo.size ?? null,
+    github_archived: repo.archived ?? null,
+    github_disabled: repo.disabled ?? null,
+    github_is_fork: repo.fork ?? null,
+    github_is_template: repo.is_template ?? null,
     github_latest_release: latestRelease?.tag_name ?? app.github_latest_release,
     github_latest_release_at: latestRelease?.published_at ?? app.github_latest_release_at,
     github_last_commit_at: lastCommitAt,
@@ -278,23 +308,46 @@ async function enrichApp(app) {
     database_types: dbTypes,
     ram_mb: ramEstimate(app, combinedText),
     storage_profile: storageProfile(app, combinedText),
-    platforms: [...new Set([...(app.platforms ?? []), "web"])],
+    surfaces: [...new Set([...(app.surfaces ?? app.surfaces_raw ?? app.platforms ?? []), "web"])],
     categories: app.categories ?? [],
     summary_source: "version127_enriched",
     summary_confidence: "medium",
     _field_sources: [
       "summary",
       "website_url",
-      "repository_url",
+      "source_code_url",
+      "source_code_host",
       "docs_url",
       "install_docs_url",
       "docker_url",
       "license",
+      "license_type",
+      "license_spdx_id",
       "publisher_name",
       "publisher_type",
       "publisher_url",
+      "self_hosting_status",
       "maintenance_status",
+      "github_repo_id",
+      "github_node_id",
+      "github_full_name",
+      "github_owner_type",
       "github_stars",
+      "github_forks",
+      "github_watchers",
+      "github_open_issues",
+      "github_primary_language",
+      "github_languages",
+      "github_topics",
+      "github_created_at",
+      "github_updated_at",
+      "github_pushed_at",
+      "github_default_branch",
+      "github_repo_size_kb",
+      "github_archived",
+      "github_disabled",
+      "github_is_fork",
+      "github_is_template",
       "github_latest_release",
       "github_latest_release_at",
       "github_last_commit_at",
@@ -305,7 +358,7 @@ async function enrichApp(app) {
       "database_types",
       "ram_mb",
       "storage_profile",
-      "platforms",
+      "surfaces",
       "categories",
     ],
     _source_url: repoUrl,
@@ -313,54 +366,14 @@ async function enrichApp(app) {
   };
 }
 
-const appColumns = [
-  "slug",
-  "name",
-  "summary",
-  "icon_url",
-  "website_url",
-  "repository_url",
-  "docs_url",
-  "install_docs_url",
-  "docker_url",
-  "license",
-  "publisher_name",
-  "publisher_type",
-  "publisher_url",
-  "published",
-  "maintenance_status",
-  "github_owner",
-  "github_repo",
-  "github_stars",
-  "github_latest_release",
-  "github_latest_release_at",
-  "github_last_commit_at",
-  "github_checked_at",
-  "docker_support",
-  "compose_support",
-  "requires_database",
-  "database_types",
-  "ram_mb",
-  "storage_profile",
-  "platforms",
-  "summary_source",
-  "summary_confidence",
-];
-
-function sqlValue(column, index) {
-  const parameter = `$${index + 1}`;
-  if (["database_types", "platforms"].includes(column)) return `${parameter}::text[]`;
-  return parameter;
-}
-
 async function replaceCategoryLinks(client, appSlug, categories) {
-  const appResult = await client.query("select id from public.self_host_apps where slug = $1", [appSlug]);
+  const appResult = await client.query("select id from public.open_projects where slug = $1", [appSlug]);
   const appId = appResult.rows[0]?.id;
   if (!appId) throw new Error(`Missing app row: ${appSlug}`);
 
-  await client.query("delete from public.self_host_apps_categories_join_table where app_id = $1", [appId]);
+  await client.query("delete from public.open_project_categories_join_table where project_id = $1", [appId]);
   const categoryResult = await client.query(
-    "select id, slug from public.self_host_apps_categories where slug = any($1::text[])",
+    "select id, slug from public.open_project_categories where slug = any($1::text[])",
     [categories],
   );
   const ids = new Map(categoryResult.rows.map((row) => [row.slug, row.id]));
@@ -370,9 +383,9 @@ async function replaceCategoryLinks(client, appSlug, categories) {
   for (const slug of categories) {
     await client.query(
       `
-        insert into public.self_host_apps_categories_join_table (app_id, category_id)
+        insert into public.open_project_categories_join_table (project_id, category_id)
         values ($1, $2)
-        on conflict (app_id, category_id) do nothing
+        on conflict (project_id, category_id) do nothing
       `,
       [appId, ids.get(slug)],
     );
@@ -385,8 +398,8 @@ async function writeFieldSources(client, appId, record) {
   for (const fieldName of record._field_sources) {
     await client.query(
       `
-        insert into public.self_host_apps_field_sources (
-          app_id,
+        insert into public.open_project_field_sources (
+          project_id,
           field_name,
           source,
           source_url,
@@ -395,7 +408,7 @@ async function writeFieldSources(client, appId, record) {
           note
         )
         values ($1, $2, 'version127_enrichment', $3, 'medium', now(), $4)
-        on conflict (app_id, field_name) do update set
+        on conflict (project_id, field_name) do update set
           source = excluded.source,
           source_url = excluded.source_url,
           confidence = excluded.confidence,
@@ -408,16 +421,16 @@ async function writeFieldSources(client, appId, record) {
 }
 
 async function upsertEnriched(client, record) {
-  const values = appColumns.map((column) => record[column]);
-  const updates = appColumns
+  const values = projectColumns.map((column) => record[column]);
+  const updates = projectColumns
     .filter((column) => column !== "slug")
     .map((column) => `${column} = excluded.${column}`)
     .join(",\n          ");
 
   const result = await client.query(
     `
-      insert into public.self_host_apps (${appColumns.join(", ")})
-      values (${appColumns.map(sqlValue).join(", ")})
+      insert into public.open_projects (${projectColumns.join(", ")})
+      values (${projectColumns.map(projectSqlValue).join(", ")})
       on conflict (slug) do update set
         ${updates},
         updated_at = now()
@@ -428,6 +441,19 @@ async function upsertEnriched(client, record) {
 
   const appId = await replaceCategoryLinks(client, record.slug, record.categories);
   await writeFieldSources(client, appId ?? result.rows[0].id, record);
+  if (record._candidate_id) {
+    await client.query(
+      `
+        update public.open_project_candidates
+        set status = 'published',
+            enriched_project_id = $2,
+            self_hosting_status = $3::public.open_project_self_hosting_status,
+            updated_at = now()
+        where id = $1
+      `,
+      [record._candidate_id, appId ?? result.rows[0].id, record.self_hosting_status],
+    );
+  }
 }
 
 async function main() {
@@ -465,23 +491,29 @@ async function main() {
         "publisher_type",
         "publisher_url",
         "license",
+        "license_type",
+        "license_spdx_id",
+        "self_hosting_status",
         "maintenance_status",
         "docker_support",
         "summary_confidence",
       ]) {
         if (override[field] !== undefined) record[field] = override[field];
       }
-      for (const field of ["platforms", "database_types"]) {
+      for (const field of ["surfaces", "database_types"]) {
         if (Array.isArray(override[field])) record[field] = override[field];
       }
       for (const field of ["compose_support", "requires_database"]) {
         if (typeof override[field] === "boolean" || override[field] === null) record[field] = override[field];
       }
+      if (record.self_hosting_status === "unknown") {
+        throw new Error("self_hosting_status must be verified before publication");
+      }
       if (override.note) record._note = `${record._note} ${override.note}`;
       enriched.push(record);
       console.log(`Enriched: ${app.slug}`);
     } catch (error) {
-      failed.push({ slug: app.slug, error: error.message });
+      failed.push({ id: app.id ?? null, slug: app.slug, error: error.message });
       console.warn(`warning ${app.slug}: ${error.message}`);
     }
   }
@@ -490,6 +522,17 @@ async function main() {
     await client.query("begin");
     for (const record of enriched) {
       await upsertEnriched(client, record);
+    }
+    for (const failure of failed) {
+      if (!failure.id) continue;
+      await client.query(
+        `
+          update public.open_project_candidates
+          set status = 'needs_review', updated_at = now()
+          where id = $1
+        `,
+        [failure.id],
+      );
     }
 
     if (args["dry-run"]) {

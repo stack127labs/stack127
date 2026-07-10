@@ -31,7 +31,7 @@ export function getStorageTier(app: DirectoryApp) {
 }
 
 export function hasMobileApp(app: DirectoryApp) {
-  return app.platforms.includes("ios") || app.platforms.includes("android");
+  return app.surfaces.includes("ios") || app.surfaces.includes("android");
 }
 
 export function formatStars(value: number | null) {

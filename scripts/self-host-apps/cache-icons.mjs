@@ -14,7 +14,7 @@ function iconDomain(app) {
   const candidates = [
     app.website_url,
     app.publisher_url,
-    app.repository_url,
+    app.source_code_url,
   ];
 
   for (const candidate of candidates) {
