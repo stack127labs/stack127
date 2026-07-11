@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Shantell_Sans } from "next/font/google";
+import Script from "next/script";
+import { getUmamiConfig } from "@/lib/analytics";
 import { absoluteUrl, defaultDescription, siteName, siteUrl } from "@/lib/seo";
 import { JsonLd } from "./json-ld";
 import { SiteNav } from "./site-nav";
@@ -75,6 +77,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const umami = getUmamiConfig();
+
   return (
     <html
       className={markerFont.variable}
@@ -86,6 +90,16 @@ export default function RootLayout({
         <AppIcons />
       </head>
       <body>
+        {umami ? (
+          <Script
+            data-do-not-track="true"
+            data-domains="version127.com,www.version127.com"
+            data-exclude-search="true"
+            data-website-id={umami.websiteId}
+            src={umami.scriptUrl}
+            strategy="afterInteractive"
+          />
+        ) : null}
         <JsonLd data={siteStructuredData} />
         <SiteNav />
         {children}
