@@ -59,6 +59,14 @@ const fixture = {
   warnings: [],
 };
 
+test("DNS tools hub shows only tools that are available", async ({ page }) => {
+  await page.goto("/dns-tools");
+
+  await expect(page.getByRole("heading", { name: "Available now" })).toBeVisible();
+  await expect(page.getByRole("link", { name: /DNS lookup/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Planned next" })).toHaveCount(0);
+});
+
 test("DNS Lookup renders corrected TTL, alias, owner, flags, and technical details", async ({ page }) => {
   await page.route("**/api/dns/lookup", async (route) => {
     await route.fulfill({ contentType: "application/json", json: fixture, status: 200 });
@@ -66,25 +74,45 @@ test("DNS Lookup renders corrected TTL, alias, owner, flags, and technical detai
 
   await page.goto("/dns-tools/dns-lookup");
   await expect(page.locator(".app-main h1")).toHaveText("DNS lookup");
-  await expect(page.getByRole("button", { name: "example.com", exact: true })).toBeVisible();
-  await expect(page.getByRole("button", { name: "www.example.com", exact: true })).toBeVisible();
-  await expect(page.getByRole("button", { name: "mail.example.com", exact: true })).toBeVisible();
+  await expect(page.locator(".dns-examples")).toHaveCount(0);
   await expect(page.getByRole("button", { name: "_dmarc.example.com", exact: true })).toHaveCount(0);
+  await expect(page.locator(".dns-record-table tbody tr")).toHaveCount(11);
+  await expect(page.locator(".dns-status-table tbody tr")).toHaveCount(5);
+  await expect(page.locator(".dns-status-table")).toContainText("SERVFAIL");
+  await expect(page.locator(".dns-status-table")).toContainText("NXDOMAIN");
+  await expect(page.locator(".dns-page-header .dns-page-kicker")).toHaveCount(0);
+  await expect(page.locator(".dns-reference-content > section > h2")).toHaveText([
+    "Read the answer",
+    "Record types",
+    "When the answer looks wrong",
+  ]);
 
   await page.getByLabel("DNS name").fill("www.example.com");
   await page.getByRole("button", { name: "Look up DNS" }).click();
 
-  await expect(page.locator(".dns-alias-summary")).toContainText("www.example.com is an alias for edge.example.net.");
+  await expect(page.locator(".dns-alias-summary")).toContainText("www.example.com points to edge.example.net");
   await expect(page.getByRole("heading", { name: "A records for edge.example.net" })).toBeVisible();
+  await expect(page.locator(".dns-answer-table")).toBeVisible();
   await expect(page.getByText("Resolver TTL").first()).toBeVisible();
   await expect(page.getByText("300 seconds, about 5 minutes remaining").first()).toBeVisible();
-  await expect(page.getByText(/remaining cache lifetime reported by Cloudflare/)).toBeVisible();
-  await expect(page.getByText("DNSSEC authentication reported: Yes")).toBeVisible();
+  await expect(page.getByText(/Cloudflare returned records for/)).toHaveCount(0);
+  await expect(page.getByText(/Cloudflare authenticated this answer with DNSSEC/)).toBeVisible();
+  await expect(page.getByRole("button", { name: "Copy lookup link" })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Copy results" })).toHaveCount(0);
+  await expect(page.getByRole("navigation", { name: "DNS record results" })).toBeVisible();
+  await expect(page.locator(".dns-result-nav-found")).toHaveText("A");
+  await expect(page.getByRole("button", { name: "Copy IPv4 address" })).toBeVisible();
+  await expect(page.locator(".dns-result-counts")).toHaveCount(0);
+  await expect(page.locator(".dns-dnssec-note")).toHaveCount(0);
 
   await page.locator(".dns-technical-details > summary").click();
   await page.locator(".dns-query-details > summary").first().click();
   await expect(page.getByText("Not reported").first()).toBeVisible();
-  await expect(page.getByText(/\"Status\": 0/)).toBeVisible();
+  await expect(page.locator(".dns-query-details pre")).toHaveCount(0);
+
+  await page.locator(".dns-record-group .dns-inline-raw > summary").click();
+  await expect(page.locator(".dns-record-group .dns-inline-raw")).toContainText('"Status": 0');
+  await expect(page.locator(".dns-raw-results")).toHaveCount(0);
 });
 
 test("query-param lookup states remain noindex and canonicalize to the clean tool URL", async ({ page }) => {

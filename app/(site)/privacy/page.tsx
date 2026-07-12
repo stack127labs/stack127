@@ -2,7 +2,7 @@ import { InfoPage } from "../../info-page";
 
 export default function PrivacyPage() {
   return (
-    <InfoPage title="Privacy">
+    <InfoPage slug="privacy" title="Privacy">
         <p className="info-lede">
           Version127 is a technical directory. We try to collect as little personal information as we can while still keeping the site useful, fast, and safe.
         </p>

@@ -11,9 +11,21 @@ The tool reports what Cloudflare or Google Public DNS returns for an exact DNS n
 - resolver: Cloudflare or Google Public DNS
 - fixed launch flags: `do=false`, `cd=false`
 
-Quick examples are `example.com`, `www.example.com`, and `mail.example.com`.
-
 The tool may query `_dmarc.example.com` as TXT, but it must state that returning a TXT value is not DMARC validation.
+
+## Reader flow
+
+Keep the lookup form before the reference content. Do not turn the page into a glossary or a stack of labeled helper blocks. The page should feel composed by someone who understands which parts of a DNS answer will confuse the reader.
+
+Use complete, natural sentences. Let typography, spacing, tables, and visual relationships create hierarchy instead of eyebrows, decorative labels, colored sentence fragments, or oversized warning panels.
+
+After the tool, keep one connected path:
+
+1. explain aliases, owner names, and Resolver TTL through a visual example
+2. show the supported record types in one simple table
+3. use one simple table for response meanings, then explain resolver differences, scope, and privacy without splitting every caveat into a separate section
+
+Technical flags belong in Technical details. Each record-type section keeps its own raw provider response beside the normalized records. Neither should dominate the main result.
 
 ## Resolver TTL
 
@@ -35,7 +47,7 @@ AD, CD, RD, RA, and TC normalize to `true`, `false`, or `null`. The UI renders Y
 
 AD true means the selected resolver reports that it authenticated the returned data. It is not a complete DNSSEC diagnosis. AD false alone does not prove breakage because the name may be unsigned. Full validation belongs in the later DNSSEC Chain Checker.
 
-## Technical details
+## Technical details and raw results
 
 Each query type retains:
 
@@ -46,7 +58,8 @@ Each query type retains:
 - authority records
 - additional records
 - comments
-- complete raw provider response
+
+Every result section shows the complete provider response for that query in a collapsed raw-response disclosure. Empty and failed queries keep their raw response with their status instead of moving all provider data into one separate section.
 
 Missing optional sections remain `null`; provider-reported empty sections remain empty arrays.
 

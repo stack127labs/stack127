@@ -149,6 +149,21 @@ function checkVersion127DocsShape() {
   }
 }
 
+function checkUiTextCasing() {
+  const cssFiles = walk("app").filter((file) => file.endsWith(".css"));
+  const positiveTracking = /letter-spacing:\s*\+?(?:0*\.)?0*[1-9]\d*(?:em|rem|px)\s*;/i;
+
+  for (const file of cssFiles) {
+    const source = read(file);
+    if (/text-transform:\s*uppercase/i.test(source)) {
+      fail(`${file} forces UI text to uppercase. Write the intended casing in the UI copy instead.`);
+    }
+    if (positiveTracking.test(source)) {
+      fail(`${file} adds positive letter spacing. Version127 UI does not use spaced label text.`);
+    }
+  }
+}
+
 function checkPackageScripts() {
   const pkg = JSON.parse(read("package.json"));
   const required = ["prebuild", "typecheck", "test:unit", "test:static", "test:seo", "test:seo:registry", "quality"];
@@ -230,6 +245,7 @@ checkDocsForRoutes(pageFiles);
 checkSelfHostingLessons(pageFiles);
 checkProxyHeaders();
 checkVersion127DocsShape();
+checkUiTextCasing();
 checkPackageScripts();
 checkSkillAdapters();
 checkPageCoverage(pageFiles);

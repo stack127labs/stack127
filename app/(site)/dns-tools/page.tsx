@@ -2,14 +2,6 @@ import Link from "next/link";
 import { AppShell } from "../../app-shell";
 import { DnsToolsSidebar } from "./dns-tools-sidebar";
 
-const plannedTools = [
-  "DNS change checker",
-  "Nameserver checker",
-  "DNS compare",
-  "DNS trace",
-  "DNSSEC checker",
-];
-
 export default function DnsToolsPage() {
   return (
     <AppShell
@@ -37,16 +29,6 @@ export default function DnsToolsPage() {
             </span>
             <span aria-hidden="true">→</span>
           </Link>
-        </section>
-
-        <section aria-labelledby="planned-tools-title" className="dns-hub-section">
-          <h2 id="planned-tools-title">Planned next</h2>
-          <p>
-            These will become links only when each tool has working diagnostics and reviewed explanations.
-          </p>
-          <ul className="dns-planned-list">
-            {plannedTools.map((tool) => <li key={tool}>{tool}</li>)}
-          </ul>
         </section>
       </main>
     </AppShell>

@@ -23,10 +23,9 @@ export function DnsToolsSidebar({ active, showPageLinks = false }: DnsToolsSideb
         <nav className="dns-tools-page-nav" aria-label="On this page">
           <p>On this page</p>
           <a href="#lookup">Look up records</a>
+          <a href="#read-results">Read the answer</a>
           <a href="#record-types">Record types</a>
-          <a href="#status-meanings">DNS status meanings</a>
-          <a href="#limitations">Limitations and privacy</a>
-          <a href="#faq">FAQ</a>
+          <a href="#status-meanings">When it looks wrong</a>
         </nav>
       ) : null}
     </div>

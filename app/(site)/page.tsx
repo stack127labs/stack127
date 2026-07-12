@@ -3,13 +3,14 @@ import type { ReactNode } from "react";
 import { getSelfHostAppsStats } from "@/lib/apps";
 import {
   getMainPublishedPages,
+  getRequiredPublishedPage,
   isHomeFeaturePage,
   pathFromSlug,
   type Version127Page,
 } from "@/lib/page-registry";
 import { lessons } from "@/lib/self-hosting-for-beginners";
 import { licenses } from "@/lib/software-licenses";
-import { AppShell } from "../app-shell";
+import { AppShell, SidebarLabel } from "../app-shell";
 
 export const dynamic = "force-dynamic";
 
@@ -18,11 +19,11 @@ type HomeStat = {
   value: string;
 };
 
-function HomeSidebar({ pages }: { pages: Version127Page[] }) {
+function HomeSidebar({ label, pages }: { label: string; pages: Version127Page[] }) {
   return (
     <div className="directory-filter-panel home-sidebar-panel">
       <div className="filter-panel-heading">
-        <h1>version127</h1>
+        <SidebarLabel>{label}</SidebarLabel>
       </div>
       <nav className="home-sidebar-nav" aria-label="Main pages">
         <ul>
@@ -125,7 +126,8 @@ function startHereItems(featureSlugs: Set<string>): { key: string; node: ReactNo
 }
 
 export default async function Home() {
-  const [mainPages, appStats] = await Promise.all([
+  const [homePage, mainPages, appStats] = await Promise.all([
+    getRequiredPublishedPage(""),
     getMainPublishedPages(),
     getSelfHostAppsStats(),
   ]);
@@ -136,7 +138,7 @@ export default async function Home() {
     <AppShell
       mainLabel="Home"
       menuLabel="Pages"
-      sidebar={<HomeSidebar pages={mainPages} />}
+      sidebar={<HomeSidebar label={homePage.label} pages={mainPages} />}
       sidebarLabel="Home sidebar"
     >
       <section className="home-main" aria-labelledby="home-title">

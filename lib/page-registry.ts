@@ -94,6 +94,16 @@ export const getPublishedPage = cache(async (slug: string) => {
   return result.rows[0] ?? null;
 });
 
+export const getRequiredPublishedPage = cache(async (slug: string) => {
+  const page = await getPublishedPage(slug);
+
+  if (!page) {
+    throw new Error(`Published page registry row is required for slug "${slug}".`);
+  }
+
+  return page;
+});
+
 export const getPagePublicationState = cache(
   async (pathname: string, hasQueryParams = false): Promise<PagePublicationState> => {
     const cleanedPathname = cleanPathname(pathname);

@@ -17,8 +17,6 @@ const recordOptions: { label: string; value: DnsSelection }[] = [
   ...(["A", "AAAA", "CNAME", "MX", "NS", "TXT", "CAA", "SOA", "SRV", "DS", "DNSKEY"] as DnsRecordType[])
     .map((value) => ({ label: value, value })),
 ];
-const examples = ["example.com", "www.example.com", "mail.example.com"];
-
 type DnsLookupToolProps = {
   initialName?: string;
   initialResolver?: DnsResolver;
@@ -35,22 +33,6 @@ function yesNoUnknown(value: boolean | null) {
   return "Not reported";
 }
 
-function dnssecCopy(value: boolean | null) {
-  if (value === true) {
-    return {
-      label: "DNSSEC authentication reported: Yes",
-      explanation: "The selected resolver reports that it authenticated the returned data. This is not a complete diagnosis of the domain's DNSSEC configuration.",
-    };
-  }
-  if (value === false) {
-    return {
-      label: "DNSSEC authentication reported: No",
-      explanation: "The resolver did not report this answer as authenticated. This alone does not prove DNSSEC is broken; the name may be unsigned.",
-    };
-  }
-  return { label: "DNSSEC authentication reported: Not reported", explanation: null };
-}
-
 function ownerGroups(records: NormalizedDnsRecord[]) {
   const groups = new Map<string, NormalizedDnsRecord[]>();
   for (const record of records) groups.set(record.ownerName, [...(groups.get(record.ownerName) ?? []), record]);
@@ -64,56 +46,62 @@ async function copyText(value: string) {
 function AliasChain({ edges }: { edges: DnsAliasEdge[] }) {
   if (edges.length === 0) return null;
   return (
-    <section className="dns-alias-summary" aria-labelledby="dns-alias-title">
-      <h2 id="dns-alias-title">Alias chain</h2>
+    <div className="dns-alias-summary" aria-label="Alias chain">
       {edges.length === 1 ? (
         <>
-          <p><code>{edges[0].from}</code> is an alias for <code>{edges[0].to}</code>. The records below may belong to the alias target.</p>
-          <small>Resolver TTL: {formatResolverTtl(edges[0].resolverTtlSeconds)}</small>
+          <p><code>{edges[0].from}</code> points to <code>{edges[0].to}</code>, so the records below may belong to the second name.</p>
+          <p>The resolver reported {formatResolverTtl(edges[0].resolverTtlSeconds)} for this alias.</p>
         </>
       ) : (
-        <ol>
-          {edges.map((edge) => (
-            <li key={`${edge.from}-${edge.to}`}>
-              <code>{edge.from}</code> → <code>{edge.to}</code>
-              <small>Resolver TTL: {formatResolverTtl(edge.resolverTtlSeconds)}</small>
-            </li>
-          ))}
-        </ol>
+        <>
+          <p>The name passes through this alias chain before reaching the records below.</p>
+          <ol>
+            {edges.map((edge) => (
+              <li key={`${edge.from}-${edge.to}`}>
+                <code>{edge.from}</code> → <code>{edge.to}</code>
+              </li>
+            ))}
+          </ol>
+        </>
       )}
-    </section>
+    </div>
   );
 }
 
-function RecordCard({ record }: { record: NormalizedDnsRecord }) {
-  const [copied, setCopied] = useState(false);
+function RecordRow({ record }: { record: NormalizedDnsRecord }) {
+  const [copiedField, setCopiedField] = useState<string | null>(null);
   const fields = recordFields(record);
   return (
-    <article className="dns-record-card">
-      <dl>
-        {fields.map((field) => (
-          <div key={field.label}>
-            <dt>{field.label}</dt>
-            <dd><code>{field.value}</code></dd>
-          </div>
-        ))}
-        <div>
-          <dt>Resolver TTL</dt>
-          <dd>{formatResolverTtl(record.resolverTtlSeconds)}</dd>
-        </div>
-      </dl>
-      <button
-        className="dns-copy-button"
-        onClick={async () => {
-          await copyText(record.value);
-          setCopied(true);
-          window.setTimeout(() => setCopied(false), 1500);
-        }}
-        type="button"
-      >
-        {copied ? "Copied" : "Copy value"}
-      </button>
-    </article>
+    <tr>
+      {fields.map((field) => (
+        <td key={field.label}>
+          <span className="dns-value-with-copy">
+            <code>{field.value}</code>
+            <button
+              aria-label={`Copy ${field.label}`}
+              className="dns-copy-icon"
+              onClick={async () => {
+                await copyText(field.value);
+                setCopiedField(field.label);
+                window.setTimeout(() => setCopiedField(null), 1500);
+              }}
+              title={copiedField === field.label ? "Copied" : `Copy ${field.label}`}
+              type="button"
+            >
+              {copiedField === field.label ? (
+                <span aria-hidden="true">✓</span>
+              ) : (
+                <svg aria-hidden="true" viewBox="0 0 20 20">
+                  <rect height="10" rx="1.5" width="10" x="7" y="3" />
+                  <path d="M5 7H4.5A1.5 1.5 0 0 0 3 8.5v7A1.5 1.5 0 0 0 4.5 17h7a1.5 1.5 0 0 0 1.5-1.5V15" />
+                </svg>
+              )}
+            </button>
+          </span>
+        </td>
+      ))}
+      <td>{formatResolverTtl(record.resolverTtlSeconds)}</td>
+    </tr>
   );
 }
 
@@ -121,13 +109,24 @@ function OwnerRecords({ ownerName, records, type }: { ownerName: string; records
   const [expanded, setExpanded] = useState(false);
   const visibleRecords = expanded ? records : records.slice(0, 5);
   const remaining = records.length - visibleRecords.length;
+  const fields = recordFields(records[0]);
   return (
     <div className="dns-owner-group">
       <h2>{type} records for {ownerName}</h2>
-      <div className="dns-record-grid">
-        {visibleRecords.map((record, index) => (
-          <RecordCard key={`${record.ownerName}-${record.type}-${record.value}-${index}`} record={record} />
-        ))}
+      <div className="dns-table-scroll">
+        <table className="dns-answer-table">
+          <thead>
+            <tr>
+              {fields.map((field) => <th key={field.label} scope="col">{field.label}</th>)}
+              <th scope="col">Resolver TTL</th>
+            </tr>
+          </thead>
+          <tbody>
+            {visibleRecords.map((record, index) => (
+              <RecordRow key={`${record.ownerName}-${record.type}-${record.value}-${index}`} record={record} />
+            ))}
+          </tbody>
+        </table>
       </div>
       {records.length > 5 ? (
         <button className="dns-show-more" onClick={() => setExpanded((value) => !value)} type="button">
@@ -141,31 +140,33 @@ function OwnerRecords({ ownerName, records, type }: { ownerName: string; records
 function RecordResult({ result }: { result: DnsQueryResult }) {
   if (result.terminalRecords.length === 0) return null;
   return (
-    <section className="dns-record-group">
+    <section className="dns-record-group" id={`dns-result-${result.requestedType.toLowerCase()}`}>
       {ownerGroups(result.terminalRecords).map(([ownerName, records]) => (
         <OwnerRecords key={ownerName} ownerName={ownerName} records={records} type={result.requestedType} />
       ))}
+      <RawResponse result={result} />
     </section>
   );
 }
 
-function DnssecSummary({ queryResults }: { queryResults: DnsQueryResult[] }) {
-  const reported = new Set(queryResults.map((result) => result.flags.authenticatedData));
-  if (reported.size === 1) {
-    const copy = dnssecCopy(queryResults[0]?.flags.authenticatedData ?? null);
-    return (
-      <section className="dns-dnssec-note">
-        <strong>{copy.label}</strong>
-        {copy.explanation ? <p>{copy.explanation}</p> : null}
-      </section>
-    );
-  }
+function RawResponse({ result }: { result: DnsQueryResult }) {
   return (
-    <section className="dns-dnssec-note">
-      <strong>DNSSEC authentication reporting varies by query</strong>
-      <p>Open Technical details to see what the resolver reported for each record type. Mixed AD values are not a complete diagnosis of the domain's DNSSEC configuration.</p>
-    </section>
+    <details className="dns-inline-raw">
+      <summary>Raw {result.requestedType} response</summary>
+      <pre>{JSON.stringify(result.rawResponse, null, 2)}</pre>
+    </details>
   );
+}
+
+function dnssecSummary(queryResults: DnsQueryResult[], resolver: string) {
+  const reported = new Set(queryResults.map((result) => result.flags.authenticatedData));
+  if (reported.size !== 1) {
+    return `${resolver} reported different DNSSEC authentication states across the queries. The individual flags are in Technical details.`;
+  }
+  const value = queryResults[0]?.flags.authenticatedData ?? null;
+  if (value === true) return `${resolver} authenticated this answer with DNSSEC. This does not replace a full check of the domain's DNSSEC setup.`;
+  if (value === false) return `${resolver} did not mark this answer as authenticated. That is normal for unsigned names and does not by itself mean DNSSEC is broken.`;
+  return `${resolver} did not report whether this answer was authenticated with DNSSEC.`;
 }
 
 function RecordsList({ records }: { records: NormalizedDnsRecord[] | null }) {
@@ -199,10 +200,6 @@ function TechnicalDetails({ result }: { result: DnsQueryResult }) {
         <section><h3>Authority records</h3><RecordsList records={result.authorityRecords} /></section>
         <section><h3>Additional records</h3><RecordsList records={result.additionalRecords} /></section>
         <section><h3>Comments</h3>{result.comments === null ? <p>Not reported</p> : result.comments.length === 0 ? <p>Reported as empty</p> : <ul>{result.comments.map((comment) => <li key={comment}>{comment}</li>)}</ul>}</section>
-        <section>
-          <h3>Raw response</h3>
-          <pre>{JSON.stringify(result.rawResponse, null, 2)}</pre>
-        </section>
       </div>
     </details>
   );
@@ -215,27 +212,23 @@ function LookupResults({ result }: { result: DnsLookupResponse }) {
   const resolver = resolverName(result.query.resolver);
   const hasInconsistentAliases = result.warnings.some((warning) => warning.code === "alias_chain_inconsistent");
 
-  const shareUrl = typeof window === "undefined" ? "" : (() => {
-    const url = new URL("/dns-tools/dns-lookup", window.location.origin);
-    url.searchParams.set("name", result.query.normalizedName);
-    url.searchParams.set("type", result.query.selection);
-    url.searchParams.set("resolver", result.query.resolver);
-    return url.toString();
-  })();
-
   return (
     <div className="dns-results">
       <section className="dns-results-summary" aria-live="polite" tabIndex={-1}>
-        <div>
-          <p className="dns-page-kicker">Lookup complete</p>
-          <h2>{result.query.normalizedName}</h2>
-          <p>{result.queryResults.length} record types checked through {resolver}. {found.length} returned terminal records, {noAnswer.length} returned no terminal record, and {failed.length} failed.</p>
-          <small>Checked {new Date(result.checkedAt).toLocaleString()} in {result.durationMs.toLocaleString("en-US")} ms.</small>
-        </div>
-        <div className="dns-result-actions">
-          <button onClick={() => copyText(shareUrl)} type="button">Copy lookup link</button>
-          <button onClick={() => copyText(JSON.stringify(result, null, 2))} type="button">Copy results</button>
-        </div>
+        <h2>{result.query.normalizedName}</h2>
+        <nav aria-label="DNS record results" className="dns-result-nav">
+          {result.queryResults.map((query) => {
+            const hasRecords = query.terminalRecords.length > 0;
+            const didFail = query.outcome === "provider_error" || query.outcome === "timeout";
+            const className = `dns-result-nav-item ${hasRecords ? "dns-result-nav-found" : didFail ? "dns-result-nav-failed" : "dns-result-nav-empty"}`;
+            return hasRecords ? (
+              <a aria-label={`${query.requestedType}: records returned`} className={className} href={`#dns-result-${query.requestedType.toLowerCase()}`} key={query.requestedType}>{query.requestedType}</a>
+            ) : (
+              <span aria-label={`${query.requestedType}: ${didFail ? "lookup failed" : "no record returned"}`} className={className} key={query.requestedType}>{query.requestedType}</span>
+            );
+          })}
+        </nav>
+        <p className="dns-results-meta">Checked with {resolver} in {result.durationMs.toLocaleString("en-US")} ms on {new Date(result.checkedAt).toLocaleString()}.</p>
       </section>
 
       {result.warnings.length > 0 ? (
@@ -256,25 +249,21 @@ function LookupResults({ result }: { result: DnsLookupResponse }) {
         </section>
       ) : <AliasChain edges={result.aliasChain} />}
 
-      <p className="dns-ttl-explanation">
-        This is the remaining cache lifetime reported by {resolver}. It may be lower than the TTL configured by the domain owner.
-      </p>
-
-      <DnssecSummary queryResults={result.queryResults} />
+      <p className="dns-dnssec-summary">{dnssecSummary(result.queryResults, resolver)}</p>
 
       {found.map((query) => <RecordResult key={query.requestedType} result={query} />)}
 
       {noAnswer.length > 0 ? (
         <details className="dns-empty-results">
           <summary>No terminal records returned for {noAnswer.length} {noAnswer.length === 1 ? "query" : "queries"}</summary>
-          <ul>{noAnswer.map((query) => <li key={query.requestedType}><strong>{query.requestedType}</strong>: {query.responseCode ?? query.outcome}</li>)}</ul>
+          <ul>{noAnswer.map((query) => <li key={query.requestedType}><p><strong>{query.requestedType}</strong>: {query.responseCode ?? query.outcome}</p><RawResponse result={query} /></li>)}</ul>
         </details>
       ) : null}
 
       {failed.length > 0 ? (
         <section className="dns-failed-results">
           <h2>Could not complete</h2>
-          <ul>{failed.map((query) => <li key={query.requestedType}><strong>{query.requestedType}</strong>: {query.error?.message ?? "Provider error"}</li>)}</ul>
+          <ul>{failed.map((query) => <li key={query.requestedType}><p><strong>{query.requestedType}</strong>: {query.error?.message ?? "Provider error"}</p><RawResponse result={query} /></li>)}</ul>
         </section>
       ) : null}
 
@@ -282,6 +271,7 @@ function LookupResults({ result }: { result: DnsLookupResponse }) {
         <summary>Technical details</summary>
         <div>{result.queryResults.map((query) => <TechnicalDetails key={query.requestedType} result={query} />)}</div>
       </details>
+
     </div>
   );
 }
@@ -342,28 +332,20 @@ export function DnsLookupTool({
   }
 
   return (
-    <section className="dns-tool" id="lookup" aria-labelledby="lookup-form-title">
+    <section className="dns-tool" id="lookup" aria-label="DNS lookup form">
       <form className="dns-lookup-form" onSubmit={submit}>
-        <div className="dns-form-heading">
-          <h2 id="lookup-form-title">Look up DNS records</h2>
-          <p>Enter an exact DNS name. Pasted HTTP and HTTPS URLs are reduced to their hostname.</p>
-        </div>
         <label className="dns-name-field">
           <span>DNS name</span>
           <input
             autoCapitalize="none"
             autoComplete="off"
             onChange={(event) => setName(event.target.value)}
-            placeholder="example.com"
+            placeholder="google.com"
             spellCheck={false}
             type="text"
             value={name}
           />
         </label>
-        <div className="dns-examples" aria-label="Quick examples">
-          <span>Try:</span>
-          {examples.map((example) => <button key={example} onClick={() => setName(example)} type="button">{example}</button>)}
-        </div>
         <div className="dns-form-options">
           <label>
             <span>Record type</span>

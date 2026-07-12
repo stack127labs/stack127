@@ -30,7 +30,10 @@ test.describe("Version127 publication SEO", () => {
       const response = await page.goto(path);
 
       expect(response?.status()).toBe(200);
-      await expect(page.locator(".app-main h1").first()).toBeVisible();
+      await expect(page.locator("h1")).toHaveCount(1);
+      await expect(page.locator(".app-main h1")).toHaveCount(1);
+      await expect(page.locator(".app-main h1")).toBeVisible();
+      await expect(page.locator(".app-sidebar h1")).toHaveCount(0);
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", canonicalPattern(path));
       await expect(page.locator('script[type="application/ld+json"]')).not.toHaveCount(0);
 

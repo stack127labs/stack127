@@ -2,8 +2,9 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { FaGithub } from "react-icons/fa6";
 import { getDirectoryApps, type DirectoryApp } from "@/lib/apps";
+import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { findLicenseAnchor } from "@/lib/software-licenses";
-import { AppShell } from "../../app-shell";
+import { AppShell, SidebarLabel } from "../../app-shell";
 import { CategoryIcon } from "../../category-icon";
 import {
   formatDatabaseRequirement,
@@ -731,7 +732,10 @@ export default async function SelfHostAppsPage({
   searchParams: Promise<SearchParams>;
 }) {
   const params = await searchParams;
-  const apps = await getDirectoryApps();
+  const [apps, registryPage] = await Promise.all([
+    getDirectoryApps(),
+    getRequiredPublishedPage("self-host-apps"),
+  ]);
   const sort = getString(params, "sort") || "popular";
   const selectedRam = getKnownValue(params, "ram", ramTierOrder);
   const selectedStorage = getKnownValue(params, "storage", storageTierOrder);
@@ -764,7 +768,7 @@ export default async function SelfHostAppsPage({
       data-live-filter-form
     >
       <div className="filter-panel-heading">
-        <h1>Self-hosted apps</h1>
+        <SidebarLabel>{registryPage.label}</SidebarLabel>
         <a
           className="filter-panel-github-link"
           href="https://github.com/version127/version127-datasets/tree/main/self-host-apps"

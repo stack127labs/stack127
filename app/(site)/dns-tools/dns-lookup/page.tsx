@@ -33,10 +33,9 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
           <Link href="/dns-tools">DNS tools</Link><span aria-hidden="true">/</span><span>DNS lookup</span>
         </nav>
         <header className="dns-page-header">
-          <p className="dns-page-kicker">DNS tool</p>
           <h1>DNS lookup</h1>
           <p>
-            Enter a domain or hostname to see the public DNS records returned by Cloudflare or Google Public DNS. Results include record values, Resolver TTLs, aliases, and the exact DNS response state.
+            See the records that Cloudflare or Google Public DNS currently returns for a domain or hostname. If you are unsure where to begin, leave Common records selected. It checks the records most often used by websites, email, certificates, and domain verification.
           </p>
         </header>
 
@@ -47,82 +46,66 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
         />
 
         <article className="dns-reference-content">
-          <section>
-            <h2>What this lookup checks</h2>
-            <p>
-              The tool asks the selected recursive resolver for the exact name and record type you choose. Common records runs separate A, AAAA, CNAME, MX, NS, TXT, CAA, and SOA queries. It does not use an ANY query.
-            </p>
-            <p>
-              This is one resolver's current answer. It is not a country-by-country propagation test and it does not prove that a website or email service is configured correctly.
-            </p>
+          <section id="read-results">
+            <h2>Read the answer</h2>
+            <p>DNS does not always connect a name directly to an address. A hostname can first point to another hostname, which then owns the final record. The lookup keeps that path visible instead of making the answer look simpler than it is.</p>
+            <figure className="dns-answer-path">
+              <div>
+                <code>www.example.com</code>
+                <span aria-hidden="true">→</span>
+                <code>edge.example.net</code>
+                <span aria-hidden="true">→</span>
+                <code>192.0.2.42</code>
+              </div>
+              <figcaption>Here, <code>www.example.com</code> is an alias. The A record belongs to <code>edge.example.net</code>, so that owner name stays attached to the address in the result.</figcaption>
+            </figure>
+            <p>Resolver TTL tells you how much cache time the selected resolver reported when the lookup ran. A result of 300 seconds means about five minutes remained at that moment. It may be lower than the TTL set by the domain owner because some of the cache lifetime has already passed.</p>
           </section>
 
           <section id="record-types">
             <h2>Record types</h2>
-            <dl className="dns-record-reference">
-              <div><dt>A</dt><dd>IPv4 addresses for a name.</dd></div>
-              <div><dt>AAAA</dt><dd>IPv6 addresses for a name.</dd></div>
-              <div><dt>CNAME</dt><dd>An alias from one DNS name to another.</dd></div>
-              <div><dt>MX</dt><dd>Mail exchangers and their priorities.</dd></div>
-              <div><dt>NS</dt><dd>Nameservers published at the exact name.</dd></div>
-              <div><dt>TXT</dt><dd>Text records used for verification and policies. A TXT result at <code>_dmarc</code> is not DMARC validation.</dd></div>
-              <div><dt>CAA</dt><dd>Certificate authority issuance policy.</dd></div>
-              <div><dt>SOA</dt><dd>Zone authority, serial, timing, and negative-cache fields.</dd></div>
-              <div><dt>SRV</dt><dd>Service priority, weight, port, and target.</dd></div>
-              <div><dt>DS</dt><dd>DNSSEC delegation signer data at the parent.</dd></div>
-              <div><dt>DNSKEY</dt><dd>Public keys published by a DNSSEC-signed zone.</dd></div>
-            </dl>
-          </section>
-
-          <section>
-            <h2>Resolver TTL</h2>
-            <p>
-              Resolver TTL is the TTL in the selected resolver's response, usually the remaining cache lifetime. It may be lower than the TTL configured by the domain owner. It does not guarantee how long every resolver or user will keep the answer.
-            </p>
-          </section>
-
-          <section>
-            <h2>Aliases and record owners</h2>
-            <p>
-              A recursive answer can include a CNAME chain and terminal records for the alias target. The tool shows a compatible alias chain once, keeps each terminal record's actual owner name, and warns when separate queries disagree about the chain.
-            </p>
+            <p>Common records is a good first look because it asks for A, AAAA, CNAME, MX, NS, TXT, CAA, and SOA separately. Choose one type when you already know which part of the domain you are checking.</p>
+            <div className="dns-table-scroll">
+              <table className="dns-record-table">
+                <thead><tr><th scope="col">Type</th><th scope="col">What it shows</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">A</th><td>The IPv4 addresses used by the name.</td></tr>
+                  <tr><th scope="row">AAAA</th><td>The IPv6 addresses used by the name.</td></tr>
+                  <tr><th scope="row">CNAME</th><td>The other hostname that this name points to.</td></tr>
+                  <tr><th scope="row">MX</th><td>The servers that receive email, along with the order in which they should be tried.</td></tr>
+                  <tr><th scope="row">NS</th><td>The nameservers published for the name.</td></tr>
+                  <tr><th scope="row">TXT</th><td>Text used for verification and email policies. The lookup returns the value but does not validate SPF, DKIM, or DMARC.</td></tr>
+                  <tr><th scope="row">CAA</th><td>The certificate authorities allowed to issue certificates for the domain.</td></tr>
+                  <tr><th scope="row">SOA</th><td>The zone's primary nameserver, serial number, and timing information.</td></tr>
+                  <tr><th scope="row">SRV</th><td>The hostname and port used by a particular network service.</td></tr>
+                  <tr><th scope="row">DS</th><td>The DNSSEC link published by the parent zone.</td></tr>
+                  <tr><th scope="row">DNSKEY</th><td>The public keys published by a DNSSEC-signed zone.</td></tr>
+                </tbody>
+              </table>
+            </div>
           </section>
 
           <section id="status-meanings">
-            <h2>DNS status meanings</h2>
-            <dl className="dns-status-reference">
-              <div><dt>NOERROR with records</dt><dd>The resolver completed the query and returned the requested terminal record type.</dd></div>
-              <div><dt>NOERROR without records</dt><dd>The name can exist even when that exact record type is not published there.</dd></div>
-              <div><dt>NXDOMAIN</dt><dd>The resolver reports that the queried DNS name does not exist.</dd></div>
-              <div><dt>SERVFAIL</dt><dd>The resolver could not complete resolution. DNSSEC failure is one possible cause, not the only cause.</dd></div>
-              <div><dt>REFUSED</dt><dd>The resolver refused the query.</dd></div>
-            </dl>
+            <h2>When the answer looks wrong</h2>
+            <p>The response code tells you whether the resolver answered the query, but it does not tell the whole story. Read it together with the records that came back.</p>
+            <div className="dns-table-scroll">
+              <table className="dns-status-table">
+                <thead><tr><th scope="col">Response</th><th scope="col">What it means</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">NOERROR with records</th><td>The query worked and the resolver returned the record type you asked for.</td></tr>
+                  <tr><th scope="row">NOERROR without records</th><td>The name can still exist, but it does not publish that particular record type.</td></tr>
+                  <tr><th scope="row">NXDOMAIN</th><td>The resolver says the exact name does not exist. Check the spelling and whether you meant the root domain or a subdomain.</td></tr>
+                  <tr><th scope="row">SERVFAIL</th><td>The resolver could not finish the lookup. A broken delegation, an upstream timeout, or DNSSEC validation trouble can cause it, so the code alone does not identify the problem.</td></tr>
+                  <tr><th scope="row">REFUSED</th><td>The resolver chose not to answer, usually because of its own policy.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Cloudflare and Google may briefly disagree after a DNS change because they can hold answers fetched at different times. Compare the values and remaining Resolver TTL, but remember that this is still one resolver's view. It does not test global propagation, website health, mail delivery, DMARC policy, or the full DNSSEC chain.</p>
           </section>
 
-          <section>
-            <h2>DNSSEC authentication reporting</h2>
-            <p>
-              If AD is true, the selected resolver reports that it authenticated the returned data. If AD is false, the name may simply be unsigned. Full DNSSEC chain diagnosis belongs in the later DNSSEC checker.
-            </p>
-          </section>
-
-          <section id="limitations">
-            <h2>Limitations and privacy</h2>
-            <ul>
-              <li>The DNS name is sent to the selected public resolver.</li>
-              <li>Version127 does not save a lookup history.</li>
-              <li>Share links expose the DNS name in the URL and run a fresh lookup when opened.</li>
-              <li>Results describe a recursive resolver response, not authoritative configuration or global propagation.</li>
-            </ul>
-          </section>
-
-          <section id="faq">
-            <h2>FAQ</h2>
-            <details><summary>Why does the result show no record?</summary><p>The exact name may exist without the selected type. Check the response code and owner names before treating an empty answer as a nonexistent domain.</p></details>
-            <details><summary>Why can Cloudflare and Google show different answers?</summary><p>Recursive resolvers can hold answers fetched at different times. Their remaining cache lifetimes and current values can temporarily differ.</p></details>
-            <details><summary>Does this check DNS propagation?</summary><p>No. It checks one selected public resolver. The later DNS Change Checker will compare authoritative and recursive answers without calling that comparison global propagation.</p></details>
-            <details><summary>Does an AD flag prove DNSSEC is configured correctly?</summary><p>No. AD true reports authentication for that returned data. AD false also does not prove breakage because the name may be unsigned.</p></details>
-          </section>
+          <aside className="dns-scope-note">
+            <p>The name you enter is sent to the public resolver you select. Version127 does not save lookup history, and queried names or returned values are not included in analytics.</p>
+          </aside>
         </article>
       </main>
     </AppShell>

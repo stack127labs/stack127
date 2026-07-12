@@ -2,7 +2,7 @@ import { InfoPage } from "../../info-page";
 
 export default function TermsPage() {
   return (
-    <InfoPage title="Terms">
+    <InfoPage slug="terms" title="Terms">
         <p className="info-lede">
           These terms are here to keep expectations clear. Version127 is a directory and reference site, not a managed service, marketplace, security auditor, or professional advice provider.
         </p>

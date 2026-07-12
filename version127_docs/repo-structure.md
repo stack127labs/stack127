@@ -36,6 +36,8 @@ version127_docs/
 
 Use this folder for design, structure, brand, SEO rules, environment notes, deployment notes, and other global decisions. Keep launch SEO rules in `version127_docs/seo.md`.
 
+The live Cloudflare, DNS, caching, and origin-safety setup is recorded in `version127_docs/cloudflare.md`.
+
 ## Scripts
 
 Page scripts live at:

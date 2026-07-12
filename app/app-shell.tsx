@@ -11,6 +11,10 @@ type AppShellProps = {
   menuLabel?: string;
 };
 
+export function SidebarLabel({ children }: { children: ReactNode }) {
+  return <p className="filter-panel-title">{children}</p>;
+}
+
 export function AppShell({
   children,
   mainLabel = "Page content",

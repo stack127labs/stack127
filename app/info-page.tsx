@@ -1,9 +1,11 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { AppShell } from "./app-shell";
+import { getRequiredPublishedPage } from "@/lib/page-registry";
+import { AppShell, SidebarLabel } from "./app-shell";
 
 type InfoPageProps = {
   children: ReactNode;
+  slug: string;
   title: string;
 };
 
@@ -15,11 +17,11 @@ const links = [
   { href: "/software-licenses-for-self-hosting", label: "software licenses" },
 ];
 
-function InfoSidebar({ title }: { title: string }) {
+function InfoSidebar({ label }: { label: string }) {
   return (
     <div className="directory-filter-panel info-sidebar-panel">
       <div className="filter-panel-heading">
-        <p className="filter-panel-title">{title}</p>
+        <SidebarLabel>{label}</SidebarLabel>
       </div>
       <nav className="info-sidebar-links" aria-label="Info pages">
         {links.map((link) => (
@@ -35,12 +37,14 @@ function InfoSidebar({ title }: { title: string }) {
   );
 }
 
-export function InfoPage({ children, title }: InfoPageProps) {
+export async function InfoPage({ children, slug, title }: InfoPageProps) {
+  const registryPage = await getRequiredPublishedPage(slug);
+
   return (
     <AppShell
       mainLabel={title}
       menuLabel="Pages"
-      sidebar={<InfoSidebar title={title} />}
+      sidebar={<InfoSidebar label={registryPage.label} />}
       sidebarLabel={`${title} sidebar`}
     >
       <article className="info-page prose">
