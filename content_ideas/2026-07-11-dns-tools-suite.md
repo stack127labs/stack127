@@ -44,7 +44,7 @@ Shared input and result behavior:
 
 These tools should ship first because they form one coherent diagnostic workflow.
 
-### [ ] 1. Unified DNS Record Lookup
+### [x] 1. Unified DNS Record Lookup
 
 Recommended URL: `/dns-tools/dns-lookup`
 

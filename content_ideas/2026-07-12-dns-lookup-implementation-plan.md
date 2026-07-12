@@ -1,7 +1,7 @@
 # DNS Lookup Implementation Plan
 
 Date: 2026-07-12
-Status: implemented; release verification in progress
+Status: implemented, published, and live-verified on 2026-07-12
 Parent backlog: `content_ideas/2026-07-11-dns-tools-suite.md`
 
 ## Scope
@@ -913,3 +913,14 @@ The tool is not complete until:
 - deterministic tests cover the corrected model and rendering
 - `npm run quality` passes before public handoff
 - production registry and live SEO behavior are verified after publication
+
+## Release Verification
+
+- release commit: `f96a15d`
+- production migration: `20260712000000_publish_dns_tools`
+- `npm run quality`: passed
+- deterministic tests: 26 passed
+- Playwright: 61 passed, 3 intentionally skipped duplicate mobile request-level checks
+- production routes: `/dns-tools` and `/dns-tools/dns-lookup` return 200
+- production API: Cloudflare Common and Google explicit CNAME lookups verified
+- SEO: clean routes are indexable and in the sitemap; query variants are `noindex, follow` with the clean canonical
