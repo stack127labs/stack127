@@ -1,0 +1,25 @@
+.button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  display: inline-flex;
+  height: var(--control-height-sm);
+  justify-content: center;
+  padding: 0;
+  transition:
+    color var(--motion-base),
+    transform var(--motion-base);
+  width: var(--control-height-sm);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.icon {
+  color: var(--text);
+  display: block;
+  height: 17px;
+  width: 17px;
+}

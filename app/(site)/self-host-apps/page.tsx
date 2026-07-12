@@ -7,6 +7,11 @@ import { findLicenseAnchor } from "@/lib/software-licenses";
 import { AppShell, SidebarLabel } from "../../app-shell";
 import { CategoryIcon } from "../../category-icon";
 import {
+  sidebarPanelClassName,
+  sidebarPanelGithubLinkClassName,
+  sidebarPanelHeadingClassName,
+} from "../../sidebar-panel";
+import {
   formatDatabaseRequirement,
   getRamTier,
   getStorageTier,
@@ -763,14 +768,14 @@ export default async function SelfHostAppsPage({
   const sidebar = (
     <form
       action="/self-host-apps"
-      className="directory-filter-panel"
+      className={sidebarPanelClassName}
       data-default-sort="popular"
       data-live-filter-form
     >
-      <div className="filter-panel-heading">
+      <div className={sidebarPanelHeadingClassName}>
         <SidebarLabel>{registryPage.label}</SidebarLabel>
         <a
-          className="filter-panel-github-link"
+          className={sidebarPanelGithubLinkClassName}
           href="https://github.com/version127/version127-datasets/tree/main/self-host-apps"
           rel="noreferrer"
           target="_blank"

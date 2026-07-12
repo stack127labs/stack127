@@ -1,9 +1,10 @@
-import { InfoPage } from "../../info-page";
+import { InfoPage, infoUpdatedClassName } from "../../info-page";
+import { proseLedeClassName } from "../../prose";
 
 export default function PrivacyPage() {
   return (
     <InfoPage slug="privacy" title="Privacy">
-        <p className="info-lede">
+        <p className={proseLedeClassName}>
           Version127 is a technical directory. We try to collect as little personal information as we can while still keeping the site useful, fast, and safe.
         </p>
 
@@ -74,7 +75,7 @@ export default function PrivacyPage() {
           <p>
             The current contact email is <a href="mailto:version127@proton.me">version127@proton.me</a>.
           </p>
-          <p className="info-updated">Last updated: July 2, 2026.</p>
+          <p className={infoUpdatedClassName}>Last updated: July 2, 2026.</p>
         </section>
     </InfoPage>
   );

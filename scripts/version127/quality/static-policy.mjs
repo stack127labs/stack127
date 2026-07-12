@@ -164,6 +164,20 @@ function checkUiTextCasing() {
   }
 }
 
+function checkGlobalCssOwnership() {
+  const source = read("app/globals.css").replace(/\/\*[\s\S]*?\*\//g, "");
+  const selectorLine = source.split("\n").find((line) => {
+    const trimmed = line.trim();
+    return /[.#][A-Za-z_-][\w-]*/.test(trimmed) && (trimmed.includes("{") || !trimmed.includes(":"));
+  });
+
+  if (selectorLine) {
+    fail(
+      `app/globals.css contains a class or ID selector: ${selectorLine.trim()} Move it to a colocated CSS Module or route-family stylesheet.`,
+    );
+  }
+}
+
 function checkPackageScripts() {
   const pkg = JSON.parse(read("package.json"));
   const required = ["prebuild", "typecheck", "test:unit", "test:static", "test:seo", "test:seo:registry", "quality"];
@@ -246,6 +260,7 @@ checkSelfHostingLessons(pageFiles);
 checkProxyHeaders();
 checkVersion127DocsShape();
 checkUiTextCasing();
+checkGlobalCssOwnership();
 checkPackageScripts();
 checkSkillAdapters();
 checkPageCoverage(pageFiles);

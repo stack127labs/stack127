@@ -21,9 +21,11 @@ Use complete, natural sentences. Let typography, spacing, tables, and visual rel
 
 After the tool, keep one connected path:
 
-1. explain aliases, owner names, and Resolver TTL through a visual example
-2. show the supported record types in one simple table
-3. use one simple table for response meanings, then explain resolver differences, scope, and privacy without splitting every caveat into a separate section
+1. show how to run a useful lookup with an exact name, record selection, and resolver
+2. explain aliases, owner names, values, Resolver TTL, response status, and raw data
+3. show the supported record types in one simple table
+4. connect common troubleshooting jobs to the record types and values worth comparing
+5. use one simple table for response meanings, then explain resolver differences, scope, and privacy without splitting every caveat into a separate section
 
 Technical flags belong in Technical details. Each record-type section keeps its own raw provider response beside the normalized records. Neither should dominate the main result.
 

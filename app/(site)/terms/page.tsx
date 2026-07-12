@@ -1,9 +1,10 @@
-import { InfoPage } from "../../info-page";
+import { InfoPage, infoUpdatedClassName } from "../../info-page";
+import { proseLedeClassName } from "../../prose";
 
 export default function TermsPage() {
   return (
     <InfoPage slug="terms" title="Terms">
-        <p className="info-lede">
+        <p className={proseLedeClassName}>
           These terms are here to keep expectations clear. Version127 is a directory and reference site, not a managed service, marketplace, security auditor, or professional advice provider.
         </p>
 
@@ -65,7 +66,7 @@ export default function TermsPage() {
           <p>
             Questions can go to <a href="mailto:version127@proton.me">version127@proton.me</a>.
           </p>
-          <p className="info-updated">Last updated: July 2, 2026.</p>
+          <p className={infoUpdatedClassName}>Last updated: July 2, 2026.</p>
         </section>
     </InfoPage>
   );

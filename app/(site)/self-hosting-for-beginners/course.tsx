@@ -5,6 +5,11 @@ import { buildBreadcrumbStructuredData } from "@/lib/seo";
 import { lessonHref, lessonNeighbors, lessons } from "@/lib/self-hosting-for-beginners";
 import { AppShell, SidebarLabel } from "../../app-shell";
 import { JsonLd } from "../../json-ld";
+import { proseClassName } from "../../prose";
+import {
+  sidebarPanelClassName,
+  sidebarPanelHeadingClassName,
+} from "../../sidebar-panel";
 
 const courseAuthor = {
   name: "Raviteja KNTS",
@@ -23,8 +28,8 @@ function formatUpdated(value: Date | string) {
 
 function CourseSidebar({ currentSlug, label }: { currentSlug: string; label: string }) {
   return (
-    <div className="directory-filter-panel course-sidebar-panel">
-      <div className="filter-panel-heading">
+    <div className={`${sidebarPanelClassName} course-sidebar-panel`}>
+      <div className={sidebarPanelHeadingClassName}>
         <SidebarLabel>{label}</SidebarLabel>
       </div>
       <nav className="course-sidebar-links" aria-label="Self-hosting course lessons">
@@ -125,7 +130,7 @@ export async function LessonPage({
       sidebarLabel="Self-hosting course sidebar"
     >
       <JsonLd data={buildBreadcrumbStructuredData(crumbs)} />
-      <article className="lesson-page prose">
+      <article className={`lesson-page ${proseClassName}`}>
         <header className="lesson-header">
           <h1>{heading}</h1>
           <div className="lesson-byline">

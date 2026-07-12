@@ -73,7 +73,12 @@ test("DNS Lookup renders corrected TTL, alias, owner, flags, and technical detai
   });
 
   await page.goto("/dns-tools/dns-lookup");
-  await expect(page.locator(".app-main h1")).toHaveText("DNS lookup");
+  await expect(page.locator("[data-app-main] h1")).toHaveText("DNS lookup");
+  const recordTypePicker = page.getByRole("radiogroup", { name: "Record type" });
+  await expect(recordTypePicker).toBeVisible();
+  await expect(recordTypePicker.getByRole("radio")).toHaveCount(12);
+  await expect(recordTypePicker.getByRole("radio", { name: "Common records" })).toBeChecked();
+  await expect(recordTypePicker.locator("select")).toHaveCount(0);
   await expect(page.locator(".dns-examples")).toHaveCount(0);
   await expect(page.getByRole("button", { name: "_dmarc.example.com", exact: true })).toHaveCount(0);
   await expect(page.locator(".dns-record-table tbody tr")).toHaveCount(11);
@@ -82,10 +87,15 @@ test("DNS Lookup renders corrected TTL, alias, owner, flags, and technical detai
   await expect(page.locator(".dns-status-table")).toContainText("NXDOMAIN");
   await expect(page.locator(".dns-page-header .dns-page-kicker")).toHaveCount(0);
   await expect(page.locator(".dns-reference-content > section > h2")).toHaveText([
-    "Read the answer",
-    "Record types",
+    "How to check DNS records",
+    "What DNS lookup results mean",
+    "Which DNS record type should you check?",
+    "When a DNS lookup helps",
     "When the answer looks wrong",
   ]);
+  await expect(page.locator(".dns-reading-steps li")).toHaveCount(5);
+  await expect(page.locator(".dns-result-guide tbody tr")).toHaveCount(7);
+  await expect(page.locator(".dns-use-case-table tbody tr")).toHaveCount(6);
 
   await page.getByLabel("DNS name").fill("www.example.com");
   await page.getByRole("button", { name: "Look up DNS" }).click();

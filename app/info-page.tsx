@@ -2,6 +2,12 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { AppShell, SidebarLabel } from "./app-shell";
+import { proseClassName } from "./prose";
+import styles from "./info-page.module.css";
+import {
+  sidebarPanelClassName,
+  sidebarPanelHeadingClassName,
+} from "./sidebar-panel";
 
 type InfoPageProps = {
   children: ReactNode;
@@ -19,18 +25,18 @@ const links = [
 
 function InfoSidebar({ label }: { label: string }) {
   return (
-    <div className="directory-filter-panel info-sidebar-panel">
-      <div className="filter-panel-heading">
+    <div className={`${sidebarPanelClassName} ${styles.sidebarPanel}`}>
+      <div className={sidebarPanelHeadingClassName}>
         <SidebarLabel>{label}</SidebarLabel>
       </div>
-      <nav className="info-sidebar-links" aria-label="Info pages">
+      <nav className={styles.sidebarLinks} aria-label="Info pages">
         {links.map((link) => (
           <Link href={link.href} key={link.href}>
             {link.label}
           </Link>
         ))}
       </nav>
-      <p className="info-contact">
+      <p className={styles.contact}>
         <a href="mailto:version127@proton.me">version127@proton.me</a>
       </p>
     </div>
@@ -47,10 +53,12 @@ export async function InfoPage({ children, slug, title }: InfoPageProps) {
       sidebar={<InfoSidebar label={registryPage.label} />}
       sidebarLabel={`${title} sidebar`}
     >
-      <article className="info-page prose">
+      <article className={`${styles.page} ${proseClassName}`}>
         <h1>{title}</h1>
         {children}
       </article>
     </AppShell>
   );
 }
+
+export const infoUpdatedClassName = styles.updated;

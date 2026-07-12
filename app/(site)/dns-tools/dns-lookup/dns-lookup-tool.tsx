@@ -12,8 +12,8 @@ import type {
   NormalizedDnsRecord,
 } from "@/lib/dns/types.ts";
 
-const recordOptions: { label: string; value: DnsSelection }[] = [
-  { label: "Common records", value: "common" },
+const recordOptions: { accessibleLabel?: string; label: string; value: DnsSelection }[] = [
+  { accessibleLabel: "Common records", label: "Common", value: "common" },
   ...(["A", "AAAA", "CNAME", "MX", "NS", "TXT", "CAA", "SOA", "SRV", "DS", "DNSKEY"] as DnsRecordType[])
     .map((value) => ({ label: value, value })),
 ];
@@ -346,13 +346,25 @@ export function DnsLookupTool({
             value={name}
           />
         </label>
+        <fieldset className="dns-record-type-picker" role="radiogroup">
+          <legend>Record type</legend>
+          <div className="dns-record-type-options">
+            {recordOptions.map((option) => (
+              <label key={option.value}>
+                <input
+                  aria-label={option.accessibleLabel}
+                  checked={selection === option.value}
+                  name="record-type"
+                  onChange={() => setSelection(option.value)}
+                  type="radio"
+                  value={option.value}
+                />
+                <span>{option.label}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
         <div className="dns-form-options">
-          <label>
-            <span>Record type</span>
-            <select onChange={(event) => setSelection(event.target.value as DnsSelection)} value={selection}>
-              {recordOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
-            </select>
-          </label>
           <label>
             <span>Resolver</span>
             <select onChange={(event) => setResolver(event.target.value as DnsResolver)} value={resolver}>

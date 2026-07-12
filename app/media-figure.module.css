@@ -1,0 +1,33 @@
+.figure {
+  margin: 0;
+}
+
+.figure figcaption {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  margin-top: var(--space-5);
+  text-align: center;
+}
+
+.image img {
+  border-radius: var(--radius-md);
+  display: block;
+  height: auto;
+  margin-inline: auto;
+  max-height: var(--media-max-height, min(70vh, 640px));
+  max-width: 100%;
+  object-fit: contain;
+  width: auto;
+}
+
+.diagram {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+}
+
+.diagram svg {
+  display: block;
+  height: auto;
+  width: 100%;
+}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import "./home.css";
 import { getSelfHostAppsStats } from "@/lib/apps";
 import {
   getMainPublishedPages,
@@ -11,6 +12,10 @@ import {
 import { lessons } from "@/lib/self-hosting-for-beginners";
 import { licenses } from "@/lib/software-licenses";
 import { AppShell, SidebarLabel } from "../app-shell";
+import {
+  sidebarPanelClassName,
+  sidebarPanelHeadingClassName,
+} from "../sidebar-panel";
 
 export const dynamic = "force-dynamic";
 
@@ -21,8 +26,8 @@ type HomeStat = {
 
 function HomeSidebar({ label, pages }: { label: string; pages: Version127Page[] }) {
   return (
-    <div className="directory-filter-panel home-sidebar-panel">
-      <div className="filter-panel-heading">
+    <div className={`${sidebarPanelClassName} home-sidebar-panel`}>
+      <div className={sidebarPanelHeadingClassName}>
         <SidebarLabel>{label}</SidebarLabel>
       </div>
       <nav className="home-sidebar-nav" aria-label="Main pages">

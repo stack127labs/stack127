@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { AppSidebar } from "./app-sidebar";
+import styles from "./app-shell.module.css";
+import { sidebarPanelTitleClassName } from "./sidebar-panel";
 
 type AppShellProps = {
   children?: ReactNode;
@@ -12,7 +14,7 @@ type AppShellProps = {
 };
 
 export function SidebarLabel({ children }: { children: ReactNode }) {
-  return <p className="filter-panel-title">{children}</p>;
+  return <p className={sidebarPanelTitleClassName}>{children}</p>;
 }
 
 export function AppShell({
@@ -23,35 +25,35 @@ export function AppShell({
   menuLabel = "Menu",
 }: AppShellProps) {
   return (
-    <main className="app-shell">
-      <section className="app-page">
+    <main className={styles.shell}>
+      <section className={styles.page}>
         {sidebar ? (
           <AppSidebar label={sidebarLabel} menuLabel={menuLabel}>
             {sidebar}
           </AppSidebar>
         ) : (
-          <aside className="app-sidebar" aria-label={sidebarLabel} />
+          <aside className={styles.sidebar} aria-label={sidebarLabel} data-app-sidebar />
         )}
-        <section className="app-main" aria-label={mainLabel}>
-          <div className="app-main-content">{children}</div>
-          <footer className="app-footer" aria-label="Site footer">
-            <Link className="app-footer-brand" href="/" aria-label="version127 home">
+        <section className={styles.main} aria-label={mainLabel} data-app-main>
+          <div className={styles.content}>{children}</div>
+          <footer className={styles.footer} aria-label="Site footer">
+            <Link className={styles.footerBrand} href="/" aria-label="version127 home">
               <img
                 alt="version127 logo"
-                className="app-footer-logo app-footer-logo-light"
+                className={`${styles.footerLogo} ${styles.footerLogoLight}`}
                 height={219}
                 src="/logos/version127-logo-black.png"
                 width={1173}
               />
               <img
                 alt="version127 logo"
-                className="app-footer-logo app-footer-logo-dark"
+                className={`${styles.footerLogo} ${styles.footerLogoDark}`}
                 height={219}
                 src="/logos/version127-logo-white.png"
                 width={1175}
               />
             </Link>
-            <nav className="app-footer-links" aria-label="Legal pages">
+            <nav className={styles.footerLinks} aria-label="Legal pages">
               <Link href="/privacy">privacy</Link>
               <Link href="/terms">terms</Link>
               <Link href="/about">about</Link>
