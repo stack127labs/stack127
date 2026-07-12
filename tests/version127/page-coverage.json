@@ -8,21 +8,6 @@
       "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
     },
-    "/dns-tools": {
-      "state": "published",
-      "tests": [
-        "tests/version127/seo.spec.ts",
-        "tests/version127/dns-lookup.spec.ts"
-      ]
-    },
-    "/dns-tools/dns-lookup": {
-      "state": "published",
-      "tests": [
-        "tests/version127/seo.spec.ts",
-        "tests/version127/dns-lookup.spec.ts",
-        "tests/version127/dns-lookup.test.mjs"
-      ]
-    },
     "/privacy": {
       "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]
