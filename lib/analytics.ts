@@ -23,7 +23,7 @@ function getUmamiBaseUrl(urlValue?: string) {
   }
 }
 
-export function getUmamiProxyRewrites(
+export function getUmamiUpstreamUrls(
   environment: Pick<AnalyticsEnvironment, "UMAMI_URL"> = {
     UMAMI_URL: process.env.UMAMI_URL,
   },
@@ -31,19 +31,13 @@ export function getUmamiProxyRewrites(
   const baseUrl = getUmamiBaseUrl(environment.UMAMI_URL);
 
   if (!baseUrl) {
-    return [];
+    return null;
   }
 
-  return [
-    {
-      destination: `${baseUrl}/script.js`,
-      source: "/vitals/core.js",
-    },
-    {
-      destination: `${baseUrl}/api/send`,
-      source: "/vitals/api/send",
-    },
-  ];
+  return {
+    eventUrl: `${baseUrl}/api/send`,
+    scriptUrl: `${baseUrl}/script.js`,
+  };
 }
 
 export function getUmamiConfig(

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   getUmamiConfig,
-  getUmamiProxyRewrites,
+  getUmamiUpstreamUrls,
 } from "../../lib/analytics.ts";
 
 test("getUmamiConfig builds a production tracker configuration", () => {
@@ -18,25 +18,19 @@ test("getUmamiConfig builds a production tracker configuration", () => {
   );
 });
 
-test("getUmamiProxyRewrites exposes only the tracker and collection endpoint", () => {
+test("getUmamiUpstreamUrls exposes only the tracker and collection endpoint", () => {
   assert.deepEqual(
-    getUmamiProxyRewrites({ UMAMI_URL: "https://umami.example.com/" }),
-    [
-      {
-        destination: "https://umami.example.com/script.js",
-        source: "/vitals/core.js",
-      },
-      {
-        destination: "https://umami.example.com/api/send",
-        source: "/vitals/api/send",
-      },
-    ],
+    getUmamiUpstreamUrls({ UMAMI_URL: "https://umami.example.com/" }),
+    {
+      eventUrl: "https://umami.example.com/api/send",
+      scriptUrl: "https://umami.example.com/script.js",
+    },
   );
 
-  assert.deepEqual(getUmamiProxyRewrites({}), []);
-  assert.deepEqual(
-    getUmamiProxyRewrites({ UMAMI_URL: "http://umami.example.com" }),
-    [],
+  assert.equal(getUmamiUpstreamUrls({}), null);
+  assert.equal(
+    getUmamiUpstreamUrls({ UMAMI_URL: "http://umami.example.com" }),
+    null,
   );
 });
 
