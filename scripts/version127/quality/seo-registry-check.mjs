@@ -8,6 +8,8 @@ dns.setDefaultResultOrder("ipv4first");
 const expectedPublishedSlugs = [
   "",
   "about",
+  "dns-tools",
+  "dns-tools/dns-lookup",
   "privacy",
   "self-host-apps",
   "self-hosting-for-beginners",
