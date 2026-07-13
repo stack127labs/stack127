@@ -2,6 +2,7 @@
 
 import { Check, Copy } from "lucide-react";
 import { useId, useState } from "react";
+import styles from "./code-block.module.css";
 
 type CodeBlockProps = {
   /**
@@ -48,20 +49,20 @@ export function CodeBlock({ children, label, className }: CodeBlockProps) {
   }
 
   return (
-    <div className={["code-block", className].filter(Boolean).join(" ")}>
+    <div className={[styles.block, className].filter(Boolean).join(" ")}>
       {label ? (
-        <span className="code-block-label" id={labelId}>
+        <span className={styles.label} id={labelId}>
           {label}
         </span>
       ) : null}
-      <div className="code-block-frame">
-        <pre className="code-block-pre">
+      <div className={styles.frame}>
+        <pre className={styles.pre}>
           <code>{code}</code>
         </pre>
         <button
           aria-describedby={label ? labelId : undefined}
           aria-label={copied ? "Copied" : "Copy code"}
-          className="code-block-copy"
+          className={styles.copy}
           onClick={copy}
           type="button"
         >

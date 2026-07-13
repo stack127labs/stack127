@@ -1,4 +1,5 @@
 import { MediaFigure } from "./media-figure";
+import styles from "./marker-art.module.css";
 
 /**
  * Renders a generated marker art figure inline. The svg string comes from the
@@ -14,5 +15,5 @@ export function MarkerArt({
   svg: string;
   caption?: string;
 }) {
-  return <MediaFigure caption={caption} className="marker-art" kind="diagram" svg={svg} />;
+  return <MediaFigure caption={caption} className={styles.markerArt} kind="diagram" svg={svg} />;
 }

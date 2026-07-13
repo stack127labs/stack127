@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { InfoPage } from "../../info-page";
+import { proseLedeClassName } from "../../prose";
 
 export default function AboutPage() {
   return (
-    <InfoPage title="About">
-        <p className="info-lede">
+    <InfoPage slug="about" title="About">
+        <p className={proseLedeClassName}>
           Version127 is a practical technical directory for people who like useful software, clean tools, and clear references without a pile of fluff around them.
         </p>
 

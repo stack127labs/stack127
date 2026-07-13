@@ -11,14 +11,15 @@ Use this skill before changing any route under `app/(site)` or any SEO-visible p
 
 1. Read `AGENTS.md`.
 2. Read the relevant `content_docs/<page-slug>/` folder.
-3. Decide the route state before implementation:
+3. Read `version127_docs/css-architecture.md` before adding or moving page styles.
+4. Decide the route state before implementation:
    - `published`: exact slug should be indexable and listed in sitemap.
    - `unpublished`: route exists in code but should return 404 until approved.
    - `noindex`: route can render, but should not be indexed.
-4. Update `tests/version127/page-coverage.json` before or alongside the page.
-5. Add or update tests before considering the page done.
-6. Implement the smallest route/UI/data change.
-7. Run the gates listed below.
+5. Update `tests/version127/page-coverage.json` before or alongside the page.
+6. Add or update tests before considering the page done.
+7. Implement the smallest route/UI/data change.
+8. Run the gates listed below.
 
 ## Test Requirements
 
@@ -62,4 +63,5 @@ npm run quality
 - Do not add a page without a route coverage manifest entry.
 - Do not weaken tests to match broken behavior.
 - Do not hide missing data with broad fallbacks.
+- Do not add component or page selectors to `app/globals.css`. Use a colocated CSS Module or route-family stylesheet.
 - Do not push public-facing content or public GitHub repos without explicit approval.

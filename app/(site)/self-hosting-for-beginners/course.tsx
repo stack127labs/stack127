@@ -1,10 +1,15 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { getPublishedPage } from "@/lib/page-registry";
+import { getPublishedPage, getRequiredPublishedPage } from "@/lib/page-registry";
 import { buildBreadcrumbStructuredData } from "@/lib/seo";
 import { lessonHref, lessonNeighbors, lessons } from "@/lib/self-hosting-for-beginners";
-import { AppShell } from "../../app-shell";
+import { AppShell, SidebarLabel } from "../../app-shell";
 import { JsonLd } from "../../json-ld";
+import { proseClassName } from "../../prose";
+import {
+  sidebarPanelClassName,
+  sidebarPanelHeadingClassName,
+} from "../../sidebar-panel";
 
 const courseAuthor = {
   name: "Raviteja KNTS",
@@ -21,11 +26,11 @@ function formatUpdated(value: Date | string) {
   });
 }
 
-function CourseSidebar({ currentSlug }: { currentSlug: string }) {
+function CourseSidebar({ currentSlug, label }: { currentSlug: string; label: string }) {
   return (
-    <div className="directory-filter-panel course-sidebar-panel">
-      <div className="filter-panel-heading">
-        <h1>Self-hosting for beginners</h1>
+    <div className={`${sidebarPanelClassName} course-sidebar-panel`}>
+      <div className={sidebarPanelHeadingClassName}>
+        <SidebarLabel>{label}</SidebarLabel>
       </div>
       <nav className="course-sidebar-links" aria-label="Self-hosting course lessons">
         <ol>
@@ -103,9 +108,10 @@ export async function LessonPage({
   const registrySlug = lesson ? lessonHref(lesson).slice(1) : null;
   // The registry row powers the visible updated date. The fallback keeps draft
   // previews from losing the course byline while registry rows are missing.
-  const page = registrySlug
-    ? await getPublishedPage(registrySlug).catch(() => null)
-    : null;
+  const [page, coursePage] = await Promise.all([
+    registrySlug ? getPublishedPage(registrySlug).catch(() => null) : Promise.resolve(null),
+    getRequiredPublishedPage("self-hosting-for-beginners"),
+  ]);
   const updatedAt = page?.updated_at ?? courseFallbackUpdatedAt;
 
   const crumbs = [
@@ -120,11 +126,11 @@ export async function LessonPage({
     <AppShell
       mainLabel={heading}
       menuLabel="Lessons"
-      sidebar={<CourseSidebar currentSlug={currentSlug} />}
+      sidebar={<CourseSidebar currentSlug={currentSlug} label={coursePage.label} />}
       sidebarLabel="Self-hosting course sidebar"
     >
       <JsonLd data={buildBreadcrumbStructuredData(crumbs)} />
-      <article className="lesson-page prose">
+      <article className={`lesson-page ${proseClassName}`}>
         <header className="lesson-header">
           <h1>{heading}</h1>
           <div className="lesson-byline">

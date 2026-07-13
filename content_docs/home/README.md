@@ -17,8 +17,9 @@ Home is the product map for Version127: a design-system sidebar of main publishe
 
 ## Main content
 
-- Compact H1 and short lede (not a marketing billboard).
+- Shared page H1 treatment and a short lede, without turning the opening into a marketing billboard.
 - Feature cards for main product/reference pages (`isHomeFeaturePage`), excluding utility page types such as About, Privacy, and Terms.
+- Retired Immich page entries stay out of both the homepage cards and sidebar, even if a stale registry row remains locally.
 - Cards use `label`, `meta_description`, and live stats when available (directory counts, lesson count, license count).
 - Optional "Start here" path for beginners, app browsing, and license checks.
 

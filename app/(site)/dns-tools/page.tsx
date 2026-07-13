@@ -1,0 +1,57 @@
+import Link from "next/link";
+import { AppShell } from "../../app-shell";
+import { DnsToolsSidebar } from "./dns-tools-sidebar";
+
+export default function DnsToolsPage() {
+  return (
+    <AppShell
+      mainLabel="DNS tools"
+      menuLabel="DNS tools"
+      sidebar={<DnsToolsSidebar active="hub" />}
+      sidebarLabel="DNS tools sidebar"
+    >
+      <main className="dns-hub-main">
+        <header className="dns-page-header">
+          <h1>DNS tools</h1>
+          <p>
+            Look up records, follow a query from the root, compare caches with authoritative DNS,
+            and check the parts that make delegation, DNSSEC, SOA, and CAA work.
+          </p>
+        </header>
+
+        <section aria-labelledby="available-tools-title" className="dns-hub-section">
+          <h2 id="available-tools-title">Available now</h2>
+          <Link className="dns-tool-card" href="/dns-tools/dns-lookup">
+            <span>
+              <strong>DNS lookup</strong>
+              <small>Check records through a public resolver or the domain's authoritative nameserver.</small>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
+          <Link className="dns-tool-card" href="/dns-tools/dns-trace">
+            <span>
+              <strong>DNS Trace Explorer</strong>
+              <small>Follow a DNS question from the root to the nameserver that gives the final answer.</small>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
+          <Link className="dns-tool-card" href="/dns-tools/dns-change-checker">
+            <span><strong>DNS Change Checker</strong><small>Compare authoritative records with the answers held by public resolver caches.</small></span><span aria-hidden="true">→</span>
+          </Link>
+          <Link className="dns-tool-card" href="/dns-tools/nameserver-checker">
+            <span><strong>Nameserver Delegation Checker</strong><small>Compare parent and child NS records, glue, reachability, and authority.</small></span><span aria-hidden="true">→</span>
+          </Link>
+          <Link className="dns-tool-card" href="/dns-tools/dnssec-checker">
+            <span><strong>DNSSEC Chain Checker</strong><small>Validate the signed chain from the DNS root to the answer you requested.</small></span><span aria-hidden="true">→</span>
+          </Link>
+          <Link className="dns-tool-card" href="/dns-tools/soa-checker">
+            <span><strong>SOA Consistency Checker</strong><small>Compare serials and zone timing across every authoritative nameserver.</small></span><span aria-hidden="true">→</span>
+          </Link>
+          <Link className="dns-tool-card" href="/dns-tools/caa-checker">
+            <span><strong>CAA Policy Checker</strong><small>Find the effective certificate authority policy for normal and wildcard certificates.</small></span><span aria-hidden="true">→</span>
+          </Link>
+        </section>
+      </main>
+    </AppShell>
+  );
+}

@@ -1,15 +1,22 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import "./home.css";
 import { getSelfHostAppsStats } from "@/lib/apps";
 import {
   getMainPublishedPages,
+  getRequiredPublishedPage,
   isHomeFeaturePage,
+  isHomeVisiblePage,
   pathFromSlug,
   type Version127Page,
 } from "@/lib/page-registry";
 import { lessons } from "@/lib/self-hosting-for-beginners";
 import { licenses } from "@/lib/software-licenses";
-import { AppShell } from "../app-shell";
+import { AppShell, SidebarLabel } from "../app-shell";
+import {
+  sidebarPanelClassName,
+  sidebarPanelHeadingClassName,
+} from "../sidebar-panel";
 
 export const dynamic = "force-dynamic";
 
@@ -18,11 +25,11 @@ type HomeStat = {
   value: string;
 };
 
-function HomeSidebar({ pages }: { pages: Version127Page[] }) {
+function HomeSidebar({ label, pages }: { label: string; pages: Version127Page[] }) {
   return (
-    <div className="directory-filter-panel home-sidebar-panel">
-      <div className="filter-panel-heading">
-        <h1>version127</h1>
+    <div className={`${sidebarPanelClassName} home-sidebar-panel`}>
+      <div className={sidebarPanelHeadingClassName}>
+        <SidebarLabel>{label}</SidebarLabel>
       </div>
       <nav className="home-sidebar-nav" aria-label="Main pages">
         <ul>
@@ -125,18 +132,20 @@ function startHereItems(featureSlugs: Set<string>): { key: string; node: ReactNo
 }
 
 export default async function Home() {
-  const [mainPages, appStats] = await Promise.all([
+  const [homePage, mainPages, appStats] = await Promise.all([
+    getRequiredPublishedPage(""),
     getMainPublishedPages(),
     getSelfHostAppsStats(),
   ]);
-  const featurePages = mainPages.filter(isHomeFeaturePage);
+  const visibleMainPages = mainPages.filter(isHomeVisiblePage);
+  const featurePages = visibleMainPages.filter(isHomeFeaturePage);
   const startItems = startHereItems(new Set(featurePages.map((page) => page.slug)));
 
   return (
     <AppShell
       mainLabel="Home"
       menuLabel="Pages"
-      sidebar={<HomeSidebar pages={mainPages} />}
+      sidebar={<HomeSidebar label={homePage.label} pages={visibleMainPages} />}
       sidebarLabel="Home sidebar"
     >
       <section className="home-main" aria-labelledby="home-title">

@@ -14,6 +14,9 @@ const publishedPaths = Object.entries(routes)
 const unpublishedPaths = Object.entries(routes)
   .filter(([, entry]) => entry.state === "unpublished")
   .map(([path]) => path);
+const noindexPaths = Object.entries(routes)
+  .filter(([, entry]) => entry.state === "noindex")
+  .map(([path]) => path);
 
 async function robotsContent(page: Page) {
   return page.locator('meta[name="robots"]').getAttribute("content");
@@ -30,7 +33,10 @@ test.describe("Version127 publication SEO", () => {
       const response = await page.goto(path);
 
       expect(response?.status()).toBe(200);
-      await expect(page.locator(".app-main h1").first()).toBeVisible();
+      await expect(page.locator("h1")).toHaveCount(1);
+      await expect(page.locator("[data-app-main] h1")).toHaveCount(1);
+      await expect(page.locator("[data-app-main] h1")).toBeVisible();
+      await expect(page.locator("[data-app-sidebar] h1")).toHaveCount(0);
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", canonicalPattern(path));
       await expect(page.locator('script[type="application/ld+json"]')).not.toHaveCount(0);
 
@@ -72,6 +78,16 @@ test.describe("Version127 publication SEO", () => {
     expect(failures).toEqual([]);
   });
 
+  for (const path of noindexPaths) {
+    test(`${path} is visible but remains noindex`, async ({ page }) => {
+      const response = await page.goto(path);
+
+      expect(response?.status()).toBe(200);
+      await expect(page.locator("[data-app-main] h1")).toHaveCount(1);
+      await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/i);
+    });
+  }
+
   test("sitemap includes published pages and excludes unpublished routes", async ({ request }, testInfo) => {
     test.skip(testInfo.project.name !== "chromium", "request-level sitemap guard only needs one project");
 
@@ -83,6 +99,9 @@ test.describe("Version127 publication SEO", () => {
       expect(xml).toContain(`https://version127.com${path === "/" ? "" : path}`);
     }
     for (const path of unpublishedPaths) {
+      expect(xml).not.toContain(`https://version127.com${path}`);
+    }
+    for (const path of noindexPaths) {
       expect(xml).not.toContain(`https://version127.com${path}`);
     }
     expect(xml).not.toContain("https://version127.com/self-hosting</loc>");

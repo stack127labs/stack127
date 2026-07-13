@@ -4,7 +4,7 @@ Version127 uses a compact technical interface: near-black by default, low-radius
 
 ## Tokens
 
-The source tokens live in `app/globals.css`.
+The source tokens live in `app/globals.css`. Component and page selectors do not; follow `version127_docs/css-architecture.md` for style ownership.
 
 Use the semantic names for new UI:
 
@@ -28,7 +28,7 @@ Version127 uses two typography modes.
 
 Compact UI typography is for dense product surfaces: cards, filters, nav, buttons, pills, metadata, tables, drawers, and stats. Keep these small and scannable.
 
-Prose typography is for reading surfaces: legal pages, about pages, reference notes, guide copy, and any area with multiple paragraphs. Scope it with `.prose`; do not make it page-wide when the page also contains cards or tools.
+Prose typography is for reading surfaces: legal pages, about pages, reference notes, guide copy, and any area with multiple paragraphs. Scope it with `proseClassName` from `app/prose.ts`; do not make it page-wide when the page also contains cards or tools.
 
 | purpose | token | current value |
 | --- | --- | --- |
@@ -36,8 +36,8 @@ Prose typography is for reading surfaces: legal pages, about pages, reference no
 | H2 | `--text-h2` | `1.22rem` |
 | H3 | `--text-h3` | `1.05rem` |
 | H4 | `--text-h4` | `0.95rem` |
-| Prose body | `--text-prose` | `1rem` |
-| Prose lede | `--text-prose-lg` | `1.08rem` |
+| Prose body | `--text-prose` | `1.0625rem` |
+| Prose lede | `--text-prose-lg` | `1.16rem` |
 | Prose line height | `--line-prose` | `1.7` |
 | Prose measure | `--measure-prose` | `760px` |
 | Prose color | `--color-text-prose` | less muted than metadata |
@@ -46,7 +46,7 @@ The older `--text-*` tokens are still the compact UI scale. Use them for interfa
 
 ## Prose Layout
 
-- Put `.prose` on the exact reading container.
+- Put `proseClassName` on the exact reading container.
 - Use `--measure-prose` to keep line length comfortable.
 - Keep paragraphs slightly less muted than metadata with `--color-text-prose`.
 - Use no default dividers between prose sections unless a specific reference page needs them.
@@ -64,7 +64,7 @@ The older `--text-*` tokens are still the compact UI scale. Use them for interfa
 - Use the 4px/8px spacing rhythm through `--space-*`.
 - Use sans for normal UI and mono for facts, slugs, versions, stats, and metadata.
 - Keep compact UI text and reading text separate. Cards, filters, nav, metadata, buttons, pills, tables, and drawers should use the compact UI tokens.
-- Use `.prose` for readable paragraphs, legal copy, about copy, reference notes, and any page area where people need to read multiple paragraphs.
+- Use `proseClassName` for readable paragraphs, legal copy, about copy, reference notes, and any page area where people need to read multiple paragraphs.
 - Do not apply prose typography to an entire page when the page mixes prose and UI cards. Scope it to the reading container.
 - Prose paragraphs should use `--text-prose`, `--line-prose`, `--measure-prose`, and `--color-text-prose`.
 - Prose headings should use `--text-h1` through `--text-h4` instead of reusing one generic heading size.
@@ -86,6 +86,8 @@ Cards should use stable grids, compact text, subtle hover borders, and no layout
 Drawers should use rows and dividers, sit above the top bar, and become full-screen on mobile.
 
 Filters should use the label plus horizontal-line pattern and share input height, radius, font size, and focus styles.
+
+Short, important choices in a tool should stay visible instead of hiding inside a dropdown. Use a compact radio row with one clear accent-colored selection when people benefit from seeing every available option at once. Keep the real radio inputs for keyboard and screen-reader behavior, and let the row wrap cleanly on small screens.
 
 Media figures should use `MediaFigure` from `app/media-figure.tsx`. Screenshots and photos use the `image` kind: borderless, centered, text-width by default, and height-capped so tall images stay contained. Generated visual explainers use the `diagram` kind so instructional SVGs can keep their framed treatment without forcing that frame onto real images.
 

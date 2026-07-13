@@ -1,0 +1,72 @@
+.header {
+  backdrop-filter: blur(18px);
+  background: var(--nav-surface);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--nav-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  align-items: center;
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: auto 1fr auto;
+  margin: 0 auto;
+  min-height: var(--top-bar-height);
+  padding: 0;
+  width: min(var(--site-max-width), calc(100% - var(--site-gutter)));
+}
+
+.brand {
+  align-items: center;
+  display: inline-flex;
+  height: 28px;
+}
+
+.logo {
+  display: block;
+  height: 24px;
+  width: auto;
+}
+
+.logoDark,
+:global([data-theme="dark"]) .logoLight {
+  display: none;
+}
+
+:global([data-theme="dark"]) .logoDark {
+  display: block;
+}
+
+.links {
+  align-items: center;
+  display: flex;
+  gap: clamp(14px, 2.4vw, 34px);
+  justify-content: flex-end;
+}
+
+.links a {
+  color: var(--color-text-muted);
+  font-size: var(--text-md);
+  font-weight: var(--weight-regular);
+}
+
+.links a:hover {
+  color: var(--color-link);
+}
+
+.actions {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    padding: 0;
+    width: min(100% - 28px, 760px);
+  }
+}

@@ -2,6 +2,7 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
+import styles from "./theme-toggle.module.css";
 
 type Theme = "light" | "dark";
 
@@ -43,11 +44,11 @@ export function ThemeToggle() {
     <button
       aria-label={`Switch to ${nextTheme} mode`}
       aria-pressed={theme === "dark"}
-      className="icon-button theme-toggle"
+      className={styles.button}
       onClick={handleThemeChange}
       type="button"
     >
-      <ThemeIcon className="theme-icon" aria-hidden="true" strokeWidth={2} />
+      <ThemeIcon className={styles.icon} aria-hidden="true" strokeWidth={2} />
     </button>
   );
 }

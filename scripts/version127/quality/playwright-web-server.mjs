@@ -28,9 +28,11 @@ function readEnvFile(file) {
   return values;
 }
 
+const databaseEnvFile = process.env.VERSION127_TEST_DATABASE_ENV ?? ".env.database";
+
 const env = {
   ...process.env,
-  ...readEnvFile(path.join(process.cwd(), ".env.database")),
+  ...readEnvFile(path.join(process.cwd(), databaseEnvFile)),
   VERSION127_TEST_DIST_DIR: ".next-playwright",
 };
 

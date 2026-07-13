@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
+import styles from "./app-shell.module.css";
 
 type AppSidebarProps = {
   children: ReactNode;
@@ -14,7 +15,7 @@ const DRAWER_ID = "app-sidebar-drawer";
 
 /**
  * Desktop: renders the sidebar exactly as before — an in-grid sticky column.
- * Mobile (<=900px, see globals.css): the same content becomes an off-canvas
+ * Mobile (<=900px, see app-shell.module.css): the same content becomes an off-canvas
  * left drawer opened by a sticky hamburger bar, so the main content is what
  * people land on. The trigger bar and backdrop are display:none on desktop, so
  * only the <aside> stays in the grid and desktop layout is untouched.
@@ -58,16 +59,16 @@ export function AppSidebar({ children, label, menuLabel }: AppSidebarProps) {
 
   return (
     <>
-      <div className="app-sidebar-bar">
+      <div className={styles.sidebarBar}>
         <button
           aria-controls={DRAWER_ID}
           aria-expanded={open}
-          className="app-sidebar-toggle"
+          className={styles.toggle}
           onClick={() => setOpen((value) => !value)}
           ref={toggleRef}
           type="button"
         >
-          <span aria-hidden="true" className="app-sidebar-toggle-icon">
+          <span aria-hidden="true" className={styles.toggleIcon}>
             <span />
             <span />
             <span />
@@ -78,19 +79,20 @@ export function AppSidebar({ children, label, menuLabel }: AppSidebarProps) {
 
       <div
         aria-hidden="true"
-        className={`app-sidebar-backdrop${open ? " is-open" : ""}`}
+        className={`${styles.backdrop}${open ? ` ${styles.open}` : ""}`}
         onClick={() => setOpen(false)}
       />
 
       <aside
         aria-label={label}
-        className={`app-sidebar${open ? " is-open" : ""}`}
+        className={`${styles.sidebar}${open ? ` ${styles.open}` : ""}`}
+        data-app-sidebar
         id={DRAWER_ID}
         onClick={handleContentClick}
       >
         <button
           aria-label="Close menu"
-          className="app-sidebar-close"
+          className={styles.close}
           onClick={() => setOpen(false)}
           ref={closeRef}
           type="button"

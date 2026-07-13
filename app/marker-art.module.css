@@ -1,0 +1,42 @@
+.markerArt {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.markerArt figcaption {
+  padding-inline: var(--space-8);
+}
+
+.markerArt svg {
+  margin: 0;
+  max-width: none;
+}
+
+.markerArt :global(.sh-node) {
+  fill: var(--color-surface-muted);
+  stroke: var(--color-border-strong);
+}
+
+.markerArt :global(.sh-node-accent) {
+  fill: var(--color-accent-soft);
+  stroke: var(--color-accent-border-strong);
+}
+
+.markerArt :global(.sh-label) {
+  fill: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--weight-semibold);
+}
+
+.markerArt :global(.sh-sub) {
+  fill: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: 11px;
+}
+
+.markerArt :global(.sh-line) {
+  fill: none;
+  stroke: var(--color-border-strong);
+  stroke-width: 1.5;
+}

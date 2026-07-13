@@ -65,13 +65,14 @@
   --text-xl: 1rem;
   --text-title: 1.05rem;
   --text-heading: 1.45rem;
-  --text-h1: 1.55rem;
+  --text-h1: clamp(2.2rem, 4vw, 3.2rem);
   --text-h2: 1.22rem;
   --text-h3: 1.05rem;
   --text-h4: 0.95rem;
-  --text-prose: 1rem;
-  --text-prose-lg: 1.08rem;
+  --text-prose: 1.0625rem;
+  --text-prose-lg: 1.16rem;
   --line-tight: 1.15;
+  --line-h1: 1.04;
   --line-ui: 1.25;
   --line-normal: 1.4;
   --line-reading: 1.45;
@@ -212,12 +213,7 @@ body {
     color var(--motion-base);
 }
 
-[data-theme="dark"] body,
-[data-theme="dark"] .hero-copy h1,
-[data-theme="dark"] .app-card h3,
-[data-theme="dark"] .nav-links a,
-[data-theme="dark"] .confidence-copy h2,
-[data-theme="dark"] .confidence-point strong {
+[data-theme="dark"] body {
   color: var(--text);
 }
 
@@ -242,6 +238,7 @@ pre,
 samp {
   font-family: var(--font-mono);
 }
+<<<<<<< HEAD
 
 .site-shell {
   width: min(var(--site-max-width), calc(100% - var(--site-gutter)));
@@ -3790,3 +3787,5 @@ samp {
     grid-template-columns: 1fr;
   }
 }
+=======
+>>>>>>> codex/dns-lookup-local

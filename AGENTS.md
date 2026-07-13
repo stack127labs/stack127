@@ -6,9 +6,11 @@ Version127 is a compact technical directory site. It should grow into multiple r
 
 - Keep pages fast, small, and consistent across the site.
 - Keep important page content server-rendered and easy for search crawlers and AI agents to read.
-- Prefer structured facts over long prose.
+- Prefer structured facts when they are clearer than prose, but do not break natural explanations into labels, fragments, or a card for every fact.
 - Use the shared shell, design tokens, typography, spacing, and component patterns before inventing new UI.
+- Follow `version127_docs/css-architecture.md`. Keep `app/globals.css` limited to tokens, reset, and document defaults; colocate page and component styles with their owner.
 - Follow `version127_docs/writing-style.md` for content-heavy pages, summaries, legal copy, reference pages, and public-facing explanations.
+- Treat "simple" as composed, soulful, and easy to follow. Use full sentences, human judgment, and clear visual relationships. Avoid decorative eyebrows, floating helper text, dashboard-style sentence fragments, and oversized caveat panels.
 - Keep dark mode as the default feel.
 - Unknown or `null` is better than fake precision.
 

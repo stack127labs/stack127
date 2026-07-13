@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { AppShell } from "../../app-shell";
+import { getRequiredPublishedPage } from "@/lib/page-registry";
+import { AppShell, SidebarLabel } from "../../app-shell";
+import { proseClassName, proseLedeClassName } from "../../prose";
+import {
+  sidebarPanelClassName,
+  sidebarPanelHeadingClassName,
+} from "../../sidebar-panel";
 import {
   concepts,
   licenseGroups,
@@ -20,11 +26,11 @@ const factRows: { key: keyof LicenseEntry["facts"]; label: string }[] = [
   { key: "notices", label: "Notices" },
 ];
 
-function LicensesSidebar() {
+function LicensesSidebar({ label }: { label: string }) {
   return (
-    <div className="directory-filter-panel license-sidebar-panel">
-      <div className="filter-panel-heading">
-        <h1>Software licenses for self-hosters</h1>
+    <div className={`${sidebarPanelClassName} license-sidebar-panel`}>
+      <div className={sidebarPanelHeadingClassName}>
+        <SidebarLabel>{label}</SidebarLabel>
       </div>
 
       <nav className="license-sidebar-nav" aria-label="License sections">
@@ -115,18 +121,20 @@ function LicenseSection({ license }: { license: LicenseEntry }) {
   );
 }
 
-export default function SoftwareLicensesPage() {
+export default async function SoftwareLicensesPage() {
+  const registryPage = await getRequiredPublishedPage("software-licenses-for-self-hosting");
+
   return (
     <AppShell
       mainLabel={licensePage.title}
       menuLabel="Licenses"
-      sidebar={<LicensesSidebar />}
+      sidebar={<LicensesSidebar label={registryPage.label} />}
       sidebarLabel="Software licenses sidebar"
     >
-      <article className="license-page prose">
+      <article className={`license-page ${proseClassName}`}>
         <header className="license-page-header">
           <h1>{licensePage.title}</h1>
-          <p className="info-lede">{licensePage.lede}</p>
+          <p className={proseLedeClassName}>{licensePage.lede}</p>
           <p className="license-disclaimer">{licensePage.notLegalAdvice}</p>
           <p>
             Use the sidebar to jump straight to a license label you already saw. The two short

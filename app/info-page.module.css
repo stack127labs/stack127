@@ -1,0 +1,51 @@
+.sidebarPanel {
+  align-content: start;
+  gap: var(--space-8);
+}
+
+.sidebarLinks {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.sidebarLinks a,
+.contact a {
+  color: var(--color-text);
+  font-size: var(--text-md);
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.sidebarLinks a:hover,
+.contact a:hover {
+  color: var(--color-link);
+}
+
+.contact {
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  display: grid;
+  font-size: var(--text-xs);
+  gap: var(--space-3);
+  margin: 0;
+  padding-top: var(--space-7);
+  text-transform: lowercase;
+}
+
+.page {
+  display: grid;
+  gap: var(--space-12);
+  max-width: var(--measure-prose);
+  padding: var(--space-12) clamp(24px, 5vw, 72px) 72px;
+}
+
+.page section {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.updated {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: lowercase;
+}

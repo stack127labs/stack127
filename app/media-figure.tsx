@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
+import styles from "./media-figure.module.css";
 
 type MediaFigureBase = {
   caption?: ReactNode;
@@ -26,8 +27,8 @@ export type MediaFigureProps = ImageMediaFigureProps | DiagramMediaFigureProps;
 
 export function MediaFigure(props: MediaFigureProps) {
   const className = [
-    "media-figure",
-    props.kind === "image" ? "media-figure-image" : "media-figure-diagram",
+    styles.figure,
+    props.kind === "image" ? styles.image : styles.diagram,
     props.className,
   ]
     .filter(Boolean)

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { cache } from "react";
 import { getPool } from "./db";
 import { absoluteUrl, siteName, siteUrl } from "./seo";
@@ -18,7 +19,7 @@ export type Version127Page = {
   sitemap_priority: number | string;
 };
 
-export { isHomeFeaturePage, isMainPageSlug } from "./page-registry-helpers";
+export { isHomeFeaturePage, isHomeVisiblePage, isMainPageSlug } from "./page-registry-helpers";
 
 export type PagePublicationState =
   | {
@@ -92,6 +93,16 @@ export const getPublishedPage = cache(async (slug: string) => {
   );
 
   return result.rows[0] ?? null;
+});
+
+export const getRequiredPublishedPage = cache(async (slug: string) => {
+  const page = await getPublishedPage(slug);
+
+  if (!page) {
+    notFound();
+  }
+
+  return page;
 });
 
 export const getPagePublicationState = cache(

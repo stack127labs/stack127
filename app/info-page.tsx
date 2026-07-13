@@ -1,9 +1,17 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { AppShell } from "./app-shell";
+import { getRequiredPublishedPage } from "@/lib/page-registry";
+import { AppShell, SidebarLabel } from "./app-shell";
+import { proseClassName } from "./prose";
+import styles from "./info-page.module.css";
+import {
+  sidebarPanelClassName,
+  sidebarPanelHeadingClassName,
+} from "./sidebar-panel";
 
 type InfoPageProps = {
   children: ReactNode;
+  slug: string;
   title: string;
 };
 
@@ -15,38 +23,42 @@ const links = [
   { href: "/software-licenses-for-self-hosting", label: "software licenses" },
 ];
 
-function InfoSidebar({ title }: { title: string }) {
+function InfoSidebar({ label }: { label: string }) {
   return (
-    <div className="directory-filter-panel info-sidebar-panel">
-      <div className="filter-panel-heading">
-        <p className="filter-panel-title">{title}</p>
+    <div className={`${sidebarPanelClassName} ${styles.sidebarPanel}`}>
+      <div className={sidebarPanelHeadingClassName}>
+        <SidebarLabel>{label}</SidebarLabel>
       </div>
-      <nav className="info-sidebar-links" aria-label="Info pages">
+      <nav className={styles.sidebarLinks} aria-label="Info pages">
         {links.map((link) => (
           <Link href={link.href} key={link.href}>
             {link.label}
           </Link>
         ))}
       </nav>
-      <p className="info-contact">
+      <p className={styles.contact}>
         <a href="mailto:version127@proton.me">version127@proton.me</a>
       </p>
     </div>
   );
 }
 
-export function InfoPage({ children, title }: InfoPageProps) {
+export async function InfoPage({ children, slug, title }: InfoPageProps) {
+  const registryPage = await getRequiredPublishedPage(slug);
+
   return (
     <AppShell
       mainLabel={title}
       menuLabel="Pages"
-      sidebar={<InfoSidebar title={title} />}
+      sidebar={<InfoSidebar label={registryPage.label} />}
       sidebarLabel={`${title} sidebar`}
     >
-      <article className="info-page prose">
+      <article className={`${styles.page} ${proseClassName}`}>
         <h1>{title}</h1>
         {children}
       </article>
     </AppShell>
   );
 }
+
+export const infoUpdatedClassName = styles.updated;
