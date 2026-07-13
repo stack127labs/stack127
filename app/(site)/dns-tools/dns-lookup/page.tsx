@@ -62,7 +62,7 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
               </div>
               <figcaption>Here, <code>www.example.com</code> is an alias. The A record belongs to <code>edge.example.net</code>, so that owner name stays attached to the address in the result.</figcaption>
             </figure>
-            <p>Resolver TTL shows how much cache time a public resolver reported when the lookup ran. A result of 300 seconds means about five minutes remained at that moment. It may be lower than the TTL configured by the domain owner because part of the cache lifetime has already passed. A direct nameserver answer shows Authoritative TTL instead.</p>
+            <p>Resolver TTL is how much cache time a public resolver reported at the moment you looked. TTL, or time to live, is roughly how long a resolver is allowed to reuse an answer before checking again. So 300 seconds means about five minutes were left when the lookup ran. This number is often lower than the TTL the domain owner set, because part of that time has already ticked away. When you ask a nameserver directly, you see Authoritative TTL instead.</p>
           </section>
 
           <section id="record-types">

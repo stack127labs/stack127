@@ -379,15 +379,15 @@
 
 .dns-site-favicon {
   border-radius: var(--radius-sm);
-  display: none;
   flex: 0 0 32px;
   height: 32px;
   object-fit: contain;
+  opacity: 0;
   width: 32px;
 }
 
 .dns-site-favicon-loaded {
-  display: block;
+  opacity: 1;
 }
 
 .dns-results-meta {

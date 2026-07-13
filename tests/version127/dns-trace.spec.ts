@@ -122,9 +122,9 @@ test("DNS Trace Explorer renders a genuine root-to-answer path in simple languag
   await expect(page.locator('[data-trace-step="tld"]')).toContainText(".com nameserver pointed us");
   await expect(page.locator('[data-trace-step="authoritative"]')).toContainText("returned the A record");
   await expect(page.getByText("93.184.216.34", { exact: true })).toBeVisible();
-  await expect(page.getByText("Glue from this referral", { exact: true })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Copy trace" })).toHaveCount(1);
   const rootStep = page.locator('[data-trace-step="root"]');
+  await expect(rootStep.getByText("Glue from this referral", { exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Copy trace" })).toHaveCount(1);
   await expect(rootStep.getByRole("button", { name: "Show all 5 nameservers" })).toBeVisible();
   await expect(rootStep.getByText("e.gtld-servers.net", { exact: true })).toHaveCount(0);
   await rootStep.getByRole("button", { name: "Show all 5 nameservers" }).click();

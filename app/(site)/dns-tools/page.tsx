@@ -14,8 +14,10 @@ export default function DnsToolsPage() {
         <header className="dns-page-header">
           <h1>DNS tools</h1>
           <p>
-            Look up records, follow a query from the root, compare caches with authoritative DNS,
-            and check the parts that make delegation, DNSSEC, SOA, and CAA work.
+            A small set of tools for seeing what your domain is really doing in DNS. Look up
+            records, follow a lookup from the root servers down to the final answer, compare what
+            public resolvers still have cached against the real source, and check the quieter
+            pieces that break email, certificates, and websites when they go wrong.
           </p>
         </header>
 
@@ -36,10 +38,10 @@ export default function DnsToolsPage() {
             <span aria-hidden="true">→</span>
           </Link>
           <Link className="dns-tool-card" href="/dns-tools/dns-change-checker">
-            <span><strong>DNS Change Checker</strong><small>Compare authoritative records with the answers held by public resolver caches.</small></span><span aria-hidden="true">→</span>
+            <span><strong>DNS Change Checker</strong><small>See if a DNS change is live at the source and which resolvers still show the old answer.</small></span><span aria-hidden="true">→</span>
           </Link>
           <Link className="dns-tool-card" href="/dns-tools/nameserver-checker">
-            <span><strong>Nameserver Delegation Checker</strong><small>Compare parent and child NS records, glue, reachability, and authority.</small></span><span aria-hidden="true">→</span>
+            <span><strong>Nameserver Delegation Checker</strong><small>Check that the handoff to your nameservers lines up and that each one answers.</small></span><span aria-hidden="true">→</span>
           </Link>
           <Link className="dns-tool-card" href="/dns-tools/dnssec-checker">
             <span><strong>DNSSEC Chain Checker</strong><small>Validate the signed chain from the DNS root to the answer you requested.</small></span><span aria-hidden="true">→</span>

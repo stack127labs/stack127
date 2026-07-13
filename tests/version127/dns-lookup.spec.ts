@@ -115,21 +115,11 @@ const fixture = {
   warnings: [],
 };
 
-test.beforeEach(async ({ page }) => {
-  await page.route("https://www.example.com/favicon.ico", async (route) => {
-    await route.fulfill({
-      body: Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=", "base64"),
-      contentType: "image/png",
-      status: 200,
-    });
-  });
-});
-
 test("DNS tools hub shows only tools that are available", async ({ page }) => {
   await page.goto("/dns-tools");
 
   await expect(page.getByRole("heading", { name: "Available now" })).toBeVisible();
-  await expect(page.getByRole("link", { name: /DNS lookup/ })).toBeVisible();
+  await expect(page.locator('[data-app-main] a[href="/dns-tools/dns-lookup"]')).toBeVisible();
   await expect(page.getByRole("heading", { name: "Planned next" })).toHaveCount(0);
 });
 
@@ -182,7 +172,7 @@ test("DNS Lookup renders corrected TTL, alias, owner, DNSSEC summary, and per-re
   await expect(page.locator("#how-to-check")).toContainText("compare it with the records in your DNS provider");
   await expect(page.locator(".dns-result-guide")).toHaveCount(0);
   await expect(page.locator("#read-results .dns-answer-path")).toBeVisible();
-  await expect(page.locator("#read-results")).toContainText("Resolver TTL shows how much cache time");
+  await expect(page.locator("#read-results")).toContainText("Resolver TTL is how much cache time");
   await expect(page.locator(".dns-use-case-table tbody tr")).toHaveCount(7);
   await expect(page.locator("#record-types")).toContainText("Not sure where to start? Leave All selected");
   await expect(page.locator("#use-cases")).toContainText("This tool is handy when something should be working or should have changed");
@@ -192,8 +182,6 @@ test("DNS Lookup renders corrected TTL, alias, owner, DNSSEC summary, and per-re
   await page.getByLabel("DNS name").fill("www.example.com");
   await page.getByRole("button", { name: "Look up DNS" }).click();
 
-  await expect(page.locator(".dns-site-favicon")).toBeVisible();
-  await expect(page.locator(".dns-site-favicon")).toHaveAttribute("src", "https://www.example.com/favicon.ico");
   await expect(page.locator(".dns-alias-summary")).toContainText("www.example.com points to edge.example.net");
   await expect(page.locator('[data-record-type="A"] .dns-record-owner')).toContainText("Records for edge.example.net");
   await expect(page.locator(".dns-record-group > .dns-record-group-heading h2")).toHaveText(["A", "AAAA", "MX"]);
@@ -211,8 +199,8 @@ test("DNS Lookup renders corrected TTL, alias, owner, DNSSEC summary, and per-re
   await expect(page.locator(".dns-record-fields")).toContainText("mail.example.net");
   await expect(page.getByText("300 seconds, about 5 minutes remaining").first()).toBeVisible();
   await expect(page.getByLabel("About Resolver TTL").first()).toHaveAttribute("title", /remaining cache lifetime/i);
-  await expect(page.locator('[data-record-type="A"]')).toContainText("Example Network");
-  await expect(page.locator('[data-record-type="A"]')).toContainText("AS64500");
+  await expect(page.locator('section[data-record-type="A"]')).toContainText("Example Network");
+  await expect(page.locator('section[data-record-type="A"]')).toContainText("AS64500");
   await expect(page.getByText(/Cloudflare returned records for/)).toHaveCount(0);
   await expect(page.getByText(/Cloudflare authenticated this answer with DNSSEC/)).toBeVisible();
   await expect(page.getByRole("button", { name: "Copy lookup link" })).toHaveCount(0);
@@ -258,9 +246,10 @@ test("CAA keeps issuewild policies visible and long results have one Expand all 
   await page.getByRole("button", { name: "Look up DNS" }).click();
 
   await expect(page.locator('[data-record-type="CAA"] .dns-record-item')).toHaveCount(11);
-  await expect(page.locator('[data-record-type="CAA"]')).toContainText("issuewild");
-  await expect(page.locator('[data-record-type="CAA"]')).toContainText("6 issue");
-  await expect(page.locator('[data-record-type="CAA"] .dns-show-more')).toHaveCount(0);
+  const caaGroup = page.locator('section[data-record-type="CAA"]');
+  await expect(caaGroup).toContainText("issuewild");
+  await expect(caaGroup).toContainText("6 issue");
+  await expect(caaGroup.locator(".dns-show-more")).toHaveCount(0);
   await expect(page.locator('[data-record-type="TXT"] .dns-record-item')).toHaveCount(5);
   await page.getByRole("button", { name: "Expand all records" }).click();
   await expect(page.locator('[data-record-type="TXT"] .dns-record-item')).toHaveCount(7);
@@ -276,9 +265,6 @@ test("DNS Lookup omits the favicon when the website has no usable icon", async (
       normalizedName: "missing.example",
     },
   };
-  await page.route("https://missing.example/favicon.ico", async (route) => {
-    await route.fulfill({ status: 404 });
-  });
   await page.route("**/api/dns/lookup", async (route) => {
     await route.fulfill({ contentType: "application/json", json: missingFaviconFixture, status: 200 });
   });
@@ -288,6 +274,33 @@ test("DNS Lookup omits the favicon when the website has no usable icon", async (
   await page.getByRole("button", { name: "Look up DNS" }).click();
 
   await expect(page.locator(".dns-site-favicon")).toHaveCount(0);
+});
+
+test("DNS Lookup shows a favicon when the website provides one", async ({ page }) => {
+  const faviconFixture = {
+    ...fixture,
+    query: {
+      ...fixture.query,
+      originalInput: "example.com",
+      normalizedName: "example.com",
+    },
+  };
+  await page.route("https://example.com/favicon.ico", async (route) => {
+    await route.fulfill({
+      body: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><rect width="32" height="32" fill="#2563eb"/></svg>',
+      contentType: "image/svg+xml",
+      status: 200,
+    });
+  });
+  await page.route("**/api/dns/lookup", async (route) => {
+    await route.fulfill({ contentType: "application/json", json: faviconFixture, status: 200 });
+  });
+
+  await page.goto("/dns-tools/dns-lookup");
+  await page.getByLabel("DNS name").fill("example.com");
+  await page.getByRole("button", { name: "Look up DNS" }).click();
+
+  await expect(page.locator('img.dns-site-favicon[src="https://example.com/favicon.ico"]')).toBeVisible();
 });
 
 test("query-param lookup states remain noindex and canonicalize to the clean tool URL", async ({ page }) => {
