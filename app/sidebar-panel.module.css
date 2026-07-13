@@ -13,14 +13,6 @@
   padding-bottom: var(--space-8);
 }
 
-.heading p {
-  color: var(--color-text-muted);
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-regular);
-  margin: 0;
-}
-
 .title {
   color: var(--color-text);
   font-size: var(--text-heading);

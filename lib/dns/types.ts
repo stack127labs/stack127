@@ -1,4 +1,4 @@
-export const dnsRecordTypes = [
+export const dnsForwardRecordTypes = [
   "A",
   "AAAA",
   "CNAME",
@@ -12,9 +12,22 @@ export const dnsRecordTypes = [
   "DNSKEY",
 ] as const;
 
+export const dnsRecordTypes = [...dnsForwardRecordTypes, "PTR"] as const;
+
 export type DnsRecordType = (typeof dnsRecordTypes)[number];
-export type DnsSelection = "common" | DnsRecordType;
-export type DnsResolver = "cloudflare" | "google";
+export type DnsSelection = "all" | DnsRecordType;
+export const dnsResolvers = [
+  "cloudflare",
+  "google",
+  "quad9",
+  "opendns",
+  "adguard",
+  "controld",
+  "yandex",
+  "authoritative",
+] as const;
+
+export type DnsResolver = (typeof dnsResolvers)[number];
 
 export type DnsFlags = {
   authenticatedData: boolean | null;
@@ -28,6 +41,19 @@ export type DnsAliasEdge = {
   from: string;
   to: string;
   resolverTtlSeconds: number | null;
+};
+
+export type DnsAddressDetail = {
+  address: string;
+  asn: number | null;
+  networkName: string | null;
+  prefix: string | null;
+  countryCode: string | null;
+};
+
+export type DnsNameserverAddress = {
+  nameserver: string;
+  addresses: string[];
 };
 
 export type NormalizedDnsRecord = {
@@ -103,6 +129,7 @@ export type DnsLookupResponse = {
   query: {
     originalInput: string;
     normalizedName: string;
+    dnsQuestionName: string;
     selection: DnsSelection;
     resolver: DnsResolver;
     dnssecRecordsRequested: false;
@@ -112,6 +139,8 @@ export type DnsLookupResponse = {
   durationMs: number;
   aliasChain: DnsAliasEdge[];
   aliasObservations: DnsAliasObservation[];
+  addressDetails: DnsAddressDetail[];
+  nameserverAddresses: DnsNameserverAddress[];
   queryResults: DnsQueryResult[];
   warnings: DnsWarning[];
 };

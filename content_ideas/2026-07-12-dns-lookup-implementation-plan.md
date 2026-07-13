@@ -1,7 +1,7 @@
 # DNS Lookup Implementation Plan
 
 Date: 2026-07-12
-Status: implemented, published, and live-verified on 2026-07-12
+Status: implemented locally; not approved for production
 Parent backlog: `content_ideas/2026-07-11-dns-tools-suite.md`
 
 ## Scope
@@ -15,7 +15,7 @@ The lookup answers one question:
 The tool will:
 
 - query Cloudflare or Google Public DNS through a Version127 server endpoint
-- support one selected record type or a defined Common records bundle
+- support one selected record type or an All bundle covering every record type offered by the tool
 - show readable records and complete per-query technical responses
 - preserve record owner names, resolver-reported TTLs, response codes, nullable flags, aliases, authority data, additional data, comments, and query timing
 - explain what the selected resolver reported without claiming configuration correctness
@@ -141,11 +141,11 @@ Normalization and validation:
 
 ### Record selection
 
-Default: `Common records`
+Default: `All`
 
 Launch options:
 
-- Common records
+- All
 - A
 - AAAA
 - CNAME
@@ -158,7 +158,7 @@ Launch options:
 - DS
 - DNSKEY
 
-Common records expands to separate A, AAAA, CNAME, MX, NS, TXT, CAA, and SOA queries. It does not send `ANY`.
+All expands to separate A, AAAA, CNAME, MX, NS, TXT, CAA, SOA, SRV, DS, and DNSKEY queries. It covers every record type offered in the picker and does not send `ANY`.
 
 PTR is excluded because it expects an IP address and belongs in the future Reverse DNS tool.
 
@@ -231,7 +231,7 @@ If the provider omits TTL or supplies an invalid TTL, normalize it to `null` and
 
 ## CNAME and Alias Handling
 
-Recursive responses may contain CNAME edges followed by terminal records belonging to the canonical target. Common records sends several separate queries, so the same CNAME edge may appear in several provider responses.
+Recursive responses may contain CNAME edges followed by terminal records belonging to the canonical target. All sends several separate queries, so the same CNAME edge may appear in several provider responses.
 
 ### Required alias type
 
@@ -251,7 +251,7 @@ aliasChain: DnsAliasEdge[];
 
 Each per-query result also retains the alias edges observed in that specific provider response. This is required for inconsistency detection and technical inspection.
 
-### Common bundle behavior
+### All bundle behavior
 
 For every individual provider response:
 
@@ -286,7 +286,7 @@ If separate queries return inconsistent alias chains:
 
 ### Explicit CNAME lookup
 
-An explicit CNAME lookup must show the alias itself as the requested result. It must not hide the result only because the same edge would normally be moved into the Common bundle alias summary.
+An explicit CNAME lookup must show the alias itself as the requested result. It must not hide the result only because the same edge would normally be moved into the All bundle alias summary.
 
 ### Loop and depth protection
 
@@ -453,12 +453,12 @@ Endpoint:
 POST /api/dns/lookup
 ```
 
-Common request:
+All request:
 
 ```json
 {
   "name": "www.example.com",
-  "selection": "common",
+  "selection": "all",
   "resolver": "cloudflare"
 }
 ```
@@ -491,7 +491,7 @@ HTTP and DNS errors remain separate:
 - upstream HTTP status describes transport or provider API handling
 - DNS response code describes the DNS query outcome
 - a provider HTTP 200 can contain a DNS failure
-- one failed Common bundle query does not erase successful query results
+- one failed All bundle query does not erase successful query results
 
 ## Result Rendering
 
@@ -512,7 +512,7 @@ Do not count alias edges as terminal records.
 
 ### Alias summary
 
-For a compatible Common bundle alias chain, show one alias summary above record groups.
+For a compatible All bundle alias chain, show one alias summary above record groups.
 
 Example:
 
@@ -562,25 +562,21 @@ Type-specific fields:
 - DS: key tag, algorithm, digest type, and digest
 - DNSKEY: flags, protocol, algorithm, and expandable key
 
-Long values are visually collapsed with explicit expand and copy controls. They remain complete in the DOM when expanded and in Technical details.
+Long values are visually collapsed with explicit expand and copy controls. They remain complete in the per-query raw response.
 
-### Technical details
+### Raw responses
 
-Technical details are separated per query type. Each section contains:
+Each result section keeps the complete response returned for that query type. Depending on what the provider reports, the raw response may contain:
 
-- requested name and type
-- resolver
-- response code and number
-- every nullable flag rendered as Yes, No, or Not reported
-- question information when reported
-- normalized answers
-- normalized authority records or Not reported
-- normalized additional records or Not reported
-- comments or Not reported
-- alias edges extracted from that response
-- complete raw provider response
+- response code and resolver flags in the provider's original shape
+- question and answer sections
+- authority and additional records
+- provider comments
+- any other fields returned for that individual query
 
-The raw view must make it possible to audit why two Common bundle queries produced different alias observations.
+The readable result still shows the selected resolver, terminal records, owner names, Resolver TTL, aliases, response states, warnings, and DNSSEC summary. The raw response keeps the remaining provider detail available without repeating it in a second summary at the bottom.
+
+The raw view must make it possible to audit why two All bundle queries produced different alias observations.
 
 ## Status and Error Rendering
 
@@ -595,7 +591,7 @@ Required distinctions:
 - provider HTTP error
 - provider rate limit
 - invalid provider field
-- partial Common bundle success
+- partial All bundle success
 - inconsistent aliases
 - alias loop
 - excessive alias depth
@@ -633,7 +629,7 @@ Client-rendered behavior:
 - result rendering
 - alias-chain rendering
 - inconsistent-chain warnings
-- per-query Technical details
+- per-query raw responses
 - copy actions
 - raw response expansion
 - share URL generation
@@ -646,7 +642,7 @@ Dynamic user-requested DNS results are not SEO content and should load from the 
 1. Receive same-origin POST request.
 2. Validate request body and resolver enum.
 3. Normalize the DNS name.
-4. Expand Common records to an allowlisted query set.
+4. Expand All to the full allowlisted set offered by the tool.
 5. Apply weighted rate limiting and request limits.
 6. Send separate provider queries with `do=false` and `cd=false`.
 7. Enforce per-query and whole-request deadlines.
@@ -667,13 +663,13 @@ Dynamic user-requested DNS results are not SEO content and should load from the 
 - no user-supplied upstream URL
 - no HTTP request to resolved addresses
 - no permissive CORS or public API promise
-- maximum 8 provider queries for Common records
+- maximum 11 provider queries for All
 - maximum normalized alias depth of 16
 - bounded response size
 - bounded parallelism
 - per-query timeout around 3 seconds
 - whole-request deadline around 5 seconds
-- weighted rate limiting because Common records creates several upstream queries
+- weighted rate limiting because All creates several upstream queries
 - no database lookup history
 - no queried names or raw DNS values in analytics events
 - share links disclose the query name in the URL and must say so
@@ -709,7 +705,7 @@ Required server-rendered sections:
 Required content points:
 
 - the query uses the selected recursive resolver
-- Common records means a defined set of separate queries, not `ANY`
+- All means every record type offered by this tool, sent as separate queries rather than `ANY`
 - Resolver TTL is usually remaining resolver cache lifetime
 - terminal records can belong to a CNAME target
 - owner names are preserved
@@ -784,7 +780,7 @@ Tests are written before or alongside implementation. Required quality tests mus
 - extracts CNAME edges from every query response
 - deduplicates identical edges across A, AAAA, and other responses
 - orders a compatible multi-edge chain
-- displays the chain once above Common record groups
+- displays the chain once above All record groups
 - preserves each terminal record's actual owner name
 - excludes CNAME edges from A, AAAA, MX, TXT, and other terminal counts
 - explicit CNAME lookup displays the CNAME as the requested result
@@ -833,7 +829,7 @@ The parser must specifically prove that missing flags never become false through
 - quick examples are exactly `example.com`, `www.example.com`, and `mail.example.com`
 - `_dmarc.example.com` remains accepted
 - TXT result does not claim DMARC validation
-- Common records creates the exact allowlisted queries
+- All creates the exact 11 allowlisted queries
 - no `ANY` option exists
 - no thin record-type routes are added
 - no global propagation claim appears
@@ -842,7 +838,7 @@ The parser must specifically prove that missing flags never become false through
 
 ### API and provider tests
 
-- valid Common request
+- valid All request
 - valid explicit CNAME request
 - invalid resolver
 - invalid record selection
@@ -885,7 +881,7 @@ The parser must specifically prove that missing flags never become false through
 12. Build the client form and corrected quick examples.
 13. Build alias-first result rendering and terminal record groups.
 14. Build Resolver TTL and nullable flag rendering.
-15. Build per-query Technical details and raw views.
+15. Build per-query raw views beside the records they belong to.
 16. Add browser and API tests.
 17. Run `npm run test` while routes remain unpublished.
 18. Manually verify live provider responses without making the quality gate depend on them.
@@ -914,13 +910,8 @@ The tool is not complete until:
 - `npm run quality` passes before public handoff
 - production registry and live SEO behavior are verified after publication
 
-## Release Verification
+## Local Verification
 
-- release commit: `f96a15d`
-- production migration: `20260712000000_publish_dns_tools`
-- `npm run quality`: passed
-- deterministic tests: 26 passed
-- Playwright: 61 passed, 3 intentionally skipped duplicate mobile request-level checks
-- production routes: `/dns-tools` and `/dns-tools/dns-lookup` return 200
-- production API: Cloudflare Common and Google explicit CNAME lookups verified
-- SEO: clean routes are indexable and in the sitemap; query variants are `noindex, follow` with the clean canonical
+- keep the route and API local until the user explicitly approves production work
+- run the deterministic test suite after changing the query bundle, API contract, or rendering
+- verify the local page and both resolvers without changing the production publication registry

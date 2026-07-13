@@ -23,6 +23,34 @@
         "tests/version127/dns-lookup.test.mjs"
       ]
     },
+    "/dns-tools/dns-trace": {
+      "state": "published",
+      "tests": [
+        "tests/version127/seo.spec.ts",
+        "tests/version127/dns-trace.spec.ts",
+        "tests/version127/dns-trace.test.mjs"
+      ]
+    },
+    "/dns-tools/dns-change-checker": {
+      "state": "published",
+      "tests": ["tests/version127/seo.spec.ts", "tests/version127/dns-diagnostics.spec.ts", "tests/version127/dns-diagnostics.test.mjs"]
+    },
+    "/dns-tools/nameserver-checker": {
+      "state": "published",
+      "tests": ["tests/version127/seo.spec.ts", "tests/version127/dns-diagnostics.spec.ts", "tests/version127/dns-diagnostics.test.mjs"]
+    },
+    "/dns-tools/dnssec-checker": {
+      "state": "published",
+      "tests": ["tests/version127/seo.spec.ts", "tests/version127/dns-diagnostics.spec.ts", "tests/version127/dns-diagnostics.test.mjs"]
+    },
+    "/dns-tools/soa-checker": {
+      "state": "published",
+      "tests": ["tests/version127/seo.spec.ts", "tests/version127/dns-diagnostics.spec.ts", "tests/version127/dns-diagnostics.test.mjs"]
+    },
+    "/dns-tools/caa-checker": {
+      "state": "published",
+      "tests": ["tests/version127/seo.spec.ts", "tests/version127/dns-diagnostics.spec.ts", "tests/version127/dns-diagnostics.test.mjs"]
+    },
     "/privacy": {
       "state": "published",
       "tests": ["tests/version127/seo.spec.ts"]

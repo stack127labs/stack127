@@ -83,6 +83,7 @@ export function recordFields(record: NormalizedDnsRecord): RecordField[] {
   if (record.type === "TXT") return [{ label: "Text", value: unquoteTxt(record.value) }];
   if (record.type === "CNAME") return [{ label: "Alias target", value: canonicalDnsName(record.value) }];
   if (record.type === "NS") return [{ label: "Nameserver", value: canonicalDnsName(record.value) }];
+  if (record.type === "PTR") return [{ label: "Hostname", value: canonicalDnsName(record.value) }];
   if (record.type === "A") return [{ label: "IPv4 address", value: record.value }];
   if (record.type === "AAAA") return [{ label: "IPv6 address", value: record.value }];
   return [{ label: "Value", value: record.value }];
@@ -98,4 +99,16 @@ export function formatResolverTtl(value: number | null) {
   if (hours < 48) return `${seconds}, about ${hours} ${hours === 1 ? "hour" : "hours"} remaining`;
   const days = Math.max(1, Math.round(value / 86400));
   return `${seconds}, about ${days} ${days === 1 ? "day" : "days"} remaining`;
+}
+
+export function formatAuthoritativeTtl(value: number | null) {
+  if (value === null) return "Not reported";
+  const seconds = `${value.toLocaleString("en-US")} ${value === 1 ? "second" : "seconds"}`;
+  if (value < 60) return seconds;
+  const minutes = Math.max(1, Math.round(value / 60));
+  if (minutes < 60) return `${seconds}, about ${minutes} ${minutes === 1 ? "minute" : "minutes"}`;
+  const hours = Math.max(1, Math.round(value / 3600));
+  if (hours < 48) return `${seconds}, about ${hours} ${hours === 1 ? "hour" : "hours"}`;
+  const days = Math.max(1, Math.round(value / 86400));
+  return `${seconds}, about ${days} ${days === 1 ? "day" : "days"}`;
 }

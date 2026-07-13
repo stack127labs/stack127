@@ -1,6 +1,10 @@
 import { buildUnifiedAliasChain } from "./alias-chain.ts";
-import { normalizeDnsInput } from "./normalize-name.ts";
+import { discoverAuthoritativeTarget, queryAuthoritative, type AuthoritativeTarget } from "./authoritative.ts";
+import { queryPublicResolver } from "./doh.ts";
+import { enrichDnsResults } from "./network-enrichment.ts";
+import { normalizeDnsInput, reverseDnsName } from "./normalize-name.ts";
 import { normalizeProviderResponse } from "./normalize-provider-response.ts";
+import { isDnsResolver, resolverLabel } from "./resolvers.ts";
 import type {
   DnsFlags,
   DnsLookupRequest,
@@ -11,18 +15,9 @@ import type {
   DnsSelection,
   DnsWarning,
 } from "./types.ts";
-import { dnsRecordTypes } from "./types.ts";
+import { dnsForwardRecordTypes, dnsRecordTypes } from "./types.ts";
 
-export const COMMON_RECORD_TYPES: DnsRecordType[] = [
-  "A",
-  "AAAA",
-  "CNAME",
-  "MX",
-  "NS",
-  "TXT",
-  "CAA",
-  "SOA",
-];
+export const ALL_RECORD_TYPES: DnsRecordType[] = [...dnsForwardRecordTypes];
 
 type LookupOptions = {
   fetchImpl?: typeof fetch;
@@ -38,32 +33,13 @@ const emptyFlags: DnsFlags = {
   truncated: null,
 };
 
-export function isDnsResolver(value: unknown): value is DnsResolver {
-  return value === "cloudflare" || value === "google";
-}
+export { isDnsResolver, resolverLabel } from "./resolvers.ts";
 
 export function normalizeSelection(value: unknown): DnsSelection {
-  if (value === "common") return "common";
+  if (value === "all" || value === "common") return "all";
   const upper = typeof value === "string" ? value.toUpperCase() : "";
   if (dnsRecordTypes.includes(upper as DnsRecordType)) return upper as DnsRecordType;
   throw new Error("Choose a supported DNS record type.");
-}
-
-export function resolverLabel(resolver: DnsResolver) {
-  return resolver === "cloudflare" ? "Cloudflare" : "Google Public DNS";
-}
-
-function providerUrl(resolver: DnsResolver, name: string, type: DnsRecordType) {
-  const url = new URL(
-    resolver === "cloudflare"
-      ? "https://cloudflare-dns.com/dns-query"
-      : "https://dns.google/resolve",
-  );
-  url.searchParams.set("name", name);
-  url.searchParams.set("type", type);
-  url.searchParams.set("do", "false");
-  url.searchParams.set("cd", "false");
-  return url;
 }
 
 function failedResult(name: string, type: string, outcome: "provider_error" | "timeout", code: string, message: string, rawResponse: unknown): DnsQueryResult {
@@ -92,40 +68,26 @@ async function fetchOne(
   resolver: DnsResolver,
   cnameAsTerminal: boolean,
   options: LookupOptions,
+  authoritativeTarget?: Promise<AuthoritativeTarget>,
 ) {
-  const fetchImpl = options.fetchImpl ?? fetch;
   const timeoutController = new AbortController();
-  const timeout = setTimeout(() => timeoutController.abort(), options.timeoutMs ?? 3000);
+  const timeout = setTimeout(
+    () => timeoutController.abort(),
+    resolver === "authoritative" ? (options.timeoutMs ?? 3000) * 4 : options.timeoutMs ?? 3000,
+  );
   const onParentAbort = () => timeoutController.abort();
   options.signal?.addEventListener("abort", onParentAbort, { once: true });
 
   try {
-    const response = await fetchImpl(providerUrl(resolver, name, type), {
-      headers: { accept: "application/dns-json" },
-      redirect: "error",
-      signal: timeoutController.signal,
-    });
-    const contentType = response.headers.get("content-type") ?? "";
-    const contentLength = Number(response.headers.get("content-length") ?? 0);
-    if (Number.isFinite(contentLength) && contentLength > 262_144) {
-      return failedResult(name, type, "provider_error", "provider_response_too_large", `${resolverLabel(resolver)} returned an oversized response.`, null);
-    }
-    const responseText = await response.text();
-    if (responseText.length > 262_144) {
-      return failedResult(name, type, "provider_error", "provider_response_too_large", `${resolverLabel(resolver)} returned an oversized response.`, null);
-    }
-    let rawResponse: unknown = { body: responseText.slice(0, 16_384) };
-    if (contentType.includes("json")) {
-      try {
-        rawResponse = JSON.parse(responseText);
-      } catch {
-        return failedResult(name, type, "provider_error", "provider_invalid_json", `${resolverLabel(resolver)} returned invalid JSON.`, rawResponse);
-      }
-    }
-    if (!response.ok) {
-      const code = response.status === 429 ? "provider_rate_limited" : "provider_http_error";
-      return failedResult(name, type, "provider_error", code, `${resolverLabel(resolver)} returned HTTP ${response.status}.`, rawResponse);
-    }
+    const rawResponse = resolver === "authoritative"
+      ? await queryAuthoritative(name, type, await (authoritativeTarget as Promise<AuthoritativeTarget>), {
+        signal: timeoutController.signal,
+        timeoutMs: options.timeoutMs,
+      })
+      : await queryPublicResolver(name, type, resolver, {
+        fetchImpl: options.fetchImpl,
+        signal: timeoutController.signal,
+      });
     return normalizeProviderResponse({
       provider: resolver,
       requestedName: name,
@@ -135,14 +97,27 @@ async function fetchOne(
     });
   } catch (error) {
     const timedOut = timeoutController.signal.aborted;
+    const status = error && typeof error === "object" && "status" in error ? Number(error.status) : null;
+    const tooLarge = error instanceof Error && error.message.includes("oversized");
+    const unavailableMessage = error instanceof Error && error.message
+      ? error.message
+      : `${resolverLabel(resolver)} could not be reached.`;
     return failedResult(
       name,
       type,
       timedOut ? "timeout" : "provider_error",
-      timedOut ? "provider_timeout" : "provider_unavailable",
+      timedOut
+        ? "provider_timeout"
+        : status === 429
+          ? "provider_rate_limited"
+          : tooLarge
+            ? "provider_response_too_large"
+            : status
+              ? "provider_http_error"
+              : "provider_unavailable",
       timedOut
         ? `${resolverLabel(resolver)} did not answer within the lookup timeout.`
-        : `${resolverLabel(resolver)} could not be reached.`,
+        : unavailableMessage,
       error instanceof Error ? { name: error.name, message: error.message } : null,
     );
   } finally {
@@ -155,24 +130,53 @@ export async function lookupDns(
   request: DnsLookupRequest,
   options: LookupOptions = {},
 ): Promise<DnsLookupResponse> {
-  if (!isDnsResolver(request.resolver)) throw new Error("Choose Cloudflare or Google Public DNS.");
+  if (!isDnsResolver(request.resolver)) throw new Error("Choose a supported DNS source.");
   const selection = normalizeSelection(request.selection);
   const normalized = normalizeDnsInput(request.name);
-  const recordTypes = selection === "common" ? COMMON_RECORD_TYPES : [selection];
+  if (selection === "PTR" && normalized.inputKind !== "ip") {
+    throw new Error("Enter a valid IPv4 or IPv6 address for a PTR lookup.");
+  }
+  if (selection !== "PTR" && normalized.inputKind === "ip") {
+    throw new Error("Choose PTR to look up an IP address.");
+  }
+  const dnsQuestionName = selection === "PTR" ? reverseDnsName(normalized.normalizedName) : normalized.normalizedName;
+  const recordTypes = selection === "all" ? ALL_RECORD_TYPES : [selection];
   const started = performance.now();
 
+  const discoverTarget = (type: DnsRecordType) => {
+    const controller = new AbortController();
+    const onParentAbort = () => controller.abort();
+    options.signal?.addEventListener("abort", onParentAbort, { once: true });
+    const timeout = setTimeout(() => controller.abort(), (options.timeoutMs ?? 3000) * 3);
+    const bootstrapQuery = (name: string, queryType: DnsRecordType) => queryPublicResolver(name, queryType, "cloudflare", {
+      fetchImpl: options.fetchImpl,
+      signal: controller.signal,
+    });
+    return discoverAuthoritativeTarget(dnsQuestionName, type, bootstrapQuery).finally(() => {
+      clearTimeout(timeout);
+      options.signal?.removeEventListener("abort", onParentAbort);
+    });
+  };
+  const normalTarget = request.resolver === "authoritative" && recordTypes.some((type) => type !== "DS")
+    ? discoverTarget("A")
+    : undefined;
+  const dsTarget = request.resolver === "authoritative" && recordTypes.includes("DS")
+    ? discoverTarget("DS")
+    : undefined;
+
   const queryResults = await Promise.all(recordTypes.map((type) => fetchOne(
-    normalized.normalizedName,
+    dnsQuestionName,
     type,
     request.resolver,
     selection === "CNAME",
     options,
+    type === "DS" ? dsTarget : normalTarget,
   )));
 
   const aliasObservations = queryResults
     .filter((result) => result.aliasChain.length > 0)
     .map((result) => ({ requestedType: result.requestedType, aliasChain: result.aliasChain }));
-  const unified = buildUnifiedAliasChain(normalized.normalizedName, aliasObservations);
+  const unified = buildUnifiedAliasChain(dnsQuestionName, aliasObservations);
   const failures = queryResults.filter((result) => result.outcome === "provider_error" || result.outcome === "timeout");
   const warnings: DnsWarning[] = [...unified.warnings];
   if (failures.length > 0 && failures.length < queryResults.length) {
@@ -181,11 +185,17 @@ export async function lookupDns(
       message: `${failures.length} of ${queryResults.length} DNS queries could not be completed.`,
     });
   }
+  const enrichment = await enrichDnsResults(queryResults, {
+    fetchImpl: options.fetchImpl,
+    signal: options.signal,
+    timeoutMs: Math.min(options.timeoutMs ?? 2500, 2500),
+  });
 
   return {
     query: {
       originalInput: normalized.originalInput,
       normalizedName: normalized.normalizedName,
+      dnsQuestionName,
       selection,
       resolver: request.resolver,
       dnssecRecordsRequested: false,
@@ -195,6 +205,8 @@ export async function lookupDns(
     durationMs: Math.round(performance.now() - started),
     aliasChain: unified.aliasChain,
     aliasObservations,
+    addressDetails: enrichment.addressDetails,
+    nameserverAddresses: enrichment.nameserverAddresses,
     queryResults,
     warnings,
   };

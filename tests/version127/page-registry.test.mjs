@@ -1,9 +1,22 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 import {
   isHomeFeaturePage,
+  isHomeVisiblePage,
   isMainPageSlug,
 } from "../../lib/page-registry-helpers.ts";
+
+const registrySource = readFileSync(new URL("../../lib/page-registry.ts", import.meta.url), "utf8");
+
+test("missing required registry pages resolve through the 404 boundary", () => {
+  assert.match(registrySource, /import \{ notFound \} from "next\/navigation"/);
+  assert.match(
+    registrySource,
+    /getRequiredPublishedPage[\s\S]*if \(!page\) \{\s*notFound\(\);\s*\}/,
+  );
+  assert.doesNotMatch(registrySource, /Published page registry row is required/);
+});
 
 test("isMainPageSlug accepts only published root pages", () => {
   assert.equal(isMainPageSlug(""), false);
@@ -45,5 +58,28 @@ test("isHomeFeaturePage excludes legal and about utility pages", () => {
       page_type: "LearningResource",
     }),
     false,
+  );
+});
+
+test("isHomeVisiblePage excludes retired Immich page entries", () => {
+  assert.equal(
+    isHomeVisiblePage({ slug: "immich", label: "Immich", meta_title: "Immich | version127" }),
+    false,
+  );
+  assert.equal(
+    isHomeVisiblePage({
+      slug: "immich-alternatives",
+      label: "Immich alternatives",
+      meta_title: "Immich alternatives | version127",
+    }),
+    false,
+  );
+  assert.equal(
+    isHomeVisiblePage({
+      slug: "self-host-apps",
+      label: "self-host apps",
+      meta_title: "Self-host apps | version127",
+    }),
+    true,
   );
 });

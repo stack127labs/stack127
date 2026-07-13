@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { AppShell } from "../../../app-shell";
 import { DnsToolsSidebar } from "../dns-tools-sidebar";
 import { DnsLookupTool } from "./dns-lookup-tool";
 import type { DnsResolver, DnsSelection } from "@/lib/dns/types.ts";
+import { isDnsResolver } from "@/lib/dns/resolvers.ts";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
@@ -11,31 +11,28 @@ function firstValue(value: string | string[] | undefined) {
 }
 
 function initialSelection(value: string): DnsSelection {
-  const allowed = new Set(["common", "A", "AAAA", "CNAME", "MX", "NS", "TXT", "CAA", "SOA", "SRV", "DS", "DNSKEY"]);
-  const normalized = value === "common" ? value : value.toUpperCase();
-  return allowed.has(normalized) ? normalized as DnsSelection : "common";
+  const allowed = new Set(["all", "A", "AAAA", "CNAME", "MX", "NS", "TXT", "CAA", "SOA", "SRV", "DS", "DNSKEY", "PTR"]);
+  const normalized = value === "all" || value === "common" ? "all" : value.toUpperCase();
+  return allowed.has(normalized) ? normalized as DnsSelection : "all";
 }
 
 export default async function DnsLookupPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
   const params = await searchParams;
   const resolverValue = firstValue(params.resolver);
-  const resolver: DnsResolver = resolverValue === "google" ? "google" : "cloudflare";
+  const resolver: DnsResolver = isDnsResolver(resolverValue) ? resolverValue : "cloudflare";
 
   return (
     <AppShell
       mainLabel="DNS lookup"
       menuLabel="DNS tools"
-      sidebar={<DnsToolsSidebar active="lookup" showPageLinks />}
+      sidebar={<DnsToolsSidebar active="lookup" />}
       sidebarLabel="DNS lookup sidebar"
     >
       <main className="dns-lookup-main">
-        <nav className="dns-breadcrumb" aria-label="Breadcrumb">
-          <Link href="/dns-tools">DNS tools</Link><span aria-hidden="true">/</span><span>DNS lookup</span>
-        </nav>
         <header className="dns-page-header">
           <h1>DNS lookup</h1>
           <p>
-            Check the DNS records that Cloudflare or Google Public DNS currently returns for a domain or hostname. The lookup shows addresses, aliases, mail servers, verification text, nameservers, Resolver TTL, and the exact DNS response. If you are unsure which record you need, leave Common selected.
+            Enter a domain or hostname to see its DNS records, or choose PTR to find the hostname connected to an IP address. You can check a public resolver's cached answer or ask the domain's authoritative nameserver directly. Leave All selected if you are not sure which record you need.
           </p>
         </header>
 
@@ -48,20 +45,13 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
         <article className="dns-reference-content">
           <section id="how-to-check">
             <h2>How to check DNS records</h2>
-            <p>A DNS lookup asks for records attached to one exact name. The root domain, a website hostname, and a mail hostname can all return different answers, so begin with the name used by the service you are checking.</p>
-            <ol className="dns-reading-steps">
-              <li>Enter the domain or hostname. Use <code>example.com</code> for the root domain, <code>www.example.com</code> for the website hostname, or <code>mail.example.com</code> for a mail hostname. You can also paste an HTTP or HTTPS URL, and the tool will use its hostname.</li>
-              <li>Leave Common selected for a useful first check. It sends separate queries for A, AAAA, CNAME, MX, NS, TXT, CAA, and SOA. Choose one record type when you already know what you need to verify.</li>
-              <li>Choose Cloudflare or Google Public DNS. These are public recursive resolvers, so the result is the answer that resolver has now, including any cached data.</li>
-              <li>Select Look up DNS. Start with the response status, then compare the returned owner names and values with the settings at your DNS provider.</li>
-              <li>If you recently changed DNS, repeat the lookup with the other resolver or check again after the reported Resolver TTL has fallen. A difference between two resolvers can be temporary, but this tool does not claim that a change has propagated everywhere.</li>
-            </ol>
+            <p>Enter the exact domain or hostname you want to check. <code>example.com</code>, <code>www.example.com</code>, and <code>mail.example.com</code> can each have different records, so use the name connected to the website, email service, or setup you are checking. Leave All selected to check every forward record type offered here, choose a DNS source, then select Look up DNS. To start with an IP address instead, choose PTR and enter the address.</p>
+            <p>When the answer appears, compare it with the records in your DNS provider. Public resolvers may keep an older answer in cache for a while. The authoritative option skips that cache and asks a nameserver that hosts the domain.</p>
           </section>
 
           <section id="read-results">
             <h2>What DNS lookup results mean</h2>
-            <p>DNS stores different kinds of information as separate records. A resolver answers a question made from a name and a record type, such as “What A records exist for <code>www.example.com</code>?” Common is a bundle of several separate questions, not an <code>ANY</code> query and not a complete copy of the domain's DNS zone.</p>
-            <p>The first thing to read is the owner name. A record can belong to the name you entered, or the name can be an alias that leads to another hostname. This tool keeps that path visible so the final address is not shown as if it belonged to the original name.</p>
+            <p>Read the returned value first. If the result shows an alias path, the name you entered points to another hostname and the final record belongs there. The owner name stays visible so you can see exactly where the answer came from.</p>
             <figure className="dns-answer-path">
               <div>
                 <code>www.example.com</code>
@@ -72,40 +62,28 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
               </div>
               <figcaption>Here, <code>www.example.com</code> is an alias. The A record belongs to <code>edge.example.net</code>, so that owner name stays attached to the address in the result.</figcaption>
             </figure>
-            <div className="dns-table-scroll">
-              <table className="dns-guide-table dns-result-guide">
-                <thead><tr><th scope="col">Part of the result</th><th scope="col">What it tells you</th></tr></thead>
-                <tbody>
-                  <tr><th scope="row">Queried name</th><td>The normalized domain or hostname sent to the resolver. Check this first when a lookup returns an unexpected answer.</td></tr>
-                  <tr><th scope="row">Owner name</th><td>The hostname that actually owns the record. It may differ from your input when a CNAME alias is involved.</td></tr>
-                  <tr><th scope="row">Record value</th><td>The useful answer: an IP address, target hostname, mail server, text value, nameserver, service endpoint, or DNSSEC value depending on the type.</td></tr>
-                  <tr><th scope="row">Resolver TTL</th><td>The remaining cache lifetime reported by the selected resolver. For example, 300 seconds means about five minutes remained when the lookup ran. It can be lower than the TTL configured by the domain owner.</td></tr>
-                  <tr><th scope="row">Response status</th><td>Whether the resolver answered successfully, found that the exact name does not exist, could not finish the lookup, or refused the query.</td></tr>
-                  <tr><th scope="row">DNSSEC authentication</th><td>Whether the selected resolver reports that it authenticated the returned data. A No result can be normal for an unsigned domain and is not a complete DNSSEC diagnosis.</td></tr>
-                  <tr><th scope="row">Raw response</th><td>The complete JSON returned for that query. It is useful when you need provider fields that the readable table does not emphasize.</td></tr>
-                </tbody>
-              </table>
-            </div>
+            <p>Resolver TTL shows how much cache time a public resolver reported when the lookup ran. A result of 300 seconds means about five minutes remained at that moment. It may be lower than the TTL configured by the domain owner because part of the cache lifetime has already passed. A direct nameserver answer shows Authoritative TTL instead.</p>
           </section>
 
           <section id="record-types">
             <h2>Which DNS record type should you check?</h2>
-            <p>The right type depends on the problem. A and AAAA usually matter for website addresses, MX for incoming mail, TXT for verification and email policy text, and NS for delegation. If that distinction is unfamiliar, use Common and read the groups that return records.</p>
+            <p>Not sure where to start? Leave All selected. It checks the domain record types offered by this tool, including website, email, service, verification, nameserver, and DNSSEC records. PTR is separate because it starts with an IP address. If you already know what you are looking for, this table will help you choose one type.</p>
             <div className="dns-table-scroll">
               <table className="dns-record-table">
                 <thead><tr><th scope="col">Type</th><th scope="col">What it shows</th></tr></thead>
                 <tbody>
-                  <tr><th scope="row">A</th><td>The IPv4 address used by a domain or hostname. Check it when a website or service points to the wrong IPv4 server.</td></tr>
-                  <tr><th scope="row">AAAA</th><td>The IPv6 address used by a domain or hostname. A site can have correct A records but broken or outdated AAAA records.</td></tr>
-                  <tr><th scope="row">CNAME</th><td>The canonical hostname used by an alias. It is common for <code>www</code>, hosted services, and CDN-backed hostnames.</td></tr>
-                  <tr><th scope="row">MX</th><td>The servers that receive email for a domain. The preference number controls which server is tried first, with lower values preferred.</td></tr>
-                  <tr><th scope="row">NS</th><td>The nameservers published for the name. Use it to check delegation after moving DNS providers.</td></tr>
-                  <tr><th scope="row">TXT</th><td>Text used for domain verification and email policies. The lookup returns the value but does not validate SPF, DKIM, or DMARC.</td></tr>
-                  <tr><th scope="row">CAA</th><td>The certificate authorities permitted to issue certificates for the domain.</td></tr>
-                  <tr><th scope="row">SOA</th><td>The zone's primary nameserver, serial number, and timing values used by DNS operators.</td></tr>
-                  <tr><th scope="row">SRV</th><td>The target hostname and port for a named service, together with priority and weight.</td></tr>
-                  <tr><th scope="row">DS</th><td>The DNSSEC link published by the parent zone. It identifies the child zone key that the parent trusts.</td></tr>
-                  <tr><th scope="row">DNSKEY</th><td>The public keys published inside a DNSSEC-signed zone.</td></tr>
+                  <tr><th scope="row">A</th><td>The IPv4 address for a domain or hostname. Check this when a website is opening the wrong server.</td></tr>
+                  <tr><th scope="row">AAAA</th><td>The IPv6 address for a domain or hostname. It is worth checking when a website works on some networks but not others.</td></tr>
+                  <tr><th scope="row">CNAME</th><td>The other hostname that an alias points to. You will often see this on <code>www</code> addresses, hosted services, and CDN setups.</td></tr>
+                  <tr><th scope="row">MX</th><td>The servers that should receive email for the domain. A smaller preference number is tried first.</td></tr>
+                  <tr><th scope="row">NS</th><td>The nameservers responsible for the domain. Check these after moving DNS to a new provider.</td></tr>
+                  <tr><th scope="row">TXT</th><td>Text added for domain verification and email policies. You can read the value here, but this lookup does not tell you whether SPF, DKIM, or DMARC is configured correctly.</td></tr>
+                  <tr><th scope="row">CAA</th><td>The certificate authorities allowed to issue certificates for the domain.</td></tr>
+                  <tr><th scope="row">SOA</th><td>Basic information about the DNS zone, including its primary nameserver, serial number, and timing values. This is mostly useful when troubleshooting DNS provider changes.</td></tr>
+                  <tr><th scope="row">SRV</th><td>The hostname and port used by a particular service, along with the order in which servers should be tried.</td></tr>
+                  <tr><th scope="row">DS</th><td>A record in the parent zone that points to the DNSSEC key it trusts for this domain.</td></tr>
+                  <tr><th scope="row">DNSKEY</th><td>The public keys the domain publishes for DNSSEC. Seeing a key here does not prove that the full DNSSEC setup is correct.</td></tr>
+                  <tr><th scope="row">PTR</th><td>The hostname connected to an IPv4 or IPv6 address. This is often called reverse DNS and is useful when checking mail servers, logs, or an unfamiliar address.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -113,17 +91,18 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
 
           <section id="use-cases">
             <h2>When a DNS lookup helps</h2>
-            <p>A lookup is most useful when you have an expected value to compare with the public answer. It can confirm that a record is visible and point you toward the next check, but it does not test the web server, mail server, certificate, or application behind that record.</p>
+            <p>This tool is handy when something should be working or should have changed, and you want to see what public DNS is actually returning. If you know what value your provider gave you, compare it with the answer here.</p>
             <div className="dns-table-scroll">
               <table className="dns-guide-table dns-use-case-table">
-                <thead><tr><th scope="col">What you are checking</th><th scope="col">Start with</th><th scope="col">What to compare</th></tr></thead>
+                <thead><tr><th scope="col">What is happening</th><th scope="col">Check</th><th scope="col">What to look for</th></tr></thead>
                 <tbody>
-                  <tr><th scope="row">A website points to the wrong server</th><td>A, AAAA, and CNAME</td><td>Compare the returned address or alias target with the value supplied by your host or CDN.</td></tr>
-                  <tr><th scope="row">Incoming email is routed incorrectly</th><td>MX</td><td>Compare every mail server and preference number with your email provider's setup.</td></tr>
-                  <tr><th scope="row">Domain ownership verification is pending</th><td>TXT</td><td>Query the exact name supplied by the service and compare the complete text value, including prefixes and punctuation.</td></tr>
-                  <tr><th scope="row">A certificate authority cannot issue</th><td>CAA</td><td>Check whether the intended certificate authority is permitted by the returned CAA records.</td></tr>
-                  <tr><th scope="row">A DNS provider or nameserver was changed</th><td>NS and SOA</td><td>Compare resolver answers with the nameservers and zone information expected from the new provider.</td></tr>
-                  <tr><th scope="row">DNSSEC records are being checked</th><td>DS and DNSKEY</td><td>Confirm that records are present and inspect the resolver's authentication state, then use a full DNSSEC chain checker for diagnosis.</td></tr>
+                  <tr><th scope="row">A website opens the wrong server</th><td>A, AAAA, and CNAME</td><td>Does the address or alias match the value from your host or CDN?</td></tr>
+                  <tr><th scope="row">Email is not reaching the right place</th><td>MX</td><td>Do the mail servers and preference numbers match your email provider's setup?</td></tr>
+                  <tr><th scope="row">A service is still waiting to verify your domain</th><td>TXT</td><td>Is the complete text value present on the exact name the service asked you to use?</td></tr>
+                  <tr><th scope="row">A certificate cannot be issued</th><td>CAA</td><td>Do the CAA records allow the certificate authority you are using?</td></tr>
+                  <tr><th scope="row">You moved to new nameservers</th><td>NS and SOA</td><td>Do the NS records show the new provider, and does the SOA information belong to the new zone?</td></tr>
+                  <tr><th scope="row">You are checking DNSSEC</th><td>DS and DNSKEY</td><td>Are both records present? This is a useful first look, but a full DNSSEC chain check is still needed to find configuration problems.</td></tr>
+                  <tr><th scope="row">You need the hostname behind an IP address</th><td>PTR</td><td>Does the returned hostname match the server or service you expected to find?</td></tr>
                 </tbody>
               </table>
             </div>
@@ -131,25 +110,25 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
 
           <section id="status-meanings">
             <h2>When the answer looks wrong</h2>
-            <p>A DNS response can be successful without containing the record type you asked for. Read the status together with the returned records before deciding that the domain is broken.</p>
+            <p>No record does not always mean the whole domain is broken. The name may exist without having the particular record type you asked for. The response below tells you what happened with this exact lookup.</p>
             <div className="dns-table-scroll">
               <table className="dns-status-table">
                 <thead><tr><th scope="col">Response</th><th scope="col">What it means</th></tr></thead>
                 <tbody>
-                  <tr><th scope="row">NOERROR with records</th><td>The query worked and the resolver returned the record type you asked for.</td></tr>
-                  <tr><th scope="row">NOERROR without records</th><td>The name can still exist, but it does not publish that particular record type.</td></tr>
-                  <tr><th scope="row">NXDOMAIN</th><td>The resolver says the exact name does not exist. Check the spelling and whether you meant the root domain or a subdomain.</td></tr>
-                  <tr><th scope="row">SERVFAIL</th><td>The resolver could not finish the lookup. A broken delegation, an upstream timeout, or DNSSEC validation trouble can cause it, so the code alone does not identify the problem.</td></tr>
-                  <tr><th scope="row">REFUSED</th><td>The resolver chose not to answer, usually because of its own policy.</td></tr>
+                  <tr><th scope="row">NOERROR with records</th><td>The lookup worked and the resolver found the record type you asked for.</td></tr>
+                  <tr><th scope="row">NOERROR without records</th><td>The name exists, but it does not have this record type. For example, a hostname can have an A record without having an MX record.</td></tr>
+                  <tr><th scope="row">NXDOMAIN</th><td>The exact name does not exist according to this resolver. Check the spelling and make sure you used the right root domain or subdomain.</td></tr>
+                  <tr><th scope="row">SERVFAIL</th><td>The resolver could not get a usable answer. The cause may be temporary, or it may involve the nameserver setup or DNSSEC. This response alone cannot tell you which one.</td></tr>
+                  <tr><th scope="row">REFUSED</th><td>The resolver decided not to answer this query, usually because of its own rules. It does not prove that the domain itself is broken.</td></tr>
                 </tbody>
               </table>
             </div>
-            <p>Cloudflare and Google may briefly disagree after a DNS change because each resolver can hold an answer fetched at a different time. Compare the values and remaining Resolver TTL. If both resolvers return the old value, check whether you changed the correct DNS zone and exact hostname before waiting longer.</p>
-            <p>This remains a resolver lookup, not an authoritative nameserver test or a global propagation map. It also does not test website health, mail delivery, SPF, DKIM, DMARC policy, certificate issuance, or the complete DNSSEC chain.</p>
+            <p>Public resolvers can show different answers for a while after a DNS change because each one may have cached the old value at a different time. Check the returned values and Resolver TTL. You can also choose Authoritative nameserver to see what the domain's DNS host answers without waiting for a public resolver cache.</p>
+            <p>Remember that this tool only shows the DNS answer. It does not open the website, send a test email, validate SPF, DKIM, or DMARC, or check every resolver around the world.</p>
           </section>
 
           <aside className="dns-scope-note">
-            <p>The name you enter is sent to the public resolver you select. Version127 does not save lookup history, and queried names or returned values are not included in analytics.</p>
+            <p>The name you enter is sent to the DNS source you select. Authoritative lookups use Cloudflare only to find the domain's nameserver address, then query that nameserver directly. Returned IP addresses are checked through Team Cymru's DNS service so the result can show the network and ASN, and nameserver hostnames are resolved through Cloudflare. We do not save your lookup history or include queried names and returned values in analytics.</p>
           </aside>
         </article>
       </main>

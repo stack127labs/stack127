@@ -1,40 +1,41 @@
 import Link from "next/link";
+import { SidebarLabel } from "../../app-shell";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
-  sidebarPanelTitleClassName,
 } from "../../sidebar-panel";
 
 type DnsToolsSidebarProps = {
-  active: "hub" | "lookup";
-  showPageLinks?: boolean;
+  active: "hub" | "lookup" | "trace" | "change" | "nameserver" | "dnssec" | "soa" | "caa";
 };
 
-export function DnsToolsSidebar({ active, showPageLinks = false }: DnsToolsSidebarProps) {
+const availableDnsTools = [
+  { href: "/dns-tools/dns-lookup", id: "lookup", label: "DNS lookup" },
+  { href: "/dns-tools/dns-trace", id: "trace", label: "DNS Trace Explorer" },
+  { href: "/dns-tools/dns-change-checker", id: "change", label: "DNS Change Checker" },
+  { href: "/dns-tools/nameserver-checker", id: "nameserver", label: "Nameserver Delegation Checker" },
+  { href: "/dns-tools/dnssec-checker", id: "dnssec", label: "DNSSEC Chain Checker" },
+  { href: "/dns-tools/soa-checker", id: "soa", label: "SOA Consistency Checker" },
+  { href: "/dns-tools/caa-checker", id: "caa", label: "CAA Policy Checker" },
+] as const;
+
+export function DnsToolsSidebar({ active }: DnsToolsSidebarProps) {
   return (
     <div className={`${sidebarPanelClassName} dns-tools-sidebar-panel`}>
       <div className={sidebarPanelHeadingClassName}>
-        <p className={sidebarPanelTitleClassName}>DNS tools</p>
+        <SidebarLabel>DNS tools</SidebarLabel>
       </div>
       <nav className="dns-tools-nav" aria-label="DNS tools">
-        <Link aria-current={active === "hub" ? "page" : undefined} href="/dns-tools">
-          Overview
-        </Link>
-        <Link aria-current={active === "lookup" ? "page" : undefined} href="/dns-tools/dns-lookup">
-          DNS lookup
-        </Link>
+        <ul>
+          {availableDnsTools.map((tool) => (
+            <li key={tool.href}>
+              <Link aria-current={active === tool.id ? "page" : undefined} href={tool.href}>
+                {tool.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </nav>
-      {showPageLinks ? (
-        <nav className="dns-tools-page-nav" aria-label="On this page">
-          <p>On this page</p>
-          <a href="#lookup">Look up records</a>
-          <a href="#how-to-check">How to check</a>
-          <a href="#read-results">Read the results</a>
-          <a href="#record-types">Record types</a>
-          <a href="#use-cases">When it helps</a>
-          <a href="#status-meanings">When it looks wrong</a>
-        </nav>
-      ) : null}
     </div>
   );
 }

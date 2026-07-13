@@ -12,6 +12,7 @@
 
 .prose h1 {
   font-size: var(--text-h1);
+  line-height: var(--line-h1);
 }
 
 .prose h2 {

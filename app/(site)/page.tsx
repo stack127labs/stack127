@@ -6,6 +6,7 @@ import {
   getMainPublishedPages,
   getRequiredPublishedPage,
   isHomeFeaturePage,
+  isHomeVisiblePage,
   pathFromSlug,
   type Version127Page,
 } from "@/lib/page-registry";
@@ -136,14 +137,15 @@ export default async function Home() {
     getMainPublishedPages(),
     getSelfHostAppsStats(),
   ]);
-  const featurePages = mainPages.filter(isHomeFeaturePage);
+  const visibleMainPages = mainPages.filter(isHomeVisiblePage);
+  const featurePages = visibleMainPages.filter(isHomeFeaturePage);
   const startItems = startHereItems(new Set(featurePages.map((page) => page.slug)));
 
   return (
     <AppShell
       mainLabel="Home"
       menuLabel="Pages"
-      sidebar={<HomeSidebar label={homePage.label} pages={mainPages} />}
+      sidebar={<HomeSidebar label={homePage.label} pages={visibleMainPages} />}
       sidebarLabel="Home sidebar"
     >
       <section className="home-main" aria-labelledby="home-title">

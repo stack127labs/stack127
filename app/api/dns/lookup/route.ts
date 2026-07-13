@@ -69,7 +69,7 @@ export async function POST(request: Request) {
     return errorResponse(400, "invalid_name", "Enter a DNS name.");
   }
   if (!isDnsResolver(body.resolver)) {
-    return errorResponse(400, "invalid_resolver", "Choose Cloudflare or Google Public DNS.");
+    return errorResponse(400, "invalid_resolver", "Choose a supported DNS source.");
   }
 
   let selection;

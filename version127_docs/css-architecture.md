@@ -14,6 +14,8 @@ It must not contain class or ID selectors. A class means a component or page own
 
 Shared React components keep their styles beside the component in a CSS Module. Examples include `app/app-shell.module.css`, `app/site-nav.module.css`, `app/prose.module.css`, and `app/sidebar-panel.module.css`.
 
+Sidebar titles use the shared `SidebarLabel` component from `app/app-shell.tsx`. It renders a semantic `<p>` and applies the heading-like title style owned by `app/sidebar-panel.module.css`. Do not use an `h1` to `h6` for this repeated sidebar label, and do not recreate the styled paragraph inside individual routes.
+
 A route family with several cooperating components may use one colocated family stylesheet imported by that family's layout. Current examples are:
 
 - `app/(site)/dns-tools/dns-tools.css`;
@@ -37,6 +39,8 @@ Prefer CSS Modules for new components and new single-page work. Use a family sty
 Reading and operating are different jobs.
 
 Long explanations use `proseClassName` from `app/prose.ts`. It provides a readable measure, larger body type, calm line height, and consistent headings, lists, links, inline code, and keyboard keys. `proseLedeClassName` is available for the opening paragraph.
+
+Every page-level `h1` uses the shared `--text-h1` and `--line-h1` typography tokens. These match the DNS Lookup title: a responsive 2.2rem to 3.2rem size with a tight line height. Route-family styles may control the title's width and surrounding spacing, but they must not invent another page-title size.
 
 Tool interfaces stay compact. Inputs, buttons, filters, tables, record values, pills, metadata, and technical details should use the existing UI text tokens. A tool page may contain prose, but apply the prose class only to the explanatory region, never to the whole tool.
 

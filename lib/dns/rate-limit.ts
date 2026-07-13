@@ -14,7 +14,7 @@ type RateLimitOptions = {
 const entries = new Map<string, RateLimitEntry>();
 
 export function rateLimitCost(selection: string) {
-  return selection === "common" ? 8 : 1;
+  return selection === "all" ? 11 : 1;
 }
 
 export function consumeDnsLookupLimit(
@@ -25,7 +25,7 @@ export function consumeDnsLookupLimit(
   const now = options.now ?? Date.now();
   const windowMs = options.windowMs ?? 5 * 60 * 1000;
   const maxRequests = options.maxRequests ?? 100;
-  const maxUnits = options.maxUnits ?? 160;
+  const maxUnits = options.maxUnits ?? 220;
   let entry = entries.get(key);
 
   if (!entry || entry.resetAt <= now) {

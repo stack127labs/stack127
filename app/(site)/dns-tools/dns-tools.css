@@ -3,36 +3,26 @@
   align-content: start;
 }
 
-.dns-tools-nav,
-.dns-tools-page-nav {
+.dns-tools-nav ul {
   display: grid;
   gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.dns-tools-nav a,
-.dns-tools-page-nav a {
+.dns-tools-nav a {
   border-radius: var(--radius-sm);
   color: var(--color-text-muted);
+  display: block;
   font-size: var(--text-md);
   padding: var(--space-3) var(--space-4);
 }
 
 .dns-tools-nav a:hover,
-.dns-tools-page-nav a:hover,
 .dns-tools-nav a[aria-current="page"] {
   background: var(--color-surface-muted);
   color: var(--color-text);
-}
-
-.dns-tools-page-nav {
-  border-top: 1px solid var(--color-border);
-  padding-top: var(--space-8);
-}
-
-.dns-tools-page-nav p {
-  color: var(--color-text-subtle);
-  font-size: var(--text-xs);
-  margin: 0 0 var(--space-2);
 }
 
 .dns-hub-main,
@@ -59,8 +49,8 @@
 }
 
 .dns-page-header h1 {
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.04;
+  font-size: var(--text-h1);
+  line-height: var(--line-h1);
 }
 
 .dns-page-header > p:last-child {
@@ -73,15 +63,6 @@
   color: var(--color-accent-text) !important;
   font-size: var(--text-xs) !important;
   font-weight: var(--weight-semibold);
-}
-
-.dns-breadcrumb {
-  align-items: center;
-  color: var(--color-text-muted);
-  display: flex;
-  font-size: var(--text-sm);
-  gap: var(--space-3);
-  margin-bottom: calc(var(--space-13) * -0.5);
 }
 
 .dns-hub-section,
@@ -288,6 +269,8 @@
 }
 
 .dns-result-actions button,
+.dns-result-controls button,
+.dns-result-controls a,
 .dns-copy-button,
 .dns-show-more {
   background: var(--color-surface-muted);
@@ -298,6 +281,7 @@
   font: inherit;
   font-size: var(--text-sm);
   padding: 8px 10px;
+  text-decoration: none;
 }
 
 .dns-show-more {
@@ -361,6 +345,49 @@
 
 .dns-results-summary h2 {
   color: var(--color-accent-text);
+}
+
+.dns-results-heading-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  justify-content: space-between;
+}
+
+.dns-result-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.dns-result-controls button:hover,
+.dns-result-controls button:focus-visible,
+.dns-result-controls a:hover,
+.dns-result-controls a:focus-visible {
+  border-color: var(--color-accent-border-strong);
+  color: var(--color-accent-text);
+  outline: none;
+}
+
+.dns-result-site {
+  align-items: center;
+  display: flex;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.dns-site-favicon {
+  border-radius: var(--radius-sm);
+  display: none;
+  flex: 0 0 32px;
+  height: 32px;
+  object-fit: contain;
+  width: 32px;
+}
+
+.dns-site-favicon-loaded {
+  display: block;
 }
 
 .dns-results-meta {
@@ -431,23 +458,19 @@
 
 .dns-warning-list,
 .dns-alias-summary,
-.dns-alias-variants,
-.dns-failed-results,
-.dns-dnssec-note {
+.dns-alias-variants {
   border-radius: var(--radius-md);
   padding: var(--space-7) var(--space-8);
 }
 
 .dns-warning-list,
-.dns-alias-variants,
-.dns-failed-results {
+.dns-alias-variants {
   background: var(--color-warning-soft);
   color: var(--color-warning-text);
 }
 
 .dns-warning-list p,
 .dns-alias-summary p,
-.dns-dnssec-note p,
 .dns-ttl-explanation {
   margin: 0;
 }
@@ -460,17 +483,13 @@
 }
 
 .dns-alias-summary h2,
-.dns-alias-variants h2,
-.dns-failed-results h2 {
+.dns-alias-variants h2 {
   font-size: var(--text-title);
   margin: 0;
 }
 
 .dns-alias-summary ol,
-.dns-alias-variants ol,
-.dns-failed-results ul,
-.dns-empty-results ul,
-.dns-technical-records {
+.dns-alias-variants ol {
   display: grid;
   gap: var(--space-3);
   margin: 0;
@@ -482,8 +501,7 @@
   gap: var(--space-2);
 }
 
-.dns-alias-summary small,
-.dns-technical-records span {
+.dns-alias-summary small {
   color: var(--color-text-muted);
   font-size: var(--text-xs);
 }
@@ -507,49 +525,199 @@
   gap: var(--space-5);
 }
 
+.dns-record-stack {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+}
+
 .dns-record-group {
-  border-left: 2px solid var(--color-accent-border);
-  padding-left: var(--space-7);
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--space-5);
+  padding: var(--space-7) 0;
   scroll-margin-top: calc(var(--top-bar-height) + 24px);
 }
 
-.dns-owner-group h2 {
-  font-size: var(--text-h2);
+.dns-record-group-heading {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dns-record-group-heading h2 {
+  color: var(--color-accent-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-title);
   margin: 0;
 }
 
-.dns-answer-table {
-  border-collapse: collapse;
-  width: 100%;
+.dns-record-group-empty .dns-record-group-heading h2 {
+  color: var(--color-warning-text);
 }
 
-.dns-answer-table th,
-.dns-answer-table td {
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--space-5) var(--space-4);
-  text-align: left;
-  vertical-align: middle;
+.dns-record-group-failed .dns-record-group-heading h2,
+.dns-record-group-failed .dns-record-state {
+  color: var(--color-danger-text);
 }
 
-.dns-answer-table th {
+.dns-owner-group {
+  gap: var(--space-4);
+}
+
+.dns-record-owner,
+.dns-record-state {
   color: var(--color-text-muted);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-semibold);
+  margin: 0;
 }
 
-.dns-answer-table td {
-  color: var(--color-text-prose);
-}
-
-.dns-answer-table td:first-child code {
+.dns-record-owner code {
   color: var(--color-accent-text);
 }
 
-.dns-value-with-copy {
+.dns-record-list {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.dns-record-item {
   align-items: center;
+  background: var(--color-surface);
+  display: grid;
+  gap: var(--space-7);
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: var(--space-6) var(--space-7);
+}
+
+.dns-record-primary {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.dns-record-item[data-record-type="SOA"] {
+  align-items: start;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.dns-record-item[data-record-type="SOA"] .dns-record-meta {
+  justify-content: space-between;
+}
+
+.dns-record-item[data-record-type="SOA"] .dns-record-meta > span {
+  text-align: left;
+}
+
+.dns-record-item + .dns-record-item {
+  border-top: 1px solid var(--color-border);
+}
+
+.dns-record-value,
+.dns-record-fields code {
+  color: var(--color-text-prose);
+  overflow-wrap: anywhere;
+}
+
+.dns-record-fields {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  margin: 0;
+}
+
+.dns-record-fields > div {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.dns-record-fields dt {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.dns-record-fields dd {
+  margin: 0;
+}
+
+.dns-record-meta {
+  align-items: center;
+  color: var(--color-text-muted);
+  display: flex;
+  font-size: var(--text-xs);
+  gap: var(--space-3);
+  justify-content: flex-end;
+}
+
+.dns-record-meta > span {
+  display: grid;
+  gap: var(--space-1);
+  text-align: right;
+}
+
+.dns-record-meta strong {
+  align-items: center;
+  color: var(--color-text-subtle);
   display: inline-flex;
   gap: var(--space-2);
-  max-width: 100%;
+  font-weight: var(--weight-semibold);
+}
+
+.dns-ttl-help {
+  align-items: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  color: var(--color-text-muted);
+  cursor: help;
+  display: inline-flex;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-style: normal;
+  height: 15px;
+  justify-content: center;
+  line-height: 1;
+  width: 15px;
+}
+
+.dns-ttl-help:focus-visible {
+  outline: var(--focus-ring-strong);
+}
+
+.dns-network-line {
+  align-items: baseline;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--text-xs);
+  gap: var(--space-3);
+}
+
+.dns-network-line strong {
+  color: var(--color-success-text);
+  font-weight: var(--weight-semibold);
+}
+
+.dns-network-line code {
+  color: var(--color-text-subtle);
+}
+
+.dns-nameserver-addresses {
+  border-left: 2px solid var(--color-accent-border-strong);
+  display: grid;
+  gap: var(--space-2);
+  padding-left: var(--space-4);
+}
+
+.dns-nameserver-addresses > span,
+.dns-caa-summary {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.dns-caa-summary {
+  margin: calc(-1 * var(--space-2)) 0 0;
 }
 
 .dns-copy-icon {
@@ -563,13 +731,16 @@
   flex: 0 0 auto;
   height: 28px;
   justify-content: center;
+  opacity: 0.65;
   padding: 4px;
   width: 28px;
 }
 
-.dns-copy-icon:hover {
+.dns-copy-icon:hover,
+.dns-copy-icon:focus-visible {
   background: var(--color-accent-soft);
   color: var(--color-accent-text);
+  opacity: 1;
 }
 
 .dns-copy-icon svg {
@@ -582,19 +753,6 @@
   width: 16px;
 }
 
-.dns-record-card {
-  align-items: end;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  display: grid;
-  gap: var(--space-7);
-  grid-template-columns: minmax(0, 1fr) auto;
-  padding: var(--space-8);
-}
-
-.dns-record-card dl,
-.dns-flag-grid,
 .dns-record-reference,
 .dns-status-reference {
   display: grid;
@@ -602,118 +760,46 @@
   margin: 0;
 }
 
-.dns-record-card dl {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.dns-record-card dl > div,
-.dns-flag-grid > div,
 .dns-record-reference > div,
 .dns-status-reference > div {
   display: grid;
   gap: var(--space-2);
 }
 
-.dns-record-card dt,
-.dns-flag-grid dt,
 .dns-record-reference dt,
 .dns-status-reference dt {
   color: var(--color-text-muted);
   font-size: var(--text-xs);
 }
 
-.dns-record-card dd,
-.dns-flag-grid dd,
 .dns-record-reference dd,
 .dns-status-reference dd {
   margin: 0;
 }
 
-.dns-record-card code,
 .dns-alias-summary code,
-.dns-alias-variants code,
-.dns-technical-records code {
+.dns-alias-variants code {
   overflow-wrap: anywhere;
 }
 
-.dns-record-card dd code,
 .dns-alias-summary code,
 .dns-alias-variants code {
   color: var(--color-accent-text);
 }
 
-.dns-dnssec-note {
-  background: var(--color-surface-muted);
-  border: 1px solid var(--color-border);
-  display: grid;
-  gap: var(--space-3);
-}
-
-.dns-dnssec-note.dns-tone-success {
-  background: var(--color-success-soft);
-  border-color: color-mix(in srgb, var(--color-success) 30%, transparent);
-}
-
-.dns-dnssec-note.dns-tone-warning {
-  background: var(--color-warning-soft);
-  border-color: color-mix(in srgb, var(--color-warning) 32%, transparent);
-}
-
-.dns-dnssec-note.dns-tone-success strong {
-  color: var(--color-success-text);
-}
-
-.dns-dnssec-note.dns-tone-warning strong {
-  color: var(--color-warning-text);
-}
-
-.dns-empty-results,
-.dns-technical-details,
-.dns-query-details,
 .dns-reference-content details {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
 }
 
-.dns-empty-results > summary,
-.dns-technical-details > summary,
-.dns-query-details > summary,
 .dns-reference-content details > summary {
   cursor: pointer;
   font-weight: var(--weight-semibold);
   padding: var(--space-6) var(--space-7);
 }
 
-.dns-empty-results > ul,
-.dns-technical-details > div,
-.dns-query-details-body,
 .dns-reference-content details > p {
   padding: 0 var(--space-7) var(--space-7);
-}
-
-.dns-query-details-body {
-  display: grid;
-  gap: var(--space-8);
-}
-
-.dns-query-details-body h3 {
-  font-size: var(--text-lg);
-  margin: 0 0 var(--space-4);
-}
-
-.dns-flag-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.dns-query-details pre {
-  background: var(--color-surface-muted);
-  border-radius: var(--radius-md);
-  font-size: var(--text-xs);
-  margin: 0;
-  max-height: 420px;
-  overflow: auto;
-  padding: var(--space-7);
-  white-space: pre-wrap;
 }
 
 .dns-inline-raw {
@@ -737,16 +823,6 @@
   overflow: auto;
   padding: var(--space-7);
   white-space: pre-wrap;
-}
-
-.dns-empty-results li > p,
-.dns-failed-results li > p {
-  margin: 0;
-}
-
-.dns-empty-results .dns-inline-raw,
-.dns-failed-results .dns-inline-raw {
-  margin-top: var(--space-3);
 }
 
 .dns-reference-content {
@@ -777,8 +853,7 @@
   line-height: var(--line-prose);
 }
 
-.dns-reference-content > section > p,
-.dns-reading-steps li {
+.dns-reference-content > section > p {
   font-size: var(--text-prose);
 }
 
@@ -822,47 +897,16 @@
 }
 
 .dns-scope-note {
-  border-top: 1px solid var(--color-border);
   color: var(--color-text-muted);
-  padding-top: var(--space-8);
 }
 
 .dns-scope-note p {
   margin: 0;
 }
 
-.dns-reading-steps {
-  display: grid;
-  gap: var(--space-7);
-  padding-left: var(--space-10);
-}
-
-.dns-reading-steps li {
-  padding-left: var(--space-2);
-}
-
-.dns-reading-steps li::marker {
-  color: var(--color-accent-text);
-  font-weight: var(--weight-semibold);
-}
-
-.dns-reading-steps strong,
-.dns-reading-steps span {
-  display: block;
-}
-
-.dns-reading-steps strong {
-  color: var(--color-text);
-  margin-bottom: var(--space-2);
-}
-
 .dns-table-scroll {
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
-}
-
-.dns-result-guide {
-  min-width: 620px;
 }
 
 .dns-use-case-table {
@@ -877,6 +921,10 @@
   width: 100%;
 }
 
+.dns-status-table {
+  table-layout: fixed;
+}
+
 .dns-record-table th,
 .dns-record-table td,
 .dns-status-table th,
@@ -887,6 +935,18 @@
   padding: var(--space-5) var(--space-4);
   text-align: left;
   vertical-align: top;
+}
+
+.dns-record-table tr,
+.dns-status-table tr,
+.dns-guide-table tr {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.dns-status-table th,
+.dns-status-table td {
+  overflow-wrap: anywhere;
 }
 
 .dns-record-table thead th,
@@ -948,18 +1008,20 @@
     padding: var(--space-10) 22px 54px;
   }
 
-  .dns-page-header h1 {
-    font-size: 2.2rem;
-  }
-
   .dns-form-options,
-  .dns-record-card,
-  .dns-record-card dl,
+  .dns-record-item,
   .dns-record-reference,
   .dns-status-reference,
-  .dns-flag-grid,
   .dns-planned-list {
     grid-template-columns: 1fr;
+  }
+
+  .dns-record-meta {
+    justify-content: space-between;
+  }
+
+  .dns-record-meta > span {
+    text-align: left;
   }
 
   .dns-submit {
@@ -970,11 +1032,32 @@
     display: grid;
   }
 
+  .dns-status-table {
+    min-width: 600px;
+  }
+
   .dns-reference-content > section {
     scroll-margin-top: calc(var(--top-bar-height) + 74px);
   }
 
   .dns-result-actions button {
     flex: 1 1 auto;
+  }
+}
+
+@media print {
+  .dns-record-item,
+  .dns-record-group,
+  .dns-record-table tr,
+  .dns-status-table tr,
+  .dns-guide-table tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .dns-inline-raw,
+  .dns-result-controls,
+  .dns-copy-icon {
+    display: none;
   }
 }

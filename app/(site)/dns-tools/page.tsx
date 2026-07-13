@@ -12,11 +12,10 @@ export default function DnsToolsPage() {
     >
       <main className="dns-hub-main">
         <header className="dns-page-header">
-          <p className="dns-page-kicker">Network tools</p>
           <h1>DNS tools</h1>
           <p>
-            Check what public DNS resolvers return, read the exact response state, and keep
-            cached resolver answers separate from authoritative configuration.
+            Look up records, follow a query from the root, compare caches with authoritative DNS,
+            and check the parts that make delegation, DNSSEC, SOA, and CAA work.
           </p>
         </header>
 
@@ -25,9 +24,31 @@ export default function DnsToolsPage() {
           <Link className="dns-tool-card" href="/dns-tools/dns-lookup">
             <span>
               <strong>DNS lookup</strong>
-              <small>Check common or individual records through Cloudflare or Google Public DNS.</small>
+              <small>Check records through a public resolver or the domain's authoritative nameserver.</small>
             </span>
             <span aria-hidden="true">→</span>
+          </Link>
+          <Link className="dns-tool-card" href="/dns-tools/dns-trace">
+            <span>
+              <strong>DNS Trace Explorer</strong>
+              <small>Follow a DNS question from the root to the nameserver that gives the final answer.</small>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
+          <Link className="dns-tool-card" href="/dns-tools/dns-change-checker">
+            <span><strong>DNS Change Checker</strong><small>Compare authoritative records with the answers held by public resolver caches.</small></span><span aria-hidden="true">→</span>
+          </Link>
+          <Link className="dns-tool-card" href="/dns-tools/nameserver-checker">
+            <span><strong>Nameserver Delegation Checker</strong><small>Compare parent and child NS records, glue, reachability, and authority.</small></span><span aria-hidden="true">→</span>
+          </Link>
+          <Link className="dns-tool-card" href="/dns-tools/dnssec-checker">
+            <span><strong>DNSSEC Chain Checker</strong><small>Validate the signed chain from the DNS root to the answer you requested.</small></span><span aria-hidden="true">→</span>
+          </Link>
+          <Link className="dns-tool-card" href="/dns-tools/soa-checker">
+            <span><strong>SOA Consistency Checker</strong><small>Compare serials and zone timing across every authoritative nameserver.</small></span><span aria-hidden="true">→</span>
+          </Link>
+          <Link className="dns-tool-card" href="/dns-tools/caa-checker">
+            <span><strong>CAA Policy Checker</strong><small>Find the effective certificate authority policy for normal and wildcard certificates.</small></span><span aria-hidden="true">→</span>
           </Link>
         </section>
       </main>
