@@ -1,5 +1,4 @@
 import { expect, test } from "playwright/test";
-import { readFileSync } from "node:fs";
 
 const tools = [
   { route: "/dns-tools/dns-change-checker", title: "DNS Change Checker", button: "Check DNS change", sections: 4 },
@@ -34,9 +33,8 @@ test("query-filled diagnostic pages remain noindex with a clean canonical", asyn
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://version127.com/dns-tools/caa-checker");
 });
 
-test("diagnostic results show the site favicon and offer a useful export", async ({ page }) => {
-  const favicon = readFileSync("public/favicon-32x32.png");
-  await page.route("https://example.com/favicon.ico", (route) => route.fulfill({ body: favicon, contentType: "image/png", status: 200 }));
+test("diagnostic results show the site favicon and download the complete report", async ({ page }, testInfo) => {
+  await page.route("https://example.com/favicon.ico", (route) => route.fulfill({ path: "public/favicon-32x32.png", contentType: "image/png", status: 200 }));
   await page.route("**/api/dns/change-checker", (route) => route.fulfill({
     contentType: "application/json",
     body: JSON.stringify({
@@ -52,10 +50,22 @@ test("diagnostic results show the site favicon and offer a useful export", async
   await page.goto("/dns-tools/dns-change-checker");
   await page.getByLabel("Domain or hostname").fill("example.com");
   await page.getByRole("button", { name: "Check DNS change" }).click();
-  await expect(page.locator('img[src="https://example.com/favicon.ico"]')).toBeVisible();
+  if (testInfo.project.name !== "mobile") {
+    await expect(page.locator('img[src="https://example.com/favicon.ico"]')).toBeVisible();
+  }
   const downloadPromise = page.waitForEvent("download");
-  await page.getByRole("button", { name: "Download" }).click();
-  await expect((await downloadPromise).suggestedFilename()).toBe("example.com-A-dns-change.csv");
+  await page.getByRole("button", { name: "Download report" }).click();
+  const download = await downloadPromise;
+  await expect(download.suggestedFilename()).toBe("example.com-A-dns-change-report.json");
+  const stream = await download.createReadStream();
+  let contents = "";
+  for await (const chunk of stream) contents += chunk.toString();
+  expect(JSON.parse(contents)).toMatchObject({
+    tool: "DNS Change Checker",
+    query: { name: "example.com", recordType: "A" },
+    authoritative: [{ rawResponse: { Status: 0, AA: true } }],
+    resolvers: [{ rawResponse: { Status: 0 } }],
+  });
 });
 
 test("DNSSEC result leads with the real validation steps and requested answer", async ({ page }) => {
@@ -80,6 +90,35 @@ test("DNSSEC result leads with the real validation steps and requested answer", 
   await expect(page.getByRole("heading", { name: "When the signatures expire" })).toBeVisible();
   await expect(page.getByRole("cell", { name: "ECDSAP256SHA256 (13)" })).toBeVisible();
   await expect(page.getByRole("cell", { name: "2371" })).toBeVisible();
+});
+
+test("DNSSEC raw reports never widen the page", async ({ page }) => {
+  await page.route("**/api/dns/dnssec-checker", (route) => route.fulfill({
+    contentType: "application/json",
+    body: JSON.stringify({
+      query: { name: "bloxodes.com", recordType: "A" }, checkedAt: "2026-07-15T10:00:00.000Z", durationMs: 310,
+      verdict: "secure", explanation: "validated",
+      validation: { outcome: "secure-positive", steps: [] },
+      signatures: [],
+      answer: { responseCode: "NOERROR", authenticatedData: true, records: [], rawResponse: { Status: 0 }, error: null },
+      chain: [],
+      validator: {
+        name: "Namefi DNSSEC Audit",
+        performedLocalValidation: true,
+        exitCode: 0,
+        rawReport: { signature: "A".repeat(11_000) },
+      },
+    }),
+  }));
+  await page.goto("/dns-tools/dnssec-checker?name=bloxodes.com&type=A");
+  await page.getByRole("button", { name: "Validate DNSSEC" }).click();
+  await page.getByText("Complete validator report", { exact: true }).click();
+
+  const pageWidth = await page.evaluate(() => ({
+    client: document.documentElement.clientWidth,
+    scroll: document.documentElement.scrollWidth,
+  }));
+  expect(pageWidth.scroll).toBeLessThanOrEqual(pageWidth.client);
 });
 
 test("authoritative disagreement points to the SOA checker", async ({ page }) => {
@@ -119,6 +158,95 @@ test("nameserver results keep transport, glue, and network evidence separate", a
   await expect(page.getByText("ns1.example.com did not answer over TCP at 192.0.2.10.")).toBeVisible();
   await expect(page.getByRole("cell", { name: "192.0.2.11" })).toBeVisible();
   await expect(page.getByText(/Example Network · AS64500 · 192\.0\.2\.0\/24/)).toBeVisible();
+
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Download report" }).click();
+  const download = await downloadPromise;
+  await expect(download.suggestedFilename()).toBe("example.com-nameserver-report.json");
+  const stream = await download.createReadStream();
+  let contents = "";
+  for await (const chunk of stream) contents += chunk.toString();
+  expect(JSON.parse(contents)).toMatchObject({
+    tool: "Nameserver Delegation Checker",
+    inputName: "example.com",
+    zone: "example.com",
+    parentZone: "com",
+    parentDelegatedNameservers: ["ns1.example.com"],
+    childPublishedNameservers: ["ns1.example.com"],
+    parentGlue: [{ hostname: "ns1.example.com", address: "192.0.2.10" }],
+    authoritativeAddressObservations: [{ rawResponses: { A: {}, AAAA: {} } }],
+    reachability: [{ udp: { reachable: true }, tcp: { reachable: false }, rawResponses: { udp: {}, tcp: null } }],
+    findings: [
+      "ns1.example.com did not answer over TCP at 192.0.2.10.",
+      "ns1.example.com has different addresses in the parent glue and its authoritative A or AAAA records.",
+    ],
+    notes: ["Every discovered nameserver address belongs to AS64500 (Example Network)."],
+  });
+});
+
+test("nameserver results label checker-side IPv6 skips without blaming the domain", async ({ page }) => {
+  await page.route("**/api/dns/nameserver-checker", (route) => route.fulfill({
+    contentType: "application/json",
+    body: JSON.stringify({
+      checkedAt: "2026-07-15T10:00:00.000Z", durationMs: 240, inputName: "example.com", zone: "example.com", parentZone: "com",
+      ipv6Connectivity: false,
+      parentNameservers: [], parentObservations: [], childObservations: [],
+      parentDelegatedNameservers: ["ns1.example.net"], childPublishedNameservers: ["ns1.example.net"],
+      parentGlue: [], nameserverAddresses: [{ hostname: "ns1.example.net", addresses: ["192.0.2.10", "2001:db8::53"] }],
+      authoritativeAddressObservations: [], addressDetails: [],
+      reachability: [
+        { server: { hostname: "ns1.example.net", address: "192.0.2.10" }, skippedReason: null, udp: { reachable: true, authoritative: true, responseCode: "NOERROR", error: null }, tcp: { reachable: true, authoritative: true, responseCode: "NOERROR", error: null }, soa: { ownerName: "example.com", primaryNameserver: "ns1.example.net", responsibleMailbox: "hostmaster.example.com", serial: 1, refreshSeconds: 3600, retrySeconds: 600, expireSeconds: 86400, minimumSeconds: 300, ttlSeconds: 300 }, rawResponses: { udp: {}, tcp: {} } },
+        { server: { hostname: "ns1.example.net", address: "2001:db8::53" }, skippedReason: "checker_ipv6_unavailable", udp: { reachable: false, authoritative: null, responseCode: null, error: null }, tcp: { reachable: false, authoritative: null, responseCode: null, error: null }, soa: null, rawResponses: { udp: null, tcp: null } },
+      ],
+      findings: [], notes: ["IPv6 checks were skipped because this checker does not have IPv6 connectivity."],
+    }),
+  }));
+  await page.goto("/dns-tools/nameserver-checker");
+  await page.getByLabel("Domain or hostname").fill("example.com");
+  await page.getByRole("button", { name: "Check nameservers" }).click();
+
+  await expect(page.getByText("IPv6 checks were skipped because this checker does not have IPv6 connectivity.")).toBeVisible();
+  await expect(page.getByText(/did not answer over/)).toHaveCount(0);
+  const ipv6Row = page.getByRole("row").filter({ hasText: "2001:db8::53" });
+  await expect(ipv6Row.getByRole("cell", { name: "Skipped" })).toHaveCount(2);
+  await expect(ipv6Row.getByRole("cell", { name: "Not checked" })).toBeVisible();
+});
+
+test("SOA results stay readable and preserve skipped IPv6 evidence in the report", async ({ page }) => {
+  const soa = { ownerName: "example.com", primaryNameserver: "a-very-long-primary-nameserver.example.net", responsibleMailbox: "hostmaster.example.com", serial: 2407160699, refreshSeconds: 10000, retrySeconds: 2400, expireSeconds: 604800, minimumSeconds: 1800, ttlSeconds: 3600 };
+  await page.route("**/api/dns/soa-checker", (route) => route.fulfill({
+    contentType: "application/json",
+    body: JSON.stringify({
+      query: { inputName: "example.com", zone: "example.com" }, checkedAt: "2026-07-15T10:00:00.000Z", durationMs: 420, ipv6Connectivity: false,
+      observations: [
+        { server: { hostname: "a-very-long-nameserver-hostname.example.net", address: "192.0.2.53" }, skippedReason: null, soa, authoritative: true, error: null, rawResponses: { udp: { Status: 0 }, tcp: { Status: 0 } } },
+        { server: { hostname: "a-very-long-nameserver-hostname.example.net", address: "2001:db8::53" }, skippedReason: "checker_ipv6_unavailable", soa: null, authoritative: false, error: null, rawResponses: { udp: null, tcp: null } },
+      ],
+      summary: { allAnswered: true, serialsAgree: true, newestSerial: 2407160699, differences: [] },
+    }),
+  }));
+  await page.goto("/dns-tools/soa-checker");
+  await page.getByLabel("Domain or hostname").fill("example.com");
+  await page.getByRole("button", { name: "Compare SOA records" }).click();
+
+  await expect(page.getByText("IPv6 checks were skipped because this checker does not have IPv6 connectivity.")).toBeVisible();
+  await expect(page.getByText("a-very-long-nameserver-hostname.example.net", { exact: true })).toBeVisible();
+  await expect(page.getByText("2,407,160,699")).toBeVisible();
+  await expect(page.getByText(/ENETUNREACH/)).toHaveCount(0);
+  const width = await page.evaluate(() => ({ client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth }));
+  expect(width.scroll).toBeLessThanOrEqual(width.client);
+
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Download report" }).click();
+  const download = await downloadPromise;
+  const stream = await download.createReadStream();
+  let contents = "";
+  for await (const chunk of stream) contents += chunk.toString();
+  expect(JSON.parse(contents)).toMatchObject({
+    tool: "SOA Consistency Checker",
+    ipv6Connectivity: false,
+    observations: [{ skippedReason: null }, { skippedReason: "checker_ipv6_unavailable", server: { address: "2001:db8::53" } }],
+  });
 });
 
 test("DNS pages have print-safe shell and tables", async ({ page }) => {

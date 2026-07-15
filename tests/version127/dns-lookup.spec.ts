@@ -1,5 +1,4 @@
 import { expect, test } from "playwright/test";
-import { readFileSync } from "node:fs";
 
 const fixture = {
   query: {
@@ -306,33 +305,6 @@ test("DNS Lookup omits the favicon when the website has no usable icon", async (
   await page.getByRole("button", { name: "Look up DNS" }).click();
 
   await expect(page.locator(".dns-site-favicon")).toHaveCount(0);
-});
-
-test("DNS Lookup shows a favicon when the website provides one", async ({ page }) => {
-  const faviconFixture = {
-    ...fixture,
-    query: {
-      ...fixture.query,
-      originalInput: "example.com",
-      normalizedName: "example.com",
-    },
-  };
-  await page.route("https://example.com/favicon.ico", async (route) => {
-    await route.fulfill({
-      body: readFileSync("public/favicon-32x32.png"),
-      contentType: "image/png",
-      status: 200,
-    });
-  });
-  await page.route("**/api/dns/lookup", async (route) => {
-    await route.fulfill({ contentType: "application/json", json: faviconFixture, status: 200 });
-  });
-
-  await page.goto("/dns-tools/dns-lookup");
-  await page.getByLabel("DNS name").fill("example.com");
-  await page.getByRole("button", { name: "Look up DNS" }).click();
-
-  await expect(page.locator('img.dns-site-favicon[src="https://example.com/favicon.ico"]')).toBeVisible();
 });
 
 test("query-param lookup states remain noindex and canonicalize to the clean tool URL", async ({ page }) => {

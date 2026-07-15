@@ -23,6 +23,7 @@ The `/dns-tools` surface groups compact, evidence-first DNS troubleshooting tool
 - DNS Trace Explorer is different from resolver lookup. It starts from reviewed IANA root hints, sends bounded non-recursive queries directly to nameservers, follows referrals, and never builds a fake trace from recursive DoH answers.
 - DNSSEC verdicts must come from a real local validator. A resolver's AD flag is supporting evidence, not the verdict.
 - Keep DNS Change, delegation, DNSSEC, SOA, and CAA as separate tools. They may share bounded DNS adapters, but their inputs, conclusions, and result views must stay focused on their own question.
+- Read request bodies through the shared streaming size limit, cap the in-process rate-limit map, and never return stack traces, local socket details, filesystem paths, or unfiltered runtime errors in a page result or download.
 
 ## Publication
 

@@ -10,4 +10,4 @@ Serial comparison must use RFC 1982 arithmetic so wraparound does not make a new
 
 Group identical IPv4 and IPv6 observations from the same nameserver, but keep different serials or SOA values in separate rows. Preserve all raw responses. Derive negative cache time as the lower of the SOA record TTL and the MINIMUM field; do not describe MINIMUM alone as the guaranteed negative caching time.
 
-Show a favicon for the submitted hostname when one loads and export every per-address observation as CSV. The written explanation should define the serial, MNAME, RNAME, refresh, retry, expire, and negative cache behavior in language a reader can use while debugging a stale secondary.
+Show a favicon for the submitted hostname when one loads and preserve every per-address observation, summary field, and raw response in the downloadable JSON report. The written explanation should define the serial, MNAME, RNAME, refresh, retry, expire, and negative cache behavior in language a reader can use while debugging a stale secondary.
