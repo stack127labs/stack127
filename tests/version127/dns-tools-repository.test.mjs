@@ -46,6 +46,9 @@ test("the canonical DNS Tools repository is complete and uses flat public routes
   assert.equal(existsSync(path.join(root, "templates", "github-dns-tools")), false, "the standalone repo must not remain a template");
   assert.equal(existsSync(path.join(repo, ".git")), false, "do not create a nested Git repository");
 
+  const rootTsconfig = JSON.parse(readFileSync(path.join(root, "tsconfig.json"), "utf8"));
+  assert.ok(rootTsconfig.exclude.includes("repos"), "the hosted typecheck must not compile nested standalone repositories");
+
   const packageJson = JSON.parse(readFileSync(path.join(repo, "package.json"), "utf8"));
   assert.match(packageJson.scripts.dev, /1273/);
   assert.equal(packageJson.dependencies.pg, undefined);
