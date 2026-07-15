@@ -2,7 +2,7 @@
 
 Route: `/dns-tools/nameserver-checker`
 
-Publication state: published locally through the exact registry row. Production publication remains a separate explicit action.
+Publication state: controlled by the exact `dns-tools/nameserver-checker` row in `public.version127_pages`.
 
 The tool discovers the closest delegated zone, compares the NS set published by the parent with the NS set returned by the child, and checks every public address over UDP and TCP. A reachable server is not automatically healthy: it must also return an authoritative SOA for the zone.
 

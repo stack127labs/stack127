@@ -2,7 +2,7 @@
 
 Route: `/dns-tools/soa-checker`
 
-Publication state: published locally through the exact registry row. Production publication remains a separate explicit action.
+Publication state: controlled by the exact `dns-tools/soa-checker` row in `public.version127_pages`.
 
 The tool discovers the zone and compares the SOA record returned by every authoritative nameserver address. Show MNAME, RNAME, serial, refresh, retry, expire, minimum, and SOA TTL without hiding differences.
 

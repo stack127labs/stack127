@@ -2,7 +2,7 @@
 
 Route: `/dns-tools/dnssec-checker`
 
-Publication state: published locally through the exact registry row. Production publication remains a separate explicit action.
+Publication state: controlled by the exact `dns-tools/dnssec-checker` row in `public.version127_pages`.
 
 The user enters a name and one ordinary answer type. The pure-TypeScript `@namefi/dnssec-audit` validator fetches the chain through a fixed DNS-over-HTTPS endpoint and verifies it from the root trust anchor. The result is secure, insecure, bogus, or indeterminate. Never derive that verdict from an AD flag alone.
 

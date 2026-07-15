@@ -2,7 +2,7 @@
 
 Route: `/dns-tools/dns-trace`
 
-Publication state: published tool route. Indexing, metadata, canonical URL, structured data, and sitemap inclusion come only from the exact published `dns-tools/dns-trace` row in `public.version127_pages`. The row is present in the local database; production publication remains a separate explicit action.
+Publication state: controlled by the exact `dns-tools/dns-trace` row in `public.version127_pages`. Indexing, metadata, canonical URL, structured data, and sitemap inclusion come only from that row.
 
 ## Purpose
 
