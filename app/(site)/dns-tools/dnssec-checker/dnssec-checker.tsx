@@ -3,7 +3,7 @@
 import { useMemo, useState, type FormEvent } from "react";
 import type { WalkStep } from "@namefi/dnssec-audit";
 import type { NormalizedDnsRecord } from "@/lib/dns/types.ts";
-import { DNSSEC_RECORD_TYPES, type DnssecRecordType, type DnssecVerdict } from "@/lib/dns/dnssec-types.ts";
+import { DNSSEC_RECORD_TYPES, type DnssecRecordType, type DnssecSignature, type DnssecVerdict } from "@/lib/dns/dnssec-types.ts";
 import { DiagnosticResultHeader, DownloadResultButton } from "../diagnostic-result-ui";
 import styles from "../dns-diagnostics.module.css";
 
@@ -16,6 +16,7 @@ type Result = {
   verdict: DnssecVerdict;
   explanation: string;
   validation: { outcome: Outcome; steps: WalkStep[] };
+  signatures: DnssecSignature[];
   answer: Evidence;
   chain: Array<{ zone: string; ds: Evidence | null; dnskey: Evidence }>;
   validator: { name: string; performedLocalValidation: boolean; exitCode: number; rawReport: unknown };
@@ -42,6 +43,18 @@ function stepName(step: WalkStep) {
   if (step.kind === "denial") return "Verify the signed proof of absence";
   if (step.kind === "insecure") return "Prove where the signed chain ends";
   return step.zone ? `Check ${step.zone}` : "Validation note";
+}
+
+function signatureTime(signature: DnssecSignature) {
+  const seconds = Math.abs(signature.secondsRemaining);
+  const value = seconds >= 86400
+    ? `${Math.round(seconds / 86400)} day${Math.round(seconds / 86400) === 1 ? "" : "s"}`
+    : seconds >= 3600
+      ? `${Math.round(seconds / 3600)} hour${Math.round(seconds / 3600) === 1 ? "" : "s"}`
+      : `${Math.max(1, Math.round(seconds / 60))} minute${Math.max(1, Math.round(seconds / 60)) === 1 ? "" : "s"}`;
+  if (signature.status === "expired") return `Expired ${value} ago`;
+  if (signature.status === "not-yet-valid") return `Not valid yet · expires in ${value}`;
+  return `${value} remaining`;
 }
 
 export function DnssecChecker({ initialName = "", initialRecordType = "A" }: { initialName?: string; initialRecordType?: DnssecRecordType }) {
@@ -78,6 +91,7 @@ export function DnssecChecker({ initialName = "", initialRecordType = "A" }: { i
       </DiagnosticResultHeader>
       <section className={styles.section}><h3>What the validator checked</h3>{result.validation.steps.length ? <ol className={styles.chain}>{result.validation.steps.map((step, index) => <li className={styles.chainStep} data-ok={String(step.ok)} key={`${step.kind}-${step.zone ?? step.qname ?? index}-${index}`}><h4>{stepName(step)}</h4><p>{step.detail}</p></li>)}</ol> : <p className={styles.empty}>No validation steps were returned. The downloadable report keeps the failure details.</p>}</section>
       <section className={styles.section}><h3>The answer that was validated</h3>{result.answer.records.length ? <div className="dns-table-scroll"><table className={`dns-status-table ${styles.compactTable}`}><thead><tr><th>Owner</th><th>Type</th><th>Value</th><th>Resolver TTL</th></tr></thead><tbody>{result.answer.records.map((record, index) => <tr key={`${record.ownerName}-${record.value}-${index}`}><th><code>{record.ownerName}</code></th><td>{record.type}</td><td><code>{record.value}</code></td><td>{record.resolverTtlSeconds === null ? "Not reported" : `${record.resolverTtlSeconds.toLocaleString("en-US")}s`}</td></tr>)}</tbody></table></div> : <p className={styles.empty}>{result.validation.outcome === "secure-nodata" ? `No ${result.query.recordType} record exists at this name, and the validator checked the signed proof.` : result.validation.outcome === "secure-nxdomain" ? "The name does not exist, and the validator checked the signed proof." : result.answer.error ?? `No ${result.query.recordType} record was returned.`}</p>}<details className={styles.raw}><summary>Raw requested answer</summary><pre>{JSON.stringify(result.answer, null, 2)}</pre></details></section>
+      {result.signatures.length ? <section className={styles.section}><h3>When the signatures expire</h3><p className={styles.inlineNote}>Each signed record set has its own validity window. The first signature to expire is the one to watch; there is no single expiry time for the whole domain.</p><div className="dns-table-scroll"><table className={`dns-status-table ${styles.compactTable}`}><thead><tr><th>Record set</th><th>Signer</th><th>Algorithm</th><th>Key tag</th><th>Valid from</th><th>Valid until</th><th>Status</th></tr></thead><tbody>{result.signatures.map((signature) => <tr key={`${signature.ownerName}-${signature.typeCovered}-${signature.keyTag}-${signature.expiration}`}><th><code>{signature.typeCovered}</code> for <code>{signature.ownerName}</code></th><td><code>{signature.signerName}</code></td><td>{signature.algorithmName} ({signature.algorithm})</td><td>{signature.keyTag}</td><td>{new Date(signature.inception).toLocaleString()}</td><td>{new Date(signature.expiration).toLocaleString()}</td><td>{signatureTime(signature)}</td></tr>)}</tbody></table></div></section> : null}
       <details className={styles.raw}><summary>DS and DNSKEY evidence by zone</summary><pre>{JSON.stringify(result.chain, null, 2)}</pre></details>
       <details className={styles.raw}><summary>Complete validator report</summary><pre>{JSON.stringify(result.validator.rawReport, null, 2)}</pre></details>
     </section> : null}

@@ -44,6 +44,10 @@ Every page-level `h1` uses the shared `--text-h1` and `--line-h1` typography tok
 
 Tool interfaces stay compact. Inputs, buttons, filters, tables, record values, pills, metadata, and technical details should use the existing UI text tokens. A tool page may contain prose, but apply the prose class only to the explanatory region, never to the whole tool.
 
+## Visual language
+
+Do not decorate callouts, findings, status messages, or information boxes with a colored line along the left edge. That treatment is not part of the Version127 design language. Prefer ordinary spacing, a neutral full border, a restrained surface background, or semantic text color when the meaning genuinely needs distinction. A neutral connector that shows a real sequence, hierarchy, or DNSSEC chain is structural rather than decorative and may remain.
+
 ## Guardrail
 
 `npm run test:static` fails when a class or ID selector is added to `app/globals.css`. If that happens, move the selector to its owner instead of weakening the check.

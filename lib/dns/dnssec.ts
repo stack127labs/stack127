@@ -1,8 +1,21 @@
-import { DoHResolver, RecordingResolver, walk, type WalkResult, type WalkStep } from "@namefi/dnssec-audit";
+import {
+  decodeMessage,
+  DoHResolver,
+  parseRRSIG,
+  RecordingResolver,
+  type CapturedEntry,
+  type RRSIG_RD,
+  type WalkResult,
+  type WalkStep,
+  typeName,
+  walk,
+} from "@namefi/dnssec-audit";
 import { queryPublicResolver } from "./doh.ts";
 import { dnsResponseCode, normalizeChangeRecordType, normalizeDiagnosticName, normalizeWireRecord, type PublicDiagnosticQuery } from "./diagnostics.ts";
 import type { RawDnsWireResponse } from "./dns-wire.ts";
+import { canonicalDnsName } from "./normalize-name.ts";
 import { recordTypeCode } from "./record-types.ts";
+import type { DnssecSignature } from "./dnssec-types.ts";
 
 export const DNSSEC_RECORD_TYPES = ["A", "AAAA", "CNAME", "MX", "NS", "TXT", "CAA", "SOA", "SRV"] as const;
 export type DnssecRecordType = (typeof DNSSEC_RECORD_TYPES)[number];
@@ -38,8 +51,73 @@ type ValidatorResult = {
   exitCode: number;
   zones: string[];
   steps: WalkStep[];
+  signatures: DnssecSignature[];
 };
 type ValidatorRunner = (name: string, type: DnssecRecordType) => Promise<ValidatorResult>;
+
+const DNSSEC_ALGORITHMS: Record<number, string> = {
+  5: "RSASHA1",
+  7: "RSASHA1-NSEC3-SHA1",
+  8: "RSASHA256",
+  10: "RSASHA512",
+  13: "ECDSAP256SHA256",
+  14: "ECDSAP384SHA384",
+  15: "ED25519",
+  16: "ED448",
+};
+
+export function dnssecSignatureFromRrsig(
+  signature: RRSIG_RD,
+  context: { ownerName: string; queryName: string; queryType: number },
+  now = new Date(),
+): DnssecSignature {
+  const nowSeconds = Math.floor(now.getTime() / 1000);
+  const status = signature.signatureExpiration < nowSeconds
+    ? "expired"
+    : signature.signatureInception > nowSeconds
+      ? "not-yet-valid"
+      : "valid";
+  return {
+    ownerName: canonicalDnsName(context.ownerName),
+    queryName: canonicalDnsName(context.queryName),
+    queryType: typeName(context.queryType),
+    typeCovered: typeName(signature.typeCovered),
+    algorithm: signature.algorithm,
+    algorithmName: DNSSEC_ALGORITHMS[signature.algorithm] ?? `Algorithm ${signature.algorithm}`,
+    keyTag: signature.keyTag,
+    signerName: canonicalDnsName(signature.signerName),
+    inception: new Date(signature.signatureInception * 1000).toISOString(),
+    expiration: new Date(signature.signatureExpiration * 1000).toISOString(),
+    status,
+    secondsRemaining: signature.signatureExpiration - nowSeconds,
+  };
+}
+
+function signaturesFromEntries(entries: CapturedEntry[], now = new Date()) {
+  const signatures: DnssecSignature[] = [];
+  for (const entry of entries) {
+    try {
+      const message = decodeMessage(Buffer.from(entry.wire_b64, "base64"));
+      for (const record of [...message.answers, ...message.authorities, ...message.additionals]) {
+        if (record.type !== 46) continue;
+        signatures.push(dnssecSignatureFromRrsig(parseRRSIG(record), {
+          ownerName: record.name,
+          queryName: entry.qname,
+          queryType: entry.qtype,
+        }, now));
+      }
+    } catch {
+      // The complete wire response remains in the raw report when one captured entry cannot be parsed.
+    }
+  }
+  return signatures.filter((signature, index, values) => values.findIndex((candidate) =>
+    candidate.ownerName === signature.ownerName &&
+    candidate.typeCovered === signature.typeCovered &&
+    candidate.keyTag === signature.keyTag &&
+    candidate.inception === signature.inception &&
+    candidate.expiration === signature.expiration
+  ) === index).sort((left, right) => left.expiration.localeCompare(right.expiration));
+}
 
 async function runDnssecAudit(name: string, type: DnssecRecordType): Promise<ValidatorResult> {
   const resolver = new RecordingResolver(new DoHResolver("https://cloudflare-dns.com/dns-query"));
@@ -61,6 +139,7 @@ async function runDnssecAudit(name: string, type: DnssecRecordType): Promise<Val
     exitCode: verdict === "bogus" ? 1 : 0,
     zones: [...new Set(result.steps.flatMap((step) => step.zone ? [step.zone === "." ? "." : step.zone.replace(/\.$/, "")] : []))],
     steps: result.steps,
+    signatures: signaturesFromEntries(resolver.entries),
     rawReport: { verdict: result.verdict, detail: result.detail, steps: result.steps, queries: resolver.entries },
   };
 }
@@ -106,6 +185,7 @@ export async function checkDnssec(
       exitCode: 1,
       zones: [],
       steps: [],
+      signatures: [],
       rawReport: { error: error instanceof Error ? error.message : "The DNSSEC validator failed." },
     };
   }
@@ -128,6 +208,7 @@ export async function checkDnssec(
     verdict: validation.verdict,
     explanation: validation.explanation,
     validation: { outcome: validation.validationOutcome, steps: validation.steps },
+    signatures: validation.signatures ?? [],
     answer,
     chain,
     validator: { name: "Namefi DNSSEC Audit", performedLocalValidation: true, exitCode: validation.exitCode, rawReport: validation.rawReport },

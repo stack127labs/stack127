@@ -75,7 +75,7 @@ Exact published registry pages get page-level JSON-LD from the root layout. `dat
 
 ## Robots
 
-`robots.txt` allows normal crawling and points crawlers to `/sitemap.xml`.
+`robots.txt` allows normal crawling, excludes `/api/` from voluntary crawler access, and points crawlers to `/sitemap.xml`. The API rule is crawl hygiene, not access control.
 
 Do not block useful pages in `robots.txt` just to handle duplicates. Prefer `noindex, follow` on duplicate URL states so crawlers can still follow links.
 

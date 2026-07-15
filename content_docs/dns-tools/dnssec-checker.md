@@ -13,3 +13,5 @@ The page also retrieves DS and DNSKEY evidence for each zone in the chain. Those
 The validator supports the current RSA/SHA-256, RSA/SHA-512, ECDSA P-256, ECDSA P-384, and Ed25519 DNSKEY algorithms. If it cannot handle an algorithm or complete the chain, return indeterminate instead of guessing.
 
 The explanation must cover what the validator actually checks, what each verdict means, how DS, DNSKEY, and RRSIG connect, and where to start when a result is bogus. DNSSEC validates a specific answer or proof, not a generic domain health badge.
+
+Show the inception and expiration time for each RRSIG used by the validator, along with the covered record type, signer, algorithm, key tag, and time remaining. Each signed record set has its own validity window, so the page must not invent one domain-wide DNSSEC expiry date.

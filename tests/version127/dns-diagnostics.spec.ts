@@ -1,4 +1,5 @@
 import { expect, test } from "playwright/test";
+import { readFileSync } from "node:fs";
 
 const tools = [
   { route: "/dns-tools/dns-change-checker", title: "DNS Change Checker", button: "Check DNS change", sections: 4 },
@@ -34,7 +35,8 @@ test("query-filled diagnostic pages remain noindex with a clean canonical", asyn
 });
 
 test("diagnostic results show the site favicon and offer a useful export", async ({ page }) => {
-  await page.route("https://example.com/favicon.ico", (route) => route.fulfill({ body: Buffer.from("favicon"), contentType: "image/x-icon", status: 200 }));
+  const favicon = readFileSync("public/favicon-32x32.png");
+  await page.route("https://example.com/favicon.ico", (route) => route.fulfill({ body: favicon, contentType: "image/png", status: 200 }));
   await page.route("**/api/dns/change-checker", (route) => route.fulfill({
     contentType: "application/json",
     body: JSON.stringify({
@@ -63,6 +65,7 @@ test("DNSSEC result leads with the real validation steps and requested answer", 
       query: { name: "example.com", recordType: "A" }, checkedAt: "2026-07-13T10:00:00.000Z", durationMs: 310,
       verdict: "secure", explanation: "validated",
       validation: { outcome: "secure-positive", steps: [{ kind: "root-trust-anchor", zone: ".", ok: true, detail: "Root trust anchor loaded." }, { kind: "answer", qname: "example.com.", qtype: "A", ok: true, detail: "RRSIG verified for the A answer." }] },
+      signatures: [{ ownerName: "example.com", queryName: "example.com", queryType: "A", typeCovered: "A", algorithm: 13, algorithmName: "ECDSAP256SHA256", keyTag: 2371, signerName: "example.com", inception: "2026-07-13T09:00:00.000Z", expiration: "2026-07-20T09:00:00.000Z", status: "valid", secondsRemaining: 601200 }],
       answer: { responseCode: "NOERROR", authenticatedData: false, records: [{ ownerName: "example.com", type: "A", typeCode: 1, value: "192.0.2.10", resolverTtlSeconds: 300 }], rawResponse: { Status: 0 }, error: null },
       chain: [], validator: { name: "Namefi DNSSEC Audit", performedLocalValidation: true, exitCode: 0, rawReport: { verdict: "secure-positive" } },
     }),
@@ -74,4 +77,57 @@ test("DNSSEC result leads with the real validation steps and requested answer", 
   await expect(page.getByText("RRSIG verified for the A answer.")).toBeVisible();
   await expect(page.getByRole("cell", { name: "192.0.2.10" })).toBeVisible();
   await expect(page.getByText("The A answer is signed, and its signatures validate through the chain to the DNS root.")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "When the signatures expire" })).toBeVisible();
+  await expect(page.getByRole("cell", { name: "ECDSAP256SHA256 (13)" })).toBeVisible();
+  await expect(page.getByRole("cell", { name: "2371" })).toBeVisible();
+});
+
+test("authoritative disagreement points to the SOA checker", async ({ page }) => {
+  await page.route("**/api/dns/change-checker", (route) => route.fulfill({
+    contentType: "application/json",
+    body: JSON.stringify({
+      query: { name: "example.com", recordType: "A", expectedAnswer: null }, checkedAt: "2026-07-13T10:00:00.000Z", durationMs: 120, zone: "example.com",
+      authoritative: [{ id: "one", label: "ns1.example.com", kind: "authoritative", server: { hostname: "ns1.example.com", address: "192.0.2.1" }, responseCode: "NOERROR", authoritative: true, authenticatedData: null, records: [{ ownerName: "example.com", type: "A", typeCode: 1, value: "192.0.2.10", resolverTtlSeconds: 300 }], error: null, rawResponse: {} }],
+      resolvers: [], summary: { authoritativeServersAgree: false, agreeingResolvers: 0, totalResolvers: 0, expectedAnswerMatches: null },
+    }),
+  }));
+  await page.goto("/dns-tools/dns-change-checker");
+  await page.getByLabel("Domain or hostname").fill("example.com");
+  await page.getByRole("button", { name: "Check DNS change" }).click();
+  await expect(page.getByRole("link", { name: "Compare their SOA serials" })).toHaveAttribute("href", "/dns-tools/soa-checker?name=example.com");
+});
+
+test("nameserver results keep transport, glue, and network evidence separate", async ({ page }) => {
+  await page.route("**/api/dns/nameserver-checker", (route) => route.fulfill({
+    contentType: "application/json",
+    body: JSON.stringify({
+      checkedAt: "2026-07-13T10:00:00.000Z", durationMs: 240, inputName: "example.com", zone: "example.com", parentZone: "com",
+      parentNameservers: [], parentObservations: [], childObservations: [],
+      parentDelegatedNameservers: ["ns1.example.com"], childPublishedNameservers: ["ns1.example.com"],
+      parentGlue: [{ hostname: "ns1.example.com", address: "192.0.2.10", ttlSeconds: 300 }],
+      nameserverAddresses: [{ hostname: "ns1.example.com", addresses: ["192.0.2.10"] }],
+      authoritativeAddressObservations: [{ hostname: "ns1.example.com", server: { hostname: "ns1.example.com", address: "192.0.2.10" }, addresses: ["192.0.2.11"], authoritative: true, error: null, rawResponses: { A: {}, AAAA: {} } }],
+      addressDetails: [{ address: "192.0.2.10", asn: 64500, networkName: "Example Network", prefix: "192.0.2.0/24", countryCode: "US" }],
+      reachability: [{ server: { hostname: "ns1.example.com", address: "192.0.2.10" }, udp: { reachable: true, authoritative: true, responseCode: "NOERROR", error: null }, tcp: { reachable: false, authoritative: null, responseCode: null, error: "timeout" }, soa: { ownerName: "example.com", primaryNameserver: "ns1.example.com", responsibleMailbox: "hostmaster.example.com", serial: 1, refreshSeconds: 3600, retrySeconds: 600, expireSeconds: 86400, minimumSeconds: 300, ttlSeconds: 300 }, rawResponses: { udp: {}, tcp: null } }],
+      findings: ["ns1.example.com did not answer over TCP at 192.0.2.10.", "ns1.example.com has different addresses in the parent glue and its authoritative A or AAAA records."],
+      notes: ["Every discovered nameserver address belongs to AS64500 (Example Network)."],
+    }),
+  }));
+  await page.goto("/dns-tools/nameserver-checker");
+  await page.getByLabel("Domain or hostname").fill("example.com");
+  await page.getByRole("button", { name: "Check nameservers" }).click();
+  await expect(page.getByText("ns1.example.com did not answer over TCP at 192.0.2.10.")).toBeVisible();
+  await expect(page.getByRole("cell", { name: "192.0.2.11" })).toBeVisible();
+  await expect(page.getByText(/Example Network · AS64500 · 192\.0\.2\.0\/24/)).toBeVisible();
+});
+
+test("DNS pages have print-safe shell and tables", async ({ page }) => {
+  await page.goto("/dns-tools/dns-lookup");
+  await page.emulateMedia({ media: "print" });
+  await expect(page.getByRole("banner")).toHaveCSS("position", "static");
+  await expect(page.locator("[data-app-sidebar]")).toBeHidden();
+  await expect(page.getByRole("contentinfo")).toBeHidden();
+  await expect(page.locator(".dns-lookup-main")).toHaveCSS("display", "block");
+  await expect(page.locator(".dns-table-scroll").first()).toHaveCSS("overflow-x", "visible");
+  await expect(page.locator(".dns-status-table td").first()).toHaveCSS("overflow-wrap", "normal");
 });

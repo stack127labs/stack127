@@ -42,7 +42,9 @@
     "version127:marker-art": "node scripts/version127/marker-art/generate.mjs",
     "version127:dataset:export": "node scripts/version127/github/export-dataset.mjs",
     "version127:dataset:sync": "node scripts/version127/github/sync-dataset-repo.mjs",
-    "version127:tool:new": "node scripts/version127/github/create-tool-repo.mjs"
+    "version127:tool:new": "node scripts/version127/github/create-tool-repo.mjs",
+    "version127:dns-tools:sync": "node scripts/version127/repos/sync-dns-tools-core.mjs",
+    "version127:dns-tools:sync-check": "node scripts/version127/repos/sync-dns-tools-core.mjs --check"
   },
   "dependencies": {
     "@namefi/dnssec-audit": "^2.1.1",

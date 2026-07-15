@@ -96,9 +96,18 @@
   border-color: var(--color-accent-border-strong);
 }
 
-.dns-tool-card span:first-child {
+.dns-tool-card-copy {
   display: grid;
   gap: var(--space-3);
+}
+
+.dns-tool-card-name {
+  color: var(--color-accent-text);
+  font-size: var(--text-lg);
+}
+
+.dns-tool-card-reason {
+  font-weight: var(--weight-semibold);
 }
 
 .dns-tool-card small {
@@ -476,10 +485,10 @@
 }
 
 .dns-alias-summary {
-  border-left: 2px solid var(--color-accent-border-strong);
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
   display: grid;
   gap: var(--space-3);
-  padding: var(--space-2) 0 var(--space-2) var(--space-7);
 }
 
 .dns-alias-summary h2,
@@ -507,12 +516,10 @@
 }
 
 .dns-dnssec-summary {
-  border-left: 2px solid var(--color-accent-border-strong);
   color: var(--color-text-prose);
   line-height: var(--line-prose);
   margin: 0;
   max-width: 820px;
-  padding-left: var(--space-6);
 }
 
 .dns-ttl-explanation {
@@ -704,10 +711,8 @@
 }
 
 .dns-nameserver-addresses {
-  border-left: 2px solid var(--color-accent-border-strong);
   display: grid;
   gap: var(--space-2);
-  padding-left: var(--space-4);
 }
 
 .dns-nameserver-addresses > span,
@@ -1046,8 +1051,64 @@
 }
 
 @media print {
-  .dns-record-item,
+  .dns-lookup-main,
+  .dns-tool,
+  .dns-results,
+  .dns-record-stack,
   .dns-record-group,
+  .dns-owner-group,
+  .dns-reference-content {
+    display: block;
+  }
+
+  .dns-results > * + *,
+  .dns-record-group > * + *,
+  .dns-owner-group > * + *,
+  .dns-reference-content > * + * {
+    margin-top: var(--space-8);
+  }
+
+  .dns-table-scroll {
+    overflow: visible;
+  }
+
+  .dns-record-table,
+  .dns-status-table,
+  .dns-guide-table,
+  .dns-use-case-table {
+    min-width: 0;
+    table-layout: auto;
+  }
+
+  .dns-record-table thead,
+  .dns-status-table thead,
+  .dns-guide-table thead {
+    display: table-header-group;
+  }
+
+  .dns-record-table th,
+  .dns-record-table td,
+  .dns-status-table th,
+  .dns-status-table td,
+  .dns-guide-table th,
+  .dns-guide-table td {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .dns-reference-content > section,
+  .dns-answer-path,
+  .dns-results-summary {
+    break-inside: avoid-page;
+  }
+
+  .dns-reference-content h2,
+  .dns-record-group-heading,
+  .dns-results-heading-row {
+    break-after: avoid-page;
+  }
+
+  .dns-record-item,
   .dns-record-table tr,
   .dns-status-table tr,
   .dns-guide-table tr {
@@ -1055,7 +1116,26 @@
     page-break-inside: avoid;
   }
 
+  .dns-record-group {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .dns-record-item[data-record-type="DNSKEY"] {
+    display: block;
+  }
+
+  .dns-record-item[data-record-type="DNSKEY"] .dns-record-fields {
+    display: block;
+  }
+
+  .dns-record-item[data-record-type="DNSKEY"] .dns-record-fields > div + div,
+  .dns-record-item[data-record-type="DNSKEY"] .dns-record-meta {
+    margin-top: var(--space-4);
+  }
+
   .dns-inline-raw,
+  .dns-lookup-form,
   .dns-result-controls,
   .dns-copy-icon {
     display: none;

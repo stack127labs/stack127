@@ -26,6 +26,7 @@ export default async function DnsChangeCheckerPage({ searchParams }: { searchPar
           <section>
             <h2>How to check a DNS change</h2>
             <p>Enter the exact domain or hostname you changed, choose the record type, and run the check. If you know the new value, add it as the expected answer so the tool can tell you at a glance which servers match it. We ask your domain's authoritative nameservers first, then compare their answer with Cloudflare, Google, Quad9, and the other public resolvers available in the lookup tool.</p>
+            <p>People often call this a DNS propagation check. DNS does not push one change across the world all at once. Your nameservers publish the new answer, then each resolver replaces its cached copy when that copy is ready to refresh. This page shows those two parts separately so you can tell whether the source is correct or a cache is simply old.</p>
           </section>
           <section>
             <h2>Authoritative source versus a resolver cache</h2>

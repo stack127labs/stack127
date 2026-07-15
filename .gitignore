@@ -5,6 +5,8 @@ out/
 dist/
 playwright-report/
 test-results/
+/output/
+/tmp/
 
 .env
 .env*

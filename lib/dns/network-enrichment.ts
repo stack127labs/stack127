@@ -40,6 +40,44 @@ export function parseCymruAsnName(value: string) {
   return parts[4] || null;
 }
 
+export async function enrichDnsAddresses(
+  values: string[],
+  options: { fetchImpl?: typeof fetch; signal?: AbortSignal; timeoutMs?: number } = {},
+): Promise<DnsAddressDetail[]> {
+  const controller = new AbortController();
+  const onAbort = () => controller.abort();
+  options.signal?.addEventListener("abort", onAbort, { once: true });
+  const timeout = setTimeout(() => controller.abort(), options.timeoutMs ?? 2500);
+  const queryOptions = { fetchImpl: options.fetchImpl, signal: controller.signal };
+
+  try {
+    const addresses = unique(values.filter(isPublicDnsAddress)).slice(0, MAX_ADDRESSES);
+    const origins = await Promise.all(addresses.map(async (address) => {
+      const response = await safeQuery(addressToCymruName(address), "TXT", queryOptions);
+      const parsed = response ? parseCymruOrigin(firstTxt(response) ?? "") : null;
+      return { address, parsed };
+    }));
+    const asns = unique(origins.flatMap((entry) => entry.parsed ? [entry.parsed.asn] : []));
+    const asnNames = new Map<number, string | null>(await Promise.all(asns.map(async (asn) => {
+      const response = await safeQuery(`AS${asn}.asn.cymru.com`, "TXT", queryOptions);
+      return [asn, response ? parseCymruAsnName(firstTxt(response) ?? "") : null] as const;
+    })));
+
+    return origins.map(({ address, parsed }) => ({
+      address,
+      asn: parsed?.asn ?? null,
+      networkName: parsed ? asnNames.get(parsed.asn) ?? null : null,
+      prefix: parsed?.prefix ?? null,
+      countryCode: parsed?.countryCode ?? null,
+    }));
+  } catch {
+    return [];
+  } finally {
+    clearTimeout(timeout);
+    options.signal?.removeEventListener("abort", onAbort);
+  }
+}
+
 function unique<T>(values: T[]) {
   return [...new Set(values)];
 }
@@ -93,24 +131,7 @@ export async function enrichDnsResults(
       ...nameserverAddresses.flatMap((entry) => entry.addresses),
     ]).slice(0, MAX_ADDRESSES);
 
-    const origins = await Promise.all(addresses.map(async (address) => {
-      const response = await safeQuery(addressToCymruName(address), "TXT", queryOptions);
-      const parsed = response ? parseCymruOrigin(firstTxt(response) ?? "") : null;
-      return { address, parsed };
-    }));
-    const asns = unique(origins.flatMap((entry) => entry.parsed ? [entry.parsed.asn] : []));
-    const asnNames = new Map<number, string | null>(await Promise.all(asns.map(async (asn) => {
-      const response = await safeQuery(`AS${asn}.asn.cymru.com`, "TXT", queryOptions);
-      return [asn, response ? parseCymruAsnName(firstTxt(response) ?? "") : null] as const;
-    })));
-
-    const addressDetails = origins.map(({ address, parsed }) => ({
-      address,
-      asn: parsed?.asn ?? null,
-      networkName: parsed ? asnNames.get(parsed.asn) ?? null : null,
-      prefix: parsed?.prefix ?? null,
-      countryCode: parsed?.countryCode ?? null,
-    }));
+    const addressDetails = await enrichDnsAddresses(addresses, options);
     return {
       addressDetails,
       nameserverAddresses: nameserverAddresses.filter((entry) => entry.addresses.length > 0),

@@ -291,10 +291,17 @@
 }
 
 .complete {
-  border-left: 2px solid var(--color-success);
   color: var(--color-text-prose);
   margin: 0;
-  padding-left: var(--space-5);
+}
+
+.nextCheck {
+  color: var(--color-text-prose);
+  margin: 0;
+}
+
+.nextCheck a {
+  color: var(--color-link);
 }
 
 .journey {
@@ -371,5 +378,34 @@
 
   .record {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media print {
+  .main,
+  .results,
+  .timeline {
+    display: block;
+  }
+
+  .results > * + * {
+    margin-top: var(--space-8);
+  }
+
+  .resultHeader,
+  .stepHeader {
+    break-after: avoid-page;
+  }
+
+  .step,
+  .stepBody,
+  .record {
+    break-inside: avoid-page;
+  }
+
+  .resultHeader button,
+  .referralBlock button,
+  .raw {
+    display: none;
   }
 }

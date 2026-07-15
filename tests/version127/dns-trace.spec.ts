@@ -147,6 +147,18 @@ test("query-param trace states prefill the question and remain noindex", async (
   );
 });
 
+test("a trace that stops at the delegation points to the nameserver checker", async ({ page }) => {
+  await page.route("**/api/dns/trace", (route) => route.fulfill({
+    contentType: "application/json",
+    json: { ...fixture, outcome: "error", finalRecords: [], warnings: ["No delegated nameserver answered."], steps: fixture.steps.slice(0, 2) },
+    status: 200,
+  }));
+  await page.goto("/dns-tools/dns-trace");
+  await page.getByLabel("Domain or hostname").fill("www.example.com");
+  await page.getByRole("button", { name: "Trace DNS" }).click();
+  await expect(page.getByRole("link", { name: "Check the nameserver delegation" })).toHaveAttribute("href", "/dns-tools/nameserver-checker?name=www.example.com");
+});
+
 test("DNS Trace API rejects All and a resolver override", async ({ request }) => {
   const all = await request.post("/api/dns/trace", { data: { name: "example.com", recordType: "all" } });
   expect(all.status()).toBe(400);

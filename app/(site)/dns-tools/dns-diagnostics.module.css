@@ -192,16 +192,12 @@
 
 .finding {
   background: var(--color-surface-muted);
-  border-left: 3px solid var(--color-accent);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   display: grid;
   gap: var(--space-3);
   padding: var(--space-6);
 }
-
-.finding[data-tone="good"] { border-left-color: var(--color-success); }
-.finding[data-tone="warning"] { border-left-color: var(--color-warning); }
-.finding[data-tone="bad"] { border-left-color: var(--color-danger); }
 
 .compactTable td,
 .compactTable th {
@@ -274,8 +270,49 @@
   margin-top: var(--space-2);
 }
 
+.nextCheck {
+  color: var(--color-text-prose);
+}
+
+.nextCheck a,
+a.nextCheck {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent-border-strong);
+  text-underline-offset: 3px;
+}
+
 @media (max-width: 720px) {
   .grid { grid-template-columns: 1fr; }
   .resultHeader { display: grid; }
   .record { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .main,
+  .results {
+    display: block;
+  }
+
+  .results > * + * {
+    margin-top: var(--space-8);
+  }
+
+  .resultHeader,
+  .section > h3,
+  .sourceHeader {
+    break-after: avoid-page;
+  }
+
+  .section,
+  .source,
+  .finding,
+  .chainStep {
+    break-inside: avoid-page;
+  }
+
+  .resultActions,
+  .raw {
+    display: none;
+  }
 }

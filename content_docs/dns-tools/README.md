@@ -7,6 +7,8 @@ The `/dns-tools` surface groups compact, evidence-first DNS troubleshooting tool
 - Keep the useful input and result above the explanatory content.
 - Use the shared Version127 shell and DNS tools sidebar.
 - The DNS tools sidebar is a clean list of tool routes that are available now, matching the course sidebar pattern. Do not add an in-page table of contents, planned tools, disabled links, or coming-soon labels.
+- On the DNS Tools hub, every card leads with the real tool name, then states the problem it helps with, followed by one short explanation. Do not make readers infer a tool name from a use case.
+- DNS result findings and information boxes never use a colored left-edge line. Use a neutral full border or let the text sit naturally in the flow. Keep only neutral connector lines that explain a real chain or sequence.
 - Keep public explanations server-rendered.
 - Keep user-requested DNS results client-rendered and out of search indexing.
 - Query public resolvers only through the fixed, reviewed DNS-over-HTTPS endpoints in `lib/dns/resolvers.ts`.

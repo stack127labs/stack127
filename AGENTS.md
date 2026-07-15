@@ -11,6 +11,7 @@ Version127 is a compact technical directory site. It should grow into multiple r
 - Follow `version127_docs/css-architecture.md`. Keep `app/globals.css` limited to tokens, reset, and document defaults; colocate page and component styles with their owner.
 - Follow `version127_docs/writing-style.md` for content-heavy pages, summaries, legal copy, reference pages, and public-facing explanations.
 - Treat "simple" as composed, soulful, and easy to follow. Use full sentences, human judgment, and clear visual relationships. Avoid decorative eyebrows, floating helper text, dashboard-style sentence fragments, and oversized caveat panels.
+- Never decorate a callout, result, finding, or information box with a colored line along its left edge. Use calm spacing, a neutral full border, a restrained background, or semantic text when distinction is genuinely useful. Structural connector lines in a real timeline or chain are different and may remain neutral.
 - Keep dark mode as the default feel.
 - Unknown or `null` is better than fake precision.
 

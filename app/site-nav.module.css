@@ -70,3 +70,11 @@
     width: min(100% - 28px, 760px);
   }
 }
+
+@media print {
+  .header {
+    backdrop-filter: none;
+    box-shadow: none;
+    position: static;
+  }
+}

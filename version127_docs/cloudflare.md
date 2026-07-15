@@ -53,6 +53,8 @@ Next.js immutable assets under `/_next/static/` keep their existing long-lived i
 ## Security And Crawlers
 
 - Cloudflare Managed Free Ruleset: enabled.
+- Cloudflare-managed `robots.txt`: off. The application owns `/robots.txt`.
+- AI crawler blocking: off.
 - Security level: medium.
 - Browser Integrity Check: off.
 - Email Obfuscation: off.

@@ -304,6 +304,7 @@ function LookupResults({ result }: { result: DnsLookupResponse }) {
   const nameserverAddresses = new Map((result.nameserverAddresses ?? []).map((entry: DnsNameserverAddress) => [entry.nameserver, entry.addresses]));
   const hasLongGroups = result.queryResults.some((query) => query.requestedType !== "CAA" && ownerGroups(query.terminalRecords).some(([, records]) => records.length > 5));
   const traceLink = traceLinkForLookup(result);
+  const checkedDnssecRecords = result.queryResults.some((query) => query.requestedType === "DS" || query.requestedType === "DNSKEY");
 
   function downloadRecords() {
     const csv = dnsRecordsCsv({ authoritative, queryResults: result.queryResults, resolverLabel: resolver });
@@ -325,6 +326,7 @@ function LookupResults({ result }: { result: DnsLookupResponse }) {
           </div>
           <div className="dns-result-controls">
             {traceLink ? <a href={traceLink.href}>Trace this name</a> : null}
+            {checkedDnssecRecords ? <a href={`/dns-tools/dnssec-checker?name=${encodeURIComponent(result.query.normalizedName)}&type=A`}>Check the full DNSSEC chain</a> : null}
             {hasLongGroups ? (
               <button onClick={() => setExpandAll((value) => !value)} type="button">
                 {expandAll ? "Collapse long record lists" : "Expand all records"}

@@ -232,3 +232,23 @@
     justify-content: center;
   }
 }
+
+@media print {
+  .page {
+    display: block;
+    min-height: 0;
+  }
+
+  .sidebar,
+  .sidebarBar,
+  .backdrop,
+  .footer {
+    display: none !important;
+  }
+
+  .main,
+  .content {
+    min-height: 0;
+    overflow: visible;
+  }
+}

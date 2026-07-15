@@ -94,10 +94,8 @@ async function udpQuery(packet: Buffer, target: DirectDnsTarget, timeoutMs: numb
     signal?.addEventListener("abort", onAbort, { once: true });
     socket.once("error", (error) => finish(error));
     socket.once("message", (message) => finish(undefined, message));
-    socket.connect(53, target.address, () => {
-      socket.send(packet, (error) => {
-        if (error) finish(error);
-      });
+    socket.send(packet, 53, target.address, (error) => {
+      if (error) finish(error);
     });
   });
 }

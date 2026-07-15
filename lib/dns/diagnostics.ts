@@ -6,7 +6,8 @@ import { recordTypeCode, recordTypeName } from "./record-types.ts";
 import { dnsResolverProfiles, resolverLabel } from "./resolvers.ts";
 import { traceDns } from "./trace.ts";
 export { negativeCacheTtlSeconds } from "./diagnostic-presentation.ts";
-import type { DnsRecordType, DnsResolver, NormalizedDnsRecord } from "./types.ts";
+import { enrichDnsAddresses } from "./network-enrichment.ts";
+import type { DnsAddressDetail, DnsRecordType, DnsResolver, NormalizedDnsRecord } from "./types.ts";
 
 export type DnsDiagnosticQuery = typeof queryDirectDnsServer;
 export type PublicDiagnosticQuery = typeof queryPublicResolver;
@@ -16,6 +17,7 @@ export type DiagnosticOptions = {
   publicQuery?: PublicDiagnosticQuery;
   signal?: AbortSignal;
   timeoutMs?: number;
+  addressEnrichment?: typeof enrichDnsAddresses;
 };
 
 export type NameserverAddress = {
@@ -41,6 +43,15 @@ export type NameserverReachability = {
   rawResponses: { udp: RawDnsWireResponse | null; tcp: RawDnsWireResponse | null };
 };
 
+export type NameserverAddressObservation = {
+  hostname: string;
+  server: DirectDnsTarget;
+  addresses: string[];
+  authoritative: boolean | null;
+  error: string | null;
+  rawResponses: { A: RawDnsWireResponse | null; AAAA: RawDnsWireResponse | null };
+};
+
 export type DelegationCheck = {
   checkedAt: string;
   durationMs: number;
@@ -54,8 +65,11 @@ export type DelegationCheck = {
   childPublishedNameservers: string[];
   childObservations: DelegationObservation[];
   nameserverAddresses: NameserverAddress[];
+  authoritativeAddressObservations: NameserverAddressObservation[];
+  addressDetails: DnsAddressDetail[];
   reachability: NameserverReachability[];
   findings: string[];
+  notes: string[];
 };
 
 export type SoaRecord = {
@@ -241,6 +255,114 @@ function targetsFrom(addresses: NameserverAddress[]) {
   return addresses.flatMap(({ hostname, addresses: values }) => values.map((address) => ({ hostname, address })));
 }
 
+async function authoritativeAddressObservation(
+  hostname: string,
+  server: DirectDnsTarget,
+  options: DiagnosticOptions,
+): Promise<NameserverAddressObservation> {
+  const directQuery = options.directQuery ?? queryDirectDnsServer;
+  async function one(type: "A" | "AAAA") {
+    try {
+      const raw = await directQuery(hostname, type, server, {
+        signal: options.signal,
+        timeoutMs: options.timeoutMs ?? 2500,
+      });
+      const typeCode = recordTypeCode(type);
+      return {
+        addresses: raw.Answer.filter((record) => record.type === typeCode && canonicalDnsName(record.name) === hostname).map((record) => record.data),
+        authoritative: raw.AA,
+        error: null,
+        raw,
+      };
+    } catch (error) {
+      return {
+        addresses: [],
+        authoritative: null,
+        error: error instanceof Error ? error.message : "The nameserver did not answer.",
+        raw: null,
+      };
+    }
+  }
+  const [ipv4, ipv6] = await Promise.all([one("A"), one("AAAA")]);
+  return {
+    hostname,
+    server,
+    addresses: [...new Set([...ipv4.addresses, ...ipv6.addresses])],
+    authoritative: ipv4.authoritative === true || ipv6.authoritative === true
+      ? true
+      : ipv4.authoritative === false || ipv6.authoritative === false
+        ? false
+        : null,
+    error: ipv4.error && ipv6.error ? `${ipv4.error} ${ipv6.error}` : null,
+    rawResponses: { A: ipv4.raw, AAAA: ipv6.raw },
+  };
+}
+
+type DelegationAssessmentInput = Pick<DelegationCheck,
+  "zone" | "parentDelegatedNameservers" | "childPublishedNameservers" | "parentGlue" |
+  "nameserverAddresses" | "reachability" | "authoritativeAddressObservations" | "addressDetails"
+>;
+
+export function assessDelegation(input: DelegationAssessmentInput) {
+  const findings: string[] = [];
+  const notes: string[] = [];
+  const parentSet = new Set(input.parentDelegatedNameservers);
+  const childSet = new Set(input.childPublishedNameservers);
+  for (const hostname of parentSet) if (!childSet.has(hostname)) findings.push(`${hostname} appears at the parent but not in the zone's own NS records.`);
+  for (const hostname of childSet) if (!parentSet.has(hostname)) findings.push(`${hostname} appears in the zone but not at the parent.`);
+  for (const hostname of parentSet) {
+    const isInZone = hostname === input.zone || hostname.endsWith(`.${input.zone}`);
+    const glue = input.parentGlue.filter((record) => record.hostname === hostname).map((record) => record.address);
+    if (isInZone && !glue.length) {
+      findings.push(`${hostname} is inside ${input.zone}, but the parent referral did not include the required glue address.`);
+      continue;
+    }
+    const authoritativeAddresses = [...new Set(input.authoritativeAddressObservations
+      .filter((observation) => observation.hostname === hostname && observation.authoritative === true)
+      .flatMap((observation) => observation.addresses))].sort();
+    if (isInZone && glue.length && authoritativeAddresses.length) {
+      const parentOnly = glue.filter((address) => !authoritativeAddresses.includes(address));
+      const zoneOnly = authoritativeAddresses.filter((address) => !glue.includes(address));
+      if (parentOnly.length || zoneOnly.length) {
+        findings.push(`${hostname} has different addresses in the parent glue and its authoritative A or AAAA records. Parent only: ${parentOnly.join(", ") || "none"}. Authoritative only: ${zoneOnly.join(", ") || "none"}.`);
+      }
+    }
+  }
+  for (const nameserver of input.nameserverAddresses) {
+    if (!nameserver.addresses.length) findings.push(`${nameserver.hostname} did not resolve to a public IPv4 or IPv6 address.`);
+  }
+  for (const result of input.reachability) {
+    if (!result.udp.reachable) findings.push(`${result.server.hostname} did not answer over UDP at ${result.server.address}.`);
+    if (!result.tcp.reachable) findings.push(`${result.server.hostname} did not answer over TCP at ${result.server.address}.`);
+    if ((result.udp.reachable || result.tcp.reachable) && result.udp.authoritative !== true && result.tcp.authoritative !== true) {
+      findings.push(`${result.server.hostname} answered at ${result.server.address}, but did not claim authority for ${input.zone}.`);
+    }
+  }
+
+  const hostnamesByAddress = new Map<string, string[]>();
+  for (const nameserver of input.nameserverAddresses) for (const address of nameserver.addresses) {
+    hostnamesByAddress.set(address, [...new Set([...(hostnamesByAddress.get(address) ?? []), nameserver.hostname])]);
+  }
+  for (const [address, hostnames] of hostnamesByAddress) {
+    if (hostnames.length > 1) findings.push(`${hostnames.join(" and ")} use the same IP address, ${address}. Separate names can still fail together when they share one server.`);
+  }
+
+  if (input.nameserverAddresses.length > 1) {
+    const usedAddresses = new Set(input.nameserverAddresses.flatMap((entry) => entry.addresses));
+    const details = input.addressDetails.filter((detail) => usedAddresses.has(detail.address));
+    const knownAsns = [...new Set(details.flatMap((detail) => detail.asn === null ? [] : [detail.asn]))];
+    const knownPrefixes = [...new Set(details.flatMap((detail) => detail.prefix ? [detail.prefix] : []))];
+    if (details.length && knownAsns.length === 1 && details.every((detail) => detail.asn === knownAsns[0])) {
+      const networkName = details.find((detail) => detail.networkName)?.networkName;
+      notes.push(`Every discovered nameserver address belongs to AS${knownAsns[0]}${networkName ? ` (${networkName})` : ""}. That is not automatically wrong, but one network problem could affect every server.`);
+    }
+    if (details.length && knownPrefixes.length === 1 && details.every((detail) => detail.prefix === knownPrefixes[0])) {
+      notes.push(`Every discovered nameserver address is inside ${knownPrefixes[0]}. Separate networks give a delegation more room to survive a routing problem.`);
+    }
+  }
+  return { findings, notes };
+}
+
 export async function checkDelegation(nameInput: string, options: DiagnosticOptions = {}): Promise<DelegationCheck> {
   const startedAt = Date.now();
   const inputName = normalizeDiagnosticName(nameInput);
@@ -281,23 +403,14 @@ export async function checkDelegation(nameInput: string, options: DiagnosticOpti
     addresses: [...new Set([...entry.addresses, ...parentGlue.filter((glue) => glue.hostname === entry.hostname).map((glue) => glue.address)])],
   }));
   const reachability = await Promise.all(targetsFrom(nameserverAddresses).map((target) => reachabilityCheck(zone, target, options)));
-
-  const findings: string[] = [];
-  const parentSet = new Set(parentDelegatedNameservers);
-  const childSet = new Set(childPublishedNameservers);
-  for (const hostname of parentSet) if (!childSet.has(hostname)) findings.push(`${hostname} appears at the parent but not in the zone's own NS records.`);
-  for (const hostname of childSet) if (!parentSet.has(hostname)) findings.push(`${hostname} appears in the zone but not at the parent.`);
-  for (const hostname of parentSet) {
-    const isInZone = hostname === zone || hostname.endsWith(`.${zone}`);
-    if (isInZone && !parentGlue.some((glue) => glue.hostname === hostname)) findings.push(`${hostname} is inside ${zone}, but the parent referral did not include the required glue address.`);
-  }
-  for (const nameserver of nameserverAddresses) {
-    if (!nameserver.addresses.length) findings.push(`${nameserver.hostname} did not resolve to a public IPv4 or IPv6 address.`);
-  }
-  for (const result of reachability) {
-    if (!result.udp.reachable && !result.tcp.reachable) findings.push(`${result.server.hostname} did not answer over UDP or TCP at ${result.server.address}.`);
-    else if (result.udp.authoritative === false && result.tcp.authoritative === false) findings.push(`${result.server.hostname} answered but did not claim authority for ${zone}.`);
-  }
+  const authoritativeAddressObservations = await Promise.all(nameserverAddresses
+    .filter((entry) => entry.hostname === zone || entry.hostname.endsWith(`.${zone}`))
+    .flatMap((entry) => entry.addresses.slice(0, 1).map((address) => authoritativeAddressObservation(entry.hostname, { hostname: entry.hostname, address }, options))));
+  const addressDetails = await (options.addressEnrichment ?? enrichDnsAddresses)(
+    nameserverAddresses.flatMap((entry) => entry.addresses),
+    { signal: options.signal, timeoutMs: options.timeoutMs ?? 2500 },
+  );
+  const assessment = assessDelegation({ zone, parentDelegatedNameservers, childPublishedNameservers, parentGlue, nameserverAddresses, reachability, authoritativeAddressObservations, addressDetails });
 
   return {
     checkedAt: new Date().toISOString(),
@@ -312,8 +425,11 @@ export async function checkDelegation(nameInput: string, options: DiagnosticOpti
     childPublishedNameservers,
     childObservations,
     nameserverAddresses,
+    authoritativeAddressObservations,
+    addressDetails,
     reachability,
-    findings,
+    findings: assessment.findings,
+    notes: assessment.notes,
   };
 }
 

@@ -88,6 +88,24 @@ test.describe("Version127 publication SEO", () => {
     });
   }
 
+  test("robots.txt allows public crawling and excludes API routes", async ({ request }, testInfo) => {
+    test.skip(testInfo.project.name !== "chromium", "request-level robots guard only needs one project");
+
+    const response = await request.get("/robots.txt");
+    expect(response.status()).toBe(200);
+
+    const lines = (await response.text())
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter(Boolean);
+
+    expect(lines).toContain("User-Agent: *");
+    expect(lines).toContain("Allow: /");
+    expect(lines).toContain("Disallow: /api/");
+    expect(lines).not.toContain("Disallow: /");
+    expect(lines).toContain("Sitemap: https://version127.com/sitemap.xml");
+  });
+
   test("sitemap includes published pages and excludes unpublished routes", async ({ request }, testInfo) => {
     test.skip(testInfo.project.name !== "chromium", "request-level sitemap guard only needs one project");
 

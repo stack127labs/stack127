@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { checkCaaPolicy, compareSerials, negativeCacheTtlSeconds, parseCaaRecord, parseSoaRecord } from "../../lib/dns/diagnostics.ts";
-import { checkDnssec, parseDelvVerdict } from "../../lib/dns/dnssec.ts";
+import { assessDelegation, checkCaaPolicy, compareSerials, negativeCacheTtlSeconds, parseCaaRecord, parseSoaRecord } from "../../lib/dns/diagnostics.ts";
+import { checkDnssec, dnssecSignatureFromRrsig, parseDelvVerdict } from "../../lib/dns/dnssec.ts";
 import { csvFromRows, groupDnsSources, groupSoaObservations } from "../../lib/dns/diagnostic-presentation.ts";
 
 test("SOA records retain every field and serial comparison follows RFC 1982 wraparound", () => {
@@ -96,6 +96,7 @@ test("DNSSEC result comes from cryptographic validation rather than the resolver
         exitCode: 0,
         zones: [".", "com", "example.com"],
         steps: [{ kind: "answer", qname: "example.com.", qtype: "A", ok: true, detail: "RRSIG verified; 1 A record" }],
+        signatures: [],
       }),
       publicQuery: async (name, type) => ({
         Status: 0, TC: false, RD: true, RA: true, AD: false, CD: false, AA: false, Question: [], Authority: [], Additional: [],
@@ -113,6 +114,74 @@ test("DNSSEC result comes from cryptographic validation rather than the resolver
   assert.equal(result.answer.records[0].value, "192.0.2.10");
   assert.equal(result.chain.every((step) => step.dnskey.authenticatedData === false), true);
   assert.deepEqual(result.chain.map((step) => step.zone), [".", "com", "example.com"]);
+});
+
+test("DNSSEC signatures keep their own validity window and time remaining", () => {
+  const signature = dnssecSignatureFromRrsig(
+    {
+      typeCovered: 1,
+      algorithm: 13,
+      labels: 2,
+      originalTTL: 300,
+      signatureExpiration: 1_800,
+      signatureInception: 900,
+      keyTag: 2371,
+      signerName: "example.com.",
+      signature: new Uint8Array(),
+      signerNameRdataEndOffset: 0,
+    },
+    { ownerName: "www.example.com.", queryName: "www.example.com.", queryType: 1 },
+    new Date(1_000_000),
+  );
+
+  assert.equal(signature.typeCovered, "A");
+  assert.equal(signature.algorithmName, "ECDSAP256SHA256");
+  assert.equal(signature.status, "valid");
+  assert.equal(signature.secondsRemaining, 800);
+  assert.equal(signature.keyTag, 2371);
+  assert.equal(signature.signerName, "example.com");
+});
+
+test("delegation assessment reports each failed transport, glue drift, and shared infrastructure", () => {
+  const assessment = assessDelegation({
+    zone: "example.com",
+    parentDelegatedNameservers: ["ns1.example.com", "ns2.example.com"],
+    childPublishedNameservers: ["ns1.example.com", "ns2.example.com"],
+    parentGlue: [
+      { hostname: "ns1.example.com", address: "192.0.2.10", ttlSeconds: 300 },
+      { hostname: "ns2.example.com", address: "192.0.2.10", ttlSeconds: 300 },
+    ],
+    nameserverAddresses: [
+      { hostname: "ns1.example.com", addresses: ["192.0.2.10"] },
+      { hostname: "ns2.example.com", addresses: ["192.0.2.10"] },
+    ],
+    reachability: [
+      {
+        server: { hostname: "ns1.example.com", address: "192.0.2.10" },
+        udp: { reachable: false, authoritative: null, responseCode: null, error: "timeout" },
+        tcp: { reachable: true, authoritative: true, responseCode: "NOERROR", error: null },
+        soa: null,
+        rawResponses: { udp: null, tcp: null },
+      },
+    ],
+    authoritativeAddressObservations: [
+      {
+        hostname: "ns1.example.com",
+        server: { hostname: "ns1.example.com", address: "192.0.2.10" },
+        addresses: ["192.0.2.11"],
+        authoritative: true,
+        error: null,
+        rawResponses: { A: null, AAAA: null },
+      },
+    ],
+    addressDetails: [{ address: "192.0.2.10", asn: 64500, networkName: "Example Network", prefix: "192.0.2.0/24", countryCode: "US" }],
+  });
+
+  assert.ok(assessment.findings.some((finding) => finding.includes("did not answer over UDP")));
+  assert.ok(assessment.findings.some((finding) => finding.includes("parent glue") && finding.includes("192.0.2.11")));
+  assert.ok(assessment.findings.some((finding) => finding.includes("same IP address")));
+  assert.ok(assessment.notes.some((note) => note.includes("AS64500")));
+  assert.ok(assessment.notes.some((note) => note.includes("192.0.2.0/24")));
 });
 
 test("negative SOA cache time uses the lower of the SOA TTL and MINIMUM", () => {

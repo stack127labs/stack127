@@ -1,4 +1,5 @@
 import { expect, test } from "playwright/test";
+import { readFileSync } from "node:fs";
 
 const fixture = {
   query: {
@@ -118,9 +119,40 @@ const fixture = {
 test("DNS tools hub shows only tools that are available", async ({ page }) => {
   await page.goto("/dns-tools");
 
-  await expect(page.getByRole("heading", { name: "Available now" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "What are you trying to fix?" })).toBeVisible();
+  for (const toolName of [
+    "DNS Lookup",
+    "DNS Trace Explorer",
+    "DNS Change Checker",
+    "Nameserver Delegation Checker",
+    "DNSSEC Chain Checker",
+    "SOA Consistency Checker",
+    "CAA Policy Checker",
+  ]) {
+    await expect(page.locator(".dns-tool-card").getByText(toolName, { exact: true })).toBeVisible();
+  }
+  await expect(page.getByText("I only need to see the current records.", { exact: true })).toBeVisible();
+  await expect(page.getByText("A DNS change still looks old.", { exact: true })).toBeVisible();
+  await expect(page.getByText("A certificate will not issue.", { exact: true })).toBeVisible();
   await expect(page.locator('[data-app-main] a[href="/dns-tools/dns-lookup"]')).toBeVisible();
   await expect(page.getByRole("heading", { name: "Planned next" })).toHaveCount(0);
+});
+
+test("DS and DNSKEY lookup results point to the full DNSSEC checker", async ({ page }) => {
+  const dnssecFixture = {
+    ...fixture,
+    query: { ...fixture.query, selection: "DNSKEY" },
+    queryResults: [{
+      ...fixture.queryResults[0],
+      requestedType: "DNSKEY",
+      terminalRecords: [{ ownerName: "example.com", type: "DNSKEY", typeCode: 48, value: "257 3 13 AAAA", resolverTtlSeconds: 300 }],
+    }],
+  };
+  await page.route("**/api/dns/lookup", (route) => route.fulfill({ contentType: "application/json", json: dnssecFixture, status: 200 }));
+  await page.goto("/dns-tools/dns-lookup");
+  await page.getByLabel("DNS name").fill("example.com");
+  await page.getByRole("button", { name: "Look up DNS" }).click();
+  await expect(page.getByRole("link", { name: "Check the full DNSSEC chain" })).toHaveAttribute("href", "/dns-tools/dnssec-checker?name=www.example.com&type=A");
 });
 
 test("DNS Lookup renders corrected TTL, alias, owner, DNSSEC summary, and per-record raw responses", async ({ page }) => {
@@ -287,8 +319,8 @@ test("DNS Lookup shows a favicon when the website provides one", async ({ page }
   };
   await page.route("https://example.com/favicon.ico", async (route) => {
     await route.fulfill({
-      body: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><rect width="32" height="32" fill="#2563eb"/></svg>',
-      contentType: "image/svg+xml",
+      body: readFileSync("public/favicon-32x32.png"),
+      contentType: "image/png",
       status: 200,
     });
   });

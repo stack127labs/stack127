@@ -22,35 +22,37 @@ export default function DnsToolsPage() {
         </header>
 
         <section aria-labelledby="available-tools-title" className="dns-hub-section">
-          <h2 id="available-tools-title">Available now</h2>
+          <h2 id="available-tools-title">What are you trying to fix?</h2>
           <Link className="dns-tool-card" href="/dns-tools/dns-lookup">
-            <span>
-              <strong>DNS lookup</strong>
-              <small>Check records through a public resolver or the domain's authoritative nameserver.</small>
+            <span className="dns-tool-card-copy">
+              <strong className="dns-tool-card-name">DNS Lookup</strong>
+              <span className="dns-tool-card-reason">I only need to see the current records.</span>
+              <small>DNS lookup shows what a public resolver or the domain's authoritative nameserver returns now.</small>
             </span>
             <span aria-hidden="true">→</span>
           </Link>
           <Link className="dns-tool-card" href="/dns-tools/dns-trace">
-            <span>
-              <strong>DNS Trace Explorer</strong>
-              <small>Follow a DNS question from the root to the nameserver that gives the final answer.</small>
+            <span className="dns-tool-card-copy">
+              <strong className="dns-tool-card-name">DNS Trace Explorer</strong>
+              <span className="dns-tool-card-reason">The domain returns SERVFAIL.</span>
+              <small>DNS Trace Explorer follows the handoffs from the root and shows where the path stops.</small>
             </span>
             <span aria-hidden="true">→</span>
           </Link>
           <Link className="dns-tool-card" href="/dns-tools/dns-change-checker">
-            <span><strong>DNS Change Checker</strong><small>See if a DNS change is live at the source and which resolvers still show the old answer.</small></span><span aria-hidden="true">→</span>
+            <span className="dns-tool-card-copy"><strong className="dns-tool-card-name">DNS Change Checker</strong><span className="dns-tool-card-reason">A DNS change still looks old.</span><small>DNS Change Checker compares the source with the copies held by public resolver caches.</small></span><span aria-hidden="true">→</span>
           </Link>
           <Link className="dns-tool-card" href="/dns-tools/nameserver-checker">
-            <span><strong>Nameserver Delegation Checker</strong><small>Check that the handoff to your nameservers lines up and that each one answers.</small></span><span aria-hidden="true">→</span>
+            <span className="dns-tool-card-copy"><strong className="dns-tool-card-name">Nameserver Delegation Checker</strong><span className="dns-tool-card-reason">I moved nameservers.</span><small>Nameserver Delegation Checker checks the parent handoff, glue, and whether every server answers.</small></span><span aria-hidden="true">→</span>
           </Link>
           <Link className="dns-tool-card" href="/dns-tools/dnssec-checker">
-            <span><strong>DNSSEC Chain Checker</strong><small>Validate the signed chain from the DNS root to the answer you requested.</small></span><span aria-hidden="true">→</span>
+            <span className="dns-tool-card-copy"><strong className="dns-tool-card-name">DNSSEC Chain Checker</strong><span className="dns-tool-card-reason">DNSSEC looks broken.</span><small>DNSSEC Chain Checker validates the signed chain from the root to one answer.</small></span><span aria-hidden="true">→</span>
           </Link>
           <Link className="dns-tool-card" href="/dns-tools/soa-checker">
-            <span><strong>SOA Consistency Checker</strong><small>Compare serials and zone timing across every authoritative nameserver.</small></span><span aria-hidden="true">→</span>
+            <span className="dns-tool-card-copy"><strong className="dns-tool-card-name">SOA Consistency Checker</strong><span className="dns-tool-card-reason">Nameservers may be out of sync.</span><small>SOA Consistency Checker compares the serial and timing values served by every nameserver.</small></span><span aria-hidden="true">→</span>
           </Link>
           <Link className="dns-tool-card" href="/dns-tools/caa-checker">
-            <span><strong>CAA Policy Checker</strong><small>Find the effective certificate authority policy for normal and wildcard certificates.</small></span><span aria-hidden="true">→</span>
+            <span className="dns-tool-card-copy"><strong className="dns-tool-card-name">CAA Policy Checker</strong><span className="dns-tool-card-reason">A certificate will not issue.</span><small>CAA Policy Checker finds which certificate authorities may issue normal and wildcard certificates.</small></span><span aria-hidden="true">→</span>
           </Link>
         </section>
       </main>

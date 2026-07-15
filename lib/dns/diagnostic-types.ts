@@ -1,5 +1,5 @@
 import type { RawDnsWireResponse } from "./dns-wire.ts";
-import type { NormalizedDnsRecord } from "./types.ts";
+import type { DnsAddressDetail, NormalizedDnsRecord } from "./types.ts";
 
 export const CHANGE_RECORD_TYPES = ["A", "AAAA", "CNAME", "MX", "NS", "TXT", "CAA", "SOA", "SRV", "DS", "DNSKEY"] as const;
 export type ChangeRecordType = (typeof CHANGE_RECORD_TYPES)[number];
@@ -36,6 +36,15 @@ export type NameserverReachability = {
   rawResponses: { udp: RawDnsWireResponse | null; tcp: RawDnsWireResponse | null };
 };
 
+export type NameserverAddressObservation = {
+  hostname: string;
+  server: { hostname: string; address: string };
+  addresses: string[];
+  authoritative: boolean | null;
+  error: string | null;
+  rawResponses: { A: RawDnsWireResponse | null; AAAA: RawDnsWireResponse | null };
+};
+
 export type DelegationCheck = {
   checkedAt: string;
   durationMs: number;
@@ -49,8 +58,11 @@ export type DelegationCheck = {
   childPublishedNameservers: string[];
   childObservations: DelegationObservation[];
   nameserverAddresses: NameserverAddress[];
+  authoritativeAddressObservations: NameserverAddressObservation[];
+  addressDetails: DnsAddressDetail[];
   reachability: NameserverReachability[];
   findings: string[];
+  notes: string[];
 };
 
 export type DnsSourceAnswer = {

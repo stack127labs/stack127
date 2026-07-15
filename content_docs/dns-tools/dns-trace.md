@@ -54,7 +54,7 @@ One compact Copy trace action may sit beside the result heading. Do not add a se
 - Never query loopback, private, link-local, documentation, multicast, reserved, or other non-public targets.
 - A failed supporting NS-address lookup must remain visible as the reason the trace cannot continue.
 
-The trace observes the path from the Version127 server. It does not describe the visitor's recursive resolver cache, ISP, geographic location, or worldwide propagation. It does not validate DNSSEC cryptography; that belongs in the DNSSEC Chain Checker.
+The trace observes the path from the Version127 server. It does not describe the visitor's recursive resolver cache, ISP, geographic location, or worldwide propagation. It does not validate DNSSEC cryptography; link that limitation directly to DNSSEC Chain Checker. When the trace stops at a referral or cannot reach the delegated servers, point the reader to Nameserver Delegation Checker with the name filled in.
 
 ## Content flow
 

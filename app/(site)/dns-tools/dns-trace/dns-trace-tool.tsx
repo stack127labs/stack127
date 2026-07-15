@@ -168,6 +168,7 @@ function TraceResults({ result }: { result: DnsTraceResponse }) {
       ) : result.warnings.length > 0 ? (
         <div className={styles.warning}>{result.warnings.map((warning) => <p key={warning}>{warning}</p>)}</div>
       ) : null}
+      {result.outcome === "error" ? <p className={styles.nextCheck}><a href={`/dns-tools/nameserver-checker?name=${encodeURIComponent(result.query.normalizedName)}`}>Check the nameserver delegation</a> to compare the parent handoff, glue, and the answers from each nameserver.</p> : null}
     </section>
   );
 }
