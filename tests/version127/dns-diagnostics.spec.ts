@@ -130,14 +130,18 @@ test("authoritative disagreement points to the SOA checker", async ({ page }) =>
         { id: "one", label: "ns1.example.com", kind: "authoritative", server: { hostname: "ns1.example.com", address: "192.0.2.1" }, responseCode: "NOERROR", authoritative: true, authenticatedData: null, records: [{ ownerName: "example.com", type: "A", typeCode: 1, value: "192.0.2.10", resolverTtlSeconds: 300 }], error: null, rawResponse: {} },
         { id: "two", label: "ns2.example.com", kind: "authoritative", server: { hostname: "ns2.example.com", address: "192.0.2.2" }, responseCode: "NOERROR", authoritative: true, authenticatedData: null, records: [{ ownerName: "example.com", type: "A", typeCode: 1, value: "192.0.2.20", resolverTtlSeconds: 300 }], error: null, rawResponse: {} },
       ],
-      resolvers: [{ id: "cloudflare", label: "Cloudflare", kind: "resolver", server: null, responseCode: "NOERROR", authoritative: null, authenticatedData: false, records: [{ ownerName: "example.com", type: "A", typeCode: 1, value: "192.0.2.10", resolverTtlSeconds: 240 }], error: null, rawResponse: {} }],
-      summary: { authoritativeServersAgree: false, matchingAuthoritativeSources: 1, totalAuthoritativeSources: 2, agreeingResolvers: 1, totalResolvers: 1, expectedAnswerMatches: null },
+      resolvers: [
+        { id: "cloudflare", label: "Cloudflare", kind: "resolver", server: null, responseCode: "NOERROR", authoritative: null, authenticatedData: false, records: [{ ownerName: "example.com", type: "A", typeCode: 1, value: "192.0.2.10", resolverTtlSeconds: 240 }], error: null, rawResponse: {} },
+        { id: "google", label: "Google Public DNS", kind: "resolver", server: null, responseCode: "NOERROR", authoritative: null, authenticatedData: false, records: [{ ownerName: "example.com", type: "A", typeCode: 1, value: "192.0.2.10", resolverTtlSeconds: 240 }], error: null, rawResponse: {} },
+        { id: "quad9", label: "Quad9", kind: "resolver", server: null, responseCode: null, authoritative: null, authenticatedData: null, records: [], error: "The resolver did not answer.", rawResponse: null },
+      ],
+      summary: { authoritativeServersAgree: false, matchingAuthoritativeSources: 1, totalAuthoritativeSources: 2, agreeingResolvers: 2, totalResolvers: 3, expectedAnswerMatches: null },
     }),
   }));
   await page.goto("/dns-tools/dns-change-checker");
   await page.getByLabel("Domain or hostname").fill("example.com");
   await page.getByRole("button", { name: "Check DNS change" }).click();
-  await expect(page.getByText(/1 of 2 usable authoritative replies returned the answer used for comparison, and 1 of 1 public resolvers match it/)).toBeVisible();
+  await expect(page.getByText(/1 of 2 usable authoritative replies returned the answer used for comparison\. 2 of 2 usable public resolver replies match it\. 1 other resolver did not return a usable reply\./)).toBeVisible();
   await expect(page.getByRole("link", { name: "Compare their SOA serials" })).toHaveAttribute("href", "/dns-tools/soa-checker?name=example.com");
 });
 
