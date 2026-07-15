@@ -44,7 +44,7 @@ test("diagnostic results show the site favicon and download the complete report"
       zone: "example.com",
       authoritative: [{ id: "authority-0", label: "ns1.example.com", kind: "authoritative", server: { hostname: "ns1.example.com", address: "192.0.2.53" }, responseCode: "NOERROR", authoritative: true, authenticatedData: null, records: [{ ownerName: "example.com", type: "A", typeCode: 1, value: "192.0.2.10", resolverTtlSeconds: 300 }], error: null, rawResponse: { Status: 0, AA: true } }],
       resolvers: [{ id: "cloudflare", label: "Cloudflare", kind: "resolver", server: null, responseCode: "NOERROR", authoritative: null, authenticatedData: false, records: [{ ownerName: "example.com", type: "A", typeCode: 1, value: "192.0.2.10", resolverTtlSeconds: 240 }], error: null, rawResponse: { Status: 0 } }],
-      summary: { authoritativeServersAgree: true, agreeingResolvers: 1, totalResolvers: 1, expectedAnswerMatches: null },
+      summary: { authoritativeServersAgree: true, matchingAuthoritativeSources: 1, totalAuthoritativeSources: 1, agreeingResolvers: 1, totalResolvers: 1, expectedAnswerMatches: null },
     }),
   }));
   await page.goto("/dns-tools/dns-change-checker");
@@ -126,13 +126,18 @@ test("authoritative disagreement points to the SOA checker", async ({ page }) =>
     contentType: "application/json",
     body: JSON.stringify({
       query: { name: "example.com", recordType: "A", expectedAnswer: null }, checkedAt: "2026-07-13T10:00:00.000Z", durationMs: 120, zone: "example.com",
-      authoritative: [{ id: "one", label: "ns1.example.com", kind: "authoritative", server: { hostname: "ns1.example.com", address: "192.0.2.1" }, responseCode: "NOERROR", authoritative: true, authenticatedData: null, records: [{ ownerName: "example.com", type: "A", typeCode: 1, value: "192.0.2.10", resolverTtlSeconds: 300 }], error: null, rawResponse: {} }],
-      resolvers: [], summary: { authoritativeServersAgree: false, agreeingResolvers: 0, totalResolvers: 0, expectedAnswerMatches: null },
+      authoritative: [
+        { id: "one", label: "ns1.example.com", kind: "authoritative", server: { hostname: "ns1.example.com", address: "192.0.2.1" }, responseCode: "NOERROR", authoritative: true, authenticatedData: null, records: [{ ownerName: "example.com", type: "A", typeCode: 1, value: "192.0.2.10", resolverTtlSeconds: 300 }], error: null, rawResponse: {} },
+        { id: "two", label: "ns2.example.com", kind: "authoritative", server: { hostname: "ns2.example.com", address: "192.0.2.2" }, responseCode: "NOERROR", authoritative: true, authenticatedData: null, records: [{ ownerName: "example.com", type: "A", typeCode: 1, value: "192.0.2.20", resolverTtlSeconds: 300 }], error: null, rawResponse: {} },
+      ],
+      resolvers: [{ id: "cloudflare", label: "Cloudflare", kind: "resolver", server: null, responseCode: "NOERROR", authoritative: null, authenticatedData: false, records: [{ ownerName: "example.com", type: "A", typeCode: 1, value: "192.0.2.10", resolverTtlSeconds: 240 }], error: null, rawResponse: {} }],
+      summary: { authoritativeServersAgree: false, matchingAuthoritativeSources: 1, totalAuthoritativeSources: 2, agreeingResolvers: 1, totalResolvers: 1, expectedAnswerMatches: null },
     }),
   }));
   await page.goto("/dns-tools/dns-change-checker");
   await page.getByLabel("Domain or hostname").fill("example.com");
   await page.getByRole("button", { name: "Check DNS change" }).click();
+  await expect(page.getByText(/1 of 2 usable authoritative replies returned the answer used for comparison, and 1 of 1 public resolvers match it/)).toBeVisible();
   await expect(page.getByRole("link", { name: "Compare their SOA serials" })).toHaveAttribute("href", "/dns-tools/soa-checker?name=example.com");
 });
 

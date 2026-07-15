@@ -6,7 +6,7 @@ Publication state: controlled by the exact `dns-tools/dns-change-checker` row in
 
 The user enters one name, one record type, and optionally the new value they expect. The tool discovers the zone, asks every reachable authoritative address, then asks every reviewed public resolver. Authoritative results always appear first. Resolver TTL and Authoritative TTL remain separate concepts.
 
-Compare record sets without treating order as meaningful. Keep owner names and aliases. A resolver difference is evidence of a different cached answer, not proof of worldwide propagation or a broken resolver. Location-aware A and AAAA answers may legitimately differ.
+Compare record sets without treating order as meaningful. Keep owner names and aliases. When authoritative replies differ, use the record set returned by the largest number of usable authoritative sources as the resolver comparison baseline; never let whichever address happened to answer first decide the result. Explain that a difference can be a change still settling or an intentional location-aware answer, not automatic proof of a DNS problem. A resolver difference is evidence of a different cached answer, not proof of worldwide propagation or a broken resolver.
 
 Every source keeps its raw response next to the visible records. Do not add a health score or an All query.
 
