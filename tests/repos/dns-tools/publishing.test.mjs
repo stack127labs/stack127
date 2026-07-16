@@ -27,6 +27,7 @@ test("DNS Tools has a fixed public organization target and guarded subtree publi
   assert.match(publisher, /startsWith\("version127\/"\)/);
   assert.match(publisher, /\["subtree", "split"/);
   assert.match(publisher, /scanTrackedFiles/);
+  assert.match(publisher, /\["example\.com", "example\.test"\]/);
   assert.match(publisher, /Nested \.git directories are not allowed/);
   assert.match(publisher, /Commit the private repository changes before creating a public subtree commit/);
   assert.match(publisher, /shouldPush/);

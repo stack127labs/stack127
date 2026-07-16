@@ -51,9 +51,9 @@ function scanTrackedFiles(sourcePath) {
   const forbiddenContent = [
     /-----BEGIN [A-Z ]*PRIVATE KEY-----/,
     /(?:DATABASE_URL|SUPABASE_SECRET_KEY|CLOUDFLARE_API_TOKEN|DOKPLOY_PASSWORD|OVH_VPS_PASSWORD)\s*=\s*\S+/i,
-    /https?:\/\/[^\s"'/:]+:[^\s"'@]+@/,
     /gh[oprsu]_[A-Za-z0-9_]{20,}/,
   ];
+  const credentialUrl = /https?:\/\/[^\s"'/:]+:[^\s"'@]+@([^\s"'/:]+)/g;
 
   const failures = [];
   for (const file of trackedFilesBelow(sourcePath)) {
@@ -68,7 +68,9 @@ function scanTrackedFiles(sourcePath) {
     const content = readFileSync(absolute);
     if (content.includes(0)) continue;
     const text = content.toString("utf8");
-    if (forbiddenContent.some((pattern) => pattern.test(text))) {
+    const hasCredentialUrl = [...text.matchAll(credentialUrl)]
+      .some((match) => !["example.com", "example.test"].includes(match[1].toLowerCase()));
+    if (hasCredentialUrl || forbiddenContent.some((pattern) => pattern.test(text))) {
       failures.push(`${relative}: possible embedded credential`);
     }
   }
