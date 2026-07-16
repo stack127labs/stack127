@@ -211,29 +211,35 @@ function checkSkillAdapters() {
   }
 }
 
-function checkPageCoverage(pageFiles) {
-  const manifestPath = "tests/version127/page-coverage.json";
-  if (!existsSync(path.join(root, manifestPath))) {
-    fail(`${manifestPath} is missing. Every site route needs an explicit test/publication decision.`);
-    return;
-  }
+function pageManifestPath(route) {
+  return route === "/"
+    ? "tests/pages/home/page.json"
+    : path.join("tests/pages", route.replace(/^\//, ""), "page.json");
+}
 
-  const manifest = JSON.parse(read(manifestPath));
-  const routes = manifest.routes ?? {};
+function checkPageCoverage(pageFiles) {
   const pageRoutes = new Set(pageFiles.map(routeFromPageFile));
-  const manifestRoutes = new Set(Object.keys(routes));
+  const manifestFiles = walk("tests/pages").filter((file) => file.endsWith("/page.json"));
+  const manifests = new Map();
   const validStates = new Set(["published", "unpublished", "noindex"]);
 
   for (const route of pageRoutes) {
-    if (!manifestRoutes.has(route)) {
-      fail(`${manifestPath} is missing coverage for route ${route}.`);
+    const manifestPath = pageManifestPath(route);
+    if (!existsSync(path.join(root, manifestPath))) {
+      fail(`${manifestPath} is missing. Every site route needs a page-scoped ownership manifest.`);
+      continue;
     }
-  }
 
-  for (const route of manifestRoutes) {
-    const entry = routes[route];
-    if (!pageRoutes.has(route)) {
-      fail(`${manifestPath} lists ${route}, but no matching app/(site) page exists.`);
+    let entry;
+    try {
+      entry = JSON.parse(read(manifestPath));
+    } catch (error) {
+      fail(`${manifestPath} is not valid JSON: ${error instanceof Error ? error.message : String(error)}`);
+      continue;
+    }
+    manifests.set(route, { entry, manifestPath });
+    if (entry?.route !== route) {
+      fail(`${manifestPath} declares route ${entry?.route ?? "nothing"}; expected ${route}.`);
     }
     if (!validStates.has(entry?.state)) {
       fail(`${manifestPath} route ${route} must use state published, unpublished, or noindex.`);
@@ -248,6 +254,33 @@ function checkPageCoverage(pageFiles) {
     }
     if (entry?.state !== "published" && !String(entry?.reason ?? "").trim()) {
       fail(`${manifestPath} route ${route} needs a reason when it is not published.`);
+    }
+
+    for (const field of ["docs", "scripts", "skills", "repositories"]) {
+      if (!Array.isArray(entry?.[field])) {
+        fail(`${manifestPath} route ${route} must declare a ${field} array.`);
+        continue;
+      }
+      for (const ownedPath of entry[field]) {
+        if (!existsSync(path.join(root, ownedPath))) {
+          fail(`${manifestPath} route ${route} references missing ${field} path: ${ownedPath}`);
+        }
+      }
+    }
+    if (entry?.docs?.length === 0) {
+      fail(`${manifestPath} route ${route} must reference at least one documentation path.`);
+    }
+  }
+
+  for (const manifestFile of manifestFiles) {
+    let entry;
+    try {
+      entry = JSON.parse(read(manifestFile));
+    } catch {
+      continue;
+    }
+    if (!pageRoutes.has(entry?.route)) {
+      fail(`${manifestFile} declares ${entry?.route ?? "no route"}, but no matching app/(site) page exists.`);
     }
   }
 }

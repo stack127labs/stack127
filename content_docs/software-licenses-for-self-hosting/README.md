@@ -40,7 +40,7 @@ Use normal Version127 reference voice from `version127_docs/writing-style.md`, w
 
 - Public SEO is controlled only by `public.version127_pages` slug `software-licenses-for-self-hosting`.
 - Do not add route-owned metadata, robots, canonical, sitemap, or JSON-LD in the page file.
-- When publishing, also update `tests/version127/page-coverage.json` and `scripts/version127/quality/seo-registry-check.mjs`.
+- When publishing, also update `tests/pages/software-licenses-for-self-hosting/page.json` and `scripts/version127/quality/seo-registry-check.mjs`.
 
 ## Maintenance
 

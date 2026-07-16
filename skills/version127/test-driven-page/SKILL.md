@@ -16,14 +16,14 @@ Use this skill before changing any route under `app/(site)` or any SEO-visible p
    - `published`: exact slug should be indexable and listed in sitemap.
    - `unpublished`: route exists in code but should return 404 until approved.
    - `noindex`: route can render, but should not be indexed.
-5. Update `tests/version127/page-coverage.json` before or alongside the page.
+5. Create or update the route's `tests/pages/<route>/page.json` ownership manifest before or alongside the page. Use `tests/pages/home/page.json` for `/`.
 6. Add or update tests before considering the page done.
 7. Implement the smallest route/UI/data change.
 8. Run the gates listed below.
 
 ## Test Requirements
 
-Every route under `app/(site)` must have an entry in `tests/version127/page-coverage.json`.
+Every route under `app/(site)` must have a page-scoped ownership manifest under `tests/pages/`. The manifest records the route state, documentation, tests, scripts, skills, and public repositories connected to that page.
 
 For published routes, Playwright must verify:
 - HTTP 200.
@@ -38,7 +38,7 @@ For unpublished routes, Playwright must verify:
 - sitemap exclusion.
 - a clear reason in the coverage manifest.
 
-For shared logic, add Node unit tests in `tests/version127/*.test.mjs`. Prefer pure helpers and deterministic checks over browser tests when rendering is not needed.
+Put page-owned tests beside the page manifest. Keep genuinely sitewide tests in `tests/version127/`, route-family tests in that family's `shared` folder, and public-repository contract tests in `tests/repos/<repo>/`. Prefer pure helpers and deterministic checks over browser tests when rendering is not needed.
 
 ## Quality Gates
 
@@ -60,7 +60,7 @@ npm run quality
 
 - Do not use local DB state for public SEO publication decisions.
 - Do not add route-owned metadata, canonicals, robots rules, sitemap logic, or JSON-LD in page files.
-- Do not add a page without a route coverage manifest entry.
+- Do not add a page without its page-scoped ownership manifest.
 - Do not weaken tests to match broken behavior.
 - Do not hide missing data with broad fallbacks.
 - Do not add component or page selectors to `app/globals.css`. Use a colocated CSS Module or route-family stylesheet.

@@ -42,6 +42,21 @@ Version127 is a compact technical directory site. It should grow into multiple r
 - Do not add one-off scripts to `package.json`.
 - Durable package scripts should include the page slug, for example `self-host-apps:refresh-github`.
 
+## Tests
+
+- Every route has one ownership manifest under `tests/pages/<route>/page.json`; `/` uses `tests/pages/home/page.json`.
+- Put tests that protect one page beside that page manifest.
+- Keep route-family tests in that family's `shared` folder, sitewide tests in `tests/version127/`, and public-repository contract tests in `tests/repos/<repo-name>/`.
+- The ownership manifest is the index for the page's docs, tests, scripts, skills, and public repository copies. Do not recreate a central hand-maintained page coverage registry.
+
+## Public repositories
+
+- The private source-of-truth repository is `RaviTejaKNTS/version127`.
+- Public repositories belong to the `version127` GitHub organization.
+- Keep the complete local public-repository tree under `repos/<repo-name>/`.
+- Synchronization from the private application into `repos/` must use an explicit allowlist and a check mode. Never use a blind two-way copy.
+- Publish a public repository only after its local quality gate and secret scan pass.
+
 ## Skills
 
 - Page-specific agent skills live under `skills/<page-slug>/<skill-name>/`.

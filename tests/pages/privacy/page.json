@@ -1,0 +1,9 @@
+{
+  "route": "/privacy",
+  "state": "published",
+  "docs": ["content_docs/privacy"],
+  "tests": ["tests/version127/seo.spec.ts"],
+  "scripts": [],
+  "skills": [],
+  "repositories": []
+}

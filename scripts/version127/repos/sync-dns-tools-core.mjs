@@ -2,6 +2,7 @@
 
 import {
   cpSync,
+  existsSync,
   mkdirSync,
   mkdtempSync,
   readFileSync,
@@ -40,12 +41,21 @@ function rewriteTextTree(dir) {
   }
 }
 
-function copyUnitTests(target) {
-  mkdirSync(target, { recursive: true });
-  const source = path.join(root, "tests", "version127");
-  for (const entry of readdirSync(source)) {
-    if (!entry.startsWith("dns-") || !entry.endsWith(".test.mjs") || entry === "dns-tools-repository.test.mjs") continue;
-    cpSync(path.join(source, entry), path.join(target, entry));
+const unitTestMappings = [
+  ["tests/pages/dns-tools/dns-lookup/dns-lookup.test.mjs", "tests/pages/dns-lookup/dns-lookup.test.mjs", "../../../lib/dns"],
+  ["tests/pages/dns-tools/dns-trace/dns-trace.test.mjs", "tests/pages/dns-trace/dns-trace.test.mjs", "../../../lib/dns"],
+  ["tests/pages/dns-tools/shared/dns-diagnostics.test.mjs", "tests/shared/dns-diagnostics.test.mjs", "../../lib/dns"],
+  ["tests/pages/dns-tools/shared/dns-resolvers.test.mjs", "tests/shared/dns-resolvers.test.mjs", "../../lib/dns"],
+  ["tests/pages/dns-tools/shared/dns-tool-box-style.test.mjs", "tests/shared/dns-tool-box-style.test.mjs", "../../lib/dns"],
+];
+
+function copyUnitTests(stage) {
+  for (const [sourceRelative, targetRelative, importPrefix] of unitTestMappings) {
+    const target = path.join(stage, targetRelative);
+    mkdirSync(path.dirname(target), { recursive: true });
+    const content = readFileSync(path.join(root, sourceRelative), "utf8")
+      .replaceAll("../../../../lib/dns", importPrefix);
+    writeFileSync(target, standaloneText(content));
   }
 }
 
@@ -74,16 +84,30 @@ const stage = mkdtempSync(path.join(os.tmpdir(), "dns-tools-core-"));
 try {
   cpSync(path.join(root, "lib", "dns"), path.join(stage, "lib", "dns"), { recursive: true });
   cpSync(path.join(root, "app", "api", "dns"), path.join(stage, "app", "api", "dns"), { recursive: true });
-  copyUnitTests(path.join(stage, "tests", "unit"));
+  copyUnitTests(stage);
   rewriteTextTree(stage);
 
-  const managed = ["lib/dns", "app/api/dns", "tests/unit"];
+  const managedDirectories = ["lib/dns", "app/api/dns"];
+  const managedFiles = unitTestMappings.map(([, targetRelative]) => targetRelative);
   if (checkOnly) {
-    const drift = managed.filter((relative) => !directoriesMatch(path.join(stage, relative), path.join(repo, relative)));
+    const drift = [
+      ...managedDirectories.filter((relative) => !directoriesMatch(path.join(stage, relative), path.join(repo, relative))),
+      ...managedFiles.filter((relative) => {
+        const expected = path.join(stage, relative);
+        const actual = path.join(repo, relative);
+        return !existsSync(actual) || !readFileSync(expected).equals(readFileSync(actual));
+      }),
+    ];
     if (drift.length) throw new Error(`DNS Tools shared core is out of sync: ${drift.join(", ")}`);
     console.log("DNS Tools shared core is in sync.");
   } else {
-    for (const relative of managed) replaceDirectory(path.join(stage, relative), path.join(repo, relative));
+    for (const relative of managedDirectories) replaceDirectory(path.join(stage, relative), path.join(repo, relative));
+    for (const relative of managedFiles) {
+      const target = path.join(repo, relative);
+      mkdirSync(path.dirname(target), { recursive: true });
+      cpSync(path.join(stage, relative), target);
+    }
+    rmSync(path.join(repo, "tests", "unit"), { recursive: true, force: true });
     console.log("Updated the DNS Tools shared core without touching repository-owned pages, docs, configuration, or screenshots.");
   }
 } finally {

@@ -1,13 +1,24 @@
 import { expect, test, type Page } from "playwright/test";
-import pageCoverage from "./page-coverage.json";
+import { readFileSync, readdirSync } from "node:fs";
+import path from "node:path";
 
 type PageCoverageEntry = {
+  route: string;
   state: "published" | "unpublished" | "noindex";
   tests: string[];
   reason?: string;
 };
 
-const routes = pageCoverage.routes as Record<string, PageCoverageEntry>;
+function pageManifests(directory = path.join(process.cwd(), "tests", "pages")): PageCoverageEntry[] {
+  return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const entryPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) return pageManifests(entryPath);
+    if (entry.name !== "page.json") return [];
+    return [JSON.parse(readFileSync(entryPath, "utf8")) as PageCoverageEntry];
+  });
+}
+
+const routes = Object.fromEntries(pageManifests().map((entry) => [entry.route, entry]));
 const publishedPaths = Object.entries(routes)
   .filter(([, entry]) => entry.state === "published")
   .map(([path]) => path);

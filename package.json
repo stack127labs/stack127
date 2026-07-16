@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "npm run test:static",
     "test": "npm run typecheck && npm run test:unit && npm run test:static",
-    "test:unit": "node --experimental-strip-types --test tests/version127/*.test.mjs",
+    "test:unit": "node --experimental-strip-types --test \"tests/**/*.test.mjs\"",
     "test:static": "node scripts/version127/quality/static-policy.mjs",
     "test:seo": "playwright test",
     "test:seo:registry": "node --env-file=.env.database scripts/version127/quality/seo-registry-check.mjs",
@@ -44,7 +44,9 @@
     "version127:dataset:sync": "node scripts/version127/github/sync-dataset-repo.mjs",
     "version127:tool:new": "node scripts/version127/github/create-tool-repo.mjs",
     "version127:dns-tools:sync": "node scripts/version127/repos/sync-dns-tools-core.mjs",
-    "version127:dns-tools:sync-check": "node scripts/version127/repos/sync-dns-tools-core.mjs --check"
+    "version127:dns-tools:sync-check": "node scripts/version127/repos/sync-dns-tools-core.mjs --check",
+    "version127:dns-tools:publish-check": "node scripts/version127/repos/publish-open-repo.mjs dns-tools",
+    "version127:dns-tools:publish": "node scripts/version127/repos/publish-open-repo.mjs dns-tools --push"
   },
   "dependencies": {
     "@namefi/dnssec-audit": "^2.1.1",

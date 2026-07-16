@@ -1,0 +1,12 @@
+{
+  "route": "/dns-tools",
+  "state": "published",
+  "docs": ["content_docs/dns-tools"],
+  "tests": [
+    "tests/version127/seo.spec.ts",
+    "tests/pages/dns-tools/page.spec.ts"
+  ],
+  "scripts": ["scripts/version127/repos/sync-dns-tools-core.mjs"],
+  "skills": [],
+  "repositories": ["repos/dns-tools"]
+}

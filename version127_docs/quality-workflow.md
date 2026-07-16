@@ -13,7 +13,7 @@ Every public page change should keep Version127 fast, consistent, and easy for c
 ## Page Workflow
 
 1. Read `AGENTS.md` and the relevant `content_docs/<page-slug>/` folder.
-2. Update `tests/version127/page-coverage.json` with the route state and test file before or alongside the page.
+2. Create or update `tests/pages/<route>/page.json` with the route state and its docs, tests, scripts, skills, and public-repository ownership before or alongside the page. Use `tests/pages/home/page.json` for `/`.
 3. Add or update route tests before considering the page done.
 4. Add or update the route under `app/` using the shared shell, typography, spacing, and components.
 5. Keep important page content server-rendered.
@@ -49,7 +49,7 @@ That command runs:
 ## Agent Rules
 
 - Do not publish a new route just because the file exists.
-- Do not add a route without an entry in `tests/version127/page-coverage.json`.
+- Do not add a route without its page-scoped ownership manifest under `tests/pages/`.
 - Do not add page-specific SEO logic inside route files.
 - Do not add hidden fallbacks that make broken data look valid.
 - Do not use local database state to decide public SEO or GitHub dataset output.
