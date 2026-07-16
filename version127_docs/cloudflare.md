@@ -1,15 +1,20 @@
 # Cloudflare And DNS
 
-Version127 uses Cloudflare as the public DNS provider and edge proxy in front of the Dokploy deployment. This document records the production setup without storing credentials or origin details in the repository.
+Version127 uses Cloudflare as the public DNS provider and edge proxy in front of its dedicated OVH deployment. This document records the production setup without storing credentials or origin secrets in the repository.
 
 ## Production Path
 
 ```text
 visitor or crawler
   -> Cloudflare DNS and edge
-  -> Dokploy Traefik on the shared VPS
+  -> Dokploy Traefik on the dedicated OVH VPS
   -> Version127 service
   -> production Supabase database when the page needs structured data
+
+administrator
+  -> Cloudflare Access
+  -> version127-dokploy Cloudflare Tunnel
+  -> Dokploy on 127.0.0.1:3000
 ```
 
 The Cloudflare zone is active. Hostinger delegates the domain to the two nameservers assigned by Cloudflare. Both the apex and `www` records are proxied.
@@ -18,11 +23,14 @@ The Cloudflare zone is active. Hostinger delegates the domain to the two nameser
 
 - `version127.com`: proxied apex record to the Version127 origin.
 - `www.version127.com`: proxied CNAME to `version127.com`.
+- `dokploy.version127.com`: proxied CNAME to the dedicated Cloudflare Tunnel. It does not resolve to the VPS address.
 - Google Search Console verification TXT: preserved and not proxied.
 - Canonical host: `https://version127.com`.
 - `www` redirect: permanent `301`, preserving the path and query string.
 
 Do not replace the apex record or disable its proxy without first checking the Dokploy deployment and the Cloudflare redirect rule.
+
+Hostinger remains the registrar and delegates authoritative DNS to Cloudflare. The Hostinger API is not needed for normal Version127 DNS record changes.
 
 ## TLS And Transport
 
@@ -35,7 +43,30 @@ Do not replace the apex record or disable its proxy without first checking the D
 - Brotli: on.
 - 0-RTT: off.
 
-The Dokploy origin currently has a valid publicly trusted certificate, which is required by Full (strict).
+The OVH origin presents a Cloudflare Origin CA certificate for `version127.com` and `www.version127.com`, which is valid for the Full (strict) Cloudflare-to-origin connection.
+
+## Private Dokploy Administration
+
+`https://dokploy.version127.com` is the only intended browser entry point for the OVH Dokploy dashboard.
+
+- Cloudflare Tunnel name: `version127-dokploy`.
+- Tunnel origin: `http://127.0.0.1:3000`.
+- Tunnel catch-all: `http_status:404`.
+- Cloudflare Access application: `Version127 Dokploy`.
+- Access policy: `Version127 administrators`.
+- Policy decision: allow only the explicitly approved administrator email addresses.
+- Application and policy session duration: 24 hours.
+- Access application is hidden from the application launcher.
+
+The OVH host runs `cloudflared-version127-dokploy.service`. It uses a remotely managed Tunnel token stored in a root-owned `0600` environment file. The service runs with a dynamic user, no Linux capabilities, `NoNewPrivileges`, a read-only system view, restricted address families, and the other systemd sandbox controls recorded in the migration runbook.
+
+Dokploy has:
+
+```text
+BETTER_AUTH_TRUSTED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000,https://dokploy.version127.com
+```
+
+Its Web Server settings record `dokploy.version127.com` as the host with HTTPS enabled and certificate type `none`, because Cloudflare terminates the public TLS connection. Direct public access to port `3000` remains blocked for IPv4 and IPv6.
 
 ## Caching
 
@@ -76,7 +107,15 @@ CLOUDFLARE_ZONE_ID
 HOSTINGER_Token
 ```
 
-The Cloudflare token must be scoped to the Version127 account and zone. It needs DNS edit, zone settings edit, rulesets edit, and zone read permissions for the current workflow. Do not commit the token or print its value in logs.
+The Cloudflare token must be scoped to the Version127 account and zone. The current workflow needs:
+
+- Account: Argo Tunnel (Legacy) Edit, which is the dashboard label for Cloudflare Tunnel Edit.
+- Account: Access Edit, covering Access applications and policies.
+- Zone: DNS Edit.
+- Zone: Zone Read.
+- Zone settings and rulesets permissions only when the corresponding public edge settings are being maintained.
+
+Do not grant broad Zero Trust Edit when the narrower Access permission is sufficient. Do not commit the token or print its value in logs.
 
 ## Verification
 
@@ -88,6 +127,7 @@ curl -I 'https://version127.com/self-host-apps'
 curl -I 'https://version127.com/app-icons/immich.png'
 curl -I 'https://version127.com/robots.txt'
 curl -I 'https://version127.com/sitemap.xml'
+curl -I 'https://dokploy.version127.com/'
 ```
 
 Expected results:
@@ -96,10 +136,12 @@ Expected results:
 - Public HTML returns `200` and `cf-cache-status: DYNAMIC`.
 - A repeated static-asset request becomes a Cloudflare cache `HIT`.
 - Robots and sitemap remain public.
+- An unauthenticated Dokploy request returns a Cloudflare Access `302`, never the dashboard HTML.
+- Direct connections to the OVH address on ports `80`, `443`, `2377`, `3000`, and `7946` time out from non-Cloudflare sources.
 - The Version127 service and unrelated services remain healthy in Dokploy and Docker.
 
 ## Deferred Hardening
 
 DNSSEC is not enabled yet. Enable it only when the Cloudflare DS record can be added at Hostinger in the same maintenance window. Enabling one side without the other can make the domain unavailable.
 
-The shared VPS still accepts the Version127 hostname at the origin. Do not restrict ports `80` or `443` globally because Dokploy, Bloxodes, Umami, Vaultwarden, Supabase, and other services share the host. A later origin-isolation pass should use a Version127-only Traefik policy or a staged Cloudflare Tunnel, verify certificate renewal, and preserve a tested rollback path.
+The old Version127 service remains on the shared VPS only as a temporary rollback path during the migration observation window. Do not remove it until the observation period has passed and removal is explicitly approved. All unrelated applications remain on that shared VPS.
