@@ -13,8 +13,10 @@ The origin presents a Cloudflare Origin CA certificate for `version127.com` and 
 ## Sources Of Truth
 
 - Application repository: `RaviTejaKNTS/version127`
-- Intended repository branch after the local migration changes are intentionally published: `main`
-- Current production image: the exact accepted local worktree, pinned to `127.0.0.1:5000/version127@sha256:41dc3a03699ddda2cad363663f66116dd8d8fb8b11d42ab0d33c630d8a14c72b`
+- Production repository branch: `main`
+- First repository-backed production commit: `d4a31afdad4649277ae515bcec5d2aafaa4d754a`
+- Current production image: built by Dokploy from the repository `Dockerfile` and deployed as `app-navigate-1080p-matrix-3pmfy6:latest`
+- Previous accepted rollback image: `127.0.0.1:5000/version127@sha256:41dc3a03699ddda2cad363663f66116dd8d8fb8b11d42ab0d33c630d8a14c72b`
 - Build type: repository `Dockerfile`
 - Build path: repository root
 - Container port: `3000`
@@ -70,7 +72,7 @@ Do not treat DNS resolution of an AAAA record as proof of IPv6 connectivity. The
 - [x] Create a new Version127 application in the isolated Dokploy project from the exact accepted migration image.
 - [x] Configure start-first updates, automatic rollback on update failure, and one replica.
 - [x] Pin the production service to the accepted registry digest and confirm 90 consecutive public `200` responses during its start-first deployment.
-- [ ] After the local dependency and migration-document changes are intentionally committed and pushed, connect the Dokploy application to the public repository and `main` branch.
+- [x] Commit and push the migration changes, then connect the Dokploy application to the private repository and `main` branch with a repository-scoped read-only deploy key.
 - [x] Add the current Supabase root certificate without copying unrelated old-VPS files.
 - [x] Add only these runtime variables:
   - `DATABASE_URL`
@@ -142,6 +144,9 @@ The OVH host keeps the official Cloudflare IPv4 and IPv6 ranges in `/etc/version
 - [x] Confirm direct public access to Swarm ports `2377` and `7946` times out.
 - [x] Confirm the Cloudflare-only firewall blocks direct public origin access on `80` and `443`.
 - [x] Confirm `version127.com` continues returning `200` after the administration setup.
+- [x] Store a dedicated Ed25519 key in Dokploy and add only its public half to the private GitHub repository as a verified read-only deploy key.
+- [x] Build and deploy commit `d4a31afdad4649277ae515bcec5d2aafaa4d754a` from `main`, preserving start-first updates and rollback on failure.
+- [x] Confirm all seven DNS APIs return successful production results after the repository-backed rollout.
 
 The Hostinger API was not used for this hostname because Cloudflare is authoritative for the Version127 zone. Rotate the Tunnel token through Cloudflare if it is ever exposed, then replace `/etc/cloudflared/version127-dokploy.env` and restart the service. Keep `cloudflared` updated through the signed Cloudflare APT repository.
 
