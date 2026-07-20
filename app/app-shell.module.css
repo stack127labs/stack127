@@ -129,13 +129,7 @@
   color: var(--color-link);
 }
 
-@media (max-width: 1240px) {
-  .page {
-    grid-template-columns: minmax(250px, 25vw) 1fr;
-  }
-}
-
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .shell {
     width: 100%;
   }

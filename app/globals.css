@@ -83,7 +83,7 @@
   --control-height-sm: 32px;
   --control-height-md: 40px;
   --control-height-lg: 42px;
-  --sidebar-width: minmax(280px, 25vw);
+  --sidebar-width: clamp(260px, 20vw, 300px);
   --site-max-width: 1500px;
   --site-gutter: 64px;
   --top-bar-height: 58px;

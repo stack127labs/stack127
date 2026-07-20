@@ -29,6 +29,10 @@ test("self-host app cards remain readable in a three-column grid", () => {
   );
   assert.match(
     styles,
+    /\.directory-results\s*\{[\s\S]*padding:\s*30px\s+clamp\(var\(--space-10\),\s*2\.5vw,\s*36px\)\s+44px;/,
+  );
+  assert.match(
+    styles,
     /\.directory-card-grid\s*\{[\s\S]*grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\);/,
   );
   assert.match(
@@ -49,6 +53,10 @@ test("self-host app cards remain readable in a three-column grid", () => {
   );
   assert.match(
     styles,
-    /@container\s*\(max-width:\s*980px\)\s*\{[\s\S]*grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\);/,
+    /@container\s*\(max-width:\s*900px\)\s*\{[\s\S]*grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\);/,
+  );
+  assert.match(
+    styles,
+    /@container\s*\(max-width:\s*650px\)\s*\{[\s\S]*grid-template-columns:\s*1fr;/,
   );
 });
