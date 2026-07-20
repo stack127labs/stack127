@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Box, Database, Scale, Star } from "lucide-react";
+import { Scale, Star } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import type { DirectoryApp } from "@/lib/apps";
 import { CategoryIcon } from "../../category-icon";
@@ -43,6 +43,18 @@ export function formatStars(value: number | null) {
     maximumFractionDigits: 1,
     notation: value > 9999 ? "compact" : "standard",
   }).format(value);
+}
+
+export function formatCardDate(value: Date | string | null) {
+  if (!value) {
+    return "unknown";
+  }
+
+  return new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(value));
 }
 
 export function formatDatabaseRequirement(app: DirectoryApp) {
@@ -154,42 +166,45 @@ export function DirectoryAppCard({
   onSelect?: (slug: string) => void;
   selected?: boolean;
 }) {
-  const visibleCategories = app.categories.slice(0, 2);
+  const visibleCategories = app.categories.slice(0, 1);
   const extraCategoryCount = Math.max(app.categories.length - visibleCategories.length, 0);
 
   const content = (
     <>
       <div className="directory-card-top">
         <DirectoryAppIcon app={app} className="directory-card-icon" />
-        <div>
+        <div className="directory-card-identity">
           <div className="directory-card-title-row">
             <h2>{app.name}</h2>
-            <span className={`status-pill ${maintenanceLabel(app).replace(/\s+/g, "-")}`}>
-              {maintenanceLabel(app)}
-            </span>
+            {app.maintenance_status !== "active" ? (
+              <span className={`status-pill ${maintenanceLabel(app).replace(/\s+/g, "-")}`}>
+                {maintenanceLabel(app)}
+              </span>
+            ) : null}
           </div>
-          <p>{app.summary}</p>
+          <div className="directory-card-categories">
+            {visibleCategories.length > 0 ? (
+              <>
+                {visibleCategories.map((category) => (
+                  <span className="category-badge" key={category.slug}>
+                    <CategoryIcon iconKey={category.icon_key} />
+                    {category.name}
+                  </span>
+                ))}
+                {extraCategoryCount > 0 ? (
+                  <span className="category-more">+{extraCategoryCount}</span>
+                ) : null}
+              </>
+            ) : (
+              <span className="category-badge">uncategorized</span>
+            )}
+          </div>
         </div>
       </div>
 
+      <p className="directory-card-summary">{app.summary}</p>
+
       <div className="directory-meta-list" aria-label="App metadata">
-        <div className="meta-category-row">
-          {visibleCategories.length > 0 ? (
-            <>
-              {visibleCategories.map((category) => (
-                <span className="category-badge" key={category.slug}>
-                  <CategoryIcon iconKey={category.icon_key} />
-                  {category.name}
-                </span>
-              ))}
-              {extraCategoryCount > 0 ? (
-                <span className="category-more">+{extraCategoryCount}</span>
-              ) : null}
-            </>
-          ) : (
-            <span className="category-badge">uncategorized</span>
-          )}
-        </div>
         <span>
           <FaGithub aria-hidden="true" className="meta-icon github" size={16} />
           {formatStars(app.github_stars)}
@@ -210,25 +225,10 @@ export function DirectoryAppCard({
           <strong>{getStorageTier(app)}</strong>
           storage
         </span>
-        <span>
-          <strong>{app.compose_support ? "compose" : app.docker_support}</strong>
-          deploy
+        <span className="directory-card-stat-last-commit">
+          <strong>{formatCardDate(app.github_last_commit_at)}</strong>
+          last commit
         </span>
-      </div>
-
-      <div className="directory-card-flags" aria-hidden="true">
-        {app.requires_database ? (
-          <span>
-            <Database size={14} />
-            db
-          </span>
-        ) : null}
-        {app.docker_support !== "none" ? (
-          <span>
-            <Box size={14} />
-            docker
-          </span>
-        ) : null}
       </div>
     </>
   );
