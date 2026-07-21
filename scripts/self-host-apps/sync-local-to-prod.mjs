@@ -342,6 +342,11 @@ async function counts(client) {
 
 async function main() {
   const args = parseArgs();
+  if (!args["confirm-reviewed-push"]) {
+    throw new Error(
+      "Production is canonical. Pass --confirm-reviewed-push only for an intentional, reviewed local-to-production upsert.",
+    );
+  }
   const localUrl = databaseUrl(args, "local-database-url", ".env.local");
   const prodUrl = databaseUrl(args, "prod-database-url", ".env.database");
   const dryRun = Boolean(args["dry-run"]);
@@ -381,7 +386,9 @@ async function main() {
         await replaceCategoryLinks(prodClient, state, appIds, categoryIds);
         await upsertSources(prodClient, state, appIds);
         await replaceFieldSources(prodClient, state, appIds);
-        const draftedMissing = await draftMissingProdRows(prodClient, state.apps.map((app) => app.slug));
+        const draftedMissing = args["draft-missing"]
+          ? await draftMissingProdRows(prodClient, state.apps.map((app) => app.slug))
+          : [];
 
         const after = await counts(prodClient);
         if (dryRun) {
@@ -402,6 +409,7 @@ async function main() {
           prod_before: before,
           prod_after: after,
           drafted_missing_prod_slugs: draftedMissing,
+          draft_missing_enabled: Boolean(args["draft-missing"]),
         }, null, 2));
       } catch (error) {
         await prodClient.query("rollback");

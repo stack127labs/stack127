@@ -1,0 +1,1285 @@
+{
+  "reviewed_at": "2026-07-19T11:39:35.569Z",
+  "records": [
+    {
+      "candidate_id": "597886be-a1db-4d5f-8e64-ec480b1b6526",
+      "decision": "publish",
+      "project": {
+        "slug": "freecad",
+        "name": "FreeCAD",
+        "summary": "Creates parametric 3D models and technical drawings for engineering, product design, and fabrication.",
+        "icon_url": "/app-icons/freecad.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/FreeCAD/FreeCAD",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "LGPL-2.1",
+        "license_type": "copyleft",
+        "license_spdx_id": "LGPL-2.1-only",
+        "source_model": "open_source",
+        "publisher_name": "FreeCAD",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/FreeCAD",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop"
+        ],
+        "categories": [
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/c8ea938f76e7dfa08c00bc016204e8fd4ab6e76e9115f36c213b3a4cf2519688/FreeCAD/FreeCAD",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/FreeCAD/FreeCAD",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/FreeCAD/FreeCAD",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/FreeCAD/FreeCAD",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/FreeCAD/FreeCAD",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "34962dd6-a3fe-4dab-880f-5378a5541b81",
+      "decision": "publish",
+      "project": {
+        "slug": "continue",
+        "name": "Continue",
+        "summary": "Adds AI coding agents, autocomplete, chat, and configurable model providers to code editors and terminals.",
+        "icon_url": "/app-icons/continue.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/continuedev/continue",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "continuedev",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/continuedev",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/continuedev/continue/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/continuedev/continue/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/644686905/00ec1de7-baa4-4b71-8700-13ba6cb759c4",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/continuedev/continue",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/continuedev/continue",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/continuedev/continue/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/continuedev/continue/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/continuedev/continue/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/continuedev/continue/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/continuedev/continue",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/continuedev/continue",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/continuedev/continue/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/continuedev/continue/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/continuedev/continue/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/continuedev/continue/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "5848c26e-36cf-4625-bd65-281e10c8025b",
+      "decision": "publish",
+      "project": {
+        "slug": "open-notebook",
+        "name": "Open Notebook",
+        "summary": "Organizes source material into notebooks for AI-assisted search, notes, podcasts, and research.",
+        "icon_url": "/app-icons/open-notebook.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/lfnovo/open-notebook",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/lfnovo/open-notebook/blob/main/docs/1-INSTALLATION/index.md",
+        "docker_url": "https://github.com/lfnovo/open-notebook/blob/main/docs/1-INSTALLATION/index.md",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "lfnovo",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/lfnovo",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "SurrealDB"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "knowledge-notes",
+          "ai-ml"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/lfnovo/open-notebook/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/lfnovo/open-notebook/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/876286167/a086d43b-112b-4c10-91f5-5c3fd71c9af9",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/lfnovo/open-notebook",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/lfnovo/open-notebook",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/lfnovo/open-notebook/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/lfnovo/open-notebook/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/lfnovo/open-notebook/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/lfnovo/open-notebook/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/lfnovo/open-notebook",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/lfnovo/open-notebook",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://github.com/lfnovo/open-notebook/blob/main/docs/1-INSTALLATION/index.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/lfnovo/open-notebook/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/lfnovo/open-notebook/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/lfnovo/open-notebook/blob/main/docs/1-INSTALLATION/index.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/lfnovo/open-notebook/blob/main/docs/1-INSTALLATION/index.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://github.com/lfnovo/open-notebook/blob/main/docs/1-INSTALLATION/index.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://github.com/lfnovo/open-notebook/blob/main/docs/1-INSTALLATION/index.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_documentation",
+          "source_url": "https://github.com/lfnovo/open-notebook/blob/main/docs/1-INSTALLATION/index.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_documentation",
+          "source_url": "https://github.com/lfnovo/open-notebook/blob/main/docs/1-INSTALLATION/index.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://github.com/lfnovo/open-notebook/blob/main/docs/1-INSTALLATION/index.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "a9e933bb-7962-4272-b7ed-413d7b8e5eb2",
+      "decision": "publish",
+      "project": {
+        "slug": "sharex",
+        "name": "ShareX",
+        "summary": "Captures screenshots and recordings, annotates them, and uploads files to configurable destinations.",
+        "icon_url": "/app-icons/sharex.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/ShareX/ShareX",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-only",
+        "source_model": "open_source",
+        "publisher_name": "ShareX",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/ShareX",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop"
+        ],
+        "categories": [
+          "content-publishing",
+          "file-sharing-sync"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ShareX/ShareX/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ShareX/ShareX/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/13428264/a11f2f9b-257c-4f14-b2d4-ae70dd816a36",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/ShareX/ShareX",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/ShareX/ShareX",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ShareX/ShareX/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ShareX/ShareX/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ShareX/ShareX/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ShareX/ShareX/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/ShareX/ShareX",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/ShareX/ShareX",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ShareX/ShareX/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ShareX/ShareX/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ShareX/ShareX/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ShareX/ShareX/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "3396800a-bf3d-429d-9c63-33ce96f84697",
+      "decision": "publish",
+      "project": {
+        "slug": "mindsdb",
+        "name": "MindsHub",
+        "summary": "Runs AI coworkers that connect to business data, execute multi-step work, and publish the results.",
+        "icon_url": "/app-icons/mindsdb.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/mindsdb/mindshub",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://docs.mindshub.ai/",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "mindsdb",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/mindsdb",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "desktop"
+        ],
+        "categories": [
+          "ai-ml",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mindsdb/mindshub/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mindsdb/mindshub/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/53cd5d72611388edaab7e6e509ed24dd0d5e8d265d0e752913eb6c5bee5429e5/mindsdb/mindshub",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/mindsdb/mindshub",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/mindsdb/mindshub",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mindsdb/mindshub/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mindsdb/mindshub/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mindsdb/mindshub/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mindsdb/mindshub/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/mindsdb/mindshub",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/mindsdb/mindshub",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://docs.mindshub.ai/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mindsdb/mindshub/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mindsdb/mindshub/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.mindshub.ai/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://docs.mindshub.ai/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "1e3239f1-3e7b-4964-be5a-61d6bbcd76b1",
+      "decision": "publish",
+      "project": {
+        "slug": "openscreen",
+        "name": "OpenScreen",
+        "summary": "Records polished product demos with automatic zoom, cursor effects, captions, and export controls.",
+        "icon_url": "/app-icons/openscreen.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/siddharthvaddem/openscreen",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "siddharthvaddem",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/siddharthvaddem",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop"
+        ],
+        "categories": [
+          "content-publishing"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/siddharthvaddem/openscreen/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/siddharthvaddem/openscreen/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/381a19993a767434bf27b555c801b0bf237faf9bfdba1929b08273b6a6bb2ed9/siddharthvaddem/openscreen",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/siddharthvaddem/openscreen",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/siddharthvaddem/openscreen",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/siddharthvaddem/openscreen/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/siddharthvaddem/openscreen/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/siddharthvaddem/openscreen/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/siddharthvaddem/openscreen/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/siddharthvaddem/openscreen",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/siddharthvaddem/openscreen",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/siddharthvaddem/openscreen/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/siddharthvaddem/openscreen/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/siddharthvaddem/openscreen/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/siddharthvaddem/openscreen/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "a488e3db-6211-48ed-a26c-256bc0142e14",
+      "decision": "publish",
+      "project": {
+        "slug": "chatbox",
+        "name": "Chatbox",
+        "summary": "Connects desktop and mobile chat clients to multiple language-model providers and local models.",
+        "icon_url": "/app-icons/chatbox.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/chatboxai/chatbox",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-only",
+        "source_model": "open_source",
+        "publisher_name": "chatboxai",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/chatboxai",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop",
+          "mobile"
+        ],
+        "categories": [
+          "ai-ml"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/chatboxai/chatbox/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/chatboxai/chatbox/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/3031ff769b6abf6b0853aca7233126eebb33af7f80920ad0067f2a8347be7f12/chatboxai/chatbox",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/chatboxai/chatbox",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/chatboxai/chatbox",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/chatboxai/chatbox/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/chatboxai/chatbox/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/chatboxai/chatbox/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/chatboxai/chatbox/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/chatboxai/chatbox",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/chatboxai/chatbox",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/chatboxai/chatbox/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/chatboxai/chatbox/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/chatboxai/chatbox/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/chatboxai/chatbox/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "bad999a5-6f90-4372-9bea-56f960e0f5aa",
+      "decision": "publish",
+      "project": {
+        "slug": "sentry-self-hosted",
+        "name": "Sentry Self-Hosted",
+        "summary": "Packages Sentry's error tracking and performance monitoring stack for private deployments.",
+        "icon_url": "/app-icons/sentry-self-hosted.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/getsentry/self-hosted",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://develop.sentry.dev/self-hosted/",
+        "docker_url": "https://develop.sentry.dev/self-hosted/",
+        "license": "FSL-1.1-Apache-2.0",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "publisher_name": "getsentry",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/getsentry",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "monitoring-status",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/getsentry/self-hosted/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/getsentry/self-hosted/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/3c91f37f1dcbafbd3694d76db0f2b4aca1a84cd0779e39fff36bdd6ff32063d6/getsentry/self-hosted",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/getsentry/self-hosted",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/getsentry/self-hosted",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/getsentry/self-hosted/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/getsentry/self-hosted/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/getsentry/self-hosted/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/getsentry/self-hosted",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/getsentry/self-hosted",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://develop.sentry.dev/self-hosted/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/getsentry/self-hosted/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/getsentry/self-hosted/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://develop.sentry.dev/self-hosted/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://develop.sentry.dev/self-hosted/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://develop.sentry.dev/self-hosted/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://develop.sentry.dev/self-hosted/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://develop.sentry.dev/self-hosted/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    }
+  ]
+}

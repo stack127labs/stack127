@@ -15,6 +15,8 @@ where published = true
 
 Categories come from `open_project_categories` through `open_project_categories_join_table`.
 
+`source_model` records whether the verified license is `open_source`, `source_available`, or `unknown`. Both reviewed open-source and source-available projects may appear here when they are genuinely self-hostable.
+
 ## Tables used by this page
 
 - `open_projects`: shared curated project records.
@@ -50,7 +52,7 @@ Use the controlled taxonomy in `scripts/self-host-apps/lib/categories.mjs`. Assi
 - `needs_review`: enrichment could not verify a required fact.
 - `rejected`: not an eligible open project.
 
-Candidate identity uses canonical source-code URL first, then slug, homepage, and normalized name. Name-only matches require review.
+Candidate identity uses exact canonical source-code URL and official homepage matches. Name-only matches require review. Slugs and names never prove that two projects are the same.
 
 ## Rendering
 

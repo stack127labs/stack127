@@ -318,6 +318,10 @@ function DirectoryCrawlerRecords({ apps }: { apps: DirectoryApp[] }) {
                 <dd>{app.license_type}</dd>
               </div>
               <div>
+                <dt>source model</dt>
+                <dd>{app.source_model.replaceAll("_", " ")}</dd>
+              </div>
+              <div>
                 <dt>surfaces</dt>
                 <dd>{formatCrawlerList(app.surfaces)}</dd>
               </div>

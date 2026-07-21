@@ -5,7 +5,7 @@ description: Review one or more version127 pages and propose where marker art (h
 
 # Marker Art Suggest
 
-Use this skill in `/Users/ravitejaknts/projects/HomeLabHQ` to propose marker art placements for site pages. The output is a set of concrete, data backed proposals the user can approve. Drawing happens later, in the `marker-art-draw` skill.
+Use this skill in `/Users/ravitejaknts/projects/Version127` to propose marker art placements for site pages. The output is a set of concrete, data backed proposals the user can approve. Drawing happens later, in the `marker-art-draw` skill.
 
 ## First Checks
 

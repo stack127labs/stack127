@@ -1,0 +1,1407 @@
+{
+  "reviewed_at": "2026-07-19T11:05:26.439Z",
+  "records": [
+    {
+      "candidate_id": "60d2656f-0d13-4abb-bc1f-3992de9b5f5b",
+      "decision": "publish",
+      "project": {
+        "slug": "pixlstash",
+        "name": "PixlStash",
+        "summary": "Organizes photos with searchable metadata, tags, and optional local image analysis.",
+        "icon_url": "/app-icons/pixlstash.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/pikselkroken/pixlstash",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/pikselkroken/pixlstash",
+        "docker_url": "https://github.com/pikselkroken/pixlstash",
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-only",
+        "source_model": "open_source",
+        "publisher_name": "pikselkroken",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/pikselkroken",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "desktop"
+        ],
+        "categories": [
+          "photos-galleries"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/pikselkroken/pixlstash/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/pikselkroken/pixlstash/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/1074806136/ac53e139-57fc-4feb-91c3-4500825c3dc4",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/pikselkroken/pixlstash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/pikselkroken/pixlstash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/pikselkroken/pixlstash/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/pikselkroken/pixlstash/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/pikselkroken/pixlstash/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/pikselkroken/pixlstash/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/pikselkroken/pixlstash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/pikselkroken/pixlstash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/pikselkroken/pixlstash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/pikselkroken/pixlstash/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/pikselkroken/pixlstash/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/pikselkroken/pixlstash/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/pikselkroken/pixlstash/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/pikselkroken/pixlstash/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/pikselkroken/pixlstash/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "9ef49466-2a7b-49a7-821e-34c9c23acc94",
+      "decision": "publish",
+      "project": {
+        "slug": "replaya",
+        "name": "RePlaya",
+        "summary": "Records and replays browser sessions live or after they finish using S2 streams.",
+        "icon_url": "/app-icons/replaya.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/s2-streamstore/replaya",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/s2-streamstore/replaya",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "s2-streamstore",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/s2-streamstore",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": false,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "monitoring-status",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/s2-streamstore/replaya/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/s2-streamstore/replaya/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/1cb371ce89a02fe04f3c584ba26919c134820b19b18d0e355e494c74d2f6660b/s2-streamstore/replaya",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/s2-streamstore/replaya",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/s2-streamstore/replaya",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/s2-streamstore/replaya/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/s2-streamstore/replaya/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/s2-streamstore/replaya/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/s2-streamstore/replaya/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/s2-streamstore/replaya",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/s2-streamstore/replaya",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/s2-streamstore/replaya",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/s2-streamstore/replaya/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/s2-streamstore/replaya/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/s2-streamstore/replaya/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/s2-streamstore/replaya/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/s2-streamstore/replaya/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "3336bb0a-aa9d-4f4d-ad24-4a0905f6a225",
+      "decision": "publish",
+      "project": {
+        "slug": "honeywire",
+        "name": "HoneyWire",
+        "summary": "Deploys network canaries and reports high-signal activity through a central dashboard.",
+        "icon_url": "/app-icons/honeywire.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/andreicscs/HoneyWire",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/andreicscs/HoneyWire",
+        "docker_url": "https://github.com/andreicscs/HoneyWire",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-only",
+        "source_model": "open_source",
+        "publisher_name": "andreicscs",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/andreicscs",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "SQLite"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "security-privacy",
+          "monitoring-status"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/1193097477/9cacecd6-c473-4aa9-a69e-b92e984126eb",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/andreicscs/HoneyWire",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/andreicscs/HoneyWire",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/andreicscs/HoneyWire",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/andreicscs/HoneyWire",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/andreicscs/HoneyWire",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/andreicscs/HoneyWire/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "d3805563-b4b9-42fb-9bdd-6e1d71afd553",
+      "decision": "publish",
+      "project": {
+        "slug": "fungible",
+        "name": "Fungible",
+        "summary": "Tracks personal finances from a terminal or desktop app with a shared local data store.",
+        "icon_url": "/app-icons/fungible.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/tomfunk/fungible",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "tomfunk",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/tomfunk",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop",
+          "cli"
+        ],
+        "categories": [
+          "finance-budgeting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tomfunk/fungible/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tomfunk/fungible/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/cecdb4928fafe48bdfb8a88c5be0c39b0b85beaee5661a0fb7e116d717804cc5/tomfunk/fungible",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/tomfunk/fungible",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/tomfunk/fungible",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tomfunk/fungible/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tomfunk/fungible/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tomfunk/fungible/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tomfunk/fungible/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/tomfunk/fungible",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/tomfunk/fungible",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://raw.githubusercontent.com/tomfunk/fungible/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tomfunk/fungible/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tomfunk/fungible/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tomfunk/fungible/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "267d02b1-46f5-4aee-afbc-fff18229d675",
+      "decision": "publish",
+      "project": {
+        "slug": "will-be-done",
+        "name": "Will Be Done",
+        "summary": "Plans tasks on an offline-first weekly timeline that syncs across devices.",
+        "icon_url": "/app-icons/will-be-done.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/will-be-done/will-be-done",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/will-be-done/will-be-done",
+        "docker_url": "https://github.com/will-be-done/will-be-done",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-only",
+        "source_model": "open_source",
+        "publisher_name": "will-be-done",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/will-be-done",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": true,
+        "database_types": [
+          "SQLite"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "mobile",
+          "desktop"
+        ],
+        "categories": [
+          "project-task-management"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/will-be-done/will-be-done/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/will-be-done/will-be-done/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/ab87e29ea465cadc06aaae208bb72d8608c8ac52593348f2abd2545ec3680802/will-be-done/will-be-done",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/will-be-done/will-be-done",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/will-be-done/will-be-done",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/will-be-done/will-be-done/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/will-be-done/will-be-done/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/will-be-done/will-be-done/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/will-be-done/will-be-done/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/will-be-done/will-be-done",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/will-be-done/will-be-done",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/will-be-done/will-be-done",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/will-be-done/will-be-done/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/will-be-done/will-be-done/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/will-be-done/will-be-done/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/will-be-done/will-be-done/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/will-be-done/will-be-done/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/will-be-done/will-be-done/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/will-be-done/will-be-done/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/will-be-done/will-be-done/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "d1adc222-af2b-4eb8-85ad-1c3e455467dc",
+      "decision": "publish",
+      "project": {
+        "slug": "uploady",
+        "name": "Uploady",
+        "summary": "Shares uploaded files through a PHP web interface with user and administration controls.",
+        "icon_url": "/app-icons/uploady.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/farisc0de/Uploady",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/farisc0de/Uploady",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "farisc0de",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/farisc0de",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": true,
+        "database_types": [
+          "MySQL"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "file-sharing-sync"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/farisc0de/Uploady/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/farisc0de/Uploady/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/f4e79b515d554a938132363c64af10a07e8dcf1a2354a57fa1ac90b617b5d367/farisc0de/Uploady",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/farisc0de/Uploady",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/farisc0de/Uploady",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/farisc0de/Uploady/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/farisc0de/Uploady/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/farisc0de/Uploady/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/farisc0de/Uploady/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/farisc0de/Uploady",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/farisc0de/Uploady",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/farisc0de/Uploady",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/farisc0de/Uploady/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/farisc0de/Uploady/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/farisc0de/Uploady/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/farisc0de/Uploady/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/farisc0de/Uploady/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/farisc0de/Uploady/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "7fa46e49-2362-4da8-97ef-2e0a1c34f186",
+      "decision": "publish",
+      "project": {
+        "slug": "machtiani",
+        "name": "Machtiani",
+        "summary": "Lets coding agents discuss and navigate large repositories through a terminal client and local service.",
+        "icon_url": "/app-icons/machtiani.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/tursomari/machtiani",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/tursomari/machtiani",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "tursomari",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/tursomari",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "cli",
+          "web"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tursomari/machtiani/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tursomari/machtiani/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/292eb08e16140861ea1442625d674debe75c7128504b0b66423175a58f65275e/tursomari/machtiani",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/tursomari/machtiani",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/tursomari/machtiani",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tursomari/machtiani/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tursomari/machtiani/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tursomari/machtiani/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tursomari/machtiani/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/tursomari/machtiani",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/tursomari/machtiani",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/tursomari/machtiani",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tursomari/machtiani/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tursomari/machtiani/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tursomari/machtiani/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tursomari/machtiani/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tursomari/machtiani/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "5b474453-19d0-4209-92f7-6053652c5807",
+      "decision": "publish",
+      "project": {
+        "slug": "pikoci",
+        "name": "PikoCI",
+        "summary": "Runs portable CI and CD pipelines from one binary with pluggable SQL storage and runners.",
+        "icon_url": "/app-icons/pikoci.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/pikoci/pikoci",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/pikoci/pikoci",
+        "docker_url": "https://github.com/pikoci/pikoci",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "pikoci",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/pikoci",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": true,
+        "database_types": [
+          "SQLite",
+          "MySQL",
+          "PostgreSQL"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "cli"
+        ],
+        "categories": [
+          "automation",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/pikoci/pikoci/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/pikoci/pikoci/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/1a882c4e3edace8e4b3841b1d61ada12fce5078f58ab50b28d8d916be10176e4/PikoCI/pikoci",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/pikoci/pikoci",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/pikoci/pikoci",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/pikoci/pikoci/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/pikoci/pikoci/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/pikoci/pikoci/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/pikoci/pikoci/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/pikoci/pikoci",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/pikoci/pikoci",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/pikoci/pikoci",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/pikoci/pikoci/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/pikoci/pikoci/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/pikoci/pikoci/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/pikoci/pikoci/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/pikoci/pikoci/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/pikoci/pikoci/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/pikoci/pikoci/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/pikoci/pikoci/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    }
+  ]
+}

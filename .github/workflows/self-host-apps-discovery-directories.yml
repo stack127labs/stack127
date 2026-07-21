@@ -1,0 +1,31 @@
+name: Discover open projects from directories
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "12 4 1 * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: self-host-apps-discovery-directories
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run self-host-apps:discover-selfhostedworld -- --limit 5000 --write
+      - run: npm run self-host-apps:discover-openalternative -- --limit 5000 --write
+      - run: npm run self-host-apps:dedupe-candidates -- --limit 20000

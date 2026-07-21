@@ -1,0 +1,1257 @@
+{
+  "reviewed_at": "2026-07-19T11:39:35.569Z",
+  "records": [
+    {
+      "candidate_id": "a63c4171-5eb9-494d-b03f-00f0135c2d00",
+      "decision": "publish",
+      "project": {
+        "slug": "simonw-llm",
+        "name": "LLM",
+        "summary": "Runs prompts, stores conversations, and calls multiple language-model providers from a command line.",
+        "icon_url": "/app-icons/simonw-llm.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/simonw/llm",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "simonw",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/simonw",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/b6c33e4c47a65531bf9beeed77df77d9a770a4e2b1787da9f9208b3cfb6a9647/simonw/llm",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/simonw/llm",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/simonw/llm",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/simonw/llm",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/simonw/llm",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "75f77591-52fd-4924-be06-959bd90d2d90",
+      "decision": "publish",
+      "project": {
+        "slug": "ironclaw",
+        "name": "IronClaw",
+        "summary": "Runs a personal AI assistant with persistent memory, scheduled routines, channels, and sandboxed tools.",
+        "icon_url": "/app-icons/ironclaw.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/nearai/ironclaw",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://raw.githubusercontent.com/nearai/ironclaw/HEAD/README.md",
+        "docker_url": null,
+        "license": "MIT OR Apache-2.0",
+        "license_type": "mixed",
+        "license_spdx_id": "MIT OR Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "nearai",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/nearai",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": true,
+        "database_types": [
+          "PostgreSQL"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/nearai/ironclaw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/nearai/ironclaw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/1400de3db968ba95ff06972e86265d2e05d179501ca885e66efe5c394c878fec/nearai/ironclaw",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/nearai/ironclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/nearai/ironclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://github.com/nearai/ironclaw#license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://github.com/nearai/ironclaw#license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://github.com/nearai/ironclaw#license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://github.com/nearai/ironclaw#license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/nearai/ironclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/nearai/ironclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/nearai/ironclaw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/nearai/ironclaw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/nearai/ironclaw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/nearai/ironclaw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/nearai/ironclaw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/nearai/ironclaw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/nearai/ironclaw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "bbacea89-aa73-4665-9fa7-31c7b486f70e",
+      "decision": "publish",
+      "project": {
+        "slug": "t3code",
+        "name": "T3 Code",
+        "summary": "Runs multiple coding agents in isolated worktrees and presents their sessions in one desktop interface.",
+        "icon_url": "/app-icons/t3code.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/pingdotgg/t3code",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "pingdotgg",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/pingdotgg",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/pingdotgg/t3code/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/pingdotgg/t3code/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/e7ae7c9d90096742bf3da19638acd7f500c48bfa6a56acdcf4501961d572bd07/pingdotgg/t3code",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/pingdotgg/t3code",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/pingdotgg/t3code",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/pingdotgg/t3code/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/pingdotgg/t3code/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/pingdotgg/t3code/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/pingdotgg/t3code/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/pingdotgg/t3code",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/pingdotgg/t3code",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/pingdotgg/t3code/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/pingdotgg/t3code/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/pingdotgg/t3code/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/pingdotgg/t3code/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "ff4fddd5-b411-4ab6-9e80-0952db82387f",
+      "decision": "publish",
+      "project": {
+        "slug": "organicmaps",
+        "name": "Organic Maps",
+        "summary": "Provides offline maps, navigation, hiking routes, and place search on phones.",
+        "icon_url": "/app-icons/organicmaps.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/organicmaps/organicmaps",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "organicmaps",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/organicmaps",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "mobile"
+        ],
+        "categories": [
+          "maps-travel"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/organicmaps/organicmaps/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/organicmaps/organicmaps/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/27fa2e33a3d5abc67c364ec22c4d69875f0736c51ecb0c82ff064296df954104/organicmaps/organicmaps",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/organicmaps/organicmaps",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/organicmaps/organicmaps",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/organicmaps/organicmaps/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/organicmaps/organicmaps/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/organicmaps/organicmaps/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/organicmaps/organicmaps/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/organicmaps/organicmaps",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/organicmaps/organicmaps",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/organicmaps/organicmaps/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/organicmaps/organicmaps/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/organicmaps/organicmaps/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/organicmaps/organicmaps/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "5588b557-7261-4ab6-9653-1d3e3c7b6206",
+      "decision": "publish",
+      "project": {
+        "slug": "trigger-dev",
+        "name": "Trigger.dev",
+        "summary": "Runs durable background tasks, scheduled jobs, and AI workflows from application code.",
+        "icon_url": "/app-icons/trigger-dev.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/triggerdotdev/trigger.dev",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://trigger.dev/docs/self-hosting/overview",
+        "docker_url": "https://trigger.dev/docs/self-hosting/overview",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "triggerdotdev",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/triggerdotdev",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "automation",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/triggerdotdev/trigger.dev/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/triggerdotdev/trigger.dev/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/572570113/0ef45e42-bd78-4810-9397-4e6147be9329",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/triggerdotdev/trigger.dev",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/triggerdotdev/trigger.dev",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/triggerdotdev/trigger.dev/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/triggerdotdev/trigger.dev/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/triggerdotdev/trigger.dev/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/triggerdotdev/trigger.dev/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/triggerdotdev/trigger.dev",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/triggerdotdev/trigger.dev",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://trigger.dev/docs/self-hosting/overview",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/triggerdotdev/trigger.dev/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/triggerdotdev/trigger.dev/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://trigger.dev/docs/self-hosting/overview",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://trigger.dev/docs/self-hosting/overview",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://trigger.dev/docs/self-hosting/overview",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://trigger.dev/docs/self-hosting/overview",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://trigger.dev/docs/self-hosting/overview",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "07792b7e-4c04-4005-aab6-8ed191107b7d",
+      "decision": "publish",
+      "project": {
+        "slug": "rowboat",
+        "name": "Rowboat",
+        "summary": "Builds AI coworkers with memory, connected tools, and configurable model providers.",
+        "icon_url": "/app-icons/rowboat.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/rowboatlabs/rowboat",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "rowboatlabs",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/rowboatlabs",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "ai-ml",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/rowboatlabs/rowboat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/rowboatlabs/rowboat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/7c58ee5957d88cd80d6c553e2cdc79eec593bbbf32789da115d9ed69ce439b94/rowboatlabs/rowboat",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/rowboatlabs/rowboat",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/rowboatlabs/rowboat",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/rowboatlabs/rowboat/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/rowboatlabs/rowboat/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/rowboatlabs/rowboat/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/rowboatlabs/rowboat/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/rowboatlabs/rowboat",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/rowboatlabs/rowboat",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/rowboatlabs/rowboat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/rowboatlabs/rowboat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/rowboatlabs/rowboat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/rowboatlabs/rowboat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "16a6b254-dca0-4959-9b38-f6dff762ed55",
+      "decision": "publish",
+      "project": {
+        "slug": "openwork",
+        "name": "OpenWork",
+        "summary": "Gives AI agents reusable skills, plugins, connections, and shared workspace controls.",
+        "icon_url": "/app-icons/openwork.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/different-ai/openwork",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "MIT with FSL enterprise directory",
+        "license_type": "mixed",
+        "license_spdx_id": null,
+        "source_model": "open_source",
+        "publisher_name": "different-ai",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/different-ai",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop",
+          "web"
+        ],
+        "categories": [
+          "ai-ml",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/c07d194ce669009329674b065fa9757cfcea3352a9952e09dc9d579ef18eb094/different-ai/openwork",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/different-ai/openwork",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/different-ai/openwork",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/different-ai/openwork",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/different-ai/openwork",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "e714579d-f900-4a8f-808b-8ba791c810ff",
+      "decision": "publish",
+      "project": {
+        "slug": "yaak",
+        "name": "Yaak",
+        "summary": "Organizes and sends REST, GraphQL, WebSocket, SSE, and gRPC requests from a desktop client.",
+        "icon_url": "/app-icons/yaak.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/mountain-loop/yaak",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "mountain-loop",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/mountain-loop",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop"
+        ],
+        "categories": [
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mountain-loop/yaak/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mountain-loop/yaak/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/9ad38f8d3259620d494dc99f6edce14e97c142e3c4605fe5e326b5ae874d95e0/mountain-loop/yaak",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/mountain-loop/yaak",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/mountain-loop/yaak",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mountain-loop/yaak/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mountain-loop/yaak/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mountain-loop/yaak/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mountain-loop/yaak/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/mountain-loop/yaak",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/mountain-loop/yaak",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/mountain-loop/yaak/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mountain-loop/yaak/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mountain-loop/yaak/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/mountain-loop/yaak/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    }
+  ]
+}

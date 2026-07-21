@@ -5,7 +5,7 @@ description: Find evidence-backed new Version127 page, directory, calculator, re
 
 # Version127 Topic Research
 
-Use this skill in `/Users/ravitejaknts/projects/HomeLabHQ` when researching new Version127 content or tool surfaces. The goal is not generic brainstorming. The goal is to find problems people already search for where the current web answer is fragmented, weak, too vendor-specific, or missing a practical tool.
+Use this skill in `/Users/ravitejaknts/projects/Version127` when researching new Version127 content or tool surfaces. The goal is not generic brainstorming. The goal is to find problems people already search for where the current web answer is fragmented, weak, too vendor-specific, or missing a practical tool.
 
 ## First Checks
 

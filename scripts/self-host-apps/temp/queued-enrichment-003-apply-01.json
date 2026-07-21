@@ -1,0 +1,1459 @@
+{
+  "reviewed_at": "2026-07-19T11:05:26.439Z",
+  "records": [
+    {
+      "candidate_id": "4f435f57-31c2-4503-8365-a92bb8da6b2d",
+      "decision": "publish",
+      "project": {
+        "slug": "app",
+        "name": "TinyCld",
+        "summary": "Workspace for mail, calendars, contacts, files, and documents through separately installable packages.",
+        "icon_url": "/app-icons/app.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/tinycld/tinycld",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/tinycld/tinycld",
+        "docker_url": "https://github.com/tinycld/tinycld",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-only",
+        "source_model": "open_source",
+        "publisher_name": "tinycld",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/tinycld",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "PocketBase"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "mobile",
+          "desktop"
+        ],
+        "categories": [
+          "communication",
+          "calendars-contacts",
+          "file-sharing-sync"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/64436b2e61f4701bd26e787eb0f0482879a0034662f85806c41929084f704b3e/tinycld/tinycld",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/tinycld/tinycld",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/tinycld/tinycld",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/tinycld/tinycld",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/tinycld/tinycld",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/tinycld/tinycld",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tinycld/tinycld/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "726b1e54-9d70-46fb-b26e-04ee449f46be",
+      "decision": "publish",
+      "project": {
+        "slug": "schoco",
+        "name": "Schoco",
+        "summary": "Browser-based Java classroom for assigning, testing, and reviewing programming exercises.",
+        "icon_url": "/app-icons/schoco.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/PhiTux/schoco",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/PhiTux/schoco",
+        "docker_url": "https://github.com/PhiTux/schoco",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "PhiTux",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/PhiTux",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "learning-courses",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/PhiTux/schoco/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/PhiTux/schoco/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/3a52895e59d692d849cbb45e271d5573f7aebe9a810d004b5718a5b2a18e1740/PhiTux/schoco",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/PhiTux/schoco",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/PhiTux/schoco",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/PhiTux/schoco/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/PhiTux/schoco/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/PhiTux/schoco/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/PhiTux/schoco/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/PhiTux/schoco",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/PhiTux/schoco",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/PhiTux/schoco",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/PhiTux/schoco/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/PhiTux/schoco/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/PhiTux/schoco/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/PhiTux/schoco/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/PhiTux/schoco/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/PhiTux/schoco/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/PhiTux/schoco/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "8f296870-9b57-4651-b6d8-31d8d2f04b5c",
+      "decision": "publish",
+      "project": {
+        "slug": "e-label",
+        "name": "Open E-Label",
+        "summary": "Creates QR-linked wine labels with ingredients, nutrition details, allergens, and recycling information.",
+        "icon_url": "/app-icons/e-label.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/filipecarneiro/ELabel",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/filipecarneiro/ELabel",
+        "docker_url": "https://github.com/filipecarneiro/ELabel",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "filipecarneiro",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/filipecarneiro",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "business-commerce",
+          "content-publishing"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/filipecarneiro/ELabel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/filipecarneiro/ELabel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/725294373/e225b4f0-1124-47e6-8de1-6a6ff4cf8a91",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/filipecarneiro/ELabel",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/filipecarneiro/ELabel",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/filipecarneiro/ELabel/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/filipecarneiro/ELabel/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/filipecarneiro/ELabel/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/filipecarneiro/ELabel/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/filipecarneiro/ELabel",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/filipecarneiro/ELabel",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/filipecarneiro/ELabel",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/filipecarneiro/ELabel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/filipecarneiro/ELabel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/filipecarneiro/ELabel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/filipecarneiro/ELabel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/filipecarneiro/ELabel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/filipecarneiro/ELabel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/filipecarneiro/ELabel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "e1ff9b80-37f8-4b25-a4b9-154177aa7ff4",
+      "decision": "publish",
+      "project": {
+        "slug": "lottie-tools",
+        "name": "Lottie Tools",
+        "summary": "Edits Lottie animations and SVG files in a browser with timeline and export controls.",
+        "icon_url": "/app-icons/lottie-tools.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/marciogranzotto/lottie-tools",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/marciogranzotto/lottie-tools",
+        "docker_url": "https://github.com/marciogranzotto/lottie-tools",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "marciogranzotto",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/marciogranzotto",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "content-publishing",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/marciogranzotto/lottie-tools/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/marciogranzotto/lottie-tools/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/f5ef4b660c16ec36ef894eef97967701ba8237653cd12ad9e8f0177f0eb7be4a/marciogranzotto/lottie-tools",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/marciogranzotto/lottie-tools",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/marciogranzotto/lottie-tools",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/marciogranzotto/lottie-tools/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/marciogranzotto/lottie-tools/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/marciogranzotto/lottie-tools/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/marciogranzotto/lottie-tools/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/marciogranzotto/lottie-tools",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/marciogranzotto/lottie-tools",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/marciogranzotto/lottie-tools",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/marciogranzotto/lottie-tools/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/marciogranzotto/lottie-tools/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/marciogranzotto/lottie-tools/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/marciogranzotto/lottie-tools/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/marciogranzotto/lottie-tools/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/marciogranzotto/lottie-tools/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/marciogranzotto/lottie-tools/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "18161d34-8c9d-4a92-9552-08bd2a648e1a",
+      "decision": "publish",
+      "project": {
+        "slug": "re-director",
+        "name": "re:Director",
+        "summary": "Manages HTTP redirects through a small web interface and REST API.",
+        "icon_url": "/app-icons/re-director.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/re-Director/re-director",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/re-Director/re-director",
+        "docker_url": "https://github.com/re-Director/re-director",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "re-Director",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/re-Director",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "networking-dns",
+          "system-admin-hosting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/re-Director/re-director/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/re-Director/re-director/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/76a9dc098074384ad8c595489c4897248b69a56c5bdb0d973ef0ea7e6bba2cc9/re-Director/re-director",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/re-Director/re-director",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/re-Director/re-director",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/re-Director/re-director/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/re-Director/re-director/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/re-Director/re-director/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/re-Director/re-director/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/re-Director/re-director",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/re-Director/re-director",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/re-Director/re-director",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/re-Director/re-director/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/re-Director/re-director/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/re-Director/re-director/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/re-Director/re-director/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/re-Director/re-director/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/re-Director/re-director/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/re-Director/re-director/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "e6541b1d-1f1b-4dbd-a40b-d60622de8cfe",
+      "decision": "publish",
+      "project": {
+        "slug": "eventschedule",
+        "name": "Event Schedule",
+        "summary": "Publishes event schedules, speaker details, tickets, and attendee updates.",
+        "icon_url": "/app-icons/eventschedule.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/eventschedule/eventschedule",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/eventschedule/eventschedule",
+        "docker_url": "https://github.com/eventschedule/eventschedule",
+        "license": "Attribution Assurance License (custom)",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "publisher_name": "eventschedule",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/eventschedule",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": true,
+        "database_types": [
+          "MySQL"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "forms-polls-events",
+          "business-commerce"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/eventschedule/eventschedule/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/eventschedule/eventschedule/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/e1900d7129ce68e5a3313f550865f213132843c10803a8b95cbfcea6aa6d001e/eventschedule/eventschedule",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/eventschedule/eventschedule",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/eventschedule/eventschedule",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/eventschedule/eventschedule/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/eventschedule/eventschedule/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/eventschedule/eventschedule/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/eventschedule/eventschedule",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/eventschedule/eventschedule",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/eventschedule/eventschedule",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/eventschedule/eventschedule/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/eventschedule/eventschedule/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/eventschedule/eventschedule/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/eventschedule/eventschedule/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/eventschedule/eventschedule/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/eventschedule/eventschedule/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/eventschedule/eventschedule/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/eventschedule/eventschedule/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "96e32328-f556-482c-ae92-c7fbcad67570",
+      "decision": "publish",
+      "project": {
+        "slug": "tuxseo",
+        "name": "TuxSEO",
+        "summary": "Researches search topics and helps plan and draft articles from a private deployment.",
+        "icon_url": "/app-icons/tuxseo.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/LVTD-LLC/TuxSEO",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/LVTD-LLC/TuxSEO",
+        "docker_url": "https://github.com/LVTD-LLC/TuxSEO",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "LVTD-LLC",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/LVTD-LLC",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "archived",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "PostgreSQL",
+          "Redis"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "content-publishing",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/5465ccb31fa128765135d52dc022c70dbc26615b97b8143c0a5daa86197fb073/LVTD-LLC/TuxSEO",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/LVTD-LLC/TuxSEO",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/LVTD-LLC/TuxSEO",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/LVTD-LLC/TuxSEO",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/LVTD-LLC/TuxSEO",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/LVTD-LLC/TuxSEO",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/LVTD-LLC/TuxSEO/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "300a1efe-744e-400b-8b75-34bc06804ab9",
+      "decision": "publish",
+      "project": {
+        "slug": "github-ntfy",
+        "name": "ntfy alerts",
+        "summary": "Sends GitHub and Docker Hub release alerts to ntfy, Gotify, Discord, or Slack.",
+        "icon_url": "/app-icons/github-ntfy.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/BreizhHardware/ntfy_alerts",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/BreizhHardware/ntfy_alerts",
+        "docker_url": "https://github.com/BreizhHardware/ntfy_alerts",
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-only",
+        "source_model": "open_source",
+        "publisher_name": "BreizhHardware",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/BreizhHardware",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [],
+        "categories": [
+          "automation",
+          "monitoring-status"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/BreizhHardware/ntfy_alerts/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/BreizhHardware/ntfy_alerts/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/efa6662d8ec2d38e4bfad2a7b2f2d00a6a652ed2b01fa948627f46423589336d/BreizhHardware/ntfy_alerts",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/BreizhHardware/ntfy_alerts",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/BreizhHardware/ntfy_alerts",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/BreizhHardware/ntfy_alerts/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/BreizhHardware/ntfy_alerts/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/BreizhHardware/ntfy_alerts/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/BreizhHardware/ntfy_alerts/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/BreizhHardware/ntfy_alerts",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/BreizhHardware/ntfy_alerts",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/BreizhHardware/ntfy_alerts",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/BreizhHardware/ntfy_alerts/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/BreizhHardware/ntfy_alerts/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/BreizhHardware/ntfy_alerts/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/BreizhHardware/ntfy_alerts/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/BreizhHardware/ntfy_alerts/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    }
+  ]
+}

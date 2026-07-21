@@ -1,0 +1,1819 @@
+{
+  "collected_at": "2026-07-19T10:45:40.568Z",
+  "records": [
+    {
+      "candidate_id": "e340cfcd-f775-4c70-a0a6-f0807aba3394",
+      "name": "Phice",
+      "source_url": "https://selfhostedworld.com/software/phice",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/phice?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "phice - Self-hosted software",
+        "description": "Self host phice - A lightweight privacy-friendly alternative front-end for Facebook",
+        "image_url": "https://codeberg.org/repo-avatars/f553011634a6f04759c2739b9363783a1078fb33b7b8a3a770295c5db49e8e3e",
+        "metadata_url": null,
+        "source_code_url": "https://codeberg.org/c4ffe14e/phice",
+        "repository_urls": [
+          "https://codeberg.org/repo-avatars/f553011634a6f04759c2739b9363783a1078fb33b7b8a3a770295c5db49e8e3e",
+          "https://codeberg.org/c4ffe14e/phice"
+        ]
+      }
+    },
+    {
+      "candidate_id": "4f435f57-31c2-4503-8365-a92bb8da6b2d",
+      "name": "App",
+      "source_url": "https://selfhostedworld.com/software/app",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/app?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "app - Self-hosted software",
+        "description": "TinyCld is a self-hosted workspace platform intended as an alternative to hosted productivity suites. The repository described in the README is the runnabl...",
+        "image_url": "https://avatars.githubusercontent.com/u/273233773?v=4",
+        "metadata_url": "https://api.github.com/repos/tinycld/app/readme",
+        "source_code_url": "https://github.com/tinycld/app",
+        "repository_urls": [
+          "https://github.com/tinycld/app"
+        ]
+      }
+    },
+    {
+      "candidate_id": "d5713086-1f4f-4ff6-a937-d7caeb5cf42f",
+      "name": "Vixipy",
+      "source_url": "https://selfhostedworld.com/software/vixipy",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/vixipy?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Vixipy - Self-hosted software",
+        "description": "Self host Vixipy - Yet another feature rich & privacy respecting frontend for pixiv.",
+        "image_url": null,
+        "metadata_url": null,
+        "source_code_url": "https://codeberg.org/vixipy/Vixipy",
+        "repository_urls": [
+          "https://codeberg.org/vixipy/Vixipy"
+        ]
+      }
+    },
+    {
+      "candidate_id": "80e1b1ce-b152-498a-8578-cf8fbb193c57",
+      "name": "Epicyon",
+      "source_url": "https://selfhostedworld.com/software/epicyon",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/epicyon?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "epicyon - Self-hosted software",
+        "description": "Self host epicyon - ActivityPub server, designed for simplicity and accessibility. Includes calendar, news and sharing economy features to empower your federated community.",
+        "image_url": "https://codeberg.org/repo-avatars/21501-09dbae5f4ed833828f4d20e7fc0e48ab",
+        "metadata_url": null,
+        "source_code_url": "https://codeberg.org/bashrc/epicyon",
+        "repository_urls": [
+          "https://codeberg.org/repo-avatars/21501-09dbae5f4ed833828f4d20e7fc0e48ab",
+          "https://codeberg.org/bashrc/epicyon"
+        ]
+      }
+    },
+    {
+      "candidate_id": "726b1e54-9d70-46fb-b26e-04ee449f46be",
+      "name": "Schoco",
+      "source_url": "https://selfhostedworld.com/software/schoco",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/schoco?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Schoco - Self-hosted software",
+        "description": "Schoco is a school-oriented web IDE for Java 8 that helps teachers create programming homework and students work on it from home or in class. It is aimed a...",
+        "image_url": "https://avatars.githubusercontent.com/u/27566312?v=4",
+        "metadata_url": "https://api.github.com/repos/PhiTux/schoco/readme",
+        "source_code_url": "https://github.com/PhiTux/schoco",
+        "repository_urls": [
+          "https://github.com/PhiTux/schoco",
+          "https://github.com/phitux/schoco"
+        ]
+      }
+    },
+    {
+      "candidate_id": "8f296870-9b57-4651-b6d8-31d8d2f04b5c",
+      "name": "E Label",
+      "source_url": "https://selfhostedworld.com/software/e-label",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/e-label?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "E-Label - Self-hosted software",
+        "description": "Open E-Label is an open-source project focused on electronic labels for wine bottles. It is aimed at producers and organizations that need to present regul...",
+        "image_url": "https://avatars.githubusercontent.com/u/8238213?v=4",
+        "metadata_url": "https://api.github.com/repos/filipecarneiro/ELabel/readme",
+        "source_code_url": "https://github.com/filipecarneiro/ELabel",
+        "repository_urls": [
+          "https://github.com/filipecarneiro/ELabel"
+        ]
+      }
+    },
+    {
+      "candidate_id": "8890249f-cae2-41b4-90bd-393419117c73",
+      "name": "Tiddlypwa",
+      "source_url": "https://selfhostedworld.com/software/tiddlypwa",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/tiddlypwa?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "tiddlypwa - Self-hosted software",
+        "description": "Self host tiddlypwa - Secure offline storage and cross-device synchronization solution for TiddlyWiki 5",
+        "image_url": null,
+        "metadata_url": null,
+        "source_code_url": "https://codeberg.org/valpackett/tiddlypwa",
+        "repository_urls": [
+          "https://codeberg.org/valpackett/tiddlypwa"
+        ]
+      }
+    },
+    {
+      "candidate_id": "a13dbbce-a500-4899-abcf-66c6e8f21fa3",
+      "name": "Seppo",
+      "source_url": "https://selfhostedworld.com/software/seppo",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/seppo?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "seppo - Self-hosted software",
+        "description": "Self host seppo - ⁂ Personal Social Web",
+        "image_url": "https://codeberg.org/repo-avatars/77385-b2fdd682b4bf00106bae0162fb66fc2c",
+        "metadata_url": null,
+        "source_code_url": "https://codeberg.org/seppo/seppo",
+        "repository_urls": [
+          "https://codeberg.org/repo-avatars/77385-b2fdd682b4bf00106bae0162fb66fc2c",
+          "https://codeberg.org/seppo/seppo"
+        ]
+      }
+    },
+    {
+      "candidate_id": "e1ff9b80-37f8-4b25-a4b9-154177aa7ff4",
+      "name": "Lottie Tools",
+      "source_url": "https://selfhostedworld.com/software/lottie-tools",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/lottie-tools?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Lottie Tools - Self-hosted software",
+        "description": "Lottie Open Studio is an open-source, browser-based animation editor focused on creating and editing Lottie animations. It is aimed at users who want to wo...",
+        "image_url": "https://avatars.githubusercontent.com/u/11080704?v=4",
+        "metadata_url": "https://api.github.com/repos/marciogranzotto/lottie-tools/readme",
+        "source_code_url": "https://github.com/marciogranzotto/lottie-tools",
+        "repository_urls": [
+          "https://github.com/marciogranzotto/lottie-tools"
+        ]
+      }
+    },
+    {
+      "candidate_id": "18161d34-8c9d-4a92-9552-08bd2a648e1a",
+      "name": "Re Director",
+      "source_url": "https://selfhostedworld.com/software/re-director",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/re-director?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "re:Director - Self-hosted software",
+        "description": "re:Director is a self-hosted redirect management service that lets users point domains to chosen destinations and control how those redirects behave. It is...",
+        "image_url": "https://avatars.githubusercontent.com/u/217201546?v=4",
+        "metadata_url": "https://api.github.com/repos/re-Director/re-director/readme",
+        "source_code_url": "https://github.com/re-Director/re-director",
+        "repository_urls": [
+          "https://github.com/re-Director/re-director"
+        ]
+      }
+    },
+    {
+      "candidate_id": "e6541b1d-1f1b-4dbd-a40b-d60622de8cfe",
+      "name": "Eventschedule",
+      "source_url": "https://selfhostedworld.com/software/eventschedule",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/eventschedule?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "EventSchedule - Self-hosted software",
+        "description": "Event Schedule is an open-source event management and ticketing platform aimed at organizers, communities, and teams that need a branded way to publish sch...",
+        "image_url": "https://avatars.githubusercontent.com/u/199235090?v=4",
+        "metadata_url": "https://api.github.com/repos/eventschedule/eventschedule/readme",
+        "source_code_url": "https://github.com/eventschedule/eventschedule",
+        "repository_urls": [
+          "https://github.com/eventschedule/eventschedule"
+        ]
+      }
+    },
+    {
+      "candidate_id": "96e32328-f556-482c-ae92-c7fbcad67570",
+      "name": "Tuxseo",
+      "source_url": "https://selfhostedworld.com/software/tuxseo",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/tuxseo?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "TuxSEO - Self-hosted software",
+        "description": "TuxSEO is a self-hostable, open-source application aimed at founders who want to create SEO-oriented blog content without spending much time on research an...",
+        "image_url": "https://avatars.githubusercontent.com/u/282545610?v=4",
+        "metadata_url": "https://api.github.com/repos/rasulkireev/TuxSEO/readme",
+        "source_code_url": "https://github.com/rasulkireev/TuxSEO",
+        "repository_urls": [
+          "https://github.com/rasulkireev/TuxSEO"
+        ]
+      }
+    },
+    {
+      "candidate_id": "300a1efe-744e-400b-8b75-34bc06804ab9",
+      "name": "Github Ntfy",
+      "source_url": "https://selfhostedworld.com/software/github-ntfy",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/github-ntfy?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Github Ntfy - Self-hosted software",
+        "description": "ntfy_alerts is a notification relay for tracking new releases on GitHub and Docker Hub. It is aimed at users who want to be alerted through messaging and p...",
+        "image_url": "https://avatars.githubusercontent.com/u/72651575?v=4",
+        "metadata_url": "https://api.github.com/repos/BreizhHardware/ntfy_alerts/readme",
+        "source_code_url": "https://github.com/BreizhHardware/ntfy_alerts",
+        "repository_urls": [
+          "https://github.com/BreizhHardware/ntfy_alerts"
+        ]
+      }
+    },
+    {
+      "candidate_id": "60d2656f-0d13-4abb-bc1f-3992de9b5f5b",
+      "name": "Pixlstash",
+      "source_url": "https://selfhostedworld.com/software/pixlstash",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/pixlstash?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "pixlstash - Self-hosted software",
+        "description": "PixlStash is a self-hosted picture library server aimed at people managing large image collections. It combines a local web UI with metadata-driven browsin...",
+        "image_url": "https://avatars.githubusercontent.com/u/236550085?v=4",
+        "metadata_url": "https://api.github.com/repos/pikselkroken/pixlstash/readme",
+        "source_code_url": "https://github.com/pikselkroken/pixlstash",
+        "repository_urls": [
+          "https://github.com/pikselkroken/pixlstash"
+        ]
+      }
+    },
+    {
+      "candidate_id": "359bd388-6a88-450f-877f-143b17f01504",
+      "name": "Engitys Bifrost",
+      "source_url": "https://selfhostedworld.com/software/engitys-bifrost",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/engitys-bifrost?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Engity's Bifröst - Self-hosted software",
+        "description": "Bifröst is an advanced SSH server intended as a drop-in replacement for OpenSSH Server. It is aimed at users and operators who need standard SSH access whi...",
+        "image_url": "https://avatars.githubusercontent.com/u/95974183?v=4",
+        "metadata_url": "https://api.github.com/repos/engity-com/bifroest/readme",
+        "source_code_url": "https://github.com/engity-com/bifroest",
+        "repository_urls": [
+          "https://github.com/engity-com/bifroest"
+        ]
+      }
+    },
+    {
+      "candidate_id": "9ef49466-2a7b-49a7-821e-34c9c23acc94",
+      "name": "Replaya",
+      "source_url": "https://selfhostedworld.com/software/replaya",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/replaya?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "replaya - Self-hosted software",
+        "description": "RePlaya is a self-hosted session replay application for teams that want to capture and inspect browser interactions without running a traditional multi-ser...",
+        "image_url": "https://avatars.githubusercontent.com/u/136030139?v=4",
+        "metadata_url": "https://api.github.com/repos/s2-streamstore/replaya/readme",
+        "source_code_url": "https://github.com/s2-streamstore/replaya",
+        "repository_urls": [
+          "https://github.com/s2-streamstore/replaya"
+        ]
+      }
+    },
+    {
+      "candidate_id": "3336bb0a-aa9d-4f4d-ad24-4a0905f6a225",
+      "name": "Honeywire",
+      "source_url": "https://selfhostedworld.com/software/honeywire",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/honeywire?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "HoneyWire - Self-hosted software",
+        "description": "HoneyWire is a distributed, self-hosted security warning system aimed at internal networks and defenders who want high-signal intrusion detection rather th...",
+        "image_url": "https://avatars.githubusercontent.com/u/76009234?v=4",
+        "metadata_url": "https://api.github.com/repos/andreicscs/HoneyWire/readme",
+        "source_code_url": "https://github.com/andreicscs/HoneyWire",
+        "repository_urls": [
+          "https://github.com/andreicscs/HoneyWire"
+        ]
+      }
+    },
+    {
+      "candidate_id": "d3805563-b4b9-42fb-9bdd-6e1d71afd553",
+      "name": "Fungible",
+      "source_url": "https://selfhostedworld.com/software/fungible",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/fungible?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "fungible - Self-hosted software",
+        "description": "Fungible is a personal finance application designed for keyboard-first workflows. It is available both as a terminal user interface and as a desktop applic...",
+        "image_url": "https://avatars.githubusercontent.com/u/22576472?v=4",
+        "metadata_url": "https://api.github.com/repos/tomfunk/fungible/readme",
+        "source_code_url": "https://github.com/tomfunk/fungible",
+        "repository_urls": [
+          "https://github.com/tomfunk/fungible"
+        ]
+      }
+    },
+    {
+      "candidate_id": "267d02b1-46f5-4aee-afbc-fff18229d675",
+      "name": "Will Be Done",
+      "source_url": "https://selfhostedworld.com/software/will-be-done",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/will-be-done?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Will Be Done - Self-hosted software",
+        "description": "Will Be Done is a self-hosted task planner designed for people who want a fast, private, local-first alternative to conventional task managers. It centers ...",
+        "image_url": "https://avatars.githubusercontent.com/u/255081234?v=4",
+        "metadata_url": "https://api.github.com/repos/will-be-done/will-be-done/readme",
+        "source_code_url": "https://github.com/will-be-done/will-be-done",
+        "repository_urls": [
+          "https://github.com/user-attachments/assets",
+          "https://github.com/will-be-done/will-be-done"
+        ]
+      }
+    },
+    {
+      "candidate_id": "d1adc222-af2b-4eb8-85ad-1c3e455467dc",
+      "name": "Uploady",
+      "source_url": "https://selfhostedworld.com/software/uploady",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/uploady?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Uploady - Self-hosted software",
+        "description": "Uploady is a self-hosted file uploading application written in PHP for users who want a modern, secure upload workflow with management features. It is posi...",
+        "image_url": "https://avatars.githubusercontent.com/u/76238196?v=4",
+        "metadata_url": "https://api.github.com/repos/farisc0de/Uploady/readme",
+        "source_code_url": "https://github.com/farisc0de/Uploady",
+        "repository_urls": [
+          "https://github.com/farisc0de/Uploady"
+        ]
+      }
+    },
+    {
+      "candidate_id": "f024caac-ee47-4754-ad9b-0b855b81a645",
+      "name": "Commentario",
+      "source_url": "https://selfhostedworld.com/software/commentario",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/commentario?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Commentario - Self-hosted software",
+        "description": "Comentario is an open-source comment system for embedding discussion features into otherwise static web pages. It is intended for site owners who want to a...",
+        "image_url": "https://gitlab.com/uploads/-/system/project/avatar/42486427/icon-128px.png",
+        "metadata_url": "https://gitlab.com/api/v4/projects/42486427/repository/files/README.md/raw?ref=HEAD",
+        "source_code_url": "https://gitlab.com/comentario/comentario",
+        "repository_urls": [
+          "https://gitlab.com/uploads/-/system/project/avatar/42486427/icon-128px.png",
+          "https://gitlab.com/comentario/comentario",
+          "https://gitlab.com/api/v4/projects/42486427/repository/files/README.md/raw"
+        ]
+      }
+    },
+    {
+      "candidate_id": "10687b07-080d-4244-9408-fbe5c7dd739f",
+      "name": "Motion Tools Antragsgrun",
+      "source_url": "https://selfhostedworld.com/software/motion-tools-antragsgrun",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/motion-tools-antragsgrun?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "motion.tools (Antragsgrün) - Self-hosted software",
+        "description": "Antragsgrün is a web-based participation and decision-support tool aimed at NGOs, political parties, and social initiatives. It is designed to help groups ...",
+        "image_url": "https://avatars.githubusercontent.com/u/533440?v=4",
+        "metadata_url": "https://api.github.com/repos/CatoTH/antragsgruen/readme",
+        "source_code_url": "https://github.com/CatoTH/antragsgruen",
+        "repository_urls": [
+          "https://github.com/CatoTH/antragsgruen"
+        ]
+      }
+    },
+    {
+      "candidate_id": "7fa46e49-2362-4da8-97ef-2e0a1c34f186",
+      "name": "Machtiani",
+      "source_url": "https://selfhostedworld.com/software/machtiani",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/machtiani?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "machtiani - Self-hosted software",
+        "description": "Machtiani is a terminal-based code chat service aimed at developers working in large Git repositories. It indexes project history and file context so promp...",
+        "image_url": "https://avatars.githubusercontent.com/u/161530695?v=4",
+        "metadata_url": "https://api.github.com/repos/tursomari/machtiani/readme",
+        "source_code_url": "https://github.com/tursomari/machtiani",
+        "repository_urls": [
+          "https://github.com/tursomari/machtiani"
+        ]
+      }
+    },
+    {
+      "candidate_id": "5b474453-19d0-4209-92f7-6053652c5807",
+      "name": "Pikoci",
+      "source_url": "https://selfhostedworld.com/software/pikoci",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/pikoci?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "pikoci - Self-hosted software",
+        "description": "PikoCI is a self-hosted CI/CD system intended for teams that want a portable, low-setup automation platform. It emphasizes running anywhere as a single bin...",
+        "image_url": "https://avatars.githubusercontent.com/u/285058460?v=4",
+        "metadata_url": "https://api.github.com/repos/pikoci/pikoci/readme",
+        "source_code_url": "https://github.com/pikoci/pikoci",
+        "repository_urls": [
+          "https://github.com/pikoci/pikoci"
+        ]
+      }
+    },
+    {
+      "candidate_id": "d10e1c36-fccc-4153-8407-5c322ddcbf09",
+      "name": "Homebutler",
+      "source_url": "https://selfhostedworld.com/software/homebutler",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/homebutler?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "HomeButler - Self-hosted software",
+        "description": "HomeButler is a compact operations tool for home servers and homelabs. It is designed for people who manage self-hosted services and need a narrow, structu...",
+        "image_url": "https://avatars.githubusercontent.com/u/149052256?v=4",
+        "metadata_url": "https://api.github.com/repos/Higangssh/homebutler/readme",
+        "source_code_url": "https://github.com/Higangssh/homebutler",
+        "repository_urls": [
+          "https://github.com/Higangssh/homebutler"
+        ]
+      }
+    },
+    {
+      "candidate_id": "15685907-5f66-45b9-b94f-60ebd10c852c",
+      "name": "Youtube Dl Nas",
+      "source_url": "https://selfhostedworld.com/software/youtube-dl-nas",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/youtube-dl-nas?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "youtube-dl-nas - Self-hosted software",
+        "description": "youtube-dl-nas is a compact, NAS-oriented web application for queuing video, audio, and subtitle downloads. It is designed for home servers and NAS setups ...",
+        "image_url": "https://avatars.githubusercontent.com/u/25292366?v=4",
+        "metadata_url": "https://api.github.com/repos/hyeonsangjeon/youtube-dl-nas/readme",
+        "source_code_url": "https://github.com/hyeonsangjeon/youtube-dl-nas",
+        "repository_urls": [
+          "https://github.com/hyeonsangjeon/youtube-dl-nas"
+        ]
+      }
+    },
+    {
+      "candidate_id": "d6cb92f9-8cb8-4dc4-9220-232fd976bdb8",
+      "name": "Assets",
+      "source_url": "https://selfhostedworld.com/software/assets",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/assets?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Assets - Self-hosted software",
+        "description": "Assets is a self-hosted personal wealth tracker designed for people who want to monitor investments and net worth without relying on a third-party financia...",
+        "image_url": "https://avatars.githubusercontent.com/u/508022?v=4",
+        "metadata_url": "https://api.github.com/repos/venil7/assets/readme",
+        "source_code_url": "https://github.com/venil7/assets",
+        "repository_urls": [
+          "https://github.com/user-attachments/assets",
+          "https://github.com/venil7/assets"
+        ]
+      }
+    },
+    {
+      "candidate_id": "1ae1ae0f-1111-48a2-b2b9-8cc18076006a",
+      "name": "Materia",
+      "source_url": "https://selfhostedworld.com/software/materia",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/materia?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "materia - Self-hosted software",
+        "description": "Materia is a GitOps-oriented management tool for services and applications deployed as Podman Quadlets. It is aimed at operators who want a declarative wor...",
+        "image_url": "https://avatars.githubusercontent.com/u/5605130?v=4",
+        "metadata_url": "https://api.github.com/repos/stryan/materia/readme",
+        "source_code_url": "https://github.com/stryan/materia",
+        "repository_urls": [
+          "https://github.com/stryan/materia"
+        ]
+      }
+    },
+    {
+      "candidate_id": "fa5ddad6-38d7-4d21-8839-2c4c30e1cc6b",
+      "name": "Mejiro",
+      "source_url": "https://selfhostedworld.com/software/mejiro",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/mejiro?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Mejiro - Self-hosted software",
+        "description": "Pellicola is a lightweight PHP-based photo publishing application designed for people who want to turn a folder of images into a browsable web gallery with...",
+        "image_url": "https://avatars.githubusercontent.com/u/837588?v=4",
+        "metadata_url": "https://api.github.com/repos/dmpop/pellicola/readme",
+        "source_code_url": "https://github.com/dmpop/pellicola",
+        "repository_urls": [
+          "https://github.com/dmpop/pellicola"
+        ]
+      }
+    },
+    {
+      "candidate_id": "0405925f-2743-4c9a-8320-fac3c0048b07",
+      "name": "Ikuyo",
+      "source_url": "https://selfhostedworld.com/software/ikuyo",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/ikuyo?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "ikuyo - Self-hosted software",
+        "description": "Ikuyo! is a web application for planning itineraries. The README presents it as a lightweight project focused on building, running, and previewing the app ...",
+        "image_url": "/logos/ikuyo-512.png",
+        "metadata_url": "https://api.github.com/repos/kenrick95/ikuyo/readme",
+        "source_code_url": "https://github.com/kenrick95/ikuyo",
+        "repository_urls": [
+          "https://github.com/kenrick95/ikuyo"
+        ]
+      }
+    },
+    {
+      "candidate_id": "81f1384b-fcb2-4fdd-ba12-10bd6a50aa9a",
+      "name": "Jauth",
+      "source_url": "https://selfhostedworld.com/software/jauth",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/jauth?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Jauth - Self-hosted software",
+        "description": "Jauth is a minimal reverse proxy designed to sit in front of self-hosted web applications and add an authorization layer. It is aimed at users who want to ...",
+        "image_url": "https://avatars.githubusercontent.com/u/25588359?v=4",
+        "metadata_url": "https://api.github.com/repos/Jipok/Jauth/readme",
+        "source_code_url": "https://github.com/Jipok/Jauth",
+        "repository_urls": [
+          "https://github.com/Jipok/Jauth"
+        ]
+      }
+    },
+    {
+      "candidate_id": "09469cfa-2d73-4a94-82cb-1f0f6522814c",
+      "name": "Ponskelisten",
+      "source_url": "https://selfhostedworld.com/software/ponskelisten",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/ponskelisten?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Pønskelisten - Self-hosted software",
+        "description": "Pønskelisten is a self-hosted web application for managing wishlists with other people. It is aimed at users who want to share gift ideas with friends and ...",
+        "image_url": "https://avatars.githubusercontent.com/u/31650531?v=4",
+        "metadata_url": "https://api.github.com/repos/aunefyren/poenskelisten/readme",
+        "source_code_url": "https://github.com/aunefyren/poenskelisten",
+        "repository_urls": [
+          "https://github.com/aunefyren/poenskelisten"
+        ]
+      }
+    },
+    {
+      "candidate_id": "3516f603-ea46-4cc4-aab9-e3c365b82fb4",
+      "name": "Webarchive",
+      "source_url": "https://selfhostedworld.com/software/webarchive",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/webarchive?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Webarchive - Self-hosted software",
+        "description": "Own Webarchive is a lightweight self-hosted archiving tool intended for personal or home-network use. It lets users capture web pages in a few different st...",
+        "image_url": "https://avatars.githubusercontent.com/u/533464?v=4",
+        "metadata_url": "https://api.github.com/repos/derfenix/webarchive/readme",
+        "source_code_url": "https://github.com/derfenix/webarchive",
+        "repository_urls": [
+          "https://github.com/derfenix/webarchive"
+        ]
+      }
+    },
+    {
+      "candidate_id": "940f89d1-754b-4a7d-9ea1-732238c50e10",
+      "name": "Cloud Seeder",
+      "source_url": "https://selfhostedworld.com/software/cloud-seeder",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/cloud-seeder?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Cloud Seeder - Self-hosted software",
+        "description": "Cloud Seeder by IPv6rs is a self-hosting appliance wizard designed to make deploying server software simpler for people who want to run services at home. I...",
+        "image_url": "https://avatars.githubusercontent.com/u/165337975?v=4",
+        "metadata_url": "https://api.github.com/repos/ipv6rslimited/cloudseeder/readme",
+        "source_code_url": "https://github.com/ipv6rslimited/cloudseeder",
+        "repository_urls": [
+          "https://github.com/ipv6rslimited/cloudseeder"
+        ]
+      }
+    },
+    {
+      "candidate_id": "805adb32-9e13-4119-bd57-e5f084d70d3d",
+      "name": "Rgit",
+      "source_url": "https://selfhostedworld.com/software/rgit",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/rgit?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "rgit - Self-hosted software",
+        "description": "rgit is a web interface for browsing bare Git repositories, positioned as a modern alternative to gitweb or cgit. It is written in Rust and uses Axum, gito...",
+        "image_url": "https://avatars.githubusercontent.com/u/5258114?v=4",
+        "metadata_url": "https://api.github.com/repos/w4/rgit/readme",
+        "source_code_url": "https://github.com/w4/rgit",
+        "repository_urls": [
+          "https://github.com/w4/rgit"
+        ]
+      }
+    },
+    {
+      "candidate_id": "0233c317-fb35-49ab-9d95-83b23a7876a5",
+      "name": "Txtdot",
+      "source_url": "https://selfhostedworld.com/software/txtdot",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/txtdot?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "txtdot - Self-hosted software",
+        "description": "txtdot is an HTTP proxy designed to make web pages lighter and easier to read by stripping them down to text, links, and images. It targets users who want ...",
+        "image_url": "https://avatars.githubusercontent.com/u/142173601?v=4",
+        "metadata_url": "https://api.github.com/repos/TempoWorks/txtdot/readme",
+        "source_code_url": "https://github.com/TempoWorks/txtdot",
+        "repository_urls": [
+          "https://github.com/TempoWorks/txtdot"
+        ]
+      }
+    },
+    {
+      "candidate_id": "02ca7655-6db0-4e1b-87db-9fccc7210d45",
+      "name": "Bigtree Cms",
+      "source_url": "https://selfhostedworld.com/software/bigtree-cms",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/bigtree-cms?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "BigTree CMS - Self-hosted software",
+        "description": "BigTree CMS is a web content management system intended for organizations that need to build and maintain websites with a structured admin interface. The R...",
+        "image_url": "https://avatars.githubusercontent.com/u/1417557?v=4",
+        "metadata_url": "https://api.github.com/repos/bigtreecms/BigTree-CMS/readme",
+        "source_code_url": "https://github.com/bigtreecms/BigTree-CMS",
+        "repository_urls": [
+          "https://github.com/bigtreecms/BigTree-CMS"
+        ]
+      }
+    },
+    {
+      "candidate_id": "1c966f30-726c-4c50-a149-ce3148cbf3ed",
+      "name": "Ptah Sh",
+      "source_url": "https://selfhostedworld.com/software/ptah-sh",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/ptah-sh?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "PTAH.SH - Self-hosted software",
+        "description": "Ptah.sh is a self-hosted deployment platform intended as an alternative to hosted application deployment services such as Heroku and Vercel. It is aimed at...",
+        "image_url": "https://avatars.githubusercontent.com/u/173286722?v=4",
+        "metadata_url": "https://api.github.com/repos/ptah-sh/ptah-server/readme",
+        "source_code_url": "https://github.com/ptah-sh/ptah-server",
+        "repository_urls": [
+          "https://github.com/ptah-sh/ptah-server"
+        ]
+      }
+    },
+    {
+      "candidate_id": "5522ce22-50e3-4502-8967-af45441c6ce0",
+      "name": "Oxid Eshop",
+      "source_url": "https://selfhostedworld.com/software/oxid-eshop",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/oxid-eshop?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "OXID eShop - Self-hosted software",
+        "description": "OXID eShop Community Edition Core Component is the source repository for the community edition of the OXID e-commerce platform. It is intended for organiza...",
+        "image_url": "https://avatars.githubusercontent.com/u/3502610?v=4",
+        "metadata_url": "https://api.github.com/repos/OXID-eSales/oxideshop_ce/readme",
+        "source_code_url": "https://github.com/OXID-eSales/oxideshop_ce",
+        "repository_urls": [
+          "https://github.com/OXID-eSales/oxideshop_ce"
+        ]
+      }
+    },
+    {
+      "candidate_id": "981155d4-5e75-44b3-b2c2-bef50f966849",
+      "name": "Rejourney",
+      "source_url": "https://selfhostedworld.com/software/rejourney",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/rejourney?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Rejourney - Self-hosted software",
+        "description": "Rejourney is a session replay and observability platform aimed at mobile and web applications. It provides SDKs and related backend/dashboard components to...",
+        "image_url": "https://avatars.githubusercontent.com/u/246919984?v=4",
+        "metadata_url": "https://api.github.com/repos/rejourneyco/rejourney/readme",
+        "source_code_url": "https://github.com/rejourneyco/rejourney",
+        "repository_urls": [
+          "https://github.com/rejourneyco/rejourney"
+        ]
+      }
+    },
+    {
+      "candidate_id": "436cf882-fc3a-48b2-94c9-0c7b2233a9ab",
+      "name": "Word Mastermind",
+      "source_url": "https://selfhostedworld.com/software/word-mastermind",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/word-mastermind?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Word Mastermind - Self-hosted software",
+        "description": "Word Mastermind is a browser-based word guessing game inspired by Wordle and MasterMind. It is intended for players who enjoy the daily puzzle format but w...",
+        "image_url": "https://avatars.githubusercontent.com/u/845200?v=4",
+        "metadata_url": "https://api.github.com/repos/clupasq/word-mastermind/readme",
+        "source_code_url": "https://github.com/clupasq/word-mastermind",
+        "repository_urls": [
+          "https://github.com/clupasq/word-mastermind"
+        ]
+      }
+    },
+    {
+      "candidate_id": "08d96962-82f7-4bdb-9680-8e08dec6e5eb",
+      "name": "Tinyclaw",
+      "source_url": "https://selfhostedworld.com/software/tinyclaw",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/tinyclaw?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "TinyClaw - Self-hosted software",
+        "description": "Tiny Claw is an under-development autonomous AI companion framework built from scratch in Bun. It is aimed at people who want a personal, self-configuring ...",
+        "image_url": "https://avatars.githubusercontent.com/u/15052701?v=4",
+        "metadata_url": "https://api.github.com/repos/warengonzaga/tinyclaw/readme",
+        "source_code_url": "https://github.com/warengonzaga/tinyclaw",
+        "repository_urls": [
+          "https://github.com/warengonzaga/tinyclaw"
+        ]
+      }
+    },
+    {
+      "candidate_id": "db90d363-68af-40c4-a549-efda834b0644",
+      "name": "Runtm",
+      "source_url": "https://selfhostedworld.com/software/runtm",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/runtm?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "runtm - Self-hosted software",
+        "description": "Runtm is an open-source platform designed for coding agents that need isolated environments to build and deploy software. It provides sandboxed sessions wh...",
+        "image_url": "https://avatars.githubusercontent.com/u/249835438?v=4",
+        "metadata_url": "https://api.github.com/repos/runtm-ai/runtm/readme",
+        "source_code_url": "https://github.com/runtm-ai/runtm",
+        "repository_urls": [
+          "https://github.com/user-attachments/assets",
+          "https://github.com/runtm-ai/runtm"
+        ]
+      }
+    },
+    {
+      "candidate_id": "3ef95b5a-bd4f-44a6-822f-4232004c14d3",
+      "name": "Ui Bakery",
+      "source_url": "https://selfhostedworld.com/software/ui-bakery",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/ui-bakery?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "UI Bakery - Self-hosted software",
+        "description": "UI Bakery is a low-code platform aimed at teams that want to build internal applications and workflow automations without starting from scratch. The README...",
+        "image_url": "https://avatars.githubusercontent.com/u/92528127?v=4",
+        "metadata_url": "https://api.github.com/repos/uibakery/self-hosted/readme",
+        "source_code_url": "https://github.com/uibakery/self-hosted",
+        "repository_urls": [
+          "https://github.com/uibakery/self-hosted"
+        ]
+      }
+    },
+    {
+      "candidate_id": "5ae0c2c7-eb24-471a-a5f7-13dbed4665ae",
+      "name": "Quizmaster",
+      "source_url": "https://selfhostedworld.com/software/quizmaster",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/quizmaster?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Quizmaster - Self-hosted software",
+        "description": "Quizmaster is a web application for running live quizzes. It is intended for a quizmaster or host who wants to prepare a quiz in advance and then present i...",
+        "image_url": "https://avatars.githubusercontent.com/u/2151059?v=4",
+        "metadata_url": "https://api.github.com/repos/nymanjens/quizmaster/readme",
+        "source_code_url": "https://github.com/nymanjens/quizmaster",
+        "repository_urls": [
+          "https://github.com/nymanjens/quizmaster"
+        ]
+      }
+    },
+    {
+      "candidate_id": "d3efa1f4-3eb6-4431-a635-9c6d51cc733c",
+      "name": "Bitmappery",
+      "source_url": "https://selfhostedworld.com/software/bitmappery",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/bitmappery?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "BitMappery - Self-hosted software",
+        "description": "BitMappery is a browser-based image editing application aimed at users who want a lightweight alternative to full Photoshop-style tools. It centers on a do...",
+        "image_url": "https://avatars.githubusercontent.com/u/730069?v=4",
+        "metadata_url": "https://api.github.com/repos/igorski/bitmappery/readme",
+        "source_code_url": "https://github.com/igorski/bitmappery",
+        "repository_urls": [
+          "https://github.com/igorski/bitmappery"
+        ]
+      }
+    },
+    {
+      "candidate_id": "ce750311-7cbc-4aa5-a81c-26f0f19aac0a",
+      "name": "Collabst",
+      "source_url": "https://selfhostedworld.com/software/collabst",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/collabst?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Collabst - Self-hosted software",
+        "description": "Collabst is a self-hosted collaborative workspace built around Typst, aimed at people who want to work together on Typst documents in their own environment...",
+        "image_url": "https://avatars.githubusercontent.com/u/249596260?v=4",
+        "metadata_url": "https://api.github.com/repos/collabst/collabst/readme",
+        "source_code_url": "https://github.com/collabst/collabst",
+        "repository_urls": [
+          "https://github.com/collabst/collabst"
+        ]
+      }
+    },
+    {
+      "candidate_id": "49e84fe2-9bf2-4819-a264-920099997662",
+      "name": "Litecart",
+      "source_url": "https://selfhostedworld.com/software/litecart",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/litecart?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Litecart - Self-hosted software",
+        "description": "litecart is an open source shopping cart system aimed at people who want a lightweight storefront and administration interface in a compact package. The RE...",
+        "image_url": "https://avatars.githubusercontent.com/u/411055?v=4",
+        "metadata_url": "https://api.github.com/repos/shurco/litecart/readme",
+        "source_code_url": "https://github.com/shurco/litecart",
+        "repository_urls": [
+          "https://github.com/shurco/litecart"
+        ]
+      }
+    },
+    {
+      "candidate_id": "1b82c44f-7467-46fd-bc80-0ea943cfe65b",
+      "name": "Feedpushr",
+      "source_url": "https://selfhostedworld.com/software/feedpushr",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/feedpushr?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Feedpushr - Self-hosted software",
+        "description": "Feedpushr is a feed aggregation service intended for users who want to collect, transform, and redistribute RSS/Atom content from a single place. It includ...",
+        "image_url": "https://avatars.githubusercontent.com/u/795995?v=4",
+        "metadata_url": "https://api.github.com/repos/ncarlier/feedpushr/readme",
+        "source_code_url": "https://github.com/ncarlier/feedpushr",
+        "repository_urls": [
+          "https://github.com/ncarlier/feedpushr"
+        ]
+      }
+    },
+    {
+      "candidate_id": "2b9e7b9e-5c37-45e6-b703-caae5c7f904f",
+      "name": "Larasend",
+      "source_url": "https://selfhostedworld.com/software/larasend",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/larasend?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "larasend - Self-hosted software",
+        "description": "Larasend is a self-hosted email control plane built for Laravel teams that want to manage transactional email delivery without connecting every application...",
+        "image_url": "https://avatars.githubusercontent.com/u/195021101?v=4",
+        "metadata_url": "https://api.github.com/repos/savvyagents/larasend/readme",
+        "source_code_url": "https://github.com/savvyagents/larasend",
+        "repository_urls": [
+          "https://github.com/savvyagents/larasend"
+        ]
+      }
+    },
+    {
+      "candidate_id": "16d9ff68-6b85-4d0b-b5e0-eedc3e26d564",
+      "name": "Voltius",
+      "source_url": "https://selfhostedworld.com/software/voltius",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/voltius?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "voltius - Self-hosted software",
+        "description": "Voltius is a desktop client for managing SSH, SFTP, and serial connections in a local-first way. It is aimed at users who want a modern terminal and remote...",
+        "image_url": "https://avatars.githubusercontent.com/u/277052727?v=4",
+        "metadata_url": "https://api.github.com/repos/VoltiusApp/voltius/readme",
+        "source_code_url": "https://github.com/VoltiusApp/voltius",
+        "repository_urls": [
+          "https://github.com/user-attachments/assets",
+          "https://github.com/VoltiusApp/voltius"
+        ]
+      }
+    },
+    {
+      "candidate_id": "b8fe4d14-8e02-446e-b871-a9c8b4c416a2",
+      "name": "Fablecut",
+      "source_url": "https://selfhostedworld.com/software/fablecut",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/fablecut?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "FableCut - Self-hosted software",
+        "description": "FableCut is a browser-based video editor designed around a JSON project file rather than a hidden internal state. It targets both human editors and AI agen...",
+        "image_url": "https://avatars.githubusercontent.com/u/84374383?v=4",
+        "metadata_url": "https://api.github.com/repos/ronak-create/FableCut/readme",
+        "source_code_url": "https://github.com/ronak-create/FableCut",
+        "repository_urls": [
+          "https://github.com/ronak-create/FableCut"
+        ]
+      }
+    },
+    {
+      "candidate_id": "61aa5ee5-27a9-45ed-af4b-0bc054a2ca20",
+      "name": "Kuvasz Uptime",
+      "source_url": "https://selfhostedworld.com/software/kuvasz-uptime",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/kuvasz-uptime?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Kuvasz Uptime - Self-hosted software",
+        "description": "Kuvasz is an open-source, self-hosted monitoring platform for tracking website and service uptime as well as SSL certificate validity. It is aimed at users...",
+        "image_url": "https://avatars.githubusercontent.com/u/68504757?v=4",
+        "metadata_url": "https://api.github.com/repos/kuvasz-uptime/kuvasz/readme",
+        "source_code_url": "https://github.com/kuvasz-uptime/kuvasz",
+        "repository_urls": [
+          "https://github.com/kuvasz-uptime/kuvasz"
+        ]
+      }
+    },
+    {
+      "candidate_id": "90188bc0-ad37-4f14-ac04-8aca505679d7",
+      "name": "Openmanus",
+      "source_url": "https://selfhostedworld.com/software/openmanus",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/openmanus?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "OpenManus - Self-hosted software",
+        "description": "Self host OpenManus - The project has moved to a new official repository, with an archived version available in a separate archive repository.",
+        "image_url": "https://avatars.githubusercontent.com/u/52203545?v=4",
+        "metadata_url": "https://api.github.com/repos/mannaandpoem/OpenManus/readme",
+        "source_code_url": "https://github.com/mannaandpoem/OpenManus",
+        "repository_urls": [
+          "https://github.com/mannaandpoem/OpenManus"
+        ]
+      }
+    },
+    {
+      "candidate_id": "b13c5402-cd9c-4465-a0b7-7c8c293242be",
+      "name": "Booklore",
+      "source_url": "https://selfhostedworld.com/software/booklore",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/booklore?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "BookLore - Self-hosted software",
+        "description": "BookLore is a self-hosted web application for people who want to organize and read a personal book library without relying on third-party services. It is a...",
+        "image_url": "https://avatars.githubusercontent.com/u/223511455?v=4",
+        "metadata_url": "https://api.github.com/repos/booklore-app/booklore/readme",
+        "source_code_url": "https://github.com/booklore-app/booklore",
+        "repository_urls": [
+          "https://github.com/booklore-app/booklore"
+        ]
+      }
+    },
+    {
+      "candidate_id": "0d950613-b000-42d3-bfc7-0d9ee035d3a9",
+      "name": "Enigma 12 Bbs",
+      "source_url": "https://selfhostedworld.com/software/enigma-12-bbs",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/enigma-12-bbs?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Enigma 1/2 BBS - Self-hosted software",
+        "description": "ENiGMA½ is a modern bulletin board system (BBS) platform aimed at SysOps and retro-computing enthusiasts who want a configurable, multi-protocol online com...",
+        "image_url": "https://avatars.githubusercontent.com/u/1509339?v=4",
+        "metadata_url": "https://api.github.com/repos/NuSkooler/enigma-bbs/readme",
+        "source_code_url": "https://github.com/NuSkooler/enigma-bbs",
+        "repository_urls": [
+          "https://github.com/NuSkooler/enigma-bbs"
+        ]
+      }
+    },
+    {
+      "candidate_id": "202b4838-58be-471d-be1c-2e94a9561319",
+      "name": "Rconcli",
+      "source_url": "https://selfhostedworld.com/software/rconcli",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/rconcli?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "RconCli - Self-hosted software",
+        "description": "rcon-cli is a command-line tool for administering remote game servers through the Source RCON protocol. It is aimed at server operators and advanced users ...",
+        "image_url": "https://avatars.githubusercontent.com/u/52683809?v=4",
+        "metadata_url": "https://api.github.com/repos/gorcon/rcon-cli/readme",
+        "source_code_url": "https://github.com/gorcon/rcon-cli",
+        "repository_urls": [
+          "https://github.com/gorcon/rcon-cli"
+        ]
+      }
+    },
+    {
+      "candidate_id": "39eae456-0e19-468a-a80f-67600a59e00e",
+      "name": "Bin",
+      "source_url": "https://selfhostedworld.com/software/bin",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/bin?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "bin - Self-hosted software",
+        "description": "bin is a minimalist paste bin designed for quickly sharing text snippets with other people. It emphasizes simplicity over feature breadth: the README expli...",
+        "image_url": "https://avatars.githubusercontent.com/u/5258114?v=4",
+        "metadata_url": "https://api.github.com/repos/w4/bin/readme",
+        "source_code_url": "https://github.com/w4/bin",
+        "repository_urls": [
+          "https://github.com/w4/bin"
+        ]
+      }
+    },
+    {
+      "candidate_id": "080fefc6-fb39-47a7-9b60-059bfe2df713",
+      "name": "Mistborn",
+      "source_url": "https://selfhostedworld.com/software/mistborn",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/mistborn?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Mistborn - Self-hosted software",
+        "description": "Self host Mistborn - Virtual private cloud platform and WebUI that manages self hosted services.",
+        "image_url": "https://gitlab.com/uploads/-/system/project/avatar/17334238/green_shield.png",
+        "metadata_url": null,
+        "source_code_url": "https://gitlab.com/cyber5k/mistborn",
+        "repository_urls": [
+          "https://gitlab.com/uploads/-/system/project/avatar/17334238/green_shield.png",
+          "https://gitlab.com/cyber5k/mistborn"
+        ]
+      }
+    },
+    {
+      "candidate_id": "1b4c91e0-107a-4ef7-8f4d-f8dd350a7df0",
+      "name": "Meilisearch Ui",
+      "source_url": "https://selfhostedworld.com/software/meilisearch-ui",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/meilisearch-ui?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Meilisearch-UI - Self-hosted software",
+        "description": "Meilisearch-UI is a browser-based administration dashboard for Meilisearch, aimed at users who want a graphical interface for managing search instances. It...",
+        "image_url": "https://avatars.githubusercontent.com/u/55175598?v=4",
+        "metadata_url": "https://api.github.com/repos/riccox/meilisearch-ui/readme",
+        "source_code_url": "https://github.com/riccox/meilisearch-ui",
+        "repository_urls": [
+          "https://github.com/riccox/meilisearch-ui"
+        ]
+      }
+    },
+    {
+      "candidate_id": "17055ba1-740a-454e-8281-a761ea6ec7ce",
+      "name": "Ourboard",
+      "source_url": "https://selfhostedworld.com/software/ourboard",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/ourboard?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "OurBoard - Self-hosted software",
+        "description": "OurBoard is an online whiteboard application aimed at people who want a simpler, self-hostable alternative to tools like Miro. It lets users create boards,...",
+        "image_url": "https://avatars.githubusercontent.com/u/292964?v=4",
+        "metadata_url": "https://api.github.com/repos/raimohanska/ourboard/readme",
+        "source_code_url": "https://github.com/raimohanska/ourboard",
+        "repository_urls": [
+          "https://github.com/raimohanska/ourboard"
+        ]
+      }
+    },
+    {
+      "candidate_id": "ef422d57-c5da-40b3-8122-994f16157d1a",
+      "name": "Weddingshare",
+      "source_url": "https://selfhostedworld.com/software/weddingshare",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/weddingshare?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "WeddingShare - Self-hosted software",
+        "description": "WeddingShare is a lightweight web application designed for couples to share wedding-related memories and photos with guests. It centers on galleries that c...",
+        "image_url": "https://avatars.githubusercontent.com/u/102923275?v=4",
+        "metadata_url": "https://api.github.com/repos/Cirx08/WeddingShare/readme",
+        "source_code_url": "https://github.com/Cirx08/WeddingShare",
+        "repository_urls": [
+          "https://github.com/Cirx08/WeddingShare"
+        ]
+      }
+    },
+    {
+      "candidate_id": "88de9430-8b72-4275-b6c0-d5968425c515",
+      "name": "Centaur",
+      "source_url": "https://selfhostedworld.com/software/centaur",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/centaur?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "centaur - Self-hosted software",
+        "description": "Centaur is a self-hosted agent platform aimed at teams that want to centralize AI-assisted work instead of running many separate local setups. It connects ...",
+        "image_url": "https://avatars.githubusercontent.com/u/97369466?v=4",
+        "metadata_url": "https://api.github.com/repos/paradigmxyz/centaur/readme",
+        "source_code_url": "https://github.com/paradigmxyz/centaur",
+        "repository_urls": [
+          "https://github.com/paradigmxyz/centaur"
+        ]
+      }
+    },
+    {
+      "candidate_id": "3cc6c212-e520-4b52-a690-8b0253c0b553",
+      "name": "Rahoot",
+      "source_url": "https://selfhostedworld.com/software/rahoot",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/rahoot?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Rahoot - Self-hosted software",
+        "description": "Rahoot is a self-hosted quiz platform aimed at smaller events where a host wants to run a game from their own server. The README presents it as open source...",
+        "image_url": "https://avatars.githubusercontent.com/u/95540504?v=4",
+        "metadata_url": "https://api.github.com/repos/Ralex91/Rahoot/readme",
+        "source_code_url": "https://github.com/Ralex91/Rahoot",
+        "repository_urls": [
+          "https://github.com/Ralex91/Rahoot"
+        ]
+      }
+    },
+    {
+      "candidate_id": "82e22791-f961-4a71-8690-fd999d3454b0",
+      "name": "Gomodel",
+      "source_url": "https://selfhostedworld.com/software/gomodel",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/gomodel?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "GoModel - Self-hosted software",
+        "description": "GoModel is an AI gateway built in Go for routing requests to a wide range of model providers through a unified API layer. It is aimed at developers and tea...",
+        "image_url": "https://avatars.githubusercontent.com/u/226084853?v=4",
+        "metadata_url": "https://api.github.com/repos/ENTERPILOT/GoModel/readme",
+        "source_code_url": "https://github.com/ENTERPILOT/GoModel",
+        "repository_urls": [
+          "https://github.com/ENTERPILOT/GoModel"
+        ]
+      }
+    },
+    {
+      "candidate_id": "dc949b78-e80e-42ca-ba04-86909e2edaf6",
+      "name": "Revert",
+      "source_url": "https://selfhostedworld.com/software/revert",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/revert?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Revert - Self-hosted software",
+        "description": "Revert is an open-source unified API platform aimed at developers building B2B products that need to connect to many third-party services. It focuses on re...",
+        "image_url": "https://avatars.githubusercontent.com/u/120085269?v=4",
+        "metadata_url": "https://api.github.com/repos/revertinc/revert/readme",
+        "source_code_url": "https://github.com/revertinc/revert",
+        "repository_urls": [
+          "https://github.com/revertinc/revert"
+        ]
+      }
+    },
+    {
+      "candidate_id": "3cdc6b86-a8f3-457b-9b2f-5503d5c914c9",
+      "name": "Traceway",
+      "source_url": "https://selfhostedworld.com/software/traceway",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/traceway?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Traceway - Self-hosted software",
+        "description": "Traceway is an OpenTelemetry-native observability platform designed for teams that want logs, traces, metrics, session replay, exceptions, and AI tracing i...",
+        "image_url": "https://avatars.githubusercontent.com/u/251088494?v=4",
+        "metadata_url": "https://api.github.com/repos/tracewayapp/traceway/readme",
+        "source_code_url": "https://github.com/tracewayapp/traceway",
+        "repository_urls": [
+          "https://github.com/tracewayapp/traceway"
+        ]
+      }
+    },
+    {
+      "candidate_id": "1e2cfb39-200c-454d-9808-4c28fbe706c5",
+      "name": "Codiff",
+      "source_url": "https://selfhostedworld.com/software/codiff",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/codiff?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "codiff - Self-hosted software",
+        "description": "Codiff is a minimal desktop diff viewer designed for reviewing Git changes before committing. It is aimed at developers who want a fast local way to inspec...",
+        "image_url": "https://avatars.githubusercontent.com/u/144984170?v=4",
+        "metadata_url": "https://api.github.com/repos/nkzw-tech/codiff/readme",
+        "source_code_url": "https://github.com/nkzw-tech/codiff",
+        "repository_urls": [
+          "https://github.com/user-attachments/assets",
+          "https://github.com/nkzw-tech/codiff"
+        ]
+      }
+    },
+    {
+      "candidate_id": "e013f3b1-b100-4957-a9d2-e2af2319423c",
+      "name": "Briefkasten",
+      "source_url": "https://selfhostedworld.com/software/briefkasten",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/briefkasten?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Briefkasten - Self-hosted software",
+        "description": "Briefkasten is a self-hostable web application built as a monorepo with a SvelteKit frontend and a Hono-based backend API. The README presents it as a comp...",
+        "image_url": "https://avatars.githubusercontent.com/u/7415984?v=4",
+        "metadata_url": "https://api.github.com/repos/ndom91/briefkasten/readme",
+        "source_code_url": "https://github.com/ndom91/briefkasten",
+        "repository_urls": [
+          "https://github.com/ndom91/briefkasten"
+        ]
+      }
+    },
+    {
+      "candidate_id": "a5c53627-51ea-4d9e-8066-e463fb8a97dd",
+      "name": "Drawpile",
+      "source_url": "https://selfhostedworld.com/software/drawpile",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/drawpile?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Drawpile - Self-hosted software",
+        "description": "Drawpile is a cross-platform drawing application built for real-time collaboration. It allows multiple people to draw, paint, and animate together on the s...",
+        "image_url": "https://avatars.githubusercontent.com/u/25749259?v=4",
+        "metadata_url": "https://api.github.com/repos/drawpile/Drawpile/readme",
+        "source_code_url": "https://github.com/drawpile/Drawpile",
+        "repository_urls": [
+          "https://github.com/drawpile/Drawpile"
+        ]
+      }
+    },
+    {
+      "candidate_id": "6b542472-1602-42a8-aaf3-fe66ee16cf1c",
+      "name": "Pico",
+      "source_url": "https://selfhostedworld.com/software/pico",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/pico?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "pico - Self-hosted software",
+        "description": "pico.sh is a collection of open source, managed web services built around SSH. It is aimed at developers who want to publish content or expose local servic...",
+        "image_url": "https://avatars.githubusercontent.com/u/108233120?v=4",
+        "metadata_url": "https://api.github.com/repos/picosh/pico/readme",
+        "source_code_url": "https://github.com/picosh/pico",
+        "repository_urls": [
+          "https://github.com/picosh/pico"
+        ]
+      }
+    },
+    {
+      "candidate_id": "a142396a-9f87-465d-9733-5452b9373fad",
+      "name": "Split Pro",
+      "source_url": "https://selfhostedworld.com/software/split-pro",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/split-pro?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Split Pro - Self-hosted software",
+        "description": "SplitPro is a self-hosted, open source expense-sharing application aimed at people who want a Splitwise-like experience without relying on a proprietary se...",
+        "image_url": "https://avatars.githubusercontent.com/u/159737204?v=4",
+        "metadata_url": "https://api.github.com/repos/oss-apps/split-pro/readme",
+        "source_code_url": "https://github.com/oss-apps/split-pro",
+        "repository_urls": [
+          "https://github.com/oss-apps/splitpro",
+          "https://github.com/oss-apps/split-pro"
+        ]
+      }
+    },
+    {
+      "candidate_id": "9c071634-f613-400d-9482-2f2558f2057c",
+      "name": "Gal Ne",
+      "source_url": "https://selfhostedworld.com/software/gal-ne",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/gal-ne?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Galène - Self-hosted software",
+        "description": "Galene is a videoconferencing system intended for self-hosted deployment. The README emphasizes that it is easy to set up and uses very modest server resou...",
+        "image_url": "https://avatars.githubusercontent.com/u/290341?v=4",
+        "metadata_url": "https://api.github.com/repos/jech/galene/readme",
+        "source_code_url": "https://github.com/jech/galene",
+        "repository_urls": [
+          "https://github.com/jech/galene"
+        ]
+      }
+    },
+    {
+      "candidate_id": "4e49490a-fff0-4209-be94-847a09be5e7a",
+      "name": "Openship",
+      "source_url": "https://selfhostedworld.com/software/openship",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/openship?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "openship - Self-hosted software",
+        "description": "Openship is an open-source deployment platform designed for developers who want to ship applications without managing traditional CI/CD pipelines and confi...",
+        "image_url": "https://avatars.githubusercontent.com/u/195301136?v=4",
+        "metadata_url": "https://api.github.com/repos/oblien/openship/readme",
+        "source_code_url": "https://github.com/oblien/openship",
+        "repository_urls": [
+          "https://github.com/oblien/openship"
+        ]
+      }
+    },
+    {
+      "candidate_id": "ff89cbd5-934d-4c55-a6c4-a02735d1374c",
+      "name": "Dirac",
+      "source_url": "https://selfhostedworld.com/software/dirac",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/dirac?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "dirac - Self-hosted software",
+        "description": "Dirac is an open-source AI coding agent designed for precision refactoring and code modification with a strong emphasis on token efficiency. It is intended...",
+        "image_url": "https://avatars.githubusercontent.com/u/273849349?v=4",
+        "metadata_url": "https://api.github.com/repos/dirac-run/dirac/readme",
+        "source_code_url": "https://github.com/dirac-run/dirac",
+        "repository_urls": [
+          "https://github.com/dirac-run/dirac"
+        ]
+      }
+    },
+    {
+      "candidate_id": "9f5b7b6c-99c7-42db-8b89-18361b67d1fe",
+      "name": "Omniclip",
+      "source_url": "https://selfhostedworld.com/software/omniclip",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/omniclip?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Omniclip - Self-hosted software",
+        "description": "Omniclip is a browser-based video editing application aimed at users who want a privacy-focused editing workflow without depending on hosted services. It r...",
+        "image_url": "https://avatars.githubusercontent.com/u/147771632?v=4",
+        "metadata_url": "https://api.github.com/repos/omni-media/omniclip/readme",
+        "source_code_url": "https://github.com/omni-media/omniclip",
+        "repository_urls": [
+          "https://github.com/omni-media/omniclip"
+        ]
+      }
+    },
+    {
+      "candidate_id": "a1562c0c-5ce3-42ba-abdf-4ed400fce4dd",
+      "name": "Zerostack",
+      "source_url": "https://selfhostedworld.com/software/zerostack",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/zerostack?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "zerostack - Self-hosted software",
+        "description": "zerostack is a lightweight coding agent written in Rust for terminal-based development workflows. It is aimed at developers who want an interactive agent t...",
+        "image_url": "https://avatars.githubusercontent.com/u/61155988?v=4",
+        "metadata_url": "https://api.github.com/repos/gi-dellav/zerostack/readme",
+        "source_code_url": "https://github.com/gi-dellav/zerostack",
+        "repository_urls": [
+          "https://github.com/gi-dellav/zerostack"
+        ]
+      }
+    },
+    {
+      "candidate_id": "d0c9d01b-c8b0-4f69-94a0-7fdd08c759eb",
+      "name": "Kirby",
+      "source_url": "https://selfhostedworld.com/software/kirby",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/kirby?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Kirby - Self-hosted software",
+        "description": "Kirby is a content management system aimed at developers and editors who want a flexible, custom-built editing experience. The README emphasizes that users...",
+        "image_url": "https://avatars.githubusercontent.com/u/28547180?v=4",
+        "metadata_url": "https://api.github.com/repos/getkirby/kirby/readme",
+        "source_code_url": "https://github.com/getkirby/kirby",
+        "repository_urls": [
+          "https://github.com/getkirby/kirby"
+        ]
+      }
+    },
+    {
+      "candidate_id": "50bf828b-2919-45f0-b11d-f65bfd3e5596",
+      "name": "Keygen",
+      "source_url": "https://selfhostedworld.com/software/keygen",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/keygen?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Keygen - Self-hosted software",
+        "description": "Keygen is a software licensing and distribution platform aimed at developers who need to validate licenses, manage entitlements, and activate devices for d...",
+        "image_url": "https://avatars.githubusercontent.com/u/19381966?v=4",
+        "metadata_url": "https://api.github.com/repos/keygen-sh/keygen-api/readme",
+        "source_code_url": "https://github.com/keygen-sh/keygen-api",
+        "repository_urls": [
+          "https://github.com/keygen-sh/keygen-api"
+        ]
+      }
+    },
+    {
+      "candidate_id": "6e59ac49-9465-4e10-a0bf-16bae62f006a",
+      "name": "Classroomio",
+      "source_url": "https://selfhostedworld.com/software/classroomio",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/classroomio?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "ClassroomIO - Self-hosted software",
+        "description": "ClassroomIO.com is an open source learning management system aimed at organizations that run training programs, such as companies, bootcamps, educators, an...",
+        "image_url": "https://avatars.githubusercontent.com/u/144587027?v=4",
+        "metadata_url": "https://api.github.com/repos/rotimi-best/classroomio/readme",
+        "source_code_url": "https://github.com/rotimi-best/classroomio",
+        "repository_urls": [
+          "https://github.com/rotimi-best/classroomio"
+        ]
+      }
+    },
+    {
+      "candidate_id": "27706e40-f2a5-40a4-a8dd-c6e74d43f704",
+      "name": "Forward Email",
+      "source_url": "https://selfhostedworld.com/software/forward-email",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/forward-email?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Forward Email - Self-hosted software",
+        "description": "Forward Email is an open-source email service project centered on a privacy-focused hosted platform and the software used to run it. The README is aimed bo...",
+        "image_url": "https://avatars.githubusercontent.com/u/32481436?v=4",
+        "metadata_url": "https://api.github.com/repos/forwardemail/forwardemail.net/readme",
+        "source_code_url": "https://github.com/forwardemail/forwardemail.net",
+        "repository_urls": [
+          "https://github.com/forwardemail/forwardemail.net"
+        ]
+      }
+    },
+    {
+      "candidate_id": "aa848eeb-7d61-4b87-b6ee-be3f54e68f87",
+      "name": "Deltachat Android",
+      "source_url": "https://selfhostedworld.com/software/deltachat-android",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/deltachat-android?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "deltachat-android - Self-hosted software",
+        "description": "This project is the Android client for Delta Chat, a messaging application. It is intended for users who want to use Delta Chat on Android devices, with di...",
+        "image_url": "https://avatars.githubusercontent.com/u/29453316?v=4",
+        "metadata_url": "https://api.github.com/repos/deltachat/deltachat-android/readme",
+        "source_code_url": "https://github.com/deltachat/deltachat-android",
+        "repository_urls": [
+          "https://github.com/deltachat/deltachat-android"
+        ]
+      }
+    },
+    {
+      "candidate_id": "6a337424-7486-449d-9cd7-a6fdc4f61967",
+      "name": "Monosketch",
+      "source_url": "https://selfhostedworld.com/software/monosketch",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/monosketch?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "MonoSketch - Self-hosted software",
+        "description": "MonoSketch is a browser-based ASCII diagram editor aimed at people who create technical diagrams, flowcharts, circuit sketches, or other text-art visualiza...",
+        "image_url": "https://avatars.githubusercontent.com/u/955306?v=4",
+        "metadata_url": "https://api.github.com/repos/tuanchauict/MonoSketch/readme",
+        "source_code_url": "https://github.com/tuanchauict/MonoSketch",
+        "repository_urls": [
+          "https://github.com/tuanchauict/MonoSketch"
+        ]
+      }
+    },
+    {
+      "candidate_id": "10ee8a1c-a943-4b3c-b6fc-77f83315be9d",
+      "name": "Once",
+      "source_url": "https://selfhostedworld.com/software/once",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/once?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "once - Self-hosted software",
+        "description": "ONCE is a self-hosting platform aimed at making Docker-based web application deployment and day-to-day management simpler. It is designed for people who wa...",
+        "image_url": "https://avatars.githubusercontent.com/u/13131?v=4",
+        "metadata_url": "https://api.github.com/repos/basecamp/once/readme",
+        "source_code_url": "https://github.com/basecamp/once",
+        "repository_urls": [
+          "https://github.com/basecamp/once"
+        ]
+      }
+    },
+    {
+      "candidate_id": "926c9b47-369c-4f28-aac5-b82d4d3c795b",
+      "name": "Agent Vault",
+      "source_url": "https://selfhostedworld.com/software/agent-vault",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/agent-vault?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "agent-vault - Self-hosted software",
+        "description": "Agent Vault is an open-source credential broker and vault designed for AI agents that need access to external APIs without being given direct access to sec...",
+        "image_url": "https://avatars.githubusercontent.com/u/107880645?v=4",
+        "metadata_url": "https://api.github.com/repos/Infisical/agent-vault/readme",
+        "source_code_url": "https://github.com/Infisical/agent-vault",
+        "repository_urls": [
+          "https://github.com/Infisical/agent-vault"
+        ]
+      }
+    },
+    {
+      "candidate_id": "901331b7-a584-4ff3-be3b-06bc60f5bd42",
+      "name": "Yaade",
+      "source_url": "https://selfhostedworld.com/software/yaade",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/yaade?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Yaade - Self-hosted software",
+        "description": "Yaade is an open-source API development environment designed for teams that want a self-hosted alternative to tools like Postman. It emphasizes keeping sen...",
+        "image_url": "https://avatars.githubusercontent.com/u/76174142?v=4",
+        "metadata_url": "https://api.github.com/repos/EsperoTech/yaade/readme",
+        "source_code_url": "https://github.com/EsperoTech/yaade",
+        "repository_urls": [
+          "https://github.com/EsperoTech/yaade"
+        ]
+      }
+    },
+    {
+      "candidate_id": "17f7eb05-80b9-4a09-b927-02ee98588537",
+      "name": "Chatto",
+      "source_url": "https://selfhostedworld.com/software/chatto",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/chatto?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "chatto - Self-hosted software",
+        "description": "Chatto is a chat application designed for teams and communities. The README presents it as a self-hostable product that is also planning cloud hosting, pos...",
+        "image_url": "https://avatars.githubusercontent.com/u/261891647?v=4",
+        "metadata_url": "https://api.github.com/repos/chattocorp/chatto/readme",
+        "source_code_url": "https://github.com/chattocorp/chatto",
+        "repository_urls": [
+          "https://github.com/chattocorp/chatto"
+        ]
+      }
+    },
+    {
+      "candidate_id": "a3efa3cf-50e0-4948-b4fa-a1076d7fccbc",
+      "name": "Emailwiz",
+      "source_url": "https://selfhostedworld.com/software/emailwiz",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/emailwiz?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "emailwiz - Self-hosted software",
+        "description": "This project is a shell script that automates the setup of a self-hosted email server. It is aimed at administrators who want to run mail on their own doma...",
+        "image_url": "https://avatars.githubusercontent.com/u/29150857?v=4",
+        "metadata_url": "https://api.github.com/repos/LukeSmithxyz/emailwiz/readme",
+        "source_code_url": "https://github.com/LukeSmithxyz/emailwiz",
+        "repository_urls": [
+          "https://github.com/LukeSmithxyz/emailwiz"
+        ]
+      }
+    },
+    {
+      "candidate_id": "da4240ef-f2ae-4f3a-bed0-20e0bbbd9421",
+      "name": "Netwatch",
+      "source_url": "https://selfhostedworld.com/software/netwatch",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/netwatch?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "netwatch - Self-hosted software",
+        "description": "NetWatch is a terminal-based network diagnostics tool for macOS and Linux. It is aimed at operators, developers, and responders who want immediate visibili...",
+        "image_url": "https://avatars.githubusercontent.com/u/13101478?v=4",
+        "metadata_url": "https://api.github.com/repos/matthart1983/netwatch/readme",
+        "source_code_url": "https://github.com/matthart1983/netwatch",
+        "repository_urls": [
+          "https://github.com/matthart1983/netwatch"
+        ]
+      }
+    },
+    {
+      "candidate_id": "0e0e9862-8fba-4de4-8a78-2e01266c835a",
+      "name": "Bionicgpt",
+      "source_url": "https://selfhostedworld.com/software/bionicgpt",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/bionicgpt?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "BionicGPT - Self-hosted software",
+        "description": "Bionic is an on-premise generative AI platform positioned as a replacement for ChatGPT in environments that need stronger data confidentiality. It is desig...",
+        "image_url": "https://avatars.githubusercontent.com/u/149044169?v=4",
+        "metadata_url": "https://api.github.com/repos/bionic-gpt/bionic-gpt/readme",
+        "source_code_url": "https://github.com/bionic-gpt/bionic-gpt",
+        "repository_urls": [
+          "https://github.com/bionic-gpt/bionic-gpt"
+        ]
+      }
+    },
+    {
+      "candidate_id": "b4428e0b-bf9c-445a-a388-2e2832d337de",
+      "name": "Spooty",
+      "source_url": "https://selfhostedworld.com/software/spooty",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/spooty?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Spooty - Self-hosted software",
+        "description": "Spooty is a self-hosted music downloading application for users who want to retrieve Spotify-linked content on their own infrastructure. It is designed aro...",
+        "image_url": "https://avatars.githubusercontent.com/u/4148631?v=4",
+        "metadata_url": "https://api.github.com/repos/Raiper34/spooty/readme",
+        "source_code_url": "https://github.com/Raiper34/spooty",
+        "repository_urls": [
+          "https://github.com/Raiper34/spooty"
+        ]
+      }
+    },
+    {
+      "candidate_id": "b46eed6f-6529-4d89-8ff8-4331d5340b10",
+      "name": "Linuxcnc",
+      "source_url": "https://selfhostedworld.com/software/linuxcnc",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/linuxcnc?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "LinuxCNC - Self-hosted software",
+        "description": "LinuxCNC is an open-source control system for automated machinery, focused on CNC use cases. It is intended for people building or operating machine tools ...",
+        "image_url": "https://avatars.githubusercontent.com/u/5650508?v=4",
+        "metadata_url": "https://api.github.com/repos/LinuxCNC/linuxcnc/readme",
+        "source_code_url": "https://github.com/LinuxCNC/linuxcnc",
+        "repository_urls": [
+          "https://github.com/LinuxCNC/linuxcnc"
+        ]
+      }
+    },
+    {
+      "candidate_id": "9b38e505-9083-45e6-b142-d9998318580e",
+      "name": "Rmux",
+      "source_url": "https://selfhostedworld.com/software/rmux",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/rmux?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "rmux - Self-hosted software",
+        "description": "RMUX is a terminal multiplexer project built in Rust for users who want tmux-like workflows with stronger programmatic control. It is designed for agents, ...",
+        "image_url": "https://avatars.githubusercontent.com/u/284985229?v=4",
+        "metadata_url": "https://api.github.com/repos/Helvesec/rmux/readme",
+        "source_code_url": "https://github.com/Helvesec/rmux",
+        "repository_urls": [
+          "https://github.com/Helvesec/rmux"
+        ]
+      }
+    },
+    {
+      "candidate_id": "996e1292-47c2-401b-bfdc-5a4a34045c65",
+      "name": "Sharetribe",
+      "source_url": "https://selfhostedworld.com/software/sharetribe",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/sharetribe?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Sharetribe - Self-hosted software",
+        "description": "Sharetribe Go is a marketplace platform intended for building and launching online marketplaces without writing code, while still allowing extensive custom...",
+        "image_url": "https://avatars.githubusercontent.com/u/1733898?v=4",
+        "metadata_url": "https://api.github.com/repos/sharetribe/sharetribe/readme",
+        "source_code_url": "https://github.com/sharetribe/sharetribe",
+        "repository_urls": [
+          "https://github.com/sharetribe/sharetribe"
+        ]
+      }
+    },
+    {
+      "candidate_id": "c02fd65c-13e8-4de8-b12d-18b2769c060f",
+      "name": "Homelable",
+      "source_url": "https://selfhostedworld.com/software/homelable",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/homelable?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "homelable - Self-hosted software",
+        "description": "Homelable is a self-hosted tool for mapping and visualizing homelab or local infrastructure. It is aimed at users who want a graphical canvas for machines ...",
+        "image_url": "https://avatars.githubusercontent.com/u/961315?v=4",
+        "metadata_url": "https://api.github.com/repos/Pouzor/homelable/readme",
+        "source_code_url": "https://github.com/Pouzor/homelable",
+        "repository_urls": [
+          "https://github.com/Pouzor/homelable"
+        ]
+      }
+    },
+    {
+      "candidate_id": "ad2193de-d1d6-47d2-bd0d-1120898bc929",
+      "name": "Firecamp",
+      "source_url": "https://selfhostedworld.com/software/firecamp",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/firecamp?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Firecamp - Self-hosted software",
+        "description": "Firecamp is an API development platform aimed at developers who need a single place to design, test, document, and collaborate on APIs. The README position...",
+        "image_url": "https://avatars.githubusercontent.com/u/133877176?v=4",
+        "metadata_url": "https://api.github.com/repos/firecamp-dev/firecamp/readme",
+        "source_code_url": "https://github.com/firecamp-dev/firecamp",
+        "repository_urls": [
+          "https://github.com/firecamp-dev/firecamp"
+        ]
+      }
+    },
+    {
+      "candidate_id": "4c30f4a7-1493-4323-8108-4d356916c27d",
+      "name": "Audiomass",
+      "source_url": "https://selfhostedworld.com/software/audiomass",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/audiomass?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "AudioMass - Self-hosted software",
+        "description": "AudioMass is a browser-based audio editing application aimed at users who want a free, self-hosted way to work with audio and waveforms. The README present...",
+        "image_url": "https://avatars.githubusercontent.com/u/1465079?v=4",
+        "metadata_url": "https://api.github.com/repos/pkalogiros/AudioMass/readme",
+        "source_code_url": "https://github.com/pkalogiros/AudioMass",
+        "repository_urls": [
+          "https://github.com/pkalogiros/AudioMass"
+        ]
+      }
+    },
+    {
+      "candidate_id": "b8b64570-67d9-4961-a191-d35bc2518aca",
+      "name": "Open Terminal",
+      "source_url": "https://selfhostedworld.com/software/open-terminal",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/open-terminal?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "open-terminal - Self-hosted software",
+        "description": "Open Terminal is a self-hosted terminal environment designed for AI agents and automation tools that need a place to run commands, manipulate files, and ex...",
+        "image_url": "https://avatars.githubusercontent.com/u/158137808?v=4",
+        "metadata_url": "https://api.github.com/repos/open-webui/open-terminal/readme",
+        "source_code_url": "https://github.com/open-webui/open-terminal",
+        "repository_urls": [
+          "https://github.com/open-webui/open-terminal"
+        ]
+      }
+    },
+    {
+      "candidate_id": "75a43958-fd04-45cc-ac87-5fea23b2b6b5",
+      "name": "Cstate",
+      "source_url": "https://selfhostedworld.com/software/cstate",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/cstate?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "cState - Self-hosted software",
+        "description": "cState is a static status page project built on Hugo for teams that want a lightweight way to publish service incidents and uptime information. It is prese...",
+        "image_url": "https://avatars.githubusercontent.com/u/41615339?v=4",
+        "metadata_url": "https://api.github.com/repos/cstate/cstate/readme",
+        "source_code_url": "https://github.com/cstate/cstate",
+        "repository_urls": [
+          "https://github.com/cstate/html-embed",
+          "https://github.com/cstate/cstate"
+        ]
+      }
+    },
+    {
+      "candidate_id": "48576c10-d0c7-42ce-a01f-52c4d1a24152",
+      "name": "Baikal",
+      "source_url": "https://selfhostedworld.com/software/baikal",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/baikal?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Baïkal - Self-hosted software",
+        "description": "Baïkal is a lightweight server project for running CalDAV and CardDAV services. It is intended for people who want to host their own calendar and contact s...",
+        "image_url": "https://avatars.githubusercontent.com/u/28524376?v=4",
+        "metadata_url": "https://api.github.com/repos/sabre-io/Baikal/readme",
+        "source_code_url": "https://github.com/sabre-io/Baikal",
+        "repository_urls": [
+          "https://github.com/sabre-io/Baikal"
+        ]
+      }
+    }
+  ]
+}

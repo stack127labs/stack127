@@ -5,7 +5,7 @@ description: Produce approved marker art figures for version127 pages, end to en
 
 # Marker Art Draw
 
-Use this skill in `/Users/ravitejaknts/projects/HomeLabHQ` to turn approved marker art proposals into live figures. The pipeline is spec first: you author data and layout in a spec file, the generator draws it, and nothing is ever hand tuned inside a generated SVG.
+Use this skill in `/Users/ravitejaknts/projects/Version127` to turn approved marker art proposals into live figures. The pipeline is spec first: you author data and layout in a spec file, the generator draws it, and nothing is ever hand tuned inside a generated SVG.
 
 ## First Checks
 

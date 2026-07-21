@@ -1,0 +1,65 @@
+{
+  "reviewed_at": "2026-07-19T09:50:01.338Z",
+  "records": [
+    {
+      "candidate_id": "6680c5b3-9773-40b1-816b-bd81f080c152",
+      "decision": "reject",
+      "reason": "YetiShare is a commercially licensed PHP product; no public project source is available."
+    },
+    {
+      "candidate_id": "7a01963d-0345-4b0f-88f6-1e1794e4306b",
+      "decision": "reject",
+      "reason": "Buddy Enterprise is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "c43a7c78-a374-4c07-b92f-c5cc0b76210e",
+      "decision": "reject",
+      "reason": "Ekso distributes licensed binaries and container images, but no public application source was verified."
+    },
+    {
+      "candidate_id": "bb736ff0-2ea9-4137-b773-3177b2defcb7",
+      "decision": "needs_review",
+      "reason": "Public project source identified; requires full repository enrichment."
+    },
+    {
+      "candidate_id": "f121241b-45c1-4aae-af2a-068b2d4d57a5",
+      "decision": "needs_review",
+      "reason": "Official GPL-3.0 Mercurial repository identified; requires non-GitHub enrichment."
+    },
+    {
+      "candidate_id": "88915092-962c-4f09-8645-0facdf87f2e4",
+      "decision": "needs_review",
+      "reason": "The imported name is too ambiguous to identify the intended project safely."
+    },
+    {
+      "candidate_id": "7e0146f6-2793-4f7f-b768-b4106e7ee26d",
+      "decision": "needs_review",
+      "reason": "Public Elastic-2.0 project source identified; eligible as source available after full enrichment."
+    },
+    {
+      "candidate_id": "55fd907c-b56f-4dd1-9fba-1f2a670a3296",
+      "decision": "needs_review",
+      "reason": "Public source identified under a restrictive redistribution license; eligible as source available after full enrichment."
+    },
+    {
+      "candidate_id": "3886c523-1f16-4972-83fd-5d49c8fbcebb",
+      "decision": "needs_review",
+      "reason": "Project is now Libervia and uses a non-GitHub source forge; requires identity merge review."
+    },
+    {
+      "candidate_id": "4b554fdb-9c36-4c6c-a122-eb3d021f6557",
+      "decision": "needs_review",
+      "reason": "Public source is distributed under a restrictive EULA; eligible as source available after full enrichment."
+    },
+    {
+      "candidate_id": "8aa549da-f943-4c52-bb2c-d0ef549ee9d8",
+      "decision": "needs_review",
+      "reason": "Public server source exists under non-OSI terms; requires source-available license review."
+    },
+    {
+      "candidate_id": "df8847c2-067e-4eeb-9e3e-caf196d9a07c",
+      "decision": "needs_review",
+      "reason": "MIT repository identified; requires full repository enrichment."
+    }
+  ]
+}

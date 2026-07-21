@@ -1,0 +1,34 @@
+name: Refresh GitLab and Codeberg facts
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "36 5 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: self-host-apps-refresh-source-hosts
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL }}
+      GITLAB_TOKEN: ${{ secrets.VERSION127_GITLAB_TOKEN }}
+      CODEBERG_TOKEN: ${{ secrets.VERSION127_CODEBERG_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Refresh GitLab facts
+        run: npm run self-host-apps:refresh-gitlab -- --published-only --limit 500 --max-age-hours 24
+      - name: Refresh Codeberg facts
+        run: npm run self-host-apps:refresh-codeberg -- --published-only --limit 500 --max-age-hours 24

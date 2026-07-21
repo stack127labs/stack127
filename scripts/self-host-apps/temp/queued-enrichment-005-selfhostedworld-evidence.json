@@ -1,0 +1,206 @@
+{
+  "collected_at": "2026-07-19T11:57:28.840Z",
+  "records": [
+    {
+      "candidate_id": "b3ca9d8f-2faa-4090-b884-4702ee474eb8",
+      "name": "Lobe Chat",
+      "source_url": "https://selfhostedworld.com/software/lobe-chat",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/lobe-chat?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Lobe Chat - Self-hosted software",
+        "description": "LobeHub is an AI agent platform designed to help users organize, build, and collaborate with agent teammates. It presents agents as the basic unit of work ...",
+        "image_url": "https://avatars.githubusercontent.com/u/131470832?v=4",
+        "metadata_url": "https://api.github.com/repos/lobehub/lobe-chat/readme",
+        "source_code_url": "https://github.com/lobehub/lobe-chat",
+        "repository_urls": [
+          "https://github.com/user-attachments/assets",
+          "https://github.com/lobehub/lobe-chat"
+        ]
+      }
+    },
+    {
+      "candidate_id": "1ffe3668-4dc2-4083-bada-7effe199a3d2",
+      "name": "Lobehub",
+      "source_url": "https://selfhostedworld.com/software/lobehub",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/lobehub?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "LobeHub - Self-hosted software",
+        "description": "LobeHub is a platform for organizing AI agents into a coordinated, always-on team. The README positions it as a workspace where users can create agents, as...",
+        "image_url": "https://avatars.githubusercontent.com/u/131470832?v=4",
+        "metadata_url": "https://api.github.com/repos/lobehub/lobehub/readme",
+        "source_code_url": "https://github.com/lobehub/lobehub",
+        "repository_urls": [
+          "https://github.com/user-attachments/assets",
+          "https://github.com/lobehub/lobehub"
+        ]
+      }
+    },
+    {
+      "candidate_id": "495a1ac6-ef7a-48af-ad6f-4197c321bf26",
+      "name": "Odysseus",
+      "source_url": "https://selfhostedworld.com/software/odysseus",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/odysseus?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "odysseus - Self-hosted software",
+        "description": "Odysseus is a self-hosted AI workspace designed to bring several productivity and model-interaction tools into one web application. It is aimed at users wh...",
+        "image_url": "https://avatars.githubusercontent.com/u/305418735?v=4",
+        "metadata_url": "https://api.github.com/repos/pewdiepie-archdaemon/odysseus/readme",
+        "source_code_url": "https://github.com/pewdiepie-archdaemon/odysseus",
+        "repository_urls": [
+          "https://github.com/pewdiepie-archdaemon/odysseus"
+        ]
+      }
+    },
+    {
+      "candidate_id": "fcca31aa-05b3-4e5f-b460-2732d6ca2c62",
+      "name": "Zed",
+      "source_url": "https://selfhostedworld.com/software/zed",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/zed?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Zed - Self-hosted software",
+        "description": "Zed is a high-performance code editor aimed at developers who want a fast, collaborative editing experience. It comes from the creators of Atom and Tree-si...",
+        "image_url": "https://avatars.githubusercontent.com/u/79345384?v=4",
+        "metadata_url": "https://api.github.com/repos/zed-industries/zed/readme",
+        "source_code_url": "https://github.com/zed-industries/zed",
+        "repository_urls": [
+          "https://github.com/zed-industries/zed"
+        ]
+      }
+    },
+    {
+      "candidate_id": "591b52d2-8d55-403e-8ab6-d95332b7a2af",
+      "name": "Nextchat",
+      "source_url": "https://selfhostedworld.com/software/nextchat",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/nextchat?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "NextChatAI - Self-hosted software",
+        "description": "NextChat is an AI assistant application that provides a lightweight chat interface for working with models such as Claude, DeepSeek, GPT-4, and Gemini Pro....",
+        "image_url": "https://avatars.githubusercontent.com/u/153288546?v=4",
+        "metadata_url": "https://api.github.com/repos/ChatGPTNextWeb/NextChat/readme",
+        "source_code_url": "https://github.com/ChatGPTNextWeb/NextChat",
+        "repository_urls": [
+          "https://github.com/ChatGPTNextWeb/NextChat"
+        ]
+      }
+    },
+    {
+      "candidate_id": "ecd70cee-412f-4a1d-96cb-f29dba01bc92",
+      "name": "Codex",
+      "source_url": "https://selfhostedworld.com/software/codex",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/codex?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Codex - Self-hosted software",
+        "description": "Codex CLI is a locally running coding agent from OpenAI designed to assist with software development tasks on a user's computer. The README positions it as...",
+        "image_url": "https://avatars.githubusercontent.com/u/14957082?v=4",
+        "metadata_url": "https://api.github.com/repos/openai/codex/readme",
+        "source_code_url": "https://github.com/openai/codex",
+        "repository_urls": [
+          "https://github.com/openai/codex"
+        ]
+      }
+    },
+    {
+      "candidate_id": "21c23850-7051-4387-8146-7db543d845a1",
+      "name": "Comfyui",
+      "source_url": "https://selfhostedworld.com/software/comfyui",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/comfyui?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "ComfyUI - Self-hosted software",
+        "description": "ComfyUI is a modular AI creation engine aimed at visual professionals and power users who want precise control over generative workflows. It uses a node-ba...",
+        "image_url": "https://avatars.githubusercontent.com/u/166579949?v=4",
+        "metadata_url": "https://api.github.com/repos/comfyanonymous/ComfyUI/readme",
+        "source_code_url": "https://github.com/comfyanonymous/ComfyUI",
+        "repository_urls": [
+          "https://github.com/user-attachments/assets",
+          "https://github.com/comfyanonymous/ComfyUI"
+        ]
+      }
+    },
+    {
+      "candidate_id": "77be67bf-c386-4325-ac84-cfb0873115a0",
+      "name": "Claude Code",
+      "source_url": "https://selfhostedworld.com/software/claude-code",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/claude-code?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Claude Code - Self-hosted software",
+        "description": "Claude Code is an agentic coding assistant designed for developers who want help directly in their terminal and related workflows. It is positioned as a to...",
+        "image_url": "https://avatars.githubusercontent.com/u/76263028?v=4",
+        "metadata_url": "https://api.github.com/repos/anthropics/claude-code/readme",
+        "source_code_url": "https://github.com/anthropics/claude-code",
+        "repository_urls": [
+          "https://github.com/anthropics/claude-code"
+        ]
+      }
+    },
+    {
+      "candidate_id": "2f04bba5-47a2-4d8c-9772-1c84f15e86fa",
+      "name": "Dify Ai",
+      "source_url": "https://selfhostedworld.com/software/dify-ai",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/dify-ai?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "Dify.ai - Self-hosted software",
+        "description": "Dify is an open-source platform for developing LLM applications, aimed at teams that want to move from prototypes to production with less infrastructure wo...",
+        "image_url": "https://avatars.githubusercontent.com/u/127165244?v=4",
+        "metadata_url": "https://api.github.com/repos/langgenius/dify/readme",
+        "source_code_url": "https://github.com/langgenius/dify",
+        "repository_urls": [
+          "https://github.com/langgenius/dify"
+        ]
+      }
+    },
+    {
+      "candidate_id": "f4a77718-59c7-4ff1-a56d-4b5e2e5f7bda",
+      "name": "Autogpt",
+      "source_url": "https://selfhostedworld.com/software/autogpt",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/autogpt?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "AutoGPT - Self-hosted software",
+        "description": "AutoGPT is a platform for building and operating AI agents that can run continuously and automate multi-step workflows. The README positions it as a tool f...",
+        "image_url": "https://avatars.githubusercontent.com/u/130738209?v=4",
+        "metadata_url": "https://api.github.com/repos/Significant-Gravitas/AutoGPT/readme",
+        "source_code_url": "https://github.com/Significant-Gravitas/AutoGPT",
+        "repository_urls": [
+          "https://github.com/Significant-Gravitas/AutoGPT"
+        ]
+      }
+    },
+    {
+      "candidate_id": "361c5af1-cb4f-4669-9d27-3ff8166353d4",
+      "name": "Opencode",
+      "source_url": "https://selfhostedworld.com/software/opencode",
+      "relay_url": "https://selfhostedworld-com.translate.goog/software/opencode?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+      "ok": true,
+      "status": 200,
+      "evidence": {
+        "title": "opencode - Self-hosted software",
+        "description": "OpenCode is an open source AI coding agent aimed at developers who want AI assistance for code-related work. It provides an interactive agent experience an...",
+        "image_url": "https://avatars.githubusercontent.com/u/66570915?v=4",
+        "metadata_url": "https://api.github.com/repos/sst/opencode/readme",
+        "source_code_url": "https://github.com/sst/opencode",
+        "repository_urls": [
+          "https://github.com/sst/opencode"
+        ]
+      }
+    }
+  ]
+}

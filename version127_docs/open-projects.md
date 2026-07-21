@@ -1,6 +1,6 @@
 # Open projects data model
 
-`public.open_projects` is the shared source of truth for open-source projects across Version127. A project can appear on several future pages without being copied into page-specific tables.
+`public.open_projects` is the shared source of truth for open-source and source-available projects across Version127. A project can appear on several future pages without being copied into page-specific tables.
 
 ## Core tables
 
@@ -41,11 +41,25 @@ There is no generic tag system. Add a real column when a fact has stable meaning
 
 ## Licenses
 
+`source_model` keeps the legal distinction explicit:
+
+- `open_source`: the reviewed project license meets the open-source definition.
+- `source_available`: source can be read and used under a license with restrictions that prevent it from being open source.
+- `unknown`: the license has not been verified well enough to classify.
+
+Visible source code is not enough by itself. A repository without a license remains `unknown` and cannot be published through the candidate workflow.
+
 - `license`: readable license label.
 - `license_spdx_id`: normalized SPDX identifier when verified.
 - `license_type`: `permissive`, `copyleft`, `public_domain`, `mixed`, `custom`, or `unknown`.
 
 An unknown license stays unknown. It must not be presented as proof that a project is open source.
+
+## Source-host metadata
+
+Provider-neutral `source_*` columns store repository identity, stars, forks, watchers, issues, languages, topics, dates, branch, size, state, release, commit, and verification time. GitHub, GitLab, and Codeberg refreshers write these columns and preserve their raw API payloads.
+
+The older `github_*` columns remain for compatibility and GitHub-specific identity. New page queries prefer provider-neutral values.
 
 ## GitHub metadata
 
@@ -66,8 +80,8 @@ Project age is derived from `github_created_at`; do not store a changing age num
 
 The shared project row currently also stores the facts needed by `/self-host-apps`: Docker and Compose support, database requirement and engines, RAM estimate, storage profile, maintenance status, install docs, and summary provenance.
 
-Keep uncertain values `null` or `unknown`. Do not convert weak README keyword matches into confident infrastructure facts.
+Keep uncertain values `null` or `unknown`. Do not convert README keyword matches, category names, repository file names, or generic defaults into confident infrastructure facts.
 
 ## Migration
 
-`supabase/migrations/20260710111454_migrate_to_open_projects.sql` renames the original self-host tables in place, preserves UUIDs and relationships, adds the shared fields, creates candidate staging, enables RLS, and converts current directory rows to `self_hostable`.
+`supabase/migrations/20260710111454_migrate_to_open_projects.sql` creates the shared model and candidate staging. `supabase/migrations/20260719030448_add_provider_neutral_source_facts.sql` adds provider-neutral mutable repository facts.

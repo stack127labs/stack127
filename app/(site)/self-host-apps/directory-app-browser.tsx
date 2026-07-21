@@ -110,6 +110,7 @@ function AppDetailsOverlay({
     ["latest release", formatLatestRelease(app), Rocket],
     ["stars", formatStars(app.github_stars), Star],
     ["license", app.license ?? "unknown", Scale],
+    ["source model", app.source_model.replaceAll("_", " "), Code2],
     ["docker", app.docker_support, Box],
     ["compose", app.compose_support ? "yes" : "unknown", Layers],
     ["database", formatDatabaseRequirement(app), Database],

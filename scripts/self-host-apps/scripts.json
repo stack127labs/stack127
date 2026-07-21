@@ -21,23 +21,38 @@
   },
   {
     "name": "self-host-apps:discover-selfhostedworld",
-    "command": "npm run self-host-apps:discover-selfhostedworld -- --limit 1000 --write",
-    "purpose": "Discover selfhostedworld.com entries for later dedupe and enrichment."
+    "command": "npm run self-host-apps:discover-selfhostedworld -- --limit 5000 --details --out report.json",
+    "purpose": "Enumerate Selfhostedworld structured data for candidate review; add --write only after inspecting the report."
   },
   {
     "name": "self-host-apps:discover-openalternative",
-    "command": "npm run self-host-apps:discover-openalternative -- --limit 1000 --write",
-    "purpose": "Discover OpenAlternative self-hosted entries for later dedupe and enrichment."
+    "command": "npm run self-host-apps:discover-openalternative -- --limit 5000 --details --out report.json",
+    "purpose": "Enumerate every OpenAlternative self-hosted collection page for candidate review; add --write after inspection."
   },
   {
     "name": "self-host-apps:dedupe-candidates",
     "command": "npm run self-host-apps:dedupe-candidates -- --limit 5000 --dry-run",
-    "purpose": "Compare candidates against open_projects and earlier candidates, then queue unique rows."
+    "purpose": "Mark exact URL matches duplicate, send name-only matches to review, and queue unmatched candidates."
   },
   {
     "name": "self-host-apps:select-candidate-batch",
     "command": "npm run self-host-apps:select-candidate-batch -- --limit 100 --out scripts/self-host-apps/batches/YYYY-MM-DD-candidate-enrichment.json",
-    "purpose": "Select 100 queued candidates for official-source enrichment and classification."
+    "purpose": "Atomically claim up to 100 queued or name-review candidates for Codex research."
+  },
+  {
+    "name": "self-host-apps:release-candidate-batch",
+    "command": "npm run self-host-apps:release-candidate-batch -- --file <batch.json> --to needs_review",
+    "purpose": "Release an abandoned enriching batch without losing candidate evidence."
+  },
+  {
+    "name": "self-host-apps:collect-github-evidence",
+    "command": "npm run self-host-apps:collect-github-evidence -- --file <batch.json>",
+    "purpose": "Collect official GitHub API evidence without assigning editorial or deployment facts."
+  },
+  {
+    "name": "self-host-apps:apply-candidate-review",
+    "command": "npm run self-host-apps:apply-candidate-review -- --file <reviewed.json> --dry-run",
+    "purpose": "Validate and transactionally apply Codex-reviewed publish, duplicate, reject, or needs-review decisions."
   },
   {
     "name": "self-host-apps:reset-categories",
@@ -50,14 +65,19 @@
     "purpose": "Select 100 draft self-hostable projects that need enrichment."
   },
   {
-    "name": "self-host-apps:enrich-github-batch",
-    "command": "npm run self-host-apps:enrich-github-batch -- --file scripts/self-host-apps/batches/YYYY-MM-DD-enrichment-001.json --overrides scripts/self-host-apps/batches/YYYY-MM-DD-enrichment-001-overrides.json --limit 100 --dry-run",
-    "purpose": "Verify, enrich, classify, and publish reviewed GitHub-backed projects."
-  },
-  {
     "name": "self-host-apps:refresh-github",
     "command": "npm run self-host-apps:refresh-github -- --published-only --limit 500 --dry-run",
     "purpose": "Refresh changing GitHub repository, language, topic, release, license, and maintenance facts."
+  },
+  {
+    "name": "self-host-apps:refresh-gitlab",
+    "command": "npm run self-host-apps:refresh-gitlab -- --published-only --limit 500 --dry-run",
+    "purpose": "Refresh provider-neutral GitLab repository facts without changing curated content."
+  },
+  {
+    "name": "self-host-apps:refresh-codeberg",
+    "command": "npm run self-host-apps:refresh-codeberg -- --published-only --limit 500 --dry-run",
+    "purpose": "Refresh provider-neutral Codeberg repository facts without changing curated content."
   },
   {
     "name": "self-host-apps:validate",
@@ -115,8 +135,13 @@
     "purpose": "Apply reviewed field-level corrections with provenance."
   },
   {
+    "name": "self-host-apps:sync-prod-to-local",
+    "command": "npm run self-host-apps:sync-prod-to-local -- --confirm-local-reset",
+    "purpose": "Rebuild the disposable local database from the canonical production database and verify counts."
+  },
+  {
     "name": "self-host-apps:sync-local-to-prod",
-    "command": "npm run self-host-apps:sync-local-to-prod -- --dry-run",
-    "purpose": "Mirror verified open projects, taxonomy, links, sources, and provenance from local to production."
+    "command": "npm run self-host-apps:sync-local-to-prod -- --confirm-reviewed-push --dry-run",
+    "purpose": "Exceptional guarded upsert from reviewed local data; never drafts missing production rows by default."
   }
 ]

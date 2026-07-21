@@ -36,7 +36,7 @@ export function parseRepo(value) {
   };
 }
 
-async function githubJson(pathName, searchParams) {
+export async function githubJson(pathName, searchParams) {
   const url = new URL(`${githubApiBase}${pathName}`);
   for (const [key, value] of Object.entries(searchParams ?? {})) {
     if (value !== undefined && value !== null) url.searchParams.set(key, String(value));

@@ -1,0 +1,65 @@
+{
+  "reviewed_at": "2026-07-19T09:50:01.338Z",
+  "records": [
+    {
+      "candidate_id": "3c01e34f-8623-419c-b17b-95cf554cc7e5",
+      "decision": "reject",
+      "reason": "Severalnines ClusterControl is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "8072d922-7936-4e6d-af2a-f5aef61a39c0",
+      "decision": "reject",
+      "reason": "Atlassian Bamboo is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "6a7d520e-71d3-4b37-86a9-ff1f2075df87",
+      "decision": "reject",
+      "reason": "3CX is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "9fef5cac-dd39-40dc-a877-50611674004a",
+      "decision": "reject",
+      "reason": "Channels DVR Server is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "ba1de1c1-a714-472f-b7fe-09d5c8376d24",
+      "decision": "reject",
+      "reason": "Atlassian Bitbucket Server/Data Center is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "0347c297-e6b4-4d09-b2c5-7e60faea7720",
+      "decision": "reject",
+      "reason": "ActiveCollab is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "454d3ba5-966f-4e2e-8208-e8145dfc4610",
+      "decision": "reject",
+      "reason": "Axigen Mail Server is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "cea74ee9-7a1e-44fa-93eb-b02d26505ff7",
+      "decision": "reject",
+      "reason": "BrowserStack Automate TurboScale is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "439c372f-3101-4681-bdd4-9f0ac7d7115e",
+      "decision": "reject",
+      "reason": "Ubooquity is distributed as proprietary freeware; no public project source was verified."
+    },
+    {
+      "candidate_id": "f3a7d0ea-c4c9-4105-92c5-af37d5e65905",
+      "decision": "reject",
+      "reason": "Resilio Sync is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "cb2952d7-e78b-4e94-9d58-167b78e277e4",
+      "decision": "reject",
+      "reason": "Reservo is a commercially licensed PHP product; no public project source was verified."
+    },
+    {
+      "candidate_id": "32a49516-371c-475c-8022-466b42aa08eb",
+      "decision": "reject",
+      "reason": "Pancake is commercially licensed; no public project source was verified."
+    }
+  ]
+}

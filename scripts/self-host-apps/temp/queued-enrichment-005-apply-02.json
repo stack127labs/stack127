@@ -1,0 +1,486 @@
+{
+  "reviewed_at": "2026-07-19T12:02:51.224Z",
+  "records": [
+    {
+      "candidate_id": "21c23850-7051-4387-8146-7db543d845a1",
+      "decision": "publish",
+      "project": {
+        "slug": "comfyui",
+        "name": "ComfyUI",
+        "summary": "Builds image, video, and audio generation workflows by connecting model operations in a node graph.",
+        "icon_url": "/app-icons/comfyui.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/Comfy-Org/ComfyUI",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+        "docker_url": null,
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-only",
+        "source_model": "open_source",
+        "publisher_name": "Comfy-Org",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/Comfy-Org",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "desktop"
+        ],
+        "categories": [
+          "ai-ml",
+          "content-publishing"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/589831718/8894dcc0-5f53-4f3c-97f0-50d820b7779b",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/Comfy-Org/ComfyUI",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/Comfy-Org/ComfyUI",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/Comfy-Org/ComfyUI",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/Comfy-Org/ComfyUI",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "f4a77718-59c7-4ff1-a56d-4b5e2e5f7bda",
+      "decision": "publish",
+      "project": {
+        "slug": "autogpt",
+        "name": "AutoGPT",
+        "summary": "Builds and runs AI agents as visual workflows triggered on demand, on schedules, or by external events.",
+        "icon_url": "/app-icons/autogpt.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/Significant-Gravitas/AutoGPT",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://docs.agpt.co/platform/getting-started",
+        "docker_url": "https://docs.agpt.co/platform/getting-started",
+        "license": "PolyForm Shield 1.0.0 and MIT",
+        "license_type": "mixed",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "publisher_name": "Significant-Gravitas",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/Significant-Gravitas",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "ai-ml",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/d44cf0d97a90e3eaaac076c38f9b0c2b49d165010ec03e0dbb1df2e9f8502b40/Significant-Gravitas/AutoGPT",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/Significant-Gravitas/AutoGPT",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/Significant-Gravitas/AutoGPT",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/Significant-Gravitas/AutoGPT",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/Significant-Gravitas/AutoGPT",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://docs.agpt.co/platform/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.agpt.co/platform/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.agpt.co/platform/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://docs.agpt.co/platform/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://docs.agpt.co/platform/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "361c5af1-cb4f-4669-9d27-3ff8166353d4",
+      "decision": "publish",
+      "project": {
+        "slug": "opencode",
+        "name": "OpenCode",
+        "summary": "Runs a coding agent from a terminal, desktop app, or editor with configurable models and tools.",
+        "icon_url": "/app-icons/opencode.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/anomalyco/opencode",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "anomalyco",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/anomalyco",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/975734319/2c2c3389-c647-405c-a499-f80e4d521277",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/anomalyco/opencode",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/anomalyco/opencode",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/anomalyco/opencode",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/anomalyco/opencode",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "77be67bf-c386-4325-ac84-cfb0873115a0",
+      "decision": "reject",
+      "reason": "The public repository distributes plugins, documentation, and installers but does not publish the core Claude Code application source; commercial terms alone do not make it source-available software."
+    }
+  ]
+}

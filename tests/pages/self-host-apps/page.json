@@ -2,7 +2,10 @@
   "route": "/self-host-apps",
   "state": "published",
   "docs": ["content_docs/self-host-apps"],
-  "tests": ["tests/version127/seo.spec.ts"],
+  "tests": [
+    "tests/pages/self-host-apps/source-model.test.mjs",
+    "tests/version127/seo.spec.ts"
+  ],
   "scripts": ["scripts/self-host-apps"],
   "skills": ["skills/self-host-apps"],
   "repositories": []

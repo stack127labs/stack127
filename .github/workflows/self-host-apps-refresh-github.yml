@@ -33,7 +33,7 @@ jobs:
     timeout-minutes: 20
 
     env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL }}
       GITHUB_TOKEN: ${{ secrets.VERSION127_GITHUB_TOKEN || github.token }}
 
     steps:

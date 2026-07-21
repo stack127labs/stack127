@@ -5,7 +5,7 @@ description: Deeply audit written Version127 content pages or a list of pages fo
 
 # Version127 Content Audit
 
-Use this skill in `/Users/ravitejaknts/projects/HomeLabHQ` for strict, evidence-backed audits of written Version127 pages. The goal is to answer whether the page truly helps the intended reader, whether it is deep enough compared with competing pages, and whether a reader can move through the page or page sequence without getting confused.
+Use this skill in `/Users/ravitejaknts/projects/Version127` for strict, evidence-backed audits of written Version127 pages. The goal is to answer whether the page truly helps the intended reader, whether it is deep enough compared with competing pages, and whether a reader can move through the page or page sequence without getting confused.
 
 ## First Checks
 

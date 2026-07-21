@@ -25,8 +25,13 @@ export function canonicalUrl(value) {
       .filter(Boolean)
       .map((part) => decodeURIComponent(part).replace(/\.git$/i, "").toLowerCase());
 
-    if (["github.com", "gitlab.com", "codeberg.org"].includes(host) && parts.length >= 2) {
+    if (["github.com", "codeberg.org"].includes(host) && parts.length >= 2) {
       return `${host}/${parts[0]}/${parts[1]}`;
+    }
+    if (host === "gitlab.com" && parts.length >= 2) {
+      const separator = parts.indexOf("-");
+      const repositoryParts = separator >= 2 ? parts.slice(0, separator) : parts;
+      return `${host}/${repositoryParts.join("/")}`;
     }
 
     return `${host}/${parts.join("/")}`.replace(/\/$/, "");
@@ -222,12 +227,21 @@ export async function upsertCandidate(client, candidate, importRunId) {
         payload = excluded.payload,
         confidence_score = greatest(open_project_candidates.confidence_score, excluded.confidence_score),
         status = case
-          when open_project_candidates.status in ('published', 'rejected') then open_project_candidates.status
+          when open_project_candidates.status in ('published', 'rejected', 'enriching') then open_project_candidates.status
           else 'new'
         end,
-        duplicate_project_id = null,
-        duplicate_candidate_id = null,
-        duplicate_reason = null,
+        duplicate_project_id = case
+          when open_project_candidates.status = 'enriching' then open_project_candidates.duplicate_project_id
+          else null
+        end,
+        duplicate_candidate_id = case
+          when open_project_candidates.status = 'enriching' then open_project_candidates.duplicate_candidate_id
+          else null
+        end,
+        duplicate_reason = case
+          when open_project_candidates.status = 'enriching' then open_project_candidates.duplicate_reason
+          else null
+        end,
         last_seen_at = now(),
         updated_at = now()
       returning (xmax = 0) as inserted
