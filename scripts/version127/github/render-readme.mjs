@@ -13,6 +13,7 @@ const datasetColumns = [
   ["docs_url", "General documentation link when available."],
   ["license", "Project license label when available."],
   ["license_type", "License family: permissive, copyleft, public domain, mixed, custom, or unknown."],
+  ["source_model", "Whether the reviewed license is open source, source available, or unknown."],
   ["docker_support", "Docker support: official, community, none, or unknown."],
   ["compose_support", "Whether a clear Compose path is known."],
   ["requires_database", "Whether a separate database service is required."],

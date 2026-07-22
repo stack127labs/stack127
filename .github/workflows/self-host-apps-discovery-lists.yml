@@ -1,0 +1,31 @@
+name: Discover open projects from maintained lists
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "41 3 * * 0"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: self-host-apps-discovery-lists
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run self-host-apps:discover-awesome-selfhosted -- --limit 5000 --write
+      - run: npm run self-host-apps:discover-selfhst -- --limit 5000 --write
+      - run: npm run self-host-apps:dedupe-candidates -- --limit 10000

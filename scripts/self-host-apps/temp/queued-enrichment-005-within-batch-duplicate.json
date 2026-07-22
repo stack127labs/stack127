@@ -1,0 +1,10 @@
+{
+  "records": [
+    {
+      "candidate_id": "1ffe3668-4dc2-4083-bada-7effe199a3d2",
+      "decision": "duplicate",
+      "project_id": "0503324e-40fd-4937-b4d6-2549bab586ac",
+      "reason": "The final canonical repository matches the newly published LobeHub project."
+    }
+  ]
+}

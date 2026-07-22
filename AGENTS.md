@@ -82,6 +82,6 @@ Version127 is a compact technical directory site. It should grow into multiple r
 - Read the relevant page docs in `content_docs/<page-slug>/`.
 - Check `scripts/scripts.json` and the page script manifest.
 - Keep migrations, seeds, docs, scripts, and UI aligned when a schema or data workflow changes.
-- `public.open_projects` is the shared source of truth for open-source projects. Read `version127_docs/open-projects.md` before changing it.
+- `public.open_projects` is the shared source of truth for open-source and source-available projects. Keep `source_model` accurate and read `version127_docs/open-projects.md` before changing it.
 - Page directories query the shared table by explicit fields such as `self_hosting_status`; do not create another project table for each directory.
 - Keep broad discovery in `open_project_candidates`. Discovery must not publish, classify categories, or turn GitHub topics into editorial facts.

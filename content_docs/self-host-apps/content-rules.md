@@ -9,6 +9,7 @@ Use these rules when reviewing projects for `/self-host-apps`.
 - Use `unknown` or `null` when research does not support a fact.
 - Keep GitHub topics as raw metadata. Assign controlled categories by actual purpose.
 - Keep source payloads and field-level provenance for imported facts.
+- Classify the reviewed license as `open_source` or `source_available`; never use those terms interchangeably.
 - Do not add generic tags, verdicts, long descriptions, or per-project prose pages.
 
 ## Summaries

@@ -1,44 +1,50 @@
 ---
 name: version127-self-host-enrichment
-description: Enrich Version127 self-host app candidates or draft projects in repeatable batches of 100, verify official sources, classify self-hosting status, and publish only reviewed rows.
+description: Research and review Version127 open-project candidates in claimed batches, write direct summaries, verify official facts and links, classify self-hosting, preserve provenance, and publish only complete records. Use for the next pending self-host app candidates or to drain the candidate queue.
 ---
 
 # Version127 self-host enrichment
 
-Use this skill in `/Users/ravitejaknts/projects/HomeLabHQ` for `/self-host-apps` data work.
+Work in `/Users/ravitejaknts/projects/Version127`. Production is canonical; refresh local from production before a long run.
 
-Core rule: refine records in place. Do not globally draft or publish projects. A row becomes public only after its summary, categories, links, icon, open-source eligibility, and self-hosting classification are reviewed.
+Scripts move data. Codex makes editorial and factual decisions. Never generate summaries, categories, self-hosting status, surfaces, or resource facts from keywords.
 
-## First checks
+## Run
 
-- Read `AGENTS.md`.
-- Read `version127_docs/open-projects.md`.
-- Read `content_docs/self-host-apps/data-workflow.md`, `schema.md`, and `content-rules.md`.
-- Check `scripts/scripts.json` and `scripts/self-host-apps/scripts.json`.
-- Inspect the live schema and current counts instead of relying on old batch notes.
-
-## Batch flow
-
-1. Select 100 rows from `open_project_candidates`, or 100 existing draft `self_hostable` projects.
-2. Create a reviewed overrides file beside the batch.
-3. Verify official website, source code, install docs, release, container/package links, license, publisher, categories, surfaces, and icon.
-4. Set `self_hosting_status` to `self_hostable` or `not_self_hostable`. Leave unresolved rows in `needs_review`.
-5. Cache valid icons.
-6. Dry-run `self-host-apps:enrich-github-batch`, inspect failures, then write.
+1. Read `content_docs/self-host-apps/data-workflow.md`, `content-rules.md`, and `schema.md`.
+2. Claim up to 100 candidates:
+   `npm run self-host-apps:select-candidate-batch -- --limit 100 --out <batch.json>`
+3. For GitHub candidates, collect API evidence:
+   `npm run self-host-apps:collect-github-evidence -- --file <batch.json>`
+4. Research every candidate from official source code, website, docs, release, package, and container pages. Treat directory copy as a lead only.
+5. Write reviewed decisions using [review-format.md](references/review-format.md).
+6. Dry-run, then apply:
+   `npm run self-host-apps:apply-candidate-review -- --file <reviewed.json> --dry-run`
+   `npm run self-host-apps:apply-candidate-review -- --file <reviewed.json>`
 7. Run QA, summary, link, icon, typecheck, and build checks.
-8. Dry-run production sync before writing production.
+8. Repeat until no queued or review candidates remain. Release an abandoned claim with `self-host-apps:release-candidate-batch`.
 
-## Standards
+## Decisions
 
-- Use official project sources first.
-- Use `null` or `unknown` instead of invented facts.
-- Assign one to three controlled categories by purpose. GitHub topics are not categories.
-- Write one direct summary sentence, usually under 160 characters. Avoid hype and boilerplate about being open source or self-hosted.
-- Treat Docker, database, RAM, and storage facts as unknown unless official evidence supports them.
-- Keep field provenance for researched facts.
-- New records use `source_code_url` and `surfaces`; historical batch aliases remain accepted.
+- `publish`: verified open-source or source-available project. `source_model` and `self_hosting_status` must be decided.
+- `duplicate`: same project after manual review; preserve its source evidence.
+- `reject`: not open source, not a software project, dead identity, or otherwise ineligible.
+- `needs_review`: a real blocker remains. State the exact missing fact.
 
-## Minimum verification
+## Accuracy
+
+- Use one direct summary sentence. Do not repeat `open source` or `self-hosted` unless essential to meaning.
+- Keep `open_source` and `source_available` distinct. A repository without a project license is neither.
+- Assign one to three controlled categories by purpose.
+- Use `null` or `unknown` when official evidence is absent.
+- RAM, storage, database needs, Docker support, Compose support, and surfaces require direct evidence.
+- A Dockerfile proves a file exists; it does not by itself prove supported production deployment.
+- Keep field provenance for links, classification, license, icon, mutable source facts, and every known technical fact.
+- Never globally draft or publish projects.
+
+## Finish
+
+Run:
 
 ```bash
 npm run self-host-apps:qa-gate
@@ -48,4 +54,4 @@ npm run typecheck
 npm run build
 ```
 
-Report selected, enriched, published, needs-review, and failed counts plus the batch and overrides files used.
+Report claimed, published, duplicate, rejected, needs-review, and failed counts.

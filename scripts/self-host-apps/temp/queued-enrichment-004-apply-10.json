@@ -1,0 +1,518 @@
+{
+  "reviewed_at": "2026-07-19T11:39:35.569Z",
+  "records": [
+    {
+      "candidate_id": "2d0e6d38-bb67-49c9-9f6d-0c9a720f4e8c",
+      "decision": "publish",
+      "project": {
+        "slug": "daytona",
+        "name": "Daytona",
+        "summary": "Provides isolated execution sandboxes with APIs for running code and managing persistent agent environments.",
+        "icon_url": "/app-icons/daytona.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/daytonaio/daytona",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/daytonaio/daytona/tree/v0.190.0",
+        "docker_url": "https://github.com/daytonaio/daytona/tree/v0.190.0",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-only",
+        "source_model": "open_source",
+        "publisher_name": "daytonaio",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/daytonaio",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "archived",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/daytonaio/daytona/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/daytonaio/daytona/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/66cc80704049345ee4bf9f44e375dc87caa52990476be937e45834456c1e0f3b/daytonaio/daytona",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/daytonaio/daytona",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/daytonaio/daytona",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://github.com/daytonaio/daytona/blob/v0.190.0/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://github.com/daytonaio/daytona/blob/v0.190.0/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://github.com/daytonaio/daytona/blob/v0.190.0/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://github.com/daytonaio/daytona/blob/v0.190.0/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/daytonaio/daytona",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/daytonaio/daytona",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://github.com/daytonaio/daytona/tree/v0.190.0",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/daytonaio/daytona/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/daytonaio/daytona/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/daytonaio/daytona/tree/v0.190.0",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/daytonaio/daytona/tree/v0.190.0",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://github.com/daytonaio/daytona/tree/v0.190.0",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://github.com/daytonaio/daytona/tree/v0.190.0",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "50f2012a-48eb-46d6-9349-85b82d63377c",
+      "decision": "publish",
+      "project": {
+        "slug": "gpt4all",
+        "name": "GPT4All",
+        "summary": "Runs and chats with language models locally through desktop applications and developer libraries.",
+        "icon_url": "/app-icons/gpt4all.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/nomic-ai/gpt4all",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "nomic-ai",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/nomic-ai",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop"
+        ],
+        "categories": [
+          "ai-ml"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/nomic-ai/gpt4all/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/nomic-ai/gpt4all/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/b6004f603e92a7c6ad3eb2a10af1c71a998ca70b3d35a47f5c28f96f8d93b4cb/nomic-ai/gpt4all",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/nomic-ai/gpt4all",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/nomic-ai/gpt4all",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/nomic-ai/gpt4all/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/nomic-ai/gpt4all/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/nomic-ai/gpt4all/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/nomic-ai/gpt4all/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/nomic-ai/gpt4all",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/nomic-ai/gpt4all",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/nomic-ai/gpt4all/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/nomic-ai/gpt4all/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/nomic-ai/gpt4all/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/nomic-ai/gpt4all/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "0ef0aec9-39f1-40c8-ae27-7ebceb2ca39b",
+      "decision": "publish",
+      "project": {
+        "slug": "elasticsearch",
+        "name": "Elasticsearch",
+        "summary": "Indexes, searches, and analyzes large volumes of text, structured data, logs, and vectors.",
+        "icon_url": "/app-icons/elasticsearch.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/elastic/elasticsearch",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://www.elastic.co/docs/deploy-manage/deploy/self-managed/installing-elasticsearch",
+        "docker_url": "https://www.elastic.co/docs/deploy-manage/deploy/self-managed/installing-elasticsearch",
+        "license": "AGPL-3.0 OR SSPL-1.0 OR Elastic-2.0 with ELv2-only directories",
+        "license_type": "mixed",
+        "license_spdx_id": null,
+        "source_model": "open_source",
+        "publisher_name": "elastic",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/elastic",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "search",
+          "databases"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/elastic/elasticsearch",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/elastic/elasticsearch",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/0afb05ce1e33fdf48ca4b5c8c1e0d361c69f4e803b2524c56951f24484c1dcc0/elastic/elasticsearch",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/elastic/elasticsearch",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/elastic/elasticsearch",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/elastic/elasticsearch/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/elastic/elasticsearch/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/elastic/elasticsearch/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/elastic/elasticsearch",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/elastic/elasticsearch",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://www.elastic.co/docs/deploy-manage/deploy/self-managed/installing-elasticsearch",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/elastic/elasticsearch",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/elastic/elasticsearch",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://www.elastic.co/docs/deploy-manage/deploy/self-managed/installing-elasticsearch",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://www.elastic.co/docs/deploy-manage/deploy/self-managed/installing-elasticsearch",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://www.elastic.co/docs/deploy-manage/deploy/self-managed/installing-elasticsearch",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://www.elastic.co/docs/deploy-manage/deploy/self-managed/installing-elasticsearch",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "b2a0a941-f9c0-4737-9e77-a3ae87bb97da",
+      "decision": "needs_review",
+      "reason": "The official repository is unavailable and no maintainer-approved replacement source was found."
+    },
+    {
+      "candidate_id": "b12c99bd-6bb3-40c5-b8e7-a3acc26e7888",
+      "decision": "needs_review",
+      "reason": "The repository links to production self-hosting documentation, but that documentation is unavailable, so a supported deployment cannot be verified."
+    },
+    {
+      "candidate_id": "09a7287e-4aa2-4953-8694-0fb74baad8ef",
+      "decision": "needs_review",
+      "reason": "The repository documents local development but directs production self-hosting questions to Discord instead of providing a complete deployment guide."
+    },
+    {
+      "candidate_id": "d6cb92f9-8cb8-4dc4-9220-232fd976bdb8",
+      "decision": "needs_review",
+      "reason": "No project license was found in the official repository; a public repository and an open-source claim do not grant reuse rights."
+    },
+    {
+      "candidate_id": "b4428e0b-bf9c-445a-a388-2e2832d337de",
+      "decision": "needs_review",
+      "reason": "The upstream repository was removed in May 2026 and no verified successor or maintainer-approved fork was found."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "records": [
+    {
+      "candidate_id": "3a6d225e-a678-4efe-911f-b29d9bbd1c68",
+      "decision": "duplicate",
+      "project_id": "743a28f9-0681-4a54-977c-9f01f6c48089",
+      "reason": "Final repository redirect exactly matches the existing Cap project."
+    },
+    {
+      "candidate_id": "a70adfba-cd96-4da5-baa4-1109fe92cb88",
+      "decision": "duplicate",
+      "project_id": "50a11c70-a9a2-44e9-94a0-bc8ecac489c0",
+      "reason": "Perplexica moved to Vane, whose final repository exactly matches the existing project."
+    },
+    {
+      "candidate_id": "349b38b8-809a-4045-a5da-c9bf7a38687f",
+      "decision": "duplicate",
+      "project_id": "c8d6106d-57be-4338-9ad2-caf146037cd8",
+      "reason": "Final repository redirect exactly matches the existing Jan project."
+    },
+    {
+      "candidate_id": "174491c4-0f02-409b-b42d-f7005e01387c",
+      "decision": "duplicate",
+      "project_id": "33219dd4-7058-4620-85b9-b5d5ebbf8ce3",
+      "reason": "Cal.com self-hosting moved to Cal.diy, whose final repository exactly matches the existing project."
+    }
+  ]
+}

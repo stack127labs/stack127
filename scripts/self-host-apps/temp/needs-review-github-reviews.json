@@ -1,0 +1,3202 @@
+{
+  "reviewed_at": "2026-07-19T10:07:37.811Z",
+  "records": [
+    {
+      "candidate_id": "bb736ff0-2ea9-4137-b773-3177b2defcb7",
+      "decision": "publish",
+      "project": {
+        "slug": "uwave",
+        "name": "uWave",
+        "summary": "Collaborative music queue where participants add tracks, vote, chat, and listen together.",
+        "icon_url": "/app-icons/uwave.png",
+        "website_url": "https://u-wave.net",
+        "source_code_url": "https://github.com/u-wave/core",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/u-wave/core",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "u-wave",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/u-wave",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": true,
+        "database_types": [
+          "SQLite"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "music-audio",
+          "communication"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "49597992",
+        "source_full_name": "u-wave/core",
+        "source_stars": 36,
+        "source_forks": 12,
+        "source_watchers": 3,
+        "source_open_issues": 25,
+        "source_primary_language": "JavaScript",
+        "source_languages": {
+          "JavaScript": 502003,
+          "TypeScript": 11158,
+          "Fluent": 2214,
+          "Dockerfile": 527
+        },
+        "source_topics": [
+          "collaborative-listening",
+          "collaborative-media-player",
+          "music",
+          "self-hosted",
+          "u-wave"
+        ],
+        "source_created_at": "2016-01-13T19:55:24Z",
+        "source_updated_at": "2026-07-06T12:04:15Z",
+        "source_pushed_at": "2026-07-13T23:45:30Z",
+        "source_default_branch": "default",
+        "source_repo_size_kb": 1432,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v0.5.0-alpha.20",
+        "source_latest_release_at": "2024-09-28T20:39:57Z",
+        "source_last_commit_at": "2026-07-06T12:04:05Z",
+        "source_checked_at": "2026-07-19T09:53:50.337Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T10:07:37.808Z",
+          "note": "Repository owner avatar used because no project-specific icon was published."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/u-wave/core/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/u-wave/core/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/u-wave/core/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/u-wave/core/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_repository",
+          "source_url": "https://github.com/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_repository",
+          "source_url": "https://github.com/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/u-wave/core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "7e0146f6-2793-4f7f-b768-b4106e7ee26d",
+      "decision": "publish",
+      "project": {
+        "slug": "grai",
+        "name": "Grai",
+        "summary": "Maps data lineage across databases, warehouses, APIs, and BI tools, with validation checks for schema changes.",
+        "icon_url": "/app-icons/grai.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/grai-io/grai-core",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/grai-io/grai-core",
+        "docker_url": null,
+        "license": "MIT-0",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT-0",
+        "source_model": "open_source",
+        "publisher_name": "grai-io",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/grai-io",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "PostgreSQL"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "cli"
+        ],
+        "categories": [
+          "databases",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "501725302",
+        "source_full_name": "grai-io/grai-core",
+        "source_stars": 315,
+        "source_forks": 20,
+        "source_watchers": 2,
+        "source_open_issues": 51,
+        "source_primary_language": "Python",
+        "source_languages": {
+          "Python": 3114388,
+          "TypeScript": 1060527,
+          "HTML": 266086,
+          "Shell": 12130,
+          "Makefile": 5990,
+          "Dockerfile": 4717,
+          "JavaScript": 1210,
+          "CSS": 664,
+          "TSQL": 341
+        },
+        "source_topics": [
+          "data",
+          "data-lineage",
+          "data-science",
+          "dataengineering",
+          "datalineage",
+          "dbt",
+          "django",
+          "fivetran",
+          "hacktoberfest",
+          "mssql",
+          "mysql",
+          "open-source",
+          "parquet",
+          "postgresql",
+          "python",
+          "redshift",
+          "snowflake"
+        ],
+        "source_created_at": "2022-06-09T16:16:22Z",
+        "source_updated_at": "2026-06-10T04:44:31Z",
+        "source_pushed_at": "2026-01-30T20:28:25Z",
+        "source_default_branch": "master",
+        "source_repo_size_kb": 128887,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v0.1.76",
+        "source_latest_release_at": "2024-10-18T00:38:29Z",
+        "source_last_commit_at": "2025-04-01T19:47:54Z",
+        "source_checked_at": "2026-07-19T09:53:51.423Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/grai-io/grai-core/blob/master/docs/assets/Logo/Icon/PNG/Grai-Logo-Icon-0@2x.png",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://github.com/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_repository",
+          "source_url": "https://github.com/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_repository",
+          "source_url": "https://github.com/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_repository",
+          "source_url": "https://github.com/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/grai-io/grai-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "55fd907c-b56f-4dd1-9fba-1f2a670a3296",
+      "decision": "publish",
+      "project": {
+        "slug": "92five",
+        "name": "92five",
+        "summary": "Project and task manager with milestones, team assignments, time tracking, and activity feeds.",
+        "icon_url": "/app-icons/92five.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/chintanbanugaria/92five",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/chintanbanugaria/92five",
+        "docker_url": null,
+        "license": "CC BY-ND 4.0",
+        "license_type": "custom",
+        "license_spdx_id": "CC-BY-ND-4.0",
+        "source_model": "source_available",
+        "publisher_name": "chintanbanugaria",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/chintanbanugaria",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "stale",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": true,
+        "database_types": [
+          "MySQL"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "project-task-management"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "22917124",
+        "source_full_name": "chintanbanugaria/92five",
+        "source_stars": 1157,
+        "source_forks": 207,
+        "source_watchers": 58,
+        "source_open_issues": 43,
+        "source_primary_language": "JavaScript",
+        "source_languages": {
+          "JavaScript": 689993,
+          "PHP": 373420,
+          "Blade": 351653,
+          "CSS": 197001
+        },
+        "source_topics": [
+          "javascript",
+          "opensource",
+          "php",
+          "project-management"
+        ],
+        "source_created_at": "2014-08-13T13:48:20Z",
+        "source_updated_at": "2026-07-08T19:04:13Z",
+        "source_pushed_at": "2022-03-06T19:57:58Z",
+        "source_default_branch": "master",
+        "source_repo_size_kb": 4429,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_last_commit_at": "2022-03-06T19:57:58Z",
+        "source_checked_at": "2026-07-19T09:53:52.473Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/chintanbanugaria/92five/blob/master/assets/images/dashboard/logo.png",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://github.com/chintanbanugaria/92five/blob/master/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://github.com/chintanbanugaria/92five/blob/master/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://github.com/chintanbanugaria/92five/blob/master/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://github.com/chintanbanugaria/92five/blob/master/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_repository",
+          "source_url": "https://github.com/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_repository",
+          "source_url": "https://github.com/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chintanbanugaria/92five",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "8aa549da-f943-4c52-bb2c-d0ef549ee9d8",
+      "decision": "publish",
+      "project": {
+        "slug": "photostructure",
+        "name": "PhotoStructure",
+        "summary": "Organizes photos and videos into a searchable private library with automatic deduplication and metadata indexing.",
+        "icon_url": "/app-icons/photostructure.png",
+        "website_url": "https://photostructure.com/server/photostructure-for-servers/",
+        "source_code_url": "https://github.com/photostructure/photostructure-for-servers",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://photostructure.com/server/photostructure-for-docker-compose/",
+        "docker_url": null,
+        "license": "PhotoStructure EULA",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "publisher_name": "photostructure",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/photostructure",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "high",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "photos-galleries"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "204232546",
+        "source_full_name": "photostructure/photostructure-for-servers",
+        "source_stars": 288,
+        "source_forks": 12,
+        "source_watchers": 12,
+        "source_open_issues": 0,
+        "source_primary_language": "EJS",
+        "source_languages": {
+          "EJS": 39087,
+          "Shell": 8980,
+          "HTML": 8596,
+          "Dockerfile": 6551,
+          "JavaScript": 3935
+        },
+        "source_topics": [
+          "gallery-images",
+          "image-processing",
+          "image-viewer",
+          "jpeg",
+          "linux",
+          "macos",
+          "metadata",
+          "metadata-extraction",
+          "metadata-management",
+          "photo",
+          "photo-browser",
+          "photography",
+          "photos",
+          "photostructure",
+          "raw-image",
+          "ubuntu",
+          "video"
+        ],
+        "source_created_at": "2019-08-25T01:41:18Z",
+        "source_updated_at": "2026-05-29T16:55:09Z",
+        "source_pushed_at": "2026-04-28T07:31:58Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 205075,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_last_commit_at": "2026-01-19T02:35:48Z",
+        "source_checked_at": "2026-07-19T09:53:53.482Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/photostructure/photostructure-for-servers/blob/main/public/images/logo@5x.png",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://github.com/photostructure/photostructure-for-servers/blob/main/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://github.com/photostructure/photostructure-for-servers/blob/main/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://github.com/photostructure/photostructure-for-servers/blob/main/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://photostructure.com/server/photostructure-for-docker-compose/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://photostructure.com/server/photostructure-for-docker-compose/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://photostructure.com/server/photostructure-for-docker-compose/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_repository",
+          "source_url": "https://photostructure.com/server/photostructure-for-docker-compose/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "storage_profile",
+          "source": "official_repository",
+          "source_url": "https://photostructure.com/server/photostructure-for-docker-compose/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/photostructure/photostructure-for-servers",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "df8847c2-067e-4eeb-9e3e-caf196d9a07c",
+      "decision": "publish",
+      "project": {
+        "slug": "pdf-dark",
+        "name": "PDF Dark",
+        "summary": "Converts PDF pages to configurable dark themes in the browser without uploading the document.",
+        "icon_url": "/app-icons/pdf-dark.png",
+        "website_url": "https://pdfdark.org",
+        "source_code_url": "https://github.com/1436941541/pdf-dark",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/1436941541/pdf-dark",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "1436941541",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/1436941541",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": false,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "documents-pdfs"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "1220513934",
+        "source_full_name": "1436941541/pdf-dark",
+        "source_stars": 0,
+        "source_forks": 0,
+        "source_watchers": 0,
+        "source_open_issues": 0,
+        "source_primary_language": "TypeScript",
+        "source_languages": {
+          "TypeScript": 263795,
+          "JavaScript": 559,
+          "CSS": 120,
+          "HTML": 70
+        },
+        "source_topics": [
+          "client-side",
+          "dark-mode",
+          "indie",
+          "nextjs",
+          "no-upload",
+          "pdf",
+          "pdfjs",
+          "privacy",
+          "web-worker"
+        ],
+        "source_created_at": "2026-04-25T01:37:51Z",
+        "source_updated_at": "2026-07-17T14:31:52Z",
+        "source_pushed_at": "2026-07-17T14:31:23Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 330,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_last_commit_at": "2026-07-17T14:31:18Z",
+        "source_checked_at": "2026-07-19T09:53:54.339Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://pdfdark.org/opengraph-image",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_repository",
+          "source_url": "https://github.com/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/1436941541/pdf-dark",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "f3fe7eea-d43c-453d-90bf-ed890cc54404",
+      "decision": "publish",
+      "project": {
+        "slug": "webdb",
+        "name": "WebDB",
+        "summary": "Browser database IDE for exploring schemas, editing data, running queries, and generating test data across SQL and NoSQL systems.",
+        "icon_url": "/app-icons/webdb.png",
+        "website_url": "https://webdb.app",
+        "source_code_url": "https://github.com/WebDB-App/app",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://docs.webdb.app/installation/compose",
+        "docker_url": null,
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "WebDB-App",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/WebDB-App",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "databases",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "729848316",
+        "source_full_name": "WebDB-App/app",
+        "source_stars": 334,
+        "source_forks": 21,
+        "source_watchers": 3,
+        "source_open_issues": 25,
+        "source_primary_language": "TypeScript",
+        "source_languages": {
+          "TypeScript": 261892,
+          "JavaScript": 206532,
+          "HTML": 137655,
+          "SCSS": 25842,
+          "Dockerfile": 1425,
+          "Shell": 1119
+        },
+        "source_topics": [
+          "ai",
+          "autocomplete",
+          "cockroachdb",
+          "database",
+          "ide",
+          "mariadb",
+          "mongodb",
+          "mysql",
+          "nosql",
+          "percona",
+          "postgresql",
+          "sql",
+          "versioning"
+        ],
+        "source_created_at": "2023-12-10T14:46:52Z",
+        "source_updated_at": "2026-07-09T00:07:50Z",
+        "source_pushed_at": "2025-06-10T11:58:04Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 27451,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_last_commit_at": "2025-06-10T11:57:58Z",
+        "source_checked_at": "2026-07-19T09:53:55.178Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/WebDB-App/app/blob/main/front/src/assets/webdb.svg",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.810Z"
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/WebDB-App/app/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/WebDB-App/app/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/WebDB-App/app/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://docs.webdb.app/installation/compose",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/WebDB-App/app/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.webdb.app/installation/compose",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://docs.webdb.app/installation/compose",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_repository",
+          "source_url": "https://docs.webdb.app/installation/compose",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/WebDB-App/app",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "0a709b85-56e5-4673-b44c-d8794b8e7fc2",
+      "decision": "publish",
+      "project": {
+        "slug": "venator",
+        "name": "Venator",
+        "summary": "Desktop viewer for recording and inspecting OpenTelemetry spans, traces, events, and metrics from Rust applications.",
+        "icon_url": "/app-icons/venator.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/kmdreko/venator",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/kmdreko/venator",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "kmdreko",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/kmdreko",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop"
+        ],
+        "categories": [
+          "developer-tools",
+          "monitoring-status"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "856118643",
+        "source_full_name": "kmdreko/venator",
+        "source_stars": 278,
+        "source_forks": 12,
+        "source_watchers": 3,
+        "source_open_issues": 12,
+        "source_primary_language": "Rust",
+        "source_languages": {
+          "Rust": 484865,
+          "TypeScript": 286066,
+          "CSS": 26458,
+          "HTML": 695
+        },
+        "source_topics": [
+          "desktop-app",
+          "developer-tools",
+          "logging",
+          "opentelemetry",
+          "rust",
+          "tracing"
+        ],
+        "source_created_at": "2024-09-12T02:50:30Z",
+        "source_updated_at": "2026-07-13T22:33:32Z",
+        "source_pushed_at": "2026-01-26T00:04:55Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 9936,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v1.0.4",
+        "source_latest_release_at": "2025-07-20T01:33:00Z",
+        "source_last_commit_at": "2025-07-20T01:13:37Z",
+        "source_checked_at": "2026-07-19T09:53:56.120Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/kmdreko/venator/blob/main/venator-app/src-tauri/icons/128x128.png",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/kmdreko/venator/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/kmdreko/venator/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/kmdreko/venator/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/kmdreko/venator/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/kmdreko/venator",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "5bee88ba-34f6-4bae-b9fa-2df1a5418f3d",
+      "decision": "publish",
+      "project": {
+        "slug": "zeroclaw",
+        "name": "ZeroClaw",
+        "summary": "Runs personal AI agents locally with pluggable model providers, tools, channels, memory, and scheduling.",
+        "icon_url": "/app-icons/zeroclaw.png",
+        "website_url": "https://www.zeroclawlabs.ai/",
+        "source_code_url": "https://github.com/zeroclaw-labs/zeroclaw",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/zeroclaw-labs/zeroclaw/blob/master/docs/book/src/getting-started/quickstart.md",
+        "docker_url": null,
+        "license": "MIT OR Apache-2.0",
+        "license_type": "mixed",
+        "license_spdx_id": "MIT OR Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "zeroclaw-labs",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/zeroclaw-labs",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "cli",
+          "desktop"
+        ],
+        "categories": [
+          "ai-ml",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "1156956890",
+        "source_full_name": "zeroclaw-labs/zeroclaw",
+        "source_stars": 32310,
+        "source_forks": 4812,
+        "source_watchers": 76,
+        "source_open_issues": 540,
+        "source_primary_language": "Rust",
+        "source_languages": {
+          "Rust": 24820176
+        },
+        "source_topics": [
+          "agent",
+          "agentic",
+          "ai",
+          "infra",
+          "ml",
+          "openclaw",
+          "os",
+          "zeroclaw"
+        ],
+        "source_created_at": "2026-02-13T08:56:04Z",
+        "source_updated_at": "2026-07-19T09:02:18Z",
+        "source_pushed_at": "2026-07-19T09:13:40Z",
+        "source_default_branch": "master",
+        "source_repo_size_kb": 145280,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v0.8.3",
+        "source_latest_release_at": "2026-07-16T01:47:13Z",
+        "source_last_commit_at": "2026-07-19T08:57:07Z",
+        "source_checked_at": "2026-07-19T09:53:57.569Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/zeroclaw-labs/zeroclaw/blob/master/.github/assets/zeroclaw-logo.png",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/zeroclaw-labs/zeroclaw/blob/master/docs/book/src/getting-started/quickstart.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/zeroclaw-labs/zeroclaw/blob/master/docs/book/src/getting-started/quickstart.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/zeroclaw-labs/zeroclaw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "de1326ff-fa31-4524-aafa-3031b9faf5d5",
+      "decision": "publish",
+      "project": {
+        "slug": "cubiks-2048",
+        "name": "Cubiks 2048",
+        "summary": "Browser version of 2048 played on six rotating cube faces with keyboard and touch controls.",
+        "icon_url": "/app-icons/cubiks-2048.png",
+        "website_url": "https://kshitij-banerjee.github.io/Cubiks-2048/",
+        "source_code_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
+        "docker_url": null,
+        "license": "CC BY-NC 4.0",
+        "license_type": "custom",
+        "license_spdx_id": "CC-BY-NC-4.0",
+        "source_model": "source_available",
+        "publisher_name": "Kshitij-Banerjee",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/Kshitij-Banerjee",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "stale",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": false,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "games"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "18305590",
+        "source_full_name": "Kshitij-Banerjee/Cubiks-2048",
+        "source_stars": 25,
+        "source_forks": 5,
+        "source_watchers": 0,
+        "source_open_issues": 3,
+        "source_primary_language": "JavaScript",
+        "source_languages": {
+          "JavaScript": 907891,
+          "CSS": 4144
+        },
+        "source_topics": [],
+        "source_created_at": "2014-03-31T19:38:43Z",
+        "source_updated_at": "2024-01-17T15:58:12Z",
+        "source_pushed_at": "2015-08-01T11:49:38Z",
+        "source_default_branch": "master",
+        "source_repo_size_kb": 1574,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_last_commit_at": "2014-06-07T21:31:14Z",
+        "source_checked_at": "2026-07-19T09:53:58.439Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048/blob/master/imgs/Demo_start.png",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048/blob/master/License.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048/blob/master/License.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048/blob/master/License.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048/blob/master/License.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_repository",
+          "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Kshitij-Banerjee/Cubiks-2048",
+          "confidence": "high",
+          "checked_at": "2026-07-19T10:07:37.811Z"
+        }
+      ]
+    }
+  ]
+}

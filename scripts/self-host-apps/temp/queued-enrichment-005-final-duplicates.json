@@ -1,0 +1,10 @@
+{
+  "records": [
+    {
+      "candidate_id": "1ffe3668-4dc2-4083-bada-7effe199a3d2",
+      "decision": "within_batch_duplicate",
+      "duplicate_candidate_id": "b3ca9d8f-2faa-4090-b884-4702ee474eb8",
+      "reason": "Final canonical source-code URL matches candidate Lobe Chat (lobe-chat)."
+    }
+  ]
+}

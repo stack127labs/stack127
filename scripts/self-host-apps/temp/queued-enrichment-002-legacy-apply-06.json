@@ -1,0 +1,20 @@
+{
+  "reviewed_at": "2026-07-19T09:50:01.338Z",
+  "records": [
+    {
+      "candidate_id": "5bee88ba-34f6-4bae-b9fa-2df1a5418f3d",
+      "decision": "needs_review",
+      "reason": "Official dual MIT/Apache-2.0 repository identified; requires full repository enrichment."
+    },
+    {
+      "candidate_id": "80964cbd-0917-4c28-8589-284c63e633d7",
+      "decision": "needs_review",
+      "reason": "Official AGPL-3.0 Framagit project identified; requires non-GitHub enrichment."
+    },
+    {
+      "candidate_id": "de1326ff-fa31-4524-aafa-3031b9faf5d5",
+      "decision": "needs_review",
+      "reason": "Imported listing could not be matched to a verified project identity."
+    }
+  ]
+}

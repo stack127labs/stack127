@@ -5,6 +5,7 @@
   "tests": [
     "tests/pages/self-host-apps/card-layout.test.mjs",
     "tests/pages/self-host-apps/layout.spec.ts",
+    "tests/pages/self-host-apps/source-model.test.mjs",
     "tests/version127/seo.spec.ts"
   ],
   "scripts": ["scripts/self-host-apps"],

@@ -1,0 +1,36 @@
+name: Discover open projects from GitHub
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "24 2 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: self-host-apps-discovery-github
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL }}
+      GITHUB_TOKEN: ${{ secrets.VERSION127_GITHUB_TOKEN || github.token }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Discover GitHub topic candidates
+        run: |
+          for topic in self-hosted homelab local-ai home-automation ai-agent; do
+            npm run self-host-apps:discover-github-topic -- --topic "$topic" --limit 100 --write
+          done
+      - name: Classify exact duplicates and review matches
+        run: npm run self-host-apps:dedupe-candidates -- --limit 10000

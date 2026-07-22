@@ -262,10 +262,32 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
           github_disabled = $21,
           github_is_fork = $22,
           github_is_template = $23,
+          source_repo_id = $4::text,
+          source_full_name = $6,
+          source_stars = $8,
+          source_forks = $9,
+          source_watchers = $10,
+          source_open_issues = $11,
+          source_primary_language = $12,
+          source_languages = $13::jsonb,
+          source_topics = $14::text[],
+          source_created_at = $15,
+          source_updated_at = $16,
+          source_pushed_at = $17,
+          source_default_branch = $18,
+          source_repo_size_kb = $19,
+          source_archived = $20,
+          source_disabled = $21,
+          source_is_fork = $22,
+          source_is_template = $23,
           github_latest_release = $24,
           github_latest_release_at = $25,
           github_last_commit_at = $26,
           github_checked_at = $27,
+          source_latest_release = $24,
+          source_latest_release_at = $25,
+          source_last_commit_at = $26,
+          source_checked_at = $27,
           source_code_host = 'github',
           license = case
             when license is null or lower(license) = 'unknown' then coalesce($28, license)
@@ -312,6 +334,50 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
         facts.license_type,
         facts.maintenance_status,
       ],
+    );
+
+    const mutableFields = [
+      "source_repo_id",
+      "source_full_name",
+      "source_stars",
+      "source_forks",
+      "source_watchers",
+      "source_open_issues",
+      "source_primary_language",
+      "source_languages",
+      "source_topics",
+      "source_created_at",
+      "source_updated_at",
+      "source_pushed_at",
+      "source_default_branch",
+      "source_repo_size_kb",
+      "source_archived",
+      "source_disabled",
+      "source_is_fork",
+      "source_is_template",
+      "source_latest_release",
+      "source_latest_release_at",
+      "source_last_commit_at",
+      "source_checked_at",
+    ];
+    await client.query(
+      `
+        insert into public.open_project_field_sources (
+          project_id, field_name, source, source_url, confidence, checked_at, note
+        )
+        select project.id, field_name, 'github_api', project.source_code_url,
+               'high', $3, 'Mutable repository fact.'
+        from public.open_projects project
+        cross join unnest($2::text[]) as field_name
+        where project.slug = $1
+        on conflict (project_id, field_name) do update set
+          source = excluded.source,
+          source_url = excluded.source_url,
+          confidence = excluded.confidence,
+          checked_at = excluded.checked_at,
+          note = excluded.note
+      `,
+      [row.slug, mutableFields, checkedAt],
     );
   }
 }

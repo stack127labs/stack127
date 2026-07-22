@@ -1,0 +1,1262 @@
+{
+  "reviewed_at": "2026-07-19T11:05:26.439Z",
+  "records": [
+    {
+      "candidate_id": "e013f3b1-b100-4957-a9d2-e2af2319423c",
+      "decision": "publish",
+      "project": {
+        "slug": "briefkasten",
+        "name": "Briefkasten",
+        "summary": "Saves bookmarks for later reading with tags, search, and a browser interface.",
+        "icon_url": "/app-icons/briefkasten.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/ndom91/briefkasten",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/ndom91/briefkasten",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "ndom91",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/ndom91",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "bookmarks-read-it-later"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ndom91/briefkasten/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ndom91/briefkasten/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/e8c14d0c7faea7c10f49896387108b3dc69ef7e8a4fec6d00309bfb5c8f925ce/ndom91/briefkasten",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/ndom91/briefkasten",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/ndom91/briefkasten",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ndom91/briefkasten/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ndom91/briefkasten/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ndom91/briefkasten/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ndom91/briefkasten/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/ndom91/briefkasten",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/ndom91/briefkasten",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/ndom91/briefkasten",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ndom91/briefkasten/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ndom91/briefkasten/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ndom91/briefkasten/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ndom91/briefkasten/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "a5c53627-51ea-4d9e-8066-e463fb8a97dd",
+      "decision": "publish",
+      "project": {
+        "slug": "drawpile",
+        "name": "Drawpile",
+        "summary": "Lets multiple artists draw on the same canvas through a shared drawing server.",
+        "icon_url": "/app-icons/drawpile.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/drawpile/Drawpile",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/drawpile/Drawpile",
+        "docker_url": null,
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-only",
+        "source_model": "open_source",
+        "publisher_name": "drawpile",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/drawpile",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop"
+        ],
+        "categories": [
+          "communication",
+          "photos-galleries"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/23fc154151ad1453ede2cfe2ca87b9488f57c53bf9c0cd7a867e8eb0c2df3661/drawpile/Drawpile",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/drawpile/Drawpile",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/drawpile/Drawpile",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/drawpile/Drawpile",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/drawpile/Drawpile",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/drawpile/Drawpile",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/drawpile/Drawpile/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "6b542472-1602-42a8-aaf3-fe66ee16cf1c",
+      "decision": "publish",
+      "project": {
+        "slug": "pico",
+        "name": "pico",
+        "summary": "Publishes text, feeds, and simple web services through SSH-driven command-line tools.",
+        "icon_url": "/app-icons/pico.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/picosh/pico",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/picosh/pico",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "picosh",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/picosh",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "cli"
+        ],
+        "categories": [
+          "content-publishing",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/picosh/pico/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/picosh/pico/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/a9d8ee803dc365455c0008390efed281be45114f4f7d9c637defe60b24aeaaaa/picosh/pico",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/picosh/pico",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/picosh/pico",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/picosh/pico/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/picosh/pico/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/picosh/pico/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/picosh/pico/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/picosh/pico",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/picosh/pico",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/picosh/pico",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/picosh/pico/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/picosh/pico/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/picosh/pico/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/picosh/pico/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "4e49490a-fff0-4209-be94-847a09be5e7a",
+      "decision": "publish",
+      "project": {
+        "slug": "openship",
+        "name": "Openship",
+        "summary": "Builds and deploys applications to a Linux server from a dashboard, desktop app, or CLI.",
+        "icon_url": "/app-icons/openship.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/oblien/openship",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/oblien/openship",
+        "docker_url": "https://github.com/oblien/openship",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "oblien",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/oblien",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "desktop",
+          "cli"
+        ],
+        "categories": [
+          "system-admin-hosting",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/oblien/openship/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/oblien/openship/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/4f5abd128fafc9f1a96d59465b66ce1c532bbc990c14b1793959f5be377595a7/oblien/openship",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/oblien/openship",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/oblien/openship",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/oblien/openship/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/oblien/openship/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/oblien/openship/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/oblien/openship/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/oblien/openship",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/oblien/openship",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/oblien/openship",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/oblien/openship/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/oblien/openship/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/oblien/openship/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/oblien/openship/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/oblien/openship/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/oblien/openship/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/oblien/openship/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "ff89cbd5-934d-4c55-a6c4-a02735d1374c",
+      "decision": "publish",
+      "project": {
+        "slug": "dirac",
+        "name": "Dirac",
+        "summary": "Refactors code with an AI coding agent designed to conserve context and model tokens.",
+        "icon_url": "/app-icons/dirac.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/dirac-run/dirac",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "dirac-run",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/dirac-run",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/dirac-run/dirac/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/dirac-run/dirac/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/1202290616/3387b54d-bb91-4e2a-a35b-b933836bafad",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/dirac-run/dirac",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/dirac-run/dirac",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/dirac-run/dirac/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/dirac-run/dirac/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/dirac-run/dirac/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/dirac-run/dirac/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/dirac-run/dirac",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/dirac-run/dirac",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://raw.githubusercontent.com/dirac-run/dirac/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/dirac-run/dirac/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/dirac-run/dirac/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/dirac-run/dirac/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "9f5b7b6c-99c7-42db-8b89-18361b67d1fe",
+      "decision": "publish",
+      "project": {
+        "slug": "omniclip",
+        "name": "Omniclip",
+        "summary": "Edits video locally in a browser without uploading source media to a server.",
+        "icon_url": "/app-icons/omniclip.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/omni-media/omniclip",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "omni-media",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/omni-media",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "content-publishing"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/omni-media/omniclip/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/omni-media/omniclip/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/31d8153da18d746e53c73c34d29ac416b7f43789780892d1c2884adf83e41bab/omni-media/omniclip",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/omni-media/omniclip",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/omni-media/omniclip",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/omni-media/omniclip/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/omni-media/omniclip/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/omni-media/omniclip/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/omni-media/omniclip/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/omni-media/omniclip",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/omni-media/omniclip",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://raw.githubusercontent.com/omni-media/omniclip/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/omni-media/omniclip/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/omni-media/omniclip/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/omni-media/omniclip/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "a1562c0c-5ce3-42ba-abdf-4ed400fce4dd",
+      "decision": "publish",
+      "project": {
+        "slug": "zerostack",
+        "name": "zerostack",
+        "summary": "Runs a terminal coding agent with multiple model providers, tools, permissions, and MCP support.",
+        "icon_url": "/app-icons/zerostack.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/gi-dellav/zerostack",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-only",
+        "source_model": "open_source",
+        "publisher_name": "gi-dellav",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/gi-dellav",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/gi-dellav/zerostack/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/gi-dellav/zerostack/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/24faf772c796efa47c9cf62fa66d323d75e1e0fc92d6ad610cfd85ff565441fa/gi-dellav/zerostack",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/gi-dellav/zerostack",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/gi-dellav/zerostack",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/gi-dellav/zerostack/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/gi-dellav/zerostack/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/gi-dellav/zerostack/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/gi-dellav/zerostack/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/gi-dellav/zerostack",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/gi-dellav/zerostack",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://raw.githubusercontent.com/gi-dellav/zerostack/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/gi-dellav/zerostack/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/gi-dellav/zerostack/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/gi-dellav/zerostack/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "d0c9d01b-c8b0-4f69-94a0-7fdd08c759eb",
+      "decision": "publish",
+      "project": {
+        "slug": "kirby",
+        "name": "Kirby",
+        "summary": "Builds custom content-managed websites around a file-based PHP core and configurable editor.",
+        "icon_url": "/app-icons/kirby.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/getkirby/kirby",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/getkirby/kirby",
+        "docker_url": null,
+        "license": "Kirby License Agreement",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "publisher_name": "getkirby",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/getkirby",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "content-publishing"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/getkirby/kirby/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/getkirby/kirby/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/105997676/ea72e9ef-6aee-472d-8d2c-5bddc45697a6",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/getkirby/kirby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/getkirby/kirby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/getkirby/kirby/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/getkirby/kirby/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/getkirby/kirby/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/getkirby/kirby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/getkirby/kirby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/getkirby/kirby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/getkirby/kirby/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/getkirby/kirby/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/getkirby/kirby/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/getkirby/kirby/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    }
+  ]
+}

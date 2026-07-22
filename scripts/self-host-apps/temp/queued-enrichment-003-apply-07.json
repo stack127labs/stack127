@@ -1,0 +1,1249 @@
+{
+  "reviewed_at": "2026-07-19T11:05:26.439Z",
+  "records": [
+    {
+      "candidate_id": "17055ba1-740a-454e-8281-a761ea6ec7ce",
+      "decision": "publish",
+      "project": {
+        "slug": "ourboard",
+        "name": "OurBoard",
+        "summary": "Provides a shared whiteboard for drawing and arranging ideas with other participants.",
+        "icon_url": "/app-icons/ourboard.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/raimohanska/ourboard",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/raimohanska/ourboard",
+        "docker_url": "https://github.com/raimohanska/ourboard",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "raimohanska",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/raimohanska",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": true,
+        "database_types": [
+          "PostgreSQL"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "communication",
+          "project-task-management"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/raimohanska/ourboard/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/raimohanska/ourboard/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/c4bed879a72daa1f18671e331210ed9d25184c65b2310ead0cae2ba44911c696/raimohanska/ourboard",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/raimohanska/ourboard",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/raimohanska/ourboard",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/raimohanska/ourboard/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/raimohanska/ourboard/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/raimohanska/ourboard/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/raimohanska/ourboard/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/raimohanska/ourboard",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/raimohanska/ourboard",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/raimohanska/ourboard",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/raimohanska/ourboard/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/raimohanska/ourboard/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/raimohanska/ourboard/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/raimohanska/ourboard/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/raimohanska/ourboard/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/raimohanska/ourboard/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/raimohanska/ourboard/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/raimohanska/ourboard/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "ef422d57-c5da-40b3-8122-994f16157d1a",
+      "decision": "duplicate",
+      "project_id": "5d6d9ce3-b10d-4c9d-8c4b-ca7faf056156",
+      "reason": "WeddingShare was renamed and moved to the existing Memtly project."
+    },
+    {
+      "candidate_id": "88de9430-8b72-4275-b6c0-d5968425c515",
+      "decision": "publish",
+      "project": {
+        "slug": "centaur",
+        "name": "Centaur",
+        "summary": "Runs shared AI agents for teams and connects them to Slack and internal tools.",
+        "icon_url": "/app-icons/centaur.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/paradigmxyz/centaur",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/paradigmxyz/centaur",
+        "docker_url": "https://github.com/paradigmxyz/centaur",
+        "license": "MIT OR Apache-2.0",
+        "license_type": "mixed",
+        "license_spdx_id": "MIT OR Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "paradigmxyz",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/paradigmxyz",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "ai-ml",
+          "communication"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/paradigmxyz/centaur/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/paradigmxyz/centaur/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/83e8cecac15bb00bb0111c8218197f48b76217d99ab8dc1fef410c9f67ebec37/paradigmxyz/centaur",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/paradigmxyz/centaur",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/paradigmxyz/centaur",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/paradigmxyz/centaur/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/paradigmxyz/centaur/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/paradigmxyz/centaur/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/paradigmxyz/centaur/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/paradigmxyz/centaur",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/paradigmxyz/centaur",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/paradigmxyz/centaur",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/paradigmxyz/centaur/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/paradigmxyz/centaur/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/paradigmxyz/centaur/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/paradigmxyz/centaur/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/paradigmxyz/centaur/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/paradigmxyz/centaur/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "3cc6c212-e520-4b52-a690-8b0253c0b553",
+      "decision": "publish",
+      "project": {
+        "slug": "rahoot",
+        "name": "Razzia",
+        "summary": "Hosts real-time quiz rooms that participants join from their browsers.",
+        "icon_url": "/app-icons/rahoot.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/Ralex91/Razzia",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/Ralex91/Razzia",
+        "docker_url": "https://github.com/Ralex91/Razzia",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "Ralex91",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/Ralex91",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "forms-polls-events",
+          "games"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Ralex91/Razzia/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Ralex91/Razzia/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/751013910/a95088b8-edac-4045-9766-1c471c176197",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/Ralex91/Razzia",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/Ralex91/Razzia",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Ralex91/Razzia/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Ralex91/Razzia/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Ralex91/Razzia/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Ralex91/Razzia/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/Ralex91/Razzia",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/Ralex91/Razzia",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/Ralex91/Razzia",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Ralex91/Razzia/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Ralex91/Razzia/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/Ralex91/Razzia/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/Ralex91/Razzia/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/Ralex91/Razzia/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/Ralex91/Razzia/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/Ralex91/Razzia/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "82e22791-f961-4a71-8690-fd999d3454b0",
+      "decision": "publish",
+      "project": {
+        "slug": "gomodel",
+        "name": "GoModel",
+        "summary": "Routes requests across language-model providers through one OpenAI-compatible API.",
+        "icon_url": "/app-icons/gomodel.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/ENTERPILOT/GoModel",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/ENTERPILOT/GoModel",
+        "docker_url": "https://github.com/ENTERPILOT/GoModel",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "ENTERPILOT",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/ENTERPILOT",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": true,
+        "database_types": [
+          "Redis",
+          "PostgreSQL",
+          "MongoDB"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ENTERPILOT/GoModel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ENTERPILOT/GoModel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/8c81d6fea135cf657712d1939d4ab5deabb0e40590c9c97805e2fcb8768916fb/ENTERPILOT/GoModel",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/ENTERPILOT/GoModel",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/ENTERPILOT/GoModel",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ENTERPILOT/GoModel/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ENTERPILOT/GoModel/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ENTERPILOT/GoModel/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ENTERPILOT/GoModel/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/ENTERPILOT/GoModel",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/ENTERPILOT/GoModel",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/ENTERPILOT/GoModel",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ENTERPILOT/GoModel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ENTERPILOT/GoModel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ENTERPILOT/GoModel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ENTERPILOT/GoModel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ENTERPILOT/GoModel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ENTERPILOT/GoModel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ENTERPILOT/GoModel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ENTERPILOT/GoModel/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "dc949b78-e80e-42ca-ba04-86909e2edaf6",
+      "decision": "publish",
+      "project": {
+        "slug": "revert",
+        "name": "Revert",
+        "summary": "Connects applications to third-party APIs through a unified integration service.",
+        "icon_url": "/app-icons/revert.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/revertinc/revert",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/revertinc/revert",
+        "docker_url": "https://github.com/revertinc/revert",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-only",
+        "source_model": "open_source",
+        "publisher_name": "revertinc",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/revertinc",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "automation",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/revertinc/revert/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/revertinc/revert/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/5081eb7619ef173a2b612aa87e72b10dd1e9e0c5d8ffeedae0196de0014ebe68/revertinc/revert",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/revertinc/revert",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/revertinc/revert",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/revertinc/revert/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/revertinc/revert/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/revertinc/revert/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/revertinc/revert/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/revertinc/revert",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/revertinc/revert",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/revertinc/revert",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/revertinc/revert/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/revertinc/revert/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/revertinc/revert/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/revertinc/revert/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/revertinc/revert/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/revertinc/revert/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/revertinc/revert/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "3cdc6b86-a8f3-457b-9b2f-5503d5c914c9",
+      "decision": "publish",
+      "project": {
+        "slug": "traceway",
+        "name": "Traceway",
+        "summary": "Collects OpenTelemetry traces, metrics, and logs for application debugging.",
+        "icon_url": "/app-icons/traceway.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/tracewayapp/traceway",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/tracewayapp/traceway",
+        "docker_url": "https://github.com/tracewayapp/traceway",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "tracewayapp",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/tracewayapp",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "monitoring-status",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tracewayapp/traceway/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tracewayapp/traceway/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/6a63d588a098ec90b9fc461f906fc3202a2b3e2041a7eafd945a333873c5d82a/tracewayapp/traceway",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/tracewayapp/traceway",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/tracewayapp/traceway",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tracewayapp/traceway/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tracewayapp/traceway/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tracewayapp/traceway/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tracewayapp/traceway/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/tracewayapp/traceway",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/tracewayapp/traceway",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/tracewayapp/traceway",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tracewayapp/traceway/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tracewayapp/traceway/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tracewayapp/traceway/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tracewayapp/traceway/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tracewayapp/traceway/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tracewayapp/traceway/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tracewayapp/traceway/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "1e2cfb39-200c-454d-9808-4c28fbe706c5",
+      "decision": "publish",
+      "project": {
+        "slug": "codiff",
+        "name": "Codiff",
+        "summary": "Shows code changes in a focused desktop diff viewer.",
+        "icon_url": "/app-icons/codiff.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/nkzw-tech/codiff",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "nkzw-tech",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/nkzw-tech",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop"
+        ],
+        "categories": [
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/nkzw-tech/codiff/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/nkzw-tech/codiff/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/be702f6463ff9330c1c5a544dcfb219fc0450c35762db0eecdd0cce981891b2e/nkzw-tech/codiff",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:05:26.439Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/nkzw-tech/codiff",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/nkzw-tech/codiff",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/nkzw-tech/codiff/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/nkzw-tech/codiff/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/nkzw-tech/codiff/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/nkzw-tech/codiff/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/nkzw-tech/codiff",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/nkzw-tech/codiff",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://raw.githubusercontent.com/nkzw-tech/codiff/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/nkzw-tech/codiff/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/nkzw-tech/codiff/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/nkzw-tech/codiff/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:05:26.439Z"
+        }
+      ]
+    }
+  ]
+}

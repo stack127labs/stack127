@@ -1,0 +1,3047 @@
+{
+  "reviewed_at": "2026-07-19T09:27:49.521Z",
+  "records": [
+    {
+      "candidate_id": "ef1848cc-0963-444b-b2e0-07f4c4846f11",
+      "decision": "publish",
+      "project": {
+        "slug": "unleash",
+        "name": "Unleash",
+        "summary": "Controls feature rollouts with flags, targeting rules, variants, gradual releases, and SDKs for application runtimes.",
+        "icon_url": "/app-icons/unleash.png",
+        "website_url": "https://www.getunleash.io",
+        "source_code_url": "https://github.com/Unleash/unleash",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://docs.getunleash.io/deploy/getting-started",
+        "docker_url": null,
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "Unleash",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/Unleash",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "PostgreSQL"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "developer-tools",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "24594933",
+        "source_full_name": "Unleash/unleash",
+        "source_stars": 13674,
+        "source_forks": 876,
+        "source_watchers": 72,
+        "source_open_issues": 62,
+        "source_primary_language": "TypeScript",
+        "source_languages": {
+          "TypeScript": 14209663,
+          "JavaScript": 335038,
+          "Mustache": 80629,
+          "Shell": 8996,
+          "SCSS": 6001,
+          "Makefile": 5529,
+          "CSS": 2760,
+          "HTML": 2285,
+          "Dockerfile": 974,
+          "HCL": 247
+        },
+        "source_topics": [
+          "activation-strategies",
+          "collaboration",
+          "continuous-delivery",
+          "continuous-deployment",
+          "devops",
+          "devtool",
+          "experiments",
+          "feature",
+          "feature-flags",
+          "feature-toggle",
+          "feature-toggles",
+          "feature-toggling",
+          "hacktoberfest",
+          "integration",
+          "platform-engineering",
+          "sdk",
+          "toggles",
+          "unleash",
+          "variants"
+        ],
+        "source_created_at": "2014-09-29T12:50:46Z",
+        "source_updated_at": "2026-07-18T16:53:00Z",
+        "source_pushed_at": "2026-07-17T15:45:29Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 309632,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v8.0.3",
+        "source_latest_release_at": "2026-07-10T09:32:55Z",
+        "source_last_commit_at": "2026-07-17T09:56:29Z",
+        "source_checked_at": "2026-07-19T09:00:09.017Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.512Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/unleash",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.519Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/Unleash/unleash/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/Unleash/unleash/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/Unleash/unleash/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://docs.getunleash.io/deploy/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/Unleash/unleash/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.getunleash.io/deploy/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://docs.getunleash.io/deploy/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_repository",
+          "source_url": "https://docs.getunleash.io/deploy/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_repository",
+          "source_url": "https://docs.getunleash.io/deploy/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_repository",
+          "source_url": "https://docs.getunleash.io/deploy/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.519Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Unleash/unleash",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "e711dfa5-faf7-4fab-8216-cf2ccf1d301e",
+      "decision": "publish",
+      "project": {
+        "slug": "openreplay",
+        "name": "OpenReplay",
+        "summary": "Records browser sessions and connects replays with product analytics, errors, performance data, and developer tools.",
+        "icon_url": "/app-icons/openreplay.png",
+        "website_url": "https://openreplay.com",
+        "source_code_url": "https://github.com/openreplay/openreplay",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://docs.openreplay.com/en/deployment/deploy-docker",
+        "docker_url": null,
+        "license": "AGPL-3.0 core; commercial enterprise modules",
+        "license_type": "mixed",
+        "license_spdx_id": null,
+        "source_model": "open_source",
+        "publisher_name": "openreplay",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/openreplay",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "monitoring-status",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "362806180",
+        "source_full_name": "openreplay/openreplay",
+        "source_stars": 12245,
+        "source_forks": 761,
+        "source_watchers": 83,
+        "source_open_issues": 173,
+        "source_primary_language": "TypeScript",
+        "source_languages": {
+          "TypeScript": 7257170,
+          "Go": 1599820,
+          "Python": 1372569,
+          "JavaScript": 940137,
+          "PLpgSQL": 506577,
+          "HTML": 349483,
+          "Jupyter Notebook": 296069,
+          "CSS": 264979,
+          "Shell": 164208,
+          "Mustache": 146188,
+          "Go Template": 95124,
+          "Cython": 94356,
+          "Makefile": 22177,
+          "Ruby": 22005,
+          "Dockerfile": 20870,
+          "Kotlin": 17160,
+          "Swift": 11009,
+          "Objective-C": 4550,
+          "Nix": 1713,
+          "Objective-C++": 810,
+          "C": 103
+        },
+        "source_topics": [
+          "analytics",
+          "angular",
+          "devtools",
+          "feature-flags",
+          "ios",
+          "javascript",
+          "nextjs",
+          "product-analytics",
+          "react",
+          "react-native",
+          "real-user-monitoring",
+          "session-replay",
+          "svelte",
+          "typescript",
+          "vue",
+          "web-vitals"
+        ],
+        "source_created_at": "2021-04-29T12:15:50Z",
+        "source_updated_at": "2026-07-19T07:37:47Z",
+        "source_pushed_at": "2026-07-17T14:55:01Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 215338,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v1.27.0",
+        "source_latest_release_at": "2026-05-05T15:16:26Z",
+        "source_last_commit_at": "2026-07-17T14:54:37Z",
+        "source_checked_at": "2026-07-19T09:00:11.070Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/openreplay",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://github.com/openreplay/openreplay/blob/main/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://github.com/openreplay/openreplay/blob/main/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://github.com/openreplay/openreplay/blob/main/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://docs.openreplay.com/en/deployment/deploy-docker",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.openreplay.com/en/deployment/deploy-docker",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://docs.openreplay.com/en/deployment/deploy-docker",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_repository",
+          "source_url": "https://docs.openreplay.com/en/deployment/deploy-docker",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/openreplay/openreplay",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "a39ba1e0-f843-47d0-85c1-33ce367f8dbb",
+      "decision": "publish",
+      "project": {
+        "slug": "ory",
+        "name": "Ory",
+        "summary": "Provides headless user registration, sign-in, account recovery, verification, passkeys, and multi-factor authentication.",
+        "icon_url": "/app-icons/ory.png",
+        "website_url": "https://www.ory.com/?utm_source=github&utm_medium=banner&utm_campaign=kratos",
+        "source_code_url": "https://github.com/ory/kratos",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://www.ory.com/docs/kratos/guides/deploy-kratos-example",
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "ory",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/ory",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "identity-access"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "135321861",
+        "source_full_name": "ory/kratos",
+        "source_stars": 13770,
+        "source_forks": 1167,
+        "source_watchers": 112,
+        "source_open_issues": 218,
+        "source_primary_language": "Go",
+        "source_languages": {
+          "Go": 6310669,
+          "TypeScript": 538902,
+          "Shell": 32828,
+          "JavaScript": 16514,
+          "Makefile": 11764,
+          "Jsonnet": 8222,
+          "Go Template": 7232,
+          "Mermaid": 1878,
+          "HTML": 1168,
+          "Dockerfile": 683,
+          "PLpgSQL": 30
+        },
+        "source_topics": [
+          "hacktoberfest",
+          "identity",
+          "identity-management",
+          "login",
+          "profile-management",
+          "registration",
+          "user",
+          "user-management",
+          "user-profile",
+          "user-profiles",
+          "users"
+        ],
+        "source_created_at": "2018-05-29T16:09:37Z",
+        "source_updated_at": "2026-07-19T08:08:33Z",
+        "source_pushed_at": "2026-07-19T01:06:02Z",
+        "source_default_branch": "master",
+        "source_repo_size_kb": 97689,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v26.2.0",
+        "source_latest_release_at": "2026-03-20T14:10:32Z",
+        "source_last_commit_at": "2026-07-19T01:06:01Z",
+        "source_checked_at": "2026-07-19T09:00:13.166Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/ory",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/ory/kratos/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/ory/kratos/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/ory/kratos/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://www.ory.com/docs/kratos/guides/deploy-kratos-example",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/ory/kratos/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://www.ory.com/docs/kratos/guides/deploy-kratos-example",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://www.ory.com/docs/kratos/guides/deploy-kratos-example",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_repository",
+          "source_url": "https://www.ory.com/docs/kratos/guides/deploy-kratos-example",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ory/kratos",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "3819c153-bb9f-46d0-8791-6ddb8c03bf47",
+      "decision": "publish",
+      "project": {
+        "slug": "keep",
+        "name": "Keep",
+        "summary": "Centralizes alerts from monitoring tools and adds correlation, enrichment, incident workflows, and automation.",
+        "icon_url": "/app-icons/keep.png",
+        "website_url": "https://keephq.dev",
+        "source_code_url": "https://github.com/keephq/keep",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://docs.keephq.dev/deployment/docker",
+        "docker_url": null,
+        "license": "MIT core; commercial enterprise modules",
+        "license_type": "mixed",
+        "license_spdx_id": null,
+        "source_model": "open_source",
+        "publisher_name": "keephq",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/keephq",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "monitoring-status",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "597502256",
+        "source_full_name": "keephq/keep",
+        "source_stars": 12073,
+        "source_forks": 1439,
+        "source_watchers": 43,
+        "source_open_issues": 539,
+        "source_primary_language": "Python",
+        "source_languages": {
+          "Python": 4966002,
+          "TypeScript": 2808963,
+          "JavaScript": 21956,
+          "CSS": 18497,
+          "Shell": 13634,
+          "SCSS": 5497,
+          "Mako": 551
+        },
+        "source_topics": [
+          "aiops",
+          "alarm",
+          "alarms",
+          "alerting",
+          "alerts",
+          "monitoring",
+          "monitoring-tool",
+          "python",
+          "python3",
+          "workflow-automation"
+        ],
+        "source_created_at": "2023-02-04T18:43:27Z",
+        "source_updated_at": "2026-07-19T06:52:27Z",
+        "source_pushed_at": "2026-07-19T06:52:04Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 90306,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v0.54.2",
+        "source_latest_release_at": "2026-07-13T15:12:41Z",
+        "source_last_commit_at": "2026-07-19T06:52:04Z",
+        "source_checked_at": "2026-07-19T09:00:14.147Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/keep",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://github.com/keephq/keep/blob/main/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://github.com/keephq/keep/blob/main/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://github.com/keephq/keep/blob/main/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://docs.keephq.dev/deployment/docker",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.keephq.dev/deployment/docker",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://docs.keephq.dev/deployment/docker",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_repository",
+          "source_url": "https://docs.keephq.dev/deployment/docker",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/keephq/keep",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "e307e683-da03-4650-a13e-4a2f344f351f",
+      "decision": "publish",
+      "project": {
+        "slug": "convex",
+        "name": "Convex",
+        "summary": "Runs a reactive application backend with a database, server functions, scheduled jobs, file storage, and realtime clients.",
+        "icon_url": "/app-icons/convex.png",
+        "website_url": "https://docs.convex.dev",
+        "source_code_url": "https://github.com/get-convex/convex-backend",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/get-convex/convex-backend/tree/main/self-hosted",
+        "docker_url": null,
+        "license": "FSL-1.1-Apache-2.0",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "publisher_name": "get-convex",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/get-convex",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "databases",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "769023213",
+        "source_full_name": "get-convex/convex-backend",
+        "source_stars": 12188,
+        "source_forks": 776,
+        "source_watchers": 46,
+        "source_open_issues": 191,
+        "source_primary_language": "TypeScript",
+        "source_languages": {
+          "TypeScript": 7991212,
+          "Rust": 7854151,
+          "MDX": 1292766,
+          "JavaScript": 608930,
+          "CSS": 200749,
+          "HTML": 19457,
+          "Python": 17613,
+          "Shell": 12462,
+          "Vue": 11563,
+          "Just": 5948,
+          "Svelte": 685
+        },
+        "source_topics": [
+          "backend",
+          "convex",
+          "database",
+          "rust",
+          "typescript"
+        ],
+        "source_created_at": "2024-03-08T07:23:15Z",
+        "source_updated_at": "2026-07-19T07:55:23Z",
+        "source_pushed_at": "2026-07-18T23:17:59Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 166090,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "precompiled-2026-07-17-99b7d19",
+        "source_latest_release_at": "2026-07-17T02:00:50Z",
+        "source_last_commit_at": "2026-07-18T23:17:58Z",
+        "source_checked_at": "2026-07-19T09:00:15.816Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/convex",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://github.com/get-convex/convex-backend/blob/main/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://github.com/get-convex/convex-backend/blob/main/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://github.com/get-convex/convex-backend/blob/main/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/get-convex/convex-backend/tree/main/self-hosted",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/get-convex/convex-backend/tree/main/self-hosted",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://github.com/get-convex/convex-backend/tree/main/self-hosted",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_repository",
+          "source_url": "https://github.com/get-convex/convex-backend/tree/main/self-hosted",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/get-convex/convex-backend",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "954ca852-f0ca-4a3e-80f3-0743c2eca03c",
+      "decision": "publish",
+      "project": {
+        "slug": "supertokens",
+        "name": "SuperTokens",
+        "summary": "Adds password, social, passwordless, and multi-factor authentication through a self-managed auth service and frontend SDKs.",
+        "icon_url": "/app-icons/supertokens.png",
+        "website_url": "https://supertokens.com",
+        "source_code_url": "https://github.com/supertokens/supertokens-core",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://supertokens.com/docs/deployment/self-host-supertokens",
+        "docker_url": null,
+        "license": "Apache-2.0 core; commercial enterprise modules",
+        "license_type": "mixed",
+        "license_spdx_id": null,
+        "source_model": "open_source",
+        "publisher_name": "supertokens",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/supertokens",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "PostgreSQL"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "identity-access"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "231921809",
+        "source_full_name": "supertokens/supertokens-core",
+        "source_stars": 15209,
+        "source_forks": 724,
+        "source_watchers": 93,
+        "source_open_issues": 140,
+        "source_primary_language": "Java",
+        "source_languages": {
+          "Java": 9114310,
+          "JavaScript": 100913,
+          "TypeScript": 94416,
+          "Shell": 17226,
+          "CSS": 2340,
+          "Dockerfile": 2258,
+          "HTML": 1679,
+          "Batchfile": 534
+        },
+        "source_topics": [
+          "auth0",
+          "authentication",
+          "aws-cognito",
+          "email-password",
+          "email-password-login",
+          "firebase-auth",
+          "hacktoberfest",
+          "java",
+          "keycloak",
+          "login",
+          "oauth",
+          "password",
+          "passwordless",
+          "passwordless-authentication",
+          "passwordless-login",
+          "session-management",
+          "signin",
+          "social-login",
+          "supertokens"
+        ],
+        "source_created_at": "2020-01-05T13:30:52Z",
+        "source_updated_at": "2026-07-19T00:11:58Z",
+        "source_pushed_at": "2026-07-17T09:46:57Z",
+        "source_default_branch": "master",
+        "source_repo_size_kb": 462476,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v12.0.7",
+        "source_latest_release_at": "2026-07-17T09:47:58Z",
+        "source_last_commit_at": "2026-07-17T06:46:35Z",
+        "source_checked_at": "2026-07-19T09:00:17.152Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/supertokens",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://github.com/supertokens/supertokens-core/blob/master/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://github.com/supertokens/supertokens-core/blob/master/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://github.com/supertokens/supertokens-core/blob/master/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://supertokens.com/docs/deployment/self-host-supertokens",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://supertokens.com/docs/deployment/self-host-supertokens",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://supertokens.com/docs/deployment/self-host-supertokens",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_repository",
+          "source_url": "https://supertokens.com/docs/deployment/self-host-supertokens",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_repository",
+          "source_url": "https://supertokens.com/docs/deployment/self-host-supertokens",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_repository",
+          "source_url": "https://supertokens.com/docs/deployment/self-host-supertokens",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supertokens/supertokens-core",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "402dcc3e-9452-4a2d-924c-7b1dea37e142",
+      "decision": "publish",
+      "project": {
+        "slug": "botpress",
+        "name": "Botpress",
+        "summary": "Provides TypeScript packages, integrations, and developer tooling for building and extending Botpress agents.",
+        "icon_url": "/app-icons/botpress.png",
+        "website_url": "https://botpress.com",
+        "source_code_url": "https://github.com/botpress/botpress",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "botpress",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/botpress",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "api",
+          "developer library"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "73964895",
+        "source_full_name": "botpress/botpress",
+        "source_stars": 14795,
+        "source_forks": 2282,
+        "source_watchers": 241,
+        "source_open_issues": 24,
+        "source_primary_language": "TypeScript",
+        "source_languages": {
+          "TypeScript": 8690993,
+          "JavaScript": 29776,
+          "Shell": 1651,
+          "Dockerfile": 1557,
+          "Starlark": 298
+        },
+        "source_topics": [
+          "agent",
+          "ai",
+          "botpress",
+          "chatbot",
+          "chatgpt",
+          "gpt",
+          "gpt-4",
+          "langchain",
+          "llm",
+          "nlp",
+          "openai",
+          "prompt"
+        ],
+        "source_created_at": "2016-11-16T21:57:59Z",
+        "source_updated_at": "2026-07-19T01:50:04Z",
+        "source_pushed_at": "2026-07-17T17:59:35Z",
+        "source_default_branch": "master",
+        "source_repo_size_kb": 322584,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v12.30.9",
+        "source_latest_release_at": "2023-06-22T19:23:10Z",
+        "source_last_commit_at": "2026-07-17T17:46:44Z",
+        "source_checked_at": "2026-07-19T09:00:18.256Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/botpress",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/botpress/botpress/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/botpress/botpress/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/botpress/botpress/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/botpress/botpress/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/botpress/botpress",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "e3289e2f-2b6c-4d40-8ea8-1d1b0c2d16ea",
+      "decision": "publish",
+      "project": {
+        "slug": "weaviate",
+        "name": "Weaviate",
+        "summary": "Stores objects and vectors for semantic search, hybrid search, retrieval, classification, and generative AI applications.",
+        "icon_url": "/app-icons/weaviate.png",
+        "website_url": "https://weaviate.io/developers/weaviate/",
+        "source_code_url": "https://github.com/weaviate/weaviate",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://docs.weaviate.io/deploy/installation-guides/docker-installation",
+        "docker_url": null,
+        "license": "BSD-3-Clause",
+        "license_type": "permissive",
+        "license_spdx_id": "BSD-3-Clause",
+        "source_model": "open_source",
+        "publisher_name": "weaviate",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/weaviate",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "api"
+        ],
+        "categories": [
+          "databases",
+          "search",
+          "ai-ml"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "55072677",
+        "source_full_name": "weaviate/weaviate",
+        "source_stars": 16614,
+        "source_forks": 1352,
+        "source_watchers": 138,
+        "source_open_issues": 625,
+        "source_primary_language": "Go",
+        "source_languages": {
+          "Go": 32611952,
+          "Python": 687433,
+          "Assembly": 254490,
+          "Shell": 192893,
+          "C": 77742,
+          "JavaScript": 15524,
+          "HTML": 6852,
+          "CSS": 6210,
+          "Makefile": 4576,
+          "Jinja": 3163,
+          "Dockerfile": 2999,
+          "Go Template": 1338,
+          "HCL": 558
+        },
+        "source_topics": [
+          "approximate-nearest-neighbor-search",
+          "generative-search",
+          "grpc",
+          "hnsw",
+          "hybrid-search",
+          "image-search",
+          "information-retrieval",
+          "mlops",
+          "nearest-neighbor-search",
+          "neural-search",
+          "recommender-system",
+          "search-engine",
+          "semantic-search",
+          "semantic-search-engine",
+          "similarity-search",
+          "vector-database",
+          "vector-search",
+          "vector-search-engine",
+          "vectors",
+          "weaviate"
+        ],
+        "source_created_at": "2016-03-30T15:03:17Z",
+        "source_updated_at": "2026-07-19T08:16:08Z",
+        "source_pushed_at": "2026-07-18T21:52:23Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 1089091,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v1.38.5",
+        "source_latest_release_at": "2026-07-16T18:45:15Z",
+        "source_last_commit_at": "2026-07-17T14:56:08Z",
+        "source_checked_at": "2026-07-19T09:00:19.599Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/weaviate",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.520Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://docs.weaviate.io/deploy/installation-guides/docker-installation",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.weaviate.io/deploy/installation-guides/docker-installation",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://docs.weaviate.io/deploy/installation-guides/docker-installation",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_repository",
+          "source_url": "https://docs.weaviate.io/deploy/installation-guides/docker-installation",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/weaviate/weaviate",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.520Z"
+        }
+      ]
+    }
+  ]
+}

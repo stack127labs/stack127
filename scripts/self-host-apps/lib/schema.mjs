@@ -8,6 +8,7 @@ export const enumValues = {
   maintenance_status: ["active", "slow", "stale", "archived", "unknown"],
   publisher_type: ["company", "foundation", "community", "individual", "unknown"],
   self_hosting_status: ["self_hostable", "not_self_hostable", "unknown"],
+  source_model: ["open_source", "source_available", "unknown"],
   storage_profile: ["tiny", "low", "medium", "high", "depends", "unknown"],
   confidence: ["high", "medium", "low", "unknown"],
 };
@@ -26,6 +27,7 @@ export const projectColumnTypes = {
   license: "text",
   license_type: "public.open_project_license_type",
   license_spdx_id: "text",
+  source_model: "public.open_project_source_model",
   publisher_name: "text",
   publisher_type: "text",
   publisher_url: "text",
@@ -54,6 +56,28 @@ export const projectColumnTypes = {
   github_disabled: "boolean",
   github_is_fork: "boolean",
   github_is_template: "boolean",
+  source_repo_id: "text",
+  source_full_name: "text",
+  source_stars: "integer",
+  source_forks: "integer",
+  source_watchers: "integer",
+  source_open_issues: "integer",
+  source_primary_language: "text",
+  source_languages: "jsonb",
+  source_topics: "text[]",
+  source_created_at: "timestamptz",
+  source_updated_at: "timestamptz",
+  source_pushed_at: "timestamptz",
+  source_default_branch: "text",
+  source_repo_size_kb: "bigint",
+  source_archived: "boolean",
+  source_disabled: "boolean",
+  source_is_fork: "boolean",
+  source_is_template: "boolean",
+  source_latest_release: "text",
+  source_latest_release_at: "timestamptz",
+  source_last_commit_at: "timestamptz",
+  source_checked_at: "timestamptz",
   github_latest_release: "text",
   github_latest_release_at: "timestamptz",
   github_last_commit_at: "timestamptz",
@@ -70,8 +94,8 @@ export const projectColumnTypes = {
 };
 
 export const projectColumns = Object.keys(projectColumnTypes);
-export const projectArrayColumns = new Set(["database_types", "github_topics", "surfaces"]);
-export const projectJsonColumns = new Set(["github_languages"]);
+export const projectArrayColumns = new Set(["database_types", "github_topics", "source_topics", "surfaces"]);
+export const projectJsonColumns = new Set(["github_languages", "source_languages"]);
 export const projectRecordsetColumns = projectColumns.map((column) => `${column} ${projectColumnTypes[column]}`);
 
 export function projectSqlValue(column, index) {
@@ -137,11 +161,12 @@ export function normalizeRecord(input) {
     license: input.license ?? null,
     license_type: input.license_type ?? "unknown",
     license_spdx_id: input.license_spdx_id ?? github.license_spdx_id ?? null,
+    source_model: input.source_model ?? "unknown",
     publisher_name: input.publisher_name ?? null,
     publisher_type: input.publisher_type ?? "unknown",
     publisher_url: input.publisher_url ?? null,
     published: Boolean(input.published),
-    self_hosting_status: input.self_hosting_status ?? deployment.self_hosting_status ?? "self_hostable",
+    self_hosting_status: input.self_hosting_status ?? deployment.self_hosting_status ?? "unknown",
     maintenance_status: input.maintenance_status ?? maintenance.maintenance_status ?? "unknown",
     github_owner: input.github_owner ?? github.owner ?? null,
     github_repo: input.github_repo ?? github.repo ?? null,
@@ -165,6 +190,28 @@ export function normalizeRecord(input) {
     github_disabled: input.github_disabled ?? github.disabled ?? null,
     github_is_fork: input.github_is_fork ?? github.is_fork ?? null,
     github_is_template: input.github_is_template ?? github.is_template ?? null,
+    source_repo_id: input.source_repo_id ?? input.github_repo_id ?? github.repo_id ?? null,
+    source_full_name: input.source_full_name ?? input.github_full_name ?? github.full_name ?? null,
+    source_stars: input.source_stars ?? input.github_stars ?? github.stars ?? null,
+    source_forks: input.source_forks ?? input.github_forks ?? github.forks ?? null,
+    source_watchers: input.source_watchers ?? input.github_watchers ?? github.watchers ?? null,
+    source_open_issues: input.source_open_issues ?? input.github_open_issues ?? github.open_issues ?? null,
+    source_primary_language: input.source_primary_language ?? input.github_primary_language ?? github.primary_language ?? null,
+    source_languages: input.source_languages ?? input.github_languages ?? github.languages ?? {},
+    source_topics: normalizeArray(input.source_topics ?? input.github_topics ?? github.topics),
+    source_created_at: input.source_created_at ?? input.github_created_at ?? github.created_at ?? null,
+    source_updated_at: input.source_updated_at ?? input.github_updated_at ?? github.updated_at ?? null,
+    source_pushed_at: input.source_pushed_at ?? input.github_pushed_at ?? github.pushed_at ?? null,
+    source_default_branch: input.source_default_branch ?? input.github_default_branch ?? github.default_branch ?? null,
+    source_repo_size_kb: input.source_repo_size_kb ?? input.github_repo_size_kb ?? github.repo_size_kb ?? null,
+    source_archived: input.source_archived ?? input.github_archived ?? github.archived ?? null,
+    source_disabled: input.source_disabled ?? input.github_disabled ?? github.disabled ?? null,
+    source_is_fork: input.source_is_fork ?? input.github_is_fork ?? github.is_fork ?? null,
+    source_is_template: input.source_is_template ?? input.github_is_template ?? github.is_template ?? null,
+    source_latest_release: input.source_latest_release ?? input.github_latest_release ?? github.latest_release ?? null,
+    source_latest_release_at: input.source_latest_release_at ?? input.github_latest_release_at ?? github.latest_release_at ?? null,
+    source_last_commit_at: input.source_last_commit_at ?? input.github_last_commit_at ?? github.last_commit_at ?? null,
+    source_checked_at: input.source_checked_at ?? input.github_checked_at ?? github.checked_at ?? null,
     github_latest_release: input.github_latest_release ?? github.latest_release ?? null,
     github_latest_release_at: input.github_latest_release_at ?? github.latest_release_at ?? null,
     github_last_commit_at: input.github_last_commit_at ?? github.last_commit_at ?? null,
@@ -220,6 +267,7 @@ export function validateRecord(input, { draft = false } = {}) {
   validateEnum(record.publisher_type, "publisher_type", enumValues.publisher_type, errors);
   validateEnum(record.self_hosting_status, "self_hosting_status", enumValues.self_hosting_status, errors);
   validateEnum(record.license_type, "license_type", enumValues.license_type, errors);
+  validateEnum(record.source_model, "source_model", enumValues.source_model, errors);
   validateEnum(record.maintenance_status, "maintenance_status", enumValues.maintenance_status, errors);
   validateEnum(record.docker_support, "docker_support", enumValues.docker_support, errors);
   validateEnum(record.storage_profile, "storage_profile", enumValues.storage_profile, errors);

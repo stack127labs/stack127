@@ -1,0 +1,61 @@
+# Candidate review format
+
+Use one record per claimed candidate:
+
+```json
+{
+  "records": [
+    {
+      "candidate_id": "candidate-uuid",
+      "decision": "publish",
+      "project": {
+        "slug": "example",
+        "name": "Example",
+        "summary": "Direct sentence explaining what the project helps a user do.",
+        "icon_url": "/app-icons/example.png",
+        "website_url": "https://example.org",
+        "source_code_url": "https://github.com/example/example",
+        "source_code_host": "github",
+        "install_docs_url": "https://example.org/docs/install",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "publisher_type": "unknown",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [],
+        "categories": ["developer-tools"],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://example.org",
+          "confidence": "high",
+          "note": "Written from the verified product purpose."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://example.org",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
+}
+```
+
+Add one field-source entry for every populated link, classification, license, icon, source metadata value, and known technical fact. Empty arrays, `null`, and `unknown` do not need invented evidence.
+
+For a confirmed name match, set `project_id` to the existing project UUID. For `duplicate`, `reject`, or `needs_review`, omit `project` and include the required project ID or reason.

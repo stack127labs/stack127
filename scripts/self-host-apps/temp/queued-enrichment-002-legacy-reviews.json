@@ -1,0 +1,320 @@
+{
+  "reviewed_at": "2026-07-19T09:50:01.338Z",
+  "records": [
+    {
+      "candidate_id": "8a4f5165-ade1-4f22-8f1e-6f38c7d8b144",
+      "decision": "reject",
+      "reason": "Official product is distributed under a commercial license; no public project source was verified."
+    },
+    {
+      "candidate_id": "d35df9da-a365-43cd-be48-422f2968bb57",
+      "decision": "reject",
+      "reason": "Official product is proprietary; no public project source was verified."
+    },
+    {
+      "candidate_id": "64c8e4c3-25b0-4afe-a3c4-1554cfc3a7a7",
+      "decision": "reject",
+      "reason": "Official product is proprietary; no public project source was verified."
+    },
+    {
+      "candidate_id": "c9366fad-c3ba-463c-8cc1-10c3ae8edea8",
+      "decision": "reject",
+      "reason": "Official server product is proprietary; no public project source was verified."
+    },
+    {
+      "candidate_id": "dc1ebc2d-0c97-4fe2-87b1-bb24353f1b6c",
+      "decision": "reject",
+      "reason": "Official mail server image is proprietary freeware; no public project source was verified."
+    },
+    {
+      "candidate_id": "c9e776bd-33c8-4cbf-9d69-d55231784145",
+      "decision": "reject",
+      "reason": "Official product is proprietary; no public project source was verified."
+    },
+    {
+      "candidate_id": "58bc14e4-e509-448d-81a8-ce76a89010b2",
+      "decision": "reject",
+      "reason": "Invalid test listing with a nonexistent placeholder repository."
+    },
+    {
+      "candidate_id": "4a574cab-6d5d-4670-aa7d-bbfa5c227e14",
+      "decision": "reject",
+      "reason": "Invalid test listing with a nonexistent placeholder repository."
+    },
+    {
+      "candidate_id": "0755597c-079b-41a7-bf9a-34d943b52dfc",
+      "decision": "reject",
+      "reason": "Official help-desk product is commercially licensed; no public project source was verified."
+    },
+    {
+      "candidate_id": "1faff9ac-153c-4e58-8261-2d6957851ca0",
+      "decision": "reject",
+      "reason": "Official product is proprietary; no public project source was verified."
+    },
+    {
+      "candidate_id": "da8665ab-758d-407f-85c6-02e3b4ed5d3b",
+      "decision": "reject",
+      "reason": "Atlassian Crucible is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "0885f6cb-1be0-4317-ab4e-681189048498",
+      "decision": "reject",
+      "reason": "The on-premise reporting product is distributed under commercial licensing; no public project source was verified."
+    },
+    {
+      "candidate_id": "3c01e34f-8623-419c-b17b-95cf554cc7e5",
+      "decision": "reject",
+      "reason": "Severalnines ClusterControl is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "8072d922-7936-4e6d-af2a-f5aef61a39c0",
+      "decision": "reject",
+      "reason": "Atlassian Bamboo is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "6a7d520e-71d3-4b37-86a9-ff1f2075df87",
+      "decision": "reject",
+      "reason": "3CX is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "9fef5cac-dd39-40dc-a877-50611674004a",
+      "decision": "reject",
+      "reason": "Channels DVR Server is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "ba1de1c1-a714-472f-b7fe-09d5c8376d24",
+      "decision": "reject",
+      "reason": "Atlassian Bitbucket Server/Data Center is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "0347c297-e6b4-4d09-b2c5-7e60faea7720",
+      "decision": "reject",
+      "reason": "ActiveCollab is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "454d3ba5-966f-4e2e-8208-e8145dfc4610",
+      "decision": "reject",
+      "reason": "Axigen Mail Server is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "cea74ee9-7a1e-44fa-93eb-b02d26505ff7",
+      "decision": "reject",
+      "reason": "BrowserStack Automate TurboScale is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "439c372f-3101-4681-bdd4-9f0ac7d7115e",
+      "decision": "reject",
+      "reason": "Ubooquity is distributed as proprietary freeware; no public project source was verified."
+    },
+    {
+      "candidate_id": "f3a7d0ea-c4c9-4105-92c5-af37d5e65905",
+      "decision": "reject",
+      "reason": "Resilio Sync is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "cb2952d7-e78b-4e94-9d58-167b78e277e4",
+      "decision": "reject",
+      "reason": "Reservo is a commercially licensed PHP product; no public project source was verified."
+    },
+    {
+      "candidate_id": "32a49516-371c-475c-8022-466b42aa08eb",
+      "decision": "reject",
+      "reason": "Pancake is commercially licensed; no public project source was verified."
+    },
+    {
+      "candidate_id": "cadd2e3b-4195-4703-aadb-632b9c2e51e0",
+      "decision": "reject",
+      "reason": "SupportPal is proprietary commercial software; no public project source is available."
+    },
+    {
+      "candidate_id": "a0769066-e232-410a-a5fa-a7af9aae0fcf",
+      "decision": "reject",
+      "reason": "Aerokube Moon's license states that product source code is not provided."
+    },
+    {
+      "candidate_id": "8e4259ec-fcaf-407d-af69-ab9157c45085",
+      "decision": "reject",
+      "reason": "Current Subsonic server releases are proprietary; the historical open-source code does not represent the current product."
+    },
+    {
+      "candidate_id": "59be8bbf-3607-485b-b06a-453ac5729547",
+      "decision": "reject",
+      "reason": "SparkView is proprietary commercial software; no public project source was verified."
+    },
+    {
+      "candidate_id": "ff190307-c853-4448-8903-ede3e553c5cd",
+      "decision": "reject",
+      "reason": "Sendy is a commercially licensed application; no public project source is available."
+    },
+    {
+      "candidate_id": "1d93c97a-1e7d-441e-bbcb-0006fac69c9b",
+      "decision": "reject",
+      "reason": "MapTiler Server is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "ad1e6cb6-e0b9-4a9f-836e-8174df438ff7",
+      "decision": "reject",
+      "reason": "ConnectWise ScreenConnect is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "24a49c66-50c8-4960-b5db-c5dbed4bdc53",
+      "decision": "reject",
+      "reason": "Kantree's self-hosted edition is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "9bf81df6-69b0-4331-ae73-e087e38f40e9",
+      "decision": "reject",
+      "reason": "Kanban Tool On-Site is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "132fa0e4-7775-45f2-a50e-46d809fabb82",
+      "decision": "reject",
+      "reason": "Jitbit Helpdesk is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "905ec1be-decf-4f9b-a761-b1f4b8b5dddb",
+      "decision": "reject",
+      "reason": "Atlassian Jira is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "a01cf802-3ed2-4c3e-ae00-4eef17c5049e",
+      "decision": "reject",
+      "reason": "Groupboard is proprietary commercial software; no public project source was verified."
+    },
+    {
+      "candidate_id": "6680c5b3-9773-40b1-816b-bd81f080c152",
+      "decision": "reject",
+      "reason": "YetiShare is a commercially licensed PHP product; no public project source is available."
+    },
+    {
+      "candidate_id": "7a01963d-0345-4b0f-88f6-1e1794e4306b",
+      "decision": "reject",
+      "reason": "Buddy Enterprise is proprietary; no public project source is available."
+    },
+    {
+      "candidate_id": "c43a7c78-a374-4c07-b92f-c5cc0b76210e",
+      "decision": "reject",
+      "reason": "Ekso distributes licensed binaries and container images, but no public application source was verified."
+    },
+    {
+      "candidate_id": "bb736ff0-2ea9-4137-b773-3177b2defcb7",
+      "decision": "needs_review",
+      "reason": "Public project source identified; requires full repository enrichment."
+    },
+    {
+      "candidate_id": "f121241b-45c1-4aae-af2a-068b2d4d57a5",
+      "decision": "needs_review",
+      "reason": "Official GPL-3.0 Mercurial repository identified; requires non-GitHub enrichment."
+    },
+    {
+      "candidate_id": "88915092-962c-4f09-8645-0facdf87f2e4",
+      "decision": "needs_review",
+      "reason": "The imported name is too ambiguous to identify the intended project safely."
+    },
+    {
+      "candidate_id": "7e0146f6-2793-4f7f-b768-b4106e7ee26d",
+      "decision": "needs_review",
+      "reason": "Public Elastic-2.0 project source identified; eligible as source available after full enrichment."
+    },
+    {
+      "candidate_id": "55fd907c-b56f-4dd1-9fba-1f2a670a3296",
+      "decision": "needs_review",
+      "reason": "Public source identified under a restrictive redistribution license; eligible as source available after full enrichment."
+    },
+    {
+      "candidate_id": "3886c523-1f16-4972-83fd-5d49c8fbcebb",
+      "decision": "needs_review",
+      "reason": "Project is now Libervia and uses a non-GitHub source forge; requires identity merge review."
+    },
+    {
+      "candidate_id": "4b554fdb-9c36-4c6c-a122-eb3d021f6557",
+      "decision": "needs_review",
+      "reason": "Public source is distributed under a restrictive EULA; eligible as source available after full enrichment."
+    },
+    {
+      "candidate_id": "8aa549da-f943-4c52-bb2c-d0ef549ee9d8",
+      "decision": "needs_review",
+      "reason": "Public server source exists under non-OSI terms; requires source-available license review."
+    },
+    {
+      "candidate_id": "df8847c2-067e-4eeb-9e3e-caf196d9a07c",
+      "decision": "needs_review",
+      "reason": "MIT repository identified; requires full repository enrichment."
+    },
+    {
+      "candidate_id": "badd1795-9dcc-42fc-8c43-cf953702f2e5",
+      "decision": "needs_review",
+      "reason": "Official GNOME source is hosted on GitLab; requires non-GitHub enrichment."
+    },
+    {
+      "candidate_id": "4de82ae7-22ed-48bb-9f7f-5abb50357fcb",
+      "decision": "needs_review",
+      "reason": "Public source repository identified; requires current license and maintenance verification."
+    },
+    {
+      "candidate_id": "fa4dce50-05e7-4ddb-a485-d572450746aa",
+      "decision": "needs_review",
+      "reason": "Public client source exists, but the source status of the self-hosted server still needs verification."
+    },
+    {
+      "candidate_id": "2f7f0b0a-b25c-410e-a2c3-3cec159baa08",
+      "decision": "needs_review",
+      "reason": "Imported listing could not be matched to a verified project identity."
+    },
+    {
+      "candidate_id": "4df2a09b-0e5e-4df2-b9ae-13e8d56f414f",
+      "decision": "needs_review",
+      "reason": "Imported listing could not be matched to a verified project identity."
+    },
+    {
+      "candidate_id": "6685bc70-d70f-483d-b6f4-07bb55185c05",
+      "decision": "needs_review",
+      "reason": "Imported listing is ambiguous and could not be matched to one verified project identity."
+    },
+    {
+      "candidate_id": "2fb92f5a-aa9e-40e0-ac86-4dcfa90fda92",
+      "decision": "needs_review",
+      "reason": "Public source repository identified; requires full repository enrichment."
+    },
+    {
+      "candidate_id": "f3fe7eea-d43c-453d-90bf-ed890cc54404",
+      "decision": "needs_review",
+      "reason": "AGPL-3.0 WebDB project repository identified; requires full repository enrichment."
+    },
+    {
+      "candidate_id": "18c8dc7f-ed9e-4f09-beed-93b7cf97441b",
+      "decision": "needs_review",
+      "reason": "Official AGPL-3.0 Codeberg project identified; requires non-GitHub enrichment."
+    },
+    {
+      "candidate_id": "0a709b85-56e5-4673-b44c-d8794b8e7fc2",
+      "decision": "needs_review",
+      "reason": "Public project identified, but the exact official repository must be confirmed."
+    },
+    {
+      "candidate_id": "f246e664-bb21-48e2-9347-c6f9a5868e39",
+      "decision": "needs_review",
+      "reason": "Official AGPL-3.0 Codeberg project identified; requires non-GitHub enrichment."
+    },
+    {
+      "candidate_id": "33ba275a-ae1c-4399-95aa-d6dc0a4f847e",
+      "decision": "needs_review",
+      "reason": "Official AGPL-3.0 Codeberg project identified; requires non-GitHub enrichment."
+    },
+    {
+      "candidate_id": "5bee88ba-34f6-4bae-b9fa-2df1a5418f3d",
+      "decision": "needs_review",
+      "reason": "Official dual MIT/Apache-2.0 repository identified; requires full repository enrichment."
+    },
+    {
+      "candidate_id": "80964cbd-0917-4c28-8589-284c63e633d7",
+      "decision": "needs_review",
+      "reason": "Official AGPL-3.0 Framagit project identified; requires non-GitHub enrichment."
+    },
+    {
+      "candidate_id": "de1326ff-fa31-4524-aafa-3031b9faf5d5",
+      "decision": "needs_review",
+      "reason": "Imported listing could not be matched to a verified project identity."
+    }
+  ]
+}

@@ -1,0 +1,1222 @@
+{
+  "reviewed_at": "2026-07-19T11:39:35.569Z",
+  "records": [
+    {
+      "candidate_id": "d23acb7b-1993-4c13-9820-7475bdd82c9f",
+      "decision": "publish",
+      "project": {
+        "slug": "bruno",
+        "name": "Bruno",
+        "summary": "Organizes and tests API requests in an offline desktop client that stores collections as plain text.",
+        "icon_url": "/app-icons/bruno.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/usebruno/bruno",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "usebruno",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/usebruno",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop",
+          "cli"
+        ],
+        "categories": [
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/usebruno/bruno",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/usebruno/bruno",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/b403b17a4bc23514bfb544e3f756046a3bef7405bdd341211e6a94463c84b477/usebruno/bruno",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/usebruno/bruno",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/usebruno/bruno",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://github.com/usebruno/bruno/blob/main/license.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://github.com/usebruno/bruno/blob/main/license.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://github.com/usebruno/bruno/blob/main/license.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://github.com/usebruno/bruno/blob/main/license.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/usebruno/bruno",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/usebruno/bruno",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://github.com/usebruno/bruno",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/usebruno/bruno",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/usebruno/bruno",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://github.com/usebruno/bruno",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "9b6d5925-3d11-4006-bbb0-bc333e0d2fb6",
+      "decision": "publish",
+      "project": {
+        "slug": "text-generation-webui",
+        "name": "Text Generation WebUI",
+        "summary": "Runs local language models through a browser interface and OpenAI-compatible API.",
+        "icon_url": "/app-icons/text-generation-webui.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/oobabooga/textgen",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://raw.githubusercontent.com/oobabooga/textgen/HEAD/README.md",
+        "docker_url": null,
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-only",
+        "source_model": "open_source",
+        "publisher_name": "oobabooga",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/oobabooga",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "ai-ml"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/oobabooga/textgen/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/oobabooga/textgen/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/d2257ba767bb0303356d82d74df1afc1d9ea5bce487783b6bc81fc8d1162354a/oobabooga/textgen",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/oobabooga/textgen",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/oobabooga/textgen",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/oobabooga/textgen/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/oobabooga/textgen/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/oobabooga/textgen/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/oobabooga/textgen/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/oobabooga/textgen",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/oobabooga/textgen",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/oobabooga/textgen/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/oobabooga/textgen/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/oobabooga/textgen/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/oobabooga/textgen/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/oobabooga/textgen/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "ee012cd8-40b4-4416-a496-e6814e8a2a77",
+      "decision": "publish",
+      "project": {
+        "slug": "aider",
+        "name": "Aider",
+        "summary": "Edits code with an AI pair programmer that works from a terminal and commits changes through Git.",
+        "icon_url": "/app-icons/aider.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/Aider-AI/aider",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "Aider-AI",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/Aider-AI",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Aider-AI/aider/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Aider-AI/aider/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/638629097/1d3d6251-f8be-4d11-bbb1-4e44b7364b74",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/Aider-AI/aider",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/Aider-AI/aider",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Aider-AI/aider/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Aider-AI/aider/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Aider-AI/aider/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Aider-AI/aider/HEAD/LICENSE.txt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/Aider-AI/aider",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/Aider-AI/aider",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/Aider-AI/aider/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Aider-AI/aider/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Aider-AI/aider/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/Aider-AI/aider/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "eaab9f3c-a5eb-4789-8de2-3c3ab7435c92",
+      "decision": "publish",
+      "project": {
+        "slug": "tldraw",
+        "name": "tldraw",
+        "summary": "Provides a React SDK for building infinite-canvas editors with optional real-time synchronization.",
+        "icon_url": "/app-icons/tldraw.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/tldraw/tldraw",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "tldraw License",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "publisher_name": "tldraw",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/tldraw",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "developer-tools",
+          "content-publishing"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tldraw/tldraw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tldraw/tldraw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/365739812/92710d91-3a08-41f4-8aaf-1037d299bd2d",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/tldraw/tldraw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/tldraw/tldraw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tldraw/tldraw/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tldraw/tldraw/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/tldraw/tldraw/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/tldraw/tldraw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/tldraw/tldraw",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tldraw/tldraw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tldraw/tldraw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/tldraw/tldraw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/tldraw/tldraw/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "23a9ddc9-0795-427a-b43f-29b5cae38899",
+      "decision": "publish",
+      "project": {
+        "slug": "goose",
+        "name": "Goose",
+        "summary": "Runs an extensible AI agent that can edit code, execute commands, and connect to external tools.",
+        "icon_url": "/app-icons/goose.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/aaif-goose/goose",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "aaif-goose",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/aaif-goose",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/aaif-goose/goose/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/aaif-goose/goose/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/0959fdb7a2f5359cd94a824f0733e47b589639224f5e30d1c86f8a214fe34b89/aaif-goose/goose",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/aaif-goose/goose",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/aaif-goose/goose",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/aaif-goose/goose/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/aaif-goose/goose/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/aaif-goose/goose/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/aaif-goose/goose/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/aaif-goose/goose",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/aaif-goose/goose",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/aaif-goose/goose/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/aaif-goose/goose/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/aaif-goose/goose/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/aaif-goose/goose/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "15670c4b-f6f5-4d80-aa4f-318d7e2fd50e",
+      "decision": "publish",
+      "project": {
+        "slug": "private-gpt",
+        "name": "PrivateGPT",
+        "summary": "Provides a private API for document ingestion, retrieval, citations, tools, and local language models.",
+        "icon_url": "/app-icons/private-gpt.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/zylon-ai/private-gpt",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://docs.privategpt.dev/getting-started/quickstart",
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "zylon-ai",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/zylon-ai",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "knowledge-notes"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/zylon-ai/private-gpt/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/zylon-ai/private-gpt/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/15cd06dca4f59abb4130c53cab0032eef5dafa10ddef2b07495ed7051b9d989d/zylon-ai/private-gpt",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/zylon-ai/private-gpt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/zylon-ai/private-gpt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/zylon-ai/private-gpt/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/zylon-ai/private-gpt/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/zylon-ai/private-gpt/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/zylon-ai/private-gpt/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/zylon-ai/private-gpt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/zylon-ai/private-gpt",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://docs.privategpt.dev/getting-started/quickstart",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/zylon-ai/private-gpt/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/zylon-ai/private-gpt/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.privategpt.dev/getting-started/quickstart",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://docs.privategpt.dev/getting-started/quickstart",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "fa9358d0-88ad-4529-a6ad-a2167b3376d7",
+      "decision": "publish",
+      "project": {
+        "slug": "context7",
+        "name": "Context7",
+        "summary": "Supplies current library documentation to coding agents through an MCP server and API.",
+        "icon_url": "/app-icons/context7.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/upstash/context7",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "upstash",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/upstash",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "cli"
+        ],
+        "categories": [
+          "developer-tools",
+          "ai-ml"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/upstash/context7/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/upstash/context7/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/e9bea289b1012f4490828fde822cf4bdb64206c595ad3bbe901a37e713f6cd77/upstash/context7",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/upstash/context7",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/upstash/context7",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/upstash/context7/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/upstash/context7/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/upstash/context7/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/upstash/context7/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/upstash/context7",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/upstash/context7",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/upstash/context7/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/upstash/context7/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/upstash/context7/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/upstash/context7/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "aad66ec4-4d0e-4de9-ab79-9609e00a9759",
+      "decision": "publish",
+      "project": {
+        "slug": "cline",
+        "name": "Cline",
+        "summary": "Runs a coding agent as an editor extension, command-line tool, or embeddable SDK.",
+        "icon_url": "/app-icons/cline.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/cline/cline",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "cline",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/cline",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/cline/cline/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/cline/cline/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/bb845288ab6d8dfd687d66cf034bd9abbb799505403b58ad9326b903c9873586/cline/cline",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/cline/cline",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/cline/cline",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/cline/cline/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/cline/cline/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/cline/cline/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/cline/cline/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/cline/cline",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/cline/cline",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/cline/cline/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/cline/cline/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/cline/cline/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/cline/cline/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    }
+  ]
+}

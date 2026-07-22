@@ -20,6 +20,7 @@ export type DirectoryApp = {
   license: string | null;
   license_type: string;
   license_spdx_id: string | null;
+  source_model: "open_source" | "source_available" | "unknown";
   publisher_name: string | null;
   publisher_type: string;
   publisher_url: string | null;
@@ -208,6 +209,7 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
         app.license,
         app.license_type,
         app.license_spdx_id,
+        app.source_model,
         app.publisher_name,
         app.publisher_type,
         app.publisher_url,
@@ -215,16 +217,19 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
         app.maintenance_status,
         app.github_owner,
         app.github_repo,
-        app.github_stars,
-        app.github_forks,
-        app.github_primary_language,
-        app.github_topics,
-        app.github_created_at,
-        app.github_pushed_at,
-        app.github_latest_release,
-        app.github_latest_release_at,
-        app.github_last_commit_at,
-        app.github_checked_at,
+        coalesce(app.source_stars, app.github_stars) as github_stars,
+        coalesce(app.source_forks, app.github_forks) as github_forks,
+        coalesce(app.source_primary_language, app.github_primary_language) as github_primary_language,
+        case
+          when cardinality(app.source_topics) > 0 then app.source_topics
+          else app.github_topics
+        end as github_topics,
+        coalesce(app.source_created_at, app.github_created_at) as github_created_at,
+        coalesce(app.source_pushed_at, app.github_pushed_at) as github_pushed_at,
+        coalesce(app.source_latest_release, app.github_latest_release) as github_latest_release,
+        coalesce(app.source_latest_release_at, app.github_latest_release_at) as github_latest_release_at,
+        coalesce(app.source_last_commit_at, app.github_last_commit_at) as github_last_commit_at,
+        coalesce(app.source_checked_at, app.github_checked_at) as github_checked_at,
         app.docker_support,
         app.compose_support,
         app.requires_database,

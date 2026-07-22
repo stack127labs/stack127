@@ -1,35 +1,30 @@
 ---
 name: version127-self-host-discovery
-description: Discover new Version127 self-host app candidates from external directories and GitHub without publishing them. Use when expanding the directory, importing selfhostedworld, OpenAlternative, selfh.st, Awesome Selfhosted, or GitHub topics, or preparing candidates for enrichment.
+description: Discover Version127 open-project candidates from GitHub, Awesome Selfhosted, selfh.st, Selfhostedworld, and OpenAlternative without publishing or assigning editorial facts.
 ---
 
 # Version127 self-host discovery
 
-Use this skill in `/Users/ravitejaknts/projects/HomeLabHQ`.
+Work in `/Users/ravitejaknts/projects/Version127`.
 
-Discovery is staging, not publication. External directories find projects; official sources decide the final facts and classification.
+Discovery writes staging evidence only. Official project sources and the enrichment skill decide final facts.
 
-## First checks
+## Run
 
-- Read `AGENTS.md`.
-- Read `version127_docs/open-projects.md`.
-- Read `content_docs/self-host-apps/data-workflow.md` and `schema.md`.
-- Check `scripts/scripts.json` and `scripts/self-host-apps/scripts.json`.
-
-## Flow
-
-1. Run one or more `self-host-apps:discover-*` commands with `--write`.
-2. Confirm the rows landed in `open_project_candidates`.
-3. Run `self-host-apps:dedupe-candidates -- --dry-run`, then write.
-4. Select 100 queued candidates with `self-host-apps:select-candidate-batch`.
-5. Hand the batch to the enrichment skill.
+1. Read `content_docs/self-host-apps/data-workflow.md` and `schema.md`.
+2. Run the relevant `self-host-apps:discover-*` command with `--write`.
+3. Confirm its `open_project_import_runs` result and candidate count.
+4. Dry-run, then apply dedupe:
+   `npm run self-host-apps:dedupe-candidates -- --dry-run`
+   `npm run self-host-apps:dedupe-candidates`
+5. Hand queued and name-review candidates to the enrichment skill.
 
 ## Rules
 
-- Keep raw summaries, categories, topics, and payloads as staging evidence.
-- Dedupe by canonical source-code URL first, then slug and homepage.
-- Treat name-only matches as weak and review them.
-- Keep `self_hosting_status` as `unknown` until official sources support a classification.
-- Never assign Version127 categories or publish projects from discovery output.
+- Keep imported summaries, categories, surfaces, and payloads as raw evidence.
+- Exact canonical source-code or homepage matches are duplicates.
+- Name-only matches are `needs_review`, never automatic duplicates.
+- Keep self-hosting status `unknown` until official evidence is checked.
+- Never assign Version127 categories or publish from discovery.
 
-Report discovered, inserted, updated, duplicate, queued, and error counts.
+Report discovered, inserted, updated, exact duplicates, name reviews, queued, and errors.

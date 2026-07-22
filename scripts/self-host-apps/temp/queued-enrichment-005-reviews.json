@@ -1,0 +1,1305 @@
+{
+  "reviewed_at": "2026-07-19T12:02:51.224Z",
+  "records": [
+    {
+      "candidate_id": "b3ca9d8f-2faa-4090-b884-4702ee474eb8",
+      "decision": "publish",
+      "project": {
+        "slug": "lobehub",
+        "name": "LobeHub",
+        "summary": "Schedules and monitors teams of AI agents that run recurring and on-demand work.",
+        "icon_url": "/app-icons/lobehub.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/lobehub/lobehub",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://lobehub.com/docs/self-hosting/start",
+        "docker_url": "https://lobehub.com/docs/self-hosting/start",
+        "license": "LobeHub Community License",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "publisher_name": "lobehub",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/lobehub",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "ai-ml",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/lobehub/lobehub/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/lobehub/lobehub/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/643445235/1978054a-0d8d-41a7-b1f0-b9ca79278534",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/lobehub/lobehub",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/lobehub/lobehub",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/lobehub/lobehub/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/lobehub/lobehub/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/lobehub/lobehub/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/lobehub/lobehub",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/lobehub/lobehub",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://lobehub.com/docs/self-hosting/start",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/lobehub/lobehub/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/lobehub/lobehub/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://lobehub.com/docs/self-hosting/start",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://lobehub.com/docs/self-hosting/start",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://lobehub.com/docs/self-hosting/start",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://lobehub.com/docs/self-hosting/start",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://lobehub.com/docs/self-hosting/start",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "495a1ac6-ef7a-48af-ad6f-4197c321bf26",
+      "decision": "publish",
+      "project": {
+        "slug": "odysseus",
+        "name": "Odysseus",
+        "summary": "Combines AI chat, agents, research, documents, notes, email, calendars, and local models in one workspace.",
+        "icon_url": "/app-icons/odysseus.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/odysseus-dev/odysseus",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/odysseus-dev/odysseus/blob/HEAD/docs/setup.md",
+        "docker_url": "https://github.com/odysseus-dev/odysseus/blob/HEAD/docker-compose.yml",
+        "license": "AGPL-3.0-or-later",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0-or-later",
+        "source_model": "open_source",
+        "publisher_name": "odysseus-dev",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/odysseus-dev",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "ai-ml",
+          "knowledge-notes"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/odysseus-dev/odysseus/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/odysseus-dev/odysseus/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/3374c7f44dbe31cab38ecabcc45c05c3e954f6521ecc3cafb1951e1b910903cc/odysseus-dev/odysseus",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/odysseus-dev/odysseus",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/odysseus-dev/odysseus",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/odysseus-dev/odysseus/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/odysseus-dev/odysseus/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/odysseus-dev/odysseus/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/odysseus-dev/odysseus/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/odysseus-dev/odysseus",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/odysseus-dev/odysseus",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://github.com/odysseus-dev/odysseus/blob/HEAD/docs/setup.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/odysseus-dev/odysseus/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/odysseus-dev/odysseus/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/odysseus-dev/odysseus/blob/HEAD/docker-compose.yml",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/odysseus-dev/odysseus/blob/HEAD/docs/setup.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://github.com/odysseus-dev/odysseus/blob/HEAD/docs/setup.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://github.com/odysseus-dev/odysseus/blob/dev/docs/setup.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://github.com/odysseus-dev/odysseus/blob/dev/docs/setup.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "fcca31aa-05b3-4e5f-b460-2732d6ca2c62",
+      "decision": "publish",
+      "project": {
+        "slug": "zed",
+        "name": "Zed",
+        "summary": "Edits code in a fast collaborative desktop editor with integrated terminals, extensions, and AI tools.",
+        "icon_url": "/app-icons/zed.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/zed-industries/zed",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "GPL-3.0-or-later with Apache-2.0 components",
+        "license_type": "mixed",
+        "license_spdx_id": null,
+        "source_model": "open_source",
+        "publisher_name": "zed-industries",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/zed-industries",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop"
+        ],
+        "categories": [
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/zed-industries/zed/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/zed-industries/zed/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/79ea2d45b5f7ab6e6d61e3722a2f2ea797fa75b9e658879f16d099c404cc546e/zed-industries/zed",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/zed-industries/zed",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/zed-industries/zed",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://github.com/zed-industries/zed#licensing",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://github.com/zed-industries/zed#licensing",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://github.com/zed-industries/zed#licensing",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/zed-industries/zed",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/zed-industries/zed",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/zed-industries/zed/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/zed-industries/zed/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/zed-industries/zed/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/zed-industries/zed/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "591b52d2-8d55-403e-8ab6-d95332b7a2af",
+      "decision": "publish",
+      "project": {
+        "slug": "nextchat",
+        "name": "NextChat",
+        "summary": "Provides a compact AI chat client for multiple model providers on web, desktop, and mobile devices.",
+        "icon_url": "/app-icons/nextchat.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/ChatGPTNextWeb/NextChat",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/README.md",
+        "docker_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/README.md",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "ChatGPTNextWeb",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/ChatGPTNextWeb",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "desktop",
+          "mobile"
+        ],
+        "categories": [
+          "ai-ml"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/612344730/c1094754-15d6-4919-af39-2cd6c45401f9",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/ChatGPTNextWeb/NextChat",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/ChatGPTNextWeb/NextChat",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/ChatGPTNextWeb/NextChat",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/ChatGPTNextWeb/NextChat",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/ChatGPTNextWeb/NextChat/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "ecd70cee-412f-4a1d-96cb-f29dba01bc92",
+      "decision": "publish",
+      "project": {
+        "slug": "codex-cli",
+        "name": "Codex CLI",
+        "summary": "Runs a coding agent locally to inspect repositories, edit files, execute commands, and review changes.",
+        "icon_url": "/app-icons/codex-cli.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/openai/codex",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "openai",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/openai",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/openai/codex/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/openai/codex/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/d5e343dbaf10d1bb5f88a63ea04bac1cac4c7ced20b45ca6b4c2781659a32819/openai/codex",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/openai/codex",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/openai/codex",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/openai/codex/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/openai/codex/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/openai/codex/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/openai/codex/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/openai/codex",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/openai/codex",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/openai/codex/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/openai/codex/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/openai/codex/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/openai/codex/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "21c23850-7051-4387-8146-7db543d845a1",
+      "decision": "publish",
+      "project": {
+        "slug": "comfyui",
+        "name": "ComfyUI",
+        "summary": "Builds image, video, and audio generation workflows by connecting model operations in a node graph.",
+        "icon_url": "/app-icons/comfyui.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/Comfy-Org/ComfyUI",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+        "docker_url": null,
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0-only",
+        "source_model": "open_source",
+        "publisher_name": "Comfy-Org",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/Comfy-Org",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "desktop"
+        ],
+        "categories": [
+          "ai-ml",
+          "content-publishing"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/589831718/8894dcc0-5f53-4f3c-97f0-50d820b7779b",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/Comfy-Org/ComfyUI",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/Comfy-Org/ComfyUI",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/Comfy-Org/ComfyUI",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/Comfy-Org/ComfyUI",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "f4a77718-59c7-4ff1-a56d-4b5e2e5f7bda",
+      "decision": "publish",
+      "project": {
+        "slug": "autogpt",
+        "name": "AutoGPT",
+        "summary": "Builds and runs AI agents as visual workflows triggered on demand, on schedules, or by external events.",
+        "icon_url": "/app-icons/autogpt.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/Significant-Gravitas/AutoGPT",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://docs.agpt.co/platform/getting-started",
+        "docker_url": "https://docs.agpt.co/platform/getting-started",
+        "license": "PolyForm Shield 1.0.0 and MIT",
+        "license_type": "mixed",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "publisher_name": "Significant-Gravitas",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/Significant-Gravitas",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "ai-ml",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/d44cf0d97a90e3eaaac076c38f9b0c2b49d165010ec03e0dbb1df2e9f8502b40/Significant-Gravitas/AutoGPT",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/Significant-Gravitas/AutoGPT",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/Significant-Gravitas/AutoGPT",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/Significant-Gravitas/AutoGPT",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/Significant-Gravitas/AutoGPT",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://docs.agpt.co/platform/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.agpt.co/platform/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.agpt.co/platform/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://docs.agpt.co/platform/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://docs.agpt.co/platform/getting-started",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "361c5af1-cb4f-4669-9d27-3ff8166353d4",
+      "decision": "publish",
+      "project": {
+        "slug": "opencode",
+        "name": "OpenCode",
+        "summary": "Runs a coding agent from a terminal, desktop app, or editor with configurable models and tools.",
+        "icon_url": "/app-icons/opencode.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/anomalyco/opencode",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "anomalyco",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/anomalyco",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/975734319/2c2c3389-c647-405c-a499-f80e4d521277",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T12:02:51.224Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/anomalyco/opencode",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/anomalyco/opencode",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/anomalyco/opencode",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/anomalyco/opencode",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T12:02:51.224Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "77be67bf-c386-4325-ac84-cfb0873115a0",
+      "decision": "reject",
+      "reason": "The public repository distributes plugins, documentation, and installers but does not publish the core Claude Code application source; commercial terms alone do not make it source-available software."
+    }
+  ]
+}

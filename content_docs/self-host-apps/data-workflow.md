@@ -1,79 +1,69 @@
 # Self-host app data workflow
 
-The durable flow is:
-
 ```text
-discover -> candidate staging -> dedupe -> select 100 -> research and classify -> enrich -> QA -> publish -> refresh
+recurring discovery or bulk import
+  -> open_project_candidates
+  -> exact dedupe / name review
+  -> atomic claim
+  -> Codex research and reviewed decisions
+  -> open_projects + provenance
+  -> QA
+  -> provider refresh
 ```
 
-Discovery never publishes. Publication never happens from an external directory description alone.
+Production is canonical. Local is a disposable mirror for development and QA.
 
-## Source of truth
+## Discovery
 
-- Shared model: `version127_docs/open-projects.md`
-- Page projection: `content_docs/self-host-apps/schema.md`
-- Migration: `supabase/migrations/20260710111454_migrate_to_open_projects.sql`
-- Local baseline: `supabase/seeds/20260629_version127_open_projects.sql`
-- Script manifest: `scripts/self-host-apps/scripts.json`
-- Skills: `skills/self-host-apps/discovery/` and `skills/self-host-apps/enrichment/`
+Recurring cadence:
 
-## 1. Discover
+- GitHub topics: daily.
+- Awesome Selfhosted and selfh.st: weekly.
+- Selfhostedworld and OpenAlternative: monthly.
 
-Durable sources write normalized rows to `open_project_candidates`:
+One-time expansion:
 
 ```bash
-npm run self-host-apps:discover-awesome-selfhosted -- --limit 5000 --write
-npm run self-host-apps:discover-selfhst -- --limit 5000 --write
-npm run self-host-apps:discover-selfhostedworld -- --limit 2000 --write
-npm run self-host-apps:discover-openalternative -- --limit 2000 --write
-npm run self-host-apps:discover-github-topic -- --topic self-hosted --limit 100 --write
+npm run self-host-apps:discover-selfhostedworld -- --limit 5000 --details --concurrency 4 --out <report.json>
+npm run self-host-apps:discover-openalternative -- --limit 5000 --details --concurrency 4 --out <report.json>
 ```
 
-Store raw summaries, categories, topics, and payloads as discovery evidence. Do not reuse them as final copy or editorial classification.
+Inspect the report before adding `--write`. Dedicated collectors read each directory's structured data and keep its detail payload as evidence. They do not publish or classify projects.
 
-## 2. Dedupe
+## Dedupe
 
 ```bash
 npm run self-host-apps:dedupe-candidates -- --dry-run
 npm run self-host-apps:dedupe-candidates
 ```
 
-Match canonical source-code URL first, then slug and official homepage. Treat normalized-name matches as weak evidence and review them.
+Exact canonical source-code URL and official homepage matches become duplicates. Their discovery payload is attached to the existing project. Normalized-name matches become `needs_review` with the possible match IDs. Slugs and names never prove identity.
 
-## 3. Select a batch
-
-```bash
-npm run self-host-apps:select-candidate-batch -- --limit 100 --out scripts/self-host-apps/batches/YYYY-MM-DD-candidate-enrichment.json
-```
-
-Keep reviewed overrides beside the batch. Historical batch files using `repository_url` or `platforms` still load, but new files use `source_code_url` and `surfaces`.
-
-## 4. Research and classify
-
-Use official project sources: repository, website, install docs, release page, package/container page, and configuration examples.
-
-Before publication, decide `self_hosting_status`:
-
-- `self_hostable` when official sources show a user-controlled install or service deployment.
-- `not_self_hostable` when the open project is useful but not a self-host target.
-- `unknown` when the evidence is incomplete. Unknown candidates stay in review.
-
-Map one to three controlled categories by purpose. GitHub topics and source-list headings are not categories.
-
-## 5. Enrich and upsert
+## Claim and research
 
 ```bash
-npm run self-host-apps:enrich-github-batch -- --file <batch> --overrides <reviewed-overrides> --limit 100 --dry-run
-npm run self-host-apps:enrich-github-batch -- --file <batch> --overrides <reviewed-overrides> --limit 100
+npm run self-host-apps:select-candidate-batch -- --limit 100 --out <batch.json>
+npm run self-host-apps:collect-github-evidence -- --file <batch.json>
 ```
 
-The write updates `open_projects`, category links, field provenance, and candidate state in one transaction. A candidate with unknown self-hosting status is moved to `needs_review`, not published.
+Selection uses `FOR UPDATE SKIP LOCKED` and changes claimed rows to `enriching`, so concurrent agents do not take the same work. Discovery preserves an active claim.
 
-For reviewed non-GitHub rows, use `self-host-apps:validate` and `self-host-apps:upsert` or `self-host-apps:upsert-batch`.
+Codex researches official source code, website, docs, releases, packages, containers, license, publisher, icon, and deployment instructions. Scripts do not write summaries, categories, classifications, surfaces, or resource estimates.
 
-## 6. Quality gates
+## Apply reviewed decisions
 
-Run the checks that match the batch:
+```bash
+npm run self-host-apps:apply-candidate-review -- --file <reviewed.json> --dry-run
+npm run self-host-apps:apply-candidate-review -- --file <reviewed.json>
+```
+
+The review applier validates and moves data; it makes no editorial decisions. Publication requires an open-source license, icon, source-code URL, one to three categories, verified self-hosting classification, and field provenance. Self-hostable projects also require install docs.
+
+Known RAM, storage, database, Docker, Compose, and surface facts require direct evidence. Otherwise keep them `null` or `unknown`.
+
+Use `self-host-apps:release-candidate-batch` when a claimed batch must be abandoned.
+
+## QA
 
 ```bash
 npm run self-host-apps:qa-gate
@@ -85,37 +75,21 @@ npm run typecheck
 npm run build
 ```
 
-QA scripts report issues. They do not globally draft or publish projects. Apply researched corrections with `self-host-apps:apply-qa-overrides`.
+## Mutable source facts
 
-## 7. Production sync
+- GitHub: every 12 hours.
+- GitLab and Codeberg: daily.
+
+Refresh jobs update provider-neutral source facts, maintenance state, raw API evidence, and field verification dates. They do not change summaries, categories, self-hosting classification, deployment facts, links, or publication state.
+
+## Database direction
+
+Refresh local from production:
 
 ```bash
-npm run self-host-apps:sync-local-to-prod -- --dry-run
-npm run self-host-apps:sync-local-to-prod
+npm run self-host-apps:sync-prod-to-local -- --confirm-local-reset
 ```
 
-The sync mirrors the shared project rows, category taxonomy, category links, source payloads, and field provenance. It refuses to run when local and production URLs are identical.
+The old local-to-production mirror is intentionally guarded. It requires `--confirm-reviewed-push`, never drafts missing production rows by default, and should be used only for a reviewed exceptional push. Normal enrichment writes directly to the chosen database and keeps production canonical.
 
-Apply schema migrations before data sync. Verify row counts and the live `/self-host-apps` page afterward.
-
-## 8. Scheduled work
-
-`.github/workflows/self-host-apps-discovery.yml` runs twice daily. It fills candidate staging from directory and GitHub sources, then dedupes. It cannot publish.
-
-`.github/workflows/self-host-apps-refresh-github.yml` runs every 12 hours. It refreshes changing GitHub facts for published projects without changing summaries, categories, self-hosting classification, resource estimates, links, or publication state.
-
-## Summary rule
-
-Write one direct sentence about what the project helps a user do. Avoid boilerplate such as `open source`, `self-hosted`, `solution`, `powerful`, or `all-in-one` unless a term adds necessary meaning.
-
-Good:
-
-```text
-Bookmark manager for saving pages, preserving copies, and organizing research links.
-```
-
-Bad:
-
-```text
-Powerful open-source self-hosted bookmark management solution.
-```
+GitHub Actions require an IPv4-capable Supabase pooler connection in the `DATABASE_POOLER_URL` repository secret. The direct `db.<project>.supabase.co` URL is IPv6-only and does not work on GitHub-hosted runners.

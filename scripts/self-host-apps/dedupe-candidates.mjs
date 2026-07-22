@@ -1,62 +1,41 @@
 #!/usr/bin/env node
 
 import { parseArgs, numberArg } from "./lib/args.mjs";
-import { canonicalUrl, normalizeName } from "./lib/candidates.mjs";
 import { withClient } from "./lib/db.mjs";
+import {
+  buildCandidateIndexes,
+  buildProjectIndexes,
+  classifyCandidate,
+} from "./lib/dedupe.mjs";
 
-function indexesFromApps(apps) {
-  const bySlug = new Map();
-  const byRepo = new Map();
-  const byWebsite = new Map();
-  const byName = new Map();
-
-  for (const app of apps) {
-    bySlug.set(app.slug, app);
-    const repo = canonicalUrl(app.source_code_url);
-    if (repo && !byRepo.has(repo)) byRepo.set(repo, app);
-    const website = canonicalUrl(app.website_url);
-    if (website && !byWebsite.has(website)) byWebsite.set(website, app);
-    const name = normalizeName(app.name);
-    if (name && !byName.has(name)) byName.set(name, app);
-  }
-
-  return { bySlug, byRepo, byWebsite, byName };
-}
-
-function appDuplicate(candidate, indexes) {
-  if (candidate.canonical_source_code_key && indexes.byRepo.has(candidate.canonical_source_code_key)) {
-    return { reason: "source_code_url", app: indexes.byRepo.get(candidate.canonical_source_code_key) };
-  }
-  if (candidate.slug && indexes.bySlug.has(candidate.slug)) return { reason: "slug", app: indexes.bySlug.get(candidate.slug) };
-  if (candidate.canonical_website_key && indexes.byWebsite.has(candidate.canonical_website_key)) {
-    return { reason: "website_url", app: indexes.byWebsite.get(candidate.canonical_website_key) };
-  }
-  if (candidate.normalized_name && indexes.byName.has(candidate.normalized_name)) {
-    return { reason: "name", app: indexes.byName.get(candidate.normalized_name) };
-  }
-  return null;
-}
-
-function candidateDuplicate(candidate, seen) {
-  const checks = [
-    ["source_code_url", candidate.canonical_source_code_key],
-    ["slug", candidate.slug],
-    ["website_url", candidate.canonical_website_key],
-    ["name", candidate.normalized_name],
-  ];
-
-  for (const [reason, key] of checks) {
-    if (!key) continue;
-    const bucketKey = `${reason}:${key}`;
-    if (seen.has(bucketKey)) return { reason, candidate: seen.get(bucketKey) };
-  }
-
-  for (const [reason, key] of checks) {
-    if (!key) continue;
-    seen.set(`${reason}:${key}`, candidate);
-  }
-
-  return null;
+async function preserveExactProjectSource(client, candidate, projectId) {
+  await client.query(
+    `
+      insert into public.open_project_sources (
+        project_id,
+        import_run_id,
+        source,
+        source_key,
+        source_url,
+        payload
+      )
+      values ($1, $2, $3, $4, $5, $6::jsonb)
+      on conflict (source, source_key) do update set
+        project_id = excluded.project_id,
+        import_run_id = excluded.import_run_id,
+        source_url = excluded.source_url,
+        payload = excluded.payload,
+        imported_at = now()
+    `,
+    [
+      projectId,
+      candidate.import_run_id,
+      candidate.source,
+      candidate.source_key,
+      candidate.source_url,
+      JSON.stringify(candidate.payload ?? {}),
+    ],
+  );
 }
 
 async function main() {
@@ -64,66 +43,104 @@ async function main() {
   const limit = numberArg(args, "limit", 5000);
 
   await withClient(async (client) => {
-    const appsResult = await client.query(
-      "select id, slug, name, website_url, source_code_url from public.open_projects order by slug",
+    const projectsResult = await client.query(
+      "select id, name, website_url, source_code_url from public.open_projects order by created_at, id",
     );
-    const candidatesResult = await client.query(
+    const allCandidatesResult = await client.query(
       `
         select *
         from public.open_project_candidates
-        where status in ('new', 'needs_review', 'duplicate')
-        order by confidence_score desc, last_seen_at desc
+        where status <> 'rejected'
+        order by
+          case status
+            when 'published' then 0
+            when 'enriching' then 1
+            when 'queued' then 2
+            when 'needs_review' then 3
+            when 'new' then 4
+            when 'duplicate' then 5
+            else 6
+          end,
+          first_seen_at,
+          id
+      `,
+    );
+    const targetsResult = await client.query(
+      `
+        select *
+        from public.open_project_candidates
+        where status = 'new'
+           or (status = 'needs_review' and duplicate_reason = 'possible_name_match')
+        order by confidence_score desc, last_seen_at desc, id
         limit $1
       `,
       [limit],
     );
 
-    const appIndexes = indexesFromApps(appsResult.rows);
-    const seenCandidates = new Map();
-    let appDuplicates = 0;
-    let candidateDuplicates = 0;
-    let queued = 0;
+    const projectIndexes = buildProjectIndexes(projectsResult.rows);
+    const candidateIndexes = buildCandidateIndexes(allCandidatesResult.rows);
+    const counts = {
+      checked: targetsResult.rows.length,
+      queued: 0,
+      project_duplicates: 0,
+      candidate_duplicates: 0,
+      name_reviews: 0,
+      sources_preserved: 0,
+      dry_run: Boolean(args["dry-run"]),
+    };
 
     await client.query("begin");
     try {
-      for (const candidate of candidatesResult.rows) {
-        const appMatch = appDuplicate(candidate, appIndexes);
-        if (appMatch) {
-          appDuplicates += 1;
+      for (const candidate of targetsResult.rows) {
+        const decision = classifyCandidate(candidate, projectIndexes, candidateIndexes);
+
+        if (decision.action === "duplicate") {
+          if (decision.project) {
+            counts.project_duplicates += 1;
+            await preserveExactProjectSource(client, candidate, decision.project.id);
+            counts.sources_preserved += 1;
+          } else {
+            counts.candidate_duplicates += 1;
+          }
+
           await client.query(
             `
               update public.open_project_candidates
               set status = 'duplicate',
                   duplicate_project_id = $2,
-                  duplicate_candidate_id = null,
-                  duplicate_reason = $3,
+                  duplicate_candidate_id = $3,
+                  duplicate_reason = $4,
                   updated_at = now()
               where id = $1
             `,
-            [candidate.id, appMatch.app.id, appMatch.reason],
+            [
+              candidate.id,
+              decision.project?.id ?? null,
+              decision.candidate?.id ?? null,
+              decision.reason,
+            ],
           );
           continue;
         }
 
-        const candidateMatch = candidateDuplicate(candidate, seenCandidates);
-        if (candidateMatch) {
-          candidateDuplicates += 1;
+        if (decision.action === "review") {
+          counts.name_reviews += 1;
           await client.query(
             `
               update public.open_project_candidates
-              set status = 'duplicate',
-                  duplicate_project_id = null,
-                  duplicate_candidate_id = $2,
-                  duplicate_reason = $3,
+              set status = 'needs_review',
+                  duplicate_project_id = $2,
+                  duplicate_candidate_id = $3,
+                  duplicate_reason = 'possible_name_match',
                   updated_at = now()
               where id = $1
             `,
-            [candidate.id, candidateMatch.candidate.id, candidateMatch.reason],
+            [candidate.id, decision.project?.id ?? null, decision.candidate?.id ?? null],
           );
           continue;
         }
 
-        queued += 1;
+        counts.queued += 1;
         await client.query(
           `
             update public.open_project_candidates
@@ -138,29 +155,14 @@ async function main() {
         );
       }
 
-      if (args["dry-run"]) {
-        await client.query("rollback");
-      } else {
-        await client.query("commit");
-      }
+      if (args["dry-run"]) await client.query("rollback");
+      else await client.query("commit");
     } catch (error) {
       await client.query("rollback");
       throw error;
     }
 
-    console.log(
-      JSON.stringify(
-        {
-          checked: candidatesResult.rows.length,
-          queued,
-          app_duplicates: appDuplicates,
-          candidate_duplicates: candidateDuplicates,
-          dry_run: Boolean(args["dry-run"]),
-        },
-        null,
-        2,
-      ),
-    );
+    console.log(JSON.stringify(counts, null, 2));
   }, args["database-url"]);
 }
 

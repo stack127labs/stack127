@@ -54,6 +54,7 @@ function rowBlockers(row) {
   }
   if (row.requires_database === null && row.database_types?.length > 0) issues.push("database_types_without_requirement");
   if (row.docker_url && dockerHighRiskPattern.test(row.docker_url)) issues.push("docker_high_risk_url");
+  if (row.source_model === "unknown") issues.push("source_model_unknown");
 
   return [...new Set(issues)];
 }
@@ -84,6 +85,7 @@ async function main() {
           install_docs_url,
           docker_url,
           license,
+          source_model,
           requires_database,
           database_types,
           docker_support

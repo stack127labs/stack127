@@ -1,0 +1,3004 @@
+{
+  "reviewed_at": "2026-07-19T09:27:49.521Z",
+  "records": [
+    {
+      "candidate_id": "e61e35b1-5b45-440c-9eb6-d109e196d5a0",
+      "decision": "publish",
+      "project": {
+        "slug": "meetily",
+        "name": "Meetily",
+        "summary": "Records and transcribes meetings locally, identifies speakers, and creates searchable notes and summaries.",
+        "icon_url": "/app-icons/meetily.png",
+        "website_url": "https://meetily.ai",
+        "source_code_url": "https://github.com/Zackriya-Solutions/meetily",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/Zackriya-Solutions/meetily#installation",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "Zackriya-Solutions",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/Zackriya-Solutions",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop"
+        ],
+        "categories": [
+          "knowledge-notes",
+          "ai-ml"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "908589694",
+        "source_full_name": "Zackriya-Solutions/meetily",
+        "source_stars": 25502,
+        "source_forks": 2557,
+        "source_watchers": 115,
+        "source_open_issues": 300,
+        "source_primary_language": "Rust",
+        "source_languages": {
+          "Rust": 1653985,
+          "TypeScript": 1060898,
+          "C++": 352628,
+          "PowerShell": 152786,
+          "Shell": 145574,
+          "Python": 109999,
+          "Batchfile": 57577,
+          "JavaScript": 27857,
+          "HTML": 8717,
+          "CSS": 4002,
+          "Swift": 557,
+          "CMake": 305
+        },
+        "source_topics": [
+          "ai",
+          "ai-meeting-assistant",
+          "llm",
+          "local-ai",
+          "mac",
+          "meeting-minutes",
+          "meeting-notes",
+          "offline-first",
+          "ollama",
+          "parakeet",
+          "privacy-focused",
+          "privacy-tools",
+          "rust",
+          "self-hosted",
+          "sortformer",
+          "speech-to-text",
+          "transcription",
+          "whisper",
+          "whisper-cpp",
+          "windows"
+        ],
+        "source_created_at": "2024-12-26T12:52:14Z",
+        "source_updated_at": "2026-07-19T08:54:38Z",
+        "source_pushed_at": "2026-06-05T13:53:17Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 48206,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v0.4.0",
+        "source_latest_release_at": "2026-06-05T17:12:25Z",
+        "source_last_commit_at": "2026-06-05T13:52:04Z",
+        "source_checked_at": "2026-07-19T09:00:33.454Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/meetily",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/Zackriya-Solutions/meetily#installation",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/Zackriya-Solutions/meetily#installation",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/Zackriya-Solutions/meetily",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "6b64051e-d805-43eb-a47d-2528e3ca239a",
+      "decision": "publish",
+      "project": {
+        "slug": "chroma",
+        "name": "Chroma",
+        "summary": "Stores embeddings and documents for vector similarity search, metadata filtering, and retrieval-augmented applications.",
+        "icon_url": "/app-icons/chroma.png",
+        "website_url": "https://www.trychroma.com/",
+        "source_code_url": "https://github.com/chroma-core/chroma",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://docs.trychroma.com/docs/run-chroma/client-server",
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "chroma-core",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/chroma-core",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "api"
+        ],
+        "categories": [
+          "databases",
+          "search",
+          "ai-ml"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "546206616",
+        "source_full_name": "chroma-core/chroma",
+        "source_stars": 28825,
+        "source_forks": 2392,
+        "source_watchers": 136,
+        "source_open_issues": 735,
+        "source_primary_language": "Rust",
+        "source_languages": {
+          "Rust": 11273991,
+          "Python": 2558998,
+          "TypeScript": 1078778,
+          "Go": 852700,
+          "Jupyter Notebook": 387825,
+          "Shell": 33405,
+          "JavaScript": 19773,
+          "Starlark": 19252,
+          "HCL": 17555,
+          "Dockerfile": 14956,
+          "Makefile": 3955,
+          "CSS": 2947,
+          "PowerShell": 2455
+        },
+        "source_topics": [
+          "agents",
+          "ai",
+          "ai-agents",
+          "database",
+          "rust",
+          "rust-lang"
+        ],
+        "source_created_at": "2022-10-05T17:58:44Z",
+        "source_updated_at": "2026-07-19T08:05:46Z",
+        "source_pushed_at": "2026-07-18T10:38:20Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 873392,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "1.5.9",
+        "source_latest_release_at": "2026-05-05T05:55:40Z",
+        "source_last_commit_at": "2026-07-18T09:24:56Z",
+        "source_checked_at": "2026-07-19T09:00:34.646Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/chroma",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://docs.trychroma.com/docs/run-chroma/client-server",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.trychroma.com/docs/run-chroma/client-server",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://docs.trychroma.com/docs/run-chroma/client-server",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/chroma-core/chroma",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "dcff449e-f7a7-4666-89d4-4ca74f60185f",
+      "decision": "publish",
+      "project": {
+        "slug": "maybe",
+        "name": "Maybe",
+        "summary": "Tracks accounts, transactions, budgets, investments, and net worth in one personal finance workspace.",
+        "icon_url": "/app-icons/maybe.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/maybe-finance/maybe",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://github.com/maybe-finance/maybe/blob/main/docs/hosting/docker.md",
+        "docker_url": null,
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "maybe-finance",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/maybe-finance",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "archived",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "PostgreSQL"
+        ],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "finance-budgeting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "737898780",
+        "source_full_name": "maybe-finance/maybe",
+        "source_stars": 54354,
+        "source_forks": 5645,
+        "source_watchers": 3,
+        "source_open_issues": 0,
+        "source_primary_language": "Ruby",
+        "source_languages": {
+          "Ruby": 1444310,
+          "HTML": 477423,
+          "JavaScript": 100324,
+          "CSS": 27720,
+          "Shell": 4847,
+          "Dockerfile": 2583
+        },
+        "source_topics": [
+          "finance",
+          "hotwire",
+          "personal-finance",
+          "postgresql",
+          "ruby",
+          "ruby-on-rails",
+          "stimulusjs",
+          "turbo"
+        ],
+        "source_created_at": "2024-01-01T22:23:46Z",
+        "source_updated_at": "2026-07-19T07:49:38Z",
+        "source_pushed_at": "2025-07-24T22:20:44Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 6891,
+        "source_archived": true,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v0.6.0",
+        "source_latest_release_at": "2025-07-24T22:05:26Z",
+        "source_last_commit_at": "2025-07-24T22:20:44Z",
+        "source_checked_at": "2026-07-19T09:00:35.680Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/maybe",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://github.com/maybe-finance/maybe/blob/main/docs/hosting/docker.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://github.com/maybe-finance/maybe/blob/main/docs/hosting/docker.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://github.com/maybe-finance/maybe/blob/main/docs/hosting/docker.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_repository",
+          "source_url": "https://github.com/maybe-finance/maybe/blob/main/docs/hosting/docker.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_repository",
+          "source_url": "https://github.com/maybe-finance/maybe/blob/main/docs/hosting/docker.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_repository",
+          "source_url": "https://github.com/maybe-finance/maybe/blob/main/docs/hosting/docker.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/maybe-finance/maybe",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "0b877a82-237d-4e0c-9215-ca606041e8e2",
+      "decision": "publish",
+      "project": {
+        "slug": "harness",
+        "name": "Harness",
+        "summary": "Hosts source code, CI pipelines, developer environments, artifact storage, and deployment workflows in one service.",
+        "icon_url": "/app-icons/harness.png",
+        "website_url": "https://www.harness.io/open-source",
+        "source_code_url": "https://github.com/harness/harness",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://developer.harness.io/docs/open-source/",
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "harness",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/harness",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "cli",
+          "api"
+        ],
+        "categories": [
+          "developer-tools",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "16607898",
+        "source_full_name": "harness/harness",
+        "source_stars": 37381,
+        "source_forks": 3278,
+        "source_watchers": 538,
+        "source_open_issues": 104,
+        "source_primary_language": "Go",
+        "source_languages": {
+          "Go": 11171839,
+          "TypeScript": 6273957,
+          "SCSS": 593443,
+          "Shell": 122163,
+          "JavaScript": 111824,
+          "PLpgSQL": 24533,
+          "Dockerfile": 7506,
+          "Makefile": 6388,
+          "HTML": 5490,
+          "Go Template": 1781
+        },
+        "source_topics": [
+          "build-automation",
+          "build-pipelines",
+          "ci",
+          "ci-cd",
+          "code-repository",
+          "continuous-delivery",
+          "continuous-integration",
+          "docker",
+          "git",
+          "go",
+          "hacktoberfest",
+          "scm"
+        ],
+        "source_created_at": "2014-02-07T07:54:44Z",
+        "source_updated_at": "2026-07-19T08:23:18Z",
+        "source_pushed_at": "2026-07-15T10:03:20Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 59773,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v2.28.2",
+        "source_latest_release_at": "2026-04-20T11:19:42Z",
+        "source_last_commit_at": "2026-07-15T10:01:46Z",
+        "source_checked_at": "2026-07-19T09:00:37.223Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/harness",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/harness/harness/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/harness/harness/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/harness/harness/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://developer.harness.io/docs/open-source/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/harness/harness/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://developer.harness.io/docs/open-source/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://developer.harness.io/docs/open-source/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_repository",
+          "source_url": "https://developer.harness.io/docs/open-source/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/harness/harness",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "61e82e1a-82a6-4984-9d9a-5d427a992dc9",
+      "decision": "publish",
+      "project": {
+        "slug": "supermemory",
+        "name": "Supermemory",
+        "summary": "Stores and retrieves long-term context for AI applications through an API, web interface, and connected content sources.",
+        "icon_url": "/app-icons/supermemory.png",
+        "website_url": "https://supermemory.ai/docs",
+        "source_code_url": "https://github.com/supermemoryai/supermemory",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://supermemory.ai/docs/self-hosting",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "supermemoryai",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/supermemoryai",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "ai-ml",
+          "knowledge-notes"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "764287615",
+        "source_full_name": "supermemoryai/supermemory",
+        "source_stars": 28472,
+        "source_forks": 2479,
+        "source_watchers": 104,
+        "source_open_issues": 82,
+        "source_primary_language": "TypeScript",
+        "source_languages": {
+          "TypeScript": 3211414,
+          "MDX": 1162327,
+          "Python": 240096,
+          "CSS": 29677,
+          "HTML": 4385,
+          "JavaScript": 856
+        },
+        "source_topics": [
+          "agent-memory",
+          "ai-memory",
+          "cloudflare-kv",
+          "cloudflare-pages",
+          "cloudflare-workers",
+          "drizzle-orm",
+          "memory",
+          "postgres",
+          "remix",
+          "tailwindcss",
+          "typescript",
+          "vite"
+        ],
+        "source_created_at": "2024-02-27T20:10:04Z",
+        "source_updated_at": "2026-07-19T07:10:53Z",
+        "source_pushed_at": "2026-07-19T07:06:16Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 178833,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "server-v0.0.5",
+        "source_latest_release_at": "2026-07-10T22:09:01Z",
+        "source_last_commit_at": "2026-07-18T23:28:40Z",
+        "source_checked_at": "2026-07-19T09:00:38.074Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/supermemory",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://supermemory.ai/docs/self-hosting",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://supermemory.ai/docs/self-hosting",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://supermemory.ai/docs/self-hosting",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_repository",
+          "source_url": "https://supermemory.ai/docs/self-hosting",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/supermemoryai/supermemory",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "44efc3f2-ab76-47d0-b280-5c791edbaed4",
+      "decision": "publish",
+      "project": {
+        "slug": "tabby",
+        "name": "Tabby",
+        "summary": "Runs an AI coding assistant server with code completion, chat, repository context, models, and editor integrations.",
+        "icon_url": "/app-icons/tabby.png",
+        "website_url": "https://tabbyml.com",
+        "source_code_url": "https://github.com/TabbyML/tabby",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://tabby.tabbyml.com/docs/installation/",
+        "docker_url": null,
+        "license": "Apache-2.0 core; commercial enterprise modules",
+        "license_type": "mixed",
+        "license_spdx_id": null,
+        "source_model": "open_source",
+        "publisher_name": "TabbyML",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/TabbyML",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "cli",
+          "editor extension"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "614764248",
+        "source_full_name": "TabbyML/tabby",
+        "source_stars": 33755,
+        "source_forks": 1778,
+        "source_watchers": 181,
+        "source_open_issues": 328,
+        "source_primary_language": "Rust",
+        "source_languages": {
+          "Rust": 1532383,
+          "Python": 74127,
+          "HTML": 20155,
+          "Tree-sitter Query": 7894,
+          "TypeScript": 6693,
+          "Shell": 5124,
+          "Makefile": 2342,
+          "JavaScript": 1546,
+          "PowerShell": 26,
+          "RenderScript": 1
+        },
+        "source_topics": [
+          "ai",
+          "codegen",
+          "coding-assistant",
+          "coding-language",
+          "developer-experience",
+          "developer-tools",
+          "gen-ai",
+          "ide",
+          "llms"
+        ],
+        "source_created_at": "2023-03-16T09:18:01Z",
+        "source_updated_at": "2026-07-19T08:43:25Z",
+        "source_pushed_at": "2026-06-30T20:38:02Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 109305,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v0.32.0",
+        "source_latest_release_at": "2026-01-25T17:07:44Z",
+        "source_last_commit_at": "2026-06-30T16:53:14Z",
+        "source_checked_at": "2026-07-19T09:00:39.601Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/tabby",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://github.com/TabbyML/tabby/blob/main/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://github.com/TabbyML/tabby/blob/main/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://github.com/TabbyML/tabby/blob/main/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://tabby.tabbyml.com/docs/installation/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://tabby.tabbyml.com/docs/installation/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://tabby.tabbyml.com/docs/installation/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/TabbyML/tabby",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "c0f6f795-5314-4bd8-b3eb-bd76fadcb047",
+      "decision": "publish",
+      "project": {
+        "slug": "clickhouse",
+        "name": "ClickHouse",
+        "summary": "Stores and queries analytical data with a column-oriented SQL engine built for high-volume, low-latency workloads.",
+        "icon_url": "/app-icons/clickhouse.png",
+        "website_url": "https://clickhouse.com",
+        "source_code_url": "https://github.com/ClickHouse/ClickHouse",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://clickhouse.com/docs/install",
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "ClickHouse",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/ClickHouse",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "cli",
+          "api"
+        ],
+        "categories": [
+          "databases"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "60246359",
+        "source_full_name": "ClickHouse/ClickHouse",
+        "source_stars": 48720,
+        "source_forks": 8663,
+        "source_watchers": 687,
+        "source_open_issues": 6349,
+        "source_primary_language": "C++",
+        "source_languages": {
+          "C++": 87073026,
+          "Python": 14668803,
+          "Assembly": 8603806,
+          "Shell": 6708908,
+          "C": 2192331,
+          "CMake": 1513396,
+          "Jinja": 1469993,
+          "HTML": 1355834,
+          "JavaScript": 276498,
+          "Java": 130727,
+          "Clojure": 69013,
+          "Dockerfile": 68322,
+          "ANTLR": 54370,
+          "Rust": 50341,
+          "CSS": 11887,
+          "C#": 9843,
+          "Perl": 6197,
+          "Cap'n Proto": 5142,
+          "Go": 3011,
+          "TypeScript": 2588,
+          "PLpgSQL": 2102,
+          "GAP": 1429,
+          "Makefile": 1321,
+          "PHP": 1307,
+          "Vim Script": 102,
+          "DIGITAL Command Language": 77
+        },
+        "source_topics": [
+          "ai",
+          "analytics",
+          "big-data",
+          "clickhouse",
+          "cloud-native",
+          "cpp",
+          "database",
+          "dbms",
+          "distributed",
+          "embedded",
+          "hacktoberfest",
+          "lakehouse",
+          "mpp",
+          "olap",
+          "rust",
+          "self-hosted",
+          "sql"
+        ],
+        "source_created_at": "2016-06-02T08:28:18Z",
+        "source_updated_at": "2026-07-19T08:34:21Z",
+        "source_pushed_at": "2026-07-19T08:41:42Z",
+        "source_default_branch": "master",
+        "source_repo_size_kb": 8563169,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v25.8.28.1-lts",
+        "source_latest_release_at": "2026-07-05T12:16:14Z",
+        "source_last_commit_at": "2026-07-19T08:05:09Z",
+        "source_checked_at": "2026-07-19T09:00:42.159Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/clickhouse",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://clickhouse.com/docs/install",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse/license",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://clickhouse.com/docs/install",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://clickhouse.com/docs/install",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/ClickHouse/ClickHouse",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "eb572174-2f14-43e8-9a81-8c1dba1101ea",
+      "decision": "publish",
+      "project": {
+        "slug": "jan",
+        "name": "Jan",
+        "summary": "Runs local language models in a desktop chat interface with model downloads, assistants, extensions, and an API server.",
+        "icon_url": "/app-icons/jan.png",
+        "website_url": "https://jan.ai/",
+        "source_code_url": "https://github.com/janhq/jan",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://jan.ai/docs/desktop",
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "janhq",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/janhq",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop",
+          "api"
+        ],
+        "categories": [
+          "ai-ml"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "source_repo_id": "679506386",
+        "source_full_name": "janhq/jan",
+        "source_stars": 43623,
+        "source_forks": 2909,
+        "source_watchers": 219,
+        "source_open_issues": 394,
+        "source_primary_language": "TypeScript",
+        "source_languages": {
+          "TypeScript": 4132571,
+          "Rust": 1128921,
+          "Swift": 81955,
+          "Python": 67136,
+          "JavaScript": 37700,
+          "Shell": 21164,
+          "CSS": 14647,
+          "Makefile": 11831,
+          "PowerShell": 10329,
+          "HTML": 3831
+        },
+        "source_topics": [
+          "chatgpt",
+          "gpt",
+          "llamacpp",
+          "llm",
+          "localai",
+          "open-source",
+          "self-hosted",
+          "tauri"
+        ],
+        "source_created_at": "2023-08-17T02:17:10Z",
+        "source_updated_at": "2026-07-19T08:37:55Z",
+        "source_pushed_at": "2026-07-17T08:57:57Z",
+        "source_default_branch": "main",
+        "source_repo_size_kb": 1550769,
+        "source_archived": false,
+        "source_disabled": false,
+        "source_is_fork": false,
+        "source_is_template": false,
+        "source_latest_release": "v0.8.3",
+        "source_latest_release_at": "2026-06-24T06:06:52Z",
+        "source_last_commit_at": "2026-07-17T04:58:05Z",
+        "source_checked_at": "2026-07-19T09:00:43.823Z"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://github.com/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Written from the verified repository and official documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://github.com/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "openalternative_directory",
+          "source_url": "https://openalternative.co/jan",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T09:27:49.521Z",
+          "note": "Directory-hosted project icon; URL checked before publication."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://github.com/janhq/jan/blob/main/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://github.com/janhq/jan/blob/main/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://github.com/janhq/jan/blob/main/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_repository",
+          "source_url": "https://jan.ai/docs/desktop",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://github.com/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://github.com/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://github.com/janhq/jan/blob/main/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "website_url",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://jan.ai/docs/desktop",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_repository",
+          "source_url": "https://github.com/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_id",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_full_name",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_stars",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_forks",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_watchers",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_open_issues",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_primary_language",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_languages",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_topics",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_created_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_updated_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_pushed_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_default_branch",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_repo_size_kb",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_archived",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_disabled",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_fork",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_is_template",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_latest_release_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_last_commit_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        },
+        {
+          "field_name": "source_checked_at",
+          "source": "github_api",
+          "source_url": "https://api.github.com/repos/janhq/jan",
+          "confidence": "high",
+          "checked_at": "2026-07-19T09:27:49.521Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1286 @@
+{
+  "reviewed_at": "2026-07-19T11:39:35.569Z",
+  "records": [
+    {
+      "candidate_id": "25d00e22-2a2f-425f-afec-f1898ce54029",
+      "decision": "publish",
+      "project": {
+        "slug": "bolt-diy",
+        "name": "bolt.diy",
+        "summary": "Generates, edits, runs, and deploys full-stack web applications with a chosen language model.",
+        "icon_url": "/app-icons/bolt-diy.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/stackblitz-labs/bolt.diy",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://stackblitz-labs.github.io/bolt.diy/",
+        "docker_url": "https://stackblitz-labs.github.io/bolt.diy/",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "stackblitz-labs",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/stackblitz-labs",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/stackblitz-labs/bolt.diy/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/stackblitz-labs/bolt.diy/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/d0851cba02f815008b1d30070828691a6cd5b8c1c014cb91e28ba07017d6705e/stackblitz-labs/bolt.diy",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/stackblitz-labs/bolt.diy",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/stackblitz-labs/bolt.diy",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/stackblitz-labs/bolt.diy/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/stackblitz-labs/bolt.diy/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/stackblitz-labs/bolt.diy/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/stackblitz-labs/bolt.diy/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/stackblitz-labs/bolt.diy",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/stackblitz-labs/bolt.diy",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://stackblitz-labs.github.io/bolt.diy/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/stackblitz-labs/bolt.diy/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/stackblitz-labs/bolt.diy/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://stackblitz-labs.github.io/bolt.diy/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://stackblitz-labs.github.io/bolt.diy/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://stackblitz-labs.github.io/bolt.diy/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://stackblitz-labs.github.io/bolt.diy/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "f55d4453-be96-48d0-b1e7-c16753bf52b1",
+      "decision": "publish",
+      "project": {
+        "slug": "livekit",
+        "name": "LiveKit",
+        "summary": "Provides real-time audio, video, and data transport for applications and AI agents.",
+        "icon_url": "/app-icons/livekit.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/livekit/livekit",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://docs.livekit.io/transport/self-hosting/",
+        "docker_url": "https://docs.livekit.io/transport/self-hosting/",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "livekit",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/livekit",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "communication",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/livekit/livekit/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/livekit/livekit/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/18414a9ceec1555303da17482ade245b23ef469d216605661d8a45815c4f2858/livekit/livekit",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/livekit/livekit",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/livekit/livekit",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/livekit/livekit/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/livekit/livekit/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/livekit/livekit/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/livekit/livekit/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/livekit/livekit",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/livekit/livekit",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://docs.livekit.io/transport/self-hosting/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/livekit/livekit/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/livekit/livekit/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.livekit.io/transport/self-hosting/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.livekit.io/transport/self-hosting/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://docs.livekit.io/transport/self-hosting/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://docs.livekit.io/transport/self-hosting/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "c544987f-f319-4ada-aee4-bae5a898114c",
+      "decision": "publish",
+      "project": {
+        "slug": "orca",
+        "name": "Orca",
+        "summary": "Runs multiple coding agents in parallel worktrees with integrated terminals, diffs, and remote control.",
+        "icon_url": "/app-icons/orca.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/stablyai/orca",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "stablyai",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/stablyai",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop",
+          "mobile",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/stablyai/orca/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/stablyai/orca/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/deca756965ea032dbc181b06d7f456e78a922e7d2f74f661102628686a04f8cb/stablyai/orca",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/stablyai/orca",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/stablyai/orca",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/stablyai/orca/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/stablyai/orca/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/stablyai/orca/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/stablyai/orca/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/stablyai/orca",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/stablyai/orca",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/stablyai/orca/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/stablyai/orca/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/stablyai/orca/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/stablyai/orca/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "b3a8669e-f57b-4ab2-9f7e-ae57d65d0e99",
+      "decision": "publish",
+      "project": {
+        "slug": "jina",
+        "name": "Jina",
+        "summary": "Serves multimodal AI applications over HTTP, gRPC, and WebSockets with local or clustered deployment.",
+        "icon_url": "/app-icons/jina.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/jina-ai/serve",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/README.md",
+        "docker_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/README.md",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "jina-ai",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/jina-ai",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://repository-images.githubusercontent.com/240315046/5d29a6fc-5932-4eed-9ba5-f1c32ea5c242",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/jina-ai/serve",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/jina-ai/serve",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/jina-ai/serve",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/jina-ai/serve",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_url",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/jina-ai/serve/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "1f86d692-9439-4e97-a678-f0f8139a8e29",
+      "decision": "publish",
+      "project": {
+        "slug": "roo-code",
+        "name": "Roo Code",
+        "summary": "Adds coordinated coding agents, model selection, tools, and automation to a code editor.",
+        "icon_url": "/app-icons/roo-code.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/RooCodeInc/Roo-Code",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "RooCodeInc",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/RooCodeInc",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/RooCodeInc/Roo-Code/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/RooCodeInc/Roo-Code/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/33d4f3f4789e0390a87290b78b7b2ca2640db86560840b8d0b60bb8b604984c5/RooCodeInc/Roo-Code",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/RooCodeInc/Roo-Code",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/RooCodeInc/Roo-Code",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/RooCodeInc/Roo-Code/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/RooCodeInc/Roo-Code/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/RooCodeInc/Roo-Code/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/RooCodeInc/Roo-Code/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/RooCodeInc/Roo-Code",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/RooCodeInc/Roo-Code",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/RooCodeInc/Roo-Code/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/RooCodeInc/Roo-Code/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/RooCodeInc/Roo-Code/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/RooCodeInc/Roo-Code/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "fb4ffcd6-b58b-4938-914b-bdd09c59654c",
+      "decision": "publish",
+      "project": {
+        "slug": "llamafile",
+        "name": "llamafile",
+        "summary": "Packages a language model and runtime into one executable with local chat and server modes.",
+        "icon_url": "/app-icons/llamafile.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/mozilla-ai/llamafile",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": "https://docs.mozilla.ai/llamafile/",
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "mozilla-ai",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/mozilla-ai",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "web",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mozilla-ai/llamafile/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mozilla-ai/llamafile/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/946e4c3f7985c6703763f8c4b803535007469afd77aeca8e4138ee6868160f04/mozilla-ai/llamafile",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/mozilla-ai/llamafile",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/mozilla-ai/llamafile",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mozilla-ai/llamafile/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mozilla-ai/llamafile/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mozilla-ai/llamafile/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mozilla-ai/llamafile/HEAD/LICENSE",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/mozilla-ai/llamafile",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/mozilla-ai/llamafile",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://docs.mozilla.ai/llamafile/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mozilla-ai/llamafile/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mozilla-ai/llamafile/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "install_docs_url",
+          "source": "official_documentation",
+          "source_url": "https://docs.mozilla.ai/llamafile/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://docs.mozilla.ai/llamafile/",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "bb960a26-5495-4a49-86cc-9ac39121a798",
+      "decision": "publish",
+      "project": {
+        "slug": "onlook",
+        "name": "Onlook",
+        "summary": "Visually edits React applications with direct control over components, styles, and source code.",
+        "icon_url": "/app-icons/onlook.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/onlook-dev/onlook",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "onlook-dev",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/onlook-dev",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "desktop",
+          "web"
+        ],
+        "categories": [
+          "developer-tools",
+          "content-publishing"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/onlook-dev/onlook/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/onlook-dev/onlook/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/e776ba5bd6bd308174e27f2d60b41dfda9afcfdcb33416e318c44143d71d696a/onlook-dev/onlook",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/onlook-dev/onlook",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/onlook-dev/onlook",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/onlook-dev/onlook/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/onlook-dev/onlook/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_spdx_id",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/onlook-dev/onlook/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/onlook-dev/onlook/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/onlook-dev/onlook",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/onlook-dev/onlook",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/onlook-dev/onlook/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/onlook-dev/onlook/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/onlook-dev/onlook/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/onlook-dev/onlook/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    },
+    {
+      "candidate_id": "8216126f-4802-490f-b68a-e880e0dbfe80",
+      "decision": "publish",
+      "project": {
+        "slug": "mastra",
+        "name": "Mastra",
+        "summary": "Provides TypeScript components for building AI agents, workflows, memory, retrieval, and evaluations.",
+        "icon_url": "/app-icons/mastra.png",
+        "website_url": null,
+        "source_code_url": "https://github.com/mastra-ai/mastra",
+        "source_code_host": "github",
+        "docs_url": null,
+        "install_docs_url": null,
+        "docker_url": null,
+        "license": "Apache-2.0 with Mastra Enterprise License directories",
+        "license_type": "mixed",
+        "license_spdx_id": null,
+        "source_model": "open_source",
+        "publisher_name": "mastra-ai",
+        "publisher_type": "unknown",
+        "publisher_url": "https://github.com/mastra-ai",
+        "published": true,
+        "self_hosting_status": "not_self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "ram_mb": null,
+        "storage_profile": "unknown",
+        "surfaces": [
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high"
+      },
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mastra-ai/mastra/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Written from the verified upstream project documentation."
+        },
+        {
+          "field_name": "categories",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mastra-ai/mastra/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Assigned by project purpose after editorial review."
+        },
+        {
+          "field_name": "icon_url",
+          "source": "official_repository",
+          "source_url": "https://opengraph.githubassets.com/f3f2a6e4999e91a7cbc5cb7cba5d0eae64ea1861a0f74268398c47a36cd9020c/mastra-ai/mastra",
+          "confidence": "medium",
+          "checked_at": "2026-07-19T11:39:35.569Z",
+          "note": "Official repository social image."
+        },
+        {
+          "field_name": "source_code_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/mastra-ai/mastra",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_code_host",
+          "source": "official_repository",
+          "source_url": "https://github.com/mastra-ai/mastra",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mastra-ai/mastra/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "license_type",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mastra-ai/mastra/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "source_model",
+          "source": "repository_license",
+          "source_url": "https://raw.githubusercontent.com/mastra-ai/mastra/HEAD/LICENSE.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_name",
+          "source": "official_repository",
+          "source_url": "https://github.com/mastra-ai/mastra",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "publisher_url",
+          "source": "official_repository",
+          "source_url": "https://github.com/mastra-ai/mastra",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/mastra-ai/mastra/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_source",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mastra-ai/mastra/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "summary_confidence",
+          "source": "version127_curated",
+          "source_url": "https://raw.githubusercontent.com/mastra-ai/mastra/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        },
+        {
+          "field_name": "surfaces",
+          "source": "official_documentation",
+          "source_url": "https://raw.githubusercontent.com/mastra-ai/mastra/HEAD/README.md",
+          "confidence": "high",
+          "checked_at": "2026-07-19T11:39:35.569Z"
+        }
+      ]
+    }
+  ]
+}
