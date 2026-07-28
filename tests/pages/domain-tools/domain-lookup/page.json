@@ -1,0 +1,17 @@
+{
+  "route": "/domain-tools/domain-lookup",
+  "state": "published",
+  "docs": [
+    "content_docs/domain-tools/domain-lookup"
+  ],
+  "tests": [
+    "tests/pages/domain-tools/shared/normalize.test.mjs",
+    "tests/pages/domain-tools/shared/public-suffix.test.mjs",
+    "tests/pages/domain-tools/shared/bootstrap.test.mjs"
+  ],
+  "scripts": [
+    "scripts/domain-tools/refresh-datasets.mjs"
+  ],
+  "skills": [],
+  "repositories": []
+}

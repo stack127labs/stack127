@@ -1,0 +1,17 @@
+{
+  "route": "/domain-tools/multi-tld-availability",
+  "state": "published",
+  "docs": [
+    "content_docs/domain-tools/multi-tld-availability"
+  ],
+  "tests": [
+    "tests/pages/domain-tools/shared/bootstrap.test.mjs",
+    "tests/pages/domain-tools/shared/throttle.test.mjs",
+    "tests/pages/domain-tools/shared/punycode.test.mjs"
+  ],
+  "scripts": [
+    "scripts/domain-tools/refresh-datasets.mjs"
+  ],
+  "skills": [],
+  "repositories": []
+}

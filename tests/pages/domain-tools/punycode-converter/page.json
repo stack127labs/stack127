@@ -1,0 +1,15 @@
+{
+  "route": "/domain-tools/punycode-converter",
+  "state": "published",
+  "docs": [
+    "content_docs/domain-tools/punycode-converter"
+  ],
+  "tests": [
+    "tests/pages/domain-tools/shared/punycode.test.mjs"
+  ],
+  "scripts": [
+    "scripts/domain-tools/refresh-datasets.mjs"
+  ],
+  "skills": [],
+  "repositories": []
+}

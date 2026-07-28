@@ -1,0 +1,23 @@
+{
+  "comment": "Hand reviewed RDAP services for TLDs that run RDAP but have no IANA bootstrap entry. Every entry must be verified against a real domain before it is added, and the verification recorded here. Never guess a URL from a registry name.",
+  "overrides": {
+    "io": {
+      "url": "https://rdap.identitydigital.services/rdap/",
+      "operator": "Identity Digital",
+      "verifiedWith": "github.io",
+      "verifiedAt": "2026-07-28"
+    },
+    "us": {
+      "url": "https://rdap.nic.us/",
+      "operator": "Registry Services, LLC",
+      "verifiedWith": "about.us",
+      "verifiedAt": "2026-07-28"
+    },
+    "de": {
+      "url": "https://rdap.denic.de/",
+      "operator": "DENIC eG",
+      "verifiedWith": "denic.de",
+      "verifiedAt": "2026-07-28"
+    }
+  }
+}

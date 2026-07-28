@@ -1,0 +1,17 @@
+{
+  "route": "/domain-tools/tld-directory",
+  "state": "published",
+  "docs": [
+    "content_docs/domain-tools/tld-directory"
+  ],
+  "tests": [
+    "tests/pages/domain-tools/shared/bootstrap.test.mjs",
+    "tests/pages/domain-tools/shared/tld-directory.test.mjs"
+  ],
+  "scripts": [
+    "scripts/domain-tools/refresh-datasets.mjs",
+    "scripts/domain-tools/refresh-tld-directory.mjs"
+  ],
+  "skills": [],
+  "repositories": []
+}

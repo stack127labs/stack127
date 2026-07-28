@@ -6,6 +6,12 @@
     "purpose": "Discovery, validation, enrichment, auditing, and upsert helpers for /self-host-apps."
   },
   {
+    "surface": "domain-tools",
+    "folder": "scripts/domain-tools",
+    "manifest": null,
+    "purpose": "Refreshes the committed reference datasets /domain-tools depends on: IANA RDAP bootstrap, the root zone TLD list, the Public Suffix List, and the Unicode IDNA and script tables."
+  },
+  {
     "surface": "version127",
     "folder": "scripts/version127",
     "manifest": null,
