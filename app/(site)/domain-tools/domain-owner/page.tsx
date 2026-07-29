@@ -18,7 +18,9 @@ export default async function DomainOwnerPage({ searchParams }: { searchParams: 
     >
       <main className="domain-tool-main">
         <header className="domain-page-header">
-          <h1>Who owns this domain?</h1>
+          <h1>
+            Who <mark>owns</mark> this domain?
+          </h1>
           <p>
             Look up who a domain is registered to. For most domains the answer is
             that the details are hidden, so rather than showing you a wall of

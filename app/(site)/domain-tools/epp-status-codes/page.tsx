@@ -43,7 +43,9 @@ export default function EppStatusCodesPage() {
     >
       <main className="domain-tool-main">
         <header className="domain-page-header">
-          <h1>Domain status codes explained</h1>
+          <h1>
+            Domain <mark>status codes</mark> explained
+          </h1>
           <p>
             Every domain carries status codes, and they are usually why a transfer is
             refused, a site suddenly goes dark, or a registrar dashboard shows

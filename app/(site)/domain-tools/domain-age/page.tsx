@@ -18,7 +18,9 @@ export default async function DomainAgePage({ searchParams }: { searchParams: Pr
     >
       <main className="domain-tool-main">
         <header className="domain-page-header">
-          <h1>Domain age checker</h1>
+          <h1>
+            Domain <mark>age</mark> checker
+          </h1>
           <p>
             Find out how old a domain is and when it was first registered, taken
             straight from the registry that runs the ending. You get the exact

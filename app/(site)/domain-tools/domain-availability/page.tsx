@@ -18,7 +18,9 @@ export default async function DomainAvailabilityPage({ searchParams }: { searchP
     >
       <main className="domain-tool-main">
         <header className="domain-page-header">
-          <h1>Domain availability checker</h1>
+          <h1>
+            Domain <mark>availability</mark> checker
+          </h1>
           <p>
             Check whether a domain name is already registered by asking the registry
             that runs the ending directly. No adverts, no upsell, no suggested

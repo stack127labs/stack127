@@ -18,7 +18,9 @@ export default async function DomainLookupPage({ searchParams }: { searchParams:
     >
       <main className="domain-tool-main">
         <header className="domain-page-header">
-          <h1>Domain registration lookup</h1>
+          <h1>
+            Domain <mark>registration</mark> lookup
+          </h1>
           <p>
             Enter any domain and see its full registration record: the registrar it
             sits with, when it was created, when it expires, the status codes

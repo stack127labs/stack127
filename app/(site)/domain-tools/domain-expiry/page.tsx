@@ -18,7 +18,9 @@ export default async function DomainExpiryPage({ searchParams }: { searchParams:
     >
       <main className="domain-tool-main">
         <header className="domain-page-header">
-          <h1>Domain expiry checker</h1>
+          <h1>
+            Domain <mark>expiry</mark> checker
+          </h1>
           <p>
             Check when a domain expires and, more usefully, what happens after that
             date passes. A domain does not become available the morning it expires.

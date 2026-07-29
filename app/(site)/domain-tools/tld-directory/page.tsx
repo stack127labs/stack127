@@ -17,7 +17,9 @@ export default function TldDirectoryPage() {
     >
       <main className="domain-tool-main">
         <header className="domain-page-header">
-          <h1>List of all domain extensions</h1>
+          <h1>
+            List of all domain <mark>extensions</mark>
+          </h1>
           <p>
             Every top-level domain that exists, with the organisation that operates
             it, whether it is signed with DNSSEC, and whether registration data can be

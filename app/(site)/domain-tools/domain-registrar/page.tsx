@@ -18,7 +18,9 @@ export default async function DomainRegistrarPage({ searchParams }: { searchPara
     >
       <main className="domain-tool-main">
         <header className="domain-page-header">
-          <h1>Find a domain&apos;s registrar</h1>
+          <h1>
+            Find a domain&apos;s <mark>registrar</mark>
+          </h1>
           <p>
             Look up which company a domain is registered through, along with its
             abuse contact and IANA ID. Useful when you need to report something, take

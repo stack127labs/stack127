@@ -18,7 +18,9 @@ export default async function DomainReportPage({ searchParams }: { searchParams:
     >
       <main className="domain-tool-main">
         <header className="domain-page-header">
-          <h1>Domain health check: registration and DNS together</h1>
+          <h1>
+            Domain <mark>health check</mark>: registration and DNS together
+          </h1>
           <p>
             Check a domain&apos;s registration record and its live DNS in one go, and
             find the places where the two disagree. A registry can hold one set of

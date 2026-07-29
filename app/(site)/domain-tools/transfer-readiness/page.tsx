@@ -21,7 +21,9 @@ export default async function TransferReadinessPage({ searchParams }: { searchPa
     >
       <main className="domain-tool-main">
         <header className="domain-page-header">
-          <h1>Can this domain be transferred?</h1>
+          <h1>
+            Can this domain be <mark>transferred?</mark>
+          </h1>
           <p>
             Check whether a domain can move to another registrar right now, and if
             not, what is stopping it. The answer is spread across status codes, dates

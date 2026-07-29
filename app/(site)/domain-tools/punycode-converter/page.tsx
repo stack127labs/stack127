@@ -13,7 +13,9 @@ export default function PunycodeConverterPage() {
     >
       <main className="domain-tool-main">
         <header className="domain-page-header">
-          <h1>Punycode converter</h1>
+          <h1>
+            <mark>Punycode</mark> converter
+          </h1>
           <p>
             Convert a domain name between the readable form and the{" "}
             <code>xn--</code> form DNS actually carries, in either direction. You also

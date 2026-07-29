@@ -92,7 +92,9 @@ export default function DomainToolsPage() {
     >
       <main className="domain-hub-main">
         <header className="domain-page-header">
-          <h1>Free domain lookup tools</h1>
+          <h1>
+            Free domain <mark>lookup tools</mark>
+          </h1>
           <p>
             Look up who registered a domain, when it was created, when it expires,
             whether a name is available, and what its status codes actually mean.

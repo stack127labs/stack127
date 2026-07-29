@@ -13,7 +13,9 @@ export default function MultiTldAvailabilityPage() {
     >
       <main className="domain-tool-main">
         <header className="domain-page-header">
-          <h1>Check a domain name across multiple extensions</h1>
+          <h1>
+            Check a domain name across <mark>multiple extensions</mark>
+          </h1>
           <p>
             Enter one name and check it against several endings at once. Each is
             asked of the registry that runs it, and every row reports its own
