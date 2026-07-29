@@ -95,6 +95,24 @@ function LessonNav({ currentSlug }: { currentSlug: string }) {
   );
 }
 
+/** Wraps the lesson's mark phrase in <mark> for the accent h1 treatment. */
+function renderLessonHeading(heading: string, mark?: string) {
+  if (!mark) {
+    return heading;
+  }
+  const index = heading.indexOf(mark);
+  if (index === -1) {
+    return heading;
+  }
+  return (
+    <>
+      {heading.slice(0, index)}
+      <mark>{mark}</mark>
+      {heading.slice(index + mark.length)}
+    </>
+  );
+}
+
 export async function LessonPage({
   currentSlug,
   heading,
@@ -132,7 +150,7 @@ export async function LessonPage({
       <JsonLd data={buildBreadcrumbStructuredData(crumbs)} />
       <article className={`lesson-page ${proseClassName}`}>
         <header className="lesson-header">
-          <h1>{heading}</h1>
+          <h1>{renderLessonHeading(heading, lesson?.headingMark)}</h1>
           <div className="lesson-byline">
             <img
               alt=""
