@@ -1,0 +1,13 @@
+{
+  "id": "site--doodle-wave",
+  "type": "doodle",
+  "takeaway": "A dotted wave doodle closes out a section.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-07-29",
+  "width": 250,
+  "height": 40,
+  "seed": 7,
+  "data": {
+    "shape": "wave"
+  }
+}

@@ -72,6 +72,11 @@ Pick whatever shows the idea fastest. There is no fixed menu; if a better form e
 | backup proof by restore | restoreLoop |
 | a grouped course path | roadmap |
 | a folder, file, command, and URL workspace | workbench |
+| pure decoration, no data | doodle |
+
+## Decorative doodles
+
+The `doodle` figure type is the one exception to "every figure has data": it decorates hero corners, margins, and empty states. Doodles use muted `sub` strokes plus at most one `primary` stroke so they whisper instead of compete. Sitewide doodle specs live in `app/(site)/art/` and render through the `Doodle` component (`app/doodle.tsx`), which is aria-hidden, unframed, and hides corner placements below 1100px. At most two doodles should be visible per viewport.
 
 Density is a judgment call, not a quota. Show the data the point needs, and stop when a two second squint no longer gets the idea. If a figure stops scanning, split it or simplify it.
 

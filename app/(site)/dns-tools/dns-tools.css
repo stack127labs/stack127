@@ -35,6 +35,24 @@
   width: 100%;
 }
 
+.dns-hero-band {
+  padding: var(--space-13) var(--container-gutter) var(--space-12);
+}
+
+.dns-hero-band-inner {
+  margin: 0 auto;
+  max-width: 1080px;
+}
+
+.dns-hero-doodle {
+  right: 44px;
+  top: 30px;
+}
+
+.dns-hub-after-hero {
+  padding-top: var(--space-11);
+}
+
 .dns-page-header {
   display: grid;
   gap: var(--space-5);
@@ -1004,6 +1022,10 @@
 }
 
 @media (max-width: 760px) {
+  .dns-hero-band {
+    padding: var(--space-10) 22px;
+  }
+
   .dns-hub-main,
   .dns-lookup-main {
     gap: var(--space-11);

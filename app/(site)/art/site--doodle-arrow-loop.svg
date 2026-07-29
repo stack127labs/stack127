@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 124" role="img" aria-labelledby="ma-title-site--doodle-arrow-loop" data-marker-art="site--doodle-arrow-loop">
+<title id="ma-title-site--doodle-arrow-loop">A looping arrow doodle decorates a hero corner.</title>
+<g transform="translate(-2.1 0)">
+<path d="M60.38 16.54 C67.09 21.41, 90.46 31.54, 96.23 42.09 C102.01 52.65, 101.64 68.88, 95.05 79.87 C88.46 90.87, 66.50 102.79, 56.68 108.07 C46.86 113.34, 41.35 111.67, 36.12 111.54 C30.90 111.42, 26.67 108.02, 25.32 107.32 M58.00 15.29 C64.52 19.43, 88.21 26.77, 93.98 37.89 C99.74 49.01, 98.84 69.87, 92.60 82.03 C86.37 94.20, 65.25 105.84, 56.58 110.88 C47.92 115.92, 45.29 113.18, 40.61 112.27 C35.93 111.36, 31.68 106.68, 28.51 105.42" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-sub,#9d9c95);fill:none"/>
+<path d="M41.01 94.41 C35.06 95.65, 33.50 99.52, 28.26 108.05 M38.27 95.49 C35.92 99.97, 31.40 101.50, 24.59 106.39 M22.25 106.88 C32.62 109.25, 34.73 113.78, 39.40 111.70 M24.76 106.91 C30.23 109.49, 36.59 111.55, 41.91 112.89" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-sub,#9d9c95);fill:none"/>
+<circle cx="46" cy="12" r="2" style="fill:var(--ma-primary,#bafc3c)"/>
+</g>
+</svg>

@@ -1,0 +1,30 @@
+.inline {
+  display: block;
+}
+
+.inline svg {
+  display: block;
+  height: auto;
+  max-width: 130px;
+}
+
+/* Corner doodles are pure decoration: hidden on smaller screens so they never
+   crowd content, and never interactive. */
+.corner {
+  display: none;
+  pointer-events: none;
+  position: absolute;
+  user-select: none;
+}
+
+@media (min-width: 1100px) {
+  .corner {
+    display: block;
+  }
+}
+
+.corner svg {
+  display: block;
+  height: auto;
+  width: 110px;
+}

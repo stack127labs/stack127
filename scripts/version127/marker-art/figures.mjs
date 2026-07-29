@@ -659,6 +659,133 @@ function decision(spec, A) {
   if (d.yes.sub) A.txt(264, 197, d.yes.sub, { anchor: "middle", size: 10.5, color: "@sub" });
 }
 
+/* ---------------- doodle: decorative marker art ---------------- */
+/*
+ * Decorative doodles for hero corners, margins, and empty states. No data is
+ * shown, so unlike every other figure there is nothing to compute. Composition
+ * rule: muted sub-tone strokes plus at most one primary stroke, so decoration
+ * whispers instead of competing with the content beside it.
+ */
+function drawStar(A, cx, cy, r, tone) {
+  const pts = [];
+  for (let i = 0; i < 10; i++) {
+    const rad = i % 2 === 0 ? r : r * 0.45;
+    const a = -Math.PI / 2 + (i * Math.PI) / 5;
+    pts.push([cx + rad * Math.cos(a), cy + rad * Math.sin(a)]);
+  }
+  A.polygon(pts, { stroke: tone });
+}
+
+const DOODLE_SHAPES = {
+  // paper plane, dotted trail, one primary star: empty states and 404s
+  spark(A) {
+    A.polygon(
+      [
+        [34, 30],
+        [56, 72],
+        [16, 60],
+      ],
+      { stroke: "@sub" },
+    );
+    for (let i = 0; i < 5; i++) A.dot(66 + i * 13, 82 - (i % 2) * 5, 1.6, "@sub");
+    drawStar(A, 116, 36, 14, "@primary");
+  },
+  // shooting star with a dotted tail: hero corners
+  star(A) {
+    for (let i = 0; i < 4; i++) A.dot(12 + i * 11, 66 - i * 8, 1.6, "@sub");
+    drawStar(A, 74, 32, 16, "@primary");
+  },
+  // potted plant with one primary leaf: reference and hub margins
+  plant(A) {
+    A.polygon(
+      [
+        [38, 92],
+        [86, 92],
+        [79, 126],
+        [45, 126],
+      ],
+      { stroke: "@sub" },
+    );
+    A.curve(
+      [
+        [62, 92],
+        [60, 66],
+        [48, 56],
+        [42, 40],
+      ],
+      { stroke: "@sub" },
+    );
+    A.curve(
+      [
+        [42, 40],
+        [58, 44],
+        [62, 66],
+        [62, 92],
+      ],
+      { stroke: "@sub" },
+    );
+    A.curve(
+      [
+        [62, 84],
+        [66, 60],
+        [78, 50],
+        [84, 34],
+      ],
+      { stroke: "@primary" },
+    );
+    A.curve(
+      [
+        [84, 34],
+        [68, 40],
+        [63, 62],
+        [62, 84],
+      ],
+      { stroke: "@primary" },
+    );
+  },
+  // looping arrow: margins and section transitions
+  arrowLoop(A) {
+    A.curve(
+      [
+        [58, 14],
+        [96, 40],
+        [96, 82],
+        [58, 108],
+        [38, 112],
+        [26, 106],
+      ],
+      { stroke: "@sub" },
+    );
+    A.linearPath(
+      [
+        [40, 96],
+        [26, 106],
+        [42, 114],
+      ],
+      { stroke: "@sub" },
+    );
+    A.dot(46, 12, 2, "@primary");
+  },
+  // dotted wave: quiet divider inside empty space
+  wave(A) {
+    for (let i = 0; i < 16; i++) {
+      const x = 12 + i * 15;
+      const y = 20 + Math.sin(i * 0.8) * 8;
+      A.dot(x, y, 1.7, i === 8 ? "@primary" : "@sub");
+    }
+  },
+};
+
+function doodle(spec, A) {
+  const draw = DOODLE_SHAPES[spec.data.shape];
+  if (!draw) {
+    throw new Error(
+      `unknown doodle shape "${spec.data.shape}" (have: ${Object.keys(DOODLE_SHAPES).join(", ")})`,
+    );
+  }
+  draw(A);
+}
+
 export const FIGURES = {
   bar,
   donut,
@@ -676,4 +803,5 @@ export const FIGURES = {
   restoreLoop,
   roadmap,
   workbench,
+  doodle,
 };

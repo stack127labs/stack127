@@ -6,6 +6,8 @@ import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { findLicenseAnchor } from "@/lib/software-licenses";
 import { AppShell, SidebarLabel } from "../../app-shell";
 import { CategoryIcon } from "../../category-icon";
+import { Doodle } from "../../doodle";
+import { siteDoodleSparkArt } from "../art/site--doodle-spark";
 import {
   sidebarPanelClassName,
   sidebarPanelGithubLinkClassName,
@@ -893,6 +895,7 @@ export default async function SelfHostAppsPage({
             </>
           ) : (
             <div className="directory-empty">
+              <Doodle svg={siteDoodleSparkArt} />
               <h2>No apps match those filters</h2>
               <p>Try clearing one resource or health filter first.</p>
               <Link href="/self-host-apps">show all apps</Link>

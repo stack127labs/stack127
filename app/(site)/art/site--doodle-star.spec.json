@@ -1,0 +1,13 @@
+{
+  "id": "site--doodle-star",
+  "type": "doodle",
+  "takeaway": "A shooting star doodle decorates a hero corner.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-07-29",
+  "width": 110,
+  "height": 90,
+  "seed": 7,
+  "data": {
+    "shape": "star"
+  }
+}

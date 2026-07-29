@@ -13,10 +13,13 @@ import {
 import { lessons } from "@/lib/self-hosting-for-beginners";
 import { licenses } from "@/lib/software-licenses";
 import { AppShell, SidebarLabel } from "../app-shell";
+import { dotBandClassName } from "../dot-band";
+import { Doodle } from "../doodle";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
 } from "../sidebar-panel";
+import { siteDoodleStarArt } from "./art/site--doodle-star";
 
 export const dynamic = "force-dynamic";
 
@@ -148,7 +151,7 @@ export default async function Home() {
       sidebar={<HomeSidebar label={homePage.label} pages={visibleMainPages} />}
       sidebarLabel="Home sidebar"
     >
-      <section className="home-main" aria-labelledby="home-title">
+      <div className={`${dotBandClassName} home-hero-band`}>
         <header className="home-intro">
           <h1 id="home-title">
             Practical tools for <mark>self-hosting</mark>
@@ -158,7 +161,9 @@ export default async function Home() {
             wading through filler.
           </p>
         </header>
-
+        <Doodle className="home-hero-doodle" placement="corner" svg={siteDoodleStarArt} />
+      </div>
+      <section className="home-main" aria-labelledby="home-title">
         <div className="home-page-grid">
           {featurePages.map((page) => (
             <HomePageCard

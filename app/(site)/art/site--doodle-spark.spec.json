@@ -1,0 +1,13 @@
+{
+  "id": "site--doodle-spark",
+  "type": "doodle",
+  "takeaway": "A paper plane doodle marks an empty result.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-07-29",
+  "width": 150,
+  "height": 120,
+  "seed": 7,
+  "data": {
+    "shape": "spark"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "site--doodle-plant",
+  "type": "doodle",
+  "takeaway": "A potted plant doodle fills a quiet margin.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-07-29",
+  "width": 120,
+  "height": 140,
+  "seed": 7,
+  "data": {
+    "shape": "plant"
+  }
+}

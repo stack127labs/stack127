@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { AppShell } from "../../app-shell";
+import { dotBandClassName } from "../../dot-band";
+import { Doodle } from "../../doodle";
+import { siteDoodleArrowLoopArt } from "../art/site--doodle-arrow-loop";
 import { DnsToolsSidebar } from "./dns-tools-sidebar";
 
 export default function DnsToolsPage() {
@@ -10,18 +13,23 @@ export default function DnsToolsPage() {
       sidebar={<DnsToolsSidebar active="hub" />}
       sidebarLabel="DNS tools sidebar"
     >
-      <main className="dns-hub-main">
-        <header className="dns-page-header">
-          <h1>
-            DNS <mark>tools</mark>
-          </h1>
-          <p>
-            A small set of tools for seeing what your domain is really doing in DNS. Look up
-            records, follow a lookup from the root servers down to the final answer, compare what
-            public resolvers still have cached against the real source, and check the quieter
-            pieces that break email, certificates, and websites when they go wrong.
-          </p>
-        </header>
+      <div className={`${dotBandClassName} dns-hero-band`}>
+        <div className="dns-hero-band-inner">
+          <header className="dns-page-header">
+            <h1>
+              DNS <mark>tools</mark>
+            </h1>
+            <p>
+              A small set of tools for seeing what your domain is really doing in DNS. Look up
+              records, follow a lookup from the root servers down to the final answer, compare
+              what public resolvers still have cached against the real source, and check the
+              quieter pieces that break email, certificates, and websites when they go wrong.
+            </p>
+          </header>
+        </div>
+        <Doodle className="dns-hero-doodle" placement="corner" svg={siteDoodleArrowLoopArt} />
+      </div>
+      <main className="dns-hub-main dns-hub-after-hero">
 
         <section aria-labelledby="available-tools-title" className="dns-hub-section">
           <h2 id="available-tools-title">What are you trying to fix?</h2>

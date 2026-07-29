@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { AppShell } from "../../app-shell";
+import { dotBandClassName } from "../../dot-band";
+import { Doodle } from "../../doodle";
+import { siteDoodlePlantArt } from "../art/site--doodle-plant";
 import { DomainToolsSidebar } from "./domain-tools-sidebar";
 import { coverageSummary } from "@/lib/domain/bootstrap.ts";
 
@@ -90,19 +93,24 @@ export default function DomainToolsPage() {
       sidebar={<DomainToolsSidebar active="hub" />}
       sidebarLabel="Domain tools sidebar"
     >
-      <main className="domain-hub-main">
-        <header className="domain-page-header">
-          <h1>
-            Free domain <mark>lookup tools</mark>
-          </h1>
-          <p>
-            Look up who registered a domain, when it was created, when it expires,
-            whether a name is available, and what its status codes actually mean.
-            Every answer comes from the registry that runs the ending rather than from
-            a reseller trying to sell you something, and none of these tools ask you
-            to sign up.
-          </p>
-        </header>
+      <div className={`${dotBandClassName} domain-hero-band`}>
+        <div className="domain-hero-band-inner">
+          <header className="domain-page-header">
+            <h1>
+              Free domain <mark>lookup tools</mark>
+            </h1>
+            <p>
+              Look up who registered a domain, when it was created, when it expires,
+              whether a name is available, and what its status codes actually mean.
+              Every answer comes from the registry that runs the ending rather than from
+              a reseller trying to sell you something, and none of these tools ask you
+              to sign up.
+            </p>
+          </header>
+        </div>
+        <Doodle className="domain-hero-doodle" placement="corner" svg={siteDoodlePlantArt} />
+      </div>
+      <main className="domain-hub-main domain-hub-after-hero">
 
         <section aria-labelledby="tools-title" className="domain-hub-section">
           <h2 id="tools-title">Which domain tool do you need?</h2>

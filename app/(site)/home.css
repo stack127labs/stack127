@@ -26,10 +26,19 @@
   color: var(--color-text);
 }
 
+.home-hero-band {
+  padding: var(--space-12) var(--container-gutter) var(--space-11);
+}
+
+.home-hero-doodle {
+  right: 48px;
+  top: 34px;
+}
+
 .home-main {
   display: grid;
   gap: var(--space-12);
-  padding: var(--space-12) var(--container-gutter) 72px;
+  padding: var(--space-11) var(--container-gutter) 72px;
 }
 
 .home-intro {
@@ -180,6 +189,10 @@
 }
 
 @media (max-width: 960px) {
+  .home-hero-band {
+    padding: var(--space-10) 22px;
+  }
+
   .home-main {
     gap: var(--space-10);
     padding: var(--space-10) 22px 54px;
