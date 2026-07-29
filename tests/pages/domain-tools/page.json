@@ -8,6 +8,7 @@
     "tests/pages/domain-tools/shared/punycode.test.mjs",
     "tests/pages/domain-tools/shared/public-suffix.test.mjs",
     "tests/pages/domain-tools/shared/bootstrap.test.mjs",
+    "tests/pages/domain-tools/shared/cache-migration.test.mjs",
     "tests/pages/domain-tools/shared/normalize.test.mjs",
     "tests/pages/domain-tools/shared/transfer-policy.test.mjs",
     "tests/pages/domain-tools/shared/status-codes.test.mjs",

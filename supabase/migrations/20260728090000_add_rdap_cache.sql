@@ -17,6 +17,11 @@ create table if not exists public.rdap_cache (
   fetched_at timestamptz not null default now()
 );
 
+-- The application reaches this table through its server-side database role.
+-- Browser-facing Supabase roles do not need direct access.
+alter table public.rdap_cache enable row level security;
+revoke all on table public.rdap_cache from anon, authenticated;
+
 -- Lookups are always "this URL, if it is fresh enough".
 create index if not exists rdap_cache_fetched_at_idx on public.rdap_cache (fetched_at);
 

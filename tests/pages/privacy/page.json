@@ -2,7 +2,10 @@
   "route": "/privacy",
   "state": "published",
   "docs": ["content_docs/privacy"],
-  "tests": ["tests/version127/seo.spec.ts"],
+  "tests": [
+    "tests/pages/privacy/privacy.test.mjs",
+    "tests/version127/seo.spec.ts"
+  ],
   "scripts": [],
   "skills": [],
   "repositories": []

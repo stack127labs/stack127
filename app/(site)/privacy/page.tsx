@@ -17,6 +17,9 @@ export default function PrivacyPage() {
             Cloudflare, the VPS, and the application may process normal request details like the page URL, time of request, IP address, browser type, device type, referrer, cache status, security events, and basic error information. This is the technical layer needed to serve pages, keep the site fast, debug broken behavior, and spot abuse.
           </p>
           <p>
+            When you use a domain registration tool, the queried domain name is sent to the registry and registrar that operate its ending. Registration facts are cached on our server for a bounded time, keyed by domain name, so repeated checks do not keep contacting the same registry. Requester identifiers are used temporarily for rate limiting and are never persistently associated with a cached lookup.
+          </p>
+          <p>
             We use a self-hosted Umami analytics setup to understand how pages are performing. Umami analytics data is anonymized and aggregate-focused. It can include page views, referrers, device type, browser, operating system, country-level location, and basic visit patterns. The goal is to understand which pages are useful, not to identify you, build an advertising profile, or track you across websites.
           </p>
           <p>
@@ -30,6 +33,9 @@ export default function PrivacyPage() {
             We use Cloudflare and server logs to keep pages reachable, cache static assets, understand failures, reduce spam or abusive traffic, and protect the VPS from obvious attacks. These logs are operational. They are not meant to become a reader profile.
           </p>
           <p>
+            Domain lookup cache entries contain registration facts and the time they were fetched. They do not contain a requester address, session, or visitor identifier. We do not build a history that connects domain lookups to visitors, and we do not sell or share the cached registration data.
+          </p>
+          <p>
             We use Umami analytics to see which pages are worth improving, which search paths are useful, and where the site feels thin. For example, aggregate traffic patterns can tell us whether people care more about self-host apps, automation tools, calculators, reference pages, or something else we should build next.
           </p>
           <p>
@@ -41,6 +47,9 @@ export default function PrivacyPage() {
           <h2>What we share</h2>
           <p>
             We do not sell personal information. Cloudflare will receive and process traffic information because it sits in front of the site as the CDN and security edge. Our VPS provider may process server-level information because the site runs on its infrastructure.
+          </p>
+          <p>
+            A registry or registrar receives the domain name needed to answer a registration lookup, along with ordinary network request details from our server. Those operators have their own privacy practices and retention rules.
           </p>
           <p>
             We may also share limited information if required by law, to respond to abuse, to protect the site, or to investigate security problems. We are not trying to turn Version127 into a data business.
@@ -75,7 +84,7 @@ export default function PrivacyPage() {
           <p>
             The current contact email is <a href="mailto:version127@proton.me">version127@proton.me</a>.
           </p>
-          <p className={infoUpdatedClassName}>Last updated: July 2, 2026.</p>
+          <p className={infoUpdatedClassName}>Last updated: July 29, 2026.</p>
         </section>
     </InfoPage>
   );
