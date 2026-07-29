@@ -150,7 +150,9 @@ export default async function Home() {
     >
       <section className="home-main" aria-labelledby="home-title">
         <header className="home-intro">
-          <h1 id="home-title">Practical tools for self-hosting</h1>
+          <h1 id="home-title">
+            Practical tools for <mark>self-hosting</mark>
+          </h1>
           <p className="home-lede">
             Compact directories, a beginner course, and references you can scan without
             wading through filler.
