@@ -82,7 +82,7 @@
   gap: var(--space-7);
   justify-content: space-between;
   min-height: 42px;
-  padding: var(--space-4) clamp(24px, 5vw, 72px);
+  padding: var(--space-4) var(--container-gutter);
 }
 
 .footerBrand {
@@ -118,7 +118,8 @@
 .footer a,
 .footer p {
   color: var(--color-text-muted);
-  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
   line-height: var(--line-ui);
   margin: 0;
   text-transform: lowercase;
@@ -126,7 +127,7 @@
 }
 
 .footer a:hover {
-  color: var(--color-link);
+  color: var(--color-text);
 }
 
 @media (max-width: 960px) {

@@ -7,7 +7,7 @@
 .label {
   color: var(--color-text-muted);
   font-family: var(--font-mono);
-  font-size: var(--text-2xs);
+  font-size: var(--text-small);
   line-height: var(--line-ui);
   min-width: 0;
   overflow: hidden;
@@ -16,11 +16,16 @@
   white-space: nowrap;
 }
 
+/* Code surfaces stay dark in both themes: one familiar terminal everywhere.
+   The locally scoped custom properties keep that independent of the page theme. */
 .frame {
+  --code-bg: #141413;
+  --code-text: #e8e8e4;
+  --code-muted: #9d9c95;
   align-items: flex-start;
-  background: var(--color-surface-muted);
+  background: var(--code-bg);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   display: flex;
   gap: var(--space-3);
   padding: var(--space-6) var(--space-4) var(--space-6) var(--space-7);
@@ -31,20 +36,20 @@
   appearance: none;
   background: transparent;
   border: 0;
-  border-radius: var(--radius-sm);
-  color: var(--color-text-muted);
+  border-radius: 4px;
+  color: var(--code-muted);
   cursor: pointer;
   display: inline-flex;
   flex: 0 0 auto;
-  height: calc(var(--text-sm) * 1.6);
+  height: 22px;
   justify-content: center;
   margin: 0;
   padding: 0;
-  width: calc(var(--text-sm) * 1.6);
+  width: 22px;
 }
 
 .copy:hover {
-  color: var(--color-link);
+  color: var(--color-accent);
 }
 
 .copy:focus-visible {
@@ -61,9 +66,9 @@
 }
 
 .pre code {
-  color: var(--color-text);
+  color: var(--code-text);
   font-family: var(--font-mono);
-  font-size: var(--text-sm);
+  font-size: var(--text-small);
   line-height: 1.6;
   white-space: pre;
 }

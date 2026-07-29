@@ -63,8 +63,6 @@
   --control-height-md: 40px;
   --control-height-lg: 42px;
   --sidebar-width: clamp(260px, 20vw, 300px);
-  --site-max-width: 1500px;
-  --site-gutter: 64px;
   --top-bar-height: 58px;
   --motion-fast: 120ms ease;
   --motion-base: 180ms ease;
@@ -101,7 +99,6 @@
   --color-surface-solid: var(--color-surface);
   --color-surface-muted: var(--color-surface-2);
   --color-surface-subtle: var(--color-surface-2);
-  --color-nav-surface: var(--color-bg);
   --color-text-prose: var(--color-text);
   --color-text-subtle: var(--color-text-muted);
   --color-accent-soft: var(--color-surface-2);
@@ -118,8 +115,6 @@
   --shadow-elevated: none;
   --shadow-card: none;
   --shadow-accent: none;
-  --nav-surface: var(--color-nav-surface);
-  --nav-shadow: none;
   --confidence-surface: var(--color-surface-2);
   --confidence-border: var(--color-border);
   --text: var(--color-text);

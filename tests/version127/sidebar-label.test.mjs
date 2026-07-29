@@ -15,8 +15,8 @@ test("shared sidebar titles use a paragraph with heading-like styling", () => {
     appShell,
     /function SidebarLabel[\s\S]*return <p className=\{sidebarPanelTitleClassName\}>\{children\}<\/p>/,
   );
-  assert.match(sidebarStyles, /\.title\s*\{[\s\S]*font-size: var\(--text-heading\)/);
-  assert.match(sidebarStyles, /\.title\s*\{[\s\S]*font-weight: var\(--weight-semibold\)/);
+  assert.match(sidebarStyles, /\.title\s*\{[\s\S]*font-size: var\(--text-h3\)/);
+  assert.match(sidebarStyles, /\.title\s*\{[\s\S]*font-weight: var\(--weight-bold\)/);
   assert.doesNotMatch(
     sidebarStyles,
     /\.heading p\s*\{/,

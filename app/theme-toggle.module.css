@@ -2,23 +2,23 @@
   align-items: center;
   background: transparent;
   border: 0;
-  border-radius: 0;
+  border-radius: var(--radius-lg);
   display: inline-flex;
   height: var(--control-height-sm);
   justify-content: center;
   padding: 0;
   transition:
-    color var(--motion-base),
-    transform var(--motion-base);
+    background var(--motion-base),
+    color var(--motion-base);
   width: var(--control-height-sm);
 }
 
 .button:hover {
-  transform: translateY(-1px);
+  background: var(--color-surface-2);
 }
 
 .icon {
-  color: var(--text);
+  color: var(--color-text);
   display: block;
   height: 17px;
   width: 17px;

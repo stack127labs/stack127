@@ -36,7 +36,7 @@
   display: grid;
   gap: var(--space-12);
   max-width: var(--measure-prose);
-  padding: var(--space-12) clamp(24px, 5vw, 72px) 72px;
+  padding: var(--space-12) var(--container-gutter) 72px;
 }
 
 .page section {

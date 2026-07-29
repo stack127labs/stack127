@@ -5,21 +5,22 @@
 }
 
 .panel p {
-  color: var(--brand);
+  color: var(--color-accent-text);
   font-family: var(--font-mono);
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
   margin: 0;
 }
 
 .panel h1 {
+  font-family: var(--font-display);
   font-size: var(--text-h1);
-  letter-spacing: 0;
+  letter-spacing: var(--tracking-display);
   line-height: var(--line-h1);
   margin: 0;
 }
 
 .panel a {
-  color: var(--brand);
-  font-weight: 700;
+  color: var(--color-accent-text);
+  font-weight: var(--weight-semibold);
 }
