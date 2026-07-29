@@ -264,12 +264,15 @@ function RawResponse({ result }: { result: DnsQueryResult }) {
 function WebsiteFavicon({ hostname }: { hostname: string }) {
   const [state, setState] = useState<"loading" | "loaded" | "failed">("loading");
   const src = websiteFaviconUrl(hostname);
-  if (!src || state === "failed") return null;
+  if (!src) return null;
 
+  // A failed favicon stays mounted at opacity 0: the slot keeps the title from
+  // shifting, and the element's presence stays deterministic for tests.
   return (
     <img
       alt=""
       className={`dns-site-favicon${state === "loaded" ? " dns-site-favicon-loaded" : ""}`}
+      data-favicon-state={state}
       decoding="async"
       height="32"
       onError={() => setState("failed")}

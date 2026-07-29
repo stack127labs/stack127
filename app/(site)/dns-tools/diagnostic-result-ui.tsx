@@ -8,8 +8,10 @@ import styles from "./dns-diagnostics.module.css";
 export function DiagnosticFavicon({ hostname }: { hostname: string }) {
   const [state, setState] = useState<"loading" | "loaded" | "failed">("loading");
   const src = websiteFaviconUrl(hostname);
-  if (!src || state === "failed") return null;
-  return <img alt="" className={`${styles.favicon}${state === "loaded" ? ` ${styles.faviconLoaded}` : ""}`} decoding="async" height="32" onError={() => setState("failed")} onLoad={() => setState("loaded")} referrerPolicy="no-referrer" src={src} width="32" />;
+  if (!src) return null;
+  // A failed favicon stays mounted at opacity 0: the slot keeps the title from
+  // shifting, and the element's presence stays deterministic for tests.
+  return <img alt="" className={`${styles.favicon}${state === "loaded" ? ` ${styles.faviconLoaded}` : ""}`} data-favicon-state={state} decoding="async" height="32" onError={() => setState("failed")} onLoad={() => setState("loaded")} referrerPolicy="no-referrer" src={src} width="32" />;
 }
 
 export function DiagnosticResultHeader({

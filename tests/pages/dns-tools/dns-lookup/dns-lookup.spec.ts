@@ -265,7 +265,7 @@ test("CAA keeps issuewild policies visible and long results have one Expand all 
   await expect(page.getByRole("button", { name: "Collapse long record lists" })).toBeVisible();
 });
 
-test("DNS Lookup omits the favicon when the website has no usable icon", async ({ page }) => {
+test("DNS Lookup keeps a failed favicon invisible instead of shifting the title", async ({ page }) => {
   const missingFaviconFixture = {
     ...fixture,
     query: {
@@ -282,7 +282,11 @@ test("DNS Lookup omits the favicon when the website has no usable icon", async (
   await page.getByLabel("DNS name").fill("missing.example");
   await page.getByRole("button", { name: "Look up DNS" }).click();
 
-  await expect(page.locator(".dns-site-favicon")).toHaveCount(0);
+  // The element stays mounted so its presence is deterministic and the title
+  // never shifts, but it must stay invisible when the icon cannot load.
+  const favicon = page.locator(".dns-site-favicon");
+  await expect(favicon).toHaveAttribute("data-favicon-state", "failed");
+  await expect(favicon).toHaveCSS("opacity", "0");
 });
 
 test("query-param lookup states remain noindex and canonicalize to the clean tool URL", async ({ page }) => {
