@@ -857,7 +857,9 @@ export default async function SelfHostAppsPage({
     >
         <div className="directory-results">
           <div className="directory-results-header">
-            <h1>Find apps that fit your server, storage, and setup comfort.</h1>
+            <h1>
+              Find <mark>apps that fit</mark> your server, storage, and setup comfort.
+            </h1>
           </div>
 
           <ActiveFilters
