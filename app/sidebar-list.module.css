@@ -36,7 +36,18 @@
   font-size: var(--text-small);
 }
 
-.itemActive .number {
+.icon {
+  align-self: center;
+  color: var(--color-text-muted);
+  display: inline-flex;
+}
+
+.icon svg {
+  display: block;
+}
+
+.itemActive .number,
+.itemActive .icon {
   color: var(--color-accent-text);
 }
 

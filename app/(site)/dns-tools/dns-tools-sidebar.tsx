@@ -1,3 +1,12 @@
+import {
+  FileClock,
+  FileKey,
+  RefreshCw,
+  Route,
+  Search,
+  Server,
+  ShieldCheck,
+} from "lucide-react";
 import { SidebarLabel } from "../../app-shell";
 import { SidebarList } from "../../sidebar-list";
 import {
@@ -9,14 +18,16 @@ type DnsToolsSidebarProps = {
   active: "hub" | "lookup" | "trace" | "change" | "nameserver" | "dnssec" | "soa" | "caa";
 };
 
+const iconProps = { size: 15, strokeWidth: 2.2 } as const;
+
 const availableDnsTools = [
-  { href: "/dns-tools/dns-lookup", id: "lookup", label: "DNS lookup" },
-  { href: "/dns-tools/dns-trace", id: "trace", label: "DNS Trace Explorer" },
-  { href: "/dns-tools/dns-change-checker", id: "change", label: "DNS Change Checker" },
-  { href: "/dns-tools/nameserver-checker", id: "nameserver", label: "Nameserver Delegation Checker" },
-  { href: "/dns-tools/dnssec-checker", id: "dnssec", label: "DNSSEC Chain Checker" },
-  { href: "/dns-tools/soa-checker", id: "soa", label: "SOA Consistency Checker" },
-  { href: "/dns-tools/caa-checker", id: "caa", label: "CAA Policy Checker" },
+  { href: "/dns-tools/dns-lookup", icon: <Search {...iconProps} />, id: "lookup", label: "DNS lookup" },
+  { href: "/dns-tools/dns-trace", icon: <Route {...iconProps} />, id: "trace", label: "DNS Trace Explorer" },
+  { href: "/dns-tools/dns-change-checker", icon: <RefreshCw {...iconProps} />, id: "change", label: "DNS Change Checker" },
+  { href: "/dns-tools/nameserver-checker", icon: <Server {...iconProps} />, id: "nameserver", label: "Nameserver Delegation Checker" },
+  { href: "/dns-tools/dnssec-checker", icon: <ShieldCheck {...iconProps} />, id: "dnssec", label: "DNSSEC Chain Checker" },
+  { href: "/dns-tools/soa-checker", icon: <FileClock {...iconProps} />, id: "soa", label: "SOA Consistency Checker" },
+  { href: "/dns-tools/caa-checker", icon: <FileKey {...iconProps} />, id: "caa", label: "CAA Policy Checker" },
 ] as const;
 
 /** How many DNS tools exist now; the home page card shows this count. */
@@ -33,6 +44,7 @@ export function DnsToolsSidebar({ active }: DnsToolsSidebarProps) {
           items={availableDnsTools.map((tool) => ({
             active: active === tool.id,
             href: tool.href,
+            icon: tool.icon,
             label: tool.label,
           }))}
         />

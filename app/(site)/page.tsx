@@ -1,3 +1,4 @@
+import { BookOpen, Globe, HardDrive, Network, Scale } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import "./home.css";
@@ -34,6 +35,17 @@ type HomeStat = {
 /** Legal pages stay in the footer; the explore list is for the real content. */
 const legalSlugs = new Set(["about", "privacy", "terms"]);
 
+const sidebarIconProps = { size: 15, strokeWidth: 2.2 } as const;
+
+/** Monochrome icon per feature page; unknown slugs fall back to the chevron. */
+const pageIcons: Record<string, ReactNode> = {
+  "dns-tools": <Network {...sidebarIconProps} />,
+  "domain-tools": <Globe {...sidebarIconProps} />,
+  "self-host-apps": <HardDrive {...sidebarIconProps} />,
+  "self-hosting-for-beginners": <BookOpen {...sidebarIconProps} />,
+  "software-licenses-for-self-hosting": <Scale {...sidebarIconProps} />,
+};
+
 function HomeSidebar({ pages }: { pages: Version127Page[] }) {
   return (
     <div className={`${sidebarPanelClassName} home-sidebar-panel`}>
@@ -46,6 +58,7 @@ function HomeSidebar({ pages }: { pages: Version127Page[] }) {
             .filter((page) => !legalSlugs.has(page.slug))
             .map((page) => ({
               href: pathFromSlug(page.slug),
+              icon: pageIcons[page.slug],
               label: page.label,
             }))}
         />
