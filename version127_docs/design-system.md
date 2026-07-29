@@ -92,7 +92,7 @@ Tools are one clear box: a `--color-border-strong` frame at `--radius-xl` whose 
 
 Sidebars that list things use `SidebarList` from `app/sidebar-list.tsx`: small rows, optional mono numbers and counts, and a `--color-surface-2` active fill with an accent-ink leading cell. Linear lists lead with mono numbers, non-linear lists lead with a meaningful monochrome icon, and lists with no sensible icon fall back to the quiet chevron. Do not hand-roll another sidebar link list.
 
-Each feature page has one identity icon, used in three places: its sidebar row, its home card title, and as a `PageTitleIcon` chip (`app/page-title-icon.tsx`) beside its h1 — an em-sized `--color-surface-2` square with the icon in accent-ink. Feature pages also carry one marker spot doodle on their home card; the spot says what the page is in one drawing.
+Each feature page has one identity icon, used in three places: its sidebar row, its home card title, and through `PageTitleIcon` (`app/page-title-icon.tsx`) beside its h1. The h1 treatment is an unboxed, em-sized icon in `--color-accent-text`, aligned optically with the title. Feature pages also carry one marker spot doodle on their home card; the spot says what the page is in one drawing.
 
 Callouts distinguish by a neutral `--color-border` full border and spacing alone. If the message is a warning, the key phrase uses `--color-warning-text` inside; the box itself stays neutral. Never a colored left edge.
 
