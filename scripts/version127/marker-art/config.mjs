@@ -21,13 +21,13 @@ export const MARKER = {
   baseSize: 13,
   // semantic tones -> dark-mode fallback hex (light mode comes from globals.css)
   tones: {
-    ink: "#f5f5f5", // default stroke and text
-    sub: "#a3a3a3", // secondary text, axes
-    primary: "#4dabf7", // the subject, the main thing
-    good: "#69db7c", // good, recommended, safe, light
-    warn: "#ff8787", // heavy, costly, risky, avoid
-    note: "#ffd43b", // neutral highlight, sticky notes
-    bg: "#111111", // page background (donut holes, badges)
+    ink: "#f2f2ee", // default stroke and text
+    sub: "#9d9c95", // secondary text, axes
+    primary: "#bafc3c", // the subject, the main thing
+    good: "#7ddc64", // good, recommended, safe, light
+    warn: "#ff8a80", // heavy, costly, risky, avoid
+    note: "#ffb757", // neutral highlight, sticky notes
+    bg: "#101010", // page background (donut holes, badges)
     grid: "rgba(255,255,255,.12)", // faint guide lines
   },
   // canvas defaults; figures may compute their own height

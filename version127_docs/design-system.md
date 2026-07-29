@@ -1,6 +1,6 @@
 # Version127 Design System
 
-Version127 uses a compact technical interface: near-black by default, low-radius surfaces, quiet borders, compact UI typography, readable prose typography, and structured facts over long prose.
+Version127 is simple, minimal, and playful: warm near-black by default, one loud chartreuse accent used sparingly, Space Grotesk headings over Inter body text, exactly two body text sizes, monochrome icons, and hand-drawn marker art. Playfulness lives in the type, the art, and the one accent — never in extra boxes, tints, or decoration.
 
 ## Tokens
 
@@ -10,87 +10,102 @@ Use the semantic names for new UI:
 
 | group | tokens |
 | --- | --- |
-| Color | `--color-bg`, `--color-surface`, `--color-surface-solid`, `--color-text`, `--color-text-muted`, `--color-border`, `--color-accent`, `--color-link` |
-| Status | `--color-success-*`, `--color-warning-*`, `--color-danger-*` |
-| Type | `--font-sans`, `--font-mono`, `--text-*`, `--line-*` |
-| Prose | `--text-prose`, `--text-prose-lg`, `--line-prose`, `--measure-prose`, `--color-text-prose` |
-| Headings | `--text-h1`, `--text-h2`, `--text-h3`, `--text-h4` |
-| Space | `--space-1` through `--space-14` |
-| Radius | `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-xl`, `--radius-pill` |
-| Effects | `--focus-ring`, `--shadow-card`, `--shadow-elevated`, `--motion-fast`, `--motion-base` |
-| Layout | `--top-bar-height`, `--sidebar-width`, `--site-max-width`, `--site-gutter` |
+| Color | `--color-bg`, `--color-surface`, `--color-surface-2`, `--color-text`, `--color-text-muted`, `--color-border`, `--color-border-strong` |
+| Accent | `--color-accent` (fills only), `--color-accent-text` (accent-colored text), `--color-accent-contrast` (text on accent fills), `--color-link` |
+| Status | `--color-success-text`, `--color-warning-text`, `--color-danger-text` — text colors only, never backgrounds |
+| Type | `--font-display`, `--font-sans`, `--font-mono`, `--text-body`, `--text-small`, `--line-body`, `--line-heading`, `--tracking-display`, `--weight-regular`, `--weight-semibold`, `--weight-bold` |
+| Headings | `--text-h1` + `--line-h1`, `--text-h2`, `--text-h3` |
+| Space | `--space-1` through `--space-14`, `--measure-prose` |
+| Radius | `--radius-lg` (8px, standard), `--radius-xl` (12px, large panels) |
+| Effects | `--focus-ring`, `--motion-fast`, `--motion-base` |
+| Layout | `--container-max`, `--container-gutter`, `--top-bar-height`, `--sidebar-width` |
 
-Legacy aliases like `--background`, `--surface`, `--text`, `--muted`, `--line`, and `--brand` still exist so older styles keep working. New CSS should use the semantic tokens.
+Transitional aliases from the previous token scale (`--text-sm`, `--color-accent-soft`, `--shadow-card`, and similar) still resolve so older styles keep rendering, but they are scheduled for deletion. New CSS must use the semantic tokens above.
+
+## Color rules
+
+- The accent is a spotlight, not a paint bucket. Per view, `--color-accent` fills at most: the h1 mark phrase, one primary button, the active pagination page, the focus ring, and the active tab underline. Everything else that wants attention uses `--color-accent-text` or a border.
+- Text on an accent fill always uses `--color-accent-contrast`. Never white on chartreuse.
+- Accent-colored text always uses `--color-accent-text`; raw `#bafc3c` fails contrast as text on the light background.
+- Semantic color only colors words, and only when the meaning is real: `--color-success-text`, `--color-warning-text`, `--color-danger-text`. No tinted panels, no colored left edges, no badge soup.
+- Muted text is the exception, not the default. `--color-text-muted` is reserved for true annotations: mono metadata rows, captions, timestamps, counts, and sidebar helper text. Card descriptions, ledes, section notes, and all reading copy use `--color-text`.
 
 ## Typography
 
-Version127 uses two typography modes.
+Three fonts, each with one job: `--font-display` (Space Grotesk) speaks in headings and titles, `--font-sans` (Inter) carries every sentence, `--font-mono` (IBM Plex Mono) handles data, metadata, and code.
 
-Compact UI typography is for dense product surfaces: cards, filters, nav, buttons, pills, metadata, tables, drawers, and stats. Keep these small and scannable.
+Body text has exactly two sizes on the whole site:
 
-Prose typography is for reading surfaces: legal pages, about pages, reference notes, guide copy, and any area with multiple paragraphs. Scope it with `proseClassName` from `app/prose.ts`; do not make it page-wide when the page also contains cards or tools.
-
-| purpose | token | current value |
+| purpose | token | value |
 | --- | --- | --- |
-| H1 | `--text-h1` | `1.55rem` |
-| H2 | `--text-h2` | `1.22rem` |
-| H3 | `--text-h3` | `1.05rem` |
-| H4 | `--text-h4` | `0.95rem` |
-| Prose body | `--text-prose` | `1.0625rem` |
-| Prose lede | `--text-prose-lg` | `1.16rem` |
-| Prose line height | `--line-prose` | `1.7` |
-| Prose measure | `--measure-prose` | `760px` |
-| Prose color | `--color-text-prose` | less muted than metadata |
+| Base — everything | `--text-body` | `1.0625rem` |
+| Small — compact annotations only | `--text-small` | `0.875rem` |
 
-The older `--text-*` tokens are still the compact UI scale. Use them for interface density, not long reading.
+Base is for prose, navigation, buttons, inputs, table cells, and tool results. If you are unsure which size to use, it is base. Small is only for card descriptions, metadata rows, captions, and sidebar filter items — never a paragraph of reading copy. A page that "needs" a third size actually needs a layout change.
+
+Headings scale by hierarchy, all in `--font-display` at `--weight-bold` with `--tracking-display`:
+
+| purpose | token | value |
+| --- | --- | --- |
+| H1 | `--text-h1` + `--line-h1` | `clamp(2.6rem, 5vw, 3.6rem)` |
+| H2 | `--text-h2` | `1.7rem` |
+| H3 | `--text-h3` | `1.15rem` |
+
+Every page h1 highlights one editorially chosen phrase with a `<mark>` styled as an accent fill with `--color-accent-contrast` text.
 
 ## Prose Layout
 
 - Put `proseClassName` on the exact reading container.
 - Use `--measure-prose` to keep line length comfortable.
-- Keep paragraphs slightly less muted than metadata with `--color-text-prose`.
+- Reading copy uses `--color-text`, not muted.
 - Use no default dividers between prose sections unless a specific reference page needs them.
 - Keep section spacing calm: enough air to scan, not enough to feel editorial or blog-like.
 - Write headings normally in the source text, for example `Privacy`, `What we collect`, and `External links`.
-- Use links in blue with subtle hover underline.
+- Links use `--color-link` with a subtle hover underline.
 
 ## Rules
 
-- Dark mode is the default feel: almost black, not blue-black, and not pure black.
-- Use borders and dividers before shadows.
-- Keep cards and panels low-radius.
-- Avoid nested cards.
-- Outer radius should visually account for inner radius plus padding.
+- Dark is home: design on `#101010` first, then verify light mode. Anything that only works in one theme is wrong in both.
+- One container, one left edge: header text, hero, prose, and components align to the same `--container-max` container with `--container-gutter`. Only rules, full-bleed bands, and page-corner doodles may bleed full width.
+- Direct the eye by size, then weight, then accent — in that order. Color is the last resort.
+- Use borders before shadows; the site has no decorative shadows and no gradients.
+- Cards and panels use `--radius-lg`; large framed panels use `--radius-xl`. Avoid nested cards.
 - Use the 4px/8px spacing rhythm through `--space-*`.
-- Use sans for normal UI and mono for facts, slugs, versions, stats, and metadata.
-- Keep compact UI text and reading text separate. Cards, filters, nav, metadata, buttons, pills, tables, and drawers should use the compact UI tokens.
-- Use `proseClassName` for readable paragraphs, legal copy, about copy, reference notes, and any page area where people need to read multiple paragraphs.
-- Do not apply prose typography to an entire page when the page mixes prose and UI cards. Scope it to the reading container.
-- Prose paragraphs should use `--text-prose`, `--line-prose`, `--measure-prose`, and `--color-text-prose`.
-- Prose headings should use `--text-h1` through `--text-h4` instead of reusing one generic heading size.
-- Keep controls compact and consistent.
+- Use `--font-mono` for facts, slugs, versions, stats, and metadata. Never uppercase with positive letter spacing.
+- Structure without eyebrows: sections start with a display heading and, when useful, one lede sentence. No kickers, no "Overview" headings, no label-and-value walls — facts live in sentences or tables.
 - Use `--focus-ring` for focus states.
-- Use blue only for links, focus, selected states, and important actions.
-- Use green/yellow/red only for status.
 - User-facing headings should not end with a decorative dot.
 - Keep user-facing headings in normal sentence case unless a proper noun or acronym needs different casing.
-- Prefer structured facts over prose.
+- Prefer structured facts over prose when they are clearer, but do not break natural explanations into fragments.
 - Unknown is better than fake precision.
+- When unsure, remove. If a page feels flat, add a doodle or a better sentence, not another component.
 
 ## Component Direction
 
-Buttons should have clear hierarchy: strong contrast for primary, surface plus border for secondary, and plain accent text for simple links.
+Buttons: primary is an accent fill with `--color-accent-contrast` text, one per view; secondary is surface plus `--color-border-strong` border; ghost is plain text that gains a `--color-surface-2` background on hover.
 
-Cards should use stable grids, compact text, subtle hover borders, and no layout shift.
+Cards: `--color-surface` on a 1px `--color-border`, `--radius-lg`, a dashed `--color-border` divider above the mono metadata row, and a hover state that turns the border to `--color-accent`. Titles use `--font-display`; descriptions use `--text-small` with `--color-text`.
+
+Tables: 1.5px `--color-border-strong` outer border, `--font-display` bold header row over a strong rule, `--color-border` row dividers, mono for data values.
+
+Tool results read like an answer: a full sentence at `--text-body` first, the data table second, and timing or provider metadata last in `--text-small` mono muted text.
+
+Callouts distinguish by a neutral `--color-border` full border and spacing alone. If the message is a warning, the key phrase uses `--color-warning-text` inside; the box itself stays neutral. Never a colored left edge.
+
+Pagination: mono numerals in bordered squares; the current page is the one accent fill.
+
+Tabs: the active tab gets a 2px accent bottom underline. Breadcrumbs stay muted text with the current page in `--weight-semibold`.
 
 Drawers should use rows and dividers, sit above the top bar, and become full-screen on mobile.
 
-Filters should use the label plus horizontal-line pattern and share input height, radius, font size, and focus styles.
+Filters share input height, radius, font size, and focus styles. Selected filter tags use an `--color-accent-text` border and text, never a fill.
 
 Short, important choices in a tool should stay visible instead of hiding inside a dropdown. Use a compact radio row with one clear accent-colored selection when people benefit from seeing every available option at once. Keep the real radio inputs for keyboard and screen-reader behavior, and let the row wrap cleanly on small screens.
 
-Media figures should use `MediaFigure` from `app/media-figure.tsx`. Screenshots and photos use the `image` kind: borderless, centered, text-width by default, and height-capped so tall images stay contained. Generated visual explainers use the `diagram` kind so instructional SVGs can keep their framed treatment without forcing that frame onto real images.
+Media figures should use `MediaFigure` from `app/media-figure.tsx`. Screenshots and photos use the `image` kind; generated visual explainers use the `diagram` kind. Captions are one sentence in `--text-small`.
 
-Code snippets should use `CodeBlock` from `app/code-block.tsx`. Use it for one-line commands and multi-line blocks so every snippet gets the same framed mono treatment and a copy button. Pass the exact text as string children (template literals for multi-line). Optional `label` can show a filename or short caption in the toolbar. Do not hand-roll bare `<pre className="lesson-code">` on new pages; that class remains only as a legacy alias.
+Code snippets should use `CodeBlock` from `app/code-block.tsx`. Code surfaces stay dark in both themes, and accent color highlights only the lines the prose is talking about. Pass the exact text as string children. Do not hand-roll bare `<pre className="lesson-code">` on new pages.
+
+Marker art has three jobs: explain (diagrams and charts with full semantic tones), greet (one spot piece per hero), and breathe (small doodles in corners, margins, and empty states — muted ink with at most one accent stroke, at most two visible per viewport, hidden below 1100px). See `version127_docs/marker-art.md`.
 
 Shared footers should stay small: logo, essential legal links, and rights text only. Keep them inside the shell so every route has the same minimal baseline.

@@ -38,11 +38,13 @@ Prefer CSS Modules for new components and new single-page work. Use a family sty
 
 Reading and operating are different jobs.
 
-Long explanations use `proseClassName` from `app/prose.ts`. It provides a readable measure, larger body type, calm line height, and consistent headings, lists, links, inline code, and keyboard keys. `proseLedeClassName` is available for the opening paragraph.
+Long explanations use `proseClassName` from `app/prose.ts`. It provides a readable measure, calm line height, and consistent headings, lists, links, inline code, and keyboard keys. `proseLedeClassName` is available for the opening paragraph.
 
-Every page-level `h1` uses the shared `--text-h1` and `--line-h1` typography tokens. These match the DNS Lookup title: a responsive 2.2rem to 3.2rem size with a tight line height. Route-family styles may control the title's width and surrounding spacing, but they must not invent another page-title size.
+Body text has exactly two sizes on the whole site: `--text-body` for prose, navigation, controls, table cells, and tool results, and `--text-small` only for card descriptions, metadata rows, captions, and sidebar filter items. Do not introduce another body size in a page or component stylesheet.
 
-Tool interfaces stay compact. Inputs, buttons, filters, tables, record values, pills, metadata, and technical details should use the existing UI text tokens. A tool page may contain prose, but apply the prose class only to the explanatory region, never to the whole tool.
+Every page-level `h1` uses the shared `--text-h1` and `--line-h1` typography tokens: a responsive 2.6rem to 3.6rem size with a tight line height, set in `--font-display`. Route-family styles may control the title's width and surrounding spacing, but they must not invent another page-title size.
+
+Tool interfaces still read at `--text-body`; only their metadata, counts, and captions drop to `--text-small`. A tool page may contain prose, but apply the prose class only to the explanatory region, never to the whole tool.
 
 ## Visual language
 

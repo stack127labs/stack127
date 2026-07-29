@@ -310,7 +310,7 @@
 }
 
 .storage-slider-track span {
-  background: rgba(12, 51, 124, 0.35);
+  background: color-mix(in srgb, var(--color-accent-text) 35%, transparent);
   border-radius: var(--radius-sm);
   display: block;
   height: 12px;
@@ -424,7 +424,7 @@
 .filter-actions button {
   background: var(--color-accent);
   border: 0;
-  color: var(--color-text-inverse);
+  color: var(--color-accent-contrast);
 }
 
 .filter-actions a {

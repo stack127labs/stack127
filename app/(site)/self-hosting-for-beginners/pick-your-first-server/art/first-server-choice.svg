@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 160" role="img" aria-labelledby="ma-title-pick-your-first-server--first-server-choice" data-marker-art="pick-your-first-server--first-server-choice">
 <title id="ma-title-pick-your-first-server--first-server-choice">Use hardware you already own first; buy a quiet mini PC only when the habit sticks.</title>
 <g transform="translate(0 -14.6)">
-<path d="M28.31 53.17 C136.02 48.53, 239.26 51.08, 427.63 51.14 M28.16 52.62 C114.21 47.32, 202.67 46.70, 426.59 51.53" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-sub,#a3a3a3);fill:none"/>
-<path d="M22.14 63.88 C21.87 67.04, 24.08 80.81, 20.99 93.52 M25.02 63.55 C26.45 68.90, 24.41 77.04, 25.92 88.65" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#4dabf7);fill:none"/>
-<text x="32" y="43" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#a3a3a3)">choice</text>
-<text x="164" y="43" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#a3a3a3)">cost</text>
-<text x="240" y="43" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#a3a3a3)">noise</text>
-<text x="314" y="43" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#a3a3a3)">best for</text>
-<text x="32" y="76" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:12px;font-weight:500;fill:var(--ma-primary,#4dabf7)">spare pc</text>
-<text x="164" y="76" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#a3a3a3)">free</text>
-<text x="240" y="76" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#a3a3a3)">varies</text>
-<text x="314" y="76" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#a3a3a3)">first habit</text>
-<text x="32" y="114" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:12px;font-weight:500;fill:var(--ma-ink,#f5f5f5)">old laptop</text>
-<text x="164" y="114" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#a3a3a3)">free</text>
-<text x="240" y="114" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#a3a3a3)">quiet</text>
-<text x="314" y="114" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#a3a3a3)">practice</text>
-<text x="32" y="152" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:12px;font-weight:500;fill:var(--ma-ink,#f5f5f5)">mini pc</text>
-<text x="164" y="152" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#a3a3a3)">buy</text>
-<text x="240" y="152" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#a3a3a3)">quiet</text>
-<text x="314" y="152" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#a3a3a3)">later</text>
+<path d="M28.31 53.17 C136.02 48.53, 239.26 51.08, 427.63 51.14 M28.16 52.62 C114.21 47.32, 202.67 46.70, 426.59 51.53" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-sub,#9d9c95);fill:none"/>
+<path d="M22.14 63.88 C21.87 67.04, 24.08 80.81, 20.99 93.52 M25.02 63.55 C26.45 68.90, 24.41 77.04, 25.92 88.65" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+<text x="32" y="43" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">choice</text>
+<text x="164" y="43" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">cost</text>
+<text x="240" y="43" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">noise</text>
+<text x="314" y="43" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">best for</text>
+<text x="32" y="76" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:12px;font-weight:500;fill:var(--ma-primary,#bafc3c)">spare pc</text>
+<text x="164" y="76" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#9d9c95)">free</text>
+<text x="240" y="76" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#9d9c95)">varies</text>
+<text x="314" y="76" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#9d9c95)">first habit</text>
+<text x="32" y="114" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:12px;font-weight:500;fill:var(--ma-ink,#f2f2ee)">old laptop</text>
+<text x="164" y="114" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#9d9c95)">free</text>
+<text x="240" y="114" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#9d9c95)">quiet</text>
+<text x="314" y="114" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#9d9c95)">practice</text>
+<text x="32" y="152" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:12px;font-weight:500;fill:var(--ma-ink,#f2f2ee)">mini pc</text>
+<text x="164" y="152" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#9d9c95)">buy</text>
+<text x="240" y="152" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#9d9c95)">quiet</text>
+<text x="314" y="152" text-anchor="start" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:11px;font-weight:500;fill:var(--ma-sub,#9d9c95)">later</text>
 </g>
 </svg>

@@ -10,8 +10,8 @@ function source(path) {
 
 test("every page family uses the shared responsive H1 typography", () => {
   const globals = source("app/globals.css");
-  assert.match(globals, /--text-h1: clamp\(2\.2rem, 4vw, 3\.2rem\);/);
-  assert.match(globals, /--line-h1: 1\.04;/);
+  assert.match(globals, /--text-h1: clamp\(2\.6rem, 5vw, 3\.6rem\);/);
+  assert.match(globals, /--line-h1: 1\.02;/);
 
   const h1Owners = [
     ["app/prose.module.css", /\.prose h1\s*\{[\s\S]*font-size: var\(--text-h1\);[\s\S]*line-height: var\(--line-h1\);/],

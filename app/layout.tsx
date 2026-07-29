@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Shantell_Sans } from "next/font/google";
+import { IBM_Plex_Mono, Inter, Shantell_Sans, Space_Grotesk } from "next/font/google";
 import { getUmamiConfig } from "@/lib/analytics";
 import { absoluteUrl, defaultDescription, siteName, siteUrl } from "@/lib/seo";
 import { JsonLd } from "./json-ld";
@@ -15,6 +15,37 @@ const markerFont = Shantell_Sans({
   variable: "--font-marker",
   weight: ["500", "700"],
 });
+
+// display font for headings and titles
+const displayFont = Space_Grotesk({
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  weight: ["500", "700"],
+});
+
+// body font for everything else
+const bodyFont = Inter({
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["400", "600"],
+});
+
+// mono font for data, metadata, and code
+const monoFont = IBM_Plex_Mono({
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-ibm-plex-mono",
+  weight: ["400", "600"],
+});
+
+const fontVariables = [
+  markerFont.variable,
+  displayFont.variable,
+  bodyFont.variable,
+  monoFont.variable,
+].join(" ");
 
 function baseMetadata(): Metadata {
   return {
@@ -80,7 +111,7 @@ export default function RootLayout({
 
   return (
     <html
-      className={markerFont.variable}
+      className={fontVariables}
       data-theme="dark"
       lang="en"
       suppressHydrationWarning
