@@ -16,6 +16,8 @@ import { AppShell, SidebarLabel } from "../app-shell";
 import { dotBandClassName } from "../dot-band";
 import { Doodle } from "../doodle";
 import { SidebarList } from "../sidebar-list";
+import { dnsToolCount } from "./dns-tools/dns-tools-sidebar";
+import { domainToolCount } from "./domain-tools/domain-tools-sidebar";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
@@ -67,6 +69,14 @@ function buildCardStats(
 
   if (page.slug === "software-licenses-for-self-hosting") {
     return [{ label: "licenses", value: licenses.length.toLocaleString("en-US") }];
+  }
+
+  if (page.slug === "dns-tools") {
+    return [{ label: "tools", value: dnsToolCount.toLocaleString("en-US") }];
+  }
+
+  if (page.slug === "domain-tools") {
+    return [{ label: "tools", value: domainToolCount.toLocaleString("en-US") }];
   }
 
   return [];

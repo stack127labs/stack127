@@ -33,6 +33,9 @@ const tools = [
   { href: "/domain-tools/tld-directory", id: "tlds", label: "TLD Directory" },
 ] as const;
 
+/** How many domain tools exist now; the home page card shows this count. */
+export const domainToolCount = tools.length;
+
 export function DomainToolsSidebar({ active }: { active: DomainToolId }) {
   return (
     <div className={sidebarPanelClassName}>

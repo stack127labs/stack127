@@ -19,6 +19,9 @@ const availableDnsTools = [
   { href: "/dns-tools/caa-checker", id: "caa", label: "CAA Policy Checker" },
 ] as const;
 
+/** How many DNS tools exist now; the home page card shows this count. */
+export const dnsToolCount = availableDnsTools.length;
+
 export function DnsToolsSidebar({ active }: DnsToolsSidebarProps) {
   return (
     <div className={`${sidebarPanelClassName} dns-tools-sidebar-panel`}>
