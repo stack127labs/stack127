@@ -15,7 +15,7 @@
   gap: var(--space-3);
 }
 
-.directory-search > span,
+.directory-search > span:first-child,
 .field-label-line {
   align-items: center;
   color: var(--color-text);
@@ -26,7 +26,7 @@
   width: 100%;
 }
 
-.directory-search > span::after,
+.directory-search > span:first-child::after,
 .field-label-line::after {
   border-top: 1px solid var(--color-border);
   content: "";
@@ -47,6 +47,23 @@
   outline: 0;
   padding: 0 var(--space-5);
   width: 100%;
+}
+
+.directory-search-field {
+  position: relative;
+}
+
+.directory-search-field svg {
+  color: var(--color-text-muted);
+  left: 12px;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.directory-search-field input {
+  padding-left: 36px;
 }
 
 .custom-select {
@@ -953,7 +970,7 @@
 .directory-pagination {
   align-items: center;
   display: flex;
-  gap: 10px;
+  gap: var(--space-2);
   justify-content: center;
   margin-top: 20px;
 }
@@ -1038,8 +1055,10 @@
   display: inline-flex;
   font-family: var(--font-mono);
   font-size: var(--text-small);
+  justify-content: center;
   min-height: 38px;
-  padding: 0 14px;
+  min-width: 38px;
+  padding: 0 var(--space-4);
 }
 
 .directory-pagination a:hover {
@@ -1047,11 +1066,18 @@
   color: var(--color-text);
 }
 
-.directory-pagination span {
+/* The current page is the "you are here" answer, so it earns the accent. */
+.directory-pagination span[aria-current="page"] {
   background: var(--color-accent);
   border-color: var(--color-accent);
   color: var(--color-accent-contrast);
   font-weight: var(--weight-semibold);
+}
+
+.directory-pagination .directory-pagination-gap {
+  border: 0;
+  min-width: auto;
+  padding: 0 var(--space-1);
 }
 
 .directory-pagination a[aria-disabled="true"] {

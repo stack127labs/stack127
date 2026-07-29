@@ -1,3 +1,4 @@
+import { Search } from "lucide-react";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { FaGithub } from "react-icons/fa6";
@@ -451,6 +452,25 @@ function removeFilterHref(params: SearchParams, key: string, value?: string) {
   return buildHref(next);
 }
 
+/**
+ * Page numbers to render: first, last, and a window around the current page,
+ * with null marking an ellipsis gap.
+ */
+function paginationPages(currentPage: number, totalPages: number): (number | null)[] {
+  const wanted = new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
+  const pages: (number | null)[] = [];
+
+  for (let page = 1; page <= totalPages; page += 1) {
+    if (wanted.has(page)) {
+      pages.push(page);
+    } else if (pages[pages.length - 1] !== null) {
+      pages.push(null);
+    }
+  }
+
+  return pages;
+}
+
 function pageHref(params: SearchParams, page: number) {
   const next = new URLSearchParams();
 
@@ -793,12 +813,15 @@ export default async function SelfHostAppsPage({
 
       <label className="directory-search">
         <span>Search</span>
-        <input
-          defaultValue={getString(params, "q")}
-          name="q"
-          placeholder="Immich, DNS, photos..."
-          type="search"
-        />
+        <span className="directory-search-field">
+          <Search aria-hidden="true" size={16} strokeWidth={2.2} />
+          <input
+            defaultValue={getString(params, "q")}
+            name="q"
+            placeholder="Immich, DNS, photos..."
+            type="search"
+          />
+        </span>
       </label>
 
       <SortDropdown name="sort" options={sortOptions} value={sort} />
@@ -877,18 +900,32 @@ export default async function SelfHostAppsPage({
                 <nav className="directory-pagination" aria-label="Self-hosted app pages">
                   <Link
                     aria-disabled={currentPage === 1}
+                    aria-label="Previous page"
                     href={pageHref(params, Math.max(1, currentPage - 1))}
                   >
-                    prev
+                    ‹
                   </Link>
-                  <span>
-                    {currentPage} / {totalPages}
-                  </span>
+                  {paginationPages(currentPage, totalPages).map((page, index) =>
+                    page === null ? (
+                      <span className="directory-pagination-gap" key={`gap-${index}`}>
+                        …
+                      </span>
+                    ) : page === currentPage ? (
+                      <span aria-current="page" key={page}>
+                        {page}
+                      </span>
+                    ) : (
+                      <Link href={pageHref(params, page)} key={page}>
+                        {page}
+                      </Link>
+                    ),
+                  )}
                   <Link
                     aria-disabled={currentPage === totalPages}
+                    aria-label="Next page"
                     href={pageHref(params, Math.min(totalPages, currentPage + 1))}
                   >
-                    next
+                    ›
                   </Link>
                 </nav>
               ) : null}
