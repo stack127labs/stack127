@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { SidebarLabel } from "../../app-shell";
+import { SidebarList } from "../../sidebar-list";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
@@ -25,16 +25,14 @@ export function DnsToolsSidebar({ active }: DnsToolsSidebarProps) {
       <div className={sidebarPanelHeadingClassName}>
         <SidebarLabel>DNS tools</SidebarLabel>
       </div>
-      <nav className="dns-tools-nav" aria-label="DNS tools">
-        <ul>
-          {availableDnsTools.map((tool) => (
-            <li key={tool.href}>
-              <Link aria-current={active === tool.id ? "page" : undefined} href={tool.href}>
-                {tool.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <nav aria-label="DNS tools">
+        <SidebarList
+          items={availableDnsTools.map((tool) => ({
+            active: active === tool.id,
+            href: tool.href,
+            label: tool.label,
+          }))}
+        />
       </nav>
     </div>
   );

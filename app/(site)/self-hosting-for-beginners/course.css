@@ -4,71 +4,6 @@
   gap: var(--space-8);
 }
 
-.course-sidebar-links ol {
-  display: grid;
-  gap: var(--space-1);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.course-link a,
-.course-link-soon {
-  align-items: baseline;
-  border-radius: var(--radius-lg);
-  color: var(--color-text);
-  display: grid;
-  gap: var(--space-4);
-  grid-template-columns: auto 1fr auto;
-  padding: var(--space-3) var(--space-4);
-  text-decoration: none;
-}
-
-.course-link a:hover {
-  background: var(--color-surface-2);
-  color: var(--color-text);
-}
-
-.course-link-active a,
-.course-link-active a:hover {
-  background: var(--color-surface-2);
-  color: var(--color-text);
-  font-weight: var(--weight-semibold);
-}
-
-.course-link-active .course-link-num {
-  color: var(--color-accent-text);
-}
-
-.course-link-num {
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
-}
-
-.course-link-label {
-  font-size: var(--text-small);
-  line-height: var(--line-ui);
-}
-
-.course-link-soon {
-  cursor: default;
-}
-
-.course-link-soon .course-link-label,
-.course-link-soon .course-link-num {
-  color: var(--color-text-muted);
-}
-
-.course-link-tag {
-  align-self: center;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  color: var(--color-text-muted);
-  font-size: var(--text-small);
-  padding: 0 var(--space-2);
-}
-
 .lesson-page {
   display: grid;
   gap: var(--space-9);
@@ -162,7 +97,6 @@
   font-size: var(--text-small) !important;
 }
 
-
 .lesson-faq {
   display: grid;
   gap: var(--space-6);
@@ -215,7 +149,6 @@
   text-decoration: underline dotted var(--color-text-muted);
   text-underline-offset: 3px;
 }
-
 
 /* Legacy alias: prefer <CodeBlock> for new snippets. */
 .lesson-code {

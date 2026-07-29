@@ -15,6 +15,7 @@ import { licenses } from "@/lib/software-licenses";
 import { AppShell, SidebarLabel } from "../app-shell";
 import { dotBandClassName } from "../dot-band";
 import { Doodle } from "../doodle";
+import { SidebarList } from "../sidebar-list";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
@@ -28,20 +29,24 @@ type HomeStat = {
   value: string;
 };
 
-function HomeSidebar({ label, pages }: { label: string; pages: Version127Page[] }) {
+/** Legal pages stay in the footer; the explore list is for the real content. */
+const legalSlugs = new Set(["about", "privacy", "terms"]);
+
+function HomeSidebar({ pages }: { pages: Version127Page[] }) {
   return (
     <div className={`${sidebarPanelClassName} home-sidebar-panel`}>
       <div className={sidebarPanelHeadingClassName}>
-        <SidebarLabel>{label}</SidebarLabel>
+        <SidebarLabel>Explore version127</SidebarLabel>
       </div>
-      <nav className="home-sidebar-nav" aria-label="Main pages">
-        <ul>
-          {pages.map((page) => (
-            <li key={page.slug}>
-              <Link href={pathFromSlug(page.slug)}>{page.label}</Link>
-            </li>
-          ))}
-        </ul>
+      <nav aria-label="Main pages">
+        <SidebarList
+          items={pages
+            .filter((page) => !legalSlugs.has(page.slug))
+            .map((page) => ({
+              href: pathFromSlug(page.slug),
+              label: page.label,
+            }))}
+        />
       </nav>
     </div>
   );
@@ -148,7 +153,7 @@ export default async function Home() {
     <AppShell
       mainLabel="Home"
       menuLabel="Pages"
-      sidebar={<HomeSidebar label={homePage.label} pages={visibleMainPages} />}
+      sidebar={<HomeSidebar pages={visibleMainPages} />}
       sidebarLabel="Home sidebar"
     >
       <div className={`${dotBandClassName} home-hero-band`}>

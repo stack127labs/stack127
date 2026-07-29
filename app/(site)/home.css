@@ -3,29 +3,6 @@
   gap: var(--space-8);
 }
 
-.home-sidebar-nav ul {
-  display: grid;
-  gap: var(--space-1);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.home-sidebar-nav a {
-  border-radius: var(--radius-lg);
-  color: var(--color-text);
-  display: block;
-  font-size: var(--text-small);
-  line-height: var(--line-ui);
-  padding: var(--space-2) var(--space-3);
-  text-decoration: none;
-}
-
-.home-sidebar-nav a:hover {
-  background: var(--color-surface-2);
-  color: var(--color-text);
-}
-
 .home-hero-band {
   padding: var(--space-12) var(--container-gutter) var(--space-11);
 }

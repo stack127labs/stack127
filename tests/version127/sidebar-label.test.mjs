@@ -53,7 +53,7 @@ test("DNS sidebars list only tools that are available now", () => {
   assert.match(sidebar, /href: "\/dns-tools\/dnssec-checker"/);
   assert.match(sidebar, /href: "\/dns-tools\/soa-checker"/);
   assert.match(sidebar, /href: "\/dns-tools\/caa-checker"/);
-  assert.match(sidebar, /<ul>/);
+  assert.match(sidebar, /<SidebarList/);
   assert.doesNotMatch(sidebar, />Overview</);
   assert.doesNotMatch(sidebar, /coming soon|planned next/i);
   assert.doesNotMatch(sidebar, /On this page|dns-tools-page-nav|showPageLinks/);

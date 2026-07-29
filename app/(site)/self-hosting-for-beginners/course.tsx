@@ -6,6 +6,7 @@ import { lessonHref, lessonNeighbors, lessons } from "@/lib/self-hosting-for-beg
 import { AppShell, SidebarLabel } from "../../app-shell";
 import { JsonLd } from "../../json-ld";
 import { proseClassName } from "../../prose";
+import { SidebarList } from "../../sidebar-list";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
@@ -32,35 +33,24 @@ function CourseSidebar({ currentSlug, label }: { currentSlug: string; label: str
       <div className={sidebarPanelHeadingClassName}>
         <SidebarLabel>{label}</SidebarLabel>
       </div>
-      <nav className="course-sidebar-links" aria-label="Self-hosting course lessons">
-        <ol>
-          {lessons.map((lesson) => {
-            const isCurrent = lesson.slug === currentSlug;
+      <nav aria-label="Self-hosting course lessons">
+        <SidebarList
+          ordered
+          items={lessons.map((lesson) => {
             const number = String(lesson.order).padStart(2, "0");
 
             if (!lesson.published) {
-              return (
-                <li className="course-link course-link-soon" key={lesson.order}>
-                  <span className="course-link-num">{number}</span>
-                  <span className="course-link-label">{lesson.sidebarLabel}</span>
-                  <span className="course-link-tag">soon</span>
-                </li>
-              );
+              return { href: "", label: lesson.sidebarLabel, number, tag: "soon" };
             }
 
-            return (
-              <li
-                className={`course-link${isCurrent ? " course-link-active" : ""}`}
-                key={lesson.order}
-              >
-                <Link href={lessonHref(lesson)} aria-current={isCurrent ? "page" : undefined}>
-                  <span className="course-link-num">{number}</span>
-                  <span className="course-link-label">{lesson.sidebarLabel}</span>
-                </Link>
-              </li>
-            );
+            return {
+              active: lesson.slug === currentSlug,
+              href: lessonHref(lesson),
+              label: lesson.sidebarLabel,
+              number,
+            };
           })}
-        </ol>
+        />
       </nav>
     </div>
   );

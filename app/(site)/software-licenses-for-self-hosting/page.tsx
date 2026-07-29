@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { AppShell, SidebarLabel } from "../../app-shell";
 import { proseClassName, proseLedeClassName } from "../../prose";
+import { SidebarList } from "../../sidebar-list";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
@@ -36,13 +37,12 @@ function LicensesSidebar({ label }: { label: string }) {
       <nav className="license-sidebar-nav" aria-label="License sections">
         <div className="license-sidebar-group">
           <p className="license-sidebar-group-title">Start here</p>
-          <ul>
-            {concepts.map((concept) => (
-              <li key={concept.id}>
-                <a href={`#${concept.id}`}>{concept.sidebarLabel}</a>
-              </li>
-            ))}
-          </ul>
+          <SidebarList
+            items={concepts.map((concept) => ({
+              href: `#${concept.id}`,
+              label: concept.sidebarLabel,
+            }))}
+          />
         </div>
 
         {licenseGroups
@@ -54,13 +54,12 @@ function LicensesSidebar({ label }: { label: string }) {
             return (
               <div className="license-sidebar-group" key={group.id}>
                 <p className="license-sidebar-group-title">{group.sidebarLabel}</p>
-                <ul>
-                  {groupLicenses.map((license) => (
-                    <li key={license.id}>
-                      <a href={`#${license.id}`}>{license.sidebarLabel}</a>
-                    </li>
-                  ))}
-                </ul>
+                <SidebarList
+                  items={groupLicenses.map((license) => ({
+                    href: `#${license.id}`,
+                    label: license.sidebarLabel,
+                  }))}
+                />
               </div>
             );
           })}

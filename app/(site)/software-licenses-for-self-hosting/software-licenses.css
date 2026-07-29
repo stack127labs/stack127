@@ -21,29 +21,6 @@
   margin: 0;
 }
 
-.license-sidebar-group ul {
-  display: grid;
-  gap: var(--space-1);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.license-sidebar-group a {
-  border-radius: var(--radius-lg);
-  color: var(--color-text);
-  display: block;
-  font-size: var(--text-small);
-  line-height: var(--line-ui);
-  padding: var(--space-2) var(--space-3);
-  text-decoration: none;
-}
-
-.license-sidebar-group a:hover {
-  background: var(--color-surface-2);
-  color: var(--color-text);
-}
-
 .license-page {
   display: grid;
   gap: var(--space-12);

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { SidebarLabel } from "../../app-shell";
+import { SidebarList } from "../../sidebar-list";
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "../../sidebar-panel";
 
 export type DomainToolId =
@@ -39,16 +39,14 @@ export function DomainToolsSidebar({ active }: { active: DomainToolId }) {
       <div className={sidebarPanelHeadingClassName}>
         <SidebarLabel>Domain tools</SidebarLabel>
       </div>
-      <nav className="domain-tools-nav" aria-label="Domain tools">
-        <ul>
-          {tools.map((tool) => (
-            <li key={tool.href}>
-              <Link aria-current={active === tool.id ? "page" : undefined} href={tool.href}>
-                {tool.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <nav aria-label="Domain tools">
+        <SidebarList
+          items={tools.map((tool) => ({
+            active: active === tool.id,
+            href: tool.href,
+            label: tool.label,
+          }))}
+        />
       </nav>
     </div>
   );
