@@ -88,7 +88,9 @@ Cards: `--color-surface` on a 1px `--color-border`, `--radius-lg`, a dashed `--c
 
 Tables: 1.5px `--color-border-strong` outer border, `--font-display` bold header row over a strong rule, `--color-border` row dividers, mono for data values.
 
-Tool results read like an answer: a full sentence at `--text-body` first, the data table second, and timing or provider metadata last in `--text-small` mono muted text.
+Tools are one clear box: a `--color-border-strong` frame at `--radius-xl` whose head is the form and whose results render below a `--color-border` divider inside the same frame. Results read like an answer: a full sentence at `--text-body` first, the data table second, and timing or provider metadata last in `--text-small` mono muted text. No nested cards inside the tool box.
+
+Sidebars that list things use `SidebarList` from `app/sidebar-list.tsx`: small rows, optional mono numbers and counts, and a `--color-surface-2` active fill with an accent-ink number. Do not hand-roll another sidebar link list.
 
 Callouts distinguish by a neutral `--color-border` full border and spacing alone. If the message is a warning, the key phrase uses `--color-warning-text` inside; the box itself stays neutral. Never a colored left edge.
 
