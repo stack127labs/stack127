@@ -12,7 +12,9 @@ export default async function NameserverCheckerPage({ searchParams }: { searchPa
     <AppShell mainLabel="Nameserver Delegation Checker" menuLabel="DNS tools" sidebar={<DnsToolsSidebar active="nameserver" />} sidebarLabel="DNS tools sidebar">
       <main className={styles.main}>
         <header className="dns-page-header">
-          <h1>Nameserver Delegation Checker</h1>
+          <h1>
+            Nameserver <mark>Delegation</mark> Checker
+          </h1>
           <p>
             NS records name the servers that are supposed to answer for your domain. This tool
             follows the whole handoff: it asks the parent zone which nameservers it points to,

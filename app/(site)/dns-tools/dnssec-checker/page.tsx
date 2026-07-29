@@ -19,7 +19,9 @@ export default async function DnssecCheckerPage({ searchParams }: { searchParams
     >
       <main className={styles.main}>
         <header className="dns-page-header">
-          <h1>DNSSEC Chain Checker</h1>
+          <h1>
+            <mark>DNSSEC Chain</mark> Checker
+          </h1>
           <p>
             DNSSEC lets a domain sign its DNS answers so nobody can quietly change them on the way
             to you. This tool starts at the internet's root of trust and checks each signature in

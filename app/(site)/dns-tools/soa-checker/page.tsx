@@ -11,7 +11,9 @@ export default async function SoaCheckerPage({ searchParams }: { searchParams: P
   return <AppShell mainLabel="SOA Consistency Checker" menuLabel="DNS tools" sidebar={<DnsToolsSidebar active="soa" />} sidebarLabel="DNS tools sidebar">
     <main className={styles.main}>
       <header className="dns-page-header">
-        <h1>SOA Consistency Checker</h1>
+        <h1>
+          <mark>SOA Consistency</mark> Checker
+        </h1>
         <p>
           A zone can be answered by several nameservers, and they are all supposed to hold the
           same copy of your DNS. This tool asks every one of them for the zone&apos;s SOA record,

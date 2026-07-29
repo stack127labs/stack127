@@ -138,10 +138,10 @@
   padding: 4px 8px;
 }
 
-.stateGood { background: color-mix(in srgb, var(--color-success) 14%, transparent); color: var(--color-success); }
-.stateWarn { background: color-mix(in srgb, var(--color-warning) 14%, transparent); color: var(--color-warning); }
-.stateBad { background: color-mix(in srgb, var(--color-danger) 14%, transparent); color: var(--color-danger); }
-.stateQuiet { background: var(--color-surface-muted); color: var(--color-text-muted); }
+.stateGood { background: var(--color-surface-2); color: var(--color-success-text); }
+.stateWarn { background: var(--color-surface-2); color: var(--color-warning-text); }
+.stateBad { background: var(--color-surface-2); color: var(--color-danger-text); }
+.stateQuiet { background: var(--color-surface-2); color: var(--color-text-muted); }
 
 .records {
   display: grid;

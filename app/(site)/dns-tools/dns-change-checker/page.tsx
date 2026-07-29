@@ -18,7 +18,9 @@ export default async function DnsChangeCheckerPage({ searchParams }: { searchPar
     <AppShell mainLabel="DNS Change Checker" menuLabel="DNS tools" sidebar={<DnsToolsSidebar active="change" />} sidebarLabel="DNS tools sidebar">
       <main className={styles.main}>
         <header className="dns-page-header">
-          <h1>DNS Change Checker</h1>
+          <h1>
+            DNS <mark>Change</mark> Checker
+          </h1>
           <p>You changed a DNS record and now you want to know if the internet has caught up. This tool asks the source of truth, your domain's own nameservers, whether the change is live, then checks the big public resolvers to see which ones are still handing out the old cached answer. You get the authoritative records, the cached answers, the TTLs, and the raw responses side by side.</p>
         </header>
         <DnsChangeChecker initialName={first(params.name)} initialRecordType={initialType(first(params.type))} />

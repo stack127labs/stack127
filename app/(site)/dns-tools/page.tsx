@@ -12,7 +12,9 @@ export default function DnsToolsPage() {
     >
       <main className="dns-hub-main">
         <header className="dns-page-header">
-          <h1>DNS tools</h1>
+          <h1>
+            DNS <mark>tools</mark>
+          </h1>
           <p>
             A small set of tools for seeing what your domain is really doing in DNS. Look up
             records, follow a lookup from the root servers down to the final answer, compare what

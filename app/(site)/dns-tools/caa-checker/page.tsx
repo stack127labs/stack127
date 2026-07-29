@@ -17,7 +17,9 @@ export default async function CaaCheckerPage({ searchParams }: { searchParams: P
     >
       <main className={styles.main}>
         <header className="dns-page-header">
-          <h1>CAA Policy Checker</h1>
+          <h1>
+            <mark>CAA Policy</mark> Checker
+          </h1>
           <p>
             A CAA record is how a domain says which certificate authorities are
             allowed to hand out certificates for it. CAA stands for

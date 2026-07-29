@@ -30,7 +30,9 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
     >
       <main className="dns-lookup-main">
         <header className="dns-page-header">
-          <h1>DNS lookup</h1>
+          <h1>
+            DNS <mark>lookup</mark>
+          </h1>
           <p>
             Enter a domain or hostname to see its DNS records, or choose PTR to find the hostname connected to an IP address. You can check a public resolver's cached answer or ask the domain's authoritative nameserver directly. Leave All selected if you are not sure which record you need.
           </p>
