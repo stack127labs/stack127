@@ -90,16 +90,16 @@
 }
 
 .domain-reference-content p {
-  color: var(--color-text-prose);
-  line-height: var(--line-reading);
+  color: var(--color-text);
+  line-height: var(--line-body);
   max-width: 72ch;
 }
 
 .domain-reference-content ul {
-  color: var(--color-text-prose);
+  color: var(--color-text);
   display: grid;
   gap: var(--space-3);
-  line-height: var(--line-reading);
+  line-height: var(--line-body);
   margin: 0;
   max-width: 72ch;
   padding-left: var(--space-8);
@@ -129,7 +129,7 @@
 
 .domain-tool-card-name {
   color: var(--color-accent-text);
-  font-size: var(--text-lg);
+  font-size: var(--text-body);
 }
 
 .domain-tool-card-reason {
@@ -159,16 +159,16 @@
 
 .domain-name-field > span {
   color: var(--color-text-muted);
-  font-size: var(--text-sm);
+  font-size: var(--text-small);
 }
 
 .domain-name-field input {
-  background: var(--color-surface-solid);
+  background: var(--color-surface);
   border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   color: var(--color-text);
   font-family: var(--font-mono);
-  font-size: var(--text-lg);
+  font-size: var(--text-body);
   min-height: var(--control-height-lg);
   padding: 10px 12px;
   width: 100%;
@@ -177,13 +177,13 @@
 .domain-name-field input:focus,
 .domain-form button:focus-visible,
 .domain-results button:focus-visible {
-  outline: var(--focus-ring-strong);
+  outline: var(--focus-ring);
 }
 
 .domain-submit {
   background: var(--color-accent);
   border: 1px solid var(--color-accent);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   color: var(--color-accent-contrast);
   cursor: pointer;
   font: inherit;
@@ -210,12 +210,12 @@
 
 .domain-tld-options label {
   align-items: center;
-  background: var(--color-surface-solid);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   display: flex;
   gap: var(--space-3);
-  font-size: var(--text-sm);
+  font-size: var(--text-small);
   padding: 6px 10px;
 }
 
@@ -255,13 +255,13 @@
   align-items: center;
   background: transparent;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   color: var(--color-text);
   cursor: pointer;
   display: inline-flex;
   flex: 0 0 auto;
   font: inherit;
-  font-size: var(--text-sm);
+  font-size: var(--text-small);
   gap: var(--space-2);
   padding: 8px 12px;
 }
@@ -277,7 +277,7 @@
 .domain-state {
   border-radius: 999px;
   display: inline-block;
-  font-size: var(--text-xs);
+  font-size: var(--text-small);
   font-weight: var(--weight-semibold);
   padding: 4px 10px;
   white-space: nowrap;
@@ -322,15 +322,15 @@
 }
 
 .domain-answer p {
-  color: var(--color-text-prose);
-  line-height: var(--line-reading);
+  color: var(--color-text);
+  line-height: var(--line-body);
   margin: 0;
   max-width: 68ch;
 }
 
 .domain-answer-lead {
   color: var(--color-text) !important;
-  font-size: var(--text-prose-lg);
+  font-size: var(--text-body);
 }
 
 .domain-answer-head {
@@ -342,7 +342,7 @@
 
 .domain-meta {
   color: var(--color-text-muted);
-  font-size: var(--text-sm);
+  font-size: var(--text-small);
   margin: 0;
 }
 
@@ -358,7 +358,7 @@
 }
 
 .domain-timeline-track {
-  background: var(--color-surface-muted);
+  background: var(--color-surface-2);
   border-radius: 999px;
   height: 8px;
   overflow: hidden;
@@ -372,17 +372,17 @@
 }
 
 .domain-timeline-track[data-tone="warn"] .domain-timeline-fill {
-  background: color-mix(in srgb, var(--color-warning) 70%, transparent);
+  background: color-mix(in srgb, var(--color-warning-text) 70%, transparent);
 }
 
 .domain-timeline-track[data-tone="bad"] .domain-timeline-fill {
-  background: color-mix(in srgb, var(--color-danger) 70%, transparent);
+  background: color-mix(in srgb, var(--color-danger-text) 70%, transparent);
 }
 
 .domain-timeline-labels {
   color: var(--color-text-muted);
   display: flex;
-  font-size: var(--text-xs);
+  font-size: var(--text-small);
   justify-content: space-between;
   gap: var(--space-4);
 }
@@ -417,7 +417,7 @@
 
 .domain-fact-list dt {
   color: var(--color-text-muted);
-  font-size: var(--text-sm);
+  font-size: var(--text-small);
 }
 
 .domain-fact-list dd {
@@ -427,21 +427,21 @@
 .domain-fact-list dd small {
   color: var(--color-text-muted);
   display: block;
-  font-size: var(--text-xs);
+  font-size: var(--text-small);
 }
 
 /* The one or two facts the reader came for get weight; the rest stay quiet. */
 .domain-fact-list dd[data-emphasis="true"] {
-  font-size: var(--text-lg);
+  font-size: var(--text-body);
   font-weight: var(--weight-semibold);
 }
 
 .domain-fact-list dd[data-tone="warn"] {
-  color: var(--color-warning);
+  color: var(--color-warning-text);
 }
 
 .domain-fact-list dd[data-tone="bad"] {
-  color: var(--color-danger);
+  color: var(--color-danger-text);
 }
 
 .domain-fact-list dd[data-unknown="true"] {
@@ -460,9 +460,9 @@
  * the same as ordinary context.
  */
 .domain-finding {
-  background: var(--color-surface-muted);
+  background: var(--color-surface-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   display: grid;
   gap: var(--space-3);
   padding: var(--space-7);
@@ -494,21 +494,21 @@
 }
 
 .domain-finding p {
-  color: var(--color-text-prose);
-  line-height: var(--line-reading);
+  color: var(--color-text);
+  line-height: var(--line-body);
   margin: 0;
   max-width: 72ch;
 }
 
 .domain-finding-state {
   color: var(--color-text-muted);
-  font-size: var(--text-xs);
+  font-size: var(--text-small);
 }
 
 .domain-finding-evidence {
   color: var(--color-text-muted);
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
+  font-size: var(--text-small);
   overflow-wrap: anywhere;
 }
 
@@ -557,17 +557,17 @@
 /* Raw response disclosure, one per server. */
 .domain-raw {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
 }
 
 .domain-raw > summary {
   cursor: pointer;
-  font-size: var(--text-sm);
+  font-size: var(--text-small);
   padding: var(--space-5) var(--space-6);
 }
 
 .domain-raw pre {
-  font-size: var(--text-xs);
+  font-size: var(--text-small);
   margin: 0;
   max-height: 420px;
   overflow: auto;
@@ -580,7 +580,7 @@
   color: var(--color-text-muted);
   display: flex;
   flex-wrap: wrap;
-  font-size: var(--text-sm);
+  font-size: var(--text-small);
   gap: var(--space-4);
   margin: 0;
 }
@@ -606,10 +606,10 @@
 }
 
 .domain-tools-nav a {
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-lg);
   color: var(--color-text-muted);
   display: block;
-  font-size: var(--text-sm);
+  font-size: var(--text-small);
   padding: 6px 8px;
   text-decoration: none;
 }
@@ -630,10 +630,10 @@
 
 /* Numbered steps in explanatory content, used where order genuinely matters. */
 .domain-reference-content ol {
-  color: var(--color-text-prose);
+  color: var(--color-text);
   display: grid;
   gap: var(--space-3);
-  line-height: var(--line-reading);
+  line-height: var(--line-body);
   margin: 0;
   max-width: 72ch;
   padding-left: var(--space-8);

@@ -17,7 +17,7 @@
 .license-sidebar-group-title {
   color: var(--color-text-muted);
   font-family: var(--font-sans);
-  font-size: var(--text-xs);
+  font-size: var(--text-small);
   margin: 0;
 }
 
@@ -30,10 +30,10 @@
 }
 
 .license-sidebar-group a {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   color: var(--color-text);
   display: block;
-  font-size: var(--text-md);
+  font-size: var(--text-small);
   line-height: var(--line-ui);
   padding: var(--space-2) var(--space-3);
   text-decoration: none;
@@ -58,7 +58,7 @@
 
 .license-disclaimer {
   color: var(--color-text-muted) !important;
-  font-size: var(--text-sm) !important;
+  font-size: var(--text-small) !important;
 }
 
 .license-intro-links {
@@ -97,14 +97,14 @@
 .license-spdx {
   color: var(--color-text-muted) !important;
   font-family: var(--font-mono);
-  font-size: var(--text-xs) !important;
+  font-size: var(--text-small) !important;
   margin: 0 !important;
   text-transform: none;
 }
 
 .license-facts {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   display: grid;
   gap: 0;
   margin: var(--space-2) 0;
@@ -125,15 +125,15 @@
 .license-fact dt {
   color: var(--color-text-muted);
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
+  font-size: var(--text-small);
   line-height: 1.4;
   margin: 0;
 }
 
 .license-fact dd {
-  color: var(--color-text-prose);
-  font-size: var(--text-md);
-  line-height: var(--line-reading);
+  color: var(--color-text);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
   margin: 0;
 }
 
@@ -143,7 +143,7 @@
 }
 
 .license-official {
-  font-size: var(--text-sm) !important;
+  font-size: var(--text-small) !important;
   margin-top: var(--space-2);
 }
 
@@ -172,7 +172,7 @@
 .upgrade-checklist-item,
 .upgrade-step {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   display: grid;
   gap: var(--space-4);
   grid-template-columns: auto 1fr;
@@ -185,12 +185,12 @@
 
 .upgrade-checklist-index {
   align-items: center;
-  background: var(--color-surface-muted);
+  background: var(--color-surface-2);
   border-radius: 999px;
   color: var(--color-text);
   display: inline-flex;
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
+  font-size: var(--text-small);
   height: 1.75rem;
   justify-content: center;
   margin: 0.15rem 0 0;
@@ -208,16 +208,16 @@
 .upgrade-step-index {
   color: var(--color-text-muted);
   font-family: var(--font-mono);
-  font-size: var(--text-sm);
+  font-size: var(--text-small);
 }
 
 .upgrade-code {
-  background: var(--color-surface-muted);
+  background: var(--color-surface-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   color: var(--color-text);
   font-family: var(--font-mono);
-  font-size: var(--text-sm);
+  font-size: var(--text-small);
   line-height: 1.5;
   margin: var(--space-3) 0 0;
   overflow-x: auto;

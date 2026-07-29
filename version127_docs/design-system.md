@@ -20,7 +20,7 @@ Use the semantic names for new UI:
 | Effects | `--focus-ring`, `--motion-fast`, `--motion-base` |
 | Layout | `--container-max`, `--container-gutter`, `--top-bar-height`, `--sidebar-width` |
 
-Transitional aliases from the previous token scale (`--text-sm`, `--color-accent-soft`, `--shadow-card`, and similar) still resolve so older styles keep rendering, but they are scheduled for deletion. New CSS must use the semantic tokens above.
+The previous token scale (`--text-sm`, `--color-accent-soft`, `--shadow-card`, and similar) has been removed. All CSS uses the semantic tokens above; a token that is not in this table does not exist.
 
 ## Color rules
 

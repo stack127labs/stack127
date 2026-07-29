@@ -13,13 +13,13 @@
 }
 
 .markerArt :global(.sh-node) {
-  fill: var(--color-surface-muted);
+  fill: var(--color-surface-2);
   stroke: var(--color-border-strong);
 }
 
 .markerArt :global(.sh-node-accent) {
-  fill: var(--color-accent-soft);
-  stroke: var(--color-accent-border-strong);
+  fill: var(--color-surface-2);
+  stroke: var(--color-border-strong);
 }
 
 .markerArt :global(.sh-label) {

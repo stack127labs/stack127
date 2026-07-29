@@ -4,13 +4,13 @@
 
 .figure figcaption {
   color: var(--color-text-muted);
-  font-size: var(--text-xs);
+  font-size: var(--text-small);
   margin-top: var(--space-5);
   text-align: center;
 }
 
 .image img {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   display: block;
   height: auto;
   margin-inline: auto;

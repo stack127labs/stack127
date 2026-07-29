@@ -58,7 +58,7 @@
 
 .resultMeta {
   color: var(--color-text-muted) !important;
-  font-size: var(--text-sm) !important;
+  font-size: var(--text-small) !important;
   margin-top: var(--space-3) !important;
 }
 
@@ -72,12 +72,12 @@
   align-items: center;
   background: transparent;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   color: var(--color-text);
   cursor: pointer;
   display: inline-flex;
   font: inherit;
-  font-size: var(--text-sm);
+  font-size: var(--text-small);
   gap: var(--space-2);
   padding: 8px 12px;
 }
@@ -85,9 +85,9 @@
 .downloadButton:hover { border-color: var(--color-border-strong); }
 
 .resultHeader p {
-  color: var(--color-text-prose);
-  font-size: var(--text-md);
-  line-height: var(--line-reading);
+  color: var(--color-text);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
   margin-top: var(--space-3);
 }
 
@@ -98,7 +98,7 @@
 }
 
 .section > h3 {
-  font-size: var(--text-lg);
+  font-size: var(--text-body);
 }
 
 .sources {
@@ -125,7 +125,7 @@
 }
 
 .sourceHeader h3 {
-  font-size: var(--text-md);
+  font-size: var(--text-small);
 }
 
 .stateGood,
@@ -133,7 +133,7 @@
 .stateBad,
 .stateQuiet {
   border-radius: 999px;
-  font-size: var(--text-xs);
+  font-size: var(--text-small);
   font-weight: var(--weight-semibold);
   padding: 4px 8px;
 }
@@ -176,15 +176,15 @@
 .raw summary {
   color: var(--color-text-muted);
   cursor: pointer;
-  font-size: var(--text-sm);
+  font-size: var(--text-small);
 }
 
 .raw pre {
-  background: var(--color-surface-solid);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   box-sizing: border-box;
-  font-size: var(--text-xs);
+  font-size: var(--text-small);
   margin: var(--space-4) 0 0;
   max-height: 360px;
   max-width: 100%;
@@ -202,9 +202,9 @@
 }
 
 .finding {
-  background: var(--color-surface-muted);
+  background: var(--color-surface-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   display: grid;
   gap: var(--space-3);
   padding: var(--space-6);
@@ -233,7 +233,7 @@
 
 .pathStep {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   display: grid;
   gap: var(--space-2);
   padding: var(--space-4);
@@ -248,7 +248,7 @@
 .sourceList {
   display: flex;
   flex-wrap: wrap;
-  font-size: var(--text-sm);
+  font-size: var(--text-small);
   gap: var(--space-2) var(--space-4);
   margin: 0;
 }
@@ -265,7 +265,7 @@
 .chainStep { position: relative; }
 
 .chainStep::before {
-  background: var(--color-surface-solid);
+  background: var(--color-surface);
   border: 2px solid var(--color-accent);
   border-radius: 999px;
   content: "";
@@ -276,25 +276,25 @@
   width: 11px;
 }
 
-.chainStep[data-ok="false"]::before { border-color: var(--color-danger); }
+.chainStep[data-ok="false"]::before { border-color: var(--color-danger-text); }
 
 .chainStep h4,
 .chainStep p { margin: 0; }
 
 .chainStep p {
-  color: var(--color-text-prose);
+  color: var(--color-text);
   margin-top: var(--space-2);
 }
 
 .nextCheck {
-  color: var(--color-text-prose);
+  color: var(--color-text);
 }
 
 .nextCheck a,
 a.nextCheck {
   color: var(--color-link);
   text-decoration: underline;
-  text-decoration-color: var(--color-accent-border-strong);
+  text-decoration-color: var(--color-border-strong);
   text-underline-offset: 3px;
 }
 

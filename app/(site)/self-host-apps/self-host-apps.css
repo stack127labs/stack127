@@ -76,10 +76,9 @@
 }
 
 .custom-select-menu {
-  background: var(--color-surface-solid);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-lg);
   display: grid;
   gap: var(--space-1);
   left: 0;
@@ -284,7 +283,7 @@
   align-items: center;
   background: var(--color-surface-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   height: 14px;
   left: 0;
   pointer-events: none;
@@ -297,7 +296,7 @@
 .storage-slider-fill {
   background: var(--color-accent);
   bottom: 0;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   display: block;
   left: 0;
   position: absolute;
@@ -315,7 +314,7 @@
 
 .storage-slider-track span {
   background: color-mix(in srgb, var(--color-accent-text) 35%, transparent);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-lg);
   display: block;
   height: 12px;
   width: 3px;
