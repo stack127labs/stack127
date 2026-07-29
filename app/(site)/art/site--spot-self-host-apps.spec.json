@@ -1,13 +1,13 @@
 {
   "id": "site--spot-self-host-apps",
   "type": "doodle",
-  "takeaway": "Two server racks with a heart: apps worth running yourself.",
+  "takeaway": "A stack of server racks with one live light: apps running yourself.",
   "source": "decorative hand-drawn shape, no data",
   "dataAsOf": "2026-07-29",
   "width": 140,
   "height": 120,
   "seed": 11,
   "data": {
-    "shape": "serverHeart"
+    "shape": "serverRack"
   }
 }

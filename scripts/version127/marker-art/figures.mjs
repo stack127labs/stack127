@@ -774,18 +774,17 @@ const DOODLE_SHAPES = {
       A.dot(x, y, 1.7, i === 8 ? "@primary" : "@sub");
     }
   },
-  // two rack units with a primary heart: apps worth running yourself
-  serverHeart(A) {
-    A.rect(24, 46, 100, 26, { stroke: "@ink" });
-    A.rect(26, 80, 100, 26, { stroke: "@ink" });
-    A.dot(38, 59, 3, "@ink");
-    A.dot(40, 93, 3, "@ink");
-    A.line(96, 59, 114, 59, { stroke: "@ink" });
-    A.line(100, 93, 116, 93, { stroke: "@ink" });
-    A.path(
-      "M74 38 C 66 28, 52 31, 52 20 C 52 12, 62 9, 68 15 C 71 18, 77 18, 80 15 C 86 9, 96 12, 96 20 C 96 31, 82 28, 74 38 Z",
-      { stroke: "@primary" },
-    );
+  // three rack units with one live primary indicator: apps running yourself
+  serverRack(A) {
+    A.rect(24, 26, 100, 24, { stroke: "@ink" });
+    A.rect(26, 58, 100, 24, { stroke: "@ink" });
+    A.rect(24, 90, 100, 24, { stroke: "@ink" });
+    A.dot(38, 38, 3, "@primary");
+    A.dot(40, 70, 3, "@ink");
+    A.dot(38, 102, 3, "@ink");
+    A.line(96, 38, 114, 38, { stroke: "@ink" });
+    A.line(100, 70, 116, 70, { stroke: "@ink" });
+    A.line(96, 102, 114, 102, { stroke: "@ink" });
   },
   // globe with meridians and a primary marker: domain lookups
   globe(A) {

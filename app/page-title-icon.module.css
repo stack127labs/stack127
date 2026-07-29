@@ -1,19 +1,13 @@
-/* Sized in em so the chip scales with whatever heading it sits in. */
+/* Sized in em so the icon scales with whatever heading it sits in. No box:
+   the icon stands beside the title at the same optical size as its letters. */
 .chip {
-  align-items: center;
-  background: var(--color-surface-2);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
   color: var(--color-accent-text);
   display: inline-flex;
-  height: 0.92em;
-  justify-content: center;
-  margin-right: 0.28em;
-  vertical-align: -0.12em;
-  width: 0.92em;
+  margin-right: 0.24em;
+  vertical-align: -0.06em;
 }
 
 .chip svg {
-  height: 0.5em;
-  width: 0.5em;
+  height: 0.82em;
+  width: 0.82em;
 }
