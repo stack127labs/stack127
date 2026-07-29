@@ -73,7 +73,7 @@
   display: grid;
   gap: var(--space-9);
   max-width: var(--measure-prose);
-  padding: var(--space-12) clamp(24px, 5vw, 72px) 64px;
+  padding: var(--space-12) var(--container-gutter) 64px;
 }
 
 .lesson-header {

@@ -133,7 +133,9 @@ export default async function SoftwareLicensesPage() {
     >
       <article className={`license-page ${proseClassName}`}>
         <header className="license-page-header">
-          <h1>{licensePage.title}</h1>
+          <h1>
+            Software <mark>licenses</mark> for self-hosters
+          </h1>
           <p className={proseLedeClassName}>{licensePage.lede}</p>
           <p className="license-disclaimer">{licensePage.notLegalAdvice}</p>
           <p>
