@@ -1,7 +1,9 @@
+import { UserSearch } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
 import { DomainToolsSidebar } from "../domain-tools-sidebar";
 import { DomainOwnerTool } from "./domain-owner-tool";
+import { PageTitleIcon } from "../../../page-title-icon";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (value: string | string[] | undefined) => (Array.isArray(value) ? (value[0] ?? "") : (value ?? ""));
@@ -19,6 +21,9 @@ export default async function DomainOwnerPage({ searchParams }: { searchParams: 
       <main className="domain-tool-main">
         <header className="domain-page-header">
           <h1>
+            <PageTitleIcon>
+              <UserSearch strokeWidth={2.2} />
+            </PageTitleIcon>{" "}
             Who <mark>owns</mark> this domain?
           </h1>
           <p>

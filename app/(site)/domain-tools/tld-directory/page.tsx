@@ -1,8 +1,10 @@
+import { Globe } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
 import { DomainToolsSidebar } from "../domain-tools-sidebar";
 import { TldTable, type TldRow } from "./tld-table";
 import directory from "@/lib/domain/data/tld-directory.json" with { type: "json" };
+import { PageTitleIcon } from "../../../page-title-icon";
 
 export default function TldDirectoryPage() {
   const rows = directory.rows as TldRow[];
@@ -18,6 +20,9 @@ export default function TldDirectoryPage() {
       <main className="domain-tool-main">
         <header className="domain-page-header">
           <h1>
+            <PageTitleIcon>
+              <Globe strokeWidth={2.2} />
+            </PageTitleIcon>{" "}
             List of all domain <mark>extensions</mark>
           </h1>
           <p>

@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { HardDrive, Search } from "lucide-react";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { FaGithub } from "react-icons/fa6";
@@ -23,6 +23,7 @@ import {
 import { DirectoryAppBrowser } from "./directory-app-browser";
 import { LiveFilterController } from "./live-filter-controller";
 import { SortDropdown } from "./sort-dropdown";
+import { PageTitleIcon } from "../../page-title-icon";
 
 export const dynamic = "force-dynamic";
 
@@ -883,6 +884,9 @@ export default async function SelfHostAppsPage({
         <div className="directory-results">
           <div className="directory-results-header">
             <h1>
+              <PageTitleIcon>
+                <HardDrive strokeWidth={2.2} />
+              </PageTitleIcon>{" "}
               Find <mark>apps that fit</mark> your server, storage, and setup comfort.
             </h1>
           </div>

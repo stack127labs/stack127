@@ -1,7 +1,9 @@
+import { FileKey } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { DnsToolsSidebar } from "../dns-tools-sidebar";
 import { CaaChecker } from "./caa-checker";
 import styles from "../dns-diagnostics.module.css";
+import { PageTitleIcon } from "../../../page-title-icon";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] ?? "" : value ?? "";
@@ -18,6 +20,9 @@ export default async function CaaCheckerPage({ searchParams }: { searchParams: P
       <main className={styles.main}>
         <header className="dns-page-header">
           <h1>
+            <PageTitleIcon>
+              <FileKey strokeWidth={2.2} />
+            </PageTitleIcon>{" "}
             <mark>CAA Policy</mark> Checker
           </h1>
           <p>

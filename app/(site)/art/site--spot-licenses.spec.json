@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-licenses",
+  "type": "doodle",
+  "takeaway": "Balance scales: licenses weighed plainly.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-07-29",
+  "width": 140,
+  "height": 120,
+  "seed": 11,
+  "data": {
+    "shape": "scales"
+  }
+}

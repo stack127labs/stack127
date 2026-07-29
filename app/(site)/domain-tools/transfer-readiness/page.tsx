@@ -1,8 +1,10 @@
+import { ArrowLeftRight } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
 import { DomainToolsSidebar } from "../domain-tools-sidebar";
 import { TransferReadinessTool } from "./transfer-readiness-tool";
 import { pendingPolicy, policyInForce } from "@/lib/domain/transfer-policy.ts";
+import { PageTitleIcon } from "../../../page-title-icon";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (value: string | string[] | undefined) => (Array.isArray(value) ? (value[0] ?? "") : (value ?? ""));
@@ -22,6 +24,9 @@ export default async function TransferReadinessPage({ searchParams }: { searchPa
       <main className="domain-tool-main">
         <header className="domain-page-header">
           <h1>
+            <PageTitleIcon>
+              <ArrowLeftRight strokeWidth={2.2} />
+            </PageTitleIcon>{" "}
             Can this domain be <mark>transferred?</mark>
           </h1>
           <p>

@@ -1,8 +1,10 @@
+import { RefreshCw } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { DnsToolsSidebar } from "../dns-tools-sidebar";
 import { DnsChangeChecker } from "./dns-change-checker";
 import { CHANGE_RECORD_TYPES, type ChangeRecordType } from "@/lib/dns/diagnostic-types.ts";
 import styles from "../dns-diagnostics.module.css";
+import { PageTitleIcon } from "../../../page-title-icon";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] ?? "" : value ?? "";
@@ -19,6 +21,9 @@ export default async function DnsChangeCheckerPage({ searchParams }: { searchPar
       <main className={styles.main}>
         <header className="dns-page-header">
           <h1>
+            <PageTitleIcon>
+              <RefreshCw strokeWidth={2.2} />
+            </PageTitleIcon>{" "}
             DNS <mark>Change</mark> Checker
           </h1>
           <p>You changed a DNS record and now you want to know if the internet has caught up. This tool asks the source of truth, your domain's own nameservers, whether the change is live, then checks the big public resolvers to see which ones are still handing out the old cached answer. You get the authoritative records, the cached answers, the TTLs, and the raw responses side by side.</p>

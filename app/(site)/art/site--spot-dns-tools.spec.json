@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-dns-tools",
+  "type": "doodle",
+  "takeaway": "Broadcast arcs over an answer: DNS on its way.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-07-29",
+  "width": 140,
+  "height": 120,
+  "seed": 11,
+  "data": {
+    "shape": "signal"
+  }
+}

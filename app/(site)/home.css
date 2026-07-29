@@ -60,11 +60,11 @@
 .home-page-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   color: var(--color-text);
   display: grid;
-  gap: var(--space-8);
-  grid-template-rows: 1fr auto;
+  gap: var(--space-7);
+  grid-template-rows: auto 1fr auto;
   min-height: 0;
   padding: var(--space-9);
   text-decoration: none;
@@ -75,6 +75,19 @@
   border-color: var(--color-accent);
 }
 
+/* The marker spot is the card's visual one-liner: big, centered, unframed. */
+.home-page-card-art {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-4) 0 0;
+}
+
+.home-page-card-art svg {
+  height: auto;
+  max-width: none;
+  width: 148px;
+}
+
 .home-page-card-copy {
   align-content: start;
   display: grid;
@@ -82,14 +95,27 @@
 }
 
 .home-page-card h2 {
+  align-items: center;
   color: var(--color-text);
+  display: flex;
   font-family: var(--font-display);
   font-size: var(--text-h3);
   font-weight: var(--weight-bold);
+  gap: var(--space-4);
   letter-spacing: var(--tracking-display);
   line-height: var(--line-heading);
   margin: 0;
   text-transform: lowercase;
+}
+
+.home-page-card-icon {
+  color: var(--color-text-muted);
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.home-page-card:hover .home-page-card-icon {
+  color: var(--color-accent-text);
 }
 
 .home-page-card p {

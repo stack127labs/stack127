@@ -1,8 +1,10 @@
+import { ShieldCheck } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { DnsToolsSidebar } from "../dns-tools-sidebar";
 import { DnssecChecker } from "./dnssec-checker";
 import { DNSSEC_RECORD_TYPES, type DnssecRecordType } from "@/lib/dns/dnssec-types.ts";
 import styles from "../dns-diagnostics.module.css";
+import { PageTitleIcon } from "../../../page-title-icon";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] ?? "" : value ?? "";
@@ -20,6 +22,9 @@ export default async function DnssecCheckerPage({ searchParams }: { searchParams
       <main className={styles.main}>
         <header className="dns-page-header">
           <h1>
+            <PageTitleIcon>
+              <ShieldCheck strokeWidth={2.2} />
+            </PageTitleIcon>{" "}
             <mark>DNSSEC Chain</mark> Checker
           </h1>
           <p>

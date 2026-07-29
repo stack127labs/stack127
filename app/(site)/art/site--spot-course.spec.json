@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-course",
+  "type": "doodle",
+  "takeaway": "A steaming mug: the self-hosting course to settle in with.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-07-29",
+  "width": 140,
+  "height": 120,
+  "seed": 11,
+  "data": {
+    "shape": "coffee"
+  }
+}

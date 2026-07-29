@@ -1,7 +1,9 @@
+import { Server } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { DnsToolsSidebar } from "../dns-tools-sidebar";
 import { NameserverChecker } from "./nameserver-checker";
 import styles from "../dns-diagnostics.module.css";
+import { PageTitleIcon } from "../../../page-title-icon";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] ?? "" : value ?? "";
@@ -13,6 +15,9 @@ export default async function NameserverCheckerPage({ searchParams }: { searchPa
       <main className={styles.main}>
         <header className="dns-page-header">
           <h1>
+            <PageTitleIcon>
+              <Server strokeWidth={2.2} />
+            </PageTitleIcon>{" "}
             Nameserver <mark>Delegation</mark> Checker
           </h1>
           <p>

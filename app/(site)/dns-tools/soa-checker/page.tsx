@@ -1,7 +1,9 @@
+import { FileClock } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { DnsToolsSidebar } from "../dns-tools-sidebar";
 import { SoaChecker } from "./soa-checker";
 import styles from "../dns-diagnostics.module.css";
+import { PageTitleIcon } from "../../../page-title-icon";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] ?? "" : value ?? "";
@@ -12,6 +14,9 @@ export default async function SoaCheckerPage({ searchParams }: { searchParams: P
     <main className={styles.main}>
       <header className="dns-page-header">
         <h1>
+          <PageTitleIcon>
+            <FileClock strokeWidth={2.2} />
+          </PageTitleIcon>{" "}
           <mark>SOA Consistency</mark> Checker
         </h1>
         <p>

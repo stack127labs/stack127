@@ -1,8 +1,10 @@
+import { ListChecks } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
 import { DomainToolsSidebar } from "../domain-tools-sidebar";
 import { STATUS_CODES, STATUS_GROUP_TITLES, type StatusGroup } from "@/lib/domain/status-codes.ts";
 import { StatePill } from "../domain-lookup-client";
+import { PageTitleIcon } from "../../../page-title-icon";
 
 /** Who set it decides what you can do, so that is what the tone encodes. */
 const GROUP_TONE: Record<StatusGroup, "good" | "warn" | "bad" | "quiet"> = {
@@ -44,6 +46,9 @@ export default function EppStatusCodesPage() {
       <main className="domain-tool-main">
         <header className="domain-page-header">
           <h1>
+            <PageTitleIcon>
+              <ListChecks strokeWidth={2.2} />
+            </PageTitleIcon>{" "}
             Domain <mark>status codes</mark> explained
           </h1>
           <p>

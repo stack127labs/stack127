@@ -774,6 +774,91 @@ const DOODLE_SHAPES = {
       A.dot(x, y, 1.7, i === 8 ? "@primary" : "@sub");
     }
   },
+  // two rack units with a primary heart: apps worth running yourself
+  serverHeart(A) {
+    A.rect(24, 46, 100, 26, { stroke: "@ink" });
+    A.rect(26, 80, 100, 26, { stroke: "@ink" });
+    A.dot(38, 59, 3, "@ink");
+    A.dot(40, 93, 3, "@ink");
+    A.line(96, 59, 114, 59, { stroke: "@ink" });
+    A.line(100, 93, 116, 93, { stroke: "@ink" });
+    A.path(
+      "M74 38 C 66 28, 52 31, 52 20 C 52 12, 62 9, 68 15 C 71 18, 77 18, 80 15 C 86 9, 96 12, 96 20 C 96 31, 82 28, 74 38 Z",
+      { stroke: "@primary" },
+    );
+  },
+  // globe with meridians and a primary marker: domain lookups
+  globe(A) {
+    A.circle(70, 62, 84, { stroke: "@ink" });
+    A.ellipse(70, 62, 40, 84, { stroke: "@sub" });
+    A.line(28, 62, 112, 62, { stroke: "@sub" });
+    A.curve(
+      [
+        [32, 40],
+        [70, 32],
+        [108, 40],
+      ],
+      { stroke: "@sub" },
+    );
+    A.curve(
+      [
+        [32, 84],
+        [70, 92],
+        [108, 84],
+      ],
+      { stroke: "@sub" },
+    );
+    A.dot(94, 44, 4.5, "@primary");
+  },
+  // broadcast arcs over a primary dot: dns answers on their way
+  signal(A) {
+    A.arc(70, 96, 128, 116, Math.PI * 1.16, Math.PI * 1.84, false, { stroke: "@ink" });
+    A.arc(70, 96, 88, 80, Math.PI * 1.16, Math.PI * 1.84, false, { stroke: "@sub" });
+    A.arc(70, 96, 48, 44, Math.PI * 1.16, Math.PI * 1.84, false, { stroke: "@sub" });
+    A.dot(70, 92, 5, "@primary");
+    A.line(70, 92, 70, 110, { stroke: "@ink" });
+  },
+  // steaming mug: the course you settle in with
+  coffee(A) {
+    A.polygon(
+      [
+        [40, 58],
+        [96, 58],
+        [90, 104],
+        [46, 104],
+      ],
+      { stroke: "@ink" },
+    );
+    A.path("M96 66 C 112 64, 114 88, 92 90", { stroke: "@ink" });
+    A.curve(
+      [
+        [56, 46],
+        [52, 34],
+        [58, 24],
+      ],
+      { stroke: "@sub" },
+    );
+    A.curve(
+      [
+        [74, 46],
+        [70, 32],
+        [76, 20],
+      ],
+      { stroke: "@primary" },
+    );
+  },
+  // balance scales: licenses weighed plainly
+  scales(A) {
+    A.line(70, 22, 70, 92, { stroke: "@ink" });
+    A.line(34, 32, 106, 32, { stroke: "@ink" });
+    A.line(50, 100, 90, 100, { stroke: "@ink" });
+    A.line(34, 32, 26, 58, { stroke: "@sub" });
+    A.line(34, 32, 42, 58, { stroke: "@sub" });
+    A.arc(34, 56, 32, 22, 0, Math.PI, false, { stroke: "@primary" });
+    A.line(106, 32, 98, 66, { stroke: "@sub" });
+    A.line(106, 32, 114, 66, { stroke: "@sub" });
+    A.arc(106, 64, 32, 22, 0, Math.PI, false, { stroke: "@sub" });
+  },
 };
 
 function doodle(spec, A) {

@@ -1,3 +1,4 @@
+import { Globe } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../app-shell";
 import { dotBandClassName } from "../../dot-band";
@@ -5,6 +6,7 @@ import { Doodle } from "../../doodle";
 import { siteDoodlePlantArt } from "../art/site--doodle-plant";
 import { DomainToolsSidebar } from "./domain-tools-sidebar";
 import { coverageSummary } from "@/lib/domain/bootstrap.ts";
+import { PageTitleIcon } from "../../page-title-icon";
 
 const tools = [
   {
@@ -97,6 +99,9 @@ export default function DomainToolsPage() {
         <div className="domain-hero-band-inner">
           <header className="domain-page-header">
             <h1>
+              <PageTitleIcon>
+                <Globe strokeWidth={2.2} />
+              </PageTitleIcon>{" "}
               Free domain <mark>lookup tools</mark>
             </h1>
             <p>

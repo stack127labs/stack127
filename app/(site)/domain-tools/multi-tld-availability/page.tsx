@@ -1,7 +1,9 @@
+import { Layers } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
 import { DomainToolsSidebar } from "../domain-tools-sidebar";
 import { MultiTldTool } from "./multi-tld-tool";
+import { PageTitleIcon } from "../../../page-title-icon";
 
 export default function MultiTldAvailabilityPage() {
   return (
@@ -14,6 +16,9 @@ export default function MultiTldAvailabilityPage() {
       <main className="domain-tool-main">
         <header className="domain-page-header">
           <h1>
+            <PageTitleIcon>
+              <Layers strokeWidth={2.2} />
+            </PageTitleIcon>{" "}
             Check a domain name across <mark>multiple extensions</mark>
           </h1>
           <p>

@@ -1,7 +1,9 @@
+import { Languages } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
 import { DomainToolsSidebar } from "../domain-tools-sidebar";
 import { PunycodeTool } from "./punycode-tool";
+import { PageTitleIcon } from "../../../page-title-icon";
 
 export default function PunycodeConverterPage() {
   return (
@@ -14,6 +16,9 @@ export default function PunycodeConverterPage() {
       <main className="domain-tool-main">
         <header className="domain-page-header">
           <h1>
+            <PageTitleIcon>
+              <Languages strokeWidth={2.2} />
+            </PageTitleIcon>{" "}
             <mark>Punycode</mark> converter
           </h1>
           <p>

@@ -1,3 +1,4 @@
+import { Scale } from "lucide-react";
 import Link from "next/link";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { AppShell, SidebarLabel } from "../../app-shell";
@@ -15,6 +16,7 @@ import {
   licensesInGroup,
   type LicenseEntry,
 } from "@/lib/software-licenses";
+import { PageTitleIcon } from "../../page-title-icon";
 
 const factRows: { key: keyof LicenseEntry["facts"]; label: string }[] = [
   { key: "osiOpenSource", label: "OSI open source" },
@@ -133,6 +135,9 @@ export default async function SoftwareLicensesPage() {
       <article className={`license-page ${proseClassName}`}>
         <header className="license-page-header">
           <h1>
+            <PageTitleIcon>
+              <Scale strokeWidth={2.2} />
+            </PageTitleIcon>{" "}
             Software <mark>licenses</mark> for self-hosters
           </h1>
           <p className={proseLedeClassName}>{licensePage.lede}</p>

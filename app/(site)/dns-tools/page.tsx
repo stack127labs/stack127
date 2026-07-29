@@ -1,9 +1,11 @@
+import { Network } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../app-shell";
 import { dotBandClassName } from "../../dot-band";
 import { Doodle } from "../../doodle";
 import { siteDoodleArrowLoopArt } from "../art/site--doodle-arrow-loop";
 import { DnsToolsSidebar } from "./dns-tools-sidebar";
+import { PageTitleIcon } from "../../page-title-icon";
 
 export default function DnsToolsPage() {
   return (
@@ -17,6 +19,9 @@ export default function DnsToolsPage() {
         <div className="dns-hero-band-inner">
           <header className="dns-page-header">
             <h1>
+              <PageTitleIcon>
+                <Network strokeWidth={2.2} />
+              </PageTitleIcon>{" "}
               DNS <mark>tools</mark>
             </h1>
             <p>

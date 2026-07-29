@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-domain-tools",
+  "type": "doodle",
+  "takeaway": "A globe with a marked point: domain lookups.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-07-29",
+  "width": 140,
+  "height": 120,
+  "seed": 11,
+  "data": {
+    "shape": "globe"
+  }
+}

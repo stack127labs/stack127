@@ -1,9 +1,11 @@
+import { Route } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
 import { DnsToolsSidebar } from "../dns-tools-sidebar";
 import { DnsTraceTool } from "./dns-trace-tool";
 import { TRACE_RECORD_TYPES, type DnsTraceRecordType } from "@/lib/dns/trace-types.ts";
 import styles from "./dns-trace.module.css";
+import { PageTitleIcon } from "../../../page-title-icon";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
@@ -30,6 +32,9 @@ export default async function DnsTracePage({ searchParams }: { searchParams: Pro
       <main className={styles.main}>
         <header className="dns-page-header">
           <h1>
+            <PageTitleIcon>
+              <Route strokeWidth={2.2} />
+            </PageTitleIcon>{" "}
             DNS <mark>Trace Explorer</mark>
           </h1>
           <p>This tool follows one DNS question the long way, starting at the root nameservers at the top of DNS and walking down until it reaches the server that holds the final answer. At each hop it shows you which server it asked, what that server said, and where it pointed next. If the trip stops early, you can see the exact step where it broke.</p>

@@ -1,8 +1,10 @@
+import { Search } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { DnsToolsSidebar } from "../dns-tools-sidebar";
 import { DnsLookupTool } from "./dns-lookup-tool";
 import type { DnsResolver, DnsSelection } from "@/lib/dns/types.ts";
 import { isDnsResolver } from "@/lib/dns/resolvers.ts";
+import { PageTitleIcon } from "../../../page-title-icon";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
@@ -31,6 +33,9 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
       <main className="dns-lookup-main">
         <header className="dns-page-header">
           <h1>
+            <PageTitleIcon>
+              <Search strokeWidth={2.2} />
+            </PageTitleIcon>{" "}
             DNS <mark>lookup</mark>
           </h1>
           <p>

@@ -1,7 +1,12 @@
-import { BookOpen, Globe, HardDrive, Network, Scale } from "lucide-react";
+import { BookOpen, Globe, HardDrive, Network, Scale, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import "./home.css";
+import { siteSpotCourseArt } from "./art/site--spot-course";
+import { siteSpotDnsToolsArt } from "./art/site--spot-dns-tools";
+import { siteSpotDomainToolsArt } from "./art/site--spot-domain-tools";
+import { siteSpotLicensesArt } from "./art/site--spot-licenses";
+import { siteSpotSelfHostAppsArt } from "./art/site--spot-self-host-apps";
 import { getSelfHostAppsStats } from "@/lib/apps";
 import {
   getMainPublishedPages,
@@ -35,15 +40,22 @@ type HomeStat = {
 /** Legal pages stay in the footer; the explore list is for the real content. */
 const legalSlugs = new Set(["about", "privacy", "terms"]);
 
-const sidebarIconProps = { size: 15, strokeWidth: 2.2 } as const;
-
 /** Monochrome icon per feature page; unknown slugs fall back to the chevron. */
-const pageIcons: Record<string, ReactNode> = {
-  "dns-tools": <Network {...sidebarIconProps} />,
-  "domain-tools": <Globe {...sidebarIconProps} />,
-  "self-host-apps": <HardDrive {...sidebarIconProps} />,
-  "self-hosting-for-beginners": <BookOpen {...sidebarIconProps} />,
-  "software-licenses-for-self-hosting": <Scale {...sidebarIconProps} />,
+const pageIcons: Record<string, LucideIcon> = {
+  "dns-tools": Network,
+  "domain-tools": Globe,
+  "self-host-apps": HardDrive,
+  "self-hosting-for-beginners": BookOpen,
+  "software-licenses-for-self-hosting": Scale,
+};
+
+/** Marker spot per feature page: the card's visual one-liner. */
+const pageArt: Record<string, string> = {
+  "dns-tools": siteSpotDnsToolsArt,
+  "domain-tools": siteSpotDomainToolsArt,
+  "self-host-apps": siteSpotSelfHostAppsArt,
+  "self-hosting-for-beginners": siteSpotCourseArt,
+  "software-licenses-for-self-hosting": siteSpotLicensesArt,
 };
 
 function HomeSidebar({ pages }: { pages: Version127Page[] }) {
@@ -56,11 +68,15 @@ function HomeSidebar({ pages }: { pages: Version127Page[] }) {
         <SidebarList
           items={pages
             .filter((page) => !legalSlugs.has(page.slug))
-            .map((page) => ({
-              href: pathFromSlug(page.slug),
-              icon: pageIcons[page.slug],
-              label: page.label,
-            }))}
+            .map((page) => {
+              const Icon = pageIcons[page.slug];
+
+              return {
+                href: pathFromSlug(page.slug),
+                icon: Icon ? <Icon size={15} strokeWidth={2.2} /> : undefined,
+                label: page.label,
+              };
+            })}
         />
       </nav>
     </div>
@@ -102,10 +118,25 @@ function HomePageCard({
   page: Version127Page;
   stats: HomeStat[];
 }) {
+  const Icon = pageIcons[page.slug];
+  const art = pageArt[page.slug];
+
   return (
     <Link className="home-page-card" href={pathFromSlug(page.slug)}>
+      {art ? (
+        <span className="home-page-card-art">
+          <Doodle svg={art} />
+        </span>
+      ) : null}
       <div className="home-page-card-copy">
-        <h2>{page.label}</h2>
+        <h2>
+          {Icon ? (
+            <span aria-hidden="true" className="home-page-card-icon">
+              <Icon size={18} strokeWidth={2.2} />
+            </span>
+          ) : null}
+          {page.label}
+        </h2>
         <p>{page.meta_description}</p>
       </div>
       {stats.length > 0 ? (
