@@ -213,7 +213,7 @@ export default async function Home() {
       <div className={`${dotBandClassName} home-hero-band`}>
         <header className="home-intro">
           <h1 id="home-title">
-            Practical tools for <mark>self-hosting</mark>
+            Practical tools for people who <mark>tinker</mark>
           </h1>
           <p className="home-lede">
             Compact directories, a beginner course, and references you can scan without
