@@ -24,9 +24,15 @@ export function SiteNav() {
         </Link>
         <div className={styles.links}>
           <Link href="/self-host-apps">self-host apps</Link>
+          <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
+            ·
+          </span>
           <Link className={styles.secondaryLink} href="/dns-tools">
             dns tools
           </Link>
+          <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
+            ·
+          </span>
           <Link className={styles.secondaryLink} href="/domain-tools">
             domain tools
           </Link>

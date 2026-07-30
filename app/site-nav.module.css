@@ -42,18 +42,25 @@
 .links {
   align-items: center;
   display: flex;
-  gap: clamp(14px, 2.4vw, 34px);
+  gap: clamp(10px, 1.6vw, 18px);
   justify-content: flex-end;
 }
 
+/* Nav links read like the site's quiet mono metadata, separated by dots. */
 .links a {
   color: var(--color-text-muted);
-  font-size: var(--text-body);
-  font-weight: var(--weight-semibold);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  font-weight: var(--weight-regular);
 }
 
 .links a:hover {
   color: var(--color-text);
+}
+
+.dot {
+  color: var(--color-text-muted);
+  user-select: none;
 }
 
 .actions {
