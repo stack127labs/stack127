@@ -22,9 +22,9 @@ const textExtensions = new Set([".js", ".mjs", ".ts", ".tsx"]);
 
 function standaloneText(content) {
   return content
-    .replaceAll("the Version127 site", "this DNS Tools installation")
-    .replaceAll("the Version127 server", "this DNS Tools server")
-    .replaceAll("Version127 does not store", "DNS Tools does not store")
+    .replaceAll("the version127 site", "this DNS Tools installation")
+    .replaceAll("the version127 server", "this DNS Tools server")
+    .replaceAll("version127 does not store", "DNS Tools does not store")
     .replaceAll("/dns-tools/", "/");
 }
 

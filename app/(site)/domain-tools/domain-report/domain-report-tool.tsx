@@ -111,7 +111,7 @@ export function DomainReportTool({ initialName = "" }: { initialName?: string })
             <p className="domain-answer-lead">{result.summary}</p>
             <p className="domain-meta">
               Ran {result.ranChecks.join(" and ").toLowerCase() || "nothing"} in{" "}
-              {result.durationMs.toLocaleString("en-US")} ms. This is a snapshot from the Version127 server, not a view
+              {result.durationMs.toLocaleString("en-US")} ms. This is a snapshot from the version127 server, not a view
               of what every resolver worldwide sees.
             </p>
           </div>

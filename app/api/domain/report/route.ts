@@ -14,7 +14,7 @@ export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   if (!isSameOriginDomainRequest(request)) {
-    return domainErrorResponse(403, "cross_origin_request", "Domain checks must come from the Version127 site.");
+    return domainErrorResponse(403, "cross_origin_request", "Domain checks must come from the version127 site.");
   }
 
   let body: Record<string, unknown>;

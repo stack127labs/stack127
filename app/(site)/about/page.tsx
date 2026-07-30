@@ -6,7 +6,7 @@ export default function AboutPage() {
   return (
     <InfoPage slug="about" title="About">
         <p className={proseLedeClassName}>
-          Version127 is a practical technical directory built and maintained by me, Ravi Teja KNTS (just call me Teja). It is for everyone who likes to tinker with the tech they use.
+          version127 is a practical technical directory built and maintained by me, Ravi Teja KNTS (just call me Teja). It is for everyone who likes to tinker with the tech they use.
         </p>
 
         <section>

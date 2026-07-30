@@ -5,13 +5,13 @@ export default function TermsPage() {
   return (
     <InfoPage slug="terms" title="Terms">
         <p className={proseLedeClassName}>
-          These terms are here to keep expectations clear. Version127 is a directory and reference site, not a managed service, marketplace, security auditor, or professional advice provider.
+          These terms are here to keep expectations clear. version127 is a directory and reference site, not a managed service, marketplace, security auditor, or professional advice provider.
         </p>
 
         <section>
           <h2>Using the site</h2>
           <p>
-            You can read, search, and use Version127 for personal or professional research. The site can include directories, reference pages, calculators, technical explainers, setup notes, comparison tables, recommendations, and links to external resources.
+            You can read, search, and use version127 for personal or professional research. The site can include directories, reference pages, calculators, technical explainers, setup notes, comparison tables, recommendations, and links to external resources.
           </p>
           <p>
             Please do not abuse the site, attack it, overload it, scrape it aggressively, bypass limits, or use it in a way that breaks the law. Normal browsing, reasonable research, and respectful crawling are fine. Trying to break the site is not.
@@ -31,17 +31,17 @@ export default function TermsPage() {
         <section>
           <h2>No warranties</h2>
           <p>
-            Version127 is provided as-is. We do not promise that every page, link, calculation, explanation, recommendation, image, table, or technical note will always be complete, current, secure, available, or suitable for your setup.
+            version127 is provided as-is. We do not promise that every page, link, calculation, explanation, recommendation, image, table, or technical note will always be complete, current, secure, available, or suitable for your setup.
           </p>
           <p>
-            Technical decisions have tradeoffs. Something that works well for one person may be wrong for another setup, team, budget, skill level, compliance requirement, device mix, or threat model. Treat Version127 as a starting point, not the final decision maker.
+            Technical decisions have tradeoffs. Something that works well for one person may be wrong for another setup, team, budget, skill level, compliance requirement, device mix, or threat model. Treat version127 as a starting point, not the final decision maker.
           </p>
         </section>
 
         <section>
           <h2>Third-party resources</h2>
           <p>
-            Version127 can mention or link to projects, products, services, docs, repositories, app stores, marketplaces, communities, brands, logos, and trademarks that belong to other people or companies.
+            version127 can mention or link to projects, products, services, docs, repositories, app stores, marketplaces, communities, brands, logos, and trademarks that belong to other people or companies.
           </p>
           <p>
             Mentioning something does not mean we own it, represent it, endorse every part of it, or guarantee that it is safe, supported, available, or right for your use case. If something is wrong, outdated, or should be credited differently, contact us and we can review it.
@@ -61,7 +61,7 @@ export default function TermsPage() {
         <section>
           <h2>Changes</h2>
           <p>
-            We can update the site, pages, data, features, and these terms as Version127 evolves. The site may add new directories, tools, calculators, references, analytics, monetization, or editorial workflows over time.
+            We can update the site, pages, data, features, and these terms as version127 evolves. The site may add new directories, tools, calculators, references, analytics, monetization, or editorial workflows over time.
           </p>
           <p>
             Questions can go to <a href="mailto:version127@proton.me">version127@proton.me</a>.
