@@ -3,7 +3,15 @@ import { proseLedeClassName } from "../../prose";
 
 export default function PrivacyPage() {
   return (
-    <InfoPage slug="privacy" title="Privacy">
+    <InfoPage
+      heading={
+        <>
+          Privacy policy of <mark>version127</mark>
+        </>
+      }
+      slug="privacy"
+      title="Privacy"
+    >
         <p className={proseLedeClassName}>
           version127 is a technical directory. We try to collect as little personal information as we can while still keeping the site useful, fast, and safe.
         </p>

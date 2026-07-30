@@ -138,7 +138,7 @@ export default async function SoftwareLicensesPage() {
             <PageTitleIcon>
               <Scale strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            Software <mark>licenses</mark> for self-hosters
+            Software <mark>licenses</mark> for self-hosters: what each label lets you do
           </h1>
           <p className={proseLedeClassName}>{licensePage.lede}</p>
           <p className="license-disclaimer">{licensePage.notLegalAdvice}</p>

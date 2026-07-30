@@ -24,7 +24,7 @@ export default async function DomainOwnerPage({ searchParams }: { searchParams: 
             <PageTitleIcon>
               <UserSearch strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            Who <mark>owns</mark> this domain?
+            Domain <mark>registrant</mark> lookup: who owns this domain?
           </h1>
           <p>
             Look up who a domain is registered to. For most domains the answer is

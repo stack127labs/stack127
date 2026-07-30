@@ -4,7 +4,15 @@ import { proseLedeClassName } from "../../prose";
 
 export default function AboutPage() {
   return (
-    <InfoPage slug="about" title="About">
+    <InfoPage
+      heading={
+        <>
+          About <mark>version127</mark>
+        </>
+      }
+      slug="about"
+      title="About"
+    >
         <p className={proseLedeClassName}>
           version127 is a practical technical directory built and maintained by me, Ravi Teja KNTS (just call me Teja). It is for everyone who likes to tinker with the tech they use.
         </p>

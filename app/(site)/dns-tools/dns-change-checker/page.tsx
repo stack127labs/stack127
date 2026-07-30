@@ -24,7 +24,7 @@ export default async function DnsChangeCheckerPage({ searchParams }: { searchPar
             <PageTitleIcon>
               <RefreshCw strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            DNS <mark>Change</mark> Checker
+            DNS <mark>Change</mark> Checker: has your change propagated?
           </h1>
           <p>You changed a DNS record and now you want to know if the internet has caught up. This tool asks the source of truth, your domain's own nameservers, whether the change is live, then checks the big public resolvers to see which ones are still handing out the old cached answer. You get the authoritative records, the cached answers, the TTLs, and the raw responses side by side.</p>
         </header>

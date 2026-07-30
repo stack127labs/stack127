@@ -3,7 +3,15 @@ import { proseLedeClassName } from "../../prose";
 
 export default function TermsPage() {
   return (
-    <InfoPage slug="terms" title="Terms">
+    <InfoPage
+      heading={
+        <>
+          Terms and conditions to use <mark>version127</mark>
+        </>
+      }
+      slug="terms"
+      title="Terms"
+    >
         <p className={proseLedeClassName}>
           These terms are here to keep expectations clear. version127 is a directory and reference site, not a managed service, marketplace, security auditor, or professional advice provider.
         </p>

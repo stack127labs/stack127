@@ -19,7 +19,7 @@ export default function MultiTldAvailabilityPage() {
             <PageTitleIcon>
               <Layers strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            Check a domain name across <mark>multiple extensions</mark>
+            Multi-TLD <mark>availability</mark>: one name across many endings
           </h1>
           <p>
             Enter one name and check it against several endings at once. Each is

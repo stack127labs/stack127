@@ -12,7 +12,10 @@ import {
 type InfoPageProps = {
   children: ReactNode;
   slug: string;
+  /** Short name used for accessible labels. */
   title: string;
+  /** Full h1, name plus the point, with its mark phrase. Defaults to title. */
+  heading?: ReactNode;
 };
 
 const links = [
@@ -43,7 +46,7 @@ function InfoSidebar({ label }: { label: string }) {
   );
 }
 
-export async function InfoPage({ children, slug, title }: InfoPageProps) {
+export async function InfoPage({ children, slug, title, heading }: InfoPageProps) {
   const registryPage = await getRequiredPublishedPage(slug);
 
   return (
@@ -54,7 +57,7 @@ export async function InfoPage({ children, slug, title }: InfoPageProps) {
       sidebarLabel={`${title} sidebar`}
     >
       <article className={`${styles.page} ${proseClassName}`}>
-        <h1>{title}</h1>
+        <h1>{heading ?? title}</h1>
         {children}
       </article>
     </AppShell>

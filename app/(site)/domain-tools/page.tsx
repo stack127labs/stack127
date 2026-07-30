@@ -102,7 +102,7 @@ export default function DomainToolsPage() {
               <PageTitleIcon>
                 <Globe strokeWidth={2.2} />
               </PageTitleIcon>{" "}
-              Free domain <mark>lookup tools</mark>
+              Free domain <mark>lookup tools</mark> that answer from the registry
             </h1>
             <p>
               Look up who registered a domain, when it was created, when it expires,

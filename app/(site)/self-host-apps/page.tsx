@@ -887,7 +887,7 @@ export default async function SelfHostAppsPage({
               <PageTitleIcon>
                 <HardDrive strokeWidth={2.2} />
               </PageTitleIcon>{" "}
-              Find <mark>apps that fit</mark> your server, storage, and setup comfort.
+              Self-host <mark>apps that fit</mark> your server, storage, and setup comfort
             </h1>
           </div>
 

@@ -24,7 +24,7 @@ export default async function DomainRegistrarPage({ searchParams }: { searchPara
             <PageTitleIcon>
               <Building2 strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            Find a domain&apos;s <mark>registrar</mark>
+            <mark>Registrar</mark> lookup: find a domain&apos;s registrar and abuse contact
           </h1>
           <p>
             Look up which company a domain is registered through, along with its

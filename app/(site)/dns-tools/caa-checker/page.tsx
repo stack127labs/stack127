@@ -23,7 +23,7 @@ export default async function CaaCheckerPage({ searchParams }: { searchParams: P
             <PageTitleIcon>
               <FileKey strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            <mark>CAA Policy</mark> Checker
+            <mark>CAA Policy</mark> Checker: who can issue your certificates?
           </h1>
           <p>
             A CAA record is how a domain says which certificate authorities are

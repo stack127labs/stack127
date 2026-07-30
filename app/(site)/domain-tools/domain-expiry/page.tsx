@@ -24,7 +24,7 @@ export default async function DomainExpiryPage({ searchParams }: { searchParams:
             <PageTitleIcon>
               <CalendarX strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            Domain <mark>expiry</mark> checker
+            Domain <mark>expiry</mark> checker: when does a domain expire?
           </h1>
           <p>
             Check when a domain expires and, more usefully, what happens after that

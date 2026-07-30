@@ -24,7 +24,7 @@ export default async function DomainAvailabilityPage({ searchParams }: { searchP
             <PageTitleIcon>
               <BadgeCheck strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            Domain <mark>availability</mark> checker
+            Domain <mark>availability</mark> checker: is that name taken?
           </h1>
           <p>
             Check whether a domain name is already registered by asking the registry

@@ -24,7 +24,7 @@ export default async function DomainAgePage({ searchParams }: { searchParams: Pr
             <PageTitleIcon>
               <CalendarClock strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            Domain <mark>age</mark> checker
+            Domain <mark>age</mark> checker: how old is a domain name?
           </h1>
           <p>
             Find out how old a domain is and when it was first registered, taken

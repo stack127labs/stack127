@@ -19,7 +19,7 @@ export default function PunycodeConverterPage() {
             <PageTitleIcon>
               <Languages strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            <mark>Punycode</mark> converter
+            <mark>Punycode</mark> converter: IDN to ASCII and back
           </h1>
           <p>
             Convert a domain name between the readable form and the{" "}

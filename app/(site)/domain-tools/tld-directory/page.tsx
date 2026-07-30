@@ -23,7 +23,7 @@ export default function TldDirectoryPage() {
             <PageTitleIcon>
               <Globe strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            List of all domain <mark>extensions</mark>
+            TLD <mark>directory</mark>: every extension and who runs it
           </h1>
           <p>
             Every top-level domain that exists, with the organisation that operates

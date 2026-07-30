@@ -24,7 +24,7 @@ export default async function DomainLookupPage({ searchParams }: { searchParams:
             <PageTitleIcon>
               <FileSearch strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            Domain <mark>registration</mark> lookup
+            Domain <mark>registration</mark> lookup: the full WHOIS and RDAP record
           </h1>
           <p>
             Enter any domain and see its full registration record: the registrar it

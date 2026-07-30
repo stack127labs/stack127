@@ -22,7 +22,7 @@ export default function DnsToolsPage() {
               <PageTitleIcon>
                 <Network strokeWidth={2.2} />
               </PageTitleIcon>{" "}
-              DNS <mark>tools</mark>
+              DNS <mark>tools</mark> to check records and find what broke
             </h1>
             <p>
               A small set of tools for seeing what your domain is really doing in DNS. Look up

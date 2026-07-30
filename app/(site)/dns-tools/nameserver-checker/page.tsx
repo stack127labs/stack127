@@ -18,7 +18,7 @@ export default async function NameserverCheckerPage({ searchParams }: { searchPa
             <PageTitleIcon>
               <Server strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            Nameserver <mark>Delegation</mark> Checker
+            Nameserver <mark>Delegation</mark> Checker: test NS and glue records
           </h1>
           <p>
             NS records name the servers that are supposed to answer for your domain. This tool
