@@ -11,8 +11,6 @@ type AppShellProps = {
   sidebarLabel?: string;
   /** Label shown next to the mobile hamburger, e.g. "Lessons" or "Filters". */
   menuLabel?: string;
-  /** Skip the sidebar rail entirely so wide content uses the full page width. */
-  fullWidth?: boolean;
 };
 
 export function SidebarLabel({ children }: { children: ReactNode }) {
@@ -25,12 +23,11 @@ export function AppShell({
   sidebar,
   sidebarLabel = "Page sidebar",
   menuLabel = "Menu",
-  fullWidth = false,
 }: AppShellProps) {
   return (
     <main className={styles.shell}>
-      <section className={fullWidth ? `${styles.page} ${styles.pageFull}` : styles.page}>
-        {fullWidth ? null : sidebar ? (
+      <section className={styles.page}>
+        {sidebar ? (
           <AppSidebar label={sidebarLabel} menuLabel={menuLabel}>
             {sidebar}
           </AppSidebar>

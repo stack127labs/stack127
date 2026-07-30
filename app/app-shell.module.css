@@ -13,11 +13,6 @@
   padding: 0;
 }
 
-/* Full-width pages skip the sidebar rail: tables and card grids get the room. */
-.pageFull {
-  grid-template-columns: minmax(0, 1fr);
-}
-
 .sidebar {
   background: var(--color-bg);
   border-right: 1px solid var(--color-border);

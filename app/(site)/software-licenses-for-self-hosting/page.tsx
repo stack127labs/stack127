@@ -1,10 +1,15 @@
 import { Scale } from "lucide-react";
 import Link from "next/link";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
-import { AppShell } from "../../app-shell";
+import { AppShell, SidebarLabel } from "../../app-shell";
 import { MarkerArt } from "../../marker-art";
 import { PageTitleIcon } from "../../page-title-icon";
 import { proseClassName, proseLedeClassName } from "../../prose";
+import { SidebarList } from "../../sidebar-list";
+import {
+  sidebarPanelClassName,
+  sidebarPanelHeadingClassName,
+} from "../../sidebar-panel";
 import {
   licenseGroups,
   licensePage,
@@ -35,6 +40,47 @@ const factForColumn = {
 } as const;
 
 const contentGroups = licenseGroups.filter((group) => group.id !== "start-here");
+
+const startHereLinks = [
+  { href: "#verdict-table", label: "The verdict table" },
+  { href: "#license-spectrum", label: "The license spectrum" },
+  { href: "#open-source-vs-source-available", label: "Open source vs source-available" },
+  { href: "#how-copyleft-spreads", label: "How copyleft spreads" },
+];
+
+function LicensesSidebar({ label }: { label: string }) {
+  return (
+    <div className={`${sidebarPanelClassName} license-sidebar-panel`}>
+      <div className={sidebarPanelHeadingClassName}>
+        <SidebarLabel>{label}</SidebarLabel>
+      </div>
+
+      <nav className="license-sidebar-nav" aria-label="License sections">
+        <div className="license-sidebar-group">
+          <p className="license-sidebar-group-title">Start here</p>
+          <SidebarList items={startHereLinks} />
+        </div>
+
+        {contentGroups.map((group) => {
+          const groupLicenses = licensesInGroup(group.id);
+          if (groupLicenses.length === 0) return null;
+
+          return (
+            <div className="license-sidebar-group" key={group.id}>
+              <p className="license-sidebar-group-title">{group.sidebarLabel}</p>
+              <SidebarList
+                items={groupLicenses.map((license) => ({
+                  href: `#${license.id}`,
+                  label: license.sidebarLabel,
+                }))}
+              />
+            </div>
+          );
+        })}
+      </nav>
+    </div>
+  );
+}
 
 function VerdictCell({ value }: { value: Verdict }) {
   return <td className={`license-verdict license-verdict-${value}`}>{value}</td>;
@@ -114,10 +160,15 @@ function LicenseCard({ license }: { license: LicenseEntry }) {
 }
 
 export default async function SoftwareLicensesPage() {
-  await getRequiredPublishedPage("software-licenses-for-self-hosting");
+  const registryPage = await getRequiredPublishedPage("software-licenses-for-self-hosting");
 
   return (
-    <AppShell fullWidth mainLabel={licensePage.title}>
+    <AppShell
+      mainLabel={licensePage.title}
+      menuLabel="Licenses"
+      sidebar={<LicensesSidebar label={registryPage.label} />}
+      sidebarLabel="Software licenses sidebar"
+    >
       <div className="license-page">
         <header className={`license-page-header ${proseClassName}`}>
           <h1>

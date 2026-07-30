@@ -4,6 +4,28 @@
  * two per row, and narrative sections keep the prose measure.
  */
 
+.license-sidebar-panel {
+  align-content: start;
+  gap: var(--space-8);
+}
+
+.license-sidebar-nav {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.license-sidebar-group {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.license-sidebar-group-title {
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  margin: 0;
+}
+
 .license-page {
   display: grid;
   gap: var(--space-13);
