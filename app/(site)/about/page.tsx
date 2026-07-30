@@ -1,37 +1,12 @@
+import Link from "next/link";
 import { InfoPage } from "../../info-page";
 import { proseLedeClassName } from "../../prose";
-
-/*
- * Personal and site socials. Verified links only: add new entries here as
- * handles are confirmed, and the Follow along section renders them.
- */
-const personalSocials = [
-  { href: "https://www.youtube.com/channel/UCUHbmZChzXhlV6KK9Vk_daw", label: "YouTube" },
-  { href: "https://muckrack.com/ravitejaknts", label: "my published writing" },
-];
-
-const siteSocials = [{ href: "https://github.com/version127", label: "GitHub" }];
-
-function SocialLinks({ links }: { links: { href: string; label: string }[] }) {
-  return (
-    <>
-      {links.map((link, index) => (
-        <span key={link.href}>
-          {index > 0 ? ", " : ""}
-          <a href={link.href} rel="noreferrer" target="_blank">
-            {link.label}
-          </a>
-        </span>
-      ))}
-    </>
-  );
-}
 
 export default function AboutPage() {
   return (
     <InfoPage slug="about" title="About">
         <p className={proseLedeClassName}>
-          Version127 is a practical technical directory built and maintained by one person: me, Ravi Teja KNTS, from India. It is for everyone who likes to tinker with the tech they use.
+          Version127 is a practical technical directory built and maintained by one person: me, Ravi Teja KNTS (just call me Teja). It is for everyone who likes to tinker with the tech they use.
         </p>
 
         <section>
@@ -55,52 +30,52 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2>What I am building</h2>
+          <h2>What I am building here</h2>
           <p>
-            The first directory is self-host apps because it is a good test of the format: lots of tools, lots of fast-moving projects, and lots of details that need to be structured instead of buried in paragraphs.
+            A tinkerer&apos;s reference: directories, tools, guides, and references that give you the answer fast and say unknown when something is unknown. If it fits in one line, one line is what you get.
           </p>
-          <p>
-            Over time, Version127 keeps growing into the rest of what I tinker with: open-source tools, home automation, AI agents, networking references, status codes, calculators, and other technical pages that are useful to keep around.
-          </p>
-        </section>
-
-        <section>
-          <h2>How I want it to feel</h2>
-          <p>
-            Small, fast, technical, and direct. The goal is to help you compare options, find official links, and understand the basics quickly without forcing you through a long article for every tiny answer.
-          </p>
-          <p>
-            I prefer structured facts over long reviews: project name, summary, links, license, publisher, release signal, and practical metadata. If something is unknown, I would rather say unknown than pretend.
-          </p>
-        </section>
-
-        <section>
-          <h2>How I handle data</h2>
-          <p>
-            Some pages use structured data, scripts, and manual review so listings can be checked, refreshed, and improved over time. The aim is not to generate endless prose. The aim is to keep useful facts trackable.
-          </p>
-          <p>
-            I want important content to be easy for humans, search engines, and AI agents to read. That means stable pages, server-rendered content where it matters, clear links, and layouts that do not require clicking through a pile of routes just to understand the page.
-          </p>
+          <p>You can start here:</p>
+          <ul>
+            <li>
+              <Link href="/self-host-apps">Self-host apps</Link>, a directory of apps worth running yourself
+            </li>
+            <li>
+              <Link href="/dns-tools">DNS tools</Link> for seeing what your domain is really doing
+            </li>
+            <li>
+              <Link href="/domain-tools">Domain tools</Link> that answer straight from the registry
+            </li>
+            <li>
+              <Link href="/self-hosting-for-beginners">Self-hosting for beginners</Link>, a course that assumes no Linux knowledge
+            </li>
+            <li>
+              <Link href="/software-licenses-for-self-hosting">Software licenses</Link>, what those license labels actually mean
+            </li>
+          </ul>
         </section>
 
         <section>
           <h2>Follow along</h2>
           <p>
-            I am not that popular, but if you follow me, that is great. You can find me on <SocialLinks links={personalSocials} />.
+            I am not that popular, but if you follow me, that is great. I am on{" "}
+            <a href="https://x.com/RaviTejaKNTS" rel="noreferrer" target="_blank">
+              X
+            </a>
+            .
           </p>
           <p>
-            Version127 itself lives on <SocialLinks links={siteSocials} />, where the public repositories behind the tools are open to poke at.
+            Most of the tools and directories on this website are open source, so you can self-host them too. The code sits in our{" "}
+            <a href="https://github.com/version127" rel="noreferrer" target="_blank">
+              GitHub repos
+            </a>{" "}
+            and is constantly updated.
           </p>
         </section>
 
         <section>
           <h2>Contact</h2>
           <p>
-            Found a wrong link, outdated app detail, missing project, or something worth adding? Email <a href="mailto:version127@proton.me">version127@proton.me</a>.
-          </p>
-          <p>
-            Short, specific notes help most: project name, official link, what is wrong, and where you verified it. That makes it easier for me to fix the directory cleanly.
+            Found a wrong link, an outdated app detail, or a missing project? Email <a href="mailto:version127@proton.me">version127@proton.me</a>. Tell me what is wrong and where you found the right answer, and I will fix it.
           </p>
         </section>
     </InfoPage>
