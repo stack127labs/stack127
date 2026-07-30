@@ -56,6 +56,25 @@ test("license entries include the self-host decision fields", () => {
   }
 });
 
+test("every license carries one-word verdicts for the table", () => {
+  const allowed = new Set(["yes", "no", "careful"]);
+  const verdictKeys = ["selfHost", "companyUse", "service", "modify", "redistribute"];
+
+  for (const license of licenses) {
+    assert.ok(license.verdicts, `missing verdicts for ${license.id}`);
+    for (const key of verdictKeys) {
+      assert.ok(
+        allowed.has(license.verdicts[key]),
+        `${license.id} verdict ${key} is "${license.verdicts[key]}", expected yes/no/careful`,
+      );
+    }
+    assert.ok(
+      String(license.verdicts.copyleft ?? "").trim(),
+      `${license.id} missing copyleft class`,
+    );
+  }
+});
+
 test("core self-host licenses are present", () => {
   const ids = new Set(licenses.map((entry) => entry.id));
   for (const required of [

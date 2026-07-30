@@ -1,0 +1,75 @@
+{
+  "id": "software-licenses-for-self-hosting--copyleft-spread",
+  "page": "software-licenses-for-self-hosting",
+  "type": "flow",
+  "takeaway": "AGPL obligations travel with the code: host a modified version publicly and its users get the right to your source.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-07-30",
+  "seed": 127,
+  "width": 500,
+  "height": 240,
+  "data": {
+    "nodes": [
+      {
+        "id": "code",
+        "kind": "icon",
+        "icon": "box",
+        "label": "their AGPL code",
+        "tone": "sub",
+        "x": 64,
+        "y": 168,
+        "s": 34
+      },
+      {
+        "id": "fork",
+        "kind": "icon",
+        "icon": "terminal",
+        "label": "your fork",
+        "sub": "you modify it",
+        "x": 236,
+        "y": 168,
+        "s": 34
+      },
+      {
+        "id": "service",
+        "kind": "icon",
+        "icon": "server",
+        "label": "your public service",
+        "tone": "primary",
+        "x": 408,
+        "y": 168,
+        "s": 34
+      },
+      {
+        "id": "users",
+        "kind": "icon",
+        "icon": "phone",
+        "label": "its users",
+        "sub": "use it over the network",
+        "tone": "sub",
+        "x": 130,
+        "y": 48,
+        "s": 28
+      }
+    ],
+    "edges": [
+      {
+        "from": "code",
+        "to": "fork",
+        "tone": "sub"
+      },
+      {
+        "from": "fork",
+        "to": "service",
+        "tone": "sub"
+      },
+      {
+        "from": "service",
+        "to": "users",
+        "label": "must offer your source",
+        "tone": "warn",
+        "labelOffset": 40
+      }
+    ]
+  }
+}

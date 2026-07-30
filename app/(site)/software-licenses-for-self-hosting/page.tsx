@@ -2,6 +2,8 @@ import { Scale } from "lucide-react";
 import Link from "next/link";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { AppShell, SidebarLabel } from "../../app-shell";
+import { MarkerArt } from "../../marker-art";
+import { PageTitleIcon } from "../../page-title-icon";
 import { proseClassName, proseLedeClassName } from "../../prose";
 import { SidebarList } from "../../sidebar-list";
 import {
@@ -15,19 +17,31 @@ import {
   licenses,
   licensesInGroup,
   type LicenseEntry,
+  type Verdict,
 } from "@/lib/software-licenses";
-import { PageTitleIcon } from "../../page-title-icon";
+import { softwareLicensesForSelfHostingCopyleftSpreadArt } from "./art/software-licenses-for-self-hosting--copyleft-spread";
 
-const factRows: { key: keyof LicenseEntry["facts"]; label: string }[] = [
-  { key: "osiOpenSource", label: "OSI open source" },
-  { key: "homeSelfHost", label: "Home self-host" },
-  { key: "commercialInternal", label: "Company internal use" },
+/** Verdict table columns, in the order people decide things. */
+const verdictColumns = [
+  { key: "selfHost", label: "Self-host" },
+  { key: "companyUse", label: "Company use" },
+  { key: "service", label: "As a service" },
   { key: "modify", label: "Modify" },
   { key: "redistribute", label: "Redistribute" },
-  { key: "offerAsService", label: "Offer as a service" },
-  { key: "copyleft", label: "Copyleft" },
-  { key: "notices", label: "Notices" },
-];
+] as const;
+
+/** Which facts sentence explains each verdict column. */
+const factForColumn = {
+  selfHost: "homeSelfHost",
+  companyUse: "commercialInternal",
+  service: "offerAsService",
+  modify: "modify",
+  redistribute: "redistribute",
+} as const;
+
+function VerdictCell({ value }: { value: Verdict }) {
+  return <td className={`license-verdict license-verdict-${value}`}>{value}</td>;
+}
 
 function LicensesSidebar({ label }: { label: string }) {
   return (
@@ -70,7 +84,49 @@ function LicensesSidebar({ label }: { label: string }) {
   );
 }
 
+function VerdictTable() {
+  return (
+    <div className="license-table-scroll">
+      <table className="license-verdict-table">
+        <thead>
+          <tr>
+            <th scope="col">License</th>
+            {verdictColumns.map((column) => (
+              <th key={column.key} scope="col">
+                {column.label}
+              </th>
+            ))}
+            <th scope="col">Copyleft</th>
+          </tr>
+        </thead>
+        <tbody>
+          {licenseGroups
+            .filter((group) => group.id !== "start-here")
+            .flatMap((group) => licensesInGroup(group.id))
+            .map((license) => (
+              <tr key={license.id}>
+                <th scope="row">
+                  <a href={`#${license.id}`}>{license.sidebarLabel}</a>
+                </th>
+                {verdictColumns.map((column) => (
+                  <VerdictCell key={column.key} value={license.verdicts[column.key]} />
+                ))}
+                <td className="license-copyleft">{license.verdicts.copyleft}</td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function LicenseSection({ license }: { license: LicenseEntry }) {
+  const seen = new Set<string>();
+  const carefulDetails = verdictColumns
+    .filter((column) => license.verdicts[column.key] !== "yes")
+    .map((column) => ({ key: column.key, detail: license.facts[factForColumn[column.key]] }))
+    .filter(({ detail }) => (seen.has(detail) ? false : (seen.add(detail), true)));
+
   return (
     <section className="license-section" id={license.id}>
       <header className="license-section-header">
@@ -80,37 +136,19 @@ function LicenseSection({ license }: { license: LicenseEntry }) {
 
       <p>{license.summary}</p>
 
-      <dl className="license-facts">
-        {factRows.map((row) => (
-          <div className="license-fact" key={row.key}>
-            <dt>{row.label}</dt>
-            <dd>{license.facts[row.key]}</dd>
-          </div>
-        ))}
-      </dl>
+      {carefulDetails.length > 0 ? (
+        <ul className="license-details">
+          {carefulDetails.map(({ key, detail }) => (
+            <li key={key}>{detail}</li>
+          ))}
+        </ul>
+      ) : null}
 
-      <div className="license-audience">
-        <p>
-          <strong>If you are running this software:</strong>
-        </p>
-        {license.forUsers.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
-      </div>
-
-      <div className="license-audience">
-        <p>
-          <strong>If you are choosing a license for your own app:</strong>
-        </p>
-        {license.forCreators.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
-      </div>
-
-      <p className="license-official">
-        <a href={license.officialUrl} rel="noreferrer" target="_blank">
-          Official license text
-        </a>
+      <p>
+        <strong>Running it:</strong> {license.forUsers}
+      </p>
+      <p>
+        <strong>Licensing your own app:</strong> {license.forCreators}
       </p>
 
       {license.commonMistake ? (
@@ -118,6 +156,12 @@ function LicenseSection({ license }: { license: LicenseEntry }) {
           <strong>Common mistake:</strong> {license.commonMistake}
         </p>
       ) : null}
+
+      <p className="license-official">
+        <a href={license.officialUrl} rel="noreferrer" target="_blank">
+          Official license text
+        </a>
+      </p>
     </section>
   );
 }
@@ -142,13 +186,20 @@ export default async function SoftwareLicensesPage() {
           </h1>
           <p className={proseLedeClassName}>{licensePage.lede}</p>
           <p className="license-disclaimer">{licensePage.notLegalAdvice}</p>
+        </header>
+
+        <section className="license-section" id="verdict-table">
+          <h2>Can you run it, change it, and host it for others?</h2>
           <p>
-            Use the sidebar to jump straight to a license label you already saw. The two short
-            notes below set the basics. The{" "}
+            Every license on this page, answered in one word per question. A{" "}
+            <span className="license-verdict-careful-text">careful</span>
+            {" "}means allowed with conditions worth reading; each license&apos;s section below
+            spells them out. The{" "}
             <Link href="/self-host-apps">self-host apps</Link> directory uses the same short
             names.
           </p>
-        </header>
+          <VerdictTable />
+        </section>
 
         {concepts.map((concept) => (
           <section className="license-section" id={concept.id} key={concept.id}>
@@ -156,6 +207,12 @@ export default async function SoftwareLicensesPage() {
             {concept.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
+            {concept.id === "how-copyleft-spreads" ? (
+              <MarkerArt
+                caption="Host a modified AGPL app publicly and its users get the right to your source. Keep it home, and nothing triggers."
+                svg={softwareLicensesForSelfHostingCopyleftSpreadArt}
+              />
+            ) : null}
           </section>
         ))}
 

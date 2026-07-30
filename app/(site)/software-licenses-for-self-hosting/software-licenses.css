@@ -79,44 +79,81 @@
   text-transform: none;
 }
 
-.license-facts {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  display: grid;
-  gap: 0;
-  margin: var(--space-2) 0;
-  padding: 0;
+/* The verdict table: every license, one word per decision. */
+.license-table-scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
 }
 
-.license-fact {
-  display: grid;
-  gap: var(--space-2);
-  grid-template-columns: minmax(8rem, 11rem) 1fr;
+.license-verdict-table {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border-strong);
+  border-collapse: collapse;
+  font-size: var(--text-small);
+  min-width: 640px;
+  width: 100%;
+}
+
+.license-verdict-table th,
+.license-verdict-table td {
+  border-bottom: 1px solid var(--color-border);
   padding: var(--space-4) var(--space-5);
+  text-align: left;
+  vertical-align: top;
 }
 
-.license-fact + .license-fact {
-  border-top: 1px solid var(--color-border);
-}
-
-.license-fact dt {
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
-  line-height: 1.4;
-  margin: 0;
-}
-
-.license-fact dd {
+.license-verdict-table thead th {
+  border-bottom: 1.5px solid var(--color-border-strong);
   color: var(--color-text);
-  font-size: var(--text-small);
-  line-height: var(--line-body);
-  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
 }
 
-.license-audience {
+.license-verdict-table tbody th {
+  font-weight: var(--weight-semibold);
+  white-space: nowrap;
+}
+
+.license-verdict-table tbody th a {
+  color: var(--color-text);
+}
+
+.license-verdict-table tbody th a:hover {
+  color: var(--color-accent-text);
+}
+
+.license-verdict,
+.license-copyleft {
+  font-family: var(--font-mono);
+}
+
+.license-verdict-yes {
+  color: var(--color-success-text);
+}
+
+.license-verdict-careful,
+.license-verdict-careful-text {
+  color: var(--color-warning-text);
+}
+
+.license-verdict-no {
+  color: var(--color-danger-text);
+}
+
+.license-copyleft {
+  color: var(--color-text-muted);
+}
+
+/* Condition details behind a careful or no verdict. */
+.license-details {
+  color: var(--color-text);
   display: grid;
-  gap: var(--space-3);
+  font-size: var(--text-small);
+  gap: var(--space-2);
+  line-height: 1.5;
+  margin: 0;
+  padding-left: var(--space-8);
 }
 
 .license-official {
