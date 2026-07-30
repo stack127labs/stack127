@@ -216,8 +216,8 @@ export default async function Home() {
             Practical tools for people who <mark>tinker</mark>
           </h1>
           <p className="home-lede">
-            Compact directories, a beginner course, and references you can scan without
-            wading through filler.
+            Directories, tools, and guides for self-hosting, automation, AI agents, and way
+            more techy stuff.
           </p>
         </header>
         <Doodle className="home-hero-doodle" placement="corner" svg={siteDoodleStarArt} />
