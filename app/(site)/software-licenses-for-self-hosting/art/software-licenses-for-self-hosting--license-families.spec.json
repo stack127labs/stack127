@@ -1,0 +1,33 @@
+{
+  "id": "software-licenses-for-self-hosting--license-families",
+  "page": "software-licenses-for-self-hosting",
+  "type": "buckets",
+  "takeaway": "The four software license families and which licenses belong to each.",
+  "source": "license classification from this page's data",
+  "dataAsOf": "2026-07-30",
+  "seed": 19,
+  "width": 660,
+  "data": {
+    "items": [
+      {
+        "label": "permissive",
+        "tone": "good",
+        "members": ["MIT", "Apache-2.0", "BSD-2/3", "ISC", "zlib"]
+      },
+      {
+        "label": "weak copyleft",
+        "members": ["MPL-2.0", "LGPL-2.1/3.0", "EPL-2.0", "EUPL-1.2"]
+      },
+      {
+        "label": "copyleft",
+        "tone": "note",
+        "members": ["GPL-2.0", "GPL-3.0", "AGPL-3.0", "OSL-3.0"]
+      },
+      {
+        "label": "restricted",
+        "tone": "warn",
+        "members": ["SSPL", "Elastic-2.0", "BSL 1.1", "FSL", "PolyForm"]
+      }
+    ]
+  }
+}

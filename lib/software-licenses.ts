@@ -69,13 +69,6 @@ export type LicenseEntry = {
   aliases: string[];
 };
 
-export type ConceptEntry = {
-  id: string;
-  title: string;
-  sidebarLabel: string;
-  paragraphs: string[];
-};
-
 export const licensePage = {
   title: "Software licenses for self-hosters",
   lede:
@@ -127,27 +120,6 @@ export const licenseGroups: LicenseGroup[] = [
     sidebarLabel: "Dual / custom",
     intro:
       "Not single licenses but shapes you will meet: dual licensing, community editions with paid modules, and repos that mix licenses by folder.",
-  },
-];
-
-export const concepts: ConceptEntry[] = [
-  {
-    id: "open-source-vs-source-available",
-    title: "The copyleft column splits the table in two",
-    sidebarLabel: "Open source vs source-available",
-    paragraphs: [
-      "Look back at that copyleft column and you will notice the table splits in two. Everything from MIT down through AGPL is open source as the Open Source Initiative defines it: anyone can use, study, change, and share the software for any purpose, including commercially. The rows where a no appears under “as a service” are mostly source-available licenses: SSPL, Elastic, BSL, FSL, PolyForm. Their code is public and usually fine to self-host, but a business restriction, almost always about selling the software as a managed service, keeps them outside the open-source definition.",
-      "This is also why a public GitHub repo proves nothing by itself. The repo shows you the code; only the LICENSE file tells you which side of that line the project sits on.",
-    ],
-  },
-  {
-    id: "how-copyleft-spreads",
-    title: "Copyleft: use the code, inherit its rules",
-    sidebarLabel: "How copyleft spreads",
-    paragraphs: [
-      "The other word that decides everything in that table is copyleft. Permissive licenses let your fork stay private forever. Copyleft licenses attach conditions that travel with the code: change it, and under some circumstances you owe people your changes. Which circumstances is exactly the difference between GPL and AGPL, and it is why so many self-host web apps pick AGPL.",
-      "The trigger is the part people get wrong. Running an app unmodified, or keeping your changes inside your home or company, triggers nothing. GPL activates when you distribute the program to others. AGPL also activates when people merely use your modified version over a network, which is what a hosted service is.",
-    ],
   },
 ];
 
@@ -1337,22 +1309,6 @@ export const licenses: LicenseEntry[] = [
 
 export function licensesInGroup(groupId: LicenseGroupId) {
   return licenses.filter((license) => license.group === groupId);
-}
-
-export function allSidebarItems() {
-  return [
-    ...concepts.map((concept) => ({
-      id: concept.id,
-      label: concept.sidebarLabel,
-      kind: "concept" as const,
-    })),
-    ...licenses.map((license) => ({
-      id: license.id,
-      label: license.sidebarLabel,
-      kind: "license" as const,
-      group: license.group,
-    })),
-  ];
 }
 
 export function findLicenseAnchor(label: string | null | undefined) {

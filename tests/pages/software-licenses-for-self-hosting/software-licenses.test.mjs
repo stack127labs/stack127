@@ -1,7 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
-  concepts,
   findLicenseAnchor,
   licenseGroups,
   licensePage,
@@ -13,14 +12,11 @@ test("license page has intro copy and grouped licenses", () => {
   assert.ok(licensePage.lede.length > 40);
   assert.ok(licensePage.notLegalAdvice.toLowerCase().includes("not legal advice"));
   assert.ok(licenseGroups.length >= 6);
-  assert.ok(concepts.length >= 2);
-  assert.ok(concepts.length <= 3);
   assert.ok(licenses.length >= 25);
 });
 
 test("every concept and license has a unique stable id", () => {
   const ids = [
-    ...concepts.map((entry) => entry.id),
     ...licenses.map((entry) => entry.id),
     ...licenseGroups.map((entry) => entry.id),
   ];
@@ -103,14 +99,15 @@ test("license prose avoids em and en dashes", () => {
     licensePage.title,
     licensePage.lede,
     licensePage.notLegalAdvice,
-    ...concepts.flatMap((entry) => [entry.title, ...entry.paragraphs]),
+    ...licenseGroups.map((entry) => entry.intro ?? ""),
     ...licenses.flatMap((entry) => [
       entry.name,
       entry.summary,
       entry.commonMistake ?? "",
-      ...entry.forUsers,
-      ...entry.forCreators,
+      entry.forUsers,
+      entry.forCreators,
       ...Object.values(entry.facts),
+      ...Object.values(entry.verdicts),
     ]),
   ].join("\n");
 

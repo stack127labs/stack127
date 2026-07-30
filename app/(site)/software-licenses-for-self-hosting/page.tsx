@@ -17,9 +17,8 @@ import {
   type LicenseEntry,
   type Verdict,
 } from "@/lib/software-licenses";
-import { softwareLicensesForSelfHostingCopyleftSpreadArt } from "./art/software-licenses-for-self-hosting--copyleft-spread";
 import { softwareLicensesForSelfHostingCopyleftTriggerArt } from "./art/software-licenses-for-self-hosting--copyleft-trigger";
-import { softwareLicensesForSelfHostingLicenseSpectrumArt } from "./art/software-licenses-for-self-hosting--license-spectrum";
+import { softwareLicensesForSelfHostingLicenseFamiliesArt } from "./art/software-licenses-for-self-hosting--license-families";
 
 /** Verdict table columns, in the order people decide things. */
 const verdictColumns = [
@@ -43,9 +42,7 @@ const contentGroups = licenseGroups.filter((group) => group.id !== "start-here")
 
 const startHereLinks = [
   { href: "#verdict-table", label: "The verdict table" },
-  { href: "#license-spectrum", label: "The license spectrum" },
-  { href: "#open-source-vs-source-available", label: "Open source vs source-available" },
-  { href: "#how-copyleft-spreads", label: "How copyleft spreads" },
+  { href: "#license-families", label: "The four families" },
 ];
 
 function LicensesSidebar({ label }: { label: string }) {
@@ -231,64 +228,49 @@ export default async function SoftwareLicensesPage() {
           </div>
         </section>
 
-        <section className={`license-section license-narrative ${proseClassName}`} id="license-spectrum">
-          <h2>The whole table is one spectrum</h2>
+        <section className={`license-section license-narrative ${proseClassName}`} id="license-families">
+          <h2>The four families, and the differences that matter</h2>
           <p>
-            Thirty-two labels sounds like a lot, but they sit on one line: how much you owe back,
-            growing from nothing on the left to business restrictions on the right. Place a
-            license on this spectrum and you already know most of its row.
+            Every software license in the table belongs to one of four families, and the family
+            already answers most questions about it.
           </p>
           <MarkerArt
-            caption="Obligations grow from permissive through copyleft to source-available restrictions."
-            svg={softwareLicensesForSelfHostingLicenseSpectrumArt}
-          />
-        </section>
-
-        <section className={`license-section license-narrative ${proseClassName}`} id="open-source-vs-source-available">
-          <h2>The copyleft column splits the table in two</h2>
-          <p>
-            Look back at that copyleft column and you will notice the table splits in two.
-            Everything from MIT down through AGPL is open source as the Open Source Initiative
-            defines it: anyone can use, study, change, and share the software for any purpose,
-            including commercially. The rows where a no appears under as-a-service are mostly
-            source-available licenses: SSPL, Elastic, BSL, FSL, PolyForm. Their code is public
-            and usually fine to self-host, but a business restriction, almost always about
-            selling the software as a managed service, keeps them outside the open-source
-            definition.
-          </p>
-          <p>
-            This is also why a public GitHub repo proves nothing by itself. The repo shows you
-            the code; only the LICENSE file tells you which side of that line the project sits
-            on.
-          </p>
-        </section>
-
-        <section className={`license-section license-narrative ${proseClassName}`} id="how-copyleft-spreads">
-          <h2>Copyleft: use the code, inherit its rules</h2>
-          <p>
-            The other word that decides everything in that table is copyleft. Permissive
-            licenses let your fork stay private forever. Copyleft licenses attach conditions
-            that travel with the code: change it, and under some circumstances you owe people
-            your changes. Which circumstances is exactly the difference between GPL and AGPL,
-            and it is why so many self-host web apps pick AGPL.
-          </p>
-          <MarkerArt
-            caption="Host a modified AGPL app publicly and its users get the right to your source."
-            svg={softwareLicensesForSelfHostingCopyleftSpreadArt}
+            caption="The four license families and which licenses belong to each."
+            svg={softwareLicensesForSelfHostingLicenseFamiliesArt}
           />
           <p>
-            The trigger is the part people get wrong. Running an app unmodified, or keeping your
-            changes inside your home or company, triggers nothing. GPL activates when you
-            distribute the program to others. AGPL also activates when people merely use your
-            modified version over a network, which is what a hosted service is.
+            The families differ on what you owe when the software leaves your hands.
+            Permissive licenses ask only that copyright notices survive redistribution; your
+            fork can stay closed forever. Weak copyleft scopes the share-back duty to the
+            covered code: distribute modified MPL files or a changed LGPL library and that
+            source must stay open, while the rest of your product remains yours.
+          </p>
+          <p>
+            Copyleft covers the whole program, and the trigger is what people get wrong. GPL
+            obligations start when you distribute the program, so a modified GPL app running on
+            your own server creates no duty. AGPL adds a network trigger: when people use your
+            modified version over a network, you must offer them its source. That single clause
+            is why hosted clones of AGPL apps cannot stay closed, and why AGPL is the default
+            license for self-host web apps.
           </p>
           <MarkerArt
-            caption="Copyleft triggers only when your modified copy reaches other people."
+            caption="Copyleft triggers only when your modified copy reaches other people: GPL when you ship it, AGPL also when you host it."
             svg={softwareLicensesForSelfHostingCopyleftTriggerArt}
           />
+          <p>
+            The restricted family is source-available, not open source: the code is public, but
+            the license fails the OSI definition because it blocks selling the software as a
+            managed service. SSPL does it through its section 13 stack-release requirement,
+            Elastic-2.0 and Sustainable Use through direct managed-service clauses, BSL 1.1
+            through a per-project Additional Use Grant with a change date that later converts
+            the code to an open-source license, and FSL the same way with a fixed delay to MIT
+            or Apache-2.0. Self-hosting for yourself or your company is usually the intended
+            free path. And since the repo itself proves nothing either way, the LICENSE file is
+            the only thing that tells you which family a project belongs to.
+          </p>
         </section>
 
-        <section className="license-section" id="license-families">
+        <section className="license-section" id="all-licenses">
           <div className={`license-narrative ${proseClassName}`}>
             <h2>Every license, family by family</h2>
             <p>

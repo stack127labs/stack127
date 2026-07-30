@@ -659,6 +659,42 @@ function decision(spec, A) {
   if (d.yes.sub) A.txt(264, 197, d.yes.sub, { anchor: "middle", size: 10.5, color: "@sub" });
 }
 
+/* ---------------- buckets: equal categories with their members ---------------- */
+/*
+ * A row of equal boxes, each naming a category and listing its members.
+ * Use when the useful information is which items belong to which family.
+ */
+function buckets(spec, A) {
+  const d = spec.data;
+  const n = d.items.length;
+  const gap = 14;
+  const margin = 18;
+  const top = 20;
+  const w = (A.w - margin * 2 - gap * (n - 1)) / n;
+  const maxMembers = Math.max(...d.items.map((it) => (it.members || []).length));
+  const h = 44 + maxMembers * 17 + 14;
+  A.h = spec.height || top + h + 14;
+
+  d.items.forEach((it, i) => {
+    const x = margin + i * (w + gap);
+    const tone = toneOf(it.tone);
+    A.rect(x, top, w, h, { stroke: it.tone ? tone : "@ink" });
+    A.txt(x + w / 2, top + 26, it.label, {
+      anchor: "middle",
+      size: 12.5,
+      color: it.tone ? tone : "@ink",
+    });
+    (it.members || []).forEach((member, j) => {
+      A.txt(x + w / 2, top + 50 + j * 17, member, {
+        anchor: "middle",
+        size: 10.5,
+        color: "@sub",
+        mono: true,
+      });
+    });
+  });
+}
+
 /* ---------------- doodle: decorative marker art ---------------- */
 /*
  * Decorative doodles for hero corners, margins, and empty states. No data is
@@ -887,5 +923,6 @@ export const FIGURES = {
   restoreLoop,
   roadmap,
   workbench,
+  buckets,
   doodle,
 };
