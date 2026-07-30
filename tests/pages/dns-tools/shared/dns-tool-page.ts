@@ -2,6 +2,7 @@ import { expect, test } from "playwright/test";
 
 type DnsToolPageContract = {
   button: string;
+  heading: string;
   route: string;
   sections: number;
   title: string;
@@ -10,7 +11,7 @@ type DnsToolPageContract = {
 export function testDnsToolPage(contract: DnsToolPageContract) {
   test(`${contract.title} is a published, server-readable DNS tool page`, async ({ page }, testInfo) => {
     await page.goto(contract.route);
-    await expect(page.locator("[data-app-main] h1")).toHaveText(contract.title);
+    await expect(page.locator("[data-app-main] h1")).toHaveText(contract.heading);
     await expect(page.getByLabel("Domain or hostname")).toBeVisible();
     await expect(page.getByRole("button", { name: contract.button })).toBeVisible();
     await expect(page.locator(".dns-reference-content > section")).toHaveCount(contract.sections);

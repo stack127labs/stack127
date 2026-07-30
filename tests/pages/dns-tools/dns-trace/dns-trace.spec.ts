@@ -93,7 +93,9 @@ test("DNS Trace Explorer renders a genuine root-to-answer path in simple languag
   });
 
   await page.goto("/dns-tools/dns-trace");
-  await expect(page.locator("[data-app-main] h1")).toHaveText("DNS Trace Explorer");
+  await expect(page.locator("[data-app-main] h1")).toHaveText(
+    "DNS Trace Explorer: follow a query from root to answer",
+  );
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
     "https://version127.com/dns-tools/dns-trace",

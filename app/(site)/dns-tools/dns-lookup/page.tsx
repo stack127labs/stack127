@@ -36,7 +36,8 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
             <PageTitleIcon>
               <Search strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            DNS <mark>lookup</mark> for any domain&apos;s records
+            DNS <mark>lookup</mark>{" "}
+            for any domain&apos;s records
           </h1>
           <p>
             Enter a domain or hostname to see its DNS records, or choose PTR to find the hostname connected to an IP address. You can check a public resolver's cached answer or ask the domain's authoritative nameserver directly. Leave All selected if you are not sure which record you need.
