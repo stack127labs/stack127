@@ -32,9 +32,9 @@ export default function AboutPage() {
         <section>
           <h2>What I am building here</h2>
           <p>
-            A tinkerer&apos;s reference: directories, tools, guides, and references that give you the answer fast and say unknown when something is unknown. If it fits in one line, one line is what you get.
+            Jargon-free, visual-first tinkerer&apos;s tools, directories, guides, and what not. Whatever the page requires. If you are into self-hosting, love to automate your tech, or play with AI agents, you will surely find something you like to check out.
           </p>
-          <p>You can start here:</p>
+          <p>And by the way, here are just a few pages we currently have that I am proud of:</p>
           <ul>
             <li>
               <Link href="/self-host-apps">Self-host apps</Link>, a directory of apps worth running yourself
