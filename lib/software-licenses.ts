@@ -18,6 +18,8 @@ export type LicenseGroup = {
   id: LicenseGroupId;
   title: string;
   sidebarLabel: string;
+  /** One line that frames the family before its cards. */
+  intro?: string;
 };
 
 export type LicenseFacts = {
@@ -77,67 +79,74 @@ export type ConceptEntry = {
 export const licensePage = {
   title: "Software licenses for self-hosters",
   lede:
-    "Self-host apps usually show a short license label such as MIT, AGPL, SSPL, or Elastic. That label tells you what you are allowed to do with the software. It also tells app authors what rights they are giving other people.",
+    "Every app you find on GitHub, Docker Hub, or a directory card ships with a license label: MIT, AGPL, SSPL, Elastic, BSL. That one label decides whether you can run the app at home, put it on a work server, or host it for other people. This page turns the labels you will actually meet into direct answers.",
   notLegalAdvice:
     "This page is a practical guide, not legal advice. If money, customers, or a commercial product are involved, read the project's LICENSE file and get legal help when you need it.",
 };
 
 export const licenseGroups: LicenseGroup[] = [
   { id: "start-here", title: "Start here", sidebarLabel: "Start here" },
-  { id: "permissive", title: "Permissive licenses", sidebarLabel: "Permissive" },
+  {
+    id: "permissive",
+    title: "Permissive licenses",
+    sidebarLabel: "Permissive",
+    intro:
+      "Run it, change it, sell it, keep your fork private forever. The only real duty is keeping copyright notices when you redistribute.",
+  },
   {
     id: "weak-copyleft",
     title: "Weak copyleft licenses",
     sidebarLabel: "Weak copyleft",
+    intro:
+      "Free to use anywhere. The share-back duty is scoped: changes to the covered files or library must stay open when you ship them, the rest of your product stays yours.",
   },
   {
     id: "strong-copyleft",
     title: "Strong and network copyleft",
     sidebarLabel: "Strong / network",
+    intro:
+      "The whole program stays free software. GPL triggers when you distribute it; AGPL also triggers when people use your modified version over a network.",
   },
   {
     id: "source-available",
     title: "Source-available and restricted",
     sidebarLabel: "Source-available",
+    intro:
+      "Code you can read and usually self-host, with business restrictions that keep it outside the open-source definition. The restriction is almost always about selling it as a service.",
   },
   {
     id: "public-domain-cc",
     title: "Public domain and Creative Commons",
     sidebarLabel: "Public domain / CC",
+    intro:
+      "Public-domain dedications and content licenses. Fine to run; the real question is what part of the project they actually cover.",
   },
   {
     id: "patterns",
     title: "Dual licenses and custom patterns",
     sidebarLabel: "Dual / custom",
+    intro:
+      "Not single licenses but shapes you will meet: dual licensing, community editions with paid modules, and repos that mix licenses by folder.",
   },
 ];
 
 export const concepts: ConceptEntry[] = [
   {
-    id: "who-this-is-for",
-    title: "The license label answers four questions",
-    sidebarLabel: "The four questions",
-    paragraphs: [
-      "The license label on an app card answers four questions: can I run this at home, can my company run it, can I change the code, and can I host it for other people? Most home setups only need the first answer; the rest matter when you modify an app, ship it, or sell hosting on top of it.",
-      "A free download is not the same as an open-source license. Open-source software can still be sold as a service, and a free binary can still ban company use. Trust the LICENSE file in the repo, not the marketing page.",
-    ],
-  },
-  {
     id: "open-source-vs-source-available",
-    title: "Open source vs source-available: the OSI line",
+    title: "The copyleft column splits the table in two",
     sidebarLabel: "Open source vs source-available",
     paragraphs: [
-      "Open source, as the Open Source Initiative defines it, means anyone can use, study, change, and share the software for any purpose, including commercially. MIT, Apache-2.0, GPL, and AGPL qualify. Source-available means the code is public but the license adds business limits: no managed service, no competing product, non-commercial use only, or rights that only open up after a delay. SSPL, Elastic License, BSL, FSL, and PolyForm sit in that group.",
-      "A public GitHub repo does not make a project open source. If the license is not OSI-approved, treat it as software you can often self-host, with extra rules you still need to follow.",
+      "Look back at that copyleft column and you will notice the table splits in two. Everything from MIT down through AGPL is open source as the Open Source Initiative defines it: anyone can use, study, change, and share the software for any purpose, including commercially. The rows where a no appears under “as a service” are mostly source-available licenses: SSPL, Elastic, BSL, FSL, PolyForm. Their code is public and usually fine to self-host, but a business restriction, almost always about selling the software as a managed service, keeps them outside the open-source definition.",
+      "This is also why a public GitHub repo proves nothing by itself. The repo shows you the code; only the LICENSE file tells you which side of that line the project sits on.",
     ],
   },
   {
     id: "how-copyleft-spreads",
-    title: "Copyleft spreads: use the code, inherit its rules",
+    title: "Copyleft: use the code, inherit its rules",
     sidebarLabel: "How copyleft spreads",
     paragraphs: [
-      "Permissive licenses like MIT let your fork stay private forever. Copyleft licenses attach conditions that travel with the code: GPL triggers when you distribute the program, and AGPL also triggers when people use your modified version over a network. That network rule is why so many self-host web apps choose AGPL.",
-      "Running an app unmodified, or keeping your changes inside your home or company, triggers nothing. The chain starts when your modified version reaches other people.",
+      "The other word that decides everything in that table is copyleft. Permissive licenses let your fork stay private forever. Copyleft licenses attach conditions that travel with the code: change it, and under some circumstances you owe people your changes. Which circumstances is exactly the difference between GPL and AGPL, and it is why so many self-host web apps pick AGPL.",
+      "The trigger is the part people get wrong. Running an app unmodified, or keeping your changes inside your home or company, triggers nothing. GPL activates when you distribute the program to others. AGPL also activates when people merely use your modified version over a network, which is what a hosted service is.",
     ],
   },
 ];

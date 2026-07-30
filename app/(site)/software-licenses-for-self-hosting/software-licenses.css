@@ -1,36 +1,30 @@
-/* Software licenses reference */
-.license-sidebar-panel {
-  align-content: start;
-  gap: var(--space-8);
-}
-
-.license-sidebar-nav {
-  display: grid;
-  gap: var(--space-8);
-}
-
-.license-sidebar-group {
-  display: grid;
-  gap: var(--space-3);
-}
-
-.license-sidebar-group-title {
-  color: var(--color-text-muted);
-  font-family: var(--font-sans);
-  font-size: var(--text-small);
-  margin: 0;
-}
+/*
+ * Family stylesheet for /software-licenses-for-self-hosting.
+ * Full-width page: the verdict table is the index, licenses render as cards
+ * two per row, and narrative sections keep the prose measure.
+ */
 
 .license-page {
   display: grid;
-  gap: var(--space-12);
-  max-width: var(--measure-prose);
+  gap: var(--space-13);
+  margin: 0 auto;
+  max-width: var(--container-max);
   padding: var(--space-12) var(--container-gutter) 72px;
+  width: 100%;
 }
 
 .license-page-header {
   display: grid;
   gap: var(--space-5);
+  max-width: 880px;
+}
+
+.license-narrative {
+  max-width: var(--measure-prose);
+}
+
+.license-narrative > * + * {
+  margin-top: var(--space-5);
 }
 
 .license-disclaimer {
@@ -38,45 +32,10 @@
   font-size: var(--text-small) !important;
 }
 
-.license-intro-links {
-  display: grid;
-  gap: var(--space-4);
-}
-
-.license-group-block {
-  display: grid;
-  gap: var(--space-10);
-}
-
-.license-group-heading {
-  border-bottom: 1px solid var(--color-border);
-  padding-bottom: var(--space-5);
-  scroll-margin-top: calc(var(--top-bar-height) + 16px);
-}
-
 .license-section {
   display: grid;
-  gap: var(--space-4);
+  gap: var(--space-8);
   scroll-margin-top: calc(var(--top-bar-height) + 16px);
-}
-
-.license-section-header {
-  align-items: baseline;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3) var(--space-5);
-}
-
-.license-section-header h3 {
-  margin: 0;
-}
-
-.license-spdx {
-  color: var(--color-text-muted) !important;
-  font-family: var(--font-mono);
-  font-size: var(--text-small) !important;
-  margin: 0 !important;
-  text-transform: none;
 }
 
 /* The verdict table: every license, one word per decision. */
@@ -90,7 +49,7 @@
   border: 1.5px solid var(--color-border-strong);
   border-collapse: collapse;
   font-size: var(--text-small);
-  min-width: 640px;
+  min-width: 720px;
   width: 100%;
 }
 
@@ -145,6 +104,68 @@
   color: var(--color-text-muted);
 }
 
+/* Family blocks and license cards. */
+.license-group-block {
+  display: grid;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+  scroll-margin-top: calc(var(--top-bar-height) + 16px);
+}
+
+.license-group-heading {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-5);
+}
+
+.license-card-grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.license-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: grid;
+  align-content: start;
+  gap: var(--space-5);
+  padding: var(--space-9);
+  scroll-margin-top: calc(var(--top-bar-height) + 16px);
+}
+
+.license-card-header {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+}
+
+.license-card h3 {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.license-spdx {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  margin: 0;
+}
+
+.license-card-summary,
+.license-card-audience {
+  color: var(--color-text);
+  font-size: var(--text-small);
+  line-height: 1.55;
+  margin: 0;
+}
+
 /* Condition details behind a careful or no verdict. */
 .license-details {
   color: var(--color-text);
@@ -156,110 +177,31 @@
   padding-left: var(--space-8);
 }
 
-.license-official {
-  font-size: var(--text-small) !important;
-  margin-top: var(--space-2);
-}
-
-.license-mistake {
-  background: var(--color-surface-2);
-  border: 1px solid var(--color-border);
+.license-official-button {
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-lg);
-  padding: var(--space-5) var(--space-6);
-}
-
-.upgrade-checklist,
-.upgrade-steps,
-.upgrade-change-list,
-.upgrade-source-list {
-  display: grid;
-  gap: var(--space-5);
-  margin: var(--space-4) 0 0;
-  padding: 0;
-}
-
-.upgrade-checklist,
-.upgrade-steps {
-  list-style: none;
-}
-
-.upgrade-checklist-item,
-.upgrade-step {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  display: grid;
-  gap: var(--space-4);
-  grid-template-columns: auto 1fr;
-  padding: var(--space-5) var(--space-6);
-}
-
-.upgrade-step {
-  grid-template-columns: 1fr;
-}
-
-.upgrade-checklist-index {
-  align-items: center;
-  background: var(--color-surface-2);
-  border-radius: 999px;
   color: var(--color-text);
-  display: inline-flex;
-  font-family: var(--font-mono);
   font-size: var(--text-small);
-  height: 1.75rem;
-  justify-content: center;
-  margin: 0.15rem 0 0;
-  min-width: 1.75rem;
-  width: 1.75rem;
-}
-
-.upgrade-checklist-title,
-.upgrade-step-title {
-  color: var(--color-text) !important;
   font-weight: var(--weight-semibold);
-  margin: 0 0 var(--space-2) !important;
+  justify-self: start;
+  padding: 6px 14px;
 }
 
-.upgrade-step-index {
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
+.license-official-button:hover {
+  border-color: var(--color-accent);
 }
 
-.upgrade-code {
-  background: var(--color-surface-2);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  color: var(--color-text);
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
-  line-height: 1.5;
-  margin: var(--space-3) 0 0;
-  overflow-x: auto;
-  padding: var(--space-4) var(--space-5);
-  white-space: pre-wrap;
-}
+@media (max-width: 900px) {
+  .license-page {
+    gap: var(--space-12);
+    padding: var(--space-10) 22px 54px;
+  }
 
-.upgrade-change {
-  display: grid;
-  gap: var(--space-4);
-  scroll-margin-top: calc(var(--top-bar-height) + 16px);
-}
-
-.upgrade-change h3 {
-  margin: 0;
-}
-
-.upgrade-source-list {
-  list-style: disc;
-  padding-left: var(--space-8);
-}
-
-@media (max-width: 720px) {
-  .license-fact {
+  .license-card-grid {
     grid-template-columns: 1fr;
   }
 
-  .upgrade-checklist-item {
-    grid-template-columns: 1fr;
+  .license-card {
+    padding: var(--space-8);
   }
 }

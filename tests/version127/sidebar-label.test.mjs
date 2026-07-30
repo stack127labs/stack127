@@ -23,13 +23,14 @@ test("shared sidebar titles use a paragraph with heading-like styling", () => {
     "a generic heading paragraph rule must not override the shared title class",
   );
 
+  // The software-licenses page is intentionally full width with no sidebar:
+  // its verdict table is the index.
   const sidebarOwners = [
     "app/(site)/page.tsx",
     "app/info-page.tsx",
     "app/(site)/dns-tools/dns-tools-sidebar.tsx",
     "app/(site)/self-host-apps/page.tsx",
     "app/(site)/self-hosting-for-beginners/course.tsx",
-    "app/(site)/software-licenses-for-self-hosting/page.tsx",
   ];
 
   for (const path of sidebarOwners) {

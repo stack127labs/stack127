@@ -2,16 +2,16 @@
 
 ## Who is here
 
-Someone picked an app from the directory or found a license label they do not recognize, and wants to know if they are allowed to do the thing they were about to do. They are not a lawyer and do not want to become one. A smaller group is choosing a license for their own app.
+Someone met a license label in the wild: on a GitHub repo, a Docker Hub page, or an app card in our directory. They are about to install the thing, or already run it, and a label like AGPL or SSPL or BSL made them pause. They are not lawyers and do not want a law lesson. A second, smaller visitor is picking a license for their own app.
 
 ## The job
 
-Leave with a yes, no, or careful for their specific situation: can I self-host it, can I run it at work, can I offer it as a service, can I sell my fork. One glance per license, not one reading session per license.
+Answer their exact question in seconds: can I run this at home, at work, or as a service I host for others. Then, only if they keep reading, teach the two ideas that make every future label instantly readable: the open source vs source-available line, and how copyleft triggers. They leave able to judge any label they meet next, including ones we do not list.
 
 ## Show vs say
 
-- The eight permission facts per license are a verdict table, scanned in seconds. They are already structured data; they must never be restated in paragraphs.
-- One marker drawing explains the single most confusing concept: how copyleft obligations spread from code you use to the service you run.
-- Sentences carry: what a license is (two lines), one plain recommendation for users and one for creators per license, and each license's one common mistake.
-- No clean chart: there is no numeric data here worth charting.
-- The sidebar is the index; the page never needs an intro that lists what is on it.
+- The page is full width with no sidebar: the verdict table is the index and the answer.
+- One verdict table: 32 licenses, one-word verdicts per decision, semantic colors, anchor-linked names. Followed by plain bullets explaining what each column asks.
+- Three marker figures carry the concepts: the license spectrum (obligations grow from permissive to source-available), how copyleft spreads through a fork to a hosted service, and a decision figure for when copyleft triggers.
+- Licenses render as compact cards, two per row, grouped by family with a one-line family intro: summary, condition details behind any non-yes verdict, one sentence for operators, one for creators, and a small official-text button. No common-mistake blocks.
+- Sentences carry the narrative between these artifacts: a hero that meets the reader at the label they just saw, a scope note naming what we deliberately leave out (murky and hostile licenses), and transitions that hand off from table to concepts to families. No section exists without a reason the reader just acquired.
