@@ -117,6 +117,7 @@ Good: `Enter an IP address and CIDR range. The calculator shows the network addr
 
 ## Things that are banned
 
+- Instructions for using ordinary interfaces: "find your row and read across", "click the link below", "use the sidebar to navigate". The audience is technical adults; explain the content's conventions (what a verdict word means), never the mechanics of reading a table or clicking a link.
 - Em dashes (—) and en dashes (–). Anywhere. Use a comma, a colon, or two sentences. Ranges are "10 to 15W".
 - Hype words when they explain nothing: powerful, seamless, robust, ultimate, and "simple" or "easy" used as decoration.
 - "It is not just x, it is y" framing.

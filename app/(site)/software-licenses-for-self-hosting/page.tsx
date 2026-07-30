@@ -182,11 +182,10 @@ export default async function SoftwareLicensesPage() {
           <div className={`license-narrative ${proseClassName}`}>
             <h2>Can you run it, change it, and host it for others?</h2>
             <p>
-              Find your label in the first column, read across, and you have your answer. A{" "}
-              <span className="license-verdict-careful-text">careful</span>
-              {" "}is allowed with conditions; the license&apos;s card further down spells them
-              out, and the <Link href="/self-host-apps">self-host apps</Link> directory uses the
-              same short names.
+              A <span className="license-verdict-careful-text">careful</span>
+              {" "}means allowed with conditions; each license&apos;s card further down spells
+              them out. The <Link href="/self-host-apps">self-host apps</Link> directory uses
+              the same short names.
             </p>
             <p>
               One scope note: this table only covers licenses that play reasonably with
