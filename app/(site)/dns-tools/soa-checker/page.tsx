@@ -17,7 +17,7 @@ export default async function SoaCheckerPage({ searchParams }: { searchParams: P
           <PageTitleIcon>
             <FileClock strokeWidth={2.2} />
           </PageTitleIcon>{" "}
-          <mark>SOA Consistency</mark> Checker: are your nameservers in sync?
+          <mark>SOA Consistency</mark> Checker: compare zone serials across nameservers
         </h1>
         <p>
           A zone can be answered by several nameservers, and they are all supposed to hold the

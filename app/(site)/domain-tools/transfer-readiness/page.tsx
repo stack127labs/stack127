@@ -27,7 +27,7 @@ export default async function TransferReadinessPage({ searchParams }: { searchPa
             <PageTitleIcon>
               <ArrowLeftRight strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            Domain <mark>transfer</mark> readiness: can this domain be moved?
+            Domain <mark>transfer</mark> readiness: can this domain be transferred?
           </h1>
           <p>
             Check whether a domain can move to another registrar right now, and if

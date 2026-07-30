@@ -45,6 +45,18 @@ Good: `Privacy policy of version127`
 Good: `DNS Lookup: check any domain's records`
 Good: `Self-host apps: a directory of apps worth running yourself`
 
+The colon is one way to join the name and the point, not a formula. "DNS lookup for any domain's records" and "Free domain lookup tools that answer from the registry" are just as good. Vary the shape naturally; never stamp the same pattern across every page.
+
+## Simple never means less technical
+
+This is a tech site. Plain language connects exact technical facts; it does not replace them. Keep the record types, the field names, the protocol terms, the version numbers. Cut the fluff around them, never the terms themselves. And do not write feels and mood; write what the thing does.
+
+Bad: `TLD directory: every extension and who runs it`
+
+Good: `TLD directory: every domain extension, its operator, and DNSSEC`
+
+The bad one is friendlier and says less. The good one is exactly as easy to read and tells a technical reader precisely what they get. When simplifying, the test is: did a technical word disappear? If yes, put it back and simplify the connective language instead.
+
 ## The brand is version127, lowercase
 
 Always `version127`, small v, even at the start of a sentence. Not Version127, not Version 127, not V127 in copy. The logo already spells it this way; the words follow the logo.

@@ -25,7 +25,7 @@ export default async function DnssecCheckerPage({ searchParams }: { searchParams
             <PageTitleIcon>
               <ShieldCheck strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            <mark>DNSSEC Chain</mark> Checker: validate the chain of trust
+            <mark>DNSSEC Chain</mark> Checker: validate DS, DNSKEY, and RRSIG
           </h1>
           <p>
             DNSSEC lets a domain sign its DNS answers so nobody can quietly change them on the way
