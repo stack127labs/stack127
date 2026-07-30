@@ -69,6 +69,14 @@
   }
 }
 
+/* On narrow screens the sidebar drawer covers navigation; the top bar keeps
+   only the flagship link so it never overflows the 320px minimum width. */
+@media (max-width: 680px) {
+  .secondaryLink {
+    display: none;
+  }
+}
+
 @media print {
   .header {
     position: static;

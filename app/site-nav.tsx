@@ -24,6 +24,12 @@ export function SiteNav() {
         </Link>
         <div className={styles.links}>
           <Link href="/self-host-apps">self-host apps</Link>
+          <Link className={styles.secondaryLink} href="/dns-tools">
+            dns tools
+          </Link>
+          <Link className={styles.secondaryLink} href="/domain-tools">
+            domain tools
+          </Link>
         </div>
         <div className={styles.actions}>
           <ThemeToggle />
