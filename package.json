@@ -49,6 +49,7 @@
     "domain-tools:refresh-tld-directory": "node --experimental-strip-types scripts/domain-tools/refresh-tld-directory.mjs",
     "domain-tools:check-tld-directory": "node --experimental-strip-types scripts/domain-tools/refresh-tld-directory.mjs --check",
     "version127:marker-art": "node scripts/version127/marker-art/generate.mjs",
+    "version127:clean-charts": "node scripts/version127/clean-charts/generate.mjs",
     "version127:dataset:export": "node scripts/version127/github/export-dataset.mjs",
     "version127:dataset:sync": "node scripts/version127/github/sync-dataset-repo.mjs",
     "version127:tool:new": "node scripts/version127/github/create-tool-repo.mjs",

@@ -1,0 +1,47 @@
+{
+  "id": "sample--clean-line",
+  "type": "line",
+  "takeaway": "Response time stays flat until the cache fills, then climbs sharply.",
+  "source": "sample data for the style showcase",
+  "dataAsOf": "2026-07-30",
+  "data": {
+    "unit": "ms",
+    "xLabels": [
+      "0",
+      "100",
+      "200",
+      "300",
+      "400",
+      "500",
+      "600"
+    ],
+    "series": [
+      {
+        "label": "cached",
+        "tone": "primary",
+        "points": [
+          12,
+          13,
+          12,
+          14,
+          13,
+          15,
+          14
+        ]
+      },
+      {
+        "label": "uncached",
+        "tone": "sub",
+        "points": [
+          95,
+          102,
+          110,
+          121,
+          168,
+          240,
+          310
+        ]
+      }
+    ]
+  }
+}
