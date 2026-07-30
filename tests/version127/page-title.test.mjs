@@ -10,7 +10,7 @@ function source(path) {
 
 test("every page family uses the shared responsive H1 typography", () => {
   const globals = source("app/globals.css");
-  assert.match(globals, /--text-h1: clamp\(2\.3rem, 5vw, 2\.6rem\);/);
+  assert.match(globals, /--text-h1: clamp\(2rem, 5vw, 2\.6rem\);/);
   assert.match(globals, /--line-h1: 1\.02;/);
 
   const h1Owners = [
