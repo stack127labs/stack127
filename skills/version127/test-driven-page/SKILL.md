@@ -10,16 +10,17 @@ Use this skill before changing any route under `app/(site)` or any SEO-visible p
 ## Required Order
 
 1. Read `AGENTS.md`.
-2. Read the relevant `content_docs/<page-slug>/` folder.
-3. Read `version127_docs/css-architecture.md` before adding or moving page styles.
-4. Decide the route state before implementation:
+2. Read the relevant `content_docs/<page-slug>/` folder. If the page carries content, its `brief.md` (who is reading, the job, show vs say) must exist there before implementation. If it does not, write it first: the format is in `version127_docs/visual-first.md`.
+3. Propose the format mix before writing copy. Read `version127_docs/visual-first.md` and `version127_docs/writing-style.md`, decide what is a chart, table, marker drawing, or screenshot, and challenge text-heavy requests, including Teja's, with a better visual format.
+4. Read `version127_docs/css-architecture.md` before adding or moving page styles.
+5. Decide the route state before implementation:
    - `published`: exact slug should be indexable and listed in sitemap.
    - `unpublished`: route exists in code but should return 404 until approved.
    - `noindex`: route can render, but should not be indexed.
-5. Create or update the route's `tests/pages/<route>/page.json` ownership manifest before or alongside the page. Use `tests/pages/home/page.json` for `/`.
-6. Add or update tests before considering the page done.
-7. Implement the smallest route/UI/data change.
-8. Run the gates listed below.
+6. Create or update the route's `tests/pages/<route>/page.json` ownership manifest before or alongside the page. Use `tests/pages/home/page.json` for `/`.
+7. Add or update tests before considering the page done.
+8. Implement the smallest route/UI/data change.
+9. Run the gates listed below.
 
 ## Test Requirements
 
