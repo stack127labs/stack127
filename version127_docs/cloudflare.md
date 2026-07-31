@@ -98,14 +98,30 @@ Email obfuscation stays off so contact information remains present in server-ren
 
 ## Credentials
 
-Deployment credentials live only in `.env.deploy`:
+Production identity and deployment credentials live only in `.env.deploy`. The
+non-secret schema is `.env.deploy.example`:
 
 ```text
+VERSION127_PRODUCTION_TARGET
+VERSION127_PRODUCTION_PROVIDER
+VERSION127_PRODUCTION_HOST
+VERSION127_PRODUCTION_IPV6
+VERSION127_PRODUCTION_SSH_USER
+VERSION127_PRODUCTION_DOKPLOY_URL
+VERSION127_PRODUCTION_DOKPLOY_APP_ID
+VERSION127_PRODUCTION_DOKPLOY_APP_NAME
+VERSION127_PRODUCTION_REPOSITORY
+VERSION127_PRODUCTION_BRANCH
 CLOUDFLARE_API_TOKEN
 CLOUDFLARE_ACCOUNT_ID
 CLOUDFLARE_ZONE_ID
 HOSTINGER_Token
 ```
+
+The Hostinger token is retained only because Hostinger is the registrar. It is
+not a Version127 server or deployment target. Generic `VPS_*` variables and
+`DOKPLOY_PUBLIC_URL` are forbidden because they previously selected the shared
+Hostinger server implicitly.
 
 The Cloudflare token must be scoped to the Version127 account and zone. The current workflow needs:
 
@@ -144,4 +160,6 @@ Expected results:
 
 DNSSEC is not enabled yet. Enable it only when the Cloudflare DS record can be added at Hostinger in the same maintenance window. Enabling one side without the other can make the domain unavailable.
 
-The old Version127 service remains on the shared VPS only as a temporary rollback path during the migration observation window. Do not remove it until the observation period has passed and removal is explicitly approved. All unrelated applications remain on that shared VPS.
+The old Version127 service and Dokploy project were removed from the shared
+Hostinger VPS on 31 July 2026 after the observation period and explicit
+approval. All unrelated applications remain on that shared VPS.

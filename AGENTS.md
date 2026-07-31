@@ -80,6 +80,16 @@ Version127 is a compact technical directory site. It should grow into multiple r
 - Next.js automatically reads normal Next env files such as `.env.local`. Custom split env files must be loaded explicitly by deploy tooling, scripts, command flags, or a script-level env loader.
 - Never commit secrets.
 
+## Production Deployment
+
+- The only Version127 production target is the dedicated OVH VPS recorded in `scripts/version127/deployment/targets.json`.
+- The only production Dokploy dashboard is `https://dokploy.version127.com`.
+- `https://dokploy.ravitejaknts.com` and the Hostinger shared VPS are legacy infrastructure and must never receive a Version127 deployment.
+- Never infer that production DNS should change because a deploy landed on a different server. Verify the deployment target first.
+- Before any production deployment, run `npm run version127:deploy:preflight`. Stop if it fails.
+- A production release must satisfy `HEAD = origin/main = OVH Dokploy deployment commit = live production revision`.
+- Read `version127_docs/production-deployment.md` before deploying or changing deployment credentials, server access, Cloudflare, or Dokploy configuration.
+
 ## Before Changing Data Or Structure
 
 - Read the relevant page docs in `content_docs/<page-slug>/`.

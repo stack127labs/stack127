@@ -8,7 +8,7 @@ The old Version127 deployment remains online until the new origin passes every a
 
 Version127 was cut over to the dedicated OVH origin on 16 July 2026 at 10:15 UTC. The host is hardened, Docker and Swarm have native IPv6 egress, Dokploy is healthy and private, and Cloudflare serves the OVH origin over both its IPv4 and IPv6 records. The Dokploy dashboard is available only through `https://dokploy.version127.com`, protected by Cloudflare Access and an outbound-only Cloudflare Tunnel.
 
-The origin presents a Cloudflare Origin CA certificate for `version127.com` and `www.version127.com`, and the existing Full (strict) setting remained enabled throughout cutover. The old Version127 service remains `1/1` on the shared VPS as the rollback path until at least 18 July 2026 at 10:15 UTC. Every unrelated service remains on the shared VPS.
+The origin presents a Cloudflare Origin CA certificate for `version127.com` and `www.version127.com`, and the existing Full (strict) setting remained enabled throughout cutover. The observation window passed successfully, and the old Version127 application, project, service, image, build directory, and logs were removed from the shared Hostinger VPS on 31 July 2026. Every unrelated service remains on that shared VPS.
 
 ## Sources Of Truth
 
@@ -115,11 +115,11 @@ The OVH host keeps the official Cloudflare IPv4 and IPv6 ranges in `/etc/version
 
 ## Phase 7: Observation And Rollback
 
-- [ ] Keep the old Version127 service running for at least 48 hours.
+- [x] Keep the old Version127 service running for at least 48 hours.
 - [x] Monitor application availability, the Dokploy service, registry, Traefik, and Cloudflare-only firewall every five minutes with `version127-production-health.timer`.
 - [x] Check application errors, resource use, Docker restarts, TLS, DNS tool timeouts, IPv6 checks, and Cloudflare origin failures immediately after cutover.
 - [ ] If the new origin fails, restore the recorded Cloudflare apex value and verify public recovery before investigating.
-- [ ] Remove the old Version127 service only after the observation window and explicit approval.
+- [x] Remove the old Version127 service only after the observation window and explicit approval.
 - [x] Do not remove or modify any unrelated old-VPS service, network, volume, database, firewall rule, or Dokploy project.
 
 ## Phase 8: Private Dokploy Administration

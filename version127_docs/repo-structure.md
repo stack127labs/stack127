@@ -105,9 +105,11 @@ Use split env files by concern:
 
 - `.env.local`: local development values. It should include the local `DATABASE_URL`.
 - `.env.database`: production database values. It should include the production `DATABASE_URL`; Supabase URL/key values can also live here if a feature uses Supabase APIs.
-- `.env.deploy`: VPS, Cloudflare, Dokploy, SSH, and deploy automation values.
+- `.env.deploy`: the explicit OVH production identity plus Cloudflare, Dokploy, SSH, and deploy automation values. It must not contain generic legacy `VPS_*` keys or the Hostinger Dokploy URL.
 - `.env.analytics`: analytics values such as self-hosted Umami URL and website ID.
 
 Next.js reads standard Next env files automatically, including `.env.local`. It does not automatically read custom split files such as `.env.database` or `.env.deploy`; production deploy tooling must pass those values into the runtime environment.
+
+The machine-readable infrastructure identity is `scripts/version127/deployment/targets.json`. Run `npm run version127:deploy:preflight` before every production deployment. Edit `.env.deploy` surgically and use `.env.deploy.example` as its secret-free schema; never replace a populated environment file wholesale.
 
 Self-host app scripts load `.env.local` by default for local work. When running production data jobs, run with `NODE_ENV=production` and provide `.env.database`, pass `DATABASE_URL`, or pass `--database-url`.
