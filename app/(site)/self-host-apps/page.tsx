@@ -4,7 +4,11 @@ import type { CSSProperties } from "react";
 import { FaGithub } from "react-icons/fa6";
 import { getDirectoryApps, type DirectoryApp } from "@/lib/apps";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
-import { findLicenseAnchor } from "@/lib/software-licenses";
+import {
+  findDirectoryLicenseId,
+  findLicenseAnchor,
+  licenses,
+} from "@/lib/software-licenses";
 import { AppShell, SidebarLabel } from "../../app-shell";
 import { CategoryIcon } from "../../category-icon";
 import { Doodle } from "../../doodle";
@@ -30,6 +34,7 @@ export const dynamic = "force-dynamic";
 type SearchParams = Record<string, string | string[] | undefined>;
 
 type FilterOption = {
+  count?: number;
   iconKey?: string | null;
   label: string;
   value: string;
@@ -90,6 +95,7 @@ const signalOptionLabels = new Map([
 
 const filterLabels = new Map([
   ["category", "Category"],
+  ["license", "License"],
   ["docker", "Docker"],
   ["ram", "RAM"],
   ["storage", "Storage"],
@@ -376,6 +382,9 @@ function DirectoryCrawlerRecords({ apps }: { apps: DirectoryApp[] }) {
 function filterApps(apps: DirectoryApp[], params: SearchParams) {
   const query = getString(params, "q").trim();
   const categories = getValues(params, "category");
+  const selectedLicenses = getValues(params, "license").filter((value) =>
+    licenses.some((license) => license.id === value),
+  );
   const dockerSupported = getValues(params, "docker").includes("supported");
   const ram = getKnownValue(params, "ram", ramTierOrder);
   const storage = getKnownValue(params, "storage", storageTierOrder);
@@ -392,6 +401,13 @@ function filterApps(apps: DirectoryApp[], params: SearchParams) {
       !app.categories.some((category) => categories.includes(category.slug))
     ) {
       return false;
+    }
+
+    if (selectedLicenses.length > 0) {
+      const licenseId = findDirectoryLicenseId(app.license_spdx_id, app.license);
+      if (!licenseId || !selectedLicenses.includes(licenseId)) {
+        return false;
+      }
     }
 
     if (dockerSupported && !["official", "community"].includes(app.docker_support ?? "")) {
@@ -567,7 +583,10 @@ function TagSelectGroup({
               type="button"
             >
               {option.iconKey ? <CategoryIcon iconKey={option.iconKey} /> : null}
-              {option.label}
+              <span>{option.label}</span>
+              {typeof option.count === "number" ? (
+                <small className="filter-option-count">{option.count.toLocaleString("en-US")}</small>
+              ) : null}
             </button>
           ))}
         </div>
@@ -700,13 +719,16 @@ function StorageSlider({
 function ActiveFilters({
   params,
   categoryMap,
+  licenseMap,
 }: {
   params: SearchParams;
   categoryMap: Map<string, string>;
+  licenseMap: Map<string, string>;
 }) {
   const chips: Array<{ href: string; key: string; label: string; value: string }> = [];
   const valueLabels = new Map([
     ["category", categoryMap],
+    ["license", licenseMap],
     ["docker", dockerOptionLabels],
     ["ram", ramOptionLabels],
     ["storage", storageOptionLabels],
@@ -714,7 +736,7 @@ function ActiveFilters({
     ["signal", signalOptionLabels],
   ]);
 
-  for (const key of ["category", "docker", "ram", "storage", "maintenance", "signal"]) {
+  for (const key of ["category", "license", "docker", "ram", "storage", "maintenance", "signal"]) {
     for (const value of getValues(params, key)) {
       const groupLabel = filterLabels.get(key) ?? key;
       const valueLabel = valueLabels.get(key)?.get(value) ?? value.replaceAll("_", " ");
@@ -791,6 +813,23 @@ export default async function SelfHostAppsPage({
     .map(([, option]) => option)
     .sort((a, b) => a.label.localeCompare(b.label));
   const categoryMap = new Map(categoryOptions.map((option) => [option.value, option.label]));
+  const licenseCounts = new Map<string, number>();
+  for (const app of apps) {
+    const licenseId = findDirectoryLicenseId(app.license_spdx_id, app.license);
+    if (licenseId) {
+      licenseCounts.set(licenseId, (licenseCounts.get(licenseId) ?? 0) + 1);
+    }
+  }
+  const licenseOptions = licenses
+    .filter((license) => licenseCounts.has(license.id))
+    .map((license) => ({
+      count: licenseCounts.get(license.id) ?? 0,
+      label: license.sidebarLabel,
+      value: license.id,
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label));
+  const licenseMap = new Map(licenseOptions.map((option) => [option.value, option.label]));
+  const selectedLicenses = getValues(params, "license").filter((value) => licenseMap.has(value));
 
   const sidebar = (
     <form
@@ -832,6 +871,12 @@ export default async function SelfHostAppsPage({
         options={categoryOptions}
         selected={getValues(params, "category")}
         title="Category"
+      />
+      <TagSelectGroup
+        name="license"
+        options={licenseOptions}
+        selected={selectedLicenses}
+        title="License"
       />
       <CheckboxGroup
         name="docker"
@@ -893,6 +938,7 @@ export default async function SelfHostAppsPage({
 
           <ActiveFilters
             categoryMap={categoryMap}
+            licenseMap={licenseMap}
             params={params}
           />
 
@@ -938,7 +984,7 @@ export default async function SelfHostAppsPage({
             <div className="directory-empty">
               <Doodle svg={siteDoodleSparkArt} />
               <h2>No apps match those filters</h2>
-              <p>Try clearing one resource or health filter first.</p>
+              <p>Try clearing one filter first.</p>
               <Link href="/self-host-apps">show all apps</Link>
             </div>
           )}

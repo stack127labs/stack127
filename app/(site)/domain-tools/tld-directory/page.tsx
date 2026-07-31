@@ -5,6 +5,7 @@ import { DomainToolsSidebar } from "../domain-tools-sidebar";
 import { TldTable, type TldRow } from "./tld-table";
 import directory from "@/lib/domain/data/tld-directory.json" with { type: "json" };
 import { PageTitleIcon } from "../../../page-title-icon";
+import { proseSectionFlowClassName } from "../../../prose";
 
 export default function TldDirectoryPage() {
   const rows = directory.rows as TldRow[];
@@ -38,7 +39,7 @@ export default function TldDirectoryPage() {
 
         <hr className="domain-divider" />
 
-        <article className="domain-reference-content">
+          <article className={`domain-reference-content ${proseSectionFlowClassName}`}>
           <section>
             <h2>How many domain extensions are there?</h2>
             <p>

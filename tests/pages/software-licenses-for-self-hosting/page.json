@@ -4,7 +4,8 @@
   "docs": ["content_docs/software-licenses-for-self-hosting"],
   "tests": [
     "tests/version127/seo.spec.ts",
-    "tests/pages/software-licenses-for-self-hosting/software-licenses.test.mjs"
+    "tests/pages/software-licenses-for-self-hosting/software-licenses.test.mjs",
+    "tests/pages/software-licenses-for-self-hosting/page.spec.ts"
   ],
   "scripts": [],
   "skills": [],

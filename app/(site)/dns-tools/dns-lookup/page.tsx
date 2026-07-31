@@ -5,6 +5,7 @@ import { DnsLookupTool } from "./dns-lookup-tool";
 import type { DnsResolver, DnsSelection } from "@/lib/dns/types.ts";
 import { isDnsResolver } from "@/lib/dns/resolvers.ts";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
@@ -50,7 +51,7 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
           initialSelection={initialSelection(firstValue(params.type))}
         />
 
-        <article className="dns-reference-content">
+        <article className={`dns-reference-content ${proseSectionFlowClassName}`}>
           <section id="how-to-check">
             <h2>How to check DNS records</h2>
             <p>Enter the exact domain or hostname you want to check. <code>example.com</code>, <code>www.example.com</code>, and <code>mail.example.com</code> can each have different records, so use the name connected to the website, email service, or setup you are checking. Leave All selected to check every forward record type offered here, choose a DNS source, then select Look up DNS. To start with an IP address instead, choose PTR and enter the address.</p>

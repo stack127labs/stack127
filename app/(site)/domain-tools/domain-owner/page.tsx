@@ -4,6 +4,7 @@ import { AppShell } from "../../../app-shell";
 import { DomainToolsSidebar } from "../domain-tools-sidebar";
 import { DomainOwnerTool } from "./domain-owner-tool";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (value: string | string[] | undefined) => (Array.isArray(value) ? (value[0] ?? "") : (value ?? ""));
@@ -39,7 +40,7 @@ export default async function DomainOwnerPage({ searchParams }: { searchParams: 
 
         <hr className="domain-divider" />
 
-        <article className="domain-reference-content">
+          <article className={`domain-reference-content ${proseSectionFlowClassName}`}>
           <section>
             <h2>Can you find out who owns a domain?</h2>
             <p>

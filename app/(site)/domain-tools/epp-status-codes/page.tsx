@@ -5,6 +5,7 @@ import { DomainToolsSidebar } from "../domain-tools-sidebar";
 import { STATUS_CODES, STATUS_GROUP_TITLES, type StatusGroup } from "@/lib/domain/status-codes.ts";
 import { StatePill } from "../domain-lookup-client";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { proseSectionFlowClassName } from "../../../prose";
 
 /** Who set it decides what you can do, so that is what the tone encodes. */
 const GROUP_TONE: Record<StatusGroup, "good" | "warn" | "bad" | "quiet"> = {
@@ -60,7 +61,7 @@ export default function EppStatusCodesPage() {
           </p>
         </header>
 
-        <article className="domain-reference-content">
+          <article className={`domain-reference-content ${proseSectionFlowClassName}`}>
           <section>
             <h2>Why is the same code written two different ways?</h2>
             <p>

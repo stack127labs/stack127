@@ -4,6 +4,7 @@ import { AppShell } from "../../../app-shell";
 import { DomainToolsSidebar } from "../domain-tools-sidebar";
 import { PunycodeTool } from "./punycode-tool";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { proseSectionFlowClassName } from "../../../prose";
 
 export default function PunycodeConverterPage() {
   return (
@@ -34,7 +35,7 @@ export default function PunycodeConverterPage() {
 
         <hr className="domain-divider" />
 
-        <article className="domain-reference-content">
+          <article className={`domain-reference-content ${proseSectionFlowClassName}`}>
           <section>
             <h2>What is punycode?</h2>
             <p>

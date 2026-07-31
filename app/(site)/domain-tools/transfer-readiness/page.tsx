@@ -5,6 +5,7 @@ import { DomainToolsSidebar } from "../domain-tools-sidebar";
 import { TransferReadinessTool } from "./transfer-readiness-tool";
 import { pendingPolicy, policyInForce } from "@/lib/domain/transfer-policy.ts";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (value: string | string[] | undefined) => (Array.isArray(value) ? (value[0] ?? "") : (value ?? ""));
@@ -42,7 +43,7 @@ export default async function TransferReadinessPage({ searchParams }: { searchPa
 
         <hr className="domain-divider" />
 
-        <article className="domain-reference-content">
+          <article className={`domain-reference-content ${proseSectionFlowClassName}`}>
           <section>
             <h2>How does a domain transfer work?</h2>
             <p>Five steps, and most of the pain is in the first two.</p>

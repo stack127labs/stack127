@@ -5,6 +5,7 @@ import { DnssecChecker } from "./dnssec-checker";
 import { DNSSEC_RECORD_TYPES, type DnssecRecordType } from "@/lib/dns/dnssec-types.ts";
 import styles from "../dns-diagnostics.module.css";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] ?? "" : value ?? "";
@@ -41,7 +42,7 @@ export default async function DnssecCheckerPage({ searchParams }: { searchParams
           initialRecordType={initialType(first(params.type))}
         />
 
-        <article className="dns-reference-content">
+        <article className={`dns-reference-content ${proseSectionFlowClassName}`}>
           <section>
             <h2>How to check DNSSEC</h2>
             <p>

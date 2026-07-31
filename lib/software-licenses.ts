@@ -24,10 +24,10 @@ export type LicenseGroup = {
 
 /**
  * One-word answers for the verdict table.
- * yes: allowed, no meaningful condition attached to that use.
- * careful: allowed, with conditions written into the license.
- * depends: the license text alone cannot tell you; a per-project parameter,
- * a chosen option, or a paid edition decides.
+ * yes: the activity is permitted; routine notices or attribution may still apply.
+ * careful: the activity is permitted with a material obligation such as source
+ * disclosure, share-alike, or a competition limit.
+ * depends: project-specific parameters, a chosen option, or separate terms decide.
  * no: blocked by the license.
  */
 export type Verdict = "yes" | "no" | "careful" | "depends";
@@ -70,6 +70,8 @@ export type LicenseEntry = {
   forCreators: string;
   commonMistake: string | null;
   officialUrl: string | null;
+  /** Override when the URL is guidance, a family site, or an example rather than license text. */
+  officialLinkLabel?: string;
   /** Strings that may appear in open_projects.license for matching. */
   aliases: string[];
 };
@@ -117,7 +119,7 @@ export const licenseGroups: LicenseGroup[] = [
     title: "Source-available and restricted",
     sidebarLabel: "Source-available",
     intro:
-      "Code you can read and usually self-host, with business restrictions that put it outside the open-source definition. The restriction is almost always about selling it as a service.",
+      "Code you can read and usually self-host, with terms that put it outside the open-source definition. SSPL conditions service use on releasing service source, while BSL, FSL, and PolyForm depend on project parameters or competition limits.",
   },
   {
     id: "cc-content",
@@ -144,7 +146,7 @@ export const licenses: LicenseEntry[] = [
     spdx: "MIT",
     osiNote: "OSI open source",
     summary:
-      "MIT is a short permissive license. Run it, change it, use it commercially, host it for others. The one rule is keeping the copyright and license notice when you hand the code or a package to someone else.",
+      "MIT lets you use, change, sell, or host the software with almost no friction. Keep the copyright and license notice when you pass the code or a package to someone else.",
     verdicts: {
       selfHost: "yes",
       companyUse: "yes",
@@ -173,7 +175,8 @@ export const licenses: LicenseEntry[] = [
     group: "permissive",
     spdx: "Apache-2.0",
     osiNote: "OSI open source",
-    summary: "Apache-2.0 is MIT plus clearer patent terms and stricter notice rules on redistribution.",
+    summary:
+      "Apache-2.0 gives you MIT-like freedom with explicit patent protection. Keep the license, copyright notices, and any NOTICE file when you redistribute it.",
     verdicts: {
       selfHost: "yes",
       companyUse: "yes",
@@ -207,7 +210,7 @@ export const licenses: LicenseEntry[] = [
     spdx: "BSD-2-Clause",
     osiNote: "OSI open source",
     summary:
-      "Permissive. Use and change it freely as long as the copyright notice and disclaimer travel with any redistribution.",
+      "BSD-2-Clause lets you use and change the software freely. Keep the copyright notice and disclaimer when you redistribute it.",
     verdicts: {
       selfHost: "yes",
       companyUse: "yes",
@@ -541,7 +544,7 @@ export const licenses: LicenseEntry[] = [
     spdx: "GPL-2.0",
     osiNote: "OSI open source",
     summary:
-      "Strong copyleft. Run and change the software freely. Distribute the program and you must provide corresponding source under GPL terms.",
+      "GPL-2.0 lets you run and change the software freely. If you distribute it, you must provide the corresponding source under the same GPL terms.",
     verdicts: {
       selfHost: "yes",
       companyUse: "yes",
@@ -579,7 +582,8 @@ export const licenses: LicenseEntry[] = [
     group: "strong-copyleft",
     spdx: "GPL-3.0",
     osiNote: "OSI open source",
-    summary: "The updated strong copyleft license. Same shape as GPL-2.0, with modernised terms.",
+    summary:
+      "GPL-3.0 lets you run and change the software freely, but anything you distribute must keep the same source-sharing freedom. It adds clearer patent protection and rules for installing modified software on locked-down devices.",
     verdicts: {
       selfHost: "yes",
       companyUse: "yes",
@@ -611,7 +615,7 @@ export const licenses: LicenseEntry[] = [
     spdx: "AGPL-3.0",
     osiNote: "OSI open source",
     summary:
-      "Strong copyleft with a network rule. Run and change the software freely. If other people use your modified version over a network, you must offer them the corresponding source under AGPL.",
+      "AGPL-3.0 works like GPL but also protects people using a modified version over a network. If you change the hosted app, offer those users the corresponding source.",
     verdicts: {
       selfHost: "yes",
       companyUse: "yes",
@@ -714,6 +718,10 @@ export const licenses: LicenseEntry[] = [
         label: "Modify",
         text: "OSL share-alike duties apply when you distribute or deploy in ways the license treats as distribution.",
       },
+      {
+        label: "Redistribute",
+        text: "Distributed copies and derivatives must follow OSL source, notice, and share-alike terms.",
+      },
     ],
     forUsers: "Home and internal use are fine. Treat public service offerings carefully.",
     forCreators:
@@ -732,10 +740,10 @@ export const licenses: LicenseEntry[] = [
     spdx: "SSPL-1.0",
     osiNote: "Source-available, not OSI-approved",
     summary:
-      "Created by MongoDB. You can usually run and change the software yourself. Offer it as a service and the license can require you to release a very large part of your service stack under SSPL.",
+      "SSPL is comfortable for running software yourself, but offering it as a service can require releasing much of the surrounding service stack. That makes it source-available, not open source.",
     verdicts: {
       selfHost: "yes",
-      companyUse: "careful",
+      companyUse: "yes",
       osi: "no",
       service: "careful",
       modify: "careful",
@@ -744,12 +752,16 @@ export const licenses: LicenseEntry[] = [
     },
     conditions: [
       {
-        label: "Company",
-        text: "Usually fine when you are not selling a public or customer-facing service product built on it.",
-      },
-      {
         label: "Service",
         text: "Not forbidden outright, but conditioned on releasing the whole service stack under SSPL. For most operators that is a practical no.",
+      },
+      {
+        label: "Modify",
+        text: "You may modify the software. Distribution and service use can make SSPL source duties apply.",
+      },
+      {
+        label: "Redistribute",
+        text: "Keep the license and provide source as SSPL requires when you distribute covered copies.",
       },
       {
         label: "Notices",
@@ -772,7 +784,7 @@ export const licenses: LicenseEntry[] = [
     spdx: "Elastic-2.0",
     osiNote: "Source-available, not OSI-approved",
     summary:
-      "Used by Elastic products. Self-managed use is allowed. Providing the product to others as a managed service is not.",
+      "Elastic-2.0 is meant for self-managed use and lets you modify the software. You cannot offer the product itself to others as a managed service.",
     verdicts: {
       selfHost: "yes",
       companyUse: "yes",
@@ -811,7 +823,7 @@ export const licenses: LicenseEntry[] = [
     spdx: "BUSL-1.1",
     osiNote: "Source-available now, open source at the change date",
     summary:
-      "The only entry on this page where almost every column is depends. What you may do is set by that project's Additional Use Grant, and the code converts to a named open-source license after a published change date.",
+      "BUSL-1.1 changes from project to project, so the Additional Use Grant decides what you may do until the published change date. After that date, the code moves to the named open-source license.",
     verdicts: {
       selfHost: "depends",
       companyUse: "depends",
@@ -835,6 +847,7 @@ export const licenses: LicenseEntry[] = [
     commonMistake:
       "Reading only the generic BUSL-1.1 text and skipping the Additional Use Grant. The grant is where self-host production rights actually live.",
     officialUrl: "https://mariadb.com/bsl-faq-mariadb/",
+    officialLinkLabel: "Official BSL guidance",
     aliases: ["BSL", "BSL 1.1", "BUSL-1.1", "Business Source License"],
   },
   {
@@ -845,7 +858,7 @@ export const licenses: LicenseEntry[] = [
     spdx: null,
     osiNote: "Source-available now, open source after the delay",
     summary:
-      "Broad use allowed, with a temporary ban on competing commercial use. After a fixed delay the code converts to Apache-2.0 or MIT. Unlike BSL, the terms are fixed rather than per-project, which is why modification is a clean yes here.",
+      "FSL allows broad use but temporarily blocks products that compete with the original software. After the delay, the code converts to MIT or Apache-2.0.",
     verdicts: {
       selfHost: "yes",
       companyUse: "careful",
@@ -872,6 +885,7 @@ export const licenses: LicenseEntry[] = [
       "Self-host freedom and public source with a temporary shield against competing hosted products. Labels like FSL-1.1-MIT tell people which open license arrives after the delay. Make that obvious in the repo.",
     commonMistake: "Calling FSL open source on day one. It is designed as eventually open source.",
     officialUrl: "https://fsl.software/",
+    officialLinkLabel: "Official FSL site",
     aliases: ["FSL", "FSL-1.1-MIT", "FSL-1.1-Apache-2.0", "Functional Source License"],
   },
   {
@@ -900,7 +914,7 @@ export const licenses: LicenseEntry[] = [
     forCreators:
       "Keeps source readable and blocks direct commercial clones without banning all commercial use. Define competition precisely or expect distrust.",
     commonMistake: null,
-    officialUrl: "https://polyformproject.org/licenses/shield/1.0.0/",
+    officialUrl: "https://polyformproject.org/licenses/shield/1.0.0",
     aliases: ["PolyForm Shield License 1.0.0", "PolyForm-Shield-1.0.0"],
   },
   {
@@ -935,6 +949,7 @@ export const licenses: LicenseEntry[] = [
       "Used by products that want free self-host adoption and paid rights for offering the product to others. Publish a plain-language FAQ next to the legal text.",
     commonMistake: "Assuming every Sustainable Use License matches another vendor's word for word.",
     officialUrl: "https://github.com/n8n-io/n8n/blob/master/LICENSE.md",
+    officialLinkLabel: "Example license text",
     aliases: ["Sustainable Use License", "Sustainable Use License 1.0"],
   },
   {
@@ -959,6 +974,10 @@ export const licenses: LicenseEntry[] = [
       { label: "Company", text: "No under this license alone. You need another grant." },
       { label: "Service", text: "Not for commercial services." },
       { label: "Modify", text: "Allowed for non-commercial purposes." },
+      {
+        label: "Redistribute",
+        text: "Allowed for non-commercial purposes when you keep the required notices and license terms.",
+      },
     ],
     forUsers:
       "A personal home setup is fine. A company deployment is not, unless the publisher grants a commercial license.",
@@ -966,7 +985,7 @@ export const licenses: LicenseEntry[] = [
       "Use it when free personal use is welcome and company use should pay or ask first, accepting that business adoption will shrink.",
     commonMistake:
       "Deploying PolyForm Noncommercial software on company infrastructure because the repository is public.",
-    officialUrl: "https://polyformproject.org/licenses/noncommercial/1.0.0/",
+    officialUrl: "https://polyformproject.org/licenses/noncommercial/1.0.0",
     aliases: ["PolyForm Noncommercial 1.0.0", "PolyForm-Noncommercial-1.0.0"],
   },
   {
@@ -999,7 +1018,7 @@ export const licenses: LicenseEntry[] = [
     forCreators:
       "Fine when the product is commercial-first. Say so plainly in the README and spell out which features sit behind the paid tier.",
     commonMistake: "Assuming a free download is open source.",
-    officialUrl: "https://spdx.org/licenses/",
+    officialUrl: null,
     aliases: [
       "Proprietary EULA",
       "Proprietary",
@@ -1063,6 +1082,10 @@ export const licenses: LicenseEntry[] = [
         label: "Service",
         text: "Depends on whether you are distributing adapted content. Running software is not the same as republishing a CC work.",
       },
+      {
+        label: "Redistribute",
+        text: "Shared material needs attribution, and shared adaptations must keep a compatible ShareAlike license.",
+      },
     ],
     forUsers: "Mostly relevant to docs, wikis, and media packs rather than Docker backends.",
     forCreators: "Good for shared documentation communities. Keep application code on a software license.",
@@ -1091,6 +1114,11 @@ export const licenses: LicenseEntry[] = [
     conditions: [
       { label: "Company", text: "No without another license." },
       { label: "Service", text: "Not for commercial services." },
+      { label: "Modify", text: "Adaptations are allowed only for non-commercial purposes." },
+      {
+        label: "Redistribute",
+        text: "Sharing is allowed only for non-commercial purposes and with the required attribution.",
+      },
     ],
     forUsers:
       "Hobby use may be fine. Company wikis, marketing sites, and paid products need a separate grant.",
@@ -1110,7 +1138,7 @@ export const licenses: LicenseEntry[] = [
     spdx: null,
     osiNote: null,
     summary:
-      "The same code offered under two or more licenses. You follow one path, or different people choose different paths. AGPL plus a paid commercial license is the common pair.",
+      "Dual licensing gives the same code more than one legal path, often AGPL for the community and a paid license for companies. You follow the option you qualify for.",
     verdicts: {
       selfHost: "yes",
       companyUse: "yes",
@@ -1120,7 +1148,12 @@ export const licenses: LicenseEntry[] = [
       redistribute: "depends",
       copyleft: "depends",
     },
-    conditions: [],
+    conditions: [
+      {
+        label: "Everything",
+        text: "The license option you choose, and any eligibility rules in the project documentation, decide service, modification, and redistribution rights.",
+      },
+    ],
     forUsers:
       "A label like AGPL-3.0/MIT means the project's docs decide which option applies to you. If you only run upstream releases, follow the operator path they document.",
     forCreators:
@@ -1148,7 +1181,12 @@ export const licenses: LicenseEntry[] = [
       redistribute: "depends",
       copyleft: "mixed",
     },
-    conditions: [],
+    conditions: [
+      {
+        label: "Everything",
+        text: "Rights depend on which edition, module, and version you use. Check the license attached to each component.",
+      },
+    ],
     forUsers:
       "A directory card can say AGPL or MIT and still hide SSO behind a paid module. Check which edition contains the features you actually need.",
     forCreators:
@@ -1179,7 +1217,12 @@ export const licenses: LicenseEntry[] = [
       redistribute: "depends",
       copyleft: "mixed",
     },
-    conditions: [],
+    conditions: [
+      {
+        label: "Everything",
+        text: "The exact version suffix, exception text, and license attached to each folder decide service, modification, and redistribution rights.",
+      },
+    ],
     forUsers:
       "For normal installs, run the release the project ships and you are fine. If you vendor a monorepo into your own product, inventory the subfolder licenses.",
     forCreators:
@@ -1220,4 +1263,14 @@ export function findLicenseAnchor(label: string | null | undefined) {
   }
 
   return null;
+}
+
+export function findDirectoryLicenseId(
+  spdxId: string | null | undefined,
+  label: string | null | undefined,
+) {
+  const id = findLicenseAnchor(spdxId) ?? findLicenseAnchor(label);
+  return id && licenses.some((license) => license.id === id && license.group !== "patterns")
+    ? id
+    : null;
 }

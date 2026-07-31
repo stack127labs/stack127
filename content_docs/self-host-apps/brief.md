@@ -10,4 +10,4 @@ They should narrow the directory, compare credible candidates, open a complete r
 
 ## Show vs say
 
-Filters and the card grid do the discovery work. Repeated facts such as RAM, storage, license, activity, categories, and deployment support stay structured on cards and in the details drawer rather than being compared in paragraphs. Project logos prove identity, while one-sentence summaries explain purpose. Counts are live database facts. Longer prose is reserved for uncertainty, provenance, and the limits of a field.
+Filters and the card grid do the discovery work. Category and license use compact multi-select controls; license values are normalized through the reviewed license reference so repository spelling differences do not split one license into several filters. Repeated facts such as RAM, storage, license, activity, categories, and deployment support stay structured on cards and in the details drawer rather than being compared in paragraphs. Project logos prove identity, while one-sentence summaries explain purpose. Counts are live database facts. Longer prose is reserved for uncertainty, provenance, and the limits of a field.

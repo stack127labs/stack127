@@ -6,6 +6,7 @@ import { DnsTraceTool } from "./dns-trace-tool";
 import { TRACE_RECORD_TYPES, type DnsTraceRecordType } from "@/lib/dns/trace-types.ts";
 import styles from "./dns-trace.module.css";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
@@ -45,7 +46,7 @@ export default async function DnsTracePage({ searchParams }: { searchParams: Pro
           initialRecordType={initialRecordType(firstValue(params.type))}
         />
 
-        <article className="dns-reference-content">
+        <article className={`dns-reference-content ${proseSectionFlowClassName}`}>
           <section id="how-dns-trace-works">
             <h2>How a DNS trace works</h2>
             <p>DNS is built as a chain of handoffs. The root nameservers know who runs <code>.com</code>. The <code>.com</code> nameservers know who runs <code>example.com</code>. And that domain's own nameserver holds the final record. Normally a public resolver does this whole walk for you and just hands back the result. This tool does the walk itself, in the open, so you can watch every handoff instead of trusting a single cached answer.</p>

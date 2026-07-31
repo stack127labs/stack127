@@ -45,12 +45,6 @@
   margin: 0;
 }
 
-.prose p + p,
-.prose ul + p,
-.prose ol + p {
-  margin-top: var(--space-3);
-}
-
 .prose ul,
 .prose ol {
   color: var(--color-text);
@@ -58,6 +52,16 @@
   gap: var(--space-3);
   margin: 0;
   padding-left: var(--space-8);
+}
+
+.flow,
+.sectionFlow > section {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.flow > :where(h2, h3, h4):not(:first-child) {
+  margin-top: var(--space-9);
 }
 
 .prose a {

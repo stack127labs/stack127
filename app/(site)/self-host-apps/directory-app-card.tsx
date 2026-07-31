@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Scale, Star } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import type { DirectoryApp } from "@/lib/apps";
+import { findDirectoryLicenseId } from "@/lib/software-licenses";
 import { CategoryIcon } from "../../category-icon";
 
 export function getRamTier(app: DirectoryApp) {
@@ -168,6 +169,7 @@ export function DirectoryAppCard({
 }) {
   const visibleCategories = app.categories.slice(0, 1);
   const extraCategoryCount = Math.max(app.categories.length - visibleCategories.length, 0);
+  const licenseId = findDirectoryLicenseId(app.license_spdx_id, app.license) ?? "unknown";
 
   const content = (
     <>
@@ -238,6 +240,7 @@ export function DirectoryAppCard({
       <Link
         aria-current={selected ? "true" : undefined}
         className="directory-card"
+        data-license-id={licenseId}
         href={href}
       >
         {content}
@@ -249,6 +252,7 @@ export function DirectoryAppCard({
     <button
       aria-pressed={selected}
       className="directory-card"
+      data-license-id={licenseId}
       onClick={() => onSelect?.(app.slug)}
       type="button"
     >

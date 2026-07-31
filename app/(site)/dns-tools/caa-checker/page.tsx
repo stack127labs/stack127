@@ -4,6 +4,7 @@ import { DnsToolsSidebar } from "../dns-tools-sidebar";
 import { CaaChecker } from "./caa-checker";
 import styles from "../dns-diagnostics.module.css";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] ?? "" : value ?? "";
@@ -39,7 +40,7 @@ export default async function CaaCheckerPage({ searchParams }: { searchParams: P
 
         <CaaChecker initialName={first(params.name)} />
 
-        <article className="dns-reference-content">
+        <article className={`dns-reference-content ${proseSectionFlowClassName}`}>
           <section>
             <h2>How to check a CAA policy</h2>
             <p>

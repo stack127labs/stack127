@@ -1,16 +1,18 @@
 import { Scale } from "lucide-react";
 import Link from "next/link";
+import { getDirectoryLicenseCounts } from "@/lib/apps";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { AppShell, SidebarLabel } from "../../app-shell";
 import { MarkerArt } from "../../marker-art";
 import { PageTitleIcon } from "../../page-title-icon";
-import { proseClassName, proseLedeClassName } from "../../prose";
+import { proseClassName, proseFlowClassName, proseLedeClassName } from "../../prose";
 import { SidebarList } from "../../sidebar-list";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
 } from "../../sidebar-panel";
 import {
+  findDirectoryLicenseId,
   licenseGroups,
   licensePage,
   licensesInGroup,
@@ -18,7 +20,6 @@ import {
   type OsiVerdict,
   type Verdict,
 } from "@/lib/software-licenses";
-import { softwareLicensesForSelfHostingCopyleftTriggerArt } from "./art/software-licenses-for-self-hosting--copyleft-trigger";
 import { softwareLicensesForSelfHostingLicenseFamiliesArt } from "./art/software-licenses-for-self-hosting--license-families";
 
 /** Verdict table columns, in the order people decide things. */
@@ -116,7 +117,7 @@ function VerdictTable() {
   );
 }
 
-function LicenseCard({ license }: { license: LicenseEntry }) {
+function LicenseCard({ appCount, license }: { appCount: number; license: LicenseEntry }) {
   return (
     <article className="license-card" id={license.id}>
       <header className="license-card-header">
@@ -124,46 +125,43 @@ function LicenseCard({ license }: { license: LicenseEntry }) {
         {license.spdx ? <p className="license-spdx">{license.spdx}</p> : null}
       </header>
 
-      {license.osiNote ? <p className="license-osi-note">{license.osiNote}</p> : null}
-
       <p className="license-card-summary">{license.summary}</p>
 
-      {license.conditions.length > 0 ? (
-        <table className="license-conditions">
-          <tbody>
-            {license.conditions.map((condition) => (
-              <tr key={condition.label}>
-                <th scope="row">{condition.label}</th>
-                <td>{condition.text}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : null}
-
-      <p className="license-card-audience">
-        <strong>Running it:</strong> {license.forUsers}
-      </p>
-      <p className="license-card-audience">
-        <strong>Licensing your own app:</strong> {license.forCreators}
-      </p>
-      {license.commonMistake ? (
-        <p className="license-card-audience">
-          <strong>Common mistake:</strong> {license.commonMistake}
-        </p>
-      ) : null}
-
-      {license.officialUrl ? (
-        <a className="license-official-button" href={license.officialUrl} rel="noreferrer" target="_blank">
-          Official license text
-        </a>
+      {appCount > 0 || license.officialUrl ? (
+        <div className="license-card-actions">
+          {appCount > 0 ? (
+            <Link className="license-apps-button" href={`/self-host-apps?license=${license.id}`}>
+              Browse {appCount.toLocaleString("en-US")} {appCount === 1 ? "app" : "apps"}
+            </Link>
+          ) : null}
+          {license.officialUrl ? (
+            <a
+              className="license-official-button"
+              href={license.officialUrl}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {license.officialLinkLabel ?? "Official license text"}
+            </a>
+          ) : null}
+        </div>
       ) : null}
     </article>
   );
 }
 
 export default async function SoftwareLicensesPage() {
-  const registryPage = await getRequiredPublishedPage("software-licenses-for-self-hosting");
+  const [registryPage, rawLicenseCounts] = await Promise.all([
+    getRequiredPublishedPage("software-licenses-for-self-hosting"),
+    getDirectoryLicenseCounts(),
+  ]);
+  const appCounts = new Map<string, number>();
+  for (const row of rawLicenseCounts) {
+    const licenseId = findDirectoryLicenseId(row.license_spdx_id, row.license);
+    if (licenseId) {
+      appCounts.set(licenseId, (appCounts.get(licenseId) ?? 0) + row.count);
+    }
+  }
 
   return (
     <AppShell
@@ -173,7 +171,7 @@ export default async function SoftwareLicensesPage() {
       sidebarLabel="Software licenses sidebar"
     >
       <div className="license-page">
-        <header className={`license-page-header ${proseClassName}`}>
+        <header className={`license-page-header ${proseClassName} ${proseFlowClassName}`}>
           <h1>
             <PageTitleIcon>
               <Scale strokeWidth={2.2} />
@@ -187,7 +185,10 @@ export default async function SoftwareLicensesPage() {
           </p>
         </header>
 
-        <section className={`license-section license-narrative ${proseClassName}`} id="start-here">
+        <section
+          className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
+          id="start-here"
+        >
           <h2>Start here</h2>
           <p>Four questions cover almost everything people need from a license:</p>
           <ol>
@@ -206,26 +207,37 @@ export default async function SoftwareLicensesPage() {
             <li>Open-source software can still be sold as a service, by you or by anyone else.</li>
             <li>A free binary can still ban company use.</li>
           </ul>
-          <p>The LICENSE file decides all of it. The marketing page does not.</p>
+          <p>The repository&apos;s license grant decides all of it. The marketing page does not.</p>
         </section>
 
         <section
-          className={`license-section license-narrative ${proseClassName}`}
+          className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
           id="open-source-vs-source-available"
         >
           <h2>Open source vs source-available</h2>
           <p>
-            <strong>Open source</strong>, as the Open Source Initiative defines it, means people
-            can use, study, change, and share the software for any purpose, including commercial
-            use. MIT, Apache-2.0, GPL, and AGPL all qualify. So does AGPL&apos;s network-copyleft
-            rule, which surprises people: requiring source is not the same as restricting use.
+            <strong>Open source</strong>, under the{" "}
+            <a href="https://opensource.org/osd" rel="noreferrer" target="_blank">
+              Open Source Definition
+            </a>
+            , lets people use, study, change, and share the software for any purpose, including
+            commercial use. MIT, Apache-2.0, GPL, and AGPL all qualify. AGPL&apos;s
+            network-copyleft rule does too: requiring source is not the same as restricting use.
           </p>
           <p>
             <strong>Source-available</strong> means the code is public and usually free to run,
-            but the license adds a business limit. The common limits are: no offering it as a
-            managed service, no competing product, non-commercial use only, or production rights
-            that expire into an open-source license later. SSPL, Elastic License, BSL, FSL,
-            PolyForm, and Sustainable Use sit here.
+            but the terms add limits that open-source licenses cannot.{" "}
+            <a
+              href="https://www.mongodb.com/legal/licensing/server-side-public-license"
+              rel="noreferrer"
+              target="_blank"
+            >
+              SSPL section 13
+            </a>{" "}
+            conditions service use on releasing service source. Elastic License and many
+            Sustainable Use terms directly restrict managed services. BSL, FSL, and PolyForm
+            depend on project parameters, time limits, or whether the use competes with the
+            publisher.
           </p>
           <p>
             A public repo proves nothing either way. If the license is not OSI-approved, treat
@@ -234,9 +246,9 @@ export default async function SoftwareLicensesPage() {
           </p>
         </section>
 
-        <section className="license-section" id="verdict-table">
-          <div className={`license-narrative ${proseClassName}`}>
-            <h2>Quick glimpse on can you run it, change it, and host it for others?</h2>
+        <section className="license-section license-structured-section" id="verdict-table">
+          <div className={`license-narrative ${proseClassName} ${proseFlowClassName}`}>
+            <h2>Can you run it, change it, and host it for others?</h2>
             <p>
               This table only covers licenses that play reasonably with self-hosting. Commons
               Clause riders, the JSON license, the Anti-Capitalist Software License, and repos
@@ -246,8 +258,8 @@ export default async function SoftwareLicensesPage() {
             </p>
           </div>
           <VerdictTable />
-          <div className={`license-narrative ${proseClassName}`}>
-            <h3>How to read it</h3>
+          <div className={`license-narrative ${proseClassName} ${proseFlowClassName}`}>
+            <h3>What the verdicts mean</h3>
             <p>
               <strong>The columns</strong>
             </p>
@@ -284,20 +296,22 @@ export default async function SoftwareLicensesPage() {
             <p>
               <strong>The values</strong>
             </p>
-            <ul>
+            <ul className="license-value-definitions">
               <li>
-                <strong>yes</strong>: allowed, no meaningful condition attached to that use.
+                <strong className="license-verdict-yes">yes</strong>: the activity is permitted.
+                Routine notices or attribution may still apply.
               </li>
               <li>
-                <strong>careful</strong>: allowed, with conditions written into the license. The
-                card below spells them out.
+                <strong className="license-verdict-careful">careful</strong>: permitted with a
+                material obligation such as source disclosure, share-alike, or a competition
+                limit. The card below spells it out.
               </li>
               <li>
-                <strong>depends</strong>: the license text alone cannot tell you. A per-project
-                parameter, a chosen option, or a paid edition decides.
+                <strong className="license-verdict-depends">depends</strong>: project-specific
+                parameters, a chosen option, or separate terms decide.
               </li>
               <li>
-                <strong>no</strong>: blocked by the license.
+                <strong className="license-verdict-no">no</strong>: blocked by the license.
               </li>
             </ul>
             <p>
@@ -310,10 +324,13 @@ export default async function SoftwareLicensesPage() {
           </div>
         </section>
 
-        <section className={`license-section license-narrative ${proseClassName}`} id="license-families">
+        <section
+          className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
+          id="license-families"
+        >
           <h2>The four families</h2>
           <MarkerArt
-            caption="The four license families and which licenses belong to each. EUPL sits with the network-copyleft group, not with weak copyleft, because it treats remote access as distribution."
+            caption="The four license families differ by what must stay open and when that obligation begins."
             svg={softwareLicensesForSelfHostingLicenseFamiliesArt}
           />
           <p>
@@ -336,32 +353,35 @@ export default async function SoftwareLicensesPage() {
           </p>
           <p>
             <strong>Restricted</strong> is source-available, not open source. The code is public,
-            but the license blocks selling the software as a managed service. SSPL does it
-            through the section 13 stack-release requirement. Elastic-2.0 and Sustainable Use
-            use direct managed-service clauses. BSL 1.1 uses a per-project Additional Use Grant
-            plus a change date that converts the code to open source later, and FSL does the
-            same with a fixed delay to MIT or Apache-2.0. Self-hosting for yourself or your
-            company is almost always the intended free path.
+            but different licenses limit different uses. SSPL conditions a service offering on
+            releasing service source. Elastic-2.0 and many Sustainable Use terms directly limit
+            managed services. BSL 1.1, FSL, and PolyForm turn on project parameters, a conversion
+            date, or whether your use competes with the publisher. Self-hosting for yourself or
+            your company is usually the intended free path, but the exact text still controls.
           </p>
         </section>
 
-        <section className={`license-section license-narrative ${proseClassName}`} id="copyleft-trigger">
+        <section
+          className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
+          id="copyleft-trigger"
+        >
           <h2>The copyleft trigger</h2>
-          <MarkerArt
-            caption="Copyleft triggers only when your modified copy reaches other people: GPL when you ship it, AGPL also when you host it."
-            svg={softwareLicensesForSelfHostingCopyleftTriggerArt}
-          />
           <p>
-            GPL obligations start when you <strong>distribute</strong> the program. A modified
-            GPL app running on your own server creates no duty to anyone.
+            GPL compliance starts when you <strong>distribute</strong> a covered copy.
+            Modification is not required: distributing an unmodified copy can still require
+            license notices and, for object code, corresponding source.
           </p>
           <p>
-            AGPL adds a network trigger. When people use your modified version over a network,
-            you must offer them its source.
+            AGPL adds a network trigger in{" "}
+            <a href="https://www.gnu.org/licenses/agpl-3.0.html#section13" rel="noreferrer" target="_blank">
+              section 13
+            </a>
+            . When people use your modified version over a network, you must offer them its
+            corresponding source.
           </p>
           <p>
-            That single clause is why hosted clones of AGPL apps cannot stay closed, and why
-            AGPL became the default license for self-host web apps.
+            That clause stops a modified hosted clone from staying closed, which makes AGPL a
+            common choice for self-host web apps.
           </p>
           <p>
             Two things follow that are worth stating plainly, because both get misread
@@ -369,23 +389,22 @@ export default async function SoftwareLicensesPage() {
           </p>
           <ul>
             <li>
-              Running stock AGPL software for your family or your company triggers nothing. That
-              is the intended use.
+              Unmodified upstream does not trigger AGPL section 13, even when family, coworkers,
+              or other remote users log in.
             </li>
             <li>
-              The trigger is <strong>modified</strong> code plus network access. Unmodified
-              upstream, no duty.
+              The extra network rule needs <strong>modified</strong> code plus remote interaction.
+              If you are the only user, there is no section 13 source-offer duty.
             </li>
           </ul>
         </section>
 
-        <section className="license-section" id="all-licenses">
-          <div className={`license-narrative ${proseClassName}`}>
+        <section className="license-section license-structured-section" id="all-licenses">
+          <div className={`license-narrative ${proseClassName} ${proseFlowClassName}`}>
             <h2>Every license, family by family</h2>
             <p>
-              The cards below are the detail behind the table: what each license is, the exact
-              condition behind every careful or no, one line for running the software, and one
-              for choosing a license for your own app.
+              The licenses below are grouped by family, with links to the official text and
+              popular self-hosted apps that use each one.
             </p>
           </div>
 
@@ -395,13 +414,17 @@ export default async function SoftwareLicensesPage() {
 
             return (
               <div className="license-group-block" key={group.id} id={group.id}>
-                <div className={`license-narrative ${proseClassName}`}>
+                <div className={`license-narrative ${proseClassName} ${proseFlowClassName}`}>
                   <h3 className="license-group-heading">{group.title}</h3>
                   {group.intro ? <p>{group.intro}</p> : null}
                 </div>
                 <div className="license-card-grid">
                   {groupLicenses.map((license) => (
-                    <LicenseCard key={license.id} license={license} />
+                    <LicenseCard
+                      appCount={appCounts.get(license.id) ?? 0}
+                      key={license.id}
+                      license={license}
+                    />
                   ))}
                 </div>
               </div>
@@ -409,7 +432,10 @@ export default async function SoftwareLicensesPage() {
           })}
         </section>
 
-        <section className={`license-section license-narrative ${proseClassName}`} id="choosing-a-license">
+        <section
+          className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
+          id="choosing-a-license"
+        >
           <h2>Choosing a license for your own app: the short path</h2>
           <p>If you are shipping a self-host app and want one answer rather than thirty:</p>
           <ul>
@@ -427,7 +453,7 @@ export default async function SoftwareLicensesPage() {
             </li>
             <li>
               <strong>Your real fear is a hosted closed clone.</strong> AGPL-3.0. This is the
-              self-host default for a reason.
+              common open-source choice for that goal.
             </li>
             <li>
               <strong>You want a commercial business on top.</strong> AGPL-3.0 plus a paid
@@ -453,20 +479,21 @@ export default async function SoftwareLicensesPage() {
           </p>
         </section>
 
-        <section className={`license-section license-narrative ${proseClassName}`} id="faq">
+        <section
+          className={`license-section license-narrative ${proseClassName} ${proseFlowClassName}`}
+          id="faq"
+        >
           <h2>Questions that come up</h2>
           <p>
             <strong>Does AGPL stop me self-hosting an app for my family?</strong>
             <br />
-            No. Running the software, modified or not, for yourself and your household triggers
-            nothing.
+            No for unmodified upstream, and no when you are the only user. If you modify it and someone else, including family, uses it remotely, AGPL section 13 requires you to offer that version&apos;s corresponding source.
           </p>
           <p>
             <strong>I run an unmodified AGPL app and let friends log in. Do I owe them source?</strong>
             <br />
-            The network clause is about corresponding source for the version you run. Unmodified
-            upstream means you can point at upstream. Modified code is where a real obligation
-            appears.
+            Unmodified upstream does not trigger AGPL section 13. The extra source-offer duty
+            appears when remote users interact with a modified version.
           </p>
           <p>
             <strong>
@@ -496,8 +523,16 @@ export default async function SoftwareLicensesPage() {
           <p>
             <strong>The repo has no LICENSE file. Can I use it?</strong>
             <br />
-            Treat it as all rights reserved. No license file means no permission granted,
-            whatever the README suggests.
+            First check the README, documentation, or another file for an express license grant.{" "}
+            <a
+              href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository"
+              rel="noreferrer"
+              target="_blank"
+            >
+              GitHub&apos;s licensing guidance
+            </a>{" "}
+            explains the default: if the repository grants no license anywhere, normal copyright
+            applies and you should treat it as all rights reserved.
           </p>
         </section>
       </div>

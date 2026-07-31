@@ -7,6 +7,7 @@ import { siteDoodlePlantArt } from "../art/site--doodle-plant";
 import { DomainToolsSidebar } from "./domain-tools-sidebar";
 import { coverageSummary } from "@/lib/domain/bootstrap.ts";
 import { PageTitleIcon } from "../../page-title-icon";
+import { proseSectionFlowClassName } from "../../prose";
 
 const tools = [
   {
@@ -133,7 +134,7 @@ export default function DomainToolsPage() {
 
         <hr className="domain-divider" />
 
-        <article className="domain-reference-content">
+        <article className={`domain-reference-content ${proseSectionFlowClassName}`}>
           <section>
             <h2>Is WHOIS still a thing?</h2>
             <p>

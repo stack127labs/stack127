@@ -84,11 +84,6 @@
   margin: 0;
 }
 
-.domain-reference-content section {
-  display: grid;
-  gap: var(--space-5);
-}
-
 .domain-reference-content p {
   color: var(--color-text);
   line-height: var(--line-body);

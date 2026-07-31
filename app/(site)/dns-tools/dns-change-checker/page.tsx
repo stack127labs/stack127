@@ -5,6 +5,7 @@ import { DnsChangeChecker } from "./dns-change-checker";
 import { CHANGE_RECORD_TYPES, type ChangeRecordType } from "@/lib/dns/diagnostic-types.ts";
 import styles from "../dns-diagnostics.module.css";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] ?? "" : value ?? "";
@@ -29,7 +30,7 @@ export default async function DnsChangeCheckerPage({ searchParams }: { searchPar
           <p>You changed a DNS record and now you want to know if the internet has caught up. This tool asks the source of truth, your domain's own nameservers, whether the change is live, then checks the big public resolvers to see which ones are still handing out the old cached answer. You get the authoritative records, the cached answers, the TTLs, and the raw responses side by side.</p>
         </header>
         <DnsChangeChecker initialName={first(params.name)} initialRecordType={initialType(first(params.type))} />
-        <article className="dns-reference-content">
+        <article className={`dns-reference-content ${proseSectionFlowClassName}`}>
           <section>
             <h2>How to check a DNS change</h2>
             <p>Enter the exact domain or hostname you changed, choose the record type, and run the check. If you know the new value, add it as the expected answer so the tool can tell you at a glance which servers match it. We ask your domain's authoritative nameservers first, then compare their answer with Cloudflare, Google, Quad9, and the other public resolvers available in the lookup tool.</p>

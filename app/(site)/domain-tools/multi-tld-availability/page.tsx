@@ -4,6 +4,7 @@ import { AppShell } from "../../../app-shell";
 import { DomainToolsSidebar } from "../domain-tools-sidebar";
 import { MultiTldTool } from "./multi-tld-tool";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { proseSectionFlowClassName } from "../../../prose";
 
 export default function MultiTldAvailabilityPage() {
   return (
@@ -33,7 +34,7 @@ export default function MultiTldAvailabilityPage() {
 
         <hr className="domain-divider" />
 
-        <article className="domain-reference-content">
+          <article className={`domain-reference-content ${proseSectionFlowClassName}`}>
           <section>
             <h2>How to check one name across several endings</h2>
             <p>

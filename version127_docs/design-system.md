@@ -56,10 +56,13 @@ Every page h1 highlights one editorially chosen phrase with a `<mark>` styled as
 ## Prose Layout
 
 - Put `proseClassName` on the exact reading container.
+- Add `proseFlowClassName` when that container directly owns the headings, paragraphs, lists, figures, and tables in one reading flow.
+- Add `proseSectionFlowClassName` when a structural wrapper owns prose `<section>` children. The wrapper keeps its page-level spacing; the shared class controls rhythm inside each section.
 - Use `--measure-prose` to keep line length comfortable.
 - Reading copy uses `--color-text`, not muted.
 - Use no default dividers between prose sections unless a specific reference page needs them.
 - Keep section spacing calm: enough air to scan, not enough to feel editorial or blog-like.
+- Keep gaps between forms, results, cards, navigation, and other structural regions in their owning page or component styles.
 - Write headings normally in the source text, for example `Privacy`, `What we collect`, and `External links`.
 - Links use `--color-link` with a subtle hover underline.
 

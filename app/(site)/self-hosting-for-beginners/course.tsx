@@ -5,7 +5,7 @@ import { buildBreadcrumbStructuredData } from "@/lib/seo";
 import { lessonHref, lessonNeighbors, lessons } from "@/lib/self-hosting-for-beginners";
 import { AppShell, SidebarLabel } from "../../app-shell";
 import { JsonLd } from "../../json-ld";
-import { proseClassName } from "../../prose";
+import { proseClassName, proseFlowClassName } from "../../prose";
 import { SidebarList } from "../../sidebar-list";
 import {
   sidebarPanelClassName,
@@ -138,7 +138,7 @@ export async function LessonPage({
       sidebarLabel="Self-hosting course sidebar"
     >
       <JsonLd data={buildBreadcrumbStructuredData(crumbs)} />
-      <article className={`lesson-page ${proseClassName}`}>
+      <article className={`lesson-page ${proseClassName} ${proseFlowClassName}`}>
         <header className="lesson-header">
           <h1>{renderLessonHeading(heading, lesson?.headingMark)}</h1>
           <div className="lesson-byline">

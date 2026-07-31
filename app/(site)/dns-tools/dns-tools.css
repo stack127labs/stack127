@@ -851,8 +851,6 @@
 }
 
 .dns-reference-content > section {
-  display: grid;
-  gap: var(--space-5);
   scroll-margin-top: calc(var(--top-bar-height) + 24px);
 }
 

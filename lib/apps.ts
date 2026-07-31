@@ -57,6 +57,12 @@ export type SelfHostAppsStats = {
   activeCount: number;
 };
 
+export type DirectoryLicenseCount = {
+  count: number;
+  license: string | null;
+  license_spdx_id: string | null;
+};
+
 const categoryJoin = `
   left join lateral (
     select coalesce(
@@ -251,5 +257,31 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
   return result.rows.map((app) => ({
     ...app,
     categories: normalizeCategories(app.categories),
+  }));
+}
+
+export async function getDirectoryLicenseCounts(): Promise<DirectoryLicenseCount[]> {
+  const result = await getPool().query<{
+    count: number | string;
+    license: string | null;
+    license_spdx_id: string | null;
+  }>(
+    `
+      select
+        app.license,
+        app.license_spdx_id,
+        count(*) as count
+      from public.open_projects app
+      where app.published = true
+        and app.self_hosting_status = 'self_hostable'
+      group by app.license, app.license_spdx_id
+      order by count(*) desc
+    `,
+  );
+
+  return result.rows.map((row) => ({
+    count: Number(row.count),
+    license: row.license,
+    license_spdx_id: row.license_spdx_id,
   }));
 }

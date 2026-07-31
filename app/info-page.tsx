@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { AppShell, SidebarLabel } from "./app-shell";
-import { proseClassName } from "./prose";
+import { proseClassName, proseSectionFlowClassName } from "./prose";
 import styles from "./info-page.module.css";
 import {
   sidebarPanelClassName,
@@ -56,7 +56,7 @@ export async function InfoPage({ children, slug, title, heading }: InfoPageProps
       sidebar={<InfoSidebar label={registryPage.label} />}
       sidebarLabel={`${title} sidebar`}
     >
-      <article className={`${styles.page} ${proseClassName}`}>
+      <article className={`${styles.page} ${proseClassName} ${proseSectionFlowClassName}`}>
         <h1>{heading ?? title}</h1>
         {children}
       </article>

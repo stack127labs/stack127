@@ -1,7 +1,7 @@
 /*
  * Family stylesheet for /software-licenses-for-self-hosting.
  * Full-width page: the verdict table is the index, licenses render as cards
- * two per row, and narrative sections keep the prose measure.
+ * three per row on desktop, and narrative sections keep the prose measure.
  */
 
 .license-sidebar-panel {
@@ -36,17 +36,11 @@
 }
 
 .license-page-header {
-  display: grid;
-  gap: var(--space-5);
   max-width: 880px;
 }
 
 .license-narrative {
   max-width: var(--measure-prose);
-}
-
-.license-narrative > * + * {
-  margin-top: var(--space-5);
 }
 
 .license-disclaimer {
@@ -55,9 +49,12 @@
 }
 
 .license-section {
+  scroll-margin-top: calc(var(--top-bar-height) + 16px);
+}
+
+.license-structured-section {
   display: grid;
   gap: var(--space-8);
-  scroll-margin-top: calc(var(--top-bar-height) + 16px);
 }
 
 /* The verdict table: every license, one word per decision. */
@@ -70,8 +67,8 @@
   background: var(--color-surface);
   border: 1.5px solid var(--color-border-strong);
   border-collapse: collapse;
-  font-size: var(--text-small);
-  min-width: 840px;
+  font-size: var(--text-body);
+  min-width: 980px;
   width: 100%;
 }
 
@@ -149,7 +146,7 @@
 .license-card-grid {
   display: grid;
   gap: var(--space-6);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .license-card {
@@ -187,80 +184,58 @@
   margin: 0;
 }
 
-.license-osi-note {
+.license-card-summary {
   color: var(--color-text);
-  font-size: var(--text-small);
-  font-weight: var(--weight-semibold);
+  font-size: var(--text-body);
+  line-height: var(--line-body);
   margin: 0;
 }
 
-.license-card-summary,
-.license-card-audience {
-  color: var(--color-text);
-  font-size: var(--text-small);
-  line-height: 1.55;
-  margin: 0;
+.license-card-actions {
+  align-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: auto;
 }
 
-/* The exact condition behind each careful, depends, or no: a two-column mini-table. */
-.license-conditions {
-  border-collapse: collapse;
-  font-size: var(--text-small);
-  width: 100%;
-}
-
-.license-conditions th,
-.license-conditions td {
-  border-top: 1px solid var(--color-border);
-  padding: var(--space-3) 0;
-  text-align: left;
-  vertical-align: top;
-}
-
-.license-conditions tr:last-child th,
-.license-conditions tr:last-child td {
-  border-bottom: 1px solid var(--color-border);
-}
-
-.license-conditions th {
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-weight: var(--weight-regular);
-  padding-right: var(--space-6);
-  white-space: nowrap;
-  width: 1%;
-}
-
-.license-conditions td {
-  color: var(--color-text);
-  line-height: 1.5;
-}
-
+.license-apps-button,
 .license-official-button {
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-lg);
   color: var(--color-text);
-  font-size: var(--text-small);
+  font-size: var(--text-body);
   font-weight: var(--weight-semibold);
   justify-self: start;
   padding: 6px 14px;
 }
 
+.license-apps-button {
+  color: var(--color-accent-text);
+}
+
+.license-apps-button:hover,
 .license-official-button:hover {
   border-color: var(--color-accent);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .license-page {
     gap: var(--space-12);
     padding: var(--space-10) 22px 54px;
   }
 
   .license-card-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .license-card {
     padding: var(--space-8);
+  }
+}
+
+@media (max-width: 640px) {
+  .license-card-grid {
+    grid-template-columns: 1fr;
   }
 }

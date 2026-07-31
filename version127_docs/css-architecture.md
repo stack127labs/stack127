@@ -38,7 +38,9 @@ Prefer CSS Modules for new components and new single-page work. Use a family sty
 
 Reading and operating are different jobs.
 
-Long explanations use `proseClassName` from `app/prose.ts`. It provides a readable measure, calm line height, and consistent headings, lists, links, inline code, and keyboard keys. `proseLedeClassName` is available for the opening paragraph.
+Long explanations use `proseClassName` from `app/prose.ts`. It provides a readable measure, calm line height, and consistent headings, lists, links, inline code, and keyboard keys. Add `proseFlowClassName` to a flat reading container so vertical rhythm comes from the shared prose primitive instead of a route stylesheet. Add `proseSectionFlowClassName` to a structural wrapper whose direct `<section>` children each contain prose. `proseLedeClassName` is available for the opening paragraph.
+
+Shared prose flow controls spacing between reading elements and the stronger break before later headings. Route and component styles continue to own structural gaps between areas such as forms, results, cards, navigation, and separate article sections.
 
 Body text has exactly two sizes on the whole site: `--text-body` for prose, navigation, controls, table cells, and tool results, and `--text-small` only for card descriptions, metadata rows, captions, and sidebar filter items. Do not introduce another body size in a page or component stylesheet.
 

@@ -4,6 +4,7 @@ import { DnsToolsSidebar } from "../dns-tools-sidebar";
 import { NameserverChecker } from "./nameserver-checker";
 import styles from "../dns-diagnostics.module.css";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] ?? "" : value ?? "";
@@ -29,7 +30,7 @@ export default async function NameserverCheckerPage({ searchParams }: { searchPa
           </p>
         </header>
         <NameserverChecker initialName={first(params.name)} />
-        <article className="dns-reference-content">
+        <article className={`dns-reference-content ${proseSectionFlowClassName}`}>
           <section>
             <h2>How to run the check</h2>
             <p>

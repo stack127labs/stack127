@@ -4,6 +4,7 @@ import { DnsToolsSidebar } from "../dns-tools-sidebar";
 import { SoaChecker } from "./soa-checker";
 import styles from "../dns-diagnostics.module.css";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] ?? "" : value ?? "";
@@ -28,7 +29,7 @@ export default async function SoaCheckerPage({ searchParams }: { searchParams: P
         </p>
       </header>
       <SoaChecker initialName={first(params.name)} />
-      <article className="dns-reference-content">
+        <article className={`dns-reference-content ${proseSectionFlowClassName}`}>
         <section>
           <h2>How the comparison works</h2>
           <p>
