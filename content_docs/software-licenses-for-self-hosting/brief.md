@@ -10,8 +10,9 @@ Answer their exact question in seconds: can I run this at home, at work, or as a
 
 ## Show vs say
 
-- The page is full width with no sidebar: the verdict table is the index and the answer.
-- One verdict table: 32 licenses, one-word verdicts per decision, semantic colors, anchor-linked names. Followed by plain bullets explaining what each column asks.
-- Three marker figures carry the concepts: the license spectrum (obligations grow from permissive to source-available), how copyleft spreads through a fork to a hosted service, and a decision figure for when copyleft triggers.
-- Licenses render as compact cards, two per row, grouped by family with a one-line family intro: summary, condition details behind any non-yes verdict, one sentence for operators, one for creators, and a small official-text button. No common-mistake blocks.
-- Sentences carry the narrative between these artifacts: a hero that meets the reader at the label they just saw, a scope note naming what we deliberately leave out (murky and hostile licenses), and transitions that hand off from table to concepts to families. No section exists without a reason the reader just acquired.
+- Left sidebar is the license index: start-here section links, then license anchors grouped by family in table order. Every license has a stable anchor (`#mit`, `#agpl-3-0`, `#busl-1-1`) because directory cards link in by SPDX id.
+- Short opening sections set the frame in prose: the four questions a license answers, three facts worth internalising, and the open source vs source-available line.
+- One verdict table: 32 licenses, one-word values per decision (`yes`, `careful`, `depends`, `no`), an OSI column, semantic colors, anchor-linked names. A "How to read it" block defines the columns and the value vocabulary; the table reports what the license permits, not what a legal department will approve.
+- Two marker figures carry the concepts: the four families with their member licenses (EUPL sits with network copyleft, not weak copyleft), and a decision figure for when copyleft triggers (GPL ships, AGPL hosts).
+- Licenses render as compact cards, two per row, grouped by family with a one-line family intro: an OSI standing line, summary, a two-column condition mini-table for the exact rule behind every careful or no, one sentence for operators, one for creators, a common mistake where one exists, and a small official-text button. Pattern cards (dual licensing, community + enterprise, mixed trees) skip the condition table and the button.
+- The page closes with two prose sections that earn their length: a short-path decision list for creators choosing a license, and the questions that actually come up (AGPL at home, internal GPL patches, no LICENSE file).

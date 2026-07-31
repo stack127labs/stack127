@@ -16,16 +16,16 @@ export const softwareLicensesForSelfHostingLicenseFamiliesArt = `<svg xmlns="htt
 <text x="250.25" y="70" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">MPL-2.0</text>
 <text x="250.25" y="87" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">LGPL-2.1/3.0</text>
 <text x="250.25" y="104" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">EPL-2.0</text>
-<text x="250.25" y="121" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">EUPL-1.2</text>
 <text x="409.75" y="46" text-anchor="middle" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:12.5px;font-weight:500;fill:var(--ma-note,#ffb757)">copyleft</text>
 <text x="409.75" y="70" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">GPL-2.0</text>
 <text x="409.75" y="87" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">GPL-3.0</text>
 <text x="409.75" y="104" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">AGPL-3.0</text>
-<text x="409.75" y="121" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">OSL-3.0</text>
+<text x="409.75" y="121" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">EUPL-1.2</text>
+<text x="409.75" y="138" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">OSL-3.0</text>
 <text x="569.25" y="46" text-anchor="middle" style="font-family:var(--font-marker),'Shantell Sans','Comic Sans MS',cursive;font-size:12.5px;font-weight:500;fill:var(--ma-warn,#ff8a80)">restricted</text>
 <text x="569.25" y="70" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">SSPL</text>
 <text x="569.25" y="87" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">Elastic-2.0</text>
-<text x="569.25" y="104" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">BSL 1.1</text>
+<text x="569.25" y="104" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">BUSL-1.1</text>
 <text x="569.25" y="121" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">FSL</text>
 <text x="569.25" y="138" text-anchor="middle" style="font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:10.5px;font-weight:500;fill:var(--ma-sub,#9d9c95)">PolyForm</text>
 </svg>`;

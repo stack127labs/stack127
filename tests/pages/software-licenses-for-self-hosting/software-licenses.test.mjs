@@ -15,7 +15,7 @@ test("license page has intro copy and grouped licenses", () => {
   assert.ok(licenses.length >= 25);
 });
 
-test("every concept and license has a unique stable id", () => {
+test("every group and license has a unique stable id", () => {
   const ids = [
     ...licenses.map((entry) => entry.id),
     ...licenseGroups.map((entry) => entry.id),
@@ -26,34 +26,28 @@ test("every concept and license has a unique stable id", () => {
   }
 });
 
-test("license entries include the self-host decision fields", () => {
-  const requiredFactKeys = [
-    "osiOpenSource",
-    "homeSelfHost",
-    "commercialInternal",
-    "modify",
-    "redistribute",
-    "offerAsService",
-    "copyleft",
-    "notices",
-  ];
-
+test("license entries carry the card fields", () => {
   for (const license of licenses) {
     assert.ok(license.name, `missing name for ${license.id}`);
     assert.ok(license.sidebarLabel, `missing sidebarLabel for ${license.id}`);
     assert.ok(license.summary.length > 20, `short summary for ${license.id}`);
     assert.ok(license.forUsers.length >= 1, `missing forUsers for ${license.id}`);
     assert.ok(license.forCreators.length >= 1, `missing forCreators for ${license.id}`);
-    assert.ok(license.officialUrl.startsWith("http"), `bad officialUrl for ${license.id}`);
     assert.ok(Array.isArray(license.aliases), `aliases missing for ${license.id}`);
-    for (const key of requiredFactKeys) {
-      assert.ok(String(license.facts[key] ?? "").trim(), `${license.id} missing fact ${key}`);
+    if (license.officialUrl !== null) {
+      assert.ok(license.officialUrl.startsWith("http"), `bad officialUrl for ${license.id}`);
+    }
+    assert.ok(Array.isArray(license.conditions), `conditions missing for ${license.id}`);
+    for (const condition of license.conditions) {
+      assert.ok(condition.label.trim(), `${license.id} has a condition without a label`);
+      assert.ok(condition.text.trim(), `${license.id} has a condition without text`);
     }
   }
 });
 
 test("every license carries one-word verdicts for the table", () => {
-  const allowed = new Set(["yes", "no", "careful"]);
+  const allowed = new Set(["yes", "no", "careful", "depends"]);
+  const osiAllowed = new Set(["yes", "no", "pd", "n.a.", "depends"]);
   const verdictKeys = ["selfHost", "companyUse", "service", "modify", "redistribute"];
 
   for (const license of licenses) {
@@ -61,9 +55,13 @@ test("every license carries one-word verdicts for the table", () => {
     for (const key of verdictKeys) {
       assert.ok(
         allowed.has(license.verdicts[key]),
-        `${license.id} verdict ${key} is "${license.verdicts[key]}", expected yes/no/careful`,
+        `${license.id} verdict ${key} is "${license.verdicts[key]}", expected yes/no/careful/depends`,
       );
     }
+    assert.ok(
+      osiAllowed.has(license.verdicts.osi),
+      `${license.id} osi verdict is "${license.verdicts.osi}"`,
+    );
     assert.ok(
       String(license.verdicts.copyleft ?? "").trim(),
       `${license.id} missing copyleft class`,
@@ -83,7 +81,7 @@ test("core self-host licenses are present", () => {
     "lgpl-3-0",
     "sspl-1-0",
     "elastic-license-2-0",
-    "bsl-1-1",
+    "busl-1-1",
     "fsl",
     "polyform-noncommercial",
     "proprietary-eula",
@@ -98,21 +96,23 @@ test("license prose avoids em and en dashes", () => {
   const chunks = [
     licensePage.title,
     licensePage.lede,
+    licensePage.ledeFollowUp,
     licensePage.notLegalAdvice,
     ...licenseGroups.map((entry) => entry.intro ?? ""),
     ...licenses.flatMap((entry) => [
       entry.name,
       entry.summary,
+      entry.osiNote ?? "",
       entry.commonMistake ?? "",
       entry.forUsers,
       entry.forCreators,
-      ...Object.values(entry.facts),
+      ...entry.conditions.flatMap((condition) => [condition.label, condition.text]),
       ...Object.values(entry.verdicts),
     ]),
   ].join("\n");
 
-  assert.equal(chunks.includes("\u2014"), false, "found em dash");
-  assert.equal(chunks.includes("\u2013"), false, "found en dash");
+  assert.equal(chunks.includes("—"), false, "found em dash");
+  assert.equal(chunks.includes("–"), false, "found en dash");
 });
 
 test("findLicenseAnchor maps directory labels to section ids", () => {
@@ -120,6 +120,7 @@ test("findLicenseAnchor maps directory labels to section ids", () => {
   assert.equal(findLicenseAnchor("AGPL-3.0"), "agpl-3-0");
   assert.equal(findLicenseAnchor("SSPL-1.0"), "sspl-1-0");
   assert.equal(findLicenseAnchor("Elastic License 2.0"), "elastic-license-2-0");
+  assert.equal(findLicenseAnchor("BSL 1.1"), "busl-1-1");
   assert.equal(findLicenseAnchor("AGPL-3.0/MIT"), "agpl-3-0");
   assert.equal(findLicenseAnchor("totally-unknown-license-xyz"), null);
 });
