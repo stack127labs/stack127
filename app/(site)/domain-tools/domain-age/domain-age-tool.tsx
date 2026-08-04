@@ -102,9 +102,9 @@ export function DomainAgeTool({ initialName = "" }: { initialName?: string }) {
                     registry records a re-registration on {formatDate(result.reregistrationDate)}.
                   </p>
                   <p>
-                    The name was dropped at some point and picked up again. The current registration
-                    is {humanDuration(ageDays)} old even though the name itself has existed for longer. That difference
-                    matters if you are judging a site by its age.
+                    This means the domain was registered subsequently to its initial registration. The current
+                    registration is {humanDuration(ageDays)} old. This event does not say why the domain was registered
+                    again or whether its owner changed.
                   </p>
                 </>
               ) : (
@@ -114,8 +114,8 @@ export function DomainAgeTool({ initialName = "" }: { initialName?: string }) {
                   </p>
                   <p>
                     The registration was created on {formatDate(result.registrationDate)}. The registry does not publish
-                    a re-registration date for it, which means we cannot tell whether the name has been held
-                    continuously since then or dropped and picked up again at some point.
+                    a re-registration date for it. This current record does not reveal whether the domain existed under
+                    an earlier registration before that date.
                   </p>
                 </>
               )}
@@ -135,8 +135,9 @@ export function DomainAgeTool({ initialName = "" }: { initialName?: string }) {
               />
               {result.lastChangedDate ? (
                 <p>
-                  The record itself last changed on {formatDate(result.lastChangedDate)}. A domain registered years ago
-                  but edited yesterday is a different situation from one nobody has touched since.
+                  The registry says information in this registration record last changed on{" "}
+                  {formatDate(result.lastChangedDate)}. RDAP does not identify what changed, why it changed, or whether
+                  the website itself changed.
                 </p>
               ) : null}
             </section>

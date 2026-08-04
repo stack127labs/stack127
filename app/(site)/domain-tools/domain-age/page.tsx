@@ -1,15 +1,19 @@
 import { CalendarClock } from "lucide-react";
-import Link from "next/link";
 import { AppShell } from "../../../app-shell";
-import { DomainToolsSidebar } from "../domain-tools-sidebar";
-import { DomainAgeTool } from "./domain-age-tool";
 import { PageTitleIcon } from "../../../page-title-icon";
 import { proseSectionFlowClassName } from "../../../prose";
+import { DomainToolsSidebar } from "../domain-tools-sidebar";
+import { DomainAgeTool } from "./domain-age-tool";
 
 type SearchParams = Record<string, string | string[] | undefined>;
-const first = (value: string | string[] | undefined) => (Array.isArray(value) ? (value[0] ?? "") : (value ?? ""));
+const first = (value: string | string[] | undefined) =>
+  Array.isArray(value) ? (value[0] ?? "") : (value ?? "");
 
-export default async function DomainAgePage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+export default async function DomainAgePage({
+  searchParams,
+}: {
+  searchParams: Promise<SearchParams>;
+}) {
   const params = await searchParams;
 
   return (
@@ -25,14 +29,16 @@ export default async function DomainAgePage({ searchParams }: { searchParams: Pr
             <PageTitleIcon>
               <CalendarClock strokeWidth={2.2} />
             </PageTitleIcon>{" "}
-            Domain <mark>age</mark> checker: how old is a domain name?
+            Domain <mark>age</mark> checker: how old is a domain?
           </h1>
           <p>
-            Find out how old a domain is and when it was first registered, taken
-            straight from the registry that runs the ending. You get the exact
-            creation date, the age in plain language, and something most tools skip:
-            whether the name was ever dropped and re-registered, which resets the
-            clock and changes what the age actually means.
+            Enter a domain name to see when its current registration was created
+            and how old it is.
+          </p>
+          <p>
+            The result shows the exact registration date, the domain’s age in
+            plain language and, when the registry publishes enough information,
+            whether the domain may have expired and been registered again.
           </p>
         </header>
 
@@ -40,155 +46,152 @@ export default async function DomainAgePage({ searchParams }: { searchParams: Pr
 
         <hr className="domain-divider" />
 
-          <article className={`domain-reference-content ${proseSectionFlowClassName}`}>
+        <article
+          className={`domain-reference-content ${proseSectionFlowClassName}`}
+        >
           <section>
-            <h2>What is domain age?</h2>
+            <h2>What is a domain age checker?</h2>
+            <p>A domain age checker answers a simple question:</p>
+            <blockquote>
+              <p>
+                When was this domain registered, and how old is its current
+                registration?
+              </p>
+            </blockquote>
             <p>
-              Domain age is the time since a domain name was registered, measured from
-              the creation date in the registry&apos;s record. If a name was registered
-              on 4 March 2003 and it is now 2026, the domain is 23 years old.
+              For example, if a domain was registered on 15 March 2005, the
+              result might show:
             </p>
-            <p>
-              That sounds simple, and the number is simple. What it means is where
-              things get interesting, because the creation date records one specific
-              event and people routinely read four different things into it.
-            </p>
-          </section>
-
-          <section>
-            <h2>How do you check a domain&apos;s age?</h2>
-            <p>
-              Enter the domain above. You will get the age in years and months, the
-              exact registration date, and a bar showing how far through its current
-              term the registration is.
-            </p>
-            <p>
-              A full URL or a subdomain works fine, it gets reduced to the registered
-              name automatically. Nothing to sign up for.
-            </p>
-          </section>
-
-          <section>
-            <h2>Why does domain age matter?</h2>
-            <p>Four groups of people check this, for genuinely different reasons.</p>
             <ul>
-              <li>
-                <strong>Spotting fraud.</strong> Scam operations register domains in
-                bulk and abandon them within weeks. A shop that emailed you today on a
-                domain registered nine days ago is worth treating carefully. This is the
-                strongest legitimate use.
-              </li>
-              <li>
-                <strong>Buying a domain.</strong> Age is part of what you are paying for
-                in the aftermarket, so it is worth verifying rather than taking the
-                seller&apos;s word.
-              </li>
-              <li>
-                <strong>Email deliverability.</strong> Spam filters weigh how long a
-                sending domain has existed. A brand new domain sending volume gets
-                treated with more suspicion than an established one.
-              </li>
-              <li>
-                <strong>SEO and competitor research.</strong> An older domain in a niche
-                has usually accumulated more links and history. Age itself is not a
-                ranking factor, but it correlates with things that are.
-              </li>
+              <li>Registered: 15 March 2005</li>
+              <li>Domain age: 21 years</li>
+              <li>Registration expires: 15 March 2027</li>
+            </ul>
+            <p>
+              The date comes from the registry responsible for that domain
+              ending.
+            </p>
+          </section>
+
+          <section>
+            <h2>Why would you check a domain’s age?</h2>
+
+            <h3>Check a suspicious website</h3>
+            <p>
+              Imagine receiving an email from a company claiming it has operated
+              for 15 years.
+            </p>
+            <p>
+              You check its domain and discover that it was registered twelve
+              days ago.
+            </p>
+            <p>
+              That does not automatically prove the website is a scam, but the
+              contradiction is a useful warning sign.
+            </p>
+
+            <h3>Verify a domain before buying it</h3>
+            <p>
+              A seller might advertise a domain as being 20 years old. Checking
+              the registration date helps you confirm whether the registry record
+              supports that claim.
+            </p>
+            <p>
+              It cannot tell you whether the seller owned the domain for all those
+              years.
+            </p>
+
+            <h3>Research a business or competitor</h3>
+            <p>
+              The registration date provides useful context when researching a
+              company, website or competing product.
+            </p>
+            <p>
+              A recently registered domain may belong to a new project. An older
+              domain may have been used by several unrelated businesses during
+              its lifetime.
+            </p>
+
+            <h3>Understand the domain’s SEO history</h3>
+            <p>
+              An older domain may have accumulated links, mentions and search
+              history.
+            </p>
+            <p>
+              Age itself does not automatically improve Google rankings. What
+              happened on the domain during those years matters much more than
+              the number of years it has existed.
+            </p>
+          </section>
+
+          <section>
+            <h2>What does domain age actually mean?</h2>
+            <p>
+              Domain age normally means the time since the creation date shown in
+              the domain’s current registry record.
+            </p>
+            <p>It does not necessarily tell you:</p>
+            <ul>
+              <li>When the website launched</li>
+              <li>When the business started</li>
+              <li>How long the current owner has owned the domain</li>
+              <li>Whether the domain always hosted the same content</li>
+              <li>Whether someone else previously used the domain</li>
+            </ul>
+            <p>
+              A domain’s registration date, website history, business age and
+              ownership history are four different things.
+            </p>
+          </section>
+
+          <section>
+            <h2>What happens if a domain expires?</h2>
+            <p>
+              Suppose a domain was originally registered in 2005, expired in 2024
+              and was registered again by someone else in 2026.
+            </p>
+            <p>
+              Its current registry record may show a creation date in 2026. The
+              previous 19 years may no longer appear in the current registration
+              data.
+            </p>
+            <p>
+              Some registries publish information that helps identify a
+              re-registration. Many do not. When the registry does not provide
+              enough information, the tool will say that the domain’s earlier
+              history cannot be determined.
+            </p>
+          </section>
+
+          <section>
+            <h2>What does the result show?</h2>
+            <p>
+              Enter a domain such as <code>version127.com</code>. The result can
+              include:
+            </p>
+            <ul>
+              <li>The exact registration date</li>
+              <li>The age in plain language</li>
+              <li>The current expiration date, when published</li>
+              <li>The registry responsible for the domain ending</li>
+              <li>Re-registration information, when available</li>
+              <li>A clear explanation when no creation date is published</li>
             </ul>
           </section>
 
           <section>
-            <h2>What the creation date actually records</h2>
+            <h2>Does an old domain mean a website is trustworthy?</h2>
+            <p>No.</p>
             <p>
-              It records when the name was first registered by anyone. Not when the site
-              launched, not when the business started, and not when the current owner
-              bought it. Those are four different dates and only one of them is public.
+              Old domains can be sold, abandoned and repurposed. A website
+              operating on a 20-year-old domain may have launched only a few
+              months ago.
             </p>
             <p>
-              A domain registered in 2001 may have been sold three times since. There is
-              no field anywhere in the public record marking when a name changed hands,
-              so a fifteen year old domain and its current owner can have nothing to do
-              with each other.
-            </p>
-          </section>
-
-          <section>
-            <h2>What happens to domain age when a name is dropped?</h2>
-            <p>
-              This is the one that catches people out. If a domain expires and nobody
-              renews it, it eventually gets released and someone else can register it.
-              When that happens the clock usually starts again. A name that existed
-              happily for fifteen years, lapsed, and was picked up last month will often
-              report last month.
-            </p>
-            <p>
-              Some registries publish a separate re-registration date. When they do, this
-              tool shows both, so you can see the name is old but the current
-              registration is not. Most registries do not publish it, and in that case
-              the honest answer is that we cannot tell, which is what the result says
-              rather than implying the name has been held continuously.
-            </p>
-          </section>
-
-          <section>
-            <h2>Does an old domain mean a site is trustworthy?</h2>
-            <p>
-              No, and this is worth internalising. Old domains get bought and repurposed
-              precisely because age reads as legitimacy, and buying an aged domain for
-              that reason is a normal thing people do. Meanwhile the overwhelming
-              majority of newly registered domains belong to someone starting an ordinary
-              project.
-            </p>
-            <p>
-              Where age genuinely helps is as a contradiction detector. A company page
-              claiming two decades of history on a domain registered eight months ago is
-              a real signal worth acting on. &quot;New domain, therefore suspicious&quot;
-              is not.
-            </p>
-          </section>
-
-          <section>
-            <h2>How to see a domain&apos;s real history</h2>
-            <p>
-              You need a source that has been saving copies over time, which a
-              registration lookup is not. This reads the current record and nothing else.
-            </p>
-            <p>
-              For what a site looked like in the past,{" "}
-              <a href="https://web.archive.org">the Internet Archive</a> is the practical
-              option, and it will usually tell you more about whether a business is what
-              it claims than any registration date will. If you want to know when the
-              domain last changed hands, the registrar is the only party who knows and
-              they will not tell you.
-            </p>
-          </section>
-
-          <section>
-            <h2>Why does this tool sometimes show no date?</h2>
-            <p>
-              Some registries do not publish a creation date at all, even when they
-              answer every other question. Several country endings work this way. When
-              that happens you get a clear statement that no date is published, rather
-              than a blank space or a zero.
-            </p>
-            <p>
-              Some endings publish no registration data at all, and those cannot be
-              checked by any tool, including this one. The{" "}
-              <Link href="/domain-tools/tld-directory">TLD directory</Link> lists which
-              ones.
-            </p>
-          </section>
-
-          <section>
-            <h2>Related tools</h2>
-            <p>
-              For the full record behind the date, use the{" "}
-              <Link href="/domain-tools/domain-lookup">domain registration lookup</Link>.
-              To see when a domain expires and what happens afterwards, use the{" "}
-              <Link href="/domain-tools/domain-expiry">expiry checker</Link>. If you are
-              checking a suspicious link, the{" "}
-              <Link href="/domain-tools/punycode-converter">punycode converter</Link>{" "}
-              shows whether the name contains characters designed to imitate another
-              domain.
+              Domain age is most useful as a contradiction detector. If a company
+              claims decades of history but its domain was registered recently,
+              that is worth investigating. A new domain by itself is not proof
+              that anything is wrong.
             </p>
           </section>
         </article>

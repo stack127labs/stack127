@@ -5,6 +5,8 @@ import { useCallback, useState, type FormEvent, type ReactNode } from "react";
 import { websiteFaviconUrl } from "@/lib/dns/favicon.ts";
 import type { DomainRegistration } from "@/lib/domain/types.ts";
 
+export { humanDuration } from "@/lib/domain/duration.ts";
+
 export type Tone = "good" | "warn" | "bad" | "quiet";
 
 /**
@@ -222,25 +224,6 @@ export function daysBetween(value: string | null, now = new Date()) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return null;
   return Math.round((date.getTime() - now.getTime()) / 86_400_000);
-}
-
-/** "3 weeks", "2 years, 4 months". Plain language rather than a raw day count. */
-export function humanDuration(days: number) {
-  const absolute = Math.abs(days);
-  if (absolute < 1) return "less than a day";
-  if (absolute < 14) return `${absolute} day${absolute === 1 ? "" : "s"}`;
-  if (absolute < 60) {
-    const weeks = Math.round(absolute / 7);
-    return `${weeks} week${weeks === 1 ? "" : "s"}`;
-  }
-  if (absolute < 365) {
-    const months = Math.round(absolute / 30.44);
-    return `${months} month${months === 1 ? "" : "s"}`;
-  }
-  const years = Math.floor(absolute / 365.25);
-  const months = Math.round((absolute - years * 365.25) / 30.44);
-  if (!months) return `${years} year${years === 1 ? "" : "s"}`;
-  return `${years} year${years === 1 ? "" : "s"}, ${months} month${months === 1 ? "" : "s"}`;
 }
 
 /** Every result says where it came from and when, including whether it was cached. */

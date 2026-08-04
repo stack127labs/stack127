@@ -5,6 +5,8 @@
     "content_docs/domain-tools/domain-age"
   ],
   "tests": [
+    "tests/pages/domain-tools/domain-age/content.test.mjs",
+    "tests/pages/domain-tools/shared/duration.test.mjs",
     "tests/pages/domain-tools/shared/normalize.test.mjs",
     "tests/pages/domain-tools/shared/public-suffix.test.mjs"
   ],
