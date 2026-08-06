@@ -1,4 +1,7 @@
-import { getUmamiUpstreamUrls } from "@/lib/analytics";
+import {
+  getUmamiUpstreamUrls,
+  prepareUmamiEventBody,
+} from "@/lib/analytics";
 
 export const dynamic = "force-dynamic";
 
@@ -31,8 +34,9 @@ export async function POST(request: Request) {
   }
 
   try {
+    const body = prepareUmamiEventBody(await request.text(), request.headers);
     const response = await fetch(upstream.eventUrl, {
-      body: await request.arrayBuffer(),
+      body,
       headers,
       method: "POST",
     });
