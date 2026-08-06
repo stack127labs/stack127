@@ -18,6 +18,6 @@ test("DNS tools hub shows only tools that are available", async ({ page }) => {
   await expect(page.getByText("I only need to see the current records.", { exact: true })).toBeVisible();
   await expect(page.getByText("A DNS change still looks old.", { exact: true })).toBeVisible();
   await expect(page.getByText("A certificate will not issue.", { exact: true })).toBeVisible();
-  await expect(page.locator('[data-app-main] a[href="/dns-tools/dns-lookup"]')).toBeVisible();
+  await expect(page.locator('[data-app-main] a[href="/dns-lookup"]')).toBeVisible();
   await expect(page.getByRole("heading", { name: "Planned next" })).toHaveCount(0);
 });

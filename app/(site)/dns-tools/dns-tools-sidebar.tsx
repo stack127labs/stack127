@@ -21,13 +21,13 @@ type DnsToolsSidebarProps = {
 const iconProps = { size: 15, strokeWidth: 2.2 } as const;
 
 const availableDnsTools = [
-  { href: "/dns-tools/dns-lookup", icon: <Search {...iconProps} />, id: "lookup", label: "DNS lookup" },
-  { href: "/dns-tools/dns-trace", icon: <Route {...iconProps} />, id: "trace", label: "DNS Trace Explorer" },
-  { href: "/dns-tools/dns-change-checker", icon: <RefreshCw {...iconProps} />, id: "change", label: "DNS Change Checker" },
-  { href: "/dns-tools/nameserver-checker", icon: <Server {...iconProps} />, id: "nameserver", label: "Nameserver Delegation Checker" },
-  { href: "/dns-tools/dnssec-checker", icon: <ShieldCheck {...iconProps} />, id: "dnssec", label: "DNSSEC Chain Checker" },
-  { href: "/dns-tools/soa-checker", icon: <FileClock {...iconProps} />, id: "soa", label: "SOA Consistency Checker" },
-  { href: "/dns-tools/caa-checker", icon: <FileKey {...iconProps} />, id: "caa", label: "CAA Policy Checker" },
+  { href: "/dns-lookup", icon: <Search {...iconProps} />, id: "lookup", label: "DNS lookup" },
+  { href: "/dns-trace", icon: <Route {...iconProps} />, id: "trace", label: "DNS Trace Explorer" },
+  { href: "/dns-change-checker", icon: <RefreshCw {...iconProps} />, id: "change", label: "DNS Change Checker" },
+  { href: "/nameserver-checker", icon: <Server {...iconProps} />, id: "nameserver", label: "Nameserver Delegation Checker" },
+  { href: "/dnssec-checker", icon: <ShieldCheck {...iconProps} />, id: "dnssec", label: "DNSSEC Chain Checker" },
+  { href: "/soa-checker", icon: <FileClock {...iconProps} />, id: "soa", label: "SOA Consistency Checker" },
+  { href: "/caa-checker", icon: <FileKey {...iconProps} />, id: "caa", label: "CAA Policy Checker" },
 ] as const;
 
 /** How many DNS tools exist now; the home page card shows this count. */

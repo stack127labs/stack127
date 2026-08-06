@@ -21,6 +21,9 @@ Version127 is a compact technical directory site. It should grow into multiple r
 ## Routing
 
 - Pages are repo-owned Next.js routes under `app/`.
+- Canonical tool and reference URLs are flat, for example `/dns-lookup` and `/zfs-capacity-calculator`. Collection pages such as `/dns-tools`, `/domain-tools`, and `/storage-tools` organize discovery but do not own child URL namespaces.
+- Tool route source lives under the non-URL route group `app/(site)/(tools)/<tool-slug>/`. A tool may appear in several collections while keeping one route, docs folder, and ownership manifest.
+- Do not create new tool URLs under `/<collection>/<tool-slug>`. Add the flat tool to every relevant collection instead.
 - Do not use Supabase-backed dynamic routing for normal site pages unless the user explicitly asks for it.
 - Keep page URLs stable and human-readable.
 - Public publication is controlled only by `public.version127_pages`.
@@ -33,6 +36,7 @@ Version127 is a compact technical directory site. It should grow into multiple r
 ## Docs
 
 - Page-specific docs live under `content_docs/<page-slug>/`.
+- Tool docs use only the flat tool slug, even when a collection links to the tool.
 - The folder name must match the page slug, for example `content_docs/self-host-apps/`.
 - Sitewide docs live under `version127_docs/`.
 - Do not recreate the old `content/` prose workflow.

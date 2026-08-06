@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { cache } from "react";
 import { getPool } from "./db";
 import { absoluteUrl, siteName, siteUrl } from "./seo";
+import { homePageSlugs } from "./page-registry-helpers";
 
 export type Version127Page = {
   slug: string;
@@ -19,7 +20,45 @@ export type Version127Page = {
   sitemap_priority: number | string;
 };
 
-export { isHomeFeaturePage, isHomeVisiblePage, isMainPageSlug } from "./page-registry-helpers";
+export {
+  isHomeFeaturePage,
+  isHomePageSlug,
+  isHomeVisiblePage,
+  isMainPageSlug,
+} from "./page-registry-helpers";
+
+// Keep flat routes live while the registry migration and application release
+// roll out independently. Remove this compatibility map after production has
+// been verified on the flat slugs.
+const legacyToolSlugByFlatSlug = new Map<string, string>([
+  ...[
+    "caa-checker",
+    "dns-change-checker",
+    "dns-lookup",
+    "dns-trace",
+    "dnssec-checker",
+    "nameserver-checker",
+    "soa-checker",
+  ].map((slug) => [slug, `dns-tools/${slug}`] as const),
+  ...[
+    "domain-age",
+    "domain-availability",
+    "domain-expiry",
+    "domain-lookup",
+    "domain-owner",
+    "domain-registrar",
+    "domain-report",
+    "epp-status-codes",
+    "multi-tld-availability",
+    "punycode-converter",
+    "tld-directory",
+    "transfer-readiness",
+  ].map((slug) => [slug, `domain-tools/${slug}`] as const),
+]);
+
+const flatToolSlugByLegacySlug = new Map(
+  [...legacyToolSlugByFlatSlug].map(([flat, legacy]) => [legacy, flat]),
+);
 
 export type PagePublicationState =
   | {
@@ -87,12 +126,24 @@ function ancestorSlugs(slug: string) {
 }
 
 export const getPublishedPage = cache(async (slug: string) => {
-  const result = await getPool().query<Version127Page>(
+  const pool = getPool();
+  const result = await pool.query<Version127Page>(
     `${publishedPageSelect} and slug = $1 limit 1`,
     [slug],
   );
 
-  return result.rows[0] ?? null;
+  if (result.rows[0]) return result.rows[0];
+
+  const legacySlug = legacyToolSlugByFlatSlug.get(slug);
+  if (!legacySlug) return null;
+
+  const legacyResult = await pool.query<Version127Page>(
+    `${publishedPageSelect} and slug = $1 limit 1`,
+    [legacySlug],
+  );
+  const legacyPage = legacyResult.rows[0];
+
+  return legacyPage ? { ...legacyPage, slug } : null;
 });
 
 export const getRequiredPublishedPage = cache(async (slug: string) => {
@@ -149,21 +200,36 @@ export const getPublishedSitemapPages = cache(async () => {
     `${publishedPageSelect} order by slug asc`,
   );
 
-  return result.rows;
+  const pagesBySlug = new Map<string, Version127Page>();
+
+  for (const page of result.rows) {
+    const slug = flatToolSlugByLegacySlug.get(page.slug) ?? page.slug;
+    const normalizedPage = { ...page, slug };
+    const currentPage = pagesBySlug.get(slug);
+
+    // Prefer an already-migrated canonical row if both rollout states exist.
+    if (!currentPage || page.slug === slug) {
+      pagesBySlug.set(slug, normalizedPage);
+    }
+  }
+
+  return [...pagesBySlug.values()].sort((left, right) =>
+    left.slug.localeCompare(right.slug),
+  );
 });
 
 /**
- * Published root pages for site-wide navigation (home sidebar, etc.).
- * Excludes the home row and any child route (slug contains `/`).
+ * Curated published pages for site-wide home navigation. URL depth is not
+ * navigation metadata because tool pages intentionally use flat routes.
  */
 export const getMainPublishedPages = cache(async () => {
   const result = await getPool().query<Version127Page>(
     `
       ${publishedPageSelect}
-        and slug <> ''
-        and position('/' in slug) = 0
+        and slug = any($1::text[])
       order by sitemap_priority desc, label asc
     `,
+    [homePageSlugs],
   );
 
   return result.rows;

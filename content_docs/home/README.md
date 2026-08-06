@@ -11,7 +11,7 @@ Home is the product map for Version127: a design-system sidebar of main publishe
 - Same shell pattern as course and licenses: `directory-filter-panel`, heading `h1`, padded nav links.
 - Heading is `version127`.
 - Built from `public.version127_pages` via `getMainPublishedPages()`.
-- Main pages only: published, non-empty slug, no `/` in the slug (no child routes).
+- Home eligibility is the explicit `homePageSlugs` collection in `lib/page-registry-helpers.ts`. URL depth is not navigation metadata because canonical tool routes are flat.
 - Link text uses the `label` column, not `meta_title`.
 - Ordered by `sitemap_priority` desc, then `label`.
 
@@ -26,7 +26,7 @@ Home is the product map for Version127: a design-system sidebar of main publishe
 ## Data
 
 - Publication, labels, and SEO live only in `public.version127_pages` (home slug is `''`).
-- Do not hardcode main page lists or metadata in the route file.
+- Keep the small home-eligibility list in the registry helper, never in the route file. Labels, descriptions, publication state, and ordering still come from `public.version127_pages`.
 - Unknown or missing stats should be omitted, not invented.
 
 ## SEO notes

@@ -1,14 +1,14 @@
 # Domain Tools
 
-Status: plan. Every file in this folder describes a tool we intend to build. Update each file to describe the implemented tool once it ships, the same way `content_docs/dns-tools/` documents shipped behavior.
+Status: collection and twelve flat tool/reference pages published. `ip-asn-lookup` remains planned.
 
 The `/domain-tools` surface answers a different question from `/dns-tools`. DNS tools ask what the domain is doing right now. Domain tools ask who registered the name, when, with whom, and what the registry will allow next. Different data source, different failure modes, different reader.
 
 Shared engine, endpoint discovery, caching, and privacy rules live in `version127_docs/rdap.md`. Read that first.
 
-## Why A Separate Hub
+## Why a separate collection
 
-Folding these into `/dns-tools` would put two unrelated data sources behind one sidebar and force every DNS page to explain registration concepts it does not use. A sibling hub keeps both coherent and lets each sidebar stay a short list.
+Folding these into `/dns-tools` would put two unrelated data sources behind one sidebar and force every DNS page to explain registration concepts it does not use. A sibling collection keeps both coherent and lets each sidebar stay a short list. It does not own the tools' canonical URLs.
 
 The two hubs link to each other where a reader actually crosses over:
 
@@ -16,26 +16,26 @@ The two hubs link to each other where a reader actually crosses over:
 - Nameserver Delegation Checker explains a registrar setting; the registrar name comes from Domain Registration Lookup.
 - Domain Availability shows a name with no registration; DNS Lookup explains why it may still resolve.
 
-Do not duplicate a tool across both hubs.
+Do not duplicate a route or implementation. Link the same flat canonical tool from both collections when it genuinely serves both audiences.
 
-## Planned Routes
+## Collection routes
 
-| route | tool | doc |
+| route | tool | page docs |
 | --- | --- | --- |
-| `/domain-tools` | hub | this file |
-| `/domain-tools/domain-lookup` | Domain Registration Lookup | `domain-lookup/` |
-| `/domain-tools/domain-age` | Domain Age Checker | `domain-age/` |
-| `/domain-tools/domain-expiry` | Domain Expiry Checker | `domain-expiry/` |
-| `/domain-tools/domain-availability` | Domain Availability Checker | `domain-availability/` |
-| `/domain-tools/domain-owner` | Domain Registrant Lookup | `domain-owner/` |
-| `/domain-tools/domain-registrar` | Registrar Lookup | `domain-registrar/` |
-| `/domain-tools/epp-status-codes` | EPP Status Code Explainer | `epp-status-codes/` |
-| `/domain-tools/transfer-readiness` | Domain Transfer Readiness | `transfer-readiness/` |
-| `/domain-tools/domain-report` | Domain Registration Report | `domain-report/` |
-| `/domain-tools/ip-asn-lookup` | IP and ASN Registration Lookup | `ip-asn-lookup/` |
-| `/domain-tools/punycode-converter` | Punycode and IDN Converter | `punycode-converter/` |
-| `/domain-tools/tld-directory` | TLD Directory | `tld-directory/` |
-| `/domain-tools/multi-tld-availability` | Multi-TLD Availability | `multi-tld-availability/` |
+| `/domain-tools` | collection | `content_docs/domain-tools/` |
+| `/domain-lookup` | Domain Registration Lookup | `content_docs/domain-lookup/` |
+| `/domain-age` | Domain Age Checker | `content_docs/domain-age/` |
+| `/domain-expiry` | Domain Expiry Checker | `content_docs/domain-expiry/` |
+| `/domain-availability` | Domain Availability Checker | `content_docs/domain-availability/` |
+| `/domain-owner` | Domain Registrant Lookup | `content_docs/domain-owner/` |
+| `/domain-registrar` | Registrar Lookup | `content_docs/domain-registrar/` |
+| `/epp-status-codes` | EPP Status Code Explainer | `content_docs/epp-status-codes/` |
+| `/transfer-readiness` | Domain Transfer Readiness | `content_docs/transfer-readiness/` |
+| `/domain-report` | Domain Registration Report | `content_docs/domain-report/` |
+| `/ip-asn-lookup` | IP and ASN Registration Lookup, planned | `content_docs/ip-asn-lookup/` |
+| `/punycode-converter` | Punycode and IDN Converter | `content_docs/punycode-converter/` |
+| `/tld-directory` | TLD Directory | `content_docs/tld-directory/` |
+| `/multi-tld-availability` | Multi-TLD Availability | `content_docs/multi-tld-availability/` |
 
 ## The Thin Page Problem
 
@@ -93,7 +93,7 @@ Test fixtures come before implementation, not after. The current specification l
 
 The hub and every complete tool slug are published only through `public.version127_pages`, one exact row each, following the `20260712000000_publish_dns_tools.sql` and `20260713121730_publish_dns_diagnostic_tools.sql` pattern. Page files carry no metadata, canonical, robots, sitemap, or JSON-LD exports.
 
-Each route also needs `tests/pages/domain-tools/<slug>/page.json` with at least one test file, or `npm run test:static` fails.
+Each flat route also needs `tests/pages/<slug>/page.json` with at least one test file, or `npm run test:static` fails. Shared RDAP engine tests remain under `tests/pages/domain-tools/shared/` because the collection owns that technical contract.
 
 ## Build Order
 
@@ -107,6 +107,6 @@ Each route also needs `tests/pages/domain-tools/<slug>/page.json` with at least 
 ## Open Decisions
 
 - **Public repository.** `dns-tools` is mirrored to `repos/dns-tools` and published to the `version127` GitHub organization. Decide whether `domain-tools` gets the same treatment before building, because it changes how `lib/domain/` is structured.
-- **IP and ASN placement.** `ip-asn-lookup` is not a domain tool. Decide its permanent home before publishing a registry row rather than moving a published URL later. The realistic options are a top-level `/ip-tools` hub, which needs at least a second tool to justify a sidebar, or keeping it here permanently and accepting the naming mismatch.
-- **TLD Directory placement.** Same rule: settle before publication. A top-level `/tlds` fits the site's other directory better than a tool hub does.
+- **IP and ASN collection placement.** Its canonical route is already planned as `/ip-asn-lookup`; decide which collections should link to it before publication.
+- **TLD Directory collection placement.** Its canonical route is `/tld-directory`; it may appear in both domain and reference collections without moving.
 - **Port 43 fallback.** Whether to build it at all. It closes part of the coverage gap and is the single largest piece of extra work in this plan. Decide once, in `version127_docs/rdap.md`, not per tool.

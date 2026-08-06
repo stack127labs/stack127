@@ -9,7 +9,7 @@ All writing follows `version127_docs/writing-style.md`: full sentences, simple l
 
 ## DNS Change Checker
 
-Route: `/dns-tools/dns-change-checker`
+Route: `/dns-change-checker`
 
 The page answers: Is a new DNS value published at the authoritative source, and what do major public resolver caches return now?
 
@@ -35,7 +35,7 @@ The page content explains the authoritative source, resolver caches, remaining c
 
 ## Nameserver Delegation Checker
 
-Route: `/dns-tools/nameserver-checker`
+Route: `/nameserver-checker`
 
 The page answers: Does the parent zone point to the right nameservers, and can those servers actually serve the delegated zone?
 
@@ -59,7 +59,7 @@ This page does not compare SOA serials or validate DNSSEC. SOA is used only to p
 
 ## DNSSEC Chain Checker
 
-Route: `/dns-tools/dnssec-checker`
+Route: `/dnssec-checker`
 
 The page answers: Can this DNS answer be validated from the DNS root, and where does the authentication chain stop if it cannot?
 
@@ -81,7 +81,7 @@ The verdict must come from a real validating resolver such as a pinned local Unb
 
 ## SOA Consistency Checker
 
-Route: `/dns-tools/soa-checker`
+Route: `/soa-checker`
 
 The page answers: Are all authoritative nameservers serving the same zone version and the same core SOA settings?
 
@@ -102,7 +102,7 @@ This page does not score timer choices or claim that one request to an anycast a
 
 ## CAA Policy Checker
 
-Route: `/dns-tools/caa-checker`
+Route: `/caa-checker`
 
 The page answers: Which certificate authority issuer domains are currently authorized for normal and wildcard certificates for this name?
 

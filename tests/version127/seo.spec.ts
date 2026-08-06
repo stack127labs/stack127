@@ -29,6 +29,13 @@ const noindexPaths = Object.entries(routes)
   .filter(([, entry]) => entry.state === "noindex")
   .map(([path]) => path);
 
+const legacyToolRedirects = [
+  ...["caa-checker", "dns-change-checker", "dns-lookup", "dns-trace", "dnssec-checker", "nameserver-checker", "soa-checker"]
+    .map((slug) => [`/dns-tools/${slug}`, `/${slug}`] as const),
+  ...["domain-age", "domain-availability", "domain-expiry", "domain-lookup", "domain-owner", "domain-registrar", "domain-report", "epp-status-codes", "multi-tld-availability", "punycode-converter", "tld-directory", "transfer-readiness"]
+    .map((slug) => [`/domain-tools/${slug}`, `/${slug}`] as const),
+];
+
 async function robotsContent(page: Page) {
   return page.locator('meta[name="robots"]').getAttribute("content");
 }
@@ -72,6 +79,22 @@ test.describe("Version127 publication SEO", () => {
 
     const lesson = await request.get("/self-hosting/linux-ssh-basics");
     expect(lesson?.status()).toBe(404);
+  });
+
+  test("old nested tool URLs permanently redirect to flat routes", async ({ request }, testInfo) => {
+    test.skip(testInfo.project.name !== "chromium", "request-level redirects only need one project");
+
+    for (const [legacyPath, flatPath] of legacyToolRedirects) {
+      const response = await request.get(legacyPath, { maxRedirects: 0 });
+      expect(response.status(), legacyPath).toBe(308);
+      expect(response.headers().location, legacyPath).toBe(flatPath);
+    }
+
+    const queryResponse = await request.get("/dns-tools/dns-lookup?name=example.com&type=A", {
+      maxRedirects: 0,
+    });
+    expect(queryResponse.status()).toBe(308);
+    expect(queryResponse.headers().location).toBe("/dns-lookup?name=example.com&type=A");
   });
 
   test("all unpublished route manifest entries remain unavailable", async ({ request }, testInfo) => {
@@ -132,6 +155,9 @@ test.describe("Version127 publication SEO", () => {
     }
     for (const path of noindexPaths) {
       expect(xml).not.toContain(`https://version127.com${path}`);
+    }
+    for (const [legacyPath] of legacyToolRedirects) {
+      expect(xml).not.toContain(`https://version127.com${legacyPath}`);
     }
     expect(xml).not.toContain("https://version127.com/self-hosting</loc>");
     expect(xml).not.toContain("https://version127.com/self-hosting/");

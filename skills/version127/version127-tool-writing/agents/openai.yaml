@@ -1,0 +1,4 @@
+interface:
+  display_name: "version127 Tool Writing"
+  short_description: "Write simple content around a finished tool"
+  default_prompt: "Use $version127-tool-writing to add simple, easy-to-understand content to this finished version127 tool page."

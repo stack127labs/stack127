@@ -1,0 +1,4 @@
+interface:
+  display_name: "version127 Tool Product Plan"
+  short_description: "Turn tool research into a build contract"
+  default_prompt: "Use $version127-tool-product-plan to create the compact implementation report and visual user flow for this tool."

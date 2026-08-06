@@ -35,18 +35,18 @@ const iconProps = { size: 15, strokeWidth: 2.2 } as const;
 
 /** Routes that exist now. No planned entries, disabled links, or coming-soon labels. */
 const tools = [
-  { href: "/domain-tools/domain-lookup", icon: <FileSearch {...iconProps} />, id: "lookup", label: "Domain Registration Lookup" },
-  { href: "/domain-tools/domain-age", icon: <CalendarClock {...iconProps} />, id: "age", label: "Domain Age Checker" },
-  { href: "/domain-tools/domain-expiry", icon: <CalendarX {...iconProps} />, id: "expiry", label: "Domain Expiry Checker" },
-  { href: "/domain-tools/domain-availability", icon: <BadgeCheck {...iconProps} />, id: "availability", label: "Domain Availability Checker" },
-  { href: "/domain-tools/multi-tld-availability", icon: <Layers {...iconProps} />, id: "multi-tld", label: "Multi-TLD Availability" },
-  { href: "/domain-tools/domain-owner", icon: <UserSearch {...iconProps} />, id: "owner", label: "Domain Registrant Lookup" },
-  { href: "/domain-tools/domain-registrar", icon: <Building2 {...iconProps} />, id: "registrar", label: "Registrar Lookup" },
-  { href: "/domain-tools/transfer-readiness", icon: <ArrowLeftRight {...iconProps} />, id: "transfer", label: "Domain Transfer Readiness" },
-  { href: "/domain-tools/domain-report", icon: <ClipboardList {...iconProps} />, id: "report", label: "Domain Registration Report" },
-  { href: "/domain-tools/epp-status-codes", icon: <ListChecks {...iconProps} />, id: "status-codes", label: "Domain status codes" },
-  { href: "/domain-tools/punycode-converter", icon: <Languages {...iconProps} />, id: "punycode", label: "Punycode and IDN Converter" },
-  { href: "/domain-tools/tld-directory", icon: <Globe {...iconProps} />, id: "tlds", label: "TLD Directory" },
+  { href: "/domain-lookup", icon: <FileSearch {...iconProps} />, id: "lookup", label: "Domain Registration Lookup" },
+  { href: "/domain-age", icon: <CalendarClock {...iconProps} />, id: "age", label: "Domain Age Checker" },
+  { href: "/domain-expiry", icon: <CalendarX {...iconProps} />, id: "expiry", label: "Domain Expiry Checker" },
+  { href: "/domain-availability", icon: <BadgeCheck {...iconProps} />, id: "availability", label: "Domain Availability Checker" },
+  { href: "/multi-tld-availability", icon: <Layers {...iconProps} />, id: "multi-tld", label: "Multi-TLD Availability" },
+  { href: "/domain-owner", icon: <UserSearch {...iconProps} />, id: "owner", label: "Domain Registrant Lookup" },
+  { href: "/domain-registrar", icon: <Building2 {...iconProps} />, id: "registrar", label: "Registrar Lookup" },
+  { href: "/transfer-readiness", icon: <ArrowLeftRight {...iconProps} />, id: "transfer", label: "Domain Transfer Readiness" },
+  { href: "/domain-report", icon: <ClipboardList {...iconProps} />, id: "report", label: "Domain Registration Report" },
+  { href: "/epp-status-codes", icon: <ListChecks {...iconProps} />, id: "status-codes", label: "Domain status codes" },
+  { href: "/punycode-converter", icon: <Languages {...iconProps} />, id: "punycode", label: "Punycode and IDN Converter" },
+  { href: "/tld-directory", icon: <Globe {...iconProps} />, id: "tlds", label: "TLD Directory" },
 ] as const;
 
 /** How many domain tools exist now; the home page card shows this count. */

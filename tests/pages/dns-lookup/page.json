@@ -1,0 +1,13 @@
+{
+  "route": "/dns-lookup",
+  "state": "published",
+  "docs": ["content_docs/dns-lookup"],
+  "tests": [
+    "tests/version127/seo.spec.ts",
+    "tests/pages/dns-lookup/dns-lookup.spec.ts",
+    "tests/pages/dns-lookup/dns-lookup.test.mjs"
+  ],
+  "scripts": ["scripts/version127/repos/sync-dns-tools-core.mjs"],
+  "skills": [],
+  "repositories": ["repos/dns-tools"]
+}

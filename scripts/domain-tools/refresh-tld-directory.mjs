@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Builds the committed dataset behind /domain-tools/tld-directory.
+ * Builds the committed dataset behind /tld-directory.
  *
  * Three sources, all public:
  *   IANA root zone database  type and sponsoring organisation (HTML, parsed)

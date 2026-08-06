@@ -1,0 +1,18 @@
+{
+  "route": "/domain-age",
+  "state": "published",
+  "docs": [
+    "content_docs/domain-age"
+  ],
+  "tests": [
+    "tests/pages/domain-age/content.test.mjs",
+    "tests/pages/domain-tools/shared/duration.test.mjs",
+    "tests/pages/domain-tools/shared/normalize.test.mjs",
+    "tests/pages/domain-tools/shared/public-suffix.test.mjs"
+  ],
+  "scripts": [
+    "scripts/domain-tools/refresh-datasets.mjs"
+  ],
+  "skills": [],
+  "repositories": []
+}

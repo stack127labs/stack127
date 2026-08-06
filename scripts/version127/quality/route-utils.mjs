@@ -23,6 +23,7 @@ export function walk(relativeDir, root = process.cwd()) {
 export function routeFromPageFile(file) {
   const route = file
     .replace(/^app\/\(site\)/, "")
+    .replace(/\/\([^/]+\)/g, "")
     .replace(/\/page\.tsx$/, "")
     .replace(/\/$/, "");
 

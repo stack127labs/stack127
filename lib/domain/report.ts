@@ -104,7 +104,7 @@ export async function buildDomainReport(rawInput: string, signal?: AbortSignal):
           detail:
             "The nameservers recorded at the registry are not the same as the ones the zone itself publishes. That usually means a nameserver change was made in one place and not the other, and it can cause answers that come and go depending on which server a resolver happens to ask.",
           evidence: `registry: ${[...registryNs].join(", ") || "none"} · zone: ${[...zoneNs].join(", ") || "none"}`,
-          tool: { label: "Nameserver Delegation Checker", href: "/dns-tools/nameserver-checker" },
+          tool: { label: "Nameserver Delegation Checker", href: "/nameserver-checker" },
         });
       } else {
         findings.push({
@@ -128,7 +128,7 @@ export async function buildDomainReport(rawInput: string, signal?: AbortSignal):
           detail:
             "The nameservers the parent zone hands out differ from what the registry says it holds. These normally move together, so a difference is worth looking at.",
           evidence: `parent: ${[...parentNs].join(", ")}`,
-          tool: { label: "Nameserver Delegation Checker", href: "/dns-tools/nameserver-checker" },
+          tool: { label: "Nameserver Delegation Checker", href: "/nameserver-checker" },
         });
       }
     }
@@ -142,7 +142,7 @@ export async function buildDomainReport(rawInput: string, signal?: AbortSignal):
         detail:
           "The registry holds a DS record for this domain, which means resolvers will check signatures. That is a delegation fact, not proof the chain actually validates. If the signing is broken, the domain stops resolving completely rather than partly.",
         evidence: `delegationSigned: true${registration.dsRecordCount ? `, ${registration.dsRecordCount} DS record(s)` : ""}`,
-        tool: { label: "DNSSEC Chain Checker", href: "/dns-tools/dnssec-checker" },
+        tool: { label: "DNSSEC Chain Checker", href: "/dnssec-checker" },
       });
     } else if (registration.dnssecSigned === false) {
       findings.push({
@@ -165,7 +165,7 @@ export async function buildDomainReport(rawInput: string, signal?: AbortSignal):
         detail:
           "A hold status tells the registry to stop publishing the domain, so nothing under it resolves even though the registration is valid. This is the explanation when a domain looks registered but the site is dark.",
         evidence: holds.map((status) => status.rdap).join(", "),
-        tool: { label: "Domain status codes", href: "/domain-tools/epp-status-codes" },
+        tool: { label: "Domain status codes", href: "/epp-status-codes" },
       });
     }
 
@@ -182,7 +182,7 @@ export async function buildDomainReport(rawInput: string, signal?: AbortSignal):
               ? "The registry expiry date is in the past. The domain may be in a grace period, but this is the point where names get lost."
               : "The expiry date is close. Worth checking that auto renew is on and that the card on file still works, because a failed payment is the usual cause of a lost domain.",
           evidence: registration.registryExpiryDate,
-          tool: { label: "Domain Expiry Checker", href: "/domain-tools/domain-expiry" },
+          tool: { label: "Domain Expiry Checker", href: "/domain-expiry" },
         });
       }
     }
@@ -196,7 +196,7 @@ export async function buildDomainReport(rawInput: string, signal?: AbortSignal):
         state: "attention",
         detail: finding,
         evidence: null,
-        tool: { label: "Nameserver Delegation Checker", href: "/dns-tools/nameserver-checker" },
+        tool: { label: "Nameserver Delegation Checker", href: "/nameserver-checker" },
       });
     }
   }

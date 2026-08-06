@@ -137,7 +137,7 @@ Directory entries and references stay terse and factual. Teaching content, like 
 
 ## The reference page
 
-`/dns-tools/dns-lookup` is the current standard: natural title and intro, a form without helper-copy clutter, an answer-first result, tables for repeated values, a small visual for the confusing relationship, and metadata that stays quiet. Steal its judgment, not its layout.
+`/dns-lookup` is the current standard: natural title and intro, a form without helper-copy clutter, an answer-first result, tables for repeated values, a small visual for the confusing relationship, and metadata that stays quiet. Steal its judgment, not its layout.
 
 ## Quick check before publishing
 

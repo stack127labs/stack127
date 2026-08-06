@@ -11,75 +11,75 @@ import { proseSectionFlowClassName } from "../../prose";
 
 const tools = [
   {
-    href: "/domain-tools/domain-lookup",
+    href: "/domain-lookup",
     name: "Domain Registration Lookup",
     reason: "I want the whole registration record.",
     detail:
       "Shows who the domain is registered through, when it was created, when it expires, what the registry is currently allowing, and what contact details have been withheld.",
   },
   {
-    href: "/domain-tools/domain-age",
+    href: "/domain-age",
     name: "Domain Age Checker",
     reason: "I want to know how old this domain is.",
     detail: "Gives the registration date and works out the age, and explains why that is not the same as the age of the site.",
   },
   {
-    href: "/domain-tools/domain-expiry",
+    href: "/domain-expiry",
     name: "Domain Expiry Checker",
     reason: "I want to know when this expires.",
     detail: "Shows the date and, more usefully, what happens in the two or three months after it passes.",
   },
   {
-    href: "/domain-tools/domain-availability",
+    href: "/domain-availability",
     name: "Domain Availability Checker",
     reason: "I want to know if a name is taken.",
     detail: "Asks the registry directly. We sell nothing, so there is no reason for us to be anything other than straight with you.",
   },
   {
-    href: "/domain-tools/multi-tld-availability",
+    href: "/multi-tld-availability",
     name: "Multi-TLD Availability",
     reason: "I want one name checked across several endings.",
     detail: "One name against a handful of endings at once, with every row reporting its own outcome.",
   },
   {
-    href: "/domain-tools/domain-owner",
+    href: "/domain-owner",
     name: "Domain Registrant Lookup",
     reason: "I want to know who is behind a domain.",
     detail:
       "Shows what is published, exactly which fields were withheld and how, and the routes that still exist for making contact.",
   },
   {
-    href: "/domain-tools/domain-registrar",
+    href: "/domain-registrar",
     name: "Registrar Lookup",
     reason: "I need the registrar, or somewhere to report abuse.",
     detail: "Names the registrar, gives the abuse contact, and untangles the registry and reseller confusion.",
   },
   {
-    href: "/domain-tools/transfer-readiness",
+    href: "/transfer-readiness",
     name: "Domain Transfer Readiness",
     reason: "I want to move this to another registrar.",
     detail: "Works out what is blocking the move, separates what you can fix from what you cannot, and says what it cannot see.",
   },
   {
-    href: "/domain-tools/domain-report",
+    href: "/domain-report",
     name: "Domain Registration Report",
     reason: "I want the registration and the DNS checked together.",
     detail: "Runs both engines and looks for the places where the registry and the live DNS disagree.",
   },
   {
-    href: "/domain-tools/epp-status-codes",
+    href: "/epp-status-codes",
     name: "Domain status codes",
     reason: "My domain has a status I do not understand.",
     detail: "Explains every status code, who set it, and whether it is yours to remove.",
   },
   {
-    href: "/domain-tools/punycode-converter",
+    href: "/punycode-converter",
     name: "Punycode and IDN Converter",
     reason: "This name has odd characters in it.",
     detail: "Converts between the readable form and the ASCII form DNS carries, and flags names that mix writing systems.",
   },
   {
-    href: "/domain-tools/tld-directory",
+    href: "/tld-directory",
     name: "TLD Directory",
     reason: "I want to know who runs an ending.",
     detail: "Every ending in the root zone, its operator, whether it is signed, and whether we can look names up under it.",
@@ -176,7 +176,7 @@ export default function DomainToolsPage() {
               remaining {coverage.uncovered.toLocaleString("en-US")} we cannot check at
               all, and the tools say so rather than showing you a blank that looks like
               an answer. The{" "}
-              <Link href="/domain-tools/tld-directory">TLD directory</Link> lists every one,
+              <Link href="/tld-directory">TLD directory</Link> lists every one,
               and it was last refreshed on {coverage.checkedAt}.
             </p>
             <p>

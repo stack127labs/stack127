@@ -42,7 +42,7 @@ async function main() {
   renderTree(outDir, {
     TOOL_NAME: name,
     TOOL_SLUG: slug,
-    VERSION127_URL: `https://version127.com/tools/${slug}`,
+    VERSION127_URL: `https://version127.com/${slug}`,
     REPOSITORY_URL: `https://github.com/${fullName}`,
   });
 
@@ -64,7 +64,7 @@ async function main() {
     "--description",
     `${name} by Version127.`,
     "--homepage",
-    `https://version127.com/tools/${slug}`,
+    `https://version127.com/${slug}`,
     "--source",
     outDir,
     "--remote",

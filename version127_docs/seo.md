@@ -44,28 +44,14 @@ The route rules are intentionally simple:
 
 ## Current Sitemap Routes
 
-- `/`
-- `/about`
-- `/privacy`
-- `/terms`
-- `/self-host-apps`
-- `/self-hosting-for-beginners`
-- `/self-hosting-for-beginners/what-you-can-host`
-- `/self-hosting-for-beginners/basic-setup`
-- `/self-hosting-for-beginners/pick-your-first-server`
-- `/self-hosting-for-beginners/pick-your-operating-system`
-- `/self-hosting-for-beginners/install-your-os`
-- `/self-hosting-for-beginners/linux-ssh-basics`
-- `/self-hosting-for-beginners/install-docker`
-- `/self-hosting-for-beginners/install-your-first-app`
-- `/self-hosting-for-beginners/understand-docker-compose`
-- `/self-hosting-for-beginners/storage-and-volumes`
-- `/self-hosting-for-beginners/best-first-apps`
-- `/self-hosting-for-beginners/backups-before-serious-apps`
-- `/self-hosting-for-beginners/access-apps-safely-at-home`
-- `/self-hosting-for-beginners/access-apps-remotely-with-tailscale`
-- `/self-hosting-for-beginners/full-walkthrough`
-- `/software-licenses-for-self-hosting`
+The exact approved set is machine-checked in `scripts/version127/quality/seo-registry-check.mjs` and indexed by the ownership manifests under `tests/pages/`. It currently includes:
+
+- core, legal, and collection pages: `/`, `/about`, `/privacy`, `/terms`, `/self-host-apps`, `/dns-tools`, `/domain-tools`, and `/software-licenses-for-self-hosting`;
+- flat DNS tools: `/dns-lookup`, `/dns-trace`, `/dns-change-checker`, `/nameserver-checker`, `/dnssec-checker`, `/soa-checker`, and `/caa-checker`;
+- flat domain tools and references: `/domain-age`, `/domain-availability`, `/domain-expiry`, `/domain-lookup`, `/domain-owner`, `/domain-registrar`, `/domain-report`, `/epp-status-codes`, `/multi-tld-availability`, `/punycode-converter`, `/tld-directory`, and `/transfer-readiness`;
+- the `/self-hosting-for-beginners` course root and its exact published lesson routes.
+
+The storage collection and its flat calculators remain unpublished. Historical nested tool URLs permanently redirect to their flat canonical paths and never appear in the sitemap.
 
 ## Structured Data
 

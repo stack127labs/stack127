@@ -30,7 +30,7 @@ export function traceLinkForLookup(
     type: issue.requestedType,
   });
   return {
-    href: `/dns-tools/dns-trace?${params.toString()}`,
+    href: `/dns-trace?${params.toString()}`,
     reason: issue.responseCode === "SERVFAIL" ? "servfail" : "nxdomain",
   };
 }

@@ -7,7 +7,7 @@ const root = process.cwd();
 const hostedStyleFiles = [
   "app/(site)/dns-tools/dns-tools.css",
   "app/(site)/dns-tools/dns-diagnostics.module.css",
-  "app/(site)/dns-tools/dns-trace/dns-trace.module.css",
+  "app/(site)/(tools)/dns-trace/dns-trace.module.css",
 ];
 const repositoryStyleFiles = [
   "repos/dns-tools/app/(site)/_dns-tools/dns-tools.css",

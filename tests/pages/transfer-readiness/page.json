@@ -1,0 +1,17 @@
+{
+  "route": "/transfer-readiness",
+  "state": "published",
+  "docs": [
+    "content_docs/transfer-readiness"
+  ],
+  "tests": [
+    "tests/pages/domain-tools/shared/transfer-policy.test.mjs",
+    "tests/pages/domain-tools/shared/normalize.test.mjs",
+    "tests/pages/domain-tools/shared/status-codes.test.mjs"
+  ],
+  "scripts": [
+    "scripts/domain-tools/refresh-datasets.mjs"
+  ],
+  "skills": [],
+  "repositories": []
+}

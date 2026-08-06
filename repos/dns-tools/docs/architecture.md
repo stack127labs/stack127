@@ -2,7 +2,7 @@
 
 DNS Tools is one Next.js application with seven focused pages and seven matching server routes. There is no database and no lookup-history service.
 
-The application owns its domain root. `/` is the DNS Tools hub, and every tool uses a flat route such as `/dns-lookup` or `/dnssec-checker`. The older `/dns-tools` and `/dns-tools/<tool>` forms permanently redirect to the flat locations. The hosted Version127 website keeps its separate `/dns-tools/<tool>` namespace.
+The application owns its domain root. `/` is the DNS Tools hub, and every tool uses a flat route such as `/dns-lookup` or `/dnssec-checker`. The older `/dns-tools` and `/dns-tools/<tool>` forms permanently redirect to the flat locations. The hosted version127 website uses the same flat canonical tool URLs while keeping `/dns-tools` as a collection.
 
 ## Request path
 

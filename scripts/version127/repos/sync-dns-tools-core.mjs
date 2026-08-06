@@ -42,8 +42,8 @@ function rewriteTextTree(dir) {
 }
 
 const unitTestMappings = [
-  ["tests/pages/dns-tools/dns-lookup/dns-lookup.test.mjs", "tests/pages/dns-lookup/dns-lookup.test.mjs", "../../../lib/dns"],
-  ["tests/pages/dns-tools/dns-trace/dns-trace.test.mjs", "tests/pages/dns-trace/dns-trace.test.mjs", "../../../lib/dns"],
+  ["tests/pages/dns-lookup/dns-lookup.test.mjs", "tests/pages/dns-lookup/dns-lookup.test.mjs", "../../../lib/dns"],
+  ["tests/pages/dns-trace/dns-trace.test.mjs", "tests/pages/dns-trace/dns-trace.test.mjs", "../../../lib/dns"],
   ["tests/pages/dns-tools/shared/dns-diagnostics.test.mjs", "tests/shared/dns-diagnostics.test.mjs", "../../lib/dns"],
   ["tests/pages/dns-tools/shared/dns-resolvers.test.mjs", "tests/shared/dns-resolvers.test.mjs", "../../lib/dns"],
   ["tests/pages/dns-tools/shared/dns-tool-box-style.test.mjs", "tests/shared/dns-tool-box-style.test.mjs", "../../lib/dns"],

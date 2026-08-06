@@ -1,0 +1,15 @@
+{
+  "route": "/epp-status-codes",
+  "state": "published",
+  "docs": [
+    "content_docs/epp-status-codes"
+  ],
+  "tests": [
+    "tests/pages/domain-tools/shared/status-codes.test.mjs"
+  ],
+  "scripts": [
+    "scripts/domain-tools/refresh-datasets.mjs"
+  ],
+  "skills": [],
+  "repositories": []
+}

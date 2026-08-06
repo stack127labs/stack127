@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import {
   isHomeFeaturePage,
+  isHomePageSlug,
   isHomeVisiblePage,
   isMainPageSlug,
 } from "../../lib/page-registry-helpers.ts";
@@ -25,6 +26,8 @@ test("isMainPageSlug accepts only published root pages", () => {
   assert.equal(isMainPageSlug("self-hosting-for-beginners"), true);
   assert.equal(isMainPageSlug("self-hosting-for-beginners/install-docker"), false);
   assert.equal(isMainPageSlug("about"), true);
+  assert.equal(isMainPageSlug("dns-lookup"), false);
+  assert.equal(isHomePageSlug("storage-tools"), true);
 });
 
 test("isHomeFeaturePage excludes legal and about utility pages", () => {

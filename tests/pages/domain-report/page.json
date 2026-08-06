@@ -1,0 +1,17 @@
+{
+  "route": "/domain-report",
+  "state": "published",
+  "docs": [
+    "content_docs/domain-report"
+  ],
+  "tests": [
+    "tests/pages/domain-tools/shared/normalize.test.mjs",
+    "tests/pages/domain-tools/shared/bootstrap.test.mjs",
+    "tests/pages/domain-tools/shared/public-suffix.test.mjs"
+  ],
+  "scripts": [
+    "scripts/domain-tools/refresh-datasets.mjs"
+  ],
+  "skills": [],
+  "repositories": []
+}

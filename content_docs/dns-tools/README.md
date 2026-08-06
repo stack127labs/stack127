@@ -1,6 +1,6 @@
 # DNS Tools
 
-The `/dns-tools` surface groups compact, evidence-first DNS troubleshooting tools. Each complete tool has its own exact published registry row so it can use its own metadata, canonical URL, structured data, and sitemap entry.
+The `/dns-tools` collection groups compact, evidence-first DNS troubleshooting tools. Each tool keeps a flat canonical URL such as `/dns-lookup`, so it can also appear in another relevant collection without changing identity.
 
 ## Rules
 
@@ -29,4 +29,4 @@ The `/dns-tools` surface groups compact, evidence-first DNS troubleshooting tool
 
 The hub and every complete tool slug are published only through `public.version127_pages`. An exact published tool row is `index, follow` and appears in the sitemap. Query-param lookup states are `noindex, follow` and keep the clean tool canonical.
 
-See the page files in this folder for each implemented tool contract.
+Implemented tool contracts live in `content_docs/<tool-slug>/`. This folder owns only the collection brief and shared DNS-tool rules.

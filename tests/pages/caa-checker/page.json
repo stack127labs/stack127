@@ -1,0 +1,14 @@
+{
+  "route": "/caa-checker",
+  "state": "published",
+  "docs": ["content_docs/caa-checker"],
+  "tests": [
+    "tests/version127/seo.spec.ts",
+    "tests/pages/caa-checker/page.spec.ts",
+    "tests/pages/dns-tools/shared/dns-diagnostics.spec.ts",
+    "tests/pages/dns-tools/shared/dns-diagnostics.test.mjs"
+  ],
+  "scripts": ["scripts/version127/repos/sync-dns-tools-core.mjs"],
+  "skills": [],
+  "repositories": ["repos/dns-tools"]
+}

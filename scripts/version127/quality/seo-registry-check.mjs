@@ -9,26 +9,26 @@ const expectedPublishedSlugs = [
   "",
   "about",
   "dns-tools",
-  "dns-tools/dns-lookup",
-  "dns-tools/dns-trace",
-  "dns-tools/dns-change-checker",
-  "dns-tools/nameserver-checker",
-  "dns-tools/dnssec-checker",
-  "dns-tools/soa-checker",
-  "dns-tools/caa-checker",
+  "dns-lookup",
+  "dns-trace",
+  "dns-change-checker",
+  "nameserver-checker",
+  "dnssec-checker",
+  "soa-checker",
+  "caa-checker",
   "domain-tools",
-  "domain-tools/domain-age",
-  "domain-tools/domain-availability",
-  "domain-tools/domain-expiry",
-  "domain-tools/domain-lookup",
-  "domain-tools/domain-owner",
-  "domain-tools/domain-registrar",
-  "domain-tools/domain-report",
-  "domain-tools/epp-status-codes",
-  "domain-tools/multi-tld-availability",
-  "domain-tools/punycode-converter",
-  "domain-tools/tld-directory",
-  "domain-tools/transfer-readiness",
+  "domain-age",
+  "domain-availability",
+  "domain-expiry",
+  "domain-lookup",
+  "domain-owner",
+  "domain-registrar",
+  "domain-report",
+  "epp-status-codes",
+  "multi-tld-availability",
+  "punycode-converter",
+  "tld-directory",
+  "transfer-readiness",
   "privacy",
   "self-host-apps",
   "self-hosting-for-beginners",
@@ -51,6 +51,32 @@ const expectedPublishedSlugs = [
   "terms",
 ];
 const blockedPublishedPrefixes = [];
+
+const flatSlugByLegacySlug = new Map([
+  ...[
+    "caa-checker",
+    "dns-change-checker",
+    "dns-lookup",
+    "dns-trace",
+    "dnssec-checker",
+    "nameserver-checker",
+    "soa-checker",
+  ].map((slug) => [`dns-tools/${slug}`, slug]),
+  ...[
+    "domain-age",
+    "domain-availability",
+    "domain-expiry",
+    "domain-lookup",
+    "domain-owner",
+    "domain-registrar",
+    "domain-report",
+    "epp-status-codes",
+    "multi-tld-availability",
+    "punycode-converter",
+    "tld-directory",
+    "transfer-readiness",
+  ].map((slug) => [`domain-tools/${slug}`, slug]),
+]);
 
 function databaseUrl() {
   if (!process.env.DATABASE_URL) {
@@ -82,7 +108,9 @@ async function main() {
       `,
     );
 
-    const actual = sorted(result.rows.map((row) => row.slug));
+    const actual = sorted(
+      new Set(result.rows.map((row) => flatSlugByLegacySlug.get(row.slug) ?? row.slug)),
+    );
     const expected = sorted(expectedPublishedSlugs);
     const failures = [];
 

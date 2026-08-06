@@ -41,18 +41,18 @@ test("shared sidebar titles use a paragraph with heading-like styling", () => {
 
 test("DNS sidebars list only tools that are available now", () => {
   const sidebar = source("app/(site)/dns-tools/dns-tools-sidebar.tsx");
-  const lookupPage = source("app/(site)/dns-tools/dns-lookup/page.tsx");
+  const lookupPage = source("app/(site)/(tools)/dns-lookup/page.tsx");
 
   assert.match(sidebar, /const availableDnsTools = \[/);
-  assert.match(sidebar, /href: "\/dns-tools\/dns-lookup"/);
+  assert.match(sidebar, /href: "\/dns-lookup"/);
   assert.match(sidebar, /label: "DNS lookup"/);
-  assert.match(sidebar, /href: "\/dns-tools\/dns-trace"/);
+  assert.match(sidebar, /href: "\/dns-trace"/);
   assert.match(sidebar, /label: "DNS Trace Explorer"/);
-  assert.match(sidebar, /href: "\/dns-tools\/dns-change-checker"/);
-  assert.match(sidebar, /href: "\/dns-tools\/nameserver-checker"/);
-  assert.match(sidebar, /href: "\/dns-tools\/dnssec-checker"/);
-  assert.match(sidebar, /href: "\/dns-tools\/soa-checker"/);
-  assert.match(sidebar, /href: "\/dns-tools\/caa-checker"/);
+  assert.match(sidebar, /href: "\/dns-change-checker"/);
+  assert.match(sidebar, /href: "\/nameserver-checker"/);
+  assert.match(sidebar, /href: "\/dnssec-checker"/);
+  assert.match(sidebar, /href: "\/soa-checker"/);
+  assert.match(sidebar, /href: "\/caa-checker"/);
   assert.match(sidebar, /<SidebarList/);
   assert.doesNotMatch(sidebar, />Overview</);
   assert.doesNotMatch(sidebar, /coming soon|planned next/i);

@@ -1,6 +1,6 @@
 # RDAP And Registration Data
 
-This is the shared engine contract for every Version127 tool that reads domain, IP, or ASN registration data. Page-specific behavior lives in `content_docs/domain-tools/<tool-slug>/README.md`. This file owns the parts they all depend on.
+This is the shared engine contract for every version127 tool that reads domain, IP, or ASN registration data. Page-specific behavior lives in `content_docs/<tool-slug>/README.md`. This file owns the parts they all depend on.
 
 Status: plan. Update this file to describe the implemented engine once `lib/domain/` exists.
 
@@ -28,7 +28,7 @@ Refresh the bootstrap and TLD list with a script under `scripts/domain-tools/`, 
 
 Bootstrap coverage and real coverage are different numbers, and the difference grows every time we add an override. `.io` is in the 238 without a bootstrap entry and is also checkable. Both statements are true, and a page that prints "we cannot check 238 TLDs" while successfully checking `.io` is contradicting itself.
 
-So there is exactly one function, `coverageSummary()` in `lib/domain/bootstrap.ts`, that returns the covered count, the uncovered count, and the check date, computed from the committed bootstrap plus the committed overrides. Every page reads it. No page hardcodes a number, and no doc in `content_docs/domain-tools/` should be quoted as the source of one.
+So there is exactly one function, `coverageSummary()` in `lib/domain/bootstrap.ts`, that returns the covered count, the uncovered count, and the check date, computed from the committed bootstrap plus the committed overrides. Every page reads it. No page hardcodes a number, and no page-owned doc should be quoted as the source of one.
 
 Per TLD, the engine returns one of three states, and page copy is written against these rather than against a count:
 

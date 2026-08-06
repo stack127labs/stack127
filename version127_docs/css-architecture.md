@@ -25,6 +25,8 @@ A route family with several cooperating components may use one colocated family 
 
 Prefer CSS Modules for new components and new single-page work. Use a family stylesheet when multiple files in the same route family intentionally share selectors. Do not move a family stylesheet into `globals.css` for convenience.
 
+Flat tool pages live under `app/(site)/(tools)/`. The `(tools)` segment never appears in a public URL. A tool page imports only the family stylesheet it actually uses; storage and unrelated tools do not inherit DNS or domain CSS.
+
 ## Building a page
 
 1. Start with the shared `AppShell`, navigation, sidebar-panel, prose, media, and code-block primitives where they fit.

@@ -5,6 +5,7 @@ import { docFolderForRoute, routeFromPageFile } from "../../scripts/version127/q
 test("routeFromPageFile maps app site page files to public routes", () => {
   assert.equal(routeFromPageFile("app/(site)/page.tsx"), "/");
   assert.equal(routeFromPageFile("app/(site)/about/page.tsx"), "/about");
+  assert.equal(routeFromPageFile("app/(site)/(tools)/dns-lookup/page.tsx"), "/dns-lookup");
   assert.equal(
     routeFromPageFile("app/(site)/self-hosting-for-beginners/linux-ssh-basics/page.tsx"),
     "/self-hosting-for-beginners/linux-ssh-basics",

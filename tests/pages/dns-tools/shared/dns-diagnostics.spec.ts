@@ -1,10 +1,10 @@
 import { expect, test } from "playwright/test";
 
 test("query-filled diagnostic pages remain noindex with a clean canonical", async ({ page }) => {
-  await page.goto("/dns-tools/caa-checker?name=www.example.com");
+  await page.goto("/caa-checker?name=www.example.com");
   await expect(page.getByLabel("Domain or hostname")).toHaveValue("www.example.com");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/i);
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://version127.com/dns-tools/caa-checker");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://version127.com/caa-checker");
 });
 
 test("DNSSEC result leads with the real validation steps and requested answer", async ({ page }) => {
@@ -19,7 +19,7 @@ test("DNSSEC result leads with the real validation steps and requested answer", 
       chain: [], validator: { name: "Namefi DNSSEC Audit", performedLocalValidation: true, exitCode: 0, rawReport: { verdict: "secure-positive" } },
     }),
   }));
-  await page.goto("/dns-tools/dnssec-checker");
+  await page.goto("/dnssec-checker");
   await page.getByLabel("Domain or hostname").fill("example.com");
   await page.getByRole("button", { name: "Validate DNSSEC" }).click();
   await expect(page.getByText("Start with the DNS root trust anchor")).toBeVisible();
@@ -49,7 +49,7 @@ test("DNSSEC raw reports never widen the page", async ({ page }) => {
       },
     }),
   }));
-  await page.goto("/dns-tools/dnssec-checker?name=bloxodes.com&type=A");
+  await page.goto("/dnssec-checker?name=bloxodes.com&type=A");
   await page.getByRole("button", { name: "Validate DNSSEC" }).click();
   await page.getByText("Complete validator report", { exact: true }).click();
 
@@ -77,11 +77,11 @@ test("authoritative disagreement points to the SOA checker", async ({ page }) =>
       summary: { authoritativeServersAgree: false, matchingAuthoritativeSources: 1, totalAuthoritativeSources: 2, agreeingResolvers: 2, totalResolvers: 3, expectedAnswerMatches: null },
     }),
   }));
-  await page.goto("/dns-tools/dns-change-checker");
+  await page.goto("/dns-change-checker");
   await page.getByLabel("Domain or hostname").fill("example.com");
   await page.getByRole("button", { name: "Check DNS change" }).click();
   await expect(page.getByText(/1 of 2 usable authoritative replies returned the answer used for comparison\. 2 of 2 usable public resolver replies match it\. 1 other resolver did not return a usable reply\./)).toBeVisible();
-  await expect(page.getByRole("link", { name: "Compare their SOA serials" })).toHaveAttribute("href", "/dns-tools/soa-checker?name=example.com");
+  await expect(page.getByRole("link", { name: "Compare their SOA serials" })).toHaveAttribute("href", "/soa-checker?name=example.com");
 });
 
 test("nameserver results keep transport, glue, and network evidence separate", async ({ page }) => {
@@ -100,7 +100,7 @@ test("nameserver results keep transport, glue, and network evidence separate", a
       notes: ["Every discovered nameserver address belongs to AS64500 (Example Network)."],
     }),
   }));
-  await page.goto("/dns-tools/nameserver-checker");
+  await page.goto("/nameserver-checker");
   await page.getByLabel("Domain or hostname").fill("example.com");
   await page.getByRole("button", { name: "Check nameservers" }).click();
   await expect(page.getByText("ns1.example.com did not answer over TCP at 192.0.2.10.")).toBeVisible();
@@ -149,7 +149,7 @@ test("nameserver results label checker-side IPv6 skips without blaming the domai
       findings: [], notes: ["IPv6 checks were skipped because this checker does not have IPv6 connectivity."],
     }),
   }));
-  await page.goto("/dns-tools/nameserver-checker");
+  await page.goto("/nameserver-checker");
   await page.getByLabel("Domain or hostname").fill("example.com");
   await page.getByRole("button", { name: "Check nameservers" }).click();
 
@@ -173,7 +173,7 @@ test("SOA results stay readable and preserve skipped IPv6 evidence in the report
       summary: { allAnswered: true, serialsAgree: true, newestSerial: 2407160699, differences: [] },
     }),
   }));
-  await page.goto("/dns-tools/soa-checker");
+  await page.goto("/soa-checker");
   await page.getByLabel("Domain or hostname").fill("example.com");
   await page.getByRole("button", { name: "Compare SOA records" }).click();
 
@@ -198,7 +198,7 @@ test("SOA results stay readable and preserve skipped IPv6 evidence in the report
 });
 
 test("DNS pages have print-safe shell and tables", async ({ page }) => {
-  await page.goto("/dns-tools/dns-lookup");
+  await page.goto("/dns-lookup");
   await page.emulateMedia({ media: "print" });
   await expect(page.getByRole("banner")).toHaveCSS("position", "static");
   await expect(page.locator("[data-app-sidebar]")).toBeHidden();

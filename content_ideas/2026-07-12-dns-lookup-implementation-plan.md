@@ -6,7 +6,7 @@ Parent backlog: `content_ideas/2026-07-11-dns-tools-suite.md`
 
 ## Scope
 
-The first DNS tool is a unified recursive DNS lookup at `/dns-tools/dns-lookup`. The release should also include a small server-rendered `/dns-tools` hub so the first tool has stable navigation and future tools can join the same namespace.
+The first DNS tool is a unified recursive DNS lookup at `/dns-lookup`. The release should also include a small server-rendered `/dns-tools` hub so the first tool has stable navigation and future tools can join the same namespace.
 
 The lookup answers one question:
 
@@ -51,7 +51,7 @@ Recommended registry values:
 - page type: `CollectionPage`
 - final state: published only after the release gate passes
 
-### `/dns-tools/dns-lookup`
+### `/dns-lookup`
 
 Purpose: the interactive recursive DNS lookup.
 
@@ -680,12 +680,12 @@ Dynamic user-requested DNS results are not SEO content and should load from the 
 Clean routes:
 
 - `/dns-tools`: index, follow after publication
-- `/dns-tools/dns-lookup`: index, follow after publication
+- `/dns-lookup`: index, follow after publication
 
 Lookup query variants:
 
 - noindex, follow
-- canonical to `/dns-tools/dns-lookup`
+- canonical to `/dns-lookup`
 - excluded from sitemap
 
 The page naturally covers DNS lookup and the supported record types without separate thin record-type routes.
@@ -867,7 +867,7 @@ The parser must specifically prove that missing flags never become false through
 
 ## Implementation Order
 
-1. Create `content_docs/dns-tools/` from this approved plan.
+1. Create `content_docs/dns-lookup/` from this approved plan, keeping only genuinely shared DNS contracts under `content_docs/dns-tools/`.
 2. Add unpublished route coverage entries.
 3. Add normalized model and fixture tests, including TTL, flags, aliases, and optional fields.
 4. Implement DNS name normalization.

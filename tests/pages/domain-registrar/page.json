@@ -1,0 +1,16 @@
+{
+  "route": "/domain-registrar",
+  "state": "published",
+  "docs": [
+    "content_docs/domain-registrar"
+  ],
+  "tests": [
+    "tests/pages/domain-tools/shared/normalize.test.mjs",
+    "tests/pages/domain-tools/shared/bootstrap.test.mjs"
+  ],
+  "scripts": [
+    "scripts/domain-tools/refresh-datasets.mjs"
+  ],
+  "skills": [],
+  "repositories": []
+}
