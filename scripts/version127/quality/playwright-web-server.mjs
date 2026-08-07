@@ -38,7 +38,10 @@ const env = {
 
 const port = process.env.VERSION127_TEST_PORT ?? process.env.PORT ?? "3334";
 const nextBin = path.join(process.cwd(), "node_modules", "next", "dist", "bin", "next");
-const child = spawn(process.execPath, [nextBin, "dev", "-p", port], {
+const nextArguments = [nextBin, "dev", "-p", port];
+if (process.env.VERSION127_TEST_WEBPACK === "1") nextArguments.push("--webpack");
+
+const child = spawn(process.execPath, nextArguments, {
   env,
   stdio: "inherit",
 });
