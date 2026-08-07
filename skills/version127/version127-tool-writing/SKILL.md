@@ -1,11 +1,11 @@
 ---
 name: version127-tool-writing
-description: Write and integrate the small amount of simple, server-rendered explanatory content needed around one finished version127 calculator, checker, converter, lookup, generator, explorer, or technical utility. Use after the technical tool and its tests are stable when the user asks to write, add, finish, simplify, or improve the content part of a tool page. Keep the tool primary, explain controls and confusing concepts plainly, add at most one useful worked example, state honest limits, and verify the complete page without publishing it.
+description: Write and integrate complete, concise, server-rendered supporting content around one finished version127 calculator, checker, converter, lookup, generator, explorer, or technical utility. Use after the technical tool and its tests are stable when the user asks to write, add, finish, simplify, expand, or improve a tool page. Keep the tool primary while covering what it does, meaningful use, result interpretation, confusing concepts, limitations, privacy, and the next verification step without publishing it.
 ---
 
 # version127 tool writing
 
-Add a calm content layer around a finished tool. Write in a simple style, make it easy for anyone to understand, and keep things simple. Add detail only when it resolves a real user question.
+Add the minimum complete content layer around a finished tool. Write in a simple style and make the page useful to someone who arrived without the implementation report. Complete does not mean long: cover every necessary user question once, then stop.
 
 ## Read first
 
@@ -25,22 +25,39 @@ Do not change formulas, controls, result semantics, route identity, publication 
 
 Do not publish, commit, push, open a pull request, or deploy unless the user separately asks.
 
+## Content completeness contract
+
+Make the complete page answer all of these questions somewhere across the introduction, live tool, result UI, and supporting guide:
+
+1. What is this tool, who is it for, and what problem does it solve?
+2. What inputs or choices matter, including an effective source, unit, mode, or scope when relevant?
+3. How should someone use it meaningfully? Explain how to choose representative inputs and complete the real task, not ordinary button-clicking mechanics.
+4. What does the result mean, and how should the reader interpret its important terms, statuses, traces, ranges, or uncertainty?
+5. Which syntax, concepts, or edge cases commonly cause a surprising result?
+6. What does the tool not inspect, calculate, prove, recommend, or guarantee?
+7. What happens to user inputs, including local-browser privacy when it is technically true?
+8. What should the reader verify next in the real system, or which adjacent version127 page continues the task?
+
+Do not force these into fixed headings or one template. Group them in the order that fits the tool and let headings carry the actual point. If the interface already answers a question clearly, do not repeat it in prose. If a question is irrelevant, record why in `writing-and-seo.md` rather than silently omitting it.
+
+Before writing, add a compact coverage map to `writing-and-seo.md` or the page brief with `user question`, `where it is answered`, `medium`, and `evidence`. Use the map to prevent both omissions and repetition.
+
 ## Content shape
 
-Use this order unless the page gives a strong reason to omit an item:
+Use this order as a starting point, not a heading template:
 
-1. Put one short paragraph below the h1 and before the tool. In two or three sentences, say what the tool shows, name the most important inputs or result, and state its main boundary.
+1. Put one short paragraph below the h1 and before the tool. In two or three sentences, say what the tool is, name the most important inputs and result, and state its main boundary.
 2. Keep the complete interactive tool next.
 3. Put supporting content after the tool in a server component.
-4. Explain controls in one compact table only when their names are not self-explanatory.
-5. Clarify one or two terms that users commonly confuse.
-6. Add one exact worked example only when it makes the result easier to understand.
-7. State when a result is descriptive rather than a universal recommendation.
-8. List the important exclusions plainly.
-9. State local-browser privacy when it is true.
-10. End with one useful internal link to the adjacent tool or next task.
+4. Explain how to choose useful inputs and understand the effective scope. Avoid generic instructions such as “click Test.”
+5. Clarify the terms, syntax, ordering, or conventions that commonly change the answer.
+6. Add at most one exact worked example when it makes the result easier to understand.
+7. Explain how to read the result, including recommendation or uncertainty boundaries.
+8. List the important exclusions plainly and keep each caveat next to the claim it limits.
+9. State local-browser privacy when it is true and keep the claim scoped to the tool action.
+10. End with a useful real-world verification step, official source, or adjacent version127 page.
 
-Skip any item that does not help this tool. Use three to seven h2 sections, no more than two compact tables, and normally no more than 700 static words. Do not add an FAQ, generic methodology, repetitive instructions, keyword filler, or a long formula essay unless the user explicitly needs it.
+Use three to seven h2 sections, normally no more than two compact tables, and normally no more than 800 static words. Completeness beats an arbitrary word target, but every extra paragraph must resolve a documented user question. Do not add an FAQ, generic methodology, repetitive instructions, keyword filler, or a long formula essay unless the user explicitly needs it.
 
 ## Writing rules
 
@@ -53,10 +70,12 @@ Skip any item that does not help this tool. Use three to seven h2 sections, no m
 - Do not claim best, optimal, recommended, exact real-world capacity, predicted performance, or predicted compression unless the verified product contract supports that claim.
 - Do not use em dashes or en dashes. Follow the repository writing style for punctuation and the lowercase `version127` brand.
 - Keep caveats near the claim they limit. Avoid a large warning panel.
+- Prefer practical guidance such as which inputs to probe, which source is effective, or how to verify a real result. Do not waste prose narrating ordinary controls.
+- Let different tools use different headings. Test for required information and supported claims, not a universal heading formula.
 
 ## Test-first integration
 
-Before adding prose, update the route-owned static test to require the intended introduction, guide component, essential headings, worked example or table when used, limitations, privacy statement when applicable, and internal link. Keep tests for the clean route, server identity, absence of route metadata, and banned claims.
+Before adding prose, update the route-owned static test to require the purpose, meaningful-use guidance, result interpretation, relevant concepts, limitations, privacy statement when applicable, real verification or adjacent link, and any worked example or table used. Assert essential information without forcing every tool to use identical headings. Keep tests for the clean route, server identity, absence of route metadata, and banned claims.
 
 Then:
 
@@ -81,8 +100,10 @@ Run the route content test red before implementation, then run:
 
 Use the guarded local preview and the in-app Browser to inspect the complete page at a normal desktop width and at 390px or narrower, in both themes. Check the introduction, transition into the tool, transition into the guide, paragraph rhythm, table behavior, internal link, page-level overflow, and the calculated result. Do not judge the content layout with an empty or invalid tool state only.
 
+During the final reading pass, answer the completeness-contract questions from the rendered page without consulting internal reports. Treat a missing answer as a content defect. Treat duplicated answers, mechanical click instructions, or unsupported detail as content defects too.
+
 When invoked inside `$version127-tool-orchestrator`, report the clean local URL and Browser evidence to the orchestrator, then stop. The main orchestrator agent owns the final visible Browser handoff. When invoked directly, leave the verified clean page open in the in-app Browser as the deliverable.
 
 ## Completion rule
 
-Finish only when the content is simple, factually bounded, server-rendered, visually consistent, covered by route tests, responsive around a real result, and the route remains unpublished. Report files changed, commands and results, Browser states checked, remaining P2 items, and the clean local URL.
+Finish only when a new visitor can understand what the tool is, use it meaningfully, interpret the result, recognize its limits and data handling, and know the next verification step. The content must also be simple, factually bounded, server-rendered, visually consistent, covered by route tests, responsive around a real result, and unpublished. Report files changed, commands and results, Browser states checked, remaining P2 items, and the clean local URL.

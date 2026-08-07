@@ -1,4 +1,4 @@
 interface:
   display_name: "version127 Tool Writing"
-  short_description: "Write simple content around a finished tool"
-  default_prompt: "Use $version127-tool-writing to add simple, easy-to-understand content to this finished version127 tool page."
+  short_description: "Write complete, concise content for finished tools"
+  default_prompt: "Use $version127-tool-writing to add complete, concise content covering the tool's purpose, meaningful use, result interpretation, limitations, privacy, and next verification step."

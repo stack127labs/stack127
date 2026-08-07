@@ -16,5 +16,11 @@
     "folder": "scripts/version127",
     "manifest": null,
     "purpose": "Sitewide durable scripts that are not owned by one page."
+  },
+  {
+    "surface": "dockerignore-tester",
+    "folder": "scripts/dockerignore-tester",
+    "manifest": "scripts/dockerignore-tester/scripts.json",
+    "purpose": "Verifies matcher fixtures, current BuildKit behavior, and the published /dockerignore-tester route."
   }
 ]

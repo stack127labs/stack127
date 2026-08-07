@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "caseId": "EC-006",
+  "capturedAtUtc": "2026-08-07T05:57:54.831Z",
+  "classification": "copy-succeeded",
+  "platform": {
+    "os": "darwin",
+    "architecture": "arm64"
+  },
+  "runtime": {
+    "engine": {
+      "version": "29.4.0",
+      "commit": "daa0cb7f",
+      "raw": {
+        "Client": {
+          "Version": "29.4.0",
+          "ApiVersion": "1.54",
+          "DefaultAPIVersion": "1.54",
+          "GitCommit": "9d7ad9f",
+          "GoVersion": "go1.26.4",
+          "Os": "darwin",
+          "Arch": "arm64",
+          "BuildTime": "Thu Jul 30 02:36:38 2026",
+          "Context": "orbstack"
+        },
+        "Server": {
+          "Platform": {
+            "Name": "Docker Engine - Community"
+          },
+          "Version": "29.4.0",
+          "ApiVersion": "1.54",
+          "MinAPIVersion": "1.40",
+          "Os": "linux",
+          "Arch": "arm64",
+          "Components": [
+            {
+              "Name": "Engine",
+              "Version": "29.4.0",
+              "Details": {
+                "ApiVersion": "1.54",
+                "Arch": "arm64",
+                "BuildTime": "Tue Apr  7 08:35:43 2026",
+                "Experimental": "true",
+                "GitCommit": "daa0cb7f",
+                "GoVersion": "go1.26.1",
+                "KernelVersion": "7.0.14-orbstack-00374-gbbca68e8d741",
+                "MinAPIVersion": "1.40",
+                "Module": "github.com/moby/moby/v2",
+                "ModuleVersion": "v2.0.0+unknown",
+                "Os": "linux"
+              }
+            },
+            {
+              "Name": "containerd",
+              "Version": "v2.2.2",
+              "Details": {
+                "GitCommit": "301b2dac98f15c27117da5c8af12118a041a31d9"
+              }
+            },
+            {
+              "Name": "runc",
+              "Version": "1.5.1",
+              "Details": {
+                "GitCommit": "bb14dabeb7185bb72c8c86735d090dcb20f36587"
+              }
+            },
+            {
+              "Name": "docker-init",
+              "Version": "0.19.0",
+              "Details": {
+                "GitCommit": "de40ad0"
+              }
+            }
+          ],
+          "GitCommit": "daa0cb7f",
+          "GoVersion": "go1.26.1",
+          "KernelVersion": "7.0.14-orbstack-00374-gbbca68e8d741",
+          "Experimental": true,
+          "BuildTime": "2026-04-07T08:35:43.000000000+00:00"
+        }
+      }
+    },
+    "buildkit": {
+      "version": "v0.29.0",
+      "inspect": "Name:          orbstack\nDriver:        docker\nLast Activity: 2026-08-07 05:43:42 +0000 UTC\n\nNodes:\nName:             orbstack\nEndpoint:         orbstack\nStatus:           running\nBuildKit version: v0.29.0\nPlatforms:        linux/arm64, linux/amd64, linux/amd64/v2, linux/riscv64, linux/ppc64le, linux/s390x, linux/386, linux/mips64le\nLabels:\n org.mobyproject.buildkit.worker.containerd.namespace: moby\n org.mobyproject.buildkit.worker.containerd.uuid:      623b8138-b96d-4b0a-86bf-2ceb51b79407\n org.mobyproject.buildkit.worker.executor:             containerd\n org.mobyproject.buildkit.worker.hostname:             orbstack\n org.mobyproject.buildkit.worker.moby.host-gateway-ip: 0.250.250.254\n org.mobyproject.buildkit.worker.network:              host\n org.mobyproject.buildkit.worker.selinux.enabled:      false\n org.mobyproject.buildkit.worker.snapshotter:          overlayfs\nGC Policy rule#0:\n All:           true\n Filters:       \n Keep Duration: 720h0m0.000005125s\nGC Policy rule#1:\n All:            true\n Filters:        \n Reserved Space: 3.472GiB\n"
+    },
+    "buildx": {
+      "version": "v0.33.0",
+      "output": "github.com/docker/buildx v0.33.0 f7897eba028583e0071642db3c011e860444f8cf"
+    }
+  },
+  "command": {
+    "executable": "docker",
+    "args": [
+      "buildx",
+      "build",
+      "--no-cache",
+      "--pull=false",
+      "--progress=plain",
+      "--file",
+      "Dockerfile",
+      "--output",
+      "type=local,dest=/var/folders/sn/gmnvh7cx0s7brplv62pdg2f40000gn/T/version127-buildkit-receipt-YaEUJX/output",
+      "."
+    ],
+    "workingDirectoryKind": "isolated-temporary-context"
+  },
+  "context": {
+    "files": {
+      ".dockerignore": {
+        "sha256": "3e5800463b9caa17989fa314d1d4ff79f9823fab2da4f33dccc010ec4c0432c9",
+        "bytes": 21
+      },
+      "Dockerfile": {
+        "sha256": "30f1bc1af10a890f5d930cb0da36f8f535a9c3fcf32140fbbdab7388d0abad48",
+        "bytes": 44
+      },
+      "docs/README.md": {
+        "sha256": "92b468af4f7f9c6d79c68dfa03b9bb749e76523b9fc68aed7f657230e4b7218c",
+        "bytes": 38
+      }
+    }
+  },
+  "engineComparison": {
+    "verdict": "Included",
+    "decidingLine": 2
+  },
+  "exitCode": 0,
+  "outputSha256": "f5799e1b22578aa07663cc435b5fe522f932e9cf53303062c4eea3b6749539f3",
+  "copiedFileSha256": "92b468af4f7f9c6d79c68dfa03b9bb749e76523b9fc68aed7f657230e4b7218c",
+  "stdout": "",
+  "stderr": "#0 building with \"orbstack\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 81B done\n#1 DONE 0.1s\n\n#2 [internal] load .dockerignore\n#2 transferring context:\n#2 transferring context: 61B done\n#2 DONE 0.0s\n\n#3 [internal] load build context\n#3 transferring context: 107B done\n#3 DONE 0.0s\n\n#4 [1/1] COPY docs/README.md /README.md\n#4 DONE 0.0s\n\n#5 exporting to client directory\n#5 copying files 70B done\n#5 DONE 0.0s\n"
+}

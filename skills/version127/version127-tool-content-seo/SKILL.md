@@ -1,6 +1,6 @@
 ---
 name: version127-tool-content-seo
-description: Plan the useful writing, search intent, headings, metadata direction, internal links, formula explanation, and visual-versus-prose outline for one version127 calculator, checker, converter, lookup, generator, explorer, or technical utility. Use after ready research, implementation, and test-design reports when the user asks for the writing and SEO document. Produce a manual-content-ready outline only; do not draft final public page prose or implement the page.
+description: Plan complete, concise tool-page content, search intent, headings, metadata direction, internal links, result interpretation, limitations, and the visual-versus-prose outline for one version127 calculator, checker, converter, lookup, generator, explorer, or technical utility. Use after ready research, implementation, and test-design reports when the user asks for the writing and SEO document. Produce a manual-content-ready outline only; do not draft final public page prose or implement the page.
 ---
 
 # version127 tool content and SEO
@@ -34,6 +34,21 @@ State:
 
 Do not chase unrelated keywords. Do not add a section merely because competitors have one. Do not claim rankings, traffic, best, first, or only.
 
+## Map content completeness
+
+Create a coverage map before the heading outline. For each question, record where the finished page will answer it, the medium, and the evidence:
+
+- what the tool is, who it serves, and the problem it solves;
+- which inputs, modes, units, sources, or scope choices matter;
+- how to choose meaningful inputs and use the tool for the real task;
+- how to interpret the result and its important terms or uncertainty;
+- which syntax, concepts, ordering, or edge cases commonly surprise users;
+- what the tool does not inspect, calculate, prove, recommend, or guarantee;
+- how user inputs are handled, including local-browser privacy when true;
+- what to verify next in the real system or which adjacent page continues the task.
+
+Do not require one heading per question. Let the live interface answer what it already makes clear and use supporting content only for gaps. Mark an irrelevant question with a reason instead of silently omitting it.
+
 ## Plan headings and media
 
 Create an outline in reading order. For each section include:
@@ -45,7 +60,7 @@ Create an outline in reading order. For each section include:
 - source/evidence;
 - maximum useful depth and what must not be repeated.
 
-Set an explicit static prose budget before outlining: no more than five static prose sections and 700 drafted words total. The interactive tool, exact result visualization, tables, diagrams, and screenshots do not count as prose sections. Keep `Primary medium: Tool UI` and require `Prose is the minority: yes`. If the page genuinely needs more, split the job or ask the user to revise this pipeline instead of silently overriding the ceiling.
+Set an explicit static prose budget before outlining: no more than five static prose sections and 700 drafted words total. The interactive tool, exact result visualization, tables, diagrams, and screenshots do not count as prose sections. Keep `Primary medium: Tool UI` and require `Prose is the minority: yes`. Cover the completeness map by grouping related questions and using the right visual medium, not by silently exceeding the ceiling.
 
 The tool and answer come before explanatory content. Headings must carry the point or ask the real question. Someone skimming headings alone should understand the page.
 
@@ -58,6 +73,8 @@ Use prose for judgment, caveats, formula interpretation, and confusing boundarie
 Map the formula or resolution contract into a short human explanation:
 
 - name the inputs and what changes the answer;
+- explain how to choose representative inputs without narrating ordinary buttons;
+- explain the result vocabulary, evidence, and decision boundary;
 - show the equation or source path exactly where it helps;
 - include one worked example only when it resolves a common misunderstanding;
 - place each caveat beside the claim it limits;
@@ -94,6 +111,7 @@ Set `Status: ready` only when:
 - every claim has a source or is explicitly editorial judgment;
 - every repeated fact or exact comparison has a non-prose medium;
 - the outline contains no duplicated answer, generic filler, or keyword padding;
+- the content completeness map answers every relevant question once across the interface and guide;
 - metadata and internal-link proposals follow the central registry architecture;
 - the manual prose handoff is complete enough that later writing cannot invent product facts.
 

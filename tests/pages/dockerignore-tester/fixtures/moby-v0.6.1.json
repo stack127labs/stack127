@@ -1,0 +1,1790 @@
+{
+  "schema": 1,
+  "tag": "v0.6.1",
+  "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+  "sourceUrl": "https://github.com/moby/patternmatcher/blob/v0.6.1/patternmatcher_test.go",
+  "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+  "cases": [
+    {
+      "id": "moby-matches-001",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**"
+      ],
+      "path": "file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-002",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/"
+      ],
+      "path": "file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-003",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**"
+      ],
+      "path": "dir/file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-004",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/**"
+      ],
+      "path": "dir/file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-005",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "dir/**"
+      ],
+      "path": "dir/file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-006",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "dir/**"
+      ],
+      "path": "dir/dir2/file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-007",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/dir"
+      ],
+      "path": "dir",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-008",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/dir"
+      ],
+      "path": "dir/file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-009",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/dir2/*"
+      ],
+      "path": "dir/dir2/file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-010",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/dir2/**"
+      ],
+      "path": "dir/dir2/dir3/file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-011",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**file"
+      ],
+      "path": "file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-012",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**file"
+      ],
+      "path": "dir/file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-013",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/file"
+      ],
+      "path": "dir/file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-014",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**file"
+      ],
+      "path": "dir/dir/file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-015",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/file"
+      ],
+      "path": "dir/dir/file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-016",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/file*"
+      ],
+      "path": "dir/dir/file",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-017",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/file*"
+      ],
+      "path": "dir/dir/file.txt",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-018",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/file*txt"
+      ],
+      "path": "dir/dir/file.txt",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-019",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/file*.txt"
+      ],
+      "path": "dir/dir/file.txt",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-020",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/file*.txt*"
+      ],
+      "path": "dir/dir/file.txt",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-021",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/**/*.txt"
+      ],
+      "path": "dir/dir/file.txt",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-022",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/**/*.txt2"
+      ],
+      "path": "dir/dir/file.txt",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-matches-023",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/*.txt"
+      ],
+      "path": "file.txt",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-024",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/**/*.txt"
+      ],
+      "path": "file.txt",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-025",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a**/*.txt"
+      ],
+      "path": "a/file.txt",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-026",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a**/*.txt"
+      ],
+      "path": "a/dir/file.txt",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-027",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a**/*.txt"
+      ],
+      "path": "a/dir/dir/file.txt",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-028",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a/*.txt"
+      ],
+      "path": "a/dir/file.txt",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-matches-029",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a/*.txt"
+      ],
+      "path": "a/file.txt",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-030",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a/*.txt**"
+      ],
+      "path": "a/file.txt",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-031",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a[b-d]e"
+      ],
+      "path": "ae",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-matches-032",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a[b-d]e"
+      ],
+      "path": "ace",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-033",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a[b-d]e"
+      ],
+      "path": "aae",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-matches-034",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a[^b-d]e"
+      ],
+      "path": "aze",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-035",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        ".*"
+      ],
+      "path": ".foo",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-036",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        ".*"
+      ],
+      "path": "foo",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-matches-037",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "abc.def"
+      ],
+      "path": "abcdef",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-matches-038",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "abc.def"
+      ],
+      "path": "abc.def",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-039",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "abc.def"
+      ],
+      "path": "abcZdef",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-matches-040",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "abc?def"
+      ],
+      "path": "abcZdef",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-041",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "abc?def"
+      ],
+      "path": "abcdef",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-matches-042",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/foo/bar"
+      ],
+      "path": "foo/bar",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-043",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/foo/bar"
+      ],
+      "path": "dir/foo/bar",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-044",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/foo/bar"
+      ],
+      "path": "dir/dir2/foo/bar",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-045",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "abc/**"
+      ],
+      "path": "abc",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-matches-046",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "abc/**"
+      ],
+      "path": "abc/def",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-047",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "abc/**"
+      ],
+      "path": "abc/def/ghi",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-048",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/.foo"
+      ],
+      "path": ".foo",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-049",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**/.foo"
+      ],
+      "path": "bar.foo",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-matches-050",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a(b)c/def"
+      ],
+      "path": "a(b)c/def",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-051",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a(b)c/def"
+      ],
+      "path": "a(b)c/xyz",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-matches-052",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a.|)$(}+{bc"
+      ],
+      "path": "a.|)$(}+{bc",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-053",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "dist/proxy.py-2.4.0rc3.dev36+g08acad9-py3-none-any.whl"
+      ],
+      "path": "dist/proxy.py-2.4.0rc3.dev36+g08acad9-py3-none-any.whl",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-054",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "dist/*.whl"
+      ],
+      "path": "dist/proxy.py-2.4.0rc3.dev36+g08acad9-py3-none-any.whl",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-matches-055",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a\\*b"
+      ],
+      "path": "a*b",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-001",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "abc"
+      ],
+      "path": "abc",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-002",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "*"
+      ],
+      "path": "abc",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-003",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "*c"
+      ],
+      "path": "abc",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-004",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a*"
+      ],
+      "path": "a",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-005",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a*"
+      ],
+      "path": "abc",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-006",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a*"
+      ],
+      "path": "ab/c",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-007",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a*/b"
+      ],
+      "path": "abc/b",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-008",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a*/b"
+      ],
+      "path": "a/c/b",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-009",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a*b*c*d*e*/f"
+      ],
+      "path": "axbxcxdxe/f",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-010",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a*b*c*d*e*/f"
+      ],
+      "path": "axbxcxdxexxx/f",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-011",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a*b*c*d*e*/f"
+      ],
+      "path": "axbxcxdxe/xxx/f",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-012",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a*b*c*d*e*/f"
+      ],
+      "path": "axbxcxdxexxx/fff",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-013",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a*b?c*x"
+      ],
+      "path": "abxbbxdbxebxczzx",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-014",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a*b?c*x"
+      ],
+      "path": "abxbbxdbxebxczzy",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-015",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "ab[c]"
+      ],
+      "path": "abc",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-016",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "ab[b-d]"
+      ],
+      "path": "abc",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-017",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "ab[e-g]"
+      ],
+      "path": "abc",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-018",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "ab[^c]"
+      ],
+      "path": "abc",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-019",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "ab[^b-d]"
+      ],
+      "path": "abc",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-020",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "ab[^e-g]"
+      ],
+      "path": "abc",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-021",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a\\*b"
+      ],
+      "path": "a*b",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-022",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a\\*b"
+      ],
+      "path": "ab",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-023",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a?b"
+      ],
+      "path": "a☺b",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-024",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a[^a]b"
+      ],
+      "path": "a☺b",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-025",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a???b"
+      ],
+      "path": "a☺b",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-026",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a[^a][^a][^a]b"
+      ],
+      "path": "a☺b",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-027",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[a-ζ]*"
+      ],
+      "path": "α",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-028",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "*[a-ζ]"
+      ],
+      "path": "A",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-029",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a?b"
+      ],
+      "path": "a/b",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-030",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a*b"
+      ],
+      "path": "a/b",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-031",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[\\]a]"
+      ],
+      "path": "]",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-032",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[\\-]"
+      ],
+      "path": "-",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-033",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[x\\-]"
+      ],
+      "path": "x",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-034",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[x\\-]"
+      ],
+      "path": "-",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-035",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[x\\-]"
+      ],
+      "path": "z",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-036",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[\\-x]"
+      ],
+      "path": "x",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-037",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[\\-x]"
+      ],
+      "path": "-",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-match-038",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[\\-x]"
+      ],
+      "path": "a",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-match-039",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[]a]"
+      ],
+      "path": "]",
+      "expectedIgnored": false,
+      "error": "bad-pattern"
+    },
+    {
+      "id": "moby-match-040",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[-]"
+      ],
+      "path": "-",
+      "expectedIgnored": false,
+      "error": "bad-pattern"
+    },
+    {
+      "id": "moby-match-041",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[x-]"
+      ],
+      "path": "x",
+      "expectedIgnored": false,
+      "error": "bad-pattern"
+    },
+    {
+      "id": "moby-match-042",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[-x]"
+      ],
+      "path": "x",
+      "expectedIgnored": false,
+      "error": "bad-pattern"
+    },
+    {
+      "id": "moby-match-043",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "\\"
+      ],
+      "path": "a",
+      "expectedIgnored": false,
+      "error": "bad-pattern"
+    },
+    {
+      "id": "moby-match-044",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[a-b-c]"
+      ],
+      "path": "a",
+      "expectedIgnored": false,
+      "error": "bad-pattern"
+    },
+    {
+      "id": "moby-match-045",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "["
+      ],
+      "path": "a",
+      "expectedIgnored": false,
+      "error": "bad-pattern"
+    },
+    {
+      "id": "moby-match-046",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[^"
+      ],
+      "path": "a",
+      "expectedIgnored": false,
+      "error": "bad-pattern"
+    },
+    {
+      "id": "moby-match-047",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[^bc"
+      ],
+      "path": "a",
+      "expectedIgnored": false,
+      "error": "bad-pattern"
+    },
+    {
+      "id": "moby-match-048",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a["
+      ],
+      "path": "a",
+      "expectedIgnored": false,
+      "error": "bad-pattern"
+    },
+    {
+      "id": "moby-match-049",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "a["
+      ],
+      "path": "ab",
+      "expectedIgnored": false,
+      "error": "bad-pattern"
+    },
+    {
+      "id": "moby-match-050",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatch",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "*x"
+      ],
+      "path": "xxx",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-multi-001",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**",
+        "!util/docker/web"
+      ],
+      "path": "util/docker/web/foo",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-multi-002",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**",
+        "!util/docker/web",
+        "util/docker/web/foo"
+      ],
+      "path": "util/docker/web/foo",
+      "expectedIgnored": true,
+      "error": null
+    },
+    {
+      "id": "moby-multi-003",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**",
+        "!dist/proxy.py-2.4.0rc3.dev36+g08acad9-py3-none-any.whl"
+      ],
+      "path": "dist/proxy.py-2.4.0rc3.dev36+g08acad9-py3-none-any.whl",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-multi-004",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatches",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "**",
+        "!dist/*.whl"
+      ],
+      "path": "dist/proxy.py-2.4.0rc3.dev36+g08acad9-py3-none-any.whl",
+      "expectedIgnored": false,
+      "error": null
+    },
+    {
+      "id": "moby-single-exclamation",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestSingleExclamationError",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "!"
+      ],
+      "path": "fileutils.go",
+      "expectedIgnored": false,
+      "error": "bad-pattern"
+    },
+    {
+      "id": "moby-malformed-repeat",
+      "sourceKind": "moby-upstream",
+      "tag": "v0.6.1",
+      "commit": "5a6d8429a19bb6948a372ff19e86fe83599a04b7",
+      "sourceFile": "patternmatcher_test.go",
+      "upstreamTestName": "TestMatchesOrParentMatchesMalformedPatternDoesNotPanicOnRepeatedCall",
+      "sourceSha256": "28b52905be3e5b7bb2a5a62bd572e17004bd7739984cba98d3b9b5cac11a4154",
+      "platform": "linux",
+      "patterns": [
+        "[Local-Only]/"
+      ],
+      "path": "x",
+      "expectedIgnored": false,
+      "error": "bad-pattern"
+    }
+  ]
+}

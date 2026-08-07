@@ -508,6 +508,7 @@ if (toolOnly) {
     const routeCandidates = [
       resolve(repositoryRoot, "app", ...routeParts),
       resolve(repositoryRoot, "app", "(site)", ...routeParts),
+      resolve(repositoryRoot, "app", "(site)", "(tools)", ...routeParts),
     ];
     const routeDirectory = routeCandidates.find((candidate) => {
       try {

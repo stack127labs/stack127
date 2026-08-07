@@ -1,4 +1,4 @@
 interface:
   display_name: "version127 Tool Content SEO"
-  short_description: "Plan useful copy and search intent"
-  default_prompt: "Use $version127-tool-content-seo to create the writing and SEO plan for this tool without drafting the final page prose."
+  short_description: "Plan complete tool content and search intent"
+  default_prompt: "Use $version127-tool-content-seo to plan complete, concise content and SEO coverage for this tool without drafting the final page prose."

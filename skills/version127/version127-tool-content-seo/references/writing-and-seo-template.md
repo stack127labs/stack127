@@ -31,6 +31,19 @@ Static prose budget: [[1 to 5]] sections, [[1 to 700]] words maximum
 
 [[One sentence describing what the user can get and the important boundary.]]
 
+## Content completeness map
+
+| User question | Where answered | Medium | Evidence | Repetition guard |
+| --- | --- | --- | --- | --- |
+| What is the tool and who is it for? | [[intro/tool]] | [[medium]] | [[source/report]] | [[what not to repeat]] |
+| Which inputs, modes, units, sources, or scope choices matter? | [[location]] | [[medium]] | [[source/report]] | [[guard]] |
+| How should someone choose meaningful inputs and use it for the real task? | [[location]] | [[medium]] | [[source/report]] | [[guard]] |
+| How should the result and its important terms or uncertainty be interpreted? | [[location]] | [[medium]] | [[source/report]] | [[guard]] |
+| Which concepts, syntax, ordering, or edge cases commonly surprise users? | [[location]] | [[medium]] | [[source/report]] | [[guard]] |
+| What does the tool not inspect, calculate, prove, recommend, or guarantee? | [[location]] | [[medium]] | [[source/report]] | [[guard]] |
+| How are user inputs handled? | [[location or irrelevant reason]] | [[medium]] | [[source/report]] | [[guard]] |
+| What should the reader verify or do next? | [[location]] | [[medium]] | [[source/report]] | [[guard]] |
+
 ## Heading and media outline
 
 | Order | Level and proposed heading | User question | Takeaway, not draft prose | Medium | Evidence | Limit/repetition guard | Writer section ID |

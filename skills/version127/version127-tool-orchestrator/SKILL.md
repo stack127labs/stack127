@@ -25,7 +25,7 @@ Own one tool from idea to a complete unpublished page. Delegate bounded stages t
 
 ## Hard boundary
 
-Deliver a complete unpublished tool page with a verified technical core and a small, simple, server-rendered content layer. Keep the tool as the primary visual and answer. Do not turn the page into an article, add an FAQ or methodology essay by default, or use explanatory content to conceal a technical or interaction defect.
+Deliver a complete unpublished tool page with a verified technical core and a complete but concise server-rendered content layer. Keep the tool as the primary visual and answer. Do not turn the page into an article, add an FAQ or methodology essay by default, or use explanatory content to conceal a technical or interaction defect.
 
 Do not publish, change registry metadata, commit, push, open a pull request, or deploy unless the user makes a separate explicit request. Do not conceal, waive, or relabel a failed gate.
 
@@ -128,9 +128,9 @@ Launch a fresh worker with `$version127-tool-writing`. Use this writing directio
 
 > Write the content part for this page in a simple style. Keep it easy for anyone to understand and keep things simple. Add detail only when it resolves a real user question. Do not overcomplicate the page.
 
-Require tests before prose, a short introduction before the tool, a compact server-rendered guide after it, shared prose styles, honest limits, and no publication changes. Permit only the route, its route-owned styles and tests, and required ownership updates. Require the worker to inspect two sibling tool pages and verify a real calculated result at desktop and narrow widths in both themes.
+Require complete coverage of what the tool is, how to choose meaningful inputs and use it for the real task, how to interpret the result, the concepts or syntax that commonly surprise users, honest limitations, local handling or privacy when true, and the next real verification step. Do not require identical headings across tools. Require tests before prose, a short introduction before the tool, a compact server-rendered guide after it, shared prose styles, and no publication changes. Permit only the route, its route-owned styles and tests, and required ownership updates. Require the worker to inspect two sibling tool pages and verify a real calculated result at desktop and narrow widths in both themes.
 
-Read the complete copy and diff yourself. Remove duplicated result narration, generic how-to text, unnecessary headings, FAQs, methodology filler, and claims not supported by the ready artifacts. Return technical mismatches upstream. Send writing or responsive P0/P1 findings back to the writer and require regression tests.
+Read the rendered page without relying on internal reports and answer every completeness-contract question from `$version127-tool-writing`. Return omissions to the writer. Remove duplicated result narration, mechanical button-click instructions, unnecessary headings, FAQs, methodology filler, and claims not supported by the ready artifacts. Return technical mismatches upstream. Send writing or responsive P0/P1 findings back to the writer and require regression tests.
 
 ### 11. Final page gates and visible Browser handoff
 
