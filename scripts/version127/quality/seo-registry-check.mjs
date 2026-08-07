@@ -1,56 +1,26 @@
 #!/usr/bin/env node
 
 import dns from "node:dns";
+import { readFileSync, readdirSync } from "node:fs";
+import path from "node:path";
 import { Pool } from "pg";
 
 dns.setDefaultResultOrder("ipv4first");
 
-const expectedPublishedSlugs = [
-  "",
-  "about",
-  "dns-tools",
-  "dns-lookup",
-  "dns-trace",
-  "dns-change-checker",
-  "nameserver-checker",
-  "dnssec-checker",
-  "soa-checker",
-  "caa-checker",
-  "domain-tools",
-  "domain-age",
-  "domain-availability",
-  "domain-expiry",
-  "domain-lookup",
-  "domain-owner",
-  "domain-registrar",
-  "domain-report",
-  "epp-status-codes",
-  "multi-tld-availability",
-  "punycode-converter",
-  "tld-directory",
-  "transfer-readiness",
-  "privacy",
-  "self-host-apps",
-  "self-hosting-for-beginners",
-  "self-hosting-for-beginners/access-apps-remotely-with-tailscale",
-  "self-hosting-for-beginners/access-apps-safely-at-home",
-  "self-hosting-for-beginners/backups-before-serious-apps",
-  "self-hosting-for-beginners/basic-setup",
-  "self-hosting-for-beginners/best-first-apps",
-  "self-hosting-for-beginners/full-walkthrough",
-  "self-hosting-for-beginners/install-docker",
-  "self-hosting-for-beginners/install-your-first-app",
-  "self-hosting-for-beginners/install-your-os",
-  "self-hosting-for-beginners/linux-ssh-basics",
-  "self-hosting-for-beginners/pick-your-first-server",
-  "self-hosting-for-beginners/pick-your-operating-system",
-  "self-hosting-for-beginners/storage-and-volumes",
-  "self-hosting-for-beginners/understand-docker-compose",
-  "self-hosting-for-beginners/what-you-can-host",
-  "software-licenses-for-self-hosting",
-  "terms",
-];
 const blockedPublishedPrefixes = [];
+
+function pageManifests(directory = path.join(process.cwd(), "tests", "pages")) {
+  return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const entryPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) return pageManifests(entryPath);
+    if (entry.name !== "page.json") return [];
+    return [JSON.parse(readFileSync(entryPath, "utf8"))];
+  });
+}
+
+const expectedPublishedSlugs = pageManifests()
+  .filter((entry) => entry.state === "published")
+  .map((entry) => entry.route === "/" ? "" : entry.route.replace(/^\/+|\/+$/gu, ""));
 
 const flatSlugByLegacySlug = new Map([
   ...[
