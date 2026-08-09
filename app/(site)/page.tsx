@@ -4,6 +4,7 @@ import {
   Gauge,
   Globe,
   HardDrive,
+  Layers3,
   Network,
   Route,
   Scale,
@@ -22,6 +23,7 @@ import { siteSpotDockerignoreArt } from "./art/site--spot-dockerignore";
 import { siteSpotHomeAssistantEnergyArt } from "./art/site--spot-home-assistant-energy";
 import { siteSpotNfsFirewallArt } from "./art/site--spot-nfs-firewall";
 import { siteSpotNginxProxyPassArt } from "./art/site--spot-nginx-proxy-pass";
+import { siteSpotStorageToolsArt } from "./art/site--spot-storage-tools";
 import { getSelfHostAppsStats } from "@/lib/apps";
 import {
   getMainPublishedPages,
@@ -39,6 +41,7 @@ import { Doodle } from "../doodle";
 import { SidebarList } from "../sidebar-list";
 import { dnsToolCount } from "./dns-tools/dns-tools-sidebar";
 import { domainToolCount } from "./domain-tools/domain-tools-sidebar";
+import { storageToolCount } from "./storage-tools/storage-tools-sidebar";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
@@ -66,6 +69,7 @@ const pageIcons: Record<string, LucideIcon> = {
   "self-host-apps": HardDrive,
   "self-hosting-for-beginners": BookOpen,
   "software-licenses-for-self-hosting": Scale,
+  "storage-tools": Layers3,
 };
 
 /** Marker spot per feature page: the card's visual one-liner. */
@@ -79,6 +83,7 @@ const pageArt: Record<string, string> = {
   "self-host-apps": siteSpotSelfHostAppsArt,
   "self-hosting-for-beginners": siteSpotCourseArt,
   "software-licenses-for-self-hosting": siteSpotLicensesArt,
+  "storage-tools": siteSpotStorageToolsArt,
 };
 
 function HomeSidebar({ pages }: { pages: Version127Page[] }) {
@@ -129,6 +134,10 @@ function buildCardStats(
 
   if (page.slug === "domain-tools") {
     return [{ label: "tools", value: domainToolCount.toLocaleString("en-US") }];
+  }
+
+  if (page.slug === "storage-tools") {
+    return [{ label: "tools", value: storageToolCount.toLocaleString("en-US") }];
   }
 
   return [];

@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-storage-tools",
+  "type": "doodle",
+  "takeaway": "Drives in an array where one is parity, so usable capacity is shorter than raw.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-08-09",
+  "width": 140,
+  "height": 120,
+  "seed": 17,
+  "data": {
+    "shape": "driveArray"
+  }
+}

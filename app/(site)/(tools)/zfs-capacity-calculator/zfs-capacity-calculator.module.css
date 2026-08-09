@@ -1,0 +1,1191 @@
+.page {
+  display: grid;
+  gap: var(--space-13);
+  margin: 0 auto;
+  max-width: 1120px;
+  min-width: 0;
+  padding: var(--space-13) var(--container-gutter) var(--space-14);
+  width: 100%;
+}
+
+.pageHeader {
+  display: grid;
+  gap: var(--space-5);
+  max-width: var(--measure-prose);
+}
+
+.pageHeader h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-h1);
+  margin: 0;
+}
+
+.pageHeader mark {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  padding-inline: 0.08em;
+}
+
+.pageHeader p {
+  color: var(--color-text);
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+  margin: 0;
+  max-width: var(--measure-prose);
+}
+
+.tool {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-xl);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.form,
+.result {
+  display: grid;
+  gap: var(--space-7);
+  min-width: 0;
+  padding: var(--space-7);
+}
+
+.form > *,
+.result > * {
+  min-width: 0;
+}
+
+.settingsGrid {
+  align-items: end;
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: minmax(12rem, 1.4fr) repeat(3, minmax(9rem, 1fr));
+  min-width: 0;
+}
+
+.fieldset {
+  border: 0;
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.fieldset legend,
+.field > span:first-child {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  margin: 0 0 var(--space-2);
+  padding: 0;
+}
+
+.choiceRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.choice {
+  cursor: pointer;
+  position: relative;
+}
+
+.choice input {
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+}
+
+.choice span {
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  display: block;
+  font-size: var(--text-body);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+}
+
+.choice input:checked + span {
+  border-color: var(--color-accent-text);
+  color: var(--color-accent-text);
+  font-weight: var(--weight-semibold);
+}
+
+.choice input:focus-visible + span {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.field {
+  display: grid;
+  min-width: 0;
+}
+
+.field input,
+.field select,
+.vdevControls select,
+.auxiliaryAdd select,
+.quickSetup input,
+.quickSetup select,
+.driveRow input,
+.driveRow select,
+.shareUrl {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+  font-size: var(--text-body);
+  min-height: 44px;
+  min-width: 0;
+  padding: var(--space-2) var(--space-3);
+  width: 100%;
+}
+
+.inputSuffix {
+  align-items: stretch;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2.5rem;
+}
+
+.inputSuffix input {
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+.inputSuffix i {
+  align-items: center;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-strong);
+  border-inline-start: 0;
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  display: flex;
+  font-family: var(--font-mono);
+  font-size: var(--text-body);
+  font-style: normal;
+  justify-content: center;
+}
+
+.advanced {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+}
+
+.advanced summary,
+.metadata summary {
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+}
+
+.advancedGrid {
+  align-items: end;
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(3, minmax(10rem, 1fr));
+  margin-top: var(--space-4);
+}
+
+.toggle {
+  align-items: center;
+  display: flex;
+  font-size: var(--text-body);
+  gap: var(--space-3);
+  min-height: 44px;
+}
+
+.toggle input {
+  accent-color: var(--color-accent-text);
+  height: 20px;
+  width: 20px;
+}
+
+.editorSection {
+  border-top: 1px solid var(--color-border-strong);
+  display: grid;
+  gap: var(--space-4);
+  padding-top: var(--space-6);
+}
+
+.editorHeading,
+.vdevHeading,
+.sectionHeading,
+.answerRow {
+  align-items: center;
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+}
+
+.editorHeading > div:first-child {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.editorHeading h2,
+.resultSection h2,
+.answer h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.editorHeading span,
+.sectionHeading span,
+.status,
+.shareDisclosure {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+.auxiliaryAdd,
+.vdevControls,
+.resultActions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.auxiliaryAdd select,
+.vdevControls select {
+  width: auto;
+}
+
+.vdevTypeField {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.vdevTypeField > span {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+.quickSetupPanel {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+}
+
+.quickSetup {
+  align-items: end;
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: minmax(5rem, 0.55fr) minmax(8rem, 1fr) minmax(5.5rem, 0.55fr) auto;
+  min-width: 0;
+}
+
+.quickSetup label {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.quickSetup label > span,
+.quickSetupPanel > p {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+}
+
+.quickSetup label > span {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+}
+
+.quickSetupPanel > p {
+  margin: 0;
+}
+
+.secondaryButton,
+.resetButton,
+.primaryButton,
+.iconButton,
+.addDriveButton {
+  align-items: center;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  gap: var(--space-2);
+  justify-content: center;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+}
+
+.secondaryButton,
+.resetButton,
+.iconButton,
+.addDriveButton {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.primaryButton {
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent-contrast);
+  min-width: 12rem;
+}
+
+.iconButton {
+  min-width: 44px;
+  padding: var(--space-2);
+}
+
+.addDriveButton {
+  justify-self: end;
+}
+
+.secondaryButton:disabled,
+.primaryButton:disabled,
+.iconButton:disabled,
+.addDriveButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.secondaryButton:focus-visible,
+.resetButton:focus-visible,
+.primaryButton:focus-visible,
+.iconButton:focus-visible,
+.addDriveButton:focus-visible,
+.field input:focus-visible,
+.field select:focus-visible,
+.vdevControls select:focus-visible,
+.auxiliaryAdd select:focus-visible,
+.quickSetup input:focus-visible,
+.quickSetup select:focus-visible,
+.driveRow input:focus-visible,
+.driveRow select:focus-visible,
+.shareUrl:focus-visible,
+.vdevHeading h3:focus-visible,
+.resultMetric h2:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.emptyState,
+.emptyGroup {
+  color: var(--color-text-muted);
+  font-size: var(--text-body);
+  margin: 0;
+  padding-block: var(--space-4);
+  text-align: center;
+}
+
+.vdevList {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.vdev {
+  border-block: 1px solid var(--color-border-strong);
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+  padding-block: var(--space-4);
+}
+
+.vdevHeading h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  margin: 0;
+}
+
+.driveTable {
+  border-block: 1px solid var(--color-border);
+  min-width: 0;
+}
+
+.driveHeader,
+.driveRow {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: 3.5rem minmax(8rem, 1fr) 6.5rem 44px;
+  min-width: 0;
+}
+
+.driveHeader {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  padding-block: var(--space-2);
+}
+
+.driveRow {
+  align-items: start;
+  border-bottom: 1px solid var(--color-border);
+  min-height: 44px;
+}
+
+.driveNumber {
+  align-items: center;
+  color: var(--color-text-muted);
+  display: flex;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  min-height: 44px;
+}
+
+.driveRow label {
+  display: grid;
+  min-width: 0;
+}
+
+.fieldError,
+.groupError,
+.formError,
+.specialWarning {
+  color: var(--color-danger-text);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+}
+
+.fieldError {
+  margin-top: var(--space-1);
+}
+
+.groupError,
+.formError,
+.specialWarning {
+  margin: 0;
+}
+
+.specialWarning {
+  color: var(--color-warning-text);
+}
+
+.actionRow {
+  align-items: center;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border-strong);
+  bottom: 0;
+  display: flex;
+  gap: var(--space-3);
+  justify-content: flex-end;
+  padding-top: var(--space-5);
+  position: sticky;
+  z-index: 2;
+}
+
+.result {
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.resultHeader {
+  align-items: center;
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+}
+
+.resultHeader > span {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+.resultSummary {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.resultMetric {
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: var(--space-5);
+}
+
+.resultMetric h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.resultMetric strong {
+  font-family: var(--font-mono);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-h1);
+  overflow-wrap: anywhere;
+}
+
+.resultMetric > span {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+.outputUnit {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.resultSection {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.commandBlock {
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.topologyList {
+  border-block: 1px solid var(--color-border-strong);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.topologyRow {
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 2.5rem minmax(8rem, 0.7fr) minmax(12rem, 1fr) minmax(9rem, 1fr);
+  padding-block: var(--space-4);
+}
+
+.topologyRow:last-child {
+  border-bottom: 0;
+}
+
+.topologyNumber,
+.topologyRow strong,
+.topologyRow small {
+  font-family: var(--font-mono);
+}
+
+.topologyNumber,
+.topologyRow small {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+}
+
+.topologyRow > span:not(.topologyNumber):not(.drivePips) {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.drivePips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  justify-content: flex-end;
+}
+
+.drivePips i {
+  background: var(--color-text);
+  border-radius: 2px;
+  display: block;
+  height: 20px;
+  width: 10px;
+}
+
+.capacityBar {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-strong);
+  display: flex;
+  height: 36px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.capacityBar span {
+  border-right: 1px solid var(--color-bg);
+  display: block;
+  height: 100%;
+}
+
+.barWritable {
+  background: var(--ma-good);
+}
+
+.barSlop {
+  background: var(--ma-primary);
+}
+
+.barRedundancy {
+  background: var(--ma-note);
+}
+
+.barMixed {
+  background: var(--ma-warn);
+}
+
+.barRounding {
+  background: color-mix(in srgb, var(--ma-primary) 65%, var(--color-surface-2));
+}
+
+.barPadding {
+  background: color-mix(in srgb, var(--ma-note) 65%, var(--color-surface-2));
+}
+
+.barAlignment {
+  background: color-mix(in srgb, var(--ma-warn) 68%, var(--color-surface-2));
+}
+
+.barTail {
+  background: color-mix(in srgb, var(--ma-good) 55%, var(--color-surface-2));
+}
+
+.allocationLegend {
+  display: grid;
+  gap: 0 var(--space-6);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.allocationLegend li {
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: 12px minmax(0, 1fr) auto;
+  padding-block: var(--space-2);
+}
+
+.allocationLegend span,
+.allocationLegend strong,
+.allocationLegend small {
+  font-size: var(--text-small);
+}
+
+.allocationLegend strong,
+.allocationLegend small {
+  font-family: var(--font-mono);
+}
+
+.allocationLegend small {
+  color: var(--color-text-muted);
+  grid-column: 3;
+}
+
+.legendSwatch {
+  border: 1px solid var(--color-border-strong);
+  display: block;
+  height: 12px;
+  width: 12px;
+}
+
+.tableScroll {
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.accountingTable {
+  border: 1.5px solid var(--color-border-strong);
+  border-collapse: collapse;
+  font-size: var(--text-body);
+  max-width: 100%;
+  min-width: 36rem;
+  width: 100%;
+}
+
+.accountingTable th,
+.accountingTable td {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+}
+
+.accountingTable thead th {
+  border-bottom: 1.5px solid var(--color-border-strong);
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+}
+
+.accountingTable tbody th {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+}
+
+.accountingTable td {
+  font-family: var(--font-mono);
+  text-align: right;
+}
+
+.accountingTable tr:last-child > * {
+  border-bottom: 0;
+}
+
+.zeroDetails {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-3);
+}
+
+.zeroDetails summary {
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+}
+
+.zeroDetails ul {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+}
+
+.zeroDetails li {
+  align-items: baseline;
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+}
+
+.zeroDetails li span,
+.zeroDetails li strong {
+  font-size: var(--text-small);
+}
+
+.zeroDetails li strong {
+  font-family: var(--font-mono);
+}
+
+.specialRow {
+  align-items: baseline;
+  border-block: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: minmax(9rem, 1fr) auto auto;
+  padding-block: var(--space-3);
+}
+
+.specialRow strong {
+  font-family: var(--font-display);
+}
+
+.specialRow span,
+.specialRow small {
+  font-family: var(--font-mono);
+}
+
+.specialRow small {
+  color: var(--color-warning-text);
+  font-size: var(--text-small);
+}
+
+.metadata {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+}
+
+.metadata dl {
+  border-block: 1px solid var(--color-border);
+  margin: var(--space-4) 0 0;
+}
+
+.metadata dl > div {
+  border-bottom: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: minmax(8rem, 1fr) minmax(9rem, auto);
+  padding-block: var(--space-3);
+}
+
+.metadata dl > div:last-child {
+  border-bottom: 0;
+}
+
+.metadata dt,
+.metadata dd {
+  font-size: var(--text-body);
+  margin: 0;
+}
+
+.metadata dt {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+}
+
+.metadata dd {
+  font-family: var(--font-mono);
+  text-align: right;
+}
+
+.sourceList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin: var(--space-4) 0 0;
+  padding: 0;
+}
+
+.sourceList li {
+  font-size: var(--text-small);
+  list-style: none;
+}
+
+.resultActions {
+  justify-content: flex-end;
+}
+
+.statusArea {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-7) var(--space-5);
+}
+
+.status,
+.shareDisclosure {
+  margin: 0;
+  min-height: 1.25rem;
+}
+
+.guide {
+  max-width: var(--measure-prose);
+  padding-block: var(--space-5) var(--space-8);
+  width: 100%;
+}
+
+.guideTableScroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.guideTable {
+  border: 1.5px solid var(--color-border-strong);
+  border-collapse: collapse;
+  font-size: var(--text-body);
+  min-width: 24rem;
+  width: 100%;
+}
+
+.guideTable th,
+.guideTable td {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+}
+
+.guideTable th {
+  border-bottom: 1.5px solid var(--color-border-strong);
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+}
+
+.guideTable td:first-child {
+  font-family: var(--font-mono);
+}
+
+.guideTable tr:last-child > * {
+  border-bottom: 0;
+}
+
+.shareUrl {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+.visuallyHidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (max-width: 900px) {
+  .settingsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quickSetup {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .quickSetup button {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .page {
+    gap: var(--space-10);
+    padding: var(--space-9) var(--container-gutter) var(--space-12);
+  }
+
+  .form,
+  .result {
+    padding: var(--space-5);
+  }
+
+  .settingsGrid,
+  .advancedGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .editorHeading {
+    align-items: stretch;
+    display: grid;
+  }
+
+  .auxiliaryAdd {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .vdevHeading {
+    align-items: start;
+  }
+
+  .vdevControls {
+    justify-content: flex-end;
+  }
+
+  .driveHeader,
+  .driveRow {
+    gap: var(--space-1);
+    grid-template-columns: 2rem minmax(0, 1fr) 4.75rem 44px;
+  }
+
+  .driveRow input,
+  .driveRow select {
+    padding-inline: var(--space-2);
+  }
+
+  .driveHeader span:first-child {
+    visibility: hidden;
+  }
+
+  .topologyRow {
+    align-items: start;
+    grid-template-columns: 2rem minmax(6rem, 0.7fr) minmax(8rem, 1fr);
+  }
+
+  .drivePips {
+    grid-column: 2 / -1;
+    justify-content: flex-start;
+  }
+
+  .specialRow {
+    grid-template-columns: 1fr auto;
+  }
+
+  .specialRow small {
+    grid-column: 1 / -1;
+  }
+
+  .statusArea {
+    padding-inline: var(--space-5);
+  }
+
+  .allocationLegend {
+    grid-template-columns: 1fr;
+  }
+
+  .resultSummary {
+    grid-template-columns: 1fr;
+  }
+
+  .accountingTable {
+    min-width: 0;
+  }
+
+  .accountingTable:not(.auxiliaryTable) tbody {
+    display: grid;
+  }
+
+  .accountingTable:not(.auxiliaryTable) tbody tr {
+    border-bottom: 1px solid var(--color-border);
+    display: grid;
+    gap: var(--space-1) var(--space-3);
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: var(--space-3);
+  }
+
+  .accountingTable:not(.auxiliaryTable) tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .accountingTable:not(.auxiliaryTable) tbody th,
+  .accountingTable:not(.auxiliaryTable) tbody td {
+    border: 0;
+    padding: 0;
+  }
+
+  .accountingTable:not(.auxiliaryTable) tbody th {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .accountingTable:not(.auxiliaryTable) tbody td {
+    grid-column: 2;
+    white-space: nowrap;
+  }
+
+  .accountingTable:not(.auxiliaryTable) tbody td:last-child {
+    color: var(--color-text-muted);
+    font-size: var(--text-small);
+  }
+
+  .auxiliaryTable thead {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .auxiliaryTable tbody {
+    display: grid;
+  }
+
+  .auxiliaryTable tbody tr {
+    display: grid;
+    gap: var(--space-2);
+    padding: var(--space-3);
+  }
+
+  .auxiliaryTable tbody th,
+  .auxiliaryTable tbody td {
+    border: 0;
+    padding: 0;
+  }
+
+  .auxiliaryTable tbody th {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-2);
+  }
+
+  .auxiliaryTable tbody td {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .auxiliaryTable tbody td::before {
+    color: var(--color-text-muted);
+    content: attr(data-label);
+    font-family: var(--font-display);
+    font-size: var(--text-small);
+    font-weight: var(--weight-semibold);
+  }
+}
+
+@media (max-width: 420px) {
+  .form,
+  .result {
+    padding: var(--space-4);
+  }
+
+  .settingsGrid,
+  .advancedGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .quickSetup {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  }
+
+  .quickSetup label:nth-child(3),
+  .quickSetup button {
+    grid-column: 1 / -1;
+  }
+
+  .choiceRow {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .choice span {
+    text-align: center;
+  }
+
+  .auxiliaryAdd {
+    grid-template-columns: 1fr;
+  }
+
+  .vdevHeading {
+    display: grid;
+  }
+
+  .vdevControls {
+    display: grid;
+    grid-template-columns: repeat(4, 44px);
+  }
+
+  .vdevControls label {
+    grid-column: 1 / -1;
+    min-width: 0;
+  }
+
+  .driveHeader,
+  .driveRow {
+    grid-template-columns: 1.75rem minmax(0, 1fr) 4.25rem 44px;
+  }
+
+  .actionRow {
+    display: grid;
+    grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+  }
+
+  .primaryButton {
+    min-width: 0;
+  }
+
+  .resultMetric strong {
+    font-size: var(--text-h2);
+  }
+
+  .topologyRow {
+    grid-template-columns: 1.75rem minmax(0, 1fr);
+  }
+
+  .topologyRow > span:nth-child(3),
+  .drivePips {
+    grid-column: 2;
+  }
+
+  .resultActions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool * {
+    scroll-behavior: auto;
+  }
+}

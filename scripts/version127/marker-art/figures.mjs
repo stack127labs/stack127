@@ -922,6 +922,20 @@ const DOODLE_SHAPES = {
     A.dot(16, 42, 3, "@ink");
     A.dot(54, 88, 3, "@sub");
   },
+  // drive bodies with one parity drive and a usable-capacity bar: storage planning
+  driveArray(A) {
+    A.rect(20, 24, 28, 60, { stroke: "@ink" });
+    A.rect(56, 24, 28, 60, { stroke: "@ink" });
+    A.rect(92, 24, 28, 60, { stroke: "@primary" });
+    A.dot(34, 38, 3, "@ink");
+    A.dot(70, 38, 3, "@ink");
+    A.dot(106, 38, 3, "@primary");
+    A.line(26, 70, 42, 70, { stroke: "@sub" });
+    A.line(62, 70, 78, 70, { stroke: "@sub" });
+    A.line(98, 70, 114, 70, { stroke: "@primary" });
+    A.line(20, 102, 84, 102, { stroke: "@ink" });
+    A.line(92, 102, 120, 102, { stroke: "@primary" });
+  },
   // shield with explicit listener paths: NFS firewall planning
   firewallShield(A) {
     A.polygon([[70, 16], [112, 32], [106, 78], [70, 106], [34, 78], [28, 32]], { stroke: "@ink" });

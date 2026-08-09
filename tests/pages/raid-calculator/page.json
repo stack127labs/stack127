@@ -1,0 +1,16 @@
+{
+  "route": "/raid-calculator",
+  "state": "published",
+  "docs": ["content_docs/raid-calculator"],
+  "tests": [
+    "tests/version127/seo.spec.ts",
+    "tests/pages/raid-calculator/raid-calculator.test.mjs",
+    "tests/pages/raid-calculator/page.test.mjs"
+  ],
+  "scripts": ["scripts/storage-tools/preview-local-pages.mjs"],
+  "skills": [
+    "skills/version127/test-driven-page",
+    "skills/version127/visual-first-content"
+  ],
+  "repositories": []
+}

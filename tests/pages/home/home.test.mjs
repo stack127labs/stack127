@@ -12,6 +12,10 @@ const registryCheckPath = new URL(
   "../../../scripts/version127/quality/seo-registry-check.mjs",
   import.meta.url,
 );
+const storageMigrationPath = new URL(
+  "../../../supabase/migrations/20260809140000_publish_storage_tools.sql",
+  import.meta.url,
+);
 
 const featuredToolSlugs = [
   "dockerignore-tester",
@@ -45,6 +49,30 @@ test("the release publishes the three new tools and keeps registry approval mani
   assert.match(registryCheck, /expectedPublishedSlugs/);
 
   for (const slug of featuredToolSlugs.slice(1)) {
+    assert.match(migration, new RegExp(`'${slug}'`), `${slug} is published by migration`);
+  }
+});
+
+test("home carries a storage collection card with its own art and tool count", () => {
+  const home = readFileSync(homePath, "utf8");
+  const helpers = readFileSync(helpersPath, "utf8");
+
+  assert.match(helpers, /"storage-tools"/);
+  assert.match(home, /"storage-tools":\s*[A-Z]/);
+  assert.match(home, /"storage-tools":\s*siteSpotStorageToolsArt/);
+  assert.match(home, /storageToolCount/);
+});
+
+test("the storage release publishes the hub and all three calculators", () => {
+  assert.equal(existsSync(storageMigrationPath), true);
+  const migration = readFileSync(storageMigrationPath, "utf8");
+
+  for (const slug of [
+    "storage-tools",
+    "raid-calculator",
+    "zfs-capacity-calculator",
+    "zfs-padding-calculator",
+  ]) {
     assert.match(migration, new RegExp(`'${slug}'`), `${slug} is published by migration`);
   }
 });

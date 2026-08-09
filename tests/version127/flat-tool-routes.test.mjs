@@ -29,6 +29,11 @@ const toolMoves = [
     "tld-directory",
     "transfer-readiness",
   ].map((slug) => ({ family: "domain-tools", published: true, slug })),
+  ...[
+    "raid-calculator",
+    "zfs-capacity-calculator",
+    "zfs-padding-calculator",
+  ].map((slug) => ({ family: "storage-tools", published: true, slug })),
 ];
 
 function source(relativePath) {

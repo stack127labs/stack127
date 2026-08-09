@@ -34,6 +34,8 @@ const legacyToolRedirects = [
     .map((slug) => [`/dns-tools/${slug}`, `/${slug}`] as const),
   ...["domain-age", "domain-availability", "domain-expiry", "domain-lookup", "domain-owner", "domain-registrar", "domain-report", "epp-status-codes", "multi-tld-availability", "punycode-converter", "tld-directory", "transfer-readiness"]
     .map((slug) => [`/domain-tools/${slug}`, `/${slug}`] as const),
+  ...["raid-calculator", "zfs-capacity-calculator", "zfs-padding-calculator"]
+    .map((slug) => [`/storage-tools/${slug}`, `/${slug}`] as const),
 ];
 
 async function robotsContent(page: Page) {

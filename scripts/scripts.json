@@ -40,5 +40,17 @@
     "folder": "scripts/nfs-firewall-rules",
     "manifest": "scripts/nfs-firewall-rules/scripts.json",
     "purpose": "Owns the guarded local preview helper for /nfs-firewall-rules."
+  },
+  {
+    "surface": "storage-tools",
+    "folder": "scripts/storage-tools",
+    "manifest": "scripts/storage-tools/scripts.json",
+    "purpose": "Owns the guarded local preview helper for storage-tool routes that are not published yet."
+  },
+  {
+    "surface": "zfs-capacity-calculator",
+    "folder": "scripts/zfs-capacity-calculator",
+    "manifest": null,
+    "purpose": "Checks the recorded OpenZFS 2.3 and 2.4 sparse-pool receipts behind /zfs-capacity-calculator."
   }
 ]
