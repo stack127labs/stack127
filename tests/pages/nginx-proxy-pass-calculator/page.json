@@ -1,0 +1,24 @@
+{
+  "route": "/nginx-proxy-pass-calculator",
+  "state": "published",
+  "docs": ["content_docs/nginx-proxy-pass-calculator"],
+  "tests": [
+    "tests/version127/seo.spec.ts",
+    "tests/pages/nginx-proxy-pass-calculator/nginx-proxy-pass-calculator.test.mjs",
+    "tests/pages/nginx-proxy-pass-calculator/fixtures/nginx-1.30.4.json",
+    "tests/pages/nginx-proxy-pass-calculator/page.test.mjs",
+    "tests/pages/nginx-proxy-pass-calculator/nginx-proxy-pass-calculator.spec.ts"
+  ],
+  "scripts": [
+    "scripts/nginx-proxy-pass-calculator/preview-local-page.mjs",
+    "scripts/nginx-proxy-pass-calculator/verify-nginx-fixtures.mjs"
+  ],
+  "skills": [
+    "skills/version127/test-driven-page",
+    "skills/version127/visual-first-content",
+    "skills/version127/version127-tool-build",
+    "skills/version127/version127-tool-orchestrator",
+    "skills/version127/version127-tool-writing"
+  ],
+  "repositories": []
+}

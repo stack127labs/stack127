@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" role="img" aria-labelledby="ma-title-site--spot-dockerignore" data-marker-art="site--spot-dockerignore">
+<title id="ma-title-site--spot-dockerignore">A rule sheet and path trace: one .dockerignore line decides the result.</title>
+<g transform="translate(-7 0)">
+<path d="M30.69 16.88 C42.71 13.60, 65.96 13.04, 90.80 19.58 M29.47 18.10 C52.71 18.88, 78.56 18.22, 95.16 16.65 M91.25 17.19 C97.54 21.45, 109.38 30.84, 108.87 39.18 M94.23 19.34 C99.47 21.17, 101.06 23.91, 111.59 34.99 M110.89 38.24 C114.61 57.05, 112.52 84.82, 111.52 107.76 M113.07 34.61 C110.75 52.09, 111.25 69.83, 110.50 104.04 M110.79 105.33 C92.91 107.15, 76.78 104.23, 32.19 103.46 M111.28 103.79 C85.43 105.98, 56.46 107.21, 28.14 102.70 M30.54 100.48 C30.04 87.66, 27.17 67.67, 26.10 14.64 M26.50 103.58 C26.50 75.10, 27.74 44.10, 26.04 17.01" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-ink,#f2f2ee);fill:none"/>
+<path d="M94.26 15.03 C95.13 25.59, 92.69 24.27, 93.40 34.39 M92.21 16.70 C95.75 23.27, 94.83 25.51, 95.84 34.32" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-sub,#9d9c95);fill:none"/>
+<path d="M92.10 38.63 C95.33 37.68, 104.65 33.80, 113.68 38.91 M92.87 37.09 C98.68 37.16, 101.38 34.41, 110.85 37.63" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-sub,#9d9c95);fill:none"/>
+<path d="M45.89 46.75 C54.76 45.38, 63.96 43.40, 88.00 45.85 M41.48 45.66 C54.25 47.75, 68.94 47.70, 91.61 47.30" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-sub,#9d9c95);fill:none"/>
+<path d="M43.49 60.57 C59.84 60.52, 70.09 60.86, 96.53 58.48 M42.22 60.12 C55.82 61.79, 72.53 60.55, 98.49 62.78" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+<path d="M41.09 74.40 C51.35 73.57, 65.88 76.23, 85.07 79.50 M42.96 78.78 C55.81 78.04, 68.73 79.80, 85.37 78.26" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-sub,#9d9c95);fill:none"/>
+<path d="M101.86 59.65 C104.37 60.69, 111.50 65.34, 115.86 65.35 C120.23 65.37, 126.41 59.85, 128.04 59.72 M98.11 64.95 C100.51 65.36, 109.64 61.32, 114.49 60.79 C119.34 60.27, 125.30 62.01, 127.22 61.80" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+<path d="M127.64 62.27 C121.73 64.54, 120.95 65.90, 115.32 71.75 M124.93 63.15 C121.93 64.35, 120.50 66.67, 116.05 69.36" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+<path d="M126.18 60.95 C123.56 60.52, 121.95 60.10, 114.88 57.32 M125.37 62.21 C122.91 59.63, 117.55 59.41, 114.61 56.67" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+</g>
+</svg>

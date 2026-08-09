@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-nginx-proxy-pass",
+  "type": "doodle",
+  "takeaway": "A request path changes direction on its way to the upstream.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-08-09",
+  "width": 140,
+  "height": 120,
+  "seed": 19,
+  "data": {
+    "shape": "proxyRoute"
+  }
+}

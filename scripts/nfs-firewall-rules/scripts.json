@@ -1,0 +1,6 @@
+[
+  {
+    "file": "preview-local-page.mjs",
+    "purpose": "Adds or removes the guarded local-only preview row."
+  }
+]

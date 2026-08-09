@@ -22,5 +22,23 @@
     "folder": "scripts/dockerignore-tester",
     "manifest": "scripts/dockerignore-tester/scripts.json",
     "purpose": "Verifies matcher fixtures, current BuildKit behavior, and the published /dockerignore-tester route."
+  },
+  {
+    "surface": "home-assistant-energy-entity-checker",
+    "folder": "scripts/home-assistant-energy-entity-checker",
+    "manifest": "scripts/home-assistant-energy-entity-checker/scripts.json",
+    "purpose": "Owns the guarded local preview helper for /home-assistant-energy-entity-checker."
+  },
+  {
+    "surface": "nginx-proxy-pass-calculator",
+    "folder": "scripts/nginx-proxy-pass-calculator",
+    "manifest": "scripts/nginx-proxy-pass-calculator/scripts.json",
+    "purpose": "Owns the local preview helper and pinned NGINX fixture verification for /nginx-proxy-pass-calculator."
+  },
+  {
+    "surface": "nfs-firewall-rules",
+    "folder": "scripts/nfs-firewall-rules",
+    "manifest": "scripts/nfs-firewall-rules/scripts.json",
+    "purpose": "Owns the guarded local preview helper for /nfs-firewall-rules."
   }
 ]

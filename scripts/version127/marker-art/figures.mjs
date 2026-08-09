@@ -894,6 +894,44 @@ const DOODLE_SHAPES = {
     A.line(106, 32, 114, 66, { stroke: "@sub" });
     A.arc(106, 64, 32, 22, 0, Math.PI, false, { stroke: "@sub" });
   },
+  // rule sheet with a traced deciding line: .dockerignore path checks
+  ignoreTrace(A) {
+    A.polygon([[28, 18], [94, 18], [112, 36], [112, 104], [28, 104]], { stroke: "@ink" });
+    A.line(94, 18, 94, 36, { stroke: "@sub" });
+    A.line(94, 36, 112, 36, { stroke: "@sub" });
+    A.line(42, 46, 92, 46, { stroke: "@sub" });
+    A.line(42, 62, 98, 62, { stroke: "@primary" });
+    A.line(42, 78, 84, 78, { stroke: "@sub" });
+    A.arrow(102, 62, 126, 62, { tone: "@primary", curve: 0.08 });
+  },
+  // dial and checked reading: Home Assistant energy eligibility
+  energyGauge(A) {
+    A.arc(68, 78, 92, 92, Math.PI, Math.PI * 2, false, { stroke: "@ink" });
+    A.line(68, 78, 94, 48, { stroke: "@primary" });
+    A.dot(68, 78, 4, "@ink");
+    A.line(30, 92, 106, 92, { stroke: "@sub" });
+    A.linearPath([[102, 26], [110, 34], [126, 18]], { stroke: "@primary" });
+  },
+  // incoming path, replacement bend, and upstream: proxy_pass routing
+  proxyRoute(A) {
+    A.line(16, 42, 54, 42, { stroke: "@sub" });
+    A.arrow(54, 42, 82, 70, { tone: "@primary", curve: 0.18 });
+    A.line(82, 70, 120, 70, { stroke: "@primary" });
+    A.linearPath([[112, 62], [124, 70], [112, 78]], { stroke: "@primary" });
+    A.line(54, 88, 82, 70, { stroke: "@sub" });
+    A.dot(16, 42, 3, "@ink");
+    A.dot(54, 88, 3, "@sub");
+  },
+  // shield with explicit listener paths: NFS firewall planning
+  firewallShield(A) {
+    A.polygon([[70, 16], [112, 32], [106, 78], [70, 106], [34, 78], [28, 32]], { stroke: "@ink" });
+    A.line(10, 48, 50, 48, { stroke: "@sub" });
+    A.line(10, 72, 50, 72, { stroke: "@sub" });
+    A.line(90, 60, 130, 60, { stroke: "@sub" });
+    A.dot(62, 48, 3, "@primary");
+    A.dot(62, 72, 3, "@ink");
+    A.linearPath([[58, 58], [68, 68], [84, 48]], { stroke: "@primary" });
+  },
 };
 
 function doodle(spec, A) {

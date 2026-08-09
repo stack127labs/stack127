@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" role="img" aria-labelledby="ma-title-site--spot-home-assistant-energy" data-marker-art="site--spot-home-assistant-energy">
+<title id="ma-title-site--spot-home-assistant-energy">An energy gauge with one checked reading: entity attributes under review.</title>
+<g transform="translate(0 3.9)">
+<path d="M22.50 83.21 C21.65 78.77, 23.53 74.99, 24.69 69.66 C25.84 64.34, 27.20 55.66, 29.42 51.26 C31.64 46.87, 34.02 46.19, 38.00 43.31 C41.97 40.43, 47.80 36.22, 53.26 34.00 C58.72 31.77, 65.53 29.49, 70.78 29.95 C76.03 30.42, 79.85 34.81, 84.77 36.79 C89.68 38.77, 96.11 38.33, 100.29 41.81 C104.47 45.30, 107.57 52.71, 109.84 57.70 C112.12 62.70, 113.27 68.40, 113.93 71.78 C114.58 75.17, 113.80 76.96, 113.77 78.00 M22.20 69.57 C22.02 65.09, 26.78 60.54, 29.44 56.62 C32.10 52.71, 34.57 49.72, 38.17 46.07 C41.77 42.42, 45.77 37.35, 51.05 34.72 C56.33 32.09, 64.11 30.82, 69.84 30.30 C75.58 29.77, 81.03 29.43, 85.45 31.57 C89.87 33.72, 93.10 39.13, 96.38 43.16 C99.65 47.20, 102.62 51.72, 105.10 55.79 C107.59 59.85, 109.85 63.85, 111.30 67.55 C112.74 71.25, 113.36 76.26, 113.77 78.00" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-ink,#f2f2ee);fill:none"/>
+<path d="M70.51 82.13 C78.15 65.70, 79.53 64.75, 96.74 49.03 M68.81 77.38 C75.24 70.77, 79.56 64.92, 92.90 48.79" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+<circle cx="68" cy="78" r="4" style="fill:var(--ma-ink,#f2f2ee)"/>
+<path d="M30.11 93.96 C49.38 95.31, 72.47 88.18, 102.87 89.65 M31.55 94.04 C48.74 89.86, 69.38 89.56, 105.78 92.27" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-sub,#9d9c95);fill:none"/>
+<path d="M100.70 25.88 C105.42 28.72, 108.52 28.21, 109.66 35.51 M100.92 26.28 C103.36 27.14, 106.17 30.81, 110.37 33.86 M110.25 31.13 C112.92 33.51, 113.90 31.61, 123.64 16.93 M111.49 34.30 C114.39 30.12, 117.88 26.61, 125.02 19.16" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+</g>
+</svg>

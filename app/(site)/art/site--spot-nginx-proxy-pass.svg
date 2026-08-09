@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" role="img" aria-labelledby="ma-title-site--spot-nginx-proxy-pass" data-marker-art="site--spot-nginx-proxy-pass">
+<title id="ma-title-site--spot-nginx-proxy-pass">A request path changes direction on its way to the upstream.</title>
+<g transform="translate(0 -3.9)">
+<path d="M17.81 39.43 C27.60 44.44, 39.98 43.85, 55.91 39.41 M17.48 41.24 C27.76 40.89, 38.39 44.36, 54.65 42.53" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-sub,#9d9c95);fill:none"/>
+<path d="M53.63 41.58 C55.63 43.98, 60.68 53.74, 65.55 58.11 C70.42 62.49, 79.77 66.30, 82.87 67.81 M49.76 38.72 C51.64 41.22, 59.30 55.19, 64.58 60.39 C69.85 65.59, 77.86 68.59, 81.41 69.93" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+<path d="M80.18 70.90 C78.21 69.79, 75.07 72.61, 69.04 70.66 M81.24 70.21 C78.93 71.34, 73.16 69.87, 68.81 70.93" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+<path d="M83.83 69.57 C81.66 65.76, 79.75 66.75, 75.91 62.37 M81.69 69.27 C79.80 66.85, 77.86 63.02, 74.69 59.27" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+<path d="M82.61 67.12 C90.91 66.36, 101.28 66.66, 123.64 70.71 M82.23 71.46 C96.49 70.15, 111.61 68.83, 119.97 68.46" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+<path d="M110.71 64.41 C116.45 65.98, 119.16 64.10, 122.39 68.07 M112.70 61.94 C113.44 63.92, 118.64 66.85, 124.62 68.51 M124.91 70.41 C120.60 72.51, 116.61 75.78, 110.11 76.55 M125.00 70.00 C118.62 72.09, 116.54 75.48, 112.15 77.61" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+<path d="M49.81 89.17 C58.93 83.76, 73.83 75.17, 82.31 72.35 M55.71 86.37 C61.64 83.95, 66.94 80.21, 83.73 71.62" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-sub,#9d9c95);fill:none"/>
+<circle cx="16" cy="42" r="3" style="fill:var(--ma-ink,#f2f2ee)"/>
+<circle cx="54" cy="88" r="3" style="fill:var(--ma-sub,#9d9c95)"/>
+</g>
+</svg>

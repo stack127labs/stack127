@@ -1,0 +1,10 @@
+[
+  {
+    "file": "preview-local-page.mjs",
+    "purpose": "Adds or removes the guarded local-only preview row."
+  },
+  {
+    "file": "verify-nginx-fixtures.mjs",
+    "purpose": "Verifies supported URI construction fixtures against pinned real NGINX containers."
+  }
+]

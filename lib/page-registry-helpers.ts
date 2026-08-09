@@ -2,7 +2,11 @@
 export const homePageSlugs = [
   "about",
   "dns-tools",
+  "dockerignore-tester",
   "domain-tools",
+  "home-assistant-energy-entity-checker",
+  "nfs-firewall-rules",
+  "nginx-proxy-pass-calculator",
   "privacy",
   "self-host-apps",
   "self-hosting-for-beginners",

@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-08-09T04:39:08.222Z",
+  "image": "nginx:1.30.4-alpine",
+  "imageId": "sha256:97d490c12ba55b4946b01546d1c3ed324e8d41ab1c9fcb2a616aa470620e5b46",
+  "nginxVersion": "nginx version: nginx/1.30.4",
+  "configurationSha256": "319450cfc49a7b738e04d26b64b9f9552878b6ac88c84b31516ecc30e3376d92",
+  "fixtures": [
+    {
+      "id": "FF-001",
+      "requestTarget": "/no-uri/users?id=42",
+      "expectedTarget": "/no-uri/users?id=42",
+      "observedTarget": "/no-uri/users?id=42"
+    },
+    {
+      "id": "FF-002",
+      "requestTarget": "/root-uri/users?id=42",
+      "expectedTarget": "/users?id=42",
+      "observedTarget": "/users?id=42"
+    },
+    {
+      "id": "FF-003",
+      "requestTarget": "/v2-noslash/users",
+      "expectedTarget": "/v2users",
+      "observedTarget": "/v2users"
+    },
+    {
+      "id": "FF-004",
+      "requestTarget": "/v2-slash/users",
+      "expectedTarget": "/v2/users",
+      "observedTarget": "/v2/users"
+    },
+    {
+      "id": "FF-005",
+      "requestTarget": "/health?deep=1",
+      "expectedTarget": "/status?deep=1",
+      "observedTarget": "/status?deep=1"
+    },
+    {
+      "id": "FF-006",
+      "requestTarget": "/no-uri/a?x=1&x=2",
+      "expectedTarget": "/no-uri/a?x=1&x=2",
+      "observedTarget": "/no-uri/a?x=1&x=2"
+    },
+    {
+      "id": "FF-007",
+      "requestTarget": "/app/users",
+      "expectedTarget": "//users",
+      "observedTarget": "//users"
+    }
+  ]
+}

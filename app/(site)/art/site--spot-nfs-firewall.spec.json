@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-nfs-firewall",
+  "type": "doodle",
+  "takeaway": "A firewall shield admits only the planned NFS listener paths.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-08-09",
+  "width": 140,
+  "height": 120,
+  "seed": 23,
+  "data": {
+    "shape": "firewallShield"
+  }
+}

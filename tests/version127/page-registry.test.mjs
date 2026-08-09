@@ -27,6 +27,10 @@ test("isMainPageSlug accepts only published root pages", () => {
   assert.equal(isMainPageSlug("self-hosting-for-beginners/install-docker"), false);
   assert.equal(isMainPageSlug("about"), true);
   assert.equal(isMainPageSlug("dns-lookup"), false);
+  assert.equal(isMainPageSlug("dockerignore-tester"), true);
+  assert.equal(isMainPageSlug("home-assistant-energy-entity-checker"), true);
+  assert.equal(isMainPageSlug("nginx-proxy-pass-calculator"), true);
+  assert.equal(isMainPageSlug("nfs-firewall-rules"), true);
   assert.equal(isHomePageSlug("storage-tools"), true);
 });
 
@@ -43,6 +47,14 @@ test("isHomeFeaturePage excludes legal and about utility pages", () => {
     isHomeFeaturePage({ slug: "self-hosting-for-beginners", page_type: "Course" }),
     true,
   );
+  for (const slug of [
+    "dockerignore-tester",
+    "home-assistant-energy-entity-checker",
+    "nginx-proxy-pass-calculator",
+    "nfs-firewall-rules",
+  ]) {
+    assert.equal(isHomeFeaturePage({ slug, page_type: "WebApplication" }), true, slug);
+  }
   assert.equal(
     isHomeFeaturePage({ slug: "about", page_type: "AboutPage" }),
     false,

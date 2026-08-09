@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-dockerignore",
+  "type": "doodle",
+  "takeaway": "A rule sheet and path trace: one .dockerignore line decides the result.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-08-09",
+  "width": 140,
+  "height": 120,
+  "seed": 13,
+  "data": {
+    "shape": "ignoreTrace"
+  }
+}

@@ -1,4 +1,15 @@
-import { BookOpen, Globe, HardDrive, Network, Scale, type LucideIcon } from "lucide-react";
+import {
+  BookOpen,
+  FileSearch,
+  Gauge,
+  Globe,
+  HardDrive,
+  Network,
+  Route,
+  Scale,
+  ShieldCheck,
+  type LucideIcon,
+} from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import "./home.css";
@@ -7,6 +18,10 @@ import { siteSpotDnsToolsArt } from "./art/site--spot-dns-tools";
 import { siteSpotDomainToolsArt } from "./art/site--spot-domain-tools";
 import { siteSpotLicensesArt } from "./art/site--spot-licenses";
 import { siteSpotSelfHostAppsArt } from "./art/site--spot-self-host-apps";
+import { siteSpotDockerignoreArt } from "./art/site--spot-dockerignore";
+import { siteSpotHomeAssistantEnergyArt } from "./art/site--spot-home-assistant-energy";
+import { siteSpotNfsFirewallArt } from "./art/site--spot-nfs-firewall";
+import { siteSpotNginxProxyPassArt } from "./art/site--spot-nginx-proxy-pass";
 import { getSelfHostAppsStats } from "@/lib/apps";
 import {
   getMainPublishedPages,
@@ -43,7 +58,11 @@ const legalSlugs = new Set(["about", "privacy", "terms"]);
 /** Monochrome icon per feature page; unknown slugs fall back to the chevron. */
 const pageIcons: Record<string, LucideIcon> = {
   "dns-tools": Network,
+  "dockerignore-tester": FileSearch,
   "domain-tools": Globe,
+  "home-assistant-energy-entity-checker": Gauge,
+  "nfs-firewall-rules": ShieldCheck,
+  "nginx-proxy-pass-calculator": Route,
   "self-host-apps": HardDrive,
   "self-hosting-for-beginners": BookOpen,
   "software-licenses-for-self-hosting": Scale,
@@ -52,7 +71,11 @@ const pageIcons: Record<string, LucideIcon> = {
 /** Marker spot per feature page: the card's visual one-liner. */
 const pageArt: Record<string, string> = {
   "dns-tools": siteSpotDnsToolsArt,
+  "dockerignore-tester": siteSpotDockerignoreArt,
   "domain-tools": siteSpotDomainToolsArt,
+  "home-assistant-energy-entity-checker": siteSpotHomeAssistantEnergyArt,
+  "nfs-firewall-rules": siteSpotNfsFirewallArt,
+  "nginx-proxy-pass-calculator": siteSpotNginxProxyPassArt,
   "self-host-apps": siteSpotSelfHostAppsArt,
   "self-hosting-for-beginners": siteSpotCourseArt,
   "software-licenses-for-self-hosting": siteSpotLicensesArt,

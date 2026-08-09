@@ -49,6 +49,7 @@ The exact approved set is machine-checked in `scripts/version127/quality/seo-reg
 - core, legal, and collection pages: `/`, `/about`, `/privacy`, `/terms`, `/self-host-apps`, `/dns-tools`, `/domain-tools`, and `/software-licenses-for-self-hosting`;
 - flat DNS tools: `/dns-lookup`, `/dns-trace`, `/dns-change-checker`, `/nameserver-checker`, `/dnssec-checker`, `/soa-checker`, and `/caa-checker`;
 - flat domain tools and references: `/domain-age`, `/domain-availability`, `/domain-expiry`, `/domain-lookup`, `/domain-owner`, `/domain-registrar`, `/domain-report`, `/epp-status-codes`, `/multi-tld-availability`, `/punycode-converter`, `/tld-directory`, and `/transfer-readiness`;
+- standalone technical tools: `/dockerignore-tester`, `/home-assistant-energy-entity-checker`, `/nginx-proxy-pass-calculator`, and `/nfs-firewall-rules`;
 - the `/self-hosting-for-beginners` course root and its exact published lesson routes.
 
 The storage collection and its flat calculators remain unpublished. Historical nested tool URLs permanently redirect to their flat canonical paths and never appear in the sitemap.
