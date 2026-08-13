@@ -1,0 +1,20 @@
+{
+  "route": "/raidz-expansion-planner",
+  "state": "published",
+  "docs": ["content_docs/raidz-expansion-planner"],
+  "tests": [
+    "tests/version127/seo.spec.ts",
+    "tests/pages/raidz-expansion-planner/raidz-expansion-planner.test.mjs",
+    "tests/pages/raidz-expansion-planner/page.test.mjs",
+    "tests/pages/raidz-expansion-planner/raidz-expansion-planner.spec.ts"
+  ],
+  "scripts": ["scripts/storage-tools/preview-local-pages.mjs"],
+  "skills": [
+    "skills/version127/test-driven-page",
+    "skills/version127/visual-first-content",
+    "skills/version127/version127-tool-build",
+    "skills/version127/version127-tool-orchestrator",
+    "skills/version127/version127-tool-writing"
+  ],
+  "repositories": []
+}

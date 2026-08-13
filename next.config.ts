@@ -26,6 +26,7 @@ const nextConfig: NextConfig = {
       { source: "/domain-tools/tld-directory", destination: "/tld-directory", permanent: true },
       { source: "/domain-tools/transfer-readiness", destination: "/transfer-readiness", permanent: true },
       { source: "/storage-tools/raid-calculator", destination: "/raid-calculator", permanent: true },
+      { source: "/storage-tools/raidz-expansion-planner", destination: "/raidz-expansion-planner", permanent: true },
       { source: "/storage-tools/zfs-capacity-calculator", destination: "/zfs-capacity-calculator", permanent: true },
       { source: "/storage-tools/zfs-padding-calculator", destination: "/zfs-padding-calculator", permanent: true },
     ];

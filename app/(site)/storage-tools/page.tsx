@@ -1,4 +1,4 @@
-import { Columns3, Database, HardDrive, Layers3 } from "lucide-react";
+import { ChevronsRight, Columns3, Database, HardDrive, Layers3 } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../app-shell";
 import { PageTitleIcon } from "../../page-title-icon";
@@ -55,6 +55,14 @@ export default function StorageToolsPage() {
             <span>
               <strong>ZFS Block Size and Padding Calculator</strong>
               <small>Inspect data, parity, and padding per block.</small>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
+          <Link className={styles.toolLink} href="/raidz-expansion-planner">
+            <ChevronsRight aria-hidden="true" size={24} strokeWidth={2.1} />
+            <span>
+              <strong>RAIDZ Expansion Planner</strong>
+              <small>Compare each one-disk width change.</small>
             </span>
             <span aria-hidden="true">→</span>
           </Link>

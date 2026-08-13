@@ -52,7 +52,7 @@ The exact approved set is machine-checked in `scripts/version127/quality/seo-reg
 - standalone technical tools: `/dockerignore-tester`, `/home-assistant-energy-entity-checker`, `/nginx-proxy-pass-calculator`, and `/nfs-firewall-rules`;
 - the `/self-hosting-for-beginners` course root and its exact published lesson routes.
 
-The storage collection and its flat calculators remain unpublished. Historical nested tool URLs permanently redirect to their flat canonical paths and never appear in the sitemap.
+The storage collection and its flat calculators, including the RAIDZ Expansion Planner, are published at flat canonical routes. Historical or collection-prefixed nested tool URLs permanently redirect to their flat canonical paths and never appear in the sitemap.
 
 ## Structured Data
 

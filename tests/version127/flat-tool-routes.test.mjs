@@ -31,6 +31,7 @@ const toolMoves = [
   ].map((slug) => ({ family: "domain-tools", published: true, slug })),
   ...[
     "raid-calculator",
+    "raidz-expansion-planner",
     "zfs-capacity-calculator",
     "zfs-padding-calculator",
   ].map((slug) => ({ family: "storage-tools", published: true, slug })),

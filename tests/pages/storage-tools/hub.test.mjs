@@ -10,7 +10,7 @@ const migrationPath = new URL(
   import.meta.url,
 );
 
-test("the published storage hub lists all three completed calculators", () => {
+test("the published storage hub lists all completed calculators", () => {
   assert.match(page, /RAID Capacity and Level Explorer/);
   assert.match(page, /\/raid-calculator/);
   assert.match(page, /ZFS Pool Capacity Calculator/);
@@ -20,6 +20,9 @@ test("the published storage hub lists all three completed calculators", () => {
   assert.match(page, /ZFS Block Size and Padding Calculator/);
   assert.match(page, /\/zfs-padding-calculator/);
   assert.match(sidebar, /ZFS padding/);
+  assert.match(page, /RAIDZ Expansion Planner/);
+  assert.match(page, /\/raidz-expansion-planner/);
+  assert.match(sidebar, /RAIDZ expansion/);
 });
 
 test("the hub is registry published and exposes its tool count to the home card", () => {

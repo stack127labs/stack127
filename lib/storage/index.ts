@@ -7,5 +7,6 @@ export * from "./result.ts";
 export * from "./state.ts";
 export * from "./types.ts";
 export * from "./zfs.ts";
+export * from "./zfs-expansion.ts";
 export * from "./zfs-padding.ts";
 export * from "./zfs-raidz-allocation.ts";

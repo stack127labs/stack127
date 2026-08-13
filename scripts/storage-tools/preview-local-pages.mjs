@@ -13,9 +13,7 @@ if (!new Set(["127.0.0.1", "localhost", "::1"]).has(parsed.hostname)) {
 const remove = process.argv.includes("--remove");
 const pool = new pg.Pool({ connectionString: databaseUrl });
 
-// Storage routes that exist in the repo but are not published yet. The hub and
-// the first three calculators moved to supabase/migrations, so this list is
-// empty until the next roadmap tool needs a local visual review.
+// Published calculators moved to migrations. Keep only in-development routes here.
 const previewRows = [];
 
 try {
