@@ -2,7 +2,10 @@
   "route": "/self-hosting-for-beginners",
   "state": "published",
   "docs": ["content_docs/self-hosting-for-beginners"],
-  "tests": ["tests/version127/seo.spec.ts"],
+  "tests": [
+    "tests/version127/seo.spec.ts",
+    "tests/pages/self-hosting-for-beginners/shared/registry-bootstrap.test.mjs"
+  ],
   "scripts": ["scripts/self-hosting-for-beginners"],
   "skills": [],
   "repositories": []
