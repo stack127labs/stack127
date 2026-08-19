@@ -74,6 +74,7 @@ Version127 is a compact technical directory site. It should grow into multiple r
 - Global Codex or Claude-facing skill installs should be copied or symlinked from the repo.
 - For self-host app work, use skills under `skills/self-host-apps/` before creating new ad hoc workflows.
 - For Version127 page work, read `skills/version127/test-driven-page/SKILL.md` before changing routes, SEO behavior, or publication state.
+- For production release or deployment work, read `skills/version127/version127-release-e2e/SKILL.md` before touching the release workflow, Dokploy, Cloudflare Access, or production verification.
 - For generated cover image intake, read `skills/version127/cover-image-intake/SKILL.md`; remove junk metadata but keep clean SEO-friendly metadata in the final JPG when tooling supports it.
 
 ## Environment

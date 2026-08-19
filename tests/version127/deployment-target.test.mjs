@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import {
@@ -80,4 +81,25 @@ test("deployment preflight reports a Cloudflare connection failure cleanly", asy
   );
 
   assert.deepEqual(errors, ["Cloudflare DNS check failed: connection timed out"]);
+});
+
+test("the release workflow keeps quality, immutable images, and live SHA checks in one path", async () => {
+  const workflow = await readFile(".github/workflows/version127-release-e2e.yml", "utf8");
+
+  assert.match(workflow, /npm run quality/);
+  assert.match(workflow, /version127:deploy:preflight/);
+  assert.match(workflow, /docker\/build-push-action@v6/);
+  assert.match(workflow, /VERSION127_BUILD_SHA=/);
+  assert.match(workflow, /dokploy-release\.mjs release/);
+  assert.doesNotMatch(workflow, /OVH_DOKPLOY_PASSWORD|DOKPLOY_PUBLIC_URL|VPS_HOST/);
+});
+
+test("the runtime image and health route expose the immutable build SHA", () => {
+  const dockerfile = readFileSync("Dockerfile", "utf8");
+  const healthRoute = readFileSync("app/api/health/route.ts", "utf8");
+
+  assert.match(dockerfile, /ARG VERSION127_BUILD_SHA=unknown/);
+  assert.match(dockerfile, /\/app\/build-sha/);
+  assert.match(dockerfile, /\/api\/health/);
+  assert.match(healthRoute, /build: \{ sha: readBuildSha\(\) \}/);
 });

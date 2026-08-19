@@ -37,22 +37,67 @@ Do not work around a failed preflight. Correct the source-of-truth mismatch firs
 
 ## Release Flow
 
-1. Run the full quality gate for the change being released.
-2. Commit the intended scope without including unrelated workspace changes or secrets.
-3. Push the release commit to the feature branch and fast-forward `main` to that exact commit.
-4. Run the production preflight.
-5. Open only `https://dokploy.version127.com` through Cloudflare Access.
-6. Confirm the OVH application name, repository, branch, and target commit before clicking deploy.
-7. Wait for the deployment to finish and confirm one healthy replica.
-8. Verify the public site, the changed route, `/robots.txt`, and `/sitemap.xml`.
-9. Confirm all four revisions match:
+The normal release path is the committed GitHub Actions workflow
+`.github/workflows/version127-release-e2e.yml`. It runs after a push to `main`
+or from `workflow_dispatch` with an exact `origin/main` SHA:
+
+1. Install dependencies and run `npm run quality`.
+2. Run the production target and Cloudflare DNS preflight.
+3. Build and push an immutable GHCR image tagged with the release SHA.
+4. Call Dokploy's API to point the application at that image and trigger the deployment.
+5. Poll Dokploy, then verify `/api/health?scope=deploy` reports the exact SHA and a configured runtime.
+6. Smoke-test `/`, `/robots.txt`, and `/sitemap.xml`.
+
+The workflow is the source of truth for releases. Keep Dokploy's broad
+push-to-deploy webhook disabled, otherwise a Git push can start an unverified
+deployment before the quality gate finishes. The dashboard remains a read-only
+fallback for incident diagnosis; do not use Claude access codes, email/password
+automation, or direct SSH deployment.
+
+After the workflow succeeds, confirm all four revisions match:
 
 ```text
 local HEAD
   = origin/main
-  = OVH Dokploy deployment commit
+  = OVH Dokploy image/release SHA
   = live production revision
 ```
+
+## GitHub production environment
+
+Create a protected GitHub Environment named `production` and add these values
+there. Secrets are never committed to this repository.
+
+Required secrets:
+
+- `DOKPLOY_API_KEY`: a Dokploy API key, not a dashboard password.
+- `GHCR_DOKPLOY_TOKEN`: a read-only GitHub token for Dokploy to pull the private image from GHCR.
+- `DATABASE_POOLER_URL` (or `DATABASE_URL`): the production database URL used by the quality gate.
+- `CLOUDFLARE_API_TOKEN`: a token scoped to read Version127 DNS records.
+- `CF_ACCESS_CLIENT_ID` and `CF_ACCESS_CLIENT_SECRET`: the Cloudflare Access service token for Dokploy API paths when the dashboard hostname is protected by Access. Set both or neither.
+
+Required variables (the application ID and URL intentionally mirror
+`targets.json`):
+
+- `VERSION127_DOKPLOY_API_URL`: `https://dokploy.version127.com`
+- `VERSION127_DOKPLOY_APPLICATION_ID`: `_oKhy4YdVBc513i_qjVHC`
+- `VERSION127_SITE_URL`: `https://version127.com`
+- `CLOUDFLARE_ZONE_ID`
+
+Optional variable:
+
+- `GHCR_DOKPLOY_USERNAME`: the GitHub owner that owns the package; it defaults to the repository owner.
+
+The Cloudflare Access policy should use service authentication for only the
+Dokploy API paths required by the workflow (`/api/application.saveDockerProvider`,
+`/api/application.deploy`, and `/api/deployment.all`). Keep the dashboard and
+all other administrative paths behind normal user authentication. A 3xx
+response from the workflow is treated as a missing or misconfigured service
+token and fails the release.
+
+For a manual release, use the Actions **Version127 Release E2E** workflow and
+enter a full SHA that is already the current `origin/main` tip. The workflow
+refuses stale or non-main commits.
 
 Never trigger Version127 through the legacy Hostinger Dokploy webhook or application.
 

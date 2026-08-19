@@ -6,15 +6,20 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 FROM base AS builder
+ARG VERSION127_BUILD_SHA=unknown
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV VERSION127_BUILD_SHA=$VERSION127_BUILD_SHA
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+RUN printf '%s\n' "$VERSION127_BUILD_SHA" > /app/build-sha
 RUN npm run build
 
 FROM base AS runner
+ARG VERSION127_BUILD_SHA=unknown
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
+ENV VERSION127_BUILD_SHA=$VERSION127_BUILD_SHA
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -22,8 +27,10 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/build-sha ./build-sha
 
 USER nextjs
 EXPOSE 3000
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=5 CMD node -e "fetch('http://127.0.0.1:3000/api/health').then((res)=>{if(!res.ok)process.exit(1);}).catch(()=>process.exit(1))"
 
 CMD ["node", "server.js"]
