@@ -31,6 +31,6 @@ COPY --from=builder --chown=nextjs:nodejs /app/build-sha ./build-sha
 
 USER nextjs
 EXPOSE 3000
-HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=5 CMD node -e "fetch('http://127.0.0.1:3000/api/health').then((res)=>{if(!res.ok)process.exit(1);}).catch(()=>process.exit(1))"
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=5 CMD node -e "const hosts=[process.env.HOSTNAME,'127.0.0.1','localhost'].filter(Boolean); Promise.any(hosts.map((host)=>fetch('http://' + host + ':3000/api/health').then((res)=>{if(!res.ok)throw new Error(String(res.status));}))).catch(()=>process.exit(1))"
 
 CMD ["node", "server.js"]
