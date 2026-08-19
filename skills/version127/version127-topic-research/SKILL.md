@@ -14,6 +14,7 @@ Use this skill in `/Users/ravitejaknts/projects/Version127` when researching new
 - Check `version127_docs/writing-style.md` when the result includes public-facing copy or page direction.
 - If writing a durable note, place it in `content_ideas/` unless the user asks for another location.
 - Treat route inventory, web search results, product docs, Reddit/community threads, and market demand as time-sensitive. Verify live.
+- Read `skills/version127/references/homelab-browser-and-search.md` before live search or competitor inspection. Prefer the configured SearXNG endpoint with `bing,duckduckgo` for search discovery; record the actual search backend and engines used. Use standalone Playwright when the Codex in-app Browser is unavailable in homelab CLI mode, and record that backend in the research note.
 
 ## Research Workflow
 
@@ -28,12 +29,14 @@ Use this skill in `/Users/ravitejaknts/projects/Version127` when researching new
 
 2. Build a demand signal for each candidate:
    - Search web results for the exact problem phrasing.
+   - When available, run `node skills/version127/version127-tool-research/scripts/searxng-search.mjs --engines bing,duckduckgo "<query>"` and preserve the query, engines, date, and result URLs in the evidence notes.
    - Check Reddit, forums, GitHub issues/discussions, vendor docs, and community docs when accessible.
    - Prefer repeated pain patterns over one-off curiosity.
    - If Reddit is blocked, say so and use public search snippets, forum pages, official docs, and issue trackers instead.
 
 3. Test the gap:
    - Search for direct competitors using phrases like `matrix`, `calculator`, `checker`, `compatibility`, `backup`, `reverse proxy`, `requirements`, `comparison`, and `generator`.
+   - Operate candidate competitor pages with the selected Browser backend. Search snippets are discovery evidence only, not direct competitor review.
    - Do not claim "no page exists" unless proven very narrowly. Use "gap appears strong", "fragmented", or "covered but weak" when appropriate.
    - Prefer ideas where official answers exist per product but no cross-product reference exists.
 

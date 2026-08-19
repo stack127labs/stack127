@@ -8,7 +8,7 @@ The manifest is the first place to look when changing a page. It records:
 - the page-owned documentation;
 - the tests that protect the page;
 - any scripts or skills owned by the page or route family;
-- any public repository that receives a maintained copy.
+- any deliberate external-repository relationship; repository details live in `version127_docs/public-repositories.md`, not in a copied source tree.
 
 Tests that only protect one page belong beside that page manifest. Tests for a real shared system stay in `tests/version127` or a route-family `shared` folder and are referenced by every page that depends on them.
 

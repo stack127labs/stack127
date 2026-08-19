@@ -20,7 +20,7 @@ Stop after this document. Do not draft final paragraphs, call a writer, create m
 3. Run the pipeline validator with `--stage=test`. Stop if it fails.
 4. Record SHA-256 fingerprints for all four inputs in the writing and SEO plan. Treat later changes to any input as invalidating this plan.
 5. Read `version127_docs/visual-first.md`, `writing-style.md`, and `seo.md`, plus `skills/version127/visual-first-content/SKILL.md`.
-6. Use the in-app Browser to verify the current result page for the exact primary query and two or three close intent variations. Record the date and visible result shapes. Reuse recent competitive research, but verify that intent has not shifted.
+6. Read `skills/version127/references/homelab-browser-and-search.md`. Verify the current result page for the exact primary query and two or three close intent variations using the Codex in-app Browser when available or standalone Playwright in homelab CLI mode. Use SearXNG with `bing,duckduckgo` for search discovery when configured, otherwise record the actual search backend. Record the date, backend, engines, viewport, and visible result shapes. Reuse recent competitive research, but verify that intent has not shifted.
 
 ## Define the page promise
 

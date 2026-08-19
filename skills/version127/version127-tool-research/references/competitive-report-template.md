@@ -18,7 +18,12 @@ Saturation exception: no
 [[Existing requirements, docs, routes, engines, tests, and constraints.]]
 
 ### Method and coverage
-[[Queries, Browser/viewport coverage, number of direct competitors, exclusions, and access limits.]]
+[[Queries, search backend and engines, visual backend and viewport coverage, number of direct competitors, exclusions, and access limits.]]
+
+- Search backend: [[SearXNG, web connector, or another named backend]]
+- Search engines: [[for example `bing, duckduckgo`, or `not individually available`]]
+- Visual backend: [[Codex in-app Browser, standalone Playwright CLI, or blocked]]
+- Accessed: [[date and timezone]]
 
 ### Search saturation evidence
 

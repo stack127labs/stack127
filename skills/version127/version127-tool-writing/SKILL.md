@@ -98,12 +98,12 @@ Run the route content test red before implementation, then run:
 - `npm run test:static`;
 - the repository quality gate required by the active pipeline.
 
-Use the guarded local preview and the in-app Browser to inspect the complete page at a normal desktop width and at 390px or narrower, in both themes. Check the introduction, transition into the tool, transition into the guide, paragraph rhythm, table behavior, internal link, page-level overflow, and the calculated result. Do not judge the content layout with an empty or invalid tool state only.
+Read `skills/version127/references/homelab-browser-and-search.md`, then use the guarded local preview and the in-app Browser when available or standalone Playwright in homelab CLI mode. Inspect the complete page at a normal desktop width and at 390px or narrower, in both themes. Check the introduction, transition into the tool, transition into the guide, paragraph rhythm, table behavior, internal link, page-level overflow, and the calculated result. Do not judge the content layout with an empty or invalid tool state only.
 
 During the final reading pass, answer the completeness-contract questions from the rendered page without consulting internal reports. Treat a missing answer as a content defect. Treat duplicated answers, mechanical click instructions, or unsupported detail as content defects too.
 
-When invoked inside `$version127-tool-orchestrator`, report the clean local URL and Browser evidence to the orchestrator, then stop. The main orchestrator agent owns the final visible Browser handoff. When invoked directly, leave the verified clean page open in the in-app Browser as the deliverable.
+When invoked inside `$version127-tool-orchestrator`, report the clean local URL, selected visual backend, and Browser or Playwright evidence to the orchestrator, then stop. The main orchestrator agent owns the final visual handoff. When invoked directly, leave the verified clean page open in the in-app Browser when available; otherwise provide the reproducible Playwright evidence and state that no visible in-app tab was available.
 
 ## Completion rule
 
-Finish only when a new visitor can understand what the tool is, use it meaningfully, interpret the result, recognize its limits and data handling, and know the next verification step. The content must also be simple, factually bounded, server-rendered, visually consistent, covered by route tests, responsive around a real result, and unpublished. Report files changed, commands and results, Browser states checked, remaining P2 items, and the clean local URL.
+Finish only when a new visitor can understand what the tool is, use it meaningfully, interpret the result, recognize its limits and data handling, and know the next verification step. The content must also be simple, factually bounded, server-rendered, visually consistent, covered by route tests, responsive around a real result, and unpublished. Report files changed, commands and results, visual states and backend checked, remaining P2 items, and the clean local URL.

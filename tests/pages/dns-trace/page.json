@@ -7,7 +7,7 @@
     "tests/pages/dns-trace/dns-trace.spec.ts",
     "tests/pages/dns-trace/dns-trace.test.mjs"
   ],
-  "scripts": ["scripts/version127/repos/sync-dns-tools-core.mjs"],
+  "scripts": [],
   "skills": [],
-  "repositories": ["repos/dns-tools"]
+  "repositories": []
 }

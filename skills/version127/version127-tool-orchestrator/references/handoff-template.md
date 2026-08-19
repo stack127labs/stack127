@@ -32,9 +32,10 @@ Use this structure in the final response. Omit empty subsections, but never omit
 - Pipeline validators:
 - Focused engine and fixture tests:
 - Route, content, and static tests:
+- Browser backend: (Codex in-app Browser or standalone Playwright CLI)
 - Browser or Playwright tests:
 - Widths and themes checked:
-- Main-agent Browser handoff:
+- Main-agent visual handoff: (visible in-app tab, or Playwright screenshots/measurements and local URL)
 - `npm run test`:
 - `npm run quality` and production build:
 - Preview and publication cleanup:
@@ -49,4 +50,4 @@ Use this structure in the final response. Omit empty subsections, but never omit
 
 State explicitly:
 
-> The complete unpublished tool page, including its simple explanatory content, is ready for review in the in-app Browser. No publication, commit, push, pull request, or deployment was performed.
+> The complete unpublished tool page, including its simple explanatory content, is ready for review using the recorded visual backend. If standalone Playwright was used, say that no visible in-app Browser tab was available. No publication, commit, push, pull request, or deployment was performed.

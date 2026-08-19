@@ -53,16 +53,17 @@ Version127 is a compact technical directory site. It should grow into multiple r
 
 - Every route has one ownership manifest under `tests/pages/<route>/page.json`; `/` uses `tests/pages/home/page.json`.
 - Put tests that protect one page beside that page manifest.
-- Keep route-family tests in that family's `shared` folder, sitewide tests in `tests/version127/`, and public-repository contract tests in `tests/repos/<repo-name>/`.
-- The ownership manifest is the index for the page's docs, tests, scripts, skills, and public repository copies. Do not recreate a central hand-maintained page coverage registry.
+- Keep route-family tests in that family's `shared` folder and sitewide tests in `tests/version127/`.
+- The ownership manifest is the index for the page's docs, tests, scripts, skills, and local page artifacts. External repositories are tracked in `version127_docs/public-repositories.md`, not copied into this repository.
 
-## Public repositories
+## External repositories
 
 - The private source-of-truth repository is `RaviTejaKNTS/version127`.
-- Public repositories belong to the `version127` GitHub organization.
-- Keep the complete local public-repository tree under `repos/<repo-name>/`.
-- Synchronization from the private application into `repos/` must use an explicit allowlist and a check mode. Never use a blind two-way copy.
-- Publish a public repository only after its local quality gate and secret scan pass.
+- External repositories belong to the `version127` GitHub organization.
+- External repositories are independent source-of-truth repositories. Do not keep nested checkouts, tracked copies, submodules, or runtime/build dependencies under this repository.
+- Track external repository visibility, remotes, branches, source-of-truth boundaries, version/revision status, and deliberate manual-port relationships in `version127_docs/public-repositories.md`.
+- Clone an external repository separately under `/home/teja/projects/<repo-name>` when editing it. Run its own quality gate and CI from that checkout.
+- If private and external projects need similar code, port a deliberate snapshot and record the source release/commit; never create an implicit cross-repository dependency.
 
 ## Skills
 

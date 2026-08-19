@@ -1,13 +1,15 @@
-# Version127 Public GitHub Repo System
+# Version127 External GitHub Repository System
 
-Version127 should use public GitHub repositories as a distribution, trust, and developer adoption layer. The private Version127 app/database stays the source of truth. Public repos are generated outputs that make datasets and tools easier to inspect, star, fork, self-host, and share.
+Version127 should use GitHub repositories as a distribution, trust, and developer adoption layer. The private Version127 app/database remains the source of truth for the private website and generated datasets. Standalone applications, tools, and datasets are their own source-of-truth repositories and are tracked in `version127_docs/public-repositories.md`.
 
 ## Core Decisions
 
 - Use the `version127` GitHub organization for all public repos.
 - Keep the private Version127 database as the source of truth for structured data.
-- Treat public GitHub repos as generated publication artifacts, not the editing source.
-- Start with one dataset repo: `version127/version127-datasets`.
+- Treat standalone public application repositories as independent editing sources, not private-repo copies.
+- Keep public repository checkouts outside `/home/teja/projects/version127`; the private repository has no `repos/` source-tree directory.
+- Keep the public repository registry, release/tag, commit SHA, and manual-port notes in `version127_docs/public-repositories.md`.
+- The current external-repository inventory includes `version127/basebuddy-website`, `version127/basebuddy`, `version127/dns-tools`, and `version127/version127-datasets`; keep their visibility and revision status in `version127_docs/public-repositories.md`.
 - Keep tool templates inside this private repo. Do not create a public template repo unless we later need one.
 - Prefer simple public repo surfaces over exposing private workflow detail.
 - Do not publish source payloads, provenance files, schema files, or QA internals for datasets unless a specific dataset truly needs them.
@@ -101,6 +103,8 @@ Initial command shape:
 npm run version127:tool:new -- --slug port-checker --name "Port Checker" --dry-run
 npm run version127:tool:new -- --slug port-checker --name "Port Checker" --create-repo
 ```
+
+The template is only a starting scaffold. Once created, the public repository becomes the source of truth and is developed from its own checkout under `/home/teja/projects/`. The scaffold's default temporary output under `/tmp` must not be moved into this private repository as a source copy.
 
 Tool repo rules:
 
@@ -200,16 +204,14 @@ If GitHub returns `does not have the correct permissions to execute CreateReposi
 
 ## Launch Order
 
-1. Create or confirm the `version127` GitHub organization access.
-2. Create `version127/version127-datasets`.
-3. Build the CSV export for `/self-host-apps`.
-4. Render the dataset README from a private template.
-5. Run a dry-run sync and inspect the diff.
-6. Push the first dataset repo commit.
-7. Add links from Version127 to the public dataset repo.
-8. Build the private tool template.
-9. Publish one small tool repo as the pilot.
-10. Turn the proven steps into durable commands.
+1. Confirm `version127` GitHub organization access and keep the external registry current.
+2. Build the CSV export for `/self-host-apps` from the production database.
+3. Render the dataset README from a private template.
+4. Run a dry-run sync and inspect the diff.
+5. Push reviewed dataset changes from the external dataset checkout.
+6. Add or update links from Version127 to the external dataset repo.
+7. Build private tool templates only for new standalone repositories.
+8. Publish each new tool through its own repository quality gate.
 
 ## Open Decisions
 

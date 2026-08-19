@@ -1,6 +1,6 @@
 ---
 name: version127-tool-research
-description: Research one proposed or existing version127 tool page in depth before product planning. Use when the user names a single calculator, checker, converter, lookup, generator, explorer, or technical utility and asks for competitive research, competitor comparison, current market behavior, formulas, options, interaction patterns, or a competitive report. Inspect real competing tools with the in-app Browser and write only the research artifact, not the implementation plan or page.
+description: Research one proposed or existing version127 tool page in depth before product planning. Use when the user names a single calculator, checker, converter, lookup, generator, explorer, or technical utility and asks for competitive research, competitor comparison, current market behavior, formulas, options, interaction patterns, or a competitive report. Inspect real competing tools with the Codex Browser when available or standalone Playwright in homelab CLI mode, and write only the research artifact, not the implementation plan or page.
 ---
 
 # version127 tool research
@@ -19,7 +19,7 @@ Stop after this report. Do not create an implementation report, tests, public co
 2. Resolve the intended tool name and stable route. Inspect existing routes and `content_docs/` to avoid duplicate or conflicting work. If the route is materially ambiguous, ask the user before writing files.
 3. Read any existing docs, route files, tests, scripts, engine code, and ownership manifest for this tool or its route family. Summarize the current state as evidence, not assumptions.
 4. Read `version127_docs/site-review-2026-07.md` sections 8 and 9 and the surface decision rule in `skills/version127/version127-topic-research/SKILL.md`. Flag a blocker if the idea is a thin wrapper, depends on incomplete curated coverage, promises judgment it cannot safely automate, or does not serve version127's technical audience.
-5. Read the complete installed Browser skill. Use the in-app Browser because competitor interaction and visual state are part of the evidence.
+5. Read the complete installed Browser skill and `skills/version127/references/homelab-browser-and-search.md`. Use the Codex in-app Browser when a runtime instance is available. In homelab or Codex CLI mode, use the documented standalone Playwright fallback when the in-app Browser is unavailable; do not silently downgrade to search snippets or static HTML.
 
 ## Research depth
 
@@ -32,11 +32,13 @@ Search at least four distinct query shapes:
 
 Check community discussions, issue trackers, forums, and question pages for repeated confusion or failure patterns. Use these sources to establish what people struggle with, never as the authority for formulas or technical facts.
 
-Inspect at least eight direct competitors for an established tool category. For a genuinely narrow category, inspect at least five and document search saturation: queries tried, repeated domains, and why more results were not direct competitors. Official specifications and source documentation do not count toward the competitor minimum.
+Prefer SearXNG search with the `bing` and `duckduckgo` engines when `VERSION127_SEARXNG_URL` or `SEARXNG_URL` is configured. Run `node skills/version127/version127-tool-research/scripts/searxng-search.mjs --engines bing,duckduckgo "<query>"` for each query shape. If SearXNG is unavailable, use the available web-search connector or another named backend and record that limitation instead of implying Bing/DuckDuckGo coverage.
+
+Inspect at least eight direct competitors for an established tool category. For a genuinely narrow category, inspect at least five and document search saturation: queries tried, search backend and engines, repeated domains, and why more results were not direct competitors. Official specifications and source documentation do not count toward the competitor minimum.
 
 Record `Direct competitors reviewed` and `Saturation exception` in the report header. Set the exception to `yes` only when the report contains the documented saturation evidence required above.
 
-Open and operate each competitor. Search snippets and screenshots alone are insufficient. Use representative valid, invalid, boundary, and mixed inputs when safe. Do not submit sensitive data, create accounts, pay, or trigger external side effects.
+Open and operate each competitor with the selected Browser backend. Search snippets and screenshots alone are insufficient. Use representative valid, invalid, boundary, and mixed inputs when safe. Do not submit sensitive data, create accounts, pay, or trigger external side effects. Record `Browser backend`, viewport, access date, and any Playwright or authentication limitation in the report.
 
 ## Capture each competitor
 
@@ -88,6 +90,7 @@ Set `Status: ready` only when:
 - formula or data-source disagreements are explicit;
 - wireframes show the interaction hierarchy of every inspected direct competitor;
 - the report distinguishes observed fact from inference;
+- search and Browser backends, engines, viewport, and access limitations are recorded;
 - the next agent can decide scope without reopening the same pages.
 
 Otherwise set `Status: blocked`, list exactly what is missing, and stop.

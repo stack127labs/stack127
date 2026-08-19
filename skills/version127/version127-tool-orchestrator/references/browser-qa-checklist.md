@@ -11,9 +11,10 @@
 
 ## Setup and evidence
 
-- Read the complete installed Browser skill before operating pages.
+- Read the complete installed Browser skill and `skills/version127/references/homelab-browser-and-search.md` before operating pages.
+- Select and record the visual backend: Codex in-app Browser when a runtime instance is available, otherwise standalone Playwright CLI. If neither launches, block visual QA and report the exact error.
 - Use the guarded local preview for unpublished routes and record how it will be restored.
-- Record route, timestamp, viewport, theme, input, expected state, observed state, screenshot when useful, bounding boxes, and scroll widths for failures.
+- Record route, timestamp, visual backend, viewport, theme, input, expected state, observed state, screenshot when useful, bounding boxes, and scroll widths for failures.
 - Inspect at 320px, 375px, 760px, and a normal desktop width in dark and light themes.
 - Compare page width, shell, spacing, typography, controls, and content order with at least two established sibling pages.
 
@@ -69,7 +70,7 @@ Apply a two-second scan:
 
 ## Competitive re-review
 
-Operate the strongest relevant competitors again and compare:
+Operate the strongest relevant competitors again with the selected visual backend and compare:
 
 - time to first trustworthy answer;
 - required input effort and defaults;
@@ -85,4 +86,4 @@ Return technical and interaction gaps to the builder. Return missing, unclear, r
 
 ## Pass criteria
 
-Pass only when no P0 or P1 finding remains, all values are visible at every target width in both themes, the complete primary workflow succeeds by pointer and keyboard, invalid state cannot coexist with a credible result, the simple content remains readable without page-level overflow, and the complete page matches the established version127 shell.
+Pass only when no P0 or P1 finding remains, all values are visible at every target width in both themes, the complete primary workflow succeeds by pointer and keyboard, invalid state cannot coexist with a credible result, the simple content remains readable without page-level overflow, and the complete page matches the established version127 shell. The report must state whether the final evidence came from the in-app Browser or standalone Playwright.

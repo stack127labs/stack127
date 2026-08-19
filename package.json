@@ -53,10 +53,6 @@
     "version127:dataset:export": "node scripts/version127/github/export-dataset.mjs",
     "version127:dataset:sync": "node scripts/version127/github/sync-dataset-repo.mjs",
     "version127:tool:new": "node scripts/version127/github/create-tool-repo.mjs",
-    "version127:dns-tools:sync": "node scripts/version127/repos/sync-dns-tools-core.mjs",
-    "version127:dns-tools:sync-check": "node scripts/version127/repos/sync-dns-tools-core.mjs --check",
-    "version127:dns-tools:publish-check": "node scripts/version127/repos/publish-open-repo.mjs dns-tools",
-    "version127:dns-tools:publish": "node scripts/version127/repos/publish-open-repo.mjs dns-tools --push",
     "version127:deploy:preflight": "node scripts/version127/deployment/preflight.mjs --env-file .env.deploy --check-git --check-cloudflare"
   },
   "dependencies": {

@@ -24,7 +24,7 @@ Use this skill before changing any route under `app/(site)` or any SEO-visible p
 
 ## Test Requirements
 
-Every route under `app/(site)` must have a page-scoped ownership manifest under `tests/pages/`. The manifest records the route state, documentation, tests, scripts, skills, and public repositories connected to that page.
+Every route under `app/(site)` must have a page-scoped ownership manifest under `tests/pages/`. The manifest records the route state, documentation, tests, scripts, and skills connected to that page. External repositories are tracked in `version127_docs/public-repositories.md`, not copied into this repository; keep the manifest's required `repositories` array empty for them.
 
 For published routes, Playwright must verify:
 - HTTP 200.
@@ -39,7 +39,7 @@ For unpublished routes, Playwright must verify:
 - sitemap exclusion.
 - a clear reason in the coverage manifest.
 
-Put page-owned tests beside the page manifest. Keep genuinely sitewide tests in `tests/version127/`, route-family tests in that family's `shared` folder, and public-repository contract tests in `tests/repos/<repo>/`. Prefer pure helpers and deterministic checks over browser tests when rendering is not needed.
+Put page-owned tests beside the page manifest. Keep genuinely sitewide tests in `tests/version127/` and route-family tests in that family's `shared` folder. Prefer pure helpers and deterministic checks over browser tests when rendering is not needed.
 
 ## Quality Gates
 

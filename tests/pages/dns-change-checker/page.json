@@ -9,7 +9,7 @@
     "tests/pages/dns-tools/shared/dns-diagnostics.spec.ts",
     "tests/pages/dns-tools/shared/dns-diagnostics.test.mjs"
   ],
-  "scripts": ["scripts/version127/repos/sync-dns-tools-core.mjs"],
+  "scripts": [],
   "skills": [],
-  "repositories": ["repos/dns-tools"]
+  "repositories": []
 }

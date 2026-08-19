@@ -1,6 +1,6 @@
 ---
 name: version127-tool-build
-description: Build and verify the interactive technical core of one version127 calculator, checker, converter, lookup, generator, explorer, or utility from its ready competitive, product, test, and brief artifacts. Use only when the user explicitly asks to implement the tool. Enforce tests first, implement the formula or resolution engine and visual interface, verify it in the in-app Browser, and run repository quality gates. Do not research, draft, request, integrate, or add explanatory page prose, SEO sections, FAQs, or article content.
+description: Build and verify the interactive technical core of one version127 calculator, checker, converter, lookup, generator, explorer, or utility from its ready competitive, product, test, and brief artifacts. Use only when the user explicitly asks to implement the tool. Enforce tests first, implement the formula or resolution engine and visual interface, verify it with the in-app Browser when available or standalone Playwright in homelab CLI mode, and run repository quality gates. Do not research, draft, request, integrate, or add explanatory page prose, SEO sections, FAQs, or article content.
 ---
 
 # version127 tool build
@@ -12,14 +12,15 @@ Build exactly one working tool. Deliver the tool surface only; the user will add
 1. Read `AGENTS.md`.
 2. Read `skills/version127/test-driven-page/SKILL.md` and `skills/version127/visual-first-content/SKILL.md` completely.
 3. Read `version127_docs/design-system.md`, `css-architecture.md`, `visual-first.md`, `writing-style.md`, `seo.md`, and `quality-workflow.md`.
-4. Run:
+4. Read `skills/version127/references/homelab-browser-and-search.md` before visual verification and record the selected backend.
+5. Run:
 
    ```bash
    node skills/version127/version127-tool-build/scripts/validate-pipeline.mjs content_docs/<route-without-leading-slash> --stage=test
    ```
 
-5. Stop if validation fails. Require ready `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, and `brief.md`. Do not require or consume `writing-and-seo.md`.
-6. Inspect the route family, shared components, libraries, tests, manifests, scripts, and worktree. Preserve unrelated and user-owned edits.
+6. Stop if validation fails. Require ready `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, and `brief.md`. Do not require or consume `writing-and-seo.md`.
+7. Inspect the route family, shared components, libraries, tests, manifests, scripts, and worktree. Preserve unrelated and user-owned edits.
 
 ## Tool-only boundary
 
@@ -79,11 +80,11 @@ Run focused engine and page tests while iterating, then `npm run test`.
 
 Start the route family's guarded local preview. For an unpublished route, use or add a local-only preview helper that restores state afterward. Never publish or mutate the production registry for Browser testing.
 
-Read the complete installed Browser skill. Inspect the actual page at desktop and narrow mobile widths in dark and light themes. Exercise valid, invalid, repeat, reset, reload/history, partial/failure, long-value, and keyboard-only states that apply.
+Read the complete installed Browser skill. Use the in-app Browser when a runtime instance is available; otherwise use standalone Playwright with the repository's test runner and record the CLI backend. Inspect the actual page at desktop and narrow mobile widths in dark and light themes. Exercise valid, invalid, repeat, reset, reload/history, partial/failure, long-value, and keyboard-only states that apply.
 
 Treat responsive layout as a blocking gate, not a screenshot preference:
 
-- check 320px, 375px, 760px, and a normal desktop viewport in the in-app Browser;
+- check 320px, 375px, 760px, and a normal desktop viewport in the selected visual backend;
 - calculate a valid result before judging mobile layout, because empty forms do not expose result overflow;
 - assert that the document, page container, tool frame, form, and result do not create page-level horizontal overflow;
 - verify that long code, tables, charts, legends, and grid children cannot expand their parent, and add `min-width: 0` at every required grid or flex boundary;
@@ -101,7 +102,7 @@ Judge the tool in a two-second scan:
 - Is any helper sentence unnecessary?
 - Does anything look like generic dashboard furniture?
 
-After Browser verification, restore preview state and run:
+After visual verification, restore preview state and run:
 
 ```bash
 node skills/version127/version127-tool-build/scripts/validate-pipeline.mjs content_docs/<route-without-leading-slash> --tool-only
@@ -127,4 +128,4 @@ Call the tool complete only when:
 - `npm run quality` passes;
 - preview and publication state are restored.
 
-Report the technical system built, tests run, Browser states checked, preview cleanup, and any P2 follow-up. Explicitly confirm that no page prose was added. Do not publish, deploy, commit, push, or open a pull request unless requested.
+Report the technical system built, tests run, visual states checked, selected backend, preview cleanup, and any P2 follow-up. Explicitly confirm that no page prose was added. Do not publish, deploy, commit, push, or open a pull request unless requested.

@@ -15,11 +15,11 @@
 | Product | `$version127-tool-product-plan` | Ready research | `implementation-report.md`, `brief.md` | `--expect=product` | Research or product |
 | Test design | `$version127-tool-test-design` | Ready research and product | `edge-cases-and-tests.md` | `--expect=test` | Product or test design |
 | Build | `$version127-tool-build` | Ready research, product, tests, brief | Route, engine, tests, manifest, scoped scripts | `--expect=build`, tool-only audit, tests | Owning planning worker or builder |
-| Independent QA | Read-only Browser reviewer | Running local route and contracts | Findings only | P0/P1 closed | Builder or product |
-| Competitive re-review | Fresh read-only reviewer | Finished tool and research URLs | Findings appended to research or reported | Technical gaps closed | Research, product, or builder |
+| Independent QA | Read-only Browser or Playwright reviewer | Running local route and contracts | Findings only | P0/P1 closed | Builder or product |
+| Competitive re-review | Fresh read-only reviewer using the selected visual backend | Finished tool and research URLs | Findings appended to research or reported | Technical gaps closed | Research, product, or builder |
 | Content/SEO plan | `$version127-tool-content-seo` | Stable technical tool and ready artifacts | `writing-and-seo.md` only | Content-stage validator | Owning upstream stage |
 | Writing | `$version127-tool-writing` | Stable tool, ready artifacts, and content plan when present | Server-rendered page content, route styles, tests, ownership update | Content tests, responsive Browser check, `--expect=handoff` | Writer or owning upstream stage |
-| Final Browser handoff | Main orchestrator | Complete local page and passing gates | Visible clean deliverable tab | Desktop and narrow widths, both themes | Writer or builder |
+| Final visual handoff | Main orchestrator | Complete local page and passing gates | Visible clean tab when available, otherwise reproducible Playwright evidence | Desktop and narrow widths, both themes | Writer or builder |
 
 Never ask a worker to cross two stage boundaries. The orchestrator owns sequencing and completion.
 
@@ -42,7 +42,7 @@ Resolve the flat canonical route before delegation by inspecting the top-level n
 
 ### Research prompt shape
 
-> Use `$version127-tool-research` at `<absolute skill path>` for `<tool>` at `<route>`. Work only on the competitive report, operate real competitors in the Browser, run the research validator, and stop. Report evidence gaps and files changed.
+> Use `$version127-tool-research` at `<absolute skill path>` for `<tool>` at `<route>`. Work only on the competitive report, use SearXNG with `bing,duckduckgo` when configured, operate real competitors in the available Browser backend, run the research validator, and stop. Report the search/visual backends, evidence gaps, and files changed.
 
 ### Product prompt shape
 
@@ -54,11 +54,11 @@ Resolve the flat canonical route before delegation by inspecting the top-level n
 
 ### Builder prompt shape
 
-> Use `$version127-tool-build` at `<absolute skill path>` to implement `<route>` from its ready artifacts. Work test-first, keep the route unpublished and tool-only, operate it in the Browser at required widths and themes, run required gates, and stop without prose, publication, commit, push, or deployment.
+> Use `$version127-tool-build` at `<absolute skill path>` to implement `<route>` from its ready artifacts. Work test-first, keep the route unpublished and tool-only, operate it in the available Browser backend at required widths and themes, run required gates, and stop without prose, publication, commit, push, or deployment.
 
 ### Independent QA prompt shape
 
-> Inspect `<local URL>` as a user. Read the contracts and the Browser QA checklist. Do not edit files. Exercise the complete tool at all required widths and themes, measure overflow and visibility, and return only reproducible P0/P1/P2 findings with evidence.
+> Inspect `<local URL>` as a user. Read the contracts and the Browser QA checklist. Do not edit files. Exercise the complete tool at all required widths and themes using the available Browser backend, measure overflow and visibility, and return only reproducible P0/P1/P2 findings with backend-labelled evidence.
 
 ### Content-plan prompt shape
 
@@ -66,7 +66,7 @@ Resolve the flat canonical route before delegation by inspecting the top-level n
 
 ### Writing prompt shape
 
-> Use `$version127-tool-writing` at `<absolute skill path>` for the stable tool at `<route>`. Write the content part in a simple style that is easy for anyone to understand. Keep it simple and do not overcomplicate the page. Add tests before prose, keep the tool primary, verify desktop and narrow layouts in both themes, preserve the unpublished state, and stop with the clean local URL for the main orchestrator.
+> Use `$version127-tool-writing` at `<absolute skill path>` for the stable tool at `<route>`. Write the content part in a simple style that is easy for anyone to understand. Keep it simple and do not overcomplicate the page. Add tests before prose, keep the tool primary, verify desktop and narrow layouts in both themes using the available Browser backend, preserve the unpublished state, and stop with the clean local URL and backend-labelled evidence for the main orchestrator.
 
 ## Review and feedback protocol
 

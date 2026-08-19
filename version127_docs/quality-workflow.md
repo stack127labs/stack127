@@ -13,7 +13,7 @@ Every public page change should keep Version127 fast, consistent, and easy for c
 ## Page Workflow
 
 1. Read `AGENTS.md` and the relevant `content_docs/<page-slug>/` folder.
-2. Create or update `tests/pages/<route>/page.json` with the route state and its docs, tests, scripts, skills, and public-repository ownership before or alongside the page. Use `tests/pages/home/page.json` for `/`.
+2. Create or update `tests/pages/<route>/page.json` with the route state and its docs, tests, scripts, and skills before or alongside the page. Keep the required `repositories` array empty for external repositories; track those relationships in `version127_docs/public-repositories.md`. Use `tests/pages/home/page.json` for `/`.
 3. Add or update route tests before considering the page done.
 4. Add or update the route under `app/` using the shared shell, typography, spacing, and components.
 5. Keep important page content server-rendered.

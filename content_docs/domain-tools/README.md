@@ -106,7 +106,7 @@ Each flat route also needs `tests/pages/<slug>/page.json` with at least one test
 
 ## Open Decisions
 
-- **Public repository.** `dns-tools` is mirrored to `repos/dns-tools` and published to the `version127` GitHub organization. Decide whether `domain-tools` gets the same treatment before building, because it changes how `lib/domain/` is structured.
+- **External repository.** `version127/dns-tools` is an independent public repository tracked in `version127_docs/public-repositories.md`. The private site has no local copy or runtime dependency on it. Decide whether `domain-tools` should become its own independent public repository before building, because that changes how `lib/domain/` is structured.
 - **IP and ASN collection placement.** Its canonical route is already planned as `/ip-asn-lookup`; decide which collections should link to it before publication.
 - **TLD Directory collection placement.** Its canonical route is `/tld-directory`; it may appear in both domain and reference collections without moving.
 - **Port 43 fallback.** Whether to build it at all. It closes part of the coverage gap and is the single largest piece of extra work in this plan. Decide once, in `version127_docs/rdap.md`, not per tool.

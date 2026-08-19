@@ -1,6 +1,6 @@
 # version127 homelab development handoff
 
-Last updated: 17 August 2026
+Last updated: 19 August 2026
 
 ## Current operating model
 
@@ -12,13 +12,13 @@ The primary version127 development workspace is now the homelab checkout:
 
 The private source-of-truth repository remains `RaviTejaKNTS/version127`, using the `main` branch. Normal work should start on the homelab, pull from GitHub before editing, and push reviewed commits back to GitHub. The old Mac checkout can remain as an inactive fallback, but it should not receive new edits because that would create two working copies that can diverge.
 
-The public BaseBuddy repository is a separate nested Git checkout at:
+External repositories are independent checkouts beside the private workspace. The BaseBuddy website checkout is at:
 
 ```text
-/home/teja/projects/version127/repos/basebuddy-website
+/home/teja/projects/basebuddy-website
 ```
 
-It tracks `version127/basebuddy-website` on branch `self-host-dev`. Its files and Git history are separate from the private version127 repository.
+It tracks `version127/basebuddy-website` on branch `self-host-dev`. Its files and Git history are separate from the private version127 repository. BaseBuddy app, DNS Tools, and Version127 datasets are also separate checkouts when needed. See `version127_docs/public-repositories.md` for the complete registry and clone workflow.
 
 ## Git and homelab setup
 
@@ -26,7 +26,7 @@ It tracks `version127/basebuddy-website` on branch `self-host-dev`. Its files an
 - The homelab checkout tracks `origin/main` and had no tracked changes after synchronization.
 - GitHub CLI was already authenticated on the homelab. `gh auth setup-git` connected that existing authentication to Git operations, so non-interactive pulls work.
 - Cleanup commit `199ed8b` added the reproducible managed-development seed and the database-function security migration.
-- The nested BaseBuddy checkout was preserved as a separate repository and is intentionally shown as untracked by the parent repository.
+- External repositories are not nested under the private checkout and do not appear in its Git status. Clone them separately under `/home/teja/projects/<repo-name>` only when working on them.
 
 ## Environment files
 
@@ -88,7 +88,7 @@ version127 dependencies were installed with `npm ci`. The project-required Playw
 - Playwright completed 214 checks with 124 repository-configured skips and no failures.
 - The production Next.js build passed.
 
-BaseBuddy was installed with pnpm 10.32.1. Its ignored `.env.playwright` was created from the checked-in example without real Supabase credentials. All 1,324 checks were accounted for after rerunning the one initially affected test file.
+The BaseBuddy website checkout was previously installed with pnpm 10.32.1. Each BaseBuddy repository owns its own dependencies, environment examples, tests, and quality gate; the private version127 checkout does not depend on or contain those files.
 
 No local Supabase containers are required or running.
 

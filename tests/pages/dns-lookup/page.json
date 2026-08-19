@@ -7,7 +7,7 @@
     "tests/pages/dns-lookup/dns-lookup.spec.ts",
     "tests/pages/dns-lookup/dns-lookup.test.mjs"
   ],
-  "scripts": ["scripts/version127/repos/sync-dns-tools-core.mjs"],
+  "scripts": [],
   "skills": [],
-  "repositories": ["repos/dns-tools"]
+  "repositories": []
 }
