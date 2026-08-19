@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "npm run test:static",
     "test": "npm run typecheck && npm run test:unit && npm run test:static",
-    "test:unit": "node --experimental-strip-types --test \"tests/**/*.test.mjs\"",
+    "test:unit": "node --experimental-strip-types --test-concurrency=1 --test \"tests/**/*.test.mjs\"",
     "test:static": "node scripts/version127/quality/static-policy.mjs",
     "test:seo": "playwright test",
     "test:seo:registry": "node --env-file=.env.database scripts/version127/quality/seo-registry-check.mjs",
@@ -53,7 +53,7 @@
     "version127:dataset:export": "node scripts/version127/github/export-dataset.mjs",
     "version127:dataset:sync": "node scripts/version127/github/sync-dataset-repo.mjs",
     "version127:tool:new": "node scripts/version127/github/create-tool-repo.mjs",
-    "version127:deploy:preflight": "node scripts/version127/deployment/preflight.mjs --env-file .env.deploy --check-git --check-cloudflare"
+    "version127:deploy:preflight": "node scripts/version127/deployment/preflight.mjs --check-git --check-cloudflare"
   },
   "dependencies": {
     "@namefi/dnssec-audit": "^2.1.1",
