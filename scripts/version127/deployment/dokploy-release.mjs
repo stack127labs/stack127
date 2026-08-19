@@ -260,6 +260,21 @@ function assertSha(actual, expected) {
   }
 }
 
+export function assertLiveSmokeResponse({ pathname, status, body, requiredAll = [], requiredAny = [] }) {
+  if (status !== 200) throw new Error(`${pathname} returned HTTP ${status}.`);
+
+  const lowerBody = String(body).toLowerCase();
+  for (const marker of requiredAll) {
+    if (!lowerBody.includes(marker.toLowerCase())) {
+      throw new Error(`${pathname} is missing expected marker ${marker}.`);
+    }
+  }
+
+  if (requiredAny.length > 0 && !requiredAny.some((marker) => lowerBody.includes(marker.toLowerCase()))) {
+    throw new Error(`${pathname} is missing one of the expected markers: ${requiredAny.join(", ")}.`);
+  }
+}
+
 async function verifyLiveSite(config) {
   const deadline = Date.now() + config.deployTimeoutSeconds * 1_000;
   let lastHealthError = "live health has not responded";
@@ -297,17 +312,13 @@ async function verifyLiveSite(config) {
   }
 
   const smokeChecks = [
-    ["/", "<title", "<main"],
-    ["/robots.txt", "Sitemap:"],
-    ["/sitemap.xml", "<sitemap"],
+    { pathname: "/", requiredAll: ["<title", "<main"] },
+    { pathname: "/robots.txt", requiredAll: ["Sitemap:"] },
+    { pathname: "/sitemap.xml", requiredAny: ["<urlset", "<sitemapindex"] },
   ];
-  for (const [pathname, ...needles] of smokeChecks) {
+  for (const { pathname, requiredAll, requiredAny } of smokeChecks) {
     const result = await siteRequest(`${config.siteUrl}${pathname}?__version127_release=${config.releaseSha.slice(0, 12)}`);
-    if (result.response.status !== 200) throw new Error(`${pathname} returned HTTP ${result.response.status}.`);
-    const lowerBody = result.body.toLowerCase();
-    for (const needle of needles) {
-      if (!lowerBody.includes(needle.toLowerCase())) throw new Error(`${pathname} is missing expected marker ${needle}.`);
-    }
+    assertLiveSmokeResponse({ pathname, status: result.response.status, body: result.body, requiredAll, requiredAny });
     console.log(`Live smoke passed: ${pathname}.`);
   }
 }
