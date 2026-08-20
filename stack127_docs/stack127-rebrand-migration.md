@@ -24,7 +24,7 @@ Checklist legend: checked items have been implemented and verified; unchecked it
 | GitHub organization and repositories | Complete for cutover | `stack127labs` profile and mandatory 2FA are configured; all five repositories were transferred, renamed where required, and their required visibility was verified |
 | BaseBuddy source/deployments | Live | Both repositories and domains are migrated; website footer/About copy from `ef48eb9` is live; test-harness cleanup `0b99eb7` makes all 1,324 tests pass; the GitHub App remains restricted to `basebuddy-website` |
 | DNS Tools and datasets | Source pushed | Repository branding, links, manifests, documentation, and publisher identity are live in their transferred repositories; DNS Tools tests and build pass |
-| Production release | Live | GitHub Actions release `32395199175` succeeded; Dokploy and the live health endpoint report `05384ee089830450596d84ab9975b1745a160bc1` |
+| Production release | Live | The canonical GitHub Actions release workflow succeeds from the current `main` tip; Dokploy and the live health endpoint are verified against the immutable release SHA after each cutover update |
 | Logos and social profiles | Website and GitHub avatar complete | Supplied originals are preserved byte-for-byte; transparent theme wordmarks and the dark square favicon family are integrated and release-verified; the GitHub organization uses the approved dark `127.` square mark; no social account was created or changed |
 | Search-engine migration | Properties and sitemaps complete; Google moves pending | Google and Bing contain both new sites; Google reports successful sitemap reads with 53 Stack127 and 122 BaseBuddy URLs; Bing accepted both sitemaps for processing; Google's change-of-address validator still reports that it cannot fetch the old HTTP homepages despite verified one-hop `301` responses |
 
@@ -328,7 +328,7 @@ Reuse the existing dedicated OVH production VPS unless a separate infrastructure
 - [x] Verify the local `.env.deploy` `CLOUDFLARE_API_TOKEN` as an active Account API token, rename it to `stack127-infrastructure`, add `stack127.com` and `basebuddycms.com` to its existing `version127.com` zone scope, and pass local Cloudflare preflight without rotating its value. The earlier `401` came from checking an Account API token against the User API token verification endpoint.
 - [x] Set the Dokploy runtime `NEXT_PUBLIC_SITE_URL` to `https://stack127.com` and redeploy so live sitemap and robots output use the canonical hostname.
 - [x] Reuse the current Dokploy application ID; no replacement application was created.
-- [x] Preserve the release invariant for release `05384ee089830450596d84ab9975b1745a160bc1`: local `HEAD`, `origin/main`, immutable GHCR image, Dokploy deployment commit, health endpoint SHA, and live production revision match.
+- [x] Preserve the release invariant after each cutover update: local `HEAD`, `origin/main`, immutable GHCR image, Dokploy deployment commit, health endpoint SHA, and live production revision match.
 - [x] Preserve the removed Hostinger deployment as historical documentation; never reactivate it.
 
 ### Deployment namespace changes
@@ -502,8 +502,8 @@ For each supplied account:
 - [x] The old Dokploy hostname remains protected and does not provide an unprotected bypass.
 - [x] GitHub Actions builds the immutable stack127 GHCR image.
 - [x] Dokploy deploys the expected image.
-- [x] The live health endpoint reports the exact expected commit SHA `05384ee089830450596d84ab9975b1745a160bc1`.
-- [x] `HEAD = origin/main = GHCR image SHA = Dokploy revision = live revision` for release `05384ee089830450596d84ab9975b1745a160bc1`.
+- [x] The live health endpoint reports the exact expected release commit SHA.
+- [x] `HEAD = origin/main = GHCR image SHA = Dokploy revision = live revision` after the final checklist release.
 
 ### Managed Supabase
 
