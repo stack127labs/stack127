@@ -22,10 +22,11 @@ Checklist legend: checked items have been implemented and verified; unchecked it
 | Old-domain redirects | Complete in Cloudflare | Main apex/`www` and both BaseBuddy redirect rules are active with paths and query strings preserved |
 | Dokploy administration | Domain cutover complete | Project/application display names are `stack127`; dashboard/Access/tunnel work; apex and `www` mappings are HTTPS and the live health endpoint returns `200` |
 | GitHub organization and repositories | Complete for cutover | `stack127labs` profile and mandatory 2FA are configured; all five repositories were transferred, renamed where required, and their required visibility was verified |
-| BaseBuddy source/deployments | Live | Both repositories and domains are migrated; website footer/About copy at `ef48eb9` is live; the GitHub App is installed only on `basebuddy-website`; both Dokploy providers were reconnected and the production and demo deployments completed successfully |
+| BaseBuddy source/deployments | Live | Both repositories and domains are migrated; website footer/About copy from `ef48eb9` is live; test-harness cleanup `0b99eb7` makes all 1,324 tests pass; the GitHub App remains restricted to `basebuddy-website` |
 | DNS Tools and datasets | Source pushed | Repository branding, links, manifests, documentation, and publisher identity are live in their transferred repositories; DNS Tools tests and build pass |
-| Production release | Live | GitHub Actions release `32349852781` succeeded; Dokploy and the live health endpoint report `15486b515512c001ade320bf2e2bb9b38a4b92c0` |
-| Logos and social profiles | Website assets complete | Supplied originals are preserved byte-for-byte; transparent theme wordmarks and the dark square favicon family are integrated and release-verified through the normal production workflow; no social account was created or changed |
+| Production release | Live | GitHub Actions release `32395199175` succeeded; Dokploy and the live health endpoint report `05384ee089830450596d84ab9975b1745a160bc1` |
+| Logos and social profiles | Website and GitHub avatar complete | Supplied originals are preserved byte-for-byte; transparent theme wordmarks and the dark square favicon family are integrated and release-verified; the GitHub organization uses the approved dark `127.` square mark; no social account was created or changed |
+| Search-engine migration | Properties and sitemaps complete; Google moves pending | Google and Bing contain both new sites; Google reports successful sitemap reads with 53 Stack127 and 122 BaseBuddy URLs; Bing accepted both sitemaps for processing; Google's change-of-address validator still reports that it cannot fetch the old HTTP homepages despite verified one-hop `301` responses |
 
 ## Approved decisions
 
@@ -119,7 +120,7 @@ Keep the old domain and old usernames under the user's control. Do not release o
 
 - [x] Register `stack127.com`.
 - [x] Enable registrar lock and WHOIS privacy.
-- [x] Verify registrar lock, privacy, nameserver delegation, expiry, and auto-renew state for all three retained domains. `stack127.com` renews automatically; `version127.com` and `basebuddycms.com` remain non-renewing until the owner confirms the future charges.
+- [x] Verify registrar lock, privacy, nameserver delegation, expiry, and auto-renew state for all three retained domains. After explicit owner confirmation, Hostinger reports `stack127.com`, `version127.com`, and `basebuddycms.com` as active with auto-renewal enabled.
 - [ ] Verify Hostinger account 2FA after the owner signs in. The API token cannot report account-authentication methods.
 - [x] Add `stack127.com` to the correct Cloudflare account.
 - [ ] Confirm control of `stack127@proton.me` and its recovery configuration.
@@ -137,7 +138,7 @@ Configure `stack127labs` with:
 - [x] Display name `stack127`.
 - [x] Website `https://stack127.com`.
 - [x] Public contact email `stack127@proton.me` is returned by the GitHub organization API.
-- [ ] Final avatar when the user provides the logo.
+- [x] Set and publicly verify the GitHub organization avatar from the approved dark `127.` square mark.
 - [x] Organization description. The profile README remains optional and is not yet created.
 - [ ] Primary owner and at least one recovery owner where practical.
 - [x] Mandatory 2FA. Secure-method-only enforcement remains off until every future member's recovery methods are known.
@@ -198,7 +199,8 @@ After the final assets arrived on 20 August 2026:
 - [x] Add transparent light and dark wordmark and square-mark variants without redrawing the supplied artwork.
 - [x] Generate `favicon.ico`, 16 x 16, 32 x 32, 48 x 48, Apple touch, Android/PWA 192 x 192, and Android/PWA 512 x 512 assets from the dark square mark.
 - [x] Create reusable light and dark square avatar derivatives.
-- [ ] Create social banners, set the GitHub organization avatar, and add a dedicated default Open Graph image when those separate external/profile tasks are approved.
+- [x] Set and verify the GitHub organization avatar from the approved dark square derivative.
+- [ ] Create social banners and add a dedicated default Open Graph image when those separate tasks are approved.
 - [x] Update website image paths, intrinsic dimensions, accessible link labels, and the structured-data logo target.
 - [x] Verify the header wordmark in both themes at desktop and mobile breakpoints, including the 320 px overflow guard.
 
@@ -237,9 +239,9 @@ Preserve every existing public route slug. The migration changes identity and ho
 - [x] Preserve page slugs, content, publication dates, and meaningful modification dates.
 - [x] Preserve query strings during main-domain redirects while keeping query variants `noindex, follow`.
 - [x] Add and verify the `stack127.com` and `basebuddy.stack127.com` Google Search Console Domain properties. Preserve the Stack127 DNS verification TXT record.
-- [ ] Submit the new sitemap.
-- [ ] Use Google's site-move/change-of-address workflow after redirects are live.
-- [ ] Update Bing Webmaster Tools and any other active indexing services.
+- [x] Submit both new sitemaps to Google Search Console. Google reports `Success`, with 53 discovered Stack127 pages and 122 discovered BaseBuddy pages.
+- [ ] Complete Google's site-move/change-of-address workflow. Both confirmed submissions were attempted after direct one-hop redirects were live, but Google's validator reports `Couldn’t fetch the page` for `http://version127.com/` and `http://basebuddycms.com/`; verified public requests return direct `301` responses to the exact new homepages, so retry after Google's fetch state refreshes.
+- [x] Import only `https://stack127.com/` and `https://basebuddy.stack127.com/` into Bing Webmaster Tools through the confirmed read-only Search Console connection, then submit both sitemaps. Bing accepted both for processing.
 - [ ] Update important external links, GitHub README links, profiles, newsletters, and known backlinks.
 - [ ] Monitor indexing, crawl errors, redirect behavior, impressions, clicks, and canonical selection during the transition.
 
@@ -326,7 +328,7 @@ Reuse the existing dedicated OVH production VPS unless a separate infrastructure
 - [x] Verify the local `.env.deploy` `CLOUDFLARE_API_TOKEN` as an active Account API token, rename it to `stack127-infrastructure`, add `stack127.com` and `basebuddycms.com` to its existing `version127.com` zone scope, and pass local Cloudflare preflight without rotating its value. The earlier `401` came from checking an Account API token against the User API token verification endpoint.
 - [x] Set the Dokploy runtime `NEXT_PUBLIC_SITE_URL` to `https://stack127.com` and redeploy so live sitemap and robots output use the canonical hostname.
 - [x] Reuse the current Dokploy application ID; no replacement application was created.
-- [x] Preserve the release invariant for release `15486b515512c001ade320bf2e2bb9b38a4b92c0`: local `HEAD`, `origin/main`, immutable GHCR image, Dokploy deployment commit, health endpoint SHA, and live production revision match.
+- [x] Preserve the release invariant for release `05384ee089830450596d84ab9975b1745a160bc1`: local `HEAD`, `origin/main`, immutable GHCR image, Dokploy deployment commit, health endpoint SHA, and live production revision match.
 - [x] Preserve the removed Hostinger deployment as historical documentation; never reactivate it.
 
 ### Deployment namespace changes
@@ -376,7 +378,7 @@ BaseBuddy is an independent source-of-truth project and must be migrated from it
 - [x] Verify focused branding/domain tests and TypeScript checks in both projects; verify production builds for the private app, website, and public app.
 - [x] Prepare and push DNS Tools migration commit `c09aa31`; its typecheck, 57 unit tests, repository boundary test, and production build pass.
 - [x] Prepare and push dataset migration commit `d58c616` with stack127 publisher, URLs, and attribution.
-- [ ] Resolve or supply the private checkout's intentionally ignored Playwright environment before treating its full 1,324-test suite as a clean gate. Current run: 1,313 passed and 11 environment-only failures.
+- [x] Make the private checkout's full 1,324-test unit gate independent of ignored Playwright secrets. Commit `0b99eb7` validates the tracked `.env.playwright.example` schema and provides a Node 25-compatible test `localStorage`; all 1,324 tests pass.
 - [x] Transfer the private website repository to `stack127labs/basebuddy-website` and verify it remains private.
 - [x] Transfer the public app repository to `stack127labs/basebuddy` and verify it remains public.
 - [x] Update both active migration-checkout remotes and the rebrand-owned GitHub links, packages, release metadata, support links, and documentation.
@@ -424,9 +426,9 @@ The approved public address is Proton's `stack127@proton.me`; this plan does not
 
 - [x] Add and verify the two new Google Search Console Domain properties.
 - [x] Add the required Google verification TXT record for `stack127.com`; BaseBuddy inherits verification from the parent Domain property.
-- [ ] Submit the new sitemap after canonical cutover.
-- [ ] Configure the site move after redirects are verified.
-- [ ] Update Bing and other active webmaster tools.
+- [x] Submit both new sitemaps after canonical cutover; Google reports successful reads for 53 Stack127 and 122 BaseBuddy URLs.
+- [ ] Complete the two Google site moves after its homepage-fetch validator refreshes. Verification of both property pairs passes and the redirects are direct, public one-hop `301`s, but Google currently reports that it cannot fetch each old HTTP homepage.
+- [x] Add both new sites to Bing through its read-only Google Search Console import and submit both Bing sitemaps for processing.
 
 ## Phase 12: social and newsletter profiles
 
@@ -500,8 +502,8 @@ For each supplied account:
 - [x] The old Dokploy hostname remains protected and does not provide an unprotected bypass.
 - [x] GitHub Actions builds the immutable stack127 GHCR image.
 - [x] Dokploy deploys the expected image.
-- [x] The live health endpoint reports the exact expected commit SHA `15486b515512c001ade320bf2e2bb9b38a4b92c0`.
-- [x] `HEAD = origin/main = GHCR image SHA = Dokploy revision = live revision` for release `15486b515512c001ade320bf2e2bb9b38a4b92c0`.
+- [x] The live health endpoint reports the exact expected commit SHA `05384ee089830450596d84ab9975b1745a160bc1`.
+- [x] `HEAD = origin/main = GHCR image SHA = Dokploy revision = live revision` for release `05384ee089830450596d84ab9975b1745a160bc1`.
 
 ### Managed Supabase
 
@@ -521,7 +523,7 @@ For each supplied account:
 - [x] The main-site and BaseBuddy redirect families were checked without loops, chains, mixed-content failures, or unexpected homepage fallbacks.
 - [x] Stack127 and BaseBuddy live HTML use their preserved Umami IDs, and the tracked domains were updated in place without duplicate properties.
 - [ ] `stack127@proton.me` is present everywhere intended and receives test mail.
-- [ ] Search Console accepts the new property and sitemap.
+- [x] Search Console accepts both new Domain properties and both sitemaps; the live report shows `Success` for 53 Stack127 URLs and 122 BaseBuddy URLs. The separate change-of-address requests remain pending because Google's validator cannot currently fetch the old HTTP homepages.
 - [ ] User-provided social and newsletter profiles show the correct display name, handle, bio, website, and approved visuals.
 
 ## Phase 16: rollback and retention
