@@ -34,7 +34,7 @@ async function fetchIcon(domain) {
   const url = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`;
   const response = await fetch(url, {
     headers: {
-      "User-Agent": "version127-icon-cache",
+      "User-Agent": "stack127-icon-cache",
     },
   });
 

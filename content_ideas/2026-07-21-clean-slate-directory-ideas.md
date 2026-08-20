@@ -2,7 +2,7 @@
 
 Date: 2026-07-21
 
-This is a fresh directory-only idea slate. It was developed without using earlier Version127 idea documents. Existing live routes were checked only to avoid direct duplication.
+This is a fresh directory-only idea slate. It was developed without using earlier Stack127 idea documents. Existing live routes were checked only to avoid direct duplication.
 
 The priority is directories that normalize a difficult decision across products through durable, source-backed fields. Unknown values should remain unknown rather than being inferred.
 
@@ -150,4 +150,4 @@ Risk: do not rank agent quality using vendor benchmarks alone.
 4. AI Agent Sandboxes
 5. UPS Compatibility
 
-Before implementation, revalidate the exact competitor gap and official source coverage for the selected directory. Apply the surface decision rule in `skills/version127/version127-topic-research/SKILL.md`; entity-specific facts should become directory records or indexable entity pages rather than incomplete picker tools.
+Before implementation, revalidate the exact competitor gap and official source coverage for the selected directory. Apply the surface decision rule in `skills/stack127/stack127-topic-research/SKILL.md`; entity-specific facts should become directory records or indexable entity pages rather than incomplete picker tools.

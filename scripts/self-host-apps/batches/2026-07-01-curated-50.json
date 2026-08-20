@@ -33,7 +33,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "immich",
         "source_url": "https://immich.app"
       }
@@ -67,7 +67,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "excalidraw",
         "source_url": "https://excalidraw.com"
       }
@@ -103,7 +103,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "home-assistant",
         "source_url": "https://www.home-assistant.io"
       }
@@ -139,7 +139,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "linkwarden",
         "source_url": "https://linkwarden.app"
       }
@@ -173,7 +173,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "uptime-kuma",
         "source_url": "https://uptime.kuma.pet"
       }
@@ -207,7 +207,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "pi-hole",
         "source_url": "https://pi-hole.net"
       }
@@ -249,7 +249,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "nextcloud",
         "source_url": "https://nextcloud.com"
       }
@@ -287,7 +287,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "jellyfin",
         "source_url": "https://jellyfin.org"
       }
@@ -324,7 +324,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "vaultwarden",
         "source_url": "https://github.com/dani-garcia/vaultwarden"
       }
@@ -364,7 +364,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "gitea",
         "source_url": "https://about.gitea.com"
       }
@@ -403,7 +403,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "forgejo",
         "source_url": "https://forgejo.org"
       }
@@ -440,7 +440,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "gitlab",
         "source_url": "https://about.gitlab.com"
       }
@@ -475,7 +475,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "grafana",
         "source_url": "https://grafana.com/oss/grafana/"
       }
@@ -510,7 +510,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "prometheus",
         "source_url": "https://prometheus.io"
       }
@@ -544,7 +544,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "netdata",
         "source_url": "https://www.netdata.cloud"
       }
@@ -583,7 +583,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "nginx-proxy-manager",
         "source_url": "https://nginxproxymanager.com"
       }
@@ -619,7 +619,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "traefik",
         "source_url": "https://traefik.io/traefik"
       }
@@ -654,7 +654,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "caddy",
         "source_url": "https://caddyserver.com"
       }
@@ -689,7 +689,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "authelia",
         "source_url": "https://www.authelia.com"
       }
@@ -727,7 +727,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "authentik",
         "source_url": "https://goauthentik.io"
       }
@@ -766,7 +766,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "keycloak",
         "source_url": "https://www.keycloak.org"
       }
@@ -804,7 +804,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "paperless-ngx",
         "source_url": "https://docs.paperless-ngx.com"
       }
@@ -841,7 +841,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "mealie",
         "source_url": "https://mealie.io"
       }
@@ -876,7 +876,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "actual-budget",
         "source_url": "https://actualbudget.org"
       }
@@ -914,7 +914,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "firefly-iii",
         "source_url": "https://www.firefly-iii.org"
       }
@@ -948,7 +948,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "freshrss",
         "source_url": "https://freshrss.org"
       }
@@ -984,7 +984,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "miniflux",
         "source_url": "https://miniflux.app"
       }
@@ -1022,7 +1022,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "wallabag",
         "source_url": "https://wallabag.org"
       }
@@ -1061,7 +1061,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "joplin-server",
         "source_url": "https://joplinapp.org"
       }
@@ -1099,7 +1099,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "syncthing",
         "source_url": "https://syncthing.net"
       }
@@ -1140,7 +1140,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "seafile",
         "source_url": "https://www.seafile.com"
       }
@@ -1174,7 +1174,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "filebrowser",
         "source_url": "https://filebrowser.org"
       }
@@ -1209,7 +1209,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "gotify",
         "source_url": "https://gotify.net"
       }
@@ -1246,7 +1246,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "ntfy",
         "source_url": "https://ntfy.sh"
       }
@@ -1280,7 +1280,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "adguard-home",
         "source_url": "https://adguard.com/en/adguard-home/overview.html"
       }
@@ -1315,7 +1315,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "wg-easy",
         "source_url": "https://github.com/wg-easy/wg-easy"
       }
@@ -1350,7 +1350,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "headscale",
         "source_url": "https://headscale.net"
       }
@@ -1384,7 +1384,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "photoprism",
         "source_url": "https://www.photoprism.app"
       }
@@ -1418,7 +1418,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "calibre-web",
         "source_url": "https://github.com/janeczku/calibre-web"
       }
@@ -1455,7 +1455,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "audiobookshelf",
         "source_url": "https://www.audiobookshelf.org"
       }
@@ -1490,7 +1490,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "navidrome",
         "source_url": "https://www.navidrome.org"
       }
@@ -1525,7 +1525,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "jellyseerr",
         "source_url": "https://github.com/seerr-team/seerr"
       }
@@ -1560,7 +1560,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "sonarr",
         "source_url": "https://sonarr.tv"
       }
@@ -1595,7 +1595,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "radarr",
         "source_url": "https://radarr.video"
       }
@@ -1630,7 +1630,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "lidarr",
         "source_url": "https://lidarr.audio"
       }
@@ -1665,7 +1665,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "bazarr",
         "source_url": "https://www.bazarr.media"
       }
@@ -1700,7 +1700,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "prowlarr",
         "source_url": "https://prowlarr.com"
       }
@@ -1735,7 +1735,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "qbittorrent",
         "source_url": "https://www.qbittorrent.org"
       }
@@ -1770,7 +1770,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "portainer",
         "source_url": "https://www.portainer.io"
       }
@@ -1804,7 +1804,7 @@
       ],
       "summary_confidence": "high",
       "source_payload": {
-        "source": "version127_curated_batch",
+        "source": "stack127_curated_batch",
         "source_key": "homepage",
         "source_url": "https://gethomepage.dev"
       }

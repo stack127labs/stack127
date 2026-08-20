@@ -9,7 +9,7 @@ const migrationPath = new URL(
   import.meta.url,
 );
 const registryCheckPath = new URL(
-  "../../../scripts/version127/quality/seo-registry-check.mjs",
+  "../../../scripts/stack127/quality/seo-registry-check.mjs",
   import.meta.url,
 );
 const storageMigrationPath = new URL(

@@ -2,7 +2,7 @@
 
 Route: `/domain-report`
 
-Publication state: controlled by the exact `domain-report` row in `public.version127_pages`.
+Publication state: controlled by the exact `domain-report` row in `public.stack127_pages`.
 
 Status: plan.
 
@@ -25,7 +25,7 @@ Optionally a small set of checkboxes to skip the slower checks. Default to runni
 A short opening paragraph that states what was checked and what stood out, written as sentences rather than counts:
 
 ```
-version127.com is registered through HOSTINGER operations, UAB until 3 July 2027,
+stack127.com is registered through HOSTINGER operations, UAB until 3 July 2027,
 delegated to two Cloudflare nameservers that both answer, and not signed with
 DNSSEC. The registry and the zone agree on the nameservers. Nothing needs
 attention.
@@ -75,7 +75,7 @@ This is the most expensive page in the folder. It needs its own rate limit weigh
 - Exactly which checks ran, which were skipped, and which failed, named. A combined report that quietly drops a check is worse than no report.
 - That findings are observations, not a verdict, and that a domain with findings is not necessarily misconfigured.
 - Where each finding came from, registry or DNS, and which tool to open next.
-- That this is a snapshot from the Version127 server, not a view of what every resolver worldwide sees.
+- That this is a snapshot from the Stack127 server, not a view of what every resolver worldwide sees.
 - Coverage, freshness for the registration half, and the privacy position for both halves.
 
 ## Content flow

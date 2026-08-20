@@ -48,13 +48,13 @@ const workers = Array.from({ length: 4 }, async () => {
       let response = await fetchWithRetry(check.url, {
         method: "HEAD",
         redirect: "follow",
-        headers: { "User-Agent": "Mozilla/5.0 version127-link-review" },
+        headers: { "User-Agent": "Mozilla/5.0 stack127-link-review" },
       });
       if (response.status === 405 || response.status === 403 || (check.field === "icon_url" && !response.headers.get("content-type")?.startsWith("image/"))) {
         response = await fetchWithRetry(check.url, {
           method: "GET",
           redirect: "follow",
-          headers: { "User-Agent": "Mozilla/5.0 version127-link-review", Range: "bytes=0-1023" },
+          headers: { "User-Agent": "Mozilla/5.0 stack127-link-review", Range: "bytes=0-1023" },
         });
       }
       const contentType = response.headers.get("content-type") ?? "";

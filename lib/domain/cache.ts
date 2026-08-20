@@ -7,7 +7,7 @@
  * Privacy: rows are keyed by the queried URL and hold the registry's answer. No
  * requester address, session, or identifier is stored, and nothing here is ever
  * joined to who asked. Requester identifiers live only in the in-memory rate
- * limiter for a few minutes. See version127_docs/rdap.md.
+ * limiter for a few minutes. See stack127_docs/rdap.md.
  *
  * Degrades to no caching when DATABASE_URL is absent or the table is missing, so
  * local development and the public repository work without a database.

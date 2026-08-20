@@ -37,7 +37,7 @@ const MIN_EXPECTED_ROWS = 1200;
 
 async function get(url) {
   const response = await fetch(url, {
-    headers: { "user-agent": "Version127-domain-tools/1.0 (+https://version127.com)" },
+    headers: { "user-agent": "Stack127-domain-tools/1.0 (+https://stack127.com)" },
     signal: AbortSignal.timeout(90_000),
   });
   if (!response.ok) throw new Error(`${url} returned ${response.status}`);

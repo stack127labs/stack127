@@ -11,12 +11,12 @@ const remove = process.argv.includes("--remove");
 const pool = new pg.Pool({ connectionString: databaseUrl });
 try {
   if (remove) {
-    await pool.query("delete from public.version127_pages where slug = $1", ["dockerignore-tester"]);
+    await pool.query("delete from public.stack127_pages where slug = $1", ["dockerignore-tester"]);
     console.log("Removed the local dockerignore preview row.");
   } else {
     await pool.query(
       `
-        insert into public.version127_pages (
+        insert into public.stack127_pages (
           slug, label, meta_title, meta_description, is_published,
           published_at, cover_image_url, page_type, sitemap_priority
         ) values ($1, $2, $3, $4, true, now(), null, $5, $6)
@@ -25,7 +25,7 @@ try {
           meta_title = excluded.meta_title,
           meta_description = excluded.meta_description,
           is_published = true,
-          published_at = coalesce(public.version127_pages.published_at, excluded.published_at),
+          published_at = coalesce(public.stack127_pages.published_at, excluded.published_at),
           cover_image_url = excluded.cover_image_url,
           page_type = excluded.page_type,
           sitemap_priority = excluded.sitemap_priority,

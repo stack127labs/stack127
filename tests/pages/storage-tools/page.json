@@ -3,14 +3,14 @@
   "state": "published",
   "docs": ["content_docs/storage-tools"],
   "tests": [
-    "tests/version127/seo.spec.ts",
+    "tests/stack127/seo.spec.ts",
     "tests/pages/storage-tools/hub.test.mjs",
     "tests/pages/storage-tools/shared/storage-engine.test.mjs"
   ],
   "scripts": ["scripts/storage-tools/preview-local-pages.mjs"],
   "skills": [
-    "skills/version127/test-driven-page",
-    "skills/version127/visual-first-content"
+    "skills/stack127/test-driven-page",
+    "skills/stack127/visual-first-content"
   ],
   "repositories": []
 }

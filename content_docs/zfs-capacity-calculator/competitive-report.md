@@ -9,14 +9,14 @@ Saturation exception: no
 
 ## Research scope
 
-### Current version127 state
+### Current stack127 state
 
 - [Observed, updated 2026-08-04] The tool now exists at the stable route `/zfs-capacity-calculator` with a page manifest, page-owned tests, a pure `bigint` engine, guarded local preview, versioned share state, and a page-specific OpenZFS receipt checker.
 - [Observed, updated 2026-08-04] The editor supports a fast equal-drive setup and keeps every drive individually editable for mixed capacities. Results separate top-level vdevs, writable capacity, planning target, auxiliary inventory, allocation losses, formula metadata, and a placeholder-only dry-run command.
 - [Documented] The roadmap scope includes multiple top-level mirror and RAIDZ1/2/3 vdevs; distinct data, hot-spare, SLOG, L2ARC, and special roles; `ashift`, `recordsize`, optional `volblocksize`, and a user planning reserve; separate physical and compression scenarios; per-vdev results before the pool total; and conservative command placeholders.
 - [Documented] The roadmap expressly forbids exact promises for `zpool`, `zfs`, quota, or application-visible capacity. It requires OpenZFS 2.3 and 2.4 sparse-pool fixtures before completion because RAIDZ expansion and capacity heuristics changed across those releases.
 - [Observed] The `/storage-tools` collection exists, but it and its tools are independently unpublished pending their own readiness checks and explicit approval. Research does not change publication state.
-- [Inferred] This is a good version127 surface because it performs a real technical calculation over user-supplied pool topology. Its defensible value is not another `(drives - parity) × size` widget; it is an auditable planning model that separates physical inventory, allocation estimates, operational reserve, and logical compression scenarios.
+- [Inferred] This is a good stack127 surface because it performs a real technical calculation over user-supplied pool topology. Its defensible value is not another `(drives - parity) × size` widget; it is an auditable planning model that separates physical inventory, allocation estimates, operational reserve, and logical compression scenarios.
 
 ### Post-build benchmark and decisions
 
@@ -24,8 +24,8 @@ The completed local UI was rechecked on 2026-08-04 against current TrueNAS, HexO
 
 | Tool | Observed capacity result | Important interpretation |
 | --- | --- | --- |
-| version127 | 196.45 TiB entered, 130.84 TiB estimated writable, 104.67 TiB planning target | Separates parity, capped slop, and user headroom. |
-| TrueNAS | About 130.71 TiB equivalent | Very close to version127 for the controlled fresh-pool fixture. |
+| stack127 | 196.45 TiB entered, 130.84 TiB estimated writable, 104.67 TiB planning target | Separates parity, capped slop, and user headroom. |
+| TrueNAS | About 130.71 TiB equivalent | Very close to stack127 for the controlled fresh-pool fixture. |
 | HexOS | 130.84 TiB usable, 104.57 TiB recommended maximum | Closest displayed match and the best competing common-case input flow. |
 | Simple Tools Hub | 126.78 TiB | Lower result from an uncapped percentage deduction. |
 | 45Drives | 128.24 TiB | Lower result from a larger modeled slop deduction. |
@@ -377,7 +377,7 @@ Advanced:
 
 | Question | Different behaviors | Best evidence | Decision still needed |
 | --- | --- | --- | --- |
-| What does “usable” mean? | Competitors use parity-adjusted bytes, post-slop bytes, post-reserve bytes, and compression-inflated logical bytes under the same label. | [OpenZFS zpoolprops](https://openzfs.github.io/openzfs-docs/man/master/7/zpoolprops.7.html) says its own `usable` is a fixed-128 KiB heuristic, while `zfs list` reports dataset available space. | No. version127 must use explicit result names and an accounting waterfall. |
+| What does “usable” mean? | Competitors use parity-adjusted bytes, post-slop bytes, post-reserve bytes, and compression-inflated logical bytes under the same label. | [OpenZFS zpoolprops](https://openzfs.github.io/openzfs-docs/man/master/7/zpoolprops.7.html) says its own `usable` is a fixed-128 KiB heuristic, while `zfs list` reports dataset available space. | No. stack127 must use explicit result names and an accounting waterfall. |
 | Is slop 6.25%, 3.2%, 2.5%, or capped? | Professional defaults to 6.25%; Simple uses ~3.2%; 45Drives observed 2.5%; Servnet uses 1/32 before planning fill. | [OpenZFS module parameters](https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Module%20Parameters.html): default 1/32, minimum 128 MiB, maximum 128 GiB, tunable. | No. Implement the documented default/caps and expose override as an advanced assumption. |
 | Can RAIDZ capacity be parity subtraction only? | Five tools effectively use drive-count parity math; Servnet adds coarse padding; jro.io models block allocation. | [OpenZFS RAIDZ](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Pool%20Structure/RAIDZ.html). | No. Show parity/mirror allocation as one stage and a separate block-allocation estimate driven by ashift and record/volblock size. |
 | Should compression increase the main capacity result? | Virtualization Howto mixes it into the calculator; Simple and jro.io expose an effective/logical scenario; most omit it. | [OpenZFS compression](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Data%20Storage/Compression.html). | No. Keep it as a separate conditional logical-data scenario. |
@@ -388,11 +388,11 @@ Advanced:
 
 ## Evidence-backed opportunities
 
-1. **Topology-first mixed-vdev planning**: No reviewed calculator gives a clean, beginner-readable composition of different top-level vdev types and drive capacities with a per-vdev result before the pool total. version127 can make each vdev an explicit failure and capacity boundary.
+1. **Topology-first mixed-vdev planning**: No reviewed calculator gives a clean, beginner-readable composition of different top-level vdev types and drive capacities with a per-vdev result before the pool total. stack127 can make each vdev an explicit failure and capacity boundary.
 2. **An accounting waterfall instead of one “usable” number**: Repeated community confusion and competitor label disagreement justify a scan-first chain: physical inventory → role-excluded capacity → per-vdev smallest-member limit → parity/mirror allocation → RAIDZ block/padding estimate → slop → optional user reserve → estimated writable physical capacity.
 3. **Advanced settings that visibly earn their place**: `ashift`, `recordsize`, and `volblocksize` should change a named allocation estimate and show the delta. Competitors that merely echo these inputs damage trust.
 4. **Correct role modeling**: Let users add hot spares, SLOG, L2ARC, and mirrored special vdevs as inventory without pretending they are general data capacity. No reviewed tool covers this complete role set.
-5. **Physical capacity separated from logical compression**: A small optional scenario can show “logical data at your assumed ratio” without moving the physical result. Simple Tools Hub demonstrates the wording direction, but version127 should avoid unreferenced workload presets.
+5. **Physical capacity separated from logical compression**: A small optional scenario can show “logical data at your assumed ratio” without moving the physical result. Simple Tools Hub demonstrates the wording direction, but stack127 should avoid unreferenced workload presets.
 6. **Validity and safety at input time**: Enforce Z1/Z2/Z3 minimums, mirror minimums, special redundancy guidance, and vdev-local smallest-drive limits before results. The Professional calculator's accepted 2-wide RAIDZ3 shows why this is non-negotiable.
 7. **Reproducible but conservative command preview**: Generate a placeholder `zpool create` shape from the topology, make device paths visibly fake, and never include destructive flags. This connects planning to execution without becoming an unsafe configurator.
 8. **Version-aware fixture evidence**: Validate the model against sparse-file pools on OpenZFS 2.3 and 2.4, including small records and expansion-sensitive cases. This is a stronger trust signal than claiming “true ZFS math.”

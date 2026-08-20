@@ -1,4 +1,0 @@
-interface:
-  display_name: "Version127 Test-Driven Page"
-  short_description: "Create and change Version127 pages with required tests"
-  default_prompt: "Use $version127-test-driven-page to add or update this Version127 page with route coverage, SEO tests, and quality gates."

@@ -123,7 +123,7 @@ export async function LessonPage({
   const updatedAt = page?.updated_at ?? courseFallbackUpdatedAt;
 
   const crumbs = [
-    { name: "version127", path: "/" },
+    { name: "stack127", path: "/" },
     { name: "Self-hosting for beginners", path: "/self-hosting-for-beginners" },
   ];
   if (lesson && lesson.slug) {

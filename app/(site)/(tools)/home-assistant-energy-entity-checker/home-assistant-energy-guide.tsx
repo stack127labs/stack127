@@ -93,7 +93,7 @@ export function HomeAssistantEnergyGuide() {
         covers missing entities, and the
         <a href="https://developers.home-assistant.io/docs/core/entity/sensor/"> Home Assistant sensor documentation</a>
         explains state classes and counters. Entered attributes stay in this browser; the
-        <Link href="/privacy"> version127 privacy policy</Link> covers ordinary page requests and
+        <Link href="/privacy"> stack127 privacy policy</Link> covers ordinary page requests and
         site analytics separately.
       </p>
       <ol>

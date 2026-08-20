@@ -7,14 +7,14 @@ export default function AboutPage() {
     <InfoPage
       heading={
         <>
-          About <mark>version127</mark>
+          About <mark>stack127</mark>
         </>
       }
       slug="about"
       title="About"
     >
         <p className={proseLedeClassName}>
-          version127 is a practical technical directory built and maintained by me, Ravi Teja KNTS (just call me Teja). It is for everyone who likes to tinker with the tech they use.
+          stack127 is a practical technical directory built and maintained by me, Ravi Teja KNTS (just call me Teja). It is for everyone who likes to tinker with the tech they use.
         </p>
 
         <section>
@@ -28,12 +28,10 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2>Why version127?</h2>
+          <h2>Why stack127?</h2>
           <p>
-            The 127 is localhost. 127.0.0.1. Duh. It is the address every self-hosted app calls home, so it felt right.
-          </p>
-          <p>
-            And the version part? Honestly, even I do not know. Do not ask me. I got the domain and we are rolling with it.
+            The 127 is localhost: 127.0.0.1, the address every self-hosted app calls home.
+            The stack is everything we build, run, connect, and keep learning about along the way.
           </p>
         </section>
 
@@ -73,7 +71,7 @@ export default function AboutPage() {
           </p>
           <p>
             Most of the tools and directories on this website are open source, so you can self-host them too. The code sits in our{" "}
-            <a href="https://github.com/version127" rel="noreferrer" target="_blank">
+            <a href="https://github.com/stack127labs" rel="noreferrer" target="_blank">
               GitHub repos
             </a>{" "}
             and is constantly updated.
@@ -83,7 +81,7 @@ export default function AboutPage() {
         <section>
           <h2>Contact</h2>
           <p>
-            Found a wrong link, an outdated app detail, or a missing project? Email <a href="mailto:version127@proton.me">version127@proton.me</a>. Tell me what is wrong and where you found the right answer, and I will fix it.
+            Found a wrong link, an outdated app detail, or a missing project? Email <a href="mailto:stack127@proton.me">stack127@proton.me</a>. Tell me what is wrong and where you found the right answer, and I will fix it.
           </p>
         </section>
     </InfoPage>

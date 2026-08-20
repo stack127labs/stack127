@@ -94,7 +94,7 @@ No marker art, screenshot, clean chart, FAQ, methodology section, or general rev
 | Out | `https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass` | Read the primary directive rules and unsupported-location boundary | `official proxy_pass documentation` | Final verification section |
 | Out | `https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#rewrite` | Understand why `break` and `last` need broader processing state | `NGINX rewrite documentation` | Live-NGINX limits table |
 
-No existing version127 page directly continues this URI-construction task. Do not add an unrelated internal link only for link count.
+No existing stack127 page directly continues this URI-construction task. Do not add an unrelated internal link only for link count.
 
 ## Manual prose handoff
 
@@ -109,8 +109,8 @@ No existing version127 page directly continues this URI-construction task. Do no
 
 ### Voice and accuracy constraints
 
-- Follow `version127_docs/writing-style.md` and `version127_docs/visual-first.md`.
-- Write `version127`, lowercase.
+- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
+- Write `stack127`, lowercase.
 - Use no em dash or en dash.
 - Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
 - Do not repeat a result, table, trace, heading, or prior section.
@@ -120,7 +120,7 @@ No existing version127 page directly continues this URI-construction task. Do no
 
 ### Tool-build exclusion
 
-`$version127-tool-build` must not draft or integrate these sections. The later `$version127-tool-writing` stage owns content integration.
+`$stack127-tool-build` must not draft or integrate these sections. The later `$stack127-tool-writing` stage owns content integration.
 
 ## Source ledger
 

@@ -357,7 +357,7 @@ Use no new production dependency. The engine should remain auditable TypeScript.
 
 ### Publication state
 
-Unpublished. The ownership manifest must say `unpublished`, the guarded local preview must restore state, and the slug must not be added to `public.version127_pages`, the sitemap, or central metadata. No route-level metadata, canonical, robots, sitemap, or JSON-LD code is permitted.
+Unpublished. The ownership manifest must say `unpublished`, the guarded local preview must restore state, and the slug must not be added to `public.stack127_pages`, the sitemap, or central metadata. No route-level metadata, canonical, robots, sitemap, or JSON-LD code is permitted.
 
 ## Acceptance criteria
 

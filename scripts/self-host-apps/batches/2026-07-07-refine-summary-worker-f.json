@@ -2,451 +2,451 @@
   {
     "slug": "crowdsec",
     "summary": "Collaborative intrusion prevention for detecting malicious IPs and sharing block decisions.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "snipe-it",
     "summary": "IT asset manager for tracking hardware, licenses, accessories, users, and checkouts.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "logto",
     "summary": "Identity service for adding sign-in, authorization, and user management to apps.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "casdoor",
     "summary": "Identity access manager for single sign-on, OAuth, OIDC, and user accounts.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "semaphore-ui",
     "summary": "Web UI for running Ansible playbooks, Terraform jobs, OpenTofu tasks, and shell commands.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "dozzle",
     "summary": "Live Docker log viewer for browsing container output from a web interface.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "element",
     "summary": "Matrix chat client for messaging, rooms, calls, and collaboration across web and mobile.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "amnezia",
     "summary": "VPN client and server tools for creating private tunnels across desktop and mobile devices.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "formbricks",
     "summary": "Survey and feedback app for collecting user responses, product signals, and form submissions.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "whoogle",
     "summary": "Private metasearch proxy for querying Google results without ads or tracking scripts.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "komodo",
     "summary": "Deployment dashboard for building, updating, and monitoring services across multiple servers.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "obsidian-livesync",
     "summary": "Obsidian plugin for syncing vault changes between devices outside Obsidian Sync.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "gatus",
     "summary": "Status page monitor for checking HTTP, TCP, DNS, ICMP, and other service endpoints.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "quickwit",
     "summary": "Search engine for indexing logs, traces, and other observability data.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "nginx-ui",
     "summary": "Web interface for managing NGINX configuration, certificates, logs, and server settings.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "sonarqube",
     "summary": "Code quality scanner for finding bugs, vulnerabilities, and maintainability issues.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "blinko",
     "summary": "Personal notes app for capturing ideas, organizing entries, and using AI-assisted search.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "mailpit",
     "summary": "Email testing server for capturing messages, inspecting mail, and using a developer API.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "fluxer",
     "summary": "Messaging and VoIP app for running chat, calls, and operator-managed communication services.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "trek",
     "summary": "Collaborative travel planner for building itineraries, sharing trips, and coordinating plans in real time.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "miniflux",
     "summary": "RSS reader for subscribing to feeds, reading articles, and keeping a minimal news inbox.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "step-ca",
     "summary": "Certificate authority server for issuing and managing TLS certificates in private infrastructure.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "sylius",
     "summary": "Symfony commerce app for building product catalogs, orders, payments, and storefront backends.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "vendure",
     "summary": "Headless commerce backend for products, orders, customers, payments, and custom storefronts.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "a-dark-room",
     "summary": "Browser text adventure game built around resource gathering, exploration, and survival choices.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "openttd",
     "summary": "Transport simulation game for building rail, road, air, and shipping networks.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "scrutiny",
     "summary": "Drive health monitor for tracking SMART data, temperatures, and disk failure warnings.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "phpmyadmin",
     "summary": "Web database admin tool for browsing, editing, and managing MySQL and MariaDB servers.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "open-source-routing-machine-osrm",
     "summary": "Routing engine for calculating directions, travel times, and map matching from OpenStreetMap data.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "buku",
     "summary": "Command-line bookmark manager for saving links, tagging pages, and searching a personal web index.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "eclipse-che",
     "summary": "Workspace server and browser IDE for running reproducible developer environments.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "soft-serve",
     "summary": "Git server for browsing repositories, managing access, and working from the command line.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "clamav",
     "summary": "Antivirus engine for scanning files, mail, and streams for known malware signatures.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "backrest",
     "summary": "Web UI for managing restic backup repositories, schedules, snapshots, and restores.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "humhub",
     "summary": "Social network kit for building private communities, member profiles, spaces, and activity feeds.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "opensign",
     "summary": "Document signing app for sending, signing, and tracking agreements.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "lldap",
     "summary": "Lightweight LDAP server for managing users, groups, and authentication directory data.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "the-lounge",
     "summary": "Web IRC client for staying connected to channels and messages from a browser.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "arcane",
     "summary": "Docker management interface for viewing containers, images, volumes, networks, and compose projects.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "rundeck",
     "summary": "Automation runner for scheduling jobs, orchestrating tasks, and delegating server operations.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "octobot",
     "summary": "Cryptocurrency trading bot for running strategies, backtesting ideas, and monitoring markets.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "pulse",
     "summary": "Proxmox monitor for viewing cluster health, node status, virtual machines, and resource usage.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "glpi",
     "summary": "IT service management app for assets, helpdesk tickets, inventory, and support workflows.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "webmin",
     "summary": "Server control panel for managing users, services, packages, files, and system settings.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "tinyproxy",
     "summary": "Lightweight HTTP and HTTPS proxy daemon for forwarding web traffic with a small footprint.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "opencloud",
     "summary": "File sharing and collaboration app for syncing documents, managing spaces, and working across devices.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "suitecrm",
     "summary": "CRM app for managing contacts, leads, opportunities, cases, campaigns, and sales workflows.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "unison",
     "summary": "File synchronizer for keeping directory trees consistent across machines.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "wetty",
     "summary": "Browser terminal for exposing shell access over HTTP or HTTPS.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "shlink",
     "summary": "URL shortener for creating short links, tracking visits, and managing branded redirects.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "pinchflat",
     "summary": "YouTube media downloader built around yt-dlp, with scheduling and library management.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "joomla",
     "summary": "Content management system for publishing websites, extensions, templates, and multilingual content.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "ckan",
     "summary": "Data portal app for publishing datasets, metadata, organizations, and public data catalogs.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "whodb",
     "summary": "Database explorer for browsing schemas, running queries, and inspecting data through a web UI.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "unregistry",
     "summary": "Container image registry for distributing internal images without a full registry service.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "surveyjs",
     "summary": "Survey and form builder for creating questionnaires, collecting responses, and embedding forms.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "diun",
     "summary": "Docker image update notifier for watching tags and alerting when new versions appear.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "anonaddy",
     "summary": "Email alias service for forwarding mail through disposable or private addresses.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "vikunja",
     "summary": "Task manager for projects, lists, kanban boards, due dates, teams, and reminders.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "ackee",
     "summary": "Privacy-focused web analytics app for tracking visits, referrers, pages, and events.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "xyops",
     "summary": "Workflow automation and monitoring app for running jobs and watching server health.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "octobox",
     "summary": "GitHub notification inbox for triaging issues, pull requests, reviews, and repository updates.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "microbin",
     "summary": "Paste and file sharing app for short links, expiring uploads, and shared snippets.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "fider",
     "summary": "Feedback portal for collecting feature requests, voting on ideas, and tracking product suggestions.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "kubero",
     "summary": "Kubernetes app launcher for deploying services, managing pipelines, and running workloads.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "linuxserver-webtop",
     "summary": "Browser-accessible Linux desktop containers for running desktop apps on a remote server.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "13ft-ladder",
     "summary": "Web proxy interface for viewing pages with ads and paywall overlays removed.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "pad-ws",
     "summary": "Browser whiteboard IDE for sketching, coding, and collaborating in a shared workspace.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "octelium",
     "summary": "Zero trust access app for connecting users to private services, networks, and workloads.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "seanime",
     "summary": "Anime and manga media server for streaming, library tracking, and managing local collections.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "ampache",
     "summary": "Web audio and video streaming app for browsing, playing, and managing a media library.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "bknd",
     "summary": "Backend app for creating database-backed APIs, auth, and admin tools for small projects.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "olivetin",
     "summary": "Web command launcher for running predefined Linux shell commands from buttons.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "wud",
     "summary": "Docker image update watcher for detecting new versions and sending notifications.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "grimmory",
     "summary": "Digital library manager for organizing books and making a personal collection easier to browse.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   }
 ]

@@ -347,7 +347,7 @@ Important page identity and the h1 remain server-rendered. Only the calculator i
 
 ### Publication state
 
-Unpublished. The route exists for local tool QA through the guarded preview script, has no row in `public.version127_pages`, returns 404 in production routing, and stays out of the sitemap. Publication, registry metadata, final public prose, and deployment require separate user approval after all storage tools are complete.
+Unpublished. The route exists for local tool QA through the guarded preview script, has no row in `public.stack127_pages`, returns 404 in production routing, and stays out of the sitemap. Publication, registry metadata, final public prose, and deployment require separate user approval after all storage tools are complete.
 
 ## Acceptance criteria
 
@@ -368,7 +368,7 @@ Unpublished. The route exists for local tool QA through the guarded preview scri
 | R13 | The tool is operable by keyboard with native semantics, associated errors, useful result focus, polite live updates, a non-color equivalent for every visual, 44-pixel targets, and reduced-motion support. | Automated accessibility assertions plus manual keyboard and zoom checks. |
 | R14 | The one-frame interface has no nested result cards, overlap, clipping, wrapped-offscreen actions, or page-level horizontal scroll at 1280, 768, 390, and 320 CSS pixels in dark and light themes. | CSS static checks and Browser viewport screenshots. |
 | R15 | The route has server-rendered identity and the smallest client island, contains no route-owned SEO metadata or public explanatory guide, makes no network request, adds no dependency, and meets the engine performance budget. | Static tests, build output, network inspection, and performance test. |
-| R16 | The new route, docs, tests, preview entry, hub link, sidebar link, and ownership manifest agree on the same slug while `public.version127_pages` remains unchanged and the production route remains unpublished. | Manifest/static/SEO tests and git diff. |
+| R16 | The new route, docs, tests, preview entry, hub link, sidebar link, and ownership manifest agree on the same slug while `public.stack127_pages` remains unchanged and the production route remains unpublished. | Manifest/static/SEO tests and git diff. |
 | R17 | The existing ZFS pool capacity calculator uses the same shared RAIDZ primitive and its full engine and Browser tests continue to pass unchanged in behavior. | Existing ZFS test suite plus cross-tool fixtures. |
 | R18 | The UI and result never predict compression, installed free space, pool capacity, performance, or a universal optimal block size. | Static forbidden-claim checks and manual UI review. |
 

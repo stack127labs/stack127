@@ -2,7 +2,7 @@
 
 Route: `/domain-expiry`
 
-Publication state: controlled by the exact `domain-expiry` row in `public.version127_pages`.
+Publication state: controlled by the exact `domain-expiry` row in `public.stack127_pages`.
 
 Status: plan.
 
@@ -23,7 +23,7 @@ One domain name, normalized as elsewhere. No other controls.
 Lead with time remaining, then the date, then where the domain currently sits in its lifecycle.
 
 ```
-version127.com expires in 11 months, on 3 July 2027. The registry has no
+stack127.com expires in 11 months, on 3 July 2027. The registry has no
 expiry-related status on it, so it is in normal registered state.
 ```
 
@@ -63,7 +63,7 @@ Say "typical" and mean it. The 30 day redemption period and 5 day pending delete
 
 The `expiration` event from the registry, the `registrar expiration` event from the registrar hop, plus the status codes. No computation beyond the date difference.
 
-`expiration` and `registrar expiration` are separately registered RDAP event actions mapping to the Registry Expiry Date and the Registrar Registration Expiration Date. They are two fields, not one field with two spellings, and the engine keeps them independently sourced per `version127_docs/rdap.md`.
+`expiration` and `registrar expiration` are separately registered RDAP event actions mapping to the Registry Expiry Date and the Registrar Registration Expiration Date. They are two fields, not one field with two spellings, and the engine keeps them independently sourced per `stack127_docs/rdap.md`.
 
 When both are present and they differ, show both and say the registry date is the one that governs deletion. A gap usually means a renewal has been processed at one party and not yet reflected at the other, and it is worth surfacing rather than hiding, because a reader relying on the later of the two can lose the name.
 

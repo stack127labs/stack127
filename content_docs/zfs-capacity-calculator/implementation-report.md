@@ -394,7 +394,7 @@ The server renders the page promise, tool shell, empty form labels, and static r
 
 ### Publication state
 
-Unpublished. The route, sidebar entry, hub link, tests, and local registry preview may exist, but the exact slug must remain absent or unpublished in `public.version127_pages`. It should return 404 outside the guarded local preview, remain out of the sitemap, and receive no route-owned SEO behavior. This tool may publish independently after its own launch checks pass and the user separately approves publication.
+Unpublished. The route, sidebar entry, hub link, tests, and local registry preview may exist, but the exact slug must remain absent or unpublished in `public.stack127_pages`. It should return 404 outside the guarded local preview, remain out of the sitemap, and receive no route-owned SEO behavior. This tool may publish independently after its own launch checks pass and the user separately approves publication.
 
 ## Acceptance criteria
 

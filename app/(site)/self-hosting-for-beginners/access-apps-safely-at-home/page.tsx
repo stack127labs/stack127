@@ -80,7 +80,7 @@ export default function Page() {
 
         <p>
           Names bring in DNS, so here's the two-sentence version of that word the course promised
-          to explain. DNS is the internet's phonebook: it turns a name like version127.com into the
+          to explain. DNS is the internet's phonebook: it turns a name like stack127.com into the
           IP address your browser actually connects to. Public websites are listed in public DNS
           servers; a made-up home name like <code>draw.home</code> works only if something on your
           own network answers for it, which is the extra step a reverse proxy setup pulls in. That's

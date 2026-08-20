@@ -49,7 +49,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://kallithea-scm.org/repos/kallithea",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -57,7 +57,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://kallithea-scm.org/repos/kallithea",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -65,14 +65,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://kallithea-scm.org/repos/kallithea",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://kallithea-scm.org/repos/kallithea",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
@@ -241,7 +241,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://sye.dk/sfpg/",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -249,7 +249,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://sye.dk/sfpg/",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -257,14 +257,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://sye.dk/sfpg/",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://sye.dk/sfpg/",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
@@ -429,7 +429,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://gitlab.gnome.org/Archive/vino/-/blob/master/README",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -437,7 +437,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://gitlab.gnome.org/Archive/vino/-/blob/master/README",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -445,14 +445,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://gitlab.gnome.org/Archive/vino/-/blob/master/README",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://gitlab.gnome.org/Archive/vino/-/blob/master/README",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
@@ -682,7 +682,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/annaaurora/kaufkauflist/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -690,7 +690,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/annaaurora/kaufkauflist/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -698,14 +698,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/annaaurora/kaufkauflist/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/annaaurora/kaufkauflist/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
@@ -988,7 +988,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/nexmail/NexMail/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -996,7 +996,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/nexmail/NexMail/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -1004,14 +1004,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/nexmail/NexMail/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/nexmail/NexMail/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
@@ -1286,7 +1286,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/mo8it/oxitraffic/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -1294,7 +1294,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/mo8it/oxitraffic/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -1302,14 +1302,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/mo8it/oxitraffic/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/mo8it/oxitraffic/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
@@ -1601,7 +1601,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/LiteXiv/LiteXiv/src/branch/v2/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -1609,7 +1609,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/LiteXiv/LiteXiv/src/branch/v2/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -1617,14 +1617,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/LiteXiv/LiteXiv/src/branch/v2/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/LiteXiv/LiteXiv/src/branch/v2/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
@@ -1886,7 +1886,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://framagit.org/aktivisda/aktivisda/-/blob/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -1894,7 +1894,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://framagit.org/aktivisda/aktivisda/-/blob/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z",
@@ -1902,14 +1902,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://framagit.org/aktivisda/aktivisda/-/blob/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://framagit.org/aktivisda/aktivisda/-/blob/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T10:25:03.981Z"

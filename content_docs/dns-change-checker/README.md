@@ -2,7 +2,7 @@
 
 Route: `/dns-change-checker`
 
-Publication state: controlled by the exact `dns-change-checker` row in `public.version127_pages`.
+Publication state: controlled by the exact `dns-change-checker` row in `public.stack127_pages`.
 
 The user enters one name, one record type, and optionally the new value they expect. The tool discovers the zone, asks every reachable authoritative address, then asks every reviewed public resolver. Authoritative results always appear first. Resolver TTL and Authoritative TTL remain separate concepts.
 

@@ -257,7 +257,7 @@ async function replaceLinks(client, appsWithCategories) {
           checked_at,
           note
         )
-        values ($1, 'categories', 'version127_taxonomy', null, 'medium', now(), $2)
+        values ($1, 'categories', 'stack127_taxonomy', null, 'medium', now(), $2)
         on conflict (project_id, field_name) do update set
           source = excluded.source,
           source_url = excluded.source_url,

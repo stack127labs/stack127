@@ -2,7 +2,7 @@
 
 ## Who is here
 
-A domain researcher or operator needs a filterable source-backed view of the root zone and version127's RDAP coverage.
+A domain researcher or operator needs a filterable source-backed view of the root zone and stack127's RDAP coverage.
 
 ## The job
 

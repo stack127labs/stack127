@@ -44,7 +44,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/firecamp-dev/firecamp/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -52,7 +52,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/firecamp-dev/firecamp/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -131,14 +131,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/firecamp-dev/firecamp/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/firecamp-dev/firecamp/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
@@ -195,7 +195,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/pkalogiros/AudioMass/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -203,7 +203,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/pkalogiros/AudioMass/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -282,14 +282,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/pkalogiros/AudioMass/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/pkalogiros/AudioMass/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
@@ -361,7 +361,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/open-webui/open-terminal/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -369,7 +369,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/open-webui/open-terminal/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -448,14 +448,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/open-webui/open-terminal/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/open-webui/open-terminal/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
@@ -539,7 +539,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/cstate/cstate/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -547,7 +547,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/cstate/cstate/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -626,14 +626,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/cstate/cstate/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/cstate/cstate/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
@@ -718,7 +718,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/c4ffe14e/phice/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -726,7 +726,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/c4ffe14e/phice/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -812,14 +812,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/c4ffe14e/phice/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/c4ffe14e/phice/src/branch/main/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
@@ -897,7 +897,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/vixipy/Vixipy/src/branch/main/doc/INSTALL.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -905,7 +905,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/vixipy/Vixipy/src/branch/main/doc/INSTALL.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -991,14 +991,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/vixipy/Vixipy/src/branch/main/doc/INSTALL.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/vixipy/Vixipy/src/branch/main/doc/INSTALL.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
@@ -1076,7 +1076,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/bashrc/epicyon/src/branch/main/INSTALL.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -1084,7 +1084,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/bashrc/epicyon/src/branch/main/INSTALL.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -1170,14 +1170,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/bashrc/epicyon/src/branch/main/INSTALL.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://codeberg.org/bashrc/epicyon/src/branch/main/INSTALL.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
@@ -1241,7 +1241,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://tiddly.packett.cool",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -1249,7 +1249,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://tiddly.packett.cool",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z",
@@ -1335,14 +1335,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://tiddly.packett.cool",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://tiddly.packett.cool",
           "confidence": "high",
           "checked_at": "2026-07-19T11:05:26.439Z"

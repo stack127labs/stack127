@@ -39,7 +39,7 @@ Paste one effective `.dockerignore` file and context-relative path probes to get
 | Which syntax and concepts commonly surprise users? | Pattern reference and Parent example | Table and Sentences | Docker syntax docs; Moby v0.6.1 | No generic glob or Git-ignore tutorial |
 | What does the tester not prove? | Boundary table | Table | Implementation non-goals, R16, and R18 | State each exclusion once |
 | How are inputs handled? | Adjacent privacy sentence and Local handling boundary | Tool UI and Table | Implementation R16 | Keep the claim scoped to pattern testing |
-| What should the reader verify next? | Final Docker verification section | Sentences and links | Docker docs and version127 Docker guide | One real-build step, not another tutorial |
+| What should the reader verify next? | Final Docker verification section | Sentences and links | Docker docs and stack127 Docker guide | One real-build step, not another tutorial |
 
 ## Heading and media outline
 
@@ -95,12 +95,12 @@ Publication does not require adding the tool to home, navigation, or a collectio
 | COPY-02 | `Start with the file Docker will actually use` | Explain effective-file precedence and meaningful probe selection | Docker docs; implementation R11 and input contract | 120 words maximum in two short paragraphs | No click instructions, presets, or repeated result narration |
 | COPY-03 | `The deciding rule is the answer; the trace explains it` | Explain verdict state, Direct, Parent, and one exact exception example | FF-002, FF-003, and FF-012 | 130 words maximum in two short paragraphs | No third verdict or parent-blocking claim |
 | COPY-04 | `When a result surprises you, check these four things` | Give the shortest useful troubleshooting sequence | Implementation R6, R11, and R18 | 100 words maximum as four ordered items | No generic methodology or duplicated syntax table |
-| COPY-05 | `Confirm the final context with Docker` | Send the reader to real-build verification and primary guidance | Docker build-context docs and version127 Docker installation guide | 85 words maximum in one paragraph | No claim that browser matching proves COPY, ADD, safety, or current-Docker parity |
+| COPY-05 | `Confirm the final context with Docker` | Send the reader to real-build verification and primary guidance | Docker build-context docs and stack127 Docker installation guide | 85 words maximum in one paragraph | No claim that browser matching proves COPY, ADD, safety, or current-Docker parity |
 
 ### Voice and accuracy constraints
 
-- Follow `version127_docs/writing-style.md` and `version127_docs/visual-first.md`.
-- Write `version127`, lowercase.
+- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
+- Write `stack127`, lowercase.
 - Use no em dash or en dash.
 - Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
 - Keep the tool primary and do not repeat a result, table, trace, heading, or prior section.
@@ -108,7 +108,7 @@ Publication does not require adding the tool to home, navigation, or a collectio
 
 ### Tool-build exclusion
 
-`$version127-tool-build` must not draft or integrate these sections. The later `$version127-tool-writing` stage owns the content integration.
+`$stack127-tool-build` must not draft or integrate these sections. The later `$stack127-tool-writing` stage owns the content integration.
 
 ## Source ledger
 

@@ -10,8 +10,8 @@ import { JsonLd } from "../json-ld";
 
 async function requestPublicationState() {
   const requestHeaders = await headers();
-  const pathname = requestHeaders.get("x-version127-pathname") ?? "/";
-  const hasQueryParams = requestHeaders.get("x-version127-has-query") === "1";
+  const pathname = requestHeaders.get("x-stack127-pathname") ?? "/";
+  const hasQueryParams = requestHeaders.get("x-stack127-has-query") === "1";
 
   return getPagePublicationState(pathname, hasQueryParams);
 }

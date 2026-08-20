@@ -87,7 +87,7 @@ export default async function DnsTracePage({ searchParams }: { searchParams: Pro
           </section>
 
           <aside className="dns-scope-note">
-            <p>The trace runs from the version127 server, so it shows what that one machine sees. It cannot tell you what your ISP has cached, and it does not test whether a change has spread worldwide. It can display DNSSEC records, but the <Link href="/dnssec-checker">DNSSEC Chain Checker</Link> is the tool that verifies their signatures and chain of trust. We do not save the names you trace or count them in analytics.</p>
+            <p>The trace runs from the stack127 server, so it shows what that one machine sees. It cannot tell you what your ISP has cached, and it does not test whether a change has spread worldwide. It can display DNSSEC records, but the <Link href="/dnssec-checker">DNSSEC Chain Checker</Link> is the tool that verifies their signatures and chain of trust. We do not save the names you trace or count them in analytics.</p>
           </aside>
         </article>
       </main>

@@ -4,8 +4,8 @@
   "docs": ["content_docs/home"],
   "tests": [
     "tests/pages/home/home.test.mjs",
-    "tests/version127/seo.spec.ts",
-    "tests/version127/shell-layout.spec.ts"
+    "tests/stack127/seo.spec.ts",
+    "tests/stack127/shell-layout.spec.ts"
   ],
   "scripts": [],
   "skills": [],

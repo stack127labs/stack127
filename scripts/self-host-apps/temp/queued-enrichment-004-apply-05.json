@@ -44,7 +44,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -52,7 +52,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -131,14 +131,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/simonw/llm/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
@@ -198,7 +198,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/nearai/ironclaw/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -206,7 +206,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/nearai/ironclaw/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -285,14 +285,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/nearai/ironclaw/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/nearai/ironclaw/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
@@ -370,7 +370,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/pingdotgg/t3code/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -378,7 +378,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/pingdotgg/t3code/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -457,14 +457,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/pingdotgg/t3code/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/pingdotgg/t3code/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
@@ -520,7 +520,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/organicmaps/organicmaps/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -528,7 +528,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/organicmaps/organicmaps/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -607,14 +607,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/organicmaps/organicmaps/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/organicmaps/organicmaps/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
@@ -671,7 +671,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/triggerdotdev/trigger.dev/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -679,7 +679,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/triggerdotdev/trigger.dev/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -758,14 +758,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/triggerdotdev/trigger.dev/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/triggerdotdev/trigger.dev/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
@@ -850,7 +850,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/rowboatlabs/rowboat/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -858,7 +858,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/rowboatlabs/rowboat/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -937,14 +937,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/rowboatlabs/rowboat/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/rowboatlabs/rowboat/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
@@ -1002,7 +1002,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -1010,7 +1010,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -1082,14 +1082,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
@@ -1145,7 +1145,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/mountain-loop/yaak/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -1153,7 +1153,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/mountain-loop/yaak/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z",
@@ -1232,14 +1232,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/mountain-loop/yaak/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://raw.githubusercontent.com/mountain-loop/yaak/HEAD/README.md",
           "confidence": "high",
           "checked_at": "2026-07-19T11:39:35.569Z"

@@ -2,7 +2,7 @@
 
 Route: `/soa-checker`
 
-Publication state: controlled by the exact `soa-checker` row in `public.version127_pages`.
+Publication state: controlled by the exact `soa-checker` row in `public.stack127_pages`.
 
 The tool discovers the zone and compares the SOA record returned by every authoritative nameserver address. Show MNAME, RNAME, serial, refresh, retry, expire, minimum, and SOA TTL without hiding differences.
 

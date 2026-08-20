@@ -1,0 +1,4 @@
+interface:
+  display_name: "Stack127 Content Audit"
+  short_description: "Deep audits for written Stack127 pages"
+  default_prompt: "Use $stack127-content-audit to deeply audit these written pages against competitors, depth, and user flow."

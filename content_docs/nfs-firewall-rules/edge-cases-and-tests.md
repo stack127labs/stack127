@@ -157,7 +157,7 @@ The committed fixtures are hand-derived from the cited protocol and firewall spe
 ### Static and SEO tests
 
 - `tests/pages/nfs-firewall-rules/page.test.mjs`: exact flat route, ownership manifest, server h1/tool identity, client island boundary, pure engine path, absent route metadata/canonical/robots/JSON-LD, no network/storage/dangerous APIs, no explanatory prose during build, and unpublished state.
-- Existing `tests/version127/seo.spec.ts`: route is 404 and absent from sitemap outside guarded preview.
+- Existing `tests/stack127/seo.spec.ts`: route is 404 and absent from sitemap outside guarded preview.
 - `tests/pages/nfs-firewall-rules/page.json`: route, unpublished reason, docs, tests, scripts, skills, and empty repositories.
 - Tool-only validator: every route TS/TSX file stays within the technical-string boundary before writing begins.
 

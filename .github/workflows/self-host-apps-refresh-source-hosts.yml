@@ -18,8 +18,8 @@ jobs:
     timeout-minutes: 30
     env:
       DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL }}
-      GITLAB_TOKEN: ${{ secrets.VERSION127_GITLAB_TOKEN }}
-      CODEBERG_TOKEN: ${{ secrets.VERSION127_CODEBERG_TOKEN }}
+      GITLAB_TOKEN: ${{ secrets.STACK127_GITLAB_TOKEN }}
+      CODEBERG_TOKEN: ${{ secrets.STACK127_CODEBERG_TOKEN }}
 
     steps:
       - uses: actions/checkout@v4

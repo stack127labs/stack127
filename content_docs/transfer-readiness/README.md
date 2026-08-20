@@ -2,7 +2,7 @@
 
 Route: `/transfer-readiness`
 
-Publication state: controlled by the exact `transfer-readiness` row in `public.version127_pages`.
+Publication state: controlled by the exact `transfer-readiness` row in `public.stack127_pages`.
 
 Status: plan.
 
@@ -23,7 +23,7 @@ There is no second input. Everything we can check is public, and everything we c
 Lead with the conclusion in a sentence, then the evidence for it as an ordered list of checks.
 
 ```
-version127.com cannot be transferred right now. Its registrar has set client
+stack127.com cannot be transferred right now. Its registrar has set client
 transfer prohibited, the standard domain lock, which you can remove yourself
 in your registrar account. It was also registered on 3 July 2026, and ICANN
 policy blocks a transfer for a period after registration.

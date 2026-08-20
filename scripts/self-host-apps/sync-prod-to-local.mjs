@@ -17,7 +17,7 @@ const applicationTables = [
   "open_project_import_runs",
   "open_project_categories",
   "open_projects",
-  "version127_pages",
+  "stack127_pages",
 ];
 
 function envValue(filePath, key) {
@@ -65,7 +65,7 @@ async function main() {
   if (productionUrl === localUrl) throw new Error("Production and local DATABASE_URL values are identical.");
   assertLocalDatabase(localUrl);
 
-  const tempDirectory = mkdtempSync(path.join(os.tmpdir(), "version127-prod-sync-"));
+  const tempDirectory = mkdtempSync(path.join(os.tmpdir(), "stack127-prod-sync-"));
   const archive = path.join(tempDirectory, "public-data.dump");
 
   run("supabase", ["db", "reset", "--local", "--yes"]);

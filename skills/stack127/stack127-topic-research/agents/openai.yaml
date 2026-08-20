@@ -1,0 +1,4 @@
+interface:
+  display_name: "Stack127 Topic Research"
+  short_description: "Find gap-backed Stack127 topic ideas"
+  default_prompt: "Use $stack127-topic-research to find evidence-backed new Stack127 page or tool ideas."

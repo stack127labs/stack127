@@ -8,7 +8,7 @@ import {
   type StorageStateEnvelope,
 } from "./types.ts";
 
-const BIGINT_TAG = "$version127BigInt";
+const BIGINT_TAG = "$stack127BigInt";
 const unsafeKeys = new Set(["__proto__", "prototype", "constructor"]);
 
 function assertSafeTree(

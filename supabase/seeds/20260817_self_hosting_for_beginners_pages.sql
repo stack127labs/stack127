@@ -146,7 +146,7 @@ $course_pages$::jsonb
     sitemap_priority numeric
   )
 )
-insert into public.version127_pages (
+insert into public.stack127_pages (
   slug,
   label,
   meta_title,
@@ -171,7 +171,7 @@ on conflict (slug) do update set
   meta_title = excluded.meta_title,
   meta_description = excluded.meta_description,
   is_published = true,
-  published_at = coalesce(public.version127_pages.published_at, excluded.published_at),
+  published_at = coalesce(public.stack127_pages.published_at, excluded.published_at),
   page_type = excluded.page_type,
   sitemap_priority = excluded.sitemap_priority,
   updated_at = now();

@@ -14,7 +14,7 @@ The lookup answers one question:
 
 The tool will:
 
-- query Cloudflare or Google Public DNS through a Version127 server endpoint
+- query Cloudflare or Google Public DNS through a Stack127 server endpoint
 - support one selected record type or an All bundle covering every record type offered by the tool
 - show readable records and complete per-query technical responses
 - preserve record owner names, resolver-reported TTLs, response codes, nullable flags, aliases, authority data, additional data, comments, and query timing
@@ -58,12 +58,12 @@ Purpose: the interactive recursive DNS lookup.
 Recommended registry values:
 
 - label: `DNS lookup`
-- meta title: `DNS Lookup: Check Domain Records | Version127`
+- meta title: `DNS Lookup: Check Domain Records | Stack127`
 - meta description: `Enter a domain or hostname to check its A, AAAA, CNAME, MX, NS, TXT, CAA, SOA and other public DNS records.`
 - page type: `WebApplication`
 - final state: published only after the release gate passes
 
-Both routes remain unpublished during implementation. Publication, metadata, canonical URLs, robots rules, sitemap inclusion, dates, and page JSON-LD remain controlled by `public.version127_pages` and the shared registry layout.
+Both routes remain unpublished during implementation. Publication, metadata, canonical URLs, robots rules, sitemap inclusion, dates, and page JSON-LD remain controlled by `public.stack127_pages` and the shared registry layout.
 
 ## Page Layout
 
@@ -749,7 +749,7 @@ lib/
       google.ts
 
 tests/
-  version127/
+  stack127/
     dns-lookup.test.mjs
     dns-lookup-api.spec.ts
     page-coverage.json

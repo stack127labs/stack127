@@ -345,7 +345,7 @@ test("weighted limits allow 20 All bundles or 100 individual requests per window
 });
 
 test("request bodies are bounded even when content-length is missing", async () => {
-  const request = new Request("https://version127.com/api/dns/lookup", {
+  const request = new Request("https://stack127.com/api/dns/lookup", {
     method: "POST",
     body: JSON.stringify({ name: "a".repeat(5000) }),
     headers: { "content-type": "application/json" },

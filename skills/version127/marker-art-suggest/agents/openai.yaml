@@ -1,4 +1,0 @@
-interface:
-  display_name: "Marker Art Suggest"
-  short_description: "Propose useful marker art for pages"
-  default_prompt: "Use $marker-art-suggest to review these Version127 pages and propose useful marker art placements."

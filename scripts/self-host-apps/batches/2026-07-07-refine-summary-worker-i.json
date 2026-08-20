@@ -2,427 +2,427 @@
   {
     "slug": "dweebui",
     "summary": "Docker management interface for browsing services, containers, logs, and runtime state.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "nps-enhanced",
     "summary": "NAT traversal and reverse proxy server for exposing private network services through public tunnels.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "retroassembly",
     "summary": "Retro game collection app for cataloging titles, metadata, artwork, and browser-based library browsing.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "nextcloud-mail",
     "summary": "Nextcloud mail client for reading, sending, searching, and organizing email inside Nextcloud.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "dynacat",
     "summary": "Dashboard app for arranging dynamic widgets, monitoring services, and keeping quick links visible.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "nextcloud-news",
     "summary": "Nextcloud feed reader for following RSS and Atom subscriptions, articles, folders, and unread items.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "kiwi-irc",
     "summary": "Web IRC client for joining channels, using themes, managing networks, and chatting from a browser.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "offen",
     "summary": "Web analytics app for measuring site traffic with consent controls and visitor-facing transparency.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "glowing-bear",
     "summary": "WeeChat relay frontend for browsing buffers, joining IRC conversations, and chatting from the web.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "ytptube",
     "summary": "Web interface for yt-dlp downloads, video URLs, queues, formats, and saved media files.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "hometube",
     "summary": "Video downloader for saving internet videos, tracking downloads, and managing local media files.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "nextexplorer",
     "summary": "Web file explorer for browsing directories, uploading files, downloading files, and managing server storage.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "razzia",
     "summary": "Quiz app for running small events with teams, questions, scoring, and live rounds.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "rachoon",
     "summary": "Invoicing app for managing clients, billable work, invoices, payments, and business records.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "tracktor",
     "summary": "Vehicle manager for tracking maintenance, fuel logs, ownership records, costs, and service history.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "sigal",
     "summary": "Static gallery generator for turning image folders, albums, metadata, and themes into photo sites.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "libretime",
     "summary": "Radio automation app for scheduling shows, managing stations, streaming audio, and publishing programs.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "solidinvoice",
     "summary": "Invoicing app for managing quotes, clients, invoices, payments, taxes, and billing records.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "koito",
     "summary": "Music scrobbler for tracking listens, artists, albums, playback history, and listening stats.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "gravity",
     "summary": "DNS and DHCP server with ad blocking, local records, lease management, and network controls.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "notifiarr",
     "summary": "Notification bridge for sending app events, alerts, status updates, and automation messages to Discord.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "docat",
     "summary": "Documentation host for publishing versioned docs, project manuals, static pages, and release notes.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "espial",
     "summary": "Bookmarking server for saving links, tags, notes, and readable copies of web pages.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "invio",
     "summary": "Invoicing app for freelancers who manage clients, invoices, payment tracking, and billing records.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "thelia",
     "summary": "Commerce app for managing products, carts, orders, payments, customers, and storefront content.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "textpattern",
     "summary": "CMS for publishing articles, pages, templates, sections, and structured site content.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "yuvomi",
     "summary": "Family planner for shared calendars, household tasks, notes, lists, and small-home organization.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "wygiwyh",
     "summary": "Personal finance tracker for recording expenses, income, budgets, account balances, and spending history.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "ownfoil",
     "summary": "Nintendo Switch library manager for organizing titles and serving Tinfoil shop metadata.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "neodb",
     "summary": "Federated tracker for books, movies, games, music, collections, ratings, and personal activity.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "concrete-5-cms",
     "summary": "CMS for building websites with editable pages, content blocks, themes, and in-browser editing tools.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "traefik-manager",
     "summary": "Traefik web UI for managing routers, services, middlewares, entrypoints, and proxy configuration.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "servas",
     "summary": "Bookmark manager for saving links, tags, descriptions, searchable collections, and personal references.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "decypharr",
     "summary": "Debrid-backed media downloader with a qBittorrent-compatible workflow for automation tools.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "readmeabook",
     "summary": "Audiobook request app for discovering titles, collecting requests, tracking downloads, and planning libraries.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "traefik-log-dashboard",
     "summary": "Traefik log dashboard for viewing requests, routes, status codes, response times, and traffic trends.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "scholarsome",
     "summary": "Flashcard study app for creating decks, reviewing cards, scheduling practice, and tracking learning.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "claper",
     "summary": "Audience interaction app for presentations with polls, questions, reactions, and live engagement.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "mydia",
     "summary": "Media manager for organizing libraries, metadata, collections, playback records, and personal catalogs.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "logchef",
     "summary": "Log analytics app for querying application logs, filtering events, reviewing fields, and saving searches.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "movary",
     "summary": "Movie tracker for watch history, ratings, lists, diary entries, and personal film stats.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "note-mark",
     "summary": "Markdown notes app for writing, organizing, editing, and browsing notes from a web interface.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "managarr",
     "summary": "Terminal manager for Sonarr, Radarr, and related media automation apps from the command line.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "mafl",
     "summary": "Homepage dashboard for organizing service links, shortcuts, categories, and quick navigation panels.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "nextcloud-notes",
     "summary": "Nextcloud notes app for writing, syncing, editing, and organizing plain text notes.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "silverstripe",
     "summary": "CMS and framework for building editable websites, structured content apps, and custom publishing workflows.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "metadata-remote",
     "summary": "Audio metadata manager for editing tags, albums, artists, track details, and file information.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "poznote",
     "summary": "Note-taking and documentation app for writing pages, organizing notes, and keeping personal references.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "invoicerr",
     "summary": "Invoicing app for freelancers to manage clients, invoices, payments, taxes, and billing history.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "jelu",
     "summary": "Book tracker for read lists, to-read lists, ratings, reviews, and reading history.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "home-assistant-time-machine",
     "summary": "Home Assistant history tool for browsing past configuration states, changes, snapshots, and backups.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "git-sync",
     "summary": "Git backup and sync tool for mirroring repositories, updating copies, and preserving project history.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "nextcloud-tasks",
     "summary": "Nextcloud task app for todo lists, due dates, projects, reminders, and synced tasks.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "docker-registry-browser",
     "summary": "Web interface for browsing Docker registry repositories, tags, image layers, and metadata.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "wol",
     "summary": "Wake-on-LAN web UI for starting saved machines through network targets and magic packets.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "firefox-account-server",
     "summary": "Firefox account server for browser identity, login flows, profile data, and sync account services.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "audiobookrequest",
     "summary": "Audiobook request manager for collecting title requests, tracking fulfillment, and planning library additions.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "onwatch",
     "summary": "API quota tracker for monitoring AI usage, spending, limits, requests, and account activity.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "atlas-cmms",
     "summary": "Maintenance management app for assets, work orders, service schedules, parts, and repair records.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "reaparr",
     "summary": "Plex media downloader for copying content from shared servers into local libraries.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "drop",
     "summary": "Game distribution app for hosting builds, releases, downloads, version channels, and player access.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "kitsu",
     "summary": "Production collaboration app for VFX and animation projects, tasks, assets, shots, and reviews.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "vykar",
     "summary": "Backup tool for encrypted, deduplicated archives, backup plans, snapshots, and restore workflows.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "vaultls",
     "summary": "mTLS certificate manager for issuing, rotating, tracking, and auditing client certificates.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "webtor",
     "summary": "Web torrent app for streaming video and audio from torrent files without a desktop client.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "scribble-rs",
     "summary": "Browser drawing game for guessing words with friends, live rooms, timers, and score rounds.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "gomft",
     "summary": "Managed file transfer app for automating file movement, delivery workflows, schedules, and endpoints.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "hyvor-relay",
     "summary": "Email API for sending app messages, managing delivery, viewing logs, and integrating mail workflows.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "crosswatch",
     "summary": "Media tracker sync app for keeping watch states, progress, and history aligned across services.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "budgetbee",
     "summary": "Personal finance manager for budgets, transactions, accounts, categories, and spending reports.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "argus",
     "summary": "Release monitor for tracking software versions, update rules, notifications, and watched projects.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   }
 ]

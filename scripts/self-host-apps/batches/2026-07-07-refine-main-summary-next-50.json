@@ -2,301 +2,301 @@
   {
     "slug": "mumble",
     "summary": "Voice chat server and client for low-latency group audio, text chat, and gaming sessions.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "snapcast",
     "summary": "Multiroom audio server for syncing playback across speakers and network clients.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "databasus",
     "summary": "PostgreSQL backup tool for scheduling dumps, storing archives, and checking backup history.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "filebrowser-quantum",
     "summary": "Web file manager for browsing folders, uploading files, and sharing server storage.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "oneuptime",
     "summary": "Observability app for uptime checks, incidents, status pages, and alert routing.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "dbgate",
     "summary": "Database manager for browsing tables, running queries, and working across SQL and NoSQL engines.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "simplelogin",
     "summary": "Email alias server for creating relay addresses and protecting personal inboxes.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "ejabberd",
     "summary": "XMPP messaging server for chat rooms, federation, mobile clients, and real-time messaging.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "taxhacker",
     "summary": "Accounting assistant for tracking expenses, invoices, and tax-related business records.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "maddy-mail-server",
     "summary": "Mail server that combines SMTP, IMAP storage, delivery rules, and account handling.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "passbolt",
     "summary": "Team password manager for sharing secrets, managing access, and auditing credentials.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "organizr",
     "summary": "Service dashboard for grouping homelab links, tabs, widgets, and user access.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "librum",
     "summary": "Ebook reader and library manager for syncing books, notes, and reading progress.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "freeswitch",
     "summary": "Telephony server for voice, video, conferencing, routing, and SIP-based calling.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "cerbos",
     "summary": "Authorization service for centralizing access rules, policies, and permission checks.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "black-candy",
     "summary": "Music streaming server for browsing local libraries and playing tracks in the browser.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "lychee",
     "summary": "Photo gallery app for organizing albums, uploading images, and sharing collections.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "mydrive",
     "summary": "Cloud file storage server for uploading, organizing, previewing, and sharing files.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "rotki",
     "summary": "Portfolio tracker for crypto assets, trades, balances, and tax-related reports.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "osticket",
     "summary": "Support ticket system for collecting requests, assigning agents, and tracking replies.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "wgdashboard",
     "summary": "WireGuard dashboard for managing peers, configs, connection status, and QR codes.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "kitchenowl",
     "summary": "Household recipe and grocery app for meal planning, shopping lists, and pantry items.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "growchief",
     "summary": "Social media automation app for outreach flows, account actions, and campaign tracking.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "asterisk",
     "summary": "PBX server for building voice systems, SIP routing, voicemail, and call handling.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "mediamanager",
     "summary": "TV and movie library manager for tracking media files, metadata, and collections.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "slash",
     "summary": "Bookmark and link-sharing app for saving URLs, organizing shortcuts, and sharing collections.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "worklenz",
     "summary": "Project management app for tasks, boards, deadlines, teams, and work tracking.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "openfire",
     "summary": "Real-time collaboration server for XMPP messaging, chat rooms, and user management.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "canine",
     "summary": "Kubernetes deployment app for managing services, containers, and cluster workloads.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "kite-kubernetes",
     "summary": "Kubernetes dashboard for viewing cluster resources, workloads, and deployment state.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "notediscovery",
     "summary": "Note-taking app for writing linked notes, browsing knowledge, and organizing ideas.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "astuto",
     "summary": "Feedback board for collecting ideas, bug reports, votes, and product suggestions.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "pydio",
     "summary": "File collaboration server for sharing folders, syncing content, and managing team workspaces.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "pelican-panel",
     "summary": "Game server panel for managing servers, users, allocations, and deployment tasks.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "keila",
     "summary": "Newsletter app for managing contacts, sending campaigns, and tracking email delivery.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "wildduck",
     "summary": "IMAP and POP3 mail server designed for scalable mailbox storage and access.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "soulsync",
     "summary": "Music discovery and collection manager for finding releases and organizing libraries.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "notifuse",
     "summary": "Email sending app for newsletters, transactional messages, contacts, and delivery tracking.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "teampass",
     "summary": "Team password manager for storing shared credentials, folders, roles, and access rules.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "friendica",
     "summary": "Federated social server for profiles, timelines, contacts, and networked communities.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "backuppc",
     "summary": "Backup server for pooling file backups from multiple machines and restoring archives.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "alf-io",
     "summary": "Ticket reservation app for event sales, registrations, check-in, and attendee management.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "openreads",
     "summary": "Book tracking app for logging reading progress, ratings, shelves, and notes.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "open-dronelog",
     "summary": "Drone flight log dashboard for analyzing flights, aircraft, batteries, and pilot records.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "sharkord",
     "summary": "Real-time communication app for chat rooms, messages, users, and live updates.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "airtrail",
     "summary": "Personal flight tracker for logging trips, aircraft, airports, and travel history.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "corecontrol",
     "summary": "Infrastructure dashboard for managing servers, services, resources, and operational state.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "mindwtr",
     "summary": "Productivity app for capturing tasks, organizing actions, and following daily plans.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "request-tracker",
     "summary": "Issue tracking system for tickets, queues, approvals, and team request workflows.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "atomic-crm",
     "summary": "Customer relationship manager for contacts, companies, deals, notes, and sales follow-up.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   }
 ]

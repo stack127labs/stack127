@@ -6,4 +6,4 @@
 - Ownership state: `published`
 - Discovery: direct homepage card until a relevant collection is designed
 
-Metadata, indexing, sitemap inclusion, and page JSON-LD remain owned by `public.version127_pages` and the shared root layout.
+Metadata, indexing, sitemap inclusion, and page JSON-LD remain owned by `public.stack127_pages` and the shared root layout.

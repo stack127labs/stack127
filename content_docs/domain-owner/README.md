@@ -2,7 +2,7 @@
 
 Route: `/domain-owner`
 
-Publication state: controlled by the exact `domain-owner` row in `public.version127_pages`.
+Publication state: controlled by the exact `domain-owner` row in `public.stack127_pages`.
 
 Status: plan.
 
@@ -23,7 +23,7 @@ One domain name, normalized as elsewhere.
 Lead with the honest answer, which for most gTLDs is that the data is withheld.
 
 ```
-The registrant of version127.com is not published. HOSTINGER operations, UAB
+The registrant of stack127.com is not published. HOSTINGER operations, UAB
 removed or emptied nine registrant fields before publishing this record, and
 the .com registry holds no contact data at all. The registrar publishes a
 contact form for reaching the registrant without disclosing their details.
@@ -33,7 +33,7 @@ Then, in order:
 
 **What is published.** Every entity the registrar returned, by role: registrar, registrant, administrative, technical, abuse, billing. For each, the jCard fields that survived. Country and state or province frequently survive redaction and are genuinely useful.
 
-**What was withheld, field by field.** This is the part no other tool shows well, and RDAP hands it to us. The RFC 9537 `redacted` array names each removed field and the method used. Verified against `version127.com` on 28 July 2026:
+**What was withheld, field by field.** This is the part no other tool shows well, and RDAP hands it to us. The RFC 9537 `redacted` array names each removed field and the method used. Verified against `stack127.com` on 28 July 2026:
 
 | field | method | what it means |
 | --- | --- | --- |

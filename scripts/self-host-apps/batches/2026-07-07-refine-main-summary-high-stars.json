@@ -2,361 +2,361 @@
   {
     "slug": "jackett",
     "summary": "Torrent tracker proxy that translates indexer sites into APIs for Sonarr, Radarr, and similar apps.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "freshrss",
     "summary": "RSS reader for subscribing to feeds, reading articles, filtering updates, and syncing clients.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "libre-translate",
     "summary": "Machine translation API for translating text between languages through a hosted service.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "gotify",
     "summary": "Notification server for sending messages to apps, browsers, and WebSocket clients.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "cloudflared",
     "summary": "Cloudflare tunnel client for routing private services through Cloudflare edge connections.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "oauth2-proxy",
     "summary": "Authentication reverse proxy for protecting apps with OAuth, OIDC, and upstream identity providers.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "flaresolverr",
     "summary": "Proxy service for solving browser challenges before sending requests to indexers and scrapers.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "lemmy",
     "summary": "Federated discussion server for communities, posts, comments, voting, and moderation.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "crowdsec",
     "summary": "Security engine for detecting malicious IP behavior and sharing community blocklists.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "snipe-it",
     "summary": "IT asset manager for hardware, licenses, accessories, users, and checkout history.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "logto",
     "summary": "Identity service for sign-in flows, user management, organizations, and app authentication.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "casdoor",
     "summary": "Identity and access management server for SSO, users, roles, and OAuth/OIDC apps.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "semaphore-ui",
     "summary": "Ansible and DevOps web UI for running playbooks, inventories, templates, and scheduled jobs.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "documenso",
     "summary": "Document signing app for sending PDFs, collecting signatures, and tracking signing workflows.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "diaspora",
     "summary": "Federated social network server for posts, profiles, aspects, and community timelines.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "kopia",
     "summary": "Backup tool for encrypted snapshots, deduplication, policies, and local or cloud storage targets.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "stalwart-mail-server",
     "summary": "Mail server with JMAP, IMAP, SMTP, spam filtering, storage, and account management.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "dozzle",
     "summary": "Docker log viewer for watching container output, filtering logs, and checking live streams.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "audiobookshelf",
     "summary": "Audiobook and podcast server for libraries, listening progress, metadata, and mobile clients.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "opensearch",
     "summary": "Search and analytics engine for indexing documents, querying data, and building dashboards.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "element",
     "summary": "Matrix chat client for rooms, encrypted messages, calls, spaces, and team communication.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "mailcow",
     "summary": "Docker mail stack for hosting domains, mailboxes, webmail, spam filtering, and admin tools.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "amnezia",
     "summary": "VPN server and client suite for creating encrypted tunnels and managing private access.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "formbricks",
     "summary": "Survey and feedback app for collecting responses, product signals, and user research data.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "whoogle",
     "summary": "Search frontend for querying Google results with fewer tracking and personalization signals.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "komodo",
     "summary": "Server deployment app for managing builds, containers, repositories, and multi-server workloads.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "obsidian-livesync",
     "summary": "Obsidian sync plugin for replicating vault changes through a CouchDB-compatible backend.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "gatus",
     "summary": "Status page and uptime monitor for service checks, alerting, and endpoint health history.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "quickwit",
     "summary": "Search engine for observability data, logs, traces, and large indexed datasets.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "aureus",
     "summary": "ERP app for managing business records, operations, customers, inventory, and finance workflows.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "nginx-ui",
     "summary": "Web UI for managing NGINX configs, certificates, server blocks, and reloads.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "kutt",
     "summary": "URL shortener for custom domains, short links, click stats, and link management.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "sonarqube",
     "summary": "Code quality server for static analysis, security checks, project metrics, and quality gates.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "romm",
     "summary": "ROM manager for organizing retro game libraries, metadata, covers, and browser play.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "blinko",
     "summary": "Personal note app for capturing ideas, using AI features, and organizing short entries.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "woocommerce",
     "summary": "WordPress commerce plugin for products, carts, orders, payments, and store management.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "nezha",
     "summary": "Server monitoring dashboard for agents, uptime, traffic, resource metrics, and alerts.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "evershop",
     "summary": "Commerce app for product catalogs, carts, orders, checkout, and store operations.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "checkmate",
     "summary": "Server monitor for uptime checks, incidents, dashboards, and alert notifications.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "mailpit",
     "summary": "Email testing server for capturing messages, inspecting mail, and testing app delivery.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "fluxer",
     "summary": "Communication app for instant messaging, VoIP calls, users, and real-time conversations.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "trek",
     "summary": "Collaborative travel planner for trips, maps, itineraries, places, and shared planning.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "miniflux",
     "summary": "Feed reader for RSS and Atom subscriptions, unread queues, filters, and reading lists.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "gitbucket",
     "summary": "Git hosting app with repositories, issues, pull requests, wiki pages, and GitHub-compatible APIs.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "bigbluebutton",
     "summary": "Web conferencing server for virtual classrooms, meetings, recordings, polls, and screen sharing.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "prestashop",
     "summary": "Commerce app for managing product catalogs, orders, payments, shipping, and storefronts.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "solidtime",
     "summary": "Time tracking app for freelancers, teams, clients, projects, and billable work.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "teslamate",
     "summary": "Tesla data logger for trips, charging sessions, vehicle metrics, and dashboards.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "step-ca",
     "summary": "Certificate authority server for issuing TLS certificates, SSH certificates, and internal PKI.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "sylius",
     "summary": "Symfony commerce framework for catalogs, checkout, orders, payments, and custom stores.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "tube-archivist",
     "summary": "YouTube archiver for downloading videos, indexing channels, and browsing saved media.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "vendure",
     "summary": "Headless commerce framework for products, orders, payments, admin workflows, and APIs.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "a-dark-room",
     "summary": "Browser text adventure game with exploration, crafting, resource gathering, and story progression.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "opencart",
     "summary": "Commerce app for managing products, categories, orders, extensions, and online stores.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "edx",
     "summary": "Learning app stack for courses, enrollments, lessons, assessments, and online education.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "openttd",
     "summary": "Transport simulation game for building rail, road, air, and ship networks.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "scrutiny",
     "summary": "Disk health monitor for SMART data, drive status, metrics, and failure warnings.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "phpmyadmin",
     "summary": "Web admin tool for managing MySQL and MariaDB databases, users, tables, and queries.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "miniserve",
     "summary": "Command-line file server for sharing folders and downloads over HTTP.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "dolibarr",
     "summary": "ERP and CRM app for managing customers, invoices, products, projects, and business records.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   }
 ]

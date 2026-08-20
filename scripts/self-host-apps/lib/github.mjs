@@ -45,7 +45,7 @@ export async function githubJson(pathName, searchParams) {
   const headers = {
     Accept: "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28",
-    "User-Agent": "version127-self-host-apps",
+    "User-Agent": "stack127-self-host-apps",
   };
   const token = githubToken();
   if (token) headers.Authorization = `Bearer ${token}`;

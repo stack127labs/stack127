@@ -1,12 +1,12 @@
-# Brief: About version127
+# Brief: About stack127
 
 ## Who is here
 
-A reader wants to know who is behind version127, why the site exists, and whether its point of view is worth trusting. They may have arrived after using a tool or finding a directory entry.
+A reader wants to know who is behind stack127, why the site exists, and whether its point of view is worth trusting. They may have arrived after using a tool or finding a directory entry.
 
 ## The job
 
-They should leave knowing who Teja is, what version127 is building, why the name fits, and how to follow or contact the project.
+They should leave knowing who Teja is, what stack127 is building, why the name fits, and how to follow or contact the project.
 
 ## Show vs say
 

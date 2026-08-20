@@ -1,0 +1,118 @@
+# Stack127 Design System
+
+Stack127 is simple, minimal, and playful: warm near-black by default, one loud chartreuse accent used sparingly, Space Grotesk headings over Inter body text, exactly two body text sizes, monochrome icons, and hand-drawn marker art. Playfulness lives in the type, the art, and the one accent — never in extra boxes, tints, or decoration.
+
+## Tokens
+
+The source tokens live in `app/globals.css`. Component and page selectors do not; follow `stack127_docs/css-architecture.md` for style ownership.
+
+Use the semantic names for new UI:
+
+| group | tokens |
+| --- | --- |
+| Color | `--color-bg`, `--color-surface`, `--color-surface-2`, `--color-text`, `--color-text-muted`, `--color-border`, `--color-border-strong` |
+| Accent | `--color-accent` (fills only), `--color-accent-text` (accent-colored text), `--color-accent-contrast` (text on accent fills), `--color-link` |
+| Status | `--color-success-text`, `--color-warning-text`, `--color-danger-text` — text colors only, never backgrounds |
+| Type | `--font-display`, `--font-sans`, `--font-mono`, `--text-body`, `--text-small`, `--line-body`, `--line-heading`, `--tracking-display`, `--weight-regular`, `--weight-semibold`, `--weight-bold` |
+| Headings | `--text-h1` + `--line-h1`, `--text-h2`, `--text-h3` |
+| Space | `--space-1` through `--space-14`, `--measure-prose` |
+| Radius | `--radius-lg` (8px, standard), `--radius-xl` (12px, large panels) |
+| Effects | `--focus-ring`, `--motion-fast`, `--motion-base` |
+| Layout | `--container-max`, `--container-gutter`, `--top-bar-height`, `--sidebar-width` |
+
+The previous token scale (`--text-sm`, `--color-accent-soft`, `--shadow-card`, and similar) has been removed. All CSS uses the semantic tokens above; a token that is not in this table does not exist.
+
+## Color rules
+
+- The accent is a spotlight, not a paint bucket. Per view, `--color-accent` fills at most: the h1 mark phrase, one primary button, the active pagination page, the focus ring, and the active tab underline. Everything else that wants attention uses `--color-accent-text` or a border.
+- Text on an accent fill always uses `--color-accent-contrast`. Never white on chartreuse.
+- Accent-colored text always uses `--color-accent-text`; raw `#bafc3c` fails contrast as text on the light background.
+- Semantic color only colors words, and only when the meaning is real: `--color-success-text`, `--color-warning-text`, `--color-danger-text`. No tinted panels, no colored left edges, no badge soup.
+- Muted text is the exception, not the default. `--color-text-muted` is reserved for true annotations: mono metadata rows, captions, timestamps, counts, and sidebar helper text. Card descriptions, ledes, section notes, and all reading copy use `--color-text`.
+
+## Typography
+
+Three fonts, each with one job: `--font-display` (Space Grotesk) speaks in headings and titles, `--font-sans` (Inter) carries every sentence, `--font-mono` (IBM Plex Mono) handles data, metadata, and code.
+
+Body text has exactly two sizes on the whole site:
+
+| purpose | token | value |
+| --- | --- | --- |
+| Base — everything | `--text-body` | `1.0625rem` |
+| Small — compact annotations only | `--text-small` | `0.875rem` |
+
+Base is for prose, navigation, buttons, inputs, table cells, and tool results. If you are unsure which size to use, it is base. Small is only for card descriptions, metadata rows, captions, and sidebar filter items — never a paragraph of reading copy. A page that "needs" a third size actually needs a layout change.
+
+Headings scale by hierarchy, all in `--font-display` at `--weight-bold` with `--tracking-display`:
+
+| purpose | token | value |
+| --- | --- | --- |
+| H1 | `--text-h1` + `--line-h1` | `clamp(2.6rem, 5vw, 3.6rem)` |
+| H2 | `--text-h2` | `1.7rem` |
+| H3 | `--text-h3` | `1.15rem` |
+
+Every page h1 highlights one editorially chosen phrase with a `<mark>` styled as an accent fill with `--color-accent-contrast` text.
+
+## Prose Layout
+
+- Put `proseClassName` on the exact reading container.
+- Add `proseFlowClassName` when that container directly owns the headings, paragraphs, lists, figures, and tables in one reading flow.
+- Add `proseSectionFlowClassName` when a structural wrapper owns prose `<section>` children. The wrapper keeps its page-level spacing; the shared class controls rhythm inside each section.
+- Use `--measure-prose` to keep line length comfortable.
+- Reading copy uses `--color-text`, not muted.
+- Use no default dividers between prose sections unless a specific reference page needs them.
+- Keep section spacing calm: enough air to scan, not enough to feel editorial or blog-like.
+- Keep gaps between forms, results, cards, navigation, and other structural regions in their owning page or component styles.
+- Write headings normally in the source text, for example `Privacy`, `What we collect`, and `External links`.
+- Links use `--color-link` with a subtle hover underline.
+
+## Rules
+
+- Dark is home: design on `#101010` first, then verify light mode. Anything that only works in one theme is wrong in both.
+- One container, one left edge: header text, hero, prose, and components align to the same `--container-max` container with `--container-gutter`. Only rules, full-bleed bands, and page-corner doodles may bleed full width.
+- Direct the eye by size, then weight, then accent — in that order. Color is the last resort.
+- Use borders before shadows; the site has no decorative shadows and no gradients.
+- Cards and panels use `--radius-lg`; large framed panels use `--radius-xl`. Avoid nested cards.
+- Use the 4px/8px spacing rhythm through `--space-*`.
+- Use `--font-mono` for facts, slugs, versions, stats, and metadata. Never uppercase with positive letter spacing.
+- Structure without eyebrows: sections start with a display heading and, when useful, one lede sentence. No kickers, no "Overview" headings, no label-and-value walls — facts live in sentences or tables.
+- Use `--focus-ring` for focus states.
+- User-facing headings should not end with a decorative dot.
+- Keep user-facing headings in normal sentence case unless a proper noun or acronym needs different casing.
+- Prefer structured facts over prose when they are clearer, but do not break natural explanations into fragments.
+- Unknown is better than fake precision.
+- When unsure, remove. If a page feels flat, add a doodle or a better sentence, not another component.
+
+## Component Direction
+
+Buttons: primary is an accent fill with `--color-accent-contrast` text, one per view; secondary is surface plus `--color-border-strong` border; ghost is plain text that gains a `--color-surface-2` background on hover.
+
+Cards: `--color-surface` on a 1px `--color-border`, `--radius-lg`, a dashed `--color-border` divider above the mono metadata row, and a hover state that turns the border to `--color-accent`. Titles use `--font-display`; descriptions use `--text-small` with `--color-text`.
+
+Tables: 1.5px `--color-border-strong` outer border, `--font-display` bold header row over a strong rule, `--color-border` row dividers, mono for data values.
+
+Tools are one clear box: a `--color-border-strong` frame at `--radius-xl` whose head is the form and whose results render below a `--color-border` divider inside the same frame. Results read like an answer: a full sentence at `--text-body` first, the data table second, and timing or provider metadata last in `--text-small` mono muted text. No nested cards inside the tool box.
+
+Sidebars that list things use `SidebarList` from `app/sidebar-list.tsx`: small rows, optional mono numbers and counts, and a `--color-surface-2` active fill with an accent-ink leading cell. Linear lists lead with mono numbers, non-linear lists lead with a meaningful monochrome icon, and lists with no sensible icon fall back to the quiet chevron. Do not hand-roll another sidebar link list.
+
+Each feature page has one identity icon, used in three places: its sidebar row, its home card title, and through `PageTitleIcon` (`app/page-title-icon.tsx`) beside its h1. The h1 treatment is an unboxed, em-sized icon in `--color-accent-text`, aligned optically with the title. Feature pages also carry one marker spot doodle on their home card; the spot says what the page is in one drawing.
+
+Callouts distinguish by a neutral `--color-border` full border and spacing alone. If the message is a warning, the key phrase uses `--color-warning-text` inside; the box itself stays neutral. Never a colored left edge.
+
+Pagination: mono numerals in bordered squares; the current page is the one accent fill.
+
+Tabs: the active tab gets a 2px accent bottom underline. Breadcrumbs stay muted text with the current page in `--weight-semibold`.
+
+Drawers should use rows and dividers, sit above the top bar, and become full-screen on mobile.
+
+Filters share input height, radius, font size, and focus styles. Selected filter tags use an `--color-accent-text` border and text, never a fill.
+
+Short, important choices in a tool should stay visible instead of hiding inside a dropdown. Use a compact radio row with one clear accent-colored selection when people benefit from seeing every available option at once. Keep the real radio inputs for keyboard and screen-reader behavior, and let the row wrap cleanly on small screens.
+
+Media figures should use `MediaFigure` from `app/media-figure.tsx`. Screenshots and photos use the `image` kind; generated visual explainers use the `diagram` kind. Captions are one sentence in `--text-small`.
+
+Code snippets should use `CodeBlock` from `app/code-block.tsx`. Code surfaces stay dark in both themes, and accent color highlights only the lines the prose is talking about. Pass the exact text as string children. Do not hand-roll bare `<pre className="lesson-code">` on new pages.
+
+Marker art has three jobs: explain (diagrams and charts with full semantic tones), greet (one spot piece per hero), and breathe (small doodles in corners, margins, and empty states — muted ink with at most one accent stroke, at most two visible per viewport, hidden below 1100px). See `stack127_docs/marker-art.md`.
+
+Shared footers should stay small: logo, essential legal links, and rights text only. Keep them inside the shell so every route has the same minimal baseline.

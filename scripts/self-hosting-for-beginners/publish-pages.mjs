@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Upserts the /self-hosting-for-beginners course rows into public.version127_pages from
+ * Upserts the /self-hosting-for-beginners course rows into public.stack127_pages from
  * scripts/self-hosting-for-beginners/pages.json (the durable home of the course's SEO
  * meta titles and descriptions).
  *
@@ -10,7 +10,7 @@
  *   node scripts/self-hosting-for-beginners/publish-pages.mjs --unpublish     # set is_published=false
  *   node scripts/self-hosting-for-beginners/publish-pages.mjs --database-url <url>
  *
- * Production note: scripts/version127/quality/seo-registry-check.mjs is the
+ * Production note: scripts/stack127/quality/seo-registry-check.mjs is the
  * expected-slug gate for published SEO pages. Keep that list aligned with this
  * file before publishing or unpublishing course pages.
  */
@@ -64,7 +64,7 @@ try {
   for (const page of pages) {
     await pool.query(
       `
-        insert into public.version127_pages
+        insert into public.stack127_pages
           (slug, label, meta_title, meta_description, is_published, published_at, page_type, sitemap_priority)
         values ($1, $2, $3, $4, $5, case when $5 then now() else null end, $6, $7)
         on conflict (slug) do update set
@@ -74,7 +74,7 @@ try {
           page_type = excluded.page_type,
           sitemap_priority = excluded.sitemap_priority,
           is_published = excluded.is_published,
-          published_at = coalesce(public.version127_pages.published_at, excluded.published_at),
+          published_at = coalesce(public.stack127_pages.published_at, excluded.published_at),
           updated_at = now()
       `,
       [
@@ -92,7 +92,7 @@ try {
   console.log(
     `\n${pages.length} rows ${unpublish ? "unpublished" : "upserted"}.` +
       "\nReminder: production publication must stay aligned with" +
-      "\nscripts/version127/quality/seo-registry-check.mjs.",
+      "\nscripts/stack127/quality/seo-registry-check.mjs.",
   );
 } finally {
   await pool.end();

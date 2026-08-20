@@ -30,8 +30,8 @@ test("pins the exact matcher contract and complete fixture provenance", () => {
   assert.ok(fixtures.cases.length >= 70, `expected full corpus, got ${fixtures.cases.length}`);
   const identities = new Set();
   for (const fixture of fixtures.cases) {
-    assert.match(fixture.id, /^(?:moby|version127)-/);
-    assert.ok(["moby-upstream", "version127"].includes(fixture.sourceKind));
+    assert.match(fixture.id, /^(?:moby|stack127)-/);
+    assert.ok(["moby-upstream", "stack127"].includes(fixture.sourceKind));
     assert.equal(fixture.tag, MOBY_PATTERNMATCHER_VERSION);
     assert.equal(fixture.commit, MOBY_PATTERNMATCHER_COMMIT);
     assert.match(fixture.sourceSha256, /^[a-f0-9]{64}$/);

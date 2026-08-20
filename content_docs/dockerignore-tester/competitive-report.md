@@ -11,7 +11,7 @@ Six comparison surfaces were operated in total: **only 2 are materially direct D
 
 ## Research scope
 
-### Current version127 state
+### Current stack127 state
 
 [Observed] The flat route is locked and unpublished. At intake there was an idea entry, but no route, engine, ownership manifest, or tool tests. This passes the surface rule because the answer is computed from universal user-provided rules and paths; it needs no curated coverage and makes no safety guarantee.
 

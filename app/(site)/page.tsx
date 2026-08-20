@@ -4,6 +4,7 @@ import {
   Gauge,
   Globe,
   HardDrive,
+  FlaskConical,
   Layers3,
   Network,
   Route,
@@ -31,7 +32,7 @@ import {
   isHomeFeaturePage,
   isHomeVisiblePage,
   pathFromSlug,
-  type Version127Page,
+  type Stack127Page,
 } from "@/lib/page-registry";
 import { lessons } from "@/lib/self-hosting-for-beginners";
 import { licenses } from "@/lib/software-licenses";
@@ -64,6 +65,7 @@ const pageIcons: Record<string, LucideIcon> = {
   "dockerignore-tester": FileSearch,
   "domain-tools": Globe,
   "home-assistant-energy-entity-checker": Gauge,
+  "labs": FlaskConical,
   "nfs-firewall-rules": ShieldCheck,
   "nginx-proxy-pass-calculator": Route,
   "self-host-apps": HardDrive,
@@ -86,11 +88,11 @@ const pageArt: Record<string, string> = {
   "storage-tools": siteSpotStorageToolsArt,
 };
 
-function HomeSidebar({ pages }: { pages: Version127Page[] }) {
+function HomeSidebar({ pages }: { pages: Stack127Page[] }) {
   return (
     <div className={`${sidebarPanelClassName} home-sidebar-panel`}>
       <div className={sidebarPanelHeadingClassName}>
-        <SidebarLabel>Explore version127</SidebarLabel>
+        <SidebarLabel>Explore stack127</SidebarLabel>
       </div>
       <nav aria-label="Main pages">
         <SidebarList
@@ -112,7 +114,7 @@ function HomeSidebar({ pages }: { pages: Version127Page[] }) {
 }
 
 function buildCardStats(
-  page: Version127Page,
+  page: Stack127Page,
   appStats: Awaited<ReturnType<typeof getSelfHostAppsStats>>,
 ): HomeStat[] {
   if (page.slug === "self-host-apps") {
@@ -147,7 +149,7 @@ function HomePageCard({
   page,
   stats,
 }: {
-  page: Version127Page;
+  page: Stack127Page;
   stats: HomeStat[];
 }) {
   const Icon = pageIcons[page.slug];

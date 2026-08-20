@@ -14,7 +14,7 @@ Practical guide to license labels self-hosters see when they run apps or publish
 
 ## Voice
 
-Use normal Version127 reference voice from `version127_docs/writing-style.md`, with a self-host angle for both operators and app authors.
+Use normal Stack127 reference voice from `stack127_docs/writing-style.md`, with a self-host angle for both operators and app authors.
 
 - Full sentences with clear flow. Not stitched fragments.
 - Say the useful thing first, then context, then the caveat.
@@ -38,9 +38,9 @@ Use normal Version127 reference voice from `version127_docs/writing-style.md`, w
 
 ## Publication
 
-- Public SEO is controlled only by `public.version127_pages` slug `software-licenses-for-self-hosting`.
+- Public SEO is controlled only by `public.stack127_pages` slug `software-licenses-for-self-hosting`.
 - Do not add route-owned metadata, robots, canonical, sitemap, or JSON-LD in the page file.
-- When publishing, also update `tests/pages/software-licenses-for-self-hosting/page.json` and `scripts/version127/quality/seo-registry-check.mjs`.
+- When publishing, also update `tests/pages/software-licenses-for-self-hosting/page.json` and `scripts/stack127/quality/seo-registry-check.mjs`.
 
 ## Maintenance
 

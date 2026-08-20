@@ -46,7 +46,7 @@ if (engineResult.status !== "valid" || engineResult.rows[0]?.verdict !== "Includ
   throw new Error("The pure engine does not return Included at line 2.");
 }
 
-const temporaryRoot = await mkdtemp(join(tmpdir(), "version127-buildkit-receipt-"));
+const temporaryRoot = await mkdtemp(join(tmpdir(), "stack127-buildkit-receipt-"));
 const contextPath = join(temporaryRoot, "context");
 const outputPath = join(temporaryRoot, "output");
 try {
@@ -107,7 +107,7 @@ try {
   if (process.argv.includes("--record")) await writeFile(receiptUrl, `${JSON.stringify(receipt, null, 2)}\n`);
   console.log(`Verified EC-006 with Engine ${receipt.runtime.engine.version}, BuildKit ${receipt.runtime.buildkit.version}, Buildx ${receipt.runtime.buildx.version}.`);
 } finally {
-  const prefix = join(tmpdir(), "version127-buildkit-receipt-");
+  const prefix = join(tmpdir(), "stack127-buildkit-receipt-");
   if (!temporaryRoot.startsWith(prefix)) throw new Error("Refusing to remove an unexpected receipt path.");
   await rm(temporaryRoot, { recursive: true, force: true });
 }

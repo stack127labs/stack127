@@ -21,7 +21,7 @@ function errorResponse(status: number, code: string, message: string, headers?: 
 
 export async function POST(request: Request) {
   if (!isSameOriginDnsRequest(request)) {
-    return errorResponse(403, "cross_origin_request", "DNS lookups must come from the version127 site.");
+    return errorResponse(403, "cross_origin_request", "DNS lookups must come from the stack127 site.");
   }
 
   let body: Record<string, unknown>;

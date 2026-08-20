@@ -1,11 +1,11 @@
-# Version127 Market Gap Tool Ideas
+# Stack127 Market Gap Tool Ideas
 
 Created: 2026-07-07
 Last updated: 2026-07-08
 
-Revision note (2026-07-08): reviewed against the surface decision rule now recorded in `skills/version127/version127-topic-research/SKILL.md`. Idea 1 fails the tool tests (searches are app plus version specific, a picker tool needs near-total curated coverage, and safety labels cannot be automated responsibly), so it is reshaped as a directory facet plus editorial upgrade reference pages. Idea 3 splits into a directory facet plus a live lookup tool. Idea 2 was already planned in `version127_docs/site-review-2026-07.md` section 5.5 and stays a calculator. The demand and competition evidence below remains valid; the surface shapes have been corrected in place.
+Revision note (2026-07-08): reviewed against the surface decision rule now recorded in `skills/stack127/stack127-topic-research/SKILL.md`. Idea 1 fails the tool tests (searches are app plus version specific, a picker tool needs near-total curated coverage, and safety labels cannot be automated responsibly), so it is reshaped as a directory facet plus editorial upgrade reference pages. Idea 3 splits into a directory facet plus a live lookup tool. Idea 2 was already planned in `stack127_docs/site-review-2026-07.md` section 5.5 and stays a calculator. The demand and competition evidence below remains valid; the surface shapes have been corrected in place.
 
-Goal: find the next Version127 surface that is not "another directory" or "another course". Requirements from research brief: real search demand, no existing easy-reference page or tool on the internet, preferably a tool, and something we can actually build with our current stack and data pipeline.
+Goal: find the next Stack127 surface that is not "another directory" or "another course". Requirements from research brief: real search demand, no existing easy-reference page or tool on the internet, preferably a tool, and something we can actually build with our current stack and data pipeline.
 
 Research method: live web search for both demand signals (forum threads, GitHub issues, blog posts, recurring community complaints) and competition (does any site or tool already own this query). Direct Reddit scraping is blocked in this environment, so demand evidence comes from indexed forum threads, GitHub issues, and community blog coverage. Each idea below survived a dedicated competitor check.
 
@@ -34,7 +34,7 @@ Why not a tool (surface decision rule):
 What we build:
 
 - Directory facet: latest release, release date, and a reviewed update-caution note where relevant, on the app record, shown in the existing drawer. Raw release facts (versions, dates, links) can be ingested automatically from the GitHub Releases API through the existing refresh pipeline.
-- Editorial reference pages for the few big upgrade events per year (Immich v3, Home Assistant yearly releases, Nextcloud majors): what actually breaks, required actions, links to official notes. These are hand-written, Phase 0 compatible under `version127_docs/site-review-2026-07.md` section 9.4, and target the exact queries people type.
+- Editorial reference pages for the few big upgrade events per year (Immich v3, Home Assistant yearly releases, Nextcloud majors): what actually breaks, required actions, links to official notes. These are hand-written, Phase 0 compatible under `stack127_docs/site-review-2026-07.md` section 9.4, and target the exact queries people type.
 - Later: when per-app pages ship under the phased rollout, release history and breaking notes become a server-rendered section of each app page.
 
 Risks:
@@ -50,7 +50,7 @@ Proposed URL: `/ram-planner`
 
 Type: interactive calculator backed by a per-app memory dataset.
 
-Note: this idea was already planned in `version127_docs/site-review-2026-07.md` section 5.5, so it is confirmation, not a new find. It passes the surface decision rule as a tool because "does my stack fit my box" is a genuine calculation over inputs only the user knows, and it can run on the structured RAM data the directory already holds for all apps, with measured numbers improving precision over time rather than gating coverage.
+Note: this idea was already planned in `stack127_docs/site-review-2026-07.md` section 5.5, so it is confirmation, not a new find. It passes the surface decision rule as a tool because "does my stack fit my box" is a genuine calculation over inputs only the user knows, and it can run on the structured RAM data the directory already holds for all apps, with measured numbers improving precision over time rather than gating coverage.
 
 The user problem: "What can I run on 8GB?" and "how much RAM does Immich/Nextcloud/Jellyfin need?" are permanent questions. People buy an N100 mini PC or Pi and have no way to know whether their planned stack fits. Official minimums are per-app, inconsistent, and usually describe the app alone, not a stack.
 
@@ -122,7 +122,7 @@ Verdict: the most automatable of the three, near-zero ongoing editorial cost, bu
 2. ARM architecture facet: nightly registry script fills an architecture filter and fact row for every directory app. The `/arm-check` lookup tool is an optional one-week drop on top.
 3. Stack RAM Planner: launch on existing structured RAM data, start real measurements in the background to replace estimates over time.
 
-All three feed facts back into `/self-host-apps` (releases, architectures, RAM), so the directory gets stronger with every new surface instead of the surfaces competing with it. Everything here follows the surface decision rule in `skills/version127/version127-topic-research/SKILL.md`: entity-specific answers live in the directory and reference pages, and standalone tools exist only where the answer is computed live or from user-only inputs.
+All three feed facts back into `/self-host-apps` (releases, architectures, RAM), so the directory gets stronger with every new surface instead of the surfaces competing with it. Everything here follows the surface decision rule in `skills/stack127/stack127-topic-research/SKILL.md`: entity-specific answers live in the directory and reference pages, and standalone tools exist only where the answer is computed live or from user-only inputs.
 
 ## Key sources
 

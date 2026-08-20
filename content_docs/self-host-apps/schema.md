@@ -1,6 +1,6 @@
 # Self-host apps data projection
 
-The sitewide data model is documented in `version127_docs/open-projects.md`. `/self-host-apps` does not own a separate app table.
+The sitewide data model is documented in `stack127_docs/open-projects.md`. `/self-host-apps` does not own a separate app table.
 
 ## Public query
 

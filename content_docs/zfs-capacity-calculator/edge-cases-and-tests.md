@@ -202,8 +202,8 @@ All byte outputs below are decimal integer strings even when the setup uses KiB 
 
 - `tests/pages/zfs-capacity-calculator/page.test.mjs` asserts no route-owned metadata, canonical, robots, sitemap, JSON-LD, global CSS selector, runtime dependency, free-form device path, shell execution, or calculation request.
 - `tests/pages/zfs-capacity-calculator/page.json` must list the route as unpublished with its page-specific readiness and approval reason and reference every page doc, executable test, fixture script, and applicable skill.
-- `tests/version127/static-policy.test.mjs` or the repository's current static-policy owner verifies manifest completeness and route/docs ownership. Do not create a second central route registry.
-- `tests/version127/seo.spec.ts` verifies the unpublished clean and query routes stay outside the sitemap and production registry behavior. It continues to own canonical/noindex behavior centrally if the route is separately published later.
+- `tests/stack127/static-policy.test.mjs` or the repository's current static-policy owner verifies manifest completeness and route/docs ownership. Do not create a second central route registry.
+- `tests/stack127/seo.spec.ts` verifies the unpublished clean and query routes stay outside the sitemap and production registry behavior. It continues to own canonical/noindex behavior centrally if the route is separately published later.
 - Run the focused Node suite first, then page-static tests, page Playwright, `npm run test`, and finally `npm run quality`. Production-registry checks use `.env.database`; no local preview row is accepted as publication evidence.
 
 ## Manual verification

@@ -2,7 +2,7 @@
 
 Route: `/domain-age`
 
-Publication state: controlled by the exact `domain-age` row in `public.version127_pages`.
+Publication state: controlled by the exact `domain-age` row in `public.stack127_pages`.
 
 Status: plan.
 
@@ -23,7 +23,7 @@ One domain name, normalized the same way as Domain Registration Lookup. No other
 Lead with the age, in the units a person would say out loud, then the date it derives from.
 
 ```
-version127.com has been registered for 3 weeks. The registration was created on
+stack127.com has been registered for 3 weeks. The registration was created on
 3 July 2026 and the registry has held a record for it continuously since then,
 as far as this lookup can see.
 ```

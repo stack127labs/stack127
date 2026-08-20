@@ -9,11 +9,11 @@ Saturation exception: yes
 
 ## Research scope
 
-### Current version127 state
+### Current stack127 state
 
 The route is locked to the flat canonical URL `/home-assistant-energy-entity-checker`, with future source ownership under `app/(site)/(tools)/home-assistant-energy-entity-checker/` and page documents under this folder. Repository inspection found no existing route, engine, test, script, ownership manifest, or other document for this tool. The only existing requirement is the roadmap entry in `content_ideas/2026-08-06-low-competition-search-opportunities.md`, which scores the idea 24/25 and proposes a local decision engine over an entity's intended Energy role, domain, value, `device_class`, `state_class`, and `unit_of_measurement`.
 
-This passes the version127 surface rule: it computes a result from user-provided attributes and current universal Home Assistant rules, remains useful without a curated entity catalog, and does not promise that an entity is safe or correct. The result must distinguish attribute eligibility from recorder/statistics health and from actual data availability.
+This passes the stack127 surface rule: it computes a result from user-provided attributes and current universal Home Assistant rules, remains useful without a curated entity catalog, and does not promise that an entity is safe or correct. The result must distinguish attribute eligibility from recorder/statistics health and from actual data availability.
 
 ### Method and coverage
 

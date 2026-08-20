@@ -1,8 +1,8 @@
-# Brief: Terms and conditions to use version127
+# Brief: Terms and conditions to use stack127
 
 ## Who is here
 
-A reader wants to understand the boundaries around using version127 and acting on its technical information. They may be evaluating a tool result, a recommendation, a command, or a third-party project.
+A reader wants to understand the boundaries around using stack127 and acting on its technical information. They may be evaluating a tool result, a recommendation, a command, or a third-party project.
 
 ## The job
 

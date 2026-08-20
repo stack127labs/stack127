@@ -4,13 +4,13 @@ Route: `/`
 
 ## Purpose
 
-Home is the product map for Version127: a design-system sidebar of main published pages, and a compact card grid for the live product/reference surfaces.
+Home is the product map for Stack127: a design-system sidebar of main published pages, and a compact card grid for the live product/reference surfaces.
 
 ## Sidebar
 
 - Same shell pattern as course and licenses: `directory-filter-panel`, heading `h1`, padded nav links.
-- Heading is `version127`.
-- Built from `public.version127_pages` via `getMainPublishedPages()`.
+- Heading is `stack127`.
+- Built from `public.stack127_pages` via `getMainPublishedPages()`.
 - Home eligibility is the explicit `homePageSlugs` collection in `lib/page-registry-helpers.ts`. URL depth is not navigation metadata because canonical tool routes are flat.
 - Link text uses the `label` column, not `meta_title`.
 - Ordered by `sitemap_priority` desc, then `label`.
@@ -26,8 +26,8 @@ Home is the product map for Version127: a design-system sidebar of main publishe
 
 ## Data
 
-- Publication, labels, and SEO live only in `public.version127_pages` (home slug is `''`).
-- Keep the small home-eligibility list in the registry helper, never in the route file. Labels, descriptions, publication state, and ordering still come from `public.version127_pages`.
+- Publication, labels, and SEO live only in `public.stack127_pages` (home slug is `''`).
+- Keep the small home-eligibility list in the registry helper, never in the route file. Labels, descriptions, publication state, and ordering still come from `public.stack127_pages`.
 - Unknown or missing stats should be omitted, not invented.
 
 ## SEO notes

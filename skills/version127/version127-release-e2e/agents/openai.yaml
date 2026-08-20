@@ -1,4 +1,0 @@
-interface:
-  display_name: "Version127 Release E2E"
-  short_description: "Release through CI, Dokploy API, and live SHA checks"
-  default_prompt: "Use $version127-release-e2e to run or verify a guarded Version127 production release without dashboard access codes."

@@ -1,11 +1,11 @@
 ---
-name: version127-self-host-enrichment
-description: Research and review Version127 open-project candidates in claimed batches, write direct summaries, verify official facts and links, classify self-hosting, preserve provenance, and publish only complete records. Use for the next pending self-host app candidates or to drain the candidate queue.
+name: stack127-self-host-enrichment
+description: Research and review Stack127 open-project candidates in claimed batches, write direct summaries, verify official facts and links, classify self-hosting, preserve provenance, and publish only complete records. Use for the next pending self-host app candidates or to drain the candidate queue.
 ---
 
-# Version127 self-host enrichment
+# Stack127 self-host enrichment
 
-Work in `/Users/ravitejaknts/projects/Version127`. Production is canonical; refresh local from production before a long run.
+Work in `/Users/ravitejaknts/projects/Stack127`. Production is canonical; refresh local from production before a long run.
 
 Scripts move data. Codex makes editorial and factual decisions. Never generate summaries, categories, self-hosting status, surfaces, or resource facts from keywords.
 

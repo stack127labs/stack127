@@ -2,7 +2,7 @@
 
 Route: `/raid-calculator`
 
-Publication state: unpublished until this page passes its own launch checks and receives explicit publication approval. No production `public.version127_pages` row or migration belongs to this tool yet.
+Publication state: unpublished until this page passes its own launch checks and receives explicit publication approval. No production `public.stack127_pages` row or migration belongs to this tool yet.
 
 The page uses the shared engine in `lib/storage/` and the version 1 formula contract in `formula.md`. It calculates theoretical array capacity only. It does not predict filesystem-usable capacity, IOPS, throughput, rebuild time, or data-loss probability.
 

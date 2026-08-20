@@ -3,7 +3,7 @@
   "state": "published",
   "docs": ["content_docs/zfs-capacity-calculator"],
   "tests": [
-    "tests/version127/seo.spec.ts",
+    "tests/stack127/seo.spec.ts",
     "tests/pages/zfs-capacity-calculator/zfs-capacity-calculator.test.mjs",
     "tests/pages/zfs-capacity-calculator/page.test.mjs",
     "tests/pages/zfs-capacity-calculator/zfs-capacity-calculator.spec.ts"
@@ -13,9 +13,9 @@
     "scripts/zfs-capacity-calculator/verify-openzfs-fixtures.mjs"
   ],
   "skills": [
-    "skills/version127/test-driven-page",
-    "skills/version127/visual-first-content",
-    "skills/version127/version127-tool-build"
+    "skills/stack127/test-driven-page",
+    "skills/stack127/visual-first-content",
+    "skills/stack127/stack127-tool-build"
   ],
   "repositories": []
 }

@@ -1,11 +1,11 @@
 ---
-name: version127-self-host-discovery
-description: Discover Version127 open-project candidates from GitHub, Awesome Selfhosted, selfh.st, Selfhostedworld, and OpenAlternative without publishing or assigning editorial facts.
+name: stack127-self-host-discovery
+description: Discover Stack127 open-project candidates from GitHub, Awesome Selfhosted, selfh.st, Selfhostedworld, and OpenAlternative without publishing or assigning editorial facts.
 ---
 
-# Version127 self-host discovery
+# Stack127 self-host discovery
 
-Work in `/Users/ravitejaknts/projects/Version127`.
+Work in `/Users/ravitejaknts/projects/Stack127`.
 
 Discovery writes staging evidence only. Official project sources and the enrichment skill decide final facts.
 
@@ -25,6 +25,6 @@ Discovery writes staging evidence only. Official project sources and the enrichm
 - Exact canonical source-code or homepage matches are duplicates.
 - Name-only matches are `needs_review`, never automatic duplicates.
 - Keep self-hosting status `unknown` until official evidence is checked.
-- Never assign Version127 categories or publish from discovery.
+- Never assign Stack127 categories or publish from discovery.
 
 Report discovered, inserted, updated, exact duplicates, name reviews, queued, and errors.

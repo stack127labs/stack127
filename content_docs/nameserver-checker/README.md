@@ -2,7 +2,7 @@
 
 Route: `/nameserver-checker`
 
-Publication state: controlled by the exact `nameserver-checker` row in `public.version127_pages`.
+Publication state: controlled by the exact `nameserver-checker` row in `public.stack127_pages`.
 
 The tool discovers the closest delegated zone, compares the NS set published by the parent with the NS set returned by the child, and checks every public address available to this checker over UDP and TCP. A reachable server is not automatically healthy: it must also return an authoritative SOA for the zone. Probe the checker's IPv6 route before contacting IPv6 nameserver addresses. When the checker has no IPv6 route, keep those addresses visible as skipped and never report them as domain failures.
 

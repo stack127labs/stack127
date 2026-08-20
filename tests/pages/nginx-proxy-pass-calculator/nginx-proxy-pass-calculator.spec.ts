@@ -1,6 +1,6 @@
 import { expect, test } from "playwright/test";
 
-const localPreview = process.env.VERSION127_TEST_DATABASE_ENV === ".env.local";
+const localPreview = process.env.STACK127_TEST_DATABASE_ENV === ".env.local";
 test.skip(!localPreview, "The interactive route needs the guarded local preview.");
 
 test("calculates, preserves the primary result when comparison changes, and clears stale output on edits", async ({ page }) => {
@@ -144,7 +144,7 @@ for (const [width, height] of [[1280, 800], [760, 1000], [375, 900], [320, 900]]
 
 for (const theme of ["dark", "light"] as const) {
   test(`renders a complete success in ${theme} theme`, async ({ page }) => {
-    await page.addInitScript((selectedTheme) => localStorage.setItem("version127-theme", selectedTheme), theme);
+    await page.addInitScript((selectedTheme) => localStorage.setItem("stack127-theme", selectedTheme), theme);
     await page.goto("/nginx-proxy-pass-calculator");
     await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
     await page.getByRole("button", { name: "Calculate upstream URL" }).click();

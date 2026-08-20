@@ -1,0 +1,4 @@
+interface:
+  display_name: "Stack127 Test-Driven Page"
+  short_description: "Create and change Stack127 pages with required tests"
+  default_prompt: "Use $stack127-test-driven-page to add or update this Stack127 page with route coverage, SEO tests, and quality gates."

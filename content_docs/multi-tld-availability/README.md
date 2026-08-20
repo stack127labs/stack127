@@ -2,7 +2,7 @@
 
 Route: `/multi-tld-availability`
 
-Publication state: controlled by the exact `multi-tld-availability` row in `public.version127_pages`.
+Publication state: controlled by the exact `multi-tld-availability` row in `public.stack127_pages`.
 
 Status: plan.
 
@@ -16,7 +16,7 @@ The blocker is specific: the per-visitor limiter in `lib/dns/rate-limit.ts` is n
 
 ## Input
 
-- One name without a TLD, for example `version127`.
+- One name without a TLD, for example `stack127`.
 - A TLD selection.
 
 Do not offer a free-text list of arbitrary TLDs and do not offer "check all". Offer a fixed reviewed set with a hard cap.

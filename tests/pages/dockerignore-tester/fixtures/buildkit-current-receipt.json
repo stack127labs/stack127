@@ -100,7 +100,7 @@
       "--file",
       "Dockerfile",
       "--output",
-      "type=local,dest=/var/folders/sn/gmnvh7cx0s7brplv62pdg2f40000gn/T/version127-buildkit-receipt-YaEUJX/output",
+      "type=local,dest=/var/folders/sn/gmnvh7cx0s7brplv62pdg2f40000gn/T/stack127-buildkit-receipt-YaEUJX/output",
       "."
     ],
     "workingDirectoryKind": "isolated-temporary-context"

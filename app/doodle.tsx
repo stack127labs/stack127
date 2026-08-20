@@ -5,7 +5,7 @@ import styles from "./doodle.module.css";
  * carry no information: they are aria-hidden, never framed, and the corner
  * placement disappears below 1100px so decoration never causes clutter.
  * Doodle SVGs are generated from specs in app/(site)/art/ by the marker-art
- * generator; see version127_docs/marker-art.md.
+ * generator; see stack127_docs/marker-art.md.
  */
 export function Doodle({
   svg,

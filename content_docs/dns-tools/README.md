@@ -5,7 +5,7 @@ The `/dns-tools` collection groups compact, evidence-first DNS troubleshooting t
 ## Rules
 
 - Keep the useful input and result above the explanatory content.
-- Use the shared Version127 shell and DNS tools sidebar.
+- Use the shared Stack127 shell and DNS tools sidebar.
 - The DNS tools sidebar is a clean list of tool routes that are available now, matching the course sidebar pattern. Do not add an in-page table of contents, planned tools, disabled links, or coming-soon labels.
 - On the DNS Tools hub, every card leads with the real tool name, then states the problem it helps with, followed by one short explanation. Do not make readers infer a tool name from a use case.
 - DNS result findings and information boxes never use a colored left-edge line. Use a neutral full border or let the text sit naturally in the flow. Keep only neutral connector lines that explain a real chain or sequence.
@@ -27,6 +27,6 @@ The `/dns-tools` collection groups compact, evidence-first DNS troubleshooting t
 
 ## Publication
 
-The hub and every complete tool slug are published only through `public.version127_pages`. An exact published tool row is `index, follow` and appears in the sitemap. Query-param lookup states are `noindex, follow` and keep the clean tool canonical.
+The hub and every complete tool slug are published only through `public.stack127_pages`. An exact published tool row is `index, follow` and appears in the sitemap. Query-param lookup states are `noindex, follow` and keep the clean tool canonical.
 
 Implemented tool contracts live in `content_docs/<tool-slug>/`. This folder owns only the collection brief and shared DNS-tool rules.

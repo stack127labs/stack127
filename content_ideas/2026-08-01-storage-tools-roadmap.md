@@ -1,11 +1,11 @@
-# version127 Storage Tools Roadmap
+# stack127 Storage Tools Roadmap
 
 Date: 2026-08-01
 Status: shared foundation and first three tools complete; the hub and those three tools were approved and published on 2026-08-09, and every later tool stays unpublished until it earns its own approval
 Collection route: `/storage-tools`
 Publication rule: keep each route unpublished until that page passes its own launch checks and receives explicit approval
 
-This document is the control plan for the version127 storage-tools project. We build and validate one item at a time in the order below. A ready tool can publish independently without waiting for the collection or the remaining roadmap.
+This document is the control plan for the stack127 storage-tools project. We build and validate one item at a time in the order below. A ready tool can publish independently without waiting for the collection or the remaining roadmap.
 
 The original proposal was useful, but its 17-item list contained overlapping products, claims that were too confident, and a few technically incorrect assumptions. The approved scope is 12 public tools supported by one shared calculation engine and one unpublished hub during development. Features that belong inside another tool are merged instead of receiving thin standalone pages.
 
@@ -14,7 +14,7 @@ The original proposal was useful, but its 17-item list contained overlapping pro
 - The first unchecked top-level item is the next item to build.
 - A tool is not complete merely because its interface renders. Its calculations, invalid states, explanations, fixtures, URL state, accessibility, and page-specific tests must all pass.
 - Before implementing any route, create `content_docs/<page-slug>/brief.md` and follow the visual-first and test-driven page workflows.
-- Keep each route out of `public.version127_pages` until its own publication step. Code existing in the repository does not authorize production publication.
+- Keep each route out of `public.stack127_pages` until its own publication step. Code existing in the repository does not authorize production publication.
 - Record any material scope or formula decision in the decision log at the end of this document.
 - Unknown or estimated results must remain visibly unknown or estimated. Do not manufacture precision to make a result look complete.
 
@@ -291,7 +291,7 @@ The page answers: How should these disks, mount points, parity files, content fi
 
 ### Scope boundaries and corrections
 
-- This is not the first configuration generator in the market. DiyMediaServer already provides adjacent guidance and output. The version127 advantage must be validation, current-version awareness, clear tradeoffs, and safe generated examples.
+- This is not the first configuration generator in the market. DiyMediaServer already provides adjacent guidance and output. The stack127 advantage must be validation, current-version awareness, clear tradeoffs, and safe generated examples.
 - mergerfs currently documents `pfrd` as a default create policy, but there is no universally best policy. Inputs and explanations must reflect workload intent.
 - Do not execute commands, mount filesystems, overwrite user files, or suggest destructive sync operations.
 - Do not add a universal standalone scrub planner. Scrub scheduling belongs here and in the relevant ZFS guidance because the right policy is technology- and workload-dependent.

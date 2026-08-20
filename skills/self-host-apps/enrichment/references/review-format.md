@@ -39,14 +39,14 @@ Use one record per claimed candidate:
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://example.org",
           "confidence": "high",
           "note": "Written from the verified product purpose."
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://example.org",
           "confidence": "high"
         }

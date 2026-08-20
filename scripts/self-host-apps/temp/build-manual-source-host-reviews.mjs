@@ -54,10 +54,10 @@ const reviews = input.records.map((entry) => {
   };
   const editorialUrl = entry.evidence.summary ?? project.source_code_url;
   const sources = [
-    fieldSource("summary", "version127_curated", editorialUrl, "high", "Written from verified upstream project documentation."),
-    fieldSource("categories", "version127_curated", editorialUrl, "high", "Assigned by project purpose after editorial review."),
-    fieldSource("summary_source", "version127_curated", editorialUrl),
-    fieldSource("summary_confidence", "version127_curated", editorialUrl),
+    fieldSource("summary", "stack127_curated", editorialUrl, "high", "Written from verified upstream project documentation."),
+    fieldSource("categories", "stack127_curated", editorialUrl, "high", "Assigned by project purpose after editorial review."),
+    fieldSource("summary_source", "stack127_curated", editorialUrl),
+    fieldSource("summary_confidence", "stack127_curated", editorialUrl),
   ];
 
   const evidenceFields = [

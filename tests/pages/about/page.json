@@ -2,7 +2,7 @@
   "route": "/about",
   "state": "published",
   "docs": ["content_docs/about"],
-  "tests": ["tests/version127/seo.spec.ts"],
+  "tests": ["tests/stack127/seo.spec.ts"],
   "scripts": [],
   "skills": [],
   "repositories": []

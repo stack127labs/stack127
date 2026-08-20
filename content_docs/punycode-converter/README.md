@@ -2,7 +2,7 @@
 
 Route: `/punycode-converter`
 
-Publication state: controlled by the exact `punycode-converter` row in `public.version127_pages`.
+Publication state: controlled by the exact `punycode-converter` row in `public.stack127_pages`.
 
 Status: plan.
 

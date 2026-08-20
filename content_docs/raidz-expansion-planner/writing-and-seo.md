@@ -45,7 +45,7 @@ Plan each one-disk widening of one previously unexpanded RAIDZ vdev and compare 
 | Which concepts, syntax, ordering, or edge cases commonly surprise users? | Timeline and vocabulary section | Table | Competitive pain evidence; OpenZFS RAIDZ and attach docs | Explain old generations, reflow, rewrite, one-disk ordering, and accounting once. |
 | What does the tool not inspect, calculate, prove, recommend, or guarantee? | Limits section after preflight | Sentences | Implementation non-goals and assumptions | Group exclusions by decision boundary instead of producing a long warning list. |
 | How are user inputs handled? | Short privacy paragraph in limits section and share action | Sentences plus Tool UI | R21 and implementation privacy contract | Say local only because it is tested. State that Share deliberately puts the normalized configuration in the URL. |
-| What should the reader verify or do next? | Preflight table and closing links | Table plus Sentences | OpenZFS 2.3 release, feature docs, attach docs; adjacent version127 tools | Do not imply that passing the checklist makes expansion safe. |
+| What should the reader verify or do next? | Preflight table and closing links | Table plus Sentences | OpenZFS 2.3 release, feature docs, attach docs; adjacent stack127 tools | Do not imply that passing the checklist makes expansion safe. |
 
 ## Heading and media outline
 
@@ -107,8 +107,8 @@ Plan each one-disk widening of one previously unexpanded RAIDZ vdev and compare 
 
 ### Voice and accuracy constraints
 
-- Follow `version127_docs/writing-style.md` and `version127_docs/visual-first.md`.
-- Write `version127`, lowercase.
+- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
+- Write `stack127`, lowercase.
 - Use no em dash or en dash.
 - Keep the terms RAIDZ, vdev, recordsize, volblocksize, ashift, reflow, and rewrite where they are technically necessary.
 - Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
@@ -117,7 +117,7 @@ Plan each one-disk widening of one previously unexpanded RAIDZ vdev and compare 
 
 ### Tool-build exclusion
 
-`$version127-tool-build` must not draft or integrate these sections. The later manual writing pass owns them.
+`$stack127-tool-build` must not draft or integrate these sections. The later manual writing pass owns them.
 
 ## Source ledger
 

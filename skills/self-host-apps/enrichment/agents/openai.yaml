@@ -1,4 +1,4 @@
 interface:
-  display_name: "Version127 Self-Host Enrichment"
+  display_name: "Stack127 Self-Host Enrichment"
   short_description: "Research and review pending self-host candidates"
-  default_prompt: "Use $version127-self-host-enrichment to claim and fully review the next pending self-host app candidates, then publish only verified records."
+  default_prompt: "Use $stack127-self-host-enrichment to claim and fully review the next pending self-host app candidates, then publish only verified records."

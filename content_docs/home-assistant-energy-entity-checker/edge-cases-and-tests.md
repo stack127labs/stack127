@@ -126,13 +126,13 @@ Invariants:
 ### Browser tests
 
 - `tests/pages/home-assistant-energy-entity-checker/home-assistant-energy-entity-checker.spec.ts`: clean load, role switching, valid/invalid manual flows, paste, stale clearing, keyboard/repeat submit, reset, query cleanup, focus/live region, retry, target sizes, overflow, and both representative conclusions.
-- Use the guarded local preview only when `VERSION127_TEST_DATABASE_ENV=.env.local`; public SEO runs continue to assert unpublished 404 behavior.
+- Use the guarded local preview only when `STACK127_TEST_DATABASE_ENV=.env.local`; public SEO runs continue to assert unpublished 404 behavior.
 
 ### Static and SEO tests
 
 - `tests/pages/home-assistant-energy-entity-checker/page.test.mjs`: route ownership, pure/local engine, no route metadata, server identity/content boundaries, banned claims, responsive CSS tokens, no untrusted HTML, and preview guard source.
 - `tests/pages/home-assistant-energy-entity-checker/page.json`: unpublished state, reason, docs/tests/scripts/skills ownership.
-- Existing `tests/version127/seo.spec.ts` and static policy own public 404, sitemap exclusion, query behavior, and route coverage.
+- Existing `tests/stack127/seo.spec.ts` and static policy own public 404, sitemap exclusion, query behavior, and route coverage.
 
 ## Manual verification
 

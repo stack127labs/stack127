@@ -2,7 +2,7 @@ export async function fetchText(url, { accept = "text/html,application/xhtml+xml
   const response = await fetch(url, {
     headers: {
       Accept: accept,
-      "User-Agent": "version127-open-project-discovery/1.0",
+      "User-Agent": "stack127-open-project-discovery/1.0",
     },
   });
 

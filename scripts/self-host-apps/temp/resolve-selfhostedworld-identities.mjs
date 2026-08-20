@@ -74,7 +74,7 @@ async function fetchMarkdown(url) {
   for (let attempt = 1; attempt <= 5; attempt += 1) {
     try {
       const response = await fetch(relayUrl(url), {
-        headers: { Accept: "text/markdown", "User-Agent": "version127-candidate-identity-review/1.0" },
+        headers: { Accept: "text/markdown", "User-Agent": "stack127-candidate-identity-review/1.0" },
         signal: AbortSignal.timeout(45000),
       });
       if (!response.ok) {

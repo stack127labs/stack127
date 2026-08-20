@@ -93,12 +93,12 @@ No marker art, screenshot, chart, FAQ, methodology section, universal port list,
 
 | Direction | Destination | Reader reason | Anchor intent | Placement |
 | --- | --- | --- | --- | --- |
-| Out | `/privacy` | Understand version127's sitewide handling boundaries after the page-local statement | `privacy policy` | Final limitation section |
+| Out | `/privacy` | Understand stack127's sitewide handling boundaries after the page-local statement | `privacy policy` | Final limitation section |
 | Out | `https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_using_network_file_services/deploying-an-nfs-server_configuring-and-using-network-file-services` | Verify current server-side NFS services, assigned ports, and real host setup | `RHEL NFS server documentation` | COPY-02 source note |
 | Out | `https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_file_systems/mounting-nfs-shares_managing-file-systems` | Verify client-side NFSv3 and NFSv4 callback behavior | `RHEL NFS client documentation` | Version table source note |
 | Out | `https://man7.org/linux/man-pages/man5/nfs.conf.5.html` | Find the local mountd, statd, and lockd configuration keys | `nfs.conf manual` | COPY-02 |
 
-No existing version127 page directly continues this host-firewall planning job. Do not add an unrelated collection link only for link count.
+No existing stack127 page directly continues this host-firewall planning job. Do not add an unrelated collection link only for link count.
 
 ## Manual prose handoff
 
@@ -113,8 +113,8 @@ No existing version127 page directly continues this host-firewall planning job. 
 
 ### Voice and accuracy constraints
 
-- Follow `version127_docs/writing-style.md` and `version127_docs/visual-first.md`.
-- Write `version127`, lowercase.
+- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
+- Write `stack127`, lowercase.
 - Use no em dash or en dash.
 - Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
 - Do not repeat a result, table, command block, heading, or prior section.
@@ -125,7 +125,7 @@ No existing version127 page directly continues this host-firewall planning job. 
 
 ### Tool-build exclusion
 
-`$version127-tool-build` must not draft or integrate these sections. The later `$version127-tool-writing` stage owns content integration.
+`$stack127-tool-build` must not draft or integrate these sections. The later `$stack127-tool-writing` stage owns content integration.
 
 ## Source ledger
 

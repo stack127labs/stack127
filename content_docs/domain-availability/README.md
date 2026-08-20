@@ -2,7 +2,7 @@
 
 Route: `/domain-availability`
 
-Publication state: controlled by the exact `domain-availability` row in `public.version127_pages`.
+Publication state: controlled by the exact `domain-availability` row in `public.stack127_pages`.
 
 Status: plan.
 
@@ -23,7 +23,7 @@ Three possible answers, and they must be visually distinct without a colored lef
 **Not registered.**
 
 ```
-version127-example-name.com is not registered. The .com registry has no record
+stack127-example-name.com is not registered. The .com registry has no record
 for it, which usually means it can be registered, but see the note below on
 reserved and premium names.
 ```
@@ -31,7 +31,7 @@ reserved and premium names.
 **Registered.**
 
 ```
-version127.com is registered. It was created on 3 July 2026 and expires on
+stack127.com is registered. It was created on 3 July 2026 and expires on
 3 July 2027, through HOSTINGER operations, UAB.
 ```
 
@@ -43,7 +43,7 @@ Do not add a registrar affiliate link, a price, a "buy now" button, or a suggest
 
 ## Engine
 
-HTTP status from the registry RDAP query is the signal, per `version127_docs/rdap.md`:
+HTTP status from the registry RDAP query is the signal, per `stack127_docs/rdap.md`:
 
 - 200 registered
 - 404 not in this registry

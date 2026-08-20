@@ -21,7 +21,7 @@ if (!token) {
 }
 const headers = {
   Accept: "application/vnd.github+json",
-  "User-Agent": "version127-license-review",
+  "User-Agent": "stack127-license-review",
   ...(token ? { Authorization: `Bearer ${token}` } : {}),
 };
 

@@ -21,7 +21,7 @@ try {
     console.log("No unpublished storage routes to preview. Add the next roadmap tool to previewRows first.");
   } else if (remove) {
     await pool.query(
-      "delete from public.version127_pages where slug = any($1::text[])",
+      "delete from public.stack127_pages where slug = any($1::text[])",
       [previewRows.map((row) => row.slug)],
     );
     console.log(`Removed ${previewRows.length} local storage-tools preview rows.`);
@@ -29,7 +29,7 @@ try {
     for (const row of previewRows) {
       await pool.query(
         `
-          insert into public.version127_pages (
+          insert into public.stack127_pages (
             slug, label, meta_title, meta_description, is_published,
             published_at, cover_image_url, page_type, sitemap_priority
           ) values ($1, $2, $3, $4, true, now(), null, $5, $6)
@@ -38,7 +38,7 @@ try {
             meta_title = excluded.meta_title,
             meta_description = excluded.meta_description,
             is_published = true,
-            published_at = coalesce(public.version127_pages.published_at, excluded.published_at),
+            published_at = coalesce(public.stack127_pages.published_at, excluded.published_at),
             cover_image_url = excluded.cover_image_url,
             page_type = excluded.page_type,
             sitemap_priority = excluded.sitemap_priority,

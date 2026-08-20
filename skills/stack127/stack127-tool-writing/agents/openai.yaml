@@ -1,0 +1,4 @@
+interface:
+  display_name: "stack127 Tool Writing"
+  short_description: "Write complete, concise content for finished tools"
+  default_prompt: "Use $stack127-tool-writing to add complete, concise content covering the tool's purpose, meaningful use, result interpretation, limitations, privacy, and next verification step."

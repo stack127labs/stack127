@@ -3,7 +3,7 @@
   "state": "published",
   "docs": ["content_docs/nameserver-checker"],
   "tests": [
-    "tests/version127/seo.spec.ts",
+    "tests/stack127/seo.spec.ts",
     "tests/pages/nameserver-checker/page.spec.ts",
     "tests/pages/dns-tools/shared/dns-diagnostics.spec.ts",
     "tests/pages/dns-tools/shared/dns-diagnostics.test.mjs"

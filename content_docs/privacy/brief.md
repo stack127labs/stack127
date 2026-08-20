@@ -1,4 +1,4 @@
-# Brief: Privacy policy of version127
+# Brief: Privacy policy of stack127
 
 ## Who is here
 

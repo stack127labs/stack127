@@ -34,7 +34,7 @@ jobs:
 
     env:
       DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL }}
-      GITHUB_TOKEN: ${{ secrets.VERSION127_GITHUB_TOKEN || github.token }}
+      GITHUB_TOKEN: ${{ secrets.STACK127_GITHUB_TOKEN || github.token }}
 
     steps:
       - name: Checkout

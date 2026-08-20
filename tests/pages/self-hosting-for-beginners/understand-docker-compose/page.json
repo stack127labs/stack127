@@ -2,7 +2,7 @@
   "route": "/self-hosting-for-beginners/understand-docker-compose",
   "state": "published",
   "docs": ["content_docs/self-hosting-for-beginners"],
-  "tests": ["tests/version127/seo.spec.ts"],
+  "tests": ["tests/stack127/seo.spec.ts"],
   "scripts": ["scripts/self-hosting-for-beginners"],
   "skills": [],
   "repositories": []

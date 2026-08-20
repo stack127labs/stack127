@@ -8,8 +8,8 @@ The manifest is the first place to look when changing a page. It records:
 - the page-owned documentation;
 - the tests that protect the page;
 - any scripts or skills owned by the page or route family;
-- any deliberate external-repository relationship; repository details live in `version127_docs/public-repositories.md`, not in a copied source tree.
+- any deliberate external-repository relationship; repository details live in `stack127_docs/public-repositories.md`, not in a copied source tree.
 
-Tests that only protect one page belong beside that page manifest. Tests for a real shared system stay in `tests/version127` or a route-family `shared` folder and are referenced by every page that depends on them.
+Tests that only protect one page belong beside that page manifest. Tests for a real shared system stay in `tests/stack127` or a route-family `shared` folder and are referenced by every page that depends on them.
 
 Do not add a second hand-maintained route coverage registry. The quality checks discover these manifests directly.

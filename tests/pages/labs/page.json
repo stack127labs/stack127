@@ -1,0 +1,12 @@
+{
+  "route": "/labs",
+  "state": "published",
+  "docs": ["content_docs/labs"],
+  "tests": [
+    "tests/pages/labs/labs.test.mjs",
+    "tests/stack127/seo.spec.ts"
+  ],
+  "scripts": [],
+  "skills": [],
+  "repositories": []
+}

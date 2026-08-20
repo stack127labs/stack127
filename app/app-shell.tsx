@@ -37,28 +37,16 @@ export function AppShell({
         <section className={styles.main} aria-label={mainLabel} data-app-main>
           <div className={styles.content}>{children}</div>
           <footer className={styles.footer} aria-label="Site footer">
-            <Link className={styles.footerBrand} href="/" aria-label="version127 home">
-              <img
-                alt="version127 logo"
-                className={`${styles.footerLogo} ${styles.footerLogoLight}`}
-                height={219}
-                src="/logos/version127-logo-black.png"
-                width={1173}
-              />
-              <img
-                alt="version127 logo"
-                className={`${styles.footerLogo} ${styles.footerLogoDark}`}
-                height={219}
-                src="/logos/version127-logo-white.png"
-                width={1175}
-              />
+            <Link className={styles.footerBrand} href="/" aria-label="stack127 home">
+              <span className={styles.footerWordmark}>stack127</span>
             </Link>
             <nav className={styles.footerLinks} aria-label="Legal pages">
               <Link href="/privacy">privacy</Link>
               <Link href="/terms">terms</Link>
               <Link href="/about">about</Link>
+              <Link href="/labs">labs</Link>
             </nav>
-            <p>2026 version127. all rights reserved.</p>
+            <p>2026 stack127. all rights reserved.</p>
           </footer>
         </section>
       </section>

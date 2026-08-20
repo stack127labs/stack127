@@ -64,7 +64,7 @@ export function MultiTldTool() {
         loading={loading}
         onChange={setName}
         onSubmit={submit}
-        placeholder="version127"
+        placeholder="stack127"
         submitLabel={`Check ${selected.length} ending${selected.length === 1 ? "" : "s"}`}
         value={name}
       >

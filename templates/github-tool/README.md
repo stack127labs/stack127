@@ -1,8 +1,8 @@
 # {{TOOL_NAME}}
 
-{{TOOL_NAME}} is a standalone Version127 tool.
+{{TOOL_NAME}} is a standalone Stack127 tool.
 
-[Hosted tool]({{VERSION127_URL}}) · [Version127](https://version127.com)
+[Hosted tool]({{STACK127_URL}}) · [Stack127](https://stack127.com)
 
 ## Screenshots
 

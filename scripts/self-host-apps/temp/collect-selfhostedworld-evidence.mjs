@@ -101,7 +101,7 @@ const workers = Array.from({ length: 2 }, async () => {
     const resolvedRelayUrl = relayUrl(candidate.source_url);
     try {
       const response = await fetch(resolvedRelayUrl, {
-        headers: { Accept: "text/html", "User-Agent": "version127-candidate-review/1.0" },
+        headers: { Accept: "text/html", "User-Agent": "stack127-candidate-review/1.0" },
         signal: AbortSignal.timeout(60000),
       });
       const text = await response.text();

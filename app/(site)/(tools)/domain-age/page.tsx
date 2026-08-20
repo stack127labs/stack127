@@ -167,7 +167,7 @@ export default async function DomainAgePage({
           <section>
             <h2>What does the result show?</h2>
             <p>
-              Enter a domain such as <code>version127.com</code>. The result can
+              Enter a domain such as <code>stack127.com</code>. The result can
               include:
             </p>
             <ul>

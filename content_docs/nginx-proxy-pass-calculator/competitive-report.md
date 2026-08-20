@@ -9,7 +9,7 @@ Saturation exception: yes
 
 ## Research scope
 
-### Current version127 state
+### Current stack127 state
 
 The route, docs folder, tests, scripts, and engine did not exist at intake. The route is locked to the flat canonical URL `/nginx-proxy-pass-calculator`, with source under `app/(site)/(tools)/nginx-proxy-pass-calculator/`. The existing opportunity report scores the idea 23/25 and limits the first release to deterministic, source-backed URI construction. The repository has extensive user-owned route-flattening work in progress, so all new work must remain route-owned and unpublished.
 

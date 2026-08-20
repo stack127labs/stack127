@@ -1,0 +1,4 @@
+interface:
+  display_name: "stack127 Tool Test Design"
+  short_description: "Design edge cases and tests for one tool"
+  default_prompt: "Use $stack127-tool-test-design to produce the edge-case matrix and complete test plan for this tool."

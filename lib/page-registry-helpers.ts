@@ -5,6 +5,7 @@ export const homePageSlugs = [
   "dockerignore-tester",
   "domain-tools",
   "home-assistant-energy-entity-checker",
+  "labs",
   "nfs-firewall-rules",
   "nginx-proxy-pass-calculator",
   "privacy",

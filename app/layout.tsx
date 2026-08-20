@@ -82,7 +82,7 @@ const siteStructuredData = [
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    email: "version127@proton.me",
+    email: "stack127@proton.me",
     logo: absoluteUrl("/android-chrome-512x512.png"),
     name: siteName,
     url: absoluteUrl("/"),
@@ -120,7 +120,7 @@ export default function RootLayout({
         <AppIcons />
         {umami ? (
           <script
-            data-domains="version127.com,www.version127.com"
+            data-domains="stack127.com,www.stack127.com"
             data-exclude-search="true"
             data-website-id={umami.websiteId}
             defer

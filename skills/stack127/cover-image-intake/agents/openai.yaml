@@ -1,0 +1,4 @@
+interface:
+  display_name: "Stack127 Cover Intake"
+  short_description: "Prepare generated cover images for Stack127"
+  default_prompt: "Use $stack127-cover-image-intake to process this generated cover image into a 1200 x 675 JPG with clean SEO metadata."

@@ -23,7 +23,7 @@ const seed = readFileSync(
 test("managed dev bootstrap seeds the complete course registry", () => {
   assert.match(
     config,
-    /sql_paths\s*=\s*\[\s*"\.\/seeds\/20260629_version127_open_projects\.sql",\s*"\.\/seeds\/20260817_self_hosting_for_beginners_pages\.sql",?\s*\]/,
+    /sql_paths\s*=\s*\[\s*"\.\/seeds\/20260629_stack127_open_projects\.sql",\s*"\.\/seeds\/20260817_self_hosting_for_beginners_pages\.sql",?\s*\]/,
   );
 
   const payload = seed.match(

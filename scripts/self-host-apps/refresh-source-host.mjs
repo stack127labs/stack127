@@ -19,7 +19,7 @@ function repositoryPath(value, host) {
 }
 
 async function fetchJson(url, token) {
-  const headers = { Accept: "application/json", "User-Agent": "version127-source-refresh/1.0" };
+  const headers = { Accept: "application/json", "User-Agent": "stack127-source-refresh/1.0" };
   if (token) headers.Authorization = `Bearer ${token}`;
   const response = await fetch(url, { headers });
   if (!response.ok) throw new Error(`${response.status}: ${url}`);

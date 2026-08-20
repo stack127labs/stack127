@@ -1,6 +1,6 @@
 import { expect, test } from "playwright/test";
 
-const localPreview = process.env.VERSION127_TEST_DATABASE_ENV === ".env.local";
+const localPreview = process.env.STACK127_TEST_DATABASE_ENV === ".env.local";
 test.skip(!localPreview, "The interactive route needs the guarded local preview.");
 
 test("calculates explicitly, clears stale results, shares, and resets", async ({ page, context }) => {

@@ -21,7 +21,7 @@ async function fetchWithRetry(url) {
   for (let attempt = 0; attempt < 3; attempt += 1) {
     try {
       const response = await fetch(url, {
-        headers: { "User-Agent": "version127-icon-cache" },
+        headers: { "User-Agent": "stack127-icon-cache" },
         redirect: "follow",
         signal: AbortSignal.timeout(30000),
       });

@@ -2,7 +2,7 @@
 
 Route: `/dns-lookup`
 
-Publication state: controlled by the exact `dns-lookup` row in `public.version127_pages`.
+Publication state: controlled by the exact `dns-lookup` row in `public.stack127_pages`.
 
 The tool reports DNS records for an exact name through Cloudflare, Google Public DNS, Quad9, OpenDNS, AdGuard DNS, Control D, Yandex DNS, or a nameserver that is authoritative for the domain. It supports a selected record type or an All bundle made from separate A, AAAA, CNAME, MX, NS, TXT, CAA, SOA, SRV, DS, and DNSKEY queries. PTR is a separate, IP-address input because it is a reverse lookup and does not belong in the domain-name All bundle.
 
@@ -119,6 +119,6 @@ NS hostnames are resolved through the fixed Cloudflare wire-format adapter with 
 - NS address lookups are sent to Cloudflare. Public IP addresses returned by the lookup are placed in Team Cymru DNS query names for BGP origin ASN, prefix, and network-description enrichment.
 - For website-style names, the browser may request `/favicon.ico` directly from that hostname after the DNS result appears.
 - Share URLs expose the lookup name in their query string.
-- Version127 does not store lookup history.
+- Stack127 does not store lookup history.
 - Analytics must not include names or record values.
 - The API uses fixed upstream hosts, public-address validation for direct DNS targets, matching response IDs, bounded response sizes, timeouts, parallelism, alias depth, and weighted rate limits.

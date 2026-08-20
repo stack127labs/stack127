@@ -300,7 +300,7 @@ test("query-param lookup states remain noindex and canonicalize to the clean too
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/i);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "https://version127.com/dns-lookup",
+    "https://stack127.com/dns-lookup",
   );
 });
 

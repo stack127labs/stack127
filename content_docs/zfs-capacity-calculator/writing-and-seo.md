@@ -191,8 +191,8 @@ The writer may propose these variable-aware templates. Engineering owns the cond
 
 ### Tone and language constraints
 
-- Follow `version127_docs/writing-style.md`: direct, compact, technically careful, and written for a capable reader who may be new to ZFS.
-- Use `version127` with a lowercase `v` if the brand appears.
+- Follow `stack127_docs/writing-style.md`: direct, compact, technically careful, and written for a capable reader who may be new to ZFS.
+- Use `stack127` with a lowercase `v` if the brand appears.
 - Prefer `estimated writable physical data` to `usable capacity` when naming the primary result.
 - Use `drive`, `top-level vdev`, `pool`, `physical capacity`, and `planning target` consistently. Do not alternate with appliance-specific vocabulary.
 - Avoid slogans, rhetorical questions, fake quotations, marketing superlatives, and claims that this tool predicts performance or installed free space.

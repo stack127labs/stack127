@@ -147,7 +147,7 @@ The fixture verifier uses a disposable echo upstream that returns `$request_uri`
 ### Static and SEO tests
 
 - `tests/pages/nginx-proxy-pass-calculator/page.test.mjs`: ownership manifest, route path, server H1/tool identity, absent metadata/generateMetadata/canonical/robots/JSON-LD, client island boundary, no prose during build, no network/storage APIs, no dangerous rendering, and no banned recommendation claim.
-- Existing `tests/version127/seo.spec.ts`: unpublished 404 and sitemap exclusion outside guarded preview.
+- Existing `tests/stack127/seo.spec.ts`: unpublished 404 and sitemap exclusion outside guarded preview.
 - `tests/pages/nginx-proxy-pass-calculator/page.json`: exact flat route, unpublished reason, docs, tests, scripts, skills, and empty repositories.
 
 ## Manual verification

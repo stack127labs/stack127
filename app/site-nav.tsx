@@ -6,24 +6,17 @@ export function SiteNav() {
   return (
     <header className={styles.header}>
       <nav className={styles.nav} aria-label="Main navigation">
-        <Link className={styles.brand} href="/" aria-label="version127 home">
-          <img
-            alt="version127 logo"
-            className={`${styles.logo} ${styles.logoLight}`}
-            height={219}
-            src="/logos/version127-logo-black.png"
-            width={1173}
-          />
-          <img
-            alt="version127 logo"
-            className={`${styles.logo} ${styles.logoDark}`}
-            height={219}
-            src="/logos/version127-logo-white.png"
-            width={1175}
-          />
+        <Link className={styles.brand} href="/" aria-label="stack127 home">
+          <span className={styles.wordmark}>stack127</span>
         </Link>
         <div className={styles.links}>
           <Link href="/self-host-apps">self-host apps</Link>
+          <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
+            ·
+          </span>
+          <Link className={styles.secondaryLink} href="/labs">
+            labs
+          </Link>
           <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
             ·
           </span>

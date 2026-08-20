@@ -9,9 +9,9 @@ Saturation exception: yes
 
 ## Research scope
 
-### Current version127 state
+### Current stack127 state
 
-This is a new, unpublished tool. version127 already has a mixed-drive RAID calculator and a ZFS pool capacity calculator, but neither is a focused interactive explanation of how one logical ZFS block becomes data, parity, and padding on a RAIDZ vdev.
+This is a new, unpublished tool. stack127 already has a mixed-drive RAID calculator and a ZFS pool capacity calculator, but neither is a focused interactive explanation of how one logical ZFS block becomes data, parity, and padding on a RAIDZ vdev.
 
 ### Method and coverage
 
@@ -252,7 +252,7 @@ ZFS Capacity Calculator
 
 ## Comparison matrix
 
-| Capability | jro.io | Servnet | WintelGuy | Professional | 45Drives | version127 opportunity |
+| Capability | jro.io | Servnet | WintelGuy | Professional | 45Drives | stack127 opportunity |
 | --- | --- | --- | --- | --- | --- | --- |
 | Per-block focus | No | No | No | No | No | Make one allocation the central object. |
 | Adjustable block size | Yes | Yes | Fixed | Shown, questionable effect | Fixed | Support recordsize/volblocksize presets and exact bytes. |

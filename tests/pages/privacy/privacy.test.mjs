@@ -15,6 +15,6 @@ test("privacy page explains domain lookup processing accurately", () => {
   assert.doesNotMatch(source, /we do not store who asked/i);
 });
 
-test("privacy page records the domain-tools launch update", () => {
-  assert.match(source, /Last updated: July 29, 2026\./);
+test("privacy page records the stack127 rebrand update", () => {
+  assert.match(source, /Last updated: August 20, 2026\./);
 });

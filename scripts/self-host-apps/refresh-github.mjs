@@ -128,7 +128,7 @@ function repositoryQuery(rows) {
     })
     .join("\n");
 
-  return `query Version127SelfHostGitHubRefresh {${fields}}`;
+  return `query Stack127SelfHostGitHubRefresh {${fields}}`;
 }
 
 async function githubGraphql(query) {
@@ -141,7 +141,7 @@ async function githubGraphql(query) {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
-      "User-Agent": "version127-self-host-apps",
+      "User-Agent": "stack127-self-host-apps",
     },
     body: JSON.stringify({ query }),
   });

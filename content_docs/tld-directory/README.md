@@ -2,7 +2,7 @@
 
 Route: `/tld-directory`
 
-Publication state: controlled by the exact `tld-directory` row in `public.version127_pages`.
+Publication state: controlled by the exact `tld-directory` row in `public.stack127_pages`.
 
 Status: plan.
 
@@ -10,7 +10,7 @@ Status: plan.
 
 A browsable, factual reference for every top-level domain in the root zone: who operates it, what kind of TLD it is, whether it publishes RDAP, and whether it is signed with DNSSEC.
 
-This is a directory, not a tool, and Version127 is a directory site, which makes it the strongest long-term asset in this folder.
+This is a directory, not a tool, and Stack127 is a directory site, which makes it the strongest long-term asset in this folder.
 
 Existing references each cover part of it. IANA's root zone database is authoritative but is a bare list with one page per TLD and no comparison, filtering, or derived facts. `deployment.rdap.org` already tracks RDAP deployment across TLDs and overlaps our RDAP column directly, so link it rather than implying the data is ours alone. Wikipedia's list is inconsistent and dated. Registrar TLD pages exist to sell. What is missing is one filterable table that puts type, operator, RDAP, and DNSSEC beside each other with a visible check date, and that is what we build.
 

@@ -32,7 +32,7 @@ function githubToken() {
 function headersFor(url) {
   const headers = {
     Accept: "*/*",
-    "User-Agent": "version127-self-host-apps",
+    "User-Agent": "stack127-self-host-apps",
   };
 
   try {

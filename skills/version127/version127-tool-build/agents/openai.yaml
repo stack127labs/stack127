@@ -1,4 +1,0 @@
-interface:
-  display_name: "version127 Tool Build"
-  short_description: "Build and verify one version127 tool UI"
-  default_prompt: "Use $version127-tool-build to implement and verify only the interactive tool from its approved reports, without adding page prose."

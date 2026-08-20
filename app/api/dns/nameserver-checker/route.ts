@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
-  if (!isSameOriginDnsRequest(request)) return dnsErrorResponse(403, "cross_origin_request", "DNS checks must come from the version127 site.");
+  if (!isSameOriginDnsRequest(request)) return dnsErrorResponse(403, "cross_origin_request", "DNS checks must come from the stack127 site.");
   let body: Record<string, unknown>;
   try { body = await readDnsJsonBody(request); }
   catch (error) { return dnsErrorResponse(error instanceof Error && error.message === "request_too_large" ? 413 : 400, "invalid_request", "Send a small, valid nameserver check request."); }

@@ -9,13 +9,13 @@ Saturation exception: yes
 
 ## Research scope
 
-### Current version127 state
+### Current stack127 state
 
 The route, route-owned docs, tests, scripts, and engine did not exist at intake. The flat canonical route is locked to `/nfs-firewall-rules`, with source under `app/(site)/(tools)/nfs-firewall-rules/`. The existing opportunity report scored this idea 21/25 and deliberately placed it behind three lower-risk tools because NFSv3 port assignment, distro differences, and firewall consequences make careless command generation unsafe.
 
 The worktree contains extensive user-owned route-flattening and tool work. This page must remain unpublished and route-owned. No registry, publication, or shared route changes are authorized.
 
-The idea passes the version127 surface decision rule. The answer is a deterministic plan over facts the user supplies: NFS version, transport, address family, client source, firewall position, firewall family, and verified service ports. It does not require a curated vendor database or live scan. It remains useful when it refuses a complete NFSv3 plan until dynamic RPC assignments are verified.
+The idea passes the stack127 surface decision rule. The answer is a deterministic plan over facts the user supplies: NFS version, transport, address family, client source, firewall position, firewall family, and verified service ports. It does not require a curated vendor database or live scan. It remains useful when it refuses a complete NFSv3 plan until dynamic RPC assignments are verified.
 
 ### Method and coverage
 

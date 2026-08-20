@@ -1,11 +1,11 @@
-# Version127 Content Ideas
+# Stack127 Content Ideas
 
 Date: 2026-07-07
 Last updated: 2026-07-08
 
-Note (2026-07-08): before acting on any idea below, apply the surface decision rule in `skills/version127/version127-topic-research/SKILL.md`. Several ideas here are shaped as standalone tools or curated cross-app tables, but entity-specific demand (per app, per device, per integration) belongs in the owning directory as structured facts or in reference pages, and a standalone tool is only justified when it computes live from universal sources or calculates over user-only inputs. For example, the Backup Map and Reverse Proxy Matrix are directory facets or reference pages, not tools; the Compose Checker and Model Fit Calculator can remain tools because they work from user input. See `content_ideas/2026-07-07-market-gap-tool-ideas.md` for the corrected framework.
+Note (2026-07-08): before acting on any idea below, apply the surface decision rule in `skills/stack127/stack127-topic-research/SKILL.md`. Several ideas here are shaped as standalone tools or curated cross-app tables, but entity-specific demand (per app, per device, per integration) belongs in the owning directory as structured facts or in reference pages, and a standalone tool is only justified when it computes live from universal sources or calculates over user-only inputs. For example, the Backup Map and Reverse Proxy Matrix are directory facets or reference pages, not tools; the Compose Checker and Model Fit Calculator can remain tools because they work from user input. See `content_ideas/2026-07-07-market-gap-tool-ideas.md` for the corrected framework.
 
-Context: Version127 already has a self-host app directory and a self-hosting beginner course. The next durable surface should be more tool-like or reference-like, with stronger search-gap potential than another broad directory.
+Context: Stack127 already has a self-host app directory and a self-hosting beginner course. The next durable surface should be more tool-like or reference-like, with stronger search-gap potential than another broad directory.
 
 Research note: Reddit blocked direct scripted access in the research environment, so these ideas are based on live web search, official docs, product documentation, and public community/problem patterns. Treat the gap claims as evidence-backed but not absolute "no page exists anywhere" claims.
 
@@ -35,7 +35,7 @@ Evidence checked:
 - Nextcloud docs list five required backup areas: config folder, custom apps folder when used, data folder, theme folder, and database.
 - Jellyfin docs separate built-in backup from manual backup and warn that version upgrades can make older data incompatible without restore.
 
-Can we build it: Yes. Version127 already has app data and a source-first workflow. Start with 25-50 high-demand apps, then expand.
+Can we build it: Yes. Stack127 already has app data and a source-first workflow. Start with 25-50 high-demand apps, then expand.
 
 MVP fields:
 
@@ -286,7 +286,7 @@ Likely searches:
 - `can my gpu run qwen llama gemma`
 - `ollama model fit calculator`
 
-Market gap: Medium. There are articles and community calculators, but a Version127 version could be practical if tied to homelab hardware and conservative assumptions.
+Market gap: Medium. There are articles and community calculators, but a Stack127 version could be practical if tied to homelab hardware and conservative assumptions.
 
 Evidence checked:
 

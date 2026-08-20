@@ -11,7 +11,7 @@ Contract type: formula
 
 - Primary user: A ZFS administrator with one healthy, unexpanded RAIDZ vdev who is deciding whether to widen it by one or more disks.
 - Job: Estimate the modeled logical capacity available before expansion, immediately after each one-disk expansion, and in a fresh vdev at the final width, then understand the gap caused by old blocks retaining their original geometry.
-- Product thesis: The planner earns preference by making the width transition the central visual, using version127's exact integer RAIDZ allocation primitive for every width, rejecting impossible plans, and keeping modeled physical allocation separate from the capacity that `df` or `zfs list` may report.
+- Product thesis: The planner earns preference by making the width transition the central visual, using stack127's exact integer RAIDZ allocation primitive for every width, rejecting impossible plans, and keeping modeled physical allocation separate from the capacity that `df` or `zfs list` may report.
 - Evidence: `competitive-report.md` sections `User pain evidence`, `Formula and data disagreements`, `Evidence-backed opportunities`, and `Comparison matrix`. Two direct competitors prove demand, but neither combines an exact block-allocation basis, a complete step timeline, strict invalid states, and a visible accounting boundary.
 
 ## Scope
@@ -382,7 +382,7 @@ No marker art, clean chart, or screenshot is required. The live width timeline a
 
 ### Publication state
 
-Keep `/raidz-expansion-planner` unpublished. It must not be added to the production `public.version127_pages` registry or sitemap and must return 404 outside a guarded local preview. The preview script may add an explicit local-database-only row for Browser QA and must remove or restore it before handoff. Publication, registry metadata, commit, push, and deployment require separate user approval.
+Keep `/raidz-expansion-planner` unpublished. It must not be added to the production `public.stack127_pages` registry or sitemap and must return 404 outside a guarded local preview. The preview script may add an explicit local-database-only row for Browser QA and must remove or restore it before handoff. Publication, registry metadata, commit, push, and deployment require separate user approval.
 
 ## Acceptance criteria
 

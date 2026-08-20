@@ -2,7 +2,7 @@
 # https://supabase.com/docs/guides/local-development/cli/config
 # A string used to distinguish different Supabase projects on the same host. Defaults to the
 # working directory name when running `supabase init`.
-project_id = "version127"
+project_id = "stack127"
 
 [api]
 enabled = true
@@ -62,7 +62,7 @@ enabled = true
 # Specifies an ordered list of seed files to load during db reset.
 # Supports glob patterns relative to supabase directory: "./seeds/*.sql"
 sql_paths = [
-  "./seeds/20260629_version127_open_projects.sql",
+  "./seeds/20260629_stack127_open_projects.sql",
   "./seeds/20260817_self_hosting_for_beginners_pages.sql",
 ]
 

@@ -18,7 +18,7 @@ export function testDnsToolPage(contract: DnsToolPageContract) {
     await expect(page.locator('meta[name="robots"]')).not.toHaveAttribute("content", /noindex/i);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
       "href",
-      `https://version127.com${contract.route}`,
+      `https://stack127.com${contract.route}`,
     );
     if (testInfo.project.name !== "mobile") {
       const navigation = page.getByRole("navigation", { name: "DNS tools" });

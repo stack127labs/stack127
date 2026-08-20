@@ -2,7 +2,7 @@
 
 Route: `/epp-status-codes`
 
-Publication state: controlled by the exact `epp-status-codes` row in `public.version127_pages`.
+Publication state: controlled by the exact `epp-status-codes` row in `public.stack127_pages`.
 
 Status: plan.
 
@@ -23,7 +23,7 @@ When a domain is entered, fetch its statuses and lead with an explanation of tha
 With a domain entered:
 
 ```
-version127.com has one status: client transfer prohibited. HOSTINGER operations,
+stack127.com has one status: client transfer prohibited. HOSTINGER operations,
 UAB set this, and it blocks a transfer to another registrar until it is removed.
 You can remove it yourself in your registrar account, usually shown there as a
 domain lock. Nothing else about the domain is restricted.
@@ -51,7 +51,7 @@ The reference content is static and server-rendered from a typed table in `lib/d
 
 The lookup half reads `status` from the registry RDAP response.
 
-One accuracy detail: RDAP does not return EPP codes verbatim. It returns values from the IANA RDAP JSON Values registry, which are lowercase and space separated. Verified on `version127.com`: RDAP returned `client transfer prohibited` where WHOIS would have shown `clientTransferProhibited`. The page must show both spellings, because readers arrive having seen the camel case form in a registrar dashboard or an old WHOIS output, and searching for it is how they got here.
+One accuracy detail: RDAP does not return EPP codes verbatim. It returns values from the IANA RDAP JSON Values registry, which are lowercase and space separated. Verified on `stack127.com`: RDAP returned `client transfer prohibited` where WHOIS would have shown `clientTransferProhibited`. The page must show both spellings, because readers arrive having seen the camel case form in a registrar dashboard or an old WHOIS output, and searching for it is how they got here.
 
 `ok` in EPP maps to `active` in RDAP. Say so rather than treating them as separate codes.
 

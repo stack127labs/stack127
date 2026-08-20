@@ -2,7 +2,7 @@
 
 Route: `/domain-registrar`
 
-Publication state: controlled by the exact `domain-registrar` row in `public.version127_pages`.
+Publication state: controlled by the exact `domain-registrar` row in `public.stack127_pages`.
 
 Status: plan.
 
@@ -19,7 +19,7 @@ One domain name, normalized as elsewhere.
 ## What the result shows
 
 ```
-version127.com is registered through HOSTINGER operations, UAB, IANA registrar
+stack127.com is registered through HOSTINGER operations, UAB, IANA registrar
 ID 1636. The registry record was last changed on 11 July 2026.
 ```
 
@@ -37,7 +37,7 @@ Show the registry and registrar as two named parties with a small visual of who 
 
 ## Engine
 
-The registrar entity from the registry RDAP response, identified by `roles` containing `registrar`. The IANA ID is the entity `handle`. Verified on `version127.com`: handle `1636`, `fn` value `HOSTINGER operations, UAB`.
+The registrar entity from the registry RDAP response, identified by `roles` containing `registrar`. The IANA ID is the entity `handle`. Verified on `stack127.com`: handle `1636`, `fn` value `HOSTINGER operations, UAB`.
 
 Abuse contact usually lives on a nested entity with role `abuse` inside the registrar entity. Look for it there and fall back to the registrar hop when the registry does not carry it.
 

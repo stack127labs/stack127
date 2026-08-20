@@ -96,10 +96,10 @@ No marker art, clean chart, screenshot, FAQ, methodology section, or generic YAM
 
 | Direction | Destination | Reader reason | Anchor intent | Placement |
 | --- | --- | --- | --- | --- |
-| Out | `/privacy` | Explain the sitewide request and analytics boundary without weakening the tool-specific statement that evaluated attributes stay in the browser | `version127 privacy policy` | Final live-instance section, only if privacy needs a second level of detail |
+| Out | `/privacy` | Explain the sitewide request and analytics boundary without weakening the tool-specific statement that evaluated attributes stay in the browser | `stack127 privacy policy` | Final live-instance section, only if privacy needs a second level of detail |
 | In, deferred | Future published home-automation tools collection, no route exists yet | Let readers discover the checker from the correct collection after that collection is designed and published | `Home Assistant energy entity checker` | Collection listing, not page prose |
 
-No existing version127 guide directly continues this missing-entity task. Do not add an unrelated self-hosting or generic tools link merely to create an internal link.
+No existing stack127 guide directly continues this missing-entity task. Do not add an unrelated self-hosting or generic tools link merely to create an internal link.
 
 ## Manual prose handoff
 
@@ -114,8 +114,8 @@ No existing version127 guide directly continues this missing-entity task. Do not
 
 ### Voice and accuracy constraints
 
-- Follow `version127_docs/writing-style.md` and `version127_docs/visual-first.md`.
-- Write `version127`, lowercase.
+- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
+- Write `stack127`, lowercase.
 - Use no em dash or en dash.
 - Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
 - Do not repeat a result, table, trace, heading, or prior section.
@@ -126,7 +126,7 @@ No existing version127 guide directly continues this missing-entity task. Do not
 
 ### Tool-build exclusion
 
-`$version127-tool-build` must not draft or integrate these sections. The user supplies them in a later content pass under `$version127-tool-writing`.
+`$stack127-tool-build` must not draft or integrate these sections. The user supplies them in a later content pass under `$stack127-tool-writing`.
 
 ## Source ledger
 

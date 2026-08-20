@@ -57,7 +57,7 @@
   {
     "name": "self-host-apps:reset-categories",
     "command": "npm run self-host-apps:reset-categories -- --dry-run",
-    "purpose": "Reset open-project category rows and links to the controlled Version127 taxonomy."
+    "purpose": "Reset open-project category rows and links to the controlled Stack127 taxonomy."
   },
   {
     "name": "self-host-apps:select-enrichment-batch",
@@ -102,7 +102,7 @@
   {
     "name": "self-host-apps:audit-summaries",
     "command": "npm run self-host-apps:audit-summaries",
-    "purpose": "Audit published self-host app summaries against Version127 writing rules."
+    "purpose": "Audit published self-host app summaries against Stack127 writing rules."
   },
   {
     "name": "self-host-apps:audit-links",

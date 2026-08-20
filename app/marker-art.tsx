@@ -6,7 +6,7 @@ import styles from "./marker-art.module.css";
  * generated .ts module next to the figure's .spec.json, so nothing is fetched
  * or drawn at runtime: it is bundled, server rendered, and cached with the page.
  *
- * Workflow and style guide: version127_docs/marker-art.md
+ * Workflow and style guide: stack127_docs/marker-art.md
  */
 export function MarkerArt({
   svg,

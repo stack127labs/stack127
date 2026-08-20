@@ -98,7 +98,7 @@ test("DNS Trace Explorer renders a genuine root-to-answer path in simple languag
   );
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "https://version127.com/dns-trace",
+    "https://stack127.com/dns-trace",
   );
   await expect(page.locator('script[type="application/ld+json"]')).not.toHaveCount(0);
   await expect(page.locator('meta[name="robots"]')).not.toHaveAttribute("content", /noindex/i);
@@ -145,7 +145,7 @@ test("query-param trace states prefill the question and remain noindex", async (
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/i);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "https://version127.com/dns-trace",
+    "https://stack127.com/dns-trace",
   );
 });
 

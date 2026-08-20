@@ -1,6 +1,6 @@
 import { expect, test } from "playwright/test";
 
-const localPreview = process.env.VERSION127_TEST_DATABASE_ENV === ".env.local";
+const localPreview = process.env.STACK127_TEST_DATABASE_ENV === ".env.local";
 test.skip(!localPreview, "The interactive route needs the guarded local preview.");
 
 test("checks separately, clears stale results, imports, and resets", async ({ page }) => {
@@ -53,7 +53,7 @@ test("keeps the supporting guide readable after the tool", async ({ page }) => {
   expect(await tool.evaluate((node) => node.compareDocumentPosition(document.querySelector("article")!) & Node.DOCUMENT_POSITION_FOLLOWING)).toBeTruthy();
   await expect(page.getByRole("region", { name: "Home Assistant Energy field requirements" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Home Assistant Energy FAQ" })).toHaveAttribute("href", "https://www.home-assistant.io/docs/energy/faq/");
-  await expect(page.getByRole("link", { name: "version127 privacy policy" })).toHaveAttribute("href", "/privacy");
+  await expect(page.getByRole("link", { name: "stack127 privacy policy" })).toHaveAttribute("href", "/privacy");
 });
 
 test("keeps Energy and statistics conclusions independent", async ({ page }) => {
@@ -109,7 +109,7 @@ for (const [width, height] of [[1280, 800], [760, 1000], [375, 900], [320, 900]]
 for (const theme of ["dark", "light"] as const) {
   test(`renders the complete valid page in ${theme} theme`, async ({ page }) => {
     await page.addInitScript((selectedTheme) => {
-      window.localStorage.setItem("version127-theme", selectedTheme);
+      window.localStorage.setItem("stack127-theme", selectedTheme);
     }, theme);
     await page.goto("/home-assistant-energy-entity-checker");
     await expect(page.locator("html")).toHaveAttribute("data-theme", theme);

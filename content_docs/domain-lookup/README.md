@@ -2,7 +2,7 @@
 
 Route: `/domain-lookup`
 
-Publication state: controlled by the exact `domain-lookup` row in `public.version127_pages`.
+Publication state: controlled by the exact `domain-lookup` row in `public.stack127_pages`.
 
 Status: plan.
 
@@ -18,12 +18,12 @@ The reader's question is: what is the current registration state of this name, a
 
 One domain name. Accept and normalize:
 
-- a bare registrable name, `version127.com`
-- a hostname, `www.version127.com`, reduced to its registrable domain with a visible note that we did so
+- a bare registrable name, `stack127.com`
+- a hostname, `www.stack127.com`, reduced to its registrable domain with a visible note that we did so
 - an HTTP or HTTPS URL, hostname extracted
 - a Unicode IDN, converted to A-label before the query, with both forms shown
 
-Reduction to the registrable domain uses the pinned Public Suffix List through `lib/domain/public-suffix.ts`, ICANN section only. `www.example.co.uk` reduces to `example.co.uk`, not `co.uk`. This is a shared-engine dependency and it must be built before this tool, since a wrong reduction produces a confidently wrong lookup for a different name. See `version127_docs/rdap.md`.
+Reduction to the registrable domain uses the pinned Public Suffix List through `lib/domain/public-suffix.ts`, ICANN section only. `www.example.co.uk` reduces to `example.co.uk`, not `co.uk`. This is a shared-engine dependency and it must be built before this tool, since a wrong reduction produces a confidently wrong lookup for a different name. See `stack127_docs/rdap.md`.
 
 Always show the reduction on the result when we performed one. A reader who typed a hostname and receives registration data for a shorter name has to be able to see why.
 
@@ -36,7 +36,7 @@ There is no record type, no resolver picker, and no "all" option. RDAP returns o
 Lead with a plain sentence that answers the question, then the evidence. Something close to:
 
 ```
-version127.com is registered through HOSTINGER operations, UAB. It was created on
+stack127.com is registered through HOSTINGER operations, UAB. It was created on
 3 July 2026 and the registry expiry date is 3 July 2027. The registry currently
 has one status on it, client transfer prohibited, which blocks a transfer to
 another registrar until it is removed.
@@ -56,9 +56,9 @@ The three timestamps people confuse also get separated here, because this is the
 | --- | --- | --- |
 | record last changed | `last changed` | when the registry's stored data for this domain last changed |
 | database published | `last update of RDAP database` | when the RDAP service refreshed its own copy, unrelated to this domain |
-| our fetch | our cache | when Version127 retrieved this |
+| our fetch | our cache | when Stack127 retrieved this |
 
-Verified on `version127.com`, 28 July 2026: `last changed` was `2026-07-11T09:56:56Z` and `last update of RDAP database` was `2026-07-28T06:18:58Z`. Seventeen days apart, and a reader who conflates them concludes something changed today. Show `last changed` prominently and the other two quietly.
+Verified on `stack127.com`, 28 July 2026: `last changed` was `2026-07-11T09:56:56Z` and `last update of RDAP database` was `2026-07-28T06:18:58Z`. Seventeen days apart, and a reader who conflates them concludes something changed today. Show `last changed` prominently and the other two quietly.
 
 **Registrar.** Name, IANA ID, abuse contact email and phone when published, and the registrar's own RDAP or WHOIS URL.
 
@@ -76,7 +76,7 @@ A JSON download of the complete normalized result plus both raw responses, match
 
 ## Engine
 
-Per `version127_docs/rdap.md`:
+Per `stack127_docs/rdap.md`:
 
 1. Normalize the input to a registrable domain and A-label form.
 2. Resolve the TLD to an RDAP base URL through the committed IANA bootstrap plus reviewed overrides. No bootstrap entry and no override means we stop and say we cannot check this TLD.

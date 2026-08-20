@@ -10,4 +10,4 @@ The calculator keeps one flat canonical URL. Query-string share states remain
 `noindex, follow` and canonicalize to the clean route.
 
 Metadata, indexing, sitemap inclusion, and page JSON-LD remain owned by
-`public.version127_pages` and the shared root layout.
+`public.stack127_pages` and the shared root layout.

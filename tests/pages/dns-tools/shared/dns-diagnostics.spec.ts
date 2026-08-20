@@ -4,7 +4,7 @@ test("query-filled diagnostic pages remain noindex with a clean canonical", asyn
   await page.goto("/caa-checker?name=www.example.com");
   await expect(page.getByLabel("Domain or hostname")).toHaveValue("www.example.com");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/i);
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://version127.com/caa-checker");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://stack127.com/caa-checker");
 });
 
 test("DNSSEC result leads with the real validation steps and requested answer", async ({ page }) => {

@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "{{TOOL_NAME}}",
-  description: "Standalone Version127 tool.",
+  description: "Standalone Stack127 tool.",
 };
 
 export default function RootLayout({

@@ -2,7 +2,7 @@
 
 Route: `/caa-checker`
 
-Publication state: controlled by the exact `caa-checker` row in `public.version127_pages`.
+Publication state: controlled by the exact `caa-checker` row in `public.stack127_pages`.
 
 The input is the exact hostname a certificate will cover. Query its CAA records through a recursive resolver. If an alias has to be followed, query that alias target exactly. When neither the original name nor its alias yields a policy, resume the tree climb at the parent of the original certificate name. Do not climb through the alias target's parents. Stop at the first non-empty CAA record set. If one level fails, the policy is undetermined; do not silently skip upward.
 

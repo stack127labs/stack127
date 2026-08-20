@@ -2,301 +2,301 @@
   {
     "slug": "qpixel",
     "summary": "Q&A community app for questions, answers, voting, moderation, and knowledge sharing.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "ktistec",
     "summary": "Single-user ActivityPub server for posting, following accounts, and joining federated timelines.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "owlistic",
     "summary": "Notes and task app for writing ideas, tracking todos, and updating work in real time.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "figranium",
     "summary": "Browser automation tool for extracting page data and running repeatable web tasks.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "loops",
     "summary": "Federated short video app for browsing clips, posting videos, and following creators.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "lancommander",
     "summary": "Game distribution app for hosting LAN libraries, installers, metadata, and client downloads.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "dashwise",
     "summary": "Homelab dashboard for grouping service links, widgets, status views, and shortcuts.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "ifm",
     "summary": "Single-file PHP file manager for browsing folders, uploads, downloads, and server files.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "patchpanda",
     "summary": "Docker Compose update manager for tracking image changes and updating stacks.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "piler",
     "summary": "Email archiving app for indexing mail, searching messages, and retaining mailbox history.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "hamsterbase-tasks",
     "summary": "Task manager for HamsterBase users who need lists, reminders, and lightweight planning.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "zenphoto",
     "summary": "Gallery CMS for publishing photo albums, media pages, themes, and image collections.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "sympa",
     "summary": "Mailing list manager for subscriptions, moderation, archives, and group email delivery.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "specifically-clementines",
     "summary": "Media request app for collecting watch ideas, tracking lists, and organizing recommendations.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "pluxml",
     "summary": "XML-backed blog and CMS for publishing pages, posts, themes, and small websites.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "cially",
     "summary": "Discord analytics dashboard for viewing server activity, member trends, and community insights.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "atsumeru",
     "summary": "Media server for manga, comics, and light novels with library browsing and reading.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "bookheaven",
     "summary": "Ebook manager and reader for organizing books, opening files, and tracking reading.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "self-hosted-metrics",
     "summary": "Telemetry app for collecting software metrics, viewing usage, and tracking product signals.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "iso",
     "summary": "Dashboard app for showing service links, widgets, and quick access panels.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "nanote",
     "summary": "Note-taking app for quick writing, organizing text, and keeping small personal notes.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "pixelfin",
     "summary": "Photo gallery generator for turning Jellyfin image libraries into browsable HTML galleries.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "socks5-proxy-server",
     "summary": "SOCKS5 proxy server for routing network traffic through authenticated proxy endpoints.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "openuem",
     "summary": "Endpoint management app for IT assets, devices, inventory, and administrative tasks.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "plikshare",
     "summary": "File sharing app for uploading files, creating links, and managing shared downloads.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "snipo",
     "summary": "Snippet manager for saving reusable code, notes, commands, and small text blocks.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "ghostfile",
     "summary": "One-time file upload server for temporary links, quick transfers, and expiring downloads.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "tine",
     "summary": "Groupware app for calendars, contacts, email, tasks, and team collaboration.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "binpastes",
     "summary": "Pastebin app for sharing text snippets, code blocks, and temporary notes.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "listaway",
     "summary": "List app for collecting items, organizing entries, and keeping small shared records.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "refeed",
     "summary": "RSS reader for following feeds, reading posts, and organizing article updates.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "dumbkan",
     "summary": "Kanban board app for creating cards, moving tasks, and tracking small projects.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "amurex",
     "summary": "AI meeting assistant for capturing conversations, notes, summaries, and follow-up items.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "frappe-helpdesk",
     "summary": "Help desk app for support tickets, customer conversations, assignments, and service workflows.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "nodebb",
     "summary": "Forum app for discussions, categories, user accounts, moderation, and community posts.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "shiori",
     "summary": "Bookmark manager for saving web pages, tags, archives, and readable page copies.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "kanboard",
     "summary": "Kanban task board for projects, swimlanes, cards, subtasks, and work tracking.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "pgweb",
     "summary": "Browser PostgreSQL explorer for connecting databases, running queries, and browsing tables.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "pocket-id",
     "summary": "OIDC identity provider for passkey sign-in, app logins, and account management.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "woodpecker-ci",
     "summary": "CI/CD engine for running pipelines, builds, plugins, and repository automation.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "zammad",
     "summary": "Support desk app for tickets, customer messages, agents, and service queues.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "nullboard",
     "summary": "Single-page kanban board for compact task lists, columns, and quick planning.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "ironcalc",
     "summary": "Browser spreadsheet engine for rendering sheets, formulas, cells, and workbook logic.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "patchmon",
     "summary": "Linux patch monitor for checking available updates and tracking server maintenance.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "flood",
     "summary": "Web interface for torrent clients with downloads, filters, labels, and transfer controls.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "fladder",
     "summary": "Jellyfin frontend for browsing media libraries and playing content across devices.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "obico",
     "summary": "3D printing monitor with failure detection, webcam views, and print alerts.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "publify",
     "summary": "Web publishing app for writing posts, managing blogs, and running small sites.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "relaticle",
     "summary": "Client relationship manager for contacts, companies, interactions, and follow-up work.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   },
   {
     "slug": "rauthy",
     "summary": "Identity provider for authentication, OIDC flows, sessions, and user management.",
-    "summary_source": "version127_manual_refinement",
+    "summary_source": "stack127_manual_refinement",
     "summary_confidence": "medium"
   }
 ]

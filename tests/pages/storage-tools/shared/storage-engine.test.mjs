@@ -303,7 +303,7 @@ test("state encoding rejects cycles, reserved tags, and oversized URL state", ()
     calculatorId: "fixture",
     calculatorVersion: 1,
     inputVersion: 1,
-    payload: { $version127BigInt: "not-an-engine-tag" },
+    payload: { $stack127BigInt: "not-an-engine-tag" },
   }), StorageStateError);
 
   assert.throws(() => encodeStorageState({

@@ -34,4 +34,4 @@ Avoid filler such as `solution`, `powerful`, `ultimate`, `seamless`, and `all-in
 
 Keep details in the `/self-host-apps` drawer. Render complete project facts in server HTML so search crawlers and AI agents do not need to execute the drawer.
 
-See `version127_docs/open-projects.md`, `content_docs/self-host-apps/schema.md`, and `content_docs/self-host-apps/data-workflow.md` for the data contract and workflow.
+See `stack127_docs/open-projects.md`, `content_docs/self-host-apps/schema.md`, and `content_docs/self-host-apps/data-workflow.md` for the data contract and workflow.

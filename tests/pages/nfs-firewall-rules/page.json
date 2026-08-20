@@ -3,18 +3,18 @@
   "state": "published",
   "docs": ["content_docs/nfs-firewall-rules"],
   "tests": [
-    "tests/version127/seo.spec.ts",
+    "tests/stack127/seo.spec.ts",
     "tests/pages/nfs-firewall-rules/nfs-firewall-rules.test.mjs",
     "tests/pages/nfs-firewall-rules/page.test.mjs",
     "tests/pages/nfs-firewall-rules/nfs-firewall-rules.spec.ts"
   ],
   "scripts": ["scripts/nfs-firewall-rules/preview-local-page.mjs"],
   "skills": [
-    "skills/version127/test-driven-page",
-    "skills/version127/visual-first-content",
-    "skills/version127/version127-tool-build",
-    "skills/version127/version127-tool-orchestrator",
-    "skills/version127/version127-tool-writing"
+    "skills/stack127/test-driven-page",
+    "skills/stack127/visual-first-content",
+    "skills/stack127/stack127-tool-build",
+    "skills/stack127/stack127-tool-orchestrator",
+    "skills/stack127/stack127-tool-writing"
   ],
   "repositories": []
 }

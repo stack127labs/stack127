@@ -7,7 +7,7 @@
     "tests/pages/self-host-apps/license-filter.spec.ts",
     "tests/pages/self-host-apps/layout.spec.ts",
     "tests/pages/self-host-apps/source-model.test.mjs",
-    "tests/version127/seo.spec.ts"
+    "tests/stack127/seo.spec.ts"
   ],
   "scripts": ["scripts/self-host-apps"],
   "skills": ["skills/self-host-apps"],

@@ -1,4 +1,4 @@
-# Version127 Scripts
+# Stack127 Scripts
 
 Scripts are grouped by page or product surface so future directories can grow without mixing workflows.
 
@@ -7,7 +7,7 @@ Scripts are grouped by page or product surface so future directories can grow wi
 | surface | folder | manifest |
 | --- | --- | --- |
 | Self-host apps | `scripts/self-host-apps` | `scripts/self-host-apps/scripts.json` |
-| Sitewide Version127 | `scripts/version127` | n/a |
+| Sitewide Stack127 | `scripts/stack127` | n/a |
 
 Each group owns its own README, validation rules, importers, and database helpers.
 

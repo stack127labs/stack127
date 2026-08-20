@@ -3,8 +3,8 @@ import { NextResponse, type NextRequest } from "next/server";
 export function proxy(request: NextRequest) {
   const headers = new Headers(request.headers);
 
-  headers.set("x-version127-pathname", request.nextUrl.pathname);
-  headers.set("x-version127-has-query", request.nextUrl.search ? "1" : "0");
+  headers.set("x-stack127-pathname", request.nextUrl.pathname);
+  headers.set("x-stack127-has-query", request.nextUrl.search ? "1" : "0");
 
   return NextResponse.next({
     request: {

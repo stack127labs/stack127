@@ -2,7 +2,7 @@
 
 ## Who is here
 
-A technical reader has landed without a specific tool in mind, or has heard about version127 and wants to see what is available. They understand the broad subjects but should not need to learn the site structure first.
+A technical reader has landed without a specific tool in mind, or has heard about stack127 and wants to see what is available. They understand the broad subjects but should not need to learn the site structure first.
 
 ## The job
 

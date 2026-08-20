@@ -842,7 +842,7 @@ export default async function SelfHostAppsPage({
         <SidebarLabel>{registryPage.label}</SidebarLabel>
         <a
           className={sidebarPanelGithubLinkClassName}
-          href="https://github.com/version127/version127-datasets/tree/main/self-host-apps"
+          href="https://github.com/stack127/stack127-datasets/tree/main/self-host-apps"
           rel="noreferrer"
           target="_blank"
         >

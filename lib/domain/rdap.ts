@@ -12,7 +12,7 @@ import { readCachedRdap, writeCachedRdap } from "./cache.ts";
 import { acquireEndpointSlot, reportEndpointResult } from "./throttle.ts";
 import type { RdapFetch, RdapFetchStatus, RdapSource } from "./types.ts";
 
-const USER_AGENT = "Version127-domain-tools/1.0 (+https://version127.com/domain-tools)";
+const USER_AGENT = "Stack127-domain-tools/1.0 (+https://stack127.com/domain-tools)";
 const MAX_RESPONSE_BYTES = 1_000_000;
 const DEFAULT_TIMEOUT_MS = 12_000;
 

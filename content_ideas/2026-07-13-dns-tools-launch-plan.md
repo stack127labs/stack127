@@ -1,11 +1,11 @@
-# Version127 DNS Tools Launch Plan
+# Stack127 DNS Tools Launch Plan
 
 Date: 2026-07-13
 Status: approved for local implementation
 
 This document keeps the approved plan for the five DNS tools that follow DNS Lookup and DNS Trace Explorer. Each tool is a separate product page with one clear job. The pages may reuse safe DNS code internally, but they must not become one combined health report or copy the same result layout without regard for the question being answered.
 
-All writing follows `version127_docs/writing-style.md`: full sentences, simple language, useful evidence first, and no decorative eyebrows, floating helper copy, health scores, or false certainty.
+All writing follows `stack127_docs/writing-style.md`: full sentences, simple language, useful evidence first, and no decorative eyebrows, floating helper copy, health scores, or false certainty.
 
 ## DNS Change Checker
 
@@ -126,7 +126,7 @@ When DNSSEC applies, a bogus answer makes the CAA policy undetermined and links 
 
 ## Shared route and publication requirements
 
-- Each route has its own server-rendered explanation, interactive client result, API contract, colocated styles, tests, and exact `public.version127_pages` row.
+- Each route has its own server-rendered explanation, interactive client result, API contract, colocated styles, tests, and exact `public.stack127_pages` row.
 - Query-param variants remain `noindex, follow` with the clean canonical.
 - Publication rows are added to the local database only during local implementation. Production publication remains a separate explicit action.
 - The DNS sidebar and hub list only tools that are locally complete and available.

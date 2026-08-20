@@ -12,8 +12,8 @@
     "purpose": "Refreshes the committed reference datasets /domain-tools depends on: IANA RDAP bootstrap, the root zone TLD list, the Public Suffix List, and the Unicode IDNA and script tables."
   },
   {
-    "surface": "version127",
-    "folder": "scripts/version127",
+    "surface": "stack127",
+    "folder": "scripts/stack127",
     "manifest": null,
     "purpose": "Sitewide durable scripts that are not owned by one page."
   },

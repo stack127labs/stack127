@@ -1,5 +1,5 @@
 {
-  "name": "version127",
+  "name": "stack127",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,9 +11,9 @@
     "lint": "npm run test:static",
     "test": "npm run typecheck && npm run test:unit && npm run test:static",
     "test:unit": "node --experimental-strip-types --test-concurrency=1 --test \"tests/**/*.test.mjs\"",
-    "test:static": "node scripts/version127/quality/static-policy.mjs",
+    "test:static": "node scripts/stack127/quality/static-policy.mjs",
     "test:seo": "playwright test",
-    "test:seo:registry": "node --env-file=.env.database scripts/version127/quality/seo-registry-check.mjs",
+    "test:seo:registry": "node --env-file=.env.database scripts/stack127/quality/seo-registry-check.mjs",
     "quality": "npm run test && npm run test:seo:registry && npm run test:seo && npm run build",
     "self-host-apps:discover-awesome-selfhosted": "node scripts/self-host-apps/discover-awesome-selfhosted.mjs",
     "self-host-apps:discover-selfhst": "node scripts/self-host-apps/discover-selfhst.mjs",
@@ -48,12 +48,12 @@
     "domain-tools:check-datasets": "node scripts/domain-tools/refresh-datasets.mjs --check",
     "domain-tools:refresh-tld-directory": "node --experimental-strip-types scripts/domain-tools/refresh-tld-directory.mjs",
     "domain-tools:check-tld-directory": "node --experimental-strip-types scripts/domain-tools/refresh-tld-directory.mjs --check",
-    "version127:marker-art": "node scripts/version127/marker-art/generate.mjs",
-    "version127:clean-charts": "node scripts/version127/clean-charts/generate.mjs",
-    "version127:dataset:export": "node scripts/version127/github/export-dataset.mjs",
-    "version127:dataset:sync": "node scripts/version127/github/sync-dataset-repo.mjs",
-    "version127:tool:new": "node scripts/version127/github/create-tool-repo.mjs",
-    "version127:deploy:preflight": "node scripts/version127/deployment/preflight.mjs --check-git --check-cloudflare"
+    "stack127:marker-art": "node scripts/stack127/marker-art/generate.mjs",
+    "stack127:clean-charts": "node scripts/stack127/clean-charts/generate.mjs",
+    "stack127:dataset:export": "node scripts/stack127/github/export-dataset.mjs",
+    "stack127:dataset:sync": "node scripts/stack127/github/sync-dataset-repo.mjs",
+    "stack127:tool:new": "node scripts/stack127/github/create-tool-repo.mjs",
+    "stack127:deploy:preflight": "node scripts/stack127/deployment/preflight.mjs --check-git --check-cloudflare"
   },
   "dependencies": {
     "@namefi/dnssec-audit": "^2.1.1",

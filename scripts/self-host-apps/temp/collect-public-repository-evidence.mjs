@@ -28,7 +28,7 @@ async function fetchText(url, accept = "text/plain") {
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     try {
       const response = await fetch(url, {
-        headers: { Accept: accept, "User-Agent": "version127-candidate-review/1.0" },
+        headers: { Accept: accept, "User-Agent": "stack127-candidate-review/1.0" },
         redirect: "follow",
         signal: AbortSignal.timeout(45000),
       });

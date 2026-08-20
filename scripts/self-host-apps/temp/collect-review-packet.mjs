@@ -34,7 +34,7 @@ async function fetchReadme(item) {
   const candidate = candidates.get(item.candidate_id);
   try {
     const response = await fetch(item.readme.download_url, {
-      headers: { Accept: "text/plain", "User-Agent": "version127-candidate-review/1.0" },
+      headers: { Accept: "text/plain", "User-Agent": "stack127-candidate-review/1.0" },
       signal: AbortSignal.timeout(30000),
     });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);

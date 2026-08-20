@@ -157,7 +157,7 @@ const reviews = worksheet.records.map((record, index) => {
       : record.license_url ?? `${repositoryUrl}#license`;
   const owner = new URL(repositoryUrl).pathname.split("/").filter(Boolean)[0];
   const iconUrl = options.sourceUrl
-    ? `https://opengraph.githubassets.com/version127/${new URL(repositoryUrl).pathname.slice(1)}`
+    ? `https://opengraph.githubassets.com/stack127/${new URL(repositoryUrl).pathname.slice(1)}`
     : record.repository_image_url;
   const websiteUrl = record.repository_homepage_url ?? null;
   const installDocsUrl = selfHostingStatus === "self_hostable" ? repositoryUrl : null;
@@ -195,8 +195,8 @@ const reviews = worksheet.records.map((record, index) => {
   };
   const editorialUrl = record.readme_url ?? repositoryUrl;
   const fieldSources = [
-    source("summary", "version127_curated", editorialUrl, "Written from the verified upstream project documentation."),
-    source("categories", "version127_curated", editorialUrl, "Assigned by project purpose after editorial review."),
+    source("summary", "stack127_curated", editorialUrl, "Written from the verified upstream project documentation."),
+    source("categories", "stack127_curated", editorialUrl, "Assigned by project purpose after editorial review."),
     source("icon_url", "official_repository", iconUrl, "Official repository social image.", "medium"),
     source("source_code_url", "official_repository", repositoryUrl),
     source("source_code_host", "official_repository", repositoryUrl),
@@ -207,8 +207,8 @@ const reviews = worksheet.records.map((record, index) => {
     source("publisher_name", "official_repository", repositoryUrl),
     source("publisher_url", "official_repository", repositoryUrl),
     source("self_hosting_status", "official_repository", installDocsUrl ?? editorialUrl),
-    source("summary_source", "version127_curated", editorialUrl),
-    source("summary_confidence", "version127_curated", editorialUrl),
+    source("summary_source", "stack127_curated", editorialUrl),
+    source("summary_confidence", "stack127_curated", editorialUrl),
   ];
   if (websiteUrl) fieldSources.push(source("website_url", "official_repository", repositoryUrl));
   if (installDocsUrl) fieldSources.push(source("install_docs_url", "official_documentation", editorialUrl));
@@ -248,15 +248,15 @@ for (const item of nonGithub) {
     categories, summary_source: "curated", summary_confidence: "high",
   };
   const fieldSources = [
-    source("summary", "version127_curated", installUrl, "Written from verified upstream documentation."),
-    source("categories", "version127_curated", installUrl, "Assigned by project purpose after editorial review."),
+    source("summary", "stack127_curated", installUrl, "Written from verified upstream documentation."),
+    source("categories", "stack127_curated", installUrl, "Assigned by project purpose after editorial review."),
     source("icon_url", "official_repository", iconUrl, "Official repository or publisher avatar.", "medium"),
     source("source_code_url", "official_repository", repositoryUrl), source("source_code_host", "official_repository", repositoryUrl),
     source("license", "repository_license", licenseUrl), source("license_type", "repository_license", licenseUrl),
     source("license_spdx_id", "repository_license", licenseUrl), source("source_model", "repository_license", licenseUrl),
     source("publisher_name", "official_repository", repositoryUrl), source("publisher_url", "official_repository", repositoryUrl),
     source("self_hosting_status", "official_documentation", installUrl), source("install_docs_url", "official_documentation", installUrl),
-    source("summary_source", "version127_curated", installUrl), source("summary_confidence", "version127_curated", installUrl),
+    source("summary_source", "stack127_curated", installUrl), source("summary_confidence", "stack127_curated", installUrl),
     source("surfaces", "official_documentation", installUrl),
   ];
   if (docker) {

@@ -1,5 +1,5 @@
 export const STORAGE_ENGINE_VERSION = 1 as const;
-export const STORAGE_STATE_SCHEMA = "version127-storage-state" as const;
+export const STORAGE_STATE_SCHEMA = "stack127-storage-state" as const;
 export const STORAGE_STATE_SCHEMA_VERSION = 1 as const;
 export const MAX_STORAGE_DRIVES = 1_024 as const;
 export const MAX_DRIVE_CAPACITY_BYTES = 1_000_000_000_000_000_000_000_000n;

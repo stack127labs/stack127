@@ -170,7 +170,7 @@ function uniqueCandidates(candidates) {
 async function fetchText(url) {
   const response = await fetch(url, {
     headers: {
-      "User-Agent": "version127-self-host-apps-discovery/1.0",
+      "User-Agent": "stack127-self-host-apps-discovery/1.0",
       Accept: "text/html,application/xhtml+xml",
     },
   });

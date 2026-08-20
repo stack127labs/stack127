@@ -5,7 +5,7 @@ export const revalidate = 0;
 export const runtime = "nodejs";
 
 function readBuildSha() {
-  const environmentSha = process.env.VERSION127_BUILD_SHA ?? process.env.GIT_COMMIT_SHA;
+  const environmentSha = process.env.STACK127_BUILD_SHA ?? process.env.GIT_COMMIT_SHA;
   return environmentSha || "unknown";
 }
 

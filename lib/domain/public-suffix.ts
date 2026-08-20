@@ -3,7 +3,7 @@
  *
  * ICANN section only. The private section would make github.io a suffix, so
  * myproject.github.io would reduce to itself and we would query a registry for a
- * name that has no registration. See version127_docs/rdap.md.
+ * name that has no registration. See stack127_docs/rdap.md.
  */
 
 import pslData from "./data/public-suffix.json" with { type: "json" };

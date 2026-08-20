@@ -11,7 +11,7 @@ const tagsUrl = "https://selfhst.github.io/cdn/directory/tags.json";
 
 async function fetchJson(url) {
   const response = await fetch(url, {
-    headers: { "User-Agent": "version127-self-host-apps-discovery/1.0" },
+    headers: { "User-Agent": "stack127-self-host-apps-discovery/1.0" },
   });
   if (!response.ok) throw new Error(`Failed to fetch ${url}: ${response.status}`);
   return response.json();

@@ -11,7 +11,7 @@ function getInitialTheme(): Theme {
     return "dark";
   }
 
-  const storedTheme = window.localStorage.getItem("version127-theme");
+  const storedTheme = window.localStorage.getItem("stack127-theme");
 
   if (storedTheme === "light" || storedTheme === "dark") {
     return storedTheme;
@@ -35,7 +35,7 @@ export function ThemeToggle() {
   function handleThemeChange() {
     setTheme(nextTheme);
     document.documentElement.dataset.theme = nextTheme;
-    window.localStorage.setItem("version127-theme", nextTheme);
+    window.localStorage.setItem("stack127-theme", nextTheme);
   }
 
   const ThemeIcon = nextTheme === "light" ? Sun : Moon;

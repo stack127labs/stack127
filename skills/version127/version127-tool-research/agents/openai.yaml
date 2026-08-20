@@ -1,4 +1,0 @@
-interface:
-  display_name: "version127 Tool Research"
-  short_description: "Research one version127 tool page deeply"
-  default_prompt: "Use $version127-tool-research to research competitors, record the search and visual backends, and produce the competitive report for this tool."

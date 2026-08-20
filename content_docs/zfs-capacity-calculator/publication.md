@@ -10,4 +10,4 @@ The registry label, meta title, and meta description come from the metadata prop
 
 `/storage-tools/zfs-capacity-calculator` redirects permanently to the canonical flat route.
 
-Metadata, indexing, sitemap inclusion, and page JSON-LD remain owned by `public.version127_pages` and the shared root layout.
+Metadata, indexing, sitemap inclusion, and page JSON-LD remain owned by `public.stack127_pages` and the shared root layout.

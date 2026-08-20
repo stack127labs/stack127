@@ -20,6 +20,7 @@ type InfoPageProps = {
 
 const links = [
   { href: "/about", label: "about" },
+  { href: "/labs", label: "labs" },
   { href: "/privacy", label: "privacy" },
   { href: "/terms", label: "terms" },
   { href: "/self-host-apps", label: "self-host apps" },
@@ -40,7 +41,7 @@ function InfoSidebar({ label }: { label: string }) {
         ))}
       </nav>
       <p className={styles.contact}>
-        <a href="mailto:version127@proton.me">version127@proton.me</a>
+        <a href="mailto:stack127@proton.me">stack127@proton.me</a>
       </p>
     </div>
   );

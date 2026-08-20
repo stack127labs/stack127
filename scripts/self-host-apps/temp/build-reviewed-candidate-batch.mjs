@@ -120,8 +120,8 @@ for (const edit of editorial.records) {
     summary_confidence: "high",
   };
   const sources = [
-    fieldSource("summary", "version127_curated", repoUrl, "high", "Written from the verified repository and official documentation."),
-    fieldSource("categories", "version127_curated", repoUrl, "high", "Assigned by project purpose after editorial review."),
+    fieldSource("summary", "stack127_curated", repoUrl, "high", "Written from the verified repository and official documentation."),
+    fieldSource("categories", "stack127_curated", repoUrl, "high", "Assigned by project purpose after editorial review."),
     iconSource,
     fieldSource("source_code_url", "github_api", apiUrl),
     fieldSource("source_code_host", "github_api", apiUrl),
@@ -129,8 +129,8 @@ for (const edit of editorial.records) {
     fieldSource("license_type", "repository_license", licenseUrl),
     fieldSource("source_model", "repository_license", licenseUrl),
     fieldSource("self_hosting_status", "official_repository", installUrl ?? repoUrl),
-    fieldSource("summary_source", "version127_curated", repoUrl),
-    fieldSource("summary_confidence", "version127_curated", repoUrl),
+    fieldSource("summary_source", "stack127_curated", repoUrl),
+    fieldSource("summary_confidence", "stack127_curated", repoUrl),
     fieldSource("publisher_name", "github_api", apiUrl),
     fieldSource("publisher_url", "github_api", apiUrl),
   ];

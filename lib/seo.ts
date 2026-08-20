@@ -1,5 +1,5 @@
-export const siteName = "version127";
-export const siteUrl = new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://version127.com");
+export const siteName = "stack127";
+export const siteUrl = new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://stack127.com");
 export const defaultDescription = "Find useful technical tools, references, and directories.";
 
 export function absoluteUrl(path = "/") {

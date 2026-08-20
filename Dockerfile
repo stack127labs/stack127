@@ -6,20 +6,20 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 FROM base AS builder
-ARG VERSION127_BUILD_SHA=unknown
+ARG STACK127_BUILD_SHA=unknown
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV VERSION127_BUILD_SHA=$VERSION127_BUILD_SHA
+ENV STACK127_BUILD_SHA=$STACK127_BUILD_SHA
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN printf '%s\n' "$VERSION127_BUILD_SHA" > /app/build-sha
+RUN printf '%s\n' "$STACK127_BUILD_SHA" > /app/build-sha
 RUN npm run build
 
 FROM base AS runner
-ARG VERSION127_BUILD_SHA=unknown
+ARG STACK127_BUILD_SHA=unknown
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
-ENV VERSION127_BUILD_SHA=$VERSION127_BUILD_SHA
+ENV STACK127_BUILD_SHA=$STACK127_BUILD_SHA
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs

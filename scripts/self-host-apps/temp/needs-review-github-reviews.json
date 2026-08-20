@@ -79,7 +79,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/u-wave/core",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z",
@@ -87,7 +87,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/u-wave/core",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z",
@@ -145,14 +145,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/u-wave/core",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/u-wave/core",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z"
@@ -465,7 +465,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/grai-io/grai-core",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z",
@@ -473,7 +473,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/grai-io/grai-core",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z",
@@ -530,14 +530,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/grai-io/grai-core",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/grai-io/grai-core",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z"
@@ -835,7 +835,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/chintanbanugaria/92five",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z",
@@ -843,7 +843,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/chintanbanugaria/92five",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z",
@@ -900,14 +900,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/chintanbanugaria/92five",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/chintanbanugaria/92five",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z"
@@ -1189,7 +1189,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/photostructure/photostructure-for-servers",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z",
@@ -1197,7 +1197,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/photostructure/photostructure-for-servers",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z",
@@ -1254,14 +1254,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/photostructure/photostructure-for-servers",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/photostructure/photostructure-for-servers",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z"
@@ -1541,7 +1541,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/1436941541/pdf-dark",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z",
@@ -1549,7 +1549,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/1436941541/pdf-dark",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z",
@@ -1606,14 +1606,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/1436941541/pdf-dark",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/1436941541/pdf-dark",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.810Z"
@@ -1893,7 +1893,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/WebDB-App/app",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z",
@@ -1901,7 +1901,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/WebDB-App/app",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z",
@@ -1958,14 +1958,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/WebDB-App/app",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/WebDB-App/app",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z"
@@ -2245,7 +2245,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/kmdreko/venator",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z",
@@ -2253,7 +2253,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/kmdreko/venator",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z",
@@ -2310,14 +2310,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/kmdreko/venator",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/kmdreko/venator",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z"
@@ -2590,7 +2590,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/zeroclaw-labs/zeroclaw",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z",
@@ -2598,7 +2598,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/zeroclaw-labs/zeroclaw",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z",
@@ -2655,14 +2655,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/zeroclaw-labs/zeroclaw",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/zeroclaw-labs/zeroclaw",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z"
@@ -2930,7 +2930,7 @@
       "field_sources": [
         {
           "field_name": "summary",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z",
@@ -2938,7 +2938,7 @@
         },
         {
           "field_name": "categories",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z",
@@ -2995,14 +2995,14 @@
         },
         {
           "field_name": "summary_source",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z"
         },
         {
           "field_name": "summary_confidence",
-          "source": "version127_curated",
+          "source": "stack127_curated",
           "source_url": "https://github.com/Kshitij-Banerjee/Cubiks-2048",
           "confidence": "high",
           "checked_at": "2026-07-19T10:07:37.811Z"

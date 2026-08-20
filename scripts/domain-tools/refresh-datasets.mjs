@@ -37,7 +37,7 @@ const SOURCES = {
 
 async function get(url) {
   const response = await fetch(url, {
-    headers: { "user-agent": "Version127-domain-tools/1.0 (+https://version127.com)" },
+    headers: { "user-agent": "Stack127-domain-tools/1.0 (+https://stack127.com)" },
     signal: AbortSignal.timeout(60_000),
   });
   if (!response.ok) throw new Error(`${url} returned ${response.status}`);
@@ -117,7 +117,7 @@ function parseTlds(raw) {
  * The PRIVATE DOMAINS section would make github.io a suffix, so myproject.github.io
  * would reduce to itself and we would query a registry for a name that has no
  * registration. That is the wrong answer for every tool here, so it is excluded
- * deliberately. See version127_docs/rdap.md.
+ * deliberately. See stack127_docs/rdap.md.
  */
 function parsePsl(raw) {
   const rules = [];

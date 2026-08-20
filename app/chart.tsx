@@ -7,7 +7,7 @@ import styles from "./chart.module.css";
  * fetched or drawn at runtime: it is bundled, server rendered, and cached
  * with the page. Marker art explains concepts; this states data.
  *
- * Workflow and style guide: version127_docs/visual-first.md
+ * Workflow and style guide: stack127_docs/visual-first.md
  */
 export function Chart({ svg, caption }: { svg: string; caption?: string }) {
   return <MediaFigure caption={caption} className={styles.chart} kind="diagram" svg={svg} />;

@@ -2,7 +2,7 @@
 
 Route: `/domain-tools/ip-asn-lookup`
 
-Publication state: controlled by the exact `domain-tools/ip-asn-lookup` row in `public.version127_pages`.
+Publication state: controlled by the exact `domain-tools/ip-asn-lookup` row in `public.stack127_pages`.
 
 Status: plan.
 

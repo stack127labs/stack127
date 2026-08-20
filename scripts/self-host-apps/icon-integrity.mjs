@@ -34,7 +34,7 @@ async function fetchIcon(url) {
     redirect: "follow",
     headers: {
       Accept: "image/avif,image/webp,image/png,image/jpeg,image/svg+xml,image/*,*/*;q=0.8",
-      "User-Agent": "version127-icon-cache",
+      "User-Agent": "stack127-icon-cache",
     },
   });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -81,8 +81,8 @@ function inspectIcon(row) {
 
 async function writeFetchedIcon(client, row, url) {
   const target = path.join(appIconDir, `${row.slug}.png`);
-  const tempSource = path.join("/tmp", `version127-${row.slug}-${Date.now()}.icon`);
-  const tempPng = path.join("/tmp", `version127-${row.slug}-${Date.now()}.png`);
+  const tempSource = path.join("/tmp", `stack127-${row.slug}-${Date.now()}.icon`);
+  const tempPng = path.join("/tmp", `stack127-${row.slug}-${Date.now()}.png`);
 
   const buffer = await fetchIcon(url);
   writeFileSync(tempSource, buffer);
@@ -117,7 +117,7 @@ async function refreshTinyIcon(client, row) {
 async function fixLocalIcon(row) {
   const file = localIconPath(row.icon_url);
   if (!file) throw new Error("not a local icon path");
-  const tempPng = path.join("/tmp", `version127-${row.slug}-${Date.now()}.png`);
+  const tempPng = path.join("/tmp", `stack127-${row.slug}-${Date.now()}.png`);
   convertToPng(file, tempPng);
   renameSync(tempPng, file);
 }

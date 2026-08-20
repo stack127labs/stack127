@@ -92,7 +92,7 @@ One thing worth knowing early so you don't worry about it: an app on your server
 
 Each lesson usually has:
 
-- No route-owned SEO metadata. Public metadata belongs in `public.version127_pages`.
+- No route-owned SEO metadata. Public metadata belongs in `public.stack127_pages`.
 - One conversational H1. First person is fine, e.g. "The stuff I actually run on my server".
 - A lede that says the useful thing immediately, in voice. Not "by the end of this page you will learn".
 - The explanation, carried in short paragraphs with real examples and a clear opinion.
@@ -136,9 +136,9 @@ Each lesson should stand alone for readers, but publication is not controlled by
 - The sidebar can show course order, but the page intro should not require the previous lesson.
 - Use clear internal links between related lessons.
 - A built lesson route is not public just because code exists.
-- Add `self-hosting-for-beginners` to `public.version127_pages` to make the course root public.
-- Child lesson routes under a published `self-hosting-for-beginners` root render as `noindex, follow` unless their exact slug is added to `version127_pages`.
-- Add an exact lesson slug such as `self-hosting-for-beginners/linux-ssh-basics` to `version127_pages` only when that lesson should be `index, follow` and included in the sitemap.
+- Add `self-hosting-for-beginners` to `public.stack127_pages` to make the course root public.
+- Child lesson routes under a published `self-hosting-for-beginners` root render as `noindex, follow` unless their exact slug is added to `stack127_pages`.
+- Add an exact lesson slug such as `self-hosting-for-beginners/linux-ssh-basics` to `stack127_pages` only when that lesson should be `index, follow` and included in the sitemap.
 
 ## Author Section
 
@@ -181,9 +181,9 @@ Examples:
 
 ## Full Lesson Tracker
 
-Order and coverage are defined in `course-outline.md`; this table only tracks build status against it. Check a page done only after its route, content, sidebar link, visual, and internal links are complete. Publishing metadata belongs in `public.version127_pages`, not this tracker.
+Order and coverage are defined in `course-outline.md`; this table only tracks build status against it. Check a page done only after its route, content, sidebar link, visual, and internal links are complete. Publishing metadata belongs in `public.stack127_pages`, not this tracker.
 
-The 16-lesson route spine is built in the repo and sets the voice. Publication is still controlled only by `public.version127_pages`; each exact lesson slug should stay aligned with the production registry, sitemap checks, and route coverage manifest.
+The 16-lesson route spine is built in the repo and sets the voice. Publication is still controlled only by `public.stack127_pages`; each exact lesson slug should stay aligned with the production registry, sitemap checks, and route coverage manifest.
 
 | Done | Order | Sidebar label | Slug | Page H1 |
 | --- | ---: | --- | --- | --- |
@@ -220,7 +220,7 @@ Use this checklist for each page before marking it done above.
 - [ ] Reads in the first-person lived-in voice and passes the Writing Style checks.
 - [ ] `npx tsc --noEmit` is clean and the page renders (sidebar, diagram, prev/next).
 
-The sidebar and prev/next links update automatically from `lib/self-hosting-for-beginners.ts`. Sitemap inclusion only comes from `public.version127_pages`.
+The sidebar and prev/next links update automatically from `lib/self-hosting-for-beginners.ts`. Sitemap inclusion only comes from `public.stack127_pages`.
 
 ## Design Direction
 

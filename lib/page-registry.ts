@@ -5,7 +5,7 @@ import { getPool } from "./db";
 import { absoluteUrl, siteName, siteUrl } from "./seo";
 import { homePageSlugs } from "./page-registry-helpers";
 
-export type Version127Page = {
+export type Stack127Page = {
   slug: string;
   /** Compact UI label for sidebars, home cards, and other chrome. */
   label: string;
@@ -64,14 +64,14 @@ export type PagePublicationState =
   | {
       kind: "exact";
       index: boolean;
-      page: Version127Page;
+      page: Stack127Page;
       pathname: string;
       slug: string;
     }
   | {
       kind: "child";
       index: false;
-      page: Version127Page;
+      page: Stack127Page;
       parentSlug: string;
       pathname: string;
       slug: string;
@@ -95,7 +95,7 @@ const publishedPageSelect = `
     cover_image_url,
     page_type,
     sitemap_priority
-  from public.version127_pages
+  from public.stack127_pages
   where is_published = true
 `;
 
@@ -127,7 +127,7 @@ function ancestorSlugs(slug: string) {
 
 export const getPublishedPage = cache(async (slug: string) => {
   const pool = getPool();
-  const result = await pool.query<Version127Page>(
+  const result = await pool.query<Stack127Page>(
     `${publishedPageSelect} and slug = $1 limit 1`,
     [slug],
   );
@@ -137,7 +137,7 @@ export const getPublishedPage = cache(async (slug: string) => {
   const legacySlug = legacyToolSlugByFlatSlug.get(slug);
   if (!legacySlug) return null;
 
-  const legacyResult = await pool.query<Version127Page>(
+  const legacyResult = await pool.query<Stack127Page>(
     `${publishedPageSelect} and slug = $1 limit 1`,
     [legacySlug],
   );
@@ -196,11 +196,11 @@ export const getPagePublicationState = cache(
 );
 
 export const getPublishedSitemapPages = cache(async () => {
-  const result = await getPool().query<Version127Page>(
+  const result = await getPool().query<Stack127Page>(
     `${publishedPageSelect} order by slug asc`,
   );
 
-  const pagesBySlug = new Map<string, Version127Page>();
+  const pagesBySlug = new Map<string, Stack127Page>();
 
   for (const page of result.rows) {
     const slug = flatToolSlugByLegacySlug.get(page.slug) ?? page.slug;
@@ -223,7 +223,7 @@ export const getPublishedSitemapPages = cache(async () => {
  * navigation metadata because tool pages intentionally use flat routes.
  */
 export const getMainPublishedPages = cache(async () => {
-  const result = await getPool().query<Version127Page>(
+  const result = await getPool().query<Stack127Page>(
     `
       ${publishedPageSelect}
         and slug = any($1::text[])

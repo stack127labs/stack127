@@ -9,7 +9,7 @@ const unique = `v127-nginx-uri-${process.pid}`;
 const network = `${unique}-network`;
 const backend = `${unique}-backend`;
 const proxy = `${unique}-proxy`;
-const work = mkdtempSync(join(tmpdir(), "version127-nginx-uri-"));
+const work = mkdtempSync(join(tmpdir(), "stack127-nginx-uri-"));
 
 const backendConfig = `server {
   listen 8080;

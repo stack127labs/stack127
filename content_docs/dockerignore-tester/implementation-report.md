@@ -79,7 +79,7 @@ Contract version 1 uses slash as the path separator and ports the behavior of `i
 10. Count submitted path lines in exactly two groups, included and excluded. Repeated normalized paths count separately.
 11. `Copy results` emits UTF-8 plain text with contract version, source mode, included and excluded counts, then tab-separated `raw path`, `normalized path`, `verdict`, and `deciding line`. It never copies the rule editors unless the matching rule is already present in a result row.
 
-The TypeScript engine is not accepted from design similarity. The builder must create a fixture corpus identified as Moby v0.6.1, port the upstream public cases, add version127 trace cases, and prove final verdict parity. Any unresolved disagreement is an engine error and blocks the page.
+The TypeScript engine is not accepted from design similarity. The builder must create a fixture corpus identified as Moby v0.6.1, port the upstream public cases, add stack127 trace cases, and prove final verdict parity. Any unresolved disagreement is an engine error and blocks the page.
 
 ### Rounding, display, and versioning
 
@@ -297,7 +297,7 @@ No marker art, chart, screenshot, or decorative diagram is planned. The exact re
 - `tests/pages/dockerignore-tester/dockerignore-tester.test.mjs`: P0 and P1 parser, matcher, trace, normalization, limit, version, and copy tests.
 - `tests/pages/dockerignore-tester/page.test.mjs`: server content, flat route source, metadata prohibition, publication state, and static composition tests.
 - `tests/pages/dockerignore-tester/dockerignore-tester.spec.ts`: real Browser action, invalid recovery, copy, responsive, theme, keyboard, state-query cleanup, and stale-result tests under guarded local preview.
-- `tests/pages/dockerignore-tester/fixtures/moby-v0.6.1.json`: committed upstream-derived and version127 differential fixtures with source tag, commit, source test name, path, rules, final boolean, deciding line, and expected trace evidence.
+- `tests/pages/dockerignore-tester/fixtures/moby-v0.6.1.json`: committed upstream-derived and stack127 differential fixtures with source tag, commit, source test name, path, rules, final boolean, deciding line, and expected trace evidence.
 - `tests/pages/dockerignore-tester/fixtures/buildkit-parent-exception/`: an isolated Dockerfile, `.dockerignore`, and `docs/README.md` receipt fixture. Its rules are exactly `docs` then `!docs/README.md`; a successful Docker build must copy the file.
 - `scripts/dockerignore-tester/verify-moby-fixtures.mjs`: page-owned check mode that validates pinned Moby v0.6.1 fixture provenance and runs every fixture against the pure TypeScript engine. It must not fetch during normal test or production runtime.
 - `scripts/dockerignore-tester/verify-current-buildkit-receipt.mjs`: page-owned, explicitly invoked real-Docker check that builds the isolated receipt fixture, records Docker Engine, BuildKit, and Buildx versions, requires a successful `COPY docs/README.md`, and compares that `Included`, line 2 outcome with the pure engine. It writes only to a temporary directory and is separate from the pinned matcher-version claim.
@@ -320,7 +320,7 @@ The builder must compare `/dns-lookup` and `/zfs-padding-calculator` for shell w
 
 ### Publication state
 
-Published after explicit approval on 2026-08-07. The flat slug `dockerignore-tester` is owned by `public.version127_pages`, returns 200 at `/dockerignore-tester`, carries shared-registry metadata and JSON-LD, and appears in the sitemap. The forbidden nested route remains absent.
+Published after explicit approval on 2026-08-07. The flat slug `dockerignore-tester` is owned by `public.stack127_pages`, returns 200 at `/dockerignore-tester`, carries shared-registry metadata and JSON-LD, and appears in the sitemap. The forbidden nested route remains absent.
 
 ## Acceptance criteria
 
