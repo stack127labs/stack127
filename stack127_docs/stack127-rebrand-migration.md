@@ -6,7 +6,7 @@ Last updated: 20 August 2026
 
 This document is the source of truth for changing the complete `version127` identity to `stack127`. It covers the public brand, domains, GitHub organization and repositories, application, managed Supabase environments, deployment, infrastructure, SEO, documentation, external projects, analytics, email, social profiles, redirects, verification, and retirement of the old identity.
 
-The user authorized the complete rebrand, infrastructure changes, repository migration, and production release on 20 August 2026. Social-account creation and logo replacement remain explicitly out of scope until the user supplies the accounts and final assets.
+The user authorized the complete rebrand, infrastructure changes, repository migration, and production release on 20 August 2026. Social-account creation remains out of scope until the user supplies the accounts. The user supplied and approved the final wordmark and square mark later the same day, so the website logo and favicon replacement are now in scope.
 
 Checklist legend: checked items have been implemented and verified; unchecked items are pending or have not yet been independently verified.
 
@@ -25,7 +25,7 @@ Checklist legend: checked items have been implemented and verified; unchecked it
 | BaseBuddy source/deployments | Live | Both repositories and domains are migrated; website footer/About copy at `ef48eb9` is live; the GitHub App is installed only on `basebuddy-website`; both Dokploy providers were reconnected and the production and demo deployments completed successfully |
 | DNS Tools and datasets | Source pushed | Repository branding, links, manifests, documentation, and publisher identity are live in their transferred repositories; DNS Tools tests and build pass |
 | Production release | Live | GitHub Actions release `32349852781` succeeded; Dokploy and the live health endpoint report `15486b515512c001ade320bf2e2bb9b38a4b92c0` |
-| Logos and social profiles | Deferred | Existing logo assets remain untouched; no social account was created or changed |
+| Logos and social profiles | Website assets complete | Supplied originals are preserved byte-for-byte; transparent theme wordmarks and the dark square favicon family are integrated and release-verified through the normal production workflow; no social account was created or changed |
 
 ## Approved decisions
 
@@ -45,7 +45,7 @@ Checklist legend: checked items have been implemented and verified; unchecked it
 | Development database | Existing managed development Supabase project |
 | Production database | Existing managed production Supabase project |
 | Local Supabase | Prohibited; do not start or depend on a local Docker Supabase stack |
-| Logos | Deferred until the user supplies the final assets; leave existing logo files untouched for now |
+| Logos | Use the owner-supplied `stack127.` wordmark and `127.` square mark; preserve untouched originals and derive transparent light/dark website assets plus a dark square favicon family |
 | Social accounts | The user supplies the accounts; agents must not create social accounts |
 
 ## Verified starting point
@@ -107,7 +107,7 @@ Keep the old domain and old usernames under the user's control. Do not release o
 ## Scope exclusions and approval boundaries
 
 - Do not create social accounts. Ask the user for access to the existing or newly supplied accounts when profile updates are ready.
-- Do not create, redraw, rename, or replace logos until the user supplies the final stack127 logo assets.
+- Preserve the owner-supplied original logo files byte-for-byte. Derived website assets may remove the background and change only the foreground/background colors needed for light and dark presentation; do not redraw the letterforms.
 - Do not launch a local Supabase Docker stack for development, testing, migration generation, or verification.
 - Do not create new Supabase projects merely for the rebrand.
 - Do not rewrite Git history or already-applied Supabase migration history.
@@ -181,7 +181,7 @@ For every repository:
 
 Keep the existing `version127` organization controlled. After transfers, give it a small public pointer to `stack127labs` rather than deleting it. Do not create tracked copies, submodules, subtrees, or runtime dependencies between the repositories.
 
-## Phase 3: visual identity hold and later asset pass
+## Phase 3: visual identity asset pass
 
 Until the user supplies the final stack127 logos:
 
@@ -191,15 +191,17 @@ Until the user supplies the final stack127 logos:
 - [x] Use a plain text `stack127` wordmark until the final supplied assets are available.
 - [x] Track final logo replacement as a remaining launch task.
 
-After the final assets arrive:
+After the final assets arrived on 20 August 2026:
 
-- [ ] Add light and dark logo variants.
-- [ ] Generate `favicon.ico`, 16 x 16, 32 x 32, Apple touch, Android/PWA 192 x 192, and Android/PWA 512 x 512 assets.
-- [ ] Create the square social avatar, social banners, GitHub organization avatar, and default Open Graph image.
-- [ ] Update image paths, dimensions, alt text, structured-data logo URLs, and asset metadata.
-- [ ] Verify logos in both themes and at mobile and desktop breakpoints.
+- [x] Preserve byte-for-byte copies of both supplied originals under `public/brand/originals/`.
+- [x] Add transparent light and dark wordmark and square-mark variants without redrawing the supplied artwork.
+- [x] Generate `favicon.ico`, 16 x 16, 32 x 32, 48 x 48, Apple touch, Android/PWA 192 x 192, and Android/PWA 512 x 512 assets from the dark square mark.
+- [x] Create reusable light and dark square avatar derivatives.
+- [ ] Create social banners, set the GitHub organization avatar, and add a dedicated default Open Graph image when those separate external/profile tasks are approved.
+- [x] Update website image paths, intrinsic dimensions, accessible link labels, and the structured-data logo target.
+- [x] Verify the header wordmark in both themes at desktop and mobile breakpoints, including the 320 px overflow guard.
 
-The current implementation uses a plain text `stack127` header/footer wordmark. Existing image logo files are intentionally untouched and still need replacement after the user supplies final assets.
+The shared header and footer now use the owner-supplied image wordmark. `stack127_docs/brand-assets.md` records the protected originals, derivative filenames, favicon choice, and reproducible build command.
 
 ## Phase 4: application branding and public copy
 
@@ -458,7 +460,7 @@ For each supplied account:
 2. Repair GitHub CLI authentication and inventory every repository setting.
 3. Create and configure `stack127labs` after approval.
 4. Prepare application, documentation, tests, managed-development migrations, and deployment changes on a review branch.
-5. Receive and integrate final logo assets before canonical launch unless the user approves a temporary exception.
+5. Receive and integrate final logo assets before canonical launch unless the user approves a temporary exception. Completed on 2026-08-20 with preserved originals, transparent theme variants, and a regenerated square favicon family.
 6. Configure the new Cloudflare zone, stack127 hostnames, BaseBuddy hostnames, and protected Dokploy hostname without removing the old hosts.
 7. Transfer repositories and verify visibility, permissions, Actions, packages, and remotes.
 8. Deploy the stack127 application with both old and new public domains attached.

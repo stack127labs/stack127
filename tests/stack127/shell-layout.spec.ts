@@ -11,3 +11,16 @@ test("the shared shell does not overflow at the 320px minimum width", async ({ p
 
   expect(viewport.scrollWidth).toBe(viewport.clientWidth);
 });
+
+test("the shared shell uses the supplied image wordmark in both themes", async ({ page }) => {
+  await page.goto("/");
+
+  const header = page.locator('header a[aria-label="stack127 home"]');
+  await expect(header.locator('img[src="/logos/stack127-wordmark-on-dark.png"]')).toBeVisible();
+  await expect(header.locator('img[src="/logos/stack127-wordmark-on-light.png"]')).toBeHidden();
+
+  await page.getByRole("button", { name: "Switch to light mode" }).click();
+
+  await expect(header.locator('img[src="/logos/stack127-wordmark-on-dark.png"]')).toBeHidden();
+  await expect(header.locator('img[src="/logos/stack127-wordmark-on-light.png"]')).toBeVisible();
+});

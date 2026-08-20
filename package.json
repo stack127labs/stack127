@@ -50,6 +50,7 @@
     "domain-tools:check-tld-directory": "node --experimental-strip-types scripts/domain-tools/refresh-tld-directory.mjs --check",
     "stack127:marker-art": "node scripts/stack127/marker-art/generate.mjs",
     "stack127:clean-charts": "node scripts/stack127/clean-charts/generate.mjs",
+    "stack127:brand:build": "node scripts/stack127/brand/build-assets.mjs",
     "stack127:dataset:export": "node scripts/stack127/github/export-dataset.mjs",
     "stack127:dataset:sync": "node scripts/stack127/github/sync-dataset-repo.mjs",
     "stack127:tool:new": "node scripts/stack127/github/create-tool-repo.mjs",
@@ -73,6 +74,7 @@
     "@types/react-dom": "^19.2.3",
     "playwright": "^1.60.0",
     "roughjs": "^4.6.6",
+    "sharp": "^0.34.5",
     "typescript": "^5.9.3"
   },
   "overrides": {

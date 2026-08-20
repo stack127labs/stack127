@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { AppSidebar } from "./app-sidebar";
+import { BrandWordmark } from "./brand-wordmark";
 import styles from "./app-shell.module.css";
 import { sidebarPanelTitleClassName } from "./sidebar-panel";
 
@@ -38,7 +39,7 @@ export function AppShell({
           <div className={styles.content}>{children}</div>
           <footer className={styles.footer} aria-label="Site footer">
             <Link className={styles.footerBrand} href="/" aria-label="stack127 home">
-              <span className={styles.footerWordmark}>stack127</span>
+              <BrandWordmark />
             </Link>
             <nav className={styles.footerLinks} aria-label="Legal pages">
               <Link href="/privacy">privacy</Link>

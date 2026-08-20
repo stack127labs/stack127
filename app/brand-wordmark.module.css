@@ -1,0 +1,24 @@
+.root {
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 100%;
+}
+
+.image {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: auto;
+}
+
+.onDark {
+  display: none;
+}
+
+:global([data-theme="dark"]) .onDark {
+  display: block;
+}
+
+:global([data-theme="dark"]) .onLight {
+  display: none;
+}

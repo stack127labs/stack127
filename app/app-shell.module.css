@@ -92,14 +92,6 @@
   height: 18px;
 }
 
-.footerWordmark {
-  color: var(--color-text);
-  font-family: var(--font-display);
-  font-size: var(--text-body);
-  font-weight: var(--weight-bold);
-  letter-spacing: -0.04em;
-}
-
 .footerLinks {
   align-items: center;
   display: flex;
