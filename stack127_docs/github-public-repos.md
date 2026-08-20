@@ -4,12 +4,12 @@ Stack127 should use GitHub repositories as a distribution, trust, and developer 
 
 ## Core Decisions
 
-- Use the `stack127` GitHub organization for all public repos.
+- Use the `stack127labs` GitHub organization for all public repos.
 - Keep the private Stack127 database as the source of truth for structured data.
 - Treat standalone public application repositories as independent editing sources, not private-repo copies.
 - Keep public repository checkouts outside `/home/teja/projects/stack127`; the private repository has no `repos/` source-tree directory.
 - Keep the public repository registry, release/tag, commit SHA, and manual-port notes in `stack127_docs/public-repositories.md`.
-- The current external-repository inventory includes `stack127/basebuddy-website`, `stack127/basebuddy`, `stack127/dns-tools`, and `stack127/stack127-datasets`; keep their visibility and revision status in `stack127_docs/public-repositories.md`.
+- The current external-repository inventory includes `stack127labs/basebuddy-website`, `stack127labs/basebuddy`, `stack127labs/dns-tools`, and `stack127labs/stack127-datasets`; keep their visibility and revision status in `stack127_docs/public-repositories.md`.
 - Keep tool templates inside this private repo. Do not create a public template repo unless we later need one.
 - Prefer simple public repo surfaces over exposing private workflow detail.
 - Do not publish source payloads, provenance files, schema files, or QA internals for datasets unless a specific dataset truly needs them.
@@ -20,7 +20,7 @@ Stack127 should use GitHub repositories as a distribution, trust, and developer 
 Target repo:
 
 ```text
-stack127/stack127-datasets/
+stack127labs/stack127-datasets/
   README.md
   LICENSE
   CONTRIBUTING.md
@@ -158,14 +158,14 @@ Screenshots should be regenerated from the actual app, not hand-edited mockups.
 
 ## GitHub CLI Requirements
 
-Local automation needs a working GitHub CLI session with access to the `stack127` organization.
+Local automation needs a working GitHub CLI session with access to the `stack127labs` organization.
 
 Required setup:
 
 ```bash
 gh auth login -h github.com
 gh auth status
-gh api orgs/stack127
+gh api orgs/stack127labs
 ```
 
 If the interactive keyring login is not visible to automation, use a local uncommitted repo env file:
@@ -179,7 +179,7 @@ Suggested values:
 ```bash
 GH_TOKEN=github_pat_or_fine_grained_token_here
 GITHUB_TOKEN=github_pat_or_fine_grained_token_here
-STACK127_GITHUB_ORG=stack127
+STACK127_GITHUB_ORG=stack127labs
 STACK127_DATASET_REPO=stack127-datasets
 ```
 
@@ -187,7 +187,7 @@ Rules for `.env.repos`:
 
 - Never commit it.
 - Keep it covered by `.gitignore`.
-- Prefer a fine-grained token whose resource owner/access is the `stack127` organization, not only the personal `RaviTejaKNTS` account.
+- Prefer a fine-grained token whose resource owner/access is the `stack127labs` organization, not only the personal `RaviTejaKNTS` account.
 - Include only the permissions needed for repo creation, contents writes, pull requests, and workflows when workflow files must be changed.
 - Load it explicitly in repo publication scripts. `gh` can use `GH_TOKEN` from the environment, but it does not read `.env.repos` by itself.
 - Do not print token values in command output, logs, dry-run diffs, or generated README files.
@@ -200,11 +200,11 @@ Before enabling create/push automation, confirm:
 - the account can create repos in the org
 - the token has the scopes needed for repo creation, pushes, and workflow updates
 
-If GitHub returns `does not have the correct permissions to execute CreateRepository`, the dataset export can still be generated, but the public repo must be created manually or the token/account must be allowed to create repositories in the `stack127` organization. For fine-grained PATs, the token page should show access on `stack127`; a token that only shows access on `RaviTejaKNTS` and "repositories owned by you" is scoped to personal repositories and cannot create `stack127/...` repositories. After the empty repo exists or the org-scoped token is in `.env.repos`, rerun the sync command.
+If GitHub returns `does not have the correct permissions to execute CreateRepository`, the dataset export can still be generated, but the public repo must be created manually or the token/account must be allowed to create repositories in the `stack127labs` organization. For fine-grained PATs, the token page should show access on `stack127labs`; a token that only shows access on `RaviTejaKNTS` and "repositories owned by you" is scoped to personal repositories and cannot create `stack127labs/...` repositories. After the empty repo exists or the org-scoped token is in `.env.repos`, rerun the sync command.
 
 ## Launch Order
 
-1. Confirm `stack127` GitHub organization access and keep the external registry current.
+1. Confirm `stack127labs` GitHub organization access and keep the external registry current.
 2. Build the CSV export for `/self-host-apps` from the production database.
 3. Render the dataset README from a private template.
 4. Run a dry-run sync and inspect the diff.

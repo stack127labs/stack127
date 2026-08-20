@@ -257,7 +257,7 @@ For the new zone:
 - [x] Recreate the Cloudflare Access applications and policies for the new Dokploy hostname and deployment API paths.
 - [x] Update the Cloudflare Tunnel public hostname and ingress rules while retaining the old hostname for rollback.
 - [ ] Review redirects, cache rules, WAF rules, rate limits, Transform Rules, Workers, Pages projects, and origin allowlists for the old domain. Bot controls and managed robots were reviewed and corrected on the new zone.
-- [ ] Create or update zone-scoped API tokens and the Cloudflare zone ID used by CI and local preflight.
+- [x] Create or update the Cloudflare tokens and zone ID used by CI and local preflight: CI has a narrow `stack127.com` read token, while local administration uses the Account API token `stack127-infrastructure` across all three maintained zones.
 - [ ] Test proxied and direct origin expectations over IPv4 and IPv6.
 
 For the old zone:
@@ -288,6 +288,7 @@ Hard rules:
 - [x] Never run `supabase start`, `supabase db reset`, or any workflow that starts the local Docker stack.
 - [x] Do not require Docker Supabase in tests, CI, documentation, skills, or daily development.
 - [x] Keep development and production credentials separate.
+- [x] Reconcile all local environment files, GitHub Actions scopes, and Dokploy runtime key names in `stack127_docs/environment-inventory.md`; add matching secret-free schemas and a drift test.
 - [ ] Take a production backup or verified recovery point before structural production migrations.
 
 For complete internal cleanup:
@@ -319,7 +320,7 @@ Reuse the existing dedicated OVH production VPS unless a separate infrastructure
 - [x] Verify Dokploy can authenticate to and pull the transferred private GHCR package through the successful stack127 production release.
 - [x] Update the GitHub production Environment to the stack127 site, Dokploy URL/application, GHCR owner, and Cloudflare zone; remove the obsolete `VERSION127_*` variables.
 - [x] Replace the invalid legacy GitHub production secret with a new `stack127-production-preflight` token restricted to `stack127.com` with only `DNS:Read` and `Zone:Read`.
-- [ ] Replace the revoked local `CLOUDFLARE_API_TOKEN` in the ignored `.env.deploy`; local preflight currently reaches the API but receives `401`, while the GitHub production secret passed the live release workflow.
+- [x] Verify the local `.env.deploy` `CLOUDFLARE_API_TOKEN` as an active Account API token, rename it to `stack127-infrastructure`, add `stack127.com` and `basebuddycms.com` to its existing `version127.com` zone scope, and pass local Cloudflare preflight without rotating its value. The earlier `401` came from checking an Account API token against the User API token verification endpoint.
 - [x] Set the Dokploy runtime `NEXT_PUBLIC_SITE_URL` to `https://stack127.com` and redeploy so live sitemap and robots output use the canonical hostname.
 - [x] Reuse the current Dokploy application ID; no replacement application was created.
 - [x] Preserve the release invariant for release `15486b515512c001ade320bf2e2bb9b38a4b92c0`: local `HEAD`, `origin/main`, immutable GHCR image, Dokploy deployment commit, health endpoint SHA, and live production revision match.

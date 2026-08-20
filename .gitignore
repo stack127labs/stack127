@@ -11,7 +11,12 @@ test-results/
 .env
 .env*
 !.env.example
+!.env.analytics.example
+!.env.database.example
 !.env.deploy.example
+!.env.homelab.example
+!.env.local.example
+!.env.repos.example
 
 *.log
 tsconfig.tsbuildinfo

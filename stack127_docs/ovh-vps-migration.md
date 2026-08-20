@@ -12,7 +12,7 @@ The origin presents a Cloudflare Origin CA certificate for `stack127.com` and `w
 
 ## Sources Of Truth
 
-- Application repository: `RaviTejaKNTS/stack127`
+- Application repository: `stack127labs/stack127`
 - Production repository branch: `main`
 - First repository-backed production commit: `d4a31afdad4649277ae515bcec5d2aafaa4d754a`
 - Current production image: built by Dokploy from the repository `Dockerfile` and deployed as `app-navigate-1080p-matrix-3pmfy6:latest`

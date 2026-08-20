@@ -7,10 +7,10 @@ const registry = readFileSync(registryPath, "utf8");
 
 test("external repositories are tracked as documentation, not local source copies", () => {
   assert.equal(existsSync("repos"), false, "the private repository must not contain a repos source tree");
-  assert.match(registry, /stack127\/basebuddy-website/);
-  assert.match(registry, /stack127\/basebuddy/);
-  assert.match(registry, /stack127\/dns-tools/);
-  assert.match(registry, /stack127\/stack127-datasets/);
+  assert.match(registry, /stack127labs\/basebuddy-website/);
+  assert.match(registry, /stack127labs\/basebuddy/);
+  assert.match(registry, /stack127labs\/dns-tools/);
+  assert.match(registry, /stack127labs\/stack127-datasets/);
   assert.match(registry, /\| Source of truth \|/);
   assert.match(registry, /Clone external repositories beside, not inside/);
   assert.doesNotMatch(registry, /repos\/(?:basebuddy-website|basebuddy|dns-tools|stack127-datasets)/);

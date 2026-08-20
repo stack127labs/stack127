@@ -8,7 +8,7 @@ The machine-readable source of truth is `scripts/stack127/deployment/targets.jso
 
 - Provider: OVH
 - Dokploy: `https://dokploy.stack127.com`
-- Repository: `RaviTejaKNTS/stack127`
+- Repository: `stack127labs/stack127`
 - Branch: `main`
 - Build: repository `Dockerfile`
 - Public hosts: `stack127.com` and `www.stack127.com`
@@ -76,6 +76,10 @@ Required secrets:
 - `CLOUDFLARE_API_TOKEN`: a token scoped to read Stack127 DNS records.
 - `CF_ACCESS_CLIENT_ID` and `CF_ACCESS_CLIENT_SECRET`: the Cloudflare Access service token for Dokploy API paths when the dashboard hostname is protected by Access. Set both or neither.
 
+The database URLs are repository secrets; the other five named deployment
+credentials are attached to the protected `production` environment. This split
+is intentional and is recorded in `stack127_docs/environment-inventory.md`.
+
 Required variables (the application ID and URL intentionally mirror
 `targets.json`):
 
@@ -111,6 +115,8 @@ Never trigger Stack127 through the legacy Hostinger Dokploy webhook or applicati
 - Use the explicit `STACK127_PRODUCTION_*` names from `.env.deploy.example`.
 - Keep all secret env files mode `0600`.
 - Store recovery credentials and private SSH keys in the password manager, not the repository.
+- Keep `stack127_docs/environment-inventory.md` aligned with local files,
+  GitHub Actions scopes, and Dokploy runtime variables.
 
 ## Failure Rule
 

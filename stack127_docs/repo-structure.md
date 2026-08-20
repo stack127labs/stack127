@@ -101,15 +101,23 @@ Use split env files by concern:
 .env.database
 .env.deploy
 .env.analytics
+.env.homelab
+.env.repos
 ```
 
-- `.env.local`: local development values. It should include the local `DATABASE_URL`.
+- `.env.local`: managed development Supabase values. It must not point to a local Docker Supabase stack.
 - `.env.database`: production database values. It should include the production `DATABASE_URL`; Supabase URL/key values can also live here if a feature uses Supabase APIs.
 - `.env.deploy`: the explicit OVH production identity plus Cloudflare, Dokploy, SSH, and deploy automation values. It must not contain generic legacy `VPS_*` keys or the Hostinger Dokploy URL.
 - `.env.analytics`: analytics values such as self-hosted Umami URL and website ID.
+- `.env.homelab`: homelab host and local administration values.
+- `.env.repos`: local GitHub CLI and external-repository automation values.
 
 Next.js reads standard Next env files automatically, including `.env.local`. It does not automatically read custom split files such as `.env.database` or `.env.deploy`; production deploy tooling must pass those values into the runtime environment.
 
-The machine-readable infrastructure identity is `scripts/stack127/deployment/targets.json`. Run `npm run stack127:deploy:preflight` before every production deployment. Edit `.env.deploy` surgically and use `.env.deploy.example` as its secret-free schema; never replace a populated environment file wholesale.
+The machine-readable infrastructure identity is `scripts/stack127/deployment/targets.json`. Run `npm run stack127:deploy:preflight` before every production deployment. Edit `.env.deploy` surgically and use its secret-free example as the schema; never replace a populated environment file wholesale.
+
+Every real file has a tracked `*.example` schema. The complete key inventory,
+GitHub Actions scopes, Dokploy runtime lists, and rotation procedure are in
+`stack127_docs/environment-inventory.md`.
 
 Self-host app scripts load `.env.local` by default for local work. When running production data jobs, run with `NODE_ENV=production` and provide `.env.database`, pass `DATABASE_URL`, or pass `--database-url`.

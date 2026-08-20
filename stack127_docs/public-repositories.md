@@ -1,6 +1,6 @@
 # External repositories
 
-The private `RaviTejaKNTS/stack127` repository owns only the private stack127 website, its database workflows, and its private infrastructure.
+The private `stack127labs/stack127` repository owns only the private stack127 website, its database workflows, and its private infrastructure.
 
 Applications, tools, and datasets owned by stack127 are independent Git repositories. Each external repository is its own source of truth. The private repository does not contain a working copy, nested checkout, submodule, subtree, or runtime/build dependency for them.
 
@@ -8,10 +8,10 @@ Applications, tools, and datasets owned by stack127 are independent Git reposito
 
 | Repository | Visibility | Remote | Default branch | Source of truth | Relationship to private stack127 | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| BaseBuddy website | Private | `stack127/basebuddy-website` | `self-host-dev` | External private repository | Standalone website and app; no private runtime or build dependency | Active; `7a0a9fa8dda235f4be7d2c467ed90bc1c71b9c70` checked 2026-08-19 |
-| BaseBuddy app | Public | `stack127/basebuddy` | `main` | Public repository | Standalone open-source app; no private runtime or build dependency | Active; `main` at `2ff50ab454805e498756d1013a1dc2af22acb7fd`; latest tag `v0.2.0` at `dd16eb96e4dac59b194f41e3e2d01472084d9172` checked 2026-08-19 |
-| DNS Tools | Public | `stack127/dns-tools` | `main` | Public repository | Standalone open-source DNS tools; hosted stack127 pages receive deliberate manual ports only | Active; `main` at `f437732151b4f35888c3b0e758dff79e90b99a24` checked 2026-08-19 |
-| Stack127 datasets | Public | `stack127/stack127-datasets` | `main` | Public repository | Generated public datasets; source data remains the private database and export workflow | Active; `main` at `701ef491da3db6c2d56c1972671c5dbd38d08ddc` checked 2026-08-19 |
+| BaseBuddy website | Private | `stack127labs/basebuddy-website` | `self-host-dev` | External private repository | Standalone website and app; no private runtime or build dependency | Active; `7a0a9fa8dda235f4be7d2c467ed90bc1c71b9c70` checked 2026-08-19 |
+| BaseBuddy app | Public | `stack127labs/basebuddy` | `main` | Public repository | Standalone open-source app; no private runtime or build dependency | Active; `main` at `2ff50ab454805e498756d1013a1dc2af22acb7fd`; latest tag `v0.2.0` at `dd16eb96e4dac59b194f41e3e2d01472084d9172` checked 2026-08-19 |
+| DNS Tools | Public | `stack127labs/dns-tools` | `main` | Public repository | Standalone open-source DNS tools; hosted stack127 pages receive deliberate manual ports only | Active; `main` at `f437732151b4f35888c3b0e758dff79e90b99a24` checked 2026-08-19 |
+| Stack127 datasets | Public | `stack127labs/stack127-datasets` | `main` | Public repository | Generated public datasets; source data remains the private database and export workflow | Active; `main` at `701ef491da3db6c2d56c1972671c5dbd38d08ddc` checked 2026-08-19 |
 
 The registry is intentionally documentation-only. It records external repository relationships for agents without recreating their source trees in this repository.
 
@@ -32,10 +32,10 @@ Clone external repositories beside, not inside, the private checkout:
 
 ```bash
 cd /home/teja/projects
-git clone --branch self-host-dev https://github.com/stack127/basebuddy-website.git basebuddy-website
-git clone https://github.com/stack127/basebuddy.git basebuddy
-git clone https://github.com/stack127/dns-tools.git dns-tools
-git clone https://github.com/stack127/stack127-datasets.git stack127-datasets
+git clone --branch self-host-dev https://github.com/stack127labs/basebuddy-website.git basebuddy-website
+git clone https://github.com/stack127labs/basebuddy.git basebuddy
+git clone https://github.com/stack127labs/dns-tools.git dns-tools
+git clone https://github.com/stack127labs/stack127-datasets.git stack127-datasets
 ```
 
 Run each project's own install, tests, quality gates, deployment commands, and Git operations from its separate checkout. Do not run external-repository commands from `/home/teja/projects/stack127`.

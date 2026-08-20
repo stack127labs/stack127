@@ -58,8 +58,8 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 
 ## External repositories
 
-- The private source-of-truth repository is `RaviTejaKNTS/stack127`.
-- External repositories belong to the `stack127` GitHub organization.
+- The private source-of-truth repository is `stack127labs/stack127`.
+- External repositories belong to the `stack127labs` GitHub organization.
 - External repositories are independent source-of-truth repositories. Do not keep nested checkouts, tracked copies, submodules, or runtime/build dependencies under this repository.
 - Track external repository visibility, remotes, branches, source-of-truth boundaries, version/revision status, and deliberate manual-port relationships in `stack127_docs/public-repositories.md`.
 - Clone an external repository separately under `/home/teja/projects/<repo-name>` when editing it. Run its own quality gate and CI from that checkout.
@@ -79,10 +79,13 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 
 ## Environment
 
-- `.env.local` is for local development and should contain the local `DATABASE_URL`.
+- `.env.local` is for managed development Supabase and should contain its development `DATABASE_URL`; do not run a local Docker Supabase stack.
 - `.env.database` is for production database values. At minimum, production deploys need `DATABASE_URL`; Supabase API keys can also live there when a feature uses them.
 - `.env.deploy` is for VPS, Cloudflare, Dokploy, and deployment automation values.
 - `.env.analytics` is for analytics values such as Umami URL and site ID when needed.
+- `.env.homelab` is for homelab host and local administration values.
+- `.env.repos` is for local GitHub CLI and external-repository automation values.
+- Keep the full secret-free key and runtime inventory aligned with `stack127_docs/environment-inventory.md` and the tracked `*.example` schemas.
 - Next.js automatically reads normal Next env files such as `.env.local`. Custom split env files must be loaded explicitly by deploy tooling, scripts, command flags, or a script-level env loader.
 - Never commit secrets.
 

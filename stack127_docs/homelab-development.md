@@ -10,7 +10,7 @@ The primary stack127 development workspace is now the homelab checkout:
 /home/teja/projects/stack127
 ```
 
-The private source-of-truth repository remains `RaviTejaKNTS/stack127`, using the `main` branch. Normal work should start on the homelab, pull from GitHub before editing, and push reviewed commits back to GitHub. The old Mac checkout can remain as an inactive fallback, but it should not receive new edits because that would create two working copies that can diverge.
+The private source-of-truth repository is `stack127labs/stack127`, using the `main` branch. Normal work should start on the homelab, pull from GitHub before editing, and push reviewed commits back to GitHub. The old Mac checkout can remain as an inactive fallback, but it should not receive new edits because that would create two working copies that can diverge.
 
 External repositories are independent checkouts beside the private workspace. The BaseBuddy website checkout is at:
 
@@ -18,7 +18,7 @@ External repositories are independent checkouts beside the private workspace. Th
 /home/teja/projects/basebuddy-website
 ```
 
-It tracks `stack127/basebuddy-website` on branch `self-host-dev`. Its files and Git history are separate from the private stack127 repository. BaseBuddy app, DNS Tools, and Stack127 datasets are also separate checkouts when needed. See `stack127_docs/public-repositories.md` for the complete registry and clone workflow.
+It tracks `stack127labs/basebuddy-website` on branch `self-host-dev`. Its files and Git history are separate from the private stack127 repository. BaseBuddy app, DNS Tools, and Stack127 datasets are also separate checkouts when needed. See `stack127_docs/public-repositories.md` for the complete registry and clone workflow.
 
 ## Git and homelab setup
 

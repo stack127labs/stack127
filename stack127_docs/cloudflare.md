@@ -123,15 +123,21 @@ not a Stack127 server or deployment target. Generic `VPS_*` variables and
 `DOKPLOY_PUBLIC_URL` are forbidden because they previously selected the shared
 Hostinger server implicitly.
 
-The Cloudflare token must be scoped to the Stack127 account and zone. The current workflow needs:
+Local infrastructure administration uses the Account API token named
+`stack127-infrastructure`. It is stored in `.env.deploy` and covers the
+`stack127.com`, `version127.com`, and `basebuddycms.com` zones. Its account and
+zone permissions cover the DNS, redirects, Access, Tunnel, cache, WAF, TLS, and
+other edge settings maintained from this repository. The existing token was
+renamed and expanded in place on 20 August 2026; its secret value did not
+change.
 
-- Account: Argo Tunnel (Legacy) Edit, which is the dashboard label for Cloudflare Tunnel Edit.
-- Account: Access Edit, covering Access applications and policies.
-- Zone: DNS Edit.
-- Zone: Zone Read.
-- Zone settings and rulesets permissions only when the corresponding public edge settings are being maintained.
+The GitHub production Environment deliberately uses a different, narrower
+token. Release preflight needs only DNS Read and Zone Read for `stack127.com`.
+Do not grant CI the broader local administration token. Do not use Cloudflare
+User API tokens for either purpose, commit token values, or print them in logs.
 
-Do not grant broad Zero Trust Edit when the narrower Access permission is sufficient. Do not commit the token or print its value in logs.
+The complete secret-free key list and rotation procedure are in
+`stack127_docs/environment-inventory.md`.
 
 ## Verification
 
