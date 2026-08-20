@@ -28,6 +28,8 @@ test("every local environment concern has a tracked secret-free schema", async (
   const allowedDefaults = new Map([
     ["STACK127_GITHUB_ORG", "stack127labs"],
     ["STACK127_DATASET_REPO", "stack127-datasets"],
+    ["STACK127_GITHUB_TOKEN_NAME", '"stack127 local repo automation"'],
+    ["STACK127_GITHUB_TOKEN_EXPIRES_AT", "2027-08-21"],
   ]);
 
   for (const file of exampleFiles) {

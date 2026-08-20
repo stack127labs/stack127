@@ -181,6 +181,8 @@ GH_TOKEN=github_pat_or_fine_grained_token_here
 GITHUB_TOKEN=github_pat_or_fine_grained_token_here
 STACK127_GITHUB_ORG=stack127labs
 STACK127_DATASET_REPO=stack127-datasets
+STACK127_GITHUB_TOKEN_NAME="stack127 local repo automation"
+STACK127_GITHUB_TOKEN_EXPIRES_AT=2027-08-21
 ```
 
 Rules for `.env.repos`:
@@ -188,7 +190,9 @@ Rules for `.env.repos`:
 - Never commit it.
 - Keep it covered by `.gitignore`.
 - Prefer a fine-grained token whose resource owner/access is the `stack127labs` organization, not only the personal `RaviTejaKNTS` account.
-- Include only the permissions needed for repo creation, contents writes, pull requests, and workflows when workflow files must be changed.
+- Restrict repository access to the current Stack127 repositories. Add a newly created repository explicitly before automating it.
+- Include only Actions, administration, contents, pull-request, workflow-file, and required metadata permissions. Do not grant account or organization permissions.
+- Record the server-side token name and expiry date with the non-secret `STACK127_GITHUB_TOKEN_NAME` and `STACK127_GITHUB_TOKEN_EXPIRES_AT` fields.
 - Load it explicitly in repo publication scripts. `gh` can use `GH_TOKEN` from the environment, but it does not read `.env.repos` by itself.
 - Do not print token values in command output, logs, dry-run diffs, or generated README files.
 
@@ -199,6 +203,7 @@ Before enabling create/push automation, confirm:
 - the account can access `stack127`
 - the account can create repos in the org
 - the token has the scopes needed for repo creation, pushes, and workflow updates
+- the token has not passed `STACK127_GITHUB_TOKEN_EXPIRES_AT`
 
 If GitHub returns `does not have the correct permissions to execute CreateRepository`, the dataset export can still be generated, but the public repo must be created manually or the token/account must be allowed to create repositories in the `stack127labs` organization. For fine-grained PATs, the token page should show access on `stack127labs`; a token that only shows access on `RaviTejaKNTS` and "repositories owned by you" is scoped to personal repositories and cannot create `stack127labs/...` repositories. After the empty repo exists or the org-scoped token is in `.env.repos`, rerun the sync command.
 

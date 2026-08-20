@@ -119,19 +119,31 @@ GH_TOKEN
 GITHUB_TOKEN
 STACK127_GITHUB_ORG
 STACK127_DATASET_REPO
+STACK127_GITHUB_TOKEN_NAME
+STACK127_GITHUB_TOKEN_EXPIRES_AT
 ```
 
 `STACK127_GITHUB_ORG` is `stack127labs`. The two token variables may carry the
 same fine-grained token because `gh` prefers `GH_TOKEN` while some scripts and
 tools use `GITHUB_TOKEN`. The token must be owned or approved by `stack127labs`
 and must be scoped to the repositories and write operations the automation
-actually performs.
+actually performs. The two metadata fields record which server-side token the
+file uses and when it expires without exposing its value.
 
-The token present during the 20 August audit authenticated the user account but
-did not have repository-administration access after the organization transfer.
-It must be replaced before relying on local automation to create repositories,
-change repository settings, or manage Actions configuration. Browser access and
-the production release workflow do not depend on this local token.
+On 20 August 2026, the obsolete `version127 repos` token was replaced and
+revoked. The active fine-grained token is named `stack127 local repo automation`,
+is owned by `stack127labs`, and expires on 21 August 2027. It is restricted to
+the five current organization repositories: `stack127`, `basebuddy-website`,
+`basebuddy`, `dns-tools`, and `stack127-datasets`. It has read/write access to
+Actions, repository administration, contents, pull requests, and workflow files,
+plus GitHub's required read-only metadata permission. It has no account or
+organization permissions.
+
+Read-only verification confirmed private-repository access, repository
+administration, collaborators, contents, and Actions workflow access. When a new
+repository is created, add it explicitly to this token before using local
+automation against it. Browser access and the production release workflow do
+not depend on this local token.
 
 ## GitHub Actions: `stack127labs/stack127`
 

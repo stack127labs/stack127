@@ -74,7 +74,7 @@ The private website source is currently `RaviTejaKNTS/version127`, not a reposit
 
 The live website currently emits the old identity through visible navigation and footer branding, page copy, canonical URLs, Open Graph metadata, Twitter metadata, JSON-LD, logo alt text, analytics domain configuration, and the contact email. The production release contract also embeds the old identity in GitHub Actions, GHCR, Dokploy, Cloudflare checks, environment variables, health checks, package scripts, and deployment tests.
 
-The local GitHub CLI authentication was stale during the planning audit. Repair it before using CLI automation for repository transfers. The authenticated browser session can inspect GitHub, but it must not be used to create or transfer anything without explicit implementation approval and any required action-time confirmation.
+The local GitHub CLI authentication was stale during the planning audit. On 20 August 2026 it was replaced with the `stack127labs`-owned, selected-repository token documented in `stack127_docs/environment-inventory.md`; the superseded `version127 repos` token was revoked after verification.
 
 ## Final domain structure
 
