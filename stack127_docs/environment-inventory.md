@@ -95,6 +95,10 @@ UMAMI_PASSWORD
 
 The public site runtime needs only the Umami URL and website ID. The username
 and password are administrative credentials and must not be passed to the app.
+On 20 August 2026, the existing Stack127 and BaseBuddy website records were
+renamed in place to track `stack127.com` and `basebuddy.stack127.com`. Their
+website IDs were preserved so analytics history remains continuous and no
+duplicate property can double-count the redirected domains.
 
 ### Homelab
 
@@ -284,3 +288,7 @@ When a credential changes:
 
 The tracked example files are schemas, not backups. A complete recovery process
 also needs the password-manager entries and the service-side secret records.
+The rebrand's pre-migration production table recovery dump is separately stored
+outside the repository at
+`/Users/ravitejaknts/backups/stack127/2026-08-20/open_projects-before-provenance.dump`.
+It is mode `0600`; its checksum is recorded in the rebrand migration document.

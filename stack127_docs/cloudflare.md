@@ -38,6 +38,7 @@ Hostinger remains the registrar and delegates authoritative DNS to Cloudflare. T
 - Always Use HTTPS: on.
 - Minimum TLS: 1.2.
 - TLS 1.3: on.
+- HSTS: staged at one day (`max-age=86400`) with `nosniff`; subdomains and preload are intentionally off during observation.
 - Automatic HTTPS Rewrites: on.
 - HTTP/3: on.
 - Brotli: on.
@@ -165,6 +166,10 @@ Expected results:
 ## Deferred Hardening
 
 DNSSEC is not enabled yet. Enable it only when the Cloudflare DS record can be added at Hostinger in the same maintenance window. Enabling one side without the other can make the domain unavailable.
+
+After the one-day HSTS policy has been observed without errors, increase it in stages before considering `includeSubDomains`. Do not enable preload until every retained subdomain and administrative hostname is permanently HTTPS-capable and the owner explicitly accepts the difficult rollback.
+
+Hostinger domain lock and WHOIS privacy are active for `stack127.com`, `version127.com`, and `basebuddycms.com`. `stack127.com` auto-renew is active. The two legacy redirect domains are currently non-renewing; enabling their renewal creates future charges and remains an explicit owner-confirmation step.
 
 The old Stack127 service and Dokploy project were removed from the shared
 Hostinger VPS on 31 July 2026 after the observation period and explicit

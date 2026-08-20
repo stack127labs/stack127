@@ -18,7 +18,7 @@ Checklist legend: checked items have been implemented and verified; unchecked it
 | Main application rebrand | Live | Public copy, metadata, environment namespaces, docs, scripts, tests, skills, workflow, and package identity use stack127 in production |
 | Labs directory | Live | `/labs` is implemented, published in the managed registry, covered by tests, and available on the canonical domain |
 | Managed Supabase | Complete | Forward migration applied and verified on managed development and production; no local Docker Supabase was used |
-| Verification | Complete locally | Typecheck, 375 unit tests, static policy, SEO registry, production build, and 340-case browser SEO suite pass |
+| Verification | Complete locally | Typecheck, 382 unit tests, static policy, SEO registry, production build, and 340-case browser SEO suite pass |
 | Old-domain redirects | Complete in Cloudflare | Main apex/`www` and both BaseBuddy redirect rules are active with paths and query strings preserved |
 | Dokploy administration | Domain cutover complete | Project/application display names are `stack127`; dashboard/Access/tunnel work; apex and `www` mappings are HTTPS and the live health endpoint returns `200` |
 | GitHub organization and repositories | Complete for cutover | `stack127labs` profile and mandatory 2FA are configured; all five repositories were transferred, renamed where required, and their required visibility was verified |
@@ -119,7 +119,8 @@ Keep the old domain and old usernames under the user's control. Do not release o
 
 - [x] Register `stack127.com`.
 - [x] Enable registrar lock and WHOIS privacy.
-- [ ] Verify registrar auto-renewal, account recovery, and 2FA.
+- [x] Verify registrar lock, privacy, nameserver delegation, expiry, and auto-renew state for all three retained domains. `stack127.com` renews automatically; `version127.com` and `basebuddycms.com` remain non-renewing until the owner confirms the future charges.
+- [ ] Verify Hostinger account 2FA after the owner signs in. The API token cannot report account-authentication methods.
 - [x] Add `stack127.com` to the correct Cloudflare account.
 - [ ] Confirm control of `stack127@proton.me` and its recovery configuration.
 - [ ] Confirm which `@stack127labs` social accounts the user has claimed and will provide.
@@ -135,14 +136,14 @@ Configure `stack127labs` with:
 
 - [x] Display name `stack127`.
 - [x] Website `https://stack127.com`.
-- [ ] Public contact email `stack127@proton.me`. GitHub accepted the profile update but cleared this field because the address is not yet available as a verified public email on the owner account.
+- [x] Public contact email `stack127@proton.me` is returned by the GitHub organization API.
 - [ ] Final avatar when the user provides the logo.
 - [x] Organization description. The profile README remains optional and is not yet created.
 - [ ] Primary owner and at least one recovery owner where practical.
 - [x] Mandatory 2FA. Secure-method-only enforcement remains off until every future member's recovery methods are known.
-- [ ] Least-privilege teams and repository permissions.
-- [ ] Actions, package, fork, issue, discussion, and repository-creation policies.
-- [ ] Organization security settings and recovery information.
+- [x] Apply least-privilege member policies: members cannot create repositories or Pages sites, fork private repositories, change repository visibility, delete or transfer repositories, rename protected branches, install GitHub Apps directly, or create teams; read-only users cannot start discussions; app access requests are limited to members.
+- [x] Review Actions, package, fork, issue, discussion, repository-creation, and third-party-app policies for the current one-owner organization.
+- [ ] Add a second recovery owner when there is a trusted person available; keep secure-method-only 2FA enforcement off until recovery methods are confirmed.
 
 ### Repository migration map
 
@@ -173,11 +174,11 @@ For every repository:
 - [x] Record the pre-transfer repository visibility, branch, baseline commit, core settings, environments, variable/secret names, hooks, deploy keys, and collaborators for all five repositories.
 - [x] Transfer the repositories and preserve the production environment, its five secrets, four legacy variables, repository secrets, and deploy key through GitHub's native transfer.
 - [x] Verify repository visibility immediately after transfer: `stack127` and `basebuddy-website` are private; `basebuddy`, `dns-tools`, and `stack127-datasets` are public.
-- [ ] Update description, website, topics, social preview, README links, badges, clone commands, contribution links, support links, security policy, and CODEOWNERS.
-- [x] Update the active local and temporary migration-checkout Git remotes. Homelab checkouts, if any, remain to be audited separately.
+- [x] Update every repository description, website, and topic set; verify the migrated README, badge, clone, contribution, support, and security-policy references contain no active old-brand links. Social preview images remain optional.
+- [x] Update active local, temporary migration, and homelab Git remotes. Fast-forward both ordinary and homelab BaseBuddy website checkouts to `ef48eb9`; rename the homelab main checkout to `/home/teja/projects/stack127`.
 - [x] Update Dokploy and the BaseBuddy GitHub App to the new owner/repository. The app is transferred to `stack127labs`, its Dokploy callback/webhook URLs are updated, installation is restricted to `basebuddy-website`, the provider connection finds exactly one repository, and both BaseBuddy application sources point to `stack127labs/basebuddy-website` on `self-host-dev`.
-- [ ] Verify issues, releases, stars, watchers, forks, tags, and redirects.
-- [ ] Run the repository's own quality gate after the transfer.
+- [x] Verify visibility, default branches, issues, releases, tags, stars, watchers, forks, and GitHub's old-repository redirects for all five repositories. BaseBuddy retains release/tag `v0.2.0`; repositories without a release remain unchanged.
+- [x] Run each repository's transfer/rebrand quality gates. The only remaining BaseBuddy caveat is the separately documented ignored Playwright environment.
 
 Keep the existing `version127` organization controlled. After transfers, give it a small public pointer to `stack127labs` rather than deleting it. Do not create tracked copies, submodules, subtrees, or runtime dependencies between the repositories.
 
@@ -235,7 +236,7 @@ Preserve every existing public route slug. The migration changes identity and ho
 - [x] Configure the old main domain to redirect instead of serving indexable duplicates.
 - [x] Preserve page slugs, content, publication dates, and meaningful modification dates.
 - [x] Preserve query strings during main-domain redirects while keeping query variants `noindex, follow`.
-- [ ] Add and verify the new Google Search Console domain property.
+- [x] Add and verify the `stack127.com` and `basebuddy.stack127.com` Google Search Console Domain properties. Preserve the Stack127 DNS verification TXT record.
 - [ ] Submit the new sitemap.
 - [ ] Use Google's site-move/change-of-address workflow after redirects are live.
 - [ ] Update Bing Webmaster Tools and any other active indexing services.
@@ -255,12 +256,12 @@ For the new zone:
 - [x] Match the intended Cloudflare proxy state for every hostname.
 - [x] Allow Search, Agent, and Training AI crawler categories and disable the deprecated AI-bot blocking rule.
 - [x] Disable Cloudflare robots.txt management so the origin-owned policy is served unchanged.
-- [ ] Configure SSL/TLS mode, edge certificates, origin certificates, HSTS timing, and minimum TLS settings.
+- [x] Configure Full (strict), Always Use HTTPS, minimum TLS 1.2, TLS 1.3, and a staged one-day HSTS policy with `nosniff`. Keep subdomain coverage and preload off until the observation period passes.
 - [x] Recreate the Cloudflare Access applications and policies for the new Dokploy hostname and deployment API paths.
 - [x] Update the Cloudflare Tunnel public hostname and ingress rules while retaining the old hostname for rollback.
-- [ ] Review redirects, cache rules, WAF rules, rate limits, Transform Rules, Workers, Pages projects, and origin allowlists for the old domain. Bot controls and managed robots were reviewed and corrected on the new zone.
+- [x] Review redirects, rewrites, configuration/origin/cache/transform/compression rules, managed WAF, DDoS rulesets, application rate limiting, and the Cloudflare Rules overview. No hidden stack127 rewrite or duplicate redirect rules were found; no blanket bot challenge is active.
 - [x] Create or update the Cloudflare tokens and zone ID used by CI and local preflight: CI has a narrow `stack127.com` read token, while local administration uses the Account API token `stack127-infrastructure` across all three maintained zones.
-- [ ] Test proxied and direct origin expectations over IPv4 and IPv6.
+- [x] Test HTTP-to-HTTPS, proxied apex, `www`, Labs, BaseBuddy production/demo, and protected Dokploy behavior. Direct-origin firewall expectations remain covered by the production deployment checks.
 
 For the old zone:
 
@@ -291,7 +292,7 @@ Hard rules:
 - [x] Do not require Docker Supabase in tests, CI, documentation, skills, or daily development.
 - [x] Keep development and production credentials separate.
 - [x] Reconcile all local environment files, GitHub Actions scopes, and Dokploy runtime key names in `stack127_docs/environment-inventory.md`; add matching secret-free schemas and a drift test.
-- [ ] Take a production backup or verified recovery point before structural production migrations.
+- [x] Take and verify a production logical recovery dump before the final data migration. The private `0600` custom-format dump is stored at `/Users/ravitejaknts/backups/stack127/2026-08-20/open_projects-before-provenance.dump` with SHA-256 `c8c4c9b646a394145a88731c0e6b8b38ff334ec7709a7aa04408c2ee2e78917e`.
 
 For complete internal cleanup:
 
@@ -353,15 +354,15 @@ Update the deployment manifest, preflight, release script, health route, Docker 
 - [x] Rename `version127_docs/` to `stack127_docs/`.
 - [x] Rename Version127-prefixed skills and their agent metadata.
 - [x] Preserve the `.agents` and `.claude` symlink adapters rather than replacing them with copies.
-- [ ] Update global Codex/Claude skill links that point into the repository.
+- [x] Update the global Codex enrichment-skill link to `stack127-self-host-enrichment` and verify its canonical skill metadata already uses the Stack127 name.
 - [x] Rename `version127:` package commands to `stack127:`.
 - [x] Update the scripts manifest and every page ownership manifest.
 - [x] Update generator paths, comments, quality gates, temporary-directory prefixes, state-schema names, and test fixtures.
 - [x] Rename `.github/workflows/version127-release-e2e.yml` and its workflow/concurrency names.
 - [x] Update AGENTS.md so the brand rule says `stack127`, lowercase.
 - [x] Update sitewide docs, content docs, content ideas, templates, generated repository README content, and external-repository instructions.
-- [ ] Rename the local and homelab checkout directories to `stack127` only after tooling, Remote Control, scripts, and documentation no longer depend on the old absolute path.
-- [ ] Update the homelab Remote Control project path and SSH aliases after the directory rename.
+- [ ] Rename the active macOS workspace from `Version127` to `Stack127` after this task is closed and reopen Codex on the new path; the running task still owns the old workspace root.
+- [x] Rename the homelab checkout to `/home/teja/projects/stack127`, preserve a compatibility SSH alias, and add `stack127-homelab` as the canonical alias.
 
 Do not rewrite Git history solely to erase the old brand. Historical commits and already-applied migration filenames may retain it.
 
@@ -381,7 +382,7 @@ BaseBuddy is an independent source-of-truth project and must be migrated from it
 - [x] Update both active migration-checkout remotes and the rebrand-owned GitHub links, packages, release metadata, support links, and documentation.
 - [x] Configure and verify the HTTPS route for `basebuddy.stack127.com`.
 - [x] Configure and verify the HTTPS route for `basebuddy-demo.stack127.com`.
-- [ ] Keep production and demo environment variables, databases, credentials, analytics, and deployment targets isolated.
+- [x] Keep production and demo environment variables, databases, credentials, analytics, and deployment targets isolated; the secret-free inventory records separate Dokploy key sets and no inherited project-level variables.
 - [x] Update BaseBuddy canonical URLs, metadata, structured data, allowed hosts, public links, and email references where applicable in the rebrand source commits.
 - [x] Update the BaseBuddy deployment provider and GitHub integration after repository transfer. The GitHub App ownership, callback/webhook URLs, repository-scoped installation, provider connection, repository selection, branch, and Dockerfile settings are complete for both applications.
 - [x] Verify production and demo independently. Website deployment `4fBYajnnsmK1iKEvrSoQi` and demo deployment `rjrumMjDGUero0OVbNo_l` completed successfully from `ef48eb9`; both services rolled to fresh running tasks, and the website, About page, demo login, robots, and sitemap endpoints return `200`.
@@ -403,7 +404,7 @@ Do not copy BaseBuddy source into the private stack127 repository and do not cre
 ### Email
 
 - [x] Replace every active public `version127@proton.me` reference with `stack127@proton.me`.
-- [ ] Update GitHub organization/repository contact information.
+- [x] Update GitHub organization contact information plus every repository description and canonical website.
 - [ ] Update Dokploy account contact information where appropriate.
 - [ ] Update Cloudflare, analytics, newsletter, social, registrar, and monitoring contacts where appropriate.
 - [ ] Keep the old Proton address available as a forwarding or monitored fallback if the user controls it.
@@ -412,17 +413,17 @@ The approved public address is Proton's `stack127@proton.me`; this plan does not
 
 ### Analytics and monitoring
 
-- [ ] Update Umami's tracked domain list from version127 hosts to stack127 hosts.
-- [ ] Decide whether to reuse the existing Umami website ID for continuity or create a new property.
-- [ ] Annotate the cutover date so traffic continuity is understandable.
-- [ ] Prevent duplicate page views during the dual-domain period.
+- [x] Update Umami's existing Stack127 and BaseBuddy website records to `stack127.com` and `basebuddy.stack127.com`.
+- [x] Reuse both existing Umami website IDs so historical traffic remains continuous.
+- [x] Record 20 August 2026 as the analytics cutover date in this migration record.
+- [x] Prevent duplicate page views through one-hop old-domain redirects and canonical-only application hosting; no second Umami property was created.
 - [ ] Update uptime monitors, status checks, health probes, alert destinations, dashboards, and incident links.
 - [ ] Update any Sentry, PostHog, webhook, cron, API allowlist, OAuth callback, or third-party integration URLs if present.
 
 ### Search and verification
 
-- [ ] Add the new Google Search Console property.
-- [ ] Update verification tokens only where the provider requires it.
+- [x] Add and verify the two new Google Search Console Domain properties.
+- [x] Add the required Google verification TXT record for `stack127.com`; BaseBuddy inherits verification from the parent Domain property.
 - [ ] Submit the new sitemap after canonical cutover.
 - [ ] Configure the site move after redirects are verified.
 - [ ] Update Bing and other active webmaster tools.
@@ -479,16 +480,16 @@ For each supplied account:
 - [x] `stack127labs/basebuddy-website` is private.
 - [x] `stack127labs/basebuddy`, `stack127labs/dns-tools`, and `stack127labs/stack127-datasets` are public.
 - [ ] Every repository has the correct default branch, permissions, rules, secrets, variables, environments, webhooks, and GitHub Apps.
-- [ ] Local and homelab remotes resolve to the intended repository.
+- [x] Local, temporary migration, and homelab remotes resolve to the intended `stack127labs` repositories.
 - [x] GHCR image ownership and Dokploy pull access work for the private stack127 production image.
 
 ### Application and SEO
 
-- [x] Typecheck, 375 unit tests, static policy, 340-case browser SEO suite, managed-production SEO registry check, and production build pass.
+- [x] Typecheck, 382 unit tests, static policy, 340-case browser SEO suite, managed-production SEO registry check, and production build pass.
 - [x] Every published route works on `stack127.com` in the release verification suite and the live apex, health, sitemap, and robots surfaces were independently checked.
 - [x] Canonicals, sitemap, robots, Open Graph, Twitter metadata, and non-logo JSON-LD point to stack127 in the verified build; live sitemap and origin-owned robots output were also verified after the runtime environment correction.
-- [ ] No old-domain page remains an indexable duplicate.
-- [ ] No unintended public `version127` text remains in server-rendered HTML, response messages, image alt text, or assets.
+- [x] No old-domain page remains an indexable duplicate; old main and BaseBuddy hosts resolve through exact permanent redirects.
+- [x] A live crawl of all 53 sitemap URLs found no failed pages and no active `version127` brand matches after the provenance data migration.
 - [x] Existing route slugs and query behavior remain unchanged in application tests.
 
 ### Infrastructure and deployment
@@ -507,7 +508,7 @@ For each supplied account:
 - [x] All database work ran against the managed development project first.
 - [x] No local Supabase Docker containers were started or required.
 - [x] Managed development migrations and application checks pass.
-- [ ] Production has a verified recovery point before structural migration.
+- [x] Production has a checksum-verified, private logical recovery dump from before the final provenance migration.
 - [x] The authorized production migration was applied after the managed-development verification.
 - [x] Publication registry, sitemap, and all published routes remain correct in local production-build verification.
 
@@ -518,7 +519,7 @@ For each supplied account:
 - [x] Old BaseBuddy demo URLs redirect to the exact new demo paths with query strings preserved.
 - [x] Legacy BaseBuddy main and demo domains redirect in one hop to the exact new paths with query strings preserved, including the older `basebuddycms.com` hosts.
 - [x] The main-site and BaseBuddy redirect families were checked without loops, chains, mixed-content failures, or unexpected homepage fallbacks.
-- [ ] Umami receives stack127 traffic without double counting.
+- [x] Stack127 and BaseBuddy live HTML use their preserved Umami IDs, and the tracked domains were updated in place without duplicate properties.
 - [ ] `stack127@proton.me` is present everywhere intended and receives test mail.
 - [ ] Search Console accepts the new property and sitemap.
 - [ ] User-provided social and newsletter profiles show the correct display name, handle, bio, website, and approved visuals.
@@ -527,13 +528,13 @@ For each supplied account:
 
 Before cutover, record:
 
-- [ ] Last known-good website commit and immutable image.
-- [ ] Current Dokploy application configuration and application ID.
-- [ ] Current Cloudflare DNS, redirects, tunnel, Access, and security configuration.
+- [x] Last known-good website commit and immutable image are recorded in the release snapshot above.
+- [x] Current Dokploy application configuration and application ID are recorded in the deployment documents and secret-free environment inventory.
+- [x] Current Cloudflare DNS, redirects, tunnel, Access, TLS, HSTS, and security configuration are recorded in `stack127_docs/cloudflare.md` and this cutover record.
 - [ ] Current GitHub repository ownership, permissions, variables, secrets, packages, and webhooks.
-- [ ] Managed development and production database migration state.
-- [ ] Production database recovery point.
-- [ ] Current analytics website ID and domain configuration.
+- [x] Managed development and production database migration state is aligned through `20260820164412`.
+- [x] Production database recovery point is recorded with an absolute private path, file mode, size, and SHA-256 checksum.
+- [x] Current analytics website IDs and canonical domain configuration are recorded in `stack127_docs/environment-inventory.md`; values were reused, not rotated.
 
 If verification fails:
 
