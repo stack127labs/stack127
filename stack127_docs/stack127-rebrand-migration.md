@@ -14,17 +14,17 @@ Checklist legend: checked items have been implemented and verified; unchecked it
 
 | Workstream | Status | Verified result |
 | --- | --- | --- |
-| Domain and Cloudflare zone | Mostly complete | Domain is active on Cloudflare nameservers; apex, `www`, Labs, Dokploy, and both BaseBuddy DNS records exist |
-| Main application rebrand | Complete locally | Public copy, metadata, environment namespaces, docs, scripts, tests, skills, workflow, and package identity now use stack127 |
-| Labs directory | Complete locally | `/labs` is implemented, published in the managed registry, and covered by tests |
+| Domain and Cloudflare zone | Complete for public cutover | Domain is active on Cloudflare nameservers; apex, `www`, Labs, Dokploy, and both BaseBuddy DNS records exist; AI crawlers are allowed and Cloudflare robots.txt management is off |
+| Main application rebrand | Live | Public copy, metadata, environment namespaces, docs, scripts, tests, skills, workflow, and package identity use stack127 in production |
+| Labs directory | Live | `/labs` is implemented, published in the managed registry, covered by tests, and available on the canonical domain |
 | Managed Supabase | Complete | Forward migration applied and verified on managed development and production; no local Docker Supabase was used |
 | Verification | Complete locally | Typecheck, 375 unit tests, static policy, SEO registry, production build, and 340-case browser SEO suite pass |
 | Old-domain redirects | Complete in Cloudflare | Main apex/`www` and both BaseBuddy redirect rules are active with paths and query strings preserved |
 | Dokploy administration | Domain cutover complete | Project/application display names are `stack127`; dashboard/Access/tunnel work; apex and `www` mappings are HTTPS and the live health endpoint returns `200` |
-| GitHub organization and repositories | Organization created | `stack127labs` exists with `RaviTejaKNTS` as owner; organization profile configuration and repository transfers remain |
-| BaseBuddy source/deployments | Prepared locally | New DNS records exist; private website and public app rebrand changes are prepared in separate checkouts and pass focused tests/typecheck/build, but are not pushed or deployed |
-| DNS Tools and datasets | Prepared locally | Repository branding, links, manifests, documentation, and publisher identity are prepared in separate checkouts; DNS Tools tests and build pass |
-| Production release | Pending | Source changes are not yet committed, transferred, built in GitHub Actions, or deployed |
+| GitHub organization and repositories | Complete for cutover | `stack127labs` profile and mandatory 2FA are configured; all five repositories were transferred, renamed where required, and their required visibility was verified |
+| BaseBuddy source/deployments | Live | Both repositories and domains are migrated; website footer/About copy at `ef48eb9` is live; the GitHub App is installed only on `basebuddy-website`; both Dokploy providers were reconnected and the production and demo deployments completed successfully |
+| DNS Tools and datasets | Source pushed | Repository branding, links, manifests, documentation, and publisher identity are live in their transferred repositories; DNS Tools tests and build pass |
+| Production release | Live | GitHub Actions release `32349852781` succeeded; Dokploy and the live health endpoint report `15486b515512c001ade320bf2e2bb9b38a4b92c0` |
 | Logos and social profiles | Deferred | Existing logo assets remain untouched; no social account was created or changed |
 
 ## Approved decisions
@@ -97,6 +97,8 @@ The BaseBuddy demo hostname intentionally preserves the existing `basebuddy-demo
 | `www.version127.com/<path>` | `https://stack127.com/<path>` with query string preserved |
 | `basebuddy.version127.com/<path>` | `https://basebuddy.stack127.com/<path>` with query string preserved |
 | `basebuddy-demo.version127.com/<path>` | `https://basebuddy-demo.stack127.com/<path>` with query string preserved |
+| `basebuddycms.com/<path>` and `www.basebuddycms.com/<path>` | `https://basebuddy.stack127.com/<path>` with query string preserved and no intermediate redirect |
+| `demo.basebuddycms.com/<path>` | `https://basebuddy-demo.stack127.com/<path>` with query string preserved and no intermediate redirect |
 
 Keep the old domain and old usernames under the user's control. Do not release or delete them. Keep path-preserving redirects for at least 24 months and preferably indefinitely.
 
@@ -137,7 +139,7 @@ Configure `stack127labs` with:
 - [ ] Final avatar when the user provides the logo.
 - [x] Organization description. The profile README remains optional and is not yet created.
 - [ ] Primary owner and at least one recovery owner where practical.
-- [ ] Mandatory 2FA.
+- [x] Mandatory 2FA. Secure-method-only enforcement remains off until every future member's recovery methods are known.
 - [ ] Least-privilege teams and repository permissions.
 - [ ] Actions, package, fork, issue, discussion, and repository-creation policies.
 - [ ] Organization security settings and recovery information.
@@ -169,11 +171,11 @@ All five repository baselines were read through authenticated GitHub APIs using 
 For every repository:
 
 - [x] Record the pre-transfer repository visibility, branch, baseline commit, core settings, environments, variable/secret names, hooks, deploy keys, and collaborators for all five repositories.
-- [ ] Transfer or recreate settings that do not migrate automatically.
-- [ ] Verify repository visibility immediately after transfer.
+- [x] Transfer the repositories and preserve the production environment, its five secrets, four legacy variables, repository secrets, and deploy key through GitHub's native transfer.
+- [x] Verify repository visibility immediately after transfer: `stack127` and `basebuddy-website` are private; `basebuddy`, `dns-tools`, and `stack127-datasets` are public.
 - [ ] Update description, website, topics, social preview, README links, badges, clone commands, contribution links, support links, security policy, and CODEOWNERS.
-- [ ] Update local and homelab Git remotes.
-- [ ] Update Dokploy, GitHub Apps, PATs, automation tokens, and webhooks to the new owner/repository.
+- [x] Update the active local and temporary migration-checkout Git remotes. Homelab checkouts, if any, remain to be audited separately.
+- [x] Update Dokploy and the BaseBuddy GitHub App to the new owner/repository. The app is transferred to `stack127labs`, its Dokploy callback/webhook URLs are updated, installation is restricted to `basebuddy-website`, the provider connection finds exactly one repository, and both BaseBuddy application sources point to `stack127labs/basebuddy-website` on `self-host-dev`.
 - [ ] Verify issues, releases, stars, watchers, forks, tags, and redirects.
 - [ ] Run the repository's own quality gate after the transfer.
 
@@ -249,10 +251,12 @@ For the new zone:
 - [x] Configure `basebuddy.stack127.com` DNS.
 - [x] Configure `basebuddy-demo.stack127.com` DNS.
 - [x] Match the intended Cloudflare proxy state for every hostname.
+- [x] Allow Search, Agent, and Training AI crawler categories and disable the deprecated AI-bot blocking rule.
+- [x] Disable Cloudflare robots.txt management so the origin-owned policy is served unchanged.
 - [ ] Configure SSL/TLS mode, edge certificates, origin certificates, HSTS timing, and minimum TLS settings.
 - [x] Recreate the Cloudflare Access applications and policies for the new Dokploy hostname and deployment API paths.
 - [x] Update the Cloudflare Tunnel public hostname and ingress rules while retaining the old hostname for rollback.
-- [ ] Review redirects, cache rules, WAF rules, bot controls, rate limits, Transform Rules, Workers, Pages projects, and origin allowlists for the old domain.
+- [ ] Review redirects, cache rules, WAF rules, rate limits, Transform Rules, Workers, Pages projects, and origin allowlists for the old domain. Bot controls and managed robots were reviewed and corrected on the new zone.
 - [ ] Create or update zone-scoped API tokens and the Cloudflare zone ID used by CI and local preflight.
 - [ ] Test proxied and direct origin expectations over IPv4 and IPv6.
 
@@ -262,6 +266,7 @@ For the old zone:
 - [x] Add path-preserving redirects for the apex and `www`.
 - [x] Add the exact BaseBuddy production redirect.
 - [x] Add the exact BaseBuddy demo redirect with path and query preservation.
+- [x] Point `basebuddycms.com`, `www.basebuddycms.com`, and `demo.basebuddycms.com` directly to their stack127 BaseBuddy destinations, removing the former `version127.com` redirect chain.
 - [x] Keep administrative access working until the new Dokploy hostname passes verification.
 - [x] Confirm the old Dokploy hostname remains behind Cloudflare Access.
 
@@ -305,16 +310,19 @@ Reuse the existing dedicated OVH production VPS unless a separate infrastructure
 
 - [x] Rename the production target ID from `version127-production-ovh` to `stack127-production-ovh`.
 - [ ] Rename the optional SSH alias from `version127-prod` to `stack127-prod` while preserving access during transition.
-- [ ] Change the production repository to `stack127labs/stack127` on `main`.
+- [x] Change the production repository to `stack127labs/stack127` on `main`.
 - [x] Change the configured immutable image path to `ghcr.io/stack127labs/stack127-web`.
 - [x] Rename the Dokploy project and application display names to `stack127` while preserving their IDs.
 - [x] Attach `stack127.com` and `www.stack127.com` as HTTPS routes while retaining the old domains for rollback.
 - [x] Change the dashboard URL to `https://dokploy.stack127.com`.
 - [x] Update Cloudflare Access and tunnel configuration while retaining the old dashboard hostname for rollback.
-- [ ] Verify Dokploy can authenticate to and pull the transferred private GHCR package.
-- [ ] Update site URL, release SHA, repository, image, Cloudflare, and Dokploy variables.
+- [x] Verify Dokploy can authenticate to and pull the transferred private GHCR package through the successful stack127 production release.
+- [x] Update the GitHub production Environment to the stack127 site, Dokploy URL/application, GHCR owner, and Cloudflare zone; remove the obsolete `VERSION127_*` variables.
+- [x] Replace the invalid legacy GitHub production secret with a new `stack127-production-preflight` token restricted to `stack127.com` with only `DNS:Read` and `Zone:Read`.
+- [ ] Replace the revoked local `CLOUDFLARE_API_TOKEN` in the ignored `.env.deploy`; local preflight currently reaches the API but receives `401`, while the GitHub production secret passed the live release workflow.
+- [x] Set the Dokploy runtime `NEXT_PUBLIC_SITE_URL` to `https://stack127.com` and redeploy so live sitemap and robots output use the canonical hostname.
 - [x] Reuse the current Dokploy application ID; no replacement application was created.
-- [ ] Preserve the release invariant: local `HEAD`, `origin/main`, immutable GHCR image, Dokploy deployment commit, health endpoint SHA, and live production revision must all match.
+- [x] Preserve the release invariant for release `15486b515512c001ade320bf2e2bb9b38a4b92c0`: local `HEAD`, `origin/main`, immutable GHCR image, Dokploy deployment commit, health endpoint SHA, and live production revision match.
 - [x] Preserve the removed Hostinger deployment as historical documentation; never reactivate it.
 
 ### Deployment namespace changes
@@ -358,24 +366,32 @@ Do not rewrite Git history solely to erase the old brand. Historical commits and
 
 BaseBuddy is an independent source-of-truth project and must be migrated from its own private repository checkout.
 
-- [x] Prepare the private website changes in an independent checkout at baseline `7a0a9fa8dda235f4be7d2c467ed90bc1c71b9c70`; local migration commit `ef48eb9`.
-- [x] Prepare the public app changes in an independent checkout at baseline `2ff50ab454805e498756d1013a1dc2af22acb7fd`; local migration commit `5819556`.
+- [x] Prepare and push the private website changes from baseline `7a0a9fa8dda235f4be7d2c467ed90bc1c71b9c70`; migration commit `ef48eb9` on `self-host-dev`.
+- [x] Prepare and push the public app changes from baseline `2ff50ab454805e498756d1013a1dc2af22acb7fd`; migration commit `5819556` on `main`.
 - [x] Standardize both projects on `basebuddy.stack127.com`, `basebuddy-demo.stack127.com`, and `stack127labs/basebuddy`.
 - [x] Verify focused branding/domain tests and TypeScript checks in both projects; verify production builds for the private app, website, and public app.
-- [x] Prepare DNS Tools migration commit `c09aa31`; its typecheck, 57 unit tests, repository boundary test, and production build pass.
-- [x] Prepare dataset migration commit `d58c616` with stack127 publisher, URLs, and attribution.
+- [x] Prepare and push DNS Tools migration commit `c09aa31`; its typecheck, 57 unit tests, repository boundary test, and production build pass.
+- [x] Prepare and push dataset migration commit `d58c616` with stack127 publisher, URLs, and attribution.
 - [ ] Resolve or supply the private checkout's intentionally ignored Playwright environment before treating its full 1,324-test suite as a clean gate. Current run: 1,313 passed and 11 environment-only failures.
-- [ ] Transfer the private website repository to `stack127labs/basebuddy-website` and verify it remains private.
-- [ ] Transfer the public app repository to `stack127labs/basebuddy` and verify it remains public.
-- [ ] Update both repository remotes, GitHub links, packages, release metadata, badges, topics, issues, support links, and documentation.
-- [ ] Configure `basebuddy.stack127.com` for production.
-- [ ] Configure `basebuddy-demo.stack127.com` for the demo.
+- [x] Transfer the private website repository to `stack127labs/basebuddy-website` and verify it remains private.
+- [x] Transfer the public app repository to `stack127labs/basebuddy` and verify it remains public.
+- [x] Update both active migration-checkout remotes and the rebrand-owned GitHub links, packages, release metadata, support links, and documentation.
+- [x] Configure and verify the HTTPS route for `basebuddy.stack127.com`.
+- [x] Configure and verify the HTTPS route for `basebuddy-demo.stack127.com`.
 - [ ] Keep production and demo environment variables, databases, credentials, analytics, and deployment targets isolated.
-- [ ] Update BaseBuddy canonical URLs, metadata, structured data, CORS, CSP, allowed hosts, cookie domains, API callbacks, OAuth callbacks, webhook URLs, and email links where applicable.
-- [ ] Update the BaseBuddy deployment provider and GitHub integration after repository transfer.
-- [ ] Verify production and demo independently.
-- [ ] Enable exact path-preserving redirects from both old BaseBuddy hostnames only after the new hosts pass verification.
-- [ ] Record BaseBuddy's final release/tag and exact commit independently from the stack127 website release.
+- [x] Update BaseBuddy canonical URLs, metadata, structured data, allowed hosts, public links, and email references where applicable in the rebrand source commits.
+- [x] Update the BaseBuddy deployment provider and GitHub integration after repository transfer. The GitHub App ownership, callback/webhook URLs, repository-scoped installation, provider connection, repository selection, branch, and Dockerfile settings are complete for both applications.
+- [x] Verify production and demo independently. Website deployment `4fBYajnnsmK1iKEvrSoQi` and demo deployment `rjrumMjDGUero0OVbNo_l` completed successfully from `ef48eb9`; both services rolled to fresh running tasks, and the website, About page, demo login, robots, and sitemap endpoints return `200`.
+- [x] Enable exact path-preserving redirects from both old BaseBuddy hostnames after the new hosts pass verification. `basebuddycms.com`, `www.basebuddycms.com`, and `basebuddy.version127.com` now redirect directly to production; `demo.basebuddycms.com` and `basebuddy-demo.version127.com` redirect directly to demo. All checked paths and query strings are preserved without an intermediate hop.
+- [ ] Record BaseBuddy's final release/tag independently from the stack127 website release. The deployed website source commit is recorded as `ef48eb9`; no new release tag was created during this cutover.
+
+### Dokploy GitHub provider recovery
+
+The GitHub App installation callback initially returned an internal server error in Dokploy `v0.29.5`. The server log showed that the callback handler attempted to split a missing OAuth `state` value. The installation was initiated from GitHub, so no `state` reached Dokploy and the provider's installation ID was not updated.
+
+The intended callback result was recovered without changing credentials: the existing provider row was updated in a transaction only when both its exact provider ID and previous installation ID matched. Exactly one row changed. The provider's **Test Connection** action then reported one repository, matching the app's repository-only installation scope. Both BaseBuddy applications were reconnected to `stack127labs/basebuddy-website`, branch `self-host-dev`; the Website uses `Dockerfile.website` and Demo uses `Dockerfile.demo`.
+
+No OAuth code, installation credential, application secret, or provider secret is recorded in this document.
 
 Do not copy BaseBuddy source into the private stack127 repository and do not create a runtime/build dependency between them.
 
@@ -456,18 +472,18 @@ For each supplied account:
 
 ### Repository and GitHub
 
-- [ ] `stack127labs/stack127` is private.
-- [ ] `stack127labs/basebuddy-website` is private.
-- [ ] `stack127labs/basebuddy`, `stack127labs/dns-tools`, and `stack127labs/stack127-datasets` are public.
+- [x] `stack127labs/stack127` is private.
+- [x] `stack127labs/basebuddy-website` is private.
+- [x] `stack127labs/basebuddy`, `stack127labs/dns-tools`, and `stack127labs/stack127-datasets` are public.
 - [ ] Every repository has the correct default branch, permissions, rules, secrets, variables, environments, webhooks, and GitHub Apps.
 - [ ] Local and homelab remotes resolve to the intended repository.
-- [ ] GHCR image ownership and Dokploy pull access work.
+- [x] GHCR image ownership and Dokploy pull access work for the private stack127 production image.
 
 ### Application and SEO
 
 - [x] Typecheck, 375 unit tests, static policy, 340-case browser SEO suite, managed-production SEO registry check, and production build pass.
-- [ ] Every published route works on `stack127.com`.
-- [x] Canonicals, sitemap, robots, Open Graph, Twitter metadata, and non-logo JSON-LD point to stack127 only in the verified build.
+- [x] Every published route works on `stack127.com` in the release verification suite and the live apex, health, sitemap, and robots surfaces were independently checked.
+- [x] Canonicals, sitemap, robots, Open Graph, Twitter metadata, and non-logo JSON-LD point to stack127 in the verified build; live sitemap and origin-owned robots output were also verified after the runtime environment correction.
 - [ ] No old-domain page remains an indexable duplicate.
 - [ ] No unintended public `version127` text remains in server-rendered HTML, response messages, image alt text, or assets.
 - [x] Existing route slugs and query behavior remain unchanged in application tests.
@@ -475,13 +491,13 @@ For each supplied account:
 ### Infrastructure and deployment
 
 - [x] Cloudflare A and AAAA records match the OVH target.
-- [ ] SSL works for every hostname. Verified for the apex, `www`, Labs, and Dokploy; BaseBuddy production/demo still need application attachments.
+- [x] SSL works for the apex, `www`, Labs, Dokploy, BaseBuddy production, and BaseBuddy demo hostnames.
 - [x] Cloudflare Access protects the new Dokploy hostname.
 - [x] The old Dokploy hostname remains protected and does not provide an unprotected bypass.
-- [ ] GitHub Actions builds the immutable stack127 GHCR image.
-- [ ] Dokploy deploys the expected image.
-- [ ] The live health endpoint reports the exact expected commit SHA.
-- [ ] `HEAD = origin/main = GHCR image SHA = Dokploy revision = live revision`.
+- [x] GitHub Actions builds the immutable stack127 GHCR image.
+- [x] Dokploy deploys the expected image.
+- [x] The live health endpoint reports the exact expected commit SHA `15486b515512c001ade320bf2e2bb9b38a4b92c0`.
+- [x] `HEAD = origin/main = GHCR image SHA = Dokploy revision = live revision` for release `15486b515512c001ade320bf2e2bb9b38a4b92c0`.
 
 ### Managed Supabase
 
@@ -497,7 +513,8 @@ For each supplied account:
 - [x] Old main-site URLs redirect to the exact new paths with query strings preserved.
 - [x] The old BaseBuddy production redirect rule points to the exact new production paths with query strings preserved.
 - [x] Old BaseBuddy demo URLs redirect to the exact new demo paths with query strings preserved.
-- [ ] Redirects have no loops, chains, mixed-content failures, or unexpected homepage fallbacks.
+- [x] Legacy BaseBuddy main and demo domains redirect in one hop to the exact new paths with query strings preserved, including the older `basebuddycms.com` hosts.
+- [x] The main-site and BaseBuddy redirect families were checked without loops, chains, mixed-content failures, or unexpected homepage fallbacks.
 - [ ] Umami receives stack127 traffic without double counting.
 - [ ] `stack127@proton.me` is present everywhere intended and receives test mail.
 - [ ] Search Console accepts the new property and sitemap.
