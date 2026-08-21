@@ -1,6 +1,6 @@
 # stack127 homelab development handoff
 
-Last updated: 19 August 2026
+Last updated: 21 August 2026
 
 ## Current operating model
 
@@ -10,7 +10,7 @@ The primary stack127 development workspace is now the homelab checkout:
 /home/teja/projects/stack127
 ```
 
-The private source-of-truth repository is `stack127labs/stack127`, using the `main` branch. Normal work should start on the homelab, pull from GitHub before editing, and push reviewed commits back to GitHub. The old Mac checkout can remain as an inactive fallback, but it should not receive new edits because that would create two working copies that can diverge.
+The private source-of-truth repository is `stack127labs/stack127`, using the `main` branch. Normal work should start on the homelab, pull from GitHub before editing, and push reviewed commits back to GitHub. The Mac checkout is an inactive fallback at `/Users/ravitejaknts/projects/Stack127`; it should not receive independent edits because that would create two working copies that can diverge.
 
 External repositories are independent checkouts beside the private workspace. The BaseBuddy website checkout is at:
 
@@ -79,13 +79,13 @@ Database security cleanup completed:
 
 ## Dependencies and verification
 
-stack127 dependencies were installed with `npm ci`. The project-required Playwright Chromium revision was installed on the homelab. The complete quality gate passed during the move:
+stack127 dependencies were installed with `npm ci`. The project-required Playwright Chromium revision was installed on the homelab. The complete quality gate passes on the synchronized repository:
 
 - TypeScript check passed.
-- 368 unit tests passed after the cleanup tests were added.
-- Static policy passed for all 52 route files.
-- The live production SEO registry check passed with 52 published slugs.
-- Playwright completed 214 checks with 124 repository-configured skips and no failures.
+- 382 unit tests pass.
+- Static policy passes for all 53 route files.
+- The managed production SEO registry check passes with 53 published slugs.
+- The 342-case desktop/mobile Playwright matrix completes with 218 active checks, 124 repository-configured skips, and no failures.
 - The production Next.js build passed.
 
 The BaseBuddy website checkout was previously installed with pnpm 10.32.1. Each BaseBuddy repository owns its own dependencies, environment examples, tests, and quality gate; the private stack127 checkout does not depend on or contain those files.

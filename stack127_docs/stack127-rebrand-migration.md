@@ -1,10 +1,12 @@
 # stack127 rebrand and migration plan
 
-Status: implementation in progress
+Status: technical cutover complete; owner-approved follow-up deferred
 Created: 20 August 2026
-Last updated: 20 August 2026
+Last updated: 21 August 2026
 
 This document is the source of truth for changing the complete `version127` identity to `stack127`. It covers the public brand, domains, GitHub organization and repositories, application, managed Supabase environments, deployment, infrastructure, SEO, documentation, external projects, analytics, email, social profiles, redirects, verification, and retirement of the old identity.
+
+The dated closeout record is `dev-space/2026-08-21-stack127-migration-closeout.md`.
 
 The user authorized the complete rebrand, infrastructure changes, repository migration, and production release on 20 August 2026. Social-account creation remains out of scope until the user supplies the accounts. The user supplied and approved the final wordmark and square mark later the same day, so the website logo and favicon replacement are now in scope.
 
@@ -18,7 +20,7 @@ Checklist legend: checked items have been implemented and verified; unchecked it
 | Main application rebrand | Live | Public copy, metadata, environment namespaces, docs, scripts, tests, skills, workflow, and package identity use stack127 in production |
 | Labs directory | Live | `/labs` is implemented, published in the managed registry, covered by tests, and available on the canonical domain |
 | Managed Supabase | Complete | Forward migration applied and verified on managed development and production; no local Docker Supabase was used |
-| Verification | Complete locally | Typecheck, 382 unit tests, static policy, SEO registry, production build, and 340-case browser SEO suite pass |
+| Verification | Complete locally | Typecheck, 382 unit tests, static policy, SEO registry, production build, and the 342-case desktop/mobile browser matrix pass with 218 active checks and 124 deliberate skips |
 | Old-domain redirects | Complete in Cloudflare | Main apex/`www` and both BaseBuddy redirect rules are active with paths and query strings preserved |
 | Dokploy administration | Domain cutover complete | Project/application display names are `stack127`; dashboard/Access/tunnel work; apex and `www` mappings are HTTPS and the live health endpoint returns `200` |
 | GitHub organization and repositories | Complete for cutover | `stack127labs` profile and mandatory 2FA are configured; all five repositories were transferred, renamed where required, and their required visibility was verified |
@@ -26,7 +28,7 @@ Checklist legend: checked items have been implemented and verified; unchecked it
 | DNS Tools and datasets | Source pushed | Repository branding, links, manifests, documentation, and publisher identity are live in their transferred repositories; DNS Tools tests and build pass |
 | Production release | Live | The canonical GitHub Actions release workflow succeeds from the current `main` tip; Dokploy and the live health endpoint are verified against the immutable release SHA after each cutover update |
 | Logos and social profiles | Website and GitHub avatar complete | Supplied originals are preserved byte-for-byte; transparent theme wordmarks and the dark square favicon family are integrated and release-verified; the GitHub organization uses the approved dark `127.` square mark; no social account was created or changed |
-| Search-engine migration | Properties and sitemaps complete; Google moves pending | Google and Bing contain both new sites; Google reports successful sitemap reads with 53 Stack127 and 122 BaseBuddy URLs; Bing accepted both sitemaps for processing; Google's change-of-address validator still reports that it cannot fetch the old HTTP homepages despite verified one-hop `301` responses |
+| Search-engine migration | Technical setup complete; crawling in progress | Google and Bing contain both new sites and successful sitemaps for 53 Stack127 and 122 BaseBuddy URLs; Bing robots validation is clean and indexing requests were accepted; Google's optional change-of-address validator still reports that it cannot fetch the old HTTP homepages despite verified one-hop `301` responses and a successful Google live test |
 
 ## Approved decisions
 
@@ -234,14 +236,14 @@ Preserve every existing public route slug. The migration changes identity and ho
 - [x] Update `application-name` and any web-manifest identity.
 - [x] Update WebSite, Organization, WebPage, Article, FAQ, breadcrumb, and tool JSON-LD where present.
 - [x] Update sitemap URLs to `stack127.com` only.
-- [x] Update robots host and sitemap references.
+- [x] Update robots crawl and sitemap references and omit the unnecessary nonstandard `Host:` directive.
 - [x] Configure the old main domain to redirect instead of serving indexable duplicates.
 - [x] Preserve page slugs, content, publication dates, and meaningful modification dates.
 - [x] Preserve query strings during main-domain redirects while keeping query variants `noindex, follow`.
 - [x] Add and verify the `stack127.com` and `basebuddy.stack127.com` Google Search Console Domain properties. Preserve the Stack127 DNS verification TXT record.
 - [x] Submit both new sitemaps to Google Search Console. Google reports `Success`, with 53 discovered Stack127 pages and 122 discovered BaseBuddy pages.
-- [ ] Complete Google's site-move/change-of-address workflow. Both confirmed submissions were attempted after direct one-hop redirects were live, but Google's validator reports `Couldn’t fetch the page` for `http://version127.com/` and `http://basebuddycms.com/`; verified public requests return direct `301` responses to the exact new homepages, so retry after Google's fetch state refreshes.
-- [x] Import only `https://stack127.com/` and `https://basebuddy.stack127.com/` into Bing Webmaster Tools through the confirmed read-only Search Console connection, then submit both sitemaps. Bing accepted both for processing.
+- [ ] Complete Google's optional site-move/change-of-address workflow if its validator recovers. Both confirmed submissions were attempted after direct one-hop redirects were live, Google's own live test says the old homepage is available, and public requests return direct `301` responses to the exact new homepages. The remaining validator failure is not a site-side migration blocker.
+- [x] Import only `https://stack127.com/` and `https://basebuddy.stack127.com/` into Bing Webmaster Tools through the confirmed read-only Search Console connection; submit both successful sitemaps; verify zero robots errors and warnings; confirm Bingbot is allowed; and submit both homepages for indexing.
 - [ ] Update important external links, GitHub README links, profiles, newsletters, and known backlinks.
 - [ ] Monitor indexing, crawl errors, redirect behavior, impressions, clicks, and canonical selection during the transition.
 
@@ -428,7 +430,7 @@ The approved public address is Proton's `stack127@proton.me`; this plan does not
 - [x] Add the required Google verification TXT record for `stack127.com`; BaseBuddy inherits verification from the parent Domain property.
 - [x] Submit both new sitemaps after canonical cutover; Google reports successful reads for 53 Stack127 and 122 BaseBuddy URLs.
 - [ ] Complete the two Google site moves after its homepage-fetch validator refreshes. Verification of both property pairs passes and the redirects are direct, public one-hop `301`s, but Google currently reports that it cannot fetch each old HTTP homepage.
-- [x] Add both new sites to Bing through its read-only Google Search Console import and submit both Bing sitemaps for processing.
+- [x] Add both new sites to Bing through its read-only Google Search Console import, verify both successful sitemaps, validate both robots files, and request homepage indexing.
 
 ## Phase 12: social and newsletter profiles
 
@@ -487,7 +489,7 @@ For each supplied account:
 
 ### Application and SEO
 
-- [x] Typecheck, 382 unit tests, static policy, 340-case browser SEO suite, managed-production SEO registry check, and production build pass.
+- [x] Typecheck, 382 unit tests, static policy, the 342-case desktop/mobile browser matrix, managed-production SEO registry check, and production build pass.
 - [x] Every published route works on `stack127.com` in the release verification suite and the live apex, health, sitemap, and robots surfaces were independently checked.
 - [x] Canonicals, sitemap, robots, Open Graph, Twitter metadata, and non-logo JSON-LD point to stack127 in the verified build; live sitemap and origin-owned robots output were also verified after the runtime environment correction.
 - [x] No old-domain page remains an indexable duplicate; old main and BaseBuddy hosts resolve through exact permanent redirects.
@@ -523,7 +525,7 @@ For each supplied account:
 - [x] The main-site and BaseBuddy redirect families were checked without loops, chains, mixed-content failures, or unexpected homepage fallbacks.
 - [x] Stack127 and BaseBuddy live HTML use their preserved Umami IDs, and the tracked domains were updated in place without duplicate properties.
 - [ ] `stack127@proton.me` is present everywhere intended and receives test mail.
-- [x] Search Console accepts both new Domain properties and both sitemaps; the live report shows `Success` for 53 Stack127 URLs and 122 BaseBuddy URLs. The separate change-of-address requests remain pending because Google's validator cannot currently fetch the old HTTP homepages.
+- [x] Search Console accepts the new Domain property and both sitemaps; the live report shows `Success` for 53 Stack127 URLs and 122 BaseBuddy URLs. Google's own live test can fetch the old homepage. The optional change-of-address requests remain pending only because its separate validator still reports a fetch failure.
 - [ ] User-provided social and newsletter profiles show the correct display name, handle, bio, website, and approved visuals.
 
 ## Phase 16: rollback and retention
