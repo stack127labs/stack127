@@ -140,6 +140,7 @@ test.describe("Stack127 publication SEO", () => {
     expect(lines).toContain("Disallow: /api/");
     expect(lines).not.toContain("Disallow: /");
     expect(lines).toContain("Sitemap: https://stack127.com/sitemap.xml");
+    expect(lines.some((line) => line.startsWith("Host:"))).toBe(false);
   });
 
   test("sitemap includes published pages and excludes unpublished routes", async ({ request }, testInfo) => {
