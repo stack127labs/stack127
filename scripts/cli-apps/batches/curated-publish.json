@@ -1,0 +1,4912 @@
+{
+  "generated_at": "2026-08-21T16:05:12.406Z",
+  "records": [
+    {
+      "id": "c03412c4-593d-4031-a490-3ace1193f266",
+      "source": "github_topics",
+      "source_url": "https://github.com/n8n-io/n8n",
+      "name": "n8n",
+      "slug": "n8n",
+      "dedupe_key": "repo:github.com/n8n-io/n8n",
+      "canonical_repo_key": "github.com/n8n-io/n8n",
+      "website_url": "https://n8n.io/",
+      "repository_url": "https://github.com/n8n-io/n8n",
+      "docs_url": null,
+      "summary_raw": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+      "license_raw": "NOASSERTION",
+      "language_raw": "TypeScript",
+      "stars": 201457,
+      "categories_raw": [
+        "topic:cli"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": "2026-08-21T10:52:43.000Z",
+      "payload": {
+        "bucket": "stars:>3000",
+        "topics": [
+          "ai",
+          "apis",
+          "automation",
+          "cli",
+          "data-flow",
+          "development",
+          "integration-framework",
+          "integrations",
+          "ipaas",
+          "low-code",
+          "low-code-platform",
+          "mcp",
+          "mcp-client",
+          "mcp-server",
+          "n8n",
+          "no-code",
+          "self-hosted",
+          "typescript",
+          "workflow",
+          "workflow-automation"
+        ],
+        "archived": false,
+        "pushed_at": "2026-08-21T10:52:43Z",
+        "created_at": "2019-06-22T09:24:21Z",
+        "open_issues": 1067,
+        "matched_topics": [
+          "cli"
+        ],
+        "github_full_name": "n8n-io/n8n"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "n8n-io/n8n",
+          "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+          "homepage": "https://n8n.io",
+          "license_spdx_id": "NOASSERTION",
+          "license_name": "Other",
+          "stars": 201470,
+          "language": "TypeScript",
+          "archived": false,
+          "pushed_at": "2026-08-21T13:10:54Z",
+          "created_at": "2019-06-22T09:24:21Z",
+          "topics": [
+            "ai",
+            "apis",
+            "automation",
+            "cli",
+            "data-flow",
+            "development",
+            "integration-framework",
+            "integrations",
+            "ipaas",
+            "low-code",
+            "low-code-platform",
+            "mcp",
+            "mcp-client",
+            "mcp-server",
+            "n8n",
+            "no-code",
+            "self-hosted",
+            "typescript",
+            "workflow",
+            "workflow-automation"
+          ],
+          "open_issues": 1061,
+          "forks": 60260,
+          "fetched_at": "2026-08-21T13:11:14.852Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:15.210Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.403Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A workflow automation tool that lets you connect services and APIs without writing much code.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "productivity",
+          "devops"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows",
+          "web"
+        ],
+        "language": "TypeScript",
+        "install_methods": [
+          "npm",
+          "docker",
+          "binary"
+        ],
+        "website_url": "https://n8n.io/",
+        "docs_url": null,
+        "source_model": "source_available",
+        "pricing_model": "freemium",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T10:52:43.000Z"
+      }
+    },
+    {
+      "id": "936763d9-b5bd-49e9-b86b-dcbfb386971a",
+      "source": "github_topics",
+      "source_url": "https://github.com/ohmyzsh/ohmyzsh",
+      "name": "ohmyzsh",
+      "slug": "ohmyzsh",
+      "dedupe_key": "repo:github.com/ohmyzsh/ohmyzsh",
+      "canonical_repo_key": "github.com/ohmyzsh/ohmyzsh",
+      "website_url": "https://ohmyz.sh/",
+      "repository_url": "https://github.com/ohmyzsh/ohmyzsh",
+      "docs_url": null,
+      "summary_raw": "🙃 A delightful community-driven (with 2,500+ contributors) framework for managing your zsh configuration. Includes 300+ optional plugins (rails, git, macOS, hub, docker, homebrew, node, php, python, etc), 140+ themes to spice up your morning, and an auto-update tool that makes it easy to keep up with the latest updates from the community.",
+      "license_raw": "MIT",
+      "language_raw": "Shell",
+      "stars": 189287,
+      "categories_raw": [
+        "topic:cli",
+        "topic:terminal",
+        "topic:shell"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": "2026-08-20T08:43:08.000Z",
+      "payload": {
+        "bucket": "stars:>3000",
+        "topics": [
+          "cli",
+          "cli-app",
+          "oh-my-zsh",
+          "oh-my-zsh-plugin",
+          "oh-my-zsh-theme",
+          "ohmyzsh",
+          "plugin-framework",
+          "plugins",
+          "productivity",
+          "shell",
+          "terminal",
+          "theme",
+          "themes",
+          "zsh",
+          "zsh-configuration"
+        ],
+        "archived": false,
+        "pushed_at": "2026-08-20T08:43:08Z",
+        "created_at": "2009-08-28T18:15:37Z",
+        "open_issues": 610,
+        "matched_topics": [
+          "cli",
+          "terminal",
+          "shell"
+        ],
+        "github_full_name": "ohmyzsh/ohmyzsh"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "ohmyzsh/ohmyzsh",
+          "description": "🙃   A delightful community-driven (with 2,500+ contributors) framework for managing your zsh configuration. Includes 300+ optional plugins (rails, git, macOS, hub, docker, homebrew, node, php, python, etc), 140+ themes to spice up your morning, and an auto-update tool that makes it easy to keep up with the latest updates from the community.",
+          "homepage": "https://ohmyz.sh",
+          "license_spdx_id": "MIT",
+          "license_name": "MIT License",
+          "stars": 189291,
+          "language": "Shell",
+          "archived": false,
+          "pushed_at": "2026-08-20T08:43:08Z",
+          "created_at": "2009-08-28T18:15:37Z",
+          "topics": [
+            "cli",
+            "cli-app",
+            "oh-my-zsh",
+            "oh-my-zsh-plugin",
+            "oh-my-zsh-theme",
+            "ohmyzsh",
+            "plugin-framework",
+            "plugins",
+            "productivity",
+            "shell",
+            "terminal",
+            "theme",
+            "themes",
+            "zsh",
+            "zsh-configuration"
+          ],
+          "open_issues": 610,
+          "forks": 26575,
+          "fetched_at": "2026-08-21T13:11:15.222Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:15.897Z"
+        }
+      },
+      "last_verified_at": "2026-08-20",
+      "verified_at": "2026-08-21T16:05:12.403Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A framework for managing your zsh configuration with themes and plugins.",
+        "aliases": [
+          "oh-my-zsh",
+          "omz"
+        ],
+        "primary_type": "prompt",
+        "additional_types": [
+          "shell"
+        ],
+        "categories": [
+          "terminal-ui"
+        ],
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "language": "Shell",
+        "install_methods": [
+          "source"
+        ],
+        "website_url": "https://ohmyz.sh/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-20T08:43:08.000Z"
+      }
+    },
+    {
+      "id": "d9729b0e-d82b-48c0-ad66-88d07215b9c8",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/ollama",
+      "name": "Ollama",
+      "slug": "ollama",
+      "dedupe_key": "repo:github.com/ollama/ollama",
+      "canonical_repo_key": "github.com/ollama/ollama",
+      "website_url": "https://docs.ollama.com/cli",
+      "repository_url": "https://github.com/ollama/ollama",
+      "docs_url": null,
+      "summary_raw": "Local model runtime CLI for pulling models, serving a local API with OpenAI-compatible endpoints, creating Modelfile-based variants, and launching supported integrations.",
+      "license_raw": null,
+      "language_raw": "Go",
+      "stars": 164442,
+      "categories_raw": [
+        "ai-agents"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "ollama",
+        "is_tui": true,
+        "has_mcp": false,
+        "category": "ai-agents",
+        "is_official": true,
+        "source_type": "github",
+        "vendor_name": "Ollama"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "ollama/ollama",
+          "description": "Get up and running with Kimi-K2.6, GLM-5.2, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
+          "homepage": "https://ollama.com",
+          "license_spdx_id": "MIT",
+          "license_name": "MIT License",
+          "stars": 179095,
+          "language": "Go",
+          "archived": false,
+          "pushed_at": "2026-08-21T01:59:47Z",
+          "created_at": "2023-06-26T19:39:32Z",
+          "topics": [
+            "deepseek",
+            "gemma",
+            "gemma3",
+            "glm",
+            "go",
+            "golang",
+            "gpt-oss",
+            "llama",
+            "llama3",
+            "llm",
+            "llms",
+            "minimax",
+            "mistral",
+            "ollama",
+            "qwen"
+          ],
+          "open_issues": 3763,
+          "forks": 17496,
+          "fetched_at": "2026-08-21T13:11:15.901Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:16.204Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.403Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A local model runtime that runs large language models and exposes them over an API.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [
+          "ai_agent"
+        ],
+        "categories": [
+          "ai",
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "Go",
+        "install_methods": [
+          "brew",
+          "binary",
+          "docker"
+        ],
+        "website_url": "https://docs.ollama.com/cli",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T01:59:47Z"
+      }
+    },
+    {
+      "id": "997a8760-3cf8-45e6-b928-b29c18bfbb23",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/yt-dlp",
+      "name": "yt-dlp",
+      "slug": "yt-dlp",
+      "dedupe_key": "repo:github.com/yt-dlp/yt-dlp",
+      "canonical_repo_key": "github.com/yt-dlp/yt-dlp",
+      "website_url": "https://github.com/yt-dlp/yt-dlp/wiki",
+      "repository_url": "https://github.com/yt-dlp/yt-dlp",
+      "docs_url": null,
+      "summary_raw": "Media download CLI for fetching video, audio, subtitles, and metadata from YouTube and thousands of supported sites.",
+      "license_raw": null,
+      "language_raw": "Python",
+      "stars": 150175,
+      "categories_raw": [
+        "media"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "yt-dlp",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "media",
+        "is_official": false,
+        "source_type": "github",
+        "vendor_name": null
+      },
+      "evidence": {
+        "github": {
+          "full_name": "yt-dlp/yt-dlp",
+          "description": "A feature-rich command-line audio/video downloader",
+          "homepage": "https://discord.gg/H5MNcFW63r",
+          "license_spdx_id": "Unlicense",
+          "license_name": "The Unlicense",
+          "stars": 186009,
+          "language": "Python",
+          "archived": false,
+          "pushed_at": "2026-08-20T22:26:03Z",
+          "created_at": "2020-10-26T04:22:55Z",
+          "topics": [
+            "cli",
+            "downloader",
+            "python",
+            "sponsorblock",
+            "youtube-dl",
+            "youtube-downloader",
+            "yt-dlp"
+          ],
+          "open_issues": 2597,
+          "forks": 16034,
+          "fetched_at": "2026-08-21T13:11:16.626Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:17.396Z"
+        }
+      },
+      "last_verified_at": "2026-08-20",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A feature-rich media downloader that handles video, audio, subtitles, and playlists.",
+        "aliases": [
+          "yt-dlp"
+        ],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "media-graphics",
+          "files"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "Python",
+        "install_methods": [
+          "brew",
+          "pip",
+          "pacman",
+          "nix",
+          "binary"
+        ],
+        "website_url": "https://github.com/yt-dlp/yt-dlp/wiki",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-20T22:26:03Z"
+      }
+    },
+    {
+      "id": "154212bc-4855-4530-a8ae-3c52ae177839",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/go",
+      "name": "Go",
+      "slug": "go",
+      "dedupe_key": "repo:github.com/golang/go",
+      "canonical_repo_key": "github.com/golang/go",
+      "website_url": "https://pkg.go.dev/cmd/go",
+      "repository_url": "https://github.com/golang/go",
+      "docs_url": null,
+      "summary_raw": "Official Go toolchain CLI for building, testing, running, and inspecting Go packages, modules, and workspaces.",
+      "license_raw": null,
+      "language_raw": "Go",
+      "stars": 132961,
+      "categories_raw": [
+        "package-managers"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "go",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "package-managers",
+        "is_official": true,
+        "source_type": "github",
+        "vendor_name": "Go"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "golang/go",
+          "description": "The Go programming language",
+          "homepage": "https://go.dev",
+          "license_spdx_id": "BSD-3-Clause",
+          "license_name": "BSD 3-Clause \"New\" or \"Revised\" License",
+          "stars": 136042,
+          "language": "Go",
+          "archived": false,
+          "pushed_at": "2026-08-21T09:53:29Z",
+          "created_at": "2014-08-19T04:33:40Z",
+          "topics": [
+            "go",
+            "golang",
+            "language",
+            "programming-language"
+          ],
+          "open_issues": 10110,
+          "forks": 19292,
+          "fetched_at": "2026-08-21T13:11:17.331Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:18.043Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "The official Go toolchain for building, testing, and managing Go projects.",
+        "aliases": [
+          "golang"
+        ],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows",
+          "bsd"
+        ],
+        "language": "Go",
+        "install_methods": [
+          "brew",
+          "apt",
+          "pacman",
+          "winget",
+          "binary"
+        ],
+        "website_url": "https://pkg.go.dev/cmd/go",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T09:53:29Z"
+      }
+    },
+    {
+      "id": "4076b477-9b50-4f10-ae05-d9ea5703983d",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/shadcn",
+      "name": "shadcn CLI",
+      "slug": "shadcn-cli",
+      "dedupe_key": "repo:github.com/shadcn-ui/ui",
+      "canonical_repo_key": "github.com/shadcn-ui/ui",
+      "website_url": "https://ui.shadcn.com/docs/cli",
+      "repository_url": "https://github.com/shadcn-ui/ui",
+      "docs_url": null,
+      "summary_raw": "CLI for scaffolding shadcn/ui projects, adding registry items, and inspecting project or registry metadata.",
+      "license_raw": null,
+      "language_raw": "TypeScript",
+      "stars": 108525,
+      "categories_raw": [
+        "dev-tools"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "shadcn",
+        "is_tui": false,
+        "has_mcp": true,
+        "category": "dev-tools",
+        "is_official": false,
+        "source_type": "github",
+        "vendor_name": null
+      },
+      "evidence": {
+        "github": {
+          "full_name": "shadcn-ui/ui",
+          "description": "A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.",
+          "homepage": "https://ui.shadcn.com",
+          "license_spdx_id": "MIT",
+          "license_name": "MIT License",
+          "stars": 121765,
+          "language": "TypeScript",
+          "archived": false,
+          "pushed_at": "2026-08-21T13:10:56Z",
+          "created_at": "2023-01-04T12:43:27Z",
+          "topics": [
+            "base-ui",
+            "components",
+            "laravel",
+            "nextjs",
+            "radix-ui",
+            "react",
+            "shadcn",
+            "tailwindcss",
+            "tanstack",
+            "ui",
+            "vite"
+          ],
+          "open_issues": 2300,
+          "forks": 9933,
+          "fetched_at": "2026-08-21T13:11:18.670Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:18.813Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A CLI for scaffolding shadcn/ui projects and managing a component registry.",
+        "aliases": [
+          "shadcn"
+        ],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "TypeScript",
+        "install_methods": [
+          "npm",
+          "bun",
+          "binary"
+        ],
+        "website_url": "https://ui.shadcn.com/docs/cli",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T13:10:56Z"
+      }
+    },
+    {
+      "id": "ee97f015-976e-4dc9-8e47-fb6fc742484a",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/deno",
+      "name": "Deno",
+      "slug": "deno",
+      "dedupe_key": "repo:github.com/denoland/deno",
+      "canonical_repo_key": "github.com/denoland/deno",
+      "website_url": "https://deno.com/",
+      "repository_url": "https://github.com/denoland/deno",
+      "docs_url": null,
+      "summary_raw": "JavaScript and TypeScript runtime CLI with built-in dependency management, tasks, linting, testing, docs, and executable compilation.",
+      "license_raw": null,
+      "language_raw": "Rust",
+      "stars": 106338,
+      "categories_raw": [
+        "package-managers"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "deno",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "package-managers",
+        "is_official": true,
+        "source_type": "github",
+        "vendor_name": "Deno"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "denoland/deno",
+          "description": "A modern runtime for JavaScript and TypeScript.",
+          "homepage": "https://deno.com",
+          "license_spdx_id": "MIT",
+          "license_name": "MIT License",
+          "stars": 108273,
+          "language": "Rust",
+          "archived": false,
+          "pushed_at": "2026-08-21T12:08:20Z",
+          "created_at": "2018-05-15T01:34:26Z",
+          "topics": [
+            "deno",
+            "javascript",
+            "rust",
+            "typescript"
+          ],
+          "open_issues": 1516,
+          "forks": 6347,
+          "fetched_at": "2026-08-21T13:11:19.420Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:21.049Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A secure runtime for JavaScript and TypeScript with built-in tooling.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "Rust",
+        "install_methods": [
+          "brew",
+          "cargo",
+          "nix",
+          "binary"
+        ],
+        "website_url": "https://deno.com/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T12:08:20Z"
+      }
+    },
+    {
+      "id": "fe402e19-a932-4e41-98cb-1d6e8b5e50e2",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/gemini-cli",
+      "name": "Gemini CLI",
+      "slug": "gemini-cli",
+      "dedupe_key": "repo:github.com/google-gemini/gemini-cli",
+      "canonical_repo_key": "github.com/google-gemini/gemini-cli",
+      "website_url": "https://geminicli.com/",
+      "repository_url": "https://github.com/google-gemini/gemini-cli",
+      "docs_url": null,
+      "summary_raw": "Google's official terminal coding agent for repo analysis, code edits, shell actions, and headless JSON runs.",
+      "license_raw": null,
+      "language_raw": "TypeScript",
+      "stars": 96891,
+      "categories_raw": [
+        "agent-harnesses"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "gemini-cli",
+        "is_tui": true,
+        "has_mcp": true,
+        "category": "agent-harnesses",
+        "is_official": true,
+        "source_type": "github",
+        "vendor_name": "Google"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "google-gemini/gemini-cli",
+          "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+          "homepage": "https://geminicli.com",
+          "license_spdx_id": "Apache-2.0",
+          "license_name": "Apache License 2.0",
+          "stars": 106595,
+          "language": "TypeScript",
+          "archived": false,
+          "pushed_at": "2026-08-21T01:08:09Z",
+          "created_at": "2025-04-17T17:04:31Z",
+          "topics": [
+            "ai",
+            "ai-agents",
+            "cli",
+            "gemini",
+            "gemini-api",
+            "mcp-client",
+            "mcp-server"
+          ],
+          "open_issues": 797,
+          "forks": 14454,
+          "fetched_at": "2026-08-21T13:11:20.175Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:20.539Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "Google's terminal coding agent for repo analysis, code edits, and task automation.",
+        "aliases": [],
+        "primary_type": "ai_agent",
+        "additional_types": [],
+        "categories": [
+          "ai",
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "TypeScript",
+        "install_methods": [
+          "npm",
+          "binary"
+        ],
+        "website_url": "https://geminicli.com/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T01:08:09Z"
+      }
+    },
+    {
+      "id": "aee37346-d38c-4a6d-b1a4-bcc55417cbb2",
+      "source": "github_topics",
+      "source_url": "https://github.com/sherlock-project/sherlock",
+      "name": "sherlock",
+      "slug": "sherlock",
+      "dedupe_key": "repo:github.com/sherlock-project/sherlock",
+      "canonical_repo_key": "github.com/sherlock-project/sherlock",
+      "website_url": "https://sherlockproject.xyz/",
+      "repository_url": "https://github.com/sherlock-project/sherlock",
+      "docs_url": null,
+      "summary_raw": "Hunt down social media accounts by username across social networks",
+      "license_raw": "MIT",
+      "language_raw": "Python",
+      "stars": 89914,
+      "categories_raw": [
+        "topic:cli"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": "2026-08-21T05:36:54.000Z",
+      "payload": {
+        "bucket": "stars:>3000",
+        "topics": [
+          "cli",
+          "cti",
+          "cybersecurity",
+          "forensics",
+          "hacktoberfest",
+          "information-gathering",
+          "infosec",
+          "linux",
+          "osint",
+          "pentesting",
+          "python",
+          "python3",
+          "reconnaissance",
+          "redteam",
+          "sherlock",
+          "tools"
+        ],
+        "archived": false,
+        "pushed_at": "2026-08-21T05:36:54Z",
+        "created_at": "2018-12-24T14:30:48Z",
+        "open_issues": 334,
+        "matched_topics": [
+          "cli"
+        ],
+        "github_full_name": "sherlock-project/sherlock"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "sherlock-project/sherlock",
+          "description": "Hunt down social media accounts by username across social networks",
+          "homepage": "https://sherlockproject.xyz",
+          "license_spdx_id": "MIT",
+          "license_name": "MIT License",
+          "stars": 89916,
+          "language": "Python",
+          "archived": false,
+          "pushed_at": "2026-08-21T05:36:54Z",
+          "created_at": "2018-12-24T14:30:48Z",
+          "topics": [
+            "cli",
+            "cti",
+            "cybersecurity",
+            "forensics",
+            "hacktoberfest",
+            "information-gathering",
+            "infosec",
+            "linux",
+            "osint",
+            "pentesting",
+            "python",
+            "python3",
+            "reconnaissance",
+            "redteam",
+            "sherlock",
+            "tools"
+          ],
+          "open_issues": 334,
+          "forks": 10559,
+          "fetched_at": "2026-08-21T13:11:20.783Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:21.429Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A search tool that hunts down usernames across hundreds of social networks.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "security",
+          "networking"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "Python",
+        "install_methods": [
+          "pip",
+          "brew",
+          "nix",
+          "source"
+        ],
+        "website_url": "https://sherlockproject.xyz/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T05:36:54.000Z"
+      }
+    },
+    {
+      "id": "be1bccd1-265c-4862-ae20-0b76f84d7406",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/bun",
+      "name": "Bun",
+      "slug": "bun",
+      "dedupe_key": "repo:github.com/oven-sh/bun",
+      "canonical_repo_key": "github.com/oven-sh/bun",
+      "website_url": "https://bun.com/docs",
+      "repository_url": "https://github.com/oven-sh/bun",
+      "docs_url": null,
+      "summary_raw": "JavaScript and TypeScript runtime CLI with package manager, test runner, bundler, and `bunx` package execution.",
+      "license_raw": null,
+      "language_raw": "Zig",
+      "stars": 87970,
+      "categories_raw": [
+        "package-managers"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "bun",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "package-managers",
+        "is_official": true,
+        "source_type": "github",
+        "vendor_name": "Oven"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "oven-sh/bun",
+          "description": "Incredibly fast JavaScript runtime, bundler, test runner, and package manager – all in one",
+          "homepage": "https://bun.com",
+          "license_spdx_id": "NOASSERTION",
+          "license_name": "Other",
+          "stars": 95550,
+          "language": "Rust",
+          "archived": false,
+          "pushed_at": "2026-08-21T13:04:40Z",
+          "created_at": "2021-04-14T00:48:17Z",
+          "topics": [
+            "bun",
+            "bundler",
+            "javascript",
+            "javascriptcore",
+            "jsx",
+            "nodejs",
+            "npm",
+            "react",
+            "rust",
+            "rust-lang",
+            "transpiler",
+            "typescript"
+          ],
+          "open_issues": 8321,
+          "forks": 4987,
+          "fetched_at": "2026-08-21T13:11:21.494Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:21.630Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A fast JavaScript runtime and package manager built for speed.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "language": "Rust",
+        "install_methods": [
+          "brew",
+          "npm",
+          "binary"
+        ],
+        "website_url": "https://bun.com/docs",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T13:04:40Z"
+      }
+    },
+    {
+      "id": "3c2c6f0f-d293-4b74-8494-e4365172db8f",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/hugo",
+      "name": "Hugo",
+      "slug": "hugo",
+      "dedupe_key": "repo:github.com/gohugoio/hugo",
+      "canonical_repo_key": "github.com/gohugoio/hugo",
+      "website_url": "https://gohugo.io/",
+      "repository_url": "https://github.com/gohugoio/hugo",
+      "docs_url": null,
+      "summary_raw": "Static site generator CLI for scaffolding projects, previewing changes locally, and building or deploying static sites.",
+      "license_raw": null,
+      "language_raw": "Go",
+      "stars": 86961,
+      "categories_raw": [
+        "dev-tools"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "hugo",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "dev-tools",
+        "is_official": false,
+        "source_type": "github",
+        "vendor_name": null
+      },
+      "evidence": {
+        "github": {
+          "full_name": "gohugoio/hugo",
+          "description": "The world’s fastest framework for building websites.",
+          "homepage": "https://gohugo.io",
+          "license_spdx_id": "Apache-2.0",
+          "license_name": "Apache License 2.0",
+          "stars": 89477,
+          "language": "Go",
+          "archived": false,
+          "pushed_at": "2026-08-20T19:56:40Z",
+          "created_at": "2013-07-04T15:26:26Z",
+          "topics": [
+            "blog-engine",
+            "cms",
+            "content-management-system",
+            "documentation-tool",
+            "go",
+            "hugo",
+            "static-site-generator"
+          ],
+          "open_issues": 242,
+          "forks": 8337,
+          "fetched_at": "2026-08-21T13:11:22.167Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:22.700Z"
+        }
+      },
+      "last_verified_at": "2026-08-20",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A fast static site generator that builds content-heavy sites from markdown in seconds.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows",
+          "bsd"
+        ],
+        "language": "Go",
+        "install_methods": [
+          "brew",
+          "apt",
+          "pacman",
+          "nix",
+          "binary",
+          "cargo"
+        ],
+        "website_url": "https://gohugo.io/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-20T19:56:40Z"
+      }
+    },
+    {
+      "id": "8287d1d8-f771-46be-8886-59ef36d3d4ad",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/uv",
+      "name": "uv",
+      "slug": "uv",
+      "dedupe_key": "repo:github.com/astral-sh/uv",
+      "canonical_repo_key": "github.com/astral-sh/uv",
+      "website_url": "https://docs.astral.sh/uv/",
+      "repository_url": "https://github.com/astral-sh/uv",
+      "docs_url": null,
+      "summary_raw": "Python workflow CLI for managing projects, syncing environments, installing packaged tools, and handling Python versions.",
+      "license_raw": null,
+      "language_raw": "Rust",
+      "stars": 80496,
+      "categories_raw": [
+        "package-managers"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "uv",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "package-managers",
+        "is_official": true,
+        "source_type": "github",
+        "vendor_name": "Astral"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "astral-sh/uv",
+          "description": "An extremely fast Python package and project manager, written in Rust.",
+          "homepage": "https://docs.astral.sh/uv",
+          "license_spdx_id": "Apache-2.0",
+          "license_name": "Apache License 2.0",
+          "stars": 88933,
+          "language": "Rust",
+          "archived": false,
+          "pushed_at": "2026-08-21T13:10:23Z",
+          "created_at": "2023-10-02T20:24:11Z",
+          "topics": [
+            "packaging",
+            "python",
+            "resolver",
+            "uv"
+          ],
+          "open_issues": 2849,
+          "forks": 3503,
+          "fetched_at": "2026-08-21T13:11:24.318Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:24.723Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "An extremely fast Python package and project manager written in Rust.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "Rust",
+        "install_methods": [
+          "brew",
+          "pip",
+          "cargo",
+          "binary"
+        ],
+        "website_url": "https://docs.astral.sh/uv/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T13:10:23Z"
+      }
+    },
+    {
+      "id": "417f4ccb-8570-4e31-bbda-86a25dd4d565",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/fzf",
+      "name": "fzf",
+      "slug": "fzf",
+      "dedupe_key": "repo:github.com/junegunn/fzf",
+      "canonical_repo_key": "github.com/junegunn/fzf",
+      "website_url": "https://junegunn.github.io/fzf/",
+      "repository_url": "https://github.com/junegunn/fzf",
+      "docs_url": null,
+      "summary_raw": "Terminal fuzzy finder for filtering lists, selecting matches, and attaching previews or actions in shell workflows.",
+      "license_raw": null,
+      "language_raw": "Go",
+      "stars": 78403,
+      "categories_raw": [
+        "file-management"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "fzf",
+        "is_tui": true,
+        "has_mcp": false,
+        "category": "file-management",
+        "is_official": false,
+        "source_type": "github",
+        "vendor_name": null
+      },
+      "evidence": {
+        "github": {
+          "full_name": "junegunn/fzf",
+          "description": ":cherry_blossom: A command-line fuzzy finder",
+          "homepage": "https://junegunn.github.io/fzf/",
+          "license_spdx_id": "MIT",
+          "license_name": "MIT License",
+          "stars": 82601,
+          "language": "Go",
+          "archived": false,
+          "pushed_at": "2026-08-21T04:28:14Z",
+          "created_at": "2013-10-23T16:04:23Z",
+          "topics": [
+            "bash",
+            "cli",
+            "fish",
+            "fzf",
+            "go",
+            "neovim",
+            "tmux",
+            "unix",
+            "vim",
+            "zsh"
+          ],
+          "open_issues": 329,
+          "forks": 2855,
+          "fetched_at": "2026-08-21T13:11:25.008Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:25.511Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A fast, interactive fuzzy finder for the terminal that filters anything piped to it.",
+        "aliases": [
+          "fzf"
+        ],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "development",
+          "productivity"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows",
+          "bsd"
+        ],
+        "language": "Go",
+        "install_methods": [
+          "brew",
+          "apt",
+          "pacman",
+          "nix",
+          "cargo",
+          "go"
+        ],
+        "website_url": "https://junegunn.github.io/fzf/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T04:28:14Z"
+      }
+    },
+    {
+      "id": "ed5b1475-69f0-4fe3-8955-dc8138ddaa84",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/claude-code",
+      "name": "Claude Code",
+      "slug": "claude-code",
+      "dedupe_key": "repo:github.com/anthropics/claude-code",
+      "canonical_repo_key": "github.com/anthropics/claude-code",
+      "website_url": "https://docs.anthropic.com/en/docs/claude-code/overview",
+      "repository_url": "https://github.com/anthropics/claude-code",
+      "docs_url": null,
+      "summary_raw": "Anthropic's terminal-native coding agent for repo understanding, edits, tests, and git workflows.",
+      "license_raw": null,
+      "language_raw": "TypeScript",
+      "stars": 74911,
+      "categories_raw": [
+        "agent-harnesses"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "claude-code",
+        "is_tui": true,
+        "has_mcp": true,
+        "category": "agent-harnesses",
+        "is_official": true,
+        "source_type": "github",
+        "vendor_name": "Anthropic"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "anthropics/claude-code",
+          "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
+          "homepage": "https://code.claude.com/docs/en/overview",
+          "license_spdx_id": null,
+          "license_name": null,
+          "stars": 142242,
+          "language": "Python",
+          "archived": false,
+          "pushed_at": "2026-08-20T20:33:50Z",
+          "created_at": "2025-02-22T17:41:21Z",
+          "topics": [],
+          "open_issues": 14916,
+          "forks": 22805,
+          "fetched_at": "2026-08-21T13:11:26.501Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:27.334Z"
+        }
+      },
+      "last_verified_at": "2026-08-20",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "Anthropic's terminal coding agent that reads your repo, edits code, and runs tests.",
+        "aliases": [
+          "claude"
+        ],
+        "primary_type": "ai_agent",
+        "additional_types": [],
+        "categories": [
+          "ai",
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "language": "Python",
+        "install_methods": [
+          "npm",
+          "brew",
+          "binary"
+        ],
+        "website_url": "https://docs.anthropic.com/en/docs/claude-code/overview",
+        "docs_url": null,
+        "source_model": "closed_source",
+        "pricing_model": "freemium",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-20T20:33:50Z"
+      }
+    },
+    {
+      "id": "b81dc4ce-3175-468f-b8bd-e866b0f72e00",
+      "source": "github_topics",
+      "source_url": "https://github.com/Eugeny/tabby",
+      "name": "tabby",
+      "slug": "tabby",
+      "dedupe_key": "repo:github.com/eugeny/tabby",
+      "canonical_repo_key": "github.com/eugeny/tabby",
+      "website_url": "https://tabby.sh/",
+      "repository_url": "https://github.com/Eugeny/tabby",
+      "docs_url": null,
+      "summary_raw": "A terminal for a more modern age",
+      "license_raw": "MIT",
+      "language_raw": "TypeScript",
+      "stars": 74039,
+      "categories_raw": [
+        "topic:terminal"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": "2026-08-21T04:03:20.000Z",
+      "payload": {
+        "bucket": "stars:>3000",
+        "topics": [
+          "serial",
+          "ssh-client",
+          "telnet-client",
+          "terminal",
+          "terminal-emulators"
+        ],
+        "archived": false,
+        "pushed_at": "2026-08-21T04:03:20Z",
+        "created_at": "2016-12-23T09:06:10Z",
+        "open_issues": 2857,
+        "matched_topics": [
+          "terminal"
+        ],
+        "github_full_name": "Eugeny/tabby"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "Eugeny/tabby",
+          "description": "A terminal for a more modern age",
+          "homepage": "https://tabby.sh",
+          "license_spdx_id": "MIT",
+          "license_name": "MIT License",
+          "stars": 74039,
+          "language": "TypeScript",
+          "archived": false,
+          "pushed_at": "2026-08-21T04:03:20Z",
+          "created_at": "2016-12-23T09:06:10Z",
+          "topics": [
+            "serial",
+            "ssh-client",
+            "telnet-client",
+            "terminal",
+            "terminal-emulators"
+          ],
+          "open_issues": 2857,
+          "forks": 4212,
+          "fetched_at": "2026-08-21T13:11:27.132Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:27.567Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A configurable terminal for local shells, SSH, and serial connections in one window.",
+        "aliases": [],
+        "primary_type": "terminal_emulator",
+        "additional_types": [],
+        "categories": [
+          "terminal-ui"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "TypeScript",
+        "install_methods": [
+          "brew",
+          "winget",
+          "binary"
+        ],
+        "website_url": "https://tabby.sh/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T04:03:20.000Z"
+      }
+    },
+    {
+      "id": "4b49dd89-0bf4-47e2-ba67-5f8f1406ad64",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/caddy",
+      "name": "Caddy",
+      "slug": "caddy",
+      "dedupe_key": "repo:github.com/caddyserver/caddy",
+      "canonical_repo_key": "github.com/caddyserver/caddy",
+      "website_url": "https://caddyserver.com/docs/command-line",
+      "repository_url": "https://github.com/caddyserver/caddy",
+      "docs_url": null,
+      "summary_raw": "Web server and reverse proxy CLI for running, validating, and reloading Caddy configs with automatic HTTPS.",
+      "license_raw": null,
+      "language_raw": "Go",
+      "stars": 70664,
+      "categories_raw": [
+        "networking"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "caddy",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "networking",
+        "is_official": true,
+        "source_type": "github",
+        "vendor_name": "ZeroSSL"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "caddyserver/caddy",
+          "description": "Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS",
+          "homepage": "https://caddyserver.com",
+          "license_spdx_id": "Apache-2.0",
+          "license_name": "Apache License 2.0",
+          "stars": 75069,
+          "language": "Go",
+          "archived": false,
+          "pushed_at": "2026-08-19T03:07:24Z",
+          "created_at": "2015-01-13T19:45:03Z",
+          "topics": [
+            "acme",
+            "automatic-https",
+            "caddy",
+            "caddyfile",
+            "go",
+            "golang",
+            "http",
+            "http-server",
+            "http3",
+            "https",
+            "privacy",
+            "reverse-proxy",
+            "security",
+            "tls",
+            "web-server"
+          ],
+          "open_issues": 272,
+          "forks": 4898,
+          "fetched_at": "2026-08-21T13:11:29.280Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:31.097Z"
+        }
+      },
+      "last_verified_at": "2026-08-19",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "An extensible web server and reverse proxy with automatic HTTPS.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "networking",
+          "devops"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows",
+          "bsd"
+        ],
+        "language": "Go",
+        "install_methods": [
+          "brew",
+          "apt",
+          "pacman",
+          "nix",
+          "binary",
+          "docker"
+        ],
+        "website_url": "https://caddyserver.com/docs/command-line",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-19T03:07:24Z"
+      }
+    },
+    {
+      "id": "3c653e5d-f0f6-42db-8c04-eee2b31a0342",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/act",
+      "name": "act",
+      "slug": "act",
+      "dedupe_key": "repo:github.com/nektos/act",
+      "canonical_repo_key": "github.com/nektos/act",
+      "website_url": "https://nektosact.com/",
+      "repository_url": "https://github.com/nektos/act",
+      "docs_url": null,
+      "summary_raw": "Run GitHub Actions workflows locally in Docker to test jobs, event payloads, and CI changes before pushing.",
+      "license_raw": null,
+      "language_raw": "Go",
+      "stars": 69196,
+      "categories_raw": [
+        "dev-tools"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "act",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "dev-tools",
+        "is_official": false,
+        "source_type": "github",
+        "vendor_name": null
+      },
+      "evidence": {
+        "github": {
+          "full_name": "nektos/act",
+          "description": "Run your GitHub Actions locally 🚀",
+          "homepage": "https://nektosact.com",
+          "license_spdx_id": "MIT",
+          "license_name": "MIT License",
+          "stars": 71586,
+          "language": "Go",
+          "archived": false,
+          "pushed_at": "2026-08-09T22:50:11Z",
+          "created_at": "2019-01-02T19:53:43Z",
+          "topics": [
+            "ci",
+            "devops",
+            "github-actions",
+            "golang"
+          ],
+          "open_issues": 363,
+          "forks": 2007,
+          "fetched_at": "2026-08-21T13:11:30.677Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:31.330Z"
+        }
+      },
+      "last_verified_at": "2026-08-09",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "Run GitHub Actions workflows locally in Docker to test jobs before you push.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "devops",
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "language": "Go",
+        "install_methods": [
+          "brew",
+          "cargo",
+          "go"
+        ],
+        "website_url": "https://nektosact.com/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-09T22:50:11Z"
+      }
+    },
+    {
+      "id": "294d0057-d9b3-4370-94f8-a9198ffd74f8",
+      "source": "github_topics",
+      "source_url": "https://github.com/alacritty/alacritty",
+      "name": "alacritty",
+      "slug": "alacritty",
+      "dedupe_key": "repo:github.com/alacritty/alacritty",
+      "canonical_repo_key": "github.com/alacritty/alacritty",
+      "website_url": "https://alacritty.org/",
+      "repository_url": "https://github.com/alacritty/alacritty",
+      "docs_url": null,
+      "summary_raw": "A cross-platform, OpenGL terminal emulator.",
+      "license_raw": "Apache-2.0",
+      "language_raw": "Rust",
+      "stars": 65447,
+      "categories_raw": [
+        "topic:terminal"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": "2026-08-17T19:36:06.000Z",
+      "payload": {
+        "bucket": "stars:>3000",
+        "topics": [
+          "bsd",
+          "gpu",
+          "linux",
+          "macos",
+          "opengl",
+          "rust",
+          "terminal",
+          "terminal-emulators",
+          "vte",
+          "windows"
+        ],
+        "archived": false,
+        "pushed_at": "2026-08-17T19:36:06Z",
+        "created_at": "2016-02-18T05:02:30Z",
+        "open_issues": 341,
+        "matched_topics": [
+          "terminal"
+        ],
+        "github_full_name": "alacritty/alacritty"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "alacritty/alacritty",
+          "description": "A cross-platform, OpenGL terminal emulator.",
+          "homepage": "https://alacritty.org",
+          "license_spdx_id": "Apache-2.0",
+          "license_name": "Apache License 2.0",
+          "stars": 65448,
+          "language": "Rust",
+          "archived": false,
+          "pushed_at": "2026-08-17T19:36:06Z",
+          "created_at": "2016-02-18T05:02:30Z",
+          "topics": [
+            "bsd",
+            "gpu",
+            "linux",
+            "macos",
+            "opengl",
+            "rust",
+            "terminal",
+            "terminal-emulators",
+            "vte",
+            "windows"
+          ],
+          "open_issues": 341,
+          "forks": 3576,
+          "fetched_at": "2026-08-21T13:11:33.378Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:34.125Z"
+        }
+      },
+      "last_verified_at": "2026-08-17",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A focused, GPU-accelerated terminal emulator that stays out of your way.",
+        "aliases": [
+          "alacritty"
+        ],
+        "primary_type": "terminal_emulator",
+        "additional_types": [],
+        "categories": [
+          "terminal-ui"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "Rust",
+        "install_methods": [
+          "cargo",
+          "brew",
+          "apt",
+          "pacman",
+          "nix"
+        ],
+        "website_url": "https://alacritty.org/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-17T19:36:06.000Z"
+      }
+    },
+    {
+      "id": "18f7950d-183c-4ebe-8ae7-6a349f8e5471",
+      "source": "github_topics",
+      "source_url": "https://github.com/warpdotdev/warp",
+      "name": "warp",
+      "slug": "warp",
+      "dedupe_key": "repo:github.com/warpdotdev/warp",
+      "canonical_repo_key": "github.com/warpdotdev/warp",
+      "website_url": "https://warp.dev/",
+      "repository_url": "https://github.com/warpdotdev/warp",
+      "docs_url": null,
+      "summary_raw": "Warp is an agentic development environment, born out of the terminal.",
+      "license_raw": "AGPL-3.0",
+      "language_raw": "Rust",
+      "stars": 64414,
+      "categories_raw": [
+        "topic:terminal",
+        "topic:shell"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": "2026-08-21T10:09:36.000Z",
+      "payload": {
+        "bucket": "stars:>3000",
+        "topics": [
+          "bash",
+          "linux",
+          "macos",
+          "rust",
+          "shell",
+          "terminal",
+          "wasm",
+          "zsh"
+        ],
+        "archived": false,
+        "pushed_at": "2026-08-21T10:09:36Z",
+        "created_at": "2021-07-08T18:48:08Z",
+        "open_issues": 5089,
+        "matched_topics": [
+          "terminal",
+          "shell"
+        ],
+        "github_full_name": "warpdotdev/warp"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "warpdotdev/warp",
+          "description": "Warp is an agentic development environment, born out of the terminal.",
+          "homepage": "https://warp.dev",
+          "license_spdx_id": "AGPL-3.0",
+          "license_name": "GNU Affero General Public License v3.0",
+          "stars": 64413,
+          "language": "Rust",
+          "archived": false,
+          "pushed_at": "2026-08-21T13:03:10Z",
+          "created_at": "2021-07-08T18:48:08Z",
+          "topics": [
+            "bash",
+            "linux",
+            "macos",
+            "rust",
+            "shell",
+            "terminal",
+            "wasm",
+            "zsh"
+          ],
+          "open_issues": 5092,
+          "forks": 5451,
+          "fetched_at": "2026-08-21T13:11:34.837Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:36.643Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A modern Rust terminal with built-in AI, collaboration, and block-based output.",
+        "aliases": [],
+        "primary_type": "terminal_emulator",
+        "additional_types": [
+          "ai_agent"
+        ],
+        "categories": [
+          "terminal-ui",
+          "ai"
+        ],
+        "platforms": [
+          "macos",
+          "linux"
+        ],
+        "language": "Rust",
+        "install_methods": [
+          "brew",
+          "binary"
+        ],
+        "website_url": "https://warp.dev/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "freemium",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T10:09:36.000Z"
+      }
+    },
+    {
+      "id": "4a14542d-8449-4d90-b85e-73256955639d",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/codex-cli",
+      "name": "Codex CLI",
+      "slug": "codex-cli",
+      "dedupe_key": "repo:github.com/openai/codex",
+      "canonical_repo_key": "github.com/openai/codex",
+      "website_url": "https://github.com/openai/codex",
+      "repository_url": "https://github.com/openai/codex",
+      "docs_url": null,
+      "summary_raw": "OpenAI's lightweight terminal coding agent for editing, running tasks, and agentic development loops.",
+      "license_raw": null,
+      "language_raw": "Rust",
+      "stars": 63681,
+      "categories_raw": [
+        "agent-harnesses"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "codex-cli",
+        "is_tui": true,
+        "has_mcp": true,
+        "category": "agent-harnesses",
+        "is_official": true,
+        "source_type": "github",
+        "vendor_name": "OpenAI"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "openai/codex",
+          "description": "Lightweight coding agent that runs in your terminal",
+          "homepage": null,
+          "license_spdx_id": "Apache-2.0",
+          "license_name": "Apache License 2.0",
+          "stars": 110559,
+          "language": "Rust",
+          "archived": false,
+          "pushed_at": "2026-08-21T12:51:48Z",
+          "created_at": "2025-04-13T05:37:54Z",
+          "topics": [],
+          "open_issues": 13346,
+          "forks": 16928,
+          "fetched_at": "2026-08-21T13:11:36.354Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:37.440Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "OpenAI's local coding agent that understands your repository and makes shell-level edits.",
+        "aliases": [
+          "codex"
+        ],
+        "primary_type": "ai_agent",
+        "additional_types": [],
+        "categories": [
+          "ai",
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "language": "Rust",
+        "install_methods": [
+          "npm",
+          "cargo",
+          "brew"
+        ],
+        "website_url": "https://github.com/openai/codex",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "freemium",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T12:51:48Z"
+      }
+    },
+    {
+      "id": "443e8c0f-7176-462b-8099-b9cb28a8611e",
+      "source": "github_topics",
+      "source_url": "https://github.com/tldr-pages/tldr",
+      "name": "tldr",
+      "slug": "tldr",
+      "dedupe_key": "repo:github.com/tldr-pages/tldr",
+      "canonical_repo_key": "github.com/tldr-pages/tldr",
+      "website_url": "https://tldr.sh/",
+      "repository_url": "https://github.com/tldr-pages/tldr",
+      "docs_url": null,
+      "summary_raw": "Collaborative cheatsheets for console commands 📚.",
+      "license_raw": "NOASSERTION",
+      "language_raw": "Markdown",
+      "stars": 63445,
+      "categories_raw": [
+        "topic:cli",
+        "topic:terminal",
+        "topic:command-line",
+        "topic:shell"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": "2026-08-21T07:37:48.000Z",
+      "payload": {
+        "bucket": "stars:>3000",
+        "topics": [
+          "android",
+          "bsd",
+          "cheatsheet",
+          "cheatsheets",
+          "cli",
+          "command-line",
+          "console",
+          "documentation",
+          "examples",
+          "hacktoberfest",
+          "help",
+          "linux",
+          "macos",
+          "man-page",
+          "manual",
+          "osx",
+          "shell",
+          "terminal",
+          "tldr",
+          "windows"
+        ],
+        "archived": false,
+        "pushed_at": "2026-08-21T07:37:48Z",
+        "created_at": "2013-12-08T07:34:43Z",
+        "open_issues": 303,
+        "matched_topics": [
+          "cli",
+          "terminal",
+          "command-line",
+          "shell"
+        ],
+        "github_full_name": "tldr-pages/tldr"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "tldr-pages/tldr",
+          "description": "Collaborative cheatsheets for console commands 📚.",
+          "homepage": "https://tldr.sh",
+          "license_spdx_id": "NOASSERTION",
+          "license_name": "Other",
+          "stars": 63445,
+          "language": "Markdown",
+          "archived": false,
+          "pushed_at": "2026-08-21T07:37:48Z",
+          "created_at": "2013-12-08T07:34:43Z",
+          "topics": [
+            "android",
+            "bsd",
+            "cheatsheet",
+            "cheatsheets",
+            "cli",
+            "command-line",
+            "console",
+            "documentation",
+            "examples",
+            "hacktoberfest",
+            "help",
+            "linux",
+            "macos",
+            "man-page",
+            "manual",
+            "osx",
+            "shell",
+            "terminal",
+            "tldr",
+            "windows"
+          ],
+          "open_issues": 303,
+          "forks": 5380,
+          "fetched_at": "2026-08-21T13:11:37.046Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:37.767Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A community cheat-sheet for commands that shows the common invocations you actually need.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "productivity",
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows",
+          "bsd"
+        ],
+        "language": "Markdown",
+        "install_methods": [
+          "npm",
+          "brew",
+          "cargo",
+          "pip",
+          "nix"
+        ],
+        "website_url": "https://tldr.sh/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T07:37:48.000Z"
+      }
+    },
+    {
+      "id": "44031421-52c5-498d-81c0-a10e28874dc2",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/prometheus",
+      "name": "Prometheus",
+      "slug": "prometheus",
+      "dedupe_key": "repo:github.com/prometheus/prometheus",
+      "canonical_repo_key": "github.com/prometheus/prometheus",
+      "website_url": "https://prometheus.io/docs/prometheus/latest/command-line/prometheus/",
+      "repository_url": "https://github.com/prometheus/prometheus",
+      "docs_url": null,
+      "summary_raw": "Monitoring server and companion CLI for validating Prometheus configs and rules, querying servers, and inspecting TSDB data.",
+      "license_raw": null,
+      "language_raw": "Go",
+      "stars": 63098,
+      "categories_raw": [
+        "system-monitoring"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "prometheus",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "system-monitoring",
+        "is_official": false,
+        "source_type": "github",
+        "vendor_name": null
+      },
+      "evidence": {
+        "github": {
+          "full_name": "prometheus/prometheus",
+          "description": "The Prometheus monitoring system and time series database.",
+          "homepage": "https://prometheus.io/",
+          "license_spdx_id": "Apache-2.0",
+          "license_name": "Apache License 2.0",
+          "stars": 65770,
+          "language": "Go",
+          "archived": false,
+          "pushed_at": "2026-08-21T11:44:03Z",
+          "created_at": "2012-11-24T11:14:12Z",
+          "topics": [
+            "alerting",
+            "graphing",
+            "hacktoberfest",
+            "metrics",
+            "monitoring",
+            "prometheus",
+            "time-series"
+          ],
+          "open_issues": 902,
+          "forks": 10782,
+          "fetched_at": "2026-08-21T13:11:37.754Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:39.051Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "An open-source monitoring and alerting toolkit that scrapes and stores time-series metrics.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "monitoring",
+          "devops"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "Go",
+        "install_methods": [
+          "brew",
+          "apt",
+          "pacman",
+          "nix",
+          "binary",
+          "docker"
+        ],
+        "website_url": "https://prometheus.io/docs/prometheus/latest/command-line/prometheus/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T11:44:03Z"
+      }
+    },
+    {
+      "id": "0129be5e-f81b-4593-af59-3cee0424c3a2",
+      "source": "github_topics",
+      "source_url": "https://github.com/termux/termux-app",
+      "name": "termux-app",
+      "slug": "termux-app",
+      "dedupe_key": "repo:github.com/termux/termux-app",
+      "canonical_repo_key": "github.com/termux/termux-app",
+      "website_url": "https://f-droid.org/en/packages/com.termux",
+      "repository_url": "https://github.com/termux/termux-app",
+      "docs_url": null,
+      "summary_raw": "Termux - a terminal emulator application for Android OS extendible by variety of packages.",
+      "license_raw": "NOASSERTION",
+      "language_raw": "Java",
+      "stars": 59518,
+      "categories_raw": [
+        "topic:terminal"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": "2026-07-14T20:47:14.000Z",
+      "payload": {
+        "bucket": "stars:>3000",
+        "topics": [
+          "android",
+          "hacktoberfest",
+          "linux",
+          "terminal",
+          "termux"
+        ],
+        "archived": false,
+        "pushed_at": "2026-07-14T20:47:14Z",
+        "created_at": "2015-10-23T09:42:46Z",
+        "open_issues": 592,
+        "matched_topics": [
+          "terminal"
+        ],
+        "github_full_name": "termux/termux-app"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "termux/termux-app",
+          "description": "Termux - a terminal emulator application for Android OS extendible by variety of packages.",
+          "homepage": "https://f-droid.org/en/packages/com.termux",
+          "license_spdx_id": "NOASSERTION",
+          "license_name": "Other",
+          "stars": 59521,
+          "language": "Java",
+          "archived": false,
+          "pushed_at": "2026-07-14T20:47:14Z",
+          "created_at": "2015-10-23T09:42:46Z",
+          "topics": [
+            "android",
+            "hacktoberfest",
+            "linux",
+            "terminal",
+            "termux"
+          ],
+          "open_issues": 592,
+          "forks": 7274,
+          "fetched_at": "2026-08-21T13:11:39.235Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:40.688Z"
+        }
+      },
+      "last_verified_at": "2026-07-14",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A terminal emulator and Linux environment that brings a full shell to Android.",
+        "aliases": [
+          "termux"
+        ],
+        "primary_type": "terminal_emulator",
+        "additional_types": [
+          "cli"
+        ],
+        "categories": [
+          "terminal-ui",
+          "development"
+        ],
+        "platforms": [
+          "android"
+        ],
+        "language": "Java",
+        "install_methods": [
+          "binary"
+        ],
+        "website_url": "https://f-droid.org/en/packages/com.termux",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-07-14T20:47:14.000Z"
+      }
+    },
+    {
+      "id": "7a8663c4-a7c8-46a9-81fc-5c72bc5a2516",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/cline",
+      "name": "Cline",
+      "slug": "cline",
+      "dedupe_key": "repo:github.com/cline/cline",
+      "canonical_repo_key": "github.com/cline/cline",
+      "website_url": "https://docs.cline.bot/cline-cli/getting-started",
+      "repository_url": "https://github.com/cline/cline",
+      "docs_url": null,
+      "summary_raw": "Terminal coding agent CLI for local repo tasks, file edits, shell commands, and browser-based debugging.",
+      "license_raw": null,
+      "language_raw": "TypeScript",
+      "stars": 58762,
+      "categories_raw": [
+        "agent-harnesses"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "cline",
+        "is_tui": true,
+        "has_mcp": true,
+        "category": "agent-harnesses",
+        "is_official": true,
+        "source_type": "github",
+        "vendor_name": "Cline"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "cline/cline",
+          "description": "Autonomous coding agent as an SDK, IDE extension, or CLI assistant.",
+          "homepage": "https://cline.bot",
+          "license_spdx_id": "Apache-2.0",
+          "license_name": "Apache License 2.0",
+          "stars": 66595,
+          "language": "TypeScript",
+          "archived": false,
+          "pushed_at": "2026-08-21T06:32:58Z",
+          "created_at": "2024-07-06T07:28:10Z",
+          "topics": [],
+          "open_issues": 1053,
+          "forks": 7177,
+          "fetched_at": "2026-08-21T13:11:39.843Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:41.595Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "An autonomous coding agent that runs inside your editor and plans, edits, and verifies changes.",
+        "aliases": [],
+        "primary_type": "ai_agent",
+        "additional_types": [],
+        "categories": [
+          "ai",
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "TypeScript",
+        "install_methods": [
+          "npm",
+          "binary"
+        ],
+        "website_url": "https://docs.cline.bot/cline-cli/getting-started",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T06:32:58Z"
+      }
+    },
+    {
+      "id": "b7ab101c-1c1d-4bb1-84a0-2d82661d8158",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/mkcert",
+      "name": "mkcert",
+      "slug": "mkcert",
+      "dedupe_key": "repo:github.com/filosottile/mkcert",
+      "canonical_repo_key": "github.com/filosottile/mkcert",
+      "website_url": "https://mkcert.dev/",
+      "repository_url": "https://github.com/FiloSottile/mkcert",
+      "docs_url": null,
+      "summary_raw": "Generate and install locally trusted development TLS certificates for localhost, custom domains, and IPs.",
+      "license_raw": null,
+      "language_raw": "Go",
+      "stars": 58278,
+      "categories_raw": [
+        "security"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "mkcert",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "security",
+        "is_official": false,
+        "source_type": "github",
+        "vendor_name": null
+      },
+      "evidence": {
+        "github": {
+          "full_name": "FiloSottile/mkcert",
+          "description": "A simple zero-config tool to make locally trusted development certificates with any names you'd like.",
+          "homepage": "https://mkcert.dev",
+          "license_spdx_id": "BSD-3-Clause",
+          "license_name": "BSD 3-Clause \"New\" or \"Revised\" License",
+          "stars": 59473,
+          "language": "Go",
+          "archived": false,
+          "pushed_at": "2024-08-13T13:37:46Z",
+          "created_at": "2018-06-25T05:33:03Z",
+          "topics": [
+            "certificates",
+            "chrome",
+            "firefox",
+            "https",
+            "ios",
+            "linux",
+            "local-development",
+            "localhost",
+            "macos",
+            "root-ca",
+            "tls",
+            "windows"
+          ],
+          "open_issues": 178,
+          "forks": 3132,
+          "fetched_at": "2026-08-21T13:11:40.538Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:42.706Z"
+        }
+      },
+      "last_verified_at": "2024-08-13",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "Make locally-trusted certificates for development servers with one command.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "security",
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "Go",
+        "install_methods": [
+          "brew",
+          "apt",
+          "pacman",
+          "nix",
+          "go",
+          "binary"
+        ],
+        "website_url": "https://mkcert.dev/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "stale",
+        "latest_version": null,
+        "latest_release_at": "2024-08-13T13:37:46Z"
+      }
+    },
+    {
+      "id": "3f50c747-886a-446c-b372-74b2b0231f54",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/ffmpeg",
+      "name": "ffmpeg",
+      "slug": "ffmpeg",
+      "dedupe_key": "repo:github.com/ffmpeg/ffmpeg",
+      "canonical_repo_key": "github.com/ffmpeg/ffmpeg",
+      "website_url": "https://ffmpeg.org/ffmpeg.html",
+      "repository_url": "https://github.com/FFmpeg/FFmpeg",
+      "docs_url": null,
+      "summary_raw": "Media processing CLI for recording, transcoding, filtering, muxing, and streaming audio or video.",
+      "license_raw": null,
+      "language_raw": "C",
+      "stars": 57669,
+      "categories_raw": [
+        "media"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "ffmpeg",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "media",
+        "is_official": false,
+        "source_type": "github",
+        "vendor_name": null
+      },
+      "evidence": {
+        "github": {
+          "full_name": "FFmpeg/FFmpeg",
+          "description": "Mirror of https://git.ffmpeg.org/ffmpeg.git",
+          "homepage": "https://ffmpeg.org/",
+          "license_spdx_id": "NOASSERTION",
+          "license_name": "Other",
+          "stars": 63506,
+          "language": "C",
+          "archived": false,
+          "pushed_at": "2026-08-21T12:28:17Z",
+          "created_at": "2011-04-14T14:12:38Z",
+          "topics": [
+            "audio",
+            "c",
+            "ffmpeg",
+            "fft",
+            "hevc",
+            "hls",
+            "matroska",
+            "mp4",
+            "mpeg",
+            "multimedia",
+            "rtmp",
+            "rtsp",
+            "streaming",
+            "video",
+            "webm"
+          ],
+          "open_issues": 3,
+          "forks": 14175,
+          "fetched_at": "2026-08-21T13:11:41.333Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:46.634Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A complete solution to record, convert, and stream audio and video from the command line.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "media-graphics"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows",
+          "bsd"
+        ],
+        "language": "C",
+        "install_methods": [
+          "brew",
+          "apt",
+          "pacman",
+          "nix",
+          "winget"
+        ],
+        "website_url": "https://ffmpeg.org/ffmpeg.html",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T12:28:17Z"
+      }
+    },
+    {
+      "id": "e20ff5dd-db20-425d-94bf-edc24449e967",
+      "source": "github_topics",
+      "source_url": "https://github.com/Textualize/rich",
+      "name": "rich",
+      "slug": "rich",
+      "dedupe_key": "repo:github.com/textualize/rich",
+      "canonical_repo_key": "github.com/textualize/rich",
+      "website_url": "https://rich.readthedocs.io/en/latest/",
+      "repository_url": "https://github.com/Textualize/rich",
+      "docs_url": null,
+      "summary_raw": "Rich is a Python library for rich text and beautiful formatting in the terminal.",
+      "license_raw": "MIT",
+      "language_raw": "Python",
+      "stars": 57101,
+      "categories_raw": [
+        "topic:tui",
+        "topic:terminal"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": "2026-06-23T03:10:19.000Z",
+      "payload": {
+        "bucket": "stars:>3000",
+        "topics": [
+          "ansi-colors",
+          "emoji",
+          "markdown",
+          "progress-bar",
+          "progress-bar-python",
+          "python",
+          "python-library",
+          "python3",
+          "rich",
+          "syntax-highlighting",
+          "tables",
+          "terminal",
+          "terminal-color",
+          "traceback",
+          "tracebacks-rich",
+          "tui"
+        ],
+        "archived": false,
+        "pushed_at": "2026-06-23T03:10:19Z",
+        "created_at": "2019-11-10T15:28:09Z",
+        "open_issues": 372,
+        "matched_topics": [
+          "tui",
+          "terminal"
+        ],
+        "github_full_name": "Textualize/rich"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "Textualize/rich",
+          "description": "Rich is a Python library for rich text and beautiful formatting in the terminal.",
+          "homepage": "https://rich.readthedocs.io/en/latest/",
+          "license_spdx_id": "MIT",
+          "license_name": "MIT License",
+          "stars": 57103,
+          "language": "Python",
+          "archived": false,
+          "pushed_at": "2026-06-23T03:10:19Z",
+          "created_at": "2019-11-10T15:28:09Z",
+          "topics": [
+            "ansi-colors",
+            "emoji",
+            "markdown",
+            "progress-bar",
+            "progress-bar-python",
+            "python",
+            "python-library",
+            "python3",
+            "rich",
+            "syntax-highlighting",
+            "tables",
+            "terminal",
+            "terminal-color",
+            "traceback",
+            "tracebacks-rich",
+            "tui"
+          ],
+          "open_issues": 372,
+          "forks": 2296,
+          "fetched_at": "2026-08-21T13:11:41.939Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:42.543Z"
+        }
+      },
+      "last_verified_at": "2026-06-23",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A Python library for rich text, tables, and progress bars in the terminal.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [
+          "tui"
+        ],
+        "categories": [
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "Python",
+        "install_methods": [
+          "pip",
+          "brew",
+          "nix"
+        ],
+        "website_url": "https://rich.readthedocs.io/en/latest/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-06-23T03:10:19.000Z"
+      }
+    },
+    {
+      "id": "439fb07d-539f-491f-9cc1-cbdac25c6201",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/rclone",
+      "name": "rclone",
+      "slug": "rclone",
+      "dedupe_key": "repo:github.com/rclone/rclone",
+      "canonical_repo_key": "github.com/rclone/rclone",
+      "website_url": "https://rclone.org/",
+      "repository_url": "https://github.com/rclone/rclone",
+      "docs_url": null,
+      "summary_raw": "Cloud storage CLI for copying, syncing, mounting, serving, and inspecting files across local and 70+ backends.",
+      "license_raw": null,
+      "language_raw": "Go",
+      "stars": 55908,
+      "categories_raw": [
+        "cloud"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "rclone",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "cloud",
+        "is_official": false,
+        "source_type": "github",
+        "vendor_name": null
+      },
+      "evidence": {
+        "github": {
+          "full_name": "rclone/rclone",
+          "description": "\"rsync for cloud storage\" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files",
+          "homepage": "https://rclone.org",
+          "license_spdx_id": "MIT",
+          "license_name": "MIT License",
+          "stars": 59290,
+          "language": "Go",
+          "archived": false,
+          "pushed_at": "2026-08-21T11:52:46Z",
+          "created_at": "2014-03-16T16:19:57Z",
+          "topics": [
+            "azure-blob",
+            "azure-blob-storage",
+            "azure-files",
+            "backblaze-b2",
+            "cloud-storage",
+            "dropbox",
+            "encryption",
+            "ftp",
+            "fuse-filesystem",
+            "go",
+            "golang",
+            "google-cloud-storage",
+            "google-drive",
+            "onedrive",
+            "openstack-swift",
+            "rclone",
+            "s3",
+            "sftp",
+            "sync",
+            "webdav"
+          ],
+          "open_issues": 1241,
+          "forks": 5326,
+          "fetched_at": "2026-08-21T13:11:42.642Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:43.408Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "Sync, mount, and manage cloud storage from the command line like rsync for the cloud.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "files",
+          "networking"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows",
+          "bsd"
+        ],
+        "language": "Go",
+        "install_methods": [
+          "brew",
+          "apt",
+          "pacman",
+          "nix",
+          "binary",
+          "cargo"
+        ],
+        "website_url": "https://rclone.org/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T11:52:46Z"
+      }
+    },
+    {
+      "id": "ddf369dc-e2a0-4833-a76e-dcea3a10528b",
+      "source": "github_topics",
+      "source_url": "https://github.com/PowerShell/PowerShell",
+      "name": "PowerShell",
+      "slug": "powershell",
+      "dedupe_key": "repo:github.com/powershell/powershell",
+      "canonical_repo_key": "github.com/powershell/powershell",
+      "website_url": "https://microsoft.com/PowerShell",
+      "repository_url": "https://github.com/PowerShell/PowerShell",
+      "docs_url": null,
+      "summary_raw": "PowerShell for every system!",
+      "license_raw": "MIT",
+      "language_raw": "C#",
+      "stars": 55036,
+      "categories_raw": [
+        "topic:command-line",
+        "topic:shell"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": "2026-08-20T23:21:01.000Z",
+      "payload": {
+        "bucket": "stars:>3000",
+        "topics": [
+          "command-line",
+          "hacktoberfest",
+          "linux",
+          "macos",
+          "netcore",
+          "powershell",
+          "shell",
+          "windows"
+        ],
+        "archived": false,
+        "pushed_at": "2026-08-20T23:21:01Z",
+        "created_at": "2016-01-13T23:41:35Z",
+        "open_issues": 1601,
+        "matched_topics": [
+          "command-line",
+          "shell"
+        ],
+        "github_full_name": "PowerShell/PowerShell"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "PowerShell/PowerShell",
+          "description": "PowerShell for every system!",
+          "homepage": "https://microsoft.com/PowerShell",
+          "license_spdx_id": "MIT",
+          "license_name": "MIT License",
+          "stars": 55040,
+          "language": "C#",
+          "archived": false,
+          "pushed_at": "2026-08-20T23:21:01Z",
+          "created_at": "2016-01-13T23:41:35Z",
+          "topics": [
+            "command-line",
+            "hacktoberfest",
+            "linux",
+            "macos",
+            "netcore",
+            "powershell",
+            "shell",
+            "windows"
+          ],
+          "open_issues": 1601,
+          "forks": 8431,
+          "fetched_at": "2026-08-21T13:11:43.360Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:45.138Z"
+        }
+      },
+      "last_verified_at": "2026-08-20",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A cross-platform shell and scripting language built on .NET for automation.",
+        "aliases": [],
+        "primary_type": "shell",
+        "additional_types": [],
+        "categories": [
+          "terminal-ui",
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "C#",
+        "install_methods": [
+          "winget",
+          "brew",
+          "apt",
+          "pacman"
+        ],
+        "website_url": "https://microsoft.com/PowerShell",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-20T23:21:01.000Z"
+      }
+    },
+    {
+      "id": "ae6794f0-0f82-46a1-968c-c2a2679d8c4e",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/gitea",
+      "name": "Gitea CLI",
+      "slug": "gitea-cli",
+      "dedupe_key": "repo:github.com/go-gitea/gitea",
+      "canonical_repo_key": "github.com/go-gitea/gitea",
+      "website_url": "https://gitea.com/gitea/tea",
+      "repository_url": "https://github.com/go-gitea/gitea",
+      "docs_url": null,
+      "summary_raw": "Gitea CLI for issues, pull requests, releases, actions, webhooks, and API calls.",
+      "license_raw": null,
+      "language_raw": "Go",
+      "stars": 54172,
+      "categories_raw": [
+        "github"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "gitea",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "github",
+        "is_official": true,
+        "source_type": "github",
+        "vendor_name": "Gitea"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "go-gitea/gitea",
+          "description": "Git with a cup of tea! Painless self-hosted all-in-one software development service, including Git hosting, code review, team collaboration, package registry and CI/CD",
+          "homepage": "https://gitea.com",
+          "license_spdx_id": "MIT",
+          "license_name": "MIT License",
+          "stars": 57532,
+          "language": "Go",
+          "archived": false,
+          "pushed_at": "2026-08-21T12:40:31Z",
+          "created_at": "2016-11-01T02:13:26Z",
+          "topics": [
+            "bitbucket",
+            "cicd",
+            "devops",
+            "docker-registry-v2",
+            "git",
+            "git-gui",
+            "git-lfs",
+            "git-server",
+            "gitea",
+            "github",
+            "github-actions",
+            "gitlab",
+            "go",
+            "golang",
+            "hacktoberfest",
+            "maven-server",
+            "npm-registry",
+            "self-hosted",
+            "typescript",
+            "vue"
+          ],
+          "open_issues": 2537,
+          "forks": 7022,
+          "fetched_at": "2026-08-21T13:11:44.031Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:46.241Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A self-hosted git forge that gives you a GitHub-like interface on your own server.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "development",
+          "devops"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "Go",
+        "install_methods": [
+          "brew",
+          "binary",
+          "pacman",
+          "nix"
+        ],
+        "website_url": "https://gitea.com/gitea/tea",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T12:40:31Z"
+      }
+    },
+    {
+      "id": "e25ea856-b56e-43c2-99a1-c91f1e9afac6",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/etcdctl",
+      "name": "etcdctl",
+      "slug": "etcdctl",
+      "dedupe_key": "repo:github.com/etcd-io/etcd",
+      "canonical_repo_key": "github.com/etcd-io/etcd",
+      "website_url": "https://etcd.io/docs/latest/dev-guide/interacting_v3/",
+      "repository_url": "https://github.com/etcd-io/etcd",
+      "docs_url": null,
+      "summary_raw": "CLI for reading and writing etcd keys, checking cluster health, and managing members, auth, leases, and snapshots.",
+      "license_raw": null,
+      "language_raw": "Go",
+      "stars": 51630,
+      "categories_raw": [
+        "containers"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "etcdctl",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "containers",
+        "is_official": true,
+        "source_type": "github",
+        "vendor_name": "etcd"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "etcd-io/etcd",
+          "description": "Distributed reliable key-value store for the most critical data of a distributed system",
+          "homepage": "https://etcd.io",
+          "license_spdx_id": "Apache-2.0",
+          "license_name": "Apache License 2.0",
+          "stars": 52144,
+          "language": "Go",
+          "archived": false,
+          "pushed_at": "2026-08-20T17:37:09Z",
+          "created_at": "2013-07-06T21:57:21Z",
+          "topics": [
+            "cncf",
+            "consensus",
+            "database",
+            "distributed-database",
+            "distributed-systems",
+            "etcd",
+            "go",
+            "key-value",
+            "kubernetes",
+            "raft"
+          ],
+          "open_issues": 322,
+          "forks": 10461,
+          "fetched_at": "2026-08-21T13:11:44.763Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:46.783Z"
+        }
+      },
+      "last_verified_at": "2026-08-20",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "The command-line client for etcd, the distributed key-value store.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "databases",
+          "devops"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "Go",
+        "install_methods": [
+          "brew",
+          "apt",
+          "nix",
+          "go",
+          "binary"
+        ],
+        "website_url": "https://etcd.io/docs/latest/dev-guide/interacting_v3/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-20T17:37:09Z"
+      }
+    },
+    {
+      "id": "474825cd-60bb-4721-bad0-d2ce95682167",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/terraform",
+      "name": "Terraform",
+      "slug": "terraform",
+      "dedupe_key": "repo:github.com/hashicorp/terraform",
+      "canonical_repo_key": "github.com/hashicorp/terraform",
+      "website_url": "https://developer.hashicorp.com/terraform/cli",
+      "repository_url": "https://github.com/hashicorp/terraform",
+      "docs_url": null,
+      "summary_raw": "Infrastructure-as-code CLI for planning, applying, and inspecting Terraform-managed infrastructure, state, and outputs.",
+      "license_raw": null,
+      "language_raw": "Go",
+      "stars": 47906,
+      "categories_raw": [
+        "cloud"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "terraform",
+        "is_tui": false,
+        "has_mcp": false,
+        "category": "cloud",
+        "is_official": true,
+        "source_type": "github",
+        "vendor_name": "HashiCorp"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "hashicorp/terraform",
+          "description": "Terraform enables you to safely and predictably create, change, and improve infrastructure. It is a source-available tool that codifies APIs into declarative configuration files that can be shared amongst team members, treated as code, edited, reviewed, and versioned.",
+          "homepage": "http://developer.hashicorp.com/terraform",
+          "license_spdx_id": "NOASSERTION",
+          "license_name": "Other",
+          "stars": 49504,
+          "language": "Go",
+          "archived": false,
+          "pushed_at": "2026-08-21T13:10:25Z",
+          "created_at": "2014-03-13T22:25:48Z",
+          "topics": [
+            "cloud",
+            "cloud-management",
+            "graph",
+            "infrastructure-as-code",
+            "terraform"
+          ],
+          "open_issues": 1912,
+          "forks": 10610,
+          "fetched_at": "2026-08-21T13:11:47.290Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:47.442Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "Infrastructure as code that provisions and manages cloud resources declaratively.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "devops"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "Go",
+        "install_methods": [
+          "brew",
+          "apt",
+          "nix",
+          "binary"
+        ],
+        "website_url": "https://developer.hashicorp.com/terraform/cli",
+        "docs_url": null,
+        "source_model": "source_available",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T13:10:25Z"
+      }
+    },
+    {
+      "id": "30d0378f-3b02-410a-9c7f-ed4b16e251e8",
+      "source": "github_topics",
+      "source_url": "https://github.com/acmesh-official/acme.sh",
+      "name": "acme.sh",
+      "slug": "acme-sh",
+      "dedupe_key": "repo:github.com/acmesh-official/acme.sh",
+      "canonical_repo_key": "github.com/acmesh-official/acme.sh",
+      "website_url": "https://acme.sh/",
+      "repository_url": "https://github.com/acmesh-official/acme.sh",
+      "docs_url": null,
+      "summary_raw": "A pure Unix shell script ACME client for SSL / TLS certificate automation",
+      "license_raw": "GPL-3.0",
+      "language_raw": "Shell",
+      "stars": 47504,
+      "categories_raw": [
+        "topic:shell"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": "2026-08-20T00:40:55.000Z",
+      "payload": {
+        "bucket": "stars:>3000",
+        "topics": [
+          "acme",
+          "acme-challenge",
+          "acme-protocol",
+          "acme-v2",
+          "ash",
+          "bash",
+          "buypass",
+          "certbot",
+          "lets-encrypt",
+          "posix",
+          "posix-sh",
+          "shell",
+          "ssl",
+          "ssl-certificate",
+          "ssl-certificates",
+          "tls",
+          "tls-certificate",
+          "zerossl"
+        ],
+        "archived": false,
+        "pushed_at": "2026-08-20T00:40:55Z",
+        "created_at": "2015-12-26T12:56:33Z",
+        "open_issues": 96,
+        "matched_topics": [
+          "shell"
+        ],
+        "github_full_name": "acmesh-official/acme.sh"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "acmesh-official/acme.sh",
+          "description": "A pure Unix shell script ACME client for SSL / TLS certificate automation",
+          "homepage": "https://acme.sh",
+          "license_spdx_id": "GPL-3.0",
+          "license_name": "GNU General Public License v3.0",
+          "stars": 47503,
+          "language": "Shell",
+          "archived": false,
+          "pushed_at": "2026-08-20T00:40:55Z",
+          "created_at": "2015-12-26T12:56:33Z",
+          "topics": [
+            "acme",
+            "acme-challenge",
+            "acme-protocol",
+            "acme-v2",
+            "ash",
+            "bash",
+            "buypass",
+            "certbot",
+            "lets-encrypt",
+            "posix",
+            "posix-sh",
+            "shell",
+            "ssl",
+            "ssl-certificate",
+            "ssl-certificates",
+            "tls",
+            "tls-certificate",
+            "zerossl"
+          ],
+          "open_issues": 96,
+          "forks": 5654,
+          "fetched_at": "2026-08-21T13:11:48.662Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:51.123Z"
+        }
+      },
+      "last_verified_at": "2026-08-20",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A pure Unix shell script for automatically issuing and renewing ACME certificates.",
+        "aliases": [
+          "acme.sh"
+        ],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "security",
+          "networking"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "bsd"
+        ],
+        "language": "Shell",
+        "install_methods": [
+          "brew",
+          "source"
+        ],
+        "website_url": "https://acme.sh/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-20T00:40:55.000Z"
+      }
+    },
+    {
+      "id": "434ce52f-c390-40eb-9c87-4f7928463e62",
+      "source": "clis_dev",
+      "source_url": "https://clis.dev/cli/brew",
+      "name": "Homebrew",
+      "slug": "homebrew",
+      "dedupe_key": "repo:github.com/homebrew/brew",
+      "canonical_repo_key": "github.com/homebrew/brew",
+      "website_url": "https://brew.sh/",
+      "repository_url": "https://github.com/Homebrew/brew",
+      "docs_url": null,
+      "summary_raw": "Package manager CLI for installing, upgrading, and querying formulae, casks, taps, and Brewfile dependencies on macOS and Linux.",
+      "license_raw": null,
+      "language_raw": "Ruby",
+      "stars": 46905,
+      "categories_raw": [
+        "package-managers"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "slug": "brew",
+        "is_tui": false,
+        "has_mcp": true,
+        "category": "package-managers",
+        "is_official": false,
+        "source_type": "github",
+        "vendor_name": null
+      },
+      "evidence": {
+        "github": {
+          "full_name": "Homebrew/brew",
+          "description": "🍺 The Package Manager for Everywhere",
+          "homepage": "https://brew.sh",
+          "license_spdx_id": "BSD-2-Clause",
+          "license_name": "BSD 2-Clause \"Simplified\" License",
+          "stars": 49224,
+          "language": "Ruby",
+          "archived": false,
+          "pushed_at": "2026-08-21T12:11:48Z",
+          "created_at": "2016-03-06T05:08:38Z",
+          "topics": [
+            "brew",
+            "homebrew",
+            "macos",
+            "package-manager",
+            "ruby"
+          ],
+          "open_issues": 9,
+          "forks": 11285,
+          "fetched_at": "2026-08-21T13:11:50.097Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:50.351Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "The macOS and Linux package manager that installs what Apple and your distro did not.",
+        "aliases": [
+          "brew"
+        ],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "development"
+        ],
+        "platforms": [
+          "macos",
+          "linux"
+        ],
+        "language": "Ruby",
+        "install_methods": [
+          "brew",
+          "binary"
+        ],
+        "website_url": "https://brew.sh/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-21T12:11:48Z"
+      }
+    },
+    {
+      "id": "8a2b02ed-80ce-487c-aa36-42eb5d7d76d6",
+      "source": "github_topics",
+      "source_url": "https://github.com/google/zx",
+      "name": "zx",
+      "slug": "zx",
+      "dedupe_key": "repo:github.com/google/zx",
+      "canonical_repo_key": "github.com/google/zx",
+      "website_url": "https://google.github.io/zx/",
+      "repository_url": "https://github.com/google/zx",
+      "docs_url": null,
+      "summary_raw": "A tool for writing better scripts",
+      "license_raw": "Apache-2.0",
+      "language_raw": "JavaScript",
+      "stars": 45682,
+      "categories_raw": [
+        "topic:cli",
+        "topic:shell"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": "2026-08-14T07:30:27.000Z",
+      "payload": {
+        "bucket": "stars:>3000",
+        "topics": [
+          "bash",
+          "child-process",
+          "cli",
+          "exec",
+          "javascript",
+          "nodejs",
+          "pipe",
+          "shell",
+          "spawn"
+        ],
+        "archived": false,
+        "pushed_at": "2026-08-14T07:30:27Z",
+        "created_at": "2021-05-05T05:50:01Z",
+        "open_issues": 59,
+        "matched_topics": [
+          "cli",
+          "shell"
+        ],
+        "github_full_name": "google/zx"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "google/zx",
+          "description": "A tool for writing better scripts",
+          "homepage": "https://google.github.io/zx/",
+          "license_spdx_id": "Apache-2.0",
+          "license_name": "Apache License 2.0",
+          "stars": 45683,
+          "language": "JavaScript",
+          "archived": false,
+          "pushed_at": "2026-08-14T07:30:27Z",
+          "created_at": "2021-05-05T05:50:01Z",
+          "topics": [
+            "bash",
+            "child-process",
+            "cli",
+            "exec",
+            "javascript",
+            "nodejs",
+            "pipe",
+            "shell",
+            "spawn"
+          ],
+          "open_issues": 59,
+          "forks": 1285,
+          "fetched_at": "2026-08-21T13:11:51.535Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:51.951Z"
+        }
+      },
+      "last_verified_at": "2026-08-14",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A tool that wraps JavaScript around shell commands so scripts read like code.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "JavaScript",
+        "install_methods": [
+          "npm",
+          "brew",
+          "nix"
+        ],
+        "website_url": "https://google.github.io/zx/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-08-14T07:30:27.000Z"
+      }
+    },
+    {
+      "id": "2402bdae-5460-4a55-82f8-aada8fc5886e",
+      "source": "github_topics",
+      "source_url": "https://github.com/vercel/hyper",
+      "name": "hyper",
+      "slug": "hyper",
+      "dedupe_key": "repo:github.com/vercel/hyper",
+      "canonical_repo_key": "github.com/vercel/hyper",
+      "website_url": "https://hyper.is/",
+      "repository_url": "https://github.com/vercel/hyper",
+      "docs_url": null,
+      "summary_raw": "A terminal built on web technologies",
+      "license_raw": "MIT",
+      "language_raw": "TypeScript",
+      "stars": 44699,
+      "categories_raw": [
+        "topic:terminal"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": "2026-06-29T11:03:02.000Z",
+      "payload": {
+        "bucket": "stars:>3000",
+        "topics": [
+          "css",
+          "html",
+          "hyper",
+          "javascript",
+          "linux",
+          "macos",
+          "react",
+          "terminal",
+          "terminal-emulators"
+        ],
+        "archived": false,
+        "pushed_at": "2026-06-29T11:03:02Z",
+        "created_at": "2016-07-01T06:01:21Z",
+        "open_issues": 1043,
+        "matched_topics": [
+          "terminal"
+        ],
+        "github_full_name": "vercel/hyper"
+      },
+      "evidence": {
+        "github": {
+          "full_name": "vercel/hyper",
+          "description": "A terminal built on web technologies",
+          "homepage": "https://hyper.is",
+          "license_spdx_id": "MIT",
+          "license_name": "MIT License",
+          "stars": 44699,
+          "language": "TypeScript",
+          "archived": false,
+          "pushed_at": "2026-06-29T11:03:02Z",
+          "created_at": "2016-07-01T06:01:21Z",
+          "topics": [
+            "css",
+            "html",
+            "hyper",
+            "javascript",
+            "linux",
+            "macos",
+            "react",
+            "terminal",
+            "terminal-emulators"
+          ],
+          "open_issues": 1042,
+          "forks": 3576,
+          "fetched_at": "2026-08-21T13:11:53.236Z"
+        },
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:11:53.671Z"
+        }
+      },
+      "last_verified_at": "2026-06-29",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "An Electron-based terminal emulator built to be hackable and extensible.",
+        "aliases": [],
+        "primary_type": "terminal_emulator",
+        "additional_types": [],
+        "categories": [
+          "terminal-ui"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": "TypeScript",
+        "install_methods": [
+          "brew",
+          "winget",
+          "apt"
+        ],
+        "website_url": "https://hyper.is/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "active",
+        "latest_version": null,
+        "latest_release_at": "2026-06-29T11:03:02.000Z"
+      }
+    },
+    {
+      "id": "d4f1e25f-a28c-4389-a024-45aab91231ef",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Emacs",
+      "slug": "emacs",
+      "dedupe_key": "site:gnu.org/software/emacs",
+      "canonical_repo_key": null,
+      "website_url": "https://www.gnu.org/software/emacs/",
+      "repository_url": "https://git.savannah.gnu.org/git/emacs.git",
+      "docs_url": null,
+      "summary_raw": "One of the oldest text editors, free long-standing software project, with a huge amount of functionalities and extensions; implemented and extendable with E-Lisp.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "editors"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "editors"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:14.172Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "An extensible, customizable editor that doubles as a computing environment.",
+        "aliases": [],
+        "primary_type": "editor",
+        "additional_types": [
+          "cli"
+        ],
+        "categories": [
+          "text",
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows",
+          "bsd"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "brew",
+          "pacman",
+          "nix",
+          "winget"
+        ],
+        "website_url": "https://www.gnu.org/software/emacs/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "d1831f2a-edeb-413f-b55d-c5e184f39e25",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "nano",
+      "slug": "nano",
+      "dedupe_key": "site:nano-editor.org",
+      "canonical_repo_key": null,
+      "website_url": "https://www.nano-editor.org/",
+      "repository_url": "https://git.savannah.gnu.org/git/nano.git",
+      "docs_url": null,
+      "summary_raw": "Easy to use, lightweight text editor; no complex keybindings to remember; the main ones are shown in the main menu.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "editors"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "editors"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:13.559Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A small, friendly text editor that puts the most common commands at the bottom.",
+        "aliases": [],
+        "primary_type": "editor",
+        "additional_types": [],
+        "categories": [
+          "text"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "bsd"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "brew",
+          "pacman",
+          "nix"
+        ],
+        "website_url": "https://www.nano-editor.org/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "d6e56bec-a864-4d86-9186-e99f6d6872a5",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "screen",
+      "slug": "screen",
+      "dedupe_key": "site:gnu.org/software/screen",
+      "canonical_repo_key": null,
+      "website_url": "https://www.gnu.org/software/screen/",
+      "repository_url": "https://git.savannah.gnu.org/git/screen.git",
+      "docs_url": null,
+      "summary_raw": "Terminal multiplexer that split a physical terminal between several processes, typically interactive shells.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "terminal-mux"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "terminal-mux"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:14.178Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A terminal multiplexer that lets you run, detach, and share shell sessions.",
+        "aliases": [],
+        "primary_type": "multiplexer",
+        "additional_types": [],
+        "categories": [
+          "terminal-ui"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "bsd"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "brew",
+          "pacman",
+          "nix"
+        ],
+        "website_url": "https://www.gnu.org/software/screen/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "14d8dfd5-bbe1-441b-97b6-7fd2c8f02070",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Bash",
+      "slug": "bash",
+      "dedupe_key": "site:gnu.org/software/bash",
+      "canonical_repo_key": null,
+      "website_url": "https://www.gnu.org/software/bash/",
+      "repository_url": "https://git.savannah.gnu.org/git/bash.git",
+      "docs_url": null,
+      "summary_raw": "(Bourne Again SHell) The most widespread system shell to date.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "shells"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "shells"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:14.931Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "The Bourne Again SHell, the default shell on most Unix systems and macOS.",
+        "aliases": [],
+        "primary_type": "shell",
+        "additional_types": [],
+        "categories": [
+          "terminal-ui"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "bsd"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "brew",
+          "pacman",
+          "nix"
+        ],
+        "website_url": "https://www.gnu.org/software/bash/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "80921ddf-6b9b-44a6-b6dd-53d41ffbd170",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Zsh",
+      "slug": "zsh",
+      "dedupe_key": "site:zsh.org",
+      "canonical_repo_key": null,
+      "website_url": "http://www.zsh.org/",
+      "repository_url": "https://sourceforge.net/p/zsh/code/ci/master/tree/",
+      "docs_url": null,
+      "summary_raw": "Alternative shell designed for interactive use.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "shells"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "shells"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:15.922Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "An extended Bourne shell with completion, themes, and massive plugin support.",
+        "aliases": [],
+        "primary_type": "shell",
+        "additional_types": [],
+        "categories": [
+          "terminal-ui"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "bsd"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "brew",
+          "pacman",
+          "nix"
+        ],
+        "website_url": "http://www.zsh.org/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "960ec27c-4007-4ac2-b3ac-8dbca7bd4d49",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "parallel",
+      "slug": "parallel",
+      "dedupe_key": "site:gnu.org/software/parallel",
+      "canonical_repo_key": null,
+      "website_url": "https://www.gnu.org/software/parallel/",
+      "repository_url": "https://git.savannah.gnu.org/git/parallel.git",
+      "docs_url": null,
+      "summary_raw": "A shell tool from GNU for executing jobs in parallel using one or more computers, it can split the input and pipe it into commands in parallel.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "launcher"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "launcher"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:14.954Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "GNU Parallel runs shell jobs in parallel across your CPU cores and remote hosts.",
+        "aliases": [
+          "gnu-parallel"
+        ],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "development",
+          "monitoring"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "bsd"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "brew",
+          "pacman",
+          "nix"
+        ],
+        "website_url": "https://www.gnu.org/software/parallel/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "3353f3b6-c9cb-4ea7-96db-667e2d283472",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Remind",
+      "slug": "remind",
+      "dedupe_key": "site:dianne.skoll.ca/projects/remind",
+      "canonical_repo_key": null,
+      "website_url": "https://dianne.skoll.ca/projects/remind/",
+      "repository_url": "https://git.skoll.ca/Skollsoft-Public/Remind.git",
+      "docs_url": null,
+      "summary_raw": "Calendar that supports complex rules to define events and used a custom, powerful text-based storage format.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "organizers"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "organizers"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:17.619Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A powerful calendar and reminder program with its own small scripting language.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "productivity"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "bsd"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "brew",
+          "pacman",
+          "nix"
+        ],
+        "website_url": "https://dianne.skoll.ca/projects/remind/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "c6d36203-12c3-42f7-8c00-5d9cc61fcfae",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Mercurial",
+      "slug": "mercurial",
+      "dedupe_key": "site:mercurial-scm.org",
+      "canonical_repo_key": null,
+      "website_url": "https://www.mercurial-scm.org/",
+      "repository_url": "https://www.mercurial-scm.org/repo/hg",
+      "docs_url": null,
+      "summary_raw": "Free, distributed source control management tool.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "versioning"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "versioning"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:18.790Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A distributed version control system designed for large projects and fast clones.",
+        "aliases": [
+          "hg"
+        ],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "brew",
+          "pacman",
+          "nix",
+          "pip"
+        ],
+        "website_url": "https://www.mercurial-scm.org/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "5999ab85-0093-4f5f-beac-91e3740c1168",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "ncdu",
+      "slug": "ncdu",
+      "dedupe_key": "site:dev.yorhel.nl/ncdu",
+      "canonical_repo_key": null,
+      "website_url": "https://dev.yorhel.nl/ncdu",
+      "repository_url": "https://code.blicky.net/yorhel/ncdu",
+      "docs_url": null,
+      "summary_raw": "\"A disk usage analyzer with a ncurses interface. It is designed to find space hogs on a remote server where you don't have an entire graphical setup available.\"",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "disk-analyzer"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "disk-analyzer"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:19.413Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A curses-based disk usage browser that shows where your space went.",
+        "aliases": [],
+        "primary_type": "tui",
+        "additional_types": [],
+        "categories": [
+          "monitoring",
+          "files"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "bsd"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "brew",
+          "pacman",
+          "nix"
+        ],
+        "website_url": "https://dev.yorhel.nl/ncdu",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "27402405-3b28-4039-a025-d4bc89dd21a4",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "password-store",
+      "slug": "password-store",
+      "dedupe_key": "site:passwordstore.org",
+      "canonical_repo_key": null,
+      "website_url": "https://www.passwordstore.org/",
+      "repository_url": "https://git.zx2c4.com/password-store",
+      "docs_url": null,
+      "summary_raw": "With pass, each password lives inside a GPG encrypted file whose filename is the title of the website or resource that requires the password. These encrypted files may be organized into meaningful folder hierarchies, copied from computer to computer, and, in general, manipulated using standard command line file management utilities.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "password-manager"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "password-manager"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:21.016Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A simple Unix password manager that stores each password in a GPG-encrypted file.",
+        "aliases": [
+          "pass"
+        ],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "security",
+          "productivity"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "bsd"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "brew",
+          "pacman",
+          "nix",
+          "source"
+        ],
+        "website_url": "https://www.passwordstore.org/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "bc7f943e-198a-4318-b92c-6bef440abe7f",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "calcurse",
+      "slug": "calcurse",
+      "dedupe_key": "site:calcurse.org",
+      "canonical_repo_key": null,
+      "website_url": "https://calcurse.org/",
+      "repository_url": "https://git.calcurse.org/calcurse.git",
+      "docs_url": null,
+      "summary_raw": "A calendar and scheduling application for the command line. It helps keep track of events, appointments and everyday tasks.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "organizers"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "organizers"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:13:04.704Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A curses-based calendar and scheduling application for the terminal.",
+        "aliases": [],
+        "primary_type": "tui",
+        "additional_types": [],
+        "categories": [
+          "productivity"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "bsd"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "brew",
+          "pacman",
+          "nix"
+        ],
+        "website_url": "https://calcurse.org/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "378c83be-c32e-4395-8034-7394a0e0bb7f",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "GnuPG",
+      "slug": "gnupg",
+      "dedupe_key": "site:gnupg.org",
+      "canonical_repo_key": null,
+      "website_url": "https://gnupg.org/",
+      "repository_url": "https://dev.gnupg.org/source/gnupg.git",
+      "docs_url": null,
+      "summary_raw": "GnuPG is a complete and free implementation of the OpenPGP standard as defined by RFC4880 (also known as PGP).",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "crypto"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "crypto"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:13:04.346Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "The GNU implementation of OpenPGP for signing and encrypting files and messages.",
+        "aliases": [
+          "gpg",
+          "gnupg"
+        ],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "security"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows",
+          "bsd"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "brew",
+          "pacman",
+          "nix",
+          "winget"
+        ],
+        "website_url": "https://gnupg.org/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "0ca2d94c-a6c5-4097-b4cd-522d410affc4",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "DASH",
+      "slug": "dash",
+      "dedupe_key": "site:gondor.apana.org.au/~herbert/dash",
+      "canonical_repo_key": null,
+      "website_url": "http://gondor.apana.org.au/~herbert/dash/",
+      "repository_url": "git://git.kernel.org/pub/scm/utils/dash/dash.git",
+      "docs_url": null,
+      "summary_raw": "DASH is a POSIX-compliant implementation of /bin/sh that aims to be as small as possible. It does this without sacrificing speed where possible.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "shells"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "shells"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:13:30.539Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A small, fast POSIX-compliant shell often used as /bin/sh on Debian and derivatives.",
+        "aliases": [],
+        "primary_type": "shell",
+        "additional_types": [],
+        "categories": [
+          "terminal-ui"
+        ],
+        "platforms": [
+          "linux",
+          "bsd"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "pacman",
+          "nix"
+        ],
+        "website_url": "http://gondor.apana.org.au/~herbert/dash/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "b923a8f5-9b02-4849-81a8-a2487535d740",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Oils",
+      "slug": "oils",
+      "dedupe_key": "site:github.com/oilshell/oil",
+      "canonical_repo_key": null,
+      "website_url": "https://github.com/oilshell/oil",
+      "repository_url": "https://www.oilshell.org/",
+      "docs_url": null,
+      "summary_raw": "From their README: \"Oils is our upgrade path from bash to a better language and runtime!\"",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "shells"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "shells"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:58.845Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A Unix shell that is compatible with bash while adding structured data types.",
+        "aliases": [],
+        "primary_type": "shell",
+        "additional_types": [],
+        "categories": [
+          "terminal-ui"
+        ],
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "language": null,
+        "install_methods": [
+          "pip",
+          "nix",
+          "source"
+        ],
+        "website_url": "https://github.com/oilshell/oil",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "e4c53405-8c96-43aa-a1f2-04aabaf8cba4",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "st",
+      "slug": "st",
+      "dedupe_key": "site:st.suckless.org",
+      "canonical_repo_key": null,
+      "website_url": "https://st.suckless.org/",
+      "repository_url": "https://git.suckless.org/st/",
+      "docs_url": null,
+      "summary_raw": "A simple terminal implementation for X.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "terminal"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "terminal"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:13:05.113Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "The suckless simple terminal, a minimal X11 terminal focused on doing one thing well.",
+        "aliases": [],
+        "primary_type": "terminal_emulator",
+        "additional_types": [],
+        "categories": [
+          "terminal-ui"
+        ],
+        "platforms": [
+          "linux",
+          "bsd"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "pacman",
+          "nix",
+          "source"
+        ],
+        "website_url": "https://st.suckless.org/",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "fe51f818-d6bd-4e80-b039-1a1b39651d5e",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "testdisk",
+      "slug": "testdisk",
+      "dedupe_key": "site:cgsecurity.org/wiki/testdisk",
+      "canonical_repo_key": null,
+      "website_url": "https://www.cgsecurity.org/wiki/TestDisk",
+      "repository_url": "https://git.cgsecurity.org/cgit/testdisk/tree/",
+      "docs_url": null,
+      "summary_raw": "Lets you undelete files from FAT, exFAT, NTFS, and ext2 filesystems and do many other things, e.g., fix partition tables and recover deleted partitions.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "rm"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "rm"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:13:05.735Z"
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "A recovery utility that repairs partition tables and restores lost data from disks.",
+        "aliases": [],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "files",
+          "monitoring"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": null,
+        "install_methods": [
+          "apt",
+          "brew",
+          "pacman",
+          "nix",
+          "binary"
+        ],
+        "website_url": "https://www.cgsecurity.org/wiki/TestDisk",
+        "docs_url": null,
+        "source_model": "open_source",
+        "pricing_model": "free",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "3406c588-b0ff-4ee6-a196-f5e02c2c7468",
+      "source": "nixos",
+      "source_url": "https://search.nixos.org/packages?show=stripe-cli",
+      "name": "stripe-cli",
+      "slug": "stripe-cli",
+      "dedupe_key": "name:stripe cli",
+      "canonical_repo_key": null,
+      "website_url": null,
+      "repository_url": null,
+      "docs_url": null,
+      "summary_raw": null,
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [],
+      "platforms_raw": [],
+      "install_methods_raw": [
+        "nix"
+      ],
+      "latest_version": "1.43.2",
+      "latest_release_at": null,
+      "payload": {
+        "pname": "stripe-cli",
+        "license": null
+      },
+      "evidence": {
+        "website": {
+          "reachable": false
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "Stripe's local development CLI for testing webhooks, events, and API integrations.",
+        "aliases": [
+          "stripe"
+        ],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "development",
+          "devops"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": null,
+        "install_methods": [
+          "brew",
+          "apt",
+          "pacman",
+          "binary"
+        ],
+        "website_url": "https://docs.stripe.com/stripe-cli",
+        "docs_url": null,
+        "source_model": "closed_source",
+        "pricing_model": "freemium",
+        "maintenance_status": "unknown",
+        "latest_version": "1.43.2",
+        "latest_release_at": null
+      }
+    },
+    {
+      "id": "022f94a1-1749-436c-8bde-81b4681ce422",
+      "source": "pypi",
+      "source_url": "https://pypi.org/project/vercel-cli/",
+      "name": "vercel-cli",
+      "slug": "vercel-cli",
+      "dedupe_key": "name:vercel cli",
+      "canonical_repo_key": null,
+      "website_url": null,
+      "repository_url": null,
+      "docs_url": null,
+      "summary_raw": null,
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [],
+      "platforms_raw": [],
+      "install_methods_raw": [
+        "pip"
+      ],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "match_basis": "project name keyword only; no bulk description API exists"
+      },
+      "evidence": {
+        "website": {
+          "reachable": false
+        }
+      },
+      "last_verified_at": "2026-08-21",
+      "verified_at": "2026-08-21T16:05:12.404Z",
+      "review": {
+        "decision": "publish",
+        "summary": "Vercel's deployment CLI for previewing and shipping frontends from the terminal.",
+        "aliases": [
+          "vercel"
+        ],
+        "primary_type": "cli",
+        "additional_types": [],
+        "categories": [
+          "devops",
+          "development"
+        ],
+        "platforms": [
+          "linux",
+          "macos",
+          "windows"
+        ],
+        "language": null,
+        "install_methods": [
+          "npm",
+          "brew",
+          "binary"
+        ],
+        "website_url": "https://vercel.com/docs/cli",
+        "docs_url": null,
+        "source_model": "closed_source",
+        "pricing_model": "freemium",
+        "maintenance_status": "unknown",
+        "latest_version": null,
+        "latest_release_at": null
+      }
+    }
+  ]
+}

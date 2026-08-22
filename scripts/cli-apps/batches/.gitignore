@@ -1,0 +1,6 @@
+# Large per-source discovery dumps are local artifacts; only curated + coverage are committed.
+*.json
+!curated-publish.json
+!coverage.json
+!coverage.md
+!verified-*.json

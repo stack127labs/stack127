@@ -1,0 +1,51 @@
+import { expect, test } from "playwright/test";
+
+test("cli app cards use the intended desktop and compact breakpoints", async ({ page }) => {
+  await page.setViewportSize({ height: 900, width: 1280 });
+  await page.goto("/cli-apps");
+
+  const grid = page.locator(".cli-card-grid");
+  await expect(grid).toBeVisible();
+  await expect
+    .poll(() => grid.evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(" ").length))
+    .toBe(3);
+
+  await page.setViewportSize({ height: 900, width: 1024 });
+  await expect
+    .poll(() => grid.evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(" ").length))
+    .toBe(2);
+
+  await page.setViewportSize({ height: 900, width: 640 });
+  await expect
+    .poll(() => grid.evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(" ").length))
+    .toBe(1);
+});
+
+test("the mobile layout exposes the filter drawer and readable cards", async ({ page }) => {
+  await page.setViewportSize({ height: 900, width: 390 });
+  await page.goto("/cli-apps");
+
+  await expect(page.getByRole("button", { name: "Filters" })).toBeVisible();
+  await expect(page.locator("[data-app-main] h1")).toBeVisible();
+
+  const firstCard = page.locator(".cli-card").first();
+  await expect(firstCard).toBeVisible();
+  const box = await firstCard.boundingBox();
+  expect(box?.width ?? 0).toBeLessThanOrEqual(390);
+});
+
+test("cards open a contextual details panel instead of exposing raw links", async ({ page }) => {
+  await page.goto("/cli-apps");
+
+  const firstCard = page.locator(".cli-card").first();
+  await expect(firstCard.locator("a")).toHaveCount(0);
+  await expect(firstCard.locator(".directory-meta-list > span")).toHaveCount(3);
+  await expect(firstCard.locator(".directory-meta-list")).toContainText("license");
+  await firstCard.click();
+
+  const panel = page.getByRole("dialog");
+  await expect(panel).toBeVisible();
+  await expect(panel.getByText("pricing", { exact: true })).toBeVisible();
+  await expect(panel.getByText("source model", { exact: true })).toBeVisible();
+  await expect(panel.locator("a").first()).toBeVisible();
+});

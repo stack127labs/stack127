@@ -11,6 +11,7 @@ import {
   Route,
   Scale,
   ShieldCheck,
+  SquareTerminal,
   type LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
@@ -62,6 +63,7 @@ const legalSlugs = new Set(["about", "privacy", "terms"]);
 
 /** Monochrome icon per feature page; unknown slugs fall back to the chevron. */
 const pageIcons: Record<string, LucideIcon> = {
+  "cli-apps": SquareTerminal,
   "dns-tools": Network,
   "dockerignore-tester": FileSearch,
   "domain-tools": Globe,

@@ -1,0 +1,19 @@
+{
+  "route": "/cli-apps",
+  "state": "published",
+  "docs": ["content_docs/cli-apps"],
+  "tests": [
+    "tests/pages/cli-apps/data-shape.test.mjs",
+    "tests/pages/cli-apps/dedupe.test.mjs",
+    "tests/pages/cli-apps/filters.test.mjs",
+    "tests/pages/cli-apps/layout.spec.ts",
+    "tests/pages/cli-apps/empty-state.spec.ts",
+    "tests/pages/cli-apps/navigation.test.mjs",
+    "tests/pages/cli-apps/provenance.test.mjs",
+    "tests/pages/cli-apps/source-coverage.test.mjs",
+    "tests/stack127/seo.spec.ts"
+  ],
+  "scripts": ["scripts/cli-apps"],
+  "skills": [],
+  "repositories": []
+}

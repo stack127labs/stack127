@@ -9,7 +9,7 @@ export function SortDropdown({
   value,
 }: {
   name: string;
-  options: SortOption[];
+  options: readonly SortOption[];
   value: string;
 }) {
   const fallback = options[0]?.value ?? "";

@@ -1,6 +1,7 @@
 /** Curated collection, course, reference, and utility pages shown by the home surface. */
 export const homePageSlugs = [
   "about",
+  "cli-apps",
   "dns-tools",
   "dockerignore-tester",
   "domain-tools",

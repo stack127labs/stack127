@@ -11,6 +11,10 @@ export function SiteNav() {
           <BrandWordmark />
         </Link>
         <div className={styles.links}>
+          <Link href="/cli-apps">cli apps</Link>
+          <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
+            ·
+          </span>
           <Link href="/self-host-apps">self-host apps</Link>
           <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
             ·

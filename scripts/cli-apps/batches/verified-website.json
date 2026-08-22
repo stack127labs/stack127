@@ -1,0 +1,2050 @@
+{
+  "generated_at": "2026-08-21T13:13:30.541Z",
+  "records": [
+    {
+      "id": "d4f1e25f-a28c-4389-a024-45aab91231ef",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Emacs",
+      "slug": "emacs",
+      "dedupe_key": "site:gnu.org/software/emacs",
+      "canonical_repo_key": null,
+      "website_url": "https://www.gnu.org/software/emacs/",
+      "repository_url": "https://git.savannah.gnu.org/git/emacs.git",
+      "docs_url": null,
+      "summary_raw": "One of the oldest text editors, free long-standing software project, with a huge amount of functionalities and extensions; implemented and extendable with E-Lisp.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "editors"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "editors"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:14.172Z"
+        }
+      }
+    },
+    {
+      "id": "fbebbaea-88df-4559-8c6b-7b7d5a1c82c8",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "joe",
+      "slug": "joe",
+      "dedupe_key": "site:joe-editor.sourceforge.net",
+      "canonical_repo_key": null,
+      "website_url": "http://joe-editor.sourceforge.net/",
+      "repository_url": "https://sourceforge.net/projects/joe-editor/",
+      "docs_url": null,
+      "summary_raw": "(Joe's Own Editor) - a compact text editor written in C, a detailed list of features and missing ones is explicitly reported on the website. This editor is mentioned in several web sources for its capability in handling large files.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "editors"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "editors"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": false,
+          "error": "HTTP 403: http://joe-editor.sourceforge.net/"
+        }
+      }
+    },
+    {
+      "id": "d1831f2a-edeb-413f-b55d-c5e184f39e25",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "nano",
+      "slug": "nano",
+      "dedupe_key": "site:nano-editor.org",
+      "canonical_repo_key": null,
+      "website_url": "https://www.nano-editor.org/",
+      "repository_url": "https://git.savannah.gnu.org/git/nano.git",
+      "docs_url": null,
+      "summary_raw": "Easy to use, lightweight text editor; no complex keybindings to remember; the main ones are shown in the main menu.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "editors"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "editors"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:13.559Z"
+        }
+      }
+    },
+    {
+      "id": "d6e56bec-a864-4d86-9186-e99f6d6872a5",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "screen",
+      "slug": "screen",
+      "dedupe_key": "site:gnu.org/software/screen",
+      "canonical_repo_key": null,
+      "website_url": "https://www.gnu.org/software/screen/",
+      "repository_url": "https://git.savannah.gnu.org/git/screen.git",
+      "docs_url": null,
+      "summary_raw": "Terminal multiplexer that split a physical terminal between several processes, typically interactive shells.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "terminal-mux"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "terminal-mux"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:14.178Z"
+        }
+      }
+    },
+    {
+      "id": "7fe9297e-04be-4722-aa35-f9f21e4357bc",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "iotop",
+      "slug": "iotop",
+      "dedupe_key": "site:guichaz.free.fr/iotop",
+      "canonical_repo_key": null,
+      "website_url": "http://guichaz.free.fr/iotop/",
+      "repository_url": "https://repo.or.cz/iotop.git",
+      "docs_url": null,
+      "summary_raw": "\"A Python program with a top like UI used to show of behalf of which process is the I/O going on\".",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "monitor-top"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "monitor-top"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:13.792Z"
+        }
+      }
+    },
+    {
+      "id": "0aff146d-34ee-4678-a456-bf0ae3e2592d",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "smem",
+      "slug": "smem",
+      "dedupe_key": "site:selenic.com/smem",
+      "canonical_repo_key": null,
+      "website_url": "https://www.selenic.com/smem/",
+      "repository_url": "https://selenic.com/repo/smem",
+      "docs_url": null,
+      "summary_raw": "Python program that reports memory usage; it can report the \"proportional set size\" (PSS), a meaningful representation of the amount of memory used by libraries and applications in a virtual memory system; it has built-in chart generation.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "monitor"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "monitor"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:14.569Z"
+        }
+      }
+    },
+    {
+      "id": "14d8dfd5-bbe1-441b-97b6-7fd2c8f02070",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Bash",
+      "slug": "bash",
+      "dedupe_key": "site:gnu.org/software/bash",
+      "canonical_repo_key": null,
+      "website_url": "https://www.gnu.org/software/bash/",
+      "repository_url": "https://git.savannah.gnu.org/git/bash.git",
+      "docs_url": null,
+      "summary_raw": "(Bourne Again SHell) The most widespread system shell to date.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "shells"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "shells"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:14.931Z"
+        }
+      }
+    },
+    {
+      "id": "80921ddf-6b9b-44a6-b6dd-53d41ffbd170",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Zsh",
+      "slug": "zsh",
+      "dedupe_key": "site:zsh.org",
+      "canonical_repo_key": null,
+      "website_url": "http://www.zsh.org/",
+      "repository_url": "https://sourceforge.net/p/zsh/code/ci/master/tree/",
+      "docs_url": null,
+      "summary_raw": "Alternative shell designed for interactive use.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "shells"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "shells"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:15.922Z"
+        }
+      }
+    },
+    {
+      "id": "e28be09a-6d3b-4366-9fe6-284fbdbcbb42",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "conspy",
+      "slug": "conspy",
+      "dedupe_key": "site:conspy.sourceforge.net",
+      "canonical_repo_key": null,
+      "website_url": "http://conspy.sourceforge.net/",
+      "repository_url": "https://sourceforge.net/p/conspy/code/ci/default/tree/",
+      "docs_url": null,
+      "summary_raw": "\"Conspy allows a (possibly remote) user to see what is displayed on a Linux virtual console, and send keystrokes to it.\"",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "system"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "system"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": false,
+          "error": "HTTP 403: http://conspy.sourceforge.net/"
+        }
+      }
+    },
+    {
+      "id": "55395db1-1b83-4688-9a31-f8a169553eac",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "lshw",
+      "slug": "lshw",
+      "dedupe_key": "site:ezix.org/project/wiki/hardwarelister",
+      "canonical_repo_key": null,
+      "website_url": "http://www.ezix.org/project/wiki/HardwareLiSter",
+      "repository_url": "https://ezix.org/src/pkg/lshw",
+      "docs_url": null,
+      "summary_raw": "A small tool to provide detailed information on the hardware configuration of the machine. It can report exact memory configuration, firmware version, mainboard configuration, CPU version and speed, cache configuration, bus speed, etc.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "system"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "system"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:17.916Z"
+        }
+      }
+    },
+    {
+      "id": "960ec27c-4007-4ac2-b3ac-8dbca7bd4d49",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "parallel",
+      "slug": "parallel",
+      "dedupe_key": "site:gnu.org/software/parallel",
+      "canonical_repo_key": null,
+      "website_url": "https://www.gnu.org/software/parallel/",
+      "repository_url": "https://git.savannah.gnu.org/git/parallel.git",
+      "docs_url": null,
+      "summary_raw": "A shell tool from GNU for executing jobs in parallel using one or more computers, it can split the input and pipe it into commands in parallel.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "launcher"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "launcher"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:14.954Z"
+        }
+      }
+    },
+    {
+      "id": "a946a589-b6fd-425e-9953-02530cf297b8",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "pal",
+      "slug": "pal",
+      "dedupe_key": "site:palcal.sourceforge.net",
+      "canonical_repo_key": null,
+      "website_url": "http://palcal.sourceforge.net/",
+      "repository_url": "https://sourceforge.net/p/palcal/code/HEAD/tree",
+      "docs_url": null,
+      "summary_raw": "Calendar for Unix/Linux systems that can keep track of events; custom, plain text storage format; interesting and fully functional.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "organizers"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "organizers"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": false,
+          "error": "HTTP 403: http://palcal.sourceforge.net/"
+        }
+      }
+    },
+    {
+      "id": "3353f3b6-c9cb-4ea7-96db-667e2d283472",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Remind",
+      "slug": "remind",
+      "dedupe_key": "site:dianne.skoll.ca/projects/remind",
+      "canonical_repo_key": null,
+      "website_url": "https://dianne.skoll.ca/projects/remind/",
+      "repository_url": "https://git.skoll.ca/Skollsoft-Public/Remind.git",
+      "docs_url": null,
+      "summary_raw": "Calendar that supports complex rules to define events and used a custom, powerful text-based storage format.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "organizers"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "organizers"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:17.619Z"
+        }
+      }
+    },
+    {
+      "id": "28820cc4-5d5f-4364-a0fb-940cea64ef6c",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "espeak",
+      "slug": "espeak",
+      "dedupe_key": "site:espeak.sourceforge.net",
+      "canonical_repo_key": null,
+      "website_url": "http://espeak.sourceforge.net/",
+      "repository_url": "https://sourceforge.net/p/espeak/code/HEAD/tree",
+      "docs_url": null,
+      "summary_raw": "A compact open source software speech synthesizer for English and other languages.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "music"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "music"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": false,
+          "error": "HTTP 403: http://espeak.sourceforge.net/"
+        }
+      }
+    },
+    {
+      "id": "fbd2cd50-9db6-4b47-a0b6-475abae162ef",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "mpg123",
+      "slug": "mpg123",
+      "dedupe_key": "site:mpg123.org",
+      "canonical_repo_key": null,
+      "website_url": "http://mpg123.org/",
+      "repository_url": "https://sourceforge.net/projects/mpg123",
+      "docs_url": null,
+      "summary_raw": "Quick `mp3` sound file player; no visual interface, just a command-line audio file player for `mp3` files.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "audio-player"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "audio-player"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:16.511Z"
+        }
+      }
+    },
+    {
+      "id": "71f620e2-2759-4942-832e-92fd0bf68268",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "ogg123",
+      "slug": "ogg123",
+      "dedupe_key": "site:xiph.org/downloads",
+      "canonical_repo_key": null,
+      "website_url": "https://www.xiph.org/downloads/",
+      "repository_url": "https://gitlab.xiph.org/xiph/ogg.git",
+      "docs_url": null,
+      "summary_raw": "Quick `ogg` sound file player; no visual interface, just a command-line audio file player for the free and open `ogg` file format.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "audio-player"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "audio-player"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:17.913Z"
+        }
+      }
+    },
+    {
+      "id": "eeac960f-959f-4621-89ca-9c74079c24ca",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "git-annex",
+      "slug": "git-annex",
+      "dedupe_key": "site:git-annex.branchable.com",
+      "canonical_repo_key": null,
+      "website_url": "https://git-annex.branchable.com/",
+      "repository_url": "git://git-annex.branchable.com/%20git-annex",
+      "docs_url": null,
+      "summary_raw": "Manages files with `git`, without checking the file contents into git; very useful to manage large/binary files.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "git"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "git"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:18.056Z"
+        }
+      }
+    },
+    {
+      "id": "c6d36203-12c3-42f7-8c00-5d9cc61fcfae",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Mercurial",
+      "slug": "mercurial",
+      "dedupe_key": "site:mercurial-scm.org",
+      "canonical_repo_key": null,
+      "website_url": "https://www.mercurial-scm.org/",
+      "repository_url": "https://www.mercurial-scm.org/repo/hg",
+      "docs_url": null,
+      "summary_raw": "Free, distributed source control management tool.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "versioning"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "versioning"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:18.790Z"
+        }
+      }
+    },
+    {
+      "id": "a42f904f-c502-4737-8d0b-1cb973b60bab",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "catdoc",
+      "slug": "catdoc",
+      "dedupe_key": "site:wagner.pp.ru/~vitus/software/catdoc",
+      "canonical_repo_key": null,
+      "website_url": "http://www.wagner.pp.ru/~vitus/software/catdoc/",
+      "repository_url": "http://www.wagner.pp.ru/git/oss/catdoc.git",
+      "docs_url": null,
+      "summary_raw": "Convert Microsoft Word files to plain text; output is sent to the standard output.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "conversion"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "conversion"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:18.679Z"
+        }
+      }
+    },
+    {
+      "id": "cb65e566-a8f3-402d-9aa3-866ee0a49fa0",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Duply",
+      "slug": "duply",
+      "dedupe_key": "site:duply.net",
+      "canonical_repo_key": null,
+      "website_url": "http://duply.net/",
+      "repository_url": "https://sourceforge.net/projects/ftplicity",
+      "docs_url": null,
+      "summary_raw": "Simplifies the use of [duplicity](http://duplicity.nongnu.org/) by keeping clean configuration files to automate the backup.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "backup"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "backup"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:19.331Z"
+        }
+      }
+    },
+    {
+      "id": "5999ab85-0093-4f5f-beac-91e3740c1168",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "ncdu",
+      "slug": "ncdu",
+      "dedupe_key": "site:dev.yorhel.nl/ncdu",
+      "canonical_repo_key": null,
+      "website_url": "https://dev.yorhel.nl/ncdu",
+      "repository_url": "https://code.blicky.net/yorhel/ncdu",
+      "docs_url": null,
+      "summary_raw": "\"A disk usage analyzer with a ncurses interface. It is designed to find space hogs on a remote server where you don't have an entire graphical setup available.\"",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "disk-analyzer"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "disk-analyzer"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:19.413Z"
+        }
+      }
+    },
+    {
+      "id": "c63e71b3-5bca-4a1e-bd6c-578ac2047b40",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "plocate",
+      "slug": "plocate",
+      "dedupe_key": "site:plocate.sesse.net",
+      "canonical_repo_key": null,
+      "website_url": "https://plocate.sesse.net/",
+      "repository_url": "https://git.sesse.net/plocate",
+      "docs_url": null,
+      "summary_raw": "A much faster locate; plocate is a locate based on posting lists, completely replacing mlocate with a much faster (and smaller) index.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "find"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "find"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:20.560Z"
+        }
+      }
+    },
+    {
+      "id": "d4801995-b08c-4e5e-9544-db6961e6368b",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Slash'EM",
+      "slug": "slash-em",
+      "dedupe_key": "site:slashem.sourceforge.net",
+      "canonical_repo_key": null,
+      "website_url": "http://slashem.sourceforge.net/",
+      "repository_url": "https://sourceforge.net/projects/slashem/",
+      "docs_url": null,
+      "summary_raw": "Rogue-like game derived from `nethack` offering extra features, monsters, and items; includes a GUI version.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "games"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "games"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": false,
+          "error": "HTTP 403: http://slashem.sourceforge.net/"
+        }
+      }
+    },
+    {
+      "id": "eac83801-33f0-44c4-a4b7-86ea8ae31415",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Typespeed",
+      "slug": "typespeed",
+      "dedupe_key": "site:typespeed.sourceforge.net",
+      "canonical_repo_key": null,
+      "website_url": "http://typespeed.sourceforge.net/",
+      "repository_url": "https://sourceforge.net/projects/typespeed/",
+      "docs_url": null,
+      "summary_raw": "Type words that are flying by from left to right as fast as you can; features different word sets, e.g., UNIX commands, English words, Non-English words.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "typing"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "typing"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": false,
+          "error": "HTTP 403: http://typespeed.sourceforge.net/"
+        }
+      }
+    },
+    {
+      "id": "c864b734-67ae-4030-888a-f3d77049dd0a",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "w3m",
+      "slug": "w3m",
+      "dedupe_key": "site:w3m.sourceforge.net",
+      "canonical_repo_key": null,
+      "website_url": "http://w3m.sourceforge.net/",
+      "repository_url": "https://sourceforge.net/projects/w3m/",
+      "docs_url": null,
+      "summary_raw": "A text-based web browser as well as a pager like `less`, it can be used as a text formatting tool which typesets HTML into plain text.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "browser"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "browser"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": false,
+          "error": "HTTP 403: http://w3m.sourceforge.net/"
+        }
+      }
+    },
+    {
+      "id": "be7f38f7-025c-44cf-bb0e-9d8e781182be",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Deluge",
+      "slug": "deluge",
+      "dedupe_key": "site:deluge-torrent.org",
+      "canonical_repo_key": null,
+      "website_url": "http://deluge-torrent.org/",
+      "repository_url": "https://git.deluge-torrent.org/deluge",
+      "docs_url": null,
+      "summary_raw": "A lightweight, Free Software, cross-platform BitTorrent client; a terminal curses interface, web interface and command line client can connect to a running daemon to manage torrent downloads.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "torrent"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "torrent"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:21.751Z"
+        }
+      }
+    },
+    {
+      "id": "b9b5cfe1-8592-4683-b348-b8a4b3647fab",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "stftp",
+      "slug": "stftp",
+      "dedupe_key": "site:stftp.sourceforge.net",
+      "canonical_repo_key": null,
+      "website_url": "http://stftp.sourceforge.net/",
+      "repository_url": "https://sourceforge.net/projects/stftp",
+      "docs_url": null,
+      "summary_raw": "(simple terminal FTP) aims to be an \"easy-to-use and unbloated client for the UNIX (and UNIX-like) console\".",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "transfer"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "transfer"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": false,
+          "error": "HTTP 403: http://stftp.sourceforge.net/"
+        }
+      }
+    },
+    {
+      "id": "27402405-3b28-4039-a025-d4bc89dd21a4",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "password-store",
+      "slug": "password-store",
+      "dedupe_key": "site:passwordstore.org",
+      "canonical_repo_key": null,
+      "website_url": "https://www.passwordstore.org/",
+      "repository_url": "https://git.zx2c4.com/password-store",
+      "docs_url": null,
+      "summary_raw": "With pass, each password lives inside a GPG encrypted file whose filename is the title of the website or resource that requires the password. These encrypted files may be organized into meaningful folder hierarchies, copied from computer to computer, and, in general, manipulated using standard command line file management utilities.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "password-manager"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "password-manager"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:21.016Z"
+        }
+      }
+    },
+    {
+      "id": "7e419b76-ef3e-4e86-9391-b44d28cf898e",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Mp3blaster",
+      "slug": "mp3blaster",
+      "dedupe_key": "site:mp3blaster.org",
+      "canonical_repo_key": null,
+      "website_url": "http://www.mp3blaster.org/?m=1",
+      "repository_url": "https://sourceforge.net/projects/mp3blaster",
+      "docs_url": null,
+      "summary_raw": "Audio player for the text console.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "audio-player"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "audio-player"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:20.746Z"
+        }
+      }
+    },
+    {
+      "id": "acb1212e-30e2-40f2-a790-8de9543f5a51",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "dmidecode",
+      "slug": "dmidecode",
+      "dedupe_key": "site:nongnu.org/dmidecode",
+      "canonical_repo_key": null,
+      "website_url": "https://www.nongnu.org/dmidecode/",
+      "repository_url": "https://git.savannah.gnu.org/git/dmidecode.git",
+      "docs_url": null,
+      "summary_raw": "System information utility.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "monitor"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "monitor"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:22.111Z"
+        }
+      }
+    },
+    {
+      "id": "8d33ddbc-20ab-4ab9-8529-83cbc1f0b491",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "scholarref",
+      "slug": "scholarref",
+      "dedupe_key": "site:adamsgaard.dk/scholarref.html",
+      "canonical_repo_key": null,
+      "website_url": "https://adamsgaard.dk/scholarref.html",
+      "repository_url": "https://src.adamsgaard.dk/scholarref.git",
+      "docs_url": null,
+      "summary_raw": "Tools to never deal with journal webpages again.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "science"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "science"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:21.878Z"
+        }
+      }
+    },
+    {
+      "id": "2bd7916d-bcf9-4117-9412-f63f15c99f20",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Siren",
+      "slug": "siren",
+      "dedupe_key": "site:kariliq.nl/siren",
+      "canonical_repo_key": null,
+      "website_url": "https://www.kariliq.nl/siren/",
+      "repository_url": "https://www.kariliq.nl/git/siren.git",
+      "docs_url": null,
+      "summary_raw": "Siren is a text-based audio player for UNIX-like operating systems.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "music"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "music"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:22.239Z"
+        }
+      }
+    },
+    {
+      "id": "bc7f943e-198a-4318-b92c-6bef440abe7f",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "calcurse",
+      "slug": "calcurse",
+      "dedupe_key": "site:calcurse.org",
+      "canonical_repo_key": null,
+      "website_url": "https://calcurse.org/",
+      "repository_url": "https://git.calcurse.org/calcurse.git",
+      "docs_url": null,
+      "summary_raw": "A calendar and scheduling application for the command line. It helps keep track of events, appointments and everyday tasks.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "organizers"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "organizers"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:13:04.704Z"
+        }
+      }
+    },
+    {
+      "id": "378c83be-c32e-4395-8034-7394a0e0bb7f",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "GnuPG",
+      "slug": "gnupg",
+      "dedupe_key": "site:gnupg.org",
+      "canonical_repo_key": null,
+      "website_url": "https://gnupg.org/",
+      "repository_url": "https://dev.gnupg.org/source/gnupg.git",
+      "docs_url": null,
+      "summary_raw": "GnuPG is a complete and free implementation of the OpenPGP standard as defined by RFC4880 (also known as PGP).",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "crypto"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "crypto"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:13:04.346Z"
+        }
+      }
+    },
+    {
+      "id": "b84824be-8bab-4565-bf77-f92aa42ab079",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Bombadillo",
+      "slug": "bombadillo",
+      "dedupe_key": "site:bombadillo.colorfield.space",
+      "canonical_repo_key": null,
+      "website_url": "https://bombadillo.colorfield.space/",
+      "repository_url": "https://tildegit.org/sloum/bombadillo.git",
+      "docs_url": null,
+      "summary_raw": "A non-web browser, designed for a growing list of protocols operating outside of the web. Currently supports Gemini, Finger and Gopher.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "browser"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "browser"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:37.645Z"
+        }
+      }
+    },
+    {
+      "id": "1d6f397a-eb9a-41d4-a519-681b750fb53d",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "GraphicsMagick",
+      "slug": "graphicsmagick",
+      "dedupe_key": "site:graphicsmagick.org",
+      "canonical_repo_key": null,
+      "website_url": "http://www.graphicsmagick.org/",
+      "repository_url": "https://sourceforge.net/projects/graphicsmagick",
+      "docs_url": null,
+      "summary_raw": "Swiss army knife of image processing.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "graphics"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "graphics"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:43.813Z"
+        }
+      }
+    },
+    {
+      "id": "52ec2885-319c-4a45-b817-1e7df598aa93",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "sent",
+      "slug": "sent",
+      "dedupe_key": "site:tools.suckless.org/sent",
+      "canonical_repo_key": null,
+      "website_url": "https://tools.suckless.org/sent/",
+      "repository_url": "git://git.suckless.org/sent",
+      "docs_url": null,
+      "summary_raw": "Simple plain-text presentation tool.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "office"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "office"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:43.881Z"
+        }
+      }
+    },
+    {
+      "id": "9e18461b-43ee-401f-9596-2f0ab1e8ea18",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Aewan",
+      "slug": "aewan",
+      "dedupe_key": "site:aewan.sourceforge.net",
+      "canonical_repo_key": null,
+      "website_url": "http://aewan.sourceforge.net/",
+      "repository_url": "https://sourceforge.net/projects/aewan",
+      "docs_url": null,
+      "summary_raw": "Aewan is a multi-layered ASCII graphics/animation editor. It produces stand-alone cat-able ASCII art files and an easy-to-parse format for integration into terminal applications.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "graphics"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "graphics"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": false,
+          "error": "HTTP 403: http://aewan.sourceforge.net/"
+        }
+      }
+    },
+    {
+      "id": "87194291-6b71-4cad-b949-d388995aa4b1",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "jp2a",
+      "slug": "jp2a",
+      "dedupe_key": "site:csl.name/jp2a",
+      "canonical_repo_key": null,
+      "website_url": "https://csl.name/jp2a/",
+      "repository_url": "https://sourceforge.net/projects/jp2a",
+      "docs_url": null,
+      "summary_raw": "Command-line tool that converts images to ASCII art in the Linux terminal.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "graphics"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "graphics"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:45.029Z"
+        }
+      }
+    },
+    {
+      "id": "2806816d-8c25-49b7-9819-0a84ea1160da",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "LinuxLogo",
+      "slug": "linuxlogo",
+      "dedupe_key": "site:sourceforge.net/projects/linuxlogo",
+      "canonical_repo_key": null,
+      "website_url": "https://sourceforge.net/projects/linuxlogo/",
+      "repository_url": "https://sourceforge.net/projects/linuxlogo",
+      "docs_url": null,
+      "summary_raw": "Display the Linux distribution logo in ASCII format.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "graphics"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "graphics"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": false,
+          "error": "HTTP 403: https://sourceforge.net/projects/linuxlogo/"
+        }
+      }
+    },
+    {
+      "id": "8b962118-2470-46d5-9665-0d736d7deff1",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Frama-C",
+      "slug": "frama-c",
+      "dedupe_key": "site:frama-c.com",
+      "canonical_repo_key": null,
+      "website_url": "https://frama-c.com/",
+      "repository_url": "https://git.frama-c.com/pub/frama-c",
+      "docs_url": null,
+      "summary_raw": "Open source extensible and collaborative platform dedicated to source-code analysis of C software. Frama-C can assist from the navigation through unfamiliar projects up to the certification of critical software.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "programming"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "programming"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:45.409Z"
+        }
+      }
+    },
+    {
+      "id": "d99f7fa2-ac02-457e-acef-503e7b63e4df",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "cream",
+      "slug": "cream",
+      "dedupe_key": "site:z3bra.org/cream",
+      "canonical_repo_key": null,
+      "website_url": "https://z3bra.org/cream/",
+      "repository_url": "git://git.z3bra.org/cream.git",
+      "docs_url": null,
+      "summary_raw": "Encrypt and decrypt streams of data with only a master password. The key is derivated from the password + salt combo, and used to encrypt data byte per byte.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "crypto"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "crypto"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:46.470Z"
+        }
+      }
+    },
+    {
+      "id": "66c8d580-4ae9-4122-964d-95accf32fcf2",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Basta!",
+      "slug": "basta",
+      "dedupe_key": "site:kylheku.com/cgit/basta/about",
+      "canonical_repo_key": null,
+      "website_url": "https://www.kylheku.com/cgit/basta/about/",
+      "repository_url": "https://www.kylheku.com/git/basta",
+      "docs_url": null,
+      "summary_raw": "A small amount of GNU Bash code that maintains a scroll-protected status line at the bottom of the terminal.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "prompt"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "prompt"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:48.239Z"
+        }
+      }
+    },
+    {
+      "id": "c6cc5919-04d0-42ec-99a3-e54543c4c77c",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "safe",
+      "slug": "safe",
+      "dedupe_key": "site:z3bra.org/safe",
+      "canonical_repo_key": null,
+      "website_url": "https://z3bra.org/safe/",
+      "repository_url": "git://z3bra.org/safe.git",
+      "docs_url": null,
+      "summary_raw": "Password protected secret keeper. Secrets are encrypted and stored on disk using a key derivated from your master password - no keys to manage.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "crypto"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "crypto"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:56.238Z"
+        }
+      }
+    },
+    {
+      "id": "2934e557-eeba-47d2-b577-0b6198534610",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "skroll",
+      "slug": "skroll",
+      "dedupe_key": "site:z3bra.org/skroll",
+      "canonical_repo_key": null,
+      "website_url": "https://z3bra.org/skroll/",
+      "repository_url": "git://z3bra.org/skroll.git",
+      "docs_url": null,
+      "summary_raw": "A small utility that you can use to make a text scroll. Pipe text to it, and it will scroll a given number of letters from right to left.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "text-processing"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "text-processing"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:48.543Z"
+        }
+      }
+    },
+    {
+      "id": "51b1566e-a3d0-4c52-8900-5868066d05d2",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "sic",
+      "slug": "sic",
+      "dedupe_key": "site:tools.suckless.org/sic",
+      "canonical_repo_key": null,
+      "website_url": "https://tools.suckless.org/sic/",
+      "repository_url": "https://git.suckless.org/sic",
+      "docs_url": null,
+      "summary_raw": "sic is an extremely simple IRC client. It consists of less than 250 lines of code.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "chat"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "chat"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:55.983Z"
+        }
+      }
+    },
+    {
+      "id": "c184fd46-df6e-4818-9829-04db1dbe11c5",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "GNU Freetalk",
+      "slug": "gnu-freetalk",
+      "dedupe_key": "site:gnu.org/software/freetalk",
+      "canonical_repo_key": null,
+      "website_url": "https://www.gnu.org/software/freetalk/",
+      "repository_url": "https://git.savannah.gnu.org/git/freetalk.git",
+      "docs_url": null,
+      "summary_raw": "A console based chat client for Jabber and other XMPP servers. It has context-sensitive autocompletion for buddy names, commands, and even ordinary English words.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "chat"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "chat"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:57.139Z"
+        }
+      }
+    },
+    {
+      "id": "cd8e68f3-9601-4d8e-a6ce-e74165c3dbb6",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Sfeed",
+      "slug": "sfeed",
+      "dedupe_key": "site:codemadness.org/sfeed.html",
+      "canonical_repo_key": null,
+      "website_url": "https://codemadness.org/sfeed.html",
+      "repository_url": "git://git.codemadness.org/sfeed",
+      "docs_url": null,
+      "summary_raw": "Sfeed is a RSS and Atom parser (and some format programs). It converts RSS or Atom feeds from XML to a TAB-separated file.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "rss"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "rss"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:56.917Z"
+        }
+      }
+    },
+    {
+      "id": "0ca2d94c-a6c5-4097-b4cd-522d410affc4",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "DASH",
+      "slug": "dash",
+      "dedupe_key": "site:gondor.apana.org.au/~herbert/dash",
+      "canonical_repo_key": null,
+      "website_url": "http://gondor.apana.org.au/~herbert/dash/",
+      "repository_url": "git://git.kernel.org/pub/scm/utils/dash/dash.git",
+      "docs_url": null,
+      "summary_raw": "DASH is a POSIX-compliant implementation of /bin/sh that aims to be as small as possible. It does this without sacrificing speed where possible.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "shells"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "shells"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:13:30.539Z"
+        }
+      }
+    },
+    {
+      "id": "67a763d0-11b5-4e1b-bd67-177936bce30f",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "quark",
+      "slug": "quark",
+      "dedupe_key": "site:tools.suckless.org/quark",
+      "canonical_repo_key": null,
+      "website_url": "https://tools.suckless.org/quark/",
+      "repository_url": "https://git.suckless.org/quark",
+      "docs_url": null,
+      "summary_raw": "quark is an extremely small and simple HTTP GET/HEAD-only web server for static content.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "networking"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "networking"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:57.318Z"
+        }
+      }
+    },
+    {
+      "id": "b923a8f5-9b02-4849-81a8-a2487535d740",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "Oils",
+      "slug": "oils",
+      "dedupe_key": "site:github.com/oilshell/oil",
+      "canonical_repo_key": null,
+      "website_url": "https://github.com/oilshell/oil",
+      "repository_url": "https://www.oilshell.org/",
+      "docs_url": null,
+      "summary_raw": "From their README: \"Oils is our upgrade path from bash to a better language and runtime!\"",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "shells"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "shells"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:12:58.845Z"
+        }
+      }
+    },
+    {
+      "id": "77aa10f6-eddb-43a1-8be7-87255e51217c",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "es",
+      "slug": "es",
+      "dedupe_key": "site:wryun.github.io/es-shell",
+      "canonical_repo_key": null,
+      "website_url": "https://wryun.github.io/es-shell/",
+      "repository_url": "https://wryun.github.io/es-shell/",
+      "docs_url": null,
+      "summary_raw": "(extensible shell) shell with first class functions, lexical scope, exceptions, and rich return values, based on Plan9's rc.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "shells"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "shells"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:13:04.348Z"
+        }
+      }
+    },
+    {
+      "id": "e4c53405-8c96-43aa-a1f2-04aabaf8cba4",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "st",
+      "slug": "st",
+      "dedupe_key": "site:st.suckless.org",
+      "canonical_repo_key": null,
+      "website_url": "https://st.suckless.org/",
+      "repository_url": "https://git.suckless.org/st/",
+      "docs_url": null,
+      "summary_raw": "A simple terminal implementation for X.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "terminal"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "terminal"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:13:05.113Z"
+        }
+      }
+    },
+    {
+      "id": "5e332b57-1bcc-400d-a700-a13509978087",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "extundelete",
+      "slug": "extundelete",
+      "dedupe_key": "site:extundelete.sourceforge.net",
+      "canonical_repo_key": null,
+      "website_url": "https://extundelete.sourceforge.net/",
+      "repository_url": "https://sourceforge.net/p/extundelete/code/ci/master/tree/",
+      "docs_url": null,
+      "summary_raw": "Recover deleted files from an ext3 or ext4 partition through its journal.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "rm"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "rm"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": false,
+          "error": "HTTP 403: https://extundelete.sourceforge.net/"
+        }
+      }
+    },
+    {
+      "id": "fe51f818-d6bd-4e80-b039-1a1b39651d5e",
+      "source": "awesome_cli_apps_csv",
+      "source_url": "https://raw.githubusercontent.com/toolleeo/awesome-cli-apps-in-a-csv/master/data/apps.csv",
+      "name": "testdisk",
+      "slug": "testdisk",
+      "dedupe_key": "site:cgsecurity.org/wiki/testdisk",
+      "canonical_repo_key": null,
+      "website_url": "https://www.cgsecurity.org/wiki/TestDisk",
+      "repository_url": "https://git.cgsecurity.org/cgit/testdisk/tree/",
+      "docs_url": null,
+      "summary_raw": "Lets you undelete files from FAT, exFAT, NTFS, and ext2 filesystems and do many other things, e.g., fix partition tables and recover deleted partitions.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [
+        "rm"
+      ],
+      "platforms_raw": [],
+      "install_methods_raw": [],
+      "latest_version": null,
+      "latest_release_at": null,
+      "payload": {
+        "abandoned": false,
+        "csv_category": "rm"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:13:05.735Z"
+        }
+      }
+    },
+    {
+      "id": "5c9290ce-94ac-4673-bc9e-fe274e1cc9be",
+      "source": "crates_io",
+      "source_url": "https://crates.io/crates/color-to-tui",
+      "name": "color-to-tui",
+      "slug": "color-to-tui",
+      "dedupe_key": "site:git.uttarayan.me/uttarayan/color-to-tui",
+      "canonical_repo_key": null,
+      "website_url": "https://git.uttarayan.me/uttarayan/color-to-tui",
+      "repository_url": "https://git.uttarayan.me/uttarayan/color-to-tui",
+      "docs_url": null,
+      "summary_raw": "Parse colors and convert them to ratatui::style::Colors",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [],
+      "platforms_raw": [],
+      "install_methods_raw": [
+        "cargo"
+      ],
+      "latest_version": "0.3.0",
+      "latest_release_at": "2023-04-03T10:11:42.182Z",
+      "payload": {
+        "downloads": 36215,
+        "crates_page": "https://crates.io/crates/color-to-tui",
+        "matched_term": "tui"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": false,
+          "error": "fetch failed"
+        }
+      }
+    },
+    {
+      "id": "a2f340ae-6df2-4d0e-a315-ac5e6324f042",
+      "source": "crates_io",
+      "source_url": "https://crates.io/crates/vim-line",
+      "name": "vim-line",
+      "slug": "vim-line",
+      "dedupe_key": "site:docs.navicore.tech/patch-seq",
+      "canonical_repo_key": null,
+      "website_url": "https://docs.navicore.tech/patch-seq/",
+      "repository_url": "https://git.navicore.tech/navicore/patch-seq",
+      "docs_url": null,
+      "summary_raw": "A line-oriented vim motions library for TUI applications",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [],
+      "platforms_raw": [],
+      "install_methods_raw": [
+        "cargo"
+      ],
+      "latest_version": "7.7.3",
+      "latest_release_at": "2026-08-17T19:10:02.057Z",
+      "payload": {
+        "downloads": 3429,
+        "crates_page": "https://crates.io/crates/vim-line",
+        "matched_term": "tui"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:13:06.396Z"
+        }
+      }
+    },
+    {
+      "id": "6c660fbf-bae8-4289-a3fd-e35f1564ddc8",
+      "source": "crates_io",
+      "source_url": "https://crates.io/crates/termion",
+      "name": "termion",
+      "slug": "termion",
+      "dedupe_key": "site:docs.rs/termion",
+      "canonical_repo_key": null,
+      "website_url": "https://docs.rs/termion",
+      "repository_url": "https://gitlab.redox-os.org/redox-os/termion",
+      "docs_url": null,
+      "summary_raw": "A bindless library for manipulating terminals.",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [],
+      "platforms_raw": [],
+      "install_methods_raw": [
+        "cargo"
+      ],
+      "latest_version": "4.0.6",
+      "latest_release_at": "2025-11-21T19:07:21.915Z",
+      "payload": {
+        "downloads": 11991527,
+        "crates_page": "https://crates.io/crates/termion",
+        "matched_term": "tui"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:13:06.621Z"
+        }
+      }
+    },
+    {
+      "id": "3a0f1763-d12a-44bf-b991-9d6e33d7c7f5",
+      "source": "crates_io",
+      "source_url": "https://crates.io/crates/arti-client",
+      "name": "arti-client",
+      "slug": "arti-client",
+      "dedupe_key": "site:gitlab.torproject.org/tpo/core/arti/-/wikis/home",
+      "canonical_repo_key": null,
+      "website_url": "https://gitlab.torproject.org/tpo/core/arti/-/wikis/home",
+      "repository_url": "https://gitlab.torproject.org/tpo/core/arti.git/",
+      "docs_url": null,
+      "summary_raw": "Library for connecting to the Tor network as an anonymous client",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [],
+      "platforms_raw": [],
+      "install_methods_raw": [
+        "cargo"
+      ],
+      "latest_version": "0.45.0",
+      "latest_release_at": "2026-08-03T21:12:02.068Z",
+      "payload": {
+        "downloads": 864807,
+        "crates_page": "https://crates.io/crates/arti-client",
+        "matched_term": "terminal"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": false,
+          "error": "HTTP 403: https://gitlab.torproject.org/tpo/core/arti/-/wikis/home"
+        }
+      }
+    },
+    {
+      "id": "c070d690-de32-4d03-9963-363d41b59a75",
+      "source": "crates_io",
+      "source_url": "https://crates.io/crates/foca",
+      "name": "foca",
+      "slug": "foca",
+      "dedupe_key": "site:caio.co/de/foca",
+      "canonical_repo_key": null,
+      "website_url": "https://caio.co/de/foca/",
+      "repository_url": "https://caio.co/de/foca/",
+      "docs_url": null,
+      "summary_raw": "Gossip-based cluster membership discovery, based on SWIM",
+      "license_raw": null,
+      "language_raw": null,
+      "stars": null,
+      "categories_raw": [],
+      "platforms_raw": [],
+      "install_methods_raw": [
+        "cargo"
+      ],
+      "latest_version": "2.0.0",
+      "latest_release_at": "2026-08-02T07:12:39.557Z",
+      "payload": {
+        "downloads": 195423,
+        "crates_page": "https://crates.io/crates/foca",
+        "matched_term": "terminal"
+      },
+      "evidence": {
+        "github": null,
+        "website": {
+          "reachable": true,
+          "checked_at": "2026-08-21T13:13:07.227Z"
+        }
+      }
+    }
+  ]
+}

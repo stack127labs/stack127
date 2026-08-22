@@ -58,5 +58,11 @@
     "folder": "scripts/shortcuts",
     "manifest": null,
     "purpose": "Generates per-app manifests for /shortcuts and owns the shared shortcut data used by the directory, app pages, and cheat sheet generator."
+  },
+  {
+    "surface": "cli-apps",
+    "folder": "scripts/cli-apps",
+    "manifest": "scripts/cli-apps/scripts.json",
+    "purpose": "Discovery, dedupe, verification, curation, publishing, and coverage for /cli-apps."
   }
 ]
