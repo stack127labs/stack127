@@ -176,7 +176,7 @@ export function ShortcutsReference({ app }: { app: AppShortcuts }) {
           <h2 id="related-title">More {app.category.toLowerCase()} shortcuts</h2>
           <div className={styles.related}>
             {related.map((other) => <Link key={other.slug} href={"/shortcuts/" + other.slug}>{other.name}</Link>)}
-            <Link href="/shortcuts">All apps</Link>
+            <Link href="/keyboard-shortcuts">All apps</Link>
           </div>
         </section>
       ) : null}

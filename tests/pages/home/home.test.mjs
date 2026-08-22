@@ -24,6 +24,14 @@ const featuredToolSlugs = [
   "nfs-firewall-rules",
 ];
 
+test("home includes the keyboard shortcuts directory in the curated feature set", () => {
+  const home = readFileSync(homePath, "utf8");
+  const helpers = readFileSync(helpersPath, "utf8");
+
+  assert.match(helpers, /"keyboard-shortcuts"/);
+  assert.match(home, /"keyboard-shortcuts":\s*Keyboard/);
+});
+
 test("home features the four uncollected tools with icons and marker spots", () => {
   const home = readFileSync(homePath, "utf8");
   const helpers = readFileSync(helpersPath, "utf8");

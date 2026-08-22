@@ -1,4 +1,4 @@
-# Brief: keyboard shortcuts reference (/shortcuts and /shortcuts/<app-slug>)
+# Brief: keyboard shortcuts reference (/keyboard-shortcuts and /shortcuts/<app-slug>)
 
 ## Who is here
 

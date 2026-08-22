@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 const routeRoot = new URL("../../../app/(site)/shortcuts/", import.meta.url);
-const directory = readFileSync(new URL("page.tsx", routeRoot), "utf8");
+const directory = readFileSync(new URL("../keyboard-shortcuts/page.tsx", routeRoot), "utf8");
 const reference = readFileSync(new URL("shortcuts-reference.tsx", routeRoot), "utf8");
 const styles = readFileSync(new URL("shortcuts.module.css", routeRoot), "utf8");
 

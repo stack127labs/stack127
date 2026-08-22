@@ -6,10 +6,16 @@ test.describe("shortcut reference", () => {
   test.skip(!localPreview, "Shortcut routes stay unpublished outside the guarded local preview.");
 
   test("directory has a contained table and app links", async ({ page }) => {
-    await page.goto("/shortcuts");
+    await page.goto("/keyboard-shortcuts");
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Keyboard shortcuts");
     await expect(page.getByRole("link", { name: "Visual Studio Code", exact: true })).toBeVisible();
     await expect(page.locator("body")).not.toHaveCSS("overflow-x", "scroll");
+  });
+
+  test("the old directory slug is gone without a redirect", async ({ page }) => {
+    const response = await page.goto("/shortcuts");
+    expect(response?.status()).toBe(404);
+    expect(page.url()).toContain("/shortcuts");
   });
 
   test("app page presents described shortcut groups", async ({ page }) => {

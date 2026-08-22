@@ -24,7 +24,7 @@ test("the generator has a complete server-rendered content layer", () => {
   assert.match(guide, /Choose the platform before you print/);
   assert.match(guide, /What this sheet does not promise/);
   assert.match(guide, /Your selections stay in this browser/);
-  assert.match(guide, /href=\"\/shortcuts\"/);
+  assert.match(guide, /href=\"\/keyboard-shortcuts\"/);
 });
 
 test("the generator has no route-changing or reload effect", () => {

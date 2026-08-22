@@ -38,7 +38,7 @@ export function ShortcutsCheatSheetGuide() {
       <section>
         <h2>What this sheet does not promise</h2>
         <p>
-          This generator does not discover shortcuts from your installed apps, inspect custom bindings, or turn undocumented actions into guesses. It prints the rows in the stack127 keyboard reference for the choices you made. For a full app page, including notes about modes and sequences, use the <Link href="/shortcuts">keyboard shortcuts directory</Link>.
+          This generator does not discover shortcuts from your installed apps, inspect custom bindings, or turn undocumented actions into guesses. It prints the rows in the stack127 keyboard reference for the choices you made. For a full app page, including notes about modes and sequences, use the <Link href="/keyboard-shortcuts">keyboard shortcuts directory</Link>.
         </p>
       </section>
 

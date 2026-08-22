@@ -47,7 +47,7 @@ export function ShortcutsSidebar({ activeSlug }: { activeSlug?: string }) {
           <SidebarList
             items={[
               {
-                href: "/shortcuts",
+                href: "/keyboard-shortcuts",
                 label: "All apps",
                 icon: <Keyboard {...iconProps} />,
                 active: activeSlug === "directory",

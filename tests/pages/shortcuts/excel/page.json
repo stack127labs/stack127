@@ -2,7 +2,7 @@
   "route": "/shortcuts/excel",
   "state": "published",
   "docs": [
-    "content_docs/shortcuts"
+    "content_docs/keyboard-shortcuts"
   ],
   "tests": [
     "tests/stack127/seo.spec.ts",
