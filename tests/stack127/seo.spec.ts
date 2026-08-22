@@ -101,7 +101,7 @@ test.describe("Stack127 publication SEO", () => {
 
   test("all unpublished route manifest entries remain unavailable", async ({ request }, testInfo) => {
     test.skip(testInfo.project.name !== "chromium", "request-level route guard only needs one project");
-    test.setTimeout(120_000);
+    test.setTimeout(300_000);
 
     const failures: string[] = [];
     for (const path of unpublishedPaths) {

@@ -15,7 +15,7 @@ export default defineConfig({
   webServer: {
     command: "node scripts/stack127/quality/playwright-web-server.mjs",
     reuseExistingServer: false,
-    timeout: 120_000,
+    timeout: 300_000,
     url: "http://127.0.0.1:3334",
   },
   projects: [

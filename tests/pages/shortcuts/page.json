@@ -1,0 +1,22 @@
+{
+  "route": "/shortcuts",
+  "state": "published",
+  "docs": [
+    "content_docs/shortcuts"
+  ],
+  "tests": [
+    "tests/stack127/seo.spec.ts",
+    "tests/pages/shortcuts/page.test.mjs",
+    "tests/pages/shortcuts/shared/data.test.mjs",
+    "tests/pages/shortcuts/shared/engine.test.mjs",
+    "tests/pages/shortcuts/shortcuts.spec.ts"
+  ],
+  "scripts": [
+    "scripts/shortcuts/temp/preview-dev-rows.mjs"
+  ],
+  "skills": [
+    "skills/stack127/test-driven-page",
+    "skills/stack127/visual-first-content"
+  ],
+  "repositories": []
+}

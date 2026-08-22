@@ -1,0 +1,240 @@
+import { combo } from "../build.ts";
+import type { AppShortcuts } from "../types.ts";
+
+export const macos: AppShortcuts = {
+  slug: "macos",
+  name: "macOS",
+  category: "Operating system",
+  platforms: ["macos"],
+  intro:
+    "macOS shortcuts are the layer underneath almost every app. Start with clipboard and window control, then use Mission Control, screenshots, Finder, text movement, and system actions when the desktop gets busy.",
+  versionContext:
+    "From Apple's Support article as updated in March 2026; shortcuts apply to current macOS releases. The Screenshot utility needs macOS Mojave or later.",
+  sourceUrl: "https://support.apple.com/en-us/102650",
+  sourceLabel: "official Apple shortcut list",
+  lastVerified: "2026-08-21",
+  groups: [
+    {
+      id: "essentials",
+      title: "Essentials",
+      intro: "Use the clipboard, undo, search, print, and quit controls that work across most Mac apps.",
+      shortcuts: [
+        {
+          id: "copy",
+          action: "Copy the selected item to the Clipboard",
+          keys: [{ platform: "macos", keys: ["Cmd", "C"] }],
+          note: "Also copies files in the Finder.",
+        },
+        { id: "cut", action: "Cut the selected item", keys: [{ platform: "macos", keys: ["Cmd", "X"] }] },
+        { id: "paste", action: "Paste the Clipboard contents", keys: [{ platform: "macos", keys: ["Cmd", "V"] }] },
+        { id: "undo", action: "Undo the previous command", keys: [{ platform: "macos", keys: ["Cmd", "Z"] }] },
+        {
+          id: "redo",
+          action: "Redo, reversing the undo command",
+          keys: [{ platform: "macos", keys: ["Shift", "Cmd", "Z"] }],
+        },
+        { id: "select-all", action: "Select all items", keys: [{ platform: "macos", keys: ["Cmd", "A"] }] },
+        { id: "find", action: "Find items in a document or open a Find window", keys: [{ platform: "macos", keys: ["Cmd", "F"] }] },
+        { id: "find-next", action: "Find the next occurrence", keys: [{ platform: "macos", keys: ["Cmd", "G"] }] },
+        { id: "find-previous", action: "Find the previous occurrence", keys: [{ platform: "macos", keys: ["Shift", "Cmd", "G"] }] },
+        { id: "open", action: "Open the selected item or an Open dialog", keys: [{ platform: "macos", keys: ["Cmd", "O"] }] },
+        { id: "print", action: "Open the print dialog", keys: [{ platform: "macos", keys: ["Cmd", "P"] }] },
+        { id: "save", action: "Save the current document", keys: [{ platform: "macos", keys: ["Cmd", "S"] }] },
+        { id: "new-tab", action: "Open a new tab", keys: [{ platform: "macos", keys: ["Cmd", "T"] }] },
+        { id: "app-settings", action: "Open settings for the front app", keys: [{ platform: "macos", keys: ["Cmd", ","] }] },
+        { id: "character-viewer", action: "Open the Character Viewer", keys: [{ platform: "macos", keys: ["Control", "Cmd", "Space"] }] },
+      ],
+    },
+    {
+      id: "apps-and-windows",
+      title: "Apps and windows",
+      intro: "Switch apps, hide or close windows, move focus, and manage the current application.",
+      shortcuts: [
+        {
+          id: "switch-apps",
+          action: "Switch to the next most recently used app",
+          keys: [{ platform: "macos", keys: ["Cmd", "Tab"] }],
+        },
+        {
+          id: "switch-windows-same-app",
+          action: "Switch between windows of the app you are using",
+          keys: [{ platform: "macos", keys: ["Cmd", "`"] }],
+          note: "Uses the key above Tab, left of 1, on most keyboards.",
+        },
+        { id: "quit-app", action: "Quit the current app", keys: [{ platform: "macos", keys: ["Cmd", "Q"] }] },
+        {
+          id: "close-window",
+          action: "Close the front window",
+          keys: [{ platform: "macos", keys: ["Cmd", "W"] }],
+          note: "Option-Cmd-W closes all windows of the app.",
+        },
+        {
+          id: "minimize-window",
+          action: "Minimize the front window to the Dock",
+          keys: [{ platform: "macos", keys: ["Cmd", "M"] }],
+        },
+        {
+          id: "hide-app",
+          action: "Hide the windows of the front app",
+          keys: [{ platform: "macos", keys: ["Cmd", "H"] }],
+          note: "Option-Cmd-H hides all other apps.",
+        },
+        {
+          id: "force-quit",
+          action: "Force quit an app",
+          keys: [{ platform: "macos", keys: ["Option", "Cmd", "Esc"] }],
+        },
+        {
+          id: "toggle-full-screen",
+          action: "Use or stop using the app in full screen",
+          keys: [{ platform: "macos", keys: ["Control", "Cmd", "F"] }],
+          note: "If supported by the app.",
+        },
+      ],
+    },
+    {
+      id: "mission-control",
+      title: "Mission Control",
+      intro: "Open Mission Control, move across spaces, and show or hide the desktop around the current windows.",
+      shortcuts: [
+        {
+          id: "mission-control",
+          action: "Open Mission Control",
+          keys: [{ platform: "macos", keys: ["Control", "Up"] }],
+        },
+        {
+          id: "app-expose",
+          action: "Show all windows of the front app",
+          keys: [{ platform: "macos", keys: ["Control", "Down"] }],
+        },
+      ],
+    },
+    {
+      id: "screenshots",
+      title: "Screenshots",
+      intro: "Capture the full screen, a window, or a selected region and open the screenshot utility.",
+      shortcuts: [
+        {
+          id: "screenshot-full-screen",
+          action: "Screenshot the entire screen",
+          keys: [{ platform: "macos", keys: ["Shift", "Cmd", "3"] }],
+        },
+        {
+          id: "screenshot-selected-area",
+          action: "Screenshot a selected area of the screen",
+          keys: [{ platform: "macos", keys: ["Shift", "Cmd", "4"] }],
+        },
+        {
+          id: "screenshot-utility",
+          action: "Open the Screenshot utility for captures and recording",
+          keys: [{ platform: "macos", keys: ["Shift", "Cmd", "5"] }],
+          note: "macOS Mojave or later.",
+        },
+      ],
+    },
+    {
+      id: "finder",
+      title: "Finder",
+      intro: "Open Finder locations, preview files, create folders, and manage items from the keyboard.",
+      shortcuts: [
+        {
+          id: "quick-look",
+          action: "Preview the selected item with Quick Look",
+          keys: [{ platform: "macos", keys: ["Space"] }],
+        },
+        {
+          id: "new-folder",
+          action: "Create a new empty folder",
+          keys: [{ platform: "macos", keys: ["Shift", "Cmd", "N"] }],
+        },
+        {
+          id: "move-to-trash",
+          action: "Move the selected item to the Trash",
+          keys: [{ platform: "macos", keys: ["Cmd", "Delete"] }],
+        },
+        {
+          id: "go-to-folder",
+          action: "Open a Go to Folder window",
+          keys: [{ platform: "macos", keys: ["Shift", "Cmd", "G"] }],
+        },
+        {
+          id: "get-info",
+          action: "Show the Get Info window for a file",
+          keys: [{ platform: "macos", keys: ["Cmd", "I"] }],
+        },
+        { id: "new-finder-window", action: "Open a new Finder window", keys: [{ platform: "macos", keys: ["Cmd", "N"] }] },
+        { id: "documents-folder", action: "Open the Documents folder", keys: [{ platform: "macos", keys: ["Shift", "Cmd", "O"] }] },
+        { id: "connect-server", action: "Open Connect to Server", keys: [{ platform: "macos", keys: ["Cmd", "K"] }] },
+        { id: "previous-folder", action: "Go to the previous folder", keys: [{ platform: "macos", keys: ["Cmd", "Left Bracket"] }] },
+        { id: "next-folder", action: "Go to the next folder", keys: [{ platform: "macos", keys: ["Cmd", "Right Bracket"] }] },
+        { id: "parent-folder", action: "Open the folder containing the current folder", keys: [{ platform: "macos", keys: ["Cmd", "Up"] }] },
+        { id: "open-selected", action: "Open the selected item in Finder", keys: [{ platform: "macos", keys: ["Cmd", "Down"] }] },
+        { id: "empty-trash", action: "Empty the Trash", keys: [{ platform: "macos", keys: ["Shift", "Cmd", "Delete"] }] },
+        { id: "finder-icons", action: "View Finder items as icons", keys: [{ platform: "macos", keys: ["Cmd", "1"] }] },
+        { id: "finder-list", action: "View Finder items as a list", keys: [{ platform: "macos", keys: ["Cmd", "2"] }] },
+        { id: "finder-columns", action: "View Finder items in columns", keys: [{ platform: "macos", keys: ["Cmd", "3"] }] },
+        { id: "finder-gallery", action: "View Finder items in a gallery", keys: [{ platform: "macos", keys: ["Cmd", "4"] }] },
+      ],
+    },
+    {
+      id: "text-editing",
+      title: "Text editing",
+      intro: "Move by character, word, line, or paragraph, then select, delete, and transform text.",
+      shortcuts: [
+        {
+          id: "line-start",
+          action: "Move to the beginning of the line",
+          keys: [{ platform: "macos", keys: ["Cmd", "Left"] }],
+        },
+        {
+          id: "line-end",
+          action: "Move to the end of the line",
+          keys: [{ platform: "macos", keys: ["Cmd", "Right"] }],
+        },
+        {
+          id: "word-back",
+          action: "Move to the beginning of the previous word",
+          keys: [{ platform: "macos", keys: ["Option", "Left"] }],
+        },
+        {
+          id: "word-forward",
+          action: "Move to the end of the next word",
+          keys: [{ platform: "macos", keys: ["Option", "Right"] }],
+        },
+        { id: "bold", action: "Bold the selected text", keys: [{ platform: "macos", keys: ["Cmd", "B"] }] },
+        { id: "italic", action: "Italicize the selected text", keys: [{ platform: "macos", keys: ["Cmd", "I"] }] },
+        { id: "underline", action: "Underline the selected text", keys: [{ platform: "macos", keys: ["Cmd", "U"] }] },
+        { id: "add-link", action: "Add a web link", keys: [{ platform: "macos", keys: ["Cmd", "K"] }] },
+        { id: "delete-word", action: "Delete the word to the left of the insertion point", keys: [{ platform: "macos", keys: ["Option", "Delete"] }] },
+        { id: "delete-right", action: "Delete the character to the right of the insertion point", keys: [{ platform: "macos", keys: ["Control", "D"] }] },
+        { id: "definition", action: "Show the definition of the selected word", keys: [{ platform: "macos", keys: ["Control", "Cmd", "D"] }] },
+        { id: "spelling", action: "Open the Spelling and Grammar window", keys: [{ platform: "macos", keys: ["Shift", "Cmd", ":"] }] },
+      ],
+    },
+    {
+      id: "system",
+      title: "System",
+      intro: "Reach system controls for locking, sleep, display, accessibility, and forced app actions.",
+      shortcuts: [
+        {
+          id: "spotlight",
+          action: "Show or hide Spotlight search",
+          keys: [{ platform: "macos", keys: ["Cmd", "Space"] }],
+          note: "Can change input sources instead when multiple input sources are used.",
+        },
+        {
+          id: "lock-screen",
+          action: "Lock your screen",
+          keys: [{ platform: "macos", keys: ["Control", "Cmd", "Q"] }],
+        },
+        { id: "character-viewer-fn", action: "Open the Character Viewer with the function key", keys: [{ platform: "macos", keys: ["Fn", "E"] }] },
+        { id: "show-desktop", action: "Show the desktop", keys: [{ platform: "macos", keys: ["Cmd", "Mission Control"] }] },
+        { id: "show-dock", action: "Show or hide the Dock", keys: [{ platform: "macos", keys: ["Fn", "A"] }] },
+        { id: "show-control-center", action: "Show or hide Control Center", keys: [{ platform: "macos", keys: ["Fn", "C"] }] },
+        { id: "show-notifications", action: "Show or hide Notification Center", keys: [{ platform: "macos", keys: ["Fn", "N"] }] },
+        { id: "sleep-displays", action: "Put the displays to sleep", keys: [{ platform: "macos", keys: ["Control", "Shift", "Power"] }] },
+        { id: "restart-dialog", action: "Show the restart, sleep, or shut down dialog", keys: [{ platform: "macos", keys: ["Control", "Power"] }] },
+      ],
+    },
+  ],
+};

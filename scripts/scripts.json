@@ -52,5 +52,11 @@
     "folder": "scripts/zfs-capacity-calculator",
     "manifest": null,
     "purpose": "Checks the recorded OpenZFS 2.3 and 2.4 sparse-pool receipts behind /zfs-capacity-calculator."
+  },
+  {
+    "surface": "shortcuts",
+    "folder": "scripts/shortcuts",
+    "manifest": null,
+    "purpose": "Generates per-app manifests for /shortcuts and owns the shared shortcut data used by the directory, app pages, and cheat sheet generator."
   }
 ]
