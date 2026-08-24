@@ -1,8 +1,8 @@
 # Storage tools documentation
 
-Status: foundation and first three tools complete and published on 2026-08-09; the remaining roadmap tools stay unpublished until each passes its own launch checks
+Status: foundation and four initial tools complete and published on 2026-08-09 and 2026-08-13; eight additional tools are complete in code but remain unpublished until each passes its own launch checks
 
-This folder owns the shared technical documentation for the `/storage-tools` collection. The collection and its first three flat tool routes are published through `supabase/migrations/20260809140000_publish_storage_tools.sql`; see `publication.md`. Roadmap tools that are still in progress get a guarded row in the local database instead.
+This folder owns the shared technical documentation for the `/storage-tools` collection. The collection and its first three flat tool routes are published through `supabase/migrations/20260809140000_publish_storage_tools.sql`; the RAIDZ Expansion Planner was published separately; see `publication.md`. The eight additional flat routes are included in collection discovery but remain out of the publication registry until they pass their launch checks.
 
 - `calculation-engine.md` defines the shared calculation contract, exact-byte rules, versioning, URL state, limits, and adapter workflow.
 - `content_docs/raid-calculator/` owns the completed RAID Capacity and Level Explorer brief, formula contract, and page notes.
