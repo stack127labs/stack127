@@ -1,4 +1,17 @@
-import { ChevronsRight, Columns3, Database, HardDrive, Layers3 } from "lucide-react";
+import {
+  Activity,
+  ChevronsRight,
+  Columns3,
+  Database,
+  GitBranch,
+  HardDrive,
+  LayoutGrid,
+  Layers3,
+  RefreshCw,
+  Server,
+  ServerCog,
+  TrendingUp,
+} from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../app-shell";
 import { PageTitleIcon } from "../../page-title-icon";
@@ -63,6 +76,94 @@ export default function StorageToolsPage() {
             <span>
               <strong>RAIDZ Expansion Planner</strong>
               <small>Compare each one-disk width change.</small>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
+          <Link className={styles.toolLink} href="/shr-calculator">
+            <HardDrive aria-hidden="true" size={24} strokeWidth={2.1} />
+            <span>
+              <strong>Synology SHR Capacity Calculator</strong>
+              <small>
+                Estimate fresh-pool capacity for SHR-1 or SHR-2 from individual drive sizes, with
+                protection and unused tiers kept separate.
+              </small>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
+          <Link className={styles.toolLink} href="/unraid-calculator">
+            <Server aria-hidden="true" size={24} strokeWidth={2.1} />
+            <span>
+              <strong>Unraid Main Array Calculator</strong>
+              <small>
+                Plan parity and data roles to estimate array capacity and see the parity boundary
+                for one future drive.
+              </small>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
+          <Link className={styles.toolLink} href="/snapraid-mergerfs-planner">
+            <GitBranch aria-hidden="true" size={24} strokeWidth={2.1} />
+            <span>
+              <strong>SnapRAID and mergerfs Config Planner</strong>
+              <small>
+                Generate reviewable snapraid.conf and mergerfs /etc/fstab entries from your data,
+                parity, content, and pool paths.
+              </small>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
+          <Link className={styles.toolLink} href="/drive-reliability">
+            <Activity aria-hidden="true" size={24} strokeWidth={2.1} />
+            <span>
+              <strong>Drive Reliability Explorer</strong>
+              <small>
+                Inspect observed Backblaze AFR and exposure for an exact drive model or compare up
+                to three cohorts.
+              </small>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
+          <Link className={styles.toolLink} href="/rebuild-calculator">
+            <RefreshCw aria-hidden="true" size={24} strokeWidth={2.1} />
+            <span>
+              <strong>Rebuild Window and Read-Error Exposure Calculator</strong>
+              <small>
+                Estimate a simplified degraded rebuild window, source media read, and modeled
+                read-error exposure.
+              </small>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
+          <Link className={styles.toolLink} href="/ceph-capacity-calculator">
+            <ServerCog aria-hidden="true" size={24} strokeWidth={2.1} />
+            <span>
+              <strong>Ceph Capacity and Failure-Domain Planner</strong>
+              <small>
+                Model Ceph raw and usable capacity, reserve, and the effect of losing the largest
+                named failure domain.
+              </small>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
+          <Link className={styles.toolLink} href="/storage-growth-planner">
+            <TrendingUp aria-hidden="true" size={24} strokeWidth={2.1} />
+            <span>
+              <strong>Storage Growth and TCO Planner</strong>
+              <small>
+                Compare capacity after reserve, the first shortfall year, and modeled total cost
+                against data growth.
+              </small>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
+          <Link className={styles.toolLink} href="/storage-layout-advisor">
+            <LayoutGrid aria-hidden="true" size={24} strokeWidth={2.1} />
+            <span>
+              <strong>Storage Layout Advisor</strong>
+              <small>
+                Compare theoretical layouts from your drives, protected-failure target, and
+                workload preference.
+              </small>
             </span>
             <span aria-hidden="true">→</span>
           </Link>

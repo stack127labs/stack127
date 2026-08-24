@@ -1,0 +1,21 @@
+{
+  "route": "/rebuild-calculator",
+  "state": "published",
+  "docs": ["content_docs/rebuild-calculator"],
+  "tests": [
+    "tests/stack127/seo.spec.ts",
+    "tests/pages/rebuild-calculator/rebuild-calculator.test.mjs",
+    "tests/pages/rebuild-calculator/page.test.mjs",
+    "tests/pages/rebuild-calculator/rebuild-calculator.spec.ts",
+    "tests/pages/rebuild-calculator/accessibility.spec.ts"
+  ],
+  "scripts": ["scripts/storage-tools/preview-local-pages.mjs"],
+  "skills": [
+    "skills/stack127/test-driven-page",
+    "skills/stack127/visual-first-content",
+    "skills/stack127/stack127-tool-build",
+    "skills/stack127/stack127-tool-orchestrator",
+    "skills/stack127/stack127-tool-writing"
+  ],
+  "repositories": []
+}

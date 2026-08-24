@@ -1,0 +1,657 @@
+.page {
+  display: grid;
+  gap: var(--space-13);
+  margin: 0 auto;
+  max-width: 1120px;
+  min-width: 0;
+  padding: var(--space-13) var(--container-gutter) var(--space-14);
+  width: 100%;
+}
+
+.pageHeader {
+  display: grid;
+  gap: var(--space-5);
+  max-width: var(--measure-prose);
+}
+
+.pageHeader h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-h1);
+  margin: 0;
+}
+
+.pageHeader mark {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  padding-inline: 0.08em;
+}
+
+.pageHeader p {
+  color: var(--color-text);
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+  margin: 0;
+}
+
+.guide {
+  margin: 0 auto;
+  max-width: var(--measure-prose);
+  width: 100%;
+}
+
+.tool {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-xl);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.form,
+.result {
+  display: grid;
+  gap: var(--space-7);
+  min-width: 0;
+  padding: var(--space-7);
+}
+
+.result {
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.toolHeading,
+.resultBar,
+.answerHeading,
+.sectionHeading,
+.formActions,
+.sourceRow,
+.plotLegend {
+  align-items: center;
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.toolHeading > div,
+.answerHeading > div,
+.sectionHeading > div {
+  min-width: 0;
+}
+
+.toolHeading h2,
+.answer h3,
+.cohortSection h3,
+.comparisonSection h3,
+.emptyState h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.annotation,
+.version,
+.count,
+.sourceRow,
+.answerMeta,
+.modelMeta {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+}
+
+.annotation,
+.answerMeta {
+  margin: var(--space-1) 0 0;
+}
+
+.version,
+.count {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.periodFieldset {
+  border: 0;
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.periodFieldset legend,
+.field > span:first-child {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  margin: 0 0 var(--space-2);
+  padding: 0;
+}
+
+.periodChoices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.periodChoice {
+  cursor: pointer;
+  position: relative;
+}
+
+.periodChoice input {
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+}
+
+.periodChoice span {
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  display: block;
+  font-size: var(--text-body);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+}
+
+.periodChoice input:checked + span {
+  border-color: var(--color-accent-text);
+  color: var(--color-accent-text);
+  font-weight: var(--weight-semibold);
+}
+
+.periodChoice input:focus-visible + span,
+.field input:focus-visible,
+.field select:focus-visible,
+.toggle input:focus-visible,
+.secondaryButton:focus-visible,
+.selectButton:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.filterGrid {
+  align-items: end;
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: minmax(15rem, 2fr) repeat(3, minmax(7rem, 1fr));
+  min-width: 0;
+}
+
+.field {
+  display: grid;
+  min-width: 0;
+}
+
+.field input,
+.field select {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+  font-size: var(--text-body);
+  min-height: 44px;
+  min-width: 0;
+  padding: var(--space-2) var(--space-3);
+  width: 100%;
+}
+
+.formActions {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-5);
+}
+
+.toggle {
+  align-items: center;
+  display: flex;
+  font-size: var(--text-body);
+  gap: var(--space-3);
+  min-height: 44px;
+}
+
+.toggle input {
+  accent-color: var(--color-accent-text);
+  height: 20px;
+  width: 20px;
+}
+
+.secondaryButton,
+.selectButton {
+  align-items: center;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: var(--text-body);
+  gap: var(--space-2);
+  justify-content: center;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+}
+
+.secondaryButton:hover,
+.selectButton:hover {
+  border-color: var(--color-accent-text);
+  color: var(--color-accent-text);
+}
+
+.selectButton[aria-pressed="true"] {
+  border-color: var(--color-accent-text);
+  color: var(--color-accent-text);
+  font-weight: var(--weight-semibold);
+}
+
+.status {
+  margin: 0;
+  min-height: 1.5rem;
+}
+
+.selectionPrompt {
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text);
+  margin: 0;
+  padding-top: var(--space-7);
+}
+
+.resultBar {
+  align-items: start;
+}
+
+.answer,
+.cohortSection,
+.comparisonSection {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+  padding-top: var(--space-7);
+}
+
+.answerHeading {
+  align-items: start;
+}
+
+.answerHeading h3 {
+  overflow-wrap: anywhere;
+}
+
+.evidenceLabel {
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  padding: var(--space-2) var(--space-3);
+  white-space: nowrap;
+}
+
+.primaryRate {
+  align-items: baseline;
+  display: flex;
+  gap: var(--space-4);
+}
+
+.primaryRate span,
+.metric span {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+.primaryRate strong {
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
+  line-height: 1;
+}
+
+.metricGrid {
+  border-top: 1px dashed var(--color-border);
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  padding-top: var(--space-5);
+}
+
+.metric {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.metric strong {
+  font-family: var(--font-mono);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  overflow-wrap: anywhere;
+}
+
+.plotGroup {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.plotLegend {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+.plotList {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.plotRow {
+  align-items: center;
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: minmax(9rem, 15rem) minmax(8rem, 1fr) 4rem;
+  min-width: 0;
+}
+
+.plotLabel,
+.plotValue {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  overflow-wrap: anywhere;
+}
+
+.plotValue {
+  text-align: right;
+}
+
+.plotTrack {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  display: block;
+  height: 1rem;
+  min-width: 0;
+  position: relative;
+}
+
+.plotRange {
+  background: var(--color-border-strong);
+  height: 100%;
+  left: var(--range-left);
+  position: absolute;
+  width: var(--range-width);
+}
+
+.plotPoint {
+  background: var(--color-accent);
+  border: 2px solid var(--color-accent-contrast);
+  height: 1rem;
+  left: var(--point-left);
+  position: absolute;
+  top: -1px;
+  transform: translateX(-50%);
+  width: 0.5rem;
+}
+
+.tableScroll {
+  min-width: 0;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.cohortTable,
+.comparisonTable {
+  border: 1.5px solid var(--color-border-strong);
+  border-collapse: collapse;
+  font-size: var(--text-body);
+  min-width: 720px;
+  width: 100%;
+}
+
+.cohortTable th,
+.cohortTable td,
+.comparisonTable th,
+.comparisonTable td {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-3);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.cohortTable thead th,
+.comparisonTable thead th {
+  border-bottom: 1.5px solid var(--color-border-strong);
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  white-space: nowrap;
+}
+
+.cohortTable tbody th,
+.cohortTable tbody td,
+.comparisonTable tbody th,
+.comparisonTable tbody td {
+  font-family: var(--font-mono);
+}
+
+.cohortTable tbody tr[data-selected="true"] {
+  background: var(--color-surface-2);
+}
+
+.cohortTable tbody tr:last-child th,
+.cohortTable tbody tr:last-child td,
+.comparisonTable tbody tr:last-child th,
+.comparisonTable tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.modelName,
+.modelMeta {
+  display: block;
+}
+
+.modelName {
+  overflow-wrap: anywhere;
+}
+
+.modelMeta {
+  margin-top: var(--space-1);
+}
+
+.warning,
+.emptyState {
+  border: 1px solid var(--color-border-strong);
+  margin: 0;
+  padding: var(--space-4);
+}
+
+.warning strong {
+  color: var(--color-warning-text);
+}
+
+.emptyState {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.emptyState p {
+  margin: 0;
+}
+
+.sourceRow {
+  border-top: 1px dashed var(--color-border);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  padding-top: var(--space-5);
+}
+
+.sourceRow a {
+  color: var(--color-link);
+  flex: 0 0 auto;
+}
+
+.sourceRow > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (max-width: 760px) {
+  .page {
+    gap: var(--space-10);
+    padding-top: var(--space-9);
+  }
+
+  .form,
+  .result {
+    padding: var(--space-5);
+  }
+
+  .filterGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .searchField {
+    grid-column: 1 / -1;
+  }
+
+  .metricGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .plotRow {
+    grid-template-columns: minmax(7rem, 10rem) minmax(5rem, 1fr) 3.5rem;
+  }
+
+  .sourceRow,
+  .formActions,
+  .resultBar {
+    align-items: start;
+    flex-wrap: wrap;
+  }
+
+  .cohortTable,
+  .comparisonTable {
+    border: 0;
+    display: block;
+    min-width: 0;
+  }
+
+  .cohortTable thead,
+  .comparisonTable thead {
+    display: none;
+  }
+
+  .cohortTable tbody,
+  .comparisonTable tbody {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .cohortTable tbody tr,
+  .comparisonTable tbody tr {
+    border: 1.5px solid var(--color-border-strong);
+    display: grid;
+    gap: 0;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .cohortTable tbody th,
+  .cohortTable tbody td,
+  .comparisonTable tbody th,
+  .comparisonTable tbody td {
+    border-bottom: 1px solid var(--color-border);
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: var(--space-2) 0;
+    text-align: right;
+  }
+
+  .cohortTable tbody th,
+  .comparisonTable tbody th {
+    display: block;
+    text-align: left;
+  }
+
+  .cohortTable tbody td::before,
+  .comparisonTable tbody td::before {
+    color: var(--color-text-muted);
+    content: attr(data-label);
+    font-family: var(--font-sans);
+    text-align: left;
+  }
+
+  .cohortTable tbody td:last-child,
+  .comparisonTable tbody td:last-child {
+    border-bottom: 0;
+  }
+
+  .cohortTable tbody td:last-child .selectButton {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 420px) {
+  .filterGrid,
+  .metricGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .searchField {
+    grid-column: auto;
+  }
+
+  .toolHeading,
+  .answerHeading,
+  .sectionHeading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .version,
+  .count {
+    text-align: left;
+  }
+
+  .primaryRate {
+    align-items: start;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .plotRow {
+    grid-template-columns: 1fr 4rem;
+  }
+
+  .plotTrack {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .plotValue {
+    align-self: end;
+    grid-column: 2;
+    grid-row: 1;
+  }
+}

@@ -1,0 +1,738 @@
+.page {
+  display: grid;
+  gap: var(--space-13);
+  margin: 0 auto;
+  max-width: 1080px;
+  min-width: 0;
+  padding: var(--space-13) var(--container-gutter) var(--space-14);
+  width: 100%;
+}
+
+.pageHeader {
+  display: grid;
+  gap: var(--space-4);
+  max-width: var(--measure-prose);
+  min-width: 0;
+}
+
+.pageHeader h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-h1);
+  margin: 0;
+}
+
+.pageHeader mark {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  padding-inline: 0.08em;
+}
+
+.pageHeader p {
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+  margin: 0;
+}
+
+.tool {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-xl);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.form,
+.result {
+  display: grid;
+  gap: var(--space-7);
+  min-width: 0;
+  padding: var(--space-7);
+}
+
+.result {
+  border-top: 1px solid var(--color-border);
+}
+
+.form > *,
+.result > *,
+.resultHeader > *,
+.roleRows > *,
+.field > *,
+.resultSection > * {
+  min-width: 0;
+}
+
+.fieldset,
+.resultUnit {
+  border: 0;
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.fieldset legend,
+.resultUnit legend,
+.sectionHeading h3,
+.resultSection h3,
+.growth h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-heading);
+  margin: 0;
+  padding: 0;
+}
+
+.choiceRow,
+.actions,
+.unitChoiceRow {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.choice,
+.unitChoice {
+  cursor: pointer;
+  min-height: 44px;
+  position: relative;
+}
+
+.choice input,
+.unitChoice input {
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+}
+
+.choice span,
+.unitChoice span {
+  align-items: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  display: flex;
+  font-size: var(--text-body);
+  justify-content: center;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+}
+
+.choice input:checked + span,
+.unitChoice input:checked + span {
+  border-color: var(--color-accent-text);
+  color: var(--color-accent-text);
+  font-weight: var(--weight-semibold);
+}
+
+.choice input:focus-visible + span,
+.unitChoice input:focus-visible + span,
+.field input:focus-visible,
+.field select:focus-visible,
+.form button:focus-visible,
+.result button:focus-visible,
+.result h2:focus-visible,
+.result summary:focus-visible,
+.parityGroup:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.sectionHeading {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: space-between;
+}
+
+.sectionHeading span,
+.resultMeta,
+.resultUnitLabel,
+.provenance,
+.notice,
+.copyStatus,
+.fieldError,
+.growthNote {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.roleRows {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.roleRow {
+  align-items: end;
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: minmax(7rem, 0.8fr) minmax(8rem, 1.6fr) minmax(5.5rem, 0.65fr) auto;
+  min-width: 0;
+  padding-top: var(--space-4);
+}
+
+.roleRow:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.field {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.field > span:first-child {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+}
+
+.field input,
+.field select {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+  min-height: 44px;
+  min-width: 0;
+  padding: var(--space-3) var(--space-4);
+  width: 100%;
+}
+
+.field input {
+  font-family: var(--font-mono);
+}
+
+.field input[aria-invalid="true"] {
+  border-color: var(--color-danger-text);
+}
+
+.fieldError {
+  color: var(--color-danger-text);
+}
+
+.removeButton,
+.secondaryButton,
+.primaryButton {
+  align-items: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  gap: var(--space-2);
+  justify-content: center;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  white-space: nowrap;
+}
+
+.removeButton,
+.secondaryButton {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.primaryButton {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
+.primaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.actions {
+  justify-content: space-between;
+}
+
+.actionGroup {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.emptyState,
+.errorSummary,
+.growth,
+.method {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  min-width: 0;
+  padding: var(--space-5);
+}
+
+.emptyState p,
+.errorSummary p,
+.growth p,
+.method p {
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.emptyState {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: space-between;
+}
+
+.addRowsActions,
+.addRowsControl {
+  align-items: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.addRowsField {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 5.5rem;
+}
+
+.addRowsField > span {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+}
+
+.addRowsField input {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+  min-height: 44px;
+  min-width: 5.5rem;
+  padding: var(--space-3) var(--space-4);
+  width: 5.5rem;
+}
+
+.addRowsField input:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.errorSummary {
+  color: var(--color-danger-text);
+}
+
+.recoveryNotice {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0 var(--space-7);
+  padding: var(--space-3) var(--space-4);
+}
+
+.errorList,
+.methodList,
+.dependencyList {
+  display: grid;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 0;
+  padding-left: 1.2rem;
+}
+
+.errorList li,
+.methodList li,
+.dependencyList li {
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  overflow-wrap: anywhere;
+}
+
+.resultHeader {
+  align-items: start;
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: minmax(0, 1fr) auto;
+  min-width: 0;
+}
+
+.resultHeader h2 {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-h2), 4vw, var(--text-h1));
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.resultHeadlineNote {
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+  margin: var(--space-2) 0 0;
+}
+
+.resultUnit {
+  justify-items: end;
+}
+
+.resultUnitLabel {
+  font-family: var(--font-mono);
+}
+
+.unitChoiceRow {
+  justify-content: end;
+}
+
+.unitChoice span {
+  min-width: 58px;
+}
+
+.resultSection {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.capacityBar {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  display: flex;
+  height: 22px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.capacityBar span {
+  display: block;
+  min-width: 0;
+}
+
+.dataSegment {
+  background: var(--color-accent);
+}
+
+.paritySegment {
+  background: var(--color-text-muted);
+}
+
+.capacityValues {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+}
+
+.capacityValues > div {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  padding-top: var(--space-3);
+}
+
+.capacityValues dt,
+.capacityValues dd,
+.facts dt,
+.facts dd {
+  margin: 0;
+}
+
+.capacityValues dt,
+.facts dt {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+}
+
+.capacityValues dd,
+.facts dd {
+  font-family: var(--font-mono);
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+  overflow-wrap: anywhere;
+}
+
+.accountingNote {
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+}
+
+.facts {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+}
+
+.facts > div {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  padding-top: var(--space-3);
+}
+
+.roleTableWrap {
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.roleTable {
+  border-collapse: collapse;
+  min-width: 520px;
+  width: 100%;
+}
+
+.roleTable th,
+.roleTable td {
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  vertical-align: top;
+}
+
+.roleTable th {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+}
+
+.roleTable td {
+  font-family: var(--font-mono);
+  overflow-wrap: anywhere;
+}
+
+.growth {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.growth[data-status="eligible"] {
+  border-color: var(--color-accent-text);
+}
+
+.growth[data-status="blocked"] {
+  border-color: var(--color-border-strong);
+}
+
+.method {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.method summary {
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+}
+
+.method a {
+  color: var(--color-accent-text);
+}
+
+.visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.guide {
+  max-width: var(--measure-prose);
+  padding-block: var(--space-5) var(--space-8);
+  width: 100%;
+}
+
+.guideTableScroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.guideTable {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+}
+
+.guideTable th,
+.guideTable td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.guideTable thead th {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.guideTable tbody th {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.guideTable tbody tr:last-child th,
+.guideTable tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .page {
+    gap: var(--space-9);
+    padding: var(--space-9) var(--container-gutter) var(--space-12);
+  }
+
+  .form,
+  .result {
+    padding: var(--space-5);
+  }
+
+  .roleRow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .roleRow .field:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .roleRow .removeButton {
+    justify-self: start;
+  }
+
+  .resultHeader {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .resultUnit,
+  .unitChoiceRow {
+    justify-items: start;
+    justify-content: start;
+  }
+
+  .capacityValues,
+  .facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .actions {
+    align-items: stretch;
+  }
+
+  .addRowsActions {
+    width: 100%;
+  }
+
+  .actionGroup,
+  .actionGroup > button,
+  .actions > .primaryButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .form,
+  .result {
+    padding: var(--space-4);
+  }
+
+  .roleRow,
+  .capacityValues,
+  .facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .roleTableWrap {
+    overflow-x: visible;
+  }
+
+  .roleTable {
+    min-width: 0;
+  }
+
+  .roleTable thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .roleTable,
+  .roleTable tbody,
+  .roleTable tr,
+  .roleTable td {
+    display: block;
+    width: 100%;
+  }
+
+  .roleTable tr {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-3) 0;
+  }
+
+  .roleTable tr:first-child {
+    border-top: 0;
+  }
+
+  .roleTable td {
+    border: 0;
+    display: flex;
+    gap: var(--space-3);
+    justify-content: space-between;
+    padding: var(--space-1) 0;
+  }
+
+  .roleTable td::before {
+    color: var(--color-text-muted);
+    content: attr(data-label);
+    font-family: var(--font-display);
+    font-size: var(--text-small);
+    flex: 0 0 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .choice span,
+  .unitChoice span,
+  .primaryButton,
+  .secondaryButton,
+  .removeButton {
+    transition: none;
+  }
+}

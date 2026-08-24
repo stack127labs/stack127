@@ -1,0 +1,19 @@
+{
+  "route": "/snapraid-mergerfs-planner",
+  "state": "published",
+  "docs": ["content_docs/snapraid-mergerfs-planner"],
+  "tests": [
+    "tests/pages/snapraid-mergerfs-planner/snapraid-merfs-engine.test.mjs",
+    "tests/pages/snapraid-mergerfs-planner/page.test.mjs",
+    "tests/pages/snapraid-mergerfs-planner/snapraid-mergerfs-planner.spec.ts"
+  ],
+  "scripts": ["scripts/storage-tools/preview-local-pages.mjs"],
+  "skills": [
+    "skills/stack127/test-driven-page",
+    "skills/stack127/visual-first-content",
+    "skills/stack127/stack127-tool-build",
+    "skills/stack127/stack127-tool-orchestrator",
+    "skills/stack127/stack127-tool-writing"
+  ],
+  "repositories": []
+}
