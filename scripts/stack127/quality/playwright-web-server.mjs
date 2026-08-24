@@ -47,7 +47,7 @@ const env = {
 
 const nextBin = path.join(process.cwd(), "node_modules", "next", "dist", "bin", "next");
 const standaloneServer = path.join(process.cwd(), ".next", "standalone", "server.js");
-const bundler = process.env.STACK127_TEST_BUNDLER ?? "turbopack";
+const bundler = process.env.STACK127_TEST_BUNDLER ?? "webpack";
 const bundlerFlag = bundler === "turbopack" ? "--turbopack" : "--webpack";
 const nextArgs = serverMode === "production"
   ? existsSync(standaloneServer)
