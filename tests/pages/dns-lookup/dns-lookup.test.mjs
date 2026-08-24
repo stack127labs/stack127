@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 import dnsPacket from "dns-packet";
 
@@ -34,6 +35,11 @@ import {
 } from "../../../lib/dns/network-enrichment.ts";
 import { caaPropertyCounts, traceLinkForLookup } from "../../../lib/dns/result-presentation.ts";
 
+const normalizeNameSource = readFileSync(
+  new URL("../../../lib/dns/normalize-name.ts", import.meta.url),
+  "utf8",
+);
+
 function wireResponse(queryBody, answers = [], flags = dnsPacket.RECURSION_DESIRED | dnsPacket.RECURSION_AVAILABLE | dnsPacket.AUTHENTIC_DATA) {
   const query = dnsPacket.decode(Buffer.from(queryBody));
   const body = dnsPacket.encode({
@@ -55,6 +61,11 @@ test("normalizes domains, URLs, trailing dots, service names, and Unicode", () =
   assert.equal(normalizeDnsInput("https://münich.example/path").normalizedName, "xn--mnich-kva.example");
   assert.throws(() => normalizeDnsInput("example.com:8080"), /valid DNS name or HTTP/);
   assert.throws(() => normalizeDnsInput("https://user:pass@example.com"), /credentials/);
+});
+
+test("keeps the shared DNS normalizer import compatible with client bundles", () => {
+  assert.match(normalizeNameSource, /import \{ domainToASCII \} from "url";/);
+  assert.doesNotMatch(normalizeNameSource, /from "node:url"/);
 });
 
 test("builds website favicon URLs without requesting icons for service or local names", () => {

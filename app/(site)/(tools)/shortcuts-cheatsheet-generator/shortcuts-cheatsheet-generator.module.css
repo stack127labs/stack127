@@ -292,7 +292,8 @@
 }
 
 @media print {
-  :global(body *) {
+  .page,
+  .page * {
     visibility: hidden;
   }
 
