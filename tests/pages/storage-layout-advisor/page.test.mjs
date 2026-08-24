@@ -7,10 +7,9 @@ const tool = readFileSync("app/(site)/(tools)/storage-layout-advisor/storage-lay
 const guide = readFileSync("app/(site)/(tools)/storage-layout-advisor/storage-layout-advisor-guide.tsx", "utf8");
 const manifest = JSON.parse(readFileSync("tests/pages/storage-layout-advisor/page.json", "utf8"));
 
-test("owns one unpublished flat route", () => {
+test("owns one published flat route", () => {
   assert.equal(manifest.route, "/storage-layout-advisor");
-  assert.equal(manifest.state, "unpublished");
-  assert.match(manifest.reason, /parent/i);
+  assert.equal(manifest.state, "published");
   assert.match(page, /<AppShell[\s\S]*sidebar=\{<StorageToolsSidebar active="layout-advisor" \/>\}/);
   assert.equal(page.includes("public.stack127_pages"), false);
   assert.equal(page.includes("generateMetadata"), false);

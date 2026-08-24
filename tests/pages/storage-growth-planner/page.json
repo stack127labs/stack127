@@ -1,0 +1,21 @@
+{
+  "route": "/storage-growth-planner",
+  "state": "published",
+  "docs": ["content_docs/storage-growth-planner"],
+  "tests": [
+    "tests/pages/storage-growth-planner/page.json",
+    "tests/pages/storage-growth-planner/page.test.mjs",
+    "tests/pages/storage-growth-planner/storage-growth-planner-engine.test.mjs",
+    "tests/pages/storage-growth-planner/storage-growth-planner-state.test.mjs",
+    "tests/pages/storage-growth-planner/storage-growth-planner.spec.ts"
+  ],
+  "scripts": ["scripts/storage-tools/preview-local-pages.mjs"],
+  "skills": [
+    "skills/stack127/test-driven-page",
+    "skills/stack127/visual-first-content",
+    "skills/stack127/stack127-tool-build",
+    "skills/stack127/stack127-tool-orchestrator",
+    "skills/stack127/stack127-tool-writing"
+  ],
+  "repositories": []
+}

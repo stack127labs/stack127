@@ -1,6 +1,6 @@
 [
   {
     "file": "preview-local-pages.mjs",
-    "purpose": "Adds or removes guarded local-only registry rows for visually reviewing unpublished storage-tool routes."
+    "purpose": "Adds or removes temporary managed-development registry rows for visually reviewing the eight unpublished storage-tool routes."
   }
 ]

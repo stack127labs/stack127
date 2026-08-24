@@ -4,6 +4,7 @@ import test from "node:test";
 
 const page = readFileSync(new URL("../../../app/(site)/storage-tools/page.tsx", import.meta.url), "utf8");
 const sidebar = readFileSync(new URL("../../../app/(site)/storage-tools/storage-tools-sidebar.tsx", import.meta.url), "utf8");
+const routeRoot = new URL("../../../", import.meta.url);
 const manifestPath = new URL("page.json", import.meta.url);
 const migrationPath = new URL(
   "../../../supabase/migrations/20260809140000_publish_storage_tools.sql",
@@ -123,4 +124,26 @@ test("the hub is registry published and exposes its tool count to the home card"
 
 test("the hub route declares no page-local metadata", () => {
   assert.doesNotMatch(page, /export const metadata|generateMetadata|application\/ld\+json|canonical|robots|sitemap/i);
+});
+
+test("every storage tool route marks its own sidebar item active", () => {
+  const routeShells = [
+    ["app/(site)/(tools)/raid-calculator/page.tsx", "raid"],
+    ["app/(site)/(tools)/zfs-capacity-calculator/page.tsx", "zfs"],
+    ["app/(site)/(tools)/zfs-padding-calculator/page.tsx", "zfs-padding"],
+    ["app/(site)/(tools)/raidz-expansion-planner/page.tsx", "raidz-expansion"],
+    ["app/(site)/(tools)/shr-calculator/page.tsx", "shr"],
+    ["app/(site)/(tools)/unraid-calculator/page.tsx", "unraid"],
+    ["app/(site)/(tools)/snapraid-mergerfs-planner/page.tsx", "snapraid-mergerfs"],
+    ["app/(site)/(tools)/drive-reliability/page.tsx", "drive-reliability"],
+    ["app/(site)/(tools)/rebuild-calculator/page.tsx", "rebuild"],
+    ["app/(site)/(tools)/ceph-capacity-calculator/page.tsx", "ceph"],
+    ["app/(site)/(tools)/storage-growth-planner/page.tsx", "storage-growth"],
+    ["app/(site)/(tools)/storage-layout-advisor/page.tsx", "layout-advisor"],
+  ];
+
+  for (const [relativePath, active] of routeShells) {
+    const source = readFileSync(new URL(relativePath, routeRoot), "utf8");
+    assert.match(source, new RegExp(`<StorageToolsSidebar active="${active}" \\/>`), relativePath);
+  }
 });

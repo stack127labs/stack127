@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { spawn } from "node:child_process";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, rmSync } from "node:fs";
 import path from "node:path";
 
 function readEnvFile(file) {
@@ -29,16 +29,32 @@ function readEnvFile(file) {
 }
 
 const databaseEnvFile = process.env.STACK127_TEST_DATABASE_ENV ?? ".env.database";
+const serverMode = process.env.STACK127_TEST_SERVER ?? "dev";
+const distDir = serverMode === "production" ? ".next" : ".next-playwright";
+const port = process.env.STACK127_TEST_PORT ?? process.env.PORT ?? "3334";
+
+if (serverMode !== "production") {
+  rmSync(path.join(process.cwd(), distDir), { recursive: true, force: true });
+}
 
 const env = {
   ...process.env,
   ...readEnvFile(path.join(process.cwd(), databaseEnvFile)),
-  STACK127_TEST_DIST_DIR: ".next-playwright",
+  NODE_OPTIONS: process.env.STACK127_TEST_NODE_OPTIONS ?? process.env.NODE_OPTIONS ?? "--max-old-space-size=6144",
+  STACK127_TEST_DIST_DIR: distDir,
+  PORT: port,
 };
 
-const port = process.env.STACK127_TEST_PORT ?? process.env.PORT ?? "3334";
 const nextBin = path.join(process.cwd(), "node_modules", "next", "dist", "bin", "next");
-const child = spawn(process.execPath, [nextBin, "dev", "-p", port], {
+const standaloneServer = path.join(process.cwd(), ".next", "standalone", "server.js");
+const bundler = process.env.STACK127_TEST_BUNDLER ?? "turbopack";
+const bundlerFlag = bundler === "turbopack" ? "--turbopack" : "--webpack";
+const nextArgs = serverMode === "production"
+  ? existsSync(standaloneServer)
+    ? [standaloneServer]
+    : [nextBin, "start", "-p", port]
+  : [nextBin, "dev", bundlerFlag, "-p", port];
+const child = spawn(process.execPath, nextArgs, {
   env,
   stdio: "inherit",
 });

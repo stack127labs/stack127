@@ -15,12 +15,11 @@ const files = {
 
 const source = (url) => readFileSync(url, "utf8");
 
-test("owns one flat unpublished route and only route-local build files", () => {
+test("owns one published flat route and only route-local build files", () => {
   for (const [label, url] of Object.entries(files)) assert.equal(existsSync(url), true, `${label}: ${url.pathname}`);
   const manifest = JSON.parse(source(files.manifest));
   assert.equal(manifest.route, "/snapraid-mergerfs-planner");
-  assert.equal(manifest.state, "unpublished");
-  assert.match(manifest.reason, /parent|publication/i);
+  assert.equal(manifest.state, "published");
   assert.deepEqual(manifest.repositories, []);
   assert.equal(manifest.docs[0], "content_docs/snapraid-mergerfs-planner");
   assert.equal(manifest.scripts[0], "scripts/storage-tools/preview-local-pages.mjs");

@@ -5,7 +5,9 @@
   "tests": [
     "tests/stack127/seo.spec.ts",
     "tests/pages/storage-tools/hub.test.mjs",
-    "tests/pages/storage-tools/shared/storage-engine.test.mjs"
+    "tests/pages/storage-tools/shared/storage-engine.test.mjs",
+    "tests/pages/storage-tools/shared/preview-local-pages.test.mjs",
+    "tests/pages/storage-tools/shared/storage-publication.test.mjs"
   ],
   "scripts": ["scripts/storage-tools/preview-local-pages.mjs"],
   "skills": [

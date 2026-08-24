@@ -1,0 +1,23 @@
+{
+  "route": "/storage-layout-advisor",
+  "state": "published",
+  "docs": ["content_docs/storage-layout-advisor"],
+  "tests": [
+    "tests/pages/storage-layout-advisor/page.test.mjs",
+    "tests/pages/storage-layout-advisor/storage-layout-advisor.test.mjs",
+    "tests/pages/storage-layout-advisor/storage-layout-advisor.spec.ts"
+  ],
+  "scripts": ["scripts/storage-tools/preview-local-pages.mjs"],
+  "skills": [
+    "skills/stack127/test-driven-page",
+    "skills/stack127/visual-first-content",
+    "skills/stack127/stack127-tool-orchestrator",
+    "skills/stack127/stack127-tool-research",
+    "skills/stack127/stack127-tool-product-plan",
+    "skills/stack127/stack127-tool-test-design",
+    "skills/stack127/stack127-tool-build",
+    "skills/stack127/stack127-tool-content-seo",
+    "skills/stack127/stack127-tool-writing"
+  ],
+  "repositories": []
+}

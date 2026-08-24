@@ -1,0 +1,12 @@
+[
+  {
+    "name": "drive-reliability:check-snapshot",
+    "command": "node scripts/drive-reliability/refresh-snapshot.mjs --check",
+    "purpose": "Validate the route-owned Backblaze snapshot without changing it."
+  },
+  {
+    "name": "drive-reliability:refresh-snapshot",
+    "command": "node scripts/drive-reliability/refresh-snapshot.mjs --input <reviewed-json>",
+    "purpose": "Validate and atomically replace the reviewed route-owned snapshot."
+  }
+]
