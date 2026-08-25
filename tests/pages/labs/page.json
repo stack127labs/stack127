@@ -7,6 +7,9 @@
     "tests/stack127/seo.spec.ts"
   ],
   "scripts": [],
-  "skills": [],
+  "skills": [
+    "skills/stack127/test-driven-page",
+    "skills/stack127/visual-first-content"
+  ],
   "repositories": []
 }

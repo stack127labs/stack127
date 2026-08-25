@@ -16,6 +16,8 @@ type InfoPageProps = {
   title: string;
   /** Full h1, name plus the point, with its mark phrase. Defaults to title. */
   heading?: ReactNode;
+  /** Lets a data-heavy info page use the full reading canvas. */
+  wide?: boolean;
 };
 
 const links = [
@@ -47,7 +49,7 @@ function InfoSidebar({ label }: { label: string }) {
   );
 }
 
-export async function InfoPage({ children, slug, title, heading }: InfoPageProps) {
+export async function InfoPage({ children, slug, title, heading, wide = false }: InfoPageProps) {
   const registryPage = await getRequiredPublishedPage(slug);
 
   return (
@@ -57,7 +59,9 @@ export async function InfoPage({ children, slug, title, heading }: InfoPageProps
       sidebar={<InfoSidebar label={registryPage.label} />}
       sidebarLabel={`${title} sidebar`}
     >
-      <article className={`${styles.page} ${proseClassName} ${proseSectionFlowClassName}`}>
+      <article
+        className={`${styles.page} ${wide ? styles.widePage : ""} ${proseClassName} ${proseSectionFlowClassName}`}
+      >
         <h1>{heading ?? title}</h1>
         {children}
       </article>

@@ -946,6 +946,43 @@ const DOODLE_SHAPES = {
     A.dot(62, 72, 3, "@ink");
     A.linearPath([[58, 58], [68, 68], [84, 48]], { stroke: "@primary" });
   },
+  // flask with one active mixture: small experiments in the labs
+  labFlask(A) {
+    A.line(54, 18, 86, 18, { stroke: "@ink" });
+    A.line(58, 18, 58, 48, { stroke: "@ink" });
+    A.line(82, 18, 82, 48, { stroke: "@ink" });
+    A.path("M58 48 L30 98 Q28 106 40 108 L100 108 Q112 106 110 98 L82 48", {
+      stroke: "@ink",
+    });
+    A.curve([[40, 88], [58, 82], [76, 88], [100, 82]], { stroke: "@primary" });
+    A.dot(56, 72, 3, "@primary");
+    A.dot(86, 68, 2.5, "@sub");
+    A.dot(70, 58, 2, "@primary");
+  },
+  // three keys complete one motion: keyboard shortcuts
+  shortcutKeys(A) {
+    A.rect(16, 48, 30, 30, { stroke: "@ink" });
+    A.rect(56, 48, 30, 30, { stroke: "@ink" });
+    A.rect(96, 48, 30, 30, { stroke: "@primary" });
+    A.line(26, 63, 36, 63, { stroke: "@sub" });
+    A.line(66, 63, 76, 63, { stroke: "@sub" });
+    A.linearPath([[106, 67], [112, 59], [118, 67]], { stroke: "@primary" });
+    A.line(112, 59, 112, 72, { stroke: "@primary" });
+    A.line(48, 63, 54, 63, { stroke: "@sub" });
+    A.line(88, 63, 94, 63, { stroke: "@sub" });
+  },
+  // prompt and live cursor inside a terminal: command line apps
+  cliTerminal(A) {
+    A.rect(16, 24, 110, 82, { stroke: "@ink" });
+    A.line(16, 42, 126, 42, { stroke: "@sub" });
+    A.dot(28, 33, 2, "@sub");
+    A.dot(38, 33, 2, "@sub");
+    A.dot(48, 33, 2, "@sub");
+    A.linearPath([[30, 58], [38, 65], [30, 72]], { stroke: "@primary" });
+    A.line(48, 72, 70, 72, { stroke: "@primary" });
+    A.line(32, 86, 86, 86, { stroke: "@sub" });
+    A.line(94, 80, 94, 92, { stroke: "@primary" });
+  },
 };
 
 function doodle(spec, A) {

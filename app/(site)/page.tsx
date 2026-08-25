@@ -17,10 +17,13 @@ import {
 import Link from "next/link";
 import type { ReactNode } from "react";
 import "./home.css";
+import { siteSpotCliAppsArt } from "./art/site--spot-cli-apps";
 import { siteSpotCourseArt } from "./art/site--spot-course";
 import { siteSpotDnsToolsArt } from "./art/site--spot-dns-tools";
 import { siteSpotDomainToolsArt } from "./art/site--spot-domain-tools";
 import { siteSpotLicensesArt } from "./art/site--spot-licenses";
+import { siteSpotLabsArt } from "./art/site--spot-labs";
+import { siteSpotKeyboardShortcutsArt } from "./art/site--spot-keyboard-shortcuts";
 import { siteSpotSelfHostAppsArt } from "./art/site--spot-self-host-apps";
 import { siteSpotDockerignoreArt } from "./art/site--spot-dockerignore";
 import { siteSpotHomeAssistantEnergyArt } from "./art/site--spot-home-assistant-energy";
@@ -80,10 +83,13 @@ const pageIcons: Record<string, LucideIcon> = {
 
 /** Marker spot per feature page: the card's visual one-liner. */
 const pageArt: Record<string, string> = {
+  "cli-apps": siteSpotCliAppsArt,
   "dns-tools": siteSpotDnsToolsArt,
   "dockerignore-tester": siteSpotDockerignoreArt,
   "domain-tools": siteSpotDomainToolsArt,
   "home-assistant-energy-entity-checker": siteSpotHomeAssistantEnergyArt,
+  "keyboard-shortcuts": siteSpotKeyboardShortcutsArt,
+  "labs": siteSpotLabsArt,
   "nfs-firewall-rules": siteSpotNfsFirewallArt,
   "nginx-proxy-pass-calculator": siteSpotNginxProxyPassArt,
   "self-host-apps": siteSpotSelfHostAppsArt,

@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-keyboard-shortcuts",
+  "type": "doodle",
+  "takeaway": "Three keys combine into one quick keyboard shortcut.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-08-25",
+  "width": 140,
+  "height": 120,
+  "seed": 29,
+  "data": {
+    "shape": "shortcutKeys"
+  }
+}

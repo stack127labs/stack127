@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-cli-apps",
+  "type": "doodle",
+  "takeaway": "A live prompt waits inside a terminal: command line apps ready to run.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-08-25",
+  "width": 140,
+  "height": 120,
+  "seed": 31,
+  "data": {
+    "shape": "cliTerminal"
+  }
+}

@@ -10,4 +10,4 @@ The page should explain the relationship between stack127, stack127 Labs, and th
 
 ## Show vs say
 
-Use a compact project table because every project repeats the same facts: what it is, where to use it, and where its source lives. Keep the introduction short. Do not invent activity metrics, stars, or release counts, and do not use decorative art where the repository links are the actual proof.
+Use a responsive project ledger because every project repeats the same facts: what it is, where to use it, and where its source lives. Give each project one meaningful technical icon so the rows scan quickly, then keep the actions explicit. The introduction and GitHub note stay short. Do not invent activity metrics, stars, or release counts, and do not use decorative art where the repository links are the actual proof.

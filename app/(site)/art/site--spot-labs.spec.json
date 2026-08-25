@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-labs",
+  "type": "doodle",
+  "takeaway": "A flask with an active mixture: small technical experiments in the labs.",
+  "source": "decorative hand-drawn shape, no data",
+  "dataAsOf": "2026-08-25",
+  "width": 140,
+  "height": 120,
+  "seed": 23,
+  "data": {
+    "shape": "labFlask"
+  }
+}

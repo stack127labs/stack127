@@ -32,6 +32,19 @@ test("home includes the keyboard shortcuts directory in the curated feature set"
   assert.match(home, /"keyboard-shortcuts":\s*Keyboard/);
 });
 
+test("labs, keyboard shortcuts, and cli apps have homepage marker spots", () => {
+  const home = readFileSync(homePath, "utf8");
+
+  for (const [slug, artName] of [
+    ["labs", "siteSpotLabsArt"],
+    ["keyboard-shortcuts", "siteSpotKeyboardShortcutsArt"],
+    ["cli-apps", "siteSpotCliAppsArt"],
+  ]) {
+    assert.match(home, new RegExp(`import \\{ ${artName} \\}`), `${slug} imports its marker art`);
+    assert.match(home, new RegExp(`[\"]${slug}[\"]:\\s*${artName}`), `${slug} maps to its marker art`);
+  }
+});
+
 test("home features the four uncollected tools with icons and marker spots", () => {
   const home = readFileSync(homePath, "utf8");
   const helpers = readFileSync(helpersPath, "utf8");

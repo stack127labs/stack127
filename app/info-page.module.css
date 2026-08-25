@@ -39,6 +39,10 @@
   padding: var(--space-12) var(--container-gutter) 72px;
 }
 
+.widePage {
+  max-width: var(--container-max);
+}
+
 .updated {
   font-family: var(--font-mono);
   font-size: var(--text-small);
