@@ -16,6 +16,8 @@ export const platformLabels: Record<PlatformId, string> = {
 export type ShortcutKey = {
   platform: PlatformId;
   keys: string[];
+  /** Other documented key sequences for the same action, shown as alternatives. */
+  alternatives?: string[][];
   /** Caveat that applies to this platform only. */
   note?: string;
 };

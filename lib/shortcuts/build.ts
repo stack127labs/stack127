@@ -21,6 +21,6 @@ export function perPlatform(
 ): ShortcutKey[] {
   return platforms.flatMap((platform) => {
     const keys = keysByPlatform[platform];
-    return keys ? [{ platform, keys }] : [];
+    return keys && keys.length > 0 ? [{ platform, keys }] : [];
   });
 }

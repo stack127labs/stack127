@@ -10,11 +10,20 @@ function categoryId(category: string) {
   return "category-" + category.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 }
 
-function KeyChips({ keys }: { keys: string[] }) {
+function KeyChips({ keys, alternatives = [] }: { keys: string[]; alternatives?: string[][] }) {
+  const bindings = [keys, ...alternatives];
+
   return (
-    <span className={styles.keyChips}>
-      {keys.map((key, index) => (
-        <kbd key={key + "-" + index}>{key}</kbd>
+    <span className={styles.keyBindings}>
+      {bindings.map((binding, bindingIndex) => (
+        <span className={styles.keyBinding} key={binding.join("-") + "-" + bindingIndex}>
+          <span className={styles.keyChips}>
+            {binding.map((key, index) => (
+              <kbd key={key + "-" + index}>{key}</kbd>
+            ))}
+          </span>
+          {bindingIndex < bindings.length - 1 ? <span className={styles.keyOr}>or</span> : null}
+        </span>
       ))}
     </span>
   );
@@ -31,7 +40,7 @@ function ShortcutRow({ shortcut, platforms }: { shortcut: Shortcut; platforms: A
         const entry = shortcut.keys.find((key) => key.platform === platform);
         return (
           <td key={platform} data-label={platformLabels[platform]}>
-            {entry ? <KeyChips keys={entry.keys} /> : <span className={styles.noBinding}>Not documented</span>}
+            {entry ? <KeyChips keys={entry.keys} alternatives={entry.alternatives} /> : <span className={styles.noBinding}>Not documented</span>}
           </td>
         );
       })}

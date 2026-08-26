@@ -22,7 +22,7 @@ test("every app has a source and documented data", () => {
   for (const app of shortcutApps) {
     assert.match(app.sourceUrl, /^https:\/\//);
     assert.ok(app.sourceLabel);
-    assert.match(app.lastVerified, /^\d{4}-\d{2}-\d{2}$/);
+    assert.equal(app.lastVerified, "2026-08-26", `${app.slug} needs a current official-source check`);
     assert.ok(app.groups.length > 0);
     assert.ok(app.intro.length >= 120, `${app.slug} needs a specific intro`);
     assert.ok(shortcutCount(app) >= 18, `${app.slug} has too little shortcut coverage`);
@@ -36,6 +36,12 @@ test("every app has a source and documented data", () => {
       for (const shortcut of group.shortcuts) {
         assert.equal(ids.has(shortcut.id), false, `${app.slug} repeats shortcut id ${shortcut.id}`);
         ids.add(shortcut.id);
+        for (const key of shortcut.keys) {
+          assert.ok(key.keys.length > 0, `${app.slug}/${shortcut.id} has an empty primary binding`);
+          for (const alternative of key.alternatives ?? []) {
+            assert.ok(alternative.length > 0, `${app.slug}/${shortcut.id} has an empty alternative binding`);
+          }
+        }
       }
     }
   }

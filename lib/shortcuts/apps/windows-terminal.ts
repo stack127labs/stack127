@@ -10,9 +10,9 @@ export const windowsTerminal: AppShortcuts = {
     "Windows Terminal is a workspace for several shells, so its important keys manage the container around the prompt. Open tabs, split panes, search scrollback, copy and paste, zoom, and reach the command palette.",
   versionContext:
     "Current Windows Terminal documentation as of August 2026; most bindings listed are defaults from the official Actions reference and can be changed in settings.",
-  sourceUrl: "https://learn.microsoft.com/en-us/windows/terminal/tips-and-tricks",
-  sourceLabel: "official Windows Terminal docs",
-  lastVerified: "2026-08-21",
+  sourceUrl: "https://learn.microsoft.com/en-us/windows/terminal/customize-settings/actions",
+  sourceLabel: "official Windows Terminal actions",
+  lastVerified: "2026-08-26",
   groups: [
     {
       id: "tabs",
@@ -45,6 +45,11 @@ export const windowsTerminal: AppShortcuts = {
           id: "close-pane-or-tab",
           action: "Close the active pane, or the tab if there are no splits",
           keys: [{ platform: "windows", keys: ["Ctrl", "Shift", "W"] }],
+        },
+        {
+          id: "close-window",
+          action: "Close the current window and all its tabs",
+          keys: [{ platform: "windows", keys: ["Alt", "F4"] }],
         },
         {
           id: "open-new-tab-dropdown",
@@ -138,8 +143,8 @@ export const windowsTerminal: AppShortcuts = {
         {
           id: "toggle-fullscreen",
           action: "Toggle full screen",
-          keys: [{ platform: "windows", keys: ["F11"] }],
-          note: "Alt+Enter is bound to the same action.",
+          keys: [{ platform: "windows", keys: ["Alt", "Enter"] }],
+          note: "F11 is bound to the same action.",
         },
       ],
     },
@@ -161,6 +166,18 @@ export const windowsTerminal: AppShortcuts = {
           note: "Ctrl+Shift+Down scrolls down.",
         },
         {
+          id: "scroll-page-up",
+          action: "Scroll up by a whole page",
+          keys: [{ platform: "windows", keys: ["Ctrl", "Shift", "PageUp"] }],
+          note: "The official key name is pgup; PageUp is the readable equivalent.",
+        },
+        {
+          id: "scroll-page-down",
+          action: "Scroll down by a whole page",
+          keys: [{ platform: "windows", keys: ["Ctrl", "Shift", "PageDown"] }],
+          note: "The official key name is pgdn; PageDown is the readable equivalent.",
+        },
+        {
           id: "scroll-to-top",
           action: "Scroll to the earliest history",
           keys: [{ platform: "windows", keys: ["Ctrl", "Shift", "Home"] }],
@@ -180,7 +197,8 @@ export const windowsTerminal: AppShortcuts = {
         {
           id: "command-palette",
           action: "Open the command palette",
-          keys: [{ platform: "windows", keys: ["Ctrl", "Shift", "P"] }],
+          keys: [],
+          note: "Windows Terminal actions appear in the command palette, but the official reference does not assign a default keyboard binding to open it.",
         },
         {
           id: "open-settings-ui",
@@ -191,6 +209,22 @@ export const windowsTerminal: AppShortcuts = {
           id: "open-settings-json",
           action: "Open the settings.json file",
           keys: [{ platform: "windows", keys: ["Ctrl", "Shift", ","] }],
+        },
+        {
+          id: "open-defaults-json",
+          action: "Open the defaults.json file",
+          keys: [{ platform: "windows", keys: ["Ctrl", "Alt", ","] }],
+        },
+        {
+          id: "system-menu",
+          action: "Open the window system menu",
+          keys: [{ platform: "windows", keys: ["Alt", "Space"] }],
+        },
+        {
+          id: "zoom-pane",
+          action: "Zoom the focused pane to fill the window",
+          keys: [],
+          note: "The togglePaneZoom action is not currently bound by default; add a keybinding in settings if you use it.",
         },
         {
           id: "quake-mode",

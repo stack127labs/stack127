@@ -6,6 +6,7 @@ Sitewide documentation lives here.
 - `brand-assets.md`: preserved logo originals, production variants, favicon choice, and regeneration workflow.
 - `writing-style.md`: content voice, accuracy, prose, and summary rules.
 - `repo-structure.md`: docs, scripts, page ownership, and environment conventions.
+- `local-development.md`: remote local development from a Mac over Tailscale.
 - `seo.md`: canonicals, sitemap, robots, structured data, and indexing rules.
 - `rdap.md`: shared registration-data engine contract for the planned `/domain-tools` pages.
 - `ovh-vps-migration.md`: isolated Stack127 VPS migration, IPv6, acceptance, cutover, and rollback runbook.

@@ -28,8 +28,9 @@ function SheetTable({ entry }: { entry: CheatSheetAppSection }) {
             <tr key={shortcut.id}>
               <td>{shortcut.action}</td>
               {entry.platforms.map((platform) => {
-                const keys = shortcut.keys.find((key) => key.platform === platform);
-                return <td key={platform}>{keys ? keys.keys.join(" ") : "Not documented"}</td>;
+                const binding = shortcut.keys.find((key) => key.platform === platform);
+                const bindings = binding ? [binding.keys, ...(binding.alternatives ?? [])] : [];
+                return <td key={platform}>{bindings.length > 0 ? bindings.map((keys) => keys.join(" ")).join(" or ") : "Not documented"}</td>;
               })}
             </tr>
           )),

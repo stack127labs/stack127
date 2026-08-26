@@ -1,6 +1,6 @@
 # stack127 homelab development handoff
 
-Last updated: 21 August 2026
+Last updated: 26 August 2026
 
 ## Current operating model
 
@@ -48,6 +48,44 @@ Rules:
 - Do not replace production values with development values.
 - Do not start a local Supabase Docker stack on the homelab.
 - Never commit any environment file or secret.
+
+## Remote local development over Tailscale
+
+The homelab is the development host used by Codex Remote Control. When the
+Codex App is open on the Mac, a running Stack127 server must be opened through
+the homelab's Tailscale address rather than through the Mac's own loopback
+interface.
+
+The repository scripts bind Next.js to all host interfaces on port `3333`:
+
+```bash
+npm run dev
+```
+
+or, for a built app:
+
+```bash
+npm run start
+```
+
+Find the current homelab address with:
+
+```bash
+tailscale status
+```
+
+As of 26 August 2026, `teja-homelab` reported Tailscale IPv4
+`100.86.117.125`. The remote link for the keyboard-shortcuts hub was therefore:
+
+```text
+http://100.86.117.125:3333/keyboard-shortcuts
+```
+
+Tailscale addresses can change. Always use the current address from
+`tailscale status` when giving a link. `http://localhost:3333` and
+`http://127.0.0.1:3333` are valid only for a browser running on the homelab;
+do not send those URLs to a Mac user. Keep the server private to Tailscale and
+do not open port `3333` on the public WAN interface.
 
 ## Managed Supabase
 

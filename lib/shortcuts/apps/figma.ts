@@ -1,4 +1,4 @@
-import { combo } from "../build.ts";
+import { combo, perPlatform } from "../build.ts";
 import type { AppShortcuts } from "../types.ts";
 
 const platforms = ["windows", "macos", "linux"] as const;
@@ -11,11 +11,46 @@ export const figma: AppShortcuts = {
   intro:
     "Figma work is mostly selection and repetition. These shortcuts get you from tool choice to shape editing to layer and canvas control without breaking the design flow.",
   versionContext:
-    "Documented defaults from Figma's official shortcut resource in August 2026. macOS uses Cmd and Option where Windows and Linux use Ctrl and Alt.",
-  sourceUrl: "https://help.figma.com/hc/en-us/articles/360040328633-Use-keyboard-shortcuts-in-Figma",
+    "The current Figma help page documents canvas navigation, keyboard selection, object creation, and the in-product shortcuts panel. macOS uses Cmd and Option where Windows and Linux use Ctrl and Alt.",
+  sourceUrl: "https://help.figma.com/hc/en-us/articles/360040328653-Use-Figma-products-with-a-keyboard",
   sourceLabel: "official Figma keyboard shortcuts",
-  lastVerified: "2026-08-21",
+  lastVerified: "2026-08-26",
   groups: [
+    {
+      id: "canvas-navigation",
+      title: "Canvas navigation",
+      intro: "Pan the canvas, change zoom, and open the shortcut panel while keeping the design surface in view.",
+      shortcuts: [
+        {
+          id: "pan-canvas",
+          action: "Pan the canvas",
+          keys: combo(platforms, ["Arrow"]),
+          note: "With nothing selected, use the arrow keys to pan. The same controls work while a tool is active.",
+        },
+        {
+          id: "pan-canvas-fast",
+          action: "Pan the canvas faster",
+          keys: combo(platforms, ["Shift", "Arrow"]),
+          note: "The pan distance changes with the current zoom level.",
+        },
+        {
+          id: "zoom-in",
+          action: "Zoom in",
+          keys: combo(platforms, ["Ctrl", "+"], ["Cmd", "+"]),
+        },
+        {
+          id: "zoom-out",
+          action: "Zoom out",
+          keys: combo(platforms, ["Ctrl", "-"], ["Cmd", "-"]),
+        },
+        {
+          id: "shortcut-panel",
+          action: "Open the keyboard shortcuts panel",
+          keys: combo(platforms, ["Ctrl", "Shift", "?" ]),
+          note: "Figma also exposes the panel from Help and resources or the Actions menu.",
+        },
+      ],
+    },
     {
       id: "tools",
       title: "Tools",
@@ -33,6 +68,54 @@ export const figma: AppShortcuts = {
           action: "Pick a color from anywhere",
           keys: combo(platforms, ["Ctrl", "C"], ["Cmd", "C"]),
           note: "Hold it to sample while dragging; works outside the canvas too.",
+        },
+        {
+          id: "focus-toolbar",
+          action: "Focus the toolbar",
+          keys: perPlatform(platforms, {
+            windows: ["Ctrl", "F6"],
+            macos: ["F6"],
+          }),
+          note: "Use the arrow keys to choose a tool after the toolbar is focused. The current help page documents macOS and Windows bindings.",
+        },
+        {
+          id: "place-object",
+          action: "Place a new object after choosing a tool",
+          keys: combo(platforms, ["Enter"]),
+          note: "This does not apply to objects that require multiple clicks, such as lines, vector paths, connectors, and tables.",
+        },
+      ],
+    },
+    {
+      id: "keyboard-selection",
+      title: "Keyboard selection",
+      intro: "Select objects and child layers without reaching for a mouse, then return to the canvas when the selection is complete.",
+      shortcuts: [
+        {
+          id: "keyboard-box-selection",
+          action: "Activate keyboard box selection",
+          keys: perPlatform(platforms, {
+            windows: ["Ctrl", "Space"],
+            macos: ["Option", "Space"],
+            linux: ["Ctrl", "Space"],
+          }),
+          note: "Move the pink cursor with the arrow keys and press Enter to select an object.",
+        },
+        {
+          id: "select-child-layer",
+          action: "Move to the next child layer",
+          keys: combo(platforms, ["Tab"]),
+          note: "Shift+Tab moves to the previous child layer when a parent layer is selected.",
+        },
+        {
+          id: "select-object",
+          action: "Select the object under the keyboard cursor",
+          keys: combo(platforms, ["Enter"]),
+        },
+        {
+          id: "close-keyboard-selection",
+          action: "Close keyboard box selection",
+          keys: combo(platforms, ["Esc"]),
         },
       ],
     },
@@ -86,11 +169,6 @@ export const figma: AppShortcuts = {
           action: "Zoom to fit everything",
           keys: combo(platforms, ["Shift", "1"]),
           note: "Shift+2 zooms to fit the selection.",
-        },
-        {
-          id: "zoom-in",
-          action: "Zoom in",
-          keys: combo(platforms, ["+"], ["Cmd", "+"]),
         },
         {
           id: "toggle-ui",

@@ -1,6 +1,6 @@
 # Shortcuts reference research record
 
-Researched 2026-08-21 against official documentation for every candidate. Scorecard per the plan: relevance to stack127 readers, search demand, shortcut depth, official docs quality, platform coverage, generator value.
+Researched 2026-08-21 and source-rechecked 2026-08-26 against official documentation for every included app. Scorecard per the plan: relevance to stack127 readers, search demand, shortcut depth, official docs quality, platform coverage, generator value.
 
 ## Finalized core 20
 
@@ -27,4 +27,4 @@ Deferred as later candidates:
 
 ## First release
 
-26 app pages: the 19 passing core apps plus 7 approved additions. Every app record carries its official source URL, version context where it affects accuracy, and lastVerified 2026-08-21.
+26 app pages: the 19 passing core apps plus 7 approved additions. Every app record carries its official source URL, version context where it affects accuracy, and lastVerified 2026-08-26. The shared renderer now preserves documented alternative bindings as separate alternatives, and the app records explicitly identify remappable, mode-specific, focus-specific, and setup-dependent behavior.

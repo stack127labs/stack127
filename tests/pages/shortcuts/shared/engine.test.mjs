@@ -17,6 +17,17 @@ test("a selected app produces only its selected platform", () => {
   }
 });
 
+test("preserves documented alternatives and omits an unbound platform default", () => {
+  const result = buildCheatSheet(shortcutApps, [{ slug: "opencode", platforms: ["windows"], groupIds: null }]);
+  assert.equal(result.ok, true);
+  if (result.ok) {
+    const shortcuts = result.doc.apps[0].sections.flatMap((section) => section.shortcuts);
+    const newline = shortcuts.find((shortcut) => shortcut.id === "input-newline");
+    assert.deepEqual(newline?.keys[0].alternatives, [["Ctrl", "Enter"], ["Alt", "Enter"], ["Ctrl", "J"]]);
+    assert.equal(shortcuts.some((shortcut) => shortcut.id === "terminal-suspend"), false);
+  }
+});
+
 test("an empty group selection is not treated as every group", () => {
   const result = buildCheatSheet(shortcutApps, [{ slug: "brave", platforms: ["macos"], groupIds: [] }]);
   assert.equal(result.ok, false);

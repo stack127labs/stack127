@@ -14,7 +14,7 @@ export const github: AppShortcuts = {
     "Shortcuts documented on docs.github.com in August 2026. Character key shortcuts can be disabled in accessibility settings, and the GitHub Command Palette is in public preview and disabled by default.",
   sourceUrl: "https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts",
   sourceLabel: "official keyboard shortcuts",
-  lastVerified: "2026-08-21",
+  lastVerified: "2026-08-26",
   groups: [
     {
       id: "site-navigation",
@@ -48,7 +48,21 @@ export const github: AppShortcuts = {
           id: "open-githubdev",
           action: "Open repository or pull request in github.dev editor",
           keys: combo(platforms, ["."]),
-          note: "Press > instead to open github.dev in a new browser tab.",
+        },
+        {
+          id: "open-githubdev-new-tab",
+          action: "Open github.dev in a new browser tab",
+          keys: combo(platforms, [">"]),
+        },
+        {
+          id: "hovercard-focus",
+          action: "Move focus from an element to its hovercard",
+          keys: perPlatform(platforms, {
+            windows: ["Alt", "Up"],
+            macos: ["Option", "Up"],
+            linux: ["Alt", "Up"],
+          }),
+          note: "Press Esc while the hovercard is focused to close it and return to the element.",
         },
       ],
     },
@@ -88,6 +102,7 @@ export const github: AppShortcuts = {
           note: "Enter also opens it.",
         },
         { id: "request-reviewer", action: "Request a reviewer", keys: combo(platforms, ["Q"]) },
+        { id: "set-milestone", action: "Set a milestone", keys: combo(platforms, ["M"]) },
         { id: "set-assignee", action: "Set assignee", keys: combo(platforms, ["A"]) },
         {
           id: "apply-label",
@@ -133,6 +148,9 @@ export const github: AppShortcuts = {
         { id: "link-markdown", action: "Insert a Markdown link", keys: combo(platforms, ["Ctrl", "K"], ["Cmd", "K"]) },
         { id: "ordered-list", action: "Insert an ordered list", keys: combo(platforms, ["Ctrl", "Shift", "7"], ["Cmd", "Shift", "7"]) },
         { id: "unordered-list", action: "Insert an unordered list", keys: combo(platforms, ["Ctrl", "Shift", "8"], ["Cmd", "Shift", "8"]) },
+        { id: "quote-markdown", action: "Insert a Markdown quote", keys: combo(platforms, ["Ctrl", "Shift", "."], ["Cmd", "Shift", "."]) },
+        { id: "paste-link", action: "Create a Markdown link from selected text", keys: combo(platforms, ["Ctrl", "V"], ["Cmd", "V"]) },
+        { id: "insert-suggestion", action: "Insert a suggested change", keys: combo(platforms, ["Ctrl", "G"], ["Cmd", "G"]) },
       ],
     },
     {
@@ -147,6 +165,65 @@ export const github: AppShortcuts = {
         { id: "toggle-diff-comments", action: "Show or hide diff comments", keys: combo(platforms, ["I"]) },
         { id: "toggle-annotations", action: "Show or hide diff annotations", keys: combo(platforms, ["A"]) },
         { id: "open-edit-file", action: "Open the source file in the editor", keys: combo(platforms, ["E"]) },
+        { id: "switch-branch-tag", action: "Switch to a branch or tag", keys: combo(platforms, ["W"]) },
+        {
+          id: "find-in-file",
+          action: "Start searching in the file editor",
+          keys: combo(platforms, ["Ctrl", "F"], ["Cmd", "F"]),
+        },
+        { id: "find-next", action: "Find the next match", keys: combo(platforms, ["Ctrl", "G"], ["Cmd", "G"]) },
+        {
+          id: "find-previous",
+          action: "Find the previous match",
+          keys: combo(platforms, ["Ctrl", "Shift", "G"], ["Cmd", "Shift", "G"]),
+        },
+        {
+          id: "replace-in-file",
+          action: "Replace in the file editor",
+          keys: perPlatform(platforms, {
+            windows: ["Ctrl", "Shift", "F"],
+            macos: ["Cmd", "Option", "F"],
+            linux: ["Ctrl", "Shift", "F"],
+          }),
+        },
+        {
+          id: "replace-all-in-file",
+          action: "Replace all in the file editor",
+          keys: perPlatform(platforms, {
+            windows: ["Ctrl", "Shift", "R"],
+            macos: ["Cmd", "Shift", "Option", "F"],
+            linux: ["Ctrl", "Shift", "R"],
+          }),
+        },
+        { id: "jump-to-line-editor", action: "Jump to a line in the file editor", keys: combo(platforms, ["Alt", "G"]) },
+        { id: "undo-editor", action: "Undo in the file editor", keys: combo(platforms, ["Ctrl", "Z"], ["Cmd", "Z"]) },
+        { id: "redo-editor", action: "Redo in the file editor", keys: combo(platforms, ["Ctrl", "Y"], ["Cmd", "Y"]) },
+      ],
+    },
+    {
+      id: "code-file-navigation",
+      title: "Navigation within code files",
+      intro: "Move a cursor through a code file, highlight a line, and inspect the symbol under the cursor.",
+      shortcuts: [
+        { id: "highlight-line", action: "Highlight the current line", keys: combo(platforms, ["Shift", "J"]) },
+        {
+          id: "line-menu",
+          action: "Open the line menu for a selected line",
+          keys: perPlatform(platforms, {
+            windows: ["Shift", "Alt", "C"],
+            macos: ["Shift", "Option", "C"],
+            linux: ["Shift", "Alt", "C"],
+          }),
+        },
+        {
+          id: "highlight-symbol",
+          action: "Highlight the current symbol and its other occurrences",
+          keys: perPlatform(platforms, {
+            windows: ["Ctrl", "Enter"],
+            macos: ["Cmd", "Enter"],
+            linux: ["Ctrl", "Enter"],
+          }),
+        },
       ],
     },
     {
@@ -193,6 +270,64 @@ export const github: AppShortcuts = {
         { id: "action-workflow-file", action: "Go to the workflow file", keys: combo(platforms, ["G", "F"]) },
         { id: "action-toggle-time", action: "Toggle timestamps in workflow logs", keys: combo(platforms, ["T"]) },
         { id: "action-fullscreen", action: "Toggle full-screen workflow logs", keys: combo(platforms, ["F"]) },
+        {
+          id: "workflow-suggestions",
+          action: "Get suggestions in the workflow editor",
+          keys: combo(platforms, ["Ctrl", "Space"], ["Cmd", "Space"]),
+        },
+        {
+          id: "project-row-actions",
+          action: "Open the project row actions menu",
+          keys: combo(platforms, ["Ctrl", "Shift", "\\"], ["Cmd", "Shift", "\\"]),
+        },
+        { id: "project-add-below", action: "Add the cell or card below to the selection", keys: combo(platforms, ["Shift", "Down"]) },
+        { id: "project-add-above", action: "Add the cell or card above to the selection", keys: combo(platforms, ["Shift", "Up"]) },
+        { id: "project-archive", action: "Archive selected project items", keys: combo(platforms, ["E"]) },
+      ],
+    },
+    {
+      id: "files-changed",
+      title: "Pull request files changed",
+      intro: "Filter changed files, change the commit scope, and submit review comments while inspecting a pull request.",
+      shortcuts: [
+        { id: "changed-files-commits", action: "Open the commits filter", keys: combo(platforms, ["C"]) },
+        { id: "changed-files-filter", action: "Focus the changed-files filter", keys: combo(platforms, ["T"]) },
+        {
+          id: "changed-files-submit-review",
+          action: "Submit a review comment from Files changed",
+          keys: combo(platforms, ["Ctrl", "Shift", "Enter"], ["Cmd", "Shift", "Enter"]),
+        },
+      ],
+    },
+    {
+      id: "network-graph",
+      title: "Network graph",
+      intro: "Scroll the repository network graph in small steps or jump to an edge of the graph.",
+      shortcuts: [
+        { id: "network-left", action: "Scroll the network graph left", keys: combo(platforms, ["Left"]) , note: "H also scrolls left." },
+        { id: "network-right", action: "Scroll the network graph right", keys: combo(platforms, ["Right"]), note: "L also scrolls right." },
+        { id: "network-up", action: "Scroll the network graph up", keys: combo(platforms, ["Up"]), note: "K also scrolls up." },
+        { id: "network-down", action: "Scroll the network graph down", keys: combo(platforms, ["Down"]), note: "J also scrolls down." },
+        {
+          id: "network-left-edge",
+          action: "Scroll all the way left",
+          keys: perPlatform(platforms, { windows: ["Shift", "H"], macos: ["Shift", "Left"], linux: ["Shift", "H"] }),
+        },
+        {
+          id: "network-right-edge",
+          action: "Scroll all the way right",
+          keys: perPlatform(platforms, { windows: ["Shift", "L"], macos: ["Shift", "Right"], linux: ["Shift", "L"] }),
+        },
+        {
+          id: "network-up-edge",
+          action: "Scroll all the way up",
+          keys: perPlatform(platforms, { windows: ["Shift", "K"], macos: ["Shift", "Up"], linux: ["Shift", "K"] }),
+        },
+        {
+          id: "network-down-edge",
+          action: "Scroll all the way down",
+          keys: perPlatform(platforms, { windows: ["Shift", "J"], macos: ["Shift", "Down"], linux: ["Shift", "J"] }),
+        },
       ],
     },
   ],

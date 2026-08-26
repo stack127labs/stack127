@@ -89,6 +89,13 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - Next.js automatically reads normal Next env files such as `.env.local`. Custom split env files must be loaded explicitly by deploy tooling, scripts, command flags, or a script-level env loader.
 - Never commit secrets.
 
+## Remote Local Development
+
+- When a task is running on the homelab through Codex and the user asks for a localhost link, return a Tailscale URL that the user's remote Mac can open. Do not return `localhost` or `127.0.0.1` as the user-facing link.
+- Stack127's `dev` and `start` scripts bind Next.js to `0.0.0.0` on port `3333`, so the app is reachable through the homelab's Tailscale interface without exposing it to the public internet.
+- Run `tailscale status` to find the current Tailscale IPv4 for this host (`teja-homelab`), then use `http://<tailscale-ip>:3333/<route>`. The address is not permanent; do not assume an old Tailscale IP.
+- Keep `localhost:3333` and `127.0.0.1:3333` for checks executed on the homelab itself. See `stack127_docs/local-development.md` for the full handoff and troubleshooting steps.
+
 ## Production Deployment
 
 - The only Stack127 production target is the dedicated OVH VPS recorded in `scripts/stack127/deployment/targets.json`.
