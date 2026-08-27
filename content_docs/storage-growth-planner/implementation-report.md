@@ -307,7 +307,7 @@ Plan a local storage purchase against your data growth and cost assumptions.
 - Server-rendered content: the route page owns the h1 and short introduction. The later writing stage may add `storage-growth-planner-guide.tsx` and route-local guide styles only after `writing-and-seo.md` is ready.
 - Ownership manifest: `tests/pages/storage-growth-planner/page.json`, with state `unpublished`, route-owned docs, tests, scripts, skills, and an empty `repositories` array.
 - Tests: pure engine tests, static route ownership/content tests, and Playwright route tests under `tests/pages/storage-growth-planner/`. The shared `scripts/storage-tools/preview-local-pages.mjs` manages this route's guarded managed-development preview row with the seven sibling storage routes; it refuses production or unknown databases and supports `--remove`.
-- Shared files explicitly out of scope: `app/(site)/storage-tools/page.tsx`, `app/(site)/storage-tools/storage-tools-sidebar.tsx`, shared counts, migrations, registry rows, shared engine adapters, and other routes.
+- Shared files explicitly out of scope: `app/(site)/(catalogs)/storage-tools/page.tsx`, `app/(site)/(catalogs)/storage-tools/storage-tools-sidebar.tsx`, shared counts, migrations, registry rows, shared engine adapters, and other routes.
 
 ### Accessibility, privacy, security, and performance
 

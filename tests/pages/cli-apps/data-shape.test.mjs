@@ -85,12 +85,13 @@ test("the data layer exposes the fields the directory renders", async () => {
 });
 
 test("the page renders unknown values instead of hiding them", async () => {
-  const page = await read("app/(site)/cli-apps/page.tsx");
+  const page = await read("app/(site)/(catalogs)/cli-apps/page.tsx");
+  const browser = await read("app/(site)/(catalogs)/cli-apps/cli-app-browser.tsx");
 
   assert.match(page, /"unknown"/);
-  assert.match(page, /license unknown/);
-  assert.match(page, /no public repository/);
-  assert.match(page, /none published/);
+  assert.match(browser, /app\.license \?\? "unknown"/);
+  assert.match(browser, /app\.latest_version \?\? "unknown"/);
+  assert.match(browser, /app\.platforms\.length > 0[\s\S]*: "unknown"/);
 });
 
 test("last_commit_at is only set from repository push dates, not release dates", async () => {

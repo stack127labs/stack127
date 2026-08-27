@@ -15,9 +15,8 @@ test("every page family uses the shared responsive H1 typography", () => {
 
   const h1Owners = [
     ["app/prose.module.css", /\.prose h1\s*\{[\s\S]*font-size: var\(--text-h1\);[\s\S]*line-height: var\(--line-h1\);/],
+    ["app/page-header.module.css", /\.header h1\s*\{[\s\S]*font-size: var\(--text-h1\);[\s\S]*line-height: var\(--line-h1\);/],
     ["app/(site)/home.css", /\.home-intro h1\s*\{[\s\S]*font-size: var\(--text-h1\);[\s\S]*line-height: var\(--line-h1\);/],
-    ["app/(site)/dns-tools/dns-tools.css", /\.dns-page-header h1\s*\{[\s\S]*font-size: var\(--text-h1\);[\s\S]*line-height: var\(--line-h1\);/],
-    ["app/(site)/self-host-apps/self-host-apps.css", /\.directory-results-header h1\s*\{[\s\S]*font-size: var\(--text-h1\);[\s\S]*line-height: var\(--line-h1\);/],
     ["app/not-found.module.css", /\.panel h1\s*\{[\s\S]*font-size: var\(--text-h1\);[\s\S]*line-height: var\(--line-h1\);/],
   ];
 

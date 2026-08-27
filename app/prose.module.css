@@ -57,11 +57,23 @@
 .flow,
 .sectionFlow > section {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-prose-paragraph);
 }
 
-.flow > :where(h2, h3, h4):not(:first-child) {
-  margin-top: var(--space-9);
+.flow > :where(h2):not(:first-child) {
+  margin-top: var(--space-prose-heading-2);
+}
+
+.flow > :where(h3, h4):not(:first-child) {
+  margin-top: var(--space-prose-heading-3);
+}
+
+.sectionFlow > section + section {
+  margin-top: var(--space-prose-section);
+}
+
+.sectionFlow > section > :where(h2, h3, h4):first-child {
+  margin-bottom: var(--space-2);
 }
 
 .prose a {

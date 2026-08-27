@@ -19,7 +19,7 @@ import {
   reportJson,
   useDomainLookup,
   type Tone,
-} from "../../domain-tools/domain-lookup-client";
+} from "../../(catalogs)/domain-tools/domain-lookup-client";
 
 /** The lifecycle stages, in the order a domain moves through them. */
 const STAGES = [

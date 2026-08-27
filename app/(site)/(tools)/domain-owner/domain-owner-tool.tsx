@@ -13,7 +13,7 @@ import {
   UnavailableNote,
   reportJson,
   useDomainLookup,
-} from "../../domain-tools/domain-lookup-client";
+} from "../../(catalogs)/domain-tools/domain-lookup-client";
 
 const ROLE_LABELS: Record<string, string> = {
   registrant: "Registrant",

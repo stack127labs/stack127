@@ -77,10 +77,9 @@ export type LicenseEntry = {
 };
 
 export const licensePage = {
-  title: "Software licenses for self-hosters",
+  title: "Software licenses for self-hosting",
   lede:
-    "Every app on GitHub, Docker Hub, or a directory card ships with a license label: MIT, AGPL, SSPL, Elastic, BSL. That one label decides whether you can run the app at home, put it on a work server, or host it for other people.",
-  ledeFollowUp: "This page turns the labels you will actually meet into direct answers.",
+    "Compare the licenses used by self-hosted apps. See whether you can run each app at home or at work, modify it, redistribute it, or host it for other people.",
   notLegalAdvice:
     "This is a practical guide, not legal advice. If money, customers, or a commercial product are involved, read the project's LICENSE file and get legal help when you need it.",
 };

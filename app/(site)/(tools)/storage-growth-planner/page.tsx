@@ -1,8 +1,9 @@
 import { Calculator } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { PageTitleIcon } from "../../../page-title-icon";
-import { StorageToolsSidebar } from "../../storage-tools/storage-tools-sidebar";
-import styles from "./storage-growth-planner.module.css";
+import { PageHeader } from "../../../page-header";
+import { PageCanvas } from "../../../page-canvas";
+import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import { StorageGrowthGuide } from "./storage-growth-planner-guide";
 import { StorageGrowthPlanner } from "./storage-growth-planner";
 
@@ -25,8 +26,8 @@ export default async function StorageGrowthPlannerPage({
       sidebar={<StorageToolsSidebar active="storage-growth" />}
       sidebarLabel="Storage tools sidebar"
     >
-      <div className={styles.page}>
-        <header className={styles.pageHeader}>
+      <PageCanvas>
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <Calculator strokeWidth={2.2} />
@@ -36,10 +37,10 @@ export default async function StorageGrowthPlannerPage({
           <p>
             Plan a local storage purchase against your data growth and cost assumptions. The planner shows capacity after reserve, the first shortfall year, and a modeled total cost; it is not installed filesystem free space.
           </p>
-        </header>
+        </PageHeader>
         <StorageGrowthPlanner initialState={firstValue(params.state)} />
         <StorageGrowthGuide />
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

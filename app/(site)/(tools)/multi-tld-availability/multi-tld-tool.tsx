@@ -10,7 +10,7 @@ import {
   reportJson,
   useDomainLookup,
   type Tone,
-} from "../../domain-tools/domain-lookup-client";
+} from "../../(catalogs)/domain-tools/domain-lookup-client";
 
 /** Cannot check and check failed must never read as available. */
 const STATE_TONE: Record<MultiTldRow["state"], Tone> = {

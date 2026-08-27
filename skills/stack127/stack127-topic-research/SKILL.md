@@ -74,7 +74,7 @@ Default shapes that follow from the tests:
 
 ## Content Strategy Boundaries
 
-- Do not propose news, commentary, or coverage of weekly releases. News decays in days, earns few links from this audience, and shifts the domain's dominant content class toward commodity output while domain trust is still being earned. See `stack127_docs/site-review-2026-07.md` sections 8 and 9.
+- Do not propose news, commentary, or coverage of weekly releases. News decays in days, earns few links from this audience, and shifts the domain's dominant content class toward commodity output while domain trust is still being earned. See `stack127_records/2026-07-site-review.md` sections 8 and 9.
 - Reference articles are allowed only when the page contains something not already answered identically elsewhere, visible on the page itself: assembled structured facts, original measurements, or version-anchored migration detail.
 - The fast-cadence channel is data reports and automated trend pages generated from Stack127's own databases, not articles.
 

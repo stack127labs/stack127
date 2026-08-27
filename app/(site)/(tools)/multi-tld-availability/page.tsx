@@ -1,10 +1,11 @@
-import "../../domain-tools/domain-tools.css";
+import "../../(catalogs)/domain-tools/domain-tools.css";
 import { Layers } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
-import { DomainToolsSidebar } from "../../domain-tools/domain-tools-sidebar";
+import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
 import { MultiTldTool } from "./multi-tld-tool";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 export default function MultiTldAvailabilityPage() {
@@ -16,7 +17,7 @@ export default function MultiTldAvailabilityPage() {
       sidebarLabel="Domain tools sidebar"
     >
       <main className="domain-tool-main">
-        <header className="domain-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <Layers strokeWidth={2.2} />
@@ -29,7 +30,7 @@ export default function MultiTldAvailabilityPage() {
             outcome, so a check that failed is never quietly presented as a name
             that is free.
           </p>
-        </header>
+        </PageHeader>
 
         <MultiTldTool />
 

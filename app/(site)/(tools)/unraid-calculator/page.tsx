@@ -1,8 +1,9 @@
 import { HardDrive } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { PageTitleIcon } from "../../../page-title-icon";
-import { StorageToolsSidebar } from "../../storage-tools/storage-tools-sidebar";
-import styles from "./unraid-calculator.module.css";
+import { PageHeader } from "../../../page-header";
+import { PageCanvas } from "../../../page-canvas";
+import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import { UnraidCalculator } from "./unraid-calculator";
 import { UnraidCalculatorGuide } from "./unraid-calculator-guide";
 
@@ -26,8 +27,8 @@ export default async function UnraidCalculatorPage({
       sidebar={<StorageToolsSidebar active="unraid" />}
       sidebarLabel="Storage tools sidebar"
     >
-      <div className={styles.page}>
-        <header className={styles.pageHeader}>
+      <PageCanvas>
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <HardDrive strokeWidth={2.2} />
@@ -40,10 +41,10 @@ export default async function UnraidCalculatorPage({
             Filesystem-visible space remains unknown, and the calculator stops at that planning
             boundary.
           </p>
-        </header>
+        </PageHeader>
         <UnraidCalculator initialState={firstValue(params.state)} />
         <UnraidCalculatorGuide />
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

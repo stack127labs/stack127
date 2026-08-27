@@ -18,7 +18,7 @@ Stop after this report. Do not create an implementation report, tests, public co
 1. Read `AGENTS.md`.
 2. Resolve the intended tool name and stable route. Inspect existing routes and `content_docs/` to avoid duplicate or conflicting work. If the route is materially ambiguous, ask the user before writing files.
 3. Read any existing docs, route files, tests, scripts, engine code, and ownership manifest for this tool or its route family. Summarize the current state as evidence, not assumptions.
-4. Read `stack127_docs/site-review-2026-07.md` sections 8 and 9 and the surface decision rule in `skills/stack127/stack127-topic-research/SKILL.md`. Flag a blocker if the idea is a thin wrapper, depends on incomplete curated coverage, promises judgment it cannot safely automate, or does not serve stack127's technical audience.
+4. Read `stack127_records/2026-07-site-review.md` sections 8 and 9 and the surface decision rule in `skills/stack127/stack127-topic-research/SKILL.md`. Flag a blocker if the idea is a thin wrapper, depends on incomplete curated coverage, promises judgment it cannot safely automate, or does not serve stack127's technical audience.
 5. Read the complete installed Browser skill and `skills/stack127/references/homelab-browser-and-search.md`. Use the Codex in-app Browser when a runtime instance is available. In homelab or Codex CLI mode, use the documented standalone Playwright fallback when the in-app Browser is unavailable; do not silently downgrade to search snippets or static HTML.
 
 ## Research depth

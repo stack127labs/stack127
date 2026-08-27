@@ -62,6 +62,7 @@ Every page h1 highlights one editorially chosen phrase with a `<mark>` styled as
 - Reading copy uses `--color-text`, not muted.
 - Use no default dividers between prose sections unless a specific reference page needs them.
 - Keep section spacing calm: enough air to scan, not enough to feel editorial or blog-like.
+- In one prose flow, later `h2` headings sit 40px after the preceding element and later `h3` or `h4` headings sit 32px after it. These totals include the normal paragraph gap.
 - Keep gaps between forms, results, cards, navigation, and other structural regions in their owning page or component styles.
 - Write headings normally in the source text, for example `Privacy`, `What we collect`, and `External links`.
 - Links use `--color-link` with a subtle hover underline.

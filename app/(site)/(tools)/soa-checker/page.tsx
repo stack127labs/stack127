@@ -1,10 +1,11 @@
-import "../../dns-tools/dns-tools.css";
+import "../../(catalogs)/dns-tools/dns-tools.css";
 import { FileClock } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { DnsToolsSidebar } from "../../dns-tools/dns-tools-sidebar";
+import { DnsToolsSidebar } from "../../(catalogs)/dns-tools/dns-tools-sidebar";
 import { SoaChecker } from "./soa-checker";
-import styles from "../../dns-tools/dns-diagnostics.module.css";
+import styles from "../../(catalogs)/dns-tools/dns-diagnostics.module.css";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -14,7 +15,7 @@ export default async function SoaCheckerPage({ searchParams }: { searchParams: P
   const params = await searchParams;
   return <AppShell mainLabel="SOA Consistency Checker" menuLabel="DNS tools" sidebar={<DnsToolsSidebar active="soa" />} sidebarLabel="DNS tools sidebar">
     <main className={styles.main}>
-      <header className="dns-page-header">
+      <PageHeader>
         <h1>
           <PageTitleIcon>
             <FileClock strokeWidth={2.2} />
@@ -28,7 +29,7 @@ export default async function SoaCheckerPage({ searchParams }: { searchParams: P
           Start of Authority: it is the single record that carries a zone&apos;s version number and
           its timing settings.
         </p>
-      </header>
+      </PageHeader>
       <SoaChecker initialName={first(params.name)} />
         <article className={`dns-reference-content ${proseSectionFlowClassName}`}>
         <section>

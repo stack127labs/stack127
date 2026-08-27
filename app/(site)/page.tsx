@@ -45,9 +45,9 @@ import { AppShell, SidebarLabel } from "../app-shell";
 import { dotBandClassName } from "../dot-band";
 import { Doodle } from "../doodle";
 import { SidebarList } from "../sidebar-list";
-import { dnsToolCount } from "./dns-tools/dns-tools-sidebar";
-import { domainToolCount } from "./domain-tools/domain-tools-sidebar";
-import { storageToolCount } from "./storage-tools/storage-tools-sidebar";
+import { dnsToolCount } from "./(catalogs)/dns-tools/dns-tools-sidebar";
+import { domainToolCount } from "./(catalogs)/domain-tools/domain-tools-sidebar";
+import { storageToolCount } from "./(catalogs)/storage-tools/storage-tools-sidebar";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,

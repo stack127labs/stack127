@@ -1,0 +1,20 @@
+.canvas {
+  display: grid;
+  gap: var(--space-13);
+  margin: 0 auto;
+  max-width: 1120px;
+  min-width: 0;
+  padding: var(--space-13) var(--container-gutter) var(--space-14);
+  width: 100%;
+}
+
+.wide {
+  max-width: var(--container-max);
+}
+
+@media (max-width: 760px) {
+  .canvas {
+    gap: var(--space-10);
+    padding-block: var(--space-9) var(--space-12);
+  }
+}

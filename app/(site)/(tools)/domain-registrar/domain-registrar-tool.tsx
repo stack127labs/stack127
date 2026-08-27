@@ -14,7 +14,7 @@ import {
   formatDate,
   reportJson,
   useDomainLookup,
-} from "../../domain-tools/domain-lookup-client";
+} from "../../(catalogs)/domain-tools/domain-lookup-client";
 
 export function DomainRegistrarTool({ initialName = "" }: { initialName?: string }) {
   const [name, setName] = useState(initialName);

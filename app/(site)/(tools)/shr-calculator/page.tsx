@@ -1,10 +1,11 @@
 import { HardDrive } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { PageTitleIcon } from "../../../page-title-icon";
-import { StorageToolsSidebar } from "../../storage-tools/storage-tools-sidebar";
+import { PageHeader } from "../../../page-header";
+import { PageCanvas } from "../../../page-canvas";
+import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import { ShrGuide } from "./shr-guide";
 import { ShrCalculator } from "./shr-calculator";
-import styles from "./shr-calculator.module.css";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
@@ -25,8 +26,8 @@ export default async function ShrCalculatorPage({
       sidebar={<StorageToolsSidebar active="shr" />}
       sidebarLabel="SHR calculator sidebar"
     >
-      <div className={styles.page}>
-        <header className={styles.pageHeader}>
+      <PageCanvas>
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <HardDrive strokeWidth={2.2} />
@@ -38,10 +39,10 @@ export default async function ShrCalculatorPage({
             capacity with protection and unused tiers kept separate. Inputs stay in your browser;
             this page does not model expansion history or filesystem free space.
           </p>
-        </header>
+        </PageHeader>
         <ShrCalculator initialState={firstValue(params.state)} />
         <ShrGuide />
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

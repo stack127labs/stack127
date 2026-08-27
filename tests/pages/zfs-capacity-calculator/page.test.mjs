@@ -8,8 +8,8 @@ const clientPath = new URL("zfs-capacity-calculator.tsx", route);
 const guidePath = new URL("zfs-capacity-guide.tsx", route);
 const stylesPath = new URL("zfs-capacity-calculator.module.css", route);
 const enginePath = new URL("../../../lib/storage/zfs.ts", import.meta.url);
-const hubPath = new URL("../../../app/(site)/storage-tools/page.tsx", import.meta.url);
-const sidebarPath = new URL("../../../app/(site)/storage-tools/storage-tools-sidebar.tsx", import.meta.url);
+const hubPath = new URL("../../../app/(site)/(catalogs)/storage-tools/page.tsx", import.meta.url);
+const sidebarPath = new URL("../../../app/(site)/(catalogs)/storage-tools/storage-tools-sidebar.tsx", import.meta.url);
 const previewPath = new URL("../../../scripts/storage-tools/preview-local-pages.mjs", import.meta.url);
 
 const manifestPath = new URL("page.json", import.meta.url);

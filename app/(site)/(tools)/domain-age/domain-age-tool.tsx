@@ -18,7 +18,7 @@ import {
   reportJson,
   useDomainLookup,
   type Tone,
-} from "../../domain-tools/domain-lookup-client";
+} from "../../(catalogs)/domain-tools/domain-lookup-client";
 
 /**
  * Age reads as trust, and that is exactly the mistake. Very new is worth a second

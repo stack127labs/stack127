@@ -1,11 +1,12 @@
-import "../../domain-tools/domain-tools.css";
+import "../../(catalogs)/domain-tools/domain-tools.css";
 import { ArrowLeftRight } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
-import { DomainToolsSidebar } from "../../domain-tools/domain-tools-sidebar";
+import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
 import { TransferReadinessTool } from "./transfer-readiness-tool";
 import { pendingPolicy, policyInForce } from "@/lib/domain/transfer-policy.ts";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -24,7 +25,7 @@ export default async function TransferReadinessPage({ searchParams }: { searchPa
       sidebarLabel="Domain tools sidebar"
     >
       <main className="domain-tool-main">
-        <header className="domain-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <ArrowLeftRight strokeWidth={2.2} />
@@ -38,7 +39,7 @@ export default async function TransferReadinessPage({ searchParams }: { searchPa
             blocking you, separates the locks you can remove yourself from the ones
             you cannot, and is straight about the parts no public tool can see.
           </p>
-        </header>
+        </PageHeader>
 
         <TransferReadinessTool initialName={first(params.name)} />
 

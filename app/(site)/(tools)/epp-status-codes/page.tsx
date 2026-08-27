@@ -1,11 +1,12 @@
-import "../../domain-tools/domain-tools.css";
+import "../../(catalogs)/domain-tools/domain-tools.css";
 import { ListChecks } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
-import { DomainToolsSidebar } from "../../domain-tools/domain-tools-sidebar";
+import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
 import { STATUS_CODES, STATUS_GROUP_TITLES, type StatusGroup } from "@/lib/domain/status-codes.ts";
-import { StatePill } from "../../domain-tools/domain-lookup-client";
+import { StatePill } from "../../(catalogs)/domain-tools/domain-lookup-client";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 /** Who set it decides what you can do, so that is what the tone encodes. */
@@ -46,7 +47,7 @@ export default function EppStatusCodesPage() {
       sidebarLabel="Domain tools sidebar"
     >
       <main className="domain-tool-main">
-        <header className="domain-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <ListChecks strokeWidth={2.2} />
@@ -60,7 +61,7 @@ export default function EppStatusCodesPage() {
             Here is what each one means in plain terms, who set it, whether you can
             remove it yourself, and what to do about it.
           </p>
-        </header>
+        </PageHeader>
 
           <article className={`domain-reference-content ${proseSectionFlowClassName}`}>
           <section>

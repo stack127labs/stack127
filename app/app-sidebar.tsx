@@ -14,7 +14,7 @@ type AppSidebarProps = {
 const DRAWER_ID = "app-sidebar-drawer";
 
 /**
- * Desktop: renders the sidebar exactly as before — an in-grid sticky column.
+ * Desktop renders the sidebar as an in-grid sticky column.
  * Compact view (<=960px, see app-shell.module.css): the same content becomes an off-canvas
  * left drawer opened by a sticky hamburger bar, so the main content is what
  * people land on. The trigger bar and backdrop are display:none on desktop, so

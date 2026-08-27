@@ -1,8 +1,9 @@
 import { ServerCog } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { PageTitleIcon } from "../../../page-title-icon";
-import { StorageToolsSidebar } from "../../storage-tools/storage-tools-sidebar";
-import styles from "./ceph-capacity-calculator.module.css";
+import { PageHeader } from "../../../page-header";
+import { PageCanvas } from "../../../page-canvas";
+import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import { CephCapacityCalculator } from "./ceph-capacity-calculator";
 import { CephCapacityGuide } from "./ceph-capacity-guide";
 
@@ -25,8 +26,8 @@ export default async function CephCapacityCalculatorPage({
       sidebar={<StorageToolsSidebar active="ceph" />}
       sidebarLabel="Ceph planner sidebar"
     >
-      <div className={styles.page}>
-        <header className={styles.pageHeader}>
+      <PageCanvas>
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <ServerCog strokeWidth={2.2} />
@@ -39,10 +40,10 @@ export default async function CephCapacityCalculatorPage({
             largest modeled domain. It is a local planning model, not a live CRUSH or pool
             inspection.
           </p>
-        </header>
+        </PageHeader>
         <CephCapacityCalculator initialState={firstValue(params.state)} />
         <CephCapacityGuide />
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

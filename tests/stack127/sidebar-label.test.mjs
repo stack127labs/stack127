@@ -26,10 +26,10 @@ test("shared sidebar titles use a paragraph with heading-like styling", () => {
   const sidebarOwners = [
     "app/(site)/page.tsx",
     "app/info-page.tsx",
-    "app/(site)/dns-tools/dns-tools-sidebar.tsx",
-    "app/(site)/self-host-apps/page.tsx",
-    "app/(site)/self-hosting-for-beginners/course.tsx",
-    "app/(site)/software-licenses-for-self-hosting/page.tsx",
+    "app/(site)/(catalogs)/dns-tools/dns-tools-sidebar.tsx",
+    "app/(site)/(catalogs)/self-host-apps/page.tsx",
+    "app/(site)/(courses)/_components/course-shell.tsx",
+    "app/(site)/(catalogs)/software-licenses-for-self-hosting/page.tsx",
   ];
 
   for (const path of sidebarOwners) {
@@ -40,7 +40,7 @@ test("shared sidebar titles use a paragraph with heading-like styling", () => {
 });
 
 test("DNS sidebars list only tools that are available now", () => {
-  const sidebar = source("app/(site)/dns-tools/dns-tools-sidebar.tsx");
+  const sidebar = source("app/(site)/(catalogs)/dns-tools/dns-tools-sidebar.tsx");
   const lookupPage = source("app/(site)/(tools)/dns-lookup/page.tsx");
 
   assert.match(sidebar, /const availableDnsTools = \[/);

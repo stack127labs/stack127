@@ -8,8 +8,8 @@ const clientPath = new URL("raidz-expansion-planner.tsx", route);
 const guidePath = new URL("raidz-expansion-guide.tsx", route);
 const stylesPath = new URL("raidz-expansion-planner.module.css", route);
 const enginePath = new URL("../../../lib/storage/zfs-expansion.ts", import.meta.url);
-const hubPath = new URL("../../../app/(site)/storage-tools/page.tsx", import.meta.url);
-const sidebarPath = new URL("../../../app/(site)/storage-tools/storage-tools-sidebar.tsx", import.meta.url);
+const hubPath = new URL("../../../app/(site)/(catalogs)/storage-tools/page.tsx", import.meta.url);
+const sidebarPath = new URL("../../../app/(site)/(catalogs)/storage-tools/storage-tools-sidebar.tsx", import.meta.url);
 const previewPath = new URL("../../../scripts/storage-tools/preview-local-pages.mjs", import.meta.url);
 const migrationPath = new URL(
   "../../../supabase/migrations/20260813000000_publish_raidz_expansion_planner.sql",

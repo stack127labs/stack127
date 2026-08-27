@@ -1,9 +1,11 @@
 import { HardDrive } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
+import { PageCanvas } from "../../../page-canvas";
 import { proseClassName, proseSectionFlowClassName } from "../../../prose";
-import { StorageToolsSidebar } from "../../storage-tools/storage-tools-sidebar";
-import styles from "../../storage-tools/storage-tools.module.css";
+import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
+import styles from "../../(catalogs)/storage-tools/storage-tools.module.css";
 import { RaidCalculator } from "./raid-calculator";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -38,8 +40,8 @@ export default async function RaidCalculatorPage({
       sidebar={<StorageToolsSidebar active="raid" />}
       sidebarLabel="RAID calculator sidebar"
     >
-      <div className={styles.page}>
-        <header className={styles.pageHeader}>
+      <PageCanvas>
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <HardDrive strokeWidth={2.2} />
@@ -51,7 +53,7 @@ export default async function RaidCalculatorPage({
             drives strand. RAID 10, RAID 50, and RAID 60 show their exact groups because placement
             changes both capacity and what can fail. Everything is calculated in your browser.
           </p>
-        </header>
+        </PageHeader>
 
         <RaidCalculator initialState={firstValue(params.state)} />
 
@@ -218,7 +220,7 @@ export default async function RaidCalculatorPage({
             </p>
           </section>
         </article>
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

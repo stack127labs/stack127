@@ -2,14 +2,14 @@
 
 Route: `/software-licenses-for-self-hosting`
 
-Practical guide to license labels self-hosters see when they run apps or publish them.
+Catalog of software license terms that matter when someone runs or publishes a self-hosted app.
 
 ## Intent
 
 - Serve two readers on one page: people who self-host apps, and people who ship self-host apps.
 - For users: what you can do at home, at work, with changes, and when hosting for others.
 - For creators: which license fits the trade you want (adoption, share-alike, source-available limits, commercial splits).
-- Keep the written intro short so people can jump into license sections from the sidebar.
+- Put the comparison table directly after the page title so visitors can answer their question first.
 - Stay factual and conservative. This is not legal advice.
 
 ## Voice
@@ -25,15 +25,15 @@ Use normal Stack127 reference voice from `stack127_docs/writing-style.md`, with 
 
 ## Content source
 
-- `lib/software-licenses.ts` is the single source of truth for concepts, groups, license entries, fact rows, user/creator notes, aliases, and official links.
-- The page route only renders that data.
-- Each license section includes: summary, decision facts, "If you run the app", "If you ship an app", official license text link, then optional common mistake.
+- `lib/software-licenses.ts` is the single source of truth for groups, license entries, verdicts, aliases, and official links.
+- The page route owns the short explanations around the catalog.
+- Each license card includes a concise summary, matching apps when available, and the official source.
 
 ## Layout
 
 - Shared `AppShell` with a licenses sidebar.
 - Sidebar title is the page title. No eyebrow label.
-- Sidebar groups: Start here, Permissive, Weak copyleft, Strong / network, Source-available, Public domain / CC, Dual / custom.
+- The sidebar links to the comparison, supporting explanations, and license anchors grouped by family.
 - Anchor ids match entry `id` values for deep links such as `/software-licenses-for-self-hosting#agpl-3-0`.
 
 ## Publication

@@ -1,25 +1,24 @@
-# Brief: keyboard shortcuts reference (/keyboard-shortcuts and /shortcuts/<app-slug>)
+# Brief: keyboard shortcuts
 
 ## Who is here
 
-A developer or power user mid-task who cannot remember one key combination, or who is about to invest a week into a new tool and wants the twenty keys that matter. They arrive from search with an app name plus "shortcuts", scan for their platform, and leave.
+A developer or power user wants the useful keys for one of the tools they already use. They may be
+checking platform support before opening a sheet, or choosing several apps for one printable page.
 
 ## The job
 
-The directory gets them to the right app page in one glance. The app page gives them a clear path through the app's keyboard model: a specific introduction, task-grouped tables, real per-platform keys, useful caveats, and a short closing that helps them choose what to learn first.
+The catalog lets the reader compare available apps, platforms, and shortcut counts. Choosing an app
+opens the cheatsheet generator with that app selected. There is one catalog URL and one generator
+URL. The removed `/shortcuts/*` pages do not redirect.
 
 ## Show vs say
 
-- Directory: one section per app category. Each section has a useful description and a small table with app name, platforms, shortcut count, and link. Do not collapse the categories into divider rows inside one table.
-- App pages: a specific introduction leads into a short app-specific orientation, then task-based sections make up the reference. Every section has a clear description before its table. A short closing gives the reader a sensible first pair of shortcuts and a printable-sheet next step. Columns follow the app's supported platforms; combos render as keyboard keys in mono. A short anchor list of groups sits above long pages.
-- Sentences: the intro should explain what makes that app's shortcut model distinct. Section descriptions should explain the work covered by the rows, including sequences, chords, leader keys, and mode changes where they matter.
-- The public page does not lead with provenance language or a source disclaimer. Keep the research and source metadata in the structured records and internal documentation. Do not render source labels, verification timestamps, or "checked against" copy in the user-facing page.
-- No marker art, no charts, no screenshots. The table is the visual.
+One section per category keeps the catalog easy to scan. Each section uses a table for the repeated
+app, platform, and count fields. App links open a configured sheet where the actual key bindings are
+grouped by task and platform. No app landing pages, charts, screenshots, provenance labels, or
+decorative copy belong here.
 
 ## Data rules
 
-One structured source in lib/shortcuts feeds the directory, every app page, and the generator. Unknown stays unknown: no guessed combos, no invented apps, no fake precision on versions. Every app carries its official source URL and last-verified date.
-
-## Non-goals
-
-No comparison pages, no per-shortcut URLs, no category landing pages, no blog, no paid sheets, no donations, no newsletter.
+The structured records in `lib/shortcuts` feed both pages. Unknown keys remain unknown. Every app
+keeps its official source URL and last-verified date in the data, not in the public catalog.

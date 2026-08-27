@@ -5,8 +5,8 @@ import test from "node:test";
 
 const root = process.cwd();
 const hostedStyleFiles = [
-  "app/(site)/dns-tools/dns-tools.css",
-  "app/(site)/dns-tools/dns-diagnostics.module.css",
+  "app/(site)/(catalogs)/dns-tools/dns-tools.css",
+  "app/(site)/(catalogs)/dns-tools/dns-diagnostics.module.css",
   "app/(site)/(tools)/dns-trace/dns-trace.module.css",
 ];
 

@@ -3,8 +3,8 @@
 import { useMemo, useState, type FormEvent } from "react";
 import { CHANGE_RECORD_TYPES, type ChangeRecordType, type DnsSourceAnswer } from "@/lib/dns/diagnostic-types.ts";
 import { groupDnsSources } from "@/lib/dns/diagnostic-presentation.ts";
-import { DiagnosticResultHeader, diagnosticReportJson, DownloadResultButton } from "../../dns-tools/diagnostic-result-ui";
-import styles from "../../dns-tools/dns-diagnostics.module.css";
+import { DiagnosticResultHeader, diagnosticReportJson, DownloadResultButton } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
+import styles from "../../(catalogs)/dns-tools/dns-diagnostics.module.css";
 
 type Result = {
   query: { name: string; recordType: ChangeRecordType; expectedAnswer: string | null };

@@ -1,10 +1,11 @@
-import "../../domain-tools/domain-tools.css";
+import "../../(catalogs)/domain-tools/domain-tools.css";
 import { ClipboardList } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
-import { DomainToolsSidebar } from "../../domain-tools/domain-tools-sidebar";
+import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
 import { DomainReportTool } from "./domain-report-tool";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -21,7 +22,7 @@ export default async function DomainReportPage({ searchParams }: { searchParams:
       sidebarLabel="Domain tools sidebar"
     >
       <main className="domain-tool-main">
-        <header className="domain-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <ClipboardList strokeWidth={2.2} />
@@ -35,7 +36,7 @@ export default async function DomainReportPage({ searchParams }: { searchParams:
             the registry while the chain is broken. Neither shows up if you only look
             at one side, which is what most tools do.
           </p>
-        </header>
+        </PageHeader>
 
         <DomainReportTool initialName={first(params.name)} />
 

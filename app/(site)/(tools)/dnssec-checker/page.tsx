@@ -1,11 +1,12 @@
-import "../../dns-tools/dns-tools.css";
+import "../../(catalogs)/dns-tools/dns-tools.css";
 import { ShieldCheck } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { DnsToolsSidebar } from "../../dns-tools/dns-tools-sidebar";
+import { DnsToolsSidebar } from "../../(catalogs)/dns-tools/dns-tools-sidebar";
 import { DnssecChecker } from "./dnssec-checker";
 import { DNSSEC_RECORD_TYPES, type DnssecRecordType } from "@/lib/dns/dnssec-types.ts";
-import styles from "../../dns-tools/dns-diagnostics.module.css";
+import styles from "../../(catalogs)/dns-tools/dns-diagnostics.module.css";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -22,7 +23,7 @@ export default async function DnssecCheckerPage({ searchParams }: { searchParams
       sidebarLabel="DNS tools sidebar"
     >
       <main className={styles.main}>
-        <header className="dns-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <ShieldCheck strokeWidth={2.2} />
@@ -36,7 +37,7 @@ export default async function DnssecCheckerPage({ searchParams }: { searchParams
             link is broken, you see which one, and the requested answer and raw evidence stay right
             beside the verdict.
           </p>
-        </header>
+        </PageHeader>
 
         <DnssecChecker
           initialName={first(params.name)}

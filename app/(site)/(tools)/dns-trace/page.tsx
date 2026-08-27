@@ -1,12 +1,13 @@
-import "../../dns-tools/dns-tools.css";
+import "../../(catalogs)/dns-tools/dns-tools.css";
 import { Route } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
-import { DnsToolsSidebar } from "../../dns-tools/dns-tools-sidebar";
+import { DnsToolsSidebar } from "../../(catalogs)/dns-tools/dns-tools-sidebar";
 import { DnsTraceTool } from "./dns-trace-tool";
 import { TRACE_RECORD_TYPES, type DnsTraceRecordType } from "@/lib/dns/trace-types.ts";
 import styles from "./dns-trace.module.css";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -32,7 +33,7 @@ export default async function DnsTracePage({ searchParams }: { searchParams: Pro
       sidebarLabel="DNS tools sidebar"
     >
       <main className={styles.main}>
-        <header className="dns-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <Route strokeWidth={2.2} />
@@ -40,7 +41,7 @@ export default async function DnsTracePage({ searchParams }: { searchParams: Pro
             DNS <mark>Trace Explorer</mark>: follow a query from root to answer
           </h1>
           <p>This tool follows one DNS question the long way, starting at the root nameservers at the top of DNS and walking down until it reaches the server that holds the final answer. At each hop it shows you which server it asked, what that server said, and where it pointed next. If the trip stops early, you can see the exact step where it broke.</p>
-        </header>
+        </PageHeader>
 
         <DnsTraceTool
           initialName={firstValue(params.name)}

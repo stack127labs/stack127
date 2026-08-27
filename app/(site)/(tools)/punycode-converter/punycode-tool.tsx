@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { StatePill } from "../../domain-tools/domain-lookup-client";
+import { StatePill } from "../../(catalogs)/domain-tools/domain-lookup-client";
 import type { LabelResult } from "@/lib/domain/punycode.ts";
 import type { CharacterDetail, ScriptAnalysis } from "@/lib/domain/unicode.ts";
 

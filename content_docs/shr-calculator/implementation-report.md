@@ -278,7 +278,7 @@ Unused: ...
 - `content_docs/shr-calculator/`: this brief, the competitive report, implementation report, edge-case contract, writing and SEO plan, and final handoff artifacts are the route-owned documentation set.
 - `lib/`: read-only reference to the shared storage contract. No shared library file is owned or changed by this route because the SHR formula can remain a small route-local engine.
 
-The route must not edit `app/(site)/storage-tools/*`, `supabase/migrations/*`, `public.stack127_pages`, `lib/storage/*`, or another tool. The existing storage engine is a reference contract only because this route can keep its simple formula engine local without changing shared behavior.
+The route must not edit `app/(site)/(catalogs)/storage-tools/*`, `supabase/migrations/*`, `public.stack127_pages`, `lib/storage/*`, or another tool. The existing storage engine is a reference contract only because this route can keep its simple formula engine local without changing shared behavior.
 
 ### Accessibility, privacy, security, and performance
 

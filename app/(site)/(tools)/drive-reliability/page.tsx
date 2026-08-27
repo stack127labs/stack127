@@ -1,9 +1,10 @@
 import { HardDrive } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { PageTitleIcon } from "../../../page-title-icon";
-import { StorageToolsSidebar } from "../../storage-tools/storage-tools-sidebar";
+import { PageHeader } from "../../../page-header";
+import { PageCanvas } from "../../../page-canvas";
+import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import snapshotData from "./data/drive-reliability-snapshot.json";
-import styles from "./drive-reliability.module.css";
 import { DriveReliabilityExplorer } from "./drive-reliability";
 import { DriveReliabilityGuide } from "./drive-reliability-guide";
 import type { DriveReliabilitySnapshot } from "@/lib/drive-reliability";
@@ -27,8 +28,8 @@ export default async function DriveReliabilityPage({
       sidebar={<StorageToolsSidebar active="drive-reliability" />}
       sidebarLabel="Storage tools sidebar"
     >
-      <div className={styles.page}>
-        <header className={styles.pageHeader}>
+      <PageCanvas>
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <HardDrive strokeWidth={2.2} />
@@ -40,13 +41,13 @@ export default async function DriveReliabilityPage({
             cohorts. The explorer returns observed AFR and the exposure behind it, not a personal
             failure forecast for a home NAS.
           </p>
-        </header>
+        </PageHeader>
         <DriveReliabilityExplorer
           initialState={firstValue(params.state)}
           snapshot={snapshotData as DriveReliabilitySnapshot}
         />
         <DriveReliabilityGuide />
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

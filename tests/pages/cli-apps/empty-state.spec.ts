@@ -24,13 +24,9 @@ test("active filters render as removable chips with a clear-all link", async ({ 
   );
 });
 
-test("the full records block exposes verification metadata", async ({ page }) => {
+test("the directory keeps maintenance records out of the public page", async ({ page }) => {
   await page.goto("/cli-apps");
 
-  const records = page.locator(".directory-crawl-records");
-  await records.locator("summary").click();
-
-  const firstRecord = records.locator(".directory-crawl-record").first();
-  await expect(firstRecord.locator("dt", { hasText: "verified" })).toBeVisible();
-  await expect(firstRecord.locator("dt", { hasText: "source model" })).toBeVisible();
+  await expect(page.locator(".directory-crawl-records")).toHaveCount(0);
+  await expect(page.getByText("Full app records", { exact: true })).toHaveCount(0);
 });

@@ -1,11 +1,12 @@
-import "../../domain-tools/domain-tools.css";
+import "../../(catalogs)/domain-tools/domain-tools.css";
 import { Globe } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
-import { DomainToolsSidebar } from "../../domain-tools/domain-tools-sidebar";
+import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
 import { TldTable, type TldRow } from "./tld-table";
 import directory from "@/lib/domain/data/tld-directory.json" with { type: "json" };
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 export default function TldDirectoryPage() {
@@ -20,7 +21,7 @@ export default function TldDirectoryPage() {
       sidebarLabel="Domain tools sidebar"
     >
       <main className="domain-tool-main">
-        <header className="domain-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <Globe strokeWidth={2.2} />
@@ -34,7 +35,7 @@ export default function TldDirectoryPage() {
             published root zone rather than copied from another list, and it tells you
             when it was last refreshed.
           </p>
-        </header>
+        </PageHeader>
 
         <TldTable rows={rows} />
 

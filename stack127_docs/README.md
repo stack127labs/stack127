@@ -1,8 +1,13 @@
-# Stack127 Docs
+# stack127 docs
 
-Sitewide documentation lives here.
+This folder is the current operating truth for the repository. Change these documents when the
+system changes. Do not preserve a diary inside them.
+
+Dated decisions, completed migrations, and implementation notes belong in `stack127_records/`.
+Those records explain how the repository arrived here, but current docs win if the two disagree.
 
 - `design-system.md`: visual tokens and UI rules.
+- `page-families.md`: the shared structure for catalogs, courses, tools, references, info pages, and legal pages.
 - `brand-assets.md`: preserved logo originals, production variants, favicon choice, and regeneration workflow.
 - `writing-style.md`: content voice, accuracy, prose, and summary rules.
 - `repo-structure.md`: docs, scripts, page ownership, and environment conventions.
@@ -11,6 +16,5 @@ Sitewide documentation lives here.
 - `rdap.md`: shared registration-data engine contract for the planned `/domain-tools` pages.
 - `ovh-vps-migration.md`: isolated Stack127 VPS migration, IPv6, acceptance, cutover, and rollback runbook.
 - `production-deployment.md`: active production target, preflight, deployment, and verification runbook.
-- `stack127-rebrand-migration.md`: implementation checklist and verification record for the stack127 rebrand.
 
 Page-specific docs belong in `content_docs/<page-slug>/`, not here.

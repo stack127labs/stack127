@@ -1,10 +1,11 @@
-import "../../domain-tools/domain-tools.css";
+import "../../(catalogs)/domain-tools/domain-tools.css";
 import { CalendarX } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
-import { DomainToolsSidebar } from "../../domain-tools/domain-tools-sidebar";
+import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
 import { DomainExpiryTool } from "./domain-expiry-tool";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -21,7 +22,7 @@ export default async function DomainExpiryPage({ searchParams }: { searchParams:
       sidebarLabel="Domain tools sidebar"
     >
       <main className="domain-tool-main">
-        <header className="domain-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <CalendarX strokeWidth={2.2} />
@@ -35,7 +36,7 @@ export default async function DomainExpiryPage({ searchParams }: { searchParams:
             takes two to three months. This shows the exact date, how long is left,
             and which stage the domain is in right now.
           </p>
-        </header>
+        </PageHeader>
 
         <DomainExpiryTool initialName={first(params.name)} />
 

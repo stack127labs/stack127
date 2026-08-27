@@ -45,3 +45,18 @@ test("managed RLS event trigger is not exposed as a public RPC", () => {
     /revoke execute on function public\.rls_auto_enable\(\) from public, anon, authenticated/,
   );
 });
+
+const removeShortcutRoutesMigration = readFileSync(
+  new URL(
+    "../../supabase/migrations/20260827122558_remove_shortcut_routes.sql",
+    import.meta.url,
+  ),
+  "utf8",
+);
+
+test("the removed shortcut route family leaves the publication registry", () => {
+  assert.match(removeShortcutRoutesMigration, /delete from public\.stack127_pages/);
+  assert.match(removeShortcutRoutesMigration, /slug = 'shortcuts'/);
+  assert.match(removeShortcutRoutesMigration, /slug like 'shortcuts\/%'/);
+  assert.doesNotMatch(removeShortcutRoutesMigration, /redirect/i);
+});

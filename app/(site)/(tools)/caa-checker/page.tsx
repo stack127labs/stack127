@@ -1,10 +1,11 @@
-import "../../dns-tools/dns-tools.css";
+import "../../(catalogs)/dns-tools/dns-tools.css";
 import { FileKey } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { DnsToolsSidebar } from "../../dns-tools/dns-tools-sidebar";
+import { DnsToolsSidebar } from "../../(catalogs)/dns-tools/dns-tools-sidebar";
 import { CaaChecker } from "./caa-checker";
-import styles from "../../dns-tools/dns-diagnostics.module.css";
+import styles from "../../(catalogs)/dns-tools/dns-diagnostics.module.css";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -20,7 +21,7 @@ export default async function CaaCheckerPage({ searchParams }: { searchParams: P
       sidebarLabel="DNS tools sidebar"
     >
       <main className={styles.main}>
-        <header className="dns-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <FileKey strokeWidth={2.2} />
@@ -37,7 +38,7 @@ export default async function CaaCheckerPage({ searchParams }: { searchParams: P
             the records it found, the path it followed to find them, and the
             policy those records add up to.
           </p>
-        </header>
+        </PageHeader>
 
         <CaaChecker initialName={first(params.name)} />
 

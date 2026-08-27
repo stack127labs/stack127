@@ -1,8 +1,9 @@
 import { Columns3 } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { PageTitleIcon } from "../../../page-title-icon";
-import { StorageToolsSidebar } from "../../storage-tools/storage-tools-sidebar";
-import styles from "./zfs-padding-calculator.module.css";
+import { PageHeader } from "../../../page-header";
+import { PageCanvas } from "../../../page-canvas";
+import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import { ZfsPaddingCalculator } from "./zfs-padding-calculator";
 import { ZfsPaddingGuide } from "./zfs-padding-guide";
 
@@ -25,8 +26,8 @@ export default async function ZfsPaddingCalculatorPage({
       sidebar={<StorageToolsSidebar active="zfs-padding" />}
       sidebarLabel="ZFS padding calculator sidebar"
     >
-      <div className={styles.page}>
-        <header className={styles.pageHeader}>
+      <PageCanvas>
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <Columns3 strokeWidth={2.2} />
@@ -38,10 +39,10 @@ export default async function ZfsPaddingCalculatorPage({
             padding on a RAIDZ vdev. Compare block sizes and inspect the exact theoretical
             allocation before changing <code>recordsize</code> or <code>volblocksize</code>.
           </p>
-        </header>
+        </PageHeader>
         <ZfsPaddingCalculator initialState={firstValue(params.state)} />
         <ZfsPaddingGuide />
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

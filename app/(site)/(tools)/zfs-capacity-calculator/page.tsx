@@ -1,8 +1,9 @@
 import { Database } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { PageTitleIcon } from "../../../page-title-icon";
-import { StorageToolsSidebar } from "../../storage-tools/storage-tools-sidebar";
-import styles from "./zfs-capacity-calculator.module.css";
+import { PageHeader } from "../../../page-header";
+import { PageCanvas } from "../../../page-canvas";
+import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import { ZfsCapacityCalculator } from "./zfs-capacity-calculator";
 import { ZfsCapacityGuide } from "./zfs-capacity-guide";
 
@@ -25,8 +26,8 @@ export default async function ZfsCapacityCalculatorPage({
       sidebar={<StorageToolsSidebar active="zfs" />}
       sidebarLabel="ZFS calculator sidebar"
     >
-      <div className={styles.page}>
-        <header className={styles.pageHeader}>
+      <PageCanvas>
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <Database strokeWidth={2.2} />
@@ -39,10 +40,10 @@ export default async function ZfsCapacityCalculatorPage({
             per-vdev failure boundaries, and every modeled loss. The calculation stays in your
             browser and does not predict the exact free space of an installed or expanded pool.
           </p>
-        </header>
+        </PageHeader>
         <ZfsCapacityCalculator initialState={firstValue(params.state)} />
         <ZfsCapacityGuide />
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

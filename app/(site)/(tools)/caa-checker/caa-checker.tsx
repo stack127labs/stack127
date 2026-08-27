@@ -2,8 +2,8 @@
 
 import { useMemo, useState, type FormEvent } from "react";
 import type { CaaRecord } from "@/lib/dns/diagnostic-types.ts";
-import { DiagnosticResultHeader, diagnosticReportJson, DownloadResultButton } from "../../dns-tools/diagnostic-result-ui";
-import styles from "../../dns-tools/dns-diagnostics.module.css";
+import { DiagnosticResultHeader, diagnosticReportJson, DownloadResultButton } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
+import styles from "../../(catalogs)/dns-tools/dns-diagnostics.module.css";
 
 type SearchReason = "requested" | "alias" | "parent";
 type Level = { name: string; searchReason: SearchReason; responseCode: string | null; records: CaaRecord[]; aliasTarget: string | null; rawResponse: unknown; error: string | null };

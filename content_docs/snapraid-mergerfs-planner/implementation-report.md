@@ -272,7 +272,7 @@ Loading, upstream, and restored states are not applicable because version one is
 - Tests: `tests/pages/snapraid-mergerfs-planner/page.json`, `page.test.mjs`, `snapraid-merfs-engine.test.mjs`, and `snapraid-mergerfs-planner.spec.ts` own route structure, engine fixtures, rendered behavior, accessibility, responsive states, and unpublished coverage.
 - Local preview: `scripts/storage-tools/preview-local-pages.mjs` may alter only the identified managed-development database, must reject production or any other target, refuse existing rows, and remove its exact temporary rows. It must not update migrations or publication source files.
 - Docs: `content_docs/snapraid-mergerfs-planner/` owns the ready research, this implementation report, the brief, later edge cases, and the writing and SEO plan.
-- Shared ownership excluded: `app/(site)/storage-tools/page.tsx`, `app/(site)/storage-tools/storage-tools-sidebar.tsx`, `app/(site)/storage-tools/storage-tools.module.css`, collection counts, publication registry, migrations, `lib/storage`, and other tools remain untouched. Parent integration can add discovery later.
+- Shared ownership excluded: `app/(site)/(catalogs)/storage-tools/page.tsx`, `app/(site)/(catalogs)/storage-tools/storage-tools-sidebar.tsx`, `app/(site)/(catalogs)/storage-tools/storage-tools.module.css`, collection counts, publication registry, migrations, `lib/storage`, and other tools remain untouched. Parent integration can add discovery later.
 
 ### Accessibility, privacy, security, and performance
 

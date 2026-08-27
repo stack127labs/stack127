@@ -9,8 +9,8 @@ const guidePath = new URL("zfs-padding-guide.tsx", route);
 const stylesPath = new URL("zfs-padding-calculator.module.css", route);
 const enginePath = new URL("../../../lib/storage/zfs-padding.ts", import.meta.url);
 const primitivePath = new URL("../../../lib/storage/zfs-raidz-allocation.ts", import.meta.url);
-const hubPath = new URL("../../../app/(site)/storage-tools/page.tsx", import.meta.url);
-const sidebarPath = new URL("../../../app/(site)/storage-tools/storage-tools-sidebar.tsx", import.meta.url);
+const hubPath = new URL("../../../app/(site)/(catalogs)/storage-tools/page.tsx", import.meta.url);
+const sidebarPath = new URL("../../../app/(site)/(catalogs)/storage-tools/storage-tools-sidebar.tsx", import.meta.url);
 const previewPath = new URL("../../../scripts/storage-tools/preview-local-pages.mjs", import.meta.url);
 
 const manifestPath = new URL("page.json", import.meta.url);

@@ -142,7 +142,7 @@ test("DNS Lookup renders corrected TTL, alias, owner, DNSSEC summary, and per-re
     "DNS lookup for any domain's records",
   );
   await expect(page.getByRole("navigation", { name: "Breadcrumb" })).toHaveCount(0);
-  await expect(page.locator(".dns-page-header p")).toHaveText(
+  await expect(page.locator("[data-app-main] main header p").first()).toHaveText(
     "Enter a domain or hostname to see its DNS records, or choose PTR to find the hostname connected to an IP address. You can check a public resolver's cached answer or ask the domain's authoritative nameserver directly. Leave All selected if you are not sure which record you need.",
   );
   const recordTypePicker = page.getByRole("radiogroup", { name: "Record type" });

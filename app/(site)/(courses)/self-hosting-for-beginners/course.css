@@ -1,0 +1,204 @@
+/* Self-hosting course */
+.course-sidebar-panel {
+  align-content: start;
+  gap: var(--space-8);
+}
+
+.lesson-page {
+  max-width: var(--measure-prose);
+  padding: var(--space-12) var(--container-gutter) 64px;
+}
+
+.lesson-byline {
+  align-items: center;
+  color: var(--color-text-muted);
+  display: flex;
+  gap: var(--space-3);
+}
+
+.lesson-author-avatar {
+  aspect-ratio: 1;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  display: block;
+  flex: 0 0 auto;
+  height: 40px;
+  width: 40px;
+}
+
+.lesson-byline p {
+  color: var(--color-text-muted) !important;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--text-small) !important;
+  gap: var(--space-2);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.lesson-byline span + span::before {
+  color: var(--color-text-muted);
+  content: "/";
+  margin-right: var(--space-2);
+}
+
+.lesson-page .lesson-lede {
+  color: var(--color-text);
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+}
+
+/* Callouts distinguish by border and spacing alone; only the title text may
+   carry semantic color. Never a tinted background or a colored edge. */
+.lesson-callout {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-7) var(--space-8);
+}
+
+.lesson-callout-recommend .lesson-callout-title {
+  color: var(--color-success-text) !important;
+}
+
+.lesson-callout-warning .lesson-callout-title {
+  color: var(--color-warning-text) !important;
+}
+
+.lesson-callout-title {
+  color: var(--color-text) !important;
+  font-size: var(--text-small) !important;
+  font-weight: var(--weight-semibold);
+  margin: 0;
+}
+
+.lesson-callout-body {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.lesson-callout-body p {
+  font-size: var(--text-small) !important;
+}
+
+.lesson-faq {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.lesson-faq-item {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.lesson-nav {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: 1fr 1fr;
+  margin-top: var(--space-6);
+  padding-top: var(--space-9);
+}
+
+.lesson-nav-link {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-6) var(--space-7);
+  text-decoration: none !important;
+}
+
+.lesson-nav-link:hover {
+  border-color: var(--color-accent);
+}
+
+.lesson-nav-next {
+  text-align: right;
+}
+
+.lesson-nav-dir {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  text-transform: lowercase;
+}
+
+.lesson-nav-title {
+  color: var(--color-text);
+  font-size: var(--text-small);
+}
+
+.lesson-link-soon {
+  color: var(--color-text);
+  text-decoration: underline dotted var(--color-text-muted);
+  text-underline-offset: 3px;
+}
+
+/* Legacy alias: prefer <CodeBlock> for new snippets. */
+.lesson-code {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  margin: 0;
+  overflow-x: auto;
+  padding: var(--space-6) var(--space-7);
+}
+
+.lesson-table {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  border-collapse: collapse;
+  overflow: hidden;
+  width: 100%;
+}
+
+.lesson-table th,
+.lesson-table td {
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-small);
+  line-height: 1.5;
+  padding: var(--space-5) var(--space-6);
+  text-align: left;
+  vertical-align: top;
+}
+
+.lesson-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.lesson-table thead th {
+  border-bottom: 1.5px solid var(--color-border-strong);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+}
+
+.lesson-table tbody th {
+  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+}
+
+.lesson-table td {
+  color: var(--color-text);
+}
+
+@media (max-width: 720px) {
+  .lesson-nav {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .lesson-byline p {
+    display: grid;
+    gap: 0;
+  }
+
+  .lesson-byline span + span::before {
+    content: "";
+    margin: 0;
+  }
+}

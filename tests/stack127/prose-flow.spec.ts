@@ -2,7 +2,7 @@ import { expect, test } from "playwright/test";
 
 const readingSurfaces = [
   {
-    heading: "Can you run it, change it, and host it for others?",
+    heading: "Compare software licenses",
     path: "/software-licenses-for-self-hosting",
   },
   {
@@ -35,7 +35,7 @@ for (const surface of readingSurfaces) {
     });
 
     expect(rhythm.display).toBe("grid");
-    expect(rhythm.rowGap).toBe("12px");
+    expect(rhythm.rowGap).toBe("16px");
     expect(rhythm.gapAfterHeading).not.toBeNull();
     expect(rhythm.gapAfterHeading!).toBeGreaterThanOrEqual(12);
   });
@@ -56,4 +56,5 @@ test("later course headings get a stronger section break", async ({ page }) => {
 
   expect(gapBeforeHeading).not.toBeNull();
   expect(gapBeforeHeading!).toBeGreaterThanOrEqual(30);
+  expect(gapBeforeHeading!).toBeLessThanOrEqual(44);
 });

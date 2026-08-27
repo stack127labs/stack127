@@ -27,7 +27,7 @@ function traceAsText(result: DnsTraceResponse) {
     for (const record of step.glueRecords) lines.push(`Glue: ${record.ownerName} ${record.type} ${record.value}`);
     for (const record of step.additionalAddressRecords) lines.push(`Included nameserver address: ${record.ownerName} ${record.type} ${record.value}`);
     for (const record of step.answerRecords) lines.push(`Answer: ${record.ownerName} ${record.type} ${record.value} TTL ${record.resolverTtlSeconds ?? "not reported"}`);
-    for (const attempt of step.attempts) lines.push(`Earlier attempt: ${attempt.server.hostname} (${attempt.server.address}) — ${attempt.error}`);
+    for (const attempt of step.attempts) lines.push(`Earlier attempt: ${attempt.server.hostname} (${attempt.server.address}): ${attempt.error}`);
   }
   return lines.join("\n");
 }
@@ -114,7 +114,7 @@ function TraceStep({ step }: { step: DnsTraceStep }) {
           <div className={styles.attempts}>
             <p>The trace tried another server first:</p>
             {step.attempts.map((attempt, index) => (
-              <p key={`${attempt.server.address}-${index}`}><code>{attempt.server.hostname}</code> — {attempt.error}</p>
+              <p key={`${attempt.server.address}-${index}`}><code>{attempt.server.hostname}</code>: {attempt.error}</p>
             ))}
           </div>
         ) : null}

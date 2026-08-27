@@ -57,6 +57,10 @@
   --space-12: 32px;
   --space-13: 40px;
   --space-14: 48px;
+  --space-prose-paragraph: var(--space-7);
+  --space-prose-heading-2: var(--space-10);
+  --space-prose-heading-3: var(--space-7);
+  --space-prose-section: 64px;
   --control-height-sm: 32px;
   --control-height-md: 40px;
   --control-height-lg: 42px;

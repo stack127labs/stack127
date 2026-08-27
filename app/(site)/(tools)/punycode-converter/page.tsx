@@ -1,10 +1,11 @@
-import "../../domain-tools/domain-tools.css";
+import "../../(catalogs)/domain-tools/domain-tools.css";
 import { Languages } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
-import { DomainToolsSidebar } from "../../domain-tools/domain-tools-sidebar";
+import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
 import { PunycodeTool } from "./punycode-tool";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 export default function PunycodeConverterPage() {
@@ -16,7 +17,7 @@ export default function PunycodeConverterPage() {
       sidebarLabel="Domain tools sidebar"
     >
       <main className="domain-tool-main">
-        <header className="domain-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <Languages strokeWidth={2.2} />
@@ -30,7 +31,7 @@ export default function PunycodeConverterPage() {
             which is how you spot a name built to look like a different one. It runs
             entirely in your browser and nothing is sent anywhere.
           </p>
-        </header>
+        </PageHeader>
 
         <PunycodeTool />
 

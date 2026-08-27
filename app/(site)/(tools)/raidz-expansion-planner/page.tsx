@@ -1,8 +1,9 @@
 import { ChevronsRight } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { PageTitleIcon } from "../../../page-title-icon";
-import { StorageToolsSidebar } from "../../storage-tools/storage-tools-sidebar";
-import styles from "./raidz-expansion-planner.module.css";
+import { PageHeader } from "../../../page-header";
+import { PageCanvas } from "../../../page-canvas";
+import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import { RaidzExpansionGuide } from "./raidz-expansion-guide";
 import { RaidzExpansionPlanner } from "./raidz-expansion-planner";
 
@@ -18,8 +19,8 @@ export default async function RaidzExpansionPlannerPage({ searchParams }: { sear
       sidebar={<StorageToolsSidebar active="raidz-expansion" />}
       sidebarLabel="RAIDZ expansion planner sidebar"
     >
-      <div className={styles.page}>
-        <header className={styles.pageHeader}>
+      <PageCanvas>
+        <PageHeader>
           <h1>
             <PageTitleIcon><ChevronsRight strokeWidth={2.2} /></PageTitleIcon>{" "}
             RAIDZ expansion <mark>planner</mark>
@@ -31,10 +32,10 @@ export default async function RaidzExpansionPlannerPage({ searchParams }: { sear
             capacity now, immediately after each step, and at fresh final-width geometry. Capacity
             reported by <code>zfs list</code> or <code>df</code>{" "}remains unknown.
           </p>
-        </header>
+        </PageHeader>
         <RaidzExpansionPlanner initialState={state} />
         <RaidzExpansionGuide />
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

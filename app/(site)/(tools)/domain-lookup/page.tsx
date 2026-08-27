@@ -1,10 +1,11 @@
-import "../../domain-tools/domain-tools.css";
+import "../../(catalogs)/domain-tools/domain-tools.css";
 import { FileSearch } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
-import { DomainToolsSidebar } from "../../domain-tools/domain-tools-sidebar";
+import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
 import { DomainLookupTool } from "./domain-lookup-tool";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -21,7 +22,7 @@ export default async function DomainLookupPage({ searchParams }: { searchParams:
       sidebarLabel="Domain tools sidebar"
     >
       <main className="domain-tool-main">
-        <header className="domain-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <FileSearch strokeWidth={2.2} />
@@ -35,7 +36,7 @@ export default async function DomainLookupPage({ searchParams }: { searchParams:
             details have been withheld. The data comes straight from the registry that
             runs the ending, so there is nothing sitting between you and the source.
           </p>
-        </header>
+        </PageHeader>
 
         <DomainLookupTool initialName={first(params.name)} />
 

@@ -18,13 +18,13 @@ test("open projects distinguish open source from source available", async () => 
   assert.match(migration, /create type public\.open_project_source_model/);
 });
 
-test("self-host app HTML and drawer expose the source model", async () => {
+test("self-host app data and drawer expose the source model", async () => {
   const data = await read("lib/apps.ts");
-  const page = await read("app/(site)/self-host-apps/page.tsx");
-  const drawer = await read("app/(site)/self-host-apps/directory-app-browser.tsx");
+  const page = await read("app/(site)/(catalogs)/self-host-apps/page.tsx");
+  const drawer = await read("app/(site)/(catalogs)/self-host-apps/directory-app-browser.tsx");
 
   assert.match(data, /source_model/);
-  assert.match(page, /source model/);
+  assert.match(page, /<DirectoryAppBrowser/);
   assert.match(drawer, /source model/);
 });
 

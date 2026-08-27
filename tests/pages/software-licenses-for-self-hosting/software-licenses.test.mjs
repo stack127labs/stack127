@@ -10,7 +10,7 @@ import {
 } from "../../../lib/software-licenses.ts";
 
 test("license page has intro copy and grouped licenses", () => {
-  assert.equal(licensePage.title, "Software licenses for self-hosters");
+  assert.equal(licensePage.title, "Software licenses for self-hosting");
   assert.ok(licensePage.lede.length > 40);
   assert.ok(licensePage.notLegalAdvice.toLowerCase().includes("not legal advice"));
   assert.ok(licenseGroups.length >= 6);
@@ -52,7 +52,7 @@ test("license cards carry one short, complete explanation", () => {
 test("license cards render the concise explanation and actions, not the old detail stack", () => {
   const pageSource = readFileSync(
     new URL(
-      "../../../app/(site)/software-licenses-for-self-hosting/page.tsx",
+      "../../../app/(site)/(catalogs)/software-licenses-for-self-hosting/page.tsx",
       import.meta.url,
     ),
     "utf8",
@@ -147,7 +147,7 @@ test("official links are accurate and their labels describe the destination", ()
 test("AGPL and missing-license answers keep their legal triggers precise", () => {
   const pageSource = readFileSync(
     new URL(
-      "../../../app/(site)/software-licenses-for-self-hosting/page.tsx",
+      "../../../app/(site)/(catalogs)/software-licenses-for-self-hosting/page.tsx",
       import.meta.url,
     ),
     "utf8",
@@ -187,7 +187,6 @@ test("license prose avoids em and en dashes", () => {
   const chunks = [
     licensePage.title,
     licensePage.lede,
-    licensePage.ledeFollowUp,
     licensePage.notLegalAdvice,
     ...licenseGroups.map((entry) => entry.intro ?? ""),
     ...licenses.flatMap((entry) => [

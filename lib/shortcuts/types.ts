@@ -1,7 +1,7 @@
 /**
  * Keyboard shortcuts reference data contract.
- * One structured source feeds /shortcuts, every /shortcuts/<app-slug> page,
- * and /shortcuts-cheatsheet-generator. Unknown stays unknown: never guess keys.
+ * One structured source feeds /keyboard-shortcuts and
+ * /shortcuts-cheatsheet-generator. Unknown stays unknown: never guess keys.
  */
 
 export type PlatformId = "windows" | "macos" | "linux";

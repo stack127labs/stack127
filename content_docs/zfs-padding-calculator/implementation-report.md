@@ -322,7 +322,7 @@ No marker art or screenshot is planned. Exact results belong in the live tool, a
 - `app/(site)/(tools)/zfs-padding-calculator/page.tsx` is a server component that renders the shared `AppShell`, storage sidebar, h1, and the client island. It reads only the first `state` search parameter and exports no metadata or SEO behavior.
 - `app/(site)/(tools)/zfs-padding-calculator/zfs-padding-calculator.tsx` is the smallest client island. It owns editor state, submit/reset/copy/share behavior, focus, live announcements, restoration, and result markup. Formula decisions stay outside React.
 - `app/(site)/(tools)/zfs-padding-calculator/zfs-padding-calculator.module.css` owns every route selector. It uses only current semantic tokens plus established exact-visualization tones, never changes `app/globals.css`, and implements dark, light, 1280, 768, 390, and 320 CSS-pixel layouts.
-- `app/(site)/storage-tools/storage-tools-sidebar.tsx` and `app/(site)/storage-tools/page.tsx` add the new tool identity and link without changing the existing active states. Use one page identity icon consistently.
+- `app/(site)/(catalogs)/storage-tools/storage-tools-sidebar.tsx` and `app/(site)/(catalogs)/storage-tools/page.tsx` add the new tool identity and link without changing the existing active states. Use one page identity icon consistently.
 - `tests/pages/zfs-padding-calculator/page.json` owns the unpublished route, documentation, tests, and scripts.
 - `tests/pages/zfs-padding-calculator/zfs-padding-calculator.test.mjs` owns engine, state, invariant, comparison, regression, and performance tests.
 - `tests/pages/zfs-padding-calculator/page.test.mjs` owns static route, server/client boundary, style, content-boundary, and publication assertions.

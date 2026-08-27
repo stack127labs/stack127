@@ -1,9 +1,10 @@
-import "../../domain-tools/domain-tools.css";
+import "../../(catalogs)/domain-tools/domain-tools.css";
 import { CalendarClock } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
-import { DomainToolsSidebar } from "../../domain-tools/domain-tools-sidebar";
+import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
 import { DomainAgeTool } from "./domain-age-tool";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -25,7 +26,7 @@ export default async function DomainAgePage({
       sidebarLabel="Domain tools sidebar"
     >
       <main className="domain-tool-main">
-        <header className="domain-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <CalendarClock strokeWidth={2.2} />
@@ -41,7 +42,7 @@ export default async function DomainAgePage({
             plain language and, when the registry publishes enough information,
             whether the domain may have expired and been registered again.
           </p>
-        </header>
+        </PageHeader>
 
         <DomainAgeTool initialName={first(params.name)} />
 

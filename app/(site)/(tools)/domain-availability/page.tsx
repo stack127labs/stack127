@@ -1,10 +1,11 @@
-import "../../domain-tools/domain-tools.css";
+import "../../(catalogs)/domain-tools/domain-tools.css";
 import { BadgeCheck } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
-import { DomainToolsSidebar } from "../../domain-tools/domain-tools-sidebar";
+import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
 import { DomainAvailabilityTool } from "./domain-availability-tool";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -21,7 +22,7 @@ export default async function DomainAvailabilityPage({ searchParams }: { searchP
       sidebarLabel="Domain tools sidebar"
     >
       <main className="domain-tool-main">
-        <header className="domain-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <BadgeCheck strokeWidth={2.2} />
@@ -34,7 +35,7 @@ export default async function DomainAvailabilityPage({ searchParams }: { searchP
             alternatives, and no record kept of the names you try. If a name is taken
             you also get who holds it and when it expires.
           </p>
-        </header>
+        </PageHeader>
 
         <DomainAvailabilityTool initialName={first(params.name)} />
 

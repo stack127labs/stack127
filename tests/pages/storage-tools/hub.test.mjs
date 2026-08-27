@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 
-const page = readFileSync(new URL("../../../app/(site)/storage-tools/page.tsx", import.meta.url), "utf8");
-const sidebar = readFileSync(new URL("../../../app/(site)/storage-tools/storage-tools-sidebar.tsx", import.meta.url), "utf8");
+const page = readFileSync(new URL("../../../app/(site)/(catalogs)/storage-tools/page.tsx", import.meta.url), "utf8");
+const sidebar = readFileSync(new URL("../../../app/(site)/(catalogs)/storage-tools/storage-tools-sidebar.tsx", import.meta.url), "utf8");
 const routeRoot = new URL("../../../", import.meta.url);
 const manifestPath = new URL("page.json", import.meta.url);
 const migrationPath = new URL(

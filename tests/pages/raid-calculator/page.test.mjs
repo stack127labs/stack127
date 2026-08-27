@@ -4,7 +4,8 @@ import test from "node:test";
 
 const page = readFileSync(new URL("../../../app/(site)/(tools)/raid-calculator/page.tsx", import.meta.url), "utf8");
 const client = readFileSync(new URL("../../../app/(site)/(tools)/raid-calculator/raid-calculator.tsx", import.meta.url), "utf8");
-const styles = readFileSync(new URL("../../../app/(site)/storage-tools/storage-tools.module.css", import.meta.url), "utf8");
+const styles = readFileSync(new URL("../../../app/(site)/(catalogs)/storage-tools/storage-tools.module.css", import.meta.url), "utf8");
+const canvasStyles = readFileSync(new URL("../../../app/page-canvas.module.css", import.meta.url), "utf8");
 const manifestPath = new URL("page.json", import.meta.url);
 const migrationPath = new URL(
   "../../../supabase/migrations/20260809140000_publish_storage_tools.sql",
@@ -91,19 +92,19 @@ test("the tool keeps exact comparison data in tables and avoids banned treatment
 });
 
 test("the page owns a centered reading column with real outer gutters", () => {
-  const pageRule = styles.match(/\.page\s*\{([^}]*)\}/s)?.[1] ?? "";
+  const pageRule = canvasStyles.match(/\.canvas\s*\{([^}]*)\}/s)?.[1] ?? "";
   const toolRule = styles.match(/\.tool\s*\{([^}]*)\}/s)?.[1] ?? "";
   const referenceRule = styles.match(/\.reference\s*\{([^}]*)\}/s)?.[1] ?? "";
 
   assert.match(pageRule, /margin:\s*0 auto;/);
-  assert.match(pageRule, /max-width:\s*1080px;/);
+  assert.match(pageRule, /max-width:\s*1120px;/);
   assert.match(pageRule, /padding:\s*var\(--space-13\) var\(--container-gutter\) var\(--space-14\);/);
   assert.match(pageRule, /width:\s*100%;/);
   assert.match(toolRule, /background:\s*var\(--color-surface\);/);
   assert.match(page, /\$\{styles\.reference\} \$\{proseClassName\} \$\{proseSectionFlowClassName\}/);
   assert.match(referenceRule, /display:\s*grid;/);
   assert.match(referenceRule, /gap:\s*var\(--space-8\);/);
-  assert.match(styles, /@media \(max-width: 760px\)[\s\S]*?\.page\s*\{[^}]*padding:\s*var\(--space-9\) var\(--container-gutter\) var\(--space-12\);/);
+  assert.match(page, /<PageCanvas>/);
 });
 
 test("clean visits stay clean until the visitor changes calculator inputs", () => {

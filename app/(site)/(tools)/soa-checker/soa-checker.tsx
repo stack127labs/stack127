@@ -3,8 +3,8 @@
 import { useMemo, useState, type FormEvent } from "react";
 import type { SoaRecord } from "@/lib/dns/diagnostic-types.ts";
 import { groupSoaObservations, negativeCacheTtlSeconds } from "@/lib/dns/diagnostic-presentation.ts";
-import { DiagnosticResultHeader, diagnosticReportJson, DownloadResultButton } from "../../dns-tools/diagnostic-result-ui";
-import styles from "../../dns-tools/dns-diagnostics.module.css";
+import { DiagnosticResultHeader, diagnosticReportJson, DownloadResultButton } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
+import styles from "../../(catalogs)/dns-tools/dns-diagnostics.module.css";
 import pageStyles from "./soa-checker.module.css";
 
 type Observation = { server: { hostname: string; address: string }; skippedReason: "checker_ipv6_unavailable" | null; soa: SoaRecord | null; authoritative: boolean; error: string | null; rawResponses: unknown };

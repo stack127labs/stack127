@@ -54,10 +54,16 @@
     "purpose": "Checks the recorded OpenZFS 2.3 and 2.4 sparse-pool receipts behind /zfs-capacity-calculator."
   },
   {
-    "surface": "shortcuts",
-    "folder": "scripts/shortcuts",
+    "surface": "drive-reliability",
+    "folder": "scripts/drive-reliability",
+    "manifest": "scripts/drive-reliability/scripts.json",
+    "purpose": "Refreshes and verifies the committed Backblaze snapshot used by /drive-reliability."
+  },
+  {
+    "surface": "self-hosting-for-beginners",
+    "folder": "scripts/self-hosting-for-beginners",
     "manifest": null,
-    "purpose": "Generates per-app manifests for /shortcuts and owns the shared shortcut data used by the directory, app pages, and cheat sheet generator."
+    "purpose": "Keeps the course page registry rows aligned with its repo-owned lesson routes."
   },
   {
     "surface": "cli-apps",

@@ -1,12 +1,24 @@
 # Stack127 Repo Structure
 
-Stack127 is organized by page surface so the site can grow without mixing docs, scripts, and data workflows.
+Stack127 is organized by page so the site can grow without mixing docs, scripts, and data workflows.
 
 ## Pages
 
 All normal pages are repo-owned Next.js routes under `app/`.
 
 Use Supabase for structured data where it helps a page, but do not build normal site routing from Supabase rows unless explicitly requested.
+
+Page source is grouped by job without changing URLs:
+
+```text
+app/(site)/(catalogs)/  # directories, comparisons, and collection pages
+app/(site)/(courses)/   # ordered teaching paths
+app/(site)/(legal)/     # about, privacy, and terms
+app/(site)/(tools)/     # calculators, lookups, and generators
+```
+
+Shared components for one family live in that group's `_components/` folder. Components used by
+the whole site stay directly under `app/`.
 
 ## Page Docs
 
@@ -35,6 +47,14 @@ stack127_docs/
 ```
 
 Use this folder for design, structure, brand, SEO rules, environment notes, deployment notes, and other global decisions. Keep launch SEO rules in `stack127_docs/seo.md`.
+
+Keep dated decisions and completed migration notes in:
+
+```text
+stack127_records/YYYY-MM-DD-<topic>.md
+```
+
+Records explain past changes. Current docs remain authoritative.
 
 The live Cloudflare, DNS, caching, and origin-safety setup is recorded in `stack127_docs/cloudflare.md`.
 
@@ -70,7 +90,7 @@ self-host-apps:audit-summaries
 
 ## Skills
 
-Repo-owned Codex skills live beside the page surface they support:
+Repo-owned Codex skills live beside the page they support:
 
 ```text
 skills/<page-slug>/<skill-name>/

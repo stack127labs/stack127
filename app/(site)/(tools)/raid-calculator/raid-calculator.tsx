@@ -20,7 +20,7 @@ import {
   type RaidCalculatorInput,
   type RaidLevel,
 } from "@/lib/storage/raid.ts";
-import styles from "../../storage-tools/storage-tools.module.css";
+import styles from "../../(catalogs)/storage-tools/storage-tools.module.css";
 
 type InputUnit = "TB" | "GB" | "TiB" | "GiB";
 type OutputUnit = "TB" | "TiB";

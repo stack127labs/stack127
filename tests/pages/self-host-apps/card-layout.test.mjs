@@ -8,8 +8,8 @@ function source(path) {
   return readFileSync(new URL(path, root), "utf8");
 }
 
-const card = source("app/(site)/self-host-apps/directory-app-card.tsx");
-const styles = source("app/(site)/self-host-apps/self-host-apps.css");
+const card = source("app/(site)/(catalogs)/self-host-apps/directory-app-card.tsx");
+const styles = source("app/(site)/(catalogs)/_components/catalog-directory.css");
 
 test("self-host app cards use the compact three-column content hierarchy", () => {
   assert.match(card, /app\.categories\.slice\(0,\s*1\)/);

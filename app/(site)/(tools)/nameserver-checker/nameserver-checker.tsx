@@ -2,8 +2,8 @@
 
 import { useMemo, useState, type FormEvent } from "react";
 import type { DelegationCheck } from "@/lib/dns/diagnostic-types.ts";
-import { DiagnosticResultHeader, diagnosticReportJson, DownloadResultButton } from "../../dns-tools/diagnostic-result-ui";
-import styles from "../../dns-tools/dns-diagnostics.module.css";
+import { DiagnosticResultHeader, diagnosticReportJson, DownloadResultButton } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
+import styles from "../../(catalogs)/dns-tools/dns-diagnostics.module.css";
 
 function sameMembers(left: string[], right: string[]) {
   return left.length === right.length && left.every((value) => right.includes(value));

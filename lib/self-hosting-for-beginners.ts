@@ -1,15 +1,11 @@
-export type Lesson = {
-  order: number;
-  slug: string;
-  /** Short label for the course sidebar. */
-  sidebarLabel: string;
-  /** Conversational H1 shown on the page. */
-  heading: string;
-  /** Substring of `heading` highlighted with the accent mark. */
-  headingMark?: string;
-  /** True once the page route exists. Unbuilt lessons render as muted outline items. */
-  published: boolean;
-};
+import {
+  courseLessonHref,
+  courseLessonNeighbors,
+  type CourseDefinition,
+  type CourseLesson,
+} from "./courses";
+
+export type Lesson = CourseLesson;
 
 /**
  * The self-hosting course spine. Order and coverage are defined in
@@ -150,8 +146,22 @@ export const lessons: Lesson[] = [
 
 export const courseBasePath = "/self-hosting-for-beginners";
 
+export const selfHostingForBeginnersCourse: CourseDefinition = {
+  author: {
+    name: "Raviteja KNTS",
+    avatarUrl:
+      "https://www.gravatar.com/avatar/b04b086ad0ea05d503673f6f563a080b?s=96&d=identicon",
+  },
+  basePath: courseBasePath,
+  fallbackUpdatedAt: "2026-07-07",
+  lessons,
+  navigationLabel: "Lessons",
+  registrySlug: "self-hosting-for-beginners",
+  title: "Self-hosting for beginners",
+};
+
 export function lessonHref(lesson: Pick<Lesson, "slug">) {
-  return lesson.slug ? `${courseBasePath}/${lesson.slug}` : courseBasePath;
+  return courseLessonHref(selfHostingForBeginnersCourse, lesson);
 }
 
 export function getLesson(slug: string) {
@@ -164,14 +174,9 @@ export function getLesson(slug: string) {
 
 /** Previous and next published lessons, for the page footer nav. */
 export function lessonNeighbors(slug: string) {
-  const published = lessons.filter((entry) => entry.published);
-  const publishedIndex = published.findIndex((entry) => entry.slug === slug);
-
+  const { previous, next } = courseLessonNeighbors(selfHostingForBeginnersCourse, slug);
   return {
-    prev: publishedIndex > 0 ? published[publishedIndex - 1] : null,
-    next:
-      publishedIndex >= 0 && publishedIndex < published.length - 1
-        ? published[publishedIndex + 1]
-        : null,
+    prev: previous,
+    next,
   };
 }

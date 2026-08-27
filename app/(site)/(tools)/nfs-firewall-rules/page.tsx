@@ -1,15 +1,16 @@
 import { ShieldCheck } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
+import { PageCanvas } from "../../../page-canvas";
 import { NfsFirewallRulesGuide } from "./nfs-firewall-rules-guide";
 import { NfsFirewallRulesPlanner } from "./nfs-firewall-rules-planner";
-import styles from "./nfs-firewall-rules.module.css";
 
 export default function NfsFirewallRulesPage() {
   return (
     <AppShell mainLabel="NFS Firewall Rules Planner">
-      <div className={styles.page}>
-        <header className={styles.pageHeader}>
+      <PageCanvas>
+        <PageHeader>
           <h1>
             <PageTitleIcon><ShieldCheck strokeWidth={2.2} /></PageTitleIcon>{" "}
             NFS Firewall <mark>Rules Planner</mark>
@@ -20,10 +21,10 @@ export default function NfsFirewallRulesPage() {
             selected branch needs. The calculation runs in this browser and does not inspect your
             hosts or apply rules.
           </p>
-        </header>
+        </PageHeader>
         <NfsFirewallRulesPlanner />
         <NfsFirewallRulesGuide />
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

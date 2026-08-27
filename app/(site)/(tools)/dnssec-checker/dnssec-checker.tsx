@@ -4,8 +4,8 @@ import { useMemo, useState, type FormEvent } from "react";
 import type { WalkStep } from "@namefi/dnssec-audit";
 import type { NormalizedDnsRecord } from "@/lib/dns/types.ts";
 import { DNSSEC_RECORD_TYPES, type DnssecRecordType, type DnssecSignature, type DnssecVerdict } from "@/lib/dns/dnssec-types.ts";
-import { DiagnosticResultHeader, diagnosticReportJson, DownloadResultButton } from "../../dns-tools/diagnostic-result-ui";
-import styles from "../../dns-tools/dns-diagnostics.module.css";
+import { DiagnosticResultHeader, diagnosticReportJson, DownloadResultButton } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
+import styles from "../../(catalogs)/dns-tools/dns-diagnostics.module.css";
 
 type Evidence = { responseCode: string | null; authenticatedData: boolean | null; records: NormalizedDnsRecord[]; rawResponse: unknown; error: string | null };
 type Outcome = "secure-positive" | "secure-nodata" | "secure-nxdomain" | "insecure" | "bogus" | null;

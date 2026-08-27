@@ -1,8 +1,9 @@
 import { HardDrive } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { PageTitleIcon } from "../../../page-title-icon";
-import { StorageToolsSidebar } from "../../storage-tools/storage-tools-sidebar";
-import styles from "./snapraid-mergerfs-planner.module.css";
+import { PageHeader } from "../../../page-header";
+import { PageCanvas } from "../../../page-canvas";
+import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import { SnapraidMergerfsGuide } from "./snapraid-merfs-guide";
 import { SnapraidMergerfsPlanner } from "./snapraid-mergerfs-planner";
 
@@ -14,8 +15,8 @@ export default function SnapraidMergerfsPlannerPage() {
       sidebar={<StorageToolsSidebar active="snapraid-mergerfs" />}
       sidebarLabel="Storage tools sidebar"
     >
-      <div className={styles.page}>
-        <header className={styles.pageHeader}>
+      <PageCanvas>
+        <PageHeader>
           <h1>
             <PageTitleIcon><HardDrive strokeWidth={2.2} /></PageTitleIcon>{" "}
             SnapRAID and mergerfs <mark>config planner</mark>
@@ -23,10 +24,10 @@ export default function SnapraidMergerfsPlannerPage() {
           <p>
             Enter data, parity, content, and pool paths to generate a reviewable <code>snapraid.conf</code> and matching mergerfs <code>/etc/fstab</code> line. The checks run in this browser and do not inspect or change your host.
           </p>
-        </header>
+        </PageHeader>
         <SnapraidMergerfsPlanner />
         <SnapraidMergerfsGuide />
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

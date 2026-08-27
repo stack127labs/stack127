@@ -18,10 +18,10 @@ Sidebar titles use the shared `SidebarLabel` component from `app/app-shell.tsx`.
 
 A route family with several cooperating components may use one colocated family stylesheet imported by that family's layout. Current examples are:
 
-- `app/(site)/dns-tools/dns-tools.css`;
-- `app/(site)/self-host-apps/self-host-apps.css`;
-- `app/(site)/self-hosting-for-beginners/course.css`;
-- `app/(site)/software-licenses-for-self-hosting/software-licenses.css`.
+- `app/(site)/(catalogs)/dns-tools/dns-tools.css`;
+- `app/(site)/(catalogs)/_components/catalog-directory.css`;
+- `app/(site)/(courses)/self-hosting-for-beginners/course.css`;
+- `app/(site)/(catalogs)/software-licenses-for-self-hosting/software-licenses.css`.
 
 Prefer CSS Modules for new components and new single-page work. Use a family stylesheet when multiple files in the same route family intentionally share selectors. Do not move a family stylesheet into `globals.css` for convenience.
 

@@ -1,10 +1,11 @@
-import "../../dns-tools/dns-tools.css";
+import "../../(catalogs)/dns-tools/dns-tools.css";
 import { Server } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { DnsToolsSidebar } from "../../dns-tools/dns-tools-sidebar";
+import { DnsToolsSidebar } from "../../(catalogs)/dns-tools/dns-tools-sidebar";
 import { NameserverChecker } from "./nameserver-checker";
-import styles from "../../dns-tools/dns-diagnostics.module.css";
+import styles from "../../(catalogs)/dns-tools/dns-diagnostics.module.css";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -15,7 +16,7 @@ export default async function NameserverCheckerPage({ searchParams }: { searchPa
   return (
     <AppShell mainLabel="Nameserver Delegation Checker" menuLabel="DNS tools" sidebar={<DnsToolsSidebar active="nameserver" />} sidebarLabel="DNS tools sidebar">
       <main className={styles.main}>
-        <header className="dns-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <Server strokeWidth={2.2} />
@@ -29,7 +30,7 @@ export default async function NameserverCheckerPage({ searchParams }: { searchPa
             the glue addresses that make the handoff work, and tests each server directly over both
             UDP and TCP.
           </p>
-        </header>
+        </PageHeader>
         <NameserverChecker initialName={first(params.name)} />
         <article className={`dns-reference-content ${proseSectionFlowClassName}`}>
           <section>

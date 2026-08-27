@@ -1,15 +1,16 @@
 import { Route } from "lucide-react";
 import { AppShell } from "../../../app-shell";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
+import { PageCanvas } from "../../../page-canvas";
 import { NginxProxyPassCalculator } from "./nginx-proxy-pass-calculator";
 import { NginxProxyPassGuide } from "./nginx-proxy-pass-guide";
-import styles from "./nginx-proxy-pass-calculator.module.css";
 
 export default function NginxProxyPassCalculatorPage() {
   return (
     <AppShell mainLabel="NGINX proxy_pass URI Calculator">
-      <div className={styles.page}>
-        <header className={styles.pageHeader}>
+      <PageCanvas>
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <Route strokeWidth={2.2} />
@@ -22,10 +23,10 @@ export default function NginxProxyPassCalculatorPage() {
             optional slash comparison. It runs in this browser, but runtime-dependent cases need
             verification in NGINX.
           </p>
-        </header>
+        </PageHeader>
         <NginxProxyPassCalculator />
         <NginxProxyPassGuide />
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

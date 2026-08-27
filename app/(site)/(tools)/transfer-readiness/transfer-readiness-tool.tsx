@@ -13,7 +13,7 @@ import {
   reportJson,
   useDomainLookup,
   type Tone,
-} from "../../domain-tools/domain-lookup-client";
+} from "../../(catalogs)/domain-tools/domain-lookup-client";
 
 const STATE_TONE: Record<TransferFinding["state"], Tone> = {
   blocked: "bad",

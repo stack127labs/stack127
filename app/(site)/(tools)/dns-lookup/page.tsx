@@ -1,11 +1,12 @@
-import "../../dns-tools/dns-tools.css";
+import "../../(catalogs)/dns-tools/dns-tools.css";
 import { Search } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { DnsToolsSidebar } from "../../dns-tools/dns-tools-sidebar";
+import { DnsToolsSidebar } from "../../(catalogs)/dns-tools/dns-tools-sidebar";
 import { DnsLookupTool } from "./dns-lookup-tool";
 import type { DnsResolver, DnsSelection } from "@/lib/dns/types.ts";
 import { isDnsResolver } from "@/lib/dns/resolvers.ts";
 import { PageTitleIcon } from "../../../page-title-icon";
+import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -33,7 +34,7 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
       sidebarLabel="DNS lookup sidebar"
     >
       <main className="dns-lookup-main">
-        <header className="dns-page-header">
+        <PageHeader>
           <h1>
             <PageTitleIcon>
               <Search strokeWidth={2.2} />
@@ -44,7 +45,7 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
           <p>
             Enter a domain or hostname to see its DNS records, or choose PTR to find the hostname connected to an IP address. You can check a public resolver's cached answer or ask the domain's authoritative nameserver directly. Leave All selected if you are not sure which record you need.
           </p>
-        </header>
+        </PageHeader>
 
         <DnsLookupTool
           initialName={firstValue(params.name)}
