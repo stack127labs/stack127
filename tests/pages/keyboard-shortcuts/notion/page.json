@@ -1,7 +1,6 @@
 {
   "route": "/keyboard-shortcuts/notion",
-  "state": "noindex",
-  "reason": "Route code must reach production before its exact registry row is published.",
+  "state": "published",
   "docs": [
     "content_docs/keyboard-shortcuts"
   ],
