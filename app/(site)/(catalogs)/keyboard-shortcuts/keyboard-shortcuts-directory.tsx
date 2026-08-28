@@ -52,7 +52,7 @@ export function KeyboardShortcutsDirectory() {
                   {apps.map((app) => (
                     <tr key={app.slug}>
                       <td data-label="App">
-                        <Link href={"/shortcuts-cheatsheet-generator?apps=" + app.slug}>{app.name}</Link>
+                        <Link href={"/keyboard-shortcuts/" + app.slug}>{app.name}</Link>
                       </td>
                       <td data-label="Platforms">
                         <ul className={styles.platforms}>

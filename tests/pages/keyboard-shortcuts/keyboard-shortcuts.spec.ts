@@ -1,14 +1,25 @@
 import { expect, test } from "playwright/test";
 
 test.describe("shortcut reference", () => {
-  test("directory has a contained table and configured sheet links", async ({ page }) => {
+  test("directory has a contained table and canonical app links", async ({ page }) => {
     await page.goto("/keyboard-shortcuts");
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Keyboard shortcuts");
     await expect(page.getByRole("link", { name: "Visual Studio Code", exact: true })).toHaveAttribute(
       "href",
-      "/shortcuts-cheatsheet-generator?apps=vscode",
+      "/keyboard-shortcuts/vscode",
     );
     await expect(page.locator("body")).not.toHaveCSS("overflow-x", "scroll");
+  });
+
+  test("app pages keep every shortcut under the canonical directory", async ({ page }) => {
+    const response = await page.goto("/keyboard-shortcuts/notion");
+    expect(response?.status()).toBe(200);
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("Notion keyboard shortcuts");
+    await expect(page.getByRole("table").first()).toBeVisible();
+    await expect(page.getByRole("link", { name: "Make a printable Notion sheet" })).toHaveAttribute(
+      "href",
+      "/shortcuts-cheatsheet-generator?apps=notion",
+    );
   });
 
   test("the removed shortcut routes return 404 without redirecting", async ({ page }) => {

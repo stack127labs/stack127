@@ -1,0 +1,19 @@
+{
+  "route": "/keyboard-shortcuts/vim",
+  "state": "noindex",
+  "reason": "Route code must reach production before its exact registry row is published.",
+  "docs": [
+    "content_docs/keyboard-shortcuts"
+  ],
+  "tests": [
+    "tests/stack127/seo.spec.ts",
+    "tests/pages/keyboard-shortcuts/shared/data.test.mjs",
+    "tests/pages/keyboard-shortcuts/keyboard-shortcuts.spec.ts"
+  ],
+  "scripts": [],
+  "skills": [
+    "skills/stack127/test-driven-page",
+    "skills/stack127/visual-first-content"
+  ],
+  "repositories": []
+}

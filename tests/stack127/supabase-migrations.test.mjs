@@ -60,3 +60,24 @@ test("the removed shortcut route family leaves the publication registry", () => 
   assert.match(removeShortcutRoutesMigration, /slug like 'shortcuts\/%'/);
   assert.doesNotMatch(removeShortcutRoutesMigration, /redirect/i);
 });
+
+const restoreKeyboardShortcutPagesMigration = readFileSync(
+  new URL(
+    "../../supabase/migrations/20260828032950_restore_keyboard_shortcut_pages.sql",
+    import.meta.url,
+  ),
+  "utf8",
+);
+
+test("keyboard shortcut app pages return under the canonical directory", () => {
+  const canonicalSlugs = [
+    ...restoreKeyboardShortcutPagesMigration.matchAll(/'keyboard-shortcuts\/([^']+)'/g),
+  ].map((match) => match[1]);
+
+  assert.equal(canonicalSlugs.length, 26);
+  assert.equal(new Set(canonicalSlugs).size, 26);
+  assert.ok(canonicalSlugs.includes("notion"));
+  assert.ok(canonicalSlugs.includes("vscode"));
+  assert.doesNotMatch(restoreKeyboardShortcutPagesMigration, /'shortcuts\//);
+  assert.doesNotMatch(restoreKeyboardShortcutPagesMigration, /redirect/i);
+});

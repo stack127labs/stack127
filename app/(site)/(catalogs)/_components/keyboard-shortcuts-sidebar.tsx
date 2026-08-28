@@ -34,7 +34,13 @@ const sidebarGroups = [
   },
 ] as const;
 
-export function KeyboardShortcutsSidebar({ activePage }: { activePage?: "directory" | "generator" }) {
+export function KeyboardShortcutsSidebar({
+  activePage,
+  activeSlug,
+}: {
+  activePage?: "directory" | "generator";
+  activeSlug?: string;
+}) {
   return (
     <div className={`${sidebarPanelClassName} ${styles.panel}`}>
       <div className={sidebarPanelHeadingClassName}>
@@ -69,9 +75,10 @@ export function KeyboardShortcutsSidebar({ activePage }: { activePage?: "directo
               <p className={styles.groupTitle}>{group.title}</p>
               <SidebarList
                 items={apps.map((app) => ({
-                  href: "/shortcuts-cheatsheet-generator?apps=" + app.slug,
+                  href: "/keyboard-shortcuts/" + app.slug,
                   label: app.name,
                   count: String(shortcutCount(app)),
+                  active: activeSlug === app.slug,
                 }))}
               />
             </div>

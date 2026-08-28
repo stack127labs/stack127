@@ -8,15 +8,16 @@ checking platform support before opening a sheet, or choosing several apps for o
 ## The job
 
 The catalog lets the reader compare available apps, platforms, and shortcut counts. Choosing an app
-opens the cheatsheet generator with that app selected. There is one catalog URL and one generator
-URL. The removed `/shortcuts/*` pages do not redirect.
+opens its full shortcut reference. The reader can then build a printable sheet with that app selected.
+The catalog lives at `/keyboard-shortcuts`, and each app lives at `/keyboard-shortcuts/<app>`.
+The removed `/shortcuts/*` pages do not redirect.
 
 ## Show vs say
 
 One section per category keeps the catalog easy to scan. Each section uses a table for the repeated
-app, platform, and count fields. App links open a configured sheet where the actual key bindings are
-grouped by task and platform. No app landing pages, charts, screenshots, provenance labels, or
-decorative copy belong here.
+app, platform, and count fields. Each app reference uses grouped tables for actions and platform keys,
+with short notes only where a mode or sequence needs explanation. The printable sheet remains a
+separate tool. Charts, screenshots, provenance labels, and decorative copy do not belong here.
 
 ## Data rules
 

@@ -42,6 +42,11 @@ test("the duplicate shortcuts route family is absent", async () => {
   assert.equal(await exists("content_docs/shortcuts"), false);
 });
 
+test("keyboard shortcut app pages stay inside the canonical catalog", async () => {
+  assert.equal(await exists("app/(site)/(catalogs)/keyboard-shortcuts/notion/page.tsx"), true);
+  assert.equal(await exists("tests/pages/keyboard-shortcuts/notion/page.json"), true);
+});
+
 test("route-family names do not appear in public URLs", async () => {
   assert.equal(await exists("app/(site)/(catalogs)/catalogs"), false);
   assert.equal(await exists("app/(site)/(courses)/courses"), false);
