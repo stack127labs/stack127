@@ -1,0 +1,127 @@
+{
+  "apps": [
+    {
+      "slug": "resilio-sync",
+      "docker_support": "official",
+      "docker_image": "resilio/sync",
+      "compose_support": true,
+      "compose_url": "https://github.com/bt-sync/sync-docker/tree/master/docker-compose",
+      "persistent_storage": true,
+      "storage_profile": "depends",
+      "technical_facts_checked_at": "2026-08-29T00:00:00.000Z",
+      "field_sources": [
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://help.resilio.com/hc/en-us/articles/206178924-Installing-Sync-package-on-Linux",
+          "confidence": "high",
+          "note": "The official Linux installation guide links to Resilio's official Docker image."
+        },
+        {
+          "field_name": "docker_image",
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/r/resilio/sync",
+          "confidence": "high",
+          "note": "Exact image published by Resilio."
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/r/resilio/sync",
+          "confidence": "high",
+          "note": "Resilio's Docker Hub page links to its Compose deployment."
+        },
+        {
+          "field_name": "compose_url",
+          "source": "official_container_registry",
+          "source_url": "https://github.com/bt-sync/sync-docker/tree/master/docker-compose",
+          "confidence": "high",
+          "note": "Compose deployment linked from Resilio's official Docker Hub page."
+        },
+        {
+          "field_name": "ram_min_mb",
+          "source": "official_documentation",
+          "source_url": "https://help.resilio.com/hc/en-us/articles/209724663-Out-of-memory",
+          "confidence": "low",
+          "note": "RAM depends on the number and path length of managed files; the official source does not publish a fixed minimum."
+        },
+        {
+          "field_name": "storage_profile",
+          "source": "official_documentation",
+          "source_url": "https://help.resilio.com/hc/en-us/articles/209724663-Out-of-memory",
+          "confidence": "high",
+          "note": "Storage depends on the synchronized data and Sync database, so no fixed minimum is appropriate."
+        },
+        {
+          "field_name": "persistent_storage",
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/r/resilio/sync",
+          "confidence": "high",
+          "note": "The official container deployment mounts the Sync data directory."
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_documentation",
+          "source_url": "https://help.resilio.com/hc/en-us/articles/209724663-Out-of-memory",
+          "confidence": "low",
+          "note": "The official source describes Sync's internal database but no separately deployed datastore."
+        }
+      ]
+    },
+    {
+      "slug": "wazo",
+      "docs_url": "https://wazo-platform.org/uc-doc/installation/",
+      "install_docs_url": "https://wazo-platform.org/uc-doc/installation/",
+      "database_types": ["postgres"],
+      "requires_database": true,
+      "ram_min_mb": 4096,
+      "storage_min_gb": 50,
+      "resource_requirement_kind": "official_minimum",
+      "technical_facts_checked_at": "2026-08-29T00:00:00.000Z",
+      "field_sources": [
+        {
+          "field_name": "ram_min_mb",
+          "source": "official_documentation",
+          "source_url": "https://wazo-platform.org/uc-doc/installation/",
+          "confidence": "high",
+          "note": "Official minimum for a small production installation of about 50 users."
+        },
+        {
+          "field_name": "storage_min_gb",
+          "source": "official_documentation",
+          "source_url": "https://wazo-platform.org/uc-doc/installation/",
+          "confidence": "high",
+          "note": "Official minimum for a small production installation of about 50 users."
+        },
+        {
+          "field_name": "requires_database",
+          "source": "official_documentation",
+          "source_url": "https://wazo-platform.org/uc-doc/installation/",
+          "confidence": "high",
+          "note": "The official installer declares its PostgreSQL dependency."
+        },
+        {
+          "field_name": "database_types",
+          "source": "official_documentation",
+          "source_url": "https://wazo-platform.org/uc-doc/installation/",
+          "confidence": "high",
+          "note": "The official installer uses PostgreSQL."
+        },
+        {
+          "field_name": "docker_support",
+          "source": "official_source_audit",
+          "source_url": "https://github.com/wazo-platform/wazo-docker",
+          "confidence": "low",
+          "note": "The official Docker repository is explicitly experimental and not ready for production, so supported Docker deployment remains unknown."
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_source_audit",
+          "source_url": "https://github.com/wazo-platform/wazo-docker",
+          "confidence": "low",
+          "note": "The official Compose repository is explicitly experimental and not ready for production, so supported Compose deployment remains unknown."
+        }
+      ]
+    }
+  ]
+}

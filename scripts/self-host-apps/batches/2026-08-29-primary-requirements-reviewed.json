@@ -1,0 +1,83 @@
+{
+  "reviewed_at": "2026-08-29",
+  "scope": "Numeric requirements proposed by the primary-source technical facts audit",
+  "reviews": [
+    {
+      "slug": "big-agi",
+      "ram_min_mb": null,
+      "ram_recommended_mb": null,
+      "storage_min_gb": null,
+      "decision": "The 1 GB value describes storage in the hosted Pro plan, not a self-hosting requirement."
+    },
+    {
+      "slug": "datalens",
+      "ram_min_mb": 4096,
+      "ram_recommended_mb": null,
+      "storage_min_gb": null,
+      "decision": "The official minimum-system-requirements section gives 4 GB for the complete installation."
+    },
+    {
+      "slug": "highlight",
+      "ram_min_mb": null,
+      "ram_recommended_mb": 8192,
+      "storage_min_gb": null,
+      "decision": "The hobby deployment instructions recommend at least 8 GB RAM. The recommended 64 GB disk value is not stored as a minimum."
+    },
+    {
+      "slug": "hyperdx",
+      "ram_min_mb": null,
+      "ram_recommended_mb": 4096,
+      "storage_min_gb": null,
+      "decision": "The official quick start recommends at least 4 GB RAM for testing."
+    },
+    {
+      "slug": "jan",
+      "ram_min_mb": null,
+      "ram_recommended_mb": null,
+      "storage_min_gb": null,
+      "decision": "The RAM figures vary by model size and the 8 GB figure is stated only for macOS with a 3B model."
+    },
+    {
+      "slug": "jitsu",
+      "ram_min_mb": null,
+      "ram_recommended_mb": null,
+      "storage_min_gb": null,
+      "decision": "The 8 GB instruction applies to the development Minikube VM, not a general production minimum."
+    },
+    {
+      "slug": "marble",
+      "ram_min_mb": 4096,
+      "ram_recommended_mb": null,
+      "storage_min_gb": 10,
+      "decision": "The official quick-start prerequisites state a 4 GB RAM minimum and 10 GB disk space."
+    },
+    {
+      "slug": "olares",
+      "ram_min_mb": 8192,
+      "ram_recommended_mb": null,
+      "storage_min_gb": 150,
+      "decision": "The official prerequisites require at least 8 GB available memory and 150 GB available SSD storage."
+    },
+    {
+      "slug": "open-mercato",
+      "ram_min_mb": null,
+      "ram_recommended_mb": null,
+      "storage_min_gb": null,
+      "decision": "The 12 GB recommendation applies to the development container, not the self-hosted app generally."
+    },
+    {
+      "slug": "text-generation-webui",
+      "ram_min_mb": null,
+      "ram_recommended_mb": null,
+      "storage_min_gb": null,
+      "decision": "The 10 GB value applies to the optional advanced installation path, not the base app."
+    },
+    {
+      "slug": "trench",
+      "ram_min_mb": null,
+      "ram_recommended_mb": 4096,
+      "storage_min_gb": null,
+      "decision": "The official production guidance recommends at least 4 GB RAM."
+    }
+  ]
+}

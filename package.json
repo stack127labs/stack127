@@ -22,6 +22,8 @@
     "self-host-apps:discover-selfhostedworld": "node scripts/self-host-apps/discover-selfhostedworld.mjs",
     "self-host-apps:discover-openalternative": "node scripts/self-host-apps/discover-openalternative.mjs",
     "self-host-apps:discover-app-catalogs": "node scripts/self-host-apps/discover-app-catalogs.mjs",
+    "self-host-apps:refresh-app-catalog-facts": "node scripts/self-host-apps/refresh-app-catalog-facts.mjs",
+    "self-host-apps:refresh-primary-technical-facts": "node scripts/self-host-apps/refresh-primary-technical-facts.mjs",
     "self-host-apps:dedupe-candidates": "node scripts/self-host-apps/dedupe-candidates.mjs",
     "self-host-apps:select-candidate-batch": "node scripts/self-host-apps/select-candidate-batch.mjs",
     "self-host-apps:release-candidate-batch": "node scripts/self-host-apps/release-candidate-batch.mjs",

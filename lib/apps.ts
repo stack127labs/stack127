@@ -50,9 +50,18 @@ export type DirectoryApp = {
   ram_mb: number | null;
   ram_min_mb: number | null;
   ram_recommended_mb: number | null;
+  ram_default_limit_mb: number | null;
+  ram_researched: boolean;
   storage_profile: string;
   storage_min_gb: number | null;
+  persistent_storage: boolean | null;
+  storage_researched: boolean;
+  database_researched: boolean;
+  docker_researched: boolean;
+  docker_image_researched: boolean;
+  compose_researched: boolean;
   resource_requirement_kind: string;
+  technical_facts_checked_at: Date | null;
   popularity_score: number;
   popularity_basis: string[];
   popularity_checked_at: Date | null;
@@ -264,9 +273,48 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
         app.ram_mb,
         app.ram_min_mb,
         app.ram_recommended_mb,
+        app.ram_default_limit_mb,
+        exists (
+          select 1
+          from public.self_host_app_field_sources field_source
+          where field_source.app_id = app.id
+            and field_source.field_name in ('ram_mb', 'ram_min_mb', 'ram_recommended_mb', 'ram_default_limit_mb')
+        ) as ram_researched,
         app.storage_profile,
         app.storage_min_gb::float8 as storage_min_gb,
+        app.persistent_storage,
+        exists (
+          select 1
+          from public.self_host_app_field_sources field_source
+          where field_source.app_id = app.id
+            and field_source.field_name in ('storage_profile', 'storage_min_gb', 'persistent_storage')
+        ) as storage_researched,
+        exists (
+          select 1
+          from public.self_host_app_field_sources field_source
+          where field_source.app_id = app.id
+            and field_source.field_name in ('requires_database', 'database_types')
+        ) as database_researched,
+        exists (
+          select 1
+          from public.self_host_app_field_sources field_source
+          where field_source.app_id = app.id
+            and field_source.field_name in ('docker_support', 'docker_image')
+        ) as docker_researched,
+        exists (
+          select 1
+          from public.self_host_app_field_sources field_source
+          where field_source.app_id = app.id
+            and field_source.field_name = 'docker_image'
+        ) as docker_image_researched,
+        exists (
+          select 1
+          from public.self_host_app_field_sources field_source
+          where field_source.app_id = app.id
+            and field_source.field_name in ('compose_support', 'compose_url')
+        ) as compose_researched,
         app.resource_requirement_kind,
+        app.technical_facts_checked_at,
         app.popularity_score,
         app.popularity_basis,
         app.popularity_checked_at,

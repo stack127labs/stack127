@@ -42,6 +42,14 @@ Do not add a confidence score. An app is shown on this page only after official 
 
 Use the controlled taxonomy in `scripts/self-host-apps/lib/categories.mjs`. Assign one to three categories by the app's actual purpose. Raw directory categories and GitHub topics remain source metadata until reviewed.
 
+## Technical fact rules
+
+`ram_min_mb` and `ram_recommended_mb` hold app requirements stated by an official source. `ram_default_limit_mb` holds a default memory cap from a reviewed appliance package. The package cap must not be presented as an app minimum.
+
+`storage_min_gb` holds a stated minimum. `storage_profile` holds a reviewed workload tier. `persistent_storage` records whether a reviewed deployment declares persistent storage, but it does not imply a capacity requirement.
+
+A null value may mean that a checked official source did not publish the fact. `self_host_app_field_sources` records that checked outcome, including the source URL, date, and note. The page and QA report distinguish a researched null from a field that has not been checked.
+
 ## Candidate states
 
 - `new`: discovered but not deduped.

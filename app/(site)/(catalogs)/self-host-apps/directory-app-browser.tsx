@@ -64,22 +64,36 @@ function formatLatestRelease(app: DirectoryApp) {
 }
 
 export function formatComposeSupport(app: DirectoryApp) {
-  if (app.compose_support === null) return "unknown";
+  if (app.compose_support === null) return app.compose_researched ? "not published" : "not checked";
   return app.compose_support ? "yes" : "no";
 }
 
 function formatRamRequirement(app: DirectoryApp) {
-  if (app.ram_min_mb === null && app.ram_recommended_mb === null) return "unknown";
   if (app.ram_min_mb !== null && app.ram_recommended_mb !== null) {
     return `${app.ram_min_mb} MB min · ${app.ram_recommended_mb} MB recommended`;
   }
   if (app.ram_min_mb !== null) return `${app.ram_min_mb} MB minimum`;
-  return `${app.ram_recommended_mb} MB recommended`;
+  if (app.ram_recommended_mb !== null) return `${app.ram_recommended_mb} MB recommended`;
+  if (app.ram_default_limit_mb !== null) return `${app.ram_default_limit_mb} MB package cap`;
+  return app.ram_researched ? "not published" : "not checked";
 }
 
 function formatStorageRequirement(app: DirectoryApp) {
   if (app.storage_min_gb !== null) return `${app.storage_min_gb} GB minimum`;
-  return "unknown";
+  if (app.storage_profile === "depends") return "depends on retained data";
+  if (app.storage_profile !== "unknown") return `${app.storage_profile} workload profile`;
+  if (app.persistent_storage) return "persistent storage, size not published";
+  return app.storage_researched ? "not published" : "not checked";
+}
+
+function formatDockerSupport(app: DirectoryApp) {
+  if (app.docker_support !== "unknown") return app.docker_support;
+  return app.docker_researched ? "not published" : "not checked";
+}
+
+function formatContainerImage(app: DirectoryApp) {
+  if (app.docker_image) return app.docker_image;
+  return app.docker_image_researched ? "not published" : "not checked";
 }
 
 function formatPlatforms(surfaces: string[]) {
@@ -130,9 +144,9 @@ function AppDetailsOverlay({
     ["license", app.license ?? "unknown", Scale],
     ["source model", sourceModelLabel(app), Code2],
     ["price", app.pricing_model.replaceAll("_", " "), Scale],
-    ["docker", app.docker_support, Box],
+    ["docker", formatDockerSupport(app), Box],
     ["compose", formatComposeSupport(app), Layers],
-    ["container image", app.docker_image ?? "unknown", Box],
+    ["container image", formatContainerImage(app), Box],
     ["database", formatDatabaseRequirement(app), Database],
     ["ram", formatRamRequirement(app), Server],
     ["storage", formatStorageRequirement(app), HardDrive],

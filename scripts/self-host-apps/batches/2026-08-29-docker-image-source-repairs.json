@@ -1,0 +1,153 @@
+{
+  "apps": [
+    {
+      "slug": "cosmos-server",
+      "docker_image": "ghcr.io/azukaar/cosmos-server",
+      "field_sources": [{
+        "field_name": "docker_image",
+        "source": "official_repository",
+        "source_url": "https://github.com/azukaar/Cosmos-Server",
+        "confidence": "high",
+        "note": "Exact GHCR package named by the official repository."
+      }]
+    },
+    {
+      "slug": "files-sharing",
+      "docker_image": "axeloz/filesharing:latest",
+      "field_sources": [{
+        "field_name": "docker_image",
+        "source": "official_repository",
+        "source_url": "https://github.com/axeloz/filesharing",
+        "confidence": "high",
+        "note": "Exact image in the official Docker and Compose instructions."
+      }]
+    },
+    {
+      "slug": "jellyplist",
+      "docker_image": "ghcr.io/kamilkosek/jellyplist:latest",
+      "field_sources": [{
+        "field_name": "docker_image",
+        "source": "official_repository",
+        "source_url": "https://github.com/kamilkosek/jellyplist",
+        "confidence": "high",
+        "note": "Exact image in the official Compose instructions."
+      }]
+    },
+    {
+      "slug": "lingarr",
+      "docker_image": "ghcr.io/lingarr-translate/lingarr:latest",
+      "field_sources": [{
+        "field_name": "docker_image",
+        "source": "official_repository",
+        "source_url": "https://github.com/lingarr-translate/lingarr/blob/main/Readme.MD",
+        "confidence": "high",
+        "note": "Exact image in the official Docker and Compose instructions."
+      }]
+    },
+    {
+      "slug": "lurker",
+      "docker_image": "ghcr.io/oppiliappan/lurker:latest",
+      "field_sources": [{
+        "field_name": "docker_image",
+        "source": "official_repository",
+        "source_url": "https://github.com/oppiliappan/lurker",
+        "confidence": "high",
+        "note": "Exact image in the official Docker and Compose instructions."
+      }]
+    },
+    {
+      "slug": "memtly",
+      "docker_image": "memtly/memtly",
+      "field_sources": [{
+        "field_name": "docker_image",
+        "source": "official_repository",
+        "source_url": "https://github.com/Memtly/Memtly.Community",
+        "confidence": "high",
+        "note": "Exact Docker Hub repository linked by the official source repository."
+      }]
+    },
+    {
+      "slug": "obskurnee",
+      "docker_image": "zblesk/obskurnee:latest",
+      "field_sources": [{
+        "field_name": "docker_image",
+        "source": "official_repository",
+        "source_url": "https://github.com/zblesk/obskurnee",
+        "confidence": "high",
+        "note": "Exact image in the official Docker and Compose instructions."
+      }]
+    },
+    {
+      "slug": "thelia",
+      "docker_support": "unknown",
+      "compose_support": null,
+      "field_sources": [
+        {
+          "field_name": "docker_support",
+          "source": "official_repository",
+          "source_url": "https://github.com/thelia/thelia",
+          "confidence": "low",
+          "note": "The repository says its Docker configuration is not ready for production; supported Docker deployment remains unknown."
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_repository",
+          "source_url": "https://github.com/thelia/thelia",
+          "confidence": "low",
+          "note": "The repository says its Compose configuration is not ready for production; supported Compose deployment remains unknown."
+        },
+        {
+          "field_name": "docker_image",
+          "source": "official_repository",
+          "source_url": "https://github.com/thelia/thelia",
+          "confidence": "low",
+          "note": "Official sources checked; no supported prebuilt production image was published."
+        }
+      ]
+    },
+    {
+      "slug": "typemill",
+      "field_sources": [{
+        "field_name": "docker_image",
+        "source": "official_documentation",
+        "source_url": "https://docs.typemill.net/getting-started/installation/docker",
+        "confidence": "low",
+        "note": "The official guide documents a local image build but does not identify an unambiguous current prebuilt image repository."
+      }]
+    },
+    {
+      "slug": "yarr",
+      "field_sources": [{
+        "field_name": "docker_image",
+        "source": "official_repository",
+        "source_url": "https://github.com/nkanaev/yarr",
+        "confidence": "low",
+        "note": "The official repository provides a Dockerfile but no exact prebuilt image was found."
+      }]
+    },
+    {
+      "slug": "yeti-switch",
+      "docker_support": "none",
+      "compose_support": false,
+      "deployment_methods": [],
+      "docs_url": "https://yeti-switch.org/docs/",
+      "install_docs_url": "https://yeti-switch.org/docs/installation/installation-1.13/",
+      "field_sources": [
+        {
+          "field_name": "docker_support",
+          "source": "official_documentation",
+          "source_url": "https://yeti-switch.org/docs/installation/installation-1.13/",
+          "confidence": "high",
+          "note": "The official installation guide states that Debian packages are the only official installation method."
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://yeti-switch.org/docs/installation/installation-1.13/",
+          "confidence": "high",
+          "note": "The official installation guide does not support Compose deployment."
+        }
+      ]
+    }
+  ]
+}

@@ -28,7 +28,9 @@ export function getRamTier(app: DirectoryApp) {
 
 export function getStorageTier(app: DirectoryApp) {
   const storage = app.storage_min_gb;
-  if (storage === null) return "unknown";
+  if (storage === null) {
+    return app.storage_profile !== "unknown" ? app.storage_profile : "unknown";
+  }
   if (storage < 1) return "tiny";
   if (storage < 10) return "low";
   if (storage < 100) return "medium";
@@ -79,7 +81,7 @@ export function formatCardDate(value: Date | string | null) {
 
 export function formatDatabaseRequirement(app: DirectoryApp) {
   if (app.requires_database === null) {
-    return "unknown";
+    return app.database_researched ? "not published" : "not checked";
   }
 
   if (app.database_types.length > 0) {

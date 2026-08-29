@@ -10,6 +10,14 @@ const dockerHighRiskPattern =
   /(devcontainer|dev-container|compose\.dev|docker-compose\.dev|\/test|testing|ci|e2e|vendor|\.github)/i;
 const dockerWeakPattern = /(examples?|github\.com\/.+#readme)/i;
 const vagueSummaryPattern = /\b(simple|modern|elegant|powerful|robust|seamless|easy-to-use|user-friendly)\b/i;
+const researchedNullOutcomes = new Set([
+  "ram_not_published",
+  "storage_not_published",
+  "database_not_published",
+  "docker_not_published",
+  "docker_image_not_published",
+  "compose_not_published",
+]);
 
 const issueWeights = {
   db_false_with_non_sqlite_types: 100,
@@ -18,14 +26,15 @@ const issueWeights = {
   icon_missing_file: 80,
   icon_not_png: 75,
   license_missing: 65,
-  ram_min_missing: 60,
-  storage_unknown: 55,
+  ram_pending: 60,
+  storage_pending: 55,
   pricing_unknown: 45,
   docker_image_missing: 40,
   source_model_unknown: 65,
-  docker_unknown: 60,
+  docker_pending: 60,
+  compose_pending: 55,
   docker_weak_url: 55,
-  database_unknown: 55,
+  database_pending: 55,
   remote_icon: 50,
   icon_tiny: 45,
   install_docs_readme_fallback: 40,
@@ -102,11 +111,27 @@ function rowIssues(row) {
     issues.push("license_missing");
   }
   if (row.source_model === "unknown") issues.push("source_model_unknown");
-  if (row.ram_min_mb === null) issues.push("ram_min_missing");
-  if (row.storage_min_gb === null || row.storage_profile === "unknown") issues.push("storage_unknown");
+  if (
+    row.ram_min_mb === null &&
+    row.ram_recommended_mb === null &&
+    row.ram_default_limit_mb === null
+  ) {
+    issues.push(row.ram_researched ? "ram_not_published" : "ram_pending");
+  }
+  if (
+    row.storage_min_gb === null &&
+    row.storage_profile === "unknown" &&
+    row.persistent_storage !== true
+  ) {
+    issues.push(row.storage_researched ? "storage_not_published" : "storage_pending");
+  }
   if (row.pricing_model === "unknown") issues.push("pricing_unknown");
-  if (row.docker_support === "official" && !row.docker_image) issues.push("docker_image_missing");
-  if (row.requires_database === null) issues.push("database_unknown");
+  if (row.docker_support === "official" && !row.docker_image) {
+    issues.push(row.docker_image_researched ? "docker_image_not_published" : "docker_image_missing");
+  }
+  if (row.requires_database === null) {
+    issues.push(row.database_researched ? "database_not_published" : "database_pending");
+  }
   if (row.requires_database === null && row.database_types?.length > 0) issues.push("db_unknown_with_types");
   if (
     row.requires_database === false &&
@@ -116,7 +141,12 @@ function rowIssues(row) {
     issues.push("db_false_with_non_sqlite_types");
   }
 
-  if (row.docker_support === "unknown") issues.push("docker_unknown");
+  if (row.docker_support === "unknown") {
+    issues.push(row.docker_researched ? "docker_not_published" : "docker_pending");
+  }
+  if (row.compose_support === null) {
+    issues.push(row.compose_researched ? "compose_not_published" : "compose_pending");
+  }
   if (row.docker_url && dockerHighRiskPattern.test(row.docker_url)) issues.push("docker_high_risk_url");
   if (row.docker_url && dockerWeakPattern.test(row.docker_url)) issues.push("docker_weak_url");
   if (row.docs_url && /github\.com\/.+#readme/i.test(row.docs_url)) issues.push("docs_readme_fallback");
@@ -182,8 +212,41 @@ async function main() {
           database_types,
           ram_mb,
           ram_min_mb,
+          ram_recommended_mb,
+          ram_default_limit_mb,
+          exists (
+            select 1 from public.self_host_app_field_sources field_source
+            where field_source.app_id = self_host_apps.id
+              and field_source.field_name in ('ram_mb', 'ram_min_mb', 'ram_recommended_mb', 'ram_default_limit_mb')
+          ) as ram_researched,
           storage_min_gb,
           storage_profile,
+          persistent_storage,
+          exists (
+            select 1 from public.self_host_app_field_sources field_source
+            where field_source.app_id = self_host_apps.id
+              and field_source.field_name in ('storage_profile', 'storage_min_gb', 'persistent_storage')
+          ) as storage_researched,
+          exists (
+            select 1 from public.self_host_app_field_sources field_source
+            where field_source.app_id = self_host_apps.id
+              and field_source.field_name in ('requires_database', 'database_types')
+          ) as database_researched,
+          exists (
+            select 1 from public.self_host_app_field_sources field_source
+            where field_source.app_id = self_host_apps.id
+              and field_source.field_name in ('docker_support', 'docker_image')
+          ) as docker_researched,
+          exists (
+            select 1 from public.self_host_app_field_sources field_source
+            where field_source.app_id = self_host_apps.id
+              and field_source.field_name = 'docker_image'
+          ) as docker_image_researched,
+          exists (
+            select 1 from public.self_host_app_field_sources field_source
+            where field_source.app_id = self_host_apps.id
+              and field_source.field_name in ('compose_support', 'compose_url')
+          ) as compose_researched,
           surfaces,
           summary_source,
           summary_confidence
@@ -196,20 +259,24 @@ async function main() {
     return result.rows;
   }, args["database-url"]);
 
-  const queue = rows
-    .map((row) => {
-      const issues = rowIssues(row);
-      return {
-        slug: row.slug,
-        name: row.name,
-        score: scoreFor(issues),
-        issues,
-        github_stars: row.github_stars,
-        summary: row.summary,
-        source_code_url: row.source_code_url,
-        website_url: row.website_url,
-      };
-    })
+  const assessed = rows.map((row) => {
+    const findings = rowIssues(row);
+    const outcomes = findings.filter((finding) => researchedNullOutcomes.has(finding));
+    const issues = findings.filter((finding) => !researchedNullOutcomes.has(finding));
+    return {
+      slug: row.slug,
+      name: row.name,
+      score: scoreFor(issues),
+      issues,
+      outcomes,
+      github_stars: row.github_stars,
+      summary: row.summary,
+      source_code_url: row.source_code_url,
+      website_url: row.website_url,
+    };
+  });
+
+  const queue = assessed
     .filter((row) => row.score > 0)
     .sort((a, b) => b.score - a.score || (b.github_stars ?? 0) - (a.github_stars ?? 0) || a.slug.localeCompare(b.slug));
 
@@ -217,6 +284,11 @@ async function main() {
     generated_at: new Date().toISOString(),
     published: rows.length,
     issue_counts: groupCounts(queue),
+    researched_null_counts: groupCounts(assessed.map((row) => ({ issues: row.outcomes }))),
+    technical_pending_count: queue.reduce(
+      (total, row) => total + row.issues.filter((issue) => issue.endsWith("_pending") || issue === "docker_image_missing").length,
+      0,
+    ),
     queue_count: queue.length,
     top_queue: queue.slice(0, limit),
   };
