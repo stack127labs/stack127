@@ -1,9 +1,12 @@
 import assert from "node:assert/strict";
+import { readFileSync, readdirSync } from "node:fs";
+import path from "node:path";
 import test from "node:test";
+import ts from "typescript";
 import { canonicalUrl } from "../../scripts/self-host-apps/lib/candidates.mjs";
 import {
   buildCandidateIndexes,
-  buildProjectIndexes,
+  buildAppIndexes,
   classifyCandidate,
 } from "../../scripts/self-host-apps/lib/dedupe.mjs";
 import { normalizeRecord } from "../../scripts/self-host-apps/lib/schema.mjs";
@@ -22,6 +25,29 @@ function candidate(overrides = {}) {
   };
 }
 
+function moduleFiles(directory) {
+  return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const filePath = path.join(directory, entry.name);
+    if (entry.isDirectory()) return moduleFiles(filePath);
+    return entry.isFile() && entry.name.endsWith(".mjs") ? [filePath] : [];
+  });
+}
+
+test("every self-host app pipeline module parses", () => {
+  const directory = path.resolve("scripts/self-host-apps");
+  for (const filePath of moduleFiles(directory)) {
+    const source = ts.createSourceFile(
+      filePath,
+      readFileSync(filePath, "utf8"),
+      ts.ScriptTarget.Latest,
+      true,
+      ts.ScriptKind.JS,
+    );
+    const errors = source.parseDiagnostics.map((diagnostic) => ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n"));
+    assert.deepEqual(errors, [], `${path.relative(directory, filePath)} must parse`);
+  }
+});
+
 test("GitLab canonical URLs retain nested namespaces and drop route suffixes", () => {
   assert.equal(
     canonicalUrl("https://gitlab.com/group/subgroup/project/-/releases"),
@@ -29,40 +55,40 @@ test("GitLab canonical URLs retain nested namespaces and drop route suffixes", (
   );
 });
 
-test("dedupe marks exact project repository matches as duplicates", () => {
-  const projects = buildProjectIndexes([
-    { id: "project-1", name: "Existing", source_code_url: "https://github.com/acme/tool", website_url: null },
+test("dedupe marks exact app repository matches as duplicates", () => {
+  const apps = buildAppIndexes([
+    { id: "app-1", name: "Existing", source_code_url: "https://github.com/acme/tool", website_url: null },
   ]);
   const current = candidate({ canonical_source_code_key: "github.com/acme/tool" });
-  const result = classifyCandidate(current, projects, buildCandidateIndexes([current]));
+  const result = classifyCandidate(current, apps, buildCandidateIndexes([current]));
   assert.equal(result.action, "duplicate");
   assert.equal(result.reason, "source_code_url");
-  assert.equal(result.project.id, "project-1");
+  assert.equal(result.app.id, "app-1");
 });
 
-test("dedupe marks exact project homepage matches as duplicates", () => {
-  const projects = buildProjectIndexes([
-    { id: "project-1", name: "Existing", source_code_url: null, website_url: "https://example.com/" },
+test("dedupe marks exact app homepage matches as duplicates", () => {
+  const apps = buildAppIndexes([
+    { id: "app-1", name: "Existing", source_code_url: null, website_url: "https://example.com/" },
   ]);
   const current = candidate({ canonical_website_key: "example.com" });
-  const result = classifyCandidate(current, projects, buildCandidateIndexes([current]));
+  const result = classifyCandidate(current, apps, buildCandidateIndexes([current]));
   assert.equal(result.action, "duplicate");
   assert.equal(result.reason, "website_url");
 });
 
-test("dedupe sends name-only project matches to review", () => {
-  const projects = buildProjectIndexes([
-    { id: "project-1", name: "Example", source_code_url: null, website_url: null },
+test("dedupe sends name-only app matches to review", () => {
+  const apps = buildAppIndexes([
+    { id: "app-1", name: "Example", source_code_url: null, website_url: null },
   ]);
   const current = candidate();
-  const result = classifyCandidate(current, projects, buildCandidateIndexes([current]));
+  const result = classifyCandidate(current, apps, buildCandidateIndexes([current]));
   assert.equal(result.action, "review");
   assert.equal(result.reason, "name");
 });
 
 test("dedupe queues candidates without exact or name matches", () => {
   const current = candidate();
-  const result = classifyCandidate(current, buildProjectIndexes([]), buildCandidateIndexes([current]));
+  const result = classifyCandidate(current, buildAppIndexes([]), buildCandidateIndexes([current]));
   assert.equal(result.action, "queue");
 });
 
@@ -83,5 +109,5 @@ test("structured data extracts a SoftwareApplication detail", () => {
 });
 
 test("unclassified records default self-hosting status to unknown", () => {
-  assert.equal(normalizeRecord({ name: "Example", summary: "A useful example project for testing the pipeline." }).self_hosting_status, "unknown");
+  assert.equal(normalizeRecord({ name: "Example", summary: "A useful example app for testing the pipeline." }).self_hosting_status, "unknown");
 });

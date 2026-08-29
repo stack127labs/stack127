@@ -1,6 +1,6 @@
 # Self-host app scripts
 
-This folder owns discovery, reviewed candidate movement, refresh, and QA for `/self-host-apps`. Public records live in `open_projects`; the page reads published `self_hostable` rows.
+This folder owns discovery, reviewed candidate movement, refresh, and QA for `/self-host-apps`. Public records live in `self_host_apps`; the page reads published `self_hostable` rows.
 
 ```text
 discover -> candidates -> dedupe -> claim -> Codex research -> reviewed decision -> QA -> refresh
@@ -13,6 +13,7 @@ discover -> candidates -> dedupe -> claim -> Codex research -> reviewed decision
 - `discover-github-topic.mjs`
 - `discover-selfhostedworld.mjs`
 - `discover-openalternative.mjs`
+- `discover-app-catalogs.mjs` for the official TrueNAS and Umbrel app catalogs
 - `discover-html-directory.mjs` for manual sources only
 - `dedupe-candidates.mjs`
 
@@ -21,7 +22,7 @@ Discovery stores raw evidence. It cannot publish or assign final categories, sum
 ## Review movement
 
 - `select-candidate-batch.mjs` atomically claims queued and name-review rows.
-- `collect-github-evidence.mjs` collects official API evidence without editing projects.
+- `collect-github-evidence.mjs` collects official API evidence without editing apps.
 - `apply-candidate-review.mjs` validates reviewed decisions and writes them transactionally.
 - `release-candidate-batch.mjs` releases an abandoned claim.
 

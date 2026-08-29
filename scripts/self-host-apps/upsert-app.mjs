@@ -3,7 +3,7 @@
 import { parseArgs } from "./lib/args.mjs";
 import { getSelfHostAppCategory } from "./lib/categories.mjs";
 import { withClient } from "./lib/db.mjs";
-import { normalizeRecord, projectColumns, projectSqlValue, readJson, validateRecord } from "./lib/schema.mjs";
+import { normalizeRecord, appColumns, appSqlValue, readJson, validateRecord } from "./lib/schema.mjs";
 
 const preserveOnNullColumns = new Set([
   "github_owner",
@@ -66,7 +66,7 @@ async function ensureCategories(client, categories) {
     if (!category) throw new Error(`Unknown category: ${slug}`);
     await client.query(
       `
-        insert into public.open_project_categories (slug, name, icon_key, sort_order)
+        insert into public.self_host_app_categories (slug, name, icon_key, sort_order)
         values ($1, $2, $3, $4)
         on conflict (slug) do update set
           name = excluded.name,
@@ -79,11 +79,11 @@ async function ensureCategories(client, categories) {
 }
 
 async function replaceCategoryLinks(client, appId, categories) {
-  await client.query("delete from public.open_project_categories_join_table where project_id = $1", [appId]);
+  await client.query("delete from public.self_host_app_category_links where app_id = $1", [appId]);
   if (categories.length === 0) return;
 
   const result = await client.query(
-    "select id, slug from public.open_project_categories where slug = any($1::text[])",
+    "select id, slug from public.self_host_app_categories where slug = any($1::text[])",
     [categories],
   );
   const ids = new Map(result.rows.map((row) => [row.slug, row.id]));
@@ -93,9 +93,9 @@ async function replaceCategoryLinks(client, appId, categories) {
   for (const slug of categories) {
     await client.query(
       `
-        insert into public.open_project_categories_join_table (project_id, category_id)
+        insert into public.self_host_app_category_links (app_id, category_id)
         values ($1, $2)
-        on conflict (project_id, category_id) do nothing
+        on conflict (app_id, category_id) do nothing
       `,
       [appId, ids.get(slug)],
     );
@@ -108,8 +108,8 @@ async function upsertSource(client, appId, record) {
 
   await client.query(
     `
-      insert into public.open_project_sources (
-        project_id,
+      insert into public.self_host_app_sources (
+        app_id,
         source,
         source_key,
         source_url,
@@ -117,7 +117,7 @@ async function upsertSource(client, appId, record) {
       )
       values ($1, $2, $3, $4, $5::jsonb)
       on conflict (source, source_key) do update set
-        project_id = excluded.project_id,
+        app_id = excluded.app_id,
         source_url = excluded.source_url,
         payload = excluded.payload,
         imported_at = now()
@@ -139,8 +139,8 @@ async function upsertFieldSources(client, appId, record) {
     if (!fieldSource.field_name || !fieldSource.source) continue;
     await client.query(
       `
-        insert into public.open_project_field_sources (
-          project_id,
+        insert into public.self_host_app_field_sources (
+          app_id,
           field_name,
           source,
           source_url,
@@ -149,7 +149,7 @@ async function upsertFieldSources(client, appId, record) {
           note
         )
         values ($1, $2, $3, $4, $5, coalesce($6::timestamptz, now()), $7)
-        on conflict (project_id, field_name) do update set
+        on conflict (app_id, field_name) do update set
           source = excluded.source,
           source_url = excluded.source_url,
           confidence = excluded.confidence,
@@ -189,12 +189,12 @@ async function main() {
     await client.query("begin");
     await ensureCategories(client, record.categories);
 
-    const values = projectColumns.map((column) => record[column]);
-    const updates = projectColumns
+    const values = appColumns.map((column) => record[column]);
+    const updates = appColumns
       .filter((column) => column !== "slug")
       .map((column) => {
         if (preserveOnNullColumns.has(column)) {
-          return `${column} = coalesce(excluded.${column}, open_projects.${column})`;
+          return `${column} = coalesce(excluded.${column}, self_host_apps.${column})`;
         }
         return `${column} = excluded.${column}`;
       })
@@ -202,8 +202,8 @@ async function main() {
 
     const result = await client.query(
       `
-        insert into public.open_projects (${projectColumns.join(", ")})
-        values (${projectColumns.map(projectSqlValue).join(", ")})
+        insert into public.self_host_apps (${appColumns.join(", ")})
+        values (${appColumns.map(appSqlValue).join(", ")})
         on conflict (slug) do update set
           ${updates},
           updated_at = now()

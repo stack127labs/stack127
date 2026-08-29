@@ -1,6 +1,6 @@
 # Self-host app content rules
 
-Use these rules when reviewing projects for `/self-host-apps`.
+Use these rules when reviewing apps for `/self-host-apps`.
 
 ## Facts
 
@@ -9,12 +9,14 @@ Use these rules when reviewing projects for `/self-host-apps`.
 - Use `unknown` or `null` when research does not support a fact.
 - Keep GitHub topics as raw metadata. Assign controlled categories by actual purpose.
 - Keep source payloads and field-level provenance for imported facts.
-- Classify the reviewed license as `open_source` or `source_available`; never use those terms interchangeably.
-- Do not add generic tags, verdicts, long descriptions, or per-project prose pages.
+- Classify the source model as `open_source`, `source_available`, `closed_source`, or `unknown`; never use those terms interchangeably.
+- A closed-source app can be published without a repository when its official identity and self-hosted deployment are verified.
+- An official Docker image is valid distribution evidence. A community image must be labeled `community` and must not imply publisher support.
+- Do not add generic tags, verdicts, long descriptions, or per-app prose pages.
 
 ## Summaries
 
-Write one original sentence that says what the project helps users do. Keep it specific enough to identify the project without repeating that it is open source or self-hosted.
+Write one original sentence that says what the app helps users do. Keep it specific enough to identify the app without repeating that it is open source or self-hosted.
 
 Good:
 
@@ -32,6 +34,6 @@ Avoid filler such as `solution`, `powerful`, `ultimate`, `seamless`, and `all-in
 
 ## Rendering
 
-Keep details in the `/self-host-apps` drawer. Render complete project facts in server HTML so search crawlers and AI agents do not need to execute the drawer.
+Keep details in the `/self-host-apps` drawer. Render complete app facts in server HTML so search crawlers and AI agents do not need to execute the drawer.
 
-See `stack127_docs/open-projects.md`, `content_docs/self-host-apps/schema.md`, and `content_docs/self-host-apps/data-workflow.md` for the data contract and workflow.
+See `stack127_docs/self-host-apps-data.md`, `content_docs/self-host-apps/schema.md`, and `content_docs/self-host-apps/data-workflow.md` for the data contract and workflow.

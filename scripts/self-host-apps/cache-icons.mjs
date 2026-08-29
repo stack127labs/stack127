@@ -2,6 +2,7 @@
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import sharp from "sharp";
 import { parseArgs, numberArg } from "./lib/args.mjs";
 
 function recordsFromInput(input) {
@@ -30,19 +31,47 @@ function iconDomain(app) {
   return null;
 }
 
-async function fetchIcon(domain) {
-  const url = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`;
+function iconCandidates(app) {
+  const candidates = [];
+  if (app.icon_source_url) {
+    candidates.push({ kind: "official image", url: app.icon_source_url });
+  }
+
+  const domain = iconDomain(app);
+  if (domain) {
+    candidates.push({
+      kind: "favicon fallback",
+      url: `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=256`,
+    });
+  }
+
+  return candidates;
+}
+
+async function fetchIcon(url) {
   const response = await fetch(url, {
     headers: {
+      Accept: "image/avif,image/webp,image/png,image/jpeg,image/svg+xml,image/*,*/*;q=0.8",
       "User-Agent": "stack127-icon-cache",
     },
   });
 
   if (!response.ok) {
-    throw new Error(`Icon fetch failed ${response.status}: ${domain}`);
+    throw new Error(`Icon fetch failed ${response.status}: ${url}`);
   }
 
-  return new Uint8Array(await response.arrayBuffer());
+  return Buffer.from(await response.arrayBuffer());
+}
+
+async function normalizeIcon(bytes) {
+  return sharp(bytes, { density: 256 })
+    .resize(256, 256, {
+      fit: "contain",
+      background: { alpha: 0, b: 0, g: 0, r: 0 },
+      withoutEnlargement: true,
+    })
+    .png({ compressionLevel: 9 })
+    .toBuffer();
 }
 
 async function main() {
@@ -64,23 +93,33 @@ async function main() {
   await mkdir(outputDir, { recursive: true });
 
   for (const app of records.slice(0, limit)) {
-    const domain = iconDomain(app);
-    if (!domain) {
-      console.warn(`warning ${app.slug}: no icon domain`);
+    const candidates = iconCandidates(app);
+    if (candidates.length === 0) {
+      console.warn(`warning ${app.slug}: no official image or icon domain`);
       skipped += 1;
       continue;
     }
 
-    try {
-      const bytes = await fetchIcon(domain);
-      const filename = `${app.slug}.png`;
-      await writeFile(path.join(outputDir, filename), bytes);
-      app.icon_url = `/app-icons/${filename}`;
-      cached += 1;
-      console.log(`Cached icon: ${app.slug} (${domain})`);
-    } catch (error) {
+    let stored = false;
+    for (const candidate of candidates) {
+      try {
+        const bytes = await fetchIcon(candidate.url);
+        const png = await normalizeIcon(bytes);
+        const filename = `${app.slug}.png`;
+        await writeFile(path.join(outputDir, filename), png);
+        app.icon_source_url = candidate.url;
+        app.icon_url = `/app-icons/${filename}`;
+        cached += 1;
+        stored = true;
+        console.log(`Cached icon: ${app.slug} (${candidate.kind})`);
+        break;
+      } catch (error) {
+        console.warn(`warning ${app.slug} ${candidate.kind}: ${error.message}`);
+      }
+    }
+
+    if (!stored) {
       failed += 1;
-      console.warn(`warning ${app.slug}: ${error.message}`);
     }
   }
 

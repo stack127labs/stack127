@@ -116,6 +116,5 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - Read the relevant page docs in `content_docs/<page-slug>/`.
 - Check `scripts/scripts.json` and the page script manifest.
 - Keep migrations, seeds, docs, scripts, and UI aligned when a schema or data workflow changes.
-- `public.open_projects` is the shared source of truth for open-source and source-available projects. Keep `source_model` accurate and read `stack127_docs/open-projects.md` before changing it.
-- Page directories query the shared table by explicit fields such as `self_hosting_status`; do not create another project table for each directory.
-- Keep broad discovery in `open_project_candidates`. Discovery must not publish, classify categories, or turn GitHub topics into editorial facts.
+- `public.self_host_apps` is the page-owned source of truth for `/self-host-apps`. It may contain open-source, source-available, and closed-source apps when self-hosting is verified.
+- Keep broad discovery in `self_host_app_candidates`. Discovery must not publish, classify categories, or turn source metadata into editorial facts.

@@ -22,13 +22,13 @@ test("terminal apps schema supports every source and pricing model", async () =>
   }
 });
 
-test("terminal apps tables are separate from open_projects", async () => {
-  const migration = await read("supabase/migrations/20260821120000_create_terminal_apps.sql");
+test("terminal apps remain separate while their optional catalog link follows the table rename", async () => {
+  const original = await read("supabase/migrations/20260821120000_create_terminal_apps.sql");
+  const rename = await read("supabase/migrations/20260829090000_make_self_host_apps_page_owned.sql");
 
-  assert.match(migration, /create table if not exists public\.terminal_apps/);
-  assert.match(migration, /create table if not exists public\.terminal_app_candidates/);
-  // The open-project link is optional, never a publication requirement.
-  assert.match(migration, /open_project_id uuid references public\.open_projects\(id\) on delete set null/);
+  assert.match(original, /create table if not exists public\.terminal_apps/);
+  assert.match(original, /create table if not exists public\.terminal_app_candidates/);
+  assert.match(rename, /alter table public\.terminal_apps rename column open_project_id to self_host_app_id/);
 });
 
 test("candidate queue preserves duplicates, exclusions, and failures", async () => {

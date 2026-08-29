@@ -101,7 +101,7 @@ async function main() {
     const result = await client.query(
       `
         select slug, ${linkFields.join(", ")}
-        from public.open_projects
+        from public.self_host_apps
         ${where}
         order by slug
         limit $1

@@ -54,7 +54,24 @@ function rowBlockers(row) {
   }
   if (row.requires_database === null && row.database_types?.length > 0) issues.push("database_types_without_requirement");
   if (row.docker_url && dockerHighRiskPattern.test(row.docker_url)) issues.push("docker_high_risk_url");
-  if (row.source_model === "unknown") issues.push("source_model_unknown");
+  if (
+    row.docker_support === "official" &&
+    !row.docker_image &&
+    !row.docker_url &&
+    !row.compose_url &&
+    !row.install_docs_url
+  ) {
+    issues.push("official_docker_without_image_or_docs");
+  }
+  if (row.source_model === "closed_source" && (!row.website_url || !row.publisher_name)) {
+    issues.push("closed_source_without_official_identity");
+  }
+  if (
+    ["open_source", "source_available"].includes(row.source_model) &&
+    (!row.source_code_url || !row.license || String(row.license).toLowerCase() === "unknown")
+  ) {
+    issues.push("source_project_without_code_or_license");
+  }
 
   return [...new Set(issues)];
 }
@@ -84,15 +101,28 @@ async function main() {
           docs_url,
           install_docs_url,
           docker_url,
+          docker_image,
+          compose_url,
           license,
           source_model,
+          publisher_name,
+          published,
+          self_hosting_status,
           requires_database,
           database_types,
           docker_support
-        from public.open_projects
+        from public.self_host_apps
         where published = true
           and self_hosting_status = 'self_hostable'
         order by slug
+      `,
+    );
+    const excludedResult = await client.query(
+      `
+        select count(*)::integer as count
+        from public.self_host_apps
+        where published = true
+          and self_hosting_status <> 'self_hostable'
       `,
     );
     const publishedRows = result.rows;
@@ -101,7 +131,11 @@ async function main() {
       .filter((row) => row.blockers.length > 0)
       .sort((a, b) => b.blockers.length - a.blockers.length || a.slug.localeCompare(b.slug));
 
-    return { rows: publishedRows, blockedRows };
+    return {
+      rows: publishedRows,
+      blockedRows,
+      published_not_self_hostable: excludedResult.rows[0]?.count ?? 0,
+    };
   }, args["database-url"]);
 
   const blocked = rows.blockedRows;
@@ -110,6 +144,7 @@ async function main() {
     generated_at: new Date().toISOString(),
     published: rows.rows.length,
     blocked_count: blocked.length,
+    excluded_published_count: rows.published_not_self_hostable,
     blocker_counts: groupCounts(blocked),
     blocked_rows: blocked.slice(0, limit).map((row) => ({
       slug: row.slug,

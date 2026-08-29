@@ -72,7 +72,7 @@ export type LicenseEntry = {
   officialUrl: string | null;
   /** Override when the URL is guidance, a family site, or an example rather than license text. */
   officialLinkLabel?: string;
-  /** Strings that may appear in open_projects.license for matching. */
+  /** Strings that may appear in self_host_apps.license for matching. */
   aliases: string[];
 };
 

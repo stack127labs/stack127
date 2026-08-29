@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, renameSync, statSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import sharp from "sharp";
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 
@@ -23,10 +23,15 @@ function localIconPath(iconUrl) {
   return path.join(process.cwd(), "public", iconUrl);
 }
 
-function convertToPng(inputFile, outputFile) {
-  execFileSync("/usr/bin/sips", ["-s", "format", "png", inputFile, "--out", outputFile], {
-    stdio: ["ignore", "ignore", "pipe"],
-  });
+async function convertToPng(inputFile, outputFile) {
+  await sharp(inputFile, { density: 256 })
+    .resize(256, 256, {
+      fit: "contain",
+      background: { alpha: 0, b: 0, g: 0, r: 0 },
+      withoutEnlargement: true,
+    })
+    .png({ compressionLevel: 9 })
+    .toFile(outputFile);
 }
 
 async function fetchIcon(url) {
@@ -90,17 +95,17 @@ async function writeFetchedIcon(client, row, url) {
   if (isPng(buffer)) {
     renameSync(tempSource, target);
   } else {
-    convertToPng(tempSource, tempPng);
+    await convertToPng(tempSource, tempPng);
     renameSync(tempPng, target);
   }
 
   await client.query(
     `
-      update public.open_projects
-      set icon_url = $2, updated_at = now()
+      update public.self_host_apps
+      set icon_url = $2, icon_source_url = coalesce(icon_source_url, $3), updated_at = now()
       where slug = $1
     `,
-    [row.slug, `/app-icons/${row.slug}.png`],
+    [row.slug, `/app-icons/${row.slug}.png`, url],
   );
 }
 
@@ -118,7 +123,7 @@ async function fixLocalIcon(row) {
   const file = localIconPath(row.icon_url);
   if (!file) throw new Error("not a local icon path");
   const tempPng = path.join("/tmp", `stack127-${row.slug}-${Date.now()}.png`);
-  convertToPng(file, tempPng);
+  await convertToPng(file, tempPng);
   renameSync(tempPng, file);
 }
 
@@ -135,7 +140,7 @@ async function main() {
     const result = await client.query(
       `
         select slug, name, icon_url, source_code_url
-        from public.open_projects
+        from public.self_host_apps
         where published = true
           and self_hosting_status = 'self_hostable'
         order by slug

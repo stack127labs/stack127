@@ -1,19 +1,20 @@
 ---
 name: stack127-self-host-discovery
-description: Discover Stack127 open-project candidates from GitHub, Awesome Selfhosted, selfh.st, Selfhostedworld, and OpenAlternative without publishing or assigning editorial facts.
+description: Discover stack127 self-host app candidates from software directories and official appliance catalogs without publishing or assigning editorial facts.
 ---
 
 # Stack127 self-host discovery
 
-Work in `/Users/ravitejaknts/projects/Stack127`.
+Work in `/home/teja/projects/stack127`.
 
-Discovery writes staging evidence only. Official project sources and the enrichment skill decide final facts.
+Discovery writes staging evidence only. Official app sources and the enrichment skill decide final facts.
 
 ## Run
 
 1. Read `content_docs/self-host-apps/data-workflow.md` and `schema.md`.
 2. Run the relevant `self-host-apps:discover-*` command with `--write`.
-3. Confirm its `open_project_import_runs` result and candidate count.
+   Use `self-host-apps:discover-app-catalogs` for the official TrueNAS and Umbrel catalogs; these sources include commercial and closed-source apps that open-source lists omit.
+3. Confirm its `self_host_app_import_runs` result and candidate count.
 4. Dry-run, then apply dedupe:
    `npm run self-host-apps:dedupe-candidates -- --dry-run`
    `npm run self-host-apps:dedupe-candidates`

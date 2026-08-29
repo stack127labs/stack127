@@ -31,7 +31,7 @@ async function main() {
     const result = await client.query(
       `
         select slug, ${linkFields.join(", ")}
-        from public.open_projects
+        from public.self_host_apps
         where published = true
           and self_hosting_status = 'self_hostable'
         order by slug

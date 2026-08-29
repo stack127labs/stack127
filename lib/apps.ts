@@ -11,6 +11,7 @@ export type DirectoryApp = {
   name: string;
   summary: string;
   icon_url: string | null;
+  icon_source_url: string | null;
   website_url: string | null;
   source_code_url: string | null;
   source_code_host: string;
@@ -20,10 +21,11 @@ export type DirectoryApp = {
   license: string | null;
   license_type: string;
   license_spdx_id: string | null;
-  source_model: "open_source" | "source_available" | "unknown";
+  source_model: "open_source" | "source_available" | "closed_source" | "unknown";
   publisher_name: string | null;
   publisher_type: string;
   publisher_url: string | null;
+  pricing_model: "free" | "freemium" | "paid" | "subscription" | "usage_based" | "enterprise" | "unknown";
   self_hosting_status: "self_hostable" | "not_self_hostable" | "unknown";
   maintenance_status: string;
   github_owner: string | null;
@@ -39,11 +41,25 @@ export type DirectoryApp = {
   github_last_commit_at: Date | null;
   github_checked_at: Date | null;
   docker_support: string;
+  deployment_methods: string[];
+  docker_image: string | null;
   compose_support: boolean | null;
+  compose_url: string | null;
   requires_database: boolean | null;
   database_types: string[];
   ram_mb: number | null;
+  ram_min_mb: number | null;
+  ram_recommended_mb: number | null;
   storage_profile: string;
+  storage_min_gb: number | null;
+  resource_requirement_kind: string;
+  popularity_score: number;
+  popularity_basis: string[];
+  popularity_checked_at: Date | null;
+  release_version: string | null;
+  release_published_at: Date | null;
+  release_checked_at: Date | null;
+  release_url: string | null;
   surfaces: string[];
   summary_source: string;
   summary_confidence: string;
@@ -76,9 +92,9 @@ const categoryJoin = `
       ),
       '[]'::jsonb
     ) as categories
-    from public.open_project_categories_join_table app_category
-    join public.open_project_categories category on category.id = app_category.category_id
-    where app_category.project_id = app.id
+    from public.self_host_app_category_links app_category
+    join public.self_host_app_categories category on category.id = app_category.category_id
+    where app_category.app_id = app.id
   ) category_set on true
 `;
 
@@ -109,11 +125,11 @@ export async function getSelfHostAppsStats(): Promise<SelfHostAppsStats> {
         ) as app_count,
         (
           select count(*)
-          from public.open_project_categories category
+          from public.self_host_app_categories category
           where exists (
             select 1
-            from public.open_project_categories_join_table app_category
-            join public.open_projects joined_app on joined_app.id = app_category.project_id
+            from public.self_host_app_category_links app_category
+            join public.self_host_apps joined_app on joined_app.id = app_category.app_id
             where app_category.category_id = category.id
               and joined_app.published = true
               and joined_app.self_hosting_status = 'self_hostable'
@@ -129,7 +145,7 @@ export async function getSelfHostAppsStats(): Promise<SelfHostAppsStats> {
             and app.self_hosting_status = 'self_hostable'
             and app.maintenance_status = 'active'
         ) as active_count
-      from public.open_projects app
+      from public.self_host_apps app
     `,
   );
 
@@ -150,7 +166,7 @@ export async function getSelfHostAppsModifiedAt(): Promise<Date | null> {
         coalesce(
           (
             select max(app.updated_at)
-            from public.open_projects app
+            from public.self_host_apps app
             where app.published = true
               and app.self_hosting_status = 'self_hostable'
           ),
@@ -159,11 +175,11 @@ export async function getSelfHostAppsModifiedAt(): Promise<Date | null> {
         coalesce(
           (
             select max(category.updated_at)
-            from public.open_project_categories category
+            from public.self_host_app_categories category
             where exists (
               select 1
-              from public.open_project_categories_join_table app_category
-              join public.open_projects app on app.id = app_category.project_id
+              from public.self_host_app_category_links app_category
+              join public.self_host_apps app on app.id = app_category.app_id
               where app_category.category_id = category.id
                 and app.published = true
                 and app.self_hosting_status = 'self_hostable'
@@ -174,8 +190,8 @@ export async function getSelfHostAppsModifiedAt(): Promise<Date | null> {
         coalesce(
           (
             select max(app_category.created_at)
-            from public.open_project_categories_join_table app_category
-            join public.open_projects app on app.id = app_category.project_id
+            from public.self_host_app_category_links app_category
+            join public.self_host_apps app on app.id = app_category.app_id
             where app.published = true
               and app.self_hosting_status = 'self_hostable'
           ),
@@ -206,6 +222,7 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
         app.name,
         app.summary,
         app.icon_url,
+        app.icon_source_url,
         app.website_url,
         app.source_code_url,
         app.source_code_host,
@@ -219,6 +236,7 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
         app.publisher_name,
         app.publisher_type,
         app.publisher_url,
+        app.pricing_model,
         app.self_hosting_status,
         app.maintenance_status,
         app.github_owner,
@@ -237,16 +255,30 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
         coalesce(app.source_last_commit_at, app.github_last_commit_at) as github_last_commit_at,
         coalesce(app.source_checked_at, app.github_checked_at) as github_checked_at,
         app.docker_support,
+        app.deployment_methods,
+        app.docker_image,
         app.compose_support,
+        app.compose_url,
         app.requires_database,
         app.database_types,
         app.ram_mb,
+        app.ram_min_mb,
+        app.ram_recommended_mb,
         app.storage_profile,
+        app.storage_min_gb::float8 as storage_min_gb,
+        app.resource_requirement_kind,
+        app.popularity_score,
+        app.popularity_basis,
+        app.popularity_checked_at,
+        app.release_version,
+        app.release_published_at,
+        app.release_checked_at,
+        app.release_url,
         app.surfaces,
         app.summary_source,
         app.summary_confidence,
         category_set.categories
-      from public.open_projects app
+      from public.self_host_apps app
       ${categoryJoin}
       where app.published = true
         and app.self_hosting_status = 'self_hostable'
@@ -271,7 +303,7 @@ export async function getDirectoryLicenseCounts(): Promise<DirectoryLicenseCount
         app.license,
         app.license_spdx_id,
         count(*) as count
-      from public.open_projects app
+      from public.self_host_apps app
       where app.published = true
         and app.self_hosting_status = 'self_hostable'
       group by app.license, app.license_spdx_id

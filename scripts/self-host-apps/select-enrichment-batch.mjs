@@ -92,10 +92,10 @@ async function main() {
               (app.storage_profile = 'unknown')::int +
               (app.icon_url is null)::int
             ) as missing_score
-          from public.open_projects app
-          left join public.open_project_categories_join_table app_category
-            on app_category.project_id = app.id
-          left join public.open_project_categories category
+          from public.self_host_apps app
+          left join public.self_host_app_category_links app_category
+            on app_category.app_id = app.id
+          left join public.self_host_app_categories category
             on category.id = app_category.category_id
           where app.published = false
             and app.self_hosting_status = 'self_hostable'
@@ -116,7 +116,7 @@ async function main() {
       selection: {
         limit,
         order: "missing_score desc, name asc",
-        source: "local draft open_projects rows with GitHub repository URLs",
+        source: "local draft self_host_apps rows with GitHub repository URLs",
         excluded_slugs: excludeSlugs.length,
       },
       apps: result.rows,

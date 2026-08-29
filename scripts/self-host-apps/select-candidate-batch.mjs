@@ -23,28 +23,28 @@ function defaultOutputPath() {
 }
 
 async function loadPotentialMatches(client, candidates) {
-  const projectIds = candidates.map((candidate) => candidate.duplicate_project_id).filter(Boolean);
+  const appIds = candidates.map((candidate) => candidate.duplicate_app_id).filter(Boolean);
   const candidateIds = candidates.map((candidate) => candidate.duplicate_candidate_id).filter(Boolean);
-  const [projects, matchedCandidates] = await Promise.all([
-    projectIds.length > 0
+  const [apps, matchedCandidates] = await Promise.all([
+    appIds.length > 0
       ? client.query(
-          "select id, slug, name, website_url, source_code_url from public.open_projects where id = any($1::uuid[])",
-          [projectIds],
+          "select id, slug, name, website_url, source_code_url from public.self_host_apps where id = any($1::uuid[])",
+          [appIds],
         )
       : { rows: [] },
     candidateIds.length > 0
       ? client.query(
-          "select id, source, source_key, name, website_url, source_code_url, status from public.open_project_candidates where id = any($1::uuid[])",
+          "select id, source, source_key, name, website_url, source_code_url, status from public.self_host_app_candidates where id = any($1::uuid[])",
           [candidateIds],
         )
       : { rows: [] },
   ]);
-  const projectsById = new Map(projects.rows.map((row) => [row.id, row]));
+  const appsById = new Map(apps.rows.map((row) => [row.id, row]));
   const candidatesById = new Map(matchedCandidates.rows.map((row) => [row.id, row]));
 
   return candidates.map((candidate) => ({
     ...candidate,
-    possible_project_match: projectsById.get(candidate.duplicate_project_id) ?? null,
+    possible_app_match: appsById.get(candidate.duplicate_app_id) ?? null,
     possible_candidate_match: candidatesById.get(candidate.duplicate_candidate_id) ?? null,
   }));
 }
@@ -62,7 +62,7 @@ async function main() {
         ? await client.query(
             `
               select *
-              from public.open_project_candidates
+              from public.self_host_app_candidates
               where status = any($1::text[])
               order by confidence_score desc, last_seen_at desc, name, id
               limit $2
@@ -73,13 +73,13 @@ async function main() {
             `
               with selected as (
                 select id
-                from public.open_project_candidates
+                from public.self_host_app_candidates
                 where status = any($1::text[])
                 order by confidence_score desc, last_seen_at desc, name, id
                 for update skip locked
                 limit $2
               )
-              update public.open_project_candidates candidate
+              update public.self_host_app_candidates candidate
               set status = 'enriching', updated_at = now()
               from selected
               where candidate.id = selected.id
@@ -89,7 +89,7 @@ async function main() {
           );
       const candidates = await loadPotentialMatches(client, result.rows);
       const batch = {
-        source: "open_project_candidates",
+        source: "self_host_app_candidates",
         selected_at: new Date().toISOString(),
         claimed: !args["dry-run"],
         selected_statuses: statuses,

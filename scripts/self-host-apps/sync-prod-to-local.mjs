@@ -9,14 +9,14 @@ import { parseArgs } from "./lib/args.mjs";
 
 const { Pool } = pg;
 const applicationTables = [
-  "open_project_categories_join_table",
-  "open_project_field_sources",
-  "open_project_curated_overrides",
-  "open_project_sources",
-  "open_project_candidates",
-  "open_project_import_runs",
-  "open_project_categories",
-  "open_projects",
+  "self_host_app_category_links",
+  "self_host_app_field_sources",
+  "self_host_app_curated_overrides",
+  "self_host_app_sources",
+  "self_host_app_candidates",
+  "self_host_app_import_runs",
+  "self_host_app_categories",
+  "self_host_apps",
   "stack127_pages",
 ];
 

@@ -1,16 +1,16 @@
 # cli-apps data workflow
 
 The `/cli-apps` directory is fed by a dedicated pipeline that never touches
-`public.open_projects`. Terminal apps can be open source, source available,
+`public.self_host_apps`. Terminal apps can be open source, source available,
 freeware, freemium, paid, subscription, usage based, or closed source; the
-open-project model cannot express most of those, so the directory owns its
+self-host app model cannot express most of those, so the directory owns its
 tables.
 
 ## Tables
 
 - `public.terminal_apps`: published records. One row per app with verified
-  facts, `last_verified_at`, and an optional `open_project_id` link for apps
-  that also exist in the open-projects table. The link is optional and never
+  facts, `last_verified_at`, and an optional `self_host_app_id` link for apps
+  that also exist in the self-host apps table. The link is optional and never
   required for publication.
 - `public.terminal_app_candidates`: the discovery queue. Every discovered
   record from every source lands here, including duplicates, incomplete rows,

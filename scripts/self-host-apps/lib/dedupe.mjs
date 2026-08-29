@@ -4,15 +4,15 @@ function setFirst(map, key, value) {
   if (key && !map.has(key)) map.set(key, value);
 }
 
-export function buildProjectIndexes(projects) {
+export function buildAppIndexes(apps) {
   const byRepo = new Map();
   const byWebsite = new Map();
   const byName = new Map();
 
-  for (const project of projects) {
-    setFirst(byRepo, canonicalUrl(project.source_code_url), project);
-    setFirst(byWebsite, canonicalUrl(project.website_url), project);
-    setFirst(byName, normalizeName(project.name), project);
+  for (const app of apps) {
+    setFirst(byRepo, canonicalUrl(app.source_code_url), app);
+    setFirst(byWebsite, canonicalUrl(app.website_url), app);
+    setFirst(byName, normalizeName(app.name), app);
   }
 
   return { byRepo, byWebsite, byName };
@@ -37,16 +37,16 @@ function otherCandidate(map, key, candidateId) {
   return match?.id !== candidateId ? match : null;
 }
 
-export function classifyCandidate(candidate, projects, candidates) {
-  const projectRepo = candidate.canonical_source_code_key
-    ? projects.byRepo.get(candidate.canonical_source_code_key)
+export function classifyCandidate(candidate, apps, candidates) {
+  const appRepo = candidate.canonical_source_code_key
+    ? apps.byRepo.get(candidate.canonical_source_code_key)
     : null;
-  if (projectRepo) return { action: "duplicate", reason: "source_code_url", project: projectRepo };
+  if (appRepo) return { action: "duplicate", reason: "source_code_url", app: appRepo };
 
-  const projectWebsite = candidate.canonical_website_key
-    ? projects.byWebsite.get(candidate.canonical_website_key)
+  const appWebsite = candidate.canonical_website_key
+    ? apps.byWebsite.get(candidate.canonical_website_key)
     : null;
-  if (projectWebsite) return { action: "duplicate", reason: "website_url", project: projectWebsite };
+  if (appWebsite) return { action: "duplicate", reason: "website_url", app: appWebsite };
 
   const candidateRepo = otherCandidate(
     candidates.byRepo,
@@ -62,10 +62,10 @@ export function classifyCandidate(candidate, projects, candidates) {
   );
   if (candidateWebsite) return { action: "duplicate", reason: "website_url", candidate: candidateWebsite };
 
-  const projectName = candidate.normalized_name
-    ? projects.byName.get(candidate.normalized_name)
+  const appName = candidate.normalized_name
+    ? apps.byName.get(candidate.normalized_name)
     : null;
-  if (projectName) return { action: "review", reason: "name", project: projectName };
+  if (appName) return { action: "review", reason: "name", app: appName };
 
   const candidateName = otherCandidate(candidates.byName, candidate.normalized_name, candidate.id);
   if (candidateName) return { action: "review", reason: "name", candidate: candidateName };

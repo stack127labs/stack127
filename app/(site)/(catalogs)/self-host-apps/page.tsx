@@ -41,6 +41,13 @@ const dockerOptions: FilterOption[] = [
   { label: "Has Docker support", value: "supported" },
 ];
 
+const sourceOptions: FilterOption[] = [
+  { label: "Open source", value: "open_source" },
+  { label: "Source available", value: "source_available" },
+  { label: "Closed source", value: "closed_source" },
+  { label: "Not verified", value: "unknown" },
+];
+
 const ramOptions: FilterOption[] = [
   { label: "Under 1GB", value: "under 1gb" },
   { label: "Up to 2GB", value: "1-2gb" },
@@ -80,6 +87,7 @@ function optionsMap(options: FilterOption[]) {
 }
 
 const dockerOptionLabels = optionsMap(dockerOptions);
+const sourceOptionLabels = optionsMap(sourceOptions);
 const ramOptionLabels = optionsMap(ramOptions);
 const storageOptionLabels = optionsMap(storageOptions);
 const maintenanceOptionLabels = optionsMap(maintenanceOptions);
@@ -93,6 +101,7 @@ const signalOptionLabels = new Map([
 const filterLabels = new Map([
   ["category", "Category"],
   ["license", "License"],
+  ["source", "Source model"],
   ["docker", "Docker"],
   ["ram", "RAM"],
   ["storage", "Storage"],
@@ -186,17 +195,17 @@ function compareBySort(a: DirectoryApp, b: DirectoryApp, sort: string) {
   }
 
   if (sort === "lowest-ram") {
-    return (a.ram_mb ?? Number.MAX_SAFE_INTEGER) -
-      (b.ram_mb ?? Number.MAX_SAFE_INTEGER);
+    return (a.ram_min_mb ?? Number.MAX_SAFE_INTEGER) -
+      (b.ram_min_mb ?? Number.MAX_SAFE_INTEGER);
   }
 
   if (sort === "healthy") {
     return Number(b.maintenance_status === "active") -
       Number(a.maintenance_status === "active") ||
-      (b.github_stars ?? 0) - (a.github_stars ?? 0);
+      b.popularity_score - a.popularity_score;
   }
 
-  return (b.github_stars ?? 0) - (a.github_stars ?? 0);
+  return b.popularity_score - a.popularity_score || a.name.localeCompare(b.name);
 }
 
 function sortApps(apps: DirectoryApp[], sort: string, params: SearchParams) {
@@ -234,6 +243,9 @@ function filterApps(apps: DirectoryApp[], params: SearchParams) {
   const selectedLicenses = getValues(params, "license").filter((value) =>
     licenses.some((license) => license.id === value),
   );
+  const selectedSources = getValues(params, "source").filter((value) =>
+    sourceOptions.some((option) => option.value === value),
+  );
   const dockerSupported = getValues(params, "docker").includes("supported");
   const ram = getKnownValue(params, "ram", ramTierOrder);
   const storage = getKnownValue(params, "storage", storageTierOrder);
@@ -257,6 +269,10 @@ function filterApps(apps: DirectoryApp[], params: SearchParams) {
       if (!licenseId || !selectedLicenses.includes(licenseId)) {
         return false;
       }
+    }
+
+    if (selectedSources.length > 0 && !selectedSources.includes(app.source_model)) {
+      return false;
     }
 
     if (dockerSupported && !["official", "community"].includes(app.docker_support ?? "")) {
@@ -450,6 +466,7 @@ function ActiveFilters({
   const valueLabels = new Map([
     ["category", categoryMap],
     ["license", licenseMap],
+    ["source", sourceOptionLabels],
     ["docker", dockerOptionLabels],
     ["ram", ramOptionLabels],
     ["storage", storageOptionLabels],
@@ -457,7 +474,7 @@ function ActiveFilters({
     ["signal", signalOptionLabels],
   ]);
 
-  for (const key of ["category", "license", "docker", "ram", "storage", "maintenance", "signal"]) {
+  for (const key of ["category", "license", "source", "docker", "ram", "storage", "maintenance", "signal"]) {
     for (const value of getValues(params, key)) {
       const groupLabel = filterLabels.get(key) ?? key;
       const valueLabel = valueLabels.get(key)?.get(value) ?? value.replaceAll("_", " ");
@@ -600,6 +617,12 @@ export default async function SelfHostAppsPage({
         title="License"
       />
       <CheckboxGroup
+        name="source"
+        options={sourceOptions}
+        selected={getValues(params, "source")}
+        title="Source model"
+      />
+      <CheckboxGroup
         name="docker"
         options={dockerOptions}
         selected={getValues(params, "docker")}
@@ -656,9 +679,9 @@ export default async function SelfHostAppsPage({
               Self-host <mark>apps that fit</mark> your server, storage, and setup comfort
             </h1>
             <p>
-              Compare self-hosted apps by purpose, platform, hardware needs, license, and project
-              health. Use the filters to narrow the list to software that fits the server you
-              already have.
+              Compare open-source, source-available, and closed-source apps by purpose, deployment,
+              hardware needs, price, and maintenance. Unknown requirements stay unknown until an
+              official source supports them.
             </p>
           </PageHeader>
 

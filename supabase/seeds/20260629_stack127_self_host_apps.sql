@@ -1,4 +1,4 @@
-insert into public.open_project_categories (slug, name, icon_key, sort_order)
+insert into public.self_host_app_categories (slug, name, icon_key, sort_order)
 values
   ($$ai-ml$$, $$ai & ml$$, $$bot$$, 10),
   ($$automation$$, $$automation$$, $$bot$$, 20),
@@ -44,7 +44,7 @@ on conflict (slug) do update set
   icon_key = excluded.icon_key,
   sort_order = excluded.sort_order;
 
-insert into public.open_projects (
+insert into public.self_host_apps (
   slug,
   name,
   summary,
@@ -308,7 +308,7 @@ on conflict (slug) do update set
   summary_source = excluded.summary_source,
   summary_confidence = excluded.summary_confidence;
 
-update public.open_projects
+update public.self_host_apps
 set
   self_hosting_status = 'self_hostable',
   source_code_host = case
@@ -318,15 +318,15 @@ set
   end,
   license_spdx_id = license,
   license_type = case
-    when license ~* 'MIT|Apache|BSD|ISC' then 'permissive'::public.open_project_license_type
-    when license ~* 'AGPL|LGPL|GPL|MPL' then 'copyleft'::public.open_project_license_type
-    else 'unknown'::public.open_project_license_type
+    when license ~* 'MIT|Apache|BSD|ISC' then 'permissive'::public.self_host_app_license_type
+    when license ~* 'AGPL|LGPL|GPL|MPL' then 'copyleft'::public.self_host_app_license_type
+    else 'unknown'::public.self_host_app_license_type
   end
 where slug in ('immich', 'excalidraw', 'linkwarden', 'uptime-kuma', 'home-assistant', 'pi-hole');
 
-delete from public.open_project_categories_join_table;
+delete from public.self_host_app_category_links;
 
-insert into public.open_project_categories_join_table (project_id, category_id)
+insert into public.self_host_app_category_links (app_id, category_id)
 select app.id, category.id
 from (
     values
@@ -338,6 +338,6 @@ from (
     ('home-assistant', 'automation'),
     ('pi-hole', 'networking-dns')
   ) as link(app_slug, category_slug)
-join public.open_projects app on app.slug = link.app_slug
-join public.open_project_categories category on category.slug = link.category_slug
+join public.self_host_apps app on app.slug = link.app_slug
+join public.self_host_app_categories category on category.slug = link.category_slug
 on conflict do nothing;

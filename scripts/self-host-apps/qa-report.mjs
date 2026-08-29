@@ -18,6 +18,11 @@ const issueWeights = {
   icon_missing_file: 80,
   icon_not_png: 75,
   license_missing: 65,
+  ram_min_missing: 60,
+  storage_unknown: 55,
+  pricing_unknown: 45,
+  docker_image_missing: 40,
+  source_model_unknown: 65,
   docker_unknown: 60,
   docker_weak_url: 55,
   database_unknown: 55,
@@ -90,7 +95,17 @@ function summaryIssues(row) {
 function rowIssues(row) {
   const issues = [];
 
-  if (!row.license || String(row.license).toLowerCase() === "unknown") issues.push("license_missing");
+  if (
+    row.source_model !== "closed_source" &&
+    (!row.license || String(row.license).toLowerCase() === "unknown")
+  ) {
+    issues.push("license_missing");
+  }
+  if (row.source_model === "unknown") issues.push("source_model_unknown");
+  if (row.ram_min_mb === null) issues.push("ram_min_missing");
+  if (row.storage_min_gb === null || row.storage_profile === "unknown") issues.push("storage_unknown");
+  if (row.pricing_model === "unknown") issues.push("pricing_unknown");
+  if (row.docker_support === "official" && !row.docker_image) issues.push("docker_image_missing");
   if (row.requires_database === null) issues.push("database_unknown");
   if (row.requires_database === null && row.database_types?.length > 0) issues.push("db_unknown_with_types");
   if (
@@ -152,7 +167,10 @@ async function main() {
           docs_url,
           install_docs_url,
           docker_url,
+          docker_image,
           license,
+          source_model,
+          pricing_model,
           maintenance_status,
           github_stars,
           github_latest_release,
@@ -163,11 +181,13 @@ async function main() {
           requires_database,
           database_types,
           ram_mb,
+          ram_min_mb,
+          storage_min_gb,
           storage_profile,
           surfaces,
           summary_source,
           summary_confidence
-        from public.open_projects
+        from public.self_host_apps
         where published = true
           and self_hosting_status = 'self_hostable'
         order by slug

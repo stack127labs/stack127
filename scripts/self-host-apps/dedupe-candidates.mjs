@@ -4,15 +4,15 @@ import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import {
   buildCandidateIndexes,
-  buildProjectIndexes,
+  buildAppIndexes,
   classifyCandidate,
 } from "./lib/dedupe.mjs";
 
-async function preserveExactProjectSource(client, candidate, projectId) {
+async function preserveExactAppSource(client, candidate, appId) {
   await client.query(
     `
-      insert into public.open_project_sources (
-        project_id,
+      insert into public.self_host_app_sources (
+        app_id,
         import_run_id,
         source,
         source_key,
@@ -21,14 +21,14 @@ async function preserveExactProjectSource(client, candidate, projectId) {
       )
       values ($1, $2, $3, $4, $5, $6::jsonb)
       on conflict (source, source_key) do update set
-        project_id = excluded.project_id,
+        app_id = excluded.app_id,
         import_run_id = excluded.import_run_id,
         source_url = excluded.source_url,
         payload = excluded.payload,
         imported_at = now()
     `,
     [
-      projectId,
+      appId,
       candidate.import_run_id,
       candidate.source,
       candidate.source_key,
@@ -43,13 +43,13 @@ async function main() {
   const limit = numberArg(args, "limit", 5000);
 
   await withClient(async (client) => {
-    const projectsResult = await client.query(
-      "select id, name, website_url, source_code_url from public.open_projects order by created_at, id",
+    const appsResult = await client.query(
+      "select id, name, website_url, source_code_url from public.self_host_apps order by created_at, id",
     );
     const allCandidatesResult = await client.query(
       `
         select *
-        from public.open_project_candidates
+        from public.self_host_app_candidates
         where status <> 'rejected'
         order by
           case status
@@ -68,21 +68,25 @@ async function main() {
     const targetsResult = await client.query(
       `
         select *
-        from public.open_project_candidates
+        from public.self_host_app_candidates
         where status = 'new'
-           or (status = 'needs_review' and duplicate_reason = 'possible_name_match')
+           or (
+             $2::boolean = true
+             and status = 'needs_review'
+             and duplicate_reason = 'possible_name_match'
+           )
         order by confidence_score desc, last_seen_at desc, id
         limit $1
       `,
-      [limit],
+      [limit, Boolean(args["recheck-name-review"])],
     );
 
-    const projectIndexes = buildProjectIndexes(projectsResult.rows);
+    const appIndexes = buildAppIndexes(appsResult.rows);
     const candidateIndexes = buildCandidateIndexes(allCandidatesResult.rows);
     const counts = {
       checked: targetsResult.rows.length,
       queued: 0,
-      project_duplicates: 0,
+      app_duplicates: 0,
       candidate_duplicates: 0,
       name_reviews: 0,
       sources_preserved: 0,
@@ -92,22 +96,24 @@ async function main() {
     await client.query("begin");
     try {
       for (const candidate of targetsResult.rows) {
-        const decision = classifyCandidate(candidate, projectIndexes, candidateIndexes);
+        const decision = classifyCandidate(candidate, appIndexes, candidateIndexes);
 
         if (decision.action === "duplicate") {
-          if (decision.project) {
-            counts.project_duplicates += 1;
-            await preserveExactProjectSource(client, candidate, decision.project.id);
+          if (decision.app) {
+            counts.app_duplicates += 1;
             counts.sources_preserved += 1;
           } else {
             counts.candidate_duplicates += 1;
           }
 
+          if (args["dry-run"]) continue;
+          if (decision.app) await preserveExactAppSource(client, candidate, decision.app.id);
+
           await client.query(
             `
-              update public.open_project_candidates
+              update public.self_host_app_candidates
               set status = 'duplicate',
-                  duplicate_project_id = $2,
+                  duplicate_app_id = $2,
                   duplicate_candidate_id = $3,
                   duplicate_reason = $4,
                   updated_at = now()
@@ -115,7 +121,7 @@ async function main() {
             `,
             [
               candidate.id,
-              decision.project?.id ?? null,
+              decision.app?.id ?? null,
               decision.candidate?.id ?? null,
               decision.reason,
             ],
@@ -125,27 +131,29 @@ async function main() {
 
         if (decision.action === "review") {
           counts.name_reviews += 1;
+          if (args["dry-run"]) continue;
           await client.query(
             `
-              update public.open_project_candidates
+              update public.self_host_app_candidates
               set status = 'needs_review',
-                  duplicate_project_id = $2,
+                  duplicate_app_id = $2,
                   duplicate_candidate_id = $3,
                   duplicate_reason = 'possible_name_match',
                   updated_at = now()
               where id = $1
             `,
-            [candidate.id, decision.project?.id ?? null, decision.candidate?.id ?? null],
+            [candidate.id, decision.app?.id ?? null, decision.candidate?.id ?? null],
           );
           continue;
         }
 
         counts.queued += 1;
+        if (args["dry-run"]) continue;
         await client.query(
           `
-            update public.open_project_candidates
+            update public.self_host_app_candidates
             set status = 'queued',
-                duplicate_project_id = null,
+                duplicate_app_id = null,
                 duplicate_candidate_id = null,
                 duplicate_reason = null,
                 updated_at = now()

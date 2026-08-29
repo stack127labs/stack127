@@ -1,0 +1,707 @@
+{
+  "apps": [
+    {
+      "slug": "plex",
+      "name": "Plex",
+      "summary": "Media server for organizing personal video, music, and photo libraries and streaming them to Plex clients.",
+      "icon_source_url": "https://media.sys.truenas.net/apps/plex/icons/icon.png",
+      "website_url": "https://www.plex.tv/",
+      "docs_url": "https://support.plex.tv/articles/200375666-plex-media-server-requirements/",
+      "install_docs_url": "https://support.plex.tv/articles/200264746-quick-start-step-by-step-guides/",
+      "docker_url": "https://hub.docker.com/r/plexinc/pms-docker",
+      "source_model": "closed_source",
+      "publisher_name": "Plex, Inc.",
+      "publisher_type": "company",
+      "publisher_url": "https://www.plex.tv/about/",
+      "pricing_model": "freemium",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "deployment_methods": [
+        "docker",
+        "package",
+        "appliance"
+      ],
+      "docker_image": "plexinc/pms-docker",
+      "compose_support": null,
+      "ram_recommended_mb": 4096,
+      "resource_requirement_kind": "official_recommended",
+      "popularity_score": 98,
+      "popularity_basis": [
+        "reviewed_directory_demand",
+        "official_catalog_presence"
+      ],
+      "popularity_checked_at": "2026-08-29T00:00:00Z",
+      "surfaces": [
+        "web",
+        "desktop",
+        "ios",
+        "android"
+      ],
+      "categories": [
+        "media-servers",
+        "music-audio",
+        "photos-galleries"
+      ],
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "stack127_curated",
+          "source_url": "https://www.plex.tv/media-server-downloads/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "source_model",
+          "source": "official_website",
+          "source_url": "https://www.plex.tv/media-server-downloads/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://support.plex.tv/articles/200375666-plex-media-server-requirements/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "docker_image",
+          "source": "official_repository",
+          "source_url": "https://github.com/plexinc/pms-docker",
+          "confidence": "high"
+        },
+        {
+          "field_name": "ram_recommended_mb",
+          "source": "official_documentation",
+          "source_url": "https://support.plex.tv/articles/200375666-plex-media-server-requirements/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "pricing_model",
+          "source": "official_website",
+          "source_url": "https://www.plex.tv/plex-pass/",
+          "confidence": "high"
+        }
+      ],
+      "icon_url": "/app-icons/plex.png"
+    },
+    {
+      "slug": "emby",
+      "name": "Emby",
+      "summary": "Media server for organizing personal libraries and streaming them to televisions, browsers, and mobile clients.",
+      "icon_source_url": "https://media.sys.truenas.net/apps/emby/icons/icon.png",
+      "website_url": "https://emby.media/",
+      "docs_url": "https://emby.media/support/articles/System-Requirements.html",
+      "install_docs_url": "https://support.emby.media/support/articles/Installation.html",
+      "docker_url": "https://hub.docker.com/r/emby/embyserver",
+      "source_model": "closed_source",
+      "publisher_name": "Emby LLC",
+      "publisher_type": "company",
+      "publisher_url": "https://emby.media/",
+      "pricing_model": "freemium",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "deployment_methods": [
+        "docker",
+        "package",
+        "appliance"
+      ],
+      "docker_image": "emby/embyserver",
+      "compose_support": null,
+      "ram_min_mb": 512,
+      "ram_recommended_mb": 2048,
+      "resource_requirement_kind": "official_minimum",
+      "popularity_score": 88,
+      "popularity_basis": [
+        "reviewed_directory_demand",
+        "official_catalog_presence"
+      ],
+      "popularity_checked_at": "2026-08-29T00:00:00Z",
+      "surfaces": [
+        "web",
+        "desktop",
+        "ios",
+        "android"
+      ],
+      "categories": [
+        "media-servers",
+        "music-audio",
+        "photos-galleries"
+      ],
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "stack127_curated",
+          "source_url": "https://emby.media/support/articles/Quick-Start.html",
+          "confidence": "high"
+        },
+        {
+          "field_name": "source_model",
+          "source": "official_website",
+          "source_url": "https://emby.media/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://support.emby.media/support/articles/Installation.html",
+          "confidence": "high"
+        },
+        {
+          "field_name": "docker_image",
+          "source": "official_documentation",
+          "source_url": "https://docs.emby.media/docker-server.html",
+          "confidence": "high"
+        },
+        {
+          "field_name": "ram_min_mb",
+          "source": "official_documentation",
+          "source_url": "https://emby.media/support/articles/System-Requirements.html",
+          "confidence": "high"
+        },
+        {
+          "field_name": "ram_recommended_mb",
+          "source": "official_documentation",
+          "source_url": "https://emby.media/support/articles/System-Requirements.html",
+          "confidence": "high"
+        },
+        {
+          "field_name": "pricing_model",
+          "source": "official_website",
+          "source_url": "https://emby.media/premiere.html",
+          "confidence": "high"
+        }
+      ],
+      "icon_url": "/app-icons/emby.png"
+    },
+    {
+      "slug": "blue-iris",
+      "name": "Blue Iris",
+      "summary": "Windows video management server for recording, monitoring, and remotely viewing security cameras.",
+      "website_url": "https://blueirissoftware.com/",
+      "docs_url": "https://blueirissoftware.com/BlueIris.PDF",
+      "install_docs_url": "https://blueirissoftware.com/BlueIris.PDF",
+      "source_model": "closed_source",
+      "publisher_name": "Perspective Software LLC",
+      "publisher_type": "company",
+      "publisher_url": "https://blueirissoftware.com/",
+      "pricing_model": "paid",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "maintenance_status": "active",
+      "docker_support": "none",
+      "deployment_methods": [
+        "package"
+      ],
+      "compose_support": false,
+      "ram_min_mb": 8192,
+      "resource_requirement_kind": "official_minimum",
+      "popularity_score": 78,
+      "popularity_basis": [
+        "reviewed_directory_demand"
+      ],
+      "popularity_checked_at": "2026-08-29T00:00:00Z",
+      "surfaces": [
+        "web",
+        "desktop",
+        "ios",
+        "android"
+      ],
+      "categories": [
+        "monitoring-status",
+        "security-privacy"
+      ],
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "stack127_curated",
+          "source_url": "https://blueirissoftware.com/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "source_model",
+          "source": "official_website",
+          "source_url": "https://blueirissoftware.com/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_website",
+          "source_url": "https://blueirissoftware.com/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "ram_min_mb",
+          "source": "official_website",
+          "source_url": "https://blueirissoftware.com/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "pricing_model",
+          "source": "official_website",
+          "source_url": "https://blueirissoftware.com/",
+          "confidence": "high"
+        }
+      ],
+      "icon_source_url": "https://www.google.com/s2/favicons?domain=blueirissoftware.com&sz=256",
+      "icon_url": "/app-icons/blue-iris.png"
+    },
+    {
+      "slug": "channels-dvr",
+      "name": "Channels DVR",
+      "summary": "DVR server for recording live television and streaming channels and recordings across household devices.",
+      "website_url": "https://getchannels.com/dvr-server/",
+      "docs_url": "https://getchannels.com/docs/getting-started/system-requirements/channels-dvr-server/",
+      "install_docs_url": "https://getchannels.com/docs/channels-dvr-server/installation/",
+      "docker_url": "https://hub.docker.com/r/fancybits/channels-dvr",
+      "source_model": "closed_source",
+      "publisher_name": "Fancy Bits, LLC",
+      "publisher_type": "company",
+      "publisher_url": "https://getchannels.com/",
+      "pricing_model": "subscription",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "package",
+        "appliance"
+      ],
+      "docker_image": "fancybits/channels-dvr:latest",
+      "compose_support": true,
+      "compose_url": "https://getchannels.com/dvr-server/",
+      "ram_min_mb": 512,
+      "ram_recommended_mb": 1024,
+      "resource_requirement_kind": "official_minimum",
+      "popularity_score": 74,
+      "popularity_basis": [
+        "reviewed_directory_demand"
+      ],
+      "popularity_checked_at": "2026-08-29T00:00:00Z",
+      "surfaces": [
+        "web",
+        "desktop",
+        "ios",
+        "android"
+      ],
+      "categories": [
+        "media-servers"
+      ],
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "stack127_curated",
+          "source_url": "https://getchannels.com/dvr-server/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "source_model",
+          "source": "official_website",
+          "source_url": "https://getchannels.com/dvr-server/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://getchannels.com/docs/getting-started/system-requirements/channels-dvr-server/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "docker_image",
+          "source": "official_documentation",
+          "source_url": "https://getchannels.com/dvr-server/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "compose_support",
+          "source": "official_documentation",
+          "source_url": "https://getchannels.com/dvr-server/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "ram_min_mb",
+          "source": "official_documentation",
+          "source_url": "https://getchannels.com/docs/getting-started/system-requirements/channels-dvr-server/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "ram_recommended_mb",
+          "source": "official_documentation",
+          "source_url": "https://getchannels.com/docs/getting-started/system-requirements/channels-dvr-server/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "pricing_model",
+          "source": "official_documentation",
+          "source_url": "https://getchannels.com/docs/getting-started/quick-start-guide/subscription/",
+          "confidence": "high"
+        }
+      ],
+      "icon_source_url": "https://www.google.com/s2/favicons?domain=getchannels.com&sz=256",
+      "icon_url": "/app-icons/channels-dvr.png"
+    },
+    {
+      "slug": "unraid",
+      "name": "Unraid",
+      "summary": "Server operating system for managing mixed-drive storage, Docker applications, and virtual machines from a web interface.",
+      "website_url": "https://unraid.net/",
+      "docs_url": "https://docs.unraid.net/",
+      "install_docs_url": "https://unraid.net/download",
+      "source_model": "closed_source",
+      "publisher_name": "Lime Technology, Inc.",
+      "publisher_type": "company",
+      "publisher_url": "https://unraid.net/",
+      "pricing_model": "paid",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "maintenance_status": "active",
+      "docker_support": "none",
+      "deployment_methods": [
+        "appliance"
+      ],
+      "compose_support": false,
+      "popularity_score": 96,
+      "popularity_basis": [
+        "reviewed_directory_demand"
+      ],
+      "popularity_checked_at": "2026-08-29T00:00:00Z",
+      "surfaces": [
+        "web"
+      ],
+      "categories": [
+        "storage-backup",
+        "system-admin-hosting"
+      ],
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "stack127_curated",
+          "source_url": "https://unraid.net/product",
+          "confidence": "high"
+        },
+        {
+          "field_name": "source_model",
+          "source": "official_website",
+          "source_url": "https://unraid.net/product",
+          "confidence": "high"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://unraid.net/download",
+          "confidence": "high"
+        },
+        {
+          "field_name": "pricing_model",
+          "source": "official_website",
+          "source_url": "https://account.unraid.net/buy",
+          "confidence": "high"
+        }
+      ],
+      "icon_source_url": "https://www.google.com/s2/favicons?domain=unraid.net&sz=256",
+      "icon_url": "/app-icons/unraid.png"
+    },
+    {
+      "slug": "resilio-sync",
+      "name": "Resilio Sync",
+      "summary": "Peer-to-peer file synchronization server for keeping folders aligned across computers, mobile devices, and NAS systems.",
+      "website_url": "https://www.resilio.com/sync/",
+      "docs_url": "https://help.resilio.com/hc/en-us/articles/205450965-Resilio-Sync-supported-platforms-and-system-requirements",
+      "install_docs_url": "https://help.resilio.com/hc/en-us/sections/32030969152019-Install-on-a-NAS",
+      "source_model": "closed_source",
+      "publisher_name": "Resilio, Inc.",
+      "publisher_type": "company",
+      "publisher_url": "https://www.resilio.com/",
+      "pricing_model": "freemium",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "maintenance_status": "active",
+      "docker_support": "community",
+      "deployment_methods": [
+        "package",
+        "binary",
+        "appliance"
+      ],
+      "compose_support": null,
+      "popularity_score": 80,
+      "popularity_basis": [
+        "reviewed_directory_demand"
+      ],
+      "popularity_checked_at": "2026-08-29T00:00:00Z",
+      "surfaces": [
+        "web",
+        "desktop",
+        "ios",
+        "android"
+      ],
+      "categories": [
+        "file-sharing-sync",
+        "storage-backup"
+      ],
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "stack127_curated",
+          "source_url": "https://help.resilio.com/hc/en-us/articles/204754939-Comprehensive-guide-to-syncing-Desktop-Desktop",
+          "confidence": "high"
+        },
+        {
+          "field_name": "source_model",
+          "source": "official_website",
+          "source_url": "https://www.resilio.com/sync/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://help.resilio.com/hc/en-us/articles/205450965-Resilio-Sync-supported-platforms-and-system-requirements",
+          "confidence": "high"
+        },
+        {
+          "field_name": "pricing_model",
+          "source": "official_documentation",
+          "source_url": "https://help.resilio.com/hc/en-us/articles/31194252837779-Updating-installation-to-Resilio-Sync-v3",
+          "confidence": "high"
+        }
+      ],
+      "icon_source_url": "https://www.google.com/s2/favicons?domain=www.resilio.com&sz=256",
+      "icon_url": "/app-icons/resilio-sync.png"
+    },
+    {
+      "slug": "ubooquity",
+      "name": "Ubooquity",
+      "summary": "Home server for browsing and reading personal comic and ebook libraries from web and OPDS clients.",
+      "website_url": "https://vaemendis.net/ubooquity/",
+      "docs_url": "https://vaemendis.net/ubooquity/static2/download",
+      "install_docs_url": "https://vaemendis.net/ubooquity/static2/download",
+      "source_model": "closed_source",
+      "publisher_name": "Vaemendis",
+      "publisher_type": "individual",
+      "publisher_url": "https://vaemendis.net/ubooquity/",
+      "pricing_model": "free",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "maintenance_status": "active",
+      "docker_support": "community",
+      "deployment_methods": [
+        "binary",
+        "manual"
+      ],
+      "compose_support": null,
+      "popularity_score": 62,
+      "popularity_basis": [
+        "reviewed_directory_demand"
+      ],
+      "popularity_checked_at": "2026-08-29T00:00:00Z",
+      "release_version": "3.1.0",
+      "release_published_at": "2025-08-10T00:00:00Z",
+      "release_checked_at": "2026-08-29T00:00:00Z",
+      "release_url": "https://vaemendis.net/ubooquity/static2/download",
+      "surfaces": [
+        "web"
+      ],
+      "categories": [
+        "ebooks-libraries"
+      ],
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "stack127_curated",
+          "source_url": "https://vaemendis.net/ubooquity/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "source_model",
+          "source": "official_website",
+          "source_url": "https://vaemendis.net/ubooquity/static2/download",
+          "confidence": "high"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_website",
+          "source_url": "https://vaemendis.net/ubooquity/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "pricing_model",
+          "source": "official_website",
+          "source_url": "https://vaemendis.net/ubooquity/static2/download",
+          "confidence": "high"
+        },
+        {
+          "field_name": "release_version",
+          "source": "official_website",
+          "source_url": "https://vaemendis.net/ubooquity/static2/download",
+          "confidence": "high"
+        }
+      ],
+      "icon_source_url": "https://www.google.com/s2/favicons?domain=vaemendis.net&sz=256",
+      "icon_url": "/app-icons/ubooquity.png"
+    },
+    {
+      "slug": "subsonic",
+      "name": "Subsonic",
+      "summary": "Personal media streaming server for playing music and video through browsers, mobile apps, and network players.",
+      "website_url": "https://www.subsonic.org/",
+      "docs_url": "https://www.subsonic.org/pages/installation.jsp",
+      "install_docs_url": "https://www.subsonic.org/pages/installation.jsp",
+      "source_model": "closed_source",
+      "publisher_name": "Subsonic",
+      "publisher_type": "individual",
+      "publisher_url": "https://www.subsonic.org/",
+      "pricing_model": "freemium",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "maintenance_status": "slow",
+      "docker_support": "community",
+      "deployment_methods": [
+        "package",
+        "binary",
+        "manual"
+      ],
+      "compose_support": null,
+      "popularity_score": 70,
+      "popularity_basis": [
+        "reviewed_directory_demand"
+      ],
+      "popularity_checked_at": "2026-08-29T00:00:00Z",
+      "release_version": "6.1.6",
+      "release_checked_at": "2026-08-29T00:00:00Z",
+      "release_url": "https://www.subsonic.org/pages/download.jsp",
+      "surfaces": [
+        "web",
+        "desktop",
+        "ios",
+        "android"
+      ],
+      "categories": [
+        "media-servers",
+        "music-audio"
+      ],
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "stack127_curated",
+          "source_url": "https://www.subsonic.org/pages/faq.jsp",
+          "confidence": "high"
+        },
+        {
+          "field_name": "source_model",
+          "source": "official_website",
+          "source_url": "https://www.subsonic.org/pages/download.jsp",
+          "confidence": "high"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://www.subsonic.org/pages/installation.jsp",
+          "confidence": "high"
+        },
+        {
+          "field_name": "pricing_model",
+          "source": "official_website",
+          "source_url": "https://www.subsonic.org/pages/premium.jsp",
+          "confidence": "high"
+        },
+        {
+          "field_name": "release_version",
+          "source": "official_website",
+          "source_url": "https://www.subsonic.org/pages/download.jsp",
+          "confidence": "high"
+        }
+      ],
+      "icon_source_url": "https://www.google.com/s2/favicons?domain=www.subsonic.org&sz=256",
+      "icon_url": "/app-icons/subsonic.png"
+    },
+    {
+      "slug": "poste-io",
+      "name": "Poste.io",
+      "summary": "Containerized mail server that combines SMTP, IMAP, webmail, administration, spam filtering, and antivirus services.",
+      "website_url": "https://poste.io/",
+      "docs_url": "https://poste.io/doc/",
+      "install_docs_url": "https://poste.io/doc/getting-started",
+      "docker_url": "https://hub.docker.com/r/analogic/poste.io",
+      "source_model": "closed_source",
+      "publisher_name": "Analogic s.r.o.",
+      "publisher_type": "company",
+      "publisher_url": "https://poste.io/",
+      "pricing_model": "freemium",
+      "published": true,
+      "self_hosting_status": "self_hostable",
+      "maintenance_status": "active",
+      "docker_support": "official",
+      "deployment_methods": [
+        "docker"
+      ],
+      "docker_image": "analogic/poste.io",
+      "compose_support": false,
+      "popularity_score": 68,
+      "popularity_basis": [
+        "reviewed_directory_demand"
+      ],
+      "popularity_checked_at": "2026-08-29T00:00:00Z",
+      "surfaces": [
+        "web"
+      ],
+      "categories": [
+        "email-newsletters",
+        "system-admin-hosting"
+      ],
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "field_sources": [
+        {
+          "field_name": "summary",
+          "source": "stack127_curated",
+          "source_url": "https://poste.io/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "source_model",
+          "source": "official_website",
+          "source_url": "https://poste.io/",
+          "confidence": "high"
+        },
+        {
+          "field_name": "self_hosting_status",
+          "source": "official_documentation",
+          "source_url": "https://poste.io/doc/getting-started",
+          "confidence": "high"
+        },
+        {
+          "field_name": "docker_image",
+          "source": "official_documentation",
+          "source_url": "https://poste.io/doc/getting-started",
+          "confidence": "high"
+        },
+        {
+          "field_name": "pricing_model",
+          "source": "official_documentation",
+          "source_url": "https://poste.io/doc/getting-started",
+          "confidence": "high"
+        }
+      ],
+      "icon_source_url": "https://www.google.com/s2/favicons?domain=poste.io&sz=256",
+      "icon_url": "/app-icons/poste-io.png"
+    }
+  ]
+}

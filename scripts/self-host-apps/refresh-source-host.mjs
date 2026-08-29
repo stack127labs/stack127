@@ -153,7 +153,7 @@ async function rowsToRefresh(client, host, args) {
   const result = await client.query(
     `
       select id, slug, source_code_url
-      from public.open_projects
+      from public.self_host_apps
       where ${conditions.join(" and ")}
       order by source_checked_at nulls first, slug
       limit $${params.length}
@@ -192,7 +192,7 @@ async function writeFacts(client, row, host, facts, checkedAt) {
   const maintenance = maintenanceStatus(facts.source_archived, facts.source_last_commit_at);
   await client.query(
     `
-      update public.open_projects
+      update public.self_host_apps
       set source_repo_id = $2, source_full_name = $3, source_stars = $4,
           source_forks = $5, source_watchers = $6, source_open_issues = $7,
           source_primary_language = $8, source_languages = $9::jsonb,
@@ -205,7 +205,7 @@ async function writeFacts(client, row, host, facts, checkedAt) {
           license = case when license is null or lower(license) = 'unknown' then coalesce($25, license) else license end,
           license_spdx_id = coalesce(license_spdx_id, $25),
           license_type = case
-            when license_type = 'unknown' and $26 <> 'unknown' then $26::public.open_project_license_type
+            when license_type = 'unknown' and $26 <> 'unknown' then $26::public.self_host_app_license_type
             else license_type
           end,
           updated_at = now()
@@ -215,10 +215,10 @@ async function writeFacts(client, row, host, facts, checkedAt) {
   );
   await client.query(
     `
-      insert into public.open_project_sources (project_id, source, source_key, source_url, payload)
+      insert into public.self_host_app_sources (app_id, source, source_key, source_url, payload)
       values ($1, $2, $3, $4, $5::jsonb)
       on conflict (source, source_key) do update set
-        project_id = excluded.project_id, source_url = excluded.source_url,
+        app_id = excluded.app_id, source_url = excluded.source_url,
         payload = excluded.payload, imported_at = now()
     `,
     [row.id, `${host}_api`, canonicalUrl(row.source_code_url), row.source_code_url, JSON.stringify(facts.raw)],
@@ -233,12 +233,12 @@ async function writeFacts(client, row, host, facts, checkedAt) {
   ];
   await client.query(
     `
-      insert into public.open_project_field_sources (
-        project_id, field_name, source, source_url, confidence, checked_at, note
+      insert into public.self_host_app_field_sources (
+        app_id, field_name, source, source_url, confidence, checked_at, note
       )
       select $1, field_name, $2, $3, 'high', $4, 'Mutable repository fact.'
       from unnest($5::text[]) as field_name
-      on conflict (project_id, field_name) do update set
+      on conflict (app_id, field_name) do update set
         source = excluded.source, source_url = excluded.source_url,
         confidence = excluded.confidence, checked_at = excluded.checked_at,
         note = excluded.note

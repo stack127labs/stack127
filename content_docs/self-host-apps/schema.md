@@ -1,6 +1,6 @@
-# Self-host apps data projection
+# Self-host apps data model
 
-The sitewide data model is documented in `stack127_docs/open-projects.md`. `/self-host-apps` does not own a separate app table.
+`/self-host-apps` owns `public.self_host_apps` and its supporting tables. Source availability is a directory fact, not an eligibility rule.
 
 ## Public query
 
@@ -8,25 +8,25 @@ The page reads:
 
 ```sql
 select *
-from public.open_projects
+from public.self_host_apps
 where published = true
   and self_hosting_status = 'self_hostable';
 ```
 
-Categories come from `open_project_categories` through `open_project_categories_join_table`.
+Categories come from `self_host_app_categories` through `self_host_app_category_links`.
 
-`source_model` records whether the verified license is `open_source`, `source_available`, or `unknown`. Both reviewed open-source and source-available projects may appear here when they are genuinely self-hostable.
+`source_model` records `open_source`, `source_available`, `closed_source`, or `unknown`. All four may appear when the app is genuinely self-hostable and its deployment is verified.
 
 ## Tables used by this page
 
-- `open_projects`: shared curated project records.
-- `open_project_categories`: controlled categories.
-- `open_project_categories_join_table`: project/category relationships.
-- `open_project_candidates`: discovery staging.
-- `open_project_sources`: raw source payloads.
-- `open_project_field_sources`: provenance for verified fields.
-- `open_project_curated_overrides`: reviewed corrections.
-- `open_project_import_runs`: discovery and refresh runs.
+- `self_host_apps`: page-owned app records.
+- `self_host_app_categories`: controlled categories.
+- `self_host_app_category_links`: app/category relationships.
+- `self_host_app_candidates`: discovery staging.
+- `self_host_app_sources`: raw source payloads.
+- `self_host_app_field_sources`: provenance for verified fields.
+- `self_host_app_curated_overrides`: reviewed corrections.
+- `self_host_app_import_runs`: discovery and refresh runs.
 
 ## Self-hosting classification
 
@@ -36,24 +36,24 @@ Categories come from `open_project_categories` through `open_project_categories_
 - `not_self_hostable`
 - `unknown`
 
-Do not add a confidence score. A project is shown on this page only after official sources support `self_hostable`.
+Do not add a confidence score. An app is shown on this page only after official sources support `self_hostable`. Legacy rows may show `source_model = unknown` while they are re-reviewed, but candidate and upsert workflows reject new published records with an unknown source model.
 
 ## Category rules
 
-Use the controlled taxonomy in `scripts/self-host-apps/lib/categories.mjs`. Assign one to three categories by the project's actual purpose. Raw directory categories and GitHub topics remain source metadata until reviewed.
+Use the controlled taxonomy in `scripts/self-host-apps/lib/categories.mjs`. Assign one to three categories by the app's actual purpose. Raw directory categories and GitHub topics remain source metadata until reviewed.
 
 ## Candidate states
 
 - `new`: discovered but not deduped.
-- `duplicate`: matched an existing project or earlier candidate.
+- `duplicate`: matched an existing app or earlier candidate.
 - `queued`: unique and ready for a batch.
 - `enriching`: selected for official-source research.
-- `published`: converted into an `open_projects` row.
+- `published`: converted into a `self_host_apps` row.
 - `needs_review`: enrichment could not verify a required fact.
-- `rejected`: not an eligible open project.
+- `rejected`: not an identifiable, installable self-host app.
 
-Candidate identity uses exact canonical source-code URL and official homepage matches. Name-only matches require review. Slugs and names never prove that two projects are the same.
+Candidate identity uses exact canonical source-code URL and official homepage matches. Name-only matches require review. Slugs and names never prove that two apps are the same.
 
 ## Rendering
 
-There are no per-project routes. Cards and the details drawer use the same server-loaded records. Complete records remain in server-rendered HTML so crawlers and AI agents can read the directory without executing the drawer interaction.
+There are no per-app routes. Cards and the details drawer use the same server-loaded records. Complete records remain in server-rendered HTML so crawlers and AI agents can read the directory without executing the drawer interaction.

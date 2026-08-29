@@ -140,7 +140,7 @@ export function normalizeCandidate(input, { source, sourceUrl, baseUrl } = {}) {
 export async function createImportRun(client, { source, sourceUrl, notes }) {
   const result = await client.query(
     `
-      insert into public.open_project_import_runs (source, source_url, status, notes)
+      insert into public.self_host_app_import_runs (source, source_url, status, notes)
       values ($1, $2, 'running', $3)
       returning id
     `,
@@ -152,7 +152,7 @@ export async function createImportRun(client, { source, sourceUrl, notes }) {
 export async function finishImportRun(client, importRunId, { status, discoveredCount, importedCount, updatedCount, errorCount, notes }) {
   await client.query(
     `
-      update public.open_project_import_runs
+      update public.self_host_app_import_runs
       set status = $2,
           discovered_count = $3,
           imported_count = $4,
@@ -169,7 +169,7 @@ export async function finishImportRun(client, importRunId, { status, discoveredC
 export async function upsertCandidate(client, candidate, importRunId) {
   const result = await client.query(
     `
-      insert into public.open_project_candidates (
+      insert into public.self_host_app_candidates (
         import_run_id,
         source,
         source_key,
@@ -197,49 +197,49 @@ export async function upsertCandidate(client, candidate, importRunId) {
       )
       on conflict (source, source_key) do update set
         import_run_id = excluded.import_run_id,
-        source_url = coalesce(excluded.source_url, open_project_candidates.source_url),
+        source_url = coalesce(excluded.source_url, self_host_app_candidates.source_url),
         name = excluded.name,
         slug = excluded.slug,
-        summary_raw = coalesce(excluded.summary_raw, open_project_candidates.summary_raw),
-        website_url = coalesce(excluded.website_url, open_project_candidates.website_url),
-        source_code_url = coalesce(excluded.source_code_url, open_project_candidates.source_code_url),
+        summary_raw = coalesce(excluded.summary_raw, self_host_app_candidates.summary_raw),
+        website_url = coalesce(excluded.website_url, self_host_app_candidates.website_url),
+        source_code_url = coalesce(excluded.source_code_url, self_host_app_candidates.source_code_url),
         source_code_host = case
           when excluded.source_code_host <> 'unknown' then excluded.source_code_host
-          else open_project_candidates.source_code_host
+          else self_host_app_candidates.source_code_host
         end,
-        docs_url = coalesce(excluded.docs_url, open_project_candidates.docs_url),
-        docker_url = coalesce(excluded.docker_url, open_project_candidates.docker_url),
+        docs_url = coalesce(excluded.docs_url, self_host_app_candidates.docs_url),
+        docker_url = coalesce(excluded.docker_url, self_host_app_candidates.docker_url),
         self_hosting_status = case
           when excluded.self_hosting_status <> 'unknown' then excluded.self_hosting_status
-          else open_project_candidates.self_hosting_status
+          else self_host_app_candidates.self_hosting_status
         end,
-        canonical_source_code_key = coalesce(excluded.canonical_source_code_key, open_project_candidates.canonical_source_code_key),
-        canonical_website_key = coalesce(excluded.canonical_website_key, open_project_candidates.canonical_website_key),
+        canonical_source_code_key = coalesce(excluded.canonical_source_code_key, self_host_app_candidates.canonical_source_code_key),
+        canonical_website_key = coalesce(excluded.canonical_website_key, self_host_app_candidates.canonical_website_key),
         normalized_name = excluded.normalized_name,
         categories_raw = case
           when cardinality(excluded.categories_raw) > 0 then excluded.categories_raw
-          else open_project_candidates.categories_raw
+          else self_host_app_candidates.categories_raw
         end,
         surfaces_raw = case
           when cardinality(excluded.surfaces_raw) > 0 then excluded.surfaces_raw
-          else open_project_candidates.surfaces_raw
+          else self_host_app_candidates.surfaces_raw
         end,
         payload = excluded.payload,
-        confidence_score = greatest(open_project_candidates.confidence_score, excluded.confidence_score),
+        confidence_score = greatest(self_host_app_candidates.confidence_score, excluded.confidence_score),
         status = case
-          when open_project_candidates.status in ('published', 'rejected', 'enriching') then open_project_candidates.status
+          when self_host_app_candidates.status in ('published', 'rejected', 'enriching') then self_host_app_candidates.status
           else 'new'
         end,
-        duplicate_project_id = case
-          when open_project_candidates.status = 'enriching' then open_project_candidates.duplicate_project_id
+        duplicate_app_id = case
+          when self_host_app_candidates.status = 'enriching' then self_host_app_candidates.duplicate_app_id
           else null
         end,
         duplicate_candidate_id = case
-          when open_project_candidates.status = 'enriching' then open_project_candidates.duplicate_candidate_id
+          when self_host_app_candidates.status = 'enriching' then self_host_app_candidates.duplicate_candidate_id
           else null
         end,
         duplicate_reason = case
-          when open_project_candidates.status = 'enriching' then open_project_candidates.duplicate_reason
+          when self_host_app_candidates.status = 'enriching' then self_host_app_candidates.duplicate_reason
           else null
         end,
         last_seen_at = now(),

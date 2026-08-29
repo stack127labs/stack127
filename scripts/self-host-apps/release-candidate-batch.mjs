@@ -19,7 +19,7 @@ async function main() {
   await withClient(async (client) => {
     const result = await client.query(
       `
-        update public.open_project_candidates
+        update public.self_host_app_candidates
         set status = $2, updated_at = now()
         where id = any($1::uuid[])
           and status = 'enriching'

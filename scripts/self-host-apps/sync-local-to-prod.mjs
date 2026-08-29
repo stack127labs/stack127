@@ -3,7 +3,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import pg from "pg";
 import { parseArgs, numberArg } from "./lib/args.mjs";
-import { projectColumns, projectRecordsetColumns } from "./lib/schema.mjs";
+import { appColumns, appRecordsetColumns } from "./lib/schema.mjs";
 
 const { Pool } = pg;
 
@@ -54,39 +54,39 @@ async function fetchLocalState(client) {
   const categories = await client.query(
     `
       select slug, name, icon_key, sort_order
-      from public.open_project_categories
+      from public.self_host_app_categories
       order by sort_order, slug
     `,
   );
   const apps = await client.query(
     `
-      select ${projectColumns.join(", ")}
-      from public.open_projects
+      select ${appColumns.join(", ")}
+      from public.self_host_apps
       order by slug
     `,
   );
   const categoryLinks = await client.query(
     `
       select app.slug as app_slug, category.slug as category_slug
-      from public.open_project_categories_join_table link
-      join public.open_projects app on app.id = link.project_id
-      join public.open_project_categories category on category.id = link.category_id
+      from public.self_host_app_category_links link
+      join public.self_host_apps app on app.id = link.app_id
+      join public.self_host_app_categories category on category.id = link.category_id
       order by app.slug, category.slug
     `,
   );
   const sources = await client.query(
     `
       select app.slug as app_slug, source.source, source.source_key, source.source_url, source.payload
-      from public.open_project_sources source
-      left join public.open_projects app on app.id = source.project_id
+      from public.self_host_app_sources source
+      left join public.self_host_apps app on app.id = source.app_id
       order by source.source, source.source_key
     `,
   );
   const fieldSources = await client.query(
     `
       select app.slug as app_slug, field.field_name, field.source, field.source_url, field.confidence, field.checked_at, field.note
-      from public.open_project_field_sources field
-      join public.open_projects app on app.id = field.project_id
+      from public.self_host_app_field_sources field
+      join public.self_host_apps app on app.id = field.app_id
       order by app.slug, field.field_name
     `,
   );
@@ -112,7 +112,7 @@ async function upsertCategories(client, categories) {
   for (const category of categories) {
     await client.query(
       `
-        insert into public.open_project_categories (slug, name, icon_key, sort_order)
+        insert into public.self_host_app_categories (slug, name, icon_key, sort_order)
         values ($1, $2, $3, $4)
         on conflict (slug) do update set
           name = excluded.name,
@@ -126,16 +126,16 @@ async function upsertCategories(client, categories) {
 }
 
 async function upsertApps(client, apps) {
-  const updates = projectColumns
+  const updates = appColumns
     .filter((column) => column !== "slug")
     .map((column) => `${column} = excluded.${column}`)
     .join(",\n          ");
 
   await client.query(
     `
-      insert into public.open_projects (${projectColumns.join(", ")})
-      select ${projectColumns.map((column) => `item.${column}`).join(", ")}
-      from jsonb_to_recordset($1::jsonb) as item(${projectRecordsetColumns.join(", ")})
+      insert into public.self_host_apps (${appColumns.join(", ")})
+      select ${appColumns.map((column) => `item.${column}`).join(", ")}
+      from jsonb_to_recordset($1::jsonb) as item(${appRecordsetColumns.join(", ")})
       on conflict (slug) do update set
         ${updates},
         updated_at = now()
@@ -149,8 +149,8 @@ async function fetchIdMaps(client, state) {
   const categorySlugs = state.categories.map((category) => category.slug);
 
   const [apps, categories] = await Promise.all([
-    client.query("select id, slug from public.open_projects where slug = any($1::text[])", [appSlugs]),
-    client.query("select id, slug from public.open_project_categories where slug = any($1::text[])", [categorySlugs]),
+    client.query("select id, slug from public.self_host_apps where slug = any($1::text[])", [appSlugs]),
+    client.query("select id, slug from public.self_host_app_categories where slug = any($1::text[])", [categorySlugs]),
   ]);
 
   return {
@@ -163,7 +163,7 @@ async function replaceCategoryLinks(client, state, appIds, categoryIds) {
   console.log(`Replacing category links: ${state.categoryLinks.length}`);
   const ids = [...appIds.values()];
   if (ids.length > 0) {
-    await client.query("delete from public.open_project_categories_join_table where project_id = any($1::uuid[])", [ids]);
+    await client.query("delete from public.self_host_app_category_links where app_id = any($1::uuid[])", [ids]);
   }
 
   const appMap = [...appIds.entries()];
@@ -172,14 +172,14 @@ async function replaceCategoryLinks(client, state, appIds, categoryIds) {
   for (let index = 0; index < linkChunks.length; index += 1) {
     await client.query(
       `
-        insert into public.open_project_categories_join_table (project_id, category_id)
-        select app_map.project_id, category_map.category_id
+        insert into public.self_host_app_category_links (app_id, category_id)
+        select app_map.app_id, category_map.category_id
         from jsonb_to_recordset($1::jsonb) as item(app_slug text, category_slug text)
-        join unnest($2::text[], $3::uuid[]) as app_map(app_slug, project_id)
+        join unnest($2::text[], $3::uuid[]) as app_map(app_slug, app_id)
           on app_map.app_slug = item.app_slug
         join unnest($4::text[], $5::uuid[]) as category_map(category_slug, category_id)
           on category_map.category_slug = item.category_slug
-        on conflict (project_id, category_id) do nothing
+        on conflict (app_id, category_id) do nothing
       `,
       [
         JSON.stringify(linkChunks[index]),
@@ -205,9 +205,9 @@ async function upsertSources(client, state, appIds) {
     const chunk = sourceChunks[index];
     await client.query(
       `
-        insert into public.open_project_sources (project_id, source, source_key, source_url, payload)
+        insert into public.self_host_app_sources (app_id, source, source_key, source_url, payload)
         select
-          map.project_id,
+          map.app_id,
           item.source,
           item.source_key,
           item.source_url,
@@ -219,10 +219,10 @@ async function upsertSources(client, state, appIds) {
           source_url text,
           payload jsonb
         )
-        left join unnest($2::text[], $3::uuid[]) as map(app_slug, project_id)
+        left join unnest($2::text[], $3::uuid[]) as map(app_slug, app_id)
           on map.app_slug = item.app_slug
         on conflict (source, source_key) do update set
-          project_id = excluded.project_id,
+          app_id = excluded.app_id,
           source_url = excluded.source_url,
           payload = excluded.payload,
           imported_at = now()
@@ -247,7 +247,7 @@ async function replaceFieldSources(client, state, appIds) {
   console.log(`Replacing field sources: ${state.fieldSources.length}`);
   const ids = [...appIds.values()];
   if (ids.length > 0) {
-    await client.query("delete from public.open_project_field_sources where project_id = any($1::uuid[])", [ids]);
+    await client.query("delete from public.self_host_app_field_sources where app_id = any($1::uuid[])", [ids]);
   }
 
   const appSlugMap = [...appIds.entries()];
@@ -259,8 +259,8 @@ async function replaceFieldSources(client, state, appIds) {
     const chunk = fieldChunks[index];
     await client.query(
       `
-        insert into public.open_project_field_sources (
-          project_id,
+        insert into public.self_host_app_field_sources (
+          app_id,
           field_name,
           source,
           source_url,
@@ -269,7 +269,7 @@ async function replaceFieldSources(client, state, appIds) {
           note
         )
         select
-          map.project_id,
+          map.app_id,
           item.field_name,
           item.source,
           item.source_url,
@@ -285,9 +285,9 @@ async function replaceFieldSources(client, state, appIds) {
           checked_at text,
           note text
         )
-        join unnest($2::text[], $3::uuid[]) as map(app_slug, project_id)
+        join unnest($2::text[], $3::uuid[]) as map(app_slug, app_id)
           on map.app_slug = item.app_slug
-        on conflict (project_id, field_name) do update set
+        on conflict (app_id, field_name) do update set
           source = excluded.source,
           source_url = excluded.source_url,
           confidence = excluded.confidence,
@@ -315,7 +315,7 @@ async function replaceFieldSources(client, state, appIds) {
 async function draftMissingProdRows(client, localSlugs) {
   const result = await client.query(
     `
-      update public.open_projects
+      update public.self_host_apps
       set published = false, updated_at = now()
       where not (slug = any($1::text[]))
         and published = true
@@ -334,7 +334,7 @@ async function counts(client) {
         count(*) filter (where published) as published,
         count(*) filter (where not published) as draft,
         count(*) as total
-      from public.open_projects
+      from public.self_host_apps
     `,
   );
   return result.rows[0];

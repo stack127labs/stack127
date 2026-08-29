@@ -19,7 +19,7 @@ async function auditDatabase(args) {
     const result = await client.query(
       `
         select slug, summary
-        from public.open_projects
+        from public.self_host_apps
         where published = true
           and self_hosting_status = 'self_hostable'
         order by slug

@@ -4,6 +4,7 @@
   "docs": ["content_docs/self-host-apps"],
   "tests": [
     "tests/pages/self-host-apps/card-layout.test.mjs",
+    "tests/pages/self-host-apps/inclusive-data-model.test.mjs",
     "tests/pages/self-host-apps/license-filter.spec.ts",
     "tests/pages/self-host-apps/layout.spec.ts",
     "tests/pages/self-host-apps/source-model.test.mjs",

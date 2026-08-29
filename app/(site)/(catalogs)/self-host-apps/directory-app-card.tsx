@@ -1,12 +1,11 @@
 import Link from "next/link";
-import { Scale, Star } from "lucide-react";
-import { FaGithub } from "react-icons/fa6";
+import { Code2, Scale } from "lucide-react";
 import type { DirectoryApp } from "@/lib/apps";
 import { findDirectoryLicenseId } from "@/lib/software-licenses";
 import { CategoryIcon } from "@/app/category-icon";
 
 export function getRamTier(app: DirectoryApp) {
-  const ram = app.ram_mb;
+  const ram = app.ram_min_mb;
 
   if (ram === null) {
     return "unknown";
@@ -28,7 +27,12 @@ export function getRamTier(app: DirectoryApp) {
 }
 
 export function getStorageTier(app: DirectoryApp) {
-  return app.storage_profile;
+  const storage = app.storage_min_gb;
+  if (storage === null) return "unknown";
+  if (storage < 1) return "tiny";
+  if (storage < 10) return "low";
+  if (storage < 100) return "medium";
+  return "high";
 }
 
 export function hasMobileApp(app: DirectoryApp) {
@@ -44,6 +48,21 @@ export function formatStars(value: number | null) {
     maximumFractionDigits: 1,
     notation: value > 9999 ? "compact" : "standard",
   }).format(value);
+}
+
+export function sourceModelLabel(app: DirectoryApp) {
+  const labels: Record<DirectoryApp["source_model"], string> = {
+    closed_source: "closed source",
+    open_source: "open source",
+    source_available: "source available",
+    unknown: "source not verified",
+  };
+
+  return labels[app.source_model];
+}
+
+function priceLabel(app: DirectoryApp) {
+  return app.pricing_model === "unknown" ? (app.license ?? "price unknown") : app.pricing_model;
 }
 
 export function formatCardDate(value: Date | string | null) {
@@ -211,13 +230,12 @@ export function DirectoryAppCard({
 
       <div className="directory-meta-list" aria-label="App metadata">
         <span>
-          <FaGithub aria-hidden="true" className="meta-icon github" size={16} />
-          {formatStars(app.github_stars)}
-          <Star aria-hidden="true" className="meta-icon stars" size={14} strokeWidth={2.2} />
+          <Code2 aria-hidden="true" className="meta-icon" size={16} strokeWidth={2.2} />
+          {sourceModelLabel(app)}
         </span>
         <span>
           <Scale aria-hidden="true" className="meta-icon license" size={16} strokeWidth={2.2} />
-          {app.license ?? "unknown"}
+          {priceLabel(app)}
         </span>
       </div>
 
@@ -231,8 +249,8 @@ export function DirectoryAppCard({
           storage
         </span>
         <span className="directory-card-stat-last-commit">
-          <strong>{formatCardDate(app.github_last_commit_at)}</strong>
-          last commit
+          <strong>{formatCardDate(app.release_published_at ?? app.github_last_commit_at)}</strong>
+          last update
         </span>
       </div>
     </>

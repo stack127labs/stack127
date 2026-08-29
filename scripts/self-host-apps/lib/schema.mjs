@@ -8,16 +8,25 @@ export const enumValues = {
   maintenance_status: ["active", "slow", "stale", "archived", "unknown"],
   publisher_type: ["company", "foundation", "community", "individual", "unknown"],
   self_hosting_status: ["self_hostable", "not_self_hostable", "unknown"],
-  source_model: ["open_source", "source_available", "unknown"],
+  source_model: ["open_source", "source_available", "closed_source", "unknown"],
+  pricing_model: ["free", "freemium", "paid", "subscription", "usage_based", "enterprise", "unknown"],
+  resource_requirement_kind: [
+    "official_minimum",
+    "official_recommended",
+    "measured",
+    "community_estimate",
+    "unknown",
+  ],
   storage_profile: ["tiny", "low", "medium", "high", "depends", "unknown"],
   confidence: ["high", "medium", "low", "unknown"],
 };
 
-export const projectColumnTypes = {
+export const appColumnTypes = {
   slug: "text",
   name: "text",
   summary: "text",
   icon_url: "text",
+  icon_source_url: "text",
   website_url: "text",
   source_code_url: "text",
   source_code_host: "text",
@@ -25,14 +34,15 @@ export const projectColumnTypes = {
   install_docs_url: "text",
   docker_url: "text",
   license: "text",
-  license_type: "public.open_project_license_type",
+  license_type: "public.self_host_app_license_type",
   license_spdx_id: "text",
-  source_model: "public.open_project_source_model",
+  source_model: "public.self_host_app_source_model",
   publisher_name: "text",
   publisher_type: "text",
   publisher_url: "text",
+  pricing_model: "text",
   published: "boolean",
-  self_hosting_status: "public.open_project_self_hosting_status",
+  self_hosting_status: "public.self_host_app_self_hosting_status",
   maintenance_status: "text",
   github_owner: "text",
   github_repo: "text",
@@ -83,24 +93,45 @@ export const projectColumnTypes = {
   github_last_commit_at: "timestamptz",
   github_checked_at: "timestamptz",
   docker_support: "text",
+  deployment_methods: "text[]",
+  docker_image: "text",
   compose_support: "boolean",
+  compose_url: "text",
   requires_database: "boolean",
   database_types: "text[]",
   ram_mb: "integer",
+  ram_min_mb: "integer",
+  ram_recommended_mb: "integer",
   storage_profile: "text",
+  storage_min_gb: "numeric",
+  resource_requirement_kind: "text",
+  popularity_score: "integer",
+  popularity_basis: "text[]",
+  popularity_checked_at: "timestamptz",
+  release_version: "text",
+  release_published_at: "timestamptz",
+  release_checked_at: "timestamptz",
+  release_url: "text",
   surfaces: "text[]",
   summary_source: "text",
   summary_confidence: "text",
 };
 
-export const projectColumns = Object.keys(projectColumnTypes);
-export const projectArrayColumns = new Set(["database_types", "github_topics", "source_topics", "surfaces"]);
-export const projectJsonColumns = new Set(["github_languages", "source_languages"]);
-export const projectRecordsetColumns = projectColumns.map((column) => `${column} ${projectColumnTypes[column]}`);
+export const appColumns = Object.keys(appColumnTypes);
+export const appArrayColumns = new Set([
+  "database_types",
+  "deployment_methods",
+  "github_topics",
+  "popularity_basis",
+  "source_topics",
+  "surfaces",
+]);
+export const appJsonColumns = new Set(["github_languages", "source_languages"]);
+export const appRecordsetColumns = appColumns.map((column) => `${column} ${appColumnTypes[column]}`);
 
-export function projectSqlValue(column, index) {
+export function appSqlValue(column, index) {
   const parameter = `$${index + 1}`;
-  const type = projectColumnTypes[column];
+  const type = appColumnTypes[column];
   if (type === "text[]" || type === "jsonb" || type.startsWith("public.")) {
     return `${parameter}::${type}`;
   }
@@ -139,6 +170,15 @@ export function licenseTypeFromSpdx(value) {
   return "custom";
 }
 
+export function sourceModelFromSpdx(value) {
+  const license = String(value ?? "").toUpperCase();
+  if (!license || ["NOASSERTION", "OTHER"].includes(license)) return "unknown";
+  if (/BUSL|SSPL|ELASTIC|COMMONS.CLAUSE|-NC(?:-|$)|-ND(?:-|$)/.test(license)) {
+    return "source_available";
+  }
+  return "open_source";
+}
+
 export function normalizeRecord(input) {
   const links = input.links ?? {};
   const github = input.github ?? {};
@@ -152,6 +192,7 @@ export function normalizeRecord(input) {
     name: input.name,
     summary: input.summary ?? input.description,
     icon_url: input.icon_url ?? input.media?.icon_url ?? null,
+    icon_source_url: input.icon_source_url ?? input.media?.icon_source_url ?? null,
     website_url: input.website_url ?? links.website_url ?? null,
     source_code_url: sourceCodeUrl,
     source_code_host: input.source_code_host ?? sourceCodeHost(sourceCodeUrl),
@@ -165,6 +206,7 @@ export function normalizeRecord(input) {
     publisher_name: input.publisher_name ?? null,
     publisher_type: input.publisher_type ?? "unknown",
     publisher_url: input.publisher_url ?? null,
+    pricing_model: input.pricing_model ?? "unknown",
     published: Boolean(input.published),
     self_hosting_status: input.self_hosting_status ?? deployment.self_hosting_status ?? "unknown",
     maintenance_status: input.maintenance_status ?? maintenance.maintenance_status ?? "unknown",
@@ -217,11 +259,25 @@ export function normalizeRecord(input) {
     github_last_commit_at: input.github_last_commit_at ?? github.last_commit_at ?? null,
     github_checked_at: input.github_checked_at ?? github.checked_at ?? null,
     docker_support: input.docker_support ?? deployment.docker_support ?? "unknown",
+    deployment_methods: normalizeArray(input.deployment_methods ?? deployment.methods),
+    docker_image: input.docker_image ?? deployment.docker_image ?? null,
     compose_support: input.compose_support ?? deployment.compose_support ?? null,
+    compose_url: input.compose_url ?? deployment.compose_url ?? null,
     requires_database: input.requires_database ?? deployment.requires_database ?? null,
     database_types: normalizeArray(input.database_types ?? deployment.database_types),
-    ram_mb: input.ram_mb ?? resources.ram_mb ?? resources.ram_recommended_mb ?? null,
+    ram_mb: input.ram_mb ?? resources.ram_mb ?? null,
+    ram_min_mb: input.ram_min_mb ?? resources.ram_min_mb ?? null,
+    ram_recommended_mb: input.ram_recommended_mb ?? resources.ram_recommended_mb ?? null,
     storage_profile: input.storage_profile ?? "unknown",
+    storage_min_gb: input.storage_min_gb ?? resources.storage_min_gb ?? null,
+    resource_requirement_kind: input.resource_requirement_kind ?? resources.requirement_kind ?? "unknown",
+    popularity_score: Number(input.popularity_score ?? 0),
+    popularity_basis: normalizeArray(input.popularity_basis),
+    popularity_checked_at: input.popularity_checked_at ?? null,
+    release_version: input.release_version ?? maintenance.release_version ?? null,
+    release_published_at: input.release_published_at ?? maintenance.release_published_at ?? null,
+    release_checked_at: input.release_checked_at ?? maintenance.release_checked_at ?? null,
+    release_url: input.release_url ?? maintenance.release_url ?? null,
     surfaces: normalizeArray(input.surfaces ?? input.platforms ?? deployment.supported_surfaces ?? deployment.supported_platforms),
     categories: normalizeArray(input.categories),
     summary_source: input.summary_source ?? "curated",
@@ -254,6 +310,9 @@ export function validateRecord(input, { draft = false } = {}) {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(record.slug)) errors.push("slug must be lowercase URL-safe text");
   if (!record.name) errors.push("name is required");
   if (!draft && record.categories.length === 0) errors.push("at least one category is required");
+  if (record.published && record.source_model === "unknown") {
+    errors.push("published apps require a reviewed source_model");
+  }
   for (const category of record.categories) {
     if (!selfHostAppCategorySlugs.has(category)) {
       errors.push(`unknown category: ${category}`);
@@ -268,13 +327,46 @@ export function validateRecord(input, { draft = false } = {}) {
   validateEnum(record.self_hosting_status, "self_hosting_status", enumValues.self_hosting_status, errors);
   validateEnum(record.license_type, "license_type", enumValues.license_type, errors);
   validateEnum(record.source_model, "source_model", enumValues.source_model, errors);
+  validateEnum(record.pricing_model, "pricing_model", enumValues.pricing_model, errors);
+  validateEnum(
+    record.resource_requirement_kind,
+    "resource_requirement_kind",
+    enumValues.resource_requirement_kind,
+    errors,
+  );
   validateEnum(record.maintenance_status, "maintenance_status", enumValues.maintenance_status, errors);
   validateEnum(record.docker_support, "docker_support", enumValues.docker_support, errors);
   validateEnum(record.storage_profile, "storage_profile", enumValues.storage_profile, errors);
   validateEnum(record.summary_confidence, "summary_confidence", enumValues.confidence, errors);
 
-  for (const field of ["icon_url", "website_url", "source_code_url", "docs_url", "install_docs_url", "docker_url", "publisher_url"]) {
+  for (const field of [
+    "icon_url",
+    "icon_source_url",
+    "website_url",
+    "source_code_url",
+    "docs_url",
+    "install_docs_url",
+    "docker_url",
+    "compose_url",
+    "publisher_url",
+    "release_url",
+  ]) {
     validateUrl(record[field], field, errors);
+  }
+
+  if (record.ram_min_mb !== null && record.ram_min_mb <= 0) errors.push("ram_min_mb must be positive");
+  if (record.ram_recommended_mb !== null && record.ram_recommended_mb <= 0) {
+    errors.push("ram_recommended_mb must be positive");
+  }
+  if (
+    record.ram_min_mb !== null &&
+    record.ram_recommended_mb !== null &&
+    record.ram_recommended_mb < record.ram_min_mb
+  ) {
+    errors.push("ram_recommended_mb cannot be lower than ram_min_mb");
+  }
+  if (!Number.isInteger(record.popularity_score) || record.popularity_score < 0 || record.popularity_score > 100) {
+    errors.push("popularity_score must be an integer from 0 to 100");
   }
 
   if (record.install_docs_url && record.website_url && record.install_docs_url === record.website_url) {

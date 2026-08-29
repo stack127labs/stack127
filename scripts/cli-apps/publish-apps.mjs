@@ -70,7 +70,7 @@ async function publishRecord(client, record) {
         website_url, docs_url, repository_url,
         source_model, pricing_model, license,
         latest_version, latest_release_at, stars, last_commit_at,
-        maintenance_status, icon_url, screenshot_url, open_project_id,
+        maintenance_status, icon_url, screenshot_url, self_host_app_id,
         last_verified_at, published
       ) values (
         $1, $2, $3::text[], $4, $5, $6::text[],

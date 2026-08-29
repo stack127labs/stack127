@@ -74,7 +74,7 @@ function exampleSelect(where) {
       docker_url,
       license,
       github_latest_release
-    from public.open_projects
+    from public.self_host_apps
     where self_hosting_status = 'self_hostable'
       and (${where})
     order by slug
@@ -110,14 +110,14 @@ async function main() {
 
   const result = await withClient(async (client) => {
     const published = await client.query(
-      "select count(*)::int as count from public.open_projects where published and self_hosting_status = 'self_hostable'",
+      "select count(*)::int as count from public.self_host_apps where published and self_hosting_status = 'self_hostable'",
     );
 
     const rows = [];
 
     for (const check of checks) {
       const count = await client.query(
-        `select count(*)::int as count from public.open_projects where self_hosting_status = 'self_hostable' and (${check.where})`,
+        `select count(*)::int as count from public.self_host_apps where self_hosting_status = 'self_hostable' and (${check.where})`,
       );
       const examples = await client.query(exampleSelect(check.where), [limit]);
 

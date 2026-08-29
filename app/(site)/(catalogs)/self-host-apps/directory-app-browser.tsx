@@ -22,7 +22,6 @@ import {
   Rocket,
   Scale,
   Server,
-  Star,
   type LucideIcon,
 } from "lucide-react";
 import { FaDocker, FaGithub } from "react-icons/fa6";
@@ -32,9 +31,7 @@ import {
   DirectoryAppCard,
   DirectoryAppIcon,
   formatDatabaseRequirement,
-  formatStars,
-  getRamTier,
-  getStorageTier,
+  sourceModelLabel,
 } from "./directory-app-card";
 
 type AppFact = [label: string, value: string, Icon: LucideIcon];
@@ -52,15 +49,37 @@ function formatDate(value: Date | string | null) {
 }
 
 function formatLatestRelease(app: DirectoryApp) {
-  if (!app.github_latest_release) {
+  const version = app.release_version ?? app.github_latest_release;
+  const publishedAt = app.release_published_at ?? app.github_latest_release_at;
+
+  if (!version) {
     return "unknown";
   }
 
-  if (!app.github_latest_release_at) {
-    return app.github_latest_release;
+  if (!publishedAt) {
+    return version;
   }
 
-  return `${app.github_latest_release} · ${formatDate(app.github_latest_release_at)}`;
+  return `${version} · ${formatDate(publishedAt)}`;
+}
+
+export function formatComposeSupport(app: DirectoryApp) {
+  if (app.compose_support === null) return "unknown";
+  return app.compose_support ? "yes" : "no";
+}
+
+function formatRamRequirement(app: DirectoryApp) {
+  if (app.ram_min_mb === null && app.ram_recommended_mb === null) return "unknown";
+  if (app.ram_min_mb !== null && app.ram_recommended_mb !== null) {
+    return `${app.ram_min_mb} MB min · ${app.ram_recommended_mb} MB recommended`;
+  }
+  if (app.ram_min_mb !== null) return `${app.ram_min_mb} MB minimum`;
+  return `${app.ram_recommended_mb} MB recommended`;
+}
+
+function formatStorageRequirement(app: DirectoryApp) {
+  if (app.storage_min_gb !== null) return `${app.storage_min_gb} GB minimum`;
+  return "unknown";
 }
 
 function formatPlatforms(surfaces: string[]) {
@@ -108,16 +127,17 @@ function AppDetailsOverlay({
     ["publisher", formatPublisher(app), Building2],
     ["health", app.maintenance_status, Activity],
     ["latest release", formatLatestRelease(app), Rocket],
-    ["stars", formatStars(app.github_stars), Star],
     ["license", app.license ?? "unknown", Scale],
-    ["source model", app.source_model.replaceAll("_", " "), Code2],
+    ["source model", sourceModelLabel(app), Code2],
+    ["price", app.pricing_model.replaceAll("_", " "), Scale],
     ["docker", app.docker_support, Box],
-    ["compose", app.compose_support ? "yes" : "unknown", Layers],
+    ["compose", formatComposeSupport(app), Layers],
+    ["container image", app.docker_image ?? "unknown", Box],
     ["database", formatDatabaseRequirement(app), Database],
-    ["ram", getRamTier(app), Server],
-    ["storage", getStorageTier(app), HardDrive],
+    ["ram", formatRamRequirement(app), Server],
+    ["storage", formatStorageRequirement(app), HardDrive],
     ["surfaces", formatPlatforms(app.surfaces), MonitorSmartphone],
-    ["last commit", formatDate(app.github_last_commit_at), CalendarClock],
+    ["verified", formatDate(app.release_checked_at ?? app.github_checked_at), CalendarClock],
   ];
 
   const handleClose = (event: MouseEvent | ReactPointerEvent) => {
@@ -164,7 +184,7 @@ function AppDetailsOverlay({
 
         <div className="app-detail-primary-links">
           {app.website_url ? (
-            <a className="secondary" href={app.website_url} rel="noreferrer" target="_blank">
+            <a className={app.source_code_url ? "secondary" : "primary"} href={app.website_url} rel="noreferrer" target="_blank">
               <span>
                 <Globe aria-hidden="true" />
                 website
@@ -181,8 +201,8 @@ function AppDetailsOverlay({
               <ArrowRight aria-hidden="true" size={14} strokeWidth={2.2} />
             </a>
           ) : null}
-          {app.docker_url ? (
-            <a className="secondary" href={app.docker_url} rel="noreferrer" target="_blank">
+          {app.docker_url || app.compose_url ? (
+            <a className="secondary" href={app.docker_url ?? app.compose_url ?? ""} rel="noreferrer" target="_blank">
               <span>
                 <FaDocker aria-hidden="true" />
                 docker

@@ -6,7 +6,7 @@ This page is a structured directory of self-hostable apps. It should stay minima
 
 ## Docs
 
-- `schema.md` documents this page's projection from the shared open-project model.
+- `schema.md` documents the page-owned self-host app model.
 - `content-rules.md` documents row shape and copy rules.
 - `data-workflow.md` documents discovery, validation, import, enrichment, and audit flow.
 
@@ -23,5 +23,5 @@ Temporary one-off scripts for this page belong in `scripts/self-host-apps/temp/`
 - Prefer official websites, docs, repositories, and container links.
 - Use `unknown` or `null` for unverified facts.
 - Preserve source payloads and field provenance for imported data.
-- Read `stack127_docs/open-projects.md` before changing the shared tables.
+- Read `stack127_docs/self-host-apps-data.md` before changing the page-owned tables.
 - Keep the page server-rendered enough for crawlers and AI agents to read app records without opening the drawer.

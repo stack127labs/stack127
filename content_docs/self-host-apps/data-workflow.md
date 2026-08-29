@@ -2,11 +2,11 @@
 
 ```text
 recurring discovery or bulk import
-  -> open_project_candidates
+  -> self_host_app_candidates
   -> exact dedupe / name review
   -> atomic claim
   -> Codex research and reviewed decisions
-  -> open_projects + provenance
+  -> self_host_apps + provenance
   -> QA
   -> provider refresh
 ```
@@ -28,7 +28,7 @@ npm run self-host-apps:discover-selfhostedworld -- --limit 5000 --details --conc
 npm run self-host-apps:discover-openalternative -- --limit 5000 --details --concurrency 4 --out <report.json>
 ```
 
-Inspect the report before adding `--write`. Dedicated collectors read each directory's structured data and keep its detail payload as evidence. They do not publish or classify projects.
+Inspect the report before adding `--write`. Dedicated collectors read each directory's structured data and keep its detail payload as evidence. They do not publish or classify apps.
 
 ## Dedupe
 
@@ -37,7 +37,7 @@ npm run self-host-apps:dedupe-candidates -- --dry-run
 npm run self-host-apps:dedupe-candidates
 ```
 
-Exact canonical source-code URL and official homepage matches become duplicates. Their discovery payload is attached to the existing project. Normalized-name matches become `needs_review` with the possible match IDs. Slugs and names never prove identity.
+Exact canonical source-code URL and official homepage matches become duplicates. Their discovery payload is attached to the existing app. Normalized-name matches become `needs_review` with the possible match IDs. Slugs and names never prove identity.
 
 ## Claim and research
 
@@ -48,7 +48,7 @@ npm run self-host-apps:collect-github-evidence -- --file <batch.json>
 
 Selection uses `FOR UPDATE SKIP LOCKED` and changes claimed rows to `enriching`, so concurrent agents do not take the same work. Discovery preserves an active claim.
 
-Codex researches official source code, website, docs, releases, packages, containers, license, publisher, icon, and deployment instructions. Scripts do not write summaries, categories, classifications, surfaces, or resource estimates.
+Codex researches the official website, docs, releases, packages, containers, license, publisher, icon, deployment instructions, and source code when it exists. Scripts do not write summaries, categories, classifications, surfaces, or resource estimates.
 
 ## Apply reviewed decisions
 
@@ -57,9 +57,9 @@ npm run self-host-apps:apply-candidate-review -- --file <reviewed.json> --dry-ru
 npm run self-host-apps:apply-candidate-review -- --file <reviewed.json>
 ```
 
-The review applier validates and moves data; it makes no editorial decisions. Publication requires an open-source license, icon, source-code URL, one to three categories, verified self-hosting classification, and field provenance. Self-hostable projects also require install docs.
+The review applier validates and moves data; it makes no editorial decisions. Publication requires an official identity, a cached icon or reviewed fallback, one to three categories, verified self-hosting classification, install docs, and field provenance. Open and source-available apps require a verified source repository and license. Closed-source apps require an official website and publisher or product terms.
 
-Known RAM, storage, database, Docker, Compose, and surface facts require direct evidence. Otherwise keep them `null` or `unknown`.
+Known RAM, storage, database, Docker, Compose, pricing, release, and surface facts require direct evidence. Otherwise keep them `null` or `unknown`. A repository scan is not evidence for a RAM or storage number.
 
 Use `self-host-apps:release-candidate-batch` when a claimed batch must be abandoned.
 
@@ -79,6 +79,8 @@ npm run build
 
 - GitHub: every 12 hours.
 - GitLab and Codeberg: daily.
+- Official container and app-catalog sources: daily or weekly based on source limits.
+- Closed-source release pages: weekly.
 
 Refresh jobs update provider-neutral source facts, maintenance state, raw API evidence, and field verification dates. They do not change summaries, categories, self-hosting classification, deployment facts, links, or publication state.
 

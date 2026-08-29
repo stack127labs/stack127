@@ -8,10 +8,10 @@ Use one record per claimed candidate:
     {
       "candidate_id": "candidate-uuid",
       "decision": "publish",
-      "project": {
+      "app": {
         "slug": "example",
         "name": "Example",
-        "summary": "Direct sentence explaining what the project helps a user do.",
+        "summary": "Direct sentence explaining what the app helps a user do.",
         "icon_url": "/app-icons/example.png",
         "website_url": "https://example.org",
         "source_code_url": "https://github.com/example/example",
@@ -29,8 +29,13 @@ Use one record per claimed candidate:
         "compose_support": null,
         "requires_database": null,
         "database_types": [],
-        "ram_mb": null,
+        "ram_min_mb": null,
+        "ram_recommended_mb": null,
+        "storage_min_gb": null,
+        "resource_requirement_kind": "unknown",
         "storage_profile": "unknown",
+        "pricing_model": "unknown",
+        "deployment_methods": [],
         "surfaces": [],
         "categories": ["developer-tools"],
         "summary_source": "curated",
@@ -58,4 +63,4 @@ Use one record per claimed candidate:
 
 Add one field-source entry for every populated link, classification, license, icon, source metadata value, and known technical fact. Empty arrays, `null`, and `unknown` do not need invented evidence.
 
-For a confirmed name match, set `project_id` to the existing project UUID. For `duplicate`, `reject`, or `needs_review`, omit `project` and include the required project ID or reason.
+For a confirmed name match, set `app_id` to the existing app UUID. For `duplicate`, `reject`, or `needs_review`, omit `app` and include the required app ID or reason.

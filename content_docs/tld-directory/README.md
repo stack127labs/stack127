@@ -44,7 +44,7 @@ Everything comes from sources we already fetch or can fetch by script. Nothing i
 - **RDAP coverage.** `https://data.iana.org/rdap/dns.json` plus our reviewed overrides. Verified 28 July 2026: 1,200 of the 1,438 covered, 238 not. `.io` is the notable override, covered by Identity Digital but absent from the bootstrap.
 - **DNSSEC.** Query the root zone for a DS record at each TLD using the existing `lib/dns/` engine. This is our own measurement rather than a copied list, which makes it more trustworthy and keeps it current.
 
-Store the result in Postgres, following the pattern `public.open_projects` already sets for directory data, and refresh by a script under `scripts/domain-tools/` on a schedule. Do not create a second table when an existing one fits; this one does not fit any existing table, so a new `public.tlds` is correct.
+Store the result in Postgres, following the pattern `public.self_host_apps` already sets for directory data, and refresh by a script under `scripts/domain-tools/` on a schedule. Do not create a second table when an existing one fits; this one does not fit any existing table, so a new `public.tlds` is correct.
 
 Record a `checked_at` per row and show it. A directory that does not say when it was last verified is not trustworthy.
 

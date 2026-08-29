@@ -3,9 +3,9 @@
 import { readFile } from "node:fs/promises";
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
-import { projectColumns, projectColumnTypes } from "./lib/schema.mjs";
+import { appColumns, appColumnTypes } from "./lib/schema.mjs";
 
-const editableColumns = projectColumns.filter((column) => column !== "slug");
+const editableColumns = appColumns.filter((column) => column !== "slug");
 
 function recordsFromInput(input) {
   if (Array.isArray(input)) return input;
@@ -17,7 +17,7 @@ function recordsFromInput(input) {
 }
 
 function sqlValue(column, parameter) {
-  const type = projectColumnTypes[column];
+  const type = appColumnTypes[column];
   if (type === "text[]" || type === "jsonb" || type.startsWith("public.")) {
     return `${parameter}::${type}`;
   }
@@ -25,11 +25,11 @@ function sqlValue(column, parameter) {
 }
 
 async function replaceCategoryLinks(client, appId, categories) {
-  await client.query("delete from public.open_project_categories_join_table where project_id = $1", [appId]);
+  await client.query("delete from public.self_host_app_category_links where app_id = $1", [appId]);
   if (!Array.isArray(categories) || categories.length === 0) return;
 
   const categoryResult = await client.query(
-    "select id, slug from public.open_project_categories where slug = any($1::text[])",
+    "select id, slug from public.self_host_app_categories where slug = any($1::text[])",
     [categories],
   );
   const idsBySlug = new Map(categoryResult.rows.map((row) => [row.slug, row.id]));
@@ -39,9 +39,9 @@ async function replaceCategoryLinks(client, appId, categories) {
   for (const slug of categories) {
     await client.query(
       `
-        insert into public.open_project_categories_join_table (project_id, category_id)
+        insert into public.self_host_app_category_links (app_id, category_id)
         values ($1, $2)
-        on conflict (project_id, category_id) do nothing
+        on conflict (app_id, category_id) do nothing
       `,
       [appId, idsBySlug.get(slug)],
     );
@@ -68,8 +68,8 @@ async function upsertFieldSources(client, appId, record, currentRow) {
     if (!source.field_name || !source.source_url) continue;
     await client.query(
       `
-        insert into public.open_project_field_sources (
-          project_id,
+        insert into public.self_host_app_field_sources (
+          app_id,
           field_name,
           source,
           source_url,
@@ -78,7 +78,7 @@ async function upsertFieldSources(client, appId, record, currentRow) {
           note
         )
         values ($1, $2, $3, $4, $5, now(), $6)
-        on conflict (project_id, field_name) do update set
+        on conflict (app_id, field_name) do update set
           source = excluded.source,
           source_url = excluded.source_url,
           confidence = excluded.confidence,
@@ -106,7 +106,7 @@ async function applyRecord(client, record, dryRun) {
     return;
   }
 
-  const current = await client.query("select id, source_code_url, website_url from public.open_projects where slug = $1", [
+  const current = await client.query("select id, source_code_url, website_url from public.self_host_apps where slug = $1", [
     record.slug,
   ]);
   if (current.rowCount === 0) throw new Error(`Missing app row: ${record.slug}`);
@@ -121,7 +121,7 @@ async function applyRecord(client, record, dryRun) {
 
     await client.query(
       `
-        update public.open_projects
+        update public.self_host_apps
         set
           ${assignments},
           updated_at = now()

@@ -1,11 +1,11 @@
 ---
 name: stack127-self-host-enrichment
-description: Research and review Stack127 open-project candidates in claimed batches, write direct summaries, verify official facts and links, classify self-hosting, preserve provenance, and publish only complete records. Use for the next pending self-host app candidates or to drain the candidate queue.
+description: Research and review stack127 self-host app candidates in claimed batches, including open, source-available, and closed-source software, and publish only complete records with provenance.
 ---
 
 # Stack127 self-host enrichment
 
-Work in `/Users/ravitejaknts/projects/Stack127`. Production is canonical; refresh local from production before a long run.
+Work in `/home/teja/projects/stack127`. Production is canonical; refresh development from production before a long run.
 
 Scripts move data. Codex makes editorial and factual decisions. Never generate summaries, categories, self-hosting status, surfaces, or resource facts from keywords.
 
@@ -26,21 +26,21 @@ Scripts move data. Codex makes editorial and factual decisions. Never generate s
 
 ## Decisions
 
-- `publish`: verified open-source or source-available project. `source_model` and `self_hosting_status` must be decided.
-- `duplicate`: same project after manual review; preserve its source evidence.
-- `reject`: not open source, not a software project, dead identity, or otherwise ineligible.
+- `publish`: verified self-host app. `source_model` and `self_hosting_status` must be decided.
+- `duplicate`: the same app after manual review; preserve its source evidence.
+- `reject`: hosted-only, client-only, not a software app, dead identity, or otherwise ineligible.
 - `needs_review`: a real blocker remains. State the exact missing fact.
 
 ## Accuracy
 
 - Use one direct summary sentence. Do not repeat `open source` or `self-hosted` unless essential to meaning.
-- Keep `open_source` and `source_available` distinct. A repository without a project license is neither.
+- Keep `open_source`, `source_available`, and `closed_source` distinct. A repository without a verified license is not proof of either open model. A closed-source app requires an official self-hosted build, website, and publisher identity rather than a repository.
 - Assign one to three controlled categories by purpose.
 - Use `null` or `unknown` when official evidence is absent.
 - RAM, storage, database needs, Docker support, Compose support, and surfaces require direct evidence.
 - A Dockerfile proves a file exists; it does not by itself prove supported production deployment.
 - Keep field provenance for links, classification, license, icon, mutable source facts, and every known technical fact.
-- Never globally draft or publish projects.
+- Never globally draft or publish apps.
 
 ## Finish
 

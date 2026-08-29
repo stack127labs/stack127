@@ -4,7 +4,7 @@ import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { execFileSync } from "node:child_process";
 import { parseRepo } from "./lib/github.mjs";
-import { licenseTypeFromSpdx } from "./lib/schema.mjs";
+import { licenseTypeFromSpdx, sourceModelFromSpdx } from "./lib/schema.mjs";
 
 const githubGraphqlUrl = "https://api.github.com/graphql";
 let cachedGithubToken;
@@ -167,6 +167,10 @@ async function rowsToRefresh(client, args) {
   if (args["published-only"]) {
     where += " and published = true";
   }
+  if (args["source-model"]) {
+    params.push(args["source-model"]);
+    where += ` and source_model = $${params.length}::public.self_host_app_source_model`;
+  }
   if (args["max-age-hours"]) {
     params.push(`${numberArg(args, "max-age-hours", 12)} hours`);
     where += ` and (github_checked_at is null or github_checked_at <= now() - $${params.length}::interval)`;
@@ -175,7 +179,7 @@ async function rowsToRefresh(client, args) {
   const result = await client.query(
     `
       select slug, source_code_url
-      from public.open_projects
+      from public.self_host_apps
       ${where}
       order by github_checked_at nulls first, slug
       ${args.all ? "" : `limit $${params.length + 1}`}
@@ -232,13 +236,14 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
     github_checked_at: checkedAt,
     license,
     license_type: licenseTypeFromSpdx(license),
+    source_model: sourceModelFromSpdx(license),
     maintenance_status: maintenanceStatus(repository, lastCommitAt),
   };
 
   if (!dryRun) {
     await client.query(
       `
-        update public.open_projects
+        update public.self_host_apps
         set
           github_owner = $2,
           github_repo = $3,
@@ -262,7 +267,7 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
           github_disabled = $21,
           github_is_fork = $22,
           github_is_template = $23,
-          source_repo_id = $4::text,
+          source_repo_id = $4::bigint::text,
           source_full_name = $6,
           source_stars = $8,
           source_forks = $9,
@@ -296,7 +301,12 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
           license_spdx_id = coalesce($28, license_spdx_id),
           license_type = case
             when $29 = 'unknown' then license_type
-            else $29::public.open_project_license_type
+            else $29::public.self_host_app_license_type
+          end,
+          source_model = case
+            when source_model = 'unknown' and $31 <> 'unknown'
+              then $31::public.self_host_app_source_model
+            else source_model
           end,
           maintenance_status = $30,
           updated_at = now()
@@ -333,6 +343,7 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
         facts.license,
         facts.license_type,
         facts.maintenance_status,
+        facts.source_model,
       ],
     );
 
@@ -362,15 +373,15 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
     ];
     await client.query(
       `
-        insert into public.open_project_field_sources (
-          project_id, field_name, source, source_url, confidence, checked_at, note
+        insert into public.self_host_app_field_sources (
+          app_id, field_name, source, source_url, confidence, checked_at, note
         )
         select project.id, field_name, 'github_api', project.source_code_url,
                'high', $3, 'Mutable repository fact.'
-        from public.open_projects project
+        from public.self_host_apps project
         cross join unnest($2::text[]) as field_name
         where project.slug = $1
-        on conflict (project_id, field_name) do update set
+        on conflict (app_id, field_name) do update set
           source = excluded.source,
           source_url = excluded.source_url,
           confidence = excluded.confidence,
@@ -379,6 +390,28 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
       `,
       [row.slug, mutableFields, checkedAt],
     );
+
+    if (facts.license) {
+      await client.query(
+        `
+          insert into public.self_host_app_field_sources (
+            app_id, field_name, source, source_url, confidence, checked_at, note
+          )
+          select app.id, field_name, 'github_api', app.source_code_url,
+                 'high', $3, 'License detected from the official repository.'
+          from public.self_host_apps app
+          cross join unnest($2::text[]) as field_name
+          where app.slug = $1
+          on conflict (app_id, field_name) do update set
+            source = excluded.source,
+            source_url = excluded.source_url,
+            confidence = excluded.confidence,
+            checked_at = excluded.checked_at,
+            note = excluded.note
+        `,
+        [row.slug, ["license", "license_spdx_id", "source_model"], checkedAt],
+      );
+    }
   }
 }
 

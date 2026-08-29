@@ -36,9 +36,9 @@ const categoryJoin = `
     select
       coalesce(array_agg(category.slug order by category.sort_order, category.name), array[]::text[]) as category_slugs,
       coalesce(array_agg(category.name order by category.sort_order, category.name), array[]::text[]) as category_names
-    from public.open_project_categories_join_table project_category
-    join public.open_project_categories category on category.id = project_category.category_id
-    where project_category.project_id = app.id
+    from public.self_host_app_category_links project_category
+    join public.self_host_app_categories category on category.id = project_category.category_id
+    where project_category.app_id = app.id
   ) category_set on true
 `;
 
@@ -144,7 +144,7 @@ async function exportSelfHostApps({ outDir, databaseUrl }) {
           app.github_primary_language,
           app.github_topics,
           app.updated_at
-        from public.open_projects app
+        from public.self_host_apps app
         ${categoryJoin}
         where app.published = true
           and app.self_hosting_status = 'self_hostable'

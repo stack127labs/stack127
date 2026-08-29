@@ -14,10 +14,10 @@ const styles = source("app/(site)/(catalogs)/_components/catalog-directory.css")
 test("self-host app cards use the compact three-column content hierarchy", () => {
   assert.match(card, /app\.categories\.slice\(0,\s*1\)/);
   assert.match(card, /<p className="directory-card-summary">\{app\.summary\}<\/p>/);
-  assert.match(card, /formatCardDate\(app\.github_last_commit_at\)/);
+  assert.match(card, /formatCardDate\(app\.release_published_at \?\? app\.github_last_commit_at\)/);
   assert.match(card, /className="directory-card-stat-last-commit"/);
   assert.match(card, /app\.maintenance_status !== "active"/);
-  assert.match(card, />\s*last commit\s*<\/span>/);
+  assert.match(card, />\s*last update\s*<\/span>/);
   assert.doesNotMatch(card, />\s*deploy\s*<\/span>/);
   assert.doesNotMatch(card, /className="directory-card-flags"/);
 });
