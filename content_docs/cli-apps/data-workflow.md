@@ -35,11 +35,15 @@ tables.
 3. **Verify** (`verify-candidates.mjs`): fetches official evidence (GitHub
    API for repository facts, reachability probes for websites) into a batch
    file. Nothing publishes here.
-4. **Publish** (`publish-apps.mjs`): applies reviewed records. Publication
+4. **Cache icons** (`cache-icons.mjs`): downloads each app's official site
+   favicon or repository-owner image, normalizes it to a local 256px PNG, and
+   records the source URL. A generated initial tile is the last fallback.
+5. **Publish** (`publish-apps.mjs`): applies reviewed records. Publication
    requires a name, an original stack127 summary, an official URL, source
    model, pricing model, a primary type, 1 to 3 reviewed categories, and a
-   verification date. Every published field gets a provenance row.
-5. **Report** (`coverage-report.mjs`): per-source discovered, deduplicated,
+   verification date. It also requires the cached icon and its source. Every
+   published field gets a provenance row.
+6. **Report** (`coverage-report.mjs`): per-source discovered, deduplicated,
    excluded, enriched, published, and failed counts.
 
 ## Rules
@@ -49,5 +53,7 @@ tables.
 - Use `unknown` or `null` instead of guessing.
 - Package names and command names are aliases, not automatically product names.
 - A record without a reliable official URL or source page does not publish.
+- Public cards load icons from `/cli-app-icons/`. They do not depend on a
+  third-party favicon service at request time.
 - The result is exhaustive across the attempted sources only. It is not proof
   that every terminal app in existence has been found.

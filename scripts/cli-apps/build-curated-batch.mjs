@@ -61,7 +61,14 @@ async function main() {
     const { withClient: withDbClient } = await import("./lib/db.mjs");
     const extraRecords = await withDbClient(async (client) => {
       const result = await client.query(
-        `select id, source, source_url, name, slug, dedupe_key, canonical_repo_key, website_url, repository_url, docs_url, summary_raw, license_raw, language_raw, stars, categories_raw, platforms_raw, install_methods_raw, latest_version, latest_release_at, payload from public.terminal_app_candidates where slug = any($1::text[])`,
+        `select distinct on (slug)
+           id, source, source_url, name, slug, dedupe_key, canonical_repo_key,
+           website_url, repository_url, docs_url, summary_raw, license_raw,
+           language_raw, stars, categories_raw, platforms_raw,
+           install_methods_raw, latest_version, latest_release_at, payload
+         from public.terminal_app_candidates
+         where slug = any($1::text[])
+         order by slug, confidence_score desc, stars desc nulls last, last_seen_at desc`,
         [extraSlugs],
       );
       return result.rows;
@@ -80,12 +87,12 @@ async function main() {
       const override = curated[slug];
       recordsBySlug.set(slug, {
         slug,
-        name: override.summary ? slug.replace(/-cli$/, "").replace(/-/g, " ") : slug,
+        name: override.name ?? slug.replace(/-cli$/, "").replace(/-/g, " "),
         dedupe_key: `name:${slug}`,
         source: "manual",
-        source_url: override.website_url ?? null,
+        source_url: override.repository_url ?? override.website_url ?? null,
         website_url: override.website_url ?? null,
-        repository_url: null,
+        repository_url: override.repository_url ?? null,
         summary_raw: override.summary,
         source_type: "manual",
         evidence: { website: { reachable: false } },
@@ -108,6 +115,11 @@ async function main() {
 
     records.push({
       ...record,
+      name: override.name ?? record.name,
+      icon_source_url: override.icon_source_url ?? null,
+      website_url: override.website_url ?? record.website_url ?? github?.homepage ?? null,
+      repository_url: override.repository_url ?? record.repository_url ?? (github ? `https://github.com/${github.full_name}` : null),
+      source_url: override.repository_url ?? override.website_url ?? record.source_url ?? null,
       last_verified_at: derivationDate(github),
       verified_at: new Date().toISOString(),
       review: {

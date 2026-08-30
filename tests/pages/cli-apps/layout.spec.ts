@@ -49,3 +49,24 @@ test("cards open a contextual details panel instead of exposing raw links", asyn
   await expect(panel.getByText("source model", { exact: true })).toBeVisible();
   await expect(panel.locator("a").first()).toBeVisible();
 });
+
+test("cards and details show cached app icons", async ({ page }) => {
+  await page.goto("/cli-apps");
+
+  const icons = page.locator(".cli-card .directory-card-icon");
+  await expect(icons).not.toHaveCount(0);
+
+  for (const icon of await icons.all()) {
+    await icon.scrollIntoViewIfNeeded();
+    await expect(icon).toHaveAttribute("data-image-loaded", "true");
+    const image = icon.locator("img");
+    await expect(image).toHaveAttribute("src", /\/cli-app-icons\/[a-z0-9-]+\.png$/);
+    await expect(image).toHaveCSS("opacity", "1");
+    expect(await image.evaluate((element: HTMLImageElement) => element.naturalWidth)).toBeGreaterThan(0);
+  }
+
+  await page.locator(".cli-card").first().click();
+  const detailIcon = page.getByRole("dialog").locator(".app-detail-icon");
+  await expect(detailIcon).toHaveAttribute("data-image-loaded", "true");
+  await expect(detailIcon.locator("img")).toHaveCSS("opacity", "1");
+});

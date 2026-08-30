@@ -40,6 +40,8 @@ function validateRecord(record) {
   const categories = review.categories ?? [];
   if (categories.length < 1 || categories.length > 3) errors.push("categories must contain 1 to 3 reviewed values");
   if (!record.last_verified_at && !review.last_verified_at) errors.push("missing last_verified_at");
+  if (!record.icon_url?.startsWith("/cli-app-icons/")) errors.push("missing cached local icon_url");
+  if (!record.icon_source_url) errors.push("missing icon_source_url provenance");
   if (review.maintenance_status && !validMaintenance.has(review.maintenance_status)) {
     errors.push(`invalid maintenance_status: ${review.maintenance_status}`);
   }
@@ -61,6 +63,7 @@ async function publishRecord(client, record) {
   const latestVersion = record.latest_version ?? null;
   const lastVerifiedAt = review.last_verified_at ?? record.last_verified_at;
   const maintenance = review.maintenance_status ?? "unknown";
+  const iconUrl = record.icon_url ?? null;
 
   const upsert = await client.query(
     `
@@ -78,8 +81,8 @@ async function publishRecord(client, record) {
         $11, $12, $13,
         $14, $15, $16,
         $17, $18, $19, $20,
-        $21, null, null, null,
-        $22, true
+        $21, $22, null, null,
+        $23, true
       )
       on conflict (slug) do update set
         name = excluded.name,
@@ -102,6 +105,7 @@ async function publishRecord(client, record) {
         stars = coalesce(excluded.stars, terminal_apps.stars),
         last_commit_at = coalesce(excluded.last_commit_at, terminal_apps.last_commit_at),
         maintenance_status = excluded.maintenance_status,
+        icon_url = excluded.icon_url,
         last_verified_at = excluded.last_verified_at,
         published = true,
         updated_at = now()
@@ -129,6 +133,7 @@ async function publishRecord(client, record) {
       stars,
       lastCommitAt,
       maintenance,
+      iconUrl,
       lastVerifiedAt,
     ],
   );
@@ -164,22 +169,34 @@ async function publishRecord(client, record) {
   if (latestVersion) {
     provenance.push(["latest_version", record.source, record.source_url, "low", "from discovery payload; re-verify before quoting"]);
   }
-
-  for (const [fieldName, source, sourceUrl, confidence, note] of provenance) {
-    await client.query(
-      `
-        insert into public.terminal_app_field_sources (app_id, field_name, source, source_url, confidence, checked_at, note)
-        values ($1, $2, $3, $4, $5, now(), $6)
-        on conflict (app_id, field_name) do update set
-          source = excluded.source,
-          source_url = excluded.source_url,
-          confidence = excluded.confidence,
-          checked_at = now(),
-          note = excluded.note
-      `,
-      [appId, fieldName, source, sourceUrl, confidence, note],
-    );
+  if (iconUrl) {
+    provenance.push(["icon_url", "icon_cache", record.icon_source_url, "medium", "normalized local PNG cached by stack127"]);
   }
+
+  await client.query(
+    `
+      insert into public.terminal_app_field_sources (
+        app_id, field_name, source, source_url, confidence, checked_at, note
+      )
+      select $1, data.field_name, data.source, data.source_url, data.confidence, now(), data.note
+      from unnest($2::text[], $3::text[], $4::text[], $5::text[], $6::text[])
+        as data(field_name, source, source_url, confidence, note)
+      on conflict (app_id, field_name) do update set
+        source = excluded.source,
+        source_url = excluded.source_url,
+        confidence = excluded.confidence,
+        checked_at = now(),
+        note = excluded.note
+    `,
+    [
+      appId,
+      provenance.map(([fieldName]) => fieldName),
+      provenance.map(([, source]) => source),
+      provenance.map(([, , sourceUrl]) => sourceUrl),
+      provenance.map(([, , , confidence]) => confidence),
+      provenance.map(([, , , , note]) => note),
+    ],
+  );
 
   // Link the candidate queue rows.
   await client.query(
@@ -212,30 +229,43 @@ async function main() {
   let needsReview = 0;
   const validationFailures = [];
 
-  await withClient(async (client) => {
-    for (const record of records) {
-      const decision = record.review?.decision ?? "needs_review";
+  for (const record of records) {
+    const decision = record.review?.decision ?? "needs_review";
 
-      if (decision === "publish") {
-        const errors = validateRecord(record);
-        if (errors.length > 0) {
-          validationFailures.push({ name: record.name, errors });
-          needsReview += 1;
-          continue;
-        }
-
+    if (decision === "publish") {
+      const errors = validateRecord(record);
+      if (errors.length > 0) {
+        validationFailures.push({ name: record.name, errors });
+        needsReview += 1;
+      } else {
         published += 1;
-        if (!dryRun) {
-          const result = await publishRecord(client, record);
-          if (!result.inserted) published += 0;
-        }
-        continue;
       }
+      continue;
+    }
 
-      if (decision === "exclude") {
-        excluded += 1;
-        if (!dryRun) {
-          await client.query(
+    if (decision === "exclude") {
+      excluded += 1;
+      continue;
+    }
+
+    needsReview += 1;
+  }
+
+  if (!dryRun && validationFailures.length === 0) {
+    await withClient(async (client) => {
+      await client.query("begin");
+
+      try {
+        for (const record of records) {
+          const decision = record.review?.decision ?? "needs_review";
+
+          if (decision === "publish") {
+            await publishRecord(client, record);
+            continue;
+          }
+
+          if (decision === "exclude") {
+            await client.query(
             `
               update public.terminal_app_candidates
               set status = 'excluded',
@@ -245,25 +275,30 @@ async function main() {
             `,
             [record.dedupe_key, record.review.exclusion_reason ?? "excluded during review"],
           );
-        }
-        continue;
-      }
+            continue;
+          }
 
-      needsReview += 1;
-      if (!dryRun && record.dedupe_key) {
-        await client.query(
-          `
-            update public.terminal_app_candidates
-            set status = 'needs_review',
-                review_notes = $2,
-                updated_at = now()
-            where dedupe_key = $1 and status in ('discovered', 'failed')
-          `,
-          [record.dedupe_key, record.review?.notes ?? "awaiting editorial review"],
-        );
+          if (record.dedupe_key) {
+            await client.query(
+              `
+                update public.terminal_app_candidates
+                set status = 'needs_review',
+                    review_notes = $2,
+                    updated_at = now()
+                where dedupe_key = $1 and status in ('discovered', 'failed')
+              `,
+              [record.dedupe_key, record.review?.notes ?? "awaiting editorial review"],
+            );
+          }
+        }
+
+        await client.query("commit");
+      } catch (error) {
+        await client.query("rollback");
+        throw error;
       }
-    }
-  }, args["database-url"]);
+    }, args["database-url"]);
+  }
 
   console.log(JSON.stringify({
     dryRun,

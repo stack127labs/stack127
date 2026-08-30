@@ -107,3 +107,29 @@ test("closed-source tools without repositories have unknown commit dates", async
   // last_commit_at provenance only comes from github_api, not from discovery fallback.
   assert.match(publish, /\["last_commit_at", "github_api"/);
 });
+
+test("curated identity overrides noisy discovery records", async () => {
+  const build = await read("scripts/cli-apps/build-curated-batch.mjs");
+
+  assert.match(build, /name: override\.name \?\? record\.name/);
+  assert.match(build, /repository_url: override\.repository_url \?\? record\.repository_url/);
+  assert.match(build, /source_url: override\.repository_url \?\? override\.website_url/);
+  assert.match(build, /select distinct on \(slug\)/);
+  assert.match(build, /order by slug, confidence_score desc, stars desc nulls last/);
+});
+
+test("field provenance is written as one set per app", async () => {
+  const publish = await read("scripts/cli-apps/publish-apps.mjs");
+
+  assert.match(publish, /unnest\(\$2::text\[\], \$3::text\[\], \$4::text\[\], \$5::text\[\], \$6::text\[\]\)/);
+  assert.doesNotMatch(publish, /for \(const \[fieldName, source, sourceUrl, confidence, note\] of provenance\)/);
+});
+
+test("a publish batch validates before one all-or-nothing transaction", async () => {
+  const publish = await read("scripts/cli-apps/publish-apps.mjs");
+
+  assert.match(publish, /if \(!dryRun && validationFailures\.length === 0\)/);
+  assert.match(publish, /await client\.query\("begin"\)/);
+  assert.match(publish, /await client\.query\("commit"\)/);
+  assert.match(publish, /await client\.query\("rollback"\)/);
+});

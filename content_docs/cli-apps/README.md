@@ -3,6 +3,7 @@
 See the directory at `/cli-apps`. It lists published terminal apps with verified facts.
 
 - Brief: `content_docs/cli-apps/brief.md`
+- Catalog standard: `content_docs/cli-apps/catalog-standard.md`
 - Data workflow: `content_docs/cli-apps/data-workflow.md`
 - Scripts: `scripts/cli-apps/`
 - Coverage: `scripts/cli-apps/batches/coverage.md`

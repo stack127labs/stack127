@@ -1,3 +1,5 @@
+import { curatedExpansion } from "./curated-expansion.mjs";
+
 /**
  * Curated editorial overrides for the first publish batch.
  * Keys are candidate slugs; each entry becomes the `review` object merged onto
@@ -5,6 +7,7 @@
  * never copied from a directory.
  */
 export const curated = {
+  ...curatedExpansion,
   // TUI + terminal emulators
   "alacritty": {
     summary: "A focused, GPU-accelerated terminal emulator that stays out of your way.",
@@ -95,6 +98,9 @@ export const curated = {
   },
   "oils": {
     summary: "A Unix shell that is compatible with bash while adding structured data types.",
+    website_url: "https://oils.pub/",
+    repository_url: "https://github.com/oils-for-unix/oils",
+    icon_source_url: "https://avatars.githubusercontent.com/u/173528631?v=4",
     primary_type: "shell",
     categories: ["terminal-ui"],
     platforms: ["linux", "macos"],

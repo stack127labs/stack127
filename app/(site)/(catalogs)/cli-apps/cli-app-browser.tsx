@@ -16,7 +16,7 @@ import {
   Terminal,
   type LucideIcon,
 } from "lucide-react";
-import { useEffect, useMemo, useState, type MouseEvent, type PointerEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type MouseEvent, type PointerEvent } from "react";
 import { FaGithub } from "react-icons/fa6";
 import type { TerminalApp } from "@/lib/terminal-apps";
 import {
@@ -41,13 +41,17 @@ function hashText(value: string) {
   return [...value].reduce((total, character) => total + character.charCodeAt(0), 0);
 }
 
-function generatedIconUrl(name: string, slug: string) {
-  const color = generatedIconColors[hashText(slug) % generatedIconColors.length];
+function iconLabel(name: string) {
   const words = name.match(/[A-Za-z0-9]+/g) ?? [name];
-  const label = (words.length > 1
+  return (words.length > 1
     ? `${words[0]?.[0] ?? ""}${words[1]?.[0] ?? ""}`
     : (words[0] ?? name).slice(0, 2)
   ).toUpperCase();
+}
+
+function generatedIconUrl(name: string, slug: string) {
+  const color = generatedIconColors[hashText(slug) % generatedIconColors.length];
+  const label = iconLabel(name);
   const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
       <rect width="64" height="64" rx="14" fill="${color}"/>
@@ -56,21 +60,6 @@ function generatedIconUrl(name: string, slug: string) {
   `.trim();
 
   return `data:image/svg+xml,${encodeURIComponent(svg)}`;
-}
-
-function faviconUrl(app: TerminalApp) {
-  const source = app.website_url ?? app.docs_url ?? app.repository_url;
-
-  if (!source) {
-    return generatedIconUrl(app.name, app.slug);
-  }
-
-  try {
-    const host = new URL(source).hostname;
-    return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(host)}&sz=128`;
-  } catch {
-    return generatedIconUrl(app.name, app.slug);
-  }
 }
 
 function formatStars(value: number | null) {
@@ -118,18 +107,49 @@ function formatList(values: string[], labels?: Map<string, string>) {
 
 function AppIcon({ app, detail = false }: { app: TerminalApp; detail?: boolean }) {
   const fallback = generatedIconUrl(app.name, app.slug);
-  const imageUrl = app.icon_url ?? faviconUrl(app);
+  const imageUrl = app.icon_url ?? `/cli-app-icons/${app.slug}.png`;
   const [src, setSrc] = useState(imageUrl);
+  const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const image = imageRef.current;
+    if (!image?.complete) return;
+
+    if (image.naturalWidth > 0) {
+      setLoaded(true);
+      return;
+    }
+
+    if (src !== fallback) setSrc(fallback);
+  }, [fallback, src]);
 
   return (
-    <span aria-hidden="true" className={detail ? "app-detail-icon" : "directory-card-icon"}>
+    <span
+      aria-hidden="true"
+      className={detail ? "app-detail-icon" : "directory-card-icon"}
+      data-app-icon
+      data-image-failed={failed ? "true" : undefined}
+      data-image-loaded={loaded ? "true" : undefined}
+    >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         alt=""
         loading={detail ? undefined : "lazy"}
-        onError={() => setSrc((current) => (current === fallback ? current : fallback))}
+        onError={() => {
+          if (src !== fallback) {
+            setLoaded(false);
+            setSrc(fallback);
+            return;
+          }
+          setFailed(true);
+        }}
+        onLoad={() => setLoaded(true)}
+        ref={imageRef}
         src={src}
       />
+      <span className="app-icon-letter">{iconLabel(app.name)}</span>
     </span>
   );
 }
