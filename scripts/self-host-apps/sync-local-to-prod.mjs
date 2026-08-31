@@ -90,6 +90,41 @@ async function fetchLocalState(client) {
       order by app.slug, field.field_name
     `,
   );
+  const resourceEstimates = await client.query(
+    `
+      select app.slug as app_slug,
+             estimate.resource_kind,
+             estimate.estimate_min,
+             estimate.estimate_max,
+             estimate.unit,
+             estimate.estimate_kind,
+             estimate.confidence,
+             estimate.basis,
+             estimate.source_urls,
+             estimate.note,
+             estimate.checked_at
+      from public.self_host_app_resource_estimates estimate
+      join public.self_host_apps app on app.id = estimate.app_id
+      order by app.slug, estimate.resource_kind
+    `,
+  );
+  const installOptions = await client.query(
+    `
+      select app.slug as app_slug,
+             option.method,
+             option.label,
+             option.url,
+             option.image,
+             option.support_level,
+             option.source_url,
+             option.note,
+             option.sort_order,
+             option.checked_at
+      from public.self_host_app_install_options option
+      join public.self_host_apps app on app.id = option.app_id
+      order by app.slug, option.sort_order, option.method, option.url
+    `,
+  );
 
   return {
     categories: categories.rows,
@@ -97,6 +132,8 @@ async function fetchLocalState(client) {
     categoryLinks: categoryLinks.rows,
     sources: sources.rows,
     fieldSources: fieldSources.rows,
+    resourceEstimates: resourceEstimates.rows,
+    installOptions: installOptions.rows,
   };
 }
 
@@ -312,6 +349,174 @@ async function replaceFieldSources(client, state, appIds) {
   }
 }
 
+async function replaceResourceEstimates(client, state, appIds) {
+  console.log(`Replacing resource estimates: ${state.resourceEstimates.length}`);
+  const ids = [...appIds.values()];
+  if (ids.length > 0) {
+    await client.query("delete from public.self_host_app_resource_estimates where app_id = any($1::uuid[])", [ids]);
+  }
+
+  const appSlugMap = [...appIds.entries()];
+  const appSlugs = appSlugMap.map(([slug]) => slug);
+  const appIdValues = appSlugMap.map(([, id]) => id);
+  const estimateChunks = chunks(state.resourceEstimates, 1000);
+  for (let index = 0; index < estimateChunks.length; index += 1) {
+    await client.query(
+      `
+        insert into public.self_host_app_resource_estimates (
+          app_id,
+          resource_kind,
+          estimate_min,
+          estimate_max,
+          unit,
+          estimate_kind,
+          confidence,
+          basis,
+          source_urls,
+          note,
+          checked_at
+        )
+        select
+          map.app_id,
+          item.resource_kind,
+          item.estimate_min,
+          item.estimate_max,
+          item.unit,
+          item.estimate_kind,
+          item.confidence,
+          item.basis,
+          array(select jsonb_array_elements_text(item.source_urls)),
+          item.note,
+          coalesce(item.checked_at::timestamptz, now())
+        from jsonb_to_recordset($1::jsonb) as item(
+          app_slug text,
+          resource_kind text,
+          estimate_min numeric,
+          estimate_max numeric,
+          unit text,
+          estimate_kind text,
+          confidence text,
+          basis text,
+          source_urls jsonb,
+          note text,
+          checked_at text
+        )
+        join unnest($2::text[], $3::uuid[]) as map(app_slug, app_id)
+          on map.app_slug = item.app_slug
+        on conflict (app_id, resource_kind) do update set
+          estimate_min = excluded.estimate_min,
+          estimate_max = excluded.estimate_max,
+          unit = excluded.unit,
+          estimate_kind = excluded.estimate_kind,
+          confidence = excluded.confidence,
+          basis = excluded.basis,
+          source_urls = excluded.source_urls,
+          note = excluded.note,
+          checked_at = excluded.checked_at
+      `,
+      [
+        JSON.stringify(estimateChunks[index].map((estimate) => ({
+          app_slug: estimate.app_slug,
+          resource_kind: estimate.resource_kind,
+          estimate_min: estimate.estimate_min,
+          estimate_max: estimate.estimate_max,
+          unit: estimate.unit,
+          estimate_kind: estimate.estimate_kind,
+          confidence: estimate.confidence,
+          basis: estimate.basis,
+          source_urls: estimate.source_urls ?? [],
+          note: estimate.note,
+          checked_at: estimate.checked_at?.toISOString?.() ?? estimate.checked_at ?? null,
+        }))),
+        appSlugs,
+        appIdValues,
+      ],
+    );
+    console.log(`Synced resource estimate chunks: ${index + 1}/${estimateChunks.length}`);
+  }
+}
+
+async function replaceInstallOptions(client, state, appIds) {
+  console.log(`Replacing install options: ${state.installOptions.length}`);
+  const ids = [...appIds.values()];
+  if (ids.length > 0) {
+    await client.query("delete from public.self_host_app_install_options where app_id = any($1::uuid[])", [ids]);
+  }
+
+  const appSlugMap = [...appIds.entries()];
+  const appSlugs = appSlugMap.map(([slug]) => slug);
+  const appIdValues = appSlugMap.map(([, id]) => id);
+  const optionChunks = chunks(state.installOptions, 1000);
+  for (let index = 0; index < optionChunks.length; index += 1) {
+    await client.query(
+      `
+        insert into public.self_host_app_install_options (
+          app_id,
+          method,
+          label,
+          url,
+          image,
+          support_level,
+          source_url,
+          note,
+          sort_order,
+          checked_at
+        )
+        select
+          map.app_id,
+          item.method,
+          item.label,
+          item.url,
+          item.image,
+          item.support_level,
+          item.source_url,
+          item.note,
+          item.sort_order,
+          coalesce(item.checked_at::timestamptz, now())
+        from jsonb_to_recordset($1::jsonb) as item(
+          app_slug text,
+          method text,
+          label text,
+          url text,
+          image text,
+          support_level text,
+          source_url text,
+          note text,
+          sort_order integer,
+          checked_at text
+        )
+        join unnest($2::text[], $3::uuid[]) as map(app_slug, app_id)
+          on map.app_slug = item.app_slug
+        on conflict (app_id, method, url) do update set
+          label = excluded.label,
+          image = excluded.image,
+          support_level = excluded.support_level,
+          source_url = excluded.source_url,
+          note = excluded.note,
+          sort_order = excluded.sort_order,
+          checked_at = excluded.checked_at
+      `,
+      [
+        JSON.stringify(optionChunks[index].map((option) => ({
+          app_slug: option.app_slug,
+          method: option.method,
+          label: option.label,
+          url: option.url,
+          image: option.image,
+          support_level: option.support_level,
+          source_url: option.source_url,
+          note: option.note,
+          sort_order: option.sort_order,
+          checked_at: option.checked_at?.toISOString?.() ?? option.checked_at ?? null,
+        }))),
+        appSlugs,
+        appIdValues,
+      ],
+    );
+    console.log(`Synced install option chunks: ${index + 1}/${optionChunks.length}`);
+  }
+}
+
 async function draftMissingProdRows(client, localSlugs) {
   const result = await client.query(
     `
@@ -386,6 +591,8 @@ async function main() {
         await replaceCategoryLinks(prodClient, state, appIds, categoryIds);
         await upsertSources(prodClient, state, appIds);
         await replaceFieldSources(prodClient, state, appIds);
+        await replaceResourceEstimates(prodClient, state, appIds);
+        await replaceInstallOptions(prodClient, state, appIds);
         const draftedMissing = args["draft-missing"]
           ? await draftMissingProdRows(prodClient, state.apps.map((app) => app.slug))
           : [];
@@ -405,6 +612,8 @@ async function main() {
             category_links: state.categoryLinks.length,
             sources: state.sources.length,
             field_sources: state.fieldSources.length,
+            resource_estimates: state.resourceEstimates.length,
+            install_options: state.installOptions.length,
           },
           prod_before: before,
           prod_after: after,

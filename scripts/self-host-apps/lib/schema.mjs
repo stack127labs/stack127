@@ -166,8 +166,9 @@ export function sourceCodeHost(value) {
 export function licenseTypeFromSpdx(value) {
   const license = String(value ?? "").toUpperCase();
   if (!license || license === "NOASSERTION" || license === "OTHER") return "unknown";
-  if (/^(MIT|APACHE-|BSD-|ISC|ZLIB|0BSD)/.test(license)) return "permissive";
-  if (/^(AGPL-|GPL-|LGPL-|MPL-|EUPL-|CECILL-)/.test(license)) return "copyleft";
+  if (/COMMONS.CLAUSE|POLYFORM|SUSTAINABLE|LICENSEREF|-NC(?:-|$)|-ND(?:-|$)/.test(license)) return "custom";
+  if (/^(MIT|APACHE-|BSD-|ISC|ZLIB|0BSD|POSTGRESQL)/.test(license)) return "permissive";
+  if (/^(AGPL-|GPL-|LGPL-|MPL-|EUPL-|CECILL-|CC-BY-SA-)/.test(license)) return "copyleft";
   if (/^(UNLICENSE|CC0-)/.test(license)) return "public_domain";
   if (/\b( OR | AND |\+)\b/.test(license)) return "mixed";
   return "custom";
@@ -176,7 +177,7 @@ export function licenseTypeFromSpdx(value) {
 export function sourceModelFromSpdx(value) {
   const license = String(value ?? "").toUpperCase();
   if (!license || ["NOASSERTION", "OTHER"].includes(license)) return "unknown";
-  if (/BUSL|SSPL|ELASTIC|COMMONS.CLAUSE|-NC(?:-|$)|-ND(?:-|$)/.test(license)) {
+  if (/BUSL|SSPL|ELASTIC|POLYFORM|SUSTAINABLE|LICENSEREF|COMMONS.CLAUSE|-NC(?:-|$)|-ND(?:-|$)/.test(license)) {
     return "source_available";
   }
   return "open_source";

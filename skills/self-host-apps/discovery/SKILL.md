@@ -29,3 +29,5 @@ Discovery writes staging evidence only. Official app sources and the enrichment 
 - Never assign Stack127 categories or publish from discovery.
 
 Report discovered, inserted, updated, exact duplicates, name reviews, queued, and errors.
+
+After reviewed catalog facts are applied, run `self-host-apps:refresh-install-options`. It creates registry, Compose, and verified appliance destinations from reviewed evidence; it does not infer support for a platform that has not supplied a catalog or package URL.

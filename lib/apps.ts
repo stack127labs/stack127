@@ -6,6 +6,29 @@ export type AppCategory = {
   icon_key: string | null;
 };
 
+export type DirectoryResourceEstimate = {
+  estimate_min: number;
+  estimate_max: number;
+  unit: "mb" | "gb";
+  estimate_kind: "derived" | "estimated";
+  confidence: "high" | "medium" | "low";
+  basis: string;
+  source_urls: string[];
+  note: string | null;
+  checked_at: Date | string;
+};
+
+export type DirectoryInstallOption = {
+  method: string;
+  label: string;
+  url: string;
+  image: string | null;
+  support_level: "official" | "community" | "third_party";
+  source_url: string | null;
+  note: string | null;
+  sort_order: number;
+};
+
 export type DirectoryApp = {
   slug: string;
   name: string;
@@ -62,6 +85,8 @@ export type DirectoryApp = {
   compose_researched: boolean;
   resource_requirement_kind: string;
   technical_facts_checked_at: Date | null;
+  resource_estimates: Record<string, DirectoryResourceEstimate>;
+  install_options: DirectoryInstallOption[];
   popularity_score: number;
   popularity_basis: string[];
   popularity_checked_at: Date | null;
@@ -107,6 +132,53 @@ const categoryJoin = `
   ) category_set on true
 `;
 
+const resourceEstimateJoin = `
+  left join lateral (
+    select coalesce(
+      jsonb_object_agg(
+        estimate.resource_kind,
+        jsonb_build_object(
+          'estimate_min', estimate.estimate_min,
+          'estimate_max', estimate.estimate_max,
+          'unit', estimate.unit,
+          'estimate_kind', estimate.estimate_kind,
+          'confidence', estimate.confidence,
+          'basis', estimate.basis,
+          'source_urls', estimate.source_urls,
+          'note', estimate.note,
+          'checked_at', estimate.checked_at
+        )
+      ),
+      '{}'::jsonb
+    ) as resource_estimates
+    from public.self_host_app_resource_estimates estimate
+    where estimate.app_id = app.id
+  ) resource_estimate_set on true
+`;
+
+const installOptionJoin = `
+  left join lateral (
+    select coalesce(
+      jsonb_agg(
+        jsonb_build_object(
+          'method', option.method,
+          'label', option.label,
+          'url', option.url,
+          'image', option.image,
+          'support_level', option.support_level,
+          'source_url', option.source_url,
+          'note', option.note,
+          'sort_order', option.sort_order
+        )
+        order by option.sort_order, option.label, option.url
+      ),
+      '[]'::jsonb
+    ) as install_options
+    from public.self_host_app_install_options option
+    where option.app_id = app.id
+  ) install_option_set on true
+`;
+
 function normalizeJsonArray<T>(value: unknown): T[] {
   return Array.isArray(value) ? (value as T[]) : [];
 }
@@ -117,6 +189,88 @@ function normalizeCategories(value: unknown): AppCategory[] {
       typeof category.name === "string" &&
       typeof category.slug === "string",
   );
+}
+
+function normalizeResourceEstimates(value: unknown): Record<string, DirectoryResourceEstimate> {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return {};
+  }
+
+  const entries = Object.entries(value as Record<string, unknown>);
+  const estimates: Record<string, DirectoryResourceEstimate> = {};
+
+  for (const [resourceKind, rawEstimate] of entries) {
+    if (!rawEstimate || typeof rawEstimate !== "object" || Array.isArray(rawEstimate)) {
+      continue;
+    }
+
+    const estimate = rawEstimate as Record<string, unknown>;
+    const unit = estimate.unit === "mb" || estimate.unit === "gb" ? estimate.unit : null;
+    const estimateKind = estimate.estimate_kind === "derived" || estimate.estimate_kind === "estimated"
+      ? estimate.estimate_kind
+      : null;
+    const confidence = estimate.confidence === "high" || estimate.confidence === "medium" || estimate.confidence === "low"
+      ? estimate.confidence
+      : null;
+    const min = Number(estimate.estimate_min);
+    const max = Number(estimate.estimate_max);
+
+    if (
+      !unit ||
+      !estimateKind ||
+      !confidence ||
+      !Number.isFinite(min) ||
+      !Number.isFinite(max) ||
+      max < min ||
+      typeof estimate.basis !== "string"
+    ) {
+      continue;
+    }
+
+    const sourceUrls = normalizeJsonArray<unknown>(estimate.source_urls)
+      .filter((url): url is string => typeof url === "string" && /^https?:\/\//i.test(url));
+
+    if (sourceUrls.length === 0) {
+      continue;
+    }
+
+    estimates[resourceKind] = {
+      estimate_min: min,
+      estimate_max: max,
+      unit,
+      estimate_kind: estimateKind,
+      confidence,
+      basis: estimate.basis,
+      source_urls: sourceUrls,
+      note: typeof estimate.note === "string" ? estimate.note : null,
+      checked_at: typeof estimate.checked_at === "string" || estimate.checked_at instanceof Date
+        ? estimate.checked_at
+        : "",
+    };
+  }
+
+  return estimates;
+}
+
+function normalizeInstallOptions(value: unknown): DirectoryInstallOption[] {
+  return normalizeJsonArray<Record<string, unknown>>(value)
+    .filter((option) =>
+      typeof option.method === "string" &&
+      typeof option.label === "string" &&
+      typeof option.url === "string" &&
+      /^https?:\/\//i.test(option.url) &&
+      (option.support_level === "official" || option.support_level === "community" || option.support_level === "third_party"),
+    )
+    .map((option) => ({
+      method: option.method as string,
+      label: option.label as string,
+      url: option.url as string,
+      image: typeof option.image === "string" ? option.image : null,
+      support_level: option.support_level as DirectoryInstallOption["support_level"],
+      source_url: typeof option.source_url === "string" ? option.source_url : null,
+      note: typeof option.note === "string" ? option.note : null,
+      sort_order: Number.isFinite(Number(option.sort_order)) ? Number(option.sort_order) : 0,
+    }));
 }
 
 export async function getSelfHostAppsStats(): Promise<SelfHostAppsStats> {
@@ -203,6 +357,26 @@ export async function getSelfHostAppsModifiedAt(): Promise<Date | null> {
             join public.self_host_apps app on app.id = app_category.app_id
             where app.published = true
               and app.self_hosting_status = 'self_hostable'
+          ),
+          '1970-01-01'::timestamptz
+        ),
+        coalesce(
+          (
+            select max(estimate.checked_at)
+            from public.self_host_app_resource_estimates estimate
+            join public.self_host_apps estimate_app on estimate_app.id = estimate.app_id
+            where estimate_app.published = true
+              and estimate_app.self_hosting_status = 'self_hostable'
+          ),
+          '1970-01-01'::timestamptz
+        ),
+        coalesce(
+          (
+            select max(option.checked_at)
+            from public.self_host_app_install_options option
+            join public.self_host_apps option_app on option_app.id = option.app_id
+            where option_app.published = true
+              and option_app.self_hosting_status = 'self_hostable'
           ),
           '1970-01-01'::timestamptz
         )
@@ -321,6 +495,8 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
         ) as compose_researched,
         app.resource_requirement_kind,
         app.technical_facts_checked_at,
+        resource_estimate_set.resource_estimates,
+        install_option_set.install_options,
         app.popularity_score,
         app.popularity_basis,
         app.popularity_checked_at,
@@ -334,6 +510,8 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
         category_set.categories
       from public.self_host_apps app
       ${categoryJoin}
+      ${resourceEstimateJoin}
+      ${installOptionJoin}
       where app.published = true
         and app.self_hosting_status = 'self_hostable'
       order by app.name asc
@@ -342,6 +520,8 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
 
   return result.rows.map((app) => ({
     ...app,
+    resource_estimates: normalizeResourceEstimates(app.resource_estimates),
+    install_options: normalizeInstallOptions(app.install_options),
     categories: normalizeCategories(app.categories),
   }));
 }

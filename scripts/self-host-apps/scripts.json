@@ -1,5 +1,17 @@
 [
   {
+    "file": "backfill-open-source-pricing.mjs",
+    "purpose": "Sets free-to-self-host pricing only for published apps with an already reviewed open-source model and license, and records the derivation as field provenance."
+  },
+  {
+    "file": "backfill-source-available-pricing.mjs",
+    "purpose": "Applies the complete reviewed pricing classification for published source-available apps, requires an exact catalog match, and records official-source field provenance."
+  },
+  {
+    "file": "research-unknown-licenses.mjs",
+    "purpose": "Collects official repository license files for published unknown-license apps and produces reviewed-application candidates without mutating the database."
+  },
+  {
     "name": "self-host-apps:discover-awesome-selfhosted",
     "command": "npm run self-host-apps:discover-awesome-selfhosted -- --limit 5000 --write",
     "purpose": "Discover Awesome Selfhosted entries into self_host_app_candidates without publishing apps."
@@ -41,8 +53,23 @@
   },
   {
     "name": "self-host-apps:refresh-primary-technical-facts",
-    "command": "npm run self-host-apps:refresh-primary-technical-facts -- --requirements-file <reviewed-requirements.json> --out report.json",
-    "purpose": "Check official primary sources for pending RAM, storage, database, Docker, and Compose facts. Applying a batch requires a separate reviewed requirements file, and researched nulls remain null instead of becoming estimates."
+    "command": "npm run self-host-apps:refresh-primary-technical-facts -- --refresh-all --requirements-file <reviewed-requirements.json> --out report.json",
+    "purpose": "Check official primary sources for RAM, storage, database, Docker, and Compose facts across the full published catalog. Applying a batch requires a separate reviewed requirements file, and researched nulls remain null instead of becoming estimates."
+  },
+  {
+    "name": "self-host-apps:refresh-install-options",
+    "command": "npm run self-host-apps:refresh-install-options -- --limit 5000",
+    "purpose": "Normalize Docker registry, Compose, and supported appliance-catalog destinations without treating Dockerfiles as install links."
+  },
+  {
+    "name": "self-host-apps:propose-resource-estimates",
+    "command": "npm run self-host-apps:propose-resource-estimates -- --limit 5000 --out <resource-estimates.json>",
+    "purpose": "Propose broad, low-confidence RAM and storage planning ranges from deployment-shape signals for editorial review; this command never mutates data."
+  },
+  {
+    "name": "self-host-apps:apply-resource-estimates",
+    "command": "npm run self-host-apps:apply-resource-estimates -- --file <reviewed-estimates.json> --dry-run",
+    "purpose": "Apply reviewed derived or estimated RAM/storage ranges with confidence, evidence URLs, and notes while preserving exact published requirements."
   },
   {
     "name": "self-host-apps:dedupe-candidates",

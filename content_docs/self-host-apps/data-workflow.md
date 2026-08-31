@@ -65,6 +65,24 @@ Official appliance catalogs may supply exact container images, Compose files, de
 
 When an official source was checked but did not publish a value, keep the value null and record the checked outcome in `self_host_app_field_sources`. This closes the research task without inventing a number.
 
+Install destinations are refreshed separately from evidence URLs:
+
+```bash
+npm run self-host-apps:refresh-install-options -- --limit 5000
+npm run self-host-apps:refresh-install-options -- --limit 5000 --apply
+```
+
+The refresh turns a known Docker image into a registry page, keeps a Compose URL as Compose, and adds direct links for appliance catalogs present in the source payload. A Dockerfile, `docker-compose.yml`, GitHub repository, or README is never used as the Docker image destination. Only known registries and verified catalog URLs are emitted; unsupported platforms remain absent until a source is reviewed.
+
+Resource ranges are reviewed inputs, not automatic guesses. Apply a checked batch only after inspecting its evidence:
+
+```bash
+npm run self-host-apps:apply-resource-estimates -- --file <reviewed-estimates.json> --dry-run
+npm run self-host-apps:apply-resource-estimates -- --file <reviewed-estimates.json> --apply-reviewed
+```
+
+Each record must include a RAM or storage range, `derived` or `estimated` kind, confidence, basis, and at least one source URL. Exact requirements remain in their existing fields, and estimates are shown with an explicit `(estimated)` label.
+
 Primary-source technical refreshes always run as proposals first. Numeric RAM and storage facts are stripped from an applied batch unless their slug and reviewed values appear in a separate `--requirements-file`. This prevents an example deployment, hosted plan, model-specific figure, or development environment from becoming a general requirement. Legacy directory-import provenance does not count as a technical audit; use `--refresh-all` when a complete recheck is needed.
 
 ```bash

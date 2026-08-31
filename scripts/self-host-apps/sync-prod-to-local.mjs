@@ -11,6 +11,8 @@ const { Pool } = pg;
 const applicationTables = [
   "self_host_app_category_links",
   "self_host_app_field_sources",
+  "self_host_app_resource_estimates",
+  "self_host_app_install_options",
   "self_host_app_curated_overrides",
   "self_host_app_sources",
   "self_host_app_candidates",

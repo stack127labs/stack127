@@ -12,6 +12,9 @@ Use these rules when reviewing apps for `/self-host-apps`.
 - Classify the source model as `open_source`, `source_available`, `closed_source`, or `unknown`; never use those terms interchangeably.
 - A closed-source app can be published without a repository when its official identity and self-hosted deployment are verified.
 - An official Docker image is valid distribution evidence. A community image must be labeled `community` and must not imply publisher support.
+- Link Docker actions to a registry or package page where someone can pull or install the image. A Dockerfile, Compose file, repository, or README can support the evidence record but is not a Docker install destination.
+- Platform catalogs such as TrueNAS SCALE and Umbrel may be listed as separate install options when their catalog URL is verified. Catalog inclusion does not imply publisher support.
+- RAM and storage ranges may be shown only when reviewed with an evidence URL, basis, and confidence, and must carry an explicit `estimated` label.
 - Do not add generic tags, verdicts, long descriptions, or per-app prose pages.
 
 ## Summaries

@@ -30,7 +30,7 @@ Open and source-available records require a verified source URL and license. Clo
 
 ## Deployment and requirements
 
-`deployment_methods` records verified methods such as `docker`, `compose`, `kubernetes`, `package`, `binary`, `appliance`, or `manual`. `docker_image`, `docker_url`, and `compose_url` distinguish a runnable image from documentation and Compose instructions.
+`deployment_methods` records verified methods such as `docker`, `compose`, `kubernetes`, `package`, `binary`, `appliance`, or `manual`. `docker_image`, `docker_url`, and `compose_url` distinguish a runnable image from documentation and Compose instructions. `docker_url` may be a Dockerfile or other source evidence; the page's `self_host_app_install_options` table is the only source for clickable install destinations.
 
 RAM and storage fields contain only sourced requirements:
 
@@ -41,6 +41,10 @@ RAM and storage fields contain only sourced requirements:
 
 Generic estimates and repeated defaults are not requirements. Unknown values stay `null` or `unknown` and remain visible in QA.
 The older `ram_mb` and `storage_profile` values remain in the database for rollback compatibility, but the directory does not present them as requirements unless reviewed evidence is moved into the new fields.
+
+Reviewed planning ranges live in `self_host_app_resource_estimates`. They include `estimate_kind` (`derived` or `estimated`), confidence, basis, source URLs, and a checked date. The UI always labels them `estimated`; these ranges help compare likely fit and never replace an official minimum.
+
+`self_host_app_install_options` supports Docker registries, Compose, TrueNAS SCALE, Umbrel, Unraid, YunoHost, CasaOS, Runtipi, Cosmos, NAS packages, Proxmox, Home Assistant add-ons, Kubernetes, Helm, native, binary, and system-package destinations. Adding a method to the enum does not publish an option: a reviewed URL and support level are still required.
 
 ## Commercial and popularity facts
 
@@ -58,4 +62,4 @@ Generic `release_version`, `release_url`, `release_published_at`, and `release_c
 
 Known decision facts require a `self_host_app_field_sources` row with a source URL, verification date, confidence, and source type. Discovery payloads are evidence to inspect, not editorial truth. Categories, summaries, deployment support, pricing, resource requirements, and source model are assigned only during review.
 
-The rename and inclusive fields are defined in `supabase/migrations/20260829090000_make_self_host_apps_page_owned.sql`. Historical migrations retain their original names because they describe the database state at the time they ran.
+The rename and inclusive fields are defined in `supabase/migrations/20260829090000_make_self_host_apps_page_owned.sql`. Estimate and install destination tables are defined in `supabase/migrations/20260831132300_add_estimates_and_install_options.sql`. Historical migrations retain their original names because they describe the database state at the time they ran.

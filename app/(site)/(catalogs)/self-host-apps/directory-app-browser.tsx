@@ -24,7 +24,7 @@ import {
   Server,
   type LucideIcon,
 } from "lucide-react";
-import { FaDocker, FaGithub } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa6";
 import type { DirectoryApp } from "@/lib/apps";
 import { CategoryIcon } from "@/app/category-icon";
 import {
@@ -75,15 +75,34 @@ function formatRamRequirement(app: DirectoryApp) {
   if (app.ram_min_mb !== null) return `${app.ram_min_mb} MB minimum`;
   if (app.ram_recommended_mb !== null) return `${app.ram_recommended_mb} MB recommended`;
   if (app.ram_default_limit_mb !== null) return `${app.ram_default_limit_mb} MB package cap`;
+  const estimate = app.resource_estimates?.ram;
+  if (estimate) return formatEstimateRange(estimate);
   return app.ram_researched ? "not published" : "not checked";
 }
 
 function formatStorageRequirement(app: DirectoryApp) {
   if (app.storage_min_gb !== null) return `${app.storage_min_gb} GB minimum`;
+  const estimate = app.resource_estimates?.storage;
+  if (estimate) return formatEstimateRange(estimate);
   if (app.storage_profile === "depends") return "depends on retained data";
   if (app.storage_profile !== "unknown") return `${app.storage_profile} workload profile`;
   if (app.persistent_storage) return "persistent storage, size not published";
   return app.storage_researched ? "not published" : "not checked";
+}
+
+function formatEstimateNumber(value: number, unit: "mb" | "gb") {
+  if (unit === "mb" && value >= 1024) {
+    const gigabytes = value / 1024;
+    return `${new Intl.NumberFormat("en", { maximumFractionDigits: 1 }).format(gigabytes)} GB`;
+  }
+
+  return `${new Intl.NumberFormat("en", { maximumFractionDigits: 1 }).format(value)} ${unit.toUpperCase()}`;
+}
+
+function formatEstimateRange(estimate: DirectoryApp["resource_estimates"][string]) {
+  const minimum = formatEstimateNumber(estimate.estimate_min, estimate.unit);
+  const maximum = formatEstimateNumber(estimate.estimate_max, estimate.unit);
+  return minimum === maximum ? `${minimum} (estimated)` : `${minimum}–${maximum} (estimated)`;
 }
 
 function formatDockerSupport(app: DirectoryApp) {
@@ -132,6 +151,12 @@ function formatMaintenanceStatus(app: DirectoryApp) {
     : app.maintenance_status.replaceAll("_", " ");
 }
 
+function installSupportLabel(level: DirectoryApp["install_options"][number]["support_level"]) {
+  if (level === "official") return "official";
+  if (level === "community") return "community";
+  return "third party";
+}
+
 function AppDetailsOverlay({
   app,
   onClose,
@@ -165,6 +190,7 @@ function AppDetailsOverlay({
       ["facts checked", formatDate(app.release_checked_at ?? app.github_checked_at), CalendarClock],
     ] },
   ];
+  const installOptions = app.install_options ?? [];
 
   const handleClose = (event: MouseEvent | ReactPointerEvent) => {
     event.stopPropagation();
@@ -227,16 +253,30 @@ function AppDetailsOverlay({
               <ArrowRight aria-hidden="true" size={14} strokeWidth={2.2} />
             </a>
           ) : null}
-          {app.docker_url || app.compose_url ? (
-            <a className="secondary" href={app.docker_url ?? app.compose_url ?? ""} rel="noreferrer" target="_blank">
-              <span>
-                <FaDocker aria-hidden="true" />
-                docker
-              </span>
-              <ArrowRight aria-hidden="true" size={14} strokeWidth={2.2} />
-            </a>
-          ) : null}
         </div>
+
+        {installOptions.length > 0 ? (
+          <section className="app-detail-install-options">
+            <h3>Install options</h3>
+            <div>
+              {installOptions.map((option) => (
+                <a
+                  className="app-detail-install-option"
+                  href={option.url}
+                  key={`${option.method}-${option.url}`}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <span>
+                    <strong>{option.label}</strong>
+                    <small>{installSupportLabel(option.support_level)}</small>
+                  </span>
+                  <ArrowRight aria-hidden="true" size={14} strokeWidth={2.2} />
+                </a>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         {factSections.map((section) => (
           <section className="app-detail-fact-section" key={section.heading}>

@@ -65,6 +65,8 @@ test("QA treats missing decision facts and weak resource provenance as visible w
   assert.match(report, /researched_null_counts/);
   assert.match(report, /technical_pending_count/);
   assert.match(report, /researchedNullOutcomes/);
+  assert.match(report, /ram_estimated/);
+  assert.match(report, /storage_estimated/);
   assert.match(report, /field_source\.source like 'official_%'/);
   assert.match(report, /docker_image_not_published/);
   assert.match(report, /pricing_unknown/);
@@ -83,6 +85,32 @@ test("storage tiers and drawer facts use reviewed profiles when no exact minimum
   assert.match(drawer, /app\.storage_researched \? "not published" : "not checked"/);
   assert.match(drawer, /app\.docker_image_researched \? "not published" : "not checked"/);
   assert.match(card, /app\.ram_min_mb \?\? app\.ram_recommended_mb \?\? app\.ram_default_limit_mb/);
+});
+
+test("resource estimates and install options stay separate from exact facts", async () => {
+  const migration = await read("supabase/migrations/20260831132300_add_estimates_and_install_options.sql");
+  const apps = await read("lib/apps.ts");
+  const card = await read("app/(site)/(catalogs)/self-host-apps/directory-app-card.tsx");
+  const drawer = await read("app/(site)/(catalogs)/self-host-apps/directory-app-browser.tsx");
+  const proposer = await read("scripts/self-host-apps/propose-resource-estimates.mjs");
+  const applier = await read("scripts/self-host-apps/apply-resource-estimates.mjs");
+  const prodSync = await read("scripts/self-host-apps/sync-prod-to-local.mjs");
+  const localSync = await read("scripts/self-host-apps/sync-local-to-prod.mjs");
+
+  assert.match(migration, /self_host_app_resource_estimates/);
+  assert.match(migration, /self_host_app_install_options/);
+  assert.match(migration, /estimate_kind/);
+  assert.match(migration, /truenas_scale/);
+  assert.match(apps, /install_options/);
+  assert.match(apps, /resource_estimates/);
+  assert.match(card, /estimated/);
+  assert.match(drawer, /installOptions/);
+  assert.match(proposer, /mode: "proposal"/);
+  assert.match(proposer, /confidence: "low"/);
+  assert.match(applier, /apply-reviewed/);
+  assert.match(prodSync, /self_host_app_install_options/);
+  assert.match(localSync, /replaceResourceEstimates/);
+  assert.match(localSync, /replaceInstallOptions/);
 });
 
 test("official appliance catalog refresh extracts direct deployment facts", async () => {

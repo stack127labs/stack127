@@ -27,6 +27,8 @@ Categories come from `self_host_app_categories` through `self_host_app_category_
 - `self_host_app_field_sources`: provenance for verified fields.
 - `self_host_app_curated_overrides`: reviewed corrections.
 - `self_host_app_import_runs`: discovery and refresh runs.
+- `self_host_app_resource_estimates`: reviewed planning ranges that never overwrite exact requirements.
+- `self_host_app_install_options`: direct install destinations such as registries, Compose files, and appliance catalogs.
 
 ## Self-hosting classification
 
@@ -47,6 +49,10 @@ Use the controlled taxonomy in `scripts/self-host-apps/lib/categories.mjs`. Assi
 `ram_min_mb` and `ram_recommended_mb` hold app requirements stated by an official source. `ram_default_limit_mb` holds a default memory cap from a reviewed appliance package. The package cap must not be presented as an app minimum.
 
 `storage_min_gb` holds a stated minimum. `storage_profile` holds a reviewed workload tier. `persistent_storage` records whether a reviewed deployment declares persistent storage, but it does not imply a capacity requirement.
+
+`self_host_app_resource_estimates` is separate from those exact fields. Each RAM or storage range stores its unit, whether it is a derived planning range or an editorial estimate, confidence, basis, source URLs, and review date. The UI labels these values `estimated`; an estimate must never be rendered as a minimum or recommendation. A researched null remains null when the project does not publish enough evidence for a defensible range.
+
+`docker_url` is an evidence or documentation URL and may point to a Dockerfile or Compose source file. It is not automatically an installation destination. `docker_image` is the image reference. `self_host_app_install_options` stores the clickable registry page for a known image, the Compose file or instructions, and verified TrueNAS SCALE, Umbrel, or other platform catalog entries. Source-file links remain available as provenance but are not presented as the Docker install button.
 
 A null value may mean that a checked official source did not publish the fact. `self_host_app_field_sources` records that checked outcome, including the source URL, date, and note. The page and QA report distinguish a researched null from a field that has not been checked.
 

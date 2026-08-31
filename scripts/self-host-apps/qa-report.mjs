@@ -17,6 +17,8 @@ const researchedNullOutcomes = new Set([
   "docker_not_published",
   "docker_image_not_published",
   "compose_not_published",
+  "ram_estimated",
+  "storage_estimated",
 ]);
 
 const issueWeights = {
@@ -116,14 +118,18 @@ function rowIssues(row) {
     row.ram_recommended_mb === null &&
     row.ram_default_limit_mb === null
   ) {
-    issues.push(row.ram_researched ? "ram_not_published" : "ram_pending");
+    issues.push(row.ram_estimate_exists
+      ? "ram_estimated"
+      : row.ram_researched ? "ram_not_published" : "ram_pending");
   }
   if (
     row.storage_min_gb === null &&
     row.storage_profile === "unknown" &&
     row.persistent_storage !== true
   ) {
-    issues.push(row.storage_researched ? "storage_not_published" : "storage_pending");
+    issues.push(row.storage_estimate_exists
+      ? "storage_estimated"
+      : row.storage_researched ? "storage_not_published" : "storage_pending");
   }
   if (row.pricing_model === "unknown") issues.push("pricing_unknown");
   if (row.docker_support === "official" && !row.docker_image) {
@@ -220,6 +226,11 @@ async function main() {
               and field_source.field_name in ('ram_mb', 'ram_min_mb', 'ram_recommended_mb', 'ram_default_limit_mb')
               and (field_source.source like 'official_%' or field_source.source = 'manual_official')
           ) as ram_researched,
+          exists (
+            select 1 from public.self_host_app_resource_estimates estimate
+            where estimate.app_id = self_host_apps.id
+              and estimate.resource_kind = 'ram'
+          ) as ram_estimate_exists,
           storage_min_gb,
           storage_profile,
           persistent_storage,
@@ -229,6 +240,11 @@ async function main() {
               and field_source.field_name in ('storage_profile', 'storage_min_gb', 'persistent_storage')
               and (field_source.source like 'official_%' or field_source.source = 'manual_official')
           ) as storage_researched,
+          exists (
+            select 1 from public.self_host_app_resource_estimates estimate
+            where estimate.app_id = self_host_apps.id
+              and estimate.resource_kind = 'storage'
+          ) as storage_estimate_exists,
           exists (
             select 1 from public.self_host_app_field_sources field_source
             where field_source.app_id = self_host_apps.id
@@ -291,6 +307,9 @@ async function main() {
     published: rows.length,
     issue_counts: groupCounts(queue),
     researched_null_counts: groupCounts(assessed.map((row) => ({ issues: row.outcomes }))),
+    estimate_counts: groupCounts(assessed.map((row) => ({
+      issues: row.outcomes.filter((outcome) => outcome.endsWith("_estimated")),
+    }))),
     technical_pending_count: assessed.filter((row) =>
       row.issues.some((issue) => issue.endsWith("_pending") || issue === "docker_image_missing")
     ).length,

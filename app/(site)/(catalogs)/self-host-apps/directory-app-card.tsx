@@ -5,7 +5,11 @@ import { findDirectoryLicenseId } from "@/lib/software-licenses";
 import { CategoryIcon } from "@/app/category-icon";
 
 export function getRamTier(app: DirectoryApp) {
-  const ram = app.ram_min_mb ?? app.ram_recommended_mb ?? app.ram_default_limit_mb;
+  const estimate = app.resource_estimates?.ram;
+  const estimatedRam = estimate
+    ? estimate.unit === "gb" ? estimate.estimate_min * 1024 : estimate.estimate_min
+    : null;
+  const ram = app.ram_min_mb ?? app.ram_recommended_mb ?? app.ram_default_limit_mb ?? estimatedRam;
 
   if (ram === null) {
     return app.ram_researched ? "not published" : "not checked";
@@ -27,7 +31,7 @@ export function getRamTier(app: DirectoryApp) {
 }
 
 export function getStorageTier(app: DirectoryApp) {
-  const storage = app.storage_min_gb;
+  const storage = app.storage_min_gb ?? app.resource_estimates?.storage?.estimate_min ?? null;
   if (storage === null) {
     if (app.storage_profile !== "unknown") return app.storage_profile;
     return app.storage_researched ? "not published" : "not checked";
@@ -36,6 +40,17 @@ export function getStorageTier(app: DirectoryApp) {
   if (storage < 10) return "low";
   if (storage < 100) return "medium";
   return "high";
+}
+
+export function hasRamEstimate(app: DirectoryApp) {
+  return app.ram_min_mb === null &&
+    app.ram_recommended_mb === null &&
+    app.ram_default_limit_mb === null &&
+    Boolean(app.resource_estimates?.ram);
+}
+
+export function hasStorageEstimate(app: DirectoryApp) {
+  return app.storage_min_gb === null && Boolean(app.resource_estimates?.storage);
 }
 
 export function hasMobileApp(app: DirectoryApp) {
@@ -248,10 +263,12 @@ export function DirectoryAppCard({
       <div className="directory-card-stats">
         <span>
           <strong>{getRamTier(app)}</strong>
+          {hasRamEstimate(app) ? <em className="directory-card-estimate">estimated</em> : null}
           ram
         </span>
         <span>
           <strong>{getStorageTier(app)}</strong>
+          {hasStorageEstimate(app) ? <em className="directory-card-estimate">estimated</em> : null}
           storage
         </span>
         <span className="directory-card-stat-last-commit">

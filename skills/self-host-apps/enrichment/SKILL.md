@@ -38,6 +38,8 @@ Scripts move data. Codex makes editorial and factual decisions. Never generate s
 - Assign one to three controlled categories by purpose.
 - Use `null` or `unknown` when official evidence is absent.
 - RAM, storage, database needs, Docker support, Compose support, and surfaces require direct evidence.
+- When a publisher does not state RAM or storage, a separate reviewed estimate may be added by `self-host-apps:propose-resource-estimates` and `self-host-apps:apply-resource-estimates`; those ranges are explicitly low-confidence planning guidance and must never replace an exact requirement.
+- Docker source files remain evidence. Use `self-host-apps:refresh-install-options` to publish a registry destination, Compose link, or verified appliance catalog option.
 - A Dockerfile proves a file exists; it does not by itself prove supported production deployment.
 - Keep field provenance for links, classification, license, icon, mutable source facts, and every known technical fact.
 - Never globally draft or publish apps.

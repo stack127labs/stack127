@@ -41,6 +41,28 @@ const dockerOptions: FilterOption[] = [
   { label: "Has Docker support", value: "supported" },
 ];
 
+const installMethodOptions: FilterOption[] = [
+  { label: "Docker image", value: "docker" },
+  { label: "Docker Compose", value: "compose" },
+  { label: "TrueNAS SCALE", value: "truenas_scale" },
+  { label: "Umbrel", value: "umbrel" },
+  { label: "Unraid", value: "unraid" },
+  { label: "YunoHost", value: "yunohost" },
+  { label: "CasaOS", value: "casaos" },
+  { label: "Runtipi", value: "runtipi" },
+  { label: "Cosmos", value: "cosmos" },
+  { label: "openmediavault", value: "openmediavault" },
+  { label: "Synology", value: "synology" },
+  { label: "QNAP", value: "qnap" },
+  { label: "Proxmox", value: "proxmox" },
+  { label: "Home Assistant OS", value: "home_assistant_os" },
+  { label: "Kubernetes", value: "kubernetes" },
+  { label: "Helm", value: "helm" },
+  { label: "Native", value: "native" },
+  { label: "Binary", value: "binary" },
+  { label: "System package", value: "package" },
+];
+
 const sourceOptions: FilterOption[] = [
   { label: "Open source", value: "open_source" },
   { label: "Source available", value: "source_available" },
@@ -87,6 +109,7 @@ function optionsMap(options: FilterOption[]) {
 }
 
 const dockerOptionLabels = optionsMap(dockerOptions);
+const installMethodLabels = optionsMap(installMethodOptions);
 const sourceOptionLabels = optionsMap(sourceOptions);
 const ramOptionLabels = optionsMap(ramOptions);
 const storageOptionLabels = optionsMap(storageOptions);
@@ -103,6 +126,7 @@ const filterLabels = new Map([
   ["license", "License"],
   ["source", "Source model"],
   ["docker", "Docker"],
+  ["install", "Install method"],
   ["ram", "RAM"],
   ["storage", "Storage"],
   ["maintenance", "Health"],
@@ -247,6 +271,9 @@ function filterApps(apps: DirectoryApp[], params: SearchParams) {
     sourceOptions.some((option) => option.value === value),
   );
   const dockerSupported = getValues(params, "docker").includes("supported");
+  const selectedInstallMethods = getValues(params, "install").filter((value) =>
+    installMethodOptions.some((option) => option.value === value),
+  );
   const ram = getKnownValue(params, "ram", ramTierOrder);
   const storage = getKnownValue(params, "storage", storageTierOrder);
   const maintenance = getValues(params, "maintenance");
@@ -276,6 +303,13 @@ function filterApps(apps: DirectoryApp[], params: SearchParams) {
     }
 
     if (dockerSupported && !["official", "community"].includes(app.docker_support ?? "")) {
+      return false;
+    }
+
+    if (
+      selectedInstallMethods.length > 0 &&
+      !app.install_options.some((option) => selectedInstallMethods.includes(option.method))
+    ) {
       return false;
     }
 
@@ -468,13 +502,14 @@ function ActiveFilters({
     ["license", licenseMap],
     ["source", sourceOptionLabels],
     ["docker", dockerOptionLabels],
+    ["install", installMethodLabels],
     ["ram", ramOptionLabels],
     ["storage", storageOptionLabels],
     ["maintenance", maintenanceOptionLabels],
     ["signal", signalOptionLabels],
   ]);
 
-  for (const key of ["category", "license", "source", "docker", "ram", "storage", "maintenance", "signal"]) {
+  for (const key of ["category", "license", "source", "docker", "install", "ram", "storage", "maintenance", "signal"]) {
     for (const value of getValues(params, key)) {
       const groupLabel = filterLabels.get(key) ?? key;
       const valueLabel = valueLabels.get(key)?.get(value) ?? value.replaceAll("_", " ");
@@ -568,6 +603,18 @@ export default async function SelfHostAppsPage({
     .sort((a, b) => a.label.localeCompare(b.label));
   const licenseMap = new Map(licenseOptions.map((option) => [option.value, option.label]));
   const selectedLicenses = getValues(params, "license").filter((value) => licenseMap.has(value));
+  const installCounts = new Map<string, number>();
+  for (const app of apps) {
+    for (const option of app.install_options) {
+      installCounts.set(option.method, (installCounts.get(option.method) ?? 0) + 1);
+    }
+  }
+  const availableInstallOptions = installMethodOptions
+    .filter((option) => installCounts.has(option.value))
+    .map((option) => ({ ...option, count: installCounts.get(option.value) ?? 0 }));
+  const selectedInstallMethods = getValues(params, "install").filter((value) =>
+    availableInstallOptions.some((option) => option.value === value),
+  );
 
   const sidebar = (
     <form
@@ -628,6 +675,14 @@ export default async function SelfHostAppsPage({
         selected={getValues(params, "docker")}
         title="Docker"
       />
+      {availableInstallOptions.length > 0 ? (
+        <CheckboxGroup
+          name="install"
+          options={availableInstallOptions}
+          selected={selectedInstallMethods}
+          title="Install method"
+        />
+      ) : null}
       <RadioGroup
         name="ram"
         options={ramOptions}
@@ -680,8 +735,9 @@ export default async function SelfHostAppsPage({
             </h1>
             <p>
               Compare open-source, source-available, and closed-source apps by purpose, deployment,
-              hardware needs, price, and maintenance. “Not published” means the official source
-              was checked but did not state a value; “not checked” marks work still to do.
+              hardware needs, price, and maintenance. Estimated ranges are planning guidance, not
+              publisher requirements. “Not published” means the official source was checked but
+              did not state a value; “not checked” marks work still to do.
             </p>
           </PageHeader>
 
