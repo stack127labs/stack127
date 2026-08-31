@@ -43,6 +43,7 @@ test("the public directory can filter every source model without assuming GitHub
   assert.match(page, /name="source"/);
   assert.match(page, /Closed source/);
   assert.match(page, /popularity_score/);
+  assert.match(page, /“Not published” means the official source/);
   assert.match(card, /sourceModelLabel/);
   assert.doesNotMatch(card, /<FaGithub[^>]*>[\s\S]*formatStars/);
   assert.match(drawer, /formatComposeSupport/);

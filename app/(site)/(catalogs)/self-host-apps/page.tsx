@@ -680,8 +680,8 @@ export default async function SelfHostAppsPage({
             </h1>
             <p>
               Compare open-source, source-available, and closed-source apps by purpose, deployment,
-              hardware needs, price, and maintenance. Unknown requirements stay unknown until an
-              official source supports them.
+              hardware needs, price, and maintenance. “Not published” means the official source
+              was checked but did not state a value; “not checked” marks work still to do.
             </p>
           </PageHeader>
 
