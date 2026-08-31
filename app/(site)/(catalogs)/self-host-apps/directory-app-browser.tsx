@@ -38,7 +38,7 @@ type AppFact = [label: string, value: string, Icon: LucideIcon];
 
 function formatDate(value: Date | string | null) {
   if (!value) {
-    return "unknown";
+    return "not published";
   }
 
   return new Intl.DateTimeFormat("en", {
@@ -53,7 +53,7 @@ function formatLatestRelease(app: DirectoryApp) {
   const publishedAt = app.release_published_at ?? app.github_latest_release_at;
 
   if (!version) {
-    return "unknown";
+    return app.github_last_commit_at ? `No tagged release · commit ${formatDate(app.github_last_commit_at)}` : "No tagged release published";
   }
 
   if (!publishedAt) {
@@ -98,7 +98,7 @@ function formatContainerImage(app: DirectoryApp) {
 
 function formatPlatforms(surfaces: string[]) {
   if (surfaces.length === 0) {
-    return "unknown";
+    return "not published";
   }
 
   const labels: Record<string, string> = {
@@ -118,7 +118,7 @@ function SourceCodeIcon({ host }: { host: string }) {
 
 function formatPublisher(app: DirectoryApp) {
   if (!app.publisher_name) {
-    return app.publisher_type === "unknown" ? "unknown" : app.publisher_type;
+    return app.publisher_type === "unknown" ? "not verified" : app.publisher_type;
   }
 
   return app.publisher_type === "unknown"
@@ -137,21 +137,27 @@ function AppDetailsOverlay({
     return null;
   }
 
-  const facts: AppFact[] = [
-    ["publisher", formatPublisher(app), Building2],
-    ["health", app.maintenance_status, Activity],
-    ["latest release", formatLatestRelease(app), Rocket],
-    ["license", app.license ?? "unknown", Scale],
-    ["source model", sourceModelLabel(app), Code2],
-    ["price", app.pricing_model.replaceAll("_", " "), Scale],
-    ["docker", formatDockerSupport(app), Box],
-    ["compose", formatComposeSupport(app), Layers],
-    ["container image", formatContainerImage(app), Box],
-    ["database", formatDatabaseRequirement(app), Database],
-    ["ram", formatRamRequirement(app), Server],
-    ["storage", formatStorageRequirement(app), HardDrive],
-    ["surfaces", formatPlatforms(app.surfaces), MonitorSmartphone],
-    ["verified", formatDate(app.release_checked_at ?? app.github_checked_at), CalendarClock],
+  const factSections: Array<{ heading: string; facts: AppFact[] }> = [
+    { heading: "Project and license", facts: [
+      ["publisher", formatPublisher(app), Building2],
+      ["maintenance", app.maintenance_status, Activity],
+      ["latest release", formatLatestRelease(app), Rocket],
+      ["license", app.license ?? "not verified", Scale],
+      ["source model", sourceModelLabel(app), Code2],
+      ["self-host cost", app.pricing_model === "free" ? "free to self-host" : app.pricing_model === "unknown" ? "pricing under review" : app.pricing_model.replaceAll("_", " "), Scale],
+    ] },
+    { heading: "Installation", facts: [
+      ["docker", formatDockerSupport(app), Box],
+      ["compose", formatComposeSupport(app), Layers],
+      ["container image", formatContainerImage(app), Box],
+      ["database", formatDatabaseRequirement(app), Database],
+    ] },
+    { heading: "Resources and access", facts: [
+      ["ram", formatRamRequirement(app), Server],
+      ["storage", formatStorageRequirement(app), HardDrive],
+      ["surfaces", formatPlatforms(app.surfaces), MonitorSmartphone],
+      ["facts checked", formatDate(app.release_checked_at ?? app.github_checked_at), CalendarClock],
+    ] },
   ];
 
   const handleClose = (event: MouseEvent | ReactPointerEvent) => {
@@ -226,17 +232,19 @@ function AppDetailsOverlay({
           ) : null}
         </div>
 
-        <div className="app-detail-facts">
-          {facts.map(([label, value, Icon]) => (
-            <div key={label}>
-              <span>
-                <Icon aria-hidden="true" size={15} strokeWidth={2.2} />
-                {label}
-              </span>
-              <strong>{value}</strong>
+        {factSections.map((section) => (
+          <section className="app-detail-fact-section" key={section.heading}>
+            <h3>{section.heading}</h3>
+            <div className="app-detail-facts">
+              {section.facts.map(([label, value, Icon]) => (
+                <div key={label}>
+                  <span><Icon aria-hidden="true" size={15} strokeWidth={2.2} />{label}</span>
+                  <strong>{value}</strong>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </section>
+        ))}
 
         {app.install_docs_url || app.docs_url ? (
           <div className="app-detail-docs-link">

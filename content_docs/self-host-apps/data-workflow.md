@@ -65,11 +65,13 @@ Official appliance catalogs may supply exact container images, Compose files, de
 
 When an official source was checked but did not publish a value, keep the value null and record the checked outcome in `self_host_app_field_sources`. This closes the research task without inventing a number.
 
-Primary-source technical refreshes always run as proposals first. Numeric RAM and storage facts are stripped from an applied batch unless their slug and reviewed values appear in a separate `--requirements-file`. This prevents an example deployment, hosted plan, model-specific figure, or development environment from becoming a general requirement.
+Primary-source technical refreshes always run as proposals first. Numeric RAM and storage facts are stripped from an applied batch unless their slug and reviewed values appear in a separate `--requirements-file`. This prevents an example deployment, hosted plan, model-specific figure, or development environment from becoming a general requirement. Legacy directory-import provenance does not count as a technical audit; use `--refresh-all` when a complete recheck is needed.
 
 ```bash
 npm run self-host-apps:refresh-primary-technical-facts -- --requirements-file <reviewed-requirements.json> --out <report.json>
 npm run self-host-apps:refresh-primary-technical-facts -- --apply-reviewed --requirements-file <reviewed-requirements.json> --out <report.json>
+npm run self-host-apps:refresh-primary-technical-facts -- --refresh-all --requirements-file <reviewed-requirements.json> --out <report.json>
+npm run self-host-apps:refresh-primary-technical-facts -- --refresh-all --apply-reviewed --requirements-file <reviewed-requirements.json> --out <report.json>
 ```
 
 Use `self-host-apps:release-candidate-batch` when a claimed batch must be abandoned.
@@ -86,7 +88,7 @@ npm run typecheck
 npm run build
 ```
 
-The QA report keeps researched null outcomes separate from the actionable queue. `technical_pending_count` must be zero before a completeness release; `researched_null_counts` explains which facts official sources do not publish.
+The QA report keeps researched null outcomes separate from the actionable queue. A field counts as researched only when its field source comes from an official or manually reviewed audit, not from legacy directory-import metadata. `technical_pending_count` must be zero before a completeness release; `researched_null_counts` explains which facts official sources do not publish.
 
 ## Mutable source facts
 

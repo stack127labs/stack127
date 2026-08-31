@@ -61,6 +61,7 @@ test("QA treats missing decision facts and weak resource provenance as visible w
   assert.match(report, /researched_null_counts/);
   assert.match(report, /technical_pending_count/);
   assert.match(report, /researchedNullOutcomes/);
+  assert.match(report, /field_source\.source like 'official_%'/);
   assert.match(report, /docker_image_not_published/);
   assert.match(report, /pricing_unknown/);
   assert.match(report, /docker_image_missing/);
@@ -77,6 +78,7 @@ test("storage tiers and drawer facts use reviewed profiles when no exact minimum
   assert.match(drawer, /app\.ram_researched \? "not published" : "not checked"/);
   assert.match(drawer, /app\.storage_researched \? "not published" : "not checked"/);
   assert.match(drawer, /app\.docker_image_researched \? "not published" : "not checked"/);
+  assert.match(card, /app\.ram_min_mb \?\? app\.ram_recommended_mb \?\? app\.ram_default_limit_mb/);
 });
 
 test("official appliance catalog refresh extracts direct deployment facts", async () => {
@@ -106,6 +108,9 @@ test("primary-source refresh closes researched gaps without inventing values", a
   assert.match(refresh, /value remains null/);
   assert.match(refresh, /--apply-reviewed/);
   assert.match(refresh, /--requirements-file/);
+  assert.match(refresh, /--refresh-all/);
+  assert.match(refresh, /technicalGapPredicate/);
+  assert.match(refresh, /add\("storage_profile"/);
   assert.match(refresh, /parsed numeric requirements are never published without editorial review/);
 });
 

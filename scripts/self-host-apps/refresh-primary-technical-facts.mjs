@@ -103,11 +103,23 @@ async function firstGithubFile(repository, paths) {
   return null;
 }
 
+async function firstOfficialUrl(urls) {
+  for (const url of unique(urls)) {
+    try {
+      return await fetchText(url);
+    } catch {
+      // Try the next official URL before reporting an unreviewable row.
+    }
+  }
+  return null;
+}
+
 async function collect(app) {
   const repository = githubRepository(app.source_code_url);
   let readme = null;
   let compose = null;
   let dockerPage = null;
+  let fallback = null;
   let checkedUrl = app.install_docs_url ?? app.docs_url ?? app.docker_url ?? app.source_code_url ?? app.website_url;
 
   if (repository) {
@@ -117,21 +129,36 @@ async function collect(app) {
         ? fetchText(rawGithubUrl(app.compose_url)).catch(() => firstGithubFile(repository, composePaths))
         : firstGithubFile(repository, composePaths),
       app.docker_url && app.docker_url !== app.compose_url
-        ? fetchText(rawGithubUrl(app.docker_url)).catch(() => null)
-        : null,
+          ? fetchText(rawGithubUrl(app.docker_url)).catch(() => null)
+          : null,
     ]);
-    checkedUrl = readme?.url ?? compose?.url ?? checkedUrl;
-  } else if (checkedUrl) {
-    try {
-      readme = await fetchText(checkedUrl);
-    } catch {
-      readme = null;
+    if (!readme && !compose && !dockerPage) {
+      fallback = await firstOfficialUrl([
+        app.install_docs_url,
+        app.docs_url,
+        app.docker_url,
+        app.website_url,
+        app.source_code_url,
+      ]);
     }
+    checkedUrl = readme?.url ?? compose?.url ?? dockerPage?.url ?? fallback?.url ?? checkedUrl;
+  } else {
+    fallback = await firstOfficialUrl([
+      app.install_docs_url,
+      app.docs_url,
+      app.docker_url,
+      app.compose_url,
+      app.website_url,
+      app.source_code_url,
+    ]);
+    readme = fallback;
+    checkedUrl = fallback?.url ?? checkedUrl;
   }
 
-  if (!readme && !compose) throw new Error("No official primary source could be read");
-  const requirements = parsePublishedRequirements(readme?.text);
-  const readmeContainers = readmeContainerSupport(readme?.text);
+  if (!readme && !compose && !dockerPage && !fallback) throw new Error("No official primary source could be read");
+  const primaryText = [readme?.text, dockerPage?.text, fallback?.text].filter(Boolean).join("\n");
+  const requirements = parsePublishedRequirements(primaryText);
+  const readmeContainers = readmeContainerSupport(primaryText);
   const composeFacts = compose ? parseComposeFacts(compose.text) : {
     databaseTypes: [],
     dockerImage: null,
@@ -143,12 +170,12 @@ async function collect(app) {
   return {
     app,
     checkedUrl,
-    readmeUrl: readme?.url ?? checkedUrl,
+    readmeUrl: readme?.url ?? dockerPage?.url ?? compose?.url ?? fallback?.url ?? checkedUrl,
     composeUrl: compose?.url ?? null,
     facts: {
       composeSupport: Boolean(compose || readmeContainers.compose),
       databaseTypes: composeFacts.databaseTypes,
-      dockerImage: registryImage ?? (compose ? likelyAppImageFromCompose(compose.text, app) : null) ?? textImage,
+      dockerImage: registryImage ?? (compose ? likelyAppImageFromCompose(compose.text, app) : null) ?? likelyAppImageFromText(primaryText, app) ?? textImage,
       dockerSupport: Boolean(compose || readmeContainers.docker),
       persistentStorage: composeFacts.persistentStorage,
       ...requirements,
@@ -165,39 +192,45 @@ function sourcesFor(record, checkedAt) {
     if (url) sources.push({ field_name: fieldName, source_url: url, confidence, checked_at: checkedAt, note });
   };
 
-  if (!app.ram_researched) {
-    if (facts.ramMinMb !== null) add("ram_min_mb", sourceUrl, "high", "Explicit minimum RAM requirement in the official primary source.");
-    else if (facts.ramRecommendedMb !== null) add("ram_recommended_mb", sourceUrl, "high", "Explicit recommended RAM requirement in the official primary source.");
-    else add("ram_min_mb", sourceUrl, "low", "Official primary source checked; no explicit RAM minimum was found, so the value remains null.");
+  if (facts.ramMinMb !== null) add("ram_min_mb", sourceUrl, "high", "Explicit minimum RAM requirement in the official primary source.");
+  if (facts.ramRecommendedMb !== null) add("ram_recommended_mb", sourceUrl, "high", "Explicit recommended RAM requirement in the official primary source.");
+  if (facts.ramMinMb === null && facts.ramRecommendedMb === null) {
+    add("ram_min_mb", sourceUrl, "low", "Official primary source checked; no explicit RAM minimum was found, so the value remains null.");
   }
-  if (!app.storage_researched) {
-    if (facts.storageMinGb !== null) add("storage_min_gb", sourceUrl, "high", "Explicit minimum storage requirement in the official primary source.");
-    else if (facts.persistentStorage) add("persistent_storage", composeUrl, "high", "Official deployment file declares persistent storage without a fixed capacity.");
-    else add("storage_min_gb", sourceUrl, "low", "Official primary source checked; no explicit storage minimum was found, so the value remains null.");
+
+  if (facts.storageMinGb !== null) {
+    add("storage_min_gb", sourceUrl, "high", "Explicit minimum storage requirement in the official primary source.");
+  } else if (facts.persistentStorage) {
+    add("persistent_storage", composeUrl, "high", "Official deployment file declares persistent storage without a fixed capacity.");
+  } else {
+    add("storage_profile", sourceUrl, "low", "Official primary source checked; no fixed storage minimum or persistent volume declaration was found.");
   }
-  if (!app.database_researched) {
-    if (facts.databaseTypes.length > 0) {
-      add("requires_database", composeUrl, "high", `Official deployment declares datastore services: ${facts.databaseTypes.join(", ")}.`);
-      add("database_types", composeUrl, "high", `Datastore services declared by the official deployment: ${facts.databaseTypes.join(", ")}.`);
-    } else {
-      add("requires_database", sourceUrl, "low", "Official primary source checked; no separate datastore service was found, so the value remains null.");
-      add("database_types", sourceUrl, "low", "Official primary source checked; no named datastore was found.");
-    }
+
+  if (facts.databaseTypes.length > 0) {
+    add("requires_database", composeUrl, "high", `Official deployment declares datastore services: ${facts.databaseTypes.join(", ")}.`);
+    add("database_types", composeUrl, "high", `Datastore services declared by the official deployment: ${facts.databaseTypes.join(", ")}.`);
+  } else {
+    add("requires_database", sourceUrl, "low", "Official primary source checked; no separate datastore service was found, so the value remains null.");
+    add("database_types", sourceUrl, "low", "Official primary source checked; no named datastore was found.");
   }
-  if (!app.docker_researched) {
-    if (facts.dockerSupport) add("docker_support", composeUrl, "high", "Official primary source documents a container deployment.");
-    else add("docker_support", sourceUrl, "low", "Official primary source checked; supported Docker deployment was not found, so the value remains unknown.");
-    if (facts.dockerImage) add("docker_image", composeUrl, "high", "Exact app image declared by the official deployment file.");
+
+  if (facts.dockerSupport) {
+    add("docker_support", composeUrl, "high", "Official primary source documents a container deployment.");
+  } else {
+    add("docker_support", sourceUrl, "low", "Official primary source checked; supported Docker deployment was not found, so the value remains unknown.");
   }
-  if (app.docker_support === "official" && !app.docker_image && !app.docker_image_researched) {
-    if (facts.dockerImage) add("docker_image", composeUrl, "high", "Exact app image declared by the official deployment source.");
-    else add("docker_image", composeUrl, "low", "Official Docker and Compose sources checked; no exact prebuilt app image was published.");
+  if (facts.dockerImage) {
+    add("docker_image", composeUrl, "high", "Exact app image declared by the official deployment file.");
+  } else if (app.docker_support === "official" || facts.dockerSupport) {
+    add("docker_image", composeUrl, "low", "Official Docker and Compose sources checked; no exact prebuilt app image was published.");
   }
-  if (!app.compose_researched) {
-    if (facts.composeSupport) add("compose_support", composeUrl, "high", "Official primary source supplies or documents Compose deployment.");
-    else add("compose_support", sourceUrl, "low", "Official primary source checked; supported Compose deployment was not found, so the value remains null.");
-    if (record.composeUrl) add("compose_url", record.composeUrl, "high", "Official Compose deployment file.");
+
+  if (facts.composeSupport) {
+    add("compose_support", composeUrl, "high", "Official primary source supplies or documents Compose deployment.");
+  } else {
+    add("compose_support", sourceUrl, "low", "Official primary source checked; supported Compose deployment was not found, so the value remains null.");
   }
+  if (record.composeUrl) add("compose_url", record.composeUrl, "high", "Official Compose deployment file.");
   return sources;
 }
 
@@ -272,7 +305,11 @@ async function applyRecord(client, record, sources, checkedAt) {
         confidence = excluded.confidence,
         checked_at = excluded.checked_at,
         note = excluded.note
-      where self_host_app_field_sources.confidence in ('unknown', 'low')
+      where (
+          self_host_app_field_sources.source not like 'official_%'
+          and self_host_app_field_sources.source <> 'manual_official'
+        )
+         or self_host_app_field_sources.confidence in ('unknown', 'low')
          or excluded.confidence = 'high'
     `,
     [app.id, JSON.stringify(sources)],
@@ -282,11 +319,23 @@ async function applyRecord(client, record, sources, checkedAt) {
 async function main() {
   const args = parseArgs();
   const applyReviewed = Boolean(args["apply-reviewed"]);
+  // --refresh-all intentionally rechecks every published app, including rows with legacy import provenance.
+  const refreshAll = Boolean(args["refresh-all"]);
   if (applyReviewed && !args["requirements-file"]) {
     throw new Error("--apply-reviewed requires --requirements-file so parsed numeric requirements are never published without editorial review");
   }
   const requirementReviews = await loadRequirementReviews(args["requirements-file"]);
   const checkedAt = new Date().toISOString();
+  const technicalGapPredicate = refreshAll
+    ? "true"
+    : `(
+            not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('ram_mb', 'ram_min_mb', 'ram_recommended_mb', 'ram_default_limit_mb') and (f.source like 'official_%' or f.source = 'manual_official'))
+            or not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('storage_profile', 'storage_min_gb', 'persistent_storage') and (f.source like 'official_%' or f.source = 'manual_official'))
+            or not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('requires_database', 'database_types') and (f.source like 'official_%' or f.source = 'manual_official'))
+            or not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('docker_support', 'docker_image') and (f.source like 'official_%' or f.source = 'manual_official'))
+            or not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name = 'docker_image' and (f.source like 'official_%' or f.source = 'manual_official'))
+            or not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('compose_support', 'compose_url') and (f.source like 'official_%' or f.source = 'manual_official'))
+          )`;
   const rows = await withClient(async (client) => {
     const result = await client.query(
       `
@@ -294,25 +343,16 @@ async function main() {
                app.docs_url, app.install_docs_url, app.docker_url, app.docker_image,
                app.docker_support, app.compose_url, app.database_types,
                app.deployment_methods,
-               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('ram_mb', 'ram_min_mb', 'ram_recommended_mb', 'ram_default_limit_mb')) as ram_researched,
-               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('storage_profile', 'storage_min_gb', 'persistent_storage')) as storage_researched,
-               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('requires_database', 'database_types')) as database_researched,
-               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('docker_support', 'docker_image')) as docker_researched,
-               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name = 'docker_image') as docker_image_researched,
-               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('compose_support', 'compose_url')) as compose_researched
+               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('ram_mb', 'ram_min_mb', 'ram_recommended_mb', 'ram_default_limit_mb') and (f.source like 'official_%' or f.source = 'manual_official')) as ram_researched,
+               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('storage_profile', 'storage_min_gb', 'persistent_storage') and (f.source like 'official_%' or f.source = 'manual_official')) as storage_researched,
+               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('requires_database', 'database_types') and (f.source like 'official_%' or f.source = 'manual_official')) as database_researched,
+               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('docker_support', 'docker_image') and (f.source like 'official_%' or f.source = 'manual_official')) as docker_researched,
+               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name = 'docker_image' and (f.source like 'official_%' or f.source = 'manual_official')) as docker_image_researched,
+               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('compose_support', 'compose_url') and (f.source like 'official_%' or f.source = 'manual_official')) as compose_researched
         from public.self_host_apps app
         where app.published = true
           and app.self_hosting_status = 'self_hostable'
-          and (
-            not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('ram_mb', 'ram_min_mb', 'ram_recommended_mb', 'ram_default_limit_mb'))
-            or not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('storage_profile', 'storage_min_gb', 'persistent_storage'))
-            or not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('requires_database', 'database_types'))
-            or not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('docker_support', 'docker_image'))
-            or not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('compose_support', 'compose_url'))
-            or (app.docker_support = 'official' and app.docker_image is null and not exists (
-              select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name = 'docker_image'
-            ))
-          )
+          and ${technicalGapPredicate}
         order by app.slug
       `,
     );

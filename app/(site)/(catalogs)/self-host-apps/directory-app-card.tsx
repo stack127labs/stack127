@@ -5,10 +5,10 @@ import { findDirectoryLicenseId } from "@/lib/software-licenses";
 import { CategoryIcon } from "@/app/category-icon";
 
 export function getRamTier(app: DirectoryApp) {
-  const ram = app.ram_min_mb;
+  const ram = app.ram_min_mb ?? app.ram_recommended_mb ?? app.ram_default_limit_mb;
 
   if (ram === null) {
-    return "unknown";
+    return app.ram_researched ? "not published" : "not checked";
   }
 
   if (ram < 1024) {
@@ -29,7 +29,8 @@ export function getRamTier(app: DirectoryApp) {
 export function getStorageTier(app: DirectoryApp) {
   const storage = app.storage_min_gb;
   if (storage === null) {
-    return app.storage_profile !== "unknown" ? app.storage_profile : "unknown";
+    if (app.storage_profile !== "unknown") return app.storage_profile;
+    return app.storage_researched ? "not published" : "not checked";
   }
   if (storage < 1) return "tiny";
   if (storage < 10) return "low";
@@ -43,7 +44,7 @@ export function hasMobileApp(app: DirectoryApp) {
 
 export function formatStars(value: number | null) {
   if (value === null) {
-    return "unknown";
+    return "not recorded";
   }
 
   return new Intl.NumberFormat("en", {
@@ -64,12 +65,14 @@ export function sourceModelLabel(app: DirectoryApp) {
 }
 
 function priceLabel(app: DirectoryApp) {
-  return app.pricing_model === "unknown" ? (app.license ?? "price unknown") : app.pricing_model;
+  if (app.pricing_model === "free") return "free to self-host";
+  if (app.pricing_model === "unknown") return "pricing under review";
+  return app.pricing_model.replaceAll("_", " ");
 }
 
 export function formatCardDate(value: Date | string | null) {
   if (!value) {
-    return "unknown";
+    return "not published";
   }
 
   return new Intl.DateTimeFormat("en", {

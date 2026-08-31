@@ -279,6 +279,7 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
           from public.self_host_app_field_sources field_source
           where field_source.app_id = app.id
             and field_source.field_name in ('ram_mb', 'ram_min_mb', 'ram_recommended_mb', 'ram_default_limit_mb')
+            and (field_source.source like 'official_%' or field_source.source = 'manual_official')
         ) as ram_researched,
         app.storage_profile,
         app.storage_min_gb::float8 as storage_min_gb,
@@ -288,30 +289,35 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
           from public.self_host_app_field_sources field_source
           where field_source.app_id = app.id
             and field_source.field_name in ('storage_profile', 'storage_min_gb', 'persistent_storage')
+            and (field_source.source like 'official_%' or field_source.source = 'manual_official')
         ) as storage_researched,
         exists (
           select 1
           from public.self_host_app_field_sources field_source
           where field_source.app_id = app.id
             and field_source.field_name in ('requires_database', 'database_types')
+            and (field_source.source like 'official_%' or field_source.source = 'manual_official')
         ) as database_researched,
         exists (
           select 1
           from public.self_host_app_field_sources field_source
           where field_source.app_id = app.id
             and field_source.field_name in ('docker_support', 'docker_image')
+            and (field_source.source like 'official_%' or field_source.source = 'manual_official')
         ) as docker_researched,
         exists (
           select 1
           from public.self_host_app_field_sources field_source
           where field_source.app_id = app.id
             and field_source.field_name = 'docker_image'
+            and (field_source.source like 'official_%' or field_source.source = 'manual_official')
         ) as docker_image_researched,
         exists (
           select 1
           from public.self_host_app_field_sources field_source
           where field_source.app_id = app.id
             and field_source.field_name in ('compose_support', 'compose_url')
+            and (field_source.source like 'official_%' or field_source.source = 'manual_official')
         ) as compose_researched,
         app.resource_requirement_kind,
         app.technical_facts_checked_at,

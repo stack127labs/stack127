@@ -1,0 +1,67 @@
+{
+  "apps": [
+    {
+      "slug": "amusewiki",
+      "docker_support": "community",
+      "docker_image": "rojen/amusewiki:texlive-full",
+      "docker_url": "https://hub.docker.com/r/rojen/amusewiki",
+      "deployment_methods": ["docker"],
+      "compose_support": false,
+      "requires_database": true,
+      "database_types": ["mysql", "postgres", "sqlite"],
+      "storage_profile": "depends",
+      "technical_facts_checked_at": "2026-08-31T06:48:40.000Z",
+      "field_sources": [
+        {
+          "field_name": "ram_min_mb",
+          "source": "manual_official",
+          "source_url": "https://amusewiki.org/library/install",
+          "confidence": "low",
+          "note": "The official installation guide lists prerequisites and worker configuration but publishes no fixed RAM minimum."
+        },
+        {
+          "field_name": "storage_profile",
+          "source": "manual_official",
+          "source_url": "https://amusewiki.org/library/install",
+          "confidence": "high",
+          "note": "The official guide says generated files depend on the instance and recommends about 5 GB of free space rather than a fixed application minimum."
+        },
+        {
+          "field_name": "requires_database",
+          "source": "manual_official",
+          "source_url": "https://amusewiki.org/library/install",
+          "confidence": "high",
+          "note": "The official installation guide requires a database and documents MySQL, PostgreSQL, and SQLite options."
+        },
+        {
+          "field_name": "database_types",
+          "source": "manual_official",
+          "source_url": "https://amusewiki.org/library/install",
+          "confidence": "high",
+          "note": "The official installation guide names MySQL, PostgreSQL, and SQLite as supported databases."
+        },
+        {
+          "field_name": "docker_support",
+          "source": "community_container_registry",
+          "source_url": "https://hub.docker.com/r/rojen/amusewiki",
+          "confidence": "high",
+          "note": "A maintained community Docker image is available; the AmuseWiki project itself documents Debian and manual Unix installation rather than an official image."
+        },
+        {
+          "field_name": "docker_image",
+          "source": "community_container_registry",
+          "source_url": "https://hub.docker.com/r/rojen/amusewiki",
+          "confidence": "high",
+          "note": "Docker Hub publishes rojen/amusewiki:texlive-full as a community image."
+        },
+        {
+          "field_name": "compose_support",
+          "source": "manual_official",
+          "source_url": "https://amusewiki.org/library/install",
+          "confidence": "low",
+          "note": "The official installation guide documents Debian packages, manual Unix installation, and web-server configuration, but no supported Compose deployment."
+        }
+      ]
+    }
+  ]
+}
