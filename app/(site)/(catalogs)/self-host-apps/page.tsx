@@ -68,7 +68,7 @@ const maintenanceOptions: FilterOption[] = [
   { label: "Slow", value: "slow" },
   { label: "Stale", value: "stale" },
   { label: "Archived", value: "archived" },
-  { label: "Unknown", value: "unknown" },
+  { label: "Not verified", value: "unknown" },
 ];
 
 const sortOptions: FilterOption[] = [

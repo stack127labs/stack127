@@ -126,6 +126,12 @@ function formatPublisher(app: DirectoryApp) {
     : `${app.publisher_name} · ${app.publisher_type}`;
 }
 
+function formatMaintenanceStatus(app: DirectoryApp) {
+  return app.maintenance_status === "unknown"
+    ? "not verified"
+    : app.maintenance_status.replaceAll("_", " ");
+}
+
 function AppDetailsOverlay({
   app,
   onClose,
@@ -140,7 +146,7 @@ function AppDetailsOverlay({
   const factSections: Array<{ heading: string; facts: AppFact[] }> = [
     { heading: "Project and license", facts: [
       ["publisher", formatPublisher(app), Building2],
-      ["maintenance", app.maintenance_status, Activity],
+      ["maintenance", formatMaintenanceStatus(app), Activity],
       ["latest release", formatLatestRelease(app), Rocket],
       ["license", app.license ?? "not verified", Scale],
       ["source model", sourceModelLabel(app), Code2],

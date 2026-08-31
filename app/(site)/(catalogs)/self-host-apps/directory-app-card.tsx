@@ -95,6 +95,7 @@ export function formatDatabaseRequirement(app: DirectoryApp) {
 }
 
 function maintenanceLabel(app: DirectoryApp) {
+  if (app.maintenance_status === "unknown") return "not verified";
   return app.maintenance_status.replaceAll("_", " ");
 }
 

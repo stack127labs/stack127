@@ -42,11 +42,14 @@ test("the public directory can filter every source model without assuming GitHub
 
   assert.match(page, /name="source"/);
   assert.match(page, /Closed source/);
+  assert.match(page, /label: "Not verified", value: "unknown"/);
   assert.match(page, /popularity_score/);
   assert.match(page, /“Not published” means the official source/);
   assert.match(card, /sourceModelLabel/);
+  assert.match(card, /maintenance_status === "unknown"/);
   assert.doesNotMatch(card, /<FaGithub[^>]*>[\s\S]*formatStars/);
   assert.match(drawer, /formatComposeSupport/);
+  assert.match(drawer, /maintenance_status === "unknown"/);
 });
 
 test("QA treats missing decision facts and weak resource provenance as visible work", async () => {
