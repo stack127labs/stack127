@@ -111,8 +111,14 @@ jobs:
           supabase db push --db-url "$DATABASE_URL" --yes
 
       - name: Run the complete quality gate
+        env:
+          # Exercise the same standalone server that the image will run. The
+          # dev server can recycle itself after many route checks; production
+          # mode keeps the release gate stable and representative.
+          STACK127_TEST_SERVER: production
         run: |
           npx playwright install --with-deps chromium
+          npm run build
           npm run quality
 
       - name: Run the production target preflight

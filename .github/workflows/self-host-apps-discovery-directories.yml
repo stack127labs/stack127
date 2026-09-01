@@ -1,4 +1,4 @@
-name: Discover open projects from directories
+name: Discover self-host apps from directories
 
 on:
   workflow_dispatch:

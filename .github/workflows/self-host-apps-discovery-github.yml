@@ -1,4 +1,4 @@
-name: Discover open projects from GitHub
+name: Discover self-host apps from GitHub
 
 on:
   workflow_dispatch:

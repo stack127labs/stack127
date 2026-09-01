@@ -10,6 +10,8 @@ import {
   readJson,
   validateRecord,
 } from "./lib/schema.mjs";
+import { buildInstallOptions } from "./lib/install-options.mjs";
+import { installMethods, installOptionsToRow } from "./lib/streamlined-storage.mjs";
 
 const decisions = new Set(["publish", "duplicate", "reject", "needs_review"]);
 
@@ -195,6 +197,65 @@ async function upsertExtraSources(client, appId, sources) {
   );
 }
 
+function installSourcePayload(candidate) {
+  const payload = candidate?.payload && typeof candidate.payload === "object" ? candidate.payload : {};
+  return {
+    catalog: payload.catalog ?? candidate?.source ?? null,
+    app_id: payload.app_id ?? payload.key ?? null,
+    train: payload.train ?? null,
+    compose_url: payload.compose_url ?? null,
+    template_url: payload.template_url ?? null,
+    image: payload.image ?? payload.docker_image ?? null,
+    registry_url: payload.registry_url ?? null,
+    raw: Array.isArray(payload.raw?.sources) ? { sources: payload.raw.sources } : undefined,
+  };
+}
+
+function catalogSourceRows(candidate, review) {
+  if (Array.isArray(review.catalog_sources)) return review.catalog_sources;
+  const supported = new Set([
+    "truenas_apps",
+    "umbrel_apps",
+    "unraid_apps",
+    "casaos_apps",
+    "yunohost_apps",
+  ]);
+  if (!supported.has(candidate?.source)) return [];
+  return [{
+    source: candidate.source,
+    source_url: candidate.source_url,
+    payload: installSourcePayload(candidate),
+  }];
+}
+
+async function upsertInstallOptions(client, appId, options, catalogSources, checkedAt) {
+  if (!Array.isArray(options) || options.length === 0) return;
+  const stored = installOptionsToRow(options, { catalogSources, checkedAt });
+  const columns = [
+    "app_id",
+    "docker_urls",
+    "docker_images",
+    ...installMethods.filter((method) => method !== "docker").map((method) => `${method}_urls`),
+    "options",
+    "catalog_sources",
+    "source_urls",
+    "checked_at",
+  ];
+  const recordColumns = columns.map((column) => `${column} ${column.endsWith("_urls") || column.endsWith("_images") || column === "source_urls" ? "text[]" : column === "app_id" ? "uuid" : column === "checked_at" ? "timestamptz" : "jsonb"}`);
+  const updates = columns.filter((column) => column !== "app_id").map((column) => `${column} = excluded.${column}`).join(",\n          ");
+  await client.query(
+    `
+      insert into public.self_host_app_install_options (${columns.join(", ")})
+      select ${columns.map((column) => `item.${column}`).join(", ")}
+      from jsonb_to_record($1::jsonb) as item(${recordColumns.join(", ")})
+      on conflict (app_id) do update set
+        ${updates},
+        updated_at = now()
+    `,
+    [JSON.stringify({ app_id: appId, ...stored })],
+  );
+}
+
 async function candidateById(client, id) {
   const result = await client.query("select * from public.self_host_app_candidates where id = $1 for update", [id]);
   if (!result.rows[0]) throw new Error(`Missing candidate: ${id}`);
@@ -250,6 +311,17 @@ async function applyReview(client, review) {
   await replaceCategoryLinks(client, appId, validation.record.categories);
   await preserveCandidateSources(client, candidate, appId);
   await upsertExtraSources(client, appId, review.sources);
+  const sourceRows = catalogSourceRows(candidate, review);
+  const reviewedInstallOptions = Array.isArray(review.install_options)
+    ? review.install_options
+    : buildInstallOptions(validation.record, sourceRows);
+  await upsertInstallOptions(
+    client,
+    appId,
+    reviewedInstallOptions,
+    sourceRows,
+    new Date().toISOString(),
+  );
   await client.query(
     `
       update public.self_host_app_candidates

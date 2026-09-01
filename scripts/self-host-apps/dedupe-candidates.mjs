@@ -8,28 +8,130 @@ import {
   classifyCandidate,
 } from "./lib/dedupe.mjs";
 
-async function preserveExactAppSource(client, candidate, appId) {
+async function preserveExactAppSources(client, decisions) {
+  if (decisions.length === 0) return;
   await client.query(
     `
+      with decisions as (
+        select decision.target_id, decision.app_id
+        from jsonb_to_recordset($1::jsonb) as decision(
+          target_id uuid,
+          app_id uuid
+        )
+      ), source_rows as (
+        select decisions.app_id, values.url
+        from decisions
+        join public.self_host_app_candidates candidate on candidate.id = decisions.target_id
+        cross join lateral unnest(array[
+          candidate.source_url,
+          candidate.website_url,
+          candidate.source_code_url,
+          candidate.docs_url,
+          candidate.docker_url
+        ]) as values(url)
+        where values.url ~ '^https?://'
+      ), source_lists as (
+        select app_id, array_agg(distinct url order by url) as source_urls
+        from source_rows
+        group by app_id
+      )
       update public.self_host_apps
       set data_source_urls = coalesce((
         select array_agg(distinct url order by url)
-        from unnest(coalesce(data_source_urls, '{}') || array_remove(array[$2, $3, $4, $5], null)::text[]) as values(url)
+        from unnest(coalesce(public.self_host_apps.data_source_urls, '{}') || source_lists.source_urls) as values(url)
       ), '{}'),
       data_checked_at = now(),
       data_confidence = case when data_confidence = 'unknown' then 'medium' else data_confidence end,
       updated_at = now()
-      where id = $1
+      from source_lists
+      where public.self_host_apps.id = source_lists.app_id
     `,
-    [
-      appId,
-      candidate.source_url,
-      candidate.website_url,
-      candidate.source_code_url,
-      candidate.docs_url,
-      candidate.docker_url,
-    ],
+    [JSON.stringify(decisions)],
   );
+}
+
+async function applyDecisions(client, {
+  appDuplicates,
+  candidateDuplicates,
+  nameReviews,
+  queuedIds,
+}) {
+  await preserveExactAppSources(client, appDuplicates);
+
+  if (appDuplicates.length > 0) {
+    await client.query(
+      `
+        update public.self_host_app_candidates candidate
+        set status = 'duplicate',
+            duplicate_app_id = decisions.app_id,
+            duplicate_candidate_id = null,
+            duplicate_reason = decisions.reason,
+            updated_at = now()
+        from jsonb_to_recordset($1::jsonb) as decisions(
+          target_id uuid,
+          app_id uuid,
+          reason text
+        )
+        where candidate.id = decisions.target_id
+      `,
+      [JSON.stringify(appDuplicates)],
+    );
+  }
+
+  if (candidateDuplicates.length > 0) {
+    await client.query(
+      `
+        update public.self_host_app_candidates candidate
+        set status = 'duplicate',
+            duplicate_app_id = null,
+            duplicate_candidate_id = decisions.duplicate_candidate_id,
+            duplicate_reason = decisions.reason,
+            updated_at = now()
+        from jsonb_to_recordset($1::jsonb) as decisions(
+          target_id uuid,
+          duplicate_candidate_id uuid,
+          reason text
+        )
+        where candidate.id = decisions.target_id
+      `,
+      [JSON.stringify(candidateDuplicates)],
+    );
+  }
+
+  if (nameReviews.length > 0) {
+    await client.query(
+      `
+        update public.self_host_app_candidates candidate
+        set status = 'needs_review',
+            duplicate_app_id = decisions.app_id,
+            duplicate_candidate_id = decisions.duplicate_candidate_id,
+            duplicate_reason = 'possible_name_match',
+            updated_at = now()
+        from jsonb_to_recordset($1::jsonb) as decisions(
+          target_id uuid,
+          app_id uuid,
+          duplicate_candidate_id uuid
+        )
+        where candidate.id = decisions.target_id
+      `,
+      [JSON.stringify(nameReviews)],
+    );
+  }
+
+  if (queuedIds.length > 0) {
+    await client.query(
+      `
+        update public.self_host_app_candidates
+        set status = 'queued',
+            duplicate_app_id = null,
+            duplicate_candidate_id = null,
+            duplicate_reason = null,
+            updated_at = now()
+        where id = any($1::uuid[])
+      `,
+      [queuedIds],
+    );
+  }
 }
 
 async function main() {
@@ -87,6 +189,11 @@ async function main() {
       dry_run: Boolean(args["dry-run"]),
     };
 
+    const appDuplicates = [];
+    const candidateDuplicates = [];
+    const nameReviews = [];
+    const queuedIds = [];
+
     await client.query("begin");
     try {
       for (const candidate of targetsResult.rows) {
@@ -100,65 +207,38 @@ async function main() {
             counts.candidate_duplicates += 1;
           }
 
-          if (args["dry-run"]) continue;
-          if (decision.app) await preserveExactAppSource(client, candidate, decision.app.id);
-
-          await client.query(
-            `
-              update public.self_host_app_candidates
-              set status = 'duplicate',
-                  duplicate_app_id = $2,
-                  duplicate_candidate_id = $3,
-                  duplicate_reason = $4,
-                  updated_at = now()
-              where id = $1
-            `,
-            [
-              candidate.id,
-              decision.app?.id ?? null,
-              decision.candidate?.id ?? null,
-              decision.reason,
-            ],
-          );
+          if (decision.app) {
+            appDuplicates.push({ target_id: candidate.id, app_id: decision.app.id, reason: decision.reason });
+          } else {
+            candidateDuplicates.push({
+              target_id: candidate.id,
+              duplicate_candidate_id: decision.candidate.id,
+              reason: decision.reason,
+            });
+          }
           continue;
         }
 
         if (decision.action === "review") {
           counts.name_reviews += 1;
-          if (args["dry-run"]) continue;
-          await client.query(
-            `
-              update public.self_host_app_candidates
-              set status = 'needs_review',
-                  duplicate_app_id = $2,
-                  duplicate_candidate_id = $3,
-                  duplicate_reason = 'possible_name_match',
-                  updated_at = now()
-              where id = $1
-            `,
-            [candidate.id, decision.app?.id ?? null, decision.candidate?.id ?? null],
-          );
+          nameReviews.push({
+            target_id: candidate.id,
+            app_id: decision.app?.id ?? null,
+            duplicate_candidate_id: decision.candidate?.id ?? null,
+          });
           continue;
         }
 
         counts.queued += 1;
-        if (args["dry-run"]) continue;
-        await client.query(
-          `
-            update public.self_host_app_candidates
-            set status = 'queued',
-                duplicate_app_id = null,
-                duplicate_candidate_id = null,
-                duplicate_reason = null,
-                updated_at = now()
-            where id = $1
-          `,
-          [candidate.id],
-        );
+        queuedIds.push(candidate.id);
       }
 
-      if (args["dry-run"]) await client.query("rollback");
-      else await client.query("commit");
+      if (args["dry-run"]) {
+        await client.query("rollback");
+      } else {
+        await applyDecisions(client, { appDuplicates, candidateDuplicates, nameReviews, queuedIds });
+        await client.query("commit");
+      }
     } catch (error) {
       await client.query("rollback");
       throw error;

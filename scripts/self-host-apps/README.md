@@ -13,7 +13,7 @@ discover -> candidates -> dedupe -> claim -> Codex research -> reviewed decision
 - `discover-github-topic.mjs`
 - `discover-selfhostedworld.mjs`
 - `discover-openalternative.mjs`
-- `discover-app-catalogs.mjs` for the official TrueNAS and Umbrel app catalogs
+- `discover-app-catalogs.mjs` for TrueNAS, Umbrel, Docker Hub, Unraid Community Applications, CasaOS, and YunoHost catalogs
 - `discover-html-directory.mjs` for manual sources only
 - `dedupe-candidates.mjs`
 

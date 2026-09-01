@@ -73,6 +73,37 @@ test("official appliance catalogs become install options", () => {
   );
 });
 
+test("new appliance catalogs and their compose files become install options", () => {
+  const options = buildInstallOptions(
+    { docker_support: "community", docker_image: null, docker_url: null, compose_url: null, deployment_methods: [] },
+    [
+      {
+        source: "unraid_apps",
+        source_url: "https://raw.githubusercontent.com/example/unraid/main/app.xml",
+        payload: { registry_url: "https://hub.docker.com/r/example/app" },
+      },
+      {
+        source: "casaos_apps",
+        source_url: "https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main/Apps/Example",
+        payload: {
+          compose_url: "https://raw.githubusercontent.com/IceWhaleTech/CasaOS-AppStore/main/Apps/Example/docker-compose.yml",
+          image: "example/app:latest",
+        },
+      },
+      {
+        source: "yunohost_apps",
+        source_url: "https://apps.yunohost.org/app/example",
+        payload: {},
+      },
+    ],
+  );
+
+  assert.deepEqual(options.map((option) => option.method), ["docker", "compose", "unraid", "casaos", "yunohost"]);
+  assert.equal(options.find((option) => option.method === "unraid")?.support_level, "community");
+  assert.equal(options.find((option) => option.method === "casaos")?.support_level, "official");
+  assert.equal(options.find((option) => option.method === "compose")?.url, "https://raw.githubusercontent.com/IceWhaleTech/CasaOS-AppStore/main/Apps/Example/docker-compose.yml");
+});
+
 test("streamlined install storage keeps one row with multiple destination links", () => {
   const options = [
     { method: "docker", label: "Docker Hub", url: "https://hub.docker.com/r/example/app", image: "example/app:latest", support_level: "official", source_url: "https://example.org/install", sort_order: 0 },

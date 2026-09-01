@@ -47,6 +47,20 @@ function canonicalPattern(path: string) {
   return new RegExp(`^https://stack127\\.com${path}$`);
 }
 
+async function gotoWithRestartRetry(page: Page, route: string) {
+  let lastError: unknown;
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    try {
+      return await page.goto(route);
+    } catch (error) {
+      lastError = error;
+      if (!/ERR_CONNECTION_(RESET|REFUSED)|timeout/i.test(String(error))) throw error;
+      await page.waitForTimeout(250 * (attempt + 1));
+    }
+  }
+  throw lastError ?? new Error(`Could not load ${route}`);
+}
+
 test.describe("Stack127 publication SEO", () => {
   for (const path of publishedPaths) {
     test(`${path} is published and indexable`, async ({ page }) => {
@@ -116,7 +130,7 @@ test.describe("Stack127 publication SEO", () => {
 
   for (const path of noindexPaths) {
     test(`${path} is visible but remains noindex`, async ({ page }) => {
-      const response = await page.goto(path);
+      const response = await gotoWithRestartRetry(page, path);
 
       expect(response?.status()).toBe(200);
       await expect(page.locator("[data-app-main] h1")).toHaveCount(1);

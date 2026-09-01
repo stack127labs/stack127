@@ -1,0 +1,47 @@
+name: Discover self-host apps from install catalogs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * 0"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: self-host-apps-discovery-catalogs
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL }}
+      GITHUB_TOKEN: ${{ secrets.STACK127_GITHUB_TOKEN || github.token }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Discover platform catalogs
+        run: >-
+          npm run self-host-apps:discover-app-catalogs --
+          --catalog all
+          --limit 5000
+          --docker-limit 500
+          --docker-page-size 100
+          --out scripts/self-host-apps/batches/${{ github.run_id }}-catalog-discovery.json
+          --write
+      - name: Classify exact duplicates and review matches
+        run: npm run self-host-apps:dedupe-candidates -- --limit 30000
+      - name: Upload discovery report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: self-host-app-catalog-discovery-${{ github.run_id }}
+          path: scripts/self-host-apps/batches/${{ github.run_id }}-catalog-discovery.json
+          if-no-files-found: ignore

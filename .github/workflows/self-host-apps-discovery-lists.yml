@@ -1,4 +1,4 @@
-name: Discover open projects from maintained lists
+name: Discover self-host apps from maintained lists
 
 on:
   workflow_dispatch:

@@ -41,6 +41,18 @@ Use one record per claimed candidate:
         "summary_source": "curated",
         "summary_confidence": "high"
       },
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/example/app",
+          "image": "example/app:latest",
+          "support_level": "official",
+          "source_url": "https://example.org/docs/install",
+          "note": null,
+          "sort_order": 10
+        }
+      ],
       "sources": [
         {
           "source": "official_product_site",

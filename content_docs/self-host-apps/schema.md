@@ -47,7 +47,7 @@ Planning ranges live in `self_host_app_resource_estimates`. The row keeps separa
 
 ## Install destinations
 
-`self_host_app_install_options` has one row per app. Each destination column is a `text[]`, so an app can have more than one Docker, Compose, NAS, or appliance link without comma parsing. `options` keeps the label, support level, image, source URL, note, and sort order for each link. `docker_urls` always point to a registry or install page; Dockerfiles and Compose files remain evidence or Compose destinations.
+`self_host_app_install_options` has one row per app. Each destination column is a `text[]`, so an app can have more than one Docker, Compose, NAS, or appliance link without comma parsing. `options` keeps the label, support level, image, source URL, note, and sort order for each link. `docker_urls` always point to a registry or install page; Dockerfiles and Compose files remain evidence or Compose destinations. Reviewed candidate decisions can include `install_options`; the review applier stores those links in the same row when it publishes a new app.
 
 Supported columns include Docker, Compose, TrueNAS SCALE, Umbrel, Unraid, YunoHost, CasaOS, Runtipi, Cosmos, OpenMediaVault, Synology, QNAP, Proxmox, Home Assistant OS, Kubernetes, Helm, native, binary, package, and other. Add a new column only when a destination has a reviewed source.
 

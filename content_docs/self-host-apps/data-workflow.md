@@ -16,13 +16,15 @@ Production is canonical. Local is a disposable mirror for development and QA.
 
 ## Discovery
 
-Run the directory and appliance collectors with `--write` only after inspecting their reports. They write candidate evidence, never final categories or publication decisions. Keep the broad candidate queue because it prevents duplicate research and gives reviewers a clear handoff. Run logs and counts belong in the job output, not in a database import-run table.
+Run the directory, registry, and appliance collectors with `--write` only after inspecting their reports. They write candidate evidence, never final categories or publication decisions. Keep the broad candidate queue because it prevents duplicate research and gives reviewers a clear handoff. Run logs and counts belong in the job output, not in a database import-run table.
 
 ```bash
 npm run self-host-apps:discover-selfhostedworld -- --limit 5000 --details --concurrency 4 --out <report.json>
 npm run self-host-apps:discover-openalternative -- --limit 5000 --details --concurrency 4 --out <report.json>
 npm run self-host-apps:discover-app-catalogs -- --catalog all --limit 5000 --write
 ```
+
+`discover-app-catalogs` supports `truenas`, `umbrel`, `docker_hub`, `unraid`, `casaos`, and `yunohost`. Docker Hub discovery is bounded by search terms and page size so registry search cannot flood the review queue. Unraid discovery excludes blacklisted and deprecated templates unless `--include-deprecated` is passed.
 
 ## Dedupe and review
 
@@ -63,6 +65,8 @@ npm run self-host-apps:refresh-install-options -- --limit 5000 --apply
 ```
 
 Docker links point to a registry or install page. Dockerfiles, Compose files, repositories, and READMEs are not Docker install buttons. Appliance links are emitted only when a reviewed catalog or package source supplies them.
+
+GitHub Actions runs the primary-facts refresh weekly and the catalog discovery job weekly. Each job uploads its JSON report as an artifact. A failed source or unreadable app is visible in the job output and report; it is not converted to an unverified value.
 
 ## QA
 

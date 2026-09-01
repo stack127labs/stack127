@@ -46,26 +46,44 @@ const env = {
 };
 
 const nextBin = path.join(process.cwd(), "node_modules", "next", "dist", "bin", "next");
-const standaloneServer = path.join(process.cwd(), ".next", "standalone", "server.js");
 const bundler = process.env.STACK127_TEST_BUNDLER ?? "webpack";
 const bundlerFlag = bundler === "turbopack" ? "--turbopack" : "--webpack";
 const nextArgs = serverMode === "production"
-  ? existsSync(standaloneServer)
-    ? [standaloneServer]
-    : [nextBin, "start", "-p", port]
+  ? [nextBin, "start", "-p", port]
   : [nextBin, "dev", bundlerFlag, "-p", port];
-const child = spawn(process.execPath, nextArgs, {
-  env,
-  stdio: "inherit",
-});
+let child;
+let stopping = false;
 
-for (const signal of ["SIGINT", "SIGTERM"]) {
-  process.on(signal, () => {
-    child.kill(signal);
+function startChild() {
+  child = spawn(process.execPath, nextArgs, {
+    env,
+    stdio: "inherit",
+  });
+
+  child.on("exit", (code, signal) => {
+    if (stopping) {
+      if (signal) process.kill(process.pid, signal);
+      process.exit(code ?? 0);
+    }
+
+    // Next.js exits with 77 when its dev server reaches the memory safety
+    // threshold. Keep the Playwright web-server process alive and replace the
+    // child so a request in the restart window is not reported as a page bug.
+    if (serverMode !== "production" && code === 77) {
+      setTimeout(startChild, 100);
+      return;
+    }
+
+    if (signal) process.kill(process.pid, signal);
+    process.exit(code ?? 0);
   });
 }
 
-child.on("exit", (code, signal) => {
-  if (signal) process.kill(process.pid, signal);
-  process.exit(code ?? 0);
-});
+for (const signal of ["SIGINT", "SIGTERM"]) {
+  process.on(signal, () => {
+    stopping = true;
+    child?.kill(signal);
+  });
+}
+
+startChild();

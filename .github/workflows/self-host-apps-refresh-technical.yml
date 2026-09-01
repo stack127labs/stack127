@@ -1,0 +1,58 @@
+name: Refresh self-host app technical facts
+
+on:
+  workflow_dispatch:
+    inputs:
+      refresh_all:
+        description: "Check every published self-host app"
+        default: true
+        required: false
+        type: boolean
+  schedule:
+    - cron: "23 5 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: self-host-apps-refresh-technical
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL }}
+      GITHUB_TOKEN: ${{ secrets.STACK127_GITHUB_TOKEN || github.token }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Refresh primary technical facts
+        run: >-
+          npm run self-host-apps:refresh-primary-technical-facts --
+          ${{ github.event_name == 'schedule' || inputs.refresh_all == true && '--refresh-all' || '' }}
+          --apply-reviewed
+          --requirements-file scripts/self-host-apps/batches/2026-08-29-primary-requirements-reviewed.json
+          --concurrency 16
+          --out scripts/self-host-apps/batches/${{ github.run_id }}-technical-refresh.json
+      - name: Refresh install destinations
+        if: always()
+        run: npm run self-host-apps:refresh-install-options -- --limit 5000 --apply
+      - name: Run publication quality gate
+        if: always()
+        run: npm run self-host-apps:qa-gate -- --limit 5000 --out scripts/self-host-apps/batches/${{ github.run_id }}-technical-qa-gate.json
+      - name: Upload technical reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: self-host-app-technical-refresh-${{ github.run_id }}
+          path: |
+            scripts/self-host-apps/batches/${{ github.run_id }}-technical-refresh.json
+            scripts/self-host-apps/batches/${{ github.run_id }}-technical-qa-gate.json
+          if-no-files-found: ignore

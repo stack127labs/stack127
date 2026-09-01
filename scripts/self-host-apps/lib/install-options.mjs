@@ -135,7 +135,15 @@ function supportLevelForDocker(value) {
 
 function sourceRegistryUrls(sourceRow) {
   const rawSources = sourceRow?.payload?.raw?.sources;
-  return Array.isArray(rawSources) ? rawSources.filter((value) => isRegistryPageUrl(value)) : [];
+  const explicit = [
+    sourceRow?.payload?.registry_url,
+    sourceRow?.payload?.docker_url,
+    sourceRow?.payload?.raw?.registry_url,
+  ];
+  return [...new Set([
+    ...(Array.isArray(rawSources) ? rawSources : []),
+    ...explicit,
+  ].filter((value) => isRegistryPageUrl(value)))];
 }
 
 export function buildInstallOptions(app, sourceRows = []) {
@@ -212,6 +220,46 @@ export function buildInstallOptions(app, sourceRows = []) {
         source_url: sourceRow.source_url,
         note: "Listed in the Umbrel app catalog; catalog listing does not imply publisher support.",
         sort_order: 40,
+      });
+    }
+    if (sourceRow.source === "unraid_apps") {
+      add({
+        method: "unraid",
+        url: sourceRow.source_url,
+        support_level: "community",
+        source_url: sourceRow.source_url,
+        note: "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+        sort_order: 35,
+      });
+    }
+    if (sourceRow.source === "casaos_apps") {
+      add({
+        method: "casaos",
+        url: sourceRow.source_url,
+        support_level: "official",
+        source_url: sourceRow.source_url,
+        note: "Listed in the CasaOS app store; store listing does not imply publisher support.",
+        sort_order: 45,
+      });
+      if (sourceRow.payload?.compose_url) {
+        add({
+          method: "compose",
+          url: sourceRow.payload.compose_url,
+          image: sourceRow.payload.image ?? app.docker_image,
+          support_level: "official",
+          source_url: sourceRow.source_url,
+          sort_order: 20,
+        });
+      }
+    }
+    if (sourceRow.source === "yunohost_apps") {
+      add({
+        method: "yunohost",
+        url: sourceRow.source_url,
+        support_level: "official",
+        source_url: sourceRow.source_url,
+        note: "Listed in the YunoHost app catalog; package status and upstream support still need review.",
+        sort_order: 50,
       });
     }
 

@@ -44,7 +44,7 @@
   {
     "name": "self-host-apps:discover-app-catalogs",
     "command": "npm run self-host-apps:discover-app-catalogs -- --catalog all --limit 5000 --write",
-    "purpose": "Stage open and closed-source apps from the official TrueNAS and Umbrel catalogs without publishing them."
+    "purpose": "Stage self-host app leads from TrueNAS, Umbrel, Docker Hub, Unraid Community Applications, CasaOS, and YunoHost without publishing them."
   },
   {
     "name": "self-host-apps:refresh-app-catalog-facts",
