@@ -26,7 +26,7 @@ Discovery stores raw evidence. It cannot publish or assign final categories, sum
 - `apply-candidate-review.mjs` validates reviewed decisions and writes them transactionally.
 - `release-candidate-batch.mjs` releases an abandoned claim.
 
-`apply-candidate-review.mjs` requires provenance for known technical facts. Unknown values stay `null` or `unknown`.
+`apply-candidate-review.mjs` requires source links for published records. Unknown values stay `null` or `unknown`; checked-but-unpublished facts use `technical_fact_status`.
 
 ## Refresh and QA
 

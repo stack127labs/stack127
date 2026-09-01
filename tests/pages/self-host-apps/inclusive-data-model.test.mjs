@@ -8,8 +8,9 @@ async function read(relativePath) {
   return readFile(new URL(relativePath, root), "utf8");
 }
 
-test("the page-owned migration preserves deployment, resource, popularity, and image facts", async () => {
+test("the page-owned migrations preserve facts and finish the streamlined model", async () => {
   const migration = await read("supabase/migrations/20260829090000_make_self_host_apps_page_owned.sql");
+  const streamlined = await read("supabase/migrations/20260901060529_streamline_self_host_apps_data_model.sql");
 
   for (const field of [
     "deployment_methods",
@@ -33,6 +34,25 @@ test("the page-owned migration preserves deployment, resource, popularity, and i
   assert.match(migration, /source = 'official_documentation'/);
   assert.doesNotMatch(migration, /set storage_profile = 'unknown'/);
   assert.doesNotMatch(migration, /set ram_mb = null/);
+
+  for (const table of [
+    "github_projects",
+    "self_host_app_resource_estimates",
+    "self_host_app_install_options",
+  ]) {
+    assert.match(streamlined, new RegExp(`create table public\\.${table}`));
+  }
+  assert.match(streamlined, /github_project_id uuid references public\.github_projects/);
+  assert.match(streamlined, /technical_fact_status jsonb/);
+  assert.match(streamlined, /data_source_urls text\[\]/);
+  assert.match(streamlined, /docker_urls text\[\]/);
+  assert.match(streamlined, /truenas_scale_urls text\[\]/);
+  assert.match(streamlined, /primary key references public\.self_host_apps/);
+  assert.match(streamlined, /alter table public\.self_host_app_candidates drop column import_run_id/);
+  assert.match(streamlined, /drop table public\.self_host_app_sources/);
+  assert.match(streamlined, /drop table public\.self_host_app_field_sources/);
+  assert.match(streamlined, /drop table public\.self_host_app_import_runs/);
+  assert.match(streamlined, /drop view if exists public\.open_projects/);
 });
 
 test("the public directory can filter every source model without assuming GitHub", async () => {
@@ -60,14 +80,14 @@ test("QA treats missing decision facts and weak resource provenance as visible w
   assert.match(report, /ram_not_published/);
   assert.match(report, /storage_pending/);
   assert.match(report, /storage_not_published/);
-  assert.match(report, /ram_researched/);
-  assert.match(report, /storage_researched/);
+  assert.match(report, /technical_fact_status/);
+  assert.match(report, /factWasChecked/);
   assert.match(report, /researched_null_counts/);
   assert.match(report, /technical_pending_count/);
   assert.match(report, /researchedNullOutcomes/);
   assert.match(report, /ram_estimated/);
   assert.match(report, /storage_estimated/);
-  assert.match(report, /field_source\.source like 'official_%'/);
+  assert.match(report, /technical_fact_status/);
   assert.match(report, /docker_image_not_published/);
   assert.match(report, /pricing_unknown/);
   assert.match(report, /docker_image_missing/);
@@ -88,7 +108,7 @@ test("storage tiers and drawer facts use reviewed profiles when no exact minimum
 });
 
 test("resource estimates and install options stay separate from exact facts", async () => {
-  const migration = await read("supabase/migrations/20260831132300_add_estimates_and_install_options.sql");
+  const migration = await read("supabase/migrations/20260901060529_streamline_self_host_apps_data_model.sql");
   const apps = await read("lib/apps.ts");
   const card = await read("app/(site)/(catalogs)/self-host-apps/directory-app-card.tsx");
   const drawer = await read("app/(site)/(catalogs)/self-host-apps/directory-app-browser.tsx");
@@ -96,11 +116,14 @@ test("resource estimates and install options stay separate from exact facts", as
   const applier = await read("scripts/self-host-apps/apply-resource-estimates.mjs");
   const prodSync = await read("scripts/self-host-apps/sync-prod-to-local.mjs");
   const localSync = await read("scripts/self-host-apps/sync-local-to-prod.mjs");
+  const storage = await read("scripts/self-host-apps/lib/streamlined-storage.mjs");
 
   assert.match(migration, /self_host_app_resource_estimates/);
   assert.match(migration, /self_host_app_install_options/);
-  assert.match(migration, /estimate_kind/);
+  assert.match(migration, /ram_estimate_kind/);
+  assert.match(migration, /storage_estimate_kind/);
   assert.match(migration, /truenas_scale/);
+  assert.match(migration, /primary key references public\.self_host_apps/);
   assert.match(apps, /install_options/);
   assert.match(apps, /resource_estimates/);
   assert.match(card, /estimated/);
@@ -109,8 +132,10 @@ test("resource estimates and install options stay separate from exact facts", as
   assert.match(proposer, /confidence: "low"/);
   assert.match(applier, /apply-reviewed/);
   assert.match(prodSync, /self_host_app_install_options/);
-  assert.match(localSync, /replaceResourceEstimates/);
-  assert.match(localSync, /replaceInstallOptions/);
+  assert.match(localSync, /replaceResources/);
+  assert.match(localSync, /replaceInstalls/);
+  assert.match(storage, /installOptionsToRow/);
+  assert.match(storage, /resourceEstimatesToRow/);
 });
 
 test("official appliance catalog refresh extracts direct deployment facts", async () => {
@@ -124,7 +149,8 @@ test("official appliance catalog refresh extracts direct deployment facts", asyn
   assert.match(refresh, /truenas_apps/);
   assert.match(refresh, /umbrel_apps/);
   assert.match(refresh, /--apply-reviewed/);
-  assert.match(refresh, /self_host_app_field_sources/);
+  assert.match(refresh, /technical_fact_status/);
+  assert.match(refresh, /catalog_sources/);
   assert.match(migration, /ram_default_limit_mb/);
   assert.match(migration, /persistent_storage/);
 });
@@ -132,17 +158,18 @@ test("official appliance catalog refresh extracts direct deployment facts", asyn
 test("primary-source refresh closes researched gaps without inventing values", async () => {
   const refresh = await read("scripts/self-host-apps/refresh-primary-technical-facts.mjs");
 
-  assert.match(refresh, /ram_researched/);
-  assert.match(refresh, /storage_researched/);
-  assert.match(refresh, /database_researched/);
-  assert.match(refresh, /docker_researched/);
-  assert.match(refresh, /compose_researched/);
-  assert.match(refresh, /value remains null/);
+  assert.match(refresh, /technicalStatusFor/);
+  assert.match(refresh, /"ram"/);
+  assert.match(refresh, /storage:/);
+  assert.match(refresh, /database:/);
+  assert.match(refresh, /docker:/);
+  assert.match(refresh, /compose:/);
+  assert.match(refresh, /ramMinMb: null/);
   assert.match(refresh, /--apply-reviewed/);
   assert.match(refresh, /--requirements-file/);
   assert.match(refresh, /--refresh-all/);
   assert.match(refresh, /technicalGapPredicate/);
-  assert.match(refresh, /add\("storage_profile"/);
+  assert.match(refresh, /persistentStorage/);
   assert.match(refresh, /parsed numeric requirements are never published without editorial review/);
 });
 
@@ -179,5 +206,19 @@ test("the GitHub refresher can close reviewed source-model gaps from detected li
   assert.match(refresh, /args\["source-model"\]/);
   assert.match(refresh, /sourceModelFromSpdx/);
   assert.match(refresh, /source_model = case/);
-  assert.match(refresh, /field_name.*source_model/s);
+  assert.match(refresh, /github_projects/);
+  assert.doesNotMatch(refresh, /self_host_app_field_sources/);
+});
+
+test("secondary self-host jobs read mutable GitHub facts from the shared project table", async () => {
+  const audit = await read("scripts/self-host-apps/audit-data-quality.mjs");
+  const enrichment = await read("scripts/self-host-apps/select-enrichment-batch.mjs");
+  const exportDataset = await read("scripts/stack127/github/export-dataset.mjs");
+
+  for (const source of [audit, enrichment, exportDataset]) {
+    assert.match(source, /public\.github_projects/);
+  }
+  assert.match(audit, /github_project\.latest_release/);
+  assert.match(enrichment, /coalesce\(project\.stars/);
+  assert.match(exportDataset, /coalesce\(github_project\.latest_release/);
 });

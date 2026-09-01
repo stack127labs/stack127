@@ -137,40 +137,10 @@ export function normalizeCandidate(input, { source, sourceUrl, baseUrl } = {}) {
   };
 }
 
-export async function createImportRun(client, { source, sourceUrl, notes }) {
-  const result = await client.query(
-    `
-      insert into public.self_host_app_import_runs (source, source_url, status, notes)
-      values ($1, $2, 'running', $3)
-      returning id
-    `,
-    [source, sourceUrl ?? null, notes ?? null],
-  );
-  return result.rows[0].id;
-}
-
-export async function finishImportRun(client, importRunId, { status, discoveredCount, importedCount, updatedCount, errorCount, notes }) {
-  await client.query(
-    `
-      update public.self_host_app_import_runs
-      set status = $2,
-          discovered_count = $3,
-          imported_count = $4,
-          updated_count = $5,
-          error_count = $6,
-          notes = coalesce($7, notes),
-          finished_at = now()
-      where id = $1
-    `,
-    [importRunId, status, discoveredCount, importedCount, updatedCount, errorCount, notes ?? null],
-  );
-}
-
-export async function upsertCandidate(client, candidate, importRunId) {
+export async function upsertCandidate(client, candidate) {
   const result = await client.query(
     `
       insert into public.self_host_app_candidates (
-        import_run_id,
         source,
         source_key,
         source_url,
@@ -192,11 +162,10 @@ export async function upsertCandidate(client, candidate, importRunId) {
         confidence_score
       )
       values (
-        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10,
-        $11, $12, $13, $14, $15, $16, $17::text[], $18::text[], $19::jsonb, $20
+        $1, $2, $3, $4, $5, $6, $7, $8, $9,
+        $10, $11, $12, $13, $14, $15, $16::text[], $17::text[], $18::jsonb, $19
       )
       on conflict (source, source_key) do update set
-        import_run_id = excluded.import_run_id,
         source_url = coalesce(excluded.source_url, self_host_app_candidates.source_url),
         name = excluded.name,
         slug = excluded.slug,
@@ -247,7 +216,6 @@ export async function upsertCandidate(client, candidate, importRunId) {
       returning (xmax = 0) as inserted
     `,
     [
-      importRunId,
       candidate.source,
       candidate.source_key,
       candidate.source_url,
@@ -274,14 +242,13 @@ export async function upsertCandidate(client, candidate, importRunId) {
 }
 
 export async function storeCandidates(client, candidates, { source, sourceUrl, notes } = {}) {
-  const importRunId = await createImportRun(client, { source, sourceUrl, notes });
   let inserted = 0;
   let updated = 0;
   let errors = 0;
 
   for (const candidate of candidates) {
     try {
-      if (await upsertCandidate(client, candidate, importRunId)) inserted += 1;
+      if (await upsertCandidate(client, candidate)) inserted += 1;
       else updated += 1;
     } catch (error) {
       errors += 1;
@@ -289,13 +256,5 @@ export async function storeCandidates(client, candidates, { source, sourceUrl, n
     }
   }
 
-  await finishImportRun(client, importRunId, {
-    status: errors > 0 ? "partial" : "completed",
-    discoveredCount: candidates.length,
-    importedCount: inserted,
-    updatedCount: updated,
-    errorCount: errors,
-  });
-
-  return { discovered: candidates.length, inserted, updated, errors };
+  return { source, source_url: sourceUrl ?? null, notes: notes ?? null, discovered: candidates.length, inserted, updated, errors };
 }

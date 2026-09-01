@@ -11,29 +11,23 @@ import {
 async function preserveExactAppSource(client, candidate, appId) {
   await client.query(
     `
-      insert into public.self_host_app_sources (
-        app_id,
-        import_run_id,
-        source,
-        source_key,
-        source_url,
-        payload
-      )
-      values ($1, $2, $3, $4, $5, $6::jsonb)
-      on conflict (source, source_key) do update set
-        app_id = excluded.app_id,
-        import_run_id = excluded.import_run_id,
-        source_url = excluded.source_url,
-        payload = excluded.payload,
-        imported_at = now()
+      update public.self_host_apps
+      set data_source_urls = coalesce((
+        select array_agg(distinct url order by url)
+        from unnest(coalesce(data_source_urls, '{}') || array_remove(array[$2, $3, $4, $5], null)::text[]) as values(url)
+      ), '{}'),
+      data_checked_at = now(),
+      data_confidence = case when data_confidence = 'unknown' then 'medium' else data_confidence end,
+      updated_at = now()
+      where id = $1
     `,
     [
       appId,
-      candidate.import_run_id,
-      candidate.source,
-      candidate.source_key,
       candidate.source_url,
-      JSON.stringify(candidate.payload ?? {}),
+      candidate.website_url,
+      candidate.source_code_url,
+      candidate.docs_url,
+      candidate.docker_url,
     ],
   );
 }

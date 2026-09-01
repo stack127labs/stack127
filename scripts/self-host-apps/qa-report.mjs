@@ -120,7 +120,7 @@ function rowIssues(row) {
   ) {
     issues.push(row.ram_estimate_exists
       ? "ram_estimated"
-      : row.ram_researched ? "ram_not_published" : "ram_pending");
+      : factWasChecked(row, "ram") ? "ram_not_published" : "ram_pending");
   }
   if (
     row.storage_min_gb === null &&
@@ -129,14 +129,14 @@ function rowIssues(row) {
   ) {
     issues.push(row.storage_estimate_exists
       ? "storage_estimated"
-      : row.storage_researched ? "storage_not_published" : "storage_pending");
+      : factWasChecked(row, "storage") ? "storage_not_published" : "storage_pending");
   }
   if (row.pricing_model === "unknown") issues.push("pricing_unknown");
   if (row.docker_support === "official" && !row.docker_image) {
-    issues.push(row.docker_image_researched ? "docker_image_not_published" : "docker_image_missing");
+    issues.push(factWasChecked(row, "docker_image") ? "docker_image_not_published" : "docker_image_missing");
   }
   if (row.requires_database === null) {
-    issues.push(row.database_researched ? "database_not_published" : "database_pending");
+    issues.push(factWasChecked(row, "database") ? "database_not_published" : "database_pending");
   }
   if (row.requires_database === null && row.database_types?.length > 0) issues.push("db_unknown_with_types");
   if (
@@ -148,10 +148,10 @@ function rowIssues(row) {
   }
 
   if (row.docker_support === "unknown") {
-    issues.push(row.docker_researched ? "docker_not_published" : "docker_pending");
+    issues.push(factWasChecked(row, "docker") ? "docker_not_published" : "docker_pending");
   }
   if (row.compose_support === null) {
-    issues.push(row.compose_researched ? "compose_not_published" : "compose_pending");
+    issues.push(factWasChecked(row, "compose") ? "compose_not_published" : "compose_pending");
   }
   if (row.docker_url && dockerHighRiskPattern.test(row.docker_url)) issues.push("docker_high_risk_url");
   if (row.docker_url && dockerWeakPattern.test(row.docker_url)) issues.push("docker_weak_url");
@@ -172,6 +172,11 @@ function rowIssues(row) {
   issues.push(...iconIssues(row));
 
   return [...new Set(issues)];
+}
+
+function factWasChecked(row, key) {
+  const status = row.technical_fact_status?.[key]?.status;
+  return status === "published" || status === "not_published";
 }
 
 function scoreFor(issues) {
@@ -208,10 +213,10 @@ async function main() {
           source_model,
           pricing_model,
           maintenance_status,
-          github_stars,
-          github_latest_release,
-          github_last_commit_at,
-          github_checked_at,
+          coalesce(github_project.stars, self_host_apps.source_stars, self_host_apps.github_stars) as github_stars,
+          coalesce(github_project.latest_release, self_host_apps.source_latest_release, self_host_apps.github_latest_release) as github_latest_release,
+          coalesce(github_project.last_commit_at, self_host_apps.source_last_commit_at, self_host_apps.github_last_commit_at) as github_last_commit_at,
+          coalesce(github_project.checked_at, self_host_apps.source_checked_at, self_host_apps.github_checked_at) as github_checked_at,
           docker_support,
           compose_support,
           requires_database,
@@ -220,59 +225,19 @@ async function main() {
           ram_min_mb,
           ram_recommended_mb,
           ram_default_limit_mb,
-          exists (
-            select 1 from public.self_host_app_field_sources field_source
-            where field_source.app_id = self_host_apps.id
-              and field_source.field_name in ('ram_mb', 'ram_min_mb', 'ram_recommended_mb', 'ram_default_limit_mb')
-              and (field_source.source like 'official_%' or field_source.source = 'manual_official')
-          ) as ram_researched,
-          exists (
-            select 1 from public.self_host_app_resource_estimates estimate
-            where estimate.app_id = self_host_apps.id
-              and estimate.resource_kind = 'ram'
-          ) as ram_estimate_exists,
+          self_host_apps.technical_fact_status,
+          self_host_apps.technical_facts_checked_at,
+          resource.ram_estimate_min_mb is not null as ram_estimate_exists,
           storage_min_gb,
           storage_profile,
           persistent_storage,
-          exists (
-            select 1 from public.self_host_app_field_sources field_source
-            where field_source.app_id = self_host_apps.id
-              and field_source.field_name in ('storage_profile', 'storage_min_gb', 'persistent_storage')
-              and (field_source.source like 'official_%' or field_source.source = 'manual_official')
-          ) as storage_researched,
-          exists (
-            select 1 from public.self_host_app_resource_estimates estimate
-            where estimate.app_id = self_host_apps.id
-              and estimate.resource_kind = 'storage'
-          ) as storage_estimate_exists,
-          exists (
-            select 1 from public.self_host_app_field_sources field_source
-            where field_source.app_id = self_host_apps.id
-              and field_source.field_name in ('requires_database', 'database_types')
-              and (field_source.source like 'official_%' or field_source.source = 'manual_official')
-          ) as database_researched,
-          exists (
-            select 1 from public.self_host_app_field_sources field_source
-            where field_source.app_id = self_host_apps.id
-              and field_source.field_name in ('docker_support', 'docker_image')
-              and (field_source.source like 'official_%' or field_source.source = 'manual_official')
-          ) as docker_researched,
-          exists (
-            select 1 from public.self_host_app_field_sources field_source
-            where field_source.app_id = self_host_apps.id
-              and field_source.field_name = 'docker_image'
-              and (field_source.source like 'official_%' or field_source.source = 'manual_official')
-          ) as docker_image_researched,
-          exists (
-            select 1 from public.self_host_app_field_sources field_source
-            where field_source.app_id = self_host_apps.id
-              and field_source.field_name in ('compose_support', 'compose_url')
-              and (field_source.source like 'official_%' or field_source.source = 'manual_official')
-          ) as compose_researched,
+          resource.storage_estimate_min_gb is not null as storage_estimate_exists,
           surfaces,
           summary_source,
           summary_confidence
         from public.self_host_apps
+        left join public.github_projects github_project on github_project.id = self_host_apps.github_project_id
+        left join public.self_host_app_resource_estimates resource on resource.app_id = self_host_apps.id
         where published = true
           and self_hosting_status = 'self_hostable'
         order by slug

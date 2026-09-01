@@ -227,17 +227,17 @@ export async function applySourceAvailablePricing({ dryRun, databaseUrl }) {
 
         await client.query(
           `
-            insert into public.self_host_app_field_sources (
-              app_id, field_name, source, source_url, confidence, checked_at, note
-            ) values ($1, 'pricing_model', 'reviewed_source_available_pricing', $2, 'high', now(), $3)
-            on conflict (app_id, field_name) do update set
-              source = excluded.source,
-              source_url = excluded.source_url,
-              confidence = excluded.confidence,
-              checked_at = excluded.checked_at,
-              note = excluded.note
+            update public.self_host_apps
+            set data_source_urls = coalesce((
+              select array_agg(distinct url order by url)
+              from unnest(coalesce(data_source_urls, '{}') || array[$2]::text[]) as values(url)
+            ), '{}'),
+            data_checked_at = now(),
+            data_confidence = 'high',
+            updated_at = now()
+            where id = $1
           `,
-          [row.id, sourceUrl, pricingNote(row, pricingModel)],
+          [row.id, sourceUrl],
         );
         counts[pricingModel] += 1;
       }

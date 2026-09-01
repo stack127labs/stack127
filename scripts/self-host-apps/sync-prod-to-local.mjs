@@ -9,16 +9,17 @@ import { parseArgs } from "./lib/args.mjs";
 
 const { Pool } = pg;
 const applicationTables = [
+  "github_projects",
   "self_host_app_category_links",
-  "self_host_app_field_sources",
   "self_host_app_resource_estimates",
   "self_host_app_install_options",
-  "self_host_app_curated_overrides",
-  "self_host_app_sources",
   "self_host_app_candidates",
-  "self_host_app_import_runs",
   "self_host_app_categories",
   "self_host_apps",
+  "terminal_apps",
+  "terminal_app_candidates",
+  "terminal_app_import_runs",
+  "terminal_app_field_sources",
   "stack127_pages",
 ];
 

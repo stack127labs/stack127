@@ -41,8 +41,8 @@ The normal release path is the committed GitHub Actions workflow
 `.github/workflows/stack127-release-e2e.yml`. It runs after a push to `main`
 or from `workflow_dispatch` with an exact `origin/main` SHA:
 
-1. Install dependencies and run `npm run quality`.
-2. Run the production target and Cloudflare DNS preflight.
+1. Install dependencies and apply pending Supabase migrations.
+2. Run `npm run quality` and the production target and Cloudflare DNS preflight.
 3. Build and push an immutable GHCR image tagged with the release SHA.
 4. Call Dokploy's API to point the application at that image and trigger the deployment.
 5. Poll Dokploy, then verify `/api/health?scope=deploy` reports the exact SHA and a configured runtime.

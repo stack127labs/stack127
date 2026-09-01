@@ -8,7 +8,7 @@ Use these rules when reviewing apps for `/self-host-apps`.
 - Set `self_hosting_status` only after checking official install or deployment evidence.
 - Use `unknown` or `null` when research does not support a fact.
 - Keep GitHub topics as raw metadata. Assign controlled categories by actual purpose.
-- Keep source payloads and field-level provenance for imported facts.
+- Keep source URLs in the app's `data_source_urls` or review `sources`; keep checked technical outcomes in `technical_fact_status`.
 - Classify the source model as `open_source`, `source_available`, `closed_source`, or `unknown`; never use those terms interchangeably.
 - A closed-source app can be published without a repository when its official identity and self-hosted deployment are verified.
 - An official Docker image is valid distribution evidence. A community image must be labeled `community` and must not imply publisher support.

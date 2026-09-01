@@ -41,26 +41,21 @@ Use one record per claimed candidate:
         "summary_source": "curated",
         "summary_confidence": "high"
       },
-      "field_sources": [
+      "sources": [
         {
-          "field_name": "summary",
-          "source": "stack127_curated",
+          "source": "official_product_site",
           "source_url": "https://example.org",
           "confidence": "high",
-          "note": "Written from the verified product purpose."
-        },
-        {
-          "field_name": "categories",
-          "source": "stack127_curated",
-          "source_url": "https://example.org",
-          "confidence": "high"
+          "note": "Used to verify the product purpose and self-hosted installation."
         }
-      ]
+      ],
+      "data_source_urls": ["https://example.org"],
+      "data_confidence": "high"
     }
   ]
 }
 ```
 
-Add one field-source entry for every populated link, classification, license, icon, source metadata value, and known technical fact. Empty arrays, `null`, and `unknown` do not need invented evidence.
+Add the URLs that support the review to `sources` and `data_source_urls`. If an official source was checked but did not publish a technical value, keep the value `null` or `unknown` and record that outcome in `technical_fact_status` with `status: "not_published"`. Do not invent a number or create a field-level provenance record.
 
 For a confirmed name match, set `app_id` to the existing app UUID. For `duplicate`, `reject`, or `needs_review`, omit `app` and include the required app ID or reason.

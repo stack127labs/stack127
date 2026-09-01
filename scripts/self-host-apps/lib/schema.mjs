@@ -47,6 +47,7 @@ export const appColumnTypes = {
   github_owner: "text",
   github_repo: "text",
   github_repo_id: "bigint",
+  github_project_id: "uuid",
   github_node_id: "text",
   github_full_name: "text",
   github_owner_type: "text",
@@ -108,6 +109,10 @@ export const appColumnTypes = {
   persistent_storage: "boolean",
   resource_requirement_kind: "text",
   technical_facts_checked_at: "timestamptz",
+  data_source_urls: "text[]",
+  data_checked_at: "timestamptz",
+  data_confidence: "text",
+  technical_fact_status: "jsonb",
   popularity_score: "integer",
   popularity_basis: "text[]",
   popularity_checked_at: "timestamptz",
@@ -128,8 +133,9 @@ export const appArrayColumns = new Set([
   "popularity_basis",
   "source_topics",
   "surfaces",
+  "data_source_urls",
 ]);
-export const appJsonColumns = new Set(["github_languages", "source_languages"]);
+export const appJsonColumns = new Set(["github_languages", "source_languages", "technical_fact_status"]);
 export const appRecordsetColumns = appColumns.map((column) => `${column} ${appColumnTypes[column]}`);
 
 export function appSqlValue(column, index) {
@@ -217,6 +223,7 @@ export function normalizeRecord(input) {
     github_owner: input.github_owner ?? github.owner ?? null,
     github_repo: input.github_repo ?? github.repo ?? null,
     github_repo_id: input.github_repo_id ?? github.repo_id ?? null,
+    github_project_id: input.github_project_id ?? null,
     github_node_id: input.github_node_id ?? github.node_id ?? null,
     github_full_name: input.github_full_name ?? github.full_name ?? null,
     github_owner_type: input.github_owner_type ?? github.owner_type ?? null,
@@ -272,9 +279,16 @@ export function normalizeRecord(input) {
     ram_mb: input.ram_mb ?? resources.ram_mb ?? null,
     ram_min_mb: input.ram_min_mb ?? resources.ram_min_mb ?? null,
     ram_recommended_mb: input.ram_recommended_mb ?? resources.ram_recommended_mb ?? null,
+    ram_default_limit_mb: input.ram_default_limit_mb ?? resources.ram_default_limit_mb ?? null,
     storage_profile: input.storage_profile ?? "unknown",
     storage_min_gb: input.storage_min_gb ?? resources.storage_min_gb ?? null,
+    persistent_storage: input.persistent_storage ?? resources.persistent_storage ?? null,
     resource_requirement_kind: input.resource_requirement_kind ?? resources.requirement_kind ?? "unknown",
+    technical_facts_checked_at: input.technical_facts_checked_at ?? null,
+    data_source_urls: normalizeArray(input.data_source_urls ?? input.source_urls ?? [sourceCodeUrl, input.website_url ?? links.website_url, input.docs_url ?? links.docs_url, input.install_docs_url ?? links.install_docs_url]),
+    data_checked_at: input.data_checked_at ?? null,
+    data_confidence: input.data_confidence ?? "unknown",
+    technical_fact_status: input.technical_fact_status ?? {},
     popularity_score: Number(input.popularity_score ?? 0),
     popularity_basis: normalizeArray(input.popularity_basis),
     popularity_checked_at: input.popularity_checked_at ?? null,
@@ -286,8 +300,6 @@ export function normalizeRecord(input) {
     categories: normalizeArray(input.categories),
     summary_source: input.summary_source ?? "curated",
     summary_confidence: input.summary_confidence ?? "unknown",
-    field_sources: normalizeArray(input.field_sources),
-    source_payload: input.source_payload ?? null,
   };
 }
 

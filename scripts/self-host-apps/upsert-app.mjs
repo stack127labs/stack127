@@ -9,6 +9,7 @@ const preserveOnNullColumns = new Set([
   "github_owner",
   "github_repo",
   "github_repo_id",
+  "github_project_id",
   "github_node_id",
   "github_full_name",
   "github_owner_type",
@@ -102,73 +103,6 @@ async function replaceCategoryLinks(client, appId, categories) {
   }
 }
 
-async function upsertSource(client, appId, record) {
-  const payload = record.source_payload;
-  if (!payload?.source || !payload?.source_key) return;
-
-  await client.query(
-    `
-      insert into public.self_host_app_sources (
-        app_id,
-        source,
-        source_key,
-        source_url,
-        payload
-      )
-      values ($1, $2, $3, $4, $5::jsonb)
-      on conflict (source, source_key) do update set
-        app_id = excluded.app_id,
-        source_url = excluded.source_url,
-        payload = excluded.payload,
-        imported_at = now()
-    `,
-    [
-      appId,
-      payload.source,
-      payload.source_key,
-      payload.source_url ?? null,
-      JSON.stringify(payload.payload ?? payload),
-    ],
-  );
-}
-
-async function upsertFieldSources(client, appId, record) {
-  const fieldSources = record.field_sources ?? [];
-
-  for (const fieldSource of fieldSources) {
-    if (!fieldSource.field_name || !fieldSource.source) continue;
-    await client.query(
-      `
-        insert into public.self_host_app_field_sources (
-          app_id,
-          field_name,
-          source,
-          source_url,
-          confidence,
-          checked_at,
-          note
-        )
-        values ($1, $2, $3, $4, $5, coalesce($6::timestamptz, now()), $7)
-        on conflict (app_id, field_name) do update set
-          source = excluded.source,
-          source_url = excluded.source_url,
-          confidence = excluded.confidence,
-          checked_at = excluded.checked_at,
-          note = excluded.note
-      `,
-      [
-        appId,
-        fieldSource.field_name,
-        fieldSource.source,
-        fieldSource.source_url ?? null,
-        fieldSource.confidence ?? "unknown",
-        fieldSource.checked_at ?? null,
-        fieldSource.note ?? null,
-      ],
-    );
-  }
-}
-
 async function main() {
   const args = parseArgs();
   if (!args.file) {
@@ -214,8 +148,6 @@ async function main() {
 
     const appId = result.rows[0].id;
     await replaceCategoryLinks(client, appId, record.categories);
-    await upsertSource(client, appId, record);
-    await upsertFieldSources(client, appId, record);
 
     if (args["dry-run"]) {
       await client.query("rollback");

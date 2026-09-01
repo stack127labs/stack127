@@ -64,15 +64,16 @@ export async function getTerminalApps(): Promise<TerminalApp[]> {
         app.source_model,
         app.pricing_model,
         app.license,
-        app.latest_version,
-        app.latest_release_at,
-        app.stars,
-        app.last_commit_at,
-        app.maintenance_status,
+        coalesce(app.latest_version, github.latest_release) as latest_version,
+        coalesce(app.latest_release_at, github.latest_release_at) as latest_release_at,
+        coalesce(github.stars, app.stars) as stars,
+        coalesce(github.last_commit_at, app.last_commit_at) as last_commit_at,
+        case when github.archived then 'archived' else coalesce(app.maintenance_status, 'unknown') end as maintenance_status,
         app.icon_url,
         app.screenshot_url,
         app.last_verified_at
       from public.terminal_apps app
+      left join public.github_projects github on github.id = app.github_project_id
       where app.published = true
       order by app.name asc
     `,

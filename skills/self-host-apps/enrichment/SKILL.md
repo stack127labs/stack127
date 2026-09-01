@@ -1,6 +1,6 @@
 ---
 name: stack127-self-host-enrichment
-description: Research and review stack127 self-host app candidates in claimed batches, including open, source-available, and closed-source software, and publish only complete records with provenance.
+description: Research and review stack127 self-host app candidates in claimed batches, including open, source-available, and closed-source software, and publish only complete records with source links.
 ---
 
 # Stack127 self-host enrichment
@@ -41,7 +41,7 @@ Scripts move data. Codex makes editorial and factual decisions. Never generate s
 - When a publisher does not state RAM or storage, a separate reviewed estimate may be added by `self-host-apps:propose-resource-estimates` and `self-host-apps:apply-resource-estimates`; those ranges are explicitly low-confidence planning guidance and must never replace an exact requirement.
 - Docker source files remain evidence. Use `self-host-apps:refresh-install-options` to publish a registry destination, Compose link, or verified appliance catalog option.
 - A Dockerfile proves a file exists; it does not by itself prove supported production deployment.
-- Keep field provenance for links, classification, license, icon, mutable source facts, and every known technical fact.
+- Put the URLs used for a decision in `sources` or `data_source_urls`, and add a `technical_fact_status` entry when a technical source was checked. There is no field-source table.
 - Never globally draft or publish apps.
 
 ## Finish

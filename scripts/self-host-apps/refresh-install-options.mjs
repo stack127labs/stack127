@@ -3,11 +3,48 @@
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { buildInstallOptions } from "./lib/install-options.mjs";
+import { installMethods, installOptionsToRow } from "./lib/streamlined-storage.mjs";
+
+function rowValues(row, options, checkedAt) {
+  const stored = installOptionsToRow(options, {
+    catalogSources: row.install_sources ?? [],
+    checkedAt,
+  });
+  return { app_id: row.id, ...stored };
+}
+
+async function upsertRows(client, rows) {
+  if (rows.length === 0) return;
+  const columns = [
+    "app_id",
+    "docker_urls",
+    "docker_images",
+    ...installMethods.filter((method) => method !== "docker").map((method) => `${method}_urls`),
+    "options",
+    "catalog_sources",
+    "source_urls",
+    "checked_at",
+  ];
+  const recordColumns = columns.map((column) => `${column} ${column.endsWith("_urls") || column.endsWith("_images") || column === "source_urls" ? "text[]" : column === "app_id" ? "uuid" : column === "checked_at" ? "timestamptz" : "jsonb"}`);
+  const updates = columns.filter((column) => column !== "app_id").map((column) => `${column} = excluded.${column}`).join(",\n          ");
+  await client.query(
+    `
+      insert into public.self_host_app_install_options (${columns.join(", ")})
+      select ${columns.map((column) => `item.${column}`).join(", ")}
+      from jsonb_to_recordset($1::jsonb) as item(${recordColumns.join(", ")})
+      on conflict (app_id) do update set
+        ${updates},
+        updated_at = now()
+    `,
+    [JSON.stringify(rows)],
+  );
+}
 
 async function main() {
   const args = parseArgs();
   const limit = numberArg(args, "limit", 5000);
   const apply = Boolean(args.apply);
+  const checkedAt = new Date().toISOString();
 
   const report = await withClient(async (client) => {
     const result = await client.query(
@@ -21,26 +58,13 @@ async function main() {
           app.install_docs_url,
           app.website_url,
           app.compose_url,
-          app.github_owner,
-          app.github_repo,
+          coalesce(project.owner, app.github_owner) as github_owner,
+          coalesce(project.repo, app.github_repo) as github_repo,
           app.deployment_methods,
-          coalesce(
-            (
-              select jsonb_agg(
-                jsonb_build_object(
-                  'source', app_source.source,
-                  'source_url', app_source.source_url,
-                  'payload', app_source.payload
-                )
-                order by app_source.source
-              )
-              from public.self_host_app_sources app_source
-              where app_source.app_id = app.id
-                and app_source.source in ('truenas_apps', 'umbrel_apps')
-            ),
-            '[]'::jsonb
-          ) as install_sources
+          coalesce(install.catalog_sources, '[]'::jsonb) as install_sources
         from public.self_host_apps app
+        left join public.github_projects project on project.id = app.github_project_id
+        left join public.self_host_app_install_options install on install.app_id = app.id
         where app.published = true
           and app.self_hosting_status = 'self_hostable'
         order by app.popularity_score desc, app.name asc
@@ -53,67 +77,20 @@ async function main() {
       ...row,
       options: buildInstallOptions(row, row.install_sources ?? []),
     }));
-    const options = prepared.flatMap((row) => row.options.map((option) => ({ ...option, app_id: row.id, slug: row.slug })));
-    let prunedGenericPackageLinks = 0;
+    const storedRows = prepared.map((row) => rowValues(row, row.options, checkedAt));
 
     if (apply) {
       await client.query("begin");
       try {
-        await client.query(
-          `
-            insert into public.self_host_app_install_options (
-              app_id, method, label, url, image, support_level,
-              source_url, note, sort_order, checked_at
-            )
-            select
-              option.app_id,
-              option.method,
-              option.label,
-              option.url,
-              option.image,
-              option.support_level,
-              option.source_url,
-              option.note,
-              option.sort_order,
-              now()
-            from jsonb_to_recordset($1::jsonb) as option(
-              app_id uuid,
-              method text,
-              label text,
-              url text,
-              image text,
-              support_level text,
-              source_url text,
-              note text,
-              sort_order integer
-            )
-            on conflict (app_id, method, url) do update set
-              label = excluded.label,
-              image = excluded.image,
-              support_level = excluded.support_level,
-              source_url = excluded.source_url,
-              note = excluded.note,
-              sort_order = excluded.sort_order,
-              checked_at = excluded.checked_at
-          `,
-          [JSON.stringify(options)],
-        );
-        const pruned = await client.query(
-          `
-            delete from public.self_host_app_install_options
-            where method = 'docker'
-              and url ~ 'github\\.com/[^/]+\\?tab=packages$'
-            returning id
-          `,
-        );
+        await upsertRows(client, storedRows);
         await client.query("commit");
-        prunedGenericPackageLinks = pruned.rowCount ?? 0;
       } catch (error) {
         await client.query("rollback");
         throw error;
       }
     }
 
+    const options = prepared.flatMap((row) => row.options.map((option) => ({ ...option, app_id: row.id, slug: row.slug })));
     const methodCounts = {};
     for (const option of options) methodCounts[option.method] = (methodCounts[option.method] ?? 0) + 1;
     return {
@@ -121,7 +98,6 @@ async function main() {
       apps: prepared.length,
       apps_with_options: new Set(options.map((option) => option.app_id)).size,
       options: options.length,
-      pruned_generic_package_links: apply ? prunedGenericPackageLinks : 0,
       method_counts: Object.fromEntries(Object.entries(methodCounts).sort((a, b) => a[0].localeCompare(b[0]))),
       docker_source_file_links_excluded: prepared.filter((row) => row.docker_url && /\/(?:blob|tree)\/[^/]+\/(?:.+\/)?(?:Dockerfile|docker-compose[^/]*\.ya?ml|compose[^/]*\.ya?ml)/i.test(row.docker_url) && !row.options.some((option) => option.method === "docker" && option.url === row.docker_url)).length,
       sample: options.slice(0, 20).map(({ slug, method, label, url, image, support_level }) => ({ slug, method, label, url, image, support_level })),

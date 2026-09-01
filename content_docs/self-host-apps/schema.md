@@ -1,10 +1,10 @@
 # Self-host apps data model
 
-`/self-host-apps` owns `public.self_host_apps` and its supporting tables. Source availability is a directory fact, not an eligibility rule.
+`/self-host-apps` owns `public.self_host_apps` and the small set of tables that make the directory useful. Source availability is a fact about an app, not a filter for this page.
 
 ## Public query
 
-The page reads:
+The page reads published, self-hostable rows:
 
 ```sql
 select *
@@ -13,61 +13,56 @@ where published = true
   and self_hosting_status = 'self_hostable';
 ```
 
-Categories come from `self_host_app_categories` through `self_host_app_category_links`.
-
-`source_model` records `open_source`, `source_available`, `closed_source`, or `unknown`. All four may appear when the app is genuinely self-hostable and its deployment is verified.
+Categories come from `self_host_app_categories` through `self_host_app_category_links`. The page can show open-source, source-available, and closed-source apps. A public repository is optional for a closed product.
 
 ## Tables used by this page
 
-- `self_host_apps`: page-owned app records.
-- `self_host_app_categories`: controlled categories.
-- `self_host_app_category_links`: app/category relationships.
-- `self_host_app_candidates`: discovery staging.
-- `self_host_app_sources`: raw source payloads.
-- `self_host_app_field_sources`: provenance for verified fields.
-- `self_host_app_curated_overrides`: reviewed corrections.
-- `self_host_app_import_runs`: discovery and refresh runs.
-- `self_host_app_resource_estimates`: reviewed planning ranges that never overwrite exact requirements.
-- `self_host_app_install_options`: direct install destinations such as registries, Compose files, and appliance catalogs.
+- `self_host_apps`: the reviewed app record and stable page facts.
+- `self_host_app_categories`: the controlled category list.
+- `self_host_app_category_links`: app-to-category links.
+- `self_host_app_resource_estimates`: one row per app with RAM and storage planning ranges.
+- `self_host_app_install_options`: one row per app with arrays for each install destination and a JSON list of link details.
+- `github_projects`: shared mutable GitHub facts. `self_host_apps.github_project_id` links an app when it has a GitHub repository.
+- `self_host_app_candidates`: the durable discovery and review queue. Candidate rows are never public.
+
+Discovery and refresh logs live in GitHub Actions or VPS job logs. The old import-run, raw-source, field-source, and curated-override tables are removed by the streamline migration.
 
 ## Self-hosting classification
 
-`self_hosting_status` has exactly three values:
+`self_hosting_status` has exactly three values: `self_hostable`, `not_self_hostable`, and `unknown`. An app is published only when an official website, documentation page, package, appliance catalog, or container image proves that users can run it on infrastructure they control.
 
-- `self_hostable`
-- `not_self_hostable`
-- `unknown`
+`source_model` records the legal distribution model: `open_source`, `source_available`, `closed_source`, or `unknown`. A closed-source app still belongs in this directory when its self-hosted build is verified.
 
-Do not add a confidence score. An app is shown on this page only after official sources support `self_hostable`. Legacy rows may show `source_model = unknown` while they are re-reviewed, but candidate and upsert workflows reject new published records with an unknown source model.
+## Categories
 
-## Category rules
+Use the controlled taxonomy in `scripts/self-host-apps/lib/categories.mjs`. Assign one to three categories by the app's actual purpose. Directory labels and GitHub topics are leads, not final categories.
 
-Use the controlled taxonomy in `scripts/self-host-apps/lib/categories.mjs`. Assign one to three categories by the app's actual purpose. Raw directory categories and GitHub topics remain source metadata until reviewed.
+## Technical facts
 
-## Technical fact rules
+`ram_min_mb`, `ram_recommended_mb`, and `storage_min_gb` hold requirements stated by an official source. `ram_default_limit_mb` is a reviewed appliance default and is not an app minimum. `storage_profile` and `persistent_storage` describe workload shape, not capacity.
 
-`ram_min_mb` and `ram_recommended_mb` hold app requirements stated by an official source. `ram_default_limit_mb` holds a default memory cap from a reviewed appliance package. The package cap must not be presented as an app minimum.
+Planning ranges live in `self_host_app_resource_estimates`. The row keeps separate RAM and storage ranges, each with a kind (`derived` or `estimated`), confidence, basis, source URLs, note, and check date. The UI labels these values `(estimated)` and never presents them as a publisher requirement. If a source was checked and did not publish a value, the value stays null.
 
-`storage_min_gb` holds a stated minimum. `storage_profile` holds a reviewed workload tier. `persistent_storage` records whether a reviewed deployment declares persistent storage, but it does not imply a capacity requirement.
+`technical_fact_status` on the app row records whether each audited fact is `published`, `not_published`, or `unchecked`, plus source URLs and the check date. This replaces a separate field-source table and lets QA show real gaps.
 
-`self_host_app_resource_estimates` is separate from those exact fields. Each RAM or storage range stores its unit, whether it is a derived planning range or an editorial estimate, confidence, basis, source URLs, and review date. The UI labels these values `estimated`; an estimate must never be rendered as a minimum or recommendation. A researched null remains null when the project does not publish enough evidence for a defensible range.
+## Install destinations
 
-`docker_url` is an evidence or documentation URL and may point to a Dockerfile or Compose source file. It is not automatically an installation destination. `docker_image` is the image reference. `self_host_app_install_options` stores the clickable registry page for a known image, the Compose file or instructions, and verified TrueNAS SCALE, Umbrel, or other platform catalog entries. Source-file links remain available as provenance but are not presented as the Docker install button.
+`self_host_app_install_options` has one row per app. Each destination column is a `text[]`, so an app can have more than one Docker, Compose, NAS, or appliance link without comma parsing. `options` keeps the label, support level, image, source URL, note, and sort order for each link. `docker_urls` always point to a registry or install page; Dockerfiles and Compose files remain evidence or Compose destinations.
 
-A null value may mean that a checked official source did not publish the fact. `self_host_app_field_sources` records that checked outcome, including the source URL, date, and note. The page and QA report distinguish a researched null from a field that has not been checked.
+Supported columns include Docker, Compose, TrueNAS SCALE, Umbrel, Unraid, YunoHost, CasaOS, Runtipi, Cosmos, OpenMediaVault, Synology, QNAP, Proxmox, Home Assistant OS, Kubernetes, Helm, native, binary, package, and other. Add a new column only when a destination has a reviewed source.
 
 ## Candidate states
 
 - `new`: discovered but not deduped.
-- `duplicate`: matched an existing app or earlier candidate.
-- `queued`: unique and ready for a batch.
-- `enriching`: selected for official-source research.
+- `duplicate`: matched an existing app or candidate.
+- `queued`: ready for research.
+- `enriching`: claimed by a reviewer.
 - `published`: converted into a `self_host_apps` row.
-- `needs_review`: enrichment could not verify a required fact.
+- `needs_review`: a real blocker remains.
 - `rejected`: not an identifiable, installable self-host app.
 
-Candidate identity uses exact canonical source-code URL and official homepage matches. Name-only matches require review. Slugs and names never prove that two apps are the same.
+Exact canonical source-code and homepage matches can be deduped automatically. Name-only matches require review.
 
 ## Rendering
 
-There are no per-app routes. Cards and the details drawer use the same server-loaded records. Complete records remain in server-rendered HTML so crawlers and AI agents can read the directory without executing the drawer interaction.
+There are no per-app routes. Cards and the details drawer use the same server-loaded records. The complete records stay in server-rendered HTML so crawlers and AI agents can read the directory without opening the drawer.

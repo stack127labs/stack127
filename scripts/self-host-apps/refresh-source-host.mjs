@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import { parseArgs, numberArg } from "./lib/args.mjs";
-import { canonicalUrl } from "./lib/candidates.mjs";
 import { withClient } from "./lib/db.mjs";
 import { licenseTypeFromSpdx } from "./lib/schema.mjs";
 
@@ -208,42 +207,16 @@ async function writeFacts(client, row, host, facts, checkedAt) {
             when license_type = 'unknown' and $26 <> 'unknown' then $26::public.self_host_app_license_type
             else license_type
           end,
+          data_source_urls = coalesce((
+            select array_agg(distinct url order by url)
+            from unnest(coalesce(data_source_urls, '{}') || array[$27]::text[]) as values(url)
+          ), '{}'),
+          data_checked_at = $23,
+          data_confidence = 'high',
           updated_at = now()
       where id = $1
     `,
-    [row.id, ...values, maintenance, facts.license, licenseType],
-  );
-  await client.query(
-    `
-      insert into public.self_host_app_sources (app_id, source, source_key, source_url, payload)
-      values ($1, $2, $3, $4, $5::jsonb)
-      on conflict (source, source_key) do update set
-        app_id = excluded.app_id, source_url = excluded.source_url,
-        payload = excluded.payload, imported_at = now()
-    `,
-    [row.id, `${host}_api`, canonicalUrl(row.source_code_url), row.source_code_url, JSON.stringify(facts.raw)],
-  );
-  const fields = [
-    "source_repo_id", "source_full_name", "source_stars", "source_forks", "source_watchers",
-    "source_open_issues", "source_primary_language", "source_languages", "source_topics",
-    "source_created_at", "source_updated_at", "source_pushed_at", "source_default_branch",
-    "source_repo_size_kb", "source_archived", "source_disabled", "source_is_fork",
-    "source_is_template", "source_latest_release", "source_latest_release_at",
-    "source_last_commit_at", "source_checked_at", "maintenance_status",
-  ];
-  await client.query(
-    `
-      insert into public.self_host_app_field_sources (
-        app_id, field_name, source, source_url, confidence, checked_at, note
-      )
-      select $1, field_name, $2, $3, 'high', $4, 'Mutable repository fact.'
-      from unnest($5::text[]) as field_name
-      on conflict (app_id, field_name) do update set
-        source = excluded.source, source_url = excluded.source_url,
-        confidence = excluded.confidence, checked_at = excluded.checked_at,
-        note = excluded.note
-    `,
-    [row.id, `${host}_api`, row.source_code_url, checkedAt, fields],
+    [row.id, ...values, maintenance, facts.license, licenseType, row.source_code_url],
   );
 }
 

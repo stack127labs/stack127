@@ -1,11 +1,11 @@
 [
   {
     "file": "backfill-open-source-pricing.mjs",
-    "purpose": "Sets free-to-self-host pricing only for published apps with an already reviewed open-source model and license, and records the derivation as field provenance."
+    "purpose": "Sets free-to-self-host pricing only for published apps with an already reviewed open-source model and license, and records the source URL on the app row."
   },
   {
     "file": "backfill-source-available-pricing.mjs",
-    "purpose": "Applies the complete reviewed pricing classification for published source-available apps, requires an exact catalog match, and records official-source field provenance."
+    "purpose": "Applies the complete reviewed pricing classification for published source-available apps, requires an exact catalog match, and records official source URLs on the app row."
   },
   {
     "file": "research-unknown-licenses.mjs",
@@ -129,12 +129,12 @@
   {
     "name": "self-host-apps:upsert",
     "command": "npm run self-host-apps:upsert -- --file app.json --dry-run",
-    "purpose": "Upsert one reviewed self-host app with category links and provenance."
+    "purpose": "Upsert one reviewed self-host app with category links and compact source metadata."
   },
   {
     "name": "self-host-apps:upsert-batch",
     "command": "npm run self-host-apps:upsert-batch -- --file scripts/self-host-apps/batches/curated-apps.json --publish --dry-run --limit 100 --offset 0 --chunk-size 100",
-    "purpose": "Upsert a reviewed app batch while preserving categories, source payloads, and provenance."
+    "purpose": "Upsert a reviewed app batch while preserving categories and compact source metadata."
   },
   {
     "name": "self-host-apps:cache-icons",
@@ -174,7 +174,7 @@
   {
     "name": "self-host-apps:apply-qa-overrides",
     "command": "node scripts/self-host-apps/apply-qa-overrides.mjs --file scripts/self-host-apps/batches/YYYY-MM-DD-qa-reviewed.json --dry-run",
-    "purpose": "Apply reviewed field-level corrections with provenance."
+    "purpose": "Apply reviewed app corrections and append their source URLs."
   },
   {
     "name": "self-host-apps:sync-prod-to-local",

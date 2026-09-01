@@ -1,12 +1,13 @@
 # Self-host app data workflow
 
 ```text
-recurring discovery or bulk import
+recurring discovery
   -> self_host_app_candidates
   -> exact dedupe / name review
   -> atomic claim
-  -> Codex research and reviewed decisions
-  -> self_host_apps + provenance
+  -> official-source research
+  -> self_host_apps + category links + source summary
+  -> resource/install refresh
   -> QA
   -> provider refresh
 ```
@@ -15,84 +16,53 @@ Production is canonical. Local is a disposable mirror for development and QA.
 
 ## Discovery
 
-Recurring cadence:
-
-- GitHub topics: daily.
-- Awesome Selfhosted and selfh.st: weekly.
-- Selfhostedworld and OpenAlternative: monthly.
-
-One-time expansion:
+Run the directory and appliance collectors with `--write` only after inspecting their reports. They write candidate evidence, never final categories or publication decisions. Keep the broad candidate queue because it prevents duplicate research and gives reviewers a clear handoff. Run logs and counts belong in the job output, not in a database import-run table.
 
 ```bash
 npm run self-host-apps:discover-selfhostedworld -- --limit 5000 --details --concurrency 4 --out <report.json>
 npm run self-host-apps:discover-openalternative -- --limit 5000 --details --concurrency 4 --out <report.json>
+npm run self-host-apps:discover-app-catalogs -- --catalog all --limit 5000 --write
 ```
 
-Inspect the report before adding `--write`. Dedicated collectors read each directory's structured data and keep its detail payload as evidence. They do not publish or classify apps.
-
-## Dedupe
+## Dedupe and review
 
 ```bash
 npm run self-host-apps:dedupe-candidates -- --dry-run
 npm run self-host-apps:dedupe-candidates
-```
-
-Exact canonical source-code URL and official homepage matches become duplicates. Their discovery payload is attached to the existing app. Normalized-name matches become `needs_review` with the possible match IDs. Slugs and names never prove identity.
-
-## Claim and research
-
-```bash
 npm run self-host-apps:select-candidate-batch -- --limit 100 --out <batch.json>
 npm run self-host-apps:collect-github-evidence -- --file <batch.json>
 ```
 
-Selection uses `FOR UPDATE SKIP LOCKED` and changes claimed rows to `enriching`, so concurrent agents do not take the same work. Discovery preserves an active claim.
+Selection uses `FOR UPDATE SKIP LOCKED` and marks claimed rows `enriching`, so two workers do not take the same work. Reviewers use `references/review-format.md`. Put supporting links in `sources` and `data_source_urls`; use `technical_fact_status` for checked-but-unpublished technical facts. There is no field-source table.
 
-Codex researches the official website, docs, releases, packages, containers, license, publisher, icon, deployment instructions, and source code when it exists. Scripts do not write summaries, categories, classifications, surfaces, or resource estimates.
+The review applier validates and moves data. Publication requires an official identity, a cached icon, one to three controlled categories, a verified self-hosting classification, install documentation, and at least one source URL. Open and source-available apps need a verified repository and license. Closed-source apps need an official website and publisher identity, but no repository.
 
-## Apply reviewed decisions
+## Technical refresh
+
+Official primary and appliance sources can fill Docker, Compose, database, persistence, release, and appliance memory facts. Apply numeric requirements only from a separately reviewed requirements file. If the source has no RAM or storage value, leave the exact field null and set the status to `not_published`.
 
 ```bash
-npm run self-host-apps:apply-candidate-review -- --file <reviewed.json> --dry-run
-npm run self-host-apps:apply-candidate-review -- --file <reviewed.json>
+npm run self-host-apps:refresh-primary-technical-facts -- --refresh-all --requirements-file <reviewed-requirements.json> --out <report.json>
+npm run self-host-apps:refresh-primary-technical-facts -- --refresh-all --apply-reviewed --requirements-file <reviewed-requirements.json> --out <report.json>
+npm run self-host-apps:refresh-app-catalog-facts -- --truenas-dir <checkout> --umbrel-dir <checkout> --apply-reviewed
 ```
 
-The review applier validates and moves data; it makes no editorial decisions. Publication requires an official identity, a cached icon or reviewed fallback, one to three categories, verified self-hosting classification, install docs, and field provenance. Open and source-available apps require a verified source repository and license. Closed-source apps require an official website and publisher or product terms.
-
-Known RAM, storage, database, Docker, Compose, pricing, release, and surface facts require direct evidence. Otherwise keep them `null` or `unknown`. A repository scan is not evidence for a RAM or storage number.
-
-Official appliance catalogs may supply exact container images, Compose files, declared database services, package memory caps, and persistent-volume declarations. Keep a package memory cap in `ram_default_limit_mb`, not in a minimum or recommended field. Keep a volume declaration in `persistent_storage`; it does not prove a storage minimum.
-
-When an official source was checked but did not publish a value, keep the value null and record the checked outcome in `self_host_app_field_sources`. This closes the research task without inventing a number.
-
-Install destinations are refreshed separately from evidence URLs:
+Planning estimates are separate reviewed records:
 
 ```bash
-npm run self-host-apps:refresh-install-options -- --limit 5000
-npm run self-host-apps:refresh-install-options -- --limit 5000 --apply
-```
-
-The refresh turns a known Docker image into a registry page, keeps a Compose URL as Compose, and adds direct links for appliance catalogs present in the source payload. A Dockerfile, `docker-compose.yml`, GitHub repository, or README is never used as the Docker image destination. Only known registries and verified catalog URLs are emitted; unsupported platforms remain absent until a source is reviewed.
-
-Resource ranges are reviewed inputs, not automatic guesses. Apply a checked batch only after inspecting its evidence:
-
-```bash
-npm run self-host-apps:apply-resource-estimates -- --file <reviewed-estimates.json> --dry-run
+npm run self-host-apps:propose-resource-estimates -- --limit 5000 --out <resource-estimates.json>
 npm run self-host-apps:apply-resource-estimates -- --file <reviewed-estimates.json> --apply-reviewed
 ```
 
-Each record must include a RAM or storage range, `derived` or `estimated` kind, confidence, basis, and at least one source URL. Exact requirements remain in their existing fields, and estimates are shown with an explicit `(estimated)` label.
+Estimates must include a range, kind, confidence, basis, and source URL. They are always shown as `(estimated)`.
 
-Primary-source technical refreshes always run as proposals first. Numeric RAM and storage facts are stripped from an applied batch unless their slug and reviewed values appear in a separate `--requirements-file`. This prevents an example deployment, hosted plan, model-specific figure, or development environment from becoming a general requirement. Legacy directory-import provenance does not count as a technical audit; use `--refresh-all` when a complete recheck is needed.
+Install destinations are refreshed into one row per app:
 
 ```bash
-npm run self-host-apps:refresh-primary-technical-facts -- --requirements-file <reviewed-requirements.json> --out <report.json>
-npm run self-host-apps:refresh-primary-technical-facts -- --apply-reviewed --requirements-file <reviewed-requirements.json> --out <report.json>
-npm run self-host-apps:refresh-primary-technical-facts -- --refresh-all --requirements-file <reviewed-requirements.json> --out <report.json>
-npm run self-host-apps:refresh-primary-technical-facts -- --refresh-all --apply-reviewed --requirements-file <reviewed-requirements.json> --out <report.json>
+npm run self-host-apps:refresh-install-options -- --limit 5000 --apply
 ```
 
-Use `self-host-apps:release-candidate-batch` when a claimed batch must be abandoned.
+Docker links point to a registry or install page. Dockerfiles, Compose files, repositories, and READMEs are not Docker install buttons. Appliance links are emitted only when a reviewed catalog or package source supplies them.
 
 ## QA
 
@@ -106,25 +76,22 @@ npm run typecheck
 npm run build
 ```
 
-The QA report keeps researched null outcomes separate from the actionable queue. A field counts as researched only when its field source comes from an official or manually reviewed audit, not from legacy directory-import metadata. `technical_pending_count` must be zero before a completeness release; `researched_null_counts` explains which facts official sources do not publish.
+The QA report separates actionable gaps from researched null outcomes. `technical_pending_count` means a fact was not checked. `*_not_published` means an official source was checked and did not publish that value. Do not hide either state with a guess.
 
-## Mutable source facts
+## Mutable provider facts
 
-- GitHub: every 12 hours.
-- GitLab and Codeberg: daily.
-- Official container and app-catalog sources: daily or weekly based on source limits.
-- Closed-source release pages: weekly.
-
-Refresh jobs update provider-neutral source facts, maintenance state, raw API evidence, and field verification dates. They do not change summaries, categories, self-hosting classification, deployment facts, links, or publication state.
+GitHub facts are stored in `github_projects` and shared by self-host and terminal app pages. GitLab and Codeberg facts remain in the provider-neutral `source_*` columns until provider-specific tables are added. Provider refreshes update stars, languages, topics, releases, maintenance, and licenses only; they do not change summaries, categories, self-hosting status, install support, or publication.
 
 ## Database direction
-
-Refresh local from production:
 
 ```bash
 npm run self-host-apps:sync-prod-to-local -- --confirm-local-reset
 ```
 
-The old local-to-production mirror is intentionally guarded. It requires `--confirm-reviewed-push`, never drafts missing production rows by default, and should be used only for a reviewed exceptional push. Normal enrichment writes directly to the chosen database and keeps production canonical.
+The local-to-production mirror is exceptional and guarded:
 
-GitHub Actions require an IPv4-capable Supabase pooler connection in the `DATABASE_POOLER_URL` repository secret. The direct `db.<project>.supabase.co` URL is IPv6-only and does not work on GitHub-hosted runners.
+```bash
+npm run self-host-apps:sync-local-to-prod -- --confirm-reviewed-push --dry-run
+```
+
+Pass `--draft-missing` only when the reviewed local mirror is intentionally authoritative for publication. Without that flag, the script never drafts production rows. Normal enrichment writes directly to the selected database. GitHub Actions and VPS logs are the run history. No import-run table is needed.

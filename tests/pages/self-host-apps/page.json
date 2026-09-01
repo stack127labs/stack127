@@ -6,6 +6,7 @@
     "tests/pages/self-host-apps/card-layout.test.mjs",
     "tests/pages/self-host-apps/catalog-facts.test.mjs",
     "tests/pages/self-host-apps/inclusive-data-model.test.mjs",
+    "tests/pages/self-host-apps/install-options.test.mjs",
     "tests/pages/self-host-apps/license-filter.spec.ts",
     "tests/pages/self-host-apps/layout.spec.ts",
     "tests/pages/self-host-apps/source-model.test.mjs",

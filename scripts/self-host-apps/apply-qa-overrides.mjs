@@ -48,60 +48,35 @@ async function replaceCategoryLinks(client, appId, categories) {
   }
 }
 
-async function upsertFieldSources(client, appId, record, currentRow) {
-  const explicitSources = record.field_sources ?? [];
-  const fallbackSourceUrl = record.source_url ?? currentRow.source_code_url ?? currentRow.website_url;
-  const generatedSources =
-    fallbackSourceUrl && explicitSources.length === 0
-      ? editableColumns
-          .filter((column) => Object.hasOwn(record, column))
-          .map((column) => ({
-            field_name: column,
-            source: record.source ?? "official_source_qa",
-            source_url: fallbackSourceUrl,
-            confidence: record.confidence ?? "high",
-            note: record.note ?? null,
-          }))
-      : [];
-
-  for (const source of [...explicitSources, ...generatedSources]) {
-    if (!source.field_name || !source.source_url) continue;
-    await client.query(
-      `
-        insert into public.self_host_app_field_sources (
-          app_id,
-          field_name,
-          source,
-          source_url,
-          confidence,
-          checked_at,
-          note
-        )
-        values ($1, $2, $3, $4, $5, now(), $6)
-        on conflict (app_id, field_name) do update set
-          source = excluded.source,
-          source_url = excluded.source_url,
-          confidence = excluded.confidence,
-          checked_at = excluded.checked_at,
-          note = excluded.note
-      `,
-      [
-        appId,
-        source.field_name,
-        source.source ?? "official_source_qa",
-        source.source_url,
-        source.confidence ?? "high",
-        source.note ?? null,
-      ],
-    );
-  }
+async function recordDataSources(client, appId, record, currentRow) {
+  const urls = [
+    record.source_url,
+    ...(record.data_source_urls ?? []),
+    currentRow.source_code_url,
+    currentRow.website_url,
+  ].filter((value) => typeof value === "string" && /^https?:\/\//i.test(value));
+  if (urls.length === 0) return;
+  await client.query(
+    `
+      update public.self_host_apps
+      set data_source_urls = coalesce((
+        select array_agg(distinct url order by url)
+        from unnest(coalesce(data_source_urls, '{}') || $2::text[]) as values(url)
+      ), '{}'),
+      data_checked_at = now(),
+      data_confidence = coalesce(nullif($3, ''), data_confidence),
+      updated_at = now()
+      where id = $1
+    `,
+    [appId, urls, record.confidence ?? "high"],
+  );
 }
 
 async function applyRecord(client, record, dryRun) {
   if (!record.slug) throw new Error("record.slug is required");
 
   const columns = editableColumns.filter((column) => Object.hasOwn(record, column));
-  if (columns.length === 0 && !record.field_sources?.length) {
+  if (columns.length === 0 && !(record.sources?.length || record.data_source_urls?.length)) {
     console.log(`Skipped ${record.slug}: no fields to update`);
     return;
   }
@@ -135,7 +110,7 @@ async function applyRecord(client, record, dryRun) {
     await replaceCategoryLinks(client, appId, record.categories);
   }
 
-  await upsertFieldSources(client, appId, record, currentRow);
+  await recordDataSources(client, appId, record, currentRow);
   console.log(`${dryRun ? "Checked" : "Applied"} QA override: ${record.slug}`);
 }
 

@@ -37,24 +37,17 @@ async function main() {
 
         await client.query(
           `
-            insert into public.self_host_app_field_sources (
-              app_id, field_name, source, source_url, confidence, checked_at, note
-            )
-            select
-              candidate.id,
-              'pricing_model',
-              'reviewed_open_source_license',
-              coalesce(candidate.source_code_url, candidate.website_url),
-              'high',
-              now(),
-              'The reviewed ' || candidate.license || ' open-source license permits self-hosting without a software license fee. Paid hosting, support, or enterprise services may still exist.'
+            update public.self_host_apps app
+            set data_source_urls = coalesce((
+              select array_agg(distinct url order by url)
+              from unnest(coalesce(app.data_source_urls, '{}') ||
+                array_remove(array[candidate.source_code_url, candidate.website_url], null)::text[]) as values(url)
+            ), '{}'),
+            data_checked_at = now(),
+            data_confidence = 'high',
+            updated_at = now()
             from pricing_backfill_candidates candidate
-            on conflict (app_id, field_name) do update set
-              source = excluded.source,
-              source_url = excluded.source_url,
-              confidence = excluded.confidence,
-              checked_at = excluded.checked_at,
-              note = excluded.note
+            where app.id = candidate.id
           `,
         );
       }

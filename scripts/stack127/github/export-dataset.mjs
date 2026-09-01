@@ -130,10 +130,10 @@ async function exportSelfHostApps({ outDir, databaseUrl }) {
           app.publisher_type,
           app.publisher_url,
           app.maintenance_status,
-          app.github_latest_release,
-          app.github_latest_release_at,
-          app.github_last_commit_at,
-          app.github_checked_at,
+          coalesce(github_project.latest_release, app.source_latest_release, app.github_latest_release) as github_latest_release,
+          coalesce(github_project.latest_release_at, app.source_latest_release_at, app.github_latest_release_at) as github_latest_release_at,
+          coalesce(github_project.last_commit_at, app.source_last_commit_at, app.github_last_commit_at) as github_last_commit_at,
+          coalesce(github_project.checked_at, app.source_checked_at, app.github_checked_at) as github_checked_at,
           app.docker_support,
           app.compose_support,
           app.requires_database,
@@ -141,10 +141,11 @@ async function exportSelfHostApps({ outDir, databaseUrl }) {
           app.ram_mb,
           app.storage_profile,
           app.surfaces,
-          app.github_primary_language,
-          app.github_topics,
+          coalesce(github_project.primary_language, app.source_primary_language, app.github_primary_language) as github_primary_language,
+          case when cardinality(coalesce(github_project.topics, '{}')) > 0 then github_project.topics when cardinality(app.source_topics) > 0 then app.source_topics else app.github_topics end as github_topics,
           app.updated_at
         from public.self_host_apps app
+        left join public.github_projects github_project on github_project.id = app.github_project_id
         ${categoryJoin}
         where app.published = true
           and app.self_hosting_status = 'self_hostable'

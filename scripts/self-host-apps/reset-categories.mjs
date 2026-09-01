@@ -246,27 +246,6 @@ async function replaceLinks(client, appsWithCategories) {
       );
     }
 
-    await client.query(
-      `
-        insert into public.self_host_app_field_sources (
-          app_id,
-          field_name,
-          source,
-          source_url,
-          confidence,
-          checked_at,
-          note
-        )
-        values ($1, 'categories', 'stack127_taxonomy', null, 'medium', now(), $2)
-        on conflict (app_id, field_name) do update set
-          source = excluded.source,
-          source_url = excluded.source_url,
-          confidence = excluded.confidence,
-          checked_at = excluded.checked_at,
-          note = excluded.note
-      `,
-      [app.id, `Mapped from: ${app.old_category_slugs.join(", ") || "none"}`],
-    );
   }
 }
 

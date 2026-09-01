@@ -125,48 +125,25 @@ function mergeEvidence(records) {
   };
 }
 
-function fieldSources(facts, checkedAt) {
-  const rows = [];
-  const add = (fieldName, sourceUrl, note, confidence = "medium") => {
-    if (!sourceUrl) return;
-    rows.push({ fieldName, sourceUrl, note, confidence });
+function technicalStatus(facts, checkedAt) {
+  const entry = (published, sourceUrl, note) => ({
+    status: published ? "published" : "not_published",
+    confidence: published ? "high" : "low",
+    source_urls: sourceUrl ? [sourceUrl] : [],
+    checked_at: checkedAt,
+    note,
+  });
+  return {
+    ram: entry(Boolean(facts.memoryLimitMb), facts.ramSourceUrl, "Appliance package checked for RAM information."),
+    storage: entry(Boolean(facts.persistentStorage), facts.storageSourceUrl, "Appliance package checked for storage information."),
+    database: entry(facts.databaseTypes.length > 0, facts.databaseSourceUrl, "Appliance package checked for datastore services."),
+    docker: entry(Boolean(facts.dockerImage), facts.dockerSourceUrl, "Appliance package checked for container support."),
+    docker_image: entry(Boolean(facts.dockerImage), facts.dockerSourceUrl, "Appliance package checked for an exact image."),
+    compose: entry(Boolean(facts.composeSupport), facts.composeSourceUrl, "Appliance package checked for Compose support."),
   };
-
-  if (facts.dockerImage) add("docker_image", facts.dockerSourceUrl, "Exact image declared by a reviewed appliance package.");
-  add("docker_support", facts.dockerSourceUrl, "Reviewed appliance package supplies a container deployment.");
-  if (facts.composeSupport) {
-    add("compose_support", facts.composeSourceUrl, "Reviewed appliance package supplies a Compose file.");
-    add("compose_url", facts.composeSourceUrl, "Compose file from the reviewed appliance package.");
-  } else {
-    add("compose_support", facts.dockerSourceUrl, "Checked package source did not provide a portable Compose file; value remains unknown.", "low");
-  }
-
-  if (facts.databaseTypes.length > 0) {
-    add("requires_database", facts.databaseSourceUrl, `Package declares datastore services: ${facts.databaseTypes.join(", ")}.`);
-    add("database_types", facts.databaseSourceUrl, `Datastore services declared by the package: ${facts.databaseTypes.join(", ")}.`);
-  } else {
-    add("requires_database", facts.databaseSourceUrl, "Checked package declares no separate datastore service; embedded storage remains possible.", "low");
-    add("database_types", facts.databaseSourceUrl, "Checked package declares no named datastore service.", "low");
-  }
-
-  if (facts.memoryLimitMb) {
-    add("ram_default_limit_mb", facts.ramSourceUrl, "Default package memory cap. This is not an app minimum.");
-  } else {
-    add("ram_min_mb", facts.ramSourceUrl, "Checked package does not publish an app RAM minimum.", "low");
-  }
-
-  if (facts.persistentStorage) {
-    add("persistent_storage", facts.storageSourceUrl, "Package declares persistent storage without a fixed capacity.");
-  } else {
-    add("storage_min_gb", facts.storageSourceUrl, "Checked package does not publish a storage minimum.", "low");
-  }
-
-  if (facts.releaseVersion) add("release_version", facts.releaseSourceUrl, "Package version mapped to the upstream app version.");
-  if (facts.releasePublishedAt) add("release_published_at", facts.releaseSourceUrl, "Package catalog update time.");
-  return rows.map((row) => ({ ...row, checkedAt }));
 }
 
-async function writeFacts(client, app, facts, sources, checkedAt) {
+async function writeFacts(client, app, facts, checkedAt) {
   const databaseTypes = normalizeDatabaseTypes([...app.database_types, ...facts.databaseTypes]);
   const deploymentMethods = unique([
     ...app.deployment_methods,
@@ -190,6 +167,13 @@ async function writeFacts(client, app, facts, sources, checkedAt) {
           release_published_at = coalesce(release_published_at, $10),
           release_checked_at = case when $9 is not null then $11 else release_checked_at end,
           technical_facts_checked_at = $11,
+          technical_fact_status = $12::jsonb,
+          data_source_urls = coalesce((
+            select array_agg(distinct url order by url)
+            from unnest(coalesce(data_source_urls, '{}') || $13::text[]) as values(url)
+          ), '{}'),
+          data_checked_at = $11,
+          data_confidence = case when $12::jsonb @> '{"docker":{"confidence":"high"}}'::jsonb then 'high' else data_confidence end,
           updated_at = now()
       where id = $1
     `,
@@ -205,46 +189,10 @@ async function writeFacts(client, app, facts, sources, checkedAt) {
       facts.releaseVersion,
       facts.releasePublishedAt,
       checkedAt,
+      JSON.stringify(technicalStatus(facts, checkedAt)),
+      [facts.dockerSourceUrl, facts.composeSourceUrl, facts.databaseSourceUrl, facts.storageSourceUrl, facts.ramSourceUrl, facts.releaseSourceUrl].filter(Boolean),
     ],
   );
-
-  if (sources.length > 0) {
-    await client.query(
-      `
-        insert into public.self_host_app_field_sources (
-          app_id, field_name, source, source_url, confidence, checked_at, note
-        )
-        select $1, source_record.field_name, 'official_appliance_catalog',
-               source_record.source_url, source_record.confidence,
-               source_record.checked_at, source_record.note
-        from jsonb_to_recordset($2::jsonb) as source_record(
-          field_name text,
-          source_url text,
-          confidence text,
-          checked_at timestamptz,
-          note text
-        )
-        on conflict (app_id, field_name) do update set
-          source = excluded.source,
-          source_url = excluded.source_url,
-          confidence = excluded.confidence,
-          checked_at = excluded.checked_at,
-          note = excluded.note
-        where self_host_app_field_sources.confidence in ('unknown', 'low')
-           or excluded.confidence = 'high'
-      `,
-      [
-        app.id,
-        JSON.stringify(sources.map((source) => ({
-          field_name: source.fieldName,
-          source_url: source.sourceUrl,
-          confidence: source.confidence,
-          checked_at: source.checkedAt,
-          note: source.note,
-        }))),
-      ],
-    );
-  }
 }
 
 async function main() {
@@ -257,13 +205,13 @@ async function main() {
     const rows = await client.query(
       `
         select app.id, app.slug, app.name, app.database_types, app.deployment_methods,
-               source.source, source.source_url, source.payload
+               install.catalog_sources
         from public.self_host_apps app
-        join public.self_host_app_sources source on source.app_id = app.id
+        join public.self_host_app_install_options install on install.app_id = app.id
         where app.published = true
           and app.self_hosting_status = 'self_hostable'
-          and source.source in ('truenas_apps', 'umbrel_apps')
-        order by app.slug, source.source
+          and jsonb_array_length(install.catalog_sources) > 0
+        order by app.slug
       `,
     );
     const apps = new Map();
@@ -276,7 +224,7 @@ async function main() {
         deployment_methods: row.deployment_methods ?? [],
         sources: [],
       };
-      current.sources.push(row);
+      current.sources.push(...(Array.isArray(row.catalog_sources) ? row.catalog_sources : []));
       apps.set(row.id, current);
     }
 
@@ -291,14 +239,13 @@ async function main() {
             if (source.source === "truenas_apps") evidence.push(await trueNasEvidence(source, args["truenas-dir"]));
           }
           const facts = mergeEvidence(evidence);
-          const sources = fieldSources(facts, checkedAt);
           report.checked += 1;
           for (const [key, value] of Object.entries(facts)) {
             if (value !== null && value !== false && (!Array.isArray(value) || value.length > 0) && !key.endsWith("SourceUrl")) {
               report.facts[key] = (report.facts[key] ?? 0) + 1;
             }
           }
-          if (applyReviewed) await writeFacts(client, app, facts, sources, checkedAt);
+          if (applyReviewed) await writeFacts(client, app, facts, checkedAt);
           report.updated += 1;
         } catch (error) {
           report.failed.push({ slug: app.slug, error: error.message });

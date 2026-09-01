@@ -14,7 +14,7 @@ Discovery writes staging evidence only. Official app sources and the enrichment 
 1. Read `content_docs/self-host-apps/data-workflow.md` and `schema.md`.
 2. Run the relevant `self-host-apps:discover-*` command with `--write`.
    Use `self-host-apps:discover-app-catalogs` for the official TrueNAS and Umbrel catalogs; these sources include commercial and closed-source apps that open-source lists omit.
-3. Confirm its `self_host_app_import_runs` result and candidate count.
+3. Confirm the command report and candidate count. Run history is kept in the job log, not a database import-run table.
 4. Dry-run, then apply dedupe:
    `npm run self-host-apps:dedupe-candidates -- --dry-run`
    `npm run self-host-apps:dedupe-candidates`
@@ -28,6 +28,6 @@ Discovery writes staging evidence only. Official app sources and the enrichment 
 - Keep self-hosting status `unknown` until official evidence is checked.
 - Never assign Stack127 categories or publish from discovery.
 
-Report discovered, inserted, updated, exact duplicates, name reviews, queued, and errors.
+Report discovered, inserted, updated, exact duplicates, name reviews, queued, and errors from the command output.
 
 After reviewed catalog facts are applied, run `self-host-apps:refresh-install-options`. It creates registry, Compose, and verified appliance destinations from reviewed evidence; it does not infer support for a platform that has not supplied a catalog or package URL.

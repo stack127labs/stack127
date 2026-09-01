@@ -57,13 +57,13 @@ async function main() {
             app.publisher_url,
             app.self_hosting_status,
             app.maintenance_status,
-            app.github_owner,
-            app.github_repo,
-            app.github_stars,
-            app.github_latest_release,
-            app.github_latest_release_at,
-            app.github_last_commit_at,
-            app.github_checked_at,
+            coalesce(project.owner, app.github_owner) as github_owner,
+            coalesce(project.repo, app.github_repo) as github_repo,
+            coalesce(project.stars, app.github_stars) as github_stars,
+            coalesce(project.latest_release, app.github_latest_release) as github_latest_release,
+            coalesce(project.latest_release_at, app.github_latest_release_at) as github_latest_release_at,
+            coalesce(project.last_commit_at, app.github_last_commit_at) as github_last_commit_at,
+            coalesce(project.checked_at, app.github_checked_at) as github_checked_at,
             app.docker_support,
             app.compose_support,
             app.requires_database,
@@ -84,8 +84,8 @@ async function main() {
               (app.docker_url is null)::int +
               (app.publisher_type = 'unknown')::int +
               (app.maintenance_status = 'unknown')::int +
-              (app.github_stars is null)::int +
-              (app.github_last_commit_at is null)::int +
+              (coalesce(project.stars, app.github_stars) is null)::int +
+              (coalesce(project.last_commit_at, app.github_last_commit_at) is null)::int +
               (app.compose_support is null)::int +
               (app.requires_database is null)::int +
               (app.ram_mb is null)::int +
@@ -97,11 +97,13 @@ async function main() {
             on app_category.app_id = app.id
           left join public.self_host_app_categories category
             on category.id = app_category.category_id
+          left join public.github_projects project
+            on project.id = app.github_project_id
           where app.published = false
             and app.self_hosting_status = 'self_hostable'
             and app.source_code_url ~ '^https://github.com/[^/]+/[^/#?]+/?$'
             and not (app.slug = any($2::text[]))
-          group by app.id
+          group by app.id, project.id
         )
         select *
         from scored

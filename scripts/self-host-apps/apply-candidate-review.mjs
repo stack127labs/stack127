@@ -12,71 +12,6 @@ import {
 } from "./lib/schema.mjs";
 
 const decisions = new Set(["publish", "duplicate", "reject", "needs_review"]);
-const provenanceRequiredWhenPresent = [
-  "website_url",
-  "source_code_url",
-  "icon_source_url",
-  "docs_url",
-  "install_docs_url",
-  "docker_url",
-  "license",
-  "license_type",
-  "license_spdx_id",
-  "source_model",
-  "publisher_name",
-  "publisher_type",
-  "publisher_url",
-  "pricing_model",
-  "self_hosting_status",
-  "icon_url",
-  "summary_source",
-  "summary_confidence",
-  "source_repo_id",
-  "source_full_name",
-  "source_stars",
-  "source_forks",
-  "source_watchers",
-  "source_open_issues",
-  "source_primary_language",
-  "source_created_at",
-  "source_updated_at",
-  "source_pushed_at",
-  "source_default_branch",
-  "source_repo_size_kb",
-  "source_archived",
-  "source_disabled",
-  "source_is_fork",
-  "source_is_template",
-  "source_latest_release",
-  "source_latest_release_at",
-  "source_last_commit_at",
-  "source_checked_at",
-  "release_version",
-  "release_published_at",
-  "release_checked_at",
-  "release_url",
-  "popularity_score",
-  "popularity_basis",
-  "popularity_checked_at",
-];
-const technicalFactRules = [
-  ["docker_support", (record) => record.docker_support !== "unknown"],
-  ["deployment_methods", (record) => record.deployment_methods.length > 0],
-  ["docker_image", (record) => record.docker_image !== null],
-  ["compose_support", (record) => record.compose_support !== null],
-  ["compose_url", (record) => record.compose_url !== null],
-  ["requires_database", (record) => record.requires_database !== null],
-  ["database_types", (record) => record.database_types.length > 0],
-  ["ram_mb", (record) => record.ram_mb !== null],
-  ["ram_min_mb", (record) => record.ram_min_mb !== null],
-  ["ram_recommended_mb", (record) => record.ram_recommended_mb !== null],
-  ["storage_profile", (record) => record.storage_profile !== "unknown"],
-  ["storage_min_gb", (record) => record.storage_min_gb !== null],
-  ["resource_requirement_kind", (record) => record.resource_requirement_kind !== "unknown"],
-  ["surfaces", (record) => record.surfaces.length > 0],
-  ["source_languages", (record) => Object.keys(record.source_languages ?? {}).length > 0],
-  ["source_topics", (record) => record.source_topics.length > 0],
-];
 
 function reviewRecords(input) {
   if (Array.isArray(input)) return input;
@@ -85,30 +20,17 @@ function reviewRecords(input) {
   return [input];
 }
 
-function fieldSourceMap(record) {
-  return new Map((record.field_sources ?? []).map((source) => [source.field_name, source]));
-}
-
 function validateProvenance(record) {
   const errors = [];
-  const sources = fieldSourceMap(record);
-  const required = ["summary", "categories"];
-
-  for (const field of provenanceRequiredWhenPresent) {
-    const value = record[field];
-    if (value !== null && value !== undefined && value !== "unknown") required.push(field);
-  }
-  for (const [field, applies] of technicalFactRules) {
-    if (applies(record)) required.push(field);
-  }
-
-  for (const field of new Set(required)) {
-    const source = sources.get(field);
-    if (!source?.source) errors.push(`${field} requires field_sources evidence`);
-    if (source?.confidence && !["high", "medium", "low", "unknown"].includes(source.confidence)) {
-      errors.push(`${field} has invalid evidence confidence`);
-    }
-  }
+  const sourceUrls = [
+    record.website_url,
+    record.source_code_url,
+    record.docs_url,
+    record.install_docs_url,
+    record.docker_url,
+    record.icon_source_url,
+  ].filter((value) => typeof value === "string" && /^https?:\/\//i.test(value));
+  if (sourceUrls.length === 0) errors.push("published records require at least one source URL");
 
   return errors;
 }
@@ -148,7 +70,7 @@ function validatePublishReview(review) {
   if (record.self_hosting_status === "self_hostable" && !record.install_docs_url) {
     errors.push("self-hostable apps require verified install_docs_url");
   }
-  errors.push(...validateProvenance({ ...record, field_sources: review.field_sources ?? input.field_sources }));
+  errors.push(...validateProvenance(record));
 
   return { record, errors, warnings: validation.warnings };
 }
@@ -184,7 +106,9 @@ async function upsertApp(client, record, expectedAppId) {
   const values = appColumns.map((column) => record[column]);
   const updates = appColumns
     .filter((column) => column !== "slug")
-    .map((column) => `${column} = excluded.${column}`)
+    .map((column) => column === "github_project_id"
+      ? `${column} = coalesce(excluded.${column}, self_host_apps.${column})`
+      : `${column} = excluded.${column}`)
     .join(",\n          ");
   const result = await client.query(
     `
@@ -223,7 +147,7 @@ async function replaceCategoryLinks(client, appId, categories) {
 async function preserveCandidateSources(client, candidate, appId) {
   const related = await client.query(
     `
-      select *
+      select source_url, website_url, source_code_url, docs_url, docker_url
       from public.self_host_app_candidates
       where id = $1
          or (status = 'duplicate' and duplicate_candidate_id = $1)
@@ -231,76 +155,44 @@ async function preserveCandidateSources(client, candidate, appId) {
     [candidate.id],
   );
 
-  for (const source of related.rows) {
-    await client.query(
-      `
-        insert into public.self_host_app_sources (
-          app_id, import_run_id, source, source_key, source_url, payload
-        )
-        values ($1, $2, $3, $4, $5, $6::jsonb)
-        on conflict (source, source_key) do update set
-          app_id = excluded.app_id,
-          import_run_id = excluded.import_run_id,
-          source_url = excluded.source_url,
-          payload = excluded.payload,
-          imported_at = now()
-      `,
-      [
-        appId,
-        source.import_run_id,
-        source.source,
-        source.source_key,
-        source.source_url,
-        JSON.stringify(source.payload ?? {}),
-      ],
-    );
-  }
+  const sourceUrls = related.rows
+    .flatMap((source) => [source.source_url, source.website_url, source.source_code_url, source.docs_url, source.docker_url])
+    .filter((value) => typeof value === "string" && /^https?:\/\//i.test(value));
+  if (sourceUrls.length === 0) return;
+  await client.query(
+    `
+      update public.self_host_apps
+      set data_source_urls = coalesce((
+        select array_agg(distinct url order by url)
+        from unnest(coalesce(data_source_urls, '{}') || $2::text[]) as values(url)
+      ), '{}'),
+      data_checked_at = coalesce(data_checked_at, now()),
+      data_confidence = case when data_confidence = 'unknown' then 'medium' else data_confidence end,
+      updated_at = now()
+      where id = $1
+    `,
+    [appId, sourceUrls],
+  );
 }
 
 async function upsertExtraSources(client, appId, sources) {
-  for (const source of sources ?? []) {
-    if (!source.source || !source.source_key) throw new Error("extra sources require source and source_key");
-    await client.query(
-      `
-        insert into public.self_host_app_sources (app_id, source, source_key, source_url, payload)
-        values ($1, $2, $3, $4, $5::jsonb)
-        on conflict (source, source_key) do update set
-          app_id = excluded.app_id,
-          source_url = excluded.source_url,
-          payload = excluded.payload,
-          imported_at = now()
-      `,
-      [appId, source.source, source.source_key, source.source_url ?? null, JSON.stringify(source.payload ?? {})],
-    );
-  }
-}
-
-async function upsertFieldSources(client, appId, fieldSources) {
-  for (const source of fieldSources ?? []) {
-    await client.query(
-      `
-        insert into public.self_host_app_field_sources (
-          app_id, field_name, source, source_url, confidence, checked_at, note
-        )
-        values ($1, $2, $3, $4, $5, coalesce($6::timestamptz, now()), $7)
-        on conflict (app_id, field_name) do update set
-          source = excluded.source,
-          source_url = excluded.source_url,
-          confidence = excluded.confidence,
-          checked_at = excluded.checked_at,
-          note = excluded.note
-      `,
-      [
-        appId,
-        source.field_name,
-        source.source,
-        source.source_url ?? null,
-        source.confidence ?? "unknown",
-        source.checked_at ?? null,
-        source.note ?? null,
-      ],
-    );
-  }
+  const sourceUrls = (sources ?? [])
+    .map((source) => source.source_url)
+    .filter((value) => typeof value === "string" && /^https?:\/\//i.test(value));
+  if (sourceUrls.length === 0) return;
+  await client.query(
+    `
+      update public.self_host_apps
+      set data_source_urls = coalesce((
+        select array_agg(distinct url order by url)
+        from unnest(coalesce(data_source_urls, '{}') || $2::text[]) as values(url)
+      ), '{}'),
+      data_checked_at = now(),
+      updated_at = now()
+      where id = $1
+    `,
+    [appId, sourceUrls],
+  );
 }
 
 async function candidateById(client, id) {
@@ -358,11 +250,6 @@ async function applyReview(client, review) {
   await replaceCategoryLinks(client, appId, validation.record.categories);
   await preserveCandidateSources(client, candidate, appId);
   await upsertExtraSources(client, appId, review.sources);
-  await upsertFieldSources(
-    client,
-    appId,
-    review.field_sources ?? review.app?.field_sources ?? review.project?.field_sources,
-  );
   await client.query(
     `
       update public.self_host_app_candidates

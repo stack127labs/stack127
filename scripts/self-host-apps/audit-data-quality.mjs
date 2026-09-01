@@ -57,9 +57,11 @@ const checks = [
   },
   {
     key: "release_missing",
-    where: "published and github_latest_release is null",
+    where: "published and github_project.latest_release is null",
   },
 ];
+
+const githubJoin = "left join public.github_projects github_project on github_project.id = self_host_apps.github_project_id";
 
 function exampleSelect(where) {
   return `
@@ -73,8 +75,9 @@ function exampleSelect(where) {
       install_docs_url,
       docker_url,
       license,
-      github_latest_release
+      coalesce(github_project.latest_release, self_host_apps.source_latest_release, self_host_apps.github_latest_release) as github_latest_release
     from public.self_host_apps
+    ${githubJoin}
     where self_hosting_status = 'self_hostable'
       and (${where})
     order by slug
@@ -117,7 +120,7 @@ async function main() {
 
     for (const check of checks) {
       const count = await client.query(
-        `select count(*)::int as count from public.self_host_apps where self_hosting_status = 'self_hostable' and (${check.where})`,
+        `select count(*)::int as count from public.self_host_apps ${githubJoin} where self_hosting_status = 'self_hostable' and (${check.where})`,
       );
       const examples = await client.query(exampleSelect(check.where), [limit]);
 

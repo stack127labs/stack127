@@ -1,65 +1,50 @@
 # Self-host apps data model
 
-`public.self_host_apps` is the page-owned source of truth for `/self-host-apps`. It includes open-source, source-available, and closed-source software when an official self-hosted installation can be verified. An app does not need a public repository or an open-source license.
+`public.self_host_apps` is the page-owned source of truth for `/self-host-apps`. It includes open-source, source-available, and closed-source software when a self-hosted installation is verified. A public repository is optional.
 
 ## Core tables
 
-- `self_host_apps`: reviewed app facts and current external metadata.
-- `self_host_app_categories`: the controlled directory taxonomy.
-- `self_host_app_category_links`: app-to-category relationships.
-- `self_host_app_candidates`: noisy discovery staging. Candidate rows are never public.
-- `self_host_app_sources`: preserved imported evidence.
-- `self_host_app_field_sources`: field-level provenance and verification dates.
-- `self_host_app_curated_overrides`: durable reviewed corrections.
-- `self_host_app_import_runs`: discovery and refresh run records.
+- `self_host_apps`: reviewed app facts and stable page data.
+- `self_host_app_categories`: the controlled taxonomy.
+- `self_host_app_category_links`: app-to-category links.
+- `self_host_app_resource_estimates`: one row per app for RAM and storage planning ranges.
+- `self_host_app_install_options`: one row per app with destination columns and detailed link JSON.
+- `github_projects`: shared GitHub repository facts used by self-host apps, terminal apps, and future directories.
+- `self_host_app_candidates`: the only durable discovery/review queue; candidate rows are never public.
 
-All tables keep RLS enabled and are not exposed to `anon` or `authenticated`. The public page reads published records on the server. Compatibility views with the former `open_project_*` names exist only to keep older jobs working during the migration; new code must use the page-owned names.
+`self_host_app_import_runs`, `self_host_app_sources`, `self_host_app_field_sources`, and `self_host_app_curated_overrides` are removed by the streamline migration. Job logs and artifacts are the run history. The old `open_project_*` compatibility views are removed too.
+
+All page-owned tables keep RLS enabled and are not exposed to `anon` or `authenticated`. The page reads published records on the server.
 
 ## Publication boundary
 
-An app is eligible when an official website, documentation page, download, package, appliance, or container image proves that users can run it on infrastructure they control. Hosted-only services and client-only software are ineligible.
+An app is eligible when an official website, documentation page, download, package, appliance, or container image proves that users can run it on infrastructure they control. Hosted-only and client-only software is not eligible.
 
-`source_model` records the legal distribution model:
+`source_model` is a legal distribution fact:
 
-- `open_source`: a verified license meets the open-source definition.
-- `source_available`: source is visible under a license with additional restrictions.
+- `open_source`: a verified open-source license.
+- `source_available`: source is visible under additional restrictions.
 - `closed_source`: the publisher distributes a self-hosted build without public source.
-- `unknown`: research is incomplete. New records with this value cannot be published.
+- `unknown`: research is incomplete and cannot be published for a new record.
 
-Open and source-available records require a verified source URL and license. Closed-source records require an official website and publisher identity, but do not require a repository or pretend license.
+## Requirements and estimates
 
-## Deployment and requirements
+Exact publisher requirements stay on `self_host_apps`: `ram_min_mb`, `ram_recommended_mb`, and `storage_min_gb`. Appliance defaults use `ram_default_limit_mb`; they are not app minimums. `storage_profile` and `persistent_storage` describe workload shape.
 
-`deployment_methods` records verified methods such as `docker`, `compose`, `kubernetes`, `package`, `binary`, `appliance`, or `manual`. `docker_image`, `docker_url`, and `compose_url` distinguish a runnable image from documentation and Compose instructions. `docker_url` may be a Dockerfile or other source evidence; the page's `self_host_app_install_options` table is the only source for clickable install destinations.
+`self_host_app_resource_estimates` stores separate RAM and storage ranges with `derived` or `estimated` kind, confidence, basis, source URLs, note, and check date. The UI always labels these ranges `(estimated)`. A checked source that publishes no number stays null, with `technical_fact_status` set to `not_published`.
 
-RAM and storage fields contain only sourced requirements:
+## Install destinations
 
-- `ram_min_mb`: documented minimum memory.
-- `ram_recommended_mb`: documented recommended memory.
-- `storage_min_gb`: documented minimum storage.
-- `resource_requirement_kind`: whether figures are official requirements, measured guidance, or unknown.
+`self_host_app_install_options` has one row for each app. Destination columns are arrays, so one app can have several Docker, Compose, NAS, or appliance links. The `options` JSON list retains labels, support levels, image references, source links, notes, and order. Docker URLs are registry or install pages, never Dockerfiles.
 
-Generic estimates and repeated defaults are not requirements. Unknown values stay `null` or `unknown` and remain visible in QA.
-The older `ram_mb` and `storage_profile` values remain in the database for rollback compatibility, but the directory does not present them as requirements unless reviewed evidence is moved into the new fields.
+## Shared GitHub facts
 
-Reviewed planning ranges live in `self_host_app_resource_estimates`. They include `estimate_kind` (`derived` or `estimated`), confidence, basis, source URLs, and a checked date. The UI always labels them `estimated`; these ranges help compare likely fit and never replace an official minimum.
+`github_projects` has one row per owner/repository pair. Stars, forks, languages, topics, releases, commits, license, and maintenance are refreshed there. `self_host_apps.github_project_id` and `terminal_apps.github_project_id` are nullable links. Duplicate app rows may point to the same repository; the repository table is not unique per app.
 
-`self_host_app_install_options` supports Docker registries, Compose, TrueNAS SCALE, Umbrel, Unraid, YunoHost, CasaOS, Runtipi, Cosmos, NAS packages, Proxmox, Home Assistant add-ons, Kubernetes, Helm, native, binary, and system-package destinations. Adding a method to the enum does not publish an option: a reviewed URL and support level are still required.
+Non-GitHub providers continue to use the existing `source_*` columns until a provider table is worth adding. That is a deliberate transition, not a second self-host app source of truth.
 
-## Commercial and popularity facts
+## Evidence and QA
 
-`pricing_model` is `free`, `freemium`, `paid`, `subscription`, `usage_based`, `enterprise`, or `unknown`. It describes the self-hosted offer, not the availability of source code.
+`data_source_urls`, `data_checked_at`, `data_confidence`, and `technical_fact_status` keep a compact, app-level evidence summary. They replace field-level provenance rows while preserving the information QA needs to distinguish unchecked data from an official source that published no value.
 
-`popularity_score` is a sortable normalized signal. `popularity_basis` preserves the inputs, such as repository stars, catalog adoption, community installs, or a reviewed editorial signal. The page must not label that score as GitHub popularity when GitHub is not the source.
-
-## Images and mutable releases
-
-`icon_source_url` keeps the reviewed official image source. `icon_url` points to the normalized local PNG served by stack127. Official artwork is preferred; a site favicon is a fallback, never evidence of app identity by itself.
-
-Generic `release_version`, `release_url`, `release_published_at`, and `release_checked_at` fields support apps distributed outside GitHub. Provider-specific source metadata remains available for repository-backed apps.
-
-## Provenance
-
-Known decision facts require a `self_host_app_field_sources` row with a source URL, verification date, confidence, and source type. Discovery payloads are evidence to inspect, not editorial truth. Categories, summaries, deployment support, pricing, resource requirements, and source model are assigned only during review.
-
-The rename and inclusive fields are defined in `supabase/migrations/20260829090000_make_self_host_apps_page_owned.sql`. Estimate and install destination tables are defined in `supabase/migrations/20260831132300_add_estimates_and_install_options.sql`. Historical migrations retain their original names because they describe the database state at the time they ran.
+The migration `20260901060529_streamline_self_host_apps_data_model.sql` folds the old rows into these tables, removes pipeline-only tables and compatibility views, and keeps the candidate review queue.

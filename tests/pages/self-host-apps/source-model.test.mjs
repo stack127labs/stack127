@@ -11,6 +11,7 @@ async function read(relativePath) {
 test("self-host apps include open, source-available, and closed-source software", async () => {
   const schema = await read("scripts/self-host-apps/lib/schema.mjs");
   const migration = await read("supabase/migrations/20260829090000_make_self_host_apps_page_owned.sql");
+  const streamlined = await read("supabase/migrations/20260901060529_streamline_self_host_apps_data_model.sql");
 
   assert.match(schema, /source_model/);
   assert.match(schema, /open_source/);
@@ -19,6 +20,8 @@ test("self-host apps include open, source-available, and closed-source software"
   assert.match(migration, /alter table public\.open_projects rename to self_host_apps/);
   assert.match(migration, /alter type public\.open_project_source_model rename to self_host_app_source_model/);
   assert.match(migration, /add value if not exists 'closed_source'/);
+  assert.match(streamlined, /github_projects/);
+  assert.match(streamlined, /self_host_apps\.github_project_id|github_project_id/);
 });
 
 test("self-host app data and drawer expose the source model", async () => {
@@ -43,12 +46,15 @@ test("active self-host app code uses the page-owned table names", async () => {
   const data = await read("lib/apps.ts");
   const candidates = await read("scripts/self-host-apps/lib/candidates.mjs");
   const workflow = await read("content_docs/self-host-apps/data-workflow.md");
+  const migration = await read("supabase/migrations/20260901060529_streamline_self_host_apps_data_model.sql");
 
   assert.match(data, /public\.self_host_apps/);
   assert.match(candidates, /public\.self_host_app_candidates/);
   assert.match(workflow, /self_host_app_candidates/);
   assert.doesNotMatch(data, /public\.open_projects/);
   assert.doesNotMatch(candidates, /public\.open_project_/);
+  assert.doesNotMatch(workflow, /self_host_app_field_sources|self_host_app_import_runs/);
+  assert.match(migration, /drop table public\.self_host_app_field_sources/);
 });
 
 test("candidate rejection decisions use the database rejected status", async () => {

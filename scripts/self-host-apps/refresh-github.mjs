@@ -159,29 +159,30 @@ async function rowsToRefresh(client, args) {
   if (args.repo) return [{ slug: args.slug ?? args.repo, source_code_url: args.repo }];
   const limit = numberArg(args, "limit", 500);
   const params = [];
-  let where = "where (source_code_host = 'github' or source_code_url like 'https://github.com/%')";
+  let where = "where (app.source_code_host = 'github' or app.source_code_url like 'https://github.com/%')";
   if (args.slug) {
     params.push(args.slug);
-    where += " and slug = $1";
+    where += " and app.slug = $1";
   }
   if (args["published-only"]) {
-    where += " and published = true";
+    where += " and app.published = true";
   }
   if (args["source-model"]) {
     params.push(args["source-model"]);
-    where += ` and source_model = $${params.length}::public.self_host_app_source_model`;
+    where += ` and app.source_model = $${params.length}::public.self_host_app_source_model`;
   }
   if (args["max-age-hours"]) {
     params.push(`${numberArg(args, "max-age-hours", 12)} hours`);
-    where += ` and (github_checked_at is null or github_checked_at <= now() - $${params.length}::interval)`;
+    where += ` and (project.checked_at is null or project.checked_at <= now() - $${params.length}::interval)`;
   }
 
   const result = await client.query(
     `
-      select slug, source_code_url
-      from public.self_host_apps
+      select app.slug, app.source_code_url, app.github_owner, app.github_repo
+      from public.self_host_apps app
+      left join public.github_projects project on project.id = app.github_project_id
       ${where}
-      order by github_checked_at nulls first, slug
+      order by project.checked_at nulls first, app.slug
       ${args.all ? "" : `limit $${params.length + 1}`}
     `,
     args.all ? params : [...params, limit],
@@ -191,6 +192,10 @@ async function rowsToRefresh(client, args) {
 
 async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) {
   if (!repository) throw new Error("repository not found or inaccessible");
+
+  const owner = String(row.github_owner ?? "").trim().toLowerCase();
+  const repo = String(row.github_repo ?? "").trim().replace(/\.git$/i, "").toLowerCase();
+  if (!owner || !repo) throw new Error("GitHub owner and repository are required");
 
   const release = latestReleaseFrom(repository);
   const lastCommitAt = lastCommitFrom(repository);
@@ -208,32 +213,33 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
     .filter(Boolean);
 
   const facts = {
-    github_owner: row.github_owner,
-    github_repo: row.github_repo,
-    github_repo_id: repository.databaseId ?? null,
-    github_node_id: repository.id ?? null,
-    github_full_name: repository.nameWithOwner ?? `${row.github_owner}/${row.github_repo}`,
-    github_owner_type: repository.owner?.__typename ?? null,
-    github_stars: repository.stargazerCount,
-    github_forks: repository.forkCount ?? null,
-    github_watchers: repository.watchers?.totalCount ?? null,
-    github_open_issues: repository.issues?.totalCount ?? null,
-    github_primary_language: repository.primaryLanguage?.name ?? null,
-    github_languages: languages,
-    github_topics: topics,
-    github_created_at: repository.createdAt ?? null,
-    github_updated_at: repository.updatedAt ?? null,
-    github_pushed_at: repository.pushedAt ?? null,
-    github_default_branch: repository.defaultBranchRef?.name ?? null,
-    github_repo_size_kb: repository.diskUsage ?? null,
-    github_archived: repository.isArchived ?? null,
-    github_disabled: repository.isDisabled ?? null,
-    github_is_fork: repository.isFork ?? null,
-    github_is_template: repository.isTemplate ?? null,
-    github_latest_release: release.tag,
-    github_latest_release_at: release.publishedAt,
-    github_last_commit_at: lastCommitAt,
-    github_checked_at: checkedAt,
+    owner,
+    repo,
+    repo_id: repository.databaseId ?? null,
+    node_id: repository.id ?? null,
+    full_name: repository.nameWithOwner ?? `${owner}/${repo}`,
+    owner_type: repository.owner?.__typename ?? null,
+    stars: repository.stargazerCount,
+    forks: repository.forkCount ?? null,
+    watchers: repository.watchers?.totalCount ?? null,
+    open_issues: repository.issues?.totalCount ?? null,
+    primary_language: repository.primaryLanguage?.name ?? null,
+    languages,
+    topics,
+    created_at: repository.createdAt ?? null,
+    updated_at: repository.updatedAt ?? null,
+    pushed_at: repository.pushedAt ?? null,
+    default_branch: repository.defaultBranchRef?.name ?? null,
+    repo_size_kb: repository.diskUsage ?? null,
+    archived: repository.isArchived ?? null,
+    disabled: repository.isDisabled ?? null,
+    is_fork: repository.isFork ?? null,
+    is_template: repository.isTemplate ?? null,
+    latest_release: release.tag,
+    latest_release_at: release.publishedAt,
+    last_commit_at: lastCommitAt,
+    checked_at: checkedAt,
+    repository_url: `https://github.com/${owner}/${repo}`,
     license,
     license_type: licenseTypeFromSpdx(license),
     source_model: sourceModelFromSpdx(license),
@@ -243,175 +249,102 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
   if (!dryRun) {
     await client.query(
       `
-        update public.self_host_apps
-        set
-          github_owner = $2,
-          github_repo = $3,
-          github_repo_id = $4,
-          github_node_id = $5,
-          github_full_name = $6,
-          github_owner_type = $7,
-          github_stars = $8,
-          github_forks = $9,
-          github_watchers = $10,
-          github_open_issues = $11,
-          github_primary_language = $12,
-          github_languages = $13::jsonb,
-          github_topics = $14::text[],
-          github_created_at = $15,
-          github_updated_at = $16,
-          github_pushed_at = $17,
-          github_default_branch = $18,
-          github_repo_size_kb = $19,
-          github_archived = $20,
-          github_disabled = $21,
-          github_is_fork = $22,
-          github_is_template = $23,
-          source_repo_id = $4::bigint::text,
-          source_full_name = $6,
-          source_stars = $8,
-          source_forks = $9,
-          source_watchers = $10,
-          source_open_issues = $11,
-          source_primary_language = $12,
-          source_languages = $13::jsonb,
-          source_topics = $14::text[],
-          source_created_at = $15,
-          source_updated_at = $16,
-          source_pushed_at = $17,
-          source_default_branch = $18,
-          source_repo_size_kb = $19,
-          source_archived = $20,
-          source_disabled = $21,
-          source_is_fork = $22,
-          source_is_template = $23,
-          github_latest_release = $24,
-          github_latest_release_at = $25,
-          github_last_commit_at = $26,
-          github_checked_at = $27,
-          source_latest_release = $24,
-          source_latest_release_at = $25,
-          source_last_commit_at = $26,
-          source_checked_at = $27,
-          source_code_host = 'github',
-          license = case
-            when license is null or lower(license) = 'unknown' then coalesce($28, license)
-            else license
-          end,
-          license_spdx_id = coalesce($28, license_spdx_id),
-          license_type = case
-            when $29 = 'unknown' then license_type
-            else $29::public.self_host_app_license_type
-          end,
-          source_model = case
-            when source_model = 'unknown' and $31 <> 'unknown'
-              then $31::public.self_host_app_source_model
-            else source_model
-          end,
-          maintenance_status = $30,
-          updated_at = now()
-        where slug = $1
+        insert into public.github_projects (
+          owner, repo, full_name, repository_url, repo_id, node_id, owner_type,
+          stars, forks, watchers, open_issues, primary_language, languages, topics,
+          created_at, updated_at, pushed_at, default_branch, repo_size_kb, archived,
+          disabled, is_fork, is_template, latest_release, latest_release_at,
+          last_commit_at, license_spdx_id, checked_at, source_url
+        ) values (
+          $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13::jsonb,
+          $14::text[], $15, $16, $17, $18, $19, $20, $21, $22, $23, $24,
+          $25, $26, $27, $28, $29, $30
+        )
+        on conflict (owner, repo) do update set
+          full_name = excluded.full_name,
+          repository_url = excluded.repository_url,
+          repo_id = excluded.repo_id,
+          node_id = excluded.node_id,
+          owner_type = excluded.owner_type,
+          stars = excluded.stars,
+          forks = excluded.forks,
+          watchers = excluded.watchers,
+          open_issues = excluded.open_issues,
+          primary_language = excluded.primary_language,
+          languages = excluded.languages,
+          topics = excluded.topics,
+          created_at = excluded.created_at,
+          updated_at = excluded.updated_at,
+          pushed_at = excluded.pushed_at,
+          default_branch = excluded.default_branch,
+          repo_size_kb = excluded.repo_size_kb,
+          archived = excluded.archived,
+          disabled = excluded.disabled,
+          is_fork = excluded.is_fork,
+          is_template = excluded.is_template,
+          latest_release = excluded.latest_release,
+          latest_release_at = excluded.latest_release_at,
+          last_commit_at = excluded.last_commit_at,
+          license_spdx_id = excluded.license_spdx_id,
+          checked_at = excluded.checked_at,
+          source_url = excluded.source_url,
+          row_updated_at = now()
+        returning id
       `,
       [
-        row.slug,
-        facts.github_owner,
-        facts.github_repo,
-        facts.github_repo_id,
-        facts.github_node_id,
-        facts.github_full_name,
-        facts.github_owner_type,
-        facts.github_stars,
-        facts.github_forks,
-        facts.github_watchers,
-        facts.github_open_issues,
-        facts.github_primary_language,
-        JSON.stringify(facts.github_languages),
-        facts.github_topics,
-        facts.github_created_at,
-        facts.github_updated_at,
-        facts.github_pushed_at,
-        facts.github_default_branch,
-        facts.github_repo_size_kb,
-        facts.github_archived,
-        facts.github_disabled,
-        facts.github_is_fork,
-        facts.github_is_template,
-        facts.github_latest_release,
-        facts.github_latest_release_at,
-        facts.github_last_commit_at,
-        facts.github_checked_at,
+        facts.owner,
+        facts.repo,
+        facts.full_name,
+        facts.repository_url,
+        facts.repo_id,
+        facts.node_id,
+        facts.owner_type,
+        facts.stars,
+        facts.forks,
+        facts.watchers,
+        facts.open_issues,
+        facts.primary_language,
+        JSON.stringify(facts.languages),
+        facts.topics,
+        facts.created_at,
+        facts.updated_at,
+        facts.pushed_at,
+        facts.default_branch,
+        facts.repo_size_kb,
+        facts.archived,
+        facts.disabled,
+        facts.is_fork,
+        facts.is_template,
+        facts.latest_release,
+        facts.latest_release_at,
+        facts.last_commit_at,
         facts.license,
-        facts.license_type,
-        facts.maintenance_status,
-        facts.source_model,
+        facts.checked_at,
+        facts.repository_url,
       ],
     );
-
-    const mutableFields = [
-      "source_repo_id",
-      "source_full_name",
-      "source_stars",
-      "source_forks",
-      "source_watchers",
-      "source_open_issues",
-      "source_primary_language",
-      "source_languages",
-      "source_topics",
-      "source_created_at",
-      "source_updated_at",
-      "source_pushed_at",
-      "source_default_branch",
-      "source_repo_size_kb",
-      "source_archived",
-      "source_disabled",
-      "source_is_fork",
-      "source_is_template",
-      "source_latest_release",
-      "source_latest_release_at",
-      "source_last_commit_at",
-      "source_checked_at",
-    ];
     await client.query(
       `
-        insert into public.self_host_app_field_sources (
-          app_id, field_name, source, source_url, confidence, checked_at, note
-        )
-        select project.id, field_name, 'github_api', project.source_code_url,
-               'high', $3, 'Mutable repository fact.'
-        from public.self_host_apps project
-        cross join unnest($2::text[]) as field_name
-        where project.slug = $1
-        on conflict (app_id, field_name) do update set
-          source = excluded.source,
-          source_url = excluded.source_url,
-          confidence = excluded.confidence,
-          checked_at = excluded.checked_at,
-          note = excluded.note
+        update public.self_host_apps app
+        set github_project_id = project.id,
+            license = case when app.license is null or lower(app.license) = 'unknown' then coalesce($2, app.license) else app.license end,
+            license_spdx_id = coalesce($2, app.license_spdx_id),
+            license_type = case when $3 = 'unknown' then app.license_type else $3::public.self_host_app_license_type end,
+            source_model = case when app.source_model = 'unknown' and $5 <> 'unknown' then $5::public.self_host_app_source_model else app.source_model end,
+            maintenance_status = $4,
+            data_source_urls = coalesce((
+              select array_agg(distinct url order by url)
+              from unnest(coalesce(app.data_source_urls, '{}') || array[$6]::text[]) as values(url)
+            ), '{}'),
+            data_checked_at = $7,
+            data_confidence = 'high',
+            updated_at = now()
+        from public.github_projects project
+        where project.owner = $8 and project.repo = $9
+          and app.slug = $1
       `,
-      [row.slug, mutableFields, checkedAt],
+      [row.slug, facts.license, facts.license_type, facts.maintenance_status, facts.source_model, facts.repository_url, checkedAt, facts.owner, facts.repo],
     );
-
-    if (facts.license) {
-      await client.query(
-        `
-          insert into public.self_host_app_field_sources (
-            app_id, field_name, source, source_url, confidence, checked_at, note
-          )
-          select app.id, field_name, 'github_api', app.source_code_url,
-                 'high', $3, 'License detected from the official repository.'
-          from public.self_host_apps app
-          cross join unnest($2::text[]) as field_name
-          where app.slug = $1
-          on conflict (app_id, field_name) do update set
-            source = excluded.source,
-            source_url = excluded.source_url,
-            confidence = excluded.confidence,
-            checked_at = excluded.checked_at,
-            note = excluded.note
-        `,
-        [row.slug, ["license", "license_spdx_id", "source_model"], checkedAt],
-      );
-    }
   }
 }
 

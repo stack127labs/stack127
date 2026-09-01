@@ -183,58 +183,32 @@ async function collect(app) {
   };
 }
 
-function sourcesFor(record, checkedAt) {
-  const { app, facts } = record;
+function technicalStatusFor(record, checkedAt) {
+  const { facts } = record;
   const sourceUrl = record.readmeUrl ?? record.checkedUrl;
   const composeUrl = record.composeUrl ?? sourceUrl;
-  const sources = [];
-  const add = (fieldName, url, confidence, note) => {
-    if (url) sources.push({ field_name: fieldName, source_url: url, confidence, checked_at: checkedAt, note });
+  const status = (value, url, note) => ({
+    status: value ? "published" : "not_published",
+    source_urls: unique([url]),
+    confidence: value ? "high" : "low",
+    checked_at: checkedAt,
+    note,
+  });
+  return {
+    ram: status(facts.ramMinMb !== null || facts.ramRecommendedMb !== null, sourceUrl, "Official primary source checked for RAM."),
+    storage: status(facts.storageMinGb !== null || facts.persistentStorage, sourceUrl, "Official primary source checked for storage."),
+    database: status(facts.databaseTypes.length > 0, composeUrl, "Official deployment checked for datastore services."),
+    docker: status(facts.dockerSupport, composeUrl, "Official primary source checked for Docker support."),
+    docker_image: status(Boolean(facts.dockerImage), composeUrl, "Official primary source checked for a prebuilt image."),
+    compose: status(facts.composeSupport, composeUrl, "Official primary source checked for Compose support."),
   };
-
-  if (facts.ramMinMb !== null) add("ram_min_mb", sourceUrl, "high", "Explicit minimum RAM requirement in the official primary source.");
-  if (facts.ramRecommendedMb !== null) add("ram_recommended_mb", sourceUrl, "high", "Explicit recommended RAM requirement in the official primary source.");
-  if (facts.ramMinMb === null && facts.ramRecommendedMb === null) {
-    add("ram_min_mb", sourceUrl, "low", "Official primary source checked; no explicit RAM minimum was found, so the value remains null.");
-  }
-
-  if (facts.storageMinGb !== null) {
-    add("storage_min_gb", sourceUrl, "high", "Explicit minimum storage requirement in the official primary source.");
-  } else if (facts.persistentStorage) {
-    add("persistent_storage", composeUrl, "high", "Official deployment file declares persistent storage without a fixed capacity.");
-  } else {
-    add("storage_profile", sourceUrl, "low", "Official primary source checked; no fixed storage minimum or persistent volume declaration was found.");
-  }
-
-  if (facts.databaseTypes.length > 0) {
-    add("requires_database", composeUrl, "high", `Official deployment declares datastore services: ${facts.databaseTypes.join(", ")}.`);
-    add("database_types", composeUrl, "high", `Datastore services declared by the official deployment: ${facts.databaseTypes.join(", ")}.`);
-  } else {
-    add("requires_database", sourceUrl, "low", "Official primary source checked; no separate datastore service was found, so the value remains null.");
-    add("database_types", sourceUrl, "low", "Official primary source checked; no named datastore was found.");
-  }
-
-  if (facts.dockerSupport) {
-    add("docker_support", composeUrl, "high", "Official primary source documents a container deployment.");
-  } else {
-    add("docker_support", sourceUrl, "low", "Official primary source checked; supported Docker deployment was not found, so the value remains unknown.");
-  }
-  if (facts.dockerImage) {
-    add("docker_image", composeUrl, "high", "Exact app image declared by the official deployment file.");
-  } else if (app.docker_support === "official" || facts.dockerSupport) {
-    add("docker_image", composeUrl, "low", "Official Docker and Compose sources checked; no exact prebuilt app image was published.");
-  }
-
-  if (facts.composeSupport) {
-    add("compose_support", composeUrl, "high", "Official primary source supplies or documents Compose deployment.");
-  } else {
-    add("compose_support", sourceUrl, "low", "Official primary source checked; supported Compose deployment was not found, so the value remains null.");
-  }
-  if (record.composeUrl) add("compose_url", record.composeUrl, "high", "Official Compose deployment file.");
-  return sources;
 }
 
-async function applyRecord(client, record, sources, checkedAt) {
+function sourcesFor(record, checkedAt) {
+  return Object.values(technicalStatusFor(record, checkedAt)).flatMap((status) => status.source_urls);
+}
+
+async function applyRecord(client, record, checkedAt) {
   const { app, facts } = record;
   const databaseTypes = unique([...(app.database_types ?? []), ...facts.databaseTypes])
     .map((value) => value === "postgresql" ? "postgres" : value);
@@ -264,6 +238,13 @@ async function applyRecord(client, record, sources, checkedAt) {
             else resource_requirement_kind
           end,
           technical_facts_checked_at = $12,
+          technical_fact_status = $13::jsonb,
+          data_source_urls = coalesce((
+            select array_agg(distinct url order by url)
+            from unnest(coalesce(data_source_urls, '{}') || $14::text[]) as values(url)
+          ), '{}'),
+          data_checked_at = $12,
+          data_confidence = case when $13::jsonb @> '{"ram":{"confidence":"high"}}'::jsonb then 'high' else data_confidence end,
           updated_at = now()
       where id = $1
     `,
@@ -280,46 +261,16 @@ async function applyRecord(client, record, sources, checkedAt) {
       facts.storageMinGb,
       facts.persistentStorage,
       checkedAt,
+      JSON.stringify(technicalStatusFor(record, checkedAt)),
+      sourcesFor(record, checkedAt),
     ],
-  );
-
-  if (sources.length === 0) return;
-  await client.query(
-    `
-      insert into public.self_host_app_field_sources (
-        app_id, field_name, source, source_url, confidence, checked_at, note
-      )
-      select $1, source_record.field_name, 'official_primary_source_audit',
-             source_record.source_url, source_record.confidence,
-             source_record.checked_at, source_record.note
-      from jsonb_to_recordset($2::jsonb) as source_record(
-        field_name text,
-        source_url text,
-        confidence text,
-        checked_at timestamptz,
-        note text
-      )
-      on conflict (app_id, field_name) do update set
-        source = excluded.source,
-        source_url = excluded.source_url,
-        confidence = excluded.confidence,
-        checked_at = excluded.checked_at,
-        note = excluded.note
-      where (
-          self_host_app_field_sources.source not like 'official_%'
-          and self_host_app_field_sources.source <> 'manual_official'
-        )
-         or self_host_app_field_sources.confidence in ('unknown', 'low')
-         or excluded.confidence = 'high'
-    `,
-    [app.id, JSON.stringify(sources)],
   );
 }
 
 async function main() {
   const args = parseArgs();
   const applyReviewed = Boolean(args["apply-reviewed"]);
-  // --refresh-all intentionally rechecks every published app, including rows with legacy import provenance.
+  // --refresh-all intentionally rechecks every published app, including rows with an existing audit status.
   const refreshAll = Boolean(args["refresh-all"]);
   if (applyReviewed && !args["requirements-file"]) {
     throw new Error("--apply-reviewed requires --requirements-file so parsed numeric requirements are never published without editorial review");
@@ -329,12 +280,12 @@ async function main() {
   const technicalGapPredicate = refreshAll
     ? "true"
     : `(
-            not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('ram_mb', 'ram_min_mb', 'ram_recommended_mb', 'ram_default_limit_mb') and (f.source like 'official_%' or f.source = 'manual_official'))
-            or not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('storage_profile', 'storage_min_gb', 'persistent_storage') and (f.source like 'official_%' or f.source = 'manual_official'))
-            or not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('requires_database', 'database_types') and (f.source like 'official_%' or f.source = 'manual_official'))
-            or not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('docker_support', 'docker_image') and (f.source like 'official_%' or f.source = 'manual_official'))
-            or not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name = 'docker_image' and (f.source like 'official_%' or f.source = 'manual_official'))
-            or not exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('compose_support', 'compose_url') and (f.source like 'official_%' or f.source = 'manual_official'))
+            coalesce(app.technical_fact_status -> 'ram' ->> 'status', 'unchecked') = 'unchecked'
+            or coalesce(app.technical_fact_status -> 'storage' ->> 'status', 'unchecked') = 'unchecked'
+            or coalesce(app.technical_fact_status -> 'database' ->> 'status', 'unchecked') = 'unchecked'
+            or coalesce(app.technical_fact_status -> 'docker' ->> 'status', 'unchecked') = 'unchecked'
+            or coalesce(app.technical_fact_status -> 'docker_image' ->> 'status', 'unchecked') = 'unchecked'
+            or coalesce(app.technical_fact_status -> 'compose' ->> 'status', 'unchecked') = 'unchecked'
           )`;
   const rows = await withClient(async (client) => {
     const result = await client.query(
@@ -343,12 +294,7 @@ async function main() {
                app.docs_url, app.install_docs_url, app.docker_url, app.docker_image,
                app.docker_support, app.compose_url, app.database_types,
                app.deployment_methods,
-               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('ram_mb', 'ram_min_mb', 'ram_recommended_mb', 'ram_default_limit_mb') and (f.source like 'official_%' or f.source = 'manual_official')) as ram_researched,
-               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('storage_profile', 'storage_min_gb', 'persistent_storage') and (f.source like 'official_%' or f.source = 'manual_official')) as storage_researched,
-               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('requires_database', 'database_types') and (f.source like 'official_%' or f.source = 'manual_official')) as database_researched,
-               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('docker_support', 'docker_image') and (f.source like 'official_%' or f.source = 'manual_official')) as docker_researched,
-               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name = 'docker_image' and (f.source like 'official_%' or f.source = 'manual_official')) as docker_image_researched,
-               exists (select 1 from public.self_host_app_field_sources f where f.app_id = app.id and f.field_name in ('compose_support', 'compose_url') and (f.source like 'official_%' or f.source = 'manual_official')) as compose_researched
+               app.technical_fact_status
         from public.self_host_apps app
         where app.published = true
           and app.self_hosting_status = 'self_hostable'
@@ -375,7 +321,7 @@ async function main() {
     await withClient(async (client) => {
       await client.query("begin");
       try {
-        for (const record of passed) await applyRecord(client, record, sourcesFor(record, checkedAt), checkedAt);
+        for (const record of passed) await applyRecord(client, record, checkedAt);
         await client.query("commit");
       } catch (error) {
         await client.query("rollback");

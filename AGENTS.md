@@ -2,6 +2,12 @@
 
 Stack127 is a compact technical directory site. It should grow into multiple repo-owned pages for self-host apps, open-source tools, home automation, AI agents, calculators, reference pages, and related technical resources.
 
+## Communication rules
+
+- Use simple English. Keep chat replies direct and short, with as little fluff as possible.
+- Apply `skills/stack127/unslop/SKILL.md` before sending chat replies, public copy, or durable documentation.
+- State what is done, what is not done, and any blocker plainly. Never claim completion while known gaps remain.
+
 ## Priorities
 
 - Keep pages fast, small, and consistent across the site.

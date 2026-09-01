@@ -68,9 +68,7 @@ function githubRepository(url) {
 function resolvedLicense(slug, repository, spdx, sourceName, sourceUrl, note = `Detected from ${sourceName}; manual review required before applying.`) {
   return {
     confidence: "high",
-    field_sources: ["license", "license_spdx_id", "license_type", "source_model"].map((fieldName) => ({
-      confidence: "high", field_name: fieldName, note, source: "official_repository_license_file", source_url: sourceUrl,
-    })),
+    sources: [{ confidence: "high", note, source: "official_repository_license_file", source_url: sourceUrl }],
     license: spdx,
     license_spdx_id: spdx,
     license_type: licenseTypeFromSpdx(spdx),
@@ -128,13 +126,12 @@ async function research(row) {
       if (spdx && !["NOASSERTION", "OTHER"].includes(spdx)) {
         return {
           confidence: "high",
-          field_sources: ["license", "license_spdx_id", "license_type", "source_model"].map((fieldName) => ({
+          sources: [{
             confidence: "high",
-            field_name: fieldName,
             note: `Detected by GitHub Licensee from ${detected.name}; manual review required before applying.`,
             source: "official_repository_license_file",
             source_url: detected.html_url,
-          })),
+          }],
           license: spdx,
           license_spdx_id: spdx,
           license_type: licenseTypeFromSpdx(spdx),
@@ -205,7 +202,7 @@ if (args["review-out"]) {
     license_spdx_id: record.license_spdx_id,
     license_type: record.license_type,
     source_model: record.source_model,
-    field_sources: record.field_sources,
+    sources: record.sources,
   }));
   await writeFile(args["review-out"], `${JSON.stringify({ apps }, null, 2)}\n`);
 }

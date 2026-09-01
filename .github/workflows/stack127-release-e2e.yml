@@ -97,6 +97,19 @@ jobs:
           printf 'CLOUDFLARE_API_TOKEN=%s\n' "$CLOUDFLARE_API_TOKEN" >> "$RUNNER_TEMP/stack127-deploy.env"
           printf 'CLOUDFLARE_ZONE_ID=%s\n' "$CLOUDFLARE_ZONE_ID" >> "$RUNNER_TEMP/stack127-deploy.env"
 
+      - name: Install Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Apply database migrations before the quality gate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
+        run: |
+          set -euo pipefail
+          test -n "$DATABASE_URL" || { echo "Missing production database URL for migrations"; exit 1; }
+          supabase db push --db-url "$DATABASE_URL" --yes
+
       - name: Run the complete quality gate
         run: |
           npx playwright install --with-deps chromium

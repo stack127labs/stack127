@@ -134,23 +134,30 @@ const categoryJoin = `
 
 const resourceEstimateJoin = `
   left join lateral (
-    select coalesce(
-      jsonb_object_agg(
-        estimate.resource_kind,
-        jsonb_build_object(
-          'estimate_min', estimate.estimate_min,
-          'estimate_max', estimate.estimate_max,
-          'unit', estimate.unit,
-          'estimate_kind', estimate.estimate_kind,
-          'confidence', estimate.confidence,
-          'basis', estimate.basis,
-          'source_urls', estimate.source_urls,
-          'note', estimate.note,
-          'checked_at', estimate.checked_at
-        )
-      ),
-      '{}'::jsonb
-    ) as resource_estimates
+    select jsonb_strip_nulls(jsonb_build_object(
+      'ram', case when estimate.ram_estimate_min_mb is not null then jsonb_build_object(
+        'estimate_min', estimate.ram_estimate_min_mb,
+        'estimate_max', estimate.ram_estimate_max_mb,
+        'unit', 'mb',
+        'estimate_kind', estimate.ram_estimate_kind,
+        'confidence', estimate.ram_estimate_confidence,
+        'basis', estimate.ram_estimate_basis,
+        'source_urls', estimate.ram_source_urls,
+        'note', estimate.ram_note,
+        'checked_at', estimate.checked_at
+      ) end,
+      'storage', case when estimate.storage_estimate_min_gb is not null then jsonb_build_object(
+        'estimate_min', estimate.storage_estimate_min_gb,
+        'estimate_max', estimate.storage_estimate_max_gb,
+        'unit', 'gb',
+        'estimate_kind', estimate.storage_estimate_kind,
+        'confidence', estimate.storage_estimate_confidence,
+        'basis', estimate.storage_estimate_basis,
+        'source_urls', estimate.storage_source_urls,
+        'note', estimate.storage_note,
+        'checked_at', estimate.checked_at
+      ) end
+    )) as resource_estimates
     from public.self_host_app_resource_estimates estimate
     where estimate.app_id = app.id
   ) resource_estimate_set on true
@@ -158,22 +165,7 @@ const resourceEstimateJoin = `
 
 const installOptionJoin = `
   left join lateral (
-    select coalesce(
-      jsonb_agg(
-        jsonb_build_object(
-          'method', option.method,
-          'label', option.label,
-          'url', option.url,
-          'image', option.image,
-          'support_level', option.support_level,
-          'source_url', option.source_url,
-          'note', option.note,
-          'sort_order', option.sort_order
-        )
-        order by option.sort_order, option.label, option.url
-      ),
-      '[]'::jsonb
-    ) as install_options
+    select coalesce(option.options, '[]'::jsonb) as install_options
     from public.self_host_app_install_options option
     where option.app_id = app.id
   ) install_option_set on true
@@ -422,21 +414,22 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
         app.pricing_model,
         app.self_hosting_status,
         app.maintenance_status,
-        app.github_owner,
-        app.github_repo,
-        coalesce(app.source_stars, app.github_stars) as github_stars,
-        coalesce(app.source_forks, app.github_forks) as github_forks,
-        coalesce(app.source_primary_language, app.github_primary_language) as github_primary_language,
+        coalesce(github_project.owner, app.github_owner) as github_owner,
+        coalesce(github_project.repo, app.github_repo) as github_repo,
+        coalesce(github_project.stars, app.source_stars, app.github_stars) as github_stars,
+        coalesce(github_project.forks, app.source_forks, app.github_forks) as github_forks,
+        coalesce(github_project.primary_language, app.source_primary_language, app.github_primary_language) as github_primary_language,
         case
+          when cardinality(coalesce(github_project.topics, '{}')) > 0 then github_project.topics
           when cardinality(app.source_topics) > 0 then app.source_topics
           else app.github_topics
         end as github_topics,
-        coalesce(app.source_created_at, app.github_created_at) as github_created_at,
-        coalesce(app.source_pushed_at, app.github_pushed_at) as github_pushed_at,
-        coalesce(app.source_latest_release, app.github_latest_release) as github_latest_release,
-        coalesce(app.source_latest_release_at, app.github_latest_release_at) as github_latest_release_at,
-        coalesce(app.source_last_commit_at, app.github_last_commit_at) as github_last_commit_at,
-        coalesce(app.source_checked_at, app.github_checked_at) as github_checked_at,
+        coalesce(github_project.created_at, app.source_created_at, app.github_created_at) as github_created_at,
+        coalesce(github_project.pushed_at, app.source_pushed_at, app.github_pushed_at) as github_pushed_at,
+        coalesce(github_project.latest_release, app.source_latest_release, app.github_latest_release) as github_latest_release,
+        coalesce(github_project.latest_release_at, app.source_latest_release_at, app.github_latest_release_at) as github_latest_release_at,
+        coalesce(github_project.last_commit_at, app.source_last_commit_at, app.github_last_commit_at) as github_last_commit_at,
+        coalesce(github_project.checked_at, app.source_checked_at, app.github_checked_at) as github_checked_at,
         app.docker_support,
         app.deployment_methods,
         app.docker_image,
@@ -448,50 +441,32 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
         app.ram_min_mb,
         app.ram_recommended_mb,
         app.ram_default_limit_mb,
-        exists (
-          select 1
-          from public.self_host_app_field_sources field_source
-          where field_source.app_id = app.id
-            and field_source.field_name in ('ram_mb', 'ram_min_mb', 'ram_recommended_mb', 'ram_default_limit_mb')
-            and (field_source.source like 'official_%' or field_source.source = 'manual_official')
+        coalesce(
+          (app.technical_fact_status -> 'ram' ->> 'status') in ('published', 'not_published'),
+          false
         ) as ram_researched,
         app.storage_profile,
         app.storage_min_gb::float8 as storage_min_gb,
         app.persistent_storage,
-        exists (
-          select 1
-          from public.self_host_app_field_sources field_source
-          where field_source.app_id = app.id
-            and field_source.field_name in ('storage_profile', 'storage_min_gb', 'persistent_storage')
-            and (field_source.source like 'official_%' or field_source.source = 'manual_official')
+        coalesce(
+          (app.technical_fact_status -> 'storage' ->> 'status') in ('published', 'not_published'),
+          false
         ) as storage_researched,
-        exists (
-          select 1
-          from public.self_host_app_field_sources field_source
-          where field_source.app_id = app.id
-            and field_source.field_name in ('requires_database', 'database_types')
-            and (field_source.source like 'official_%' or field_source.source = 'manual_official')
+        coalesce(
+          (app.technical_fact_status -> 'database' ->> 'status') in ('published', 'not_published'),
+          false
         ) as database_researched,
-        exists (
-          select 1
-          from public.self_host_app_field_sources field_source
-          where field_source.app_id = app.id
-            and field_source.field_name in ('docker_support', 'docker_image')
-            and (field_source.source like 'official_%' or field_source.source = 'manual_official')
+        coalesce(
+          (app.technical_fact_status -> 'docker' ->> 'status') in ('published', 'not_published'),
+          false
         ) as docker_researched,
-        exists (
-          select 1
-          from public.self_host_app_field_sources field_source
-          where field_source.app_id = app.id
-            and field_source.field_name = 'docker_image'
-            and (field_source.source like 'official_%' or field_source.source = 'manual_official')
+        coalesce(
+          (app.technical_fact_status -> 'docker_image' ->> 'status') in ('published', 'not_published'),
+          false
         ) as docker_image_researched,
-        exists (
-          select 1
-          from public.self_host_app_field_sources field_source
-          where field_source.app_id = app.id
-            and field_source.field_name in ('compose_support', 'compose_url')
-            and (field_source.source like 'official_%' or field_source.source = 'manual_official')
+        coalesce(
+          (app.technical_fact_status -> 'compose' ->> 'status') in ('published', 'not_published'),
+          false
         ) as compose_researched,
         app.resource_requirement_kind,
         app.technical_facts_checked_at,
@@ -509,6 +484,7 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
         app.summary_confidence,
         category_set.categories
       from public.self_host_apps app
+      left join public.github_projects github_project on github_project.id = app.github_project_id
       ${categoryJoin}
       ${resourceEstimateJoin}
       ${installOptionJoin}
