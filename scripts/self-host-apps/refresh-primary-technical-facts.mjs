@@ -187,20 +187,59 @@ function technicalStatusFor(record, checkedAt) {
   const { facts } = record;
   const sourceUrl = record.readmeUrl ?? record.checkedUrl;
   const composeUrl = record.composeUrl ?? sourceUrl;
-  const status = (value, url, note) => ({
-    status: value ? "published" : "not_published",
-    source_urls: unique([url]),
-    confidence: value ? "high" : "low",
+  const existing = record.app.technical_fact_status ?? {};
+  const status = (key, newlyPublished, known, url, note) => ({
+    status: known ? "published" : existing[key]?.status === "published" ? "published" : "not_published",
+    source_urls: unique([...(existing[key]?.source_urls ?? []), url]),
+    confidence: newlyPublished ? "high" : existing[key]?.confidence ?? "low",
     checked_at: checkedAt,
-    note,
+    note: newlyPublished ? note : existing[key]?.note ?? note,
   });
   return {
-    ram: status(facts.ramMinMb !== null || facts.ramRecommendedMb !== null, sourceUrl, "Official primary source checked for RAM."),
-    storage: status(facts.storageMinGb !== null || facts.persistentStorage, sourceUrl, "Official primary source checked for storage."),
-    database: status(facts.databaseTypes.length > 0, composeUrl, "Official deployment checked for datastore services."),
-    docker: status(facts.dockerSupport, composeUrl, "Official primary source checked for Docker support."),
-    docker_image: status(Boolean(facts.dockerImage), composeUrl, "Official primary source checked for a prebuilt image."),
-    compose: status(facts.composeSupport, composeUrl, "Official primary source checked for Compose support."),
+    ram: status(
+      "ram",
+      facts.ramMinMb !== null || facts.ramRecommendedMb !== null,
+      facts.ramMinMb !== null || facts.ramRecommendedMb !== null ||
+        record.app.ram_min_mb !== null || record.app.ram_recommended_mb !== null || record.app.ram_default_limit_mb !== null,
+      sourceUrl,
+      "Official primary source checked for RAM.",
+    ),
+    storage: status(
+      "storage",
+      facts.storageMinGb !== null || facts.persistentStorage,
+      facts.storageMinGb !== null || facts.persistentStorage || record.app.storage_min_gb !== null ||
+        record.app.storage_profile !== "unknown" || record.app.persistent_storage === true,
+      sourceUrl,
+      "Official primary source checked for storage.",
+    ),
+    database: status(
+      "database",
+      facts.databaseTypes.length > 0,
+      facts.databaseTypes.length > 0 || record.app.requires_database !== null || (record.app.database_types ?? []).length > 0,
+      composeUrl,
+      "Official deployment checked for datastore services.",
+    ),
+    docker: status(
+      "docker",
+      facts.dockerSupport,
+      facts.dockerSupport || record.app.docker_support !== "unknown",
+      composeUrl,
+      "Official primary source checked for Docker support.",
+    ),
+    docker_image: status(
+      "docker_image",
+      Boolean(facts.dockerImage),
+      Boolean(facts.dockerImage || record.app.docker_image),
+      composeUrl,
+      "Official primary source checked for a prebuilt image.",
+    ),
+    compose: status(
+      "compose",
+      facts.composeSupport,
+      facts.composeSupport || record.app.compose_support !== null,
+      composeUrl,
+      "Official primary source checked for Compose support.",
+    ),
   };
 }
 
@@ -292,7 +331,9 @@ async function main() {
       `
         select app.id, app.slug, app.name, app.source_code_url, app.website_url,
                app.docs_url, app.install_docs_url, app.docker_url, app.docker_image,
-               app.docker_support, app.compose_url, app.database_types,
+               app.docker_support, app.compose_url, app.compose_support, app.requires_database,
+               app.database_types, app.ram_min_mb, app.ram_recommended_mb, app.ram_default_limit_mb,
+               app.storage_min_gb, app.storage_profile, app.persistent_storage,
                app.deployment_methods,
                app.technical_fact_status
         from public.self_host_apps app
