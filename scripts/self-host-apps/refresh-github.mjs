@@ -258,7 +258,7 @@ async function writeRepositoryFacts(client, row, repository, checkedAt, dryRun) 
         ) values (
           $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13::jsonb,
           $14::text[], $15, $16, $17, $18, $19, $20, $21, $22, $23, $24,
-          $25, $26, $27, $28, $29, $30
+          $25, $26, $27, $28, $29
         )
         on conflict (owner, repo) do update set
           full_name = excluded.full_name,
