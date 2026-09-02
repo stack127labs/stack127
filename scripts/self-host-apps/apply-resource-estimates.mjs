@@ -98,26 +98,68 @@ async function main() {
     }
 
     if (apply) {
+      const columns = [
+        "app_id",
+        "ram_estimate_min_mb",
+        "ram_estimate_max_mb",
+        "ram_estimate_kind",
+        "ram_estimate_confidence",
+        "ram_estimate_basis",
+        "ram_source_urls",
+        "ram_note",
+        "storage_estimate_min_gb",
+        "storage_estimate_max_gb",
+        "storage_estimate_kind",
+        "storage_estimate_confidence",
+        "storage_estimate_basis",
+        "storage_source_urls",
+        "storage_note",
+        "checked_at",
+      ];
+      const recordTypes = [
+        "uuid",
+        "numeric", "numeric", "text", "text", "text", "text[]", "text",
+        "numeric", "numeric", "text", "text", "text", "text[]", "text",
+        "timestamptz",
+      ];
+      const storedRows = [...byApp].map(([slug, appRecords]) => ({
+        app_id: appIds.get(slug),
+        ...resourceEstimatesToRow(appRecords, { checkedAt }),
+      }));
       await client.query("begin");
       try {
-        for (const [slug, appRecords] of byApp) {
-          const row = resourceEstimatesToRow(appRecords, { checkedAt });
-          const columns = Object.keys(row);
-          const values = [appIds.get(slug), ...columns.map((column) => row[column])];
-          await client.query(
-            `
-              insert into public.self_host_app_resource_estimates (app_id, ${columns.join(", ")})
-              values ($1, ${columns.map((_, index) => `$${index + 2}${columnCast(columns[index])}`).join(", ")})
-              on conflict (app_id) do update set
-                ${columns.map((column) => `${column} = excluded.${column}`).join(",\n                ")},
-                updated_at = now()
-            `,
-            values,
-          );
-        }
+        await client.query(
+          `
+            insert into public.self_host_app_resource_estimates (${columns.join(", ")})
+            select ${columns.map((column) => `item.${column}`).join(", ")}
+            from jsonb_to_recordset($1::jsonb) as item(${columns.map((column, index) => `${column} ${recordTypes[index]}`).join(", ")})
+            on conflict (app_id) do update set
+              ram_estimate_min_mb = coalesce(excluded.ram_estimate_min_mb, self_host_app_resource_estimates.ram_estimate_min_mb),
+              ram_estimate_max_mb = coalesce(excluded.ram_estimate_max_mb, self_host_app_resource_estimates.ram_estimate_max_mb),
+              ram_estimate_kind = coalesce(excluded.ram_estimate_kind, self_host_app_resource_estimates.ram_estimate_kind),
+              ram_estimate_confidence = coalesce(excluded.ram_estimate_confidence, self_host_app_resource_estimates.ram_estimate_confidence),
+              ram_estimate_basis = coalesce(excluded.ram_estimate_basis, self_host_app_resource_estimates.ram_estimate_basis),
+              ram_source_urls = case when cardinality(excluded.ram_source_urls) > 0 then excluded.ram_source_urls else self_host_app_resource_estimates.ram_source_urls end,
+              ram_note = coalesce(excluded.ram_note, self_host_app_resource_estimates.ram_note),
+              storage_estimate_min_gb = coalesce(excluded.storage_estimate_min_gb, self_host_app_resource_estimates.storage_estimate_min_gb),
+              storage_estimate_max_gb = coalesce(excluded.storage_estimate_max_gb, self_host_app_resource_estimates.storage_estimate_max_gb),
+              storage_estimate_kind = coalesce(excluded.storage_estimate_kind, self_host_app_resource_estimates.storage_estimate_kind),
+              storage_estimate_confidence = coalesce(excluded.storage_estimate_confidence, self_host_app_resource_estimates.storage_estimate_confidence),
+              storage_estimate_basis = coalesce(excluded.storage_estimate_basis, self_host_app_resource_estimates.storage_estimate_basis),
+              storage_source_urls = case when cardinality(excluded.storage_source_urls) > 0 then excluded.storage_source_urls else self_host_app_resource_estimates.storage_source_urls end,
+              storage_note = coalesce(excluded.storage_note, self_host_app_resource_estimates.storage_note),
+              checked_at = excluded.checked_at,
+              updated_at = now()
+          `,
+          [JSON.stringify(storedRows)],
+        );
         await client.query("commit");
       } catch (error) {
-        await client.query("rollback");
+        try {
+          await client.query("rollback");
+        } catch (rollbackError) {
+          error.message = `${error.message}; rollback failed: ${rollbackError.message}`;
+        }
         throw error;
       }
     }

@@ -387,7 +387,11 @@ export async function getSelfHostAppsModifiedAt(): Promise<Date | null> {
   return date.getUTCFullYear() === 1970 ? null : date;
 }
 
-export async function getDirectoryApps(): Promise<DirectoryApp[]> {
+const DIRECTORY_APPS_CACHE_TTL_MS = 60_000;
+let directoryAppsCache: { value: DirectoryApp[]; expiresAt: number } | null = null;
+let directoryAppsRequest: Promise<DirectoryApp[]> | null = null;
+
+async function loadDirectoryApps(): Promise<DirectoryApp[]> {
   const result = await getPool().query<
     Omit<DirectoryApp, "categories"> & { categories: unknown }
   >(
@@ -500,6 +504,29 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
     install_options: normalizeInstallOptions(app.install_options),
     categories: normalizeCategories(app.categories),
   }));
+}
+
+export async function getDirectoryApps(): Promise<DirectoryApp[]> {
+  const now = Date.now();
+  if (directoryAppsCache && directoryAppsCache.expiresAt > now) {
+    return directoryAppsCache.value;
+  }
+
+  if (!directoryAppsRequest) {
+    directoryAppsRequest = loadDirectoryApps()
+      .then((value) => {
+        directoryAppsCache = {
+          value,
+          expiresAt: Date.now() + DIRECTORY_APPS_CACHE_TTL_MS,
+        };
+        return value;
+      })
+      .finally(() => {
+        directoryAppsRequest = null;
+      });
+  }
+
+  return directoryAppsRequest;
 }
 
 export async function getDirectoryLicenseCounts(): Promise<DirectoryLicenseCount[]> {
