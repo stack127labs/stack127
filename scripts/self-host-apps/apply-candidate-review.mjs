@@ -197,6 +197,17 @@ async function upsertExtraSources(client, appId, sources) {
   );
 }
 
+async function ensureResourceEstimateRow(client, appId) {
+  await client.query(
+    `
+      insert into public.self_host_app_resource_estimates (app_id)
+      values ($1)
+      on conflict (app_id) do nothing
+    `,
+    [appId],
+  );
+}
+
 function installSourcePayload(candidate) {
   const payload = candidate?.payload && typeof candidate.payload === "object" ? candidate.payload : {};
   return {
@@ -311,6 +322,7 @@ async function applyReview(client, review) {
   await replaceCategoryLinks(client, appId, validation.record.categories);
   await preserveCandidateSources(client, candidate, appId);
   await upsertExtraSources(client, appId, review.sources);
+  await ensureResourceEstimateRow(client, appId);
   const sourceRows = catalogSourceRows(candidate, review);
   const reviewedInstallOptions = Array.isArray(review.install_options)
     ? review.install_options
