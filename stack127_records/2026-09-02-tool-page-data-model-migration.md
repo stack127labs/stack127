@@ -1,6 +1,6 @@
 # Tool page data model migration
 
-Status: repository implementation and managed-development rollout complete on 2 September 2026. Production rollout is pending.
+Status: repository implementation, managed-development rollout, and production rollout complete on 2 September 2026.
 
 This record tracks the move from code-owned tool-page copy to database-owned Markdown. Current operating rules live in `stack127_docs/tool-pages.md` and `stack127_docs/stack127-repos.md`.
 
@@ -35,7 +35,7 @@ This record tracks the move from code-owned tool-page copy to database-owned Mar
 
 ## Rollout note
 
-`20260902080436_add_stack127_tool_pages.sql` was first validated inside rolled-back transactions, then applied to managed development. It has not yet been applied to production.
+`20260902080436_add_stack127_tool_pages.sql` was first validated inside rolled-back transactions, then applied to managed development and production.
 
 Managed development already contained the exact effects of migrations `20260822090000`,
 `20260822100000`, and `20260831132300` without their history entries. Their shortcut rows,
@@ -46,3 +46,11 @@ applied in order with `--include-all`.
 Post-migration checks found 34 valid tool rows at content revision 1 and tool version 1.0.0, no tool
 rows for `/epp-status-codes` or `/tld-directory`, no public-date violations, complete resource rows,
 the expected anonymous/authenticated read policy, and a fully aligned migration history.
+
+Production release [run 33628026503](https://github.com/stack127labs/stack127/actions/runs/33628026503)
+deployed merge commit `30f64761d78b80121d95a2cefbff0f5609f158f7`. The release migration,
+complete quality gate, production preflight, immutable image build, and Dokploy deployment all
+passed. Independent checks then confirmed that `/api/health?scope=deploy` reported the same commit,
+all 34 tool routes returned HTTP 200 with database Markdown in the server-rendered HTML, both
+reference routes remained public catalogs, and the production data matched the development
+invariants above.
