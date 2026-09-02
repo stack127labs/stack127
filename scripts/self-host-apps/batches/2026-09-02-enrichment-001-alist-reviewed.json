@@ -1,0 +1,74 @@
+{
+  "records": [
+    {
+      "candidate_id": "c4f4f7ec-993f-4e68-96f5-db919bbc1b90",
+      "decision": "publish",
+      "app": {
+        "slug": "alist",
+        "name": "AList",
+        "summary": "Web file-listing and sharing service that connects local and cloud storage providers through one interface.",
+        "icon_source_url": "https://github.com/AlistGo.png?size=256",
+        "website_url": "https://alistgo.com/",
+        "source_code_url": "https://github.com/alistgo/alist",
+        "source_code_host": "github",
+        "docs_url": "https://alistgo.com/guide/",
+        "install_docs_url": "https://alistgo.com/guide/install/docker",
+        "docker_url": "https://hub.docker.com/r/xhofe/alist",
+        "compose_url": "https://raw.githubusercontent.com/IceWhaleTech/CasaOS-AppStore/main/Apps/Alist/docker-compose.yml",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "AList contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/alistgo/alist",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": ["docker", "compose", "binary"],
+        "docker_image": "xhofe/alist:latest",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": null,
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": ["web", "api"],
+        "categories": ["file-sharing-sync", "storage-backup"],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://alistgo.com/",
+          "https://alistgo.com/guide/",
+          "https://github.com/alistgo/alist",
+          "https://hub.docker.com/r/xhofe/alist",
+          "https://raw.githubusercontent.com/IceWhaleTech/CasaOS-AppStore/main/Apps/Alist/docker-compose.yml"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/alist.png"
+      },
+      "sources": [
+        {
+          "source": "official_website",
+          "source_url": "https://alistgo.com/",
+          "confidence": "high",
+          "note": "Official site identifies AList as a self-hostable file-listing and sharing service."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/alistgo/alist",
+          "confidence": "high",
+          "note": "Repository verifies the AGPL license and project source."
+        },
+        {
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/r/xhofe/alist",
+          "confidence": "high",
+          "note": "Docker Hub image is linked by the project and used by the CasaOS Compose definition."
+        }
+      ]
+    }
+  ]
+}

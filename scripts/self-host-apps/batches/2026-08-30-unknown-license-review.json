@@ -1,0 +1,2890 @@
+{
+  "apps": [
+    {
+      "slug": "akaunting",
+      "license": "BUSL-1.1",
+      "license_spdx_id": "BUSL-1.1",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/akaunting/akaunting/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/akaunting/akaunting/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/akaunting/akaunting/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/akaunting/akaunting/blob/master/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "slug": "antville",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/antville/antville/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/antville/antville/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/antville/antville/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/antville/antville/blob/main/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "bencher",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/bencherdev/bencher/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/bencherdev/bencher/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/bencherdev/bencher/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/bencherdev/bencher/blob/main/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "borg",
+      "license": "BSD-2-Clause",
+      "license_spdx_id": "BSD-2-Clause",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/borgbackup/borg/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/borgbackup/borg/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/borgbackup/borg/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/borgbackup/borg/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "borg-backup-server",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/marcpope/borgbackupserver/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/marcpope/borgbackupserver/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/marcpope/borgbackupserver/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/marcpope/borgbackupserver/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "bulwark",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/bulwarkmail/webmail/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/bulwarkmail/webmail/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/bulwarkmail/webmail/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/bulwarkmail/webmail/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "caprover",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/caprover/caprover/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/caprover/caprover/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/caprover/caprover/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/caprover/caprover/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "cosmos-server",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENCE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/azukaar/Cosmos-Server/blob/master/LICENCE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENCE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/azukaar/Cosmos-Server/blob/master/LICENCE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENCE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/azukaar/Cosmos-Server/blob/master/LICENCE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENCE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/azukaar/Cosmos-Server/blob/master/LICENCE"
+        }
+      ]
+    },
+    {
+      "slug": "crontab-guru",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cronitorio/cronitor-cli/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cronitorio/cronitor-cli/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cronitorio/cronitor-cli/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cronitorio/cronitor-cli/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "ddracenetwork",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from license.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/ddnet/ddnet/blob/master/license.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from license.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/ddnet/ddnet/blob/master/license.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from license.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/ddnet/ddnet/blob/master/license.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from license.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/ddnet/ddnet/blob/master/license.txt"
+        }
+      ]
+    },
+    {
+      "slug": "deployrr",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/SimpleHomelab/Deployrr/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/SimpleHomelab/Deployrr/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/SimpleHomelab/Deployrr/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/SimpleHomelab/Deployrr/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "directus",
+      "license": "GPL-3.0-only",
+      "license_spdx_id": "GPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from license text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/directus/directus/blob/main/license"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from license text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/directus/directus/blob/main/license"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from license text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/directus/directus/blob/main/license"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from license text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/directus/directus/blob/main/license"
+        }
+      ]
+    },
+    {
+      "slug": "diyhue",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/diyhue/diyHue/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/diyhue/diyHue/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/diyhue/diyHue/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/diyhue/diyHue/blob/master/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "docker-staticmaps",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/dietrichmax/docker-staticmaps/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/dietrichmax/docker-staticmaps/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/dietrichmax/docker-staticmaps/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/dietrichmax/docker-staticmaps/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "dockhand",
+      "license": "BUSL-1.1",
+      "license_spdx_id": "BUSL-1.1",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Finsys/dockhand/blob/main/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Finsys/dockhand/blob/main/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Finsys/dockhand/blob/main/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Finsys/dockhand/blob/main/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "slug": "dokploy",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.MD text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Dokploy/dokploy/blob/canary/LICENSE.MD"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.MD text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Dokploy/dokploy/blob/canary/LICENSE.MD"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.MD text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Dokploy/dokploy/blob/canary/LICENSE.MD"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.MD text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Dokploy/dokploy/blob/canary/LICENSE.MD"
+        }
+      ]
+    },
+    {
+      "slug": "dragonfly",
+      "license": "BSD-3-Clause",
+      "license_spdx_id": "BSD-3-Clause",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/corecode/dma/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/corecode/dma/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/corecode/dma/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/corecode/dma/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "duplicati",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/duplicati/duplicati/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/duplicati/duplicati/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/duplicati/duplicati/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/duplicati/duplicati/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "emqx",
+      "license": "BUSL-1.1",
+      "license_spdx_id": "BUSL-1.1",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/emqx/emqx/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/emqx/emqx/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/emqx/emqx/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/emqx/emqx/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "fail2ban",
+      "license": "GPL-2.0-only",
+      "license_spdx_id": "GPL-2.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from COPYING text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/fail2ban/fail2ban/blob/master/COPYING"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from COPYING text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/fail2ban/fail2ban/blob/master/COPYING"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from COPYING text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/fail2ban/fail2ban/blob/master/COPYING"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from COPYING text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/fail2ban/fail2ban/blob/master/COPYING"
+        }
+      ]
+    },
+    {
+      "slug": "family-accounting-tool",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nymanjens/facto/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nymanjens/facto/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nymanjens/facto/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nymanjens/facto/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "feeds-fun",
+      "license": "BSD-3-Clause",
+      "license_spdx_id": "BSD-3-Clause",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Tiendil/feeds.fun/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Tiendil/feeds.fun/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Tiendil/feeds.fun/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Tiendil/feeds.fun/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "flow-like",
+      "license": "BUSL-1.1",
+      "license_spdx_id": "BUSL-1.1",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Rheosoph/flow-like/blob/dev/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Rheosoph/flow-like/blob/dev/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Rheosoph/flow-like/blob/dev/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Rheosoph/flow-like/blob/dev/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "flowforge",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/FlowFuse/flowfuse/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/FlowFuse/flowfuse/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/FlowFuse/flowfuse/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/FlowFuse/flowfuse/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "geopulse",
+      "license": "BUSL-1.1",
+      "license_spdx_id": "BUSL-1.1",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/tess1o/geopulse/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/tess1o/geopulse/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/tess1o/geopulse/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/tess1o/geopulse/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "glances",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from COPYING text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nicolargo/glances/blob/develop/COPYING"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from COPYING text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nicolargo/glances/blob/develop/COPYING"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from COPYING text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nicolargo/glances/blob/develop/COPYING"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from COPYING text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nicolargo/glances/blob/develop/COPYING"
+        }
+      ]
+    },
+    {
+      "slug": "graylog",
+      "license": "SSPL-1.0",
+      "license_spdx_id": "SSPL-1.0",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Graylog2/graylog2-server/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Graylog2/graylog2-server/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Graylog2/graylog2-server/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Graylog2/graylog2-server/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "ignis",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Nystik-gh/ignis/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Nystik-gh/ignis/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Nystik-gh/ignis/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Nystik-gh/ignis/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "kinto",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Kinto/kinto/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Kinto/kinto/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Kinto/kinto/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Kinto/kinto/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "known",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/idno/idno/blob/dev/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/idno/idno/blob/dev/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/idno/idno/blob/dev/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/idno/idno/blob/dev/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "koffan",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PanSalut/Koffan/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PanSalut/Koffan/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PanSalut/Koffan/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PanSalut/Koffan/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "laudspeaker",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/laudspeaker/laudspeaker/blob/staging/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/laudspeaker/laudspeaker/blob/staging/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/laudspeaker/laudspeaker/blob/staging/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/laudspeaker/laudspeaker/blob/staging/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "lingarr",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/lingarr-translate/lingarr/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/lingarr-translate/lingarr/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/lingarr-translate/lingarr/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/lingarr-translate/lingarr/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "listenarr",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Listenarrs/Listenarr/blob/canary/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Listenarrs/Listenarr/blob/canary/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Listenarrs/Listenarr/blob/canary/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Listenarrs/Listenarr/blob/canary/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "luanti",
+      "license": "LGPL-2.1-only",
+      "license_spdx_id": "LGPL-2.1-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from COPYING.LESSER text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/luanti-org/luanti/blob/master/COPYING.LESSER"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from COPYING.LESSER text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/luanti-org/luanti/blob/master/COPYING.LESSER"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from COPYING.LESSER text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/luanti-org/luanti/blob/master/COPYING.LESSER"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from COPYING.LESSER text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/luanti-org/luanti/blob/master/COPYING.LESSER"
+        }
+      ]
+    },
+    {
+      "slug": "lunalytics",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/KSJaay/Lunalytics/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/KSJaay/Lunalytics/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/KSJaay/Lunalytics/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/KSJaay/Lunalytics/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "managarr",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Dark-Alex-17/managarr/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Dark-Alex-17/managarr/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Dark-Alex-17/managarr/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Dark-Alex-17/managarr/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "mantium",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/diogovalentte/mantium/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/diogovalentte/mantium/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/diogovalentte/mantium/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/diogovalentte/mantium/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "mattermost",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/mattermost/mattermost/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/mattermost/mattermost/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/mattermost/mattermost/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/mattermost/mattermost/blob/master/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "slug": "medikeep",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/afairgiant/MediKeep/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/afairgiant/MediKeep/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/afairgiant/MediKeep/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/afairgiant/MediKeep/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "mumble",
+      "license": "BSD-3-Clause",
+      "license_spdx_id": "BSD-3-Clause",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/mumble-voip/mumble/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/mumble-voip/mumble/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/mumble-voip/mumble/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/mumble-voip/mumble/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "netbird",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/netbirdio/netbird/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/netbirdio/netbird/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/netbirdio/netbird/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/netbirdio/netbird/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "nocobase",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nocobase/nocobase/blob/main/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nocobase/nocobase/blob/main/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nocobase/nocobase/blob/main/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nocobase/nocobase/blob/main/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "slug": "ontime",
+      "license": "GPL-3.0-only",
+      "license_spdx_id": "GPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cpvalente/ontime/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cpvalente/ontime/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cpvalente/ontime/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cpvalente/ontime/blob/master/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "openmeetings",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/apache/openmeetings/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/apache/openmeetings/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/apache/openmeetings/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/apache/openmeetings/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "openolat",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/OpenOLAT/OpenOLAT/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/OpenOLAT/OpenOLAT/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/OpenOLAT/OpenOLAT/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/OpenOLAT/OpenOLAT/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "operately",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/operately/operately/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/operately/operately/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/operately/operately/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/operately/operately/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "outline",
+      "license": "BUSL-1.1",
+      "license_spdx_id": "BUSL-1.1",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/outline/outline/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/outline/outline/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/outline/outline/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/outline/outline/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "peppermint",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from license text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Peppermint-Lab/peppermint/blob/main/license"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from license text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Peppermint-Lab/peppermint/blob/main/license"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from license text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Peppermint-Lab/peppermint/blob/main/license"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from license text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Peppermint-Lab/peppermint/blob/main/license"
+        }
+      ]
+    },
+    {
+      "slug": "pictshare",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/HaschekSolutions/pictshare/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/HaschekSolutions/pictshare/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/HaschekSolutions/pictshare/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/HaschekSolutions/pictshare/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "pretalx",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/pretalx/pretalx/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/pretalx/pretalx/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/pretalx/pretalx/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/pretalx/pretalx/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "privatebin",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PrivateBin/PrivateBin/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PrivateBin/PrivateBin/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PrivateBin/PrivateBin/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PrivateBin/PrivateBin/blob/master/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "properdocs",
+      "license": "BSD-2-Clause",
+      "license_spdx_id": "BSD-2-Clause",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/ProperDocs/properdocs/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/ProperDocs/properdocs/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/ProperDocs/properdocs/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/ProperDocs/properdocs/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "proxcenter",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/adminsyspro/proxcenter-ui/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/adminsyspro/proxcenter-ui/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/adminsyspro/proxcenter-ui/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/adminsyspro/proxcenter-ui/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "requestly",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/requestly/requestly/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/requestly/requestly/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/requestly/requestly/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/requestly/requestly/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "sandstorm",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/sandstorm-io/sandstorm/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/sandstorm-io/sandstorm/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/sandstorm-io/sandstorm/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/sandstorm-io/sandstorm/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "seafile",
+      "license": "GPL-2.0-only",
+      "license_spdx_id": "GPL-2.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/haiwen/seafile/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/haiwen/seafile/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/haiwen/seafile/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/haiwen/seafile/blob/master/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "slug": "semaphore",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/semaphoreio/semaphore/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/semaphoreio/semaphore/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/semaphoreio/semaphore/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/semaphoreio/semaphore/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "sentry",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/getsentry/sentry/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/getsentry/sentry/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/getsentry/sentry/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/getsentry/sentry/blob/master/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "shaarli",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from COPYING text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/shaarli/Shaarli/blob/master/COPYING"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from COPYING text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/shaarli/Shaarli/blob/master/COPYING"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from COPYING text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/shaarli/Shaarli/blob/master/COPYING"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from COPYING text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/shaarli/Shaarli/blob/master/COPYING"
+        }
+      ]
+    },
+    {
+      "slug": "signoz",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/SigNoz/signoz/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/SigNoz/signoz/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/SigNoz/signoz/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/SigNoz/signoz/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "silicon-notes",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cu/silicon/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cu/silicon/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cu/silicon/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cu/silicon/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "simple-machines-forum",
+      "license": "BSD-3-Clause",
+      "license_spdx_id": "BSD-3-Clause",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/SimpleMachines/SMF/blob/release-3.0/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/SimpleMachines/SMF/blob/release-3.0/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/SimpleMachines/SMF/blob/release-3.0/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/SimpleMachines/SMF/blob/release-3.0/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "solidus",
+      "license": "BSD-3-Clause",
+      "license_spdx_id": "BSD-3-Clause",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/solidusio/solidus/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/solidusio/solidus/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/solidusio/solidus/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/solidusio/solidus/blob/main/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "sparkybudget",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/CodeWithCJ/SparkyBudget/blob/main/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/CodeWithCJ/SparkyBudget/blob/main/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/CodeWithCJ/SparkyBudget/blob/main/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/CodeWithCJ/SparkyBudget/blob/main/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "slug": "tandoor-recipes",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/TandoorRecipes/recipes/blob/develop/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/TandoorRecipes/recipes/blob/develop/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/TandoorRecipes/recipes/blob/develop/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/TandoorRecipes/recipes/blob/develop/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "task-keeper",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nymanjens/piga/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nymanjens/piga/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nymanjens/piga/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nymanjens/piga/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "teable",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/teableio/teable/blob/develop/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/teableio/teable/blob/develop/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/teableio/teable/blob/develop/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/teableio/teable/blob/develop/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "tenzu",
+      "license": "AGPL-3.0-only",
+      "license_spdx_id": "AGPL-3.0-only",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/BIRU-Scop/tenzu-back/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/BIRU-Scop/tenzu-back/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/BIRU-Scop/tenzu-back/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/BIRU-Scop/tenzu-back/blob/main/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "termix",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Termix-SSH/Termix/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Termix-SSH/Termix/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Termix-SSH/Termix/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Termix-SSH/Termix/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "tileserver-gl",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/maptiler/tileserver-gl/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/maptiler/tileserver-gl/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/maptiler/tileserver-gl/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/maptiler/tileserver-gl/blob/master/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "tolgee",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/tolgee/tolgee-platform/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/tolgee/tolgee-platform/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/tolgee/tolgee-platform/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/tolgee/tolgee-platform/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "wapy-dev",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/meceware/wapy.dev/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/meceware/wapy.dev/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/meceware/wapy.dev/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/meceware/wapy.dev/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "windmill",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/windmill-labs/windmill/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/windmill-labs/windmill/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/windmill-labs/windmill/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/windmill-labs/windmill/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "workout-challenge",
+      "license": "SSPL-1.0",
+      "license_spdx_id": "SSPL-1.0",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/vanalmsick/workout_challenge/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/vanalmsick/workout_challenge/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/vanalmsick/workout_challenge/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/vanalmsick/workout_challenge/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "workout-tracker",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/jovandeginste/workout-tracker/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/jovandeginste/workout-tracker/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/jovandeginste/workout-tracker/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/jovandeginste/workout-tracker/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "zaneops",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/zane-ops/zane-ops/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/zane-ops/zane-ops/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/zane-ops/zane-ops/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/zane-ops/zane-ops/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "zincsearch",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from COPYRIGHT text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/zincsearch/zincsearch/blob/main/COPYRIGHT"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from COPYRIGHT text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/zincsearch/zincsearch/blob/main/COPYRIGHT"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from COPYRIGHT text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/zincsearch/zincsearch/blob/main/COPYRIGHT"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from COPYRIGHT text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/zincsearch/zincsearch/blob/main/COPYRIGHT"
+        }
+      ]
+    }
+  ]
+}

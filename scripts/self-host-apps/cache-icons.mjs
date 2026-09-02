@@ -8,6 +8,7 @@ import { parseArgs, numberArg } from "./lib/args.mjs";
 function recordsFromInput(input) {
   if (Array.isArray(input)) return input;
   if (Array.isArray(input.apps)) return input.apps;
+  if (Array.isArray(input.records)) return input.records.map((record) => record?.app ?? record);
   return [input];
 }
 

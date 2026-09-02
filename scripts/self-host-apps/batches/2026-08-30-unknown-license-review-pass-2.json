@@ -1,0 +1,485 @@
+{
+  "apps": [
+    {
+      "slug": "awesome-sysadmin",
+      "license": "CC-BY-SA-4.0",
+      "license_spdx_id": "CC-BY-SA-4.0",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/awesome-foss/awesome-sysadmin/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/awesome-foss/awesome-sysadmin/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/awesome-foss/awesome-sysadmin/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/awesome-foss/awesome-sysadmin/blob/master/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "slug": "cially",
+      "license": "CC-BY-NC-ND-2.0",
+      "license_spdx_id": "CC-BY-NC-ND-2.0",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cially/cially/blob/v2.x/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cially/cially/blob/v2.x/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cially/cially/blob/v2.x/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cially/cially/blob/v2.x/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "guardian-plex",
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "license_spdx_id": "PolyForm-Noncommercial-1.0.0",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/HydroshieldMKII/Guardian/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/HydroshieldMKII/Guardian/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/HydroshieldMKII/Guardian/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/HydroshieldMKII/Guardian/blob/main/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "hoodik",
+      "license": "CC-BY-NC-4.0",
+      "license_spdx_id": "CC-BY-NC-4.0",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/hudikhq/hoodik/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/hudikhq/hoodik/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/hudikhq/hoodik/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/hudikhq/hoodik/blob/master/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "investbrain",
+      "license": "CC-BY-NC-4.0",
+      "license_spdx_id": "CC-BY-NC-4.0",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/investbrainapp/investbrain/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/investbrainapp/investbrain/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/investbrainapp/investbrain/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/investbrainapp/investbrain/blob/main/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "journiv",
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "license_spdx_id": "PolyForm-Noncommercial-1.0.0",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/journiv/journiv-app/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/journiv/journiv-app/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/journiv/journiv-app/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/journiv/journiv-app/blob/main/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "m3u-editor",
+      "license": "CC-BY-NC-SA-4.0",
+      "license_spdx_id": "CC-BY-NC-SA-4.0",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/m3ue/m3u-editor/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/m3ue/m3u-editor/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/m3ue/m3u-editor/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/m3ue/m3u-editor/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "mosquitto",
+      "license": "EPL-2.0 OR BSD-3-Clause",
+      "license_spdx_id": "EPL-2.0 OR BSD-3-Clause",
+      "license_type": "mixed",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/eclipse-mosquitto/mosquitto/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/eclipse-mosquitto/mosquitto/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/eclipse-mosquitto/mosquitto/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/eclipse-mosquitto/mosquitto/blob/master/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "slug": "novus-mail",
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "license_spdx_id": "PolyForm-Noncommercial-1.0.0",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Zhoros/NortixMail/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Zhoros/NortixMail/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Zhoros/NortixMail/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Zhoros/NortixMail/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "nullboard",
+      "license": "BSD-2-Clause WITH Commons-Clause",
+      "license_spdx_id": "BSD-2-Clause WITH Commons-Clause",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/apankrat/nullboard/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/apankrat/nullboard/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/apankrat/nullboard/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/apankrat/nullboard/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "omoide",
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "license_spdx_id": "PolyForm-Noncommercial-1.0.0",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/EinAeffchen/Omoide/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/EinAeffchen/Omoide/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/EinAeffchen/Omoide/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/EinAeffchen/Omoide/blob/master/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "pgadmin",
+      "license": "PostgreSQL",
+      "license_spdx_id": "PostgreSQL",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/pgadmin-org/pgadmin4/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/pgadmin-org/pgadmin4/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/pgadmin-org/pgadmin4/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/pgadmin-org/pgadmin4/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "private-captcha",
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "license_spdx_id": "PolyForm-Noncommercial-1.0.0",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PrivateCaptcha/PrivateCaptcha/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PrivateCaptcha/PrivateCaptcha/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PrivateCaptcha/PrivateCaptcha/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PrivateCaptcha/PrivateCaptcha/blob/main/LICENSE"
+        }
+      ]
+    }
+  ]
+}

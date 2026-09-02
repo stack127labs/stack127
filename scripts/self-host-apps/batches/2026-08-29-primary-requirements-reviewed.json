@@ -78,6 +78,13 @@
       "ram_recommended_mb": 4096,
       "storage_min_gb": null,
       "decision": "The official production guidance recommends at least 4 GB RAM."
+    },
+    {
+      "slug": "ragflow",
+      "ram_min_mb": 16384,
+      "ram_recommended_mb": null,
+      "storage_min_gb": null,
+      "decision": "The official self-hosting guide requires at least 16 GB RAM for the Docker deployment."
     }
   ]
 }

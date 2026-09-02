@@ -1,0 +1,1599 @@
+{
+  "records": [
+    {
+      "candidate_id": "d753bad1-53d0-4dfb-af02-24d9ca3ed4eb",
+      "decision": "publish",
+      "app": {
+        "slug": "weknora",
+        "name": "WeKnora",
+        "summary": "Knowledge platform for turning documents into searchable, cited answers and agent workflows.",
+        "icon_source_url": "https://www.google.com/s2/favicons?domain=weknora.weixin.qq.com&sz=256",
+        "website_url": "https://weknora.weixin.qq.com/",
+        "source_code_url": "https://github.com/Tencent/WeKnora",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/Tencent/WeKnora#readme",
+        "install_docs_url": "https://github.com/Tencent/WeKnora#-installation--launch",
+        "docker_url": "https://hub.docker.com/r/wechatopenai/weknora-ui",
+        "compose_url": "https://github.com/Tencent/WeKnora/blob/main/docker-compose.yml",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "Tencent",
+        "publisher_type": "company",
+        "publisher_url": "https://www.tencent.com/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "helm"
+        ],
+        "docker_image": "wechatopenai/weknora-ui:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "postgres",
+          "redis"
+        ],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web",
+          "api",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "knowledge-notes",
+          "search"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://weknora.weixin.qq.com/",
+          "https://github.com/Tencent/WeKnora#readme",
+          "https://github.com/Tencent/WeKnora/blob/main/docker-compose.yml"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/weknora.png"
+      },
+      "sources": [
+        {
+          "source": "official_website",
+          "source_url": "https://weknora.weixin.qq.com/",
+          "confidence": "high",
+          "note": "Official product site verifies the product identity."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/Tencent/WeKnora#readme",
+          "confidence": "high",
+          "note": "README describes the knowledge platform, self-hosting, Docker, Compose, and license."
+        },
+        {
+          "source": "official_compose",
+          "source_url": "https://github.com/Tencent/WeKnora/blob/main/docker-compose.yml",
+          "confidence": "high",
+          "note": "Repository includes the deployment Compose file."
+        }
+      ]
+    },
+    {
+      "candidate_id": "6b900582-35b9-4a4a-863b-dc8d3169c60f",
+      "decision": "publish",
+      "app": {
+        "slug": "virtual-machine-manager",
+        "name": "Virtual Machine Manager",
+        "summary": "Browser interface for managing libvirt virtual machines through the virt-manager desktop application.",
+        "icon_source_url": "https://github.com/m-bers.png?size=256",
+        "website_url": "https://virt-manager.org/",
+        "source_code_url": "https://github.com/m-bers/docker-virt-manager",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/m-bers/docker-virt-manager#readme",
+        "install_docs_url": "https://github.com/m-bers/docker-virt-manager#docker-compose",
+        "docker_url": "https://hub.docker.com/r/mber5/virt-manager",
+        "compose_url": "https://github.com/m-bers/docker-virt-manager/blob/main/docker-compose.yml",
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "virt-manager contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://virt-manager.org/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "stale",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "mber5/virt-manager:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "depends",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "system-admin-hosting",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://virt-manager.org/faq.html",
+          "https://github.com/m-bers/docker-virt-manager#readme",
+          "https://hub.docker.com/r/mber5/virt-manager"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/virtual-machine-manager.png"
+      },
+      "sources": [
+        {
+          "source": "official_project_site",
+          "source_url": "https://virt-manager.org/faq.html",
+          "confidence": "high",
+          "note": "Official site verifies virt-manager identity and GPL distribution."
+        },
+        {
+          "source": "community_container_repository",
+          "source_url": "https://github.com/m-bers/docker-virt-manager#readme",
+          "confidence": "high",
+          "note": "The container README documents the browser UI, Docker Compose, and libvirt requirement."
+        },
+        {
+          "source": "community_container_registry",
+          "source_url": "https://hub.docker.com/r/mber5/virt-manager",
+          "confidence": "high",
+          "note": "Registry page verifies the community image."
+        }
+      ]
+    },
+    {
+      "candidate_id": "0a374fb7-4f75-4e7a-b598-5e168cd203f3",
+      "decision": "publish",
+      "app": {
+        "slug": "v2raya",
+        "name": "v2rayA",
+        "summary": "Web client for managing V2Ray-compatible proxy connections on a local computer, router, or NAS.",
+        "icon_source_url": "https://github.com/v2rayA.png?size=256",
+        "website_url": "https://v2raya.org/",
+        "source_code_url": "https://github.com/v2rayA/v2rayA",
+        "source_code_host": "github",
+        "docs_url": "https://v2raya.org/en/docs/prologue/introduction/",
+        "install_docs_url": "https://github.com/v2rayA/v2rayA#usage",
+        "docker_url": "https://hub.docker.com/r/mzz2017/v2raya",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "v2rayA contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/v2rayA/v2rayA",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "package",
+          "binary"
+        ],
+        "docker_image": "mzz2017/v2raya:latest",
+        "compose_support": null,
+        "requires_database": null,
+        "storage_profile": "low",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "networking-dns",
+          "remote-access",
+          "security-privacy"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://v2raya.org/en/docs/prologue/introduction/",
+          "https://github.com/v2rayA/v2rayA#usage",
+          "https://hub.docker.com/r/mzz2017/v2raya"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/v2raya.png"
+      },
+      "sources": [
+        {
+          "source": "official_documentation",
+          "source_url": "https://v2raya.org/en/docs/prologue/introduction/",
+          "confidence": "high",
+          "note": "Official documentation verifies the web client and local deployment use."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/v2rayA/v2rayA#usage",
+          "confidence": "high",
+          "note": "README lists Docker, package, and binary installation methods and AGPL licensing."
+        },
+        {
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/r/mzz2017/v2raya",
+          "confidence": "high",
+          "note": "Project README links the Docker image."
+        }
+      ]
+    },
+    {
+      "candidate_id": "3d36e5f7-3557-4f65-8f12-ecba846aa454",
+      "decision": "publish",
+      "app": {
+        "slug": "taskingai",
+        "name": "TaskingAI",
+        "summary": "Platform for building and serving AI agents with configurable models, tools, memory, and retrieval.",
+        "icon_source_url": "https://www.google.com/s2/favicons?domain=www.tasking.ai&sz=256",
+        "website_url": "https://www.tasking.ai/",
+        "source_code_url": "https://github.com/TaskingAI/TaskingAI",
+        "source_code_host": "github",
+        "docs_url": "https://docs.tasking.ai/",
+        "install_docs_url": "https://github.com/TaskingAI/TaskingAI#quickstart-with-docker",
+        "docker_url": "https://hub.docker.com/u/taskingai",
+        "compose_url": "https://github.com/TaskingAI/TaskingAI/blob/master/docker/docker-compose.yml",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "TaskingAI",
+        "publisher_type": "company",
+        "publisher_url": "https://www.tasking.ai/",
+        "pricing_model": "freemium",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "slow",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "taskingai/taskingai-server:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "postgres",
+          "redis"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://www.tasking.ai/",
+          "https://docs.tasking.ai/",
+          "https://github.com/TaskingAI/TaskingAI/blob/master/docker/docker-compose.yml",
+          "https://hub.docker.com/u/taskingai"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/taskingai.png"
+      },
+      "sources": [
+        {
+          "source": "official_documentation",
+          "source_url": "https://docs.tasking.ai/",
+          "confidence": "high",
+          "note": "Official docs identify the product and its deployment documentation."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/TaskingAI/TaskingAI#quickstart-with-docker",
+          "confidence": "high",
+          "note": "README documents self-hosted Docker Compose quickstart and Apache licensing."
+        },
+        {
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/u/taskingai",
+          "confidence": "high",
+          "note": "Project links its Docker images."
+        }
+      ]
+    },
+    {
+      "candidate_id": "256f54dd-e07f-4faf-bdc5-ff8a618c831d",
+      "decision": "publish",
+      "app": {
+        "slug": "sickchill",
+        "name": "SickChill",
+        "summary": "Automatic TV library manager that tracks shows, finds releases, and organizes episodes.",
+        "icon_source_url": "https://www.google.com/s2/favicons?domain=sickchill.github.io&sz=256",
+        "website_url": "https://sickchill.github.io/",
+        "source_code_url": "https://github.com/SickChill/sickchill",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/SickChill/SickChill/wiki",
+        "install_docs_url": "https://github.com/SickChill/SickChill/wiki/Installation-&-Configuration-Guides",
+        "docker_url": "https://hub.docker.com/r/linuxserver/sickchill",
+        "compose_url": "https://github.com/SickChill/sickchill/blob/master/docker-compose.yaml",
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "SickChill contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/SickChill/SickChill",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "linuxserver/sickchill:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "sqlite"
+        ],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "media-servers",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://github.com/SickChill/SickChill/wiki/Installation-&-Configuration-Guides",
+          "https://github.com/SickChill/SickChill",
+          "https://hub.docker.com/r/linuxserver/sickchill"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/sickchill.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/SickChill/SickChill",
+          "confidence": "high",
+          "note": "README identifies the TV library manager and GPL license."
+        },
+        {
+          "source": "official_installation_wiki",
+          "source_url": "https://github.com/SickChill/SickChill/wiki/Installation-&-Configuration-Guides",
+          "confidence": "high",
+          "note": "Project wiki provides installation guidance and database backup guidance."
+        },
+        {
+          "source": "community_container_registry",
+          "source_url": "https://hub.docker.com/r/linuxserver/sickchill",
+          "confidence": "high",
+          "note": "LinuxServer publishes the community container image."
+        }
+      ]
+    },
+    {
+      "candidate_id": "4284705d-aa68-4585-bce5-f82734daf6b8",
+      "decision": "publish",
+      "app": {
+        "slug": "retroarch",
+        "name": "RetroArch",
+        "summary": "Frontend for running libretro cores and managing emulators, games, and other interactive programs.",
+        "icon_source_url": "https://github.com/libretro.png?size=256",
+        "website_url": "https://www.retroarch.com/",
+        "source_code_url": "https://github.com/libretro/RetroArch",
+        "source_code_host": "github",
+        "docs_url": "https://docs.libretro.com/",
+        "install_docs_url": "https://docs.libretro.com/",
+        "docker_url": "https://hub.docker.com/r/inglebard/retroarch-web",
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "Libretro",
+        "publisher_type": "community",
+        "publisher_url": "https://www.libretro.com/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "package",
+          "binary"
+        ],
+        "docker_image": "inglebard/retroarch-web:latest",
+        "compose_support": null,
+        "requires_database": false,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web",
+          "desktop"
+        ],
+        "categories": [
+          "games"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://www.retroarch.com/",
+          "https://docs.libretro.com/",
+          "https://github.com/libretro/RetroArch",
+          "https://hub.docker.com/r/inglebard/retroarch-web"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/retroarch.png"
+      },
+      "sources": [
+        {
+          "source": "official_project_site",
+          "source_url": "https://www.retroarch.com/",
+          "confidence": "high",
+          "note": "Official site verifies the RetroArch project."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/libretro/RetroArch",
+          "confidence": "high",
+          "note": "Repository describes RetroArch as the reference libretro frontend and provides GPL licensing."
+        },
+        {
+          "source": "community_container_registry",
+          "source_url": "https://hub.docker.com/r/inglebard/retroarch-web",
+          "confidence": "high",
+          "note": "The reviewed CasaOS listing supplies a community web container; it is not presented as an upstream image."
+        }
+      ]
+    },
+    {
+      "candidate_id": "002438e2-5a43-4ec9-a9cd-dac8d31513b3",
+      "decision": "publish",
+      "app": {
+        "slug": "ragflow",
+        "name": "RAGFlow",
+        "summary": "RAG engine for turning documents and data into searchable knowledge and AI agent workflows.",
+        "icon_source_url": "https://www.google.com/s2/favicons?domain=ragflow.io&sz=256",
+        "website_url": "https://ragflow.io/",
+        "source_code_url": "https://github.com/infiniflow/ragflow",
+        "source_code_host": "github",
+        "docs_url": "https://ragflow.io/docs/dev/",
+        "install_docs_url": "https://github.com/infiniflow/ragflow#-self-hosting",
+        "docker_url": "https://hub.docker.com/r/infiniflow/ragflow",
+        "compose_url": "https://github.com/infiniflow/ragflow/blob/main/docker/docker-compose.yml",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "InfiniFlow",
+        "publisher_type": "company",
+        "publisher_url": "https://infiniflow.org/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "helm"
+        ],
+        "docker_image": "infiniflow/ragflow:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "mysql",
+          "elasticsearch",
+          "redis"
+        ],
+        "ram_min_mb": 16384,
+        "resource_requirement_kind": "official_minimum",
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "ai-ml",
+          "search"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://ragflow.io/docs/dev/",
+          "https://github.com/infiniflow/ragflow#-self-hosting",
+          "https://github.com/infiniflow/ragflow/blob/main/docker/docker-compose.yml",
+          "https://hub.docker.com/r/infiniflow/ragflow"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/ragflow.png"
+      },
+      "sources": [
+        {
+          "source": "official_documentation",
+          "source_url": "https://ragflow.io/docs/dev/",
+          "confidence": "high",
+          "note": "Official docs identify the product and deployment guidance."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/infiniflow/ragflow#-self-hosting",
+          "confidence": "high",
+          "note": "README documents self-hosting, Docker Compose, the 16 GB RAM minimum, and Apache licensing."
+        },
+        {
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/r/infiniflow/ragflow",
+          "confidence": "high",
+          "note": "Project links its Docker image."
+        }
+      ]
+    },
+    {
+      "candidate_id": "76aa3dad-d1d6-4cd0-b595-91a728e6b983",
+      "decision": "publish",
+      "app": {
+        "slug": "lucky",
+        "name": "Lucky",
+        "summary": "Network utility for port forwarding, DDNS, reverse proxying, wake-on-LAN, certificates, and storage access.",
+        "icon_source_url": "https://www.google.com/s2/favicons?domain=lucky666.cn&sz=256",
+        "website_url": "https://lucky666.cn/",
+        "source_code_url": "https://github.com/gdy666/lucky",
+        "source_code_host": "github",
+        "docs_url": "https://lucky666.cn/docs/",
+        "install_docs_url": "https://github.com/gdy666/lucky#docker",
+        "docker_url": "https://hub.docker.com/r/gdy666/lucky",
+        "license": "MIT (source through 1.4.10)",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "source_available",
+        "publisher_name": "gdy666",
+        "publisher_type": "individual",
+        "publisher_url": "https://lucky666.cn/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "package",
+          "binary"
+        ],
+        "docker_image": "gdy666/lucky:latest",
+        "compose_support": null,
+        "requires_database": false,
+        "storage_profile": "low",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "networking-dns",
+          "remote-access"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://lucky666.cn/docs/",
+          "https://github.com/gdy666/lucky",
+          "https://hub.docker.com/r/gdy666/lucky"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/lucky.png"
+      },
+      "sources": [
+        {
+          "source": "official_documentation",
+          "source_url": "https://lucky666.cn/docs/",
+          "confidence": "high",
+          "note": "Official docs describe the network utility and Docker installation."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/gdy666/lucky",
+          "confidence": "high",
+          "note": "README states that source publication stopped at 1.4.10, so the current distribution is source-available rather than fully open source."
+        },
+        {
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/r/gdy666/lucky",
+          "confidence": "high",
+          "note": "Project-linked Docker image verifies self-hosted distribution."
+        }
+      ]
+    },
+    {
+      "candidate_id": "af82591a-c699-43f7-8437-f9b5bf22d11f",
+      "decision": "publish",
+      "app": {
+        "slug": "label-studio",
+        "name": "Label Studio",
+        "summary": "Data labeling and annotation workspace for preparing audio, text, image, video, and time-series datasets.",
+        "icon_source_url": "https://www.google.com/s2/favicons?domain=labelstud.io&sz=256",
+        "website_url": "https://labelstud.io/",
+        "source_code_url": "https://github.com/HumanSignal/label-studio",
+        "source_code_host": "github",
+        "docs_url": "https://labelstud.io/guide/",
+        "install_docs_url": "https://github.com/HumanSignal/label-studio#install-locally-with-docker",
+        "docker_url": "https://hub.docker.com/r/heartexlabs/label-studio",
+        "compose_url": "https://github.com/HumanSignal/label-studio/blob/develop/docker-compose.yml",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "HumanSignal",
+        "publisher_type": "company",
+        "publisher_url": "https://humansignal.com/",
+        "pricing_model": "freemium",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "heartexlabs/label-studio:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "sqlite",
+          "postgres"
+        ],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://labelstud.io/guide/",
+          "https://github.com/HumanSignal/label-studio#install-locally-with-docker",
+          "https://github.com/HumanSignal/label-studio/blob/develop/docker-compose.yml",
+          "https://hub.docker.com/r/heartexlabs/label-studio"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/label-studio.png"
+      },
+      "sources": [
+        {
+          "source": "official_documentation",
+          "source_url": "https://labelstud.io/guide/",
+          "confidence": "high",
+          "note": "Official docs verify product purpose and usage."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/HumanSignal/label-studio#install-locally-with-docker",
+          "confidence": "high",
+          "note": "README documents Docker, Compose, SQLite, PostgreSQL, and Apache licensing."
+        },
+        {
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/r/heartexlabs/label-studio",
+          "confidence": "high",
+          "note": "README identifies the official image."
+        }
+      ]
+    },
+    {
+      "candidate_id": "35a888af-b1b1-46a5-b245-d439373b8fe0",
+      "decision": "publish",
+      "app": {
+        "slug": "llama-factory-nvidia-gpu",
+        "name": "LlamaFactory (NVIDIA GPU)",
+        "summary": "Toolkit for fine-tuning and serving large language and vision-language models with GPU acceleration.",
+        "icon_source_url": "https://www.google.com/s2/favicons?domain=llamafactory.readthedocs.io&sz=256",
+        "website_url": "https://llamafactory.readthedocs.io/",
+        "source_code_url": "https://github.com/hiyouga/LlamaFactory",
+        "source_code_host": "github",
+        "docs_url": "https://llamafactory.readthedocs.io/",
+        "install_docs_url": "https://github.com/hiyouga/LlamaFactory#installation",
+        "docker_url": "https://hub.docker.com/r/hiyouga/llamafactory",
+        "compose_url": "https://github.com/hiyouga/LlamaFactory/blob/main/docker/docker-cuda/docker-compose.yml",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "LlamaFactory contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/hiyouga/LlamaFactory",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "hiyouga/llamafactory:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://llamafactory.readthedocs.io/",
+          "https://github.com/hiyouga/LlamaFactory#installation",
+          "https://github.com/hiyouga/LlamaFactory/blob/main/docker/docker-cuda/docker-compose.yml",
+          "https://hub.docker.com/r/hiyouga/llamafactory"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/llama-factory-nvidia-gpu.png"
+      },
+      "sources": [
+        {
+          "source": "official_documentation",
+          "source_url": "https://llamafactory.readthedocs.io/",
+          "confidence": "high",
+          "note": "Official documentation verifies the toolkit and hardware-focused deployment."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/hiyouga/LlamaFactory#installation",
+          "confidence": "high",
+          "note": "README documents the Docker image, Compose files, package installation, and Apache license."
+        },
+        {
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/r/hiyouga/llamafactory",
+          "confidence": "high",
+          "note": "Project links the prebuilt image."
+        }
+      ]
+    },
+    {
+      "candidate_id": "fcb4c98c-8684-43dc-9b25-b6b52b82bbf9",
+      "decision": "publish",
+      "app": {
+        "slug": "gopeed",
+        "name": "Gopeed",
+        "summary": "Download manager for HTTP, BitTorrent, Magnet, and ed2k transfers with a web interface.",
+        "icon_source_url": "https://www.google.com/s2/favicons?domain=gopeed.com&sz=256",
+        "website_url": "https://gopeed.com/",
+        "source_code_url": "https://github.com/GopeedLab/gopeed",
+        "source_code_host": "github",
+        "docs_url": "https://gopeed.com/docs",
+        "install_docs_url": "https://gopeed.com/docs/install",
+        "docker_url": "https://hub.docker.com/r/liwei2633/gopeed",
+        "compose_url": "https://github.com/GopeedLab/gopeed/blob/main/docker-compose.yml",
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "GopeedLab",
+        "publisher_type": "community",
+        "publisher_url": "https://gopeed.com/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package",
+          "binary"
+        ],
+        "docker_image": "liwei2633/gopeed:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web",
+          "desktop",
+          "mobile"
+        ],
+        "categories": [
+          "file-sharing-sync",
+          "storage-backup"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://gopeed.com/docs/install",
+          "https://github.com/GopeedLab/gopeed",
+          "https://github.com/GopeedLab/gopeed/blob/main/docker-compose.yml",
+          "https://hub.docker.com/r/liwei2633/gopeed"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/gopeed.png"
+      },
+      "sources": [
+        {
+          "source": "official_documentation",
+          "source_url": "https://gopeed.com/docs/install",
+          "confidence": "high",
+          "note": "Official install docs verify the web and self-hosted Docker deployment."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/GopeedLab/gopeed",
+          "confidence": "high",
+          "note": "README describes the transfer types and GPL license."
+        },
+        {
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/r/liwei2633/gopeed",
+          "confidence": "high",
+          "note": "Project README links the Docker image."
+        }
+      ]
+    },
+    {
+      "candidate_id": "24da6ed5-3d81-44dd-ace1-26ad9ab8a2a4",
+      "decision": "publish",
+      "app": {
+        "slug": "firefly",
+        "name": "Firefly",
+        "summary": "WireGuard VPN server for remote access, private networking, and exposing services behind NAT.",
+        "icon_source_url": "https://github.com/Safe3.png?size=256",
+        "website_url": "https://qq.uusec.com/",
+        "source_code_url": "https://github.com/Safe3/firefly",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/Safe3/firefly#readme",
+        "install_docs_url": "https://github.com/Safe3/firefly#server-installation",
+        "docker_url": "https://hub.docker.com/r/uusec/firefly",
+        "compose_url": "https://github.com/Safe3/firefly/blob/master/docker-compose.yml",
+        "license": "Personal free use; source licensing by publisher",
+        "license_type": "custom",
+        "source_model": "closed_source",
+        "publisher_name": "Safe3",
+        "publisher_type": "company",
+        "publisher_url": "https://www.safe3.com/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "binary"
+        ],
+        "docker_image": "uusec/firefly:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "low",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "networking-dns",
+          "remote-access",
+          "security-privacy"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://qq.uusec.com/",
+          "https://github.com/Safe3/firefly#server-installation",
+          "https://github.com/Safe3/firefly/blob/master/docker-compose.yml",
+          "https://hub.docker.com/r/uusec/firefly"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/firefly.png"
+      },
+      "sources": [
+        {
+          "source": "official_product_site",
+          "source_url": "https://qq.uusec.com/",
+          "confidence": "high",
+          "note": "Publisher site verifies the product identity."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/Safe3/firefly#server-installation",
+          "confidence": "high",
+          "note": "README documents binary and Docker Compose installation and states the personal-use/source-licensing terms."
+        },
+        {
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/r/uusec/firefly",
+          "confidence": "high",
+          "note": "Project-linked image verifies container distribution."
+        }
+      ]
+    },
+    {
+      "candidate_id": "0a9fce45-e2b4-4ba3-8e13-bea99e48e9f4",
+      "decision": "publish",
+      "app": {
+        "slug": "deepseekharness",
+        "name": "DeepSeek Harness",
+        "summary": "Plugin-based agent harness with a local web UI, CLI, SDK, and configurable model providers.",
+        "icon_source_url": "https://www.google.com/s2/favicons?domain=deepseek.com&sz=256",
+        "website_url": "https://deepseek.com/harness",
+        "source_code_url": "https://github.com/deepseek-ai/deepseek-harness",
+        "source_code_host": "github",
+        "docs_url": "https://deepseek-harness.github.io/deepseek-harness/en/",
+        "install_docs_url": "https://github.com/deepseek-ai/deepseek-harness#run",
+        "docker_url": "https://ghcr.io/smanx/deepseek-harness",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "DeepSeek AI",
+        "publisher_type": "company",
+        "publisher_url": "https://deepseek.com/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "community",
+        "deployment_methods": [
+          "package",
+          "binary",
+          "docker"
+        ],
+        "docker_image": "ghcr.io/smanx/deepseek-harness:latest",
+        "compose_support": null,
+        "requires_database": false,
+        "storage_profile": "depends",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web",
+          "cli",
+          "api"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://deepseek-harness.github.io/deepseek-harness/en/",
+          "https://github.com/deepseek-ai/deepseek-harness#run",
+          "https://ghcr.io/smanx/deepseek-harness"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/deepseekharness.png"
+      },
+      "sources": [
+        {
+          "source": "official_documentation",
+          "source_url": "https://deepseek-harness.github.io/deepseek-harness/en/",
+          "confidence": "high",
+          "note": "Official docs describe the local Web UI, CLI, and SDK workflows."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/deepseek-ai/deepseek-harness#run",
+          "confidence": "high",
+          "note": "README documents npm/source installation and MIT licensing."
+        },
+        {
+          "source": "community_container_registry",
+          "source_url": "https://ghcr.io/smanx/deepseek-harness",
+          "confidence": "medium",
+          "note": "CasaOS supplies a community GHCR image; it is not represented as an official DeepSeek image."
+        }
+      ]
+    },
+    {
+      "candidate_id": "06dbb295-60a7-4053-9d78-ba4716bbe3ae",
+      "decision": "reject",
+      "reason": "Anaconda3 is a base container image and package runtime, not a standalone self-host app for this directory."
+    },
+    {
+      "candidate_id": "5a25ab2d-ae0b-4435-8e60-41e550ce9514",
+      "decision": "reject",
+      "reason": "EmulatorJS is an embeddable frontend rather than a standalone self-host app; its official FAQ says the LinuxServer Docker project is not the EmulatorJS project and its official docs say there is no Docker version of EmulatorJS itself."
+    },
+    {
+      "candidate_id": "0bd90e62-d1e1-48b7-be47-c8f5f17ab30a",
+      "decision": "publish",
+      "app": {
+        "slug": "peptide-pitstop",
+        "name": "Peptide Pitstop",
+        "summary": "Private web app for tracking peptide and GLP-1 therapy, doses, prescriptions, bloodwork, and backups.",
+        "icon_source_url": "https://www.google.com/s2/favicons?domain=peptidepitstop.com&sz=256",
+        "website_url": "https://peptidepitstop.com/",
+        "source_code_url": "https://github.com/kavo91/peptide-pitstop",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/kavo91/peptide-pitstop#readme",
+        "install_docs_url": "https://github.com/kavo91/peptide-pitstop#-deploy-self-hosted",
+        "docker_url": "https://github.com/kavo91/peptide-pitstop/pkgs/container/peptide-pitstop",
+        "compose_url": "https://github.com/kavo91/peptide-pitstop/blob/main/docker-compose.yml",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "kavo91",
+        "publisher_type": "individual",
+        "publisher_url": "https://github.com/kavo91",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_image": "ghcr.io/kavo91/peptide-pitstop:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "sqlite"
+        ],
+        "storage_profile": "low",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web",
+          "mobile"
+        ],
+        "categories": [
+          "health-fitness"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://peptidepitstop.com/",
+          "https://github.com/kavo91/peptide-pitstop#-deploy-self-hosted",
+          "https://github.com/kavo91/peptide-pitstop/blob/main/docker-compose.yml",
+          "https://github.com/kavo91/peptide-pitstop/pkgs/container/peptide-pitstop"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/peptide-pitstop.png"
+      },
+      "sources": [
+        {
+          "source": "official_product_site",
+          "source_url": "https://peptidepitstop.com/",
+          "confidence": "high",
+          "note": "Official site identifies the private self-hosted health app."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/kavo91/peptide-pitstop#-deploy-self-hosted",
+          "confidence": "high",
+          "note": "README documents Docker, Compose, SQLite storage, and AGPL licensing."
+        },
+        {
+          "source": "official_container_registry",
+          "source_url": "https://github.com/kavo91/peptide-pitstop/pkgs/container/peptide-pitstop",
+          "confidence": "high",
+          "note": "Repository publishes the GHCR image."
+        }
+      ]
+    },
+    {
+      "candidate_id": "85903561-484e-45b8-a45e-983a813df5c5",
+      "decision": "publish",
+      "app": {
+        "slug": "omada-controller",
+        "name": "Omada Controller",
+        "summary": "Network management controller for centrally configuring and monitoring TP-Link Omada equipment.",
+        "icon_source_url": "https://www.google.com/s2/favicons?domain=support.omadanetworks.com&sz=256",
+        "website_url": "https://support.omadanetworks.com/us/product/omada-software-controller/",
+        "source_code_url": "https://github.com/mbentley/docker-omada-controller",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/mbentley/docker-omada-controller#readme",
+        "install_docs_url": "https://github.com/mbentley/docker-omada-controller#quickstart-guide",
+        "docker_url": "https://hub.docker.com/r/mbentley/omada-controller",
+        "compose_url": "https://github.com/mbentley/docker-omada-controller/blob/master/docker-compose.yml",
+        "license": "Proprietary TP-Link software; community wrapper under AGPL-3.0",
+        "license_type": "custom",
+        "source_model": "closed_source",
+        "publisher_name": "TP-Link",
+        "publisher_type": "company",
+        "publisher_url": "https://www.tp-link.com/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "helm"
+        ],
+        "docker_image": "mbentley/omada-controller:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "mongodb"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "networking-dns",
+          "system-admin-hosting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://support.omadanetworks.com/us/product/omada-software-controller/",
+          "https://github.com/mbentley/docker-omada-controller#quickstart-guide",
+          "https://github.com/mbentley/docker-omada-controller/blob/master/docker-compose.yml",
+          "https://hub.docker.com/r/mbentley/omada-controller"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/omada-controller.png"
+      },
+      "sources": [
+        {
+          "source": "official_publisher_documentation",
+          "source_url": "https://support.omadanetworks.com/us/product/omada-software-controller/",
+          "confidence": "high",
+          "note": "TP-Link documentation verifies the proprietary Omada Software Controller."
+        },
+        {
+          "source": "community_container_repository",
+          "source_url": "https://github.com/mbentley/docker-omada-controller#quickstart-guide",
+          "confidence": "high",
+          "note": "Community wrapper documents Docker, Compose, MongoDB, and its non-affiliation with TP-Link."
+        },
+        {
+          "source": "community_container_registry",
+          "source_url": "https://hub.docker.com/r/mbentley/omada-controller",
+          "confidence": "high",
+          "note": "Community image is available for self-hosted deployment."
+        }
+      ]
+    },
+    {
+      "candidate_id": "5f2742c6-10c6-4793-bc13-c1e168b0152a",
+      "decision": "publish",
+      "app": {
+        "slug": "smart-home-dashboard",
+        "name": "Smart Home Dashboard",
+        "summary": "Customizable smart-home wall panel with themes, device controls, and live system status.",
+        "icon_source_url": "https://github.com/Daddelgreis74.png?size=256",
+        "website_url": "http://www.abg-home.de",
+        "source_code_url": "https://github.com/Daddelgreis74/smart-home-dashboard",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/Daddelgreis74/smart-home-dashboard#readme",
+        "install_docs_url": "https://github.com/Daddelgreis74/smart-home-dashboard#-quick-start-one-liner-installation",
+        "docker_url": "https://hub.docker.com/r/daddelgreis74/smart-home-dashboard",
+        "compose_url": "https://github.com/Daddelgreis74/smart-home-dashboard/blob/main/docker-compose.yml",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "Daddelgreis74",
+        "publisher_type": "individual",
+        "publisher_url": "https://github.com/Daddelgreis74",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "native"
+        ],
+        "docker_image": "daddelgreis74/smart-home-dashboard:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "low",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "home-automation-iot",
+          "dashboards"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "http://www.abg-home.de",
+          "https://github.com/Daddelgreis74/smart-home-dashboard#readme",
+          "https://github.com/Daddelgreis74/smart-home-dashboard/blob/main/docker-compose.yml",
+          "https://hub.docker.com/r/daddelgreis74/smart-home-dashboard"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/smart-home-dashboard.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/Daddelgreis74/smart-home-dashboard#readme",
+          "confidence": "high",
+          "note": "README documents the wall panel, native install, Docker, Compose, and MIT badge."
+        },
+        {
+          "source": "community_container_registry",
+          "source_url": "https://hub.docker.com/r/daddelgreis74/smart-home-dashboard",
+          "confidence": "high",
+          "note": "Project links its Docker image."
+        },
+        {
+          "source": "truenas_catalog",
+          "source_url": "https://apps.truenas.com/catalog/smart-home-dashboard_community/",
+          "confidence": "high",
+          "note": "TrueNAS catalog listing provides an additional reviewed install destination."
+        }
+      ]
+    },
+    {
+      "candidate_id": "4832bc5a-ef46-4d99-88f9-2d2296181e7b",
+      "decision": "publish",
+      "app": {
+        "slug": "nevu",
+        "name": "Nevu",
+        "summary": "Alternative web interface for browsing and playing Plex movie and TV libraries.",
+        "icon_source_url": "https://media.sys.truenas.net/apps/nevu/icons/icon.png",
+        "website_url": "https://github.com/Ipmake/NevuForPlex",
+        "source_code_url": "https://github.com/Ipmake/NevuForPlex",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/Ipmake/NevuForPlex#readme",
+        "install_docs_url": "https://github.com/Ipmake/NevuForPlex#installation",
+        "docker_url": "https://hub.docker.com/r/ipmake/nevu",
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "Ipmake",
+        "publisher_type": "individual",
+        "publisher_url": "https://github.com/Ipmake",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker"
+        ],
+        "docker_image": "ipmake/nevu:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "low",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "media-servers"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://github.com/Ipmake/NevuForPlex#readme",
+          "https://hub.docker.com/r/ipmake/nevu",
+          "https://apps.truenas.com/catalog/nevu_community/"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/nevu.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/Ipmake/NevuForPlex#readme",
+          "confidence": "high",
+          "note": "README documents the Plex UI, Docker command, Compose use, and GPL license."
+        },
+        {
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/r/ipmake/nevu",
+          "confidence": "high",
+          "note": "Project links the Docker image."
+        },
+        {
+          "source": "truenas_catalog",
+          "source_url": "https://apps.truenas.com/catalog/nevu_community/",
+          "confidence": "high",
+          "note": "TrueNAS catalog listing provides an additional install destination."
+        }
+      ]
+    },
+    {
+      "candidate_id": "63f8ab47-c447-4639-b778-8a1472d8f993",
+      "decision": "publish",
+      "app": {
+        "slug": "concourse",
+        "name": "Concourse",
+        "summary": "Container-based automation system for building repeatable CI/CD pipelines and workflows.",
+        "icon_source_url": "https://www.google.com/s2/favicons?domain=concourse-ci.org&sz=256",
+        "website_url": "https://concourse-ci.org/",
+        "source_code_url": "https://github.com/concourse/concourse",
+        "source_code_host": "github",
+        "docs_url": "https://concourse-ci.org/docs.html",
+        "install_docs_url": "https://concourse-ci.org/install.html",
+        "docker_url": "https://hub.docker.com/r/concourse/concourse",
+        "compose_url": "https://github.com/concourse/concourse/blob/master/docker-compose.yml",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "Concourse contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://concourse-ci.org/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "binary"
+        ],
+        "docker_image": "concourse/concourse:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "postgres"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web",
+          "cli",
+          "api"
+        ],
+        "categories": [
+          "developer-tools",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://concourse-ci.org/",
+          "https://concourse-ci.org/install.html",
+          "https://github.com/concourse/concourse/blob/master/docker-compose.yml",
+          "https://hub.docker.com/r/concourse/concourse"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/concourse.png"
+      },
+      "sources": [
+        {
+          "source": "official_website",
+          "source_url": "https://concourse-ci.org/",
+          "confidence": "high",
+          "note": "Official site describes Concourse as an automation and CI/CD system."
+        },
+        {
+          "source": "official_installation_docs",
+          "source_url": "https://concourse-ci.org/install.html",
+          "confidence": "high",
+          "note": "Official installation page and README document Docker and Compose deployment."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/concourse/concourse",
+          "confidence": "high",
+          "note": "Repository verifies Apache licensing and current maintenance."
+        }
+      ]
+    },
+    {
+      "candidate_id": "d7435001-2237-48b3-bd4e-062f9c88e324",
+      "decision": "publish",
+      "app": {
+        "slug": "automatic-ripping-machine",
+        "name": "Automatic Ripping Machine",
+        "summary": "Media ripping server that detects optical discs and automates Blu-ray, DVD, CD, and data extraction.",
+        "icon_source_url": "https://media.sys.truenas.net/apps/automatic-ripping-machine/icons/icon.png",
+        "website_url": "https://b3n.org/automatic-ripping-machine",
+        "source_code_url": "https://github.com/automatic-ripping-machine/automatic-ripping-machine",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/automatic-ripping-machine/automatic-ripping-machine/wiki",
+        "install_docs_url": "https://github.com/automatic-ripping-machine/automatic-ripping-machine/wiki/docker",
+        "docker_url": "https://hub.docker.com/r/automaticrippingmachine/automatic-ripping-machine",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "Automatic Ripping Machine contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/automatic-ripping-machine/automatic-ripping-machine",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "package"
+        ],
+        "docker_image": "automaticrippingmachine/automatic-ripping-machine:latest",
+        "compose_support": null,
+        "requires_database": null,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "media-servers",
+          "automation",
+          "storage-backup"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://github.com/automatic-ripping-machine/automatic-ripping-machine/wiki/docker",
+          "https://github.com/automatic-ripping-machine/automatic-ripping-machine",
+          "https://hub.docker.com/r/automaticrippingmachine/automatic-ripping-machine",
+          "https://apps.truenas.com/catalog/automatic-ripping-machine_community/"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/automatic-ripping-machine.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/automatic-ripping-machine/automatic-ripping-machine",
+          "confidence": "high",
+          "note": "README identifies the optical media ripping server and MIT license."
+        },
+        {
+          "source": "official_installation_wiki",
+          "source_url": "https://github.com/automatic-ripping-machine/automatic-ripping-machine/wiki/docker",
+          "confidence": "high",
+          "note": "Project wiki documents Docker installation."
+        },
+        {
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/r/automaticrippingmachine/automatic-ripping-machine",
+          "confidence": "high",
+          "note": "Project publishes a Docker image."
+        }
+      ]
+    },
+    {
+      "candidate_id": "c4f4f7ec-993f-4e68-96f5-db919bbc1b90",
+      "decision": "publish",
+      "app": {
+        "slug": "alist",
+        "name": "AList",
+        "summary": "Web file-listing and sharing service that connects local and cloud storage providers through one interface.",
+        "icon_source_url": "https://github.com/AlistGo.png?size=256",
+        "website_url": "https://alistgo.com/",
+        "source_code_url": "https://github.com/alistgo/alist",
+        "source_code_host": "github",
+        "docs_url": "https://alistgo.com/guide/",
+        "install_docs_url": "https://alistgo.com/guide/install/docker",
+        "docker_url": "https://hub.docker.com/r/xhofe/alist",
+        "compose_url": "https://raw.githubusercontent.com/IceWhaleTech/CasaOS-AppStore/main/Apps/Alist/docker-compose.yml",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "AList contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/alistgo/alist",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "binary"
+        ],
+        "docker_image": "xhofe/alist:latest",
+        "compose_support": true,
+        "requires_database": null,
+        "database_types": null,
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "resource_requirement_kind": "unknown",
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "file-sharing-sync",
+          "storage-backup"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://alistgo.com/",
+          "https://alistgo.com/guide/",
+          "https://github.com/alistgo/alist",
+          "https://hub.docker.com/r/xhofe/alist",
+          "https://raw.githubusercontent.com/IceWhaleTech/CasaOS-AppStore/main/Apps/Alist/docker-compose.yml"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/alist.png"
+      },
+      "sources": [
+        {
+          "source": "official_website",
+          "source_url": "https://alistgo.com/",
+          "confidence": "high",
+          "note": "Official site identifies AList as a self-hostable file-listing and sharing service."
+        },
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/alistgo/alist",
+          "confidence": "high",
+          "note": "Repository verifies the AGPL license and project source."
+        },
+        {
+          "source": "official_container_registry",
+          "source_url": "https://hub.docker.com/r/xhofe/alist",
+          "confidence": "high",
+          "note": "Docker Hub image is linked by the project and used by the CasaOS Compose definition."
+        }
+      ]
+    },
+    {
+      "candidate_id": "f26c912b-b051-4df8-8c4d-7cd27e88e49f",
+      "decision": "duplicate",
+      "app_id": "d0556446-ccea-4e2d-9b77-fe4c4ecf4052"
+    },
+    {
+      "candidate_id": "aa76661a-7f68-4132-9216-b5cd711b333d",
+      "decision": "duplicate",
+      "app_id": "11f189b2-a4cd-47ad-a27d-7ac7b2bb5392"
+    },
+    {
+      "candidate_id": "1db9496c-9495-4549-aae8-2aa48d3152f1",
+      "decision": "duplicate",
+      "app_id": "45cca04b-d4f7-47ea-9342-d1ad9ce258e1"
+    }
+  ]
+}

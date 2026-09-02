@@ -1,0 +1,513 @@
+{
+  "generated_at": "2026-08-30T07:46:00.479Z",
+  "source_total": 35,
+  "resolved_total": 8,
+  "unresolved_total": 27,
+  "records": [
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/simular/authman-server/blob/main/composer.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/simular/authman-server/blob/main/composer.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/simular/authman-server/blob/main/composer.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/simular/authman-server/blob/main/composer.json"
+        }
+      ],
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "repository": "simular/authman-server",
+      "slug": "authman",
+      "source_model": "open_source",
+      "status": "resolved"
+    },
+    {
+      "slug": "blue-iris",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/caddymanager/caddymanager/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/caddymanager/caddymanager/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/caddymanager/caddymanager/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/caddymanager/caddymanager/blob/main/LICENSE"
+        }
+      ],
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "repository": "caddymanager/caddymanager",
+      "slug": "caddymanager",
+      "source_model": "open_source",
+      "status": "resolved"
+    },
+    {
+      "slug": "channels-dvr",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "slug": "cloudpanel",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "cloudpanel-io/cloudpanel-ce",
+      "license_files": []
+    },
+    {
+      "slug": "czkawka",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "qarmin/czkawka",
+      "license_files": []
+    },
+    {
+      "slug": "docking-station",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "LooLzzz/docking-station",
+      "license_files": []
+    },
+    {
+      "slug": "drivebase",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "drivebase/drivebase",
+      "license_files": []
+    },
+    {
+      "slug": "emby",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/unicodeveloper/globalthreatmap/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/unicodeveloper/globalthreatmap/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/unicodeveloper/globalthreatmap/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/unicodeveloper/globalthreatmap/blob/main/package.json"
+        }
+      ],
+      "license": "ISC",
+      "license_spdx_id": "ISC",
+      "license_type": "permissive",
+      "repository": "unicodeveloper/globalthreatmap",
+      "slug": "global-threat-map",
+      "source_model": "open_source",
+      "status": "resolved"
+    },
+    {
+      "slug": "honey",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "dani3l0/honey",
+      "license_files": []
+    },
+    {
+      "slug": "jellyfin-rewind",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "Chaphasilor/jellyfin-rewind",
+      "license_files": []
+    },
+    {
+      "slug": "luna",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "Opisek/luna",
+      "license_files": []
+    },
+    {
+      "slug": "medama-analytics",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "medama-io/medama",
+      "license_files": []
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nextcloud/richdocuments/blob/main/composer.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nextcloud/richdocuments/blob/main/composer.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nextcloud/richdocuments/blob/main/composer.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nextcloud/richdocuments/blob/main/composer.json"
+        }
+      ],
+      "license": "GNU Affero General Public License v3.0 or later",
+      "license_spdx_id": "AGPL-3.0-or-later",
+      "license_type": "copyleft",
+      "repository": "nextcloud/richdocuments",
+      "slug": "nextcloud-office",
+      "source_model": "open_source",
+      "status": "resolved"
+    },
+    {
+      "slug": "obskurnee",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "zblesk/obskurnee",
+      "license_files": []
+    },
+    {
+      "slug": "origamivault",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "origamivault/origamivault",
+      "license_files": []
+    },
+    {
+      "slug": "pasta",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "cglatot/pasta",
+      "license_files": []
+    },
+    {
+      "slug": "pixelfin",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "nothing2obvi/pixelfin",
+      "license_files": []
+    },
+    {
+      "slug": "plex",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "slug": "poste-io",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "slug": "red-eclipse-2",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "redeclipse/base",
+      "license_files": []
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/varthe/Redirecterr/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/varthe/Redirecterr/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/varthe/Redirecterr/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/varthe/Redirecterr/blob/main/package.json"
+        }
+      ],
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "repository": "varthe/Redirecterr",
+      "slug": "redirecterr",
+      "source_model": "open_source",
+      "status": "resolved"
+    },
+    {
+      "slug": "replex",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "lostb1t/replex",
+      "license_files": []
+    },
+    {
+      "slug": "resilio-sync",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "slug": "scrypted",
+      "status": "unresolved",
+      "reason": "License file uses an unrecognized or custom text",
+      "repository": "koush/scrypted",
+      "license_files": [
+        {
+          "name": "LICENSE.md",
+          "source_url": "https://github.com/koush/scrypted/blob/main/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cojocaru-david/snippetslibrary.com/blob/master/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cojocaru-david/snippetslibrary.com/blob/master/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cojocaru-david/snippetslibrary.com/blob/master/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cojocaru-david/snippetslibrary.com/blob/master/package.json"
+        }
+      ],
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "repository": "cojocaru-david/snippetslibrary.com",
+      "slug": "snippets-library",
+      "source_model": "open_source",
+      "status": "resolved"
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/fredrikburmester/streamystats/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/fredrikburmester/streamystats/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/fredrikburmester/streamystats/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/fredrikburmester/streamystats/blob/main/package.json"
+        }
+      ],
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "repository": "fredrikburmester/streamystats",
+      "slug": "streamystats",
+      "source_model": "open_source",
+      "status": "resolved"
+    },
+    {
+      "slug": "subsonic",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from Cargo.toml license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/raffomania/ties/blob/main/Cargo.toml"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from Cargo.toml license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/raffomania/ties/blob/main/Cargo.toml"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from Cargo.toml license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/raffomania/ties/blob/main/Cargo.toml"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from Cargo.toml license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/raffomania/ties/blob/main/Cargo.toml"
+        }
+      ],
+      "license": "AGPL-3.0-or-later",
+      "license_spdx_id": "AGPL-3.0-or-later",
+      "license_type": "copyleft",
+      "repository": "raffomania/ties",
+      "slug": "ties-link-sharing",
+      "source_model": "open_source",
+      "status": "resolved"
+    },
+    {
+      "slug": "ubooquity",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "slug": "unraid",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "slug": "viniplay",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "ardoviniandrea/ViniPlay",
+      "license_files": []
+    },
+    {
+      "slug": "whorang",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "Beast12/who-rang",
+      "license_files": []
+    },
+    {
+      "slug": "woli-webgui",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "RemyFV/WoLi-webgui",
+      "license_files": []
+    }
+  ]
+}

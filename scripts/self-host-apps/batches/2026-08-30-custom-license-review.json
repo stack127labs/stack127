@@ -1,0 +1,92 @@
+{
+  "apps": [
+    {
+      "slug": "budibase",
+      "license": "GPL-3.0-or-later core; BUSL-1.1 paid packages",
+      "license_spdx_id": "GPL-3.0-or-later AND BUSL-1.1",
+      "license_type": "mixed",
+      "source_model": "source_available",
+      "source": "official_repository_license_file",
+      "source_url": "https://github.com/Budibase/budibase/blob/master/LICENSE",
+      "confidence": "high",
+      "note": "Manual review: the root license says Budibase is GPLv3 overall and packages paid features under BSL."
+    },
+    {
+      "slug": "cachet",
+      "license": "Cachet custom license",
+      "license_spdx_id": "LicenseRef-Cachet",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source": "official_repository_license_file",
+      "source_url": "https://github.com/cachethq/cachet/blob/3.x/LICENSE.md",
+      "confidence": "high",
+      "note": "Manual review: the repository publishes a project-specific license with use and redistribution conditions."
+    },
+    {
+      "slug": "cert-warden",
+      "license": "Cert Warden noncommercial license",
+      "license_spdx_id": "LicenseRef-Cert-Warden-Noncommercial",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source": "official_repository_license_file",
+      "source_url": "https://github.com/gregtwallace/certwarden/blob/master/LICENSE.md",
+      "confidence": "high",
+      "note": "Manual review: the license permits personal private noncommercial use and otherwise reserves rights."
+    },
+    {
+      "slug": "edit-mind",
+      "license": "Edit Mind custom license",
+      "license_spdx_id": "LicenseRef-Edit-Mind",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source": "official_repository_license_file",
+      "source_url": "https://github.com/IliasHad/edit-mind/blob/main/LICENSE.md",
+      "confidence": "high",
+      "note": "Manual review: current releases use a project-specific license with organization-size and commercial-use conditions."
+    },
+    {
+      "slug": "openpanel",
+      "license": "OpenPanel EULA and CC-BY-NC-4.0",
+      "license_spdx_id": "LicenseRef-OpenPanel-Mixed",
+      "license_type": "mixed",
+      "source_model": "source_available",
+      "source": "official_repository_license_file",
+      "source_url": "https://github.com/stefanpejcic/OpenPanel/blob/main/LICENSE",
+      "confidence": "high",
+      "note": "Manual review: the UI is under the OpenPanel EULA while OpenCLI and configuration files are CC-BY-NC-4.0."
+    },
+    {
+      "slug": "spacepad",
+      "license": "Spacepad Sustainable Use License",
+      "license_spdx_id": "LicenseRef-Spacepad-Sustainable-Use",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source": "official_repository_license_file",
+      "source_url": "https://github.com/magweter/spacepad/blob/main/LICENSE.md",
+      "confidence": "high",
+      "note": "Manual review: the project-specific sustainable-use terms limit commercial and organizational deployment."
+    },
+    {
+      "slug": "sprout-track",
+      "license": "Sprout Track custom license",
+      "license_spdx_id": "LicenseRef-Sprout-Track",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source": "official_repository_license_file",
+      "source_url": "https://github.com/Oak-and-Sprout/sprout-track/blob/main/LICENSE.md",
+      "confidence": "high",
+      "note": "Manual review: the repository uses project-specific grant and restriction terms."
+    },
+    {
+      "slug": "tasktrove",
+      "license": "TaskTrove Sustainable Use License with separate Pro terms",
+      "license_spdx_id": "LicenseRef-TaskTrove-Sustainable-Use",
+      "license_type": "mixed",
+      "source_model": "source_available",
+      "source": "official_repository_license_file",
+      "source_url": "https://github.com/dohsimpson/TaskTrove/blob/main/LICENSE.md",
+      "confidence": "high",
+      "note": "Manual review: community files use sustainable-use terms while Pro files require a separate license."
+    }
+  ]
+}

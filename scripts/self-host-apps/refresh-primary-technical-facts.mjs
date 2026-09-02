@@ -365,7 +365,11 @@ async function main() {
         for (const record of passed) await applyRecord(client, record, checkedAt);
         await client.query("commit");
       } catch (error) {
-        await client.query("rollback");
+        try {
+          await client.query("rollback");
+        } catch (rollbackError) {
+          error.message = `${error.message}; rollback failed: ${rollbackError.message}`;
+        }
         throw error;
       }
     }, args["database-url"]);

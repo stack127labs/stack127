@@ -1,0 +1,1241 @@
+{
+  "records": [
+    {
+      "candidate_id": "6f00d41f-4b2c-4b88-914e-b5f91e03d569",
+      "decision": "publish",
+      "app": {
+        "slug": "dramaclaw",
+        "name": "DramaClaw",
+        "summary": "Self-hosted AI video pipeline for turning scripts into storyboards, voice-over, and finished films.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/271427583?v=4",
+        "website_url": "https://dramaclaw.ai/",
+        "source_code_url": "https://github.com/dramaclaw/dramaclaw",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/dramaclaw/dramaclaw/tree/main/docs/en",
+        "install_docs_url": "https://github.com/dramaclaw/dramaclaw/blob/main/docs/en/guides/self-hosting.md",
+        "docker_url": "https://hub.docker.com/r/claymorelab/dramaclaw",
+        "license": "Elastic License 2.0",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "publisher_name": "DramaClaw contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://dramaclaw.ai/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "claymorelab/dramaclaw:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "database_types": [
+          "sqlite"
+        ],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "ai-ml",
+          "content-publishing"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://dramaclaw.ai/",
+          "https://github.com/dramaclaw/dramaclaw",
+          "https://github.com/dramaclaw/dramaclaw/blob/main/docs/en/guides/self-hosting.md"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/dramaclaw.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/dramaclaw/dramaclaw/blob/main/docs/en/guides/self-hosting.md",
+          "confidence": "high",
+          "note": "The official README and self-hosting guide document Docker and Compose deployment, local SQLite/files, and the Elastic License 2.0."
+        }
+      ]
+    },
+    {
+      "candidate_id": "43cb628b-ad94-4213-a588-fb50f7290929",
+      "decision": "publish",
+      "app": {
+        "slug": "skillhub",
+        "name": "SkillHub",
+        "summary": "Self-hosted registry for publishing, governing, and installing reusable AI agent skills.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/26786495?v=4",
+        "website_url": "https://skill.xfyun.cn/",
+        "source_code_url": "https://github.com/iflytek/skillhub",
+        "source_code_host": "github",
+        "docs_url": "https://iflytek.github.io/skillhub/",
+        "install_docs_url": "https://github.com/iflytek/skillhub/blob/main/docs/09-deployment.md",
+        "docker_url": "https://github.com/iflytek/skillhub/pkgs/container/skillhub-server",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "iFLYTEK",
+        "publisher_type": "company",
+        "publisher_url": "https://www.iflytek.com/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "kubernetes"
+        ],
+        "docker_image": "ghcr.io/iflytek/skillhub-server:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "postgres",
+          "redis"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools",
+          "knowledge-notes"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://skill.xfyun.cn/",
+          "https://github.com/iflytek/skillhub",
+          "https://github.com/iflytek/skillhub/blob/main/docs/09-deployment.md"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/skillhub.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/iflytek/skillhub/blob/main/docs/09-deployment.md",
+          "confidence": "high",
+          "note": "The official project documents Docker Compose and Kubernetes deployment with PostgreSQL, Redis, and persistent storage."
+        }
+      ]
+    },
+    {
+      "candidate_id": "42c9d9fe-af86-46a3-93de-e879e81bccdb",
+      "decision": "publish",
+      "app": {
+        "slug": "ouroboros",
+        "name": "Ouroboros",
+        "summary": "Local-first agent operating system that adds governed workflows and MCP tools to coding agents.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/31264094?v=4",
+        "website_url": "https://ouroboros.page/",
+        "source_code_url": "https://github.com/Q00/ouroboros",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/Q00/ouroboros/tree/main/docs",
+        "install_docs_url": "https://github.com/Q00/ouroboros/blob/main/docs/getting-started.md",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "Ouroboros contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/Q00/ouroboros",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "none",
+        "deployment_methods": [
+          "package"
+        ],
+        "docker_image": null,
+        "compose_support": null,
+        "requires_database": false,
+        "database_types": [],
+        "storage_profile": "low",
+        "persistent_storage": true,
+        "surfaces": [
+          "cli",
+          "api"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://ouroboros.page/",
+          "https://github.com/Q00/ouroboros",
+          "https://github.com/Q00/ouroboros/blob/main/docs/getting-started.md"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/ouroboros.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/Q00/ouroboros/blob/main/docs/getting-started.md",
+          "confidence": "high",
+          "note": "The official installer runs the local runtime and MCP server without a hosted dependency."
+        }
+      ]
+    },
+    {
+      "candidate_id": "ff46e5fb-de05-4dcc-9a4a-a804a565cf38",
+      "decision": "publish",
+      "app": {
+        "slug": "intentkit",
+        "name": "IntentKit",
+        "summary": "Self-hosted cloud agent cluster for coordinating collaborative AI agents through an API.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/156485526?v=4",
+        "website_url": "https://intentcat.com/",
+        "source_code_url": "https://github.com/crestalnetwork/intentkit",
+        "source_code_host": "github",
+        "docs_url": "https://intentcat.com/docs",
+        "install_docs_url": "https://intentcat.com/docs/deployment/",
+        "docker_url": "https://hub.docker.com/r/crestal/intentkit",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "Crestal Network",
+        "publisher_type": "company",
+        "publisher_url": "https://intentcat.com/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "package"
+        ],
+        "docker_image": "crestal/intentkit:latest",
+        "compose_support": null,
+        "requires_database": null,
+        "database_types": [],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "api",
+          "web"
+        ],
+        "categories": [
+          "ai-ml",
+          "automation",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://intentcat.com/",
+          "https://github.com/crestalnetwork/intentkit",
+          "https://intentcat.com/docs/deployment/"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/intentkit.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://intentcat.com/docs/deployment/",
+          "confidence": "high",
+          "note": "The official README identifies IntentKit as self-hosted and links its deployment guide and Docker image."
+        }
+      ]
+    },
+    {
+      "candidate_id": "cc11642f-d649-4402-8427-2ba0c8352ed9",
+      "decision": "publish",
+      "app": {
+        "slug": "chatlab",
+        "name": "ChatLab",
+        "summary": "Local chat-history analyzer with a desktop app, SQL exploration, and an AI-powered web interface.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/276596641?v=4",
+        "website_url": "https://chatlab.fun/",
+        "source_code_url": "https://github.com/ChatLab/ChatLab",
+        "source_code_host": "github",
+        "docs_url": "https://docs.chatlab.fun/usage/quick-start",
+        "install_docs_url": "https://github.com/ChatLab/ChatLab#installation",
+        "docker_url": null,
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "ChatLab contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/ChatLab/ChatLab",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "none",
+        "deployment_methods": [
+          "package",
+          "desktop"
+        ],
+        "docker_image": null,
+        "compose_support": null,
+        "requires_database": false,
+        "database_types": [
+          "sqlite"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "desktop",
+          "web",
+          "api"
+        ],
+        "categories": [
+          "communication",
+          "search",
+          "knowledge-notes"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://chatlab.fun/",
+          "https://github.com/ChatLab/ChatLab",
+          "https://docs.chatlab.fun/usage/quick-start"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/chatlab.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/ChatLab/ChatLab#installation",
+          "confidence": "high",
+          "note": "The official README documents local desktop and CLI Web/API installation with SQLite persistence."
+        }
+      ]
+    },
+    {
+      "candidate_id": "70bef37c-e209-4a17-852a-b7cb4302243e",
+      "decision": "publish",
+      "app": {
+        "slug": "camofox-browser",
+        "name": "Camofox Browser",
+        "summary": "Self-hosted browser server that gives AI agents a REST API for stealth automation and page extraction.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/226147249?v=4",
+        "website_url": "https://github.com/jo-inc/camofox-browser",
+        "source_code_url": "https://github.com/jo-inc/camofox-browser",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/jo-inc/camofox-browser#readme",
+        "install_docs_url": "https://github.com/jo-inc/camofox-browser#docker",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "jo-inc contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/jo-inc",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "package"
+        ],
+        "docker_image": null,
+        "compose_support": null,
+        "requires_database": false,
+        "database_types": [],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "api",
+          "web"
+        ],
+        "categories": [
+          "developer-tools",
+          "automation",
+          "search"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://github.com/jo-inc/camofox-browser",
+          "https://github.com/jo-inc/camofox-browser#docker"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/camofox-browser.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/jo-inc/camofox-browser#docker",
+          "confidence": "high",
+          "note": "The official README documents a REST server and a Docker build path."
+        }
+      ]
+    },
+    {
+      "candidate_id": "945b3859-e75c-4fb1-8441-e43cdbec5ce1",
+      "decision": "publish",
+      "app": {
+        "slug": "omnigent",
+        "name": "Omnigent",
+        "summary": "Self-hosted AI agent workspace for coordinating coding agents, tools, policies, and browser sessions.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/292215228?v=4",
+        "website_url": "https://omnigent.ai/",
+        "source_code_url": "https://github.com/omnigent-ai/omnigent",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/omnigent-ai/omnigent#readme",
+        "install_docs_url": "https://github.com/omnigent-ai/omnigent/blob/main/deploy/README.md",
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "Omnigent contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/omnigent-ai",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": null,
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "postgres"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://omnigent.ai/",
+          "https://github.com/omnigent-ai/omnigent",
+          "https://github.com/omnigent-ai/omnigent/blob/main/deploy/README.md"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/omnigent.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/omnigent-ai/omnigent/blob/main/deploy/README.md",
+          "confidence": "high",
+          "note": "The official deployment guide documents a Docker Compose server, persistent state, and database options."
+        }
+      ]
+    },
+    {
+      "candidate_id": "5f50906b-aabd-41e0-96c8-666ec0c3f724",
+      "decision": "publish",
+      "app": {
+        "slug": "presenton",
+        "name": "Presenton",
+        "summary": "Self-hosted AI presentation generator and API with editable templates and local model support.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/210876119?v=4",
+        "website_url": "https://presenton.ai/",
+        "source_code_url": "https://github.com/presenton/presenton",
+        "source_code_host": "github",
+        "docs_url": "https://docs.presenton.ai/",
+        "install_docs_url": "https://docs.presenton.ai/v3/get-started/quickstart",
+        "docker_url": "https://github.com/presenton/presenton/pkgs/container/presenton",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "Presenton contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://presenton.ai/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "desktop"
+        ],
+        "docker_image": "ghcr.io/presenton/presenton:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "sqlite"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api",
+          "desktop"
+        ],
+        "categories": [
+          "ai-ml",
+          "content-publishing",
+          "documents-pdfs"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://presenton.ai/",
+          "https://github.com/presenton/presenton",
+          "https://docs.presenton.ai/v3/get-started/quickstart"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/presenton.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://docs.presenton.ai/v3/get-started/quickstart",
+          "confidence": "high",
+          "note": "The official project describes self-hosting and publishes the GHCR image and Docker deployment instructions."
+        }
+      ]
+    },
+    {
+      "candidate_id": "8eefe574-8ef6-4e4c-b2db-8510b316617c",
+      "decision": "publish",
+      "app": {
+        "slug": "hermes-studio",
+        "name": "Hermes Studio",
+        "summary": "Local web console and desktop workspace for Hermes, coding agents, chats, workflows, and files.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/152005280?v=4",
+        "website_url": "https://hermes-studio.ai/",
+        "source_code_url": "https://github.com/EKKOLearnAI/hermes-studio",
+        "source_code_host": "github",
+        "docs_url": "https://hermes-studio.ai/#/docs/getting-started",
+        "install_docs_url": "https://github.com/EKKOLearnAI/hermes-studio/blob/main/docs/docker.md",
+        "docker_url": "https://hub.docker.com/r/ekkoye8888/hermes-web-ui",
+        "license": "License not publicly specified",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "publisher_name": "EKKO Learn AI",
+        "publisher_type": "company",
+        "publisher_url": "https://hermes-studio.ai/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package",
+          "desktop"
+        ],
+        "docker_image": "ekkoye8888/hermes-web-ui:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "sqlite"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api",
+          "desktop"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://hermes-studio.ai/",
+          "https://github.com/EKKOLearnAI/hermes-studio",
+          "https://github.com/EKKOLearnAI/hermes-studio/blob/main/docs/docker.md"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/hermes-studio.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/EKKOLearnAI/hermes-studio/blob/main/docs/docker.md",
+          "confidence": "high",
+          "note": "The official README documents npm and Docker Compose deployment with persistent local SQLite state."
+        }
+      ]
+    },
+    {
+      "candidate_id": "ead89803-e7b0-4643-ad89-bf4e7fb53d8b",
+      "decision": "publish",
+      "app": {
+        "slug": "opensandbox",
+        "name": "OpenSandbox",
+        "summary": "Self-hosted sandbox platform that runs isolated AI workloads through Docker and Kubernetes APIs.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/290567599?v=4",
+        "website_url": "https://open-sandbox.ai/",
+        "source_code_url": "https://github.com/opensandbox-group/OpenSandbox",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/opensandbox-group/OpenSandbox#readme",
+        "install_docs_url": "https://github.com/opensandbox-group/OpenSandbox/blob/main/server/README.md",
+        "docker_url": "https://hub.docker.com/u/opensandbox",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "OpenSandbox contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://open-sandbox.ai/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "kubernetes",
+          "package"
+        ],
+        "docker_image": null,
+        "compose_support": null,
+        "requires_database": false,
+        "database_types": [],
+        "storage_profile": "depends",
+        "persistent_storage": true,
+        "surfaces": [
+          "api",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools",
+          "system-admin-hosting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://open-sandbox.ai/",
+          "https://github.com/opensandbox-group/OpenSandbox",
+          "https://github.com/opensandbox-group/OpenSandbox/blob/main/server/README.md"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/opensandbox.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/opensandbox-group/OpenSandbox/blob/main/server/README.md",
+          "confidence": "high",
+          "note": "The official project documents a local sandbox server backed by Docker or Kubernetes and publishes official registry namespaces."
+        }
+      ]
+    },
+    {
+      "candidate_id": "3e4f7345-04c2-4a04-8719-765e18808316",
+      "decision": "publish",
+      "app": {
+        "slug": "cowagent",
+        "name": "CowAgent",
+        "summary": "Self-hosted AI assistant with a web console, memory, skills, channels, and scheduled automation.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/26161723?v=4",
+        "website_url": "https://cowagent.ai/",
+        "source_code_url": "https://github.com/zhayujie/CowAgent",
+        "source_code_host": "github",
+        "docs_url": "https://docs.cowagent.ai/intro/index",
+        "install_docs_url": "https://docs.cowagent.ai/guide/quick-start",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "CowAgent contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://cowagent.ai/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package",
+          "desktop"
+        ],
+        "docker_image": null,
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "sqlite"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api",
+          "desktop"
+        ],
+        "categories": [
+          "ai-ml",
+          "automation",
+          "communication"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://cowagent.ai/",
+          "https://github.com/zhayujie/CowAgent",
+          "https://docs.cowagent.ai/guide/quick-start"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/cowagent.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://docs.cowagent.ai/guide/quick-start",
+          "confidence": "high",
+          "note": "The official quick start documents local, server, and Docker Compose deployment with a persistent web console."
+        }
+      ]
+    },
+    {
+      "candidate_id": "af685a56-1479-483a-9ab8-3e3cee99f0b2",
+      "decision": "publish",
+      "app": {
+        "slug": "nanobot",
+        "name": "nanobot",
+        "summary": "Lightweight self-hosted AI agent runtime with WebUI, API, memory, tools, and chat integrations.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/118165258?v=4",
+        "website_url": "https://nanobot.wiki/",
+        "source_code_url": "https://github.com/HKUDS/nanobot",
+        "source_code_host": "github",
+        "docs_url": "https://nanobot.wiki/docs/latest/getting-started/nanobot-overview",
+        "install_docs_url": "https://github.com/HKUDS/nanobot/blob/main/docs/deployment.md",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "HKUDS contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/HKUDS",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "none",
+        "deployment_methods": [
+          "package",
+          "source"
+        ],
+        "docker_image": null,
+        "compose_support": null,
+        "requires_database": true,
+        "database_types": [
+          "sqlite"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "automation",
+          "communication"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://nanobot.wiki/",
+          "https://github.com/HKUDS/nanobot",
+          "https://github.com/HKUDS/nanobot/blob/main/docs/deployment.md"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/nanobot.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/HKUDS/nanobot/blob/main/docs/deployment.md",
+          "confidence": "high",
+          "note": "The official README describes nanobot as self-hosted, exposes a WebUI/API, and links its deployment guide."
+        }
+      ]
+    },
+    {
+      "candidate_id": "6e3942ab-fd21-4cf0-bd7e-2868aaee4bb5",
+      "decision": "publish",
+      "app": {
+        "slug": "waoowaoo",
+        "name": "waoowaoo",
+        "summary": "Docker-deployable AI video workspace for generating scripts, storyboards, voices, and finished clips.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/264387079?v=4",
+        "website_url": "https://www.waoowaoo.com/",
+        "source_code_url": "https://github.com/waooAI/waoowaoo",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/waooAI/waoowaoo#readme",
+        "install_docs_url": "https://github.com/waooAI/waoowaoo/blob/main/README_en.md",
+        "docker_url": "https://ghcr.io/saturndec/waoowaoo",
+        "license": "License not publicly specified",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "publisher_name": "waooAI contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/waooAI/waoowaoo",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "source"
+        ],
+        "docker_image": "ghcr.io/saturndec/waoowaoo:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "mysql",
+          "redis"
+        ],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "ai-ml",
+          "content-publishing",
+          "media-servers"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://www.waoowaoo.com/",
+          "https://github.com/waooAI/waoowaoo",
+          "https://github.com/waooAI/waoowaoo/blob/main/README_en.md"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/waoowaoo.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/waooAI/waoowaoo/blob/main/README_en.md",
+          "confidence": "high",
+          "note": "The official README documents prebuilt GHCR deployment, Compose, MySQL, Redis, and MinIO; no public license notice was found."
+        }
+      ]
+    },
+    {
+      "candidate_id": "089d9bbe-b99e-4fc3-a46c-d77b85377610",
+      "decision": "publish",
+      "app": {
+        "slug": "holaos",
+        "name": "HolaOS",
+        "summary": "Local-first agent workspace that combines apps, integrations, memory, and model connections in one desktop environment.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/180552290?v=4",
+        "website_url": "https://holaos.ai/",
+        "source_code_url": "https://github.com/holaboss-ai/holaOS",
+        "source_code_host": "github",
+        "docs_url": "https://www.holaos.ai/docs/getting-started",
+        "install_docs_url": "https://github.com/holaboss-ai/holaOS/blob/main/INSTALL.md",
+        "docker_url": null,
+        "license": "Modified Apache-2.0",
+        "license_type": "custom",
+        "license_spdx_id": null,
+        "source_model": "source_available",
+        "publisher_name": "HolaOS contributors",
+        "publisher_type": "company",
+        "publisher_url": "https://holaos.ai/",
+        "pricing_model": "freemium",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "none",
+        "deployment_methods": [
+          "package",
+          "desktop",
+          "source"
+        ],
+        "docker_image": null,
+        "compose_support": null,
+        "requires_database": true,
+        "database_types": [
+          "sqlite"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "desktop",
+          "web"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools",
+          "knowledge-notes"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://holaos.ai/",
+          "https://github.com/holaboss-ai/holaOS",
+          "https://github.com/holaboss-ai/holaOS/blob/main/INSTALL.md"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/holaos.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/holaboss-ai/holaOS/blob/main/INSTALL.md",
+          "confidence": "high",
+          "note": "The official README and installer describe local execution and self-hosting under a modified Apache license."
+        }
+      ]
+    },
+    {
+      "candidate_id": "c7f32495-68c5-4426-8166-517e530d3e4c",
+      "decision": "publish",
+      "app": {
+        "slug": "vibe-trading",
+        "name": "Vibe-Trading",
+        "summary": "Self-hosted trading research workspace with a Web UI, REST API, backtests, and MCP tools.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/118165258?v=4",
+        "website_url": "https://vibetrading.wiki/",
+        "source_code_url": "https://github.com/HKUDS/Vibe-Trading",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/HKUDS/Vibe-Trading#readme",
+        "install_docs_url": "https://github.com/HKUDS/Vibe-Trading#-api-server",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "HKUDS contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/HKUDS",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": null,
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "sqlite"
+        ],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api",
+          "cli"
+        ],
+        "categories": [
+          "finance-budgeting",
+          "ai-ml",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://vibetrading.wiki/",
+          "https://github.com/HKUDS/Vibe-Trading",
+          "https://github.com/HKUDS/Vibe-Trading#-api-server"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/vibe-trading.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/HKUDS/Vibe-Trading#-api-server",
+          "confidence": "high",
+          "note": "The official README documents the API server, Web UI, Docker Compose deployment, and persistent data volumes."
+        }
+      ]
+    },
+    {
+      "candidate_id": "95a767f3-8623-4558-8a41-a553df812393",
+      "decision": "publish",
+      "app": {
+        "slug": "genericagent",
+        "name": "GenericAgent",
+        "summary": "Local self-evolving agent with Streamlit, terminal, browser, and messaging interfaces.",
+        "icon_source_url": "https://avatars.githubusercontent.com/u/3377819?v=4",
+        "website_url": "https://github.com/lsdefine/GenericAgent",
+        "source_code_url": "https://github.com/lsdefine/GenericAgent",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/lsdefine/GenericAgent/blob/main/docs/GETTING_STARTED.md",
+        "install_docs_url": "https://github.com/lsdefine/GenericAgent/blob/main/docs/installation.md",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "GenericAgent contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/lsdefine",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "none",
+        "deployment_methods": [
+          "package",
+          "source"
+        ],
+        "docker_image": null,
+        "compose_support": null,
+        "requires_database": false,
+        "database_types": [
+          "sqlite"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "cli",
+          "api"
+        ],
+        "categories": [
+          "ai-ml",
+          "automation",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://github.com/lsdefine/GenericAgent",
+          "https://github.com/lsdefine/GenericAgent/blob/main/docs/installation.md"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/genericagent.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/lsdefine/GenericAgent/blob/main/docs/installation.md",
+          "confidence": "high",
+          "note": "The official installation guide documents a local Streamlit Web UI and local agent runtime."
+        }
+      ]
+    },
+    {
+      "candidate_id": "73bd9097-b206-46e3-929d-883496ac9758",
+      "decision": "reject",
+      "reason": "LobsterAI is a desktop-only agent application. The reviewed repository documents local desktop distribution, but no standalone server, container, or homelab deployment was verified."
+    },
+    {
+      "candidate_id": "e4403cb9-1f9f-4a43-94b4-64c2fb5bc8a8",
+      "decision": "reject",
+      "reason": "ZCF is a CLI configuration and workflow installer for other coding agents, not a standalone self-hosted application."
+    },
+    {
+      "candidate_id": "024af347-f7ba-46d5-abd9-e1dc6b0fab6d",
+      "decision": "reject",
+      "reason": "Kun is a desktop AI assistant. Its reviewed documentation does not verify a standalone server or container deployment."
+    },
+    {
+      "candidate_id": "4f00c6f3-c54a-4cc0-835d-261455f0bc4c",
+      "decision": "reject",
+      "reason": "awesome-agentic-ai-zh is a curated learning map and link collection, not an application."
+    },
+    {
+      "candidate_id": "42753f27-929d-48e4-a43a-59eb2743daf0",
+      "decision": "reject",
+      "reason": "guizang-social-card-skill is an agent skill package, not a standalone self-hosted application."
+    },
+    {
+      "candidate_id": "9d3a1750-af8f-46b9-81ce-ab023673700d",
+      "decision": "reject",
+      "reason": "mini-swe-agent is a Python library and CLI agent runner. It does not provide a standalone self-hosted application surface."
+    },
+    {
+      "candidate_id": "98e5982d-f1cc-4b1c-ac55-f4b35c80a1f0",
+      "decision": "reject",
+      "reason": "Evolver is an npm CLI for agent self-evolution, not a standalone self-hosted service."
+    },
+    {
+      "candidate_id": "4107c499-68dd-4501-b949-279efdb8f39e",
+      "decision": "reject",
+      "reason": "Bindu is an agent framework and SDK; the reviewed repository does not provide a packaged self-hosted application."
+    },
+    {
+      "candidate_id": "784f412b-6d29-4b86-b070-07034e2cf8b4",
+      "decision": "reject",
+      "reason": "ian-xiaohei-illustrations is an illustration asset collection, not an application."
+    },
+    {
+      "candidate_id": "9758884a-3f5c-44b5-9495-593fc0ebb484",
+      "decision": "reject",
+      "reason": "E2B is a hosted cloud sandbox service. The reviewed repository documents client SDKs for the hosted platform, not a self-hostable server."
+    },
+    {
+      "candidate_id": "d234a0af-b5e1-4214-bf51-d7783f0783b6",
+      "decision": "reject",
+      "reason": "Hermes Desktop is a desktop companion for Hermes Agent. Its repository documents desktop distribution and lab examples, not a separate self-hosted service."
+    },
+    {
+      "candidate_id": "60262480-681c-46c1-b524-69e7c34c99f1",
+      "decision": "reject",
+      "reason": "cc-haha is a desktop Claude Code workspace, not a standalone self-hosted server or homelab application."
+    },
+    {
+      "candidate_id": "ca3f2685-ab7c-4f5a-ade7-e97cb6f92ac2",
+      "decision": "reject",
+      "reason": "ego-lite is a local browser companion and skill installer; no standalone self-hosted application deployment was verified."
+    },
+    {
+      "candidate_id": "2349970f-9c71-4443-b173-9e66028a19de",
+      "decision": "reject",
+      "reason": "learn-harness-engineering is a tutorial and learning repository, not an application."
+    },
+    {
+      "candidate_id": "983abf2f-f872-45c3-9114-bb67cbb1fab1",
+      "decision": "reject",
+      "reason": "ai-berkshire is a collection of prompts, skills, and setup notes, not a standalone self-hosted application."
+    },
+    {
+      "candidate_id": "6aca7e4d-f55d-43e8-a33c-2fae64a4b2ae",
+      "decision": "reject",
+      "reason": "browser-harness is an agent skill and local browser setup toolkit. Its reviewed repository does not provide a standalone self-hosted service."
+    },
+    {
+      "candidate_id": "660cb8e3-be2d-4a0d-8182-fc58e2ce85a0",
+      "decision": "reject",
+      "reason": "jcode is a local coding CLI, not a standalone self-hosted application."
+    },
+    {
+      "candidate_id": "d83991f3-ff44-48de-8922-7cbfbc586b06",
+      "decision": "reject",
+      "reason": "ai-guide is a Chinese AI tutorial and course site, not an application."
+    },
+    {
+      "candidate_id": "827755a4-af7f-4391-8174-0b0e18dd181f",
+      "decision": "reject",
+      "reason": "cua is a computer-use agent framework and SDK, not a packaged self-hosted application."
+    },
+    {
+      "candidate_id": "aeaf679e-2699-4fdd-ba7a-bfd960eefdd4",
+      "decision": "reject",
+      "reason": "Qwen Code is a terminal coding agent, not a standalone self-hosted service."
+    },
+    {
+      "candidate_id": "a21bc33f-418e-4448-9887-f14242f4b62a",
+      "decision": "reject",
+      "reason": "oh-my-pi is a terminal coding agent, not a standalone self-hosted application."
+    },
+    {
+      "candidate_id": "558c9213-74cd-442f-ab6d-dccafa4f06fe",
+      "decision": "reject",
+      "reason": "OpenCLI is a command-line tool for agent workflows, not a standalone self-hosted application."
+    },
+    {
+      "candidate_id": "b052cb59-0059-444a-a9aa-3f930578fef6",
+      "decision": "reject",
+      "reason": "Google Workspace CLI is a client for hosted Google APIs, not a self-hosted application."
+    },
+    {
+      "candidate_id": "73f3707f-a239-4bce-b08f-1ccadf0d48f3",
+      "decision": "reject",
+      "reason": "OpenClaude is a coding CLI/client and the reviewed repository does not verify a standalone self-hosted service."
+    },
+    {
+      "candidate_id": "de0ee406-9f28-4540-a448-7ca46def3263",
+      "decision": "reject",
+      "reason": "AionUi is a desktop AI client, not a standalone self-hosted server or homelab application."
+    },
+    {
+      "candidate_id": "e92c4b4f-e0ef-4b64-a278-6612cd0f7a78",
+      "decision": "reject",
+      "reason": "DeepSeek-Reasonix is a local CLI, desktop, and editor engine; no standalone server deployment was verified."
+    },
+    {
+      "candidate_id": "23ba9ed3-a5ce-4708-8d5c-2c407b3a6553",
+      "decision": "reject",
+      "reason": "CopilotKit is a developer library and hosted/self-hosted integration layer, not a standalone self-hosted application."
+    },
+    {
+      "candidate_id": "ead1565e-6a4c-40d6-8b12-f9e9fd57d7a9",
+      "decision": "reject",
+      "reason": "ppt-master is a presentation-generation code project without a verified standalone self-hosted application deployment."
+    },
+    {
+      "candidate_id": "bebb09ee-4fb3-4418-9b8f-e9d4f4b8664b",
+      "decision": "reject",
+      "reason": "Cherry Studio is a desktop client. The reviewed repository does not provide a verified self-hosted community server deployment."
+    },
+    {
+      "candidate_id": "22b92e3c-eb67-4070-a34f-57b4c1afa88b",
+      "decision": "reject",
+      "reason": "daily_stock_analysis is a hosted analysis site and research project; no standalone self-hosted application deployment was verified."
+    },
+    {
+      "candidate_id": "f76a18c0-d9fc-4a36-87b2-70860dc7c183",
+      "decision": "reject",
+      "reason": "career-ops is an agent-skill and CLI workflow for job searches, not a standalone self-hosted application."
+    },
+    {
+      "candidate_id": "476ef335-5cf3-4526-beed-527bfe39229d",
+      "decision": "reject",
+      "reason": "Front-End-Checklist is a reference checklist and website, not an application."
+    },
+    {
+      "candidate_id": "f8696f19-f331-4741-addd-63666e98ad0c",
+      "decision": "reject",
+      "reason": "learn-claude-code is a tutorial repository, not an application."
+    },
+    {
+      "candidate_id": "17c46357-0b7e-4047-bce8-5ca303e4017f",
+      "decision": "reject",
+      "reason": "CodeWhale is a local coding CLI with optional web client support, not a standalone self-hosted application."
+    }
+  ]
+}

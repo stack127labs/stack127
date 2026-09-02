@@ -1,0 +1,1627 @@
+{
+  "records": [
+    {
+      "candidate_id": "e8c94637-3f14-4999-9039-7aace5eddde1",
+      "decision": "publish",
+      "app": {
+        "slug": "toparr",
+        "name": "Toparr",
+        "summary": "Web dashboard for live Intel GPU metrics, per-process usage, and engine history.",
+        "icon_source_url": "https://github.com/ajthom90.png?size=256",
+        "website_url": "https://github.com/ajthom90/toparr",
+        "source_code_url": "https://github.com/ajthom90/toparr",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/ajthom90/toparr#readme",
+        "install_docs_url": "https://github.com/ajthom90/toparr#installation",
+        "docker_url": "https://ghcr.io/ajthom90/toparr",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "Toparr contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/ajthom90/toparr",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "slow",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_image": "ghcr.io/ajthom90/toparr:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "low",
+        "persistent_storage": false,
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "monitoring-status",
+          "system-admin-hosting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/toparr_community/",
+          "https://github.com/ajthom90/toparr",
+          "https://github.com/ajthom90/toparr#installation"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/toparr.png"
+      }
+    },
+    {
+      "candidate_id": "624b6597-dea0-4089-95a8-189cce9458a2",
+      "decision": "publish",
+      "app": {
+        "slug": "sportarr",
+        "name": "Sportarr",
+        "summary": "Sports PVR that monitors events, fetches releases, and organizes recordings for media servers.",
+        "icon_source_url": "https://github.com/Sportarr.png?size=256",
+        "website_url": "https://sportarr.net",
+        "source_code_url": "https://github.com/Sportarr/Sportarr",
+        "source_code_host": "github",
+        "docs_url": "https://wiki.sportarr.net/",
+        "install_docs_url": "https://wiki.sportarr.net/getting-started/installation/",
+        "docker_url": "https://hub.docker.com/r/sportarr/sportarr",
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "Sportarr contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://sportarr.net",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "binary"
+        ],
+        "docker_image": "sportarr/sportarr:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "media-servers",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/sportarr_community/",
+          "https://sportarr.net",
+          "https://github.com/Sportarr/Sportarr",
+          "https://wiki.sportarr.net/getting-started/installation/"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/sportarr.png"
+      }
+    },
+    {
+      "candidate_id": "f92d5a96-8926-48eb-805f-b6a9db231bd2",
+      "decision": "publish",
+      "app": {
+        "slug": "factorio",
+        "name": "Factorio Server",
+        "summary": "Dedicated server container for multiplayer Factorio worlds, saves, mods, and RCON.",
+        "icon_source_url": "https://github.com/factoriotools.png?size=256",
+        "website_url": "https://factorio.com/",
+        "source_code_url": "https://github.com/factoriotools/factorio-docker",
+        "source_code_host": "github",
+        "docs_url": "https://www.factorio.com/support",
+        "install_docs_url": "https://github.com/factoriotools/factorio-docker#usage",
+        "docker_url": "https://hub.docker.com/r/factoriotools/factorio",
+        "license": "Proprietary game software",
+        "license_type": "custom",
+        "source_model": "closed_source",
+        "publisher_name": "Wube Software",
+        "publisher_type": "company",
+        "publisher_url": "https://factorio.com/",
+        "pricing_model": "paid",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_image": "factoriotools/factorio:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "server"
+        ],
+        "categories": [
+          "games"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/factorio_community/",
+          "https://factorio.com/",
+          "https://github.com/factoriotools/factorio-docker",
+          "https://hub.docker.com/r/factoriotools/factorio"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/factorio.png"
+      }
+    },
+    {
+      "candidate_id": "faf5c3b1-9d95-4fca-b943-24292ca9bdde",
+      "decision": "publish",
+      "app": {
+        "slug": "spotify-to-plex",
+        "name": "Spotify to Plex",
+        "summary": "Web app that syncs Spotify playlists with Plex and downloads missing tracks through supported integrations.",
+        "icon_source_url": "https://github.com/jjdenhertog.png?size=256",
+        "website_url": "https://jjdenhertog.github.io/spotify-to-plex/",
+        "source_code_url": "https://github.com/jjdenhertog/spotify-to-plex",
+        "source_code_host": "github",
+        "docs_url": "https://jjdenhertog.github.io/spotify-to-plex/",
+        "install_docs_url": "https://jjdenhertog.github.io/spotify-to-plex/",
+        "docker_url": "https://hub.docker.com/r/jjdenhertog/spotify-to-plex",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "Spotify to Plex contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/jjdenhertog/spotify-to-plex",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_image": "jjdenhertog/spotify-to-plex:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "music-audio",
+          "media-servers",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/spotify-to-plex_community/",
+          "https://jjdenhertog.github.io/spotify-to-plex/",
+          "https://github.com/jjdenhertog/spotify-to-plex",
+          "https://hub.docker.com/r/jjdenhertog/spotify-to-plex"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/spotify-to-plex.png"
+      }
+    },
+    {
+      "candidate_id": "eb3b5be5-3a12-4f5c-8ce2-c16f22f7377a",
+      "decision": "publish",
+      "app": {
+        "slug": "lens",
+        "name": "Lens",
+        "summary": "Collaborative browser workspace for uploading, viewing, versioning, and sharing 3D CAD models.",
+        "icon_source_url": "https://github.com/FreeCAD.png?size=256",
+        "website_url": "https://github.com/FreeCAD/Ondsel-Server",
+        "source_code_url": "https://github.com/FreeCAD/Ondsel-Server",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/FreeCAD/Ondsel-Server#readme",
+        "install_docs_url": "https://github.com/FreeCAD/Ondsel-Server#installation",
+        "docker_url": "https://hub.docker.com/r/amrit3701/lens",
+        "license": "AGPL-3.0-or-later",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "Ondsel contributors",
+        "publisher_type": "company",
+        "publisher_url": "https://github.com/FreeCAD/Ondsel-Server",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "amrit3701/lens:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "mongodb"
+        ],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "developer-tools",
+          "project-task-management"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/lens_community/",
+          "https://github.com/FreeCAD/Ondsel-Server",
+          "https://github.com/FreeCAD/Ondsel-Server#installation",
+          "https://hub.docker.com/r/amrit3701/lens"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/lens.png"
+      }
+    },
+    {
+      "candidate_id": "e5a741bd-68e6-42b3-9183-e6ee2565c610",
+      "decision": "publish",
+      "app": {
+        "slug": "nexus",
+        "name": "Nexus Repository",
+        "summary": "Repository manager for hosting, proxying, and distributing software packages and container images.",
+        "icon_source_url": "https://github.com/sonatype.png?size=256",
+        "website_url": "https://www.sonatype.com/products/sonatype-nexus-repository",
+        "source_code_url": "https://github.com/sonatype/nexus-public",
+        "source_code_host": "github",
+        "docs_url": "https://help.sonatype.com/en/nexus-repository.html",
+        "install_docs_url": "https://help.sonatype.com/en/install-nexus-repository.html",
+        "docker_url": "https://hub.docker.com/r/sonatype/nexus3",
+        "license": "EPL-1.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "EPL-1.0",
+        "source_model": "open_source",
+        "publisher_name": "Sonatype",
+        "publisher_type": "company",
+        "publisher_url": "https://www.sonatype.com/",
+        "pricing_model": "freemium",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package",
+          "helm"
+        ],
+        "docker_image": "sonatype/nexus3:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "developer-tools",
+          "storage-backup",
+          "system-admin-hosting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/nexus_community/",
+          "https://www.sonatype.com/products/sonatype-nexus-repository",
+          "https://github.com/sonatype/nexus-public",
+          "https://help.sonatype.com/en/install-nexus-repository.html",
+          "https://hub.docker.com/r/sonatype/nexus3"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/nexus.png"
+      }
+    },
+    {
+      "candidate_id": "1aff4c0b-6a0a-4454-9ae9-89b2aa88b01f",
+      "decision": "publish",
+      "app": {
+        "slug": "jenkins",
+        "name": "Jenkins",
+        "summary": "Automation server for building, testing, deploying, and scheduling software jobs.",
+        "icon_source_url": "https://github.com/jenkinsci.png?size=256",
+        "website_url": "https://www.jenkins.io/",
+        "source_code_url": "https://github.com/jenkinsci/jenkins",
+        "source_code_host": "github",
+        "docs_url": "https://www.jenkins.io/doc/",
+        "install_docs_url": "https://www.jenkins.io/doc/book/installing/docker/",
+        "docker_url": "https://hub.docker.com/r/jenkins/jenkins",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "Jenkins community",
+        "publisher_type": "foundation",
+        "publisher_url": "https://www.jenkins.io/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "package",
+          "helm"
+        ],
+        "docker_image": "jenkins/jenkins:lts",
+        "compose_support": null,
+        "requires_database": false,
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "developer-tools",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/jenkins_community/",
+          "https://www.jenkins.io/",
+          "https://www.jenkins.io/doc/book/installing/docker/",
+          "https://hub.docker.com/r/jenkins/jenkins"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/jenkins.png"
+      }
+    },
+    {
+      "candidate_id": "a9a5a81d-1245-475d-8c66-9002b505235a",
+      "decision": "publish",
+      "app": {
+        "slug": "flame",
+        "name": "Flame",
+        "summary": "Web start page for organizing server apps, bookmarks, and links.",
+        "icon_source_url": "https://github.com/pawelmalak.png?size=256",
+        "website_url": "https://github.com/pawelmalak/flame",
+        "source_code_url": "https://github.com/pawelmalak/flame",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/pawelmalak/flame#readme",
+        "install_docs_url": "https://github.com/pawelmalak/flame#installation",
+        "docker_url": "https://hub.docker.com/r/pawelmalak/flame",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "Flame contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/pawelmalak/flame",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "slow",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_image": "pawelmalak/flame:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "low",
+        "persistent_storage": true,
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "dashboards",
+          "bookmarks-read-it-later"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/flame_community/",
+          "https://github.com/pawelmalak/flame",
+          "https://hub.docker.com/r/pawelmalak/flame"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/flame.png"
+      }
+    },
+    {
+      "candidate_id": "a60f1091-dc49-42cb-94d0-0dcf3c6f7eee",
+      "decision": "publish",
+      "app": {
+        "slug": "gptwol",
+        "name": "GPTWOL",
+        "summary": "Small web interface for waking and sleeping computers with Wake-on-LAN.",
+        "icon_source_url": "https://github.com/Misterbabou.png?size=256",
+        "website_url": "https://github.com/Misterbabou/gptwol",
+        "source_code_url": "https://github.com/Misterbabou/gptwol",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/Misterbabou/gptwol#readme",
+        "install_docs_url": "https://github.com/Misterbabou/gptwol#docker-configuration",
+        "docker_url": "https://hub.docker.com/r/misterbabou/gptwol",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "GPTWOL contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/Misterbabou/gptwol",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_image": "misterbabou/gptwol:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "tiny",
+        "persistent_storage": false,
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "networking-dns",
+          "system-admin-hosting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/gptwol_community/",
+          "https://github.com/Misterbabou/gptwol",
+          "https://hub.docker.com/r/misterbabou/gptwol"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/gptwol.png"
+      }
+    },
+    {
+      "candidate_id": "1990b0f0-feba-468f-9f2b-3c01a517147d",
+      "decision": "publish",
+      "app": {
+        "slug": "restic-rest-server",
+        "name": "Restic REST Server",
+        "summary": "HTTP server that provides a REST backend for restic repositories.",
+        "icon_source_url": "https://github.com/restic.png?size=256",
+        "website_url": "https://github.com/restic/rest-server",
+        "source_code_url": "https://github.com/restic/rest-server",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/restic/rest-server#readme",
+        "install_docs_url": "https://github.com/restic/rest-server#docker",
+        "docker_url": "https://hub.docker.com/r/restic/rest-server",
+        "license": "BSD-2-Clause",
+        "license_type": "permissive",
+        "license_spdx_id": "BSD-2-Clause",
+        "source_model": "open_source",
+        "publisher_name": "restic contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://restic.net/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "restic/rest-server:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "api"
+        ],
+        "categories": [
+          "storage-backup",
+          "system-admin-hosting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/restic-rest-server_community/",
+          "https://github.com/restic/rest-server",
+          "https://github.com/restic/rest-server#docker",
+          "https://hub.docker.com/r/restic/rest-server"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/restic-rest-server.png"
+      }
+    },
+    {
+      "candidate_id": "b15fa7e1-2734-46d0-a03b-04db7381beb3",
+      "decision": "publish",
+      "app": {
+        "slug": "handbrake",
+        "name": "HandBrake",
+        "summary": "Video transcoder with browser access through a community Docker container.",
+        "icon_source_url": "https://github.com/HandBrake.png?size=256",
+        "website_url": "https://handbrake.fr/",
+        "source_code_url": "https://github.com/HandBrake/HandBrake",
+        "source_code_host": "github",
+        "docs_url": "https://handbrake.fr/docs/en/latest/",
+        "install_docs_url": "https://github.com/jlesage/docker-handbrake#readme",
+        "docker_url": "https://hub.docker.com/r/jlesage/handbrake",
+        "license": "GPL-2.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-2.0",
+        "source_model": "open_source",
+        "publisher_name": "HandBrake contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://handbrake.fr/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "jlesage/handbrake:latest",
+        "compose_support": null,
+        "requires_database": false,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "media-servers"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/handbrake_community/",
+          "https://handbrake.fr/",
+          "https://handbrake.fr/docs/en/latest/",
+          "https://github.com/jlesage/docker-handbrake",
+          "https://hub.docker.com/r/jlesage/handbrake"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/handbrake.png"
+      }
+    },
+    {
+      "candidate_id": "bcab6e03-d8b9-409f-b292-b476f65b8ce0",
+      "decision": "publish",
+      "app": {
+        "slug": "borgwarehouse",
+        "name": "BorgWarehouse",
+        "summary": "Web interface for managing centralized BorgBackup repositories, quotas, and clients.",
+        "icon_source_url": "https://github.com/Ravinou.png?size=256",
+        "website_url": "https://borgwarehouse.com/",
+        "source_code_url": "https://github.com/ravinou/borgwarehouse",
+        "source_code_host": "github",
+        "docs_url": "https://borgwarehouse.com/",
+        "install_docs_url": "https://github.com/ravinou/borgwarehouse#readme",
+        "docker_url": "https://hub.docker.com/r/borgwarehouse/borgwarehouse",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "BorgWarehouse contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://borgwarehouse.com/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "borgwarehouse/borgwarehouse:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "storage-backup",
+          "system-admin-hosting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/borgwarehouse_community/",
+          "https://borgwarehouse.com/",
+          "https://github.com/ravinou/borgwarehouse",
+          "https://hub.docker.com/r/borgwarehouse/borgwarehouse"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/borgwarehouse.png"
+      }
+    },
+    {
+      "candidate_id": "bb5a834e-defe-4930-ad41-e9fb618b27ad",
+      "decision": "publish",
+      "app": {
+        "slug": "jdownloader2",
+        "name": "JDownloader 2",
+        "summary": "Download manager with browser access through a community Docker container.",
+        "icon_source_url": "https://github.com/jaymoulin.png?size=256",
+        "website_url": "https://jdownloader.org/",
+        "source_code_url": "https://svn.jdownloader.org/svn/JDownloader",
+        "source_code_host": "other",
+        "docs_url": "https://jdownloader.org/knowledge/wiki",
+        "install_docs_url": "https://github.com/jaymoulin/docker-jdownloader#readme",
+        "docker_url": "https://hub.docker.com/r/jaymoulin/jdownloader",
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "AppWork",
+        "publisher_type": "company",
+        "publisher_url": "https://jdownloader.org/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "slow",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "package"
+        ],
+        "docker_image": "jaymoulin/jdownloader:latest",
+        "compose_support": null,
+        "requires_database": false,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "file-sharing-sync"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/jdownloader2_community/",
+          "https://jdownloader.org/",
+          "https://jdownloader.org/gpl",
+          "https://support.jdownloader.org/en/knowledgebase/article/docker-container",
+          "https://github.com/jaymoulin/docker-jdownloader",
+          "https://hub.docker.com/r/jaymoulin/jdownloader"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/jdownloader2.png"
+      }
+    },
+    {
+      "candidate_id": "43a83aec-b069-4634-93ea-3b4be2b7e1f9",
+      "decision": "publish",
+      "app": {
+        "slug": "rtsp-stream-hub",
+        "name": "RTSP Stream Hub",
+        "summary": "Web service for discovering, managing, and transcoding RTSP and ONVIF camera streams.",
+        "icon_source_url": "https://github.com/Daddelgreis74.png?size=256",
+        "website_url": "https://github.com/Daddelgreis74/rtsp-stream-hub",
+        "source_code_url": "https://github.com/daddelgreis74/rtsp-stream-hub",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/Daddelgreis74/rtsp-stream-hub#readme",
+        "install_docs_url": "https://github.com/Daddelgreis74/rtsp-stream-hub#using-docker-compose-recommended",
+        "docker_url": "https://ghcr.io/daddelgreis74/rtsp-stream-hub",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "RTSP Stream Hub contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/Daddelgreis74/rtsp-stream-hub",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_image": "ghcr.io/daddelgreis74/rtsp-stream-hub:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "sqlite"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "monitoring-status",
+          "security-privacy",
+          "media-servers"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/rtsp-stream-hub_community/",
+          "https://github.com/Daddelgreis74/rtsp-stream-hub",
+          "https://github.com/Daddelgreis74/rtsp-stream-hub#using-docker-compose-recommended",
+          "https://ghcr.io/daddelgreis74/rtsp-stream-hub"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/rtsp-stream-hub.png"
+      }
+    },
+    {
+      "candidate_id": "435b72d5-40bd-43e8-b73b-12d862c1e5ec",
+      "decision": "publish",
+      "app": {
+        "slug": "distribution",
+        "name": "Distribution Registry",
+        "summary": "Container registry service for storing, distributing, and managing OCI images.",
+        "icon_source_url": "https://github.com/distribution.png?size=256",
+        "website_url": "https://distribution.github.io/distribution/",
+        "source_code_url": "https://github.com/distribution/distribution",
+        "source_code_host": "github",
+        "docs_url": "https://distribution.github.io/distribution/",
+        "install_docs_url": "https://distribution.github.io/distribution/about/deploying/",
+        "docker_url": "https://hub.docker.com/_/registry",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "CNCF Distribution contributors",
+        "publisher_type": "foundation",
+        "publisher_url": "https://distribution.github.io/distribution/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "package"
+        ],
+        "docker_image": "registry:3",
+        "compose_support": null,
+        "requires_database": false,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "api"
+        ],
+        "categories": [
+          "developer-tools",
+          "system-admin-hosting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/distribution_community/",
+          "https://distribution.github.io/distribution/",
+          "https://github.com/distribution/distribution",
+          "https://hub.docker.com/_/registry"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/distribution.png"
+      }
+    },
+    {
+      "candidate_id": "e3eb8c1b-4d4a-455d-8923-69fa71f8538f",
+      "decision": "publish",
+      "app": {
+        "slug": "tftpd-hpa",
+        "name": "TFTP Server",
+        "summary": "Small TFTP server container for network boot files and firmware transfers.",
+        "icon_source_url": "https://github.com/truenas.png?size=256",
+        "website_url": "https://github.com/truenas/containers/tree/main/apps/tftpd-hpa",
+        "source_code_url": "https://git.kernel.org/pub/scm/network/tftp/tftp-hpa.git/about/",
+        "source_code_host": "other",
+        "docs_url": "https://github.com/truenas/containers/tree/main/apps/tftpd-hpa",
+        "install_docs_url": "https://apps.truenas.com/catalog/tftpd-hpa_community/",
+        "docker_url": "https://hub.docker.com/r/ixsystems/tftpd-hpa",
+        "license": "BSD",
+        "license_type": "permissive",
+        "source_model": "open_source",
+        "publisher_name": "tftp-hpa contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/truenas/containers",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "package"
+        ],
+        "docker_image": "ixsystems/tftpd-hpa:latest",
+        "compose_support": null,
+        "requires_database": false,
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "server"
+        ],
+        "categories": [
+          "networking-dns",
+          "system-admin-hosting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/tftpd-hpa_community/",
+          "https://github.com/truenas/containers/tree/main/apps/tftpd-hpa",
+          "https://git.kernel.org/pub/scm/network/tftp/tftp-hpa.git/about/",
+          "https://hub.docker.com/r/ixsystems/tftpd-hpa"
+        ],
+        "data_confidence": "medium",
+        "icon_url": "/app-icons/tftpd-hpa.png"
+      }
+    },
+    {
+      "candidate_id": "91c0a097-4088-435e-8864-823a5d471a68",
+      "decision": "publish",
+      "app": {
+        "slug": "audiomuse-ai",
+        "name": "AudioMuse-AI",
+        "summary": "Music analysis service that builds related-track playlists for common home media servers.",
+        "icon_source_url": "https://github.com/NeptuneHub.png?size=256",
+        "website_url": "https://neptunehub.github.io/AudioMuse-AI/",
+        "source_code_url": "https://github.com/neptunehub/audiomuse-ai",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/NeptuneHub/AudioMuse-AI/tree/main/docs",
+        "install_docs_url": "https://github.com/NeptuneHub/AudioMuse-AI/blob/main/docs/DEPLOYMENT.md",
+        "docker_url": "https://ghcr.io/neptunehub/audiomuse-ai",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "NeptuneHub",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/NeptuneHub/AudioMuse-AI",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package",
+          "helm"
+        ],
+        "docker_image": "ghcr.io/neptunehub/audiomuse-ai:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "postgres",
+          "redis"
+        ],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "music-audio",
+          "media-servers",
+          "ai-ml"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/audiomuse-ai_community/",
+          "https://neptunehub.github.io/AudioMuse-AI/",
+          "https://github.com/NeptuneHub/AudioMuse-AI",
+          "https://github.com/NeptuneHub/AudioMuse-AI/blob/main/docs/DEPLOYMENT.md",
+          "https://ghcr.io/neptunehub/audiomuse-ai"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/audiomuse-ai.png"
+      }
+    },
+    {
+      "candidate_id": "7e1f80ab-3019-4386-a5cb-d9a61e993064",
+      "decision": "publish",
+      "app": {
+        "slug": "dropgate-server",
+        "name": "Dropgate Server",
+        "summary": "File sharing service with browser uploads, direct peer transfers, and configurable retention limits.",
+        "icon_source_url": "https://github.com/diamonddigitaldev.png?size=256",
+        "website_url": "https://diamonddigital.dev/projects/dropgate",
+        "source_code_url": "https://github.com/diamonddigitaldev/dropgate",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/diamonddigitaldev/dropgate#readme",
+        "install_docs_url": "https://github.com/diamonddigitaldev/dropgate#readme",
+        "docker_url": "https://hub.docker.com/r/willtda/dropgate-server",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "Diamond Digital",
+        "publisher_type": "company",
+        "publisher_url": "https://diamonddigital.dev/projects/dropgate",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "willtda/dropgate-server:latest",
+        "compose_support": null,
+        "requires_database": false,
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "file-sharing-sync",
+          "security-privacy"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/dropgate-server_community/",
+          "https://diamonddigital.dev/projects/dropgate",
+          "https://github.com/diamonddigitaldev/dropgate",
+          "https://hub.docker.com/r/willtda/dropgate-server"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/dropgate-server.png"
+      }
+    },
+    {
+      "candidate_id": "20cab877-1273-4980-a07e-98d13cf3efab",
+      "decision": "publish",
+      "app": {
+        "slug": "urbackup",
+        "name": "UrBackup",
+        "summary": "Client and server backup system that combines image backups with file-level recovery.",
+        "icon_source_url": "https://github.com/uroni.png?size=256",
+        "website_url": "https://www.urbackup.org/",
+        "source_code_url": "https://github.com/uroni/urbackup_backend",
+        "source_code_host": "github",
+        "docs_url": "https://www.urbackup.org/",
+        "install_docs_url": "https://github.com/uroni/urbackup_backend#readme",
+        "docker_url": "https://hub.docker.com/r/uroni/urbackup-server",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "UrBackup contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://www.urbackup.org/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "package"
+        ],
+        "docker_image": "uroni/urbackup-server:latest",
+        "compose_support": null,
+        "requires_database": false,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "server"
+        ],
+        "categories": [
+          "storage-backup",
+          "system-admin-hosting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/urbackup_community/",
+          "https://www.urbackup.org/",
+          "https://github.com/uroni/urbackup_backend",
+          "https://hub.docker.com/r/uroni/urbackup-server"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/urbackup.png"
+      }
+    },
+    {
+      "candidate_id": "9e0fae56-1dea-4ad6-a782-1d3e5a50cadd",
+      "decision": "publish",
+      "app": {
+        "slug": "fscrawler",
+        "name": "FSCrawler",
+        "summary": "File crawler that indexes local documents and sends their content and metadata to Elasticsearch.",
+        "icon_source_url": "https://github.com/dadoonet.png?size=256",
+        "website_url": "https://fscrawler.readthedocs.io/",
+        "source_code_url": "https://github.com/dadoonet/fscrawler",
+        "source_code_host": "github",
+        "docs_url": "https://fscrawler.readthedocs.io/",
+        "install_docs_url": "https://fscrawler.readthedocs.io/en/latest/installation.html",
+        "docker_url": "https://hub.docker.com/r/dadoonet/fscrawler",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "FSCrawler contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/dadoonet/fscrawler",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "dadoonet/fscrawler:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "elasticsearch"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "api",
+          "cli"
+        ],
+        "categories": [
+          "search",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/fscrawler_community/",
+          "https://fscrawler.readthedocs.io/",
+          "https://github.com/dadoonet/fscrawler",
+          "https://hub.docker.com/r/dadoonet/fscrawler"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/fscrawler.png"
+      }
+    },
+    {
+      "candidate_id": "b54d4b27-4a00-4e9b-8aa7-f0ab4a455fe8",
+      "decision": "publish",
+      "app": {
+        "slug": "vitransfer",
+        "name": "ViTransfer",
+        "summary": "Video review service for sharing work with clients, collecting feedback, and managing approvals.",
+        "icon_source_url": "https://github.com/MansiVisuals.png?size=256",
+        "website_url": "https://www.vitransfer.com/",
+        "source_code_url": "https://github.com/mansivisuals/vitransfer",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/mansivisuals/vitransfer#readme",
+        "install_docs_url": "https://github.com/mansivisuals/vitransfer#installation",
+        "docker_url": "https://hub.docker.com/r/mansivisuals/vitransfer",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "MansiVisuals",
+        "publisher_type": "company",
+        "publisher_url": "https://www.vitransfer.com/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "slow",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_image": "mansivisuals/vitransfer:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "postgres"
+        ],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "media-servers",
+          "project-task-management"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/vitransfer_community/",
+          "https://www.vitransfer.com/",
+          "https://github.com/mansivisuals/vitransfer",
+          "https://hub.docker.com/r/mansivisuals/vitransfer"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/vitransfer.png"
+      }
+    },
+    {
+      "candidate_id": "f4ccf80d-dd85-451d-893c-aa73abb07539",
+      "decision": "publish",
+      "app": {
+        "slug": "signal-cli-rest-api",
+        "name": "Signal CLI REST API",
+        "summary": "REST service that exposes Signal messaging through the signal-cli command-line client.",
+        "icon_source_url": "https://github.com/bbernhard.png?size=256",
+        "website_url": "https://bbernhard.github.io/signal-cli-rest-api/",
+        "source_code_url": "https://github.com/bbernhard/signal-cli-rest-api",
+        "source_code_host": "github",
+        "docs_url": "https://bbernhard.github.io/signal-cli-rest-api/",
+        "install_docs_url": "https://github.com/bbernhard/signal-cli-rest-api#readme",
+        "docker_url": "https://hub.docker.com/r/bbernhard/signal-cli-rest-api",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "signal-cli-rest-api contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/bbernhard/signal-cli-rest-api",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_image": "bbernhard/signal-cli-rest-api:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "api"
+        ],
+        "categories": [
+          "communication",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/signal-cli-rest-api_community/",
+          "https://bbernhard.github.io/signal-cli-rest-api/",
+          "https://github.com/bbernhard/signal-cli-rest-api",
+          "https://hub.docker.com/r/bbernhard/signal-cli-rest-api"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/signal-cli-rest-api.png"
+      }
+    },
+    {
+      "candidate_id": "855eb08e-d80d-4fe4-ae17-88af1b91932f",
+      "decision": "publish",
+      "app": {
+        "slug": "autoxpose",
+        "name": "autoxpose",
+        "summary": "Docker label watcher that configures DNS and reverse proxy routes for containers.",
+        "icon_source_url": "https://github.com/mostafa-wahied.png?size=256",
+        "website_url": "https://github.com/mostafa-wahied/autoxpose",
+        "source_code_url": "https://github.com/mostafa-wahied/autoxpose",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/mostafa-wahied/autoxpose#readme",
+        "install_docs_url": "https://github.com/mostafa-wahied/autoxpose#docker-compose",
+        "docker_url": "https://hub.docker.com/r/mostafawahied/autoxpose",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "autoxpose contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/mostafa-wahied/autoxpose",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "slow",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_image": "mostafawahied/autoxpose:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "sqlite"
+        ],
+        "storage_profile": "low",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "networking-dns",
+          "automation",
+          "system-admin-hosting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/autoxpose_community/",
+          "https://github.com/mostafa-wahied/autoxpose",
+          "https://hub.docker.com/r/mostafawahied/autoxpose"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/autoxpose.png"
+      }
+    },
+    {
+      "candidate_id": "6cd17905-49cd-470c-a980-7c9e351d0cd4",
+      "decision": "publish",
+      "app": {
+        "slug": "onlyoffice-document-server",
+        "name": "ONLYOFFICE Document Server",
+        "summary": "Web editors and viewers for office documents with real-time collaborative editing.",
+        "icon_source_url": "https://github.com/ONLYOFFICE.png?size=256",
+        "website_url": "https://www.onlyoffice.com/",
+        "source_code_url": "https://github.com/ONLYOFFICE/Docker-DocumentServer",
+        "source_code_host": "github",
+        "docs_url": "https://helpcenter.onlyoffice.com/installation/docs-community-install-docker.aspx",
+        "install_docs_url": "https://github.com/ONLYOFFICE/Docker-DocumentServer#installing-onlyoffice-document-server-using-docker-compose",
+        "docker_url": "https://hub.docker.com/r/onlyoffice/documentserver",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "ONLYOFFICE",
+        "publisher_type": "company",
+        "publisher_url": "https://www.onlyoffice.com/",
+        "pricing_model": "freemium",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "onlyoffice/documentserver:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "postgres",
+          "redis"
+        ],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "documents-pdfs",
+          "project-task-management"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/onlyoffice-document-server_community/",
+          "https://www.onlyoffice.com/",
+          "https://github.com/ONLYOFFICE/Docker-DocumentServer",
+          "https://github.com/ONLYOFFICE/Docker-DocumentServer#installing-onlyoffice-document-server-using-docker-compose",
+          "https://hub.docker.com/r/onlyoffice/documentserver"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/onlyoffice-document-server.png"
+      }
+    },
+    {
+      "candidate_id": "17125a3d-8d64-4fe9-a85d-61bedcb3cb52",
+      "decision": "publish",
+      "app": {
+        "slug": "qdrant",
+        "name": "Qdrant",
+        "summary": "Vector database and search service for storing, filtering, and retrieving embeddings.",
+        "icon_source_url": "https://github.com/qdrant.png?size=256",
+        "website_url": "https://qdrant.tech/",
+        "source_code_url": "https://github.com/qdrant/qdrant",
+        "source_code_host": "github",
+        "docs_url": "https://qdrant.tech/documentation/",
+        "install_docs_url": "https://qdrant.tech/documentation/quick-start/",
+        "docker_url": "https://hub.docker.com/r/qdrant/qdrant",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "Qdrant",
+        "publisher_type": "company",
+        "publisher_url": "https://qdrant.tech/",
+        "pricing_model": "freemium",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "package"
+        ],
+        "docker_image": "qdrant/qdrant:latest",
+        "compose_support": null,
+        "requires_database": false,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "api"
+        ],
+        "categories": [
+          "databases",
+          "ai-ml",
+          "search"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/qdrant_community/",
+          "https://qdrant.tech/",
+          "https://qdrant.tech/documentation/quick-start/",
+          "https://github.com/qdrant/qdrant",
+          "https://hub.docker.com/r/qdrant/qdrant"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/qdrant.png"
+      }
+    },
+    {
+      "candidate_id": "060a55d6-e093-4242-90c7-b48782c359d4",
+      "decision": "publish",
+      "app": {
+        "slug": "memcached",
+        "name": "Memcached",
+        "summary": "In-memory cache service for reducing database load and accelerating application responses.",
+        "icon_source_url": "https://github.com/memcached.png?size=256",
+        "website_url": "https://memcached.org/",
+        "source_code_url": "https://github.com/memcached/memcached",
+        "source_code_host": "github",
+        "docs_url": "https://memcached.org/",
+        "install_docs_url": "https://hub.docker.com/_/memcached",
+        "docker_url": "https://hub.docker.com/_/memcached",
+        "license": "BSD-3-Clause",
+        "license_type": "permissive",
+        "license_spdx_id": "BSD-3-Clause",
+        "source_model": "open_source",
+        "publisher_name": "Memcached contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://memcached.org/",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "package"
+        ],
+        "docker_image": "memcached:latest",
+        "compose_support": null,
+        "requires_database": false,
+        "storage_profile": "tiny",
+        "persistent_storage": false,
+        "surfaces": [
+          "server"
+        ],
+        "categories": [
+          "databases",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/memcached_community/",
+          "https://memcached.org/",
+          "https://github.com/memcached/memcached",
+          "https://hub.docker.com/_/memcached"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/memcached.png"
+      }
+    },
+    {
+      "candidate_id": "f7af5632-8ddf-44b5-8f83-b64af3c30bff",
+      "decision": "publish",
+      "app": {
+        "slug": "mineos",
+        "name": "MineOS",
+        "summary": "Web control panel for creating, running, and monitoring Minecraft servers.",
+        "icon_source_url": "https://github.com/hexparrot.png?size=256",
+        "website_url": "https://github.com/hexparrot/mineos-node",
+        "source_code_url": "https://github.com/hexparrot/mineos-node",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/hexparrot/mineos-node/tree/master/docs",
+        "install_docs_url": "https://github.com/hexparrot/mineos-node/blob/master/docs/install/docker.md",
+        "docker_url": "https://hub.docker.com/r/hexparrot/mineos",
+        "license": "GPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "GPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "MineOS contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/hexparrot/mineos-node",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "stale",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "hexparrot/mineos:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "server"
+        ],
+        "categories": [
+          "games",
+          "system-admin-hosting"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/mineos_community/",
+          "https://github.com/hexparrot/mineos-node",
+          "https://github.com/hexparrot/mineos-node/blob/master/docs/install/docker.md",
+          "https://hub.docker.com/r/hexparrot/mineos"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/mineos.png"
+      }
+    },
+    {
+      "candidate_id": "6adc3079-25da-4989-b7ce-98815fc918d7",
+      "decision": "publish",
+      "app": {
+        "slug": "requestrr",
+        "name": "Requestrr",
+        "summary": "Chat bot that sends media requests to Sonarr, Radarr, Lidarr, Ombi, or Overseerr.",
+        "icon_source_url": "https://github.com/thomst08.png?size=256",
+        "website_url": "https://github.com/thomst08/requestrr",
+        "source_code_url": "https://github.com/thomst08/requestrr",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/thomst08/requestrr#readme",
+        "install_docs_url": "https://github.com/thomst08/requestrr#docker-set-up--start",
+        "docker_url": "https://hub.docker.com/r/thomst08/requestrr",
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "Requestrr contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/thomst08/requestrr",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "slow",
+        "docker_support": "community",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_image": "thomst08/requestrr:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "low",
+        "persistent_storage": true,
+        "surfaces": [
+          "api"
+        ],
+        "categories": [
+          "communication",
+          "media-servers",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/requestrr_community/",
+          "https://github.com/thomst08/requestrr",
+          "https://hub.docker.com/r/thomst08/requestrr"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/requestrr.png"
+      }
+    },
+    {
+      "candidate_id": "25380777-978b-43a7-818f-b6b6a64feb8b",
+      "decision": "publish",
+      "app": {
+        "slug": "collabora",
+        "name": "Collabora Online",
+        "summary": "Browser office suite for editing documents, spreadsheets, and presentations with live collaboration.",
+        "icon_source_url": "https://github.com/CollaboraOnline.png?size=256",
+        "website_url": "https://www.collaboraonline.com/code/",
+        "source_code_url": "https://gerrit.collaboraoffice.com/core",
+        "source_code_host": "other",
+        "docs_url": "https://www.collaboraonline.com/code/",
+        "install_docs_url": "https://www.collaboraonline.com/code/",
+        "docker_url": "https://hub.docker.com/r/collabora/code",
+        "license": "MPL-2.0 with additional product terms",
+        "license_type": "custom",
+        "license_spdx_id": "MPL-2.0",
+        "source_model": "source_available",
+        "publisher_name": "Collabora Productivity",
+        "publisher_type": "company",
+        "publisher_url": "https://www.collaboraonline.com/",
+        "pricing_model": "freemium",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "package",
+          "virtual-appliance"
+        ],
+        "docker_image": "collabora/code:latest",
+        "compose_support": null,
+        "requires_database": false,
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "documents-pdfs",
+          "project-task-management"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://apps.truenas.com/catalog/collabora_stable/",
+          "https://www.collaboraonline.com/code/",
+          "https://www.collaboraonline.com/terms/collabora-online-mplv2/",
+          "https://gerrit.collaboraoffice.com/core",
+          "https://hub.docker.com/r/collabora/code"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/collabora.png"
+      }
+    }
+  ]
+}

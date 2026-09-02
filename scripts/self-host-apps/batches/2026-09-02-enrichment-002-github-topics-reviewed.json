@@ -1,0 +1,535 @@
+{
+  "records": [
+    {
+      "candidate_id": "58f041ae-e93c-4f26-9107-bd121643ae9d",
+      "decision": "reject",
+      "reason": "md2wechat-skill is a locally installed CLI and API client, not a standalone self-hosted service. Its README documents a hosted API for the advanced rendering and publishing features."
+    },
+    {
+      "candidate_id": "d43eb20e-7fb4-4a70-8a7d-c490cb016a3b",
+      "decision": "reject",
+      "reason": "Auto-Empirical-Research-Skills is a collection of agent skills and installation files, not a standalone self-hosted application."
+    },
+    {
+      "candidate_id": "0a963c90-de13-430e-be4c-0a9af3fabcdb",
+      "decision": "publish",
+      "app": {
+        "slug": "acontext",
+        "name": "Acontext",
+        "summary": "Memory service that stores an AI agent's reusable skills as inspectable files.",
+        "icon_source_url": "https://github.com/memodb-io.png?size=256",
+        "website_url": "https://acontext.io/",
+        "source_code_url": "https://github.com/memodb-io/Acontext",
+        "source_code_host": "github",
+        "docs_url": "https://docs.acontext.io/",
+        "install_docs_url": "https://github.com/memodb-io/Acontext#self-host-acontext",
+        "docker_url": null,
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "MemoDB",
+        "publisher_type": "company",
+        "publisher_url": "https://acontext.io/",
+        "pricing_model": "freemium",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "package"
+        ],
+        "docker_image": null,
+        "compose_support": null,
+        "requires_database": true,
+        "database_types": [
+          "postgres",
+          "redis"
+        ],
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "api",
+          "web"
+        ],
+        "categories": [
+          "ai-ml",
+          "databases",
+          "knowledge-notes"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://acontext.io/",
+          "https://docs.acontext.io/",
+          "https://github.com/memodb-io/Acontext",
+          "https://github.com/memodb-io/Acontext#self-host-acontext"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/acontext.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/memodb-io/Acontext#self-host-acontext",
+          "confidence": "high",
+          "note": "README documents the Docker-backed local server, persistent database folder, API, and Apache license."
+        }
+      ]
+    },
+    {
+      "candidate_id": "2b65528f-98c9-413b-8f27-1e2a129a73b8",
+      "decision": "reject",
+      "reason": "AI_Tutorial is a reading and reference site, not a self-hosted software application."
+    },
+    {
+      "candidate_id": "d4997fe5-de58-4e87-8456-6ba8d7b55fbf",
+      "decision": "duplicate",
+      "app_id": "c4238e10-ff5d-485a-8e50-f4c1d0acd49c"
+    },
+    {
+      "candidate_id": "7c1a5952-7af1-485b-9f61-ed8c50150b2a",
+      "decision": "reject",
+      "reason": "The repository has no usable README or installation evidence, and the linked site only presents a hosted service. Self-hosting could not be verified."
+    },
+    {
+      "candidate_id": "62e41554-b982-4c9d-8190-6eb6dab2576d",
+      "decision": "reject",
+      "reason": "LazyLLM is a Python development framework and package. It helps build applications but is not one standalone self-hosted app."
+    },
+    {
+      "candidate_id": "602963cc-435c-4b85-9844-c416242d276e",
+      "decision": "publish",
+      "app": {
+        "slug": "claude-devtools",
+        "name": "Claude DevTools",
+        "summary": "Local web viewer for Claude Code sessions, tool calls, token usage, and project memory.",
+        "icon_source_url": "https://github.com/matt1398.png?size=256",
+        "website_url": "https://claude-dev.tools/",
+        "source_code_url": "https://github.com/matt1398/claude-devtools",
+        "source_code_host": "github",
+        "docs_url": "https://claude-dev.tools/docs",
+        "install_docs_url": "https://github.com/matt1398/claude-devtools#docker--standalone-deployment",
+        "docker_url": null,
+        "license": "MIT",
+        "license_type": "permissive",
+        "license_spdx_id": "MIT",
+        "source_model": "open_source",
+        "publisher_name": "Claude DevTools contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/matt1398/claude-devtools",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": null,
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "low",
+        "persistent_storage": true,
+        "surfaces": [
+          "web"
+        ],
+        "categories": [
+          "developer-tools",
+          "dashboards"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://claude-dev.tools/docs",
+          "https://github.com/matt1398/claude-devtools",
+          "https://github.com/matt1398/claude-devtools#docker--standalone-deployment"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/claude-devtools.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/matt1398/claude-devtools#docker--standalone-deployment",
+          "confidence": "high",
+          "note": "README documents Docker Compose and standalone server deployment, plus the MIT license."
+        }
+      ]
+    },
+    {
+      "candidate_id": "758da5e3-d7eb-4ee2-947c-6b10949c05f9",
+      "decision": "reject",
+      "reason": "FedML is a machine-learning library and a set of cloud and cluster components, not one verified self-hosted app record for this directory."
+    },
+    {
+      "candidate_id": "755ba1e6-958e-4f8a-b57c-b018192855e2",
+      "decision": "publish",
+      "app": {
+        "slug": "telegram-search",
+        "name": "Telegram Search",
+        "summary": "Search and archive service for exporting and finding messages from Telegram chats.",
+        "icon_source_url": "https://github.com/groupultra.png?size=256",
+        "website_url": "https://search.lingogram.app/",
+        "source_code_url": "https://github.com/groupultra/telegram-search",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/groupultra/telegram-search/blob/main/docs/README_EN.md",
+        "install_docs_url": "https://github.com/groupultra/telegram-search#docker-compose",
+        "docker_url": "https://github.com/groupultra/telegram-search/pkgs/container/telegram-search",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "Telegram Search contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/groupultra/telegram-search",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_image": "ghcr.io/groupultra/telegram-search:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "postgres",
+          "pglite"
+        ],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "communication",
+          "search",
+          "storage-backup"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://search.lingogram.app/",
+          "https://github.com/groupultra/telegram-search",
+          "https://github.com/groupultra/telegram-search#docker-compose",
+          "https://github.com/groupultra/telegram-search/pkgs/container/telegram-search"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/telegram-search.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/groupultra/telegram-search#docker-compose",
+          "confidence": "high",
+          "note": "README documents the Compose stack, GHCR image, PostgreSQL or PGlite, and AGPL license."
+        }
+      ]
+    },
+    {
+      "candidate_id": "47168a88-babf-4381-96a8-f880e1d8bc39",
+      "decision": "reject",
+      "reason": "claude-code-book is a long-form technical book and documentation site, not a self-hosted application."
+    },
+    {
+      "candidate_id": "1bf5b895-a75f-4c3b-ae1e-45e6bdcae21d",
+      "decision": "reject",
+      "reason": "ai-agents-from-zero is a tutorial and study guide. It is not a standalone self-hosted application."
+    },
+    {
+      "candidate_id": "0e5310e4-761a-4f41-8edb-07fc199b4d12",
+      "decision": "publish",
+      "app": {
+        "slug": "arcreel",
+        "name": "ArcReel",
+        "summary": "AI video workspace for turning stories into characters, scenes, storyboards, and short videos.",
+        "icon_source_url": "https://github.com/ArcReel.png?size=256",
+        "website_url": "https://arc-reel.com/",
+        "source_code_url": "https://github.com/ArcReel/ArcReel",
+        "source_code_host": "github",
+        "docs_url": "https://docs.arc-reel.com/",
+        "install_docs_url": "https://docs.arc-reel.com/ops/deployment",
+        "docker_url": "https://hub.docker.com/r/arcreel/arcreel",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "ArcReel contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://arc-reel.com/",
+        "pricing_model": "usage_based",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose"
+        ],
+        "docker_image": "arcreel/arcreel:latest",
+        "compose_support": true,
+        "requires_database": true,
+        "database_types": [
+          "sqlite",
+          "postgres"
+        ],
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "ai-ml",
+          "media-servers",
+          "content-publishing"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://arc-reel.com/",
+          "https://docs.arc-reel.com/ops/deployment",
+          "https://github.com/ArcReel/ArcReel",
+          "https://hub.docker.com/r/arcreel/arcreel"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/arcreel.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/ArcReel/ArcReel",
+          "confidence": "high",
+          "note": "README documents Docker Compose deployment, storage/database choices, and AGPL licensing."
+        }
+      ]
+    },
+    {
+      "candidate_id": "4a699e3f-a107-46a5-9a0a-91ec9f86a9dd",
+      "decision": "reject",
+      "reason": "awesome-openclaw-usecases-zh is a curated use-case list and documentation collection, not an application."
+    },
+    {
+      "candidate_id": "a0d2da88-0009-45a4-9c46-0c2b32f57ee5",
+      "decision": "reject",
+      "reason": "html-video is a local desktop and CLI rendering tool. The repository does not document a standalone self-hosted server deployment."
+    },
+    {
+      "candidate_id": "6155708d-881a-45ec-b69a-a9a025eb79b4",
+      "decision": "reject",
+      "reason": "AIGC-Interview-Book is an interview resource and documentation site, not a self-hosted application."
+    },
+    {
+      "candidate_id": "e421795b-8c49-43eb-a429-fefe873f4681",
+      "decision": "publish",
+      "app": {
+        "slug": "evoscientist",
+        "name": "EvoScientist",
+        "summary": "AI research assistant with a local web interface, memory, tools, and scheduled agent runs.",
+        "icon_source_url": "https://github.com/EvoScientist.png?size=256",
+        "website_url": "https://evoscientist.ai/",
+        "source_code_url": "https://github.com/EvoScientist/EvoScientist",
+        "source_code_host": "github",
+        "docs_url": "https://github.com/EvoScientist/EvoScientist#readme",
+        "install_docs_url": "https://github.com/EvoScientist/EvoScientist#-docker",
+        "docker_url": "https://github.com/EvoScientist/EvoScientist/pkgs/container/evoscientist",
+        "license": "Apache-2.0",
+        "license_type": "permissive",
+        "license_spdx_id": "Apache-2.0",
+        "source_model": "open_source",
+        "publisher_name": "EvoScientist contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://evoscientist.ai/",
+        "pricing_model": "usage_based",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "compose",
+          "package"
+        ],
+        "docker_image": "ghcr.io/evoscientist/evoscientist:latest",
+        "compose_support": true,
+        "requires_database": false,
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "knowledge-notes",
+          "automation"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://evoscientist.ai/",
+          "https://github.com/EvoScientist/EvoScientist",
+          "https://github.com/EvoScientist/EvoScientist#-docker",
+          "https://github.com/EvoScientist/EvoScientist/pkgs/container/evoscientist"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/evoscientist.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/EvoScientist/EvoScientist#-docker",
+          "confidence": "high",
+          "note": "README documents the official GHCR image, Compose starter, persistent state volume, and Apache license."
+        }
+      ]
+    },
+    {
+      "candidate_id": "c2d91e6e-fc96-40fc-af10-c9c793c7091a",
+      "decision": "reject",
+      "reason": "Tabularis is a desktop SQL client with native installers. It does not provide a standalone self-hosted server."
+    },
+    {
+      "candidate_id": "a6ad3e1c-f9e3-4247-9d45-15abd3cd3d2a",
+      "decision": "publish",
+      "app": {
+        "slug": "monkeycode",
+        "name": "MonkeyCode",
+        "summary": "AI development service for private coding workspaces, model management, tasks, and team projects.",
+        "icon_source_url": "https://github.com/chaitin.png?size=256",
+        "website_url": "https://monkeycode-ai.net/",
+        "source_code_url": "https://github.com/chaitin/MonkeyCode",
+        "source_code_host": "github",
+        "docs_url": "https://monkeycode.docs.baizhi.cloud/",
+        "install_docs_url": "https://github.com/chaitin/MonkeyCode#self-hosted-deployment",
+        "docker_url": null,
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "Chaitin Technology",
+        "publisher_type": "company",
+        "publisher_url": "https://monkeycode-ai.net/",
+        "pricing_model": "freemium",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "unknown",
+        "deployment_methods": [
+          "script",
+          "compose"
+        ],
+        "docker_image": null,
+        "compose_support": null,
+        "requires_database": null,
+        "storage_profile": "high",
+        "persistent_storage": true,
+        "surfaces": [
+          "web",
+          "api"
+        ],
+        "categories": [
+          "ai-ml",
+          "developer-tools",
+          "project-task-management"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://monkeycode-ai.net/",
+          "https://monkeycode.docs.baizhi.cloud/",
+          "https://github.com/chaitin/MonkeyCode",
+          "https://github.com/chaitin/MonkeyCode#self-hosted-deployment"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/monkeycode.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/chaitin/MonkeyCode#self-hosted-deployment",
+          "confidence": "high",
+          "note": "README documents private deployment, minimum console and development-host sizing, and AGPL licensing."
+        }
+      ]
+    },
+    {
+      "candidate_id": "52ae5aff-9cf3-4831-a2a1-071333074feb",
+      "decision": "reject",
+      "reason": "Integuru is a local development agent that generates integrations from browser network traces. It is not a standalone self-hosted service."
+    },
+    {
+      "candidate_id": "3926a840-0e0e-491c-8aa0-d730f3932c86",
+      "decision": "publish",
+      "app": {
+        "slug": "wigolo",
+        "name": "wigolo",
+        "summary": "Local web research service for AI agents with search, crawling, extraction, caching, and REST or MCP access.",
+        "icon_source_url": "https://github.com/KnockOutEZ.png?size=256",
+        "website_url": "https://knockoutez.github.io/wigolo/",
+        "source_code_url": "https://github.com/KnockOutEZ/wigolo",
+        "source_code_host": "github",
+        "docs_url": "https://knockoutez.github.io/wigolo/docs",
+        "install_docs_url": "https://github.com/KnockOutEZ/wigolo/blob/main/docs/installation.md",
+        "docker_url": "https://github.com/KnockOutEZ/wigolo/pkgs/container/wigolo",
+        "license": "AGPL-3.0",
+        "license_type": "copyleft",
+        "license_spdx_id": "AGPL-3.0",
+        "source_model": "open_source",
+        "publisher_name": "wigolo contributors",
+        "publisher_type": "community",
+        "publisher_url": "https://github.com/KnockOutEZ/wigolo",
+        "pricing_model": "free",
+        "published": true,
+        "self_hosting_status": "self_hostable",
+        "maintenance_status": "active",
+        "docker_support": "official",
+        "deployment_methods": [
+          "docker",
+          "package",
+          "binary"
+        ],
+        "docker_image": "ghcr.io/knockoutez/wigolo:latest",
+        "compose_support": null,
+        "requires_database": false,
+        "storage_profile": "medium",
+        "persistent_storage": true,
+        "surfaces": [
+          "api",
+          "cli"
+        ],
+        "categories": [
+          "ai-ml",
+          "search",
+          "developer-tools"
+        ],
+        "summary_source": "curated",
+        "summary_confidence": "high",
+        "data_source_urls": [
+          "https://knockoutez.github.io/wigolo/docs",
+          "https://github.com/KnockOutEZ/wigolo",
+          "https://github.com/KnockOutEZ/wigolo/blob/main/docs/installation.md",
+          "https://github.com/KnockOutEZ/wigolo/pkgs/container/wigolo"
+        ],
+        "data_confidence": "high",
+        "icon_url": "/app-icons/wigolo.png"
+      },
+      "sources": [
+        {
+          "source": "official_repository",
+          "source_url": "https://github.com/KnockOutEZ/wigolo",
+          "confidence": "high",
+          "note": "README documents local, Docker, REST, and MCP deployments, plus AGPL licensing and a persistent data volume."
+        }
+      ]
+    }
+  ]
+}

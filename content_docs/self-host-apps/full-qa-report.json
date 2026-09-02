@@ -1,0 +1,1953 @@
+{
+  "generated_at": "2026-08-30T08:55:08.469Z",
+  "published": 2076,
+  "issue_counts": {
+    "install_docs_readme_fallback": 1686,
+    "docs_readme_fallback": 1574,
+    "release_missing": 288,
+    "release_missing_recent_commit": 223,
+    "summary_under_8_words": 97,
+    "summary_vague_adjective": 53,
+    "docker_high_risk_url": 37,
+    "summary_name_colon": 7
+  },
+  "researched_null_counts": {
+    "ram_not_published": 1800,
+    "database_not_published": 1201,
+    "docker_image_not_published": 808,
+    "compose_not_published": 475,
+    "docker_not_published": 402,
+    "storage_not_published": 152
+  },
+  "technical_pending_count": 0,
+  "queue_count": 1790,
+  "top_queue": [
+    {
+      "slug": "tracim",
+      "name": "Tracim",
+      "score": 195,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_under_8_words",
+        "summary_name_colon"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 273,
+      "summary": "Collaborative app for team collaboration: file,threads,notes,agenda,etc.",
+      "source_code_url": "https://github.com/tracim/tracim",
+      "website_url": "https://tracim.fr"
+    },
+    {
+      "slug": "exercise-diary",
+      "name": "Exercise Diary",
+      "score": 180,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_under_8_words"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 472,
+      "summary": "Workout diary with GitHub-style yearly visualization.",
+      "source_code_url": "https://github.com/aceberg/ExerciseDiary",
+      "website_url": "https://hub.docker.com/r/aceberg/exercisediary"
+    },
+    {
+      "slug": "dpaste",
+      "name": "dpaste",
+      "score": 175,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_vague_adjective"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 640,
+      "summary": "Simple pastebin with multiple text and code option, with short url result easy to remember.",
+      "source_code_url": "https://github.com/DarrenOfficial/dpaste",
+      "website_url": "https://dpaste.org"
+    },
+    {
+      "slug": "recipya",
+      "name": "Recipya",
+      "score": 175,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_vague_adjective"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 406,
+      "summary": "Clean, simple and recipe manager your whole family will enjoy.",
+      "source_code_url": "https://github.com/reaper47/recipya",
+      "website_url": "https://old.recipya.ca"
+    },
+    {
+      "slug": "neonlink",
+      "name": "NeonLink",
+      "score": 175,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_vague_adjective"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 402,
+      "summary": "Bookmark service with unique design and simple installation with Docker.",
+      "source_code_url": "https://github.com/AlexSciFier/neonlink",
+      "website_url": "https://github.com/AlexSciFier/neonlink"
+    },
+    {
+      "slug": "fast-music-remover",
+      "name": "Fast Music Remover",
+      "score": 165,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 720,
+      "summary": "Removes background music and noise from audio tracks for cleaner speech or media clips.",
+      "source_code_url": "https://github.com/omeryusufyagci/fast-music-remover",
+      "website_url": "https://github.com/omeryusufyagci/fast-music-remover"
+    },
+    {
+      "slug": "local-deep-research",
+      "name": "Local Deep Research",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 8691,
+      "summary": "Research assistant for searching sources, extracting PDFs, and storing encrypted local notes.",
+      "source_code_url": "https://github.com/LearningCircuit/local-deep-research",
+      "website_url": "https://github.com/LearningCircuit/local-deep-research"
+    },
+    {
+      "slug": "hister",
+      "name": "Hister",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 3282,
+      "summary": "Personal search engine that indexes visited websites, local files, and offline previews.",
+      "source_code_url": "https://github.com/asciimoo/hister",
+      "website_url": "https://hister.org"
+    },
+    {
+      "slug": "mazanoke",
+      "name": "Mazanoke",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 2640,
+      "summary": "Browser image compressor for shrinking images locally before upload or sharing.",
+      "source_code_url": "https://github.com/civilblur/mazanoke",
+      "website_url": "https://mazanoke.com"
+    },
+    {
+      "slug": "openrouteservice",
+      "name": "OpenRouteService",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 1921,
+      "summary": "Route service with directions, isochrones, time-distance matrix, route optimization, etc.",
+      "source_code_url": "https://github.com/GIScience/openrouteservice",
+      "website_url": "https://openrouteservice.org"
+    },
+    {
+      "slug": "socioboard",
+      "name": "Socioboard",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published"
+      ],
+      "github_stars": 1478,
+      "summary": "Social media management, analytics, and reporting app supporting nine social media networks out-of-the-box.",
+      "source_code_url": "https://github.com/socioboard/Socioboard-5.0",
+      "website_url": "https://github.com/socioboard/Socioboard-5.0"
+    },
+    {
+      "slug": "norish",
+      "name": "Norish",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 1087,
+      "summary": "Helps households plan meals, collect recipes, choose cooking ideas, and manage lists.",
+      "source_code_url": "https://github.com/norish-recipes/norish",
+      "website_url": "https://github.com/norish-recipes/norish"
+    },
+    {
+      "slug": "recipesage",
+      "name": "RecipeSage",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 911,
+      "summary": "Recipe keeper, meal plan organizer, and shopping list manager that can import recipes directly from any URL.",
+      "source_code_url": "https://github.com/julianpoy/RecipeSage",
+      "website_url": "https://recipesage.com"
+    },
+    {
+      "slug": "neodb",
+      "name": "NeoDB",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 852,
+      "summary": "Federated tracker for books, movies, games, music, collections, ratings, and personal activity.",
+      "source_code_url": "https://github.com/neodb-social/neodb",
+      "website_url": "https://neodb.net"
+    },
+    {
+      "slug": "cinephage",
+      "name": "Cinephage",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 813,
+      "summary": "Organizes movie and show libraries with collection metadata and media browsing.",
+      "source_code_url": "https://github.com/MoldyTaint/Cinephage",
+      "website_url": "https://github.com/MoldyTaint/Cinephage"
+    },
+    {
+      "slug": "openpanel",
+      "name": "OpenPanel",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 738,
+      "summary": "Web hosting control panel for managing Linux sites, servers, domains, and services.",
+      "source_code_url": "https://github.com/stefanpejcic/OpenPanel",
+      "website_url": "https://openpanel.com"
+    },
+    {
+      "slug": "nextcloud-social",
+      "name": "Nextcloud Social",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 499,
+      "summary": "Nextcloud app that adds federated social networking to a Nextcloud instance.",
+      "source_code_url": "https://github.com/nextcloud/social",
+      "website_url": "https://apps.nextcloud.com/apps/social"
+    },
+    {
+      "slug": "socialhome",
+      "name": "Socialhome",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 383,
+      "summary": "Federated and decentralized profile builder and social network engine.",
+      "source_code_url": "https://github.com/jaywink/socialhome",
+      "website_url": "https://codeberg.org/socialhome/socialhome"
+    },
+    {
+      "slug": "cially",
+      "name": "Cially",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 216,
+      "summary": "Shows Discord server activity, member trends, and community analytics in a dashboard.",
+      "source_code_url": "https://github.com/cially/cially",
+      "website_url": "https://github.com/cially/cially"
+    },
+    {
+      "slug": "fork-recipes",
+      "name": "Fork Recipes",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published"
+      ],
+      "github_stars": 69,
+      "summary": "Recipe manager for saving dishes, organizing ingredients, and browsing cooking notes.",
+      "source_code_url": "https://github.com/mikebgrep/fork.recipes",
+      "website_url": "https://mikebgrep.github.io/forkapi"
+    },
+    {
+      "slug": "stencilbox",
+      "name": "StencilBox",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 68,
+      "summary": "Static site generator that turns YAML content into fast, structured websites.",
+      "source_code_url": "https://github.com/jamesread/StencilBox",
+      "website_url": "https://jamesread.github.io/StencilBox"
+    },
+    {
+      "slug": "se2eend",
+      "name": "sE2EEnd",
+      "score": 155,
+      "issues": [
+        "docker_high_risk_url",
+        "docs_readme_fallback",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 5,
+      "summary": "End-to-end encrypted file sharing with password protection, download limits, and auto-expiration, integrated with Keycloak for authentication.",
+      "source_code_url": "https://github.com/sE2EEnd/sE2EEnd",
+      "website_url": "https://se2eend.github.io/sE2EEnd"
+    },
+    {
+      "slug": "saltcorn",
+      "name": "Saltcorn",
+      "score": 145,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_under_8_words"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 2029,
+      "summary": "No-code builder for creating database-backed business apps.",
+      "source_code_url": "https://github.com/saltcorn/saltcorn",
+      "website_url": "https://saltcorn.com"
+    },
+    {
+      "slug": "databunker",
+      "name": "Databunker",
+      "score": 145,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_under_8_words"
+      ],
+      "outcomes": [
+        "ram_not_published"
+      ],
+      "github_stars": 1483,
+      "summary": "Secure Vault for Customer PII/PHI/PCI/KYC Records.",
+      "source_code_url": "https://github.com/securitybunker/databunker",
+      "website_url": "https://databunker.org"
+    },
+    {
+      "slug": "rackpad",
+      "name": "Rackpad",
+      "score": 145,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_under_8_words"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 204,
+      "summary": "Infrastructure inventory and operations workspace.",
+      "source_code_url": "https://github.com/Kobii-git/rackpad",
+      "website_url": "https://rackpad.net"
+    },
+    {
+      "slug": "flexisip",
+      "name": "Flexisip",
+      "score": 145,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_under_8_words"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 187,
+      "summary": "Linphone.org mirror for flexisip (git://git.linphone.org/flexisip.git).",
+      "source_code_url": "https://github.com/BelledonneCommunications/flexisip",
+      "website_url": "https://www.linphone.org/en/flexisip-sip-server"
+    },
+    {
+      "slug": "authportal",
+      "name": "AuthPortal",
+      "score": 145,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_under_8_words"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 98,
+      "summary": "Authentication gateway for Plex, Jellyfin, or Emby.",
+      "source_code_url": "https://github.com/modom-ofn/auth-portal",
+      "website_url": "https://github.com/modom-ofn/auth-portal"
+    },
+    {
+      "slug": "aptabase",
+      "name": "Aptabase",
+      "score": 140,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit",
+        "summary_vague_adjective"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 1784,
+      "summary": "Privacy first and simple analytics for mobile and desktop apps.",
+      "source_code_url": "https://github.com/aptabase/aptabase",
+      "website_url": "https://aptabase.com"
+    },
+    {
+      "slug": "honcho",
+      "name": "Honcho",
+      "score": 125,
+      "issues": [
+        "docker_high_risk_url",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "storage_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 6915,
+      "summary": "Stores conversations and events so AI agents can retrieve memory, context, and inferred user models.",
+      "source_code_url": "https://github.com/plastic-labs/honcho",
+      "website_url": null
+    },
+    {
+      "slug": "srcbook",
+      "name": "Srcbook",
+      "score": 125,
+      "issues": [
+        "docker_high_risk_url",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 3444,
+      "summary": "Combines TypeScript notebooks with an AI-assisted builder for creating and running small applications.",
+      "source_code_url": "https://github.com/srcbookdev/srcbook",
+      "website_url": null
+    },
+    {
+      "slug": "lottie-tools",
+      "name": "Lottie Tools",
+      "score": 125,
+      "issues": [
+        "docker_high_risk_url",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 41,
+      "summary": "Edits Lottie animations and SVG files in a browser with timeline and export controls.",
+      "source_code_url": "https://github.com/marciogranzotto/lottie-tools",
+      "website_url": null
+    },
+    {
+      "slug": "discourse",
+      "name": "Discourse",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 47756,
+      "summary": "Forum and community server for discussions, moderation, user accounts, and long-running topics.",
+      "source_code_url": "https://github.com/discourse/discourse",
+      "website_url": "https://www.discourse.org"
+    },
+    {
+      "slug": "awesome-sysadmin",
+      "name": "Awesome Sysadmin",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 35023,
+      "summary": "Curated sysadmin resource list covering server software, tools, and operations topics.",
+      "source_code_url": "https://github.com/awesome-foss/awesome-sysadmin",
+      "website_url": "https://sysadmin.awesome-selfhosted.net"
+    },
+    {
+      "slug": "rustfs",
+      "name": "RustFS",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "database_not_published"
+      ],
+      "github_stars": 29689,
+      "summary": "Distributed object storage server built in Rust for S3-compatible storage workloads.",
+      "source_code_url": "https://github.com/rustfs/rustfs",
+      "website_url": "https://rustfs.com/download"
+    },
+    {
+      "slug": "wordpress",
+      "name": "WordPress",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [],
+      "github_stars": 21248,
+      "summary": "CMS for publishing websites, blogs, pages, media libraries, themes, and plugins.",
+      "source_code_url": "https://github.com/WordPress/WordPress",
+      "website_url": "https://wordpress.org"
+    },
+    {
+      "slug": "goaccess",
+      "name": "GoAccess",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 20880,
+      "summary": "Web log analyzer that turns server access logs into real-time terminal and browser reports.",
+      "source_code_url": "https://github.com/allinurl/goaccess",
+      "website_url": "https://goaccess.io"
+    },
+    {
+      "slug": "leon",
+      "name": "Leon",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 17346,
+      "summary": "Personal assistant server for running voice and text skills on your own machine.",
+      "source_code_url": "https://github.com/leon-ai/leon",
+      "website_url": "https://getleon.ai"
+    },
+    {
+      "slug": "vert",
+      "name": "VERT",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 15236,
+      "summary": "File conversion app that runs conversions in the browser or on-device workers.",
+      "source_code_url": "https://github.com/VERT-sh/VERT",
+      "website_url": "https://vert.sh"
+    },
+    {
+      "slug": "languagetool",
+      "name": "LanguageTool",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "database_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 14661,
+      "summary": "Grammar and style checker with APIs and server support for multiple languages.",
+      "source_code_url": "https://github.com/languagetool-org/languagetool",
+      "website_url": "https://languagetool.org"
+    },
+    {
+      "slug": "filestash",
+      "name": "Filestash",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "database_not_published"
+      ],
+      "github_stars": 14560,
+      "summary": "Provides browser file management across storage backends, servers, and data sources.",
+      "source_code_url": "https://github.com/mickael-kerjean/filestash",
+      "website_url": "https://www.filestash.app"
+    },
+    {
+      "slug": "mealie",
+      "name": "Mealie",
+      "score": 120,
+      "issues": [
+        "docker_high_risk_url",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [],
+      "github_stars": 12670,
+      "summary": "Recipe manager and meal planner with shopping lists, household sharing, and import tools.",
+      "source_code_url": "https://github.com/mealie-recipes/mealie",
+      "website_url": "https://docs.mealie.io"
+    },
+    {
+      "slug": "mosquitto",
+      "name": "Mosquitto",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "database_not_published"
+      ],
+      "github_stars": 11167,
+      "summary": "MQTT broker for routing messages between IoT devices, sensors, apps, and automations.",
+      "source_code_url": "https://github.com/eclipse-mosquitto/mosquitto",
+      "website_url": "https://mosquitto.org"
+    },
+    {
+      "slug": "piped",
+      "name": "Piped",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [],
+      "github_stars": 10100,
+      "summary": "YouTube frontend for watching videos with subscriptions, feeds, and fewer tracking calls.",
+      "source_code_url": "https://github.com/TeamPiped/Piped",
+      "website_url": "https://piped.video"
+    },
+    {
+      "slug": "janus",
+      "name": "Janus",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 9157,
+      "summary": "WebRTC server for video rooms, streaming, recording, and communication gateways.",
+      "source_code_url": "https://github.com/meetecho/janus-gateway",
+      "website_url": "https://janus.conf.meetecho.com"
+    },
+    {
+      "slug": "tandoor-recipes",
+      "name": "Tandoor Recipes",
+      "score": 120,
+      "issues": [
+        "docker_high_risk_url",
+        "install_docs_readme_fallback"
+      ],
+      "outcomes": [],
+      "github_stars": 8566,
+      "summary": "Recipe manager for planning meals, organizing ingredients, and building shopping lists.",
+      "source_code_url": "https://github.com/TandoorRecipes/recipes",
+      "website_url": "https://docs.tandoor.dev"
+    },
+    {
+      "slug": "graylog",
+      "name": "Graylog",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 8120,
+      "summary": "Log management server for collecting, searching, and analyzing machine data.",
+      "source_code_url": "https://github.com/Graylog2/graylog2-server",
+      "website_url": "https://www.graylog.org"
+    },
+    {
+      "slug": "iodine",
+      "name": "iodine",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 7958,
+      "summary": "IPv4 over DNS tunnel app, enabling you to start up a socks5 proxy listener.",
+      "source_code_url": "https://github.com/yarrick/iodine",
+      "website_url": "https://code.kryo.se/iodine"
+    },
+    {
+      "slug": "tinyauth",
+      "name": "Tinyauth",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "outcomes": [
+        "database_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 7777,
+      "summary": "Simple authentication middleware for reverse proxies.",
+      "source_code_url": "https://github.com/tinyauthapp/tinyauth",
+      "website_url": "https://tinyauth.app"
+    },
+    {
+      "slug": "sandstorm",
+      "name": "Sandstorm",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 7069,
+      "summary": "Personal server runtime for installing and isolating web apps per user.",
+      "source_code_url": "https://github.com/sandstorm-io/sandstorm",
+      "website_url": "https://sandstorm.org"
+    },
+    {
+      "slug": "openmediavault",
+      "name": "OpenMediaVault",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 6834,
+      "summary": "Debian-based NAS manager for file sharing, media services, backups, SSH, FTP, SMB, and rsync.",
+      "source_code_url": "https://github.com/openmediavault/openmediavault",
+      "website_url": "https://www.openmediavault.org"
+    },
+    {
+      "slug": "the-battle-for-wesnoth",
+      "name": "The Battle for Wesnoth",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 6756,
+      "summary": "An, turn-based strategy game with a high fantasy theme.",
+      "source_code_url": "https://github.com/wesnoth/wesnoth",
+      "website_url": "https://www.wesnoth.org"
+    },
+    {
+      "slug": "zammad",
+      "name": "Zammad",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [],
+      "github_stars": 5751,
+      "summary": "Support desk app for tickets, customer messages, agents, and service queues.",
+      "source_code_url": "https://github.com/zammad/zammad",
+      "website_url": "https://zammad.org"
+    },
+    {
+      "slug": "kan",
+      "name": "Kan",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published"
+      ],
+      "github_stars": 5523,
+      "summary": "Kanban app for organizing boards, tasks, and workflow stages.",
+      "source_code_url": "https://github.com/kanbn/kan",
+      "website_url": "https://kan.bn"
+    },
+    {
+      "slug": "aimeos",
+      "name": "Aimeos",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 5450,
+      "summary": "E-commerce framework for building custom online shops, market places and complex B2B applications scaling to billions of items with Laravel.",
+      "source_code_url": "https://github.com/aimeos/aimeos",
+      "website_url": "https://aimeos.org/Laravel"
+    },
+    {
+      "slug": "cloudbeaver",
+      "name": "CloudBeaver",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "database_not_published"
+      ],
+      "github_stars": 5108,
+      "summary": "Web database client for browsing, querying, and managing database connections.",
+      "source_code_url": "https://github.com/dbeaver/cloudbeaver",
+      "website_url": "https://dbeaver.com"
+    },
+    {
+      "slug": "rstudio-server",
+      "name": "RStudio Server",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 5033,
+      "summary": "Browser IDE for writing R code, managing projects, and running analysis.",
+      "source_code_url": "https://github.com/rstudio/rstudio",
+      "website_url": "https://posit.co/products/open-source/rstudio"
+    },
+    {
+      "slug": "mirotalk-p2p",
+      "name": "MiroTalk P2P",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 4625,
+      "summary": "Peer-to-peer video meeting app with screen sharing, chat, and browser-based rooms.",
+      "source_code_url": "https://github.com/miroslavpejic85/mirotalk",
+      "website_url": "https://p2p.mirotalk.com"
+    },
+    {
+      "slug": "apostrophe",
+      "name": "Apostrophe",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 4609,
+      "summary": "CMS with a focus on extensible in-context editing tools.",
+      "source_code_url": "https://github.com/apostrophecms/apostrophe",
+      "website_url": "https://apostrophecms.com"
+    },
+    {
+      "slug": "stringer",
+      "name": "Stringer",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 4118,
+      "summary": "RSS reader for private feed subscriptions, unread queues, and browser reading.",
+      "source_code_url": "https://github.com/stringer-rss/stringer",
+      "website_url": "https://github.com/stringer-rss/stringer"
+    },
+    {
+      "slug": "yacy",
+      "name": "Yacy",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 3978,
+      "summary": "Peer-to-peer search engine for crawling, indexing, and querying the web without a central server.",
+      "source_code_url": "https://github.com/yacy/yacy_search_server",
+      "website_url": "http://yacy.net"
+    },
+    {
+      "slug": "convert-to-it",
+      "name": "Convert to it!",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 3974,
+      "summary": "File converter for changing documents, images, audio, and video formats.",
+      "source_code_url": "https://github.com/p2r3/convert",
+      "website_url": "https://convert.to.it"
+    },
+    {
+      "slug": "guacamole",
+      "name": "Guacamole",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 3970,
+      "summary": "Clientless remote desktop gateway supporting standard protocols like VNC and RDP.",
+      "source_code_url": "https://github.com/apache/guacamole-server",
+      "website_url": "https://guacamole.apache.org"
+    },
+    {
+      "slug": "pgadmin",
+      "name": "pgAdmin",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "database_not_published"
+      ],
+      "github_stars": 3768,
+      "summary": "PostgreSQL administration app for managing servers, databases, queries, and schema objects.",
+      "source_code_url": "https://github.com/pgadmin-org/pgadmin4",
+      "website_url": "https://www.pgadmin.org"
+    },
+    {
+      "slug": "limesurvey",
+      "name": "LimeSurvey",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 3661,
+      "summary": "Feature-rich web polling software, Supports extensive survey logic.",
+      "source_code_url": "https://github.com/LimeSurvey/LimeSurvey",
+      "website_url": "https://www.limesurvey.org"
+    },
+    {
+      "slug": "moodist",
+      "name": "Moodist",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 3625,
+      "summary": "Ambient sound mixer for focus sessions, background noise, and custom soundscapes.",
+      "source_code_url": "https://github.com/remvze/moodist",
+      "website_url": "https://moodist.mvze.net"
+    },
+    {
+      "slug": "tvheadend",
+      "name": "TVHeadend",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "database_not_published"
+      ],
+      "github_stars": 3475,
+      "summary": "TV streaming and DVR server for tuners, channels, recordings, and EPG data.",
+      "source_code_url": "https://github.com/tvheadend/tvheadend",
+      "website_url": "https://tvheadend.org"
+    },
+    {
+      "slug": "mirotalk-sfu",
+      "name": "MiroTalk SFU",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 3034,
+      "summary": "WebRTC video conferencing server for browser meetings, screen sharing, chat, and SFU-based calls.",
+      "source_code_url": "https://github.com/miroslavpejic85/mirotalksfu",
+      "website_url": "https://sfu.mirotalk.com"
+    },
+    {
+      "slug": "canine",
+      "name": "Canine",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published"
+      ],
+      "github_stars": 2919,
+      "summary": "Kubernetes deployment app for managing services, containers, and cluster workloads.",
+      "source_code_url": "https://github.com/CanineHQ/canine",
+      "website_url": "https://canine.sh"
+    },
+    {
+      "slug": "openstreetmap",
+      "name": "OpenStreetMap",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 2770,
+      "summary": "Collaborative project to create a editable map of the world.",
+      "source_code_url": "https://github.com/openstreetmap/openstreetmap-website",
+      "website_url": "https://www.openstreetmap.org"
+    },
+    {
+      "slug": "mpd",
+      "name": "mpd",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 2730,
+      "summary": "Music daemon for playing local audio libraries through clients and remote controls.",
+      "source_code_url": "https://github.com/MusicPlayerDaemon/MPD",
+      "website_url": "https://www.musicpd.org"
+    },
+    {
+      "slug": "wbo",
+      "name": "WBO",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 2618,
+      "summary": "Web Whiteboard to collaborate in real-time on schemas, drawings, and notes.",
+      "source_code_url": "https://github.com/lovasoa/whitebophir",
+      "website_url": "https://wbo.ophir.dev"
+    },
+    {
+      "slug": "fava",
+      "name": "Fava",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 2562,
+      "summary": "Web frontend of Beancount, a text based double-entry accounting system.",
+      "source_code_url": "https://github.com/beancount/fava",
+      "website_url": "https://beancount.github.io/fava"
+    },
+    {
+      "slug": "stoat",
+      "name": "Stoat",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 2534,
+      "summary": "Chat app for conversations, users, channels, and browser-based team messaging.",
+      "source_code_url": "https://github.com/stoatchat/self-hosted",
+      "website_url": "https://stoat.chat"
+    },
+    {
+      "slug": "pretix",
+      "name": "Pretix",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 2446,
+      "summary": "Event ticketing app for sales, check-in, orders, and attendee management.",
+      "source_code_url": "https://github.com/pretix/pretix",
+      "website_url": "https://pretix.eu"
+    },
+    {
+      "slug": "peergos",
+      "name": "Peergos",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 2431,
+      "summary": "Combines encrypted file storage, sharing, social features, and app protocol support.",
+      "source_code_url": "https://github.com/Peergos/Peergos",
+      "website_url": "https://peergos.org"
+    },
+    {
+      "slug": "chitchatter",
+      "name": "Chitchatter",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 2322,
+      "summary": "Peer-to-peer chat app for ephemeral browser conversations without a central message server.",
+      "source_code_url": "https://github.com/jeremyckahn/chitchatter",
+      "website_url": "https://chitchatter.im"
+    },
+    {
+      "slug": "gitit",
+      "name": "Gitit",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 2281,
+      "summary": "Git-backed wiki that stores pages as files and renders them with Pandoc.",
+      "source_code_url": "https://github.com/jgm/gitit",
+      "website_url": "https://github.com/jgm/gitit"
+    },
+    {
+      "slug": "azimutt",
+      "name": "Azimutt",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 2171,
+      "summary": "Database explorer for visualizing schemas, relationships, documentation, and query context.",
+      "source_code_url": "https://github.com/azimuttapp/azimutt",
+      "website_url": "https://azimutt.app"
+    },
+    {
+      "slug": "phpbb",
+      "name": "phpBB",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 2082,
+      "summary": "Flat-forum bulletin board software app that can be used to stay in touch with a group of people or can power your entire website.",
+      "source_code_url": "https://github.com/phpbb/phpbb",
+      "website_url": "https://www.phpbb.com"
+    },
+    {
+      "slug": "ara-records-ansible",
+      "name": "ARA",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 2020,
+      "summary": "Ansible reporting app for recording playbook runs, results, hosts, and task output.",
+      "source_code_url": "https://github.com/ansible-community/ara",
+      "website_url": "https://ara.recordsansible.org"
+    },
+    {
+      "slug": "streamer",
+      "name": "µStreamer",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 2006,
+      "summary": "Lightweight and very quick server to stream MJPEG video from any V4L2 device to the net.",
+      "source_code_url": "https://github.com/pikvm/ustreamer",
+      "website_url": "https://pikvm.org"
+    },
+    {
+      "slug": "bittorrent-tracker",
+      "name": "bittorrent-tracker",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "summary_under_8_words",
+        "summary_vague_adjective"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 1937,
+      "summary": "Simple, BitTorrent tracker (and server) implementation.",
+      "source_code_url": "https://github.com/webtorrent/bittorrent-tracker",
+      "website_url": "https://webtorrent.io"
+    },
+    {
+      "slug": "obico",
+      "name": "Obico",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 1867,
+      "summary": "3D printing monitor with failure detection, webcam views, and print alerts.",
+      "source_code_url": "https://github.com/TheSpaghettiDetective/obico-server",
+      "website_url": "https://obico.io"
+    },
+    {
+      "slug": "maza-ad-blocking",
+      "name": "Maza ad blocking",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 1861,
+      "summary": "Local ad blocker, Like Pi-hole but local and using your operating system.",
+      "source_code_url": "https://github.com/tanrax/maza-ad-blocking",
+      "website_url": "https://maza-ad-blocking.andros.dev"
+    },
+    {
+      "slug": "iredmail",
+      "name": "iRedMail",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 1840,
+      "summary": "Full-featured mail server app based on Postfix and Dovecot.",
+      "source_code_url": "https://github.com/iredmail/iRedMail",
+      "website_url": "https://www.iredmail.org"
+    },
+    {
+      "slug": "global-threat-map",
+      "name": "Global Threat Map",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 1811,
+      "summary": "Threat intelligence map for viewing real-time security events and global activity.",
+      "source_code_url": "https://github.com/unicodeveloper/globalthreatmap",
+      "website_url": "https://globalthreatmap.up.railway.app"
+    },
+    {
+      "slug": "mantisbt",
+      "name": "MantisBT",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 1789,
+      "summary": "Bug tracker for reporting issues, assigning work, and following software fixes.",
+      "source_code_url": "https://github.com/mantisbt/mantisbt",
+      "website_url": "https://mantisbt.org"
+    },
+    {
+      "slug": "lyrion-music-server",
+      "name": "Lyrion Music Server",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "database_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 1729,
+      "summary": "Server software which controls a wide range of Squeezebox/Slim Devices audio players and compatible hardware (formerly Logitech Media Server).",
+      "source_code_url": "https://github.com/LMS-Community/slimserver",
+      "website_url": "https://lyrion.org"
+    },
+    {
+      "slug": "apache-solr",
+      "name": "Apache Solr",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 1670,
+      "summary": "Enterprise search app featuring full-text search, hit highlighting, faceted search, real-time indexing, dynamic clustering, and rich document.",
+      "source_code_url": "https://github.com/apache/solr",
+      "website_url": "https://solr.apache.org"
+    },
+    {
+      "slug": "hypersomnia",
+      "name": "Hypersomnia",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 1624,
+      "summary": "Competitive top-down shooter blending Counter-Strike with Hotline Miami, Runs on Linux, Windows, MacOS and the Web.",
+      "source_code_url": "https://github.com/TeamHypersomnia/Hypersomnia",
+      "website_url": "https://hypersomnia.io"
+    },
+    {
+      "slug": "timeful",
+      "name": "Timeful",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 1610,
+      "summary": "Group scheduling app for finding meeting times and sharing availability.",
+      "source_code_url": "https://github.com/schej-it/timeful.app",
+      "website_url": "https://timeful.app"
+    },
+    {
+      "slug": "accent",
+      "name": "Accent",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published"
+      ],
+      "github_stars": 1494,
+      "summary": "Translation management app for editing localized strings and coordinating app translations.",
+      "source_code_url": "https://github.com/mirego/accent",
+      "website_url": "https://www.accent.reviews"
+    },
+    {
+      "slug": "transfer-zip",
+      "name": "Transfer.zip",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 1493,
+      "summary": "File transfer app for sending files directly through a browser without account setup.",
+      "source_code_url": "https://github.com/robinkarlberg/transfer.zip-web",
+      "website_url": "https://transfer.zip"
+    },
+    {
+      "slug": "opensips",
+      "name": "openSIPS",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 1491,
+      "summary": "SIP proxy/server for voice, video, IM, presence and any other SIP extensions.",
+      "source_code_url": "https://github.com/OpenSIPS/opensips",
+      "website_url": "https://opensips.org"
+    },
+    {
+      "slug": "revive-adserver",
+      "name": "Revive Adserver",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 1485,
+      "summary": "Ad serving system, Formerly known as OpenX Adserver and phpAdsNew.",
+      "source_code_url": "https://github.com/revive-adserver/revive-adserver",
+      "website_url": "http://www.revive-adserver.com/download"
+    },
+    {
+      "slug": "unblink",
+      "name": "Unblink",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published",
+        "database_not_published"
+      ],
+      "github_stars": 1445,
+      "summary": "Camera monitoring app that uses vision models to describe events and alerts.",
+      "source_code_url": "https://github.com/zapdos-labs/unblink",
+      "website_url": "https://github.com/zapdos-labs/unblink"
+    },
+    {
+      "slug": "modx",
+      "name": "MODX",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 1403,
+      "summary": "Content management framework for building websites with templates, pages, and custom fields.",
+      "source_code_url": "https://github.com/modxcms/revolution",
+      "website_url": "https://modx.com"
+    },
+    {
+      "slug": "galene",
+      "name": "Galene",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 1390,
+      "summary": "Video conferencing server focused on lightweight deployment and moderate server resource usage.",
+      "source_code_url": "https://github.com/jech/galene",
+      "website_url": "https://galene.org"
+    },
+    {
+      "slug": "nefarious",
+      "name": "nefarious",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "docker_image_not_published"
+      ],
+      "github_stars": 1264,
+      "summary": "Media automation app for requesting movies and shows through download tools.",
+      "source_code_url": "https://github.com/lardbit/nefarious",
+      "website_url": "https://lardbit.github.io/nefarious"
+    },
+    {
+      "slug": "gerrit",
+      "name": "Gerrit",
+      "score": 120,
+      "issues": [
+        "docs_readme_fallback",
+        "install_docs_readme_fallback",
+        "release_missing",
+        "release_missing_recent_commit"
+      ],
+      "outcomes": [
+        "ram_not_published",
+        "database_not_published",
+        "docker_not_published",
+        "compose_not_published"
+      ],
+      "github_stars": 1221,
+      "summary": "Code review and project management tool for Git-based projects.",
+      "source_code_url": "https://github.com/GerritCodeReview/gerrit",
+      "website_url": "https://www.gerritcodereview.com"
+    }
+  ]
+}

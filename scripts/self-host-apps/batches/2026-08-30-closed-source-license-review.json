@@ -1,0 +1,103 @@
+{
+  "apps": [
+    {
+      "slug": "blue-iris",
+      "license": "Blue Iris commercial software license",
+      "license_spdx_id": "LicenseRef-Blue-Iris-Commercial",
+      "license_type": "custom",
+      "source_model": "closed_source",
+      "source_url": "https://blueirissoftware.com/",
+      "source": "official_product_license_terms",
+      "confidence": "high",
+      "note": "The official purchase page describes the product as a software license and sells per-product licenses; no open-source license is published."
+    },
+    {
+      "slug": "channels-dvr",
+      "license": "Channels Terms of Service",
+      "license_spdx_id": "LicenseRef-Channels-TOS",
+      "license_type": "custom",
+      "source_model": "closed_source",
+      "source_url": "https://getchannels.com/tos/",
+      "source": "official_software_terms",
+      "confidence": "high",
+      "note": "The official terms grant a limited, revocable, non-exclusive license and identify the software and code as proprietary."
+    },
+    {
+      "slug": "emby",
+      "license": "Emby Software License",
+      "license_spdx_id": "LicenseRef-Emby-Software-License",
+      "license_type": "custom",
+      "source_model": "closed_source",
+      "source_url": "https://apps.emby.media/license.html",
+      "source": "official_software_license",
+      "confidence": "high",
+      "note": "The official software license grants personal use and restricts copying, modification, distribution, reverse engineering, and derivative works."
+    },
+    {
+      "slug": "plex",
+      "license": "Plex Terms of Service",
+      "license_spdx_id": "LicenseRef-Plex-TOS",
+      "license_type": "custom",
+      "source_model": "closed_source",
+      "source_url": "https://www.plex.tv/about/privacy-legal/plex-terms-of-service/",
+      "source": "official_software_terms",
+      "confidence": "high",
+      "note": "The official terms grant a limited personal license for Plex Media Server and restrict redistribution, modification, and source-code discovery."
+    },
+    {
+      "slug": "poste-io",
+      "license": "Poste.io License Agreement",
+      "license_spdx_id": "LicenseRef-Poste-io-License",
+      "license_type": "custom",
+      "source_model": "closed_source",
+      "source_url": "https://poste.io/doc/license",
+      "source": "official_software_license",
+      "confidence": "high",
+      "note": "The official license permits running instances for the licensee's own use and prohibits selling or redistributing the container images."
+    },
+    {
+      "slug": "resilio-sync",
+      "license": "Resilio Sync End User License Agreement",
+      "license_spdx_id": "LicenseRef-Resilio-Sync-EULA",
+      "license_type": "custom",
+      "source_model": "closed_source",
+      "source_url": "https://www.resilio.com/legal/eula/",
+      "source": "official_software_license",
+      "confidence": "high",
+      "note": "The official EULA calls the source code, design, and structure trade secrets and grants only a restricted personal-use license."
+    },
+    {
+      "slug": "subsonic",
+      "license": "Subsonic personal non-commercial license",
+      "license_spdx_id": "LicenseRef-Subsonic-Personal-Noncommercial",
+      "license_type": "custom",
+      "source_model": "closed_source",
+      "source_url": "https://premium.subsonic.org/pages/premium.jsp",
+      "source": "official_product_license_terms",
+      "confidence": "high",
+      "note": "The official premium page states that the license is for personal, non-commercial use and requires separate licensing for commercial use."
+    },
+    {
+      "slug": "ubooquity",
+      "license": "Ubooquity non-commercial license",
+      "license_spdx_id": "LicenseRef-Ubooquity-Noncommercial",
+      "license_type": "custom",
+      "source_model": "closed_source",
+      "source_url": "https://www.vaemendis.net/ubooquity/static12/license",
+      "source": "official_software_license",
+      "confidence": "high",
+      "note": "The official license allows free non-commercial use but prohibits redistribution, modification, reverse engineering, and source-code access."
+    },
+    {
+      "slug": "unraid",
+      "license": "Unraid OS End User License Agreement",
+      "license_spdx_id": "LicenseRef-Unraid-OS-EULA",
+      "license_type": "custom",
+      "source_model": "closed_source",
+      "source_url": "https://unraid.net/policies",
+      "source": "official_software_license",
+      "confidence": "high",
+      "note": "The official policies publish the Unraid OS End User License Agreement governing use of the software."
+    }
+  ]
+}

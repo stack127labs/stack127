@@ -1,0 +1,898 @@
+{
+  "generated_at": "2026-08-30T07:37:36.927Z",
+  "source_total": 56,
+  "resolved_total": 14,
+  "unresolved_total": 42,
+  "records": [
+    {
+      "slug": "authman",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "simular/authman-server",
+      "license_files": []
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/awesome-foss/awesome-sysadmin/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/awesome-foss/awesome-sysadmin/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/awesome-foss/awesome-sysadmin/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/awesome-foss/awesome-sysadmin/blob/master/LICENSE.txt"
+        }
+      ],
+      "license": "CC-BY-SA-4.0",
+      "license_spdx_id": "CC-BY-SA-4.0",
+      "license_type": "copyleft",
+      "repository": "awesome-foss/awesome-sysadmin",
+      "slug": "awesome-sysadmin",
+      "source_model": "open_source",
+      "status": "resolved"
+    },
+    {
+      "slug": "blue-iris",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "slug": "budibase",
+      "status": "unresolved",
+      "reason": "License file uses an unrecognized or custom text",
+      "repository": "Budibase/budibase",
+      "license_files": [
+        {
+          "name": "LICENSE",
+          "source_url": "https://github.com/Budibase/budibase/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "cachet",
+      "status": "unresolved",
+      "reason": "License file uses an unrecognized or custom text",
+      "repository": "cachethq/cachet",
+      "license_files": [
+        {
+          "name": "LICENSE.md",
+          "source_url": "https://github.com/cachethq/cachet/blob/3.x/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "caddymanager",
+      "status": "unresolved",
+      "reason": "License file uses an unrecognized or custom text",
+      "repository": "caddymanager/caddymanager",
+      "license_files": [
+        {
+          "name": "LICENSE",
+          "source_url": "https://github.com/caddymanager/caddymanager/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "cert-warden",
+      "status": "unresolved",
+      "reason": "License file uses an unrecognized or custom text",
+      "repository": "gregtwallace/certwarden",
+      "license_files": [
+        {
+          "name": "LICENSE.md",
+          "source_url": "https://github.com/gregtwallace/certwarden/blob/master/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "channels-dvr",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cially/cially/blob/v2.x/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cially/cially/blob/v2.x/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cially/cially/blob/v2.x/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cially/cially/blob/v2.x/LICENSE"
+        }
+      ],
+      "license": "CC-BY-NC-ND-2.0",
+      "license_spdx_id": "CC-BY-NC-ND-2.0",
+      "license_type": "custom",
+      "repository": "cially/cially",
+      "slug": "cially",
+      "source_model": "source_available",
+      "status": "resolved"
+    },
+    {
+      "slug": "cloudpanel",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "cloudpanel-io/cloudpanel-ce",
+      "license_files": []
+    },
+    {
+      "slug": "czkawka",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "qarmin/czkawka",
+      "license_files": []
+    },
+    {
+      "slug": "docking-station",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "LooLzzz/docking-station",
+      "license_files": []
+    },
+    {
+      "slug": "drivebase",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "drivebase/drivebase",
+      "license_files": []
+    },
+    {
+      "slug": "edit-mind",
+      "status": "unresolved",
+      "reason": "License file uses an unrecognized or custom text",
+      "repository": "IliasHad/edit-mind",
+      "license_files": [
+        {
+          "name": "LICENSE.md",
+          "source_url": "https://github.com/IliasHad/edit-mind/blob/main/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "emby",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "slug": "global-threat-map",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "unicodeveloper/globalthreatmap",
+      "license_files": []
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/HydroshieldMKII/Guardian/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/HydroshieldMKII/Guardian/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/HydroshieldMKII/Guardian/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/HydroshieldMKII/Guardian/blob/main/LICENSE.md"
+        }
+      ],
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "license_spdx_id": "PolyForm-Noncommercial-1.0.0",
+      "license_type": "custom",
+      "repository": "HydroshieldMKII/Guardian",
+      "slug": "guardian-plex",
+      "source_model": "source_available",
+      "status": "resolved"
+    },
+    {
+      "slug": "honey",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "dani3l0/honey",
+      "license_files": []
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/hudikhq/hoodik/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/hudikhq/hoodik/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/hudikhq/hoodik/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/hudikhq/hoodik/blob/master/LICENSE.md"
+        }
+      ],
+      "license": "CC-BY-NC-4.0",
+      "license_spdx_id": "CC-BY-NC-4.0",
+      "license_type": "custom",
+      "repository": "hudikhq/hoodik",
+      "slug": "hoodik",
+      "source_model": "source_available",
+      "status": "resolved"
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/investbrainapp/investbrain/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/investbrainapp/investbrain/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/investbrainapp/investbrain/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/investbrainapp/investbrain/blob/main/LICENSE.md"
+        }
+      ],
+      "license": "CC-BY-NC-4.0",
+      "license_spdx_id": "CC-BY-NC-4.0",
+      "license_type": "custom",
+      "repository": "investbrainapp/investbrain",
+      "slug": "investbrain",
+      "source_model": "source_available",
+      "status": "resolved"
+    },
+    {
+      "slug": "jellyfin-rewind",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "Chaphasilor/jellyfin-rewind",
+      "license_files": []
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/journiv/journiv-app/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/journiv/journiv-app/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/journiv/journiv-app/blob/main/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/journiv/journiv-app/blob/main/LICENSE.md"
+        }
+      ],
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "license_spdx_id": "PolyForm-Noncommercial-1.0.0",
+      "license_type": "custom",
+      "repository": "journiv/journiv-app",
+      "slug": "journiv",
+      "source_model": "source_available",
+      "status": "resolved"
+    },
+    {
+      "slug": "luna",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "Opisek/luna",
+      "license_files": []
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/m3ue/m3u-editor/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/m3ue/m3u-editor/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/m3ue/m3u-editor/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/m3ue/m3u-editor/blob/master/LICENSE"
+        }
+      ],
+      "license": "CC-BY-NC-SA-4.0",
+      "license_spdx_id": "CC-BY-NC-SA-4.0",
+      "license_type": "custom",
+      "repository": "m3ue/m3u-editor",
+      "slug": "m3u-editor",
+      "source_model": "source_available",
+      "status": "resolved"
+    },
+    {
+      "slug": "medama-analytics",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "medama-io/medama",
+      "license_files": []
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/eclipse-mosquitto/mosquitto/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/eclipse-mosquitto/mosquitto/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/eclipse-mosquitto/mosquitto/blob/master/LICENSE.txt"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.txt text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/eclipse-mosquitto/mosquitto/blob/master/LICENSE.txt"
+        }
+      ],
+      "license": "EPL-2.0 OR BSD-3-Clause",
+      "license_spdx_id": "EPL-2.0 OR BSD-3-Clause",
+      "license_type": "mixed",
+      "repository": "eclipse-mosquitto/mosquitto",
+      "slug": "mosquitto",
+      "source_model": "open_source",
+      "status": "resolved"
+    },
+    {
+      "slug": "nextcloud-office",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "nextcloud/richdocuments",
+      "license_files": []
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Zhoros/NortixMail/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Zhoros/NortixMail/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Zhoros/NortixMail/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/Zhoros/NortixMail/blob/main/LICENSE"
+        }
+      ],
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "license_spdx_id": "PolyForm-Noncommercial-1.0.0",
+      "license_type": "custom",
+      "repository": "Zhoros/NortixMail",
+      "slug": "novus-mail",
+      "source_model": "source_available",
+      "status": "resolved"
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/apankrat/nullboard/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/apankrat/nullboard/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/apankrat/nullboard/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/apankrat/nullboard/blob/master/LICENSE"
+        }
+      ],
+      "license": "BSD-2-Clause WITH Commons-Clause",
+      "license_spdx_id": "BSD-2-Clause WITH Commons-Clause",
+      "license_type": "permissive",
+      "repository": "apankrat/nullboard",
+      "slug": "nullboard",
+      "source_model": "source_available",
+      "status": "resolved"
+    },
+    {
+      "slug": "obskurnee",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "zblesk/obskurnee",
+      "license_files": []
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/EinAeffchen/Omoide/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/EinAeffchen/Omoide/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/EinAeffchen/Omoide/blob/master/LICENSE.md"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE.md text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/EinAeffchen/Omoide/blob/master/LICENSE.md"
+        }
+      ],
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "license_spdx_id": "PolyForm-Noncommercial-1.0.0",
+      "license_type": "custom",
+      "repository": "EinAeffchen/Omoide",
+      "slug": "omoide",
+      "source_model": "source_available",
+      "status": "resolved"
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/stefanpejcic/OpenPanel/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/stefanpejcic/OpenPanel/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/stefanpejcic/OpenPanel/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/stefanpejcic/OpenPanel/blob/main/LICENSE"
+        }
+      ],
+      "license": "CC-BY-NC-4.0",
+      "license_spdx_id": "CC-BY-NC-4.0",
+      "license_type": "custom",
+      "repository": "stefanpejcic/OpenPanel",
+      "slug": "openpanel",
+      "source_model": "source_available",
+      "status": "resolved"
+    },
+    {
+      "slug": "origamivault",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "origamivault/origamivault",
+      "license_files": []
+    },
+    {
+      "slug": "pasta",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "cglatot/pasta",
+      "license_files": []
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/pgadmin-org/pgadmin4/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/pgadmin-org/pgadmin4/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/pgadmin-org/pgadmin4/blob/master/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/pgadmin-org/pgadmin4/blob/master/LICENSE"
+        }
+      ],
+      "license": "PostgreSQL",
+      "license_spdx_id": "PostgreSQL",
+      "license_type": "permissive",
+      "repository": "pgadmin-org/pgadmin4",
+      "slug": "pgadmin",
+      "source_model": "open_source",
+      "status": "resolved"
+    },
+    {
+      "slug": "pixelfin",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "nothing2obvi/pixelfin",
+      "license_files": []
+    },
+    {
+      "slug": "plex",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "slug": "poste-io",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "confidence": "high",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PrivateCaptcha/PrivateCaptcha/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PrivateCaptcha/PrivateCaptcha/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PrivateCaptcha/PrivateCaptcha/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/PrivateCaptcha/PrivateCaptcha/blob/main/LICENSE"
+        }
+      ],
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "license_spdx_id": "PolyForm-Noncommercial-1.0.0",
+      "license_type": "custom",
+      "repository": "PrivateCaptcha/PrivateCaptcha",
+      "slug": "private-captcha",
+      "source_model": "source_available",
+      "status": "resolved"
+    },
+    {
+      "slug": "red-eclipse-2",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "redeclipse/base",
+      "license_files": []
+    },
+    {
+      "slug": "redirecterr",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "varthe/Redirecterr",
+      "license_files": []
+    },
+    {
+      "slug": "replex",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "lostb1t/replex",
+      "license_files": []
+    },
+    {
+      "slug": "resilio-sync",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "slug": "scrypted",
+      "status": "unresolved",
+      "reason": "License file uses an unrecognized or custom text",
+      "repository": "koush/scrypted",
+      "license_files": [
+        {
+          "name": "LICENSE.md",
+          "source_url": "https://github.com/koush/scrypted/blob/main/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "snippets-library",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "cojocaru-david/snippetslibrary.com",
+      "license_files": []
+    },
+    {
+      "slug": "spacepad",
+      "status": "unresolved",
+      "reason": "License file uses an unrecognized or custom text",
+      "repository": "magweter/spacepad",
+      "license_files": [
+        {
+          "name": "LICENSE.md",
+          "source_url": "https://github.com/magweter/spacepad/blob/main/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "sprout-track",
+      "status": "unresolved",
+      "reason": "License file uses an unrecognized or custom text",
+      "repository": "Oak-and-Sprout/sprout-track",
+      "license_files": [
+        {
+          "name": "LICENSE.md",
+          "source_url": "https://github.com/Oak-and-Sprout/sprout-track/blob/main/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "streamystats",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "fredrikburmester/streamystats",
+      "license_files": []
+    },
+    {
+      "slug": "subsonic",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "slug": "tasktrove",
+      "status": "unresolved",
+      "reason": "License file uses an unrecognized or custom text",
+      "repository": "dohsimpson/TaskTrove",
+      "license_files": [
+        {
+          "name": "LICENSE.md",
+          "source_url": "https://github.com/dohsimpson/TaskTrove/blob/main/LICENSE.md"
+        }
+      ]
+    },
+    {
+      "slug": "ties-link-sharing",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "raffomania/ties",
+      "license_files": []
+    },
+    {
+      "slug": "ubooquity",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "slug": "unraid",
+      "status": "unresolved",
+      "reason": "Source is not a root GitHub repository",
+      "source_code_url": null
+    },
+    {
+      "slug": "viniplay",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "ardoviniandrea/ViniPlay",
+      "license_files": []
+    },
+    {
+      "slug": "whorang",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "Beast12/who-rang",
+      "license_files": []
+    },
+    {
+      "slug": "woli-webgui",
+      "status": "unresolved",
+      "reason": "No root license file published",
+      "repository": "RemyFV/WoLi-webgui",
+      "license_files": []
+    }
+  ]
+}

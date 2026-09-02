@@ -1,0 +1,300 @@
+{
+  "apps": [
+    {
+      "slug": "authman",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/simular/authman-server/blob/main/composer.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/simular/authman-server/blob/main/composer.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/simular/authman-server/blob/main/composer.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/simular/authman-server/blob/main/composer.json"
+        }
+      ]
+    },
+    {
+      "slug": "caddymanager",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/caddymanager/caddymanager/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/caddymanager/caddymanager/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/caddymanager/caddymanager/blob/main/LICENSE"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from LICENSE text; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/caddymanager/caddymanager/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "slug": "global-threat-map",
+      "license": "ISC",
+      "license_spdx_id": "ISC",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/unicodeveloper/globalthreatmap/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/unicodeveloper/globalthreatmap/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/unicodeveloper/globalthreatmap/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/unicodeveloper/globalthreatmap/blob/main/package.json"
+        }
+      ]
+    },
+    {
+      "slug": "nextcloud-office",
+      "license": "GNU Affero General Public License v3.0 or later",
+      "license_spdx_id": "AGPL-3.0-or-later",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nextcloud/richdocuments/blob/main/composer.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nextcloud/richdocuments/blob/main/composer.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nextcloud/richdocuments/blob/main/composer.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from composer.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/nextcloud/richdocuments/blob/main/composer.json"
+        }
+      ]
+    },
+    {
+      "slug": "redirecterr",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/varthe/Redirecterr/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/varthe/Redirecterr/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/varthe/Redirecterr/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/varthe/Redirecterr/blob/main/package.json"
+        }
+      ]
+    },
+    {
+      "slug": "snippets-library",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cojocaru-david/snippetslibrary.com/blob/master/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cojocaru-david/snippetslibrary.com/blob/master/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cojocaru-david/snippetslibrary.com/blob/master/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/cojocaru-david/snippetslibrary.com/blob/master/package.json"
+        }
+      ]
+    },
+    {
+      "slug": "streamystats",
+      "license": "MIT",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/fredrikburmester/streamystats/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/fredrikburmester/streamystats/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/fredrikburmester/streamystats/blob/main/package.json"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from package.json license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/fredrikburmester/streamystats/blob/main/package.json"
+        }
+      ]
+    },
+    {
+      "slug": "ties-link-sharing",
+      "license": "AGPL-3.0-or-later",
+      "license_spdx_id": "AGPL-3.0-or-later",
+      "license_type": "copyleft",
+      "source_model": "open_source",
+      "field_sources": [
+        {
+          "confidence": "high",
+          "field_name": "license",
+          "note": "Detected from Cargo.toml license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/raffomania/ties/blob/main/Cargo.toml"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_spdx_id",
+          "note": "Detected from Cargo.toml license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/raffomania/ties/blob/main/Cargo.toml"
+        },
+        {
+          "confidence": "high",
+          "field_name": "license_type",
+          "note": "Detected from Cargo.toml license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/raffomania/ties/blob/main/Cargo.toml"
+        },
+        {
+          "confidence": "high",
+          "field_name": "source_model",
+          "note": "Detected from Cargo.toml license field; manual review required before applying.",
+          "source": "official_repository_license_file",
+          "source_url": "https://github.com/raffomania/ties/blob/main/Cargo.toml"
+        }
+      ]
+    }
+  ]
+}

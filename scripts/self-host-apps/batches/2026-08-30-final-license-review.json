@@ -1,0 +1,202 @@
+{
+  "apps": [
+    {
+      "slug": "cloudpanel",
+      "license": "No software license published (default copyright)",
+      "license_spdx_id": "LicenseRef-No-License-Published",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source_url": "https://github.com/cloudpanel-io/cloudpanel-ce",
+      "source": "official_repository_review",
+      "confidence": "high",
+      "note": "The official public repository publishes no root license file, manifest license, or README license grant. Source is viewable, but no open-source permission is stated."
+    },
+    {
+      "slug": "czkawka",
+      "license": "MIT and GPL-3.0-only; media under CC-BY-4.0",
+      "license_spdx_id": "LicenseRef-Czkawka-Mixed",
+      "license_type": "mixed",
+      "source_model": "open_source",
+      "source_url": "https://github.com/qarmin/czkawka/blob/master/instructions/FAQ.md",
+      "source": "official_repository_license_documentation",
+      "confidence": "high",
+      "note": "The official FAQ identifies MIT for Czkawka core, CLI, and GTK code, GPL-3.0-only for the Krokiet and Cedinia applications, and CC-BY-4.0 for images and audio."
+    },
+    {
+      "slug": "docking-station",
+      "license": "No software license published (default copyright)",
+      "license_spdx_id": "LicenseRef-No-License-Published",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source_url": "https://github.com/LooLzzz/docking-station",
+      "source": "official_repository_review",
+      "confidence": "high",
+      "note": "The official public repository publishes no root license file, manifest license, or README license grant. Source is viewable, but no open-source permission is stated."
+    },
+    {
+      "slug": "drivebase",
+      "license": "MIT License",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "source_url": "https://github.com/drivebase/drivebase",
+      "source": "official_repository_readme",
+      "confidence": "high",
+      "note": "The official repository README states that Drivebase is licensed under MIT."
+    },
+    {
+      "slug": "honey",
+      "license": "No software license published (default copyright)",
+      "license_spdx_id": "LicenseRef-No-License-Published",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source_url": "https://github.com/dani3l0/honey",
+      "source": "official_repository_review",
+      "confidence": "high",
+      "note": "The official public repository publishes no root license file, manifest license, or README license grant. Source is viewable, but no open-source permission is stated."
+    },
+    {
+      "slug": "jellyfin-rewind",
+      "license": "No software license published (default copyright)",
+      "license_spdx_id": "LicenseRef-No-License-Published",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source_url": "https://github.com/Chaphasilor/jellyfin-rewind",
+      "source": "official_repository_review",
+      "confidence": "high",
+      "note": "The official public repository publishes no root license file, manifest license, or README license grant. Source is viewable, but no open-source permission is stated."
+    },
+    {
+      "slug": "luna",
+      "license": "No software license published (default copyright)",
+      "license_spdx_id": "LicenseRef-No-License-Published",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source_url": "https://github.com/Opisek/luna",
+      "source": "official_repository_review",
+      "confidence": "high",
+      "note": "The official public repository publishes no root license file, manifest license, or README license grant. Source is viewable, but no open-source permission is stated."
+    },
+    {
+      "slug": "medama-analytics",
+      "license": "Apache-2.0 and MIT",
+      "license_spdx_id": "Apache-2.0 AND MIT",
+      "license_type": "mixed",
+      "source_model": "open_source",
+      "source_url": "https://github.com/medama-io/medama",
+      "source": "official_repository_readme",
+      "confidence": "high",
+      "note": "The official README licenses the core and dashboard under Apache-2.0 and the tracker under MIT."
+    },
+    {
+      "slug": "obskurnee",
+      "license": "No software license published (default copyright)",
+      "license_spdx_id": "LicenseRef-No-License-Published",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source_url": "https://github.com/zblesk/obskurnee",
+      "source": "official_repository_review",
+      "confidence": "high",
+      "note": "The official public repository publishes no root license file, manifest license, or README license grant. Source is viewable, but no open-source permission is stated."
+    },
+    {
+      "slug": "origamivault",
+      "license": "No software license published (default copyright)",
+      "license_spdx_id": "LicenseRef-No-License-Published",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source_url": "https://github.com/origamivault/origamivault",
+      "source": "official_repository_review",
+      "confidence": "high",
+      "note": "The official public repository publishes no root license file, manifest license, or README license grant. Source is viewable, but no open-source permission is stated."
+    },
+    {
+      "slug": "pasta",
+      "license": "No software license published (default copyright)",
+      "license_spdx_id": "LicenseRef-No-License-Published",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source_url": "https://github.com/cglatot/pasta",
+      "source": "official_repository_review",
+      "confidence": "high",
+      "note": "The official public repository publishes no root license file, manifest license, or README license grant. Source is viewable, but no open-source permission is stated."
+    },
+    {
+      "slug": "pixelfin",
+      "license": "No software license published (default copyright)",
+      "license_spdx_id": "LicenseRef-No-License-Published",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source_url": "https://github.com/nothing2obvi/pixelfin",
+      "source": "official_repository_review",
+      "confidence": "high",
+      "note": "The official public repository publishes no root license file, manifest license, or README license grant. Source is viewable, but no open-source permission is stated."
+    },
+    {
+      "slug": "red-eclipse-2",
+      "license": "zlib for source code; game data under varying licenses",
+      "license_spdx_id": "LicenseRef-Red-Eclipse-Mixed",
+      "license_type": "mixed",
+      "source_model": "open_source",
+      "source_url": "https://github.com/orgs/redeclipse/discussions/1420",
+      "source": "official_repository_maintainer_statement",
+      "confidence": "high",
+      "note": "The project maintainer states that source code is zlib-licensed while maps, sounds, textures, and other game data carry varying licenses."
+    },
+    {
+      "slug": "replex",
+      "license": "No software license published (default copyright)",
+      "license_spdx_id": "LicenseRef-No-License-Published",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source_url": "https://github.com/lostb1t/replex",
+      "source": "official_repository_review",
+      "confidence": "high",
+      "note": "The official public repository publishes no root license file, manifest license, or README license grant. Source is viewable, but no open-source permission is stated."
+    },
+    {
+      "slug": "scrypted",
+      "license": "Component-specific licenses",
+      "license_spdx_id": "LicenseRef-Scrypted-Mixed",
+      "license_type": "mixed",
+      "source_model": "source_available",
+      "source_url": "https://github.com/koush/scrypted/blob/main/LICENSE.md",
+      "source": "official_repository_license_file",
+      "confidence": "high",
+      "note": "The repository's root license file states that licensing varies by project directory and that some plugins may require GPL compliance; no single repo-wide open-source license applies."
+    },
+    {
+      "slug": "viniplay",
+      "license": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International",
+      "license_spdx_id": "CC-BY-NC-SA-4.0",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source_url": "https://github.com/ardoviniandrea/ViniPlay",
+      "source": "official_repository_readme",
+      "confidence": "high",
+      "note": "The official README states CC-BY-NC-SA-4.0, which permits source access and modification but restricts commercial use."
+    },
+    {
+      "slug": "whorang",
+      "license": "MIT License",
+      "license_spdx_id": "MIT",
+      "license_type": "permissive",
+      "source_model": "open_source",
+      "source_url": "https://github.com/Beast12/who-rang",
+      "source": "official_repository_readme",
+      "confidence": "high",
+      "note": "The official repository README states that WhoRang is available under the MIT License."
+    },
+    {
+      "slug": "woli-webgui",
+      "license": "No software license published (default copyright)",
+      "license_spdx_id": "LicenseRef-No-License-Published",
+      "license_type": "custom",
+      "source_model": "source_available",
+      "source_url": "https://github.com/RemyFV/WoLi-webgui",
+      "source": "official_repository_review",
+      "confidence": "high",
+      "note": "The official public repository publishes no root license file, manifest license, or README license grant. Source is viewable, but no open-source permission is stated."
+    }
+  ]
+}

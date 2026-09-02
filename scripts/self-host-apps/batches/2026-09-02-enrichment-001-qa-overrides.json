@@ -1,0 +1,11 @@
+{
+  "overrides": {
+    "taskingai": {
+      "docker_url": "https://hub.docker.com/r/taskingai/taskingai-server",
+      "data_source_urls": [
+        "https://hub.docker.com/r/taskingai/taskingai-server"
+      ],
+      "confidence": "high"
+    }
+  }
+}
