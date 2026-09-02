@@ -30,7 +30,7 @@ Last reconciled: 20 August 2026.
 | `.env.deploy` | `.env.deploy.example` | OVH production identity, Cloudflare, Dokploy administration, registrar, and search-console administration. |
 | `.env.analytics` | `.env.analytics.example` | Self-hosted Umami connection and administrative login. |
 | `.env.homelab` | `.env.homelab.example` | Homelab host identity and local administration. |
-| `.env.repos` | `.env.repos.example` | Local GitHub CLI and external-repository automation. |
+| `.env.repos` | `.env.repos.example` | Local GitHub CLI and stack127 repo automation. |
 
 All six populated files were verified as mode `0600` on 20 August 2026.
 

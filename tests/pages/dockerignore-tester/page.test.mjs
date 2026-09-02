@@ -1,10 +1,10 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
+import { readToolPageSeed } from "../../helpers/tool-page-content.mjs";
 
 const route = new URL("../../../app/(site)/(tools)/dockerignore-tester/", import.meta.url);
 const pagePath = new URL("page.tsx", route);
-const guidePath = new URL("dockerignore-guide.tsx", route);
 const clientPath = new URL("dockerignore-tester.tsx", route);
 const stylesPath = new URL("dockerignore-tester.module.css", route);
 const parserPath = new URL("../../../lib/dockerignore/parser.ts", import.meta.url);
@@ -13,7 +13,7 @@ const evaluatePath = new URL("../../../lib/dockerignore/evaluate.ts", import.met
 const manifestPath = new URL("page.json", import.meta.url);
 
 test("owns one flat published route", () => {
-  for (const file of [pagePath, guidePath, clientPath, stylesPath, parserPath, matcherPath, evaluatePath]) assert.equal(existsSync(file), true, file.pathname);
+  for (const file of [pagePath, clientPath, stylesPath, parserPath, matcherPath, evaluatePath]) assert.equal(existsSync(file), true, file.pathname);
   const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
   assert.equal(manifest.route, "/dockerignore-tester");
   assert.equal(manifest.state, "published");
@@ -31,7 +31,7 @@ test("keeps matcher behavior pure and local", () => {
 
 test("server content keeps the tool primary and states its exact boundaries", () => {
   const page = readFileSync(pagePath, "utf8");
-  const guide = readFileSync(guidePath, "utf8");
+  const guide = readToolPageSeed("dockerignore-tester");
   const client = readFileSync(clientPath, "utf8");
   const server = `${page}\n${guide}`;
   for (const text of [
@@ -64,8 +64,8 @@ test("server content keeps the tool primary and states its exact boundaries", ()
     "https://docs.docker.com/build/concepts/context/#dockerignore-files",
   ]) assert.match(server, new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   for (const text of ["Root .dockerignore", "Dockerfile-specific", ".dockerignore rules", "Context-relative paths", "Load example", "Reset", "Test patterns", "Rules and paths stay in your browser"]) assert.match(client, new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-  assert.match(guide, /proseClassName/);
-  assert.match(guide, /proseFlowClassName/);
+  assert.match(page, /<ToolPageHeader/);
+  assert.match(page, /<ToolPageMarkdown/);
   assert.equal((server.match(/need not exist/gi) ?? []).length, 1);
   assert.equal((`${server}\n${client}`.match(/Rules and paths stay in your browser\./g) ?? []).length, 1);
   assert.doesNotMatch(server, /matching stays in your browser|exact-current-Docker/);

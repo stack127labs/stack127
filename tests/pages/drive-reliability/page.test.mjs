@@ -2,12 +2,12 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import test from "node:test";
+import { readToolPageSeed } from "../../helpers/tool-page-content.mjs";
 
 const root = path.resolve(import.meta.dirname, "../../..");
 const routeDirectory = path.join(root, "app/(site)/(tools)/drive-reliability");
 const pagePath = path.join(routeDirectory, "page.tsx");
 const clientPath = path.join(routeDirectory, "drive-reliability.tsx");
-const guidePath = path.join(routeDirectory, "drive-reliability-guide.tsx");
 const stylePath = path.join(routeDirectory, "drive-reliability.module.css");
 const dataPath = path.join(routeDirectory, "data/drive-reliability-snapshot.json");
 const enginePath = path.join(root, "lib/drive-reliability.ts");
@@ -15,7 +15,7 @@ const manifestPath = path.join(import.meta.dirname, "page.json");
 const refreshPath = path.join(root, "scripts/drive-reliability/refresh-snapshot.mjs");
 
 test("the published route owns its source, dataset, engine, tests, and refresh script", () => {
-  for (const file of [pagePath, clientPath, guidePath, stylePath, dataPath, enginePath, refreshPath]) {
+  for (const file of [pagePath, clientPath, stylePath, dataPath, enginePath, refreshPath]) {
     assert.equal(existsSync(file), true, file);
   }
   const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
@@ -27,16 +27,15 @@ test("the page uses the shared shell and has no route-local SEO or publication l
   const page = readFileSync(pagePath, "utf8");
   assert.match(page, /<AppShell/);
   assert.match(page, /<DriveReliabilityExplorer/);
-  assert.match(page, /<DriveReliabilityGuide/);
-  assert.match(page, /<PageTitleIcon/);
-  assert.match(page, /published Backblaze/);
+  assert.match(page, /<ToolPageHeader/);
+  assert.match(page, /<ToolPageMarkdown/);
   assert.doesNotMatch(page, /export const metadata|generateMetadata|application\/ld\+json|canonical|robots|stack127_pages|sitemap/i);
   const client = readFileSync(clientPath, "utf8");
   assert.match(client, /Select a cohort to inspect its observed result/);
 });
 
 test("the supporting guide is server-rendered, bounded, and points to the next check", () => {
-  const guide = readFileSync(guidePath, "utf8");
+  const guide = readToolPageSeed("drive-reliability");
   for (const phrase of [
     "Choose a period that matches the question",
     "AFR uses drive days, not drive count",
@@ -49,7 +48,6 @@ test("the supporting guide is server-rendered, bounded, and points to the next c
     assert.match(guide, new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")), phrase);
   }
   assert.doesNotMatch(guide, /best drive|personal failure probability|guarantee/i);
-  assert.match(guide, /proseClassName/);
 });
 
 test("the technical core stays outside React and remains local-first", () => {
@@ -83,7 +81,7 @@ test("the route stays isolated from shared storage surfaces", () => {
     "tests/pages/drive-reliability/",
     "scripts/drive-reliability/",
   ];
-  const files = [pagePath, clientPath, guidePath, stylePath, dataPath, enginePath, manifestPath, refreshPath];
+  const files = [pagePath, clientPath, stylePath, dataPath, enginePath, manifestPath, refreshPath];
   for (const file of files) {
     const relative = path.relative(root, file);
     assert.equal(allowed.some((prefix) => relative === prefix || relative.startsWith(prefix)), true, relative);

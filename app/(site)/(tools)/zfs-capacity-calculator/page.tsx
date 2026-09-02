@@ -1,11 +1,10 @@
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { getRequiredToolPage } from "@/lib/tool-pages";
 import { Database } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { PageTitleIcon } from "../../../page-title-icon";
-import { PageHeader } from "../../../page-header";
 import { PageCanvas } from "../../../page-canvas";
 import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import { ZfsCapacityCalculator } from "./zfs-capacity-calculator";
-import { ZfsCapacityGuide } from "./zfs-capacity-guide";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
@@ -18,6 +17,7 @@ export default async function ZfsCapacityCalculatorPage({
 }: {
   searchParams: Promise<SearchParams>;
 }) {
+  const toolPage = await getRequiredToolPage("zfs-capacity-calculator");
   const params = await searchParams;
   return (
     <AppShell
@@ -27,22 +27,12 @@ export default async function ZfsCapacityCalculatorPage({
       sidebarLabel="ZFS calculator sidebar"
     >
       <PageCanvas>
-        <PageHeader>
-          <h1>
-            <PageTitleIcon>
-              <Database strokeWidth={2.2} />
-            </PageTitleIcon>{" "}
-            ZFS pool capacity <mark>calculator</mark> for mixed vdevs
-          </h1>
-          <p>
-            Plan a fresh OpenZFS pool one top-level vdev at a time. Add equal drives quickly, edit
-            any drive for mixed sizes, and see estimated writable capacity, planning headroom,
-            per-vdev failure boundaries, and every modeled loss. The calculation stays in your
-            browser and does not predict the exact free space of an installed or expanded pool.
-          </p>
-        </PageHeader>
+        <ToolPageHeader
+          icon={<Database strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
         <ZfsCapacityCalculator initialState={firstValue(params.state)} />
-        <ZfsCapacityGuide />
+        <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </AppShell>
   );

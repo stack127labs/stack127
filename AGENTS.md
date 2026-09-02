@@ -33,10 +33,13 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - Catalog route source lives under the non-URL route group `app/(site)/(catalogs)/`. This includes app directories, keyboard shortcuts, software license comparisons, and tool collection pages.
 - Course route source lives under `app/(site)/(courses)/`; About and legal policies live under `app/(site)/(legal)/`.
 - Tool route source lives under the non-URL route group `app/(site)/(tools)/<tool-slug>/`. A tool may appear in several collections while keeping one route, docs folder, and ownership manifest.
+- Reference directories such as `/epp-status-codes` and `/tld-directory` live under `app/(site)/(catalogs)/` and never receive `stack127_tool_pages` rows.
 - Do not create new tool URLs under `/<collection>/<tool-slug>`. Add the flat tool to every relevant collection instead.
 - Do not use Supabase-backed dynamic routing for normal site pages unless the user explicitly asks for it.
 - Keep page URLs stable and human-readable.
 - Public publication is controlled only by `public.stack127_pages`.
+- `public.stack127_pages.row_created_at` and `row_updated_at` are internal row times. `published_at` and `updated_at` are deliberate public dates. Never use an internal row time as a public date.
+- Interactive tool titles, introductions, supporting Markdown, versions, and stack127 repo sync facts live in `public.stack127_tool_pages`. Read `stack127_docs/tool-pages.md` before changing them.
 - Do not add `metadata`, `generateMetadata`, robots rules, canonical URLs, sitemap dates, or page JSON-LD inside page route files.
 - Exact published slugs in `stack127_pages` are `index, follow` and appear in `/sitemap.xml`.
 - Routes outside a published root return `404`, even if code exists in the repo.
@@ -51,6 +54,7 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - Sitewide docs live under `stack127_docs/`.
 - Current operating truth belongs in `stack127_docs/`. Dated decisions, migrations, and completed work belong in `stack127_records/YYYY-MM-DD-<topic>.md`. A record may explain why the current rule exists, but it does not override a current doc.
 - Do not recreate the old `content/` prose workflow.
+- Do not keep a second live copy of tool Markdown in route files or `content_docs`. Use the reviewed content command in `stack127_docs/tool-pages.md`; content-only changes increment `content_revision` and never `tool_version`.
 
 ## Scripts
 
@@ -59,22 +63,23 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - Sitewide scripts live under `scripts/stack127/`.
 - Do not add one-off scripts to `package.json`.
 - Durable package scripts should include the page slug, for example `self-host-apps:refresh-github`.
+- Functional tool changes use the test-first build workflow and then the reviewed version command. They increment `tool_version`, not `content_revision`, unless copy also changed in a separate content update.
 
 ## Tests
 
 - Every route has one ownership manifest under `tests/pages/<route>/page.json`; `/` uses `tests/pages/home/page.json`.
 - Put tests that protect one page beside that page manifest.
 - Keep route-family tests in that family's `shared` folder and sitewide tests in `tests/stack127/`.
-- The ownership manifest is the index for the page's docs, tests, scripts, skills, and local page artifacts. External repositories are tracked in `stack127_docs/public-repositories.md`, not copied into this repository.
+- The ownership manifest is the index for the page's docs, tests, scripts, skills, and local page artifacts. stack127 repos are tracked in `stack127_docs/stack127-repos.md`, not copied into this repository.
 
-## External repositories
+## stack127 repos
 
 - The private source-of-truth repository is `stack127labs/stack127`.
-- External repositories belong to the `stack127labs` GitHub organization.
-- External repositories are independent source-of-truth repositories. Do not keep nested checkouts, tracked copies, submodules, or runtime/build dependencies under this repository.
-- Track external repository visibility, remotes, branches, source-of-truth boundaries, version/revision status, and deliberate manual-port relationships in `stack127_docs/public-repositories.md`.
-- Clone an external repository separately under `/home/teja/projects/<repo-name>` when editing it. Run its own quality gate and CI from that checkout.
-- If private and external projects need similar code, port a deliberate snapshot and record the source release/commit; never create an implicit cross-repository dependency.
+- stack127 repos belong to the `stack127labs` GitHub organization.
+- stack127 repos are independent source-of-truth repositories. Do not keep nested checkouts, tracked copies, submodules, or runtime/build dependencies under this repository.
+- Track visibility, remotes, branches, source-of-truth boundaries, version/revision status, and deliberate manual-port relationships in `stack127_docs/stack127-repos.md`.
+- Clone a stack127 repo separately under `/home/teja/projects/<repo-name>` when editing it. Run its own quality gate and CI from that checkout.
+- If private and stack127 repos need similar code, port a deliberate snapshot and record the source release and commit. Never create an implicit cross-repository dependency.
 
 ## Skills
 
@@ -95,7 +100,7 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - `.env.deploy` is for VPS, Cloudflare, Dokploy, and deployment automation values.
 - `.env.analytics` is for analytics values such as Umami URL and site ID when needed.
 - `.env.homelab` is for homelab host and local administration values.
-- `.env.repos` is for local GitHub CLI and external-repository automation values.
+- `.env.repos` is for local GitHub CLI and stack127 repo automation values.
 - Keep the full secret-free key and runtime inventory aligned with `stack127_docs/environment-inventory.md` and the tracked `*.example` schemas.
 - Next.js automatically reads normal Next env files such as `.env.local`. Custom split env files must be loaded explicitly by deploy tooling, scripts, command flags, or a script-level env loader.
 - Never commit secrets.

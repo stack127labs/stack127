@@ -80,7 +80,7 @@ test("page families share one visible heading component", async () => {
     "utf8",
   );
   assert.match(toolPage, /<PageCanvas/);
-  assert.match(toolPage, /<PageHeader/);
+  assert.match(toolPage, /<ToolPageHeader/);
 });
 
 test("catalog pages do not expose crawler or development records in the UI", () => {

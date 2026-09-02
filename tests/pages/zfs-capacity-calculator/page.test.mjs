@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
+import { readToolPageSeed } from "../../helpers/tool-page-content.mjs";
 
 const route = new URL("../../../app/(site)/(tools)/zfs-capacity-calculator/", import.meta.url);
 const pagePath = new URL("page.tsx", route);
 const clientPath = new URL("zfs-capacity-calculator.tsx", route);
-const guidePath = new URL("zfs-capacity-guide.tsx", route);
 const stylesPath = new URL("zfs-capacity-calculator.module.css", route);
 const enginePath = new URL("../../../lib/storage/zfs.ts", import.meta.url);
 const hubPath = new URL("../../../app/(site)/(catalogs)/storage-tools/page.tsx", import.meta.url);
@@ -19,7 +19,7 @@ const migrationPath = new URL(
 );
 
 test("the published ZFS route has every owned source file", () => {
-  for (const file of [pagePath, clientPath, guidePath, stylesPath, enginePath, migrationPath]) assert.equal(existsSync(file), true, file.pathname);
+  for (const file of [pagePath, clientPath, stylesPath, enginePath, migrationPath]) assert.equal(existsSync(file), true, file.pathname);
   const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
   assert.equal(manifest.route, "/zfs-capacity-calculator");
   assert.equal(manifest.state, "published");
@@ -29,13 +29,11 @@ test("the published ZFS route has every owned source file", () => {
 test("the page renders the tool and the approved planning guide", () => {
   const page = readFileSync(pagePath, "utf8");
   const client = readFileSync(clientPath, "utf8");
-  const guide = readFileSync(guidePath, "utf8");
+  const guide = readToolPageSeed("zfs-capacity-calculator");
   const routeSource = `${page}\n${guide}`;
-  assert.match(page, /ZFS pool capacity/);
-  assert.match(page, /<mark>calculator<\/mark>/);
-  assert.match(page, /Plan a fresh OpenZFS pool/);
-  assert.match(page, /calculation stays in your\s+browser/);
-  assert.match(page, /<ZfsCapacityGuide \/>/);
+  assert.match(page, /getRequiredToolPage\("zfs-capacity-calculator"\)/);
+  assert.match(page, /<ToolPageHeader/);
+  assert.match(page, /<ToolPageMarkdown/);
   assert.match(client, /Add data vdev/);
   assert.match(client, /Add auxiliary role/);
   assert.match(client, /Set all drives/);
@@ -46,16 +44,13 @@ test("the page renders the tool and the approved planning guide", () => {
   assert.match(client, /Capacity accounting/);
   assert.match(client, /Zero-value categories/);
   assert.match(client, /zpool create -n/);
-  assert.match(guide, /<article/);
-  assert.match(guide, /proseClassName/);
   assert.match(guide, /Each vdev is its own failure boundary/);
   assert.match(guide, /Why ashift and block size change RAIDZ capacity/);
   assert.match(guide, /Slop and planning headroom are different/);
   assert.match(guide, /Why an installed pool can show less free space/);
   assert.match(guide, /openzfs\.github\.io/);
-  assert.ok((guide.match(/<h2>/g) ?? []).length <= 5, "the guide stays focused");
+  assert.ok((guide.match(/^## /gm) ?? []).length <= 5, "the guide stays focused");
   const visibleWords = guide
-    .replace(/<[^>]+>/g, " ")
     .replace(/[{}()=\"'`;,:./]/g, " ")
     .split(/\s+/)
     .filter(Boolean);

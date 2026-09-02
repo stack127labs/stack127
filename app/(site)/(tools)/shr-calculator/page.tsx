@@ -1,10 +1,9 @@
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { getRequiredToolPage } from "@/lib/tool-pages";
 import { HardDrive } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { PageTitleIcon } from "../../../page-title-icon";
-import { PageHeader } from "../../../page-header";
 import { PageCanvas } from "../../../page-canvas";
 import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
-import { ShrGuide } from "./shr-guide";
 import { ShrCalculator } from "./shr-calculator";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -18,6 +17,7 @@ export default async function ShrCalculatorPage({
 }: {
   searchParams: Promise<SearchParams>;
 }) {
+  const toolPage = await getRequiredToolPage("shr-calculator");
   const params = await searchParams;
   return (
     <AppShell
@@ -27,21 +27,12 @@ export default async function ShrCalculatorPage({
       sidebarLabel="SHR calculator sidebar"
     >
       <PageCanvas>
-        <PageHeader>
-          <h1>
-            <PageTitleIcon>
-              <HardDrive strokeWidth={2.2} />
-            </PageTitleIcon>{" "}
-            Synology SHR capacity <mark>calculator</mark> for mixed drives
-          </h1>
-          <p>
-            Enter individual drive capacities, choose SHR-1 or SHR-2, and get an estimated fresh-pool
-            capacity with protection and unused tiers kept separate. Inputs stay in your browser;
-            this page does not model expansion history or filesystem free space.
-          </p>
-        </PageHeader>
+        <ToolPageHeader
+          icon={<HardDrive strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
         <ShrCalculator initialState={firstValue(params.state)} />
-        <ShrGuide />
+        <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </AppShell>
   );

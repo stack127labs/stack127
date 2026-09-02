@@ -32,7 +32,8 @@ read metadata, or understand a table.
 ## Catalogs
 
 Catalogs help someone compare and choose from many entries. Self-hosted apps, terminal apps,
-keyboard shortcuts, and software licenses are catalogs even though their best result formats differ.
+keyboard shortcuts, software licenses, EPP status codes, and the TLD directory are catalogs even
+though their best result formats differ.
 
 Catalog routes and their shared controls live under `app/(site)/(catalogs)/`. Tool collection pages
 such as `/dns-tools` also belong here because their job is discovery, not calculation.
@@ -59,15 +60,21 @@ Tools help someone answer one concrete question. The title and introduction come
 by one clearly framed interface. Results remain in that frame or connect to it directly.
 Supporting guidance follows with the shared prose rhythm.
 
+Tool routes live under `app/(site)/(tools)/`. Their interactive system remains in code. Their title,
+introduction, and supporting Markdown live in `public.stack127_tool_pages` and render through the
+shared server content layer. Read `stack127_docs/tool-pages.md` before changing tool content or a
+tool version.
+
 Use neutral borders, calm background changes, and useful diagrams. Do not scatter inputs or results
 across unrelated cards. Do not show runtime, fixture, crawler, draft, registry, or deployment terms
 unless the tool itself is explicitly about those concepts.
 
 ## References
 
-References help someone retrieve or compare stable facts. Use prose for explanation, tables for
-repeated fields, and anchored sections for scanning. Keyboard shortcut tables and software license
-comparisons use this reference mode inside the catalog family.
+References help someone retrieve or compare stable facts. They are a catalog presentation mode,
+not a tool family or a `stack127_tool_pages` record. Use prose for explanation, tables for repeated
+fields, and anchored sections for scanning. Keyboard shortcut tables, software license comparisons,
+EPP status codes, and the TLD directory use this mode inside the catalog family.
 
 ## Info pages
 

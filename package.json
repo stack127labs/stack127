@@ -58,9 +58,12 @@
     "stack127:marker-art": "node scripts/stack127/marker-art/generate.mjs",
     "stack127:clean-charts": "node scripts/stack127/clean-charts/generate.mjs",
     "stack127:brand:build": "node scripts/stack127/brand/build-assets.mjs",
-    "stack127:dataset:export": "node scripts/stack127/github/export-dataset.mjs",
-    "stack127:dataset:sync": "node scripts/stack127/github/sync-dataset-repo.mjs",
-    "stack127:tool:new": "node scripts/stack127/github/create-tool-repo.mjs",
+    "stack127:repo:dataset:export": "node scripts/stack127/repos/export-dataset.mjs",
+    "stack127:repo:dataset:sync": "node scripts/stack127/repos/sync-dataset-repo.mjs",
+    "stack127:repo:tool:new": "node scripts/stack127/repos/create-tool-repo.mjs",
+    "stack127:tool-page:content:update": "node scripts/stack127/tool-pages/update-content.mjs",
+    "stack127:tool-page:version:update": "node scripts/stack127/tool-pages/update-version.mjs",
+    "stack127:tool-page:repo:sync": "node scripts/stack127/tool-pages/record-repo-sync.mjs",
     "stack127:deploy:preflight": "node scripts/stack127/deployment/preflight.mjs --check-git --check-cloudflare"
   },
   "dependencies": {
@@ -72,7 +75,9 @@
     "pg": "^8.21.0",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "react-icons": "^5.6.0"
+    "react-icons": "^5.6.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@types/dns-packet": "^5.6.5",

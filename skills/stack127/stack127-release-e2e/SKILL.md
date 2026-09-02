@@ -17,7 +17,7 @@ canonical workflow is `.github/workflows/stack127-release-e2e.yml`.
 
 The only production target is the OVH Dokploy application in that manifest.
 Never deploy to the removed Hostinger Dokploy target, a generic VPS variable,
-or a nested checkout of an external repository.
+or a nested checkout of a stack127 repo.
 
 ## Release sequence
 

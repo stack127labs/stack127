@@ -13,7 +13,7 @@ Every public page change should keep Stack127 fast, consistent, and easy for cra
 ## Page Workflow
 
 1. Read `AGENTS.md` and the relevant `content_docs/<page-slug>/` folder.
-2. Create or update `tests/pages/<route>/page.json` with the route state and its docs, tests, scripts, and skills before or alongside the page. Keep the required `repositories` array empty for external repositories; track those relationships in `stack127_docs/public-repositories.md`. Use `tests/pages/home/page.json` for `/`.
+2. Create or update `tests/pages/<route>/page.json` with the route state and its docs, tests, scripts, and skills before or alongside the page. Keep the required `repositories` array empty for stack127 repos; track those relationships in `stack127_docs/stack127-repos.md`. Use `tests/pages/home/page.json` for `/`.
 3. Add or update route tests before considering the page done.
 4. Add or update the route under `app/` using the shared shell, typography, spacing, and components.
 5. Keep important page content server-rendered.
@@ -53,7 +53,7 @@ That command runs:
 - Do not add page-specific SEO logic inside route files.
 - Do not add hidden fallbacks that make broken data look valid.
 - Do not use local database state to decide public SEO or GitHub dataset output.
-- Do not push public GitHub repos or public-facing content without explicit approval.
+- Do not push public stack127 repos or public-facing content without explicit approval.
 - Write public-facing copy for readers, not as internal development notes.
 - Keep `.agents/skills` and `.claude/skills` as symlinks to the canonical `skills/` folder.
 - Use the Stack127 cover image intake skill for generated page images; final JPGs should remove junk metadata and keep clean SEO-friendly metadata where tooling supports it.

@@ -12,15 +12,16 @@ Build exactly one working tool. Deliver the tool surface only; the user will add
 1. Read `AGENTS.md`.
 2. Read `skills/stack127/test-driven-page/SKILL.md` and `skills/stack127/visual-first-content/SKILL.md` completely.
 3. Read `stack127_docs/design-system.md`, `css-architecture.md`, `visual-first.md`, `writing-style.md`, `seo.md`, and `quality-workflow.md`.
-4. Read `skills/stack127/references/homelab-browser-and-search.md` before visual verification and record the selected backend.
-5. Run:
+4. Read `stack127_docs/tool-pages.md` for the route/content boundary and functional version workflow.
+5. Read `skills/stack127/references/homelab-browser-and-search.md` before visual verification and record the selected backend.
+6. Run:
 
    ```bash
    node skills/stack127/stack127-tool-build/scripts/validate-pipeline.mjs content_docs/<route-without-leading-slash> --stage=test
    ```
 
-6. Stop if validation fails. Require ready `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, and `brief.md`. Do not require or consume `writing-and-seo.md`.
-7. Inspect the route family, shared components, libraries, tests, manifests, scripts, and worktree. Preserve unrelated and user-owned edits.
+7. Stop if validation fails. Require ready `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, and `brief.md`. Do not require or consume `writing-and-seo.md`.
+8. Inspect the route family, shared components, libraries, tests, manifests, scripts, and worktree. Preserve unrelated and user-owned edits.
 
 ## Tool-only boundary
 
@@ -38,6 +39,8 @@ Do not add:
 - how-to-use, methodology, formula-explanation, worked-example, caveat, FAQ, related-reading, or SEO sections;
 - placeholder prose, empty content headings, lorem ipsum, or a reserved article shell;
 - content from `writing-and-seo.md` or any writer.
+
+Do not edit `intro_markdown`, `content_markdown`, or `content_revision`. Those belong to the content-only workflow.
 
 If a planning artifact proposes explanatory prose, leave it for the user's later content pass. Preserve the underlying product behavior or structured result, but do not convert the prose into helper copy. Keep operational language short; shorten any static or interpolated public string that reaches eight words.
 
@@ -110,6 +113,8 @@ node skills/stack127/stack127-tool-build/scripts/validate-pipeline.mjs content_d
 
 The tool-only audit discovers every TypeScript and TSX file in the route and rejects long static or fragmented public copy. Fix violations by removing or shortening prose, not by splitting strings or omitting files.
 
+When the user-observable tool behavior changed, use the dry-run-first functional version command in `stack127_docs/tool-pages.md` against development. Bump `tool_version` once after the implementation and focused tests pass. A refactor with no behavior change does not receive a new version. Do not record a stack127 repo sync unless that repository was actually compared or synchronized.
+
 ### 6. Run the full gate
 
 Run `npm run quality`. Request normal approval if required production data or network access is unavailable. Do not skip registry or SEO checks.
@@ -124,8 +129,9 @@ Call the tool complete only when:
 - the rendered tool matches approved state wireframes in both themes and target widths;
 - the calculated result has no clipped or offscreen values at 320px, 375px, 760px, or desktop width;
 - no explanatory page prose, content section, FAQ, or writing artifact was added;
+- a user-observable functional change has a reviewed `tool_version` bump, while `content_revision` is unchanged;
 - the ownership manifest is complete;
 - `npm run quality` passes;
 - preview and publication state are restored.
 
-Report the technical system built, tests run, visual states checked, selected backend, preview cleanup, and any P2 follow-up. Explicitly confirm that no page prose was added. Do not publish, deploy, commit, push, or open a pull request unless requested.
+Report the technical system built, tool version before and after when changed, tests run, visual states checked, selected backend, preview cleanup, and any P2 follow-up. Explicitly confirm that no page prose or content revision was added. Do not publish, deploy, commit, push, or open a pull request unless requested.

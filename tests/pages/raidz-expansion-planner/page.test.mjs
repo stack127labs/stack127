@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
+import { readToolPageSeed } from "../../helpers/tool-page-content.mjs";
 
 const route = new URL("../../../app/(site)/(tools)/raidz-expansion-planner/", import.meta.url);
 const pagePath = new URL("page.tsx", route);
 const clientPath = new URL("raidz-expansion-planner.tsx", route);
-const guidePath = new URL("raidz-expansion-guide.tsx", route);
 const stylesPath = new URL("raidz-expansion-planner.module.css", route);
 const enginePath = new URL("../../../lib/storage/zfs-expansion.ts", import.meta.url);
 const hubPath = new URL("../../../app/(site)/(catalogs)/storage-tools/page.tsx", import.meta.url);
@@ -17,7 +17,7 @@ const migrationPath = new URL(
 );
 
 test("owns a published flat tool route", () => {
-  for (const file of [pagePath, clientPath, guidePath, stylesPath, enginePath]) assert.equal(existsSync(file), true, file.pathname);
+  for (const file of [pagePath, clientPath, stylesPath, enginePath]) assert.equal(existsSync(file), true, file.pathname);
   const manifest = JSON.parse(readFileSync(new URL("page.json", import.meta.url), "utf8"));
   assert.equal(manifest.route, "/raidz-expansion-planner");
   assert.equal(manifest.state, "published");
@@ -40,11 +40,9 @@ test("keeps formula offline and outside React", () => {
 test("renders concise server content around the operational tool", () => {
   const page = readFileSync(pagePath, "utf8");
   const client = readFileSync(clientPath, "utf8");
-  const guide = readFileSync(guidePath, "utf8");
-  assert.match(page, /RAIDZ expansion/);
-  assert.match(page, /one existing, never-expanded RAIDZ vdev/i);
-  assert.match(page, /reported by .*zfs list.*df.*unknown/is);
-  assert.match(page, /RaidzExpansionPlanner[\s\S]*RaidzExpansionGuide/);
+  const guide = readToolPageSeed("raidz-expansion-planner");
+  assert.match(page, /getRequiredToolPage\("raidz-expansion-planner"\)/);
+  assert.match(page, /RaidzExpansionPlanner[\s\S]*ToolPageMarkdown/);
   for (const label of ["Current width", "Final width", "Smallest member", "Each added disk", "Current physical allocation", "Plan expansion", "Capacity plan", "Expansion steps", "Show calculation", "Copy summary", "Share plan"]) assert.match(client, new RegExp(label));
   for (const copy of [
     "Get the inputs from the vdev you are widening",
@@ -67,9 +65,7 @@ test("renders concise server content around the operational tool", () => {
     "/zfs-capacity-calculator",
     "/zfs-padding-calculator",
   ]) assert.match(guide, new RegExp(copy.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
-  assert.match(guide, /proseClassName/);
-  assert.match(guide, /proseFlowClassName/);
-  assert.match(guide, /<table/);
+  assert.match(guide, /^\| Current physical allocation/m);
   assert.doesNotMatch(`${page}\n${client}\n${guide}`, /FAQ|How to use|Methodology|Related reading|—|–/);
   assert.doesNotMatch(page, /export const metadata|generateMetadata|application\/ld\+json|canonical|robots/);
 });

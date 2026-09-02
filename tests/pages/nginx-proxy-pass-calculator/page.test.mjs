@@ -1,12 +1,12 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
+import { readToolPageSeed } from "../../helpers/tool-page-content.mjs";
 
 const route = new URL("../../../app/(site)/(tools)/nginx-proxy-pass-calculator/", import.meta.url);
 const pagePath = new URL("page.tsx", route);
 const clientPath = new URL("nginx-proxy-pass-calculator.tsx", route);
 const stylesPath = new URL("nginx-proxy-pass-calculator.module.css", route);
-const guidePath = new URL("nginx-proxy-pass-guide.tsx", route);
 const enginePath = new URL("../../../lib/nginx/proxy-pass-uri.ts", import.meta.url);
 const previewPath = new URL("../../../scripts/nginx-proxy-pass-calculator/preview-local-page.mjs", import.meta.url);
 const verifierPath = new URL("../../../scripts/nginx-proxy-pass-calculator/verify-nginx-fixtures.mjs", import.meta.url);
@@ -63,18 +63,15 @@ test("guards preview mutations to a local database", () => {
 });
 
 test("serves a concise server-rendered guide around the stable calculator", () => {
-  assert.equal(existsSync(guidePath), true);
   const page = readFileSync(pagePath, "utf8");
-  const guide = readFileSync(guidePath, "utf8");
-  assert.match(page, /Enter the matched static location/);
-  assert.match(page, /runs in this browser/);
-  assert.match(page, /NginxProxyPassGuide/);
+  const guide = readToolPageSeed("nginx-proxy-pass-calculator");
+  assert.match(page, /<ToolPageHeader/);
+  assert.match(page, /<ToolPageMarkdown/);
   assert.match(guide, /Use the location NGINX actually matched/);
   assert.match(guide, /Common static cases/);
   assert.match(guide, /Read the result as one replacement chain/);
   assert.match(guide, /When the answer needs live NGINX/);
   assert.match(guide, /Verify the target in the running configuration/);
-  assert.match(guide, /proseClassName/);
   assert.match(guide, /https:\/\/nginx\.org\/en\/docs\/http\/ngx_http_proxy_module\.html#proxy_pass/);
   assert.match(guide, /https:\/\/nginx\.org\/en\/docs\/http\/ngx_http_rewrite_module\.html#rewrite/);
   assert.doesNotMatch(`${page}\n${guide}`, /FAQ|best tool|guarantee|always correct|—|–/i);

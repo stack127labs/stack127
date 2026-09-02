@@ -204,6 +204,7 @@ test("DNS pages have print-safe shell and tables", async ({ page }) => {
   await expect(page.locator("[data-app-sidebar]")).toBeHidden();
   await expect(page.getByRole("contentinfo")).toBeHidden();
   await expect(page.locator(".dns-lookup-main")).toHaveCSS("display", "block");
-  await expect(page.locator(".dns-table-scroll").first()).toHaveCSS("overflow-x", "visible");
-  await expect(page.locator(".dns-status-table td").first()).toHaveCSS("overflow-wrap", "normal");
+  const supportingTable = page.locator('[data-tool-page-content] [role="region"]').first();
+  await expect(supportingTable).toHaveCSS("overflow-x", "visible");
+  await expect(supportingTable.locator("td").first()).toHaveCSS("overflow-wrap", "normal");
 });

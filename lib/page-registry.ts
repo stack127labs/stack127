@@ -6,15 +6,18 @@ import { absoluteUrl, siteName, siteUrl } from "./seo";
 import { homePageSlugs } from "./page-registry-helpers";
 
 export type Stack127Page = {
+  id: number | string;
   slug: string;
+  page_family: "tool" | "catalog" | "course" | "info" | "legal";
   /** Compact UI label for sidebars, home cards, and other chrome. */
   label: string;
   meta_title: string;
   meta_description: string;
   is_published: boolean;
-  created_at: Date | string;
-  published_at: Date | string | null;
+  row_created_at: Date | string;
+  published_at: Date | string;
   updated_at: Date | string;
+  row_updated_at: Date | string;
   cover_image_url: string | null;
   page_type: string;
   sitemap_priority: number | string;
@@ -84,14 +87,17 @@ export type PagePublicationState =
 
 const publishedPageSelect = `
   select
+    id,
     slug,
+    page_family,
     label,
     meta_title,
     meta_description,
     is_published,
-    created_at,
+    row_created_at,
     published_at,
     updated_at,
+    row_updated_at,
     cover_image_url,
     page_type,
     sitemap_priority
@@ -295,7 +301,7 @@ export function buildRegistryPageStructuredData(state: PagePublicationState) {
     "@context": "https://schema.org",
     "@type": state.page.page_type,
     dateModified: new Date(state.page.updated_at).toISOString(),
-    datePublished: new Date(state.page.published_at ?? state.page.created_at).toISOString(),
+    datePublished: new Date(state.page.published_at).toISOString(),
     description: state.page.meta_description,
     isPartOf: {
       "@type": "WebSite",

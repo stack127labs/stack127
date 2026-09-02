@@ -1,10 +1,9 @@
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { getRequiredToolPage } from "@/lib/tool-pages";
 import { Calculator } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { PageTitleIcon } from "../../../page-title-icon";
-import { PageHeader } from "../../../page-header";
 import { PageCanvas } from "../../../page-canvas";
 import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
-import { StorageGrowthGuide } from "./storage-growth-planner-guide";
 import { StorageGrowthPlanner } from "./storage-growth-planner";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -18,6 +17,7 @@ export default async function StorageGrowthPlannerPage({
 }: {
   searchParams: Promise<SearchParams>;
 }) {
+  const toolPage = await getRequiredToolPage("storage-growth-planner");
   const params = await searchParams;
   return (
     <AppShell
@@ -27,19 +27,12 @@ export default async function StorageGrowthPlannerPage({
       sidebarLabel="Storage tools sidebar"
     >
       <PageCanvas>
-        <PageHeader>
-          <h1>
-            <PageTitleIcon>
-              <Calculator strokeWidth={2.2} />
-            </PageTitleIcon>{" "}
-            Storage Growth and TCO <mark>Planner</mark>
-          </h1>
-          <p>
-            Plan a local storage purchase against your data growth and cost assumptions. The planner shows capacity after reserve, the first shortfall year, and a modeled total cost; it is not installed filesystem free space.
-          </p>
-        </PageHeader>
+        <ToolPageHeader
+          icon={<Calculator strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
         <StorageGrowthPlanner initialState={firstValue(params.state)} />
-        <StorageGrowthGuide />
+        <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </AppShell>
   );

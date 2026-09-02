@@ -213,7 +213,7 @@ test("the GitHub refresher can close reviewed source-model gaps from detected li
 test("secondary self-host jobs read mutable GitHub facts from the shared project table", async () => {
   const audit = await read("scripts/self-host-apps/audit-data-quality.mjs");
   const enrichment = await read("scripts/self-host-apps/select-enrichment-batch.mjs");
-  const exportDataset = await read("scripts/stack127/github/export-dataset.mjs");
+  const exportDataset = await read("scripts/stack127/repos/export-dataset.mjs");
 
   for (const source of [audit, enrichment, exportDataset]) {
     assert.match(source, /public\.github_projects/);

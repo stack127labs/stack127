@@ -123,6 +123,7 @@ function rowMatchesPreview(row, expected) {
     && row.meta_title === expected.title
     && row.meta_description === expected.description
     && row.is_published === true
+    && row.page_family === "tool"
     && row.page_type === PREVIEW_PAGE_TYPE
     && Number(row.sitemap_priority) === expected.priority;
 }
@@ -130,7 +131,7 @@ function rowMatchesPreview(row, expected) {
 async function existingRows(pool) {
   const result = await pool.query(
     `
-      select slug, label, meta_title, meta_description, is_published, page_type, sitemap_priority
+      select slug, label, meta_title, meta_description, is_published, page_family, page_type, sitemap_priority
       from public.stack127_pages
       where slug = any($1::text[])
       order by slug
@@ -141,23 +142,31 @@ async function existingRows(pool) {
 }
 
 async function addPreviewRows(pool) {
-  const existing = await existingRows(pool);
-  if (existing.length > 0) {
-    fail(`existing registry rows found; refusing to overwrite ${existing.map((row) => row.slug).join(", ")}.`);
-  }
-
   await pool.query("begin");
   try {
     for (const row of PREVIEW_ROWS) {
-      await pool.query(
+      const result = await pool.query(
         `
-          insert into public.stack127_pages (
-            slug, label, meta_title, meta_description, is_published,
-            published_at, cover_image_url, page_type, sitemap_priority
-          ) values ($1, $2, $3, $4, true, now(), null, $5, $6)
+          update public.stack127_pages
+          set label = $2,
+              meta_title = $3,
+              meta_description = $4,
+              is_published = true,
+              published_at = coalesce(published_at, now()),
+              updated_at = now(),
+              cover_image_url = null,
+              page_type = $5,
+              sitemap_priority = $6
+          where slug = $1
+            and page_family = 'tool'
+            and exists (
+              select 1 from public.stack127_tool_pages tool_page
+              where tool_page.page_id = public.stack127_pages.id
+            )
         `,
         [row.slug, row.label, row.title, row.description, PREVIEW_PAGE_TYPE, row.priority],
       );
+      if (result.rowCount !== 1) fail(`tool registry or content row is missing for ${row.slug}.`);
     }
     await pool.query("commit");
   } catch (error) {
@@ -173,24 +182,23 @@ async function addPreviewRows(pool) {
 }
 
 async function removePreviewRows(pool) {
-  const existing = await existingRows(pool);
-  const expectedBySlug = new Map(PREVIEW_ROWS.map((row) => [row.slug, row]));
-  const unexpected = existing.filter((row) => !rowMatchesPreview(row, expectedBySlug.get(row.slug)));
-  if (unexpected.length > 0) {
-    fail(`refusing to remove non-preview registry rows: ${unexpected.map((row) => row.slug).join(", ")}.`);
-  }
-
   await pool.query("begin");
   try {
-    await pool.query("delete from public.stack127_pages where slug = any($1::text[])", [PREVIEW_SLUGS]);
-    const remaining = await existingRows(pool);
-    if (remaining.length > 0) fail(`cleanup left rows: ${remaining.map((row) => row.slug).join(", ")}.`);
+    const result = await pool.query(
+      `update public.stack127_pages
+       set is_published = false, published_at = null, updated_at = null
+       where slug = any($1::text[]) and page_family = 'tool'`,
+      [PREVIEW_SLUGS],
+    );
+    if (result.rowCount !== PREVIEW_ROWS.length) {
+      fail(`expected ${PREVIEW_ROWS.length} tool rows but updated ${result.rowCount}.`);
+    }
     await pool.query("commit");
   } catch (error) {
     await pool.query("rollback").catch(() => undefined);
     throw error;
   }
-  console.log(`Removed temporary preview rows; remaining target rows: 0 (${PREVIEW_ROWS.length} slugs checked).`);
+  console.log(`Unpublished ${PREVIEW_ROWS.length} preview rows without deleting their tool content.`);
 }
 
 let pool;

@@ -1,11 +1,10 @@
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { getRequiredToolPage } from "@/lib/tool-pages";
 import { ServerCog } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { PageTitleIcon } from "../../../page-title-icon";
-import { PageHeader } from "../../../page-header";
 import { PageCanvas } from "../../../page-canvas";
 import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import { CephCapacityCalculator } from "./ceph-capacity-calculator";
-import { CephCapacityGuide } from "./ceph-capacity-guide";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
@@ -18,6 +17,7 @@ export default async function CephCapacityCalculatorPage({
 }: {
   searchParams: Promise<SearchParams>;
 }) {
+  const toolPage = await getRequiredToolPage("ceph-capacity-calculator");
   const params = await searchParams;
   return (
     <AppShell
@@ -27,22 +27,12 @@ export default async function CephCapacityCalculatorPage({
       sidebarLabel="Ceph planner sidebar"
     >
       <PageCanvas>
-        <PageHeader>
-          <h1>
-            <PageTitleIcon>
-              <ServerCog strokeWidth={2.2} />
-            </PageTitleIcon>{" "}
-            Ceph capacity and failure-domain <mark>planner</mark>
-          </h1>
-          <p>
-            Plan a Ceph inventory by protection profile and named failure domain. The planner
-            returns raw capacity, modeled usable capacity, reserve, and the effect of losing the
-            largest modeled domain. It is a local planning model, not a live CRUSH or pool
-            inspection.
-          </p>
-        </PageHeader>
+        <ToolPageHeader
+          icon={<ServerCog strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
         <CephCapacityCalculator initialState={firstValue(params.state)} />
-        <CephCapacityGuide />
+        <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </AppShell>
   );
