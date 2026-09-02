@@ -1,12 +1,11 @@
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { getRequiredToolPage } from "@/lib/tool-pages";
 import { HardDrive } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { PageTitleIcon } from "../../../page-title-icon";
-import { PageHeader } from "../../../page-header";
 import { PageCanvas } from "../../../page-canvas";
 import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import snapshotData from "./data/drive-reliability-snapshot.json";
 import { DriveReliabilityExplorer } from "./drive-reliability";
-import { DriveReliabilityGuide } from "./drive-reliability-guide";
 import type { DriveReliabilitySnapshot } from "@/lib/drive-reliability";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -20,6 +19,7 @@ export default async function DriveReliabilityPage({
 }: {
   searchParams: Promise<SearchParams>;
 }) {
+  const toolPage = await getRequiredToolPage("drive-reliability");
   const params = await searchParams;
   return (
     <AppShell
@@ -29,24 +29,15 @@ export default async function DriveReliabilityPage({
       sidebarLabel="Storage tools sidebar"
     >
       <PageCanvas>
-        <PageHeader>
-          <h1>
-            <PageTitleIcon>
-              <HardDrive strokeWidth={2.2} />
-            </PageTitleIcon>{" "}
-            Drive reliability <mark>explorer</mark>
-          </h1>
-          <p>
-            Use published Backblaze drive data to inspect an exact model or compare up to three
-            cohorts. The explorer returns observed AFR and the exposure behind it, not a personal
-            failure forecast for a home NAS.
-          </p>
-        </PageHeader>
+        <ToolPageHeader
+          icon={<HardDrive strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
         <DriveReliabilityExplorer
           initialState={firstValue(params.state)}
           snapshot={snapshotData as DriveReliabilitySnapshot}
         />
-        <DriveReliabilityGuide />
+        <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </AppShell>
   );

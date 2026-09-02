@@ -1,10 +1,10 @@
-import "../../(catalogs)/domain-tools/domain-tools.css";
+import "../domain-tools/domain-tools.css";
 import { ListChecks } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
-import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
+import { DomainToolsSidebar } from "../domain-tools/domain-tools-sidebar";
 import { STATUS_CODES, STATUS_GROUP_TITLES, type StatusGroup } from "@/lib/domain/status-codes.ts";
-import { StatePill } from "../../(catalogs)/domain-tools/domain-lookup-client";
+import { StatePill } from "../domain-tools/domain-lookup-client";
 import { PageTitleIcon } from "../../../page-title-icon";
 import { PageHeader } from "../../../page-header";
 import { proseSectionFlowClassName } from "../../../prose";

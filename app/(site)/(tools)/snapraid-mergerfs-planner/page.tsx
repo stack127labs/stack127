@@ -1,13 +1,13 @@
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { getRequiredToolPage } from "@/lib/tool-pages";
 import { HardDrive } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { PageTitleIcon } from "../../../page-title-icon";
-import { PageHeader } from "../../../page-header";
 import { PageCanvas } from "../../../page-canvas";
 import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
-import { SnapraidMergerfsGuide } from "./snapraid-merfs-guide";
 import { SnapraidMergerfsPlanner } from "./snapraid-mergerfs-planner";
 
-export default function SnapraidMergerfsPlannerPage() {
+export default async function SnapraidMergerfsPlannerPage() {
+  const toolPage = await getRequiredToolPage("snapraid-mergerfs-planner");
   return (
     <AppShell
       mainLabel="SnapRAID and mergerfs config planner"
@@ -16,17 +16,12 @@ export default function SnapraidMergerfsPlannerPage() {
       sidebarLabel="Storage tools sidebar"
     >
       <PageCanvas>
-        <PageHeader>
-          <h1>
-            <PageTitleIcon><HardDrive strokeWidth={2.2} /></PageTitleIcon>{" "}
-            SnapRAID and mergerfs <mark>config planner</mark>
-          </h1>
-          <p>
-            Enter data, parity, content, and pool paths to generate a reviewable <code>snapraid.conf</code> and matching mergerfs <code>/etc/fstab</code> line. The checks run in this browser and do not inspect or change your host.
-          </p>
-        </PageHeader>
+        <ToolPageHeader
+          icon={<HardDrive strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
         <SnapraidMergerfsPlanner />
-        <SnapraidMergerfsGuide />
+        <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </AppShell>
   );

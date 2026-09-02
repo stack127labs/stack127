@@ -30,7 +30,7 @@ async function main() {
   const name = requireArg(args, "name");
   const org = String(args.org ?? process.env.STACK127_GITHUB_ORG ?? "stack127labs");
   const outDir = path.resolve(String(args.out ?? path.join("/tmp", slug)));
-  const templateDir = path.resolve(String(args.template ?? "templates/github-tool"));
+  const templateDir = path.resolve(String(args.template ?? "templates/stack127-tool-repo"));
   const fullName = `${org}/${slug}`;
 
   if (!existsSync(templateDir)) {
@@ -46,7 +46,7 @@ async function main() {
     REPOSITORY_URL: `https://github.com/${fullName}`,
   });
 
-  console.log(`Rendered tool repo scaffold: ${outDir}`);
+  console.log(`Rendered stack127 repo scaffold: ${outDir}`);
 
   if (!args["create-repo"]) return;
   ensureGithubEnv();

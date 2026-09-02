@@ -12,8 +12,9 @@ Add the minimum complete content layer around a finished tool. Write in a simple
 1. Read `AGENTS.md` and the route ownership manifest.
 2. Read `skills/stack127/test-driven-page/SKILL.md` and `skills/stack127/visual-first-content/SKILL.md` completely.
 3. Read `stack127_docs/visual-first.md`, `writing-style.md`, `design-system.md`, and `css-architecture.md`.
-4. Read the route's `brief.md`, ready research, implementation, and test reports. Read `writing-and-seo.md` when it exists.
-5. Inspect the finished tool, its tests, and at least two established sibling tool pages. Preserve unrelated changes.
+4. Read `stack127_docs/tool-pages.md` for the database Markdown boundary and content-only update command.
+5. Read the route's `brief.md`, ready research, implementation, and test reports. Read `writing-and-seo.md` when it exists.
+6. Inspect the finished tool, its tests, and at least two established sibling tool pages. Preserve unrelated changes.
 
 Do not write from the tool name alone. Use only facts already locked by the technical artifacts, engine fixtures, interface, or authoritative sources they cite.
 
@@ -21,7 +22,7 @@ Do not write from the tool name alone. Use only facts already locked by the tech
 
 Keep the interactive tool as the page's main visual and primary answer. Do not turn the page into an article with a calculator attached.
 
-Do not change formulas, controls, result semantics, route identity, publication state, metadata, registry records, canonical behavior, sitemap behavior, or JSON-LD. Return a technical mismatch to the owning build or planning stage instead of explaining around it.
+Do not change formulas, controls, result semantics, route identity, publication state, metadata, canonical behavior, sitemap behavior, or JSON-LD. The reviewed content command may update `content_revision` and the public `updated_at` as documented. Do not edit other registry fields or change `tool_version`. Return a technical mismatch to the owning build or planning stage instead of explaining around it.
 
 Do not publish, commit, push, open a pull request, or deploy unless the user separately asks.
 
@@ -75,15 +76,14 @@ Use three to seven h2 sections, normally no more than two compact tables, and no
 
 ## Test-first integration
 
-Before adding prose, update the route-owned static test to require the purpose, meaningful-use guidance, result interpretation, relevant concepts, limitations, privacy statement when applicable, real verification or adjacent link, and any worked example or table used. Assert essential information without forcing every tool to use identical headings. Keep tests for the clean route, server identity, absence of route metadata, and banned claims.
+Before applying prose, update the route-owned content contract to require the purpose, meaningful-use guidance, result interpretation, relevant concepts, limitations, privacy statement when applicable, real verification or adjacent link, and any worked example or table used. Assert essential information without forcing every tool to use identical headings. Verify these claims against the prepared Markdown or rendered database page, not by putting a second copy into the route test. Keep tests for the clean route, server identity, absence of route metadata, and banned claims.
 
-Then:
+Then use the dry-run-first content command in `stack127_docs/tool-pages.md`. It must increment `content_revision`, preserve `tool_version`, and keep the database as the only live copy. Also:
 
-- keep the introduction and guide server-rendered;
+- keep the introduction and guide server-rendered through the shared Markdown layer;
 - keep explanatory prose out of the client calculator component;
-- reuse `proseClassName` and `proseFlowClassName` instead of creating a new typography system;
-- colocate only layout and table styles in the route CSS module;
-- keep the guide at the shared prose measure;
+- do not create a route-owned guide component or duplicate Markdown file;
+- reuse the shared tool-page Markdown typography instead of creating a new typography system;
 - make tables keyboard-focusable and horizontally scrollable or reflow them cleanly at narrow widths;
 - preserve comfortable paragraph spacing without large empty gaps;
 - keep all existing tool behavior and formula fixtures unchanged.
@@ -106,4 +106,4 @@ When invoked inside `$stack127-tool-orchestrator`, report the clean local URL, s
 
 ## Completion rule
 
-Finish only when a new visitor can understand what the tool is, use it meaningfully, interpret the result, recognize its limits and data handling, and know the next verification step. The content must also be simple, factually bounded, server-rendered, visually consistent, covered by route tests, responsive around a real result, and unpublished. Report files changed, commands and results, visual states and backend checked, remaining P2 items, and the clean local URL.
+Finish only when a new visitor can understand what the tool is, use it meaningfully, interpret the result, recognize its limits and data handling, and know the next verification step. The content must also be simple, factually bounded, server-rendered, visually consistent, covered by route tests, responsive around a real result, and unpublished. Report the content revision before and after, confirm the tool version did not change, list commands and results, visual states and backend checked, remaining P2 items, and the clean local URL.

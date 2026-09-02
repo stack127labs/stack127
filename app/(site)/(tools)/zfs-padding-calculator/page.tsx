@@ -1,11 +1,10 @@
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { getRequiredToolPage } from "@/lib/tool-pages";
 import { Columns3 } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { PageTitleIcon } from "../../../page-title-icon";
-import { PageHeader } from "../../../page-header";
 import { PageCanvas } from "../../../page-canvas";
 import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import { ZfsPaddingCalculator } from "./zfs-padding-calculator";
-import { ZfsPaddingGuide } from "./zfs-padding-guide";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
@@ -18,6 +17,7 @@ export default async function ZfsPaddingCalculatorPage({
 }: {
   searchParams: Promise<SearchParams>;
 }) {
+  const toolPage = await getRequiredToolPage("zfs-padding-calculator");
   const params = await searchParams;
   return (
     <AppShell
@@ -27,21 +27,12 @@ export default async function ZfsPaddingCalculatorPage({
       sidebarLabel="ZFS padding calculator sidebar"
     >
       <PageCanvas>
-        <PageHeader>
-          <h1>
-            <PageTitleIcon>
-              <Columns3 strokeWidth={2.2} />
-            </PageTitleIcon>{" "}
-            ZFS block size and padding <mark>calculator</mark>
-          </h1>
-          <p>
-            See how one uncompressed ZFS block is split into data, parity, sector rounding, and
-            padding on a RAIDZ vdev. Compare block sizes and inspect the exact theoretical
-            allocation before changing <code>recordsize</code> or <code>volblocksize</code>.
-          </p>
-        </PageHeader>
+        <ToolPageHeader
+          icon={<Columns3 strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
         <ZfsPaddingCalculator initialState={firstValue(params.state)} />
-        <ZfsPaddingGuide />
+        <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </AppShell>
   );

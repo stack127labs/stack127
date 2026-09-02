@@ -1,11 +1,13 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
+import { readToolPageSeed } from "../../helpers/tool-page-content.mjs";
 
 const page = readFileSync(new URL("../../../app/(site)/(tools)/raid-calculator/page.tsx", import.meta.url), "utf8");
 const client = readFileSync(new URL("../../../app/(site)/(tools)/raid-calculator/raid-calculator.tsx", import.meta.url), "utf8");
 const styles = readFileSync(new URL("../../../app/(site)/(catalogs)/storage-tools/storage-tools.module.css", import.meta.url), "utf8");
 const canvasStyles = readFileSync(new URL("../../../app/page-canvas.module.css", import.meta.url), "utf8");
+const content = readToolPageSeed("raid-calculator");
 const manifestPath = new URL("page.json", import.meta.url);
 const migrationPath = new URL(
   "../../../supabase/migrations/20260809140000_publish_storage_tools.sql",
@@ -21,16 +23,16 @@ test("the RAID route is registry published through the storage migration", () =>
 });
 
 test("the RAID page follows the approved answer-first visual structure", () => {
-  assert.match(page, /RAID capacity/);
-  assert.match(page, /<mark>calculator<\/mark>/);
+  assert.match(page, /getRequiredToolPage\("raid-calculator"\)/);
+  assert.match(page, /<ToolPageHeader/);
   assert.match(client, /aria-label="RAID level"/);
   assert.match(client, /Theoretical usable capacity/);
   assert.match(client, /Where the raw capacity goes/);
   assert.match(client, /Drive arrangement/);
-  assert.match(page, /Compare RAID levels/);
-  assert.match(page, /The smallest drive sets the size of every group/);
-  assert.match(page, /Common RAID capacity questions/);
-  assert.match(page, /Everything is calculated in your browser/);
+  assert.match(content, /Compare RAID levels/);
+  assert.match(content, /smallest drive/i);
+  assert.match(content, /Common RAID capacity questions/);
+  assert.match(content, /calculated in your browser/i);
   assert.doesNotMatch(page, /export const metadata|generateMetadata|application\/ld\+json/);
 });
 
@@ -83,7 +85,7 @@ test("drive rows and results use the compact visual hierarchy", () => {
 
 test("the tool keeps exact comparison data in tables and avoids banned treatments", () => {
   assert.match(client, /<dl className=\{styles\.capacityValues\}>/);
-  assert.match(page, /<table/);
+  assert.match(content, /^\| Layout \| Minimum drives/m);
   assert.doesNotMatch(`${page}\n${client}`, /—|–/);
   assert.doesNotMatch(styles, /border-left\s*:/);
   for (const declaration of styles.match(/font-size\s*:[^;]+;/g) ?? []) {
@@ -94,16 +96,13 @@ test("the tool keeps exact comparison data in tables and avoids banned treatment
 test("the page owns a centered reading column with real outer gutters", () => {
   const pageRule = canvasStyles.match(/\.canvas\s*\{([^}]*)\}/s)?.[1] ?? "";
   const toolRule = styles.match(/\.tool\s*\{([^}]*)\}/s)?.[1] ?? "";
-  const referenceRule = styles.match(/\.reference\s*\{([^}]*)\}/s)?.[1] ?? "";
 
   assert.match(pageRule, /margin:\s*0 auto;/);
   assert.match(pageRule, /max-width:\s*1120px;/);
   assert.match(pageRule, /padding:\s*var\(--space-13\) var\(--container-gutter\) var\(--space-14\);/);
   assert.match(pageRule, /width:\s*100%;/);
   assert.match(toolRule, /background:\s*var\(--color-surface\);/);
-  assert.match(page, /\$\{styles\.reference\} \$\{proseClassName\} \$\{proseSectionFlowClassName\}/);
-  assert.match(referenceRule, /display:\s*grid;/);
-  assert.match(referenceRule, /gap:\s*var\(--space-8\);/);
+  assert.match(page, /<ToolPageMarkdown/);
   assert.match(page, /<PageCanvas>/);
 });
 

@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
+import { readToolPageSeed } from "../../helpers/tool-page-content.mjs";
 
 const pageUrl = new URL(
   "../../../app/(site)/(tools)/domain-age/page.tsx",
@@ -8,9 +9,10 @@ const pageUrl = new URL(
 );
 
 test("domain age checker keeps the approved plain-language explanation", async () => {
-  const page = await readFile(pageUrl, "utf8");
+  const route = await readFile(pageUrl, "utf8");
+  const page = readToolPageSeed("domain-age");
 
-  assert.match(page, /Domain <mark>age<\/mark> checker: how old is a domain\?/);
+  assert.match(route, /getRequiredToolPage\("domain-age"\)/);
   assert.match(page, /What is a domain age checker\?/);
   assert.match(page, /Why would you check a domain’s age\?/);
   assert.match(page, /What does domain age actually mean\?/);

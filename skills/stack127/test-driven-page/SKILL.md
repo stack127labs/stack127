@@ -13,18 +13,19 @@ Use this skill before changing any route under `app/(site)` or any SEO-visible p
 2. Read the relevant `content_docs/<page-slug>/` folder. If the page carries content, its `brief.md` (who is reading, the job, show vs say) must exist there before implementation. If it does not, write it first: the format is in `stack127_docs/visual-first.md`.
 3. Propose the format mix before writing copy. Read `stack127_docs/visual-first.md` and `stack127_docs/writing-style.md`, decide what is a chart, table, marker drawing, or screenshot, and challenge text-heavy requests, including Teja's, with a better visual format.
 4. Read `stack127_docs/css-architecture.md` before adding or moving page styles.
-5. Decide the route state before implementation:
+5. For an interactive tool, read `stack127_docs/tool-pages.md`. Keep its route and behavior in code, its readable copy in `stack127_tool_pages`, and its content and functional revisions separate.
+6. Decide the route state before implementation:
    - `published`: exact slug should be indexable and listed in sitemap.
    - `unpublished`: route exists in code but should return 404 until approved.
    - `noindex`: route can render, but should not be indexed.
-6. Create or update the route's `tests/pages/<route>/page.json` ownership manifest before or alongside the page. Use `tests/pages/home/page.json` for `/`.
-7. Add or update tests before considering the page done.
-8. Implement the smallest route/UI/data change.
-9. Run the gates listed below.
+7. Create or update the route's `tests/pages/<route>/page.json` ownership manifest before or alongside the page. Use `tests/pages/home/page.json` for `/`.
+8. Add or update tests before considering the page done.
+9. Implement the smallest route/UI/data change.
+10. Run the gates listed below.
 
 ## Test Requirements
 
-Every route under `app/(site)` must have a page-scoped ownership manifest under `tests/pages/`. The manifest records the route state, documentation, tests, scripts, and skills connected to that page. External repositories are tracked in `stack127_docs/public-repositories.md`, not copied into this repository; keep the manifest's required `repositories` array empty for them.
+Every route under `app/(site)` must have a page-scoped ownership manifest under `tests/pages/`. The manifest records the route state, documentation, tests, scripts, and skills connected to that page. stack127 repos are tracked in `stack127_docs/stack127-repos.md`, not copied into this repository; keep the manifest's required `repositories` array empty for them.
 
 For published routes, Playwright must verify:
 - HTTP 200.
@@ -65,4 +66,6 @@ npm run quality
 - Do not weaken tests to match broken behavior.
 - Do not hide missing data with broad fallbacks.
 - Do not add component or page selectors to `app/globals.css`. Use a colocated CSS Module or route-family stylesheet.
-- Do not push public-facing content or public GitHub repos without explicit approval.
+- Do not store tool introductions or supporting prose in route code. Content-only changes increment `content_revision`; user-observable tool changes increment `tool_version`. Use the reviewed commands in `stack127_docs/tool-pages.md`.
+- Keep references and directories in the catalog family. They do not receive `stack127_tool_pages` rows.
+- Do not push public-facing content or public stack127 repos without explicit approval.

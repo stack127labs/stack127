@@ -106,7 +106,7 @@ test("DNS Trace Explorer renders a genuine root-to-answer path in simple languag
   await expect(page.getByRole("radio", { name: "A", exact: true })).toBeChecked();
   await expect(page.getByLabel("Resolver")).toHaveCount(0);
   await expect(page.getByText("All", { exact: true })).toHaveCount(0);
-  await expect(page.locator(".dns-reference-content > section > h2")).toHaveText([
+  await expect(page.locator("[data-tool-page-content] > h2")).toHaveText([
     "How a DNS trace works",
     "What each step tells you",
     "Where a DNS trace can stop",

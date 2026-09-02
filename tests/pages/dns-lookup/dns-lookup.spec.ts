@@ -162,33 +162,31 @@ test("DNS Lookup renders corrected TTL, alias, owner, DNSSEC summary, and per-re
   ]);
   await expect(page.locator(".dns-examples")).toHaveCount(0);
   await expect(page.getByRole("button", { name: "_dmarc.example.com", exact: true })).toHaveCount(0);
-  await expect(page.locator(".dns-record-table tbody tr")).toHaveCount(12);
-  await expect(page.locator(".dns-status-table tbody tr")).toHaveCount(5);
-  await expect(page.locator(".dns-status-table")).toContainText("SERVFAIL");
-  await expect(page.locator(".dns-status-table")).toContainText("NXDOMAIN");
   await expect(page.locator(".dns-page-header .dns-page-kicker")).toHaveCount(0);
-  await expect(page.locator(".dns-reference-content > section > h2")).toHaveText([
+  const supportingContent = page.locator("[data-tool-page-content]");
+  await expect(supportingContent.locator(":scope > h2")).toHaveText([
     "How to check DNS records",
     "What DNS lookup results mean",
     "Which DNS record type should you check?",
     "When a DNS lookup helps",
     "When the answer looks wrong",
   ]);
-  await expect(page.locator(".dns-reference-content")).toHaveCSS("border-top-width", "1px");
-  await expect(page.locator(".dns-reference-content > section").first()).toHaveCSS("border-top-width", "0px");
-  await expect(page.locator(".dns-reference-content > section").first()).toHaveCSS("border-bottom-width", "0px");
-  await expect(page.locator(".dns-scope-note")).toHaveCSS("border-top-width", "0px");
-  await expect(page.locator("#how-to-check ol")).toHaveCount(0);
-  await expect(page.locator("#how-to-check")).toContainText("Enter the exact domain or hostname you want to check");
-  await expect(page.locator("#how-to-check")).toContainText("compare it with the records in your DNS provider");
+  await expect(supportingContent).toBeVisible();
+  await expect(supportingContent.locator("ol")).toHaveCount(0);
+  await expect(supportingContent).toContainText("Enter the exact domain or hostname you want to check");
+  await expect(supportingContent).toContainText("compare it with the records in your DNS provider");
   await expect(page.locator(".dns-result-guide")).toHaveCount(0);
-  await expect(page.locator("#read-results .dns-answer-path")).toBeVisible();
-  await expect(page.locator("#read-results")).toContainText("Resolver TTL is how much cache time");
-  await expect(page.locator(".dns-use-case-table tbody tr")).toHaveCount(7);
-  await expect(page.locator("#record-types")).toContainText("Not sure where to start? Leave All selected");
-  await expect(page.locator("#use-cases")).toContainText("This tool is handy when something should be working or should have changed");
-  await expect(page.locator("#status-meanings")).toContainText("No record does not always mean the whole domain is broken");
-  await expect(page.locator(".dns-scope-note")).toContainText("We do not save your lookup history");
+  await expect(supportingContent.locator("blockquote").first()).toContainText("www.example.com");
+  await expect(supportingContent).toContainText("Resolver TTL is how much cache time");
+  await expect(supportingContent.locator("table").nth(0).locator("tbody tr")).toHaveCount(12);
+  await expect(supportingContent.locator("table").nth(1).locator("tbody tr")).toHaveCount(7);
+  await expect(supportingContent.locator("table").nth(2).locator("tbody tr")).toHaveCount(5);
+  await expect(supportingContent.locator("table").nth(2)).toContainText("SERVFAIL");
+  await expect(supportingContent.locator("table").nth(2)).toContainText("NXDOMAIN");
+  await expect(supportingContent).toContainText("Not sure where to start? Leave All selected");
+  await expect(supportingContent).toContainText("This tool is handy when something should be working or should have changed");
+  await expect(supportingContent).toContainText("No record does not always mean the whole domain is broken");
+  await expect(supportingContent.locator("blockquote").last()).toContainText("We do not save your lookup history");
 
   await page.getByLabel("DNS name").fill("www.example.com");
   await page.getByRole("button", { name: "Look up DNS" }).click();
