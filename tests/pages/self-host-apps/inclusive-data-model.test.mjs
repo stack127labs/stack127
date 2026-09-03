@@ -56,9 +56,9 @@ test("the page-owned migrations preserve facts and finish the streamlined model"
 });
 
 test("the public directory can filter every source model without assuming GitHub", async () => {
-  const page = await read("app/(site)/(catalogs)/self-host-apps/page.tsx");
-  const card = await read("app/(site)/(catalogs)/self-host-apps/directory-app-card.tsx");
-  const drawer = await read("app/(site)/(catalogs)/self-host-apps/directory-app-browser.tsx");
+  const page = await read("app/(site)/(directories)/self-host-apps/page.tsx");
+  const card = await read("app/(site)/(directories)/self-host-apps/directory-app-card.tsx");
+  const drawer = await read("app/(site)/(directories)/self-host-apps/directory-app-browser.tsx");
 
   assert.match(page, /name="source"/);
   assert.match(page, /Closed source/);
@@ -96,8 +96,8 @@ test("QA treats missing decision facts and weak resource provenance as visible w
 });
 
 test("storage tiers and drawer facts use reviewed profiles when no exact minimum exists", async () => {
-  const card = await read("app/(site)/(catalogs)/self-host-apps/directory-app-card.tsx");
-  const drawer = await read("app/(site)/(catalogs)/self-host-apps/directory-app-browser.tsx");
+  const card = await read("app/(site)/(directories)/self-host-apps/directory-app-card.tsx");
+  const drawer = await read("app/(site)/(directories)/self-host-apps/directory-app-browser.tsx");
 
   assert.match(card, /app\.storage_profile !== "unknown"/);
   assert.match(drawer, /depends on retained data/);
@@ -110,8 +110,8 @@ test("storage tiers and drawer facts use reviewed profiles when no exact minimum
 test("resource estimates and install options stay separate from exact facts", async () => {
   const migration = await read("supabase/migrations/20260901060529_streamline_self_host_apps_data_model.sql");
   const apps = await read("lib/apps.ts");
-  const card = await read("app/(site)/(catalogs)/self-host-apps/directory-app-card.tsx");
-  const drawer = await read("app/(site)/(catalogs)/self-host-apps/directory-app-browser.tsx");
+  const card = await read("app/(site)/(directories)/self-host-apps/directory-app-card.tsx");
+  const drawer = await read("app/(site)/(directories)/self-host-apps/directory-app-browser.tsx");
   const proposer = await read("scripts/self-host-apps/propose-resource-estimates.mjs");
   const applier = await read("scripts/self-host-apps/apply-resource-estimates.mjs");
   const prodSync = await read("scripts/self-host-apps/sync-prod-to-local.mjs");

@@ -67,5 +67,5 @@ npm run quality
 - Do not hide missing data with broad fallbacks.
 - Do not add component or page selectors to `app/globals.css`. Use a colocated CSS Module or route-family stylesheet.
 - Do not store tool introductions or supporting prose in route code. Content-only changes increment `content_revision`; user-observable tool changes increment `tool_version`. Use the reviewed commands in `stack127_docs/tool-pages.md`.
-- Keep references and directories in the catalog family. They do not receive `stack127_tool_pages` rows.
+- Keep catalogs, directories, and references in their matching route groups. Directories and references do not receive `stack127_tool_pages` rows.
 - Do not push public-facing content or public stack127 repos without explicit approval.

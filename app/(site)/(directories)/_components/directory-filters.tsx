@@ -1,6 +1,6 @@
 import { CategoryIcon } from "@/app/category-icon";
 
-export type CatalogFilterOption = {
+export type DirectoryFilterOption = {
   count?: number;
   iconKey?: string | null;
   label: string;
@@ -9,12 +9,12 @@ export type CatalogFilterOption = {
 
 type MultipleFilterProps = {
   name: string;
-  options: CatalogFilterOption[];
+  options: DirectoryFilterOption[];
   selected: string[];
   title: string;
 };
 
-export function CatalogCheckboxGroup({
+export function DirectoryCheckboxGroup({
   title,
   name,
   options,
@@ -40,7 +40,7 @@ export function CatalogCheckboxGroup({
   );
 }
 
-export function CatalogTagSelectGroup({
+export function DirectoryTagSelectGroup({
   title,
   name,
   options,
@@ -49,7 +49,7 @@ export function CatalogTagSelectGroup({
   const selectedSet = new Set(selected);
   const selectedOptions = selected
     .map((value) => options.find((option) => option.value === value))
-    .filter((option): option is CatalogFilterOption => Boolean(option));
+    .filter((option): option is DirectoryFilterOption => Boolean(option));
 
   return (
     <fieldset className="filter-group filter-tag-select" data-filter-tag-select data-name={name}>
@@ -102,7 +102,7 @@ export function CatalogTagSelectGroup({
   );
 }
 
-export function CatalogRadioGroup({
+export function DirectoryRadioGroup({
   title,
   name,
   options,
@@ -110,7 +110,7 @@ export function CatalogRadioGroup({
 }: {
   title: string;
   name: string;
-  options: CatalogFilterOption[];
+  options: DirectoryFilterOption[];
   selected: string;
 }) {
   return (

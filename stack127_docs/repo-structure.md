@@ -14,17 +14,20 @@ introductions, supporting Markdown, and version records live in `stack127_tool_p
 Page source is grouped by job without changing URLs:
 
 ```text
-app/(site)/(catalogs)/  # directories, comparisons, and collection pages
-app/(site)/(courses)/   # ordered teaching paths
-app/(site)/(legal)/     # about, privacy, and terms
-app/(site)/(tools)/     # calculators, lookups, and generators
+app/(site)/(catalogs)/    # collections of stack127-owned pages
+app/(site)/(courses)/     # ordered teaching paths
+app/(site)/(directories)/ # third-party software and hardware directories
+app/(site)/(legal)/       # about, privacy, and terms
+app/(site)/(references)/  # stable facts, codes, and comparisons
+app/(site)/(tools)/       # calculators, lookups, and generators
 ```
 
 Shared components for one family live in that group's `_components/` folder. Components used by
 the whole site stay directly under `app/`.
 
-Reference and directory pages belong under `(catalogs)`, even when a tool collection links to them.
-Do not place `/epp-status-codes`, `/tld-directory`, or another lookup catalog under `(tools)`.
+Catalogs contain links to stack127-owned pages. Directories contain third-party software and
+hardware records. References contain stable facts, codes, and comparisons. Do not place
+`/epp-status-codes`, `/tld-directory`, or another reference under `(tools)`.
 
 ## Page Docs
 

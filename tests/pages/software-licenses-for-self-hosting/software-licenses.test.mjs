@@ -52,7 +52,7 @@ test("license cards carry one short, complete explanation", () => {
 test("license cards render the concise explanation and actions, not the old detail stack", () => {
   const pageSource = readFileSync(
     new URL(
-      "../../../app/(site)/(catalogs)/software-licenses-for-self-hosting/page.tsx",
+      "../../../app/(site)/(references)/software-licenses-for-self-hosting/page.tsx",
       import.meta.url,
     ),
     "utf8",
@@ -147,7 +147,7 @@ test("official links are accurate and their labels describe the destination", ()
 test("AGPL and missing-license answers keep their legal triggers precise", () => {
   const pageSource = readFileSync(
     new URL(
-      "../../../app/(site)/(catalogs)/software-licenses-for-self-hosting/page.tsx",
+      "../../../app/(site)/(references)/software-licenses-for-self-hosting/page.tsx",
       import.meta.url,
     ),
     "utf8",

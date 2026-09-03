@@ -6,7 +6,7 @@ import {
   getValues,
   paginationPages,
   sortApps,
-} from "../../../app/(site)/(catalogs)/cli-apps/filters.ts";
+} from "../../../app/(site)/(directories)/cli-apps/filters.ts";
 
 function app(overrides = {}) {
   return {

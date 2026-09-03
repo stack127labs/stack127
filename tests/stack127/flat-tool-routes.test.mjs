@@ -31,7 +31,7 @@ const toolMoves = [
   ].map((slug) => ({
     family: "domain-tools",
     published: true,
-    routeGroup: ["epp-status-codes", "tld-directory"].includes(slug) ? "(catalogs)" : "(tools)",
+    routeGroup: ["epp-status-codes", "tld-directory"].includes(slug) ? "(references)" : "(tools)",
     slug,
   })),
   ...[

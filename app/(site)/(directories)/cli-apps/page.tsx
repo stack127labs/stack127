@@ -9,11 +9,11 @@ import {
 import { getTerminalApps } from "@/lib/terminal-apps";
 import { AppShell, SidebarLabel } from "@/app/app-shell";
 import {
-  CatalogCheckboxGroup as CheckboxGroup,
-  CatalogRadioGroup as RadioGroup,
-  CatalogTagSelectGroup as TagSelectGroup,
-  type CatalogFilterOption as FilterOption,
-} from "../_components/catalog-filters";
+  DirectoryCheckboxGroup as CheckboxGroup,
+  DirectoryRadioGroup as RadioGroup,
+  DirectoryTagSelectGroup as TagSelectGroup,
+  type DirectoryFilterOption as FilterOption,
+} from "../_components/directory-filters";
 import { Doodle } from "@/app/doodle";
 import { siteDoodleStarArt } from "../../art/site--doodle-star";
 import {
@@ -22,9 +22,9 @@ import {
 } from "@/app/sidebar-panel";
 import { PageTitleIcon } from "@/app/page-title-icon";
 import { PageHeader } from "@/app/page-header";
-import { SortDropdown } from "../_components/catalog-sort-dropdown";
+import { SortDropdown } from "../_components/directory-sort-dropdown";
 import { CliAppBrowser } from "./cli-app-browser";
-import { CatalogFilterController } from "../_components/catalog-filter-controller";
+import { DirectoryFilterController } from "../_components/directory-filter-controller";
 import {
   filterApps,
   getKnownValue,
@@ -400,7 +400,7 @@ export default async function CliAppsPage({
       <div className="filter-actions">
         <Link href="/cli-apps">reset</Link>
       </div>
-      <CatalogFilterController />
+      <DirectoryFilterController />
     </form>
   );
 

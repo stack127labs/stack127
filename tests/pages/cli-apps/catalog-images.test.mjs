@@ -36,7 +36,7 @@ test("the CLI publisher stores icon URLs and their provenance", async () => {
 });
 
 test("the directory uses the database URL and a generated fallback", async () => {
-  const browser = await readFile(new URL("app/(site)/(catalogs)/cli-apps/cli-app-browser.tsx", root), "utf8");
+  const browser = await readFile(new URL("app/(site)/(directories)/cli-apps/cli-app-browser.tsx", root), "utf8");
 
   assert.match(browser, /app\.icon_url \?\? fallback/);
   assert.doesNotMatch(browser, /\/cli-app-icons\//);

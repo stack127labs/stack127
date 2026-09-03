@@ -65,8 +65,8 @@ function toolPageMigration() {
 
 test("the tools route group contains only interactive tools", () => {
   assert.deepEqual(toolRouteSlugs(), expectedToolSlugs);
-  assert.ok(existsSync(path.join(root, "app", "(site)", "(catalogs)", "epp-status-codes", "page.tsx")));
-  assert.ok(existsSync(path.join(root, "app", "(site)", "(catalogs)", "tld-directory", "page.tsx")));
+  assert.ok(existsSync(path.join(root, "app", "(site)", "(references)", "epp-status-codes", "page.tsx")));
+  assert.ok(existsSync(path.join(root, "app", "(site)", "(references)", "tld-directory", "page.tsx")));
 });
 
 test("stack127_pages separates row timestamps from public dates", () => {

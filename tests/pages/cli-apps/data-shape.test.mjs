@@ -85,8 +85,8 @@ test("the data layer exposes the fields the directory renders", async () => {
 });
 
 test("the page renders unknown values instead of hiding them", async () => {
-  const page = await read("app/(site)/(catalogs)/cli-apps/page.tsx");
-  const browser = await read("app/(site)/(catalogs)/cli-apps/cli-app-browser.tsx");
+  const page = await read("app/(site)/(directories)/cli-apps/page.tsx");
+  const browser = await read("app/(site)/(directories)/cli-apps/cli-app-browser.tsx");
 
   assert.match(page, /"unknown"/);
   assert.match(browser, /app\.license \?\? "unknown"/);

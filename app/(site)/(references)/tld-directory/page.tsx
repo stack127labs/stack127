@@ -1,8 +1,8 @@
-import "../domain-tools/domain-tools.css";
+import "../../(catalogs)/domain-tools/domain-tools.css";
 import { Globe } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "../../../app-shell";
-import { DomainToolsSidebar } from "../domain-tools/domain-tools-sidebar";
+import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
 import { TldTable, type TldRow } from "./tld-table";
 import directory from "@/lib/domain/data/tld-directory.json" with { type: "json" };
 import { PageTitleIcon } from "../../../page-title-icon";

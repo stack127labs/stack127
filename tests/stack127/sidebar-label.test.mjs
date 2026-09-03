@@ -27,9 +27,9 @@ test("shared sidebar titles use a paragraph with heading-like styling", () => {
     "app/(site)/page.tsx",
     "app/info-page.tsx",
     "app/(site)/(catalogs)/dns-tools/dns-tools-sidebar.tsx",
-    "app/(site)/(catalogs)/self-host-apps/page.tsx",
+    "app/(site)/(directories)/self-host-apps/page.tsx",
     "app/(site)/(courses)/_components/course-shell.tsx",
-    "app/(site)/(catalogs)/software-licenses-for-self-hosting/page.tsx",
+    "app/(site)/(references)/software-licenses-for-self-hosting/page.tsx",
   ];
 
   for (const path of sidebarOwners) {

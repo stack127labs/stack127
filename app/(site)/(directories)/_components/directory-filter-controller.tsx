@@ -154,7 +154,7 @@ function updateStorageSlider(slider: HTMLInputElement) {
   }
 }
 
-export function CatalogFilterController() {
+export function DirectoryFilterController() {
   const pathname = usePathname();
   const router = useRouter();
 

@@ -18,7 +18,7 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - Follow `stack127_docs/css-architecture.md`. Keep `app/globals.css` limited to tokens, reset, and document defaults; colocate page and component styles with their owner.
 - Follow `stack127_docs/writing-style.md` for all public-facing copy and `stack127_docs/visual-first.md` for planning what gets shown versus said. When asked to write a page, propose the visual format mix first and push back on text-heavy requests, including Teja's. Content pages need a `content_docs/<page-slug>/brief.md` before implementation.
 - Apply `skills/stack127/unslop/SKILL.md` to every public sentence and to durable documentation. Remove decorative labels, canned transitions, fake quotes, filler, and other AI-shaped phrasing before considering copy complete.
-- Follow `stack127_docs/page-families.md`. Catalogs, courses, tools, references, info pages, and legal pages share a predictable shell while keeping the visual format that suits their job. Page-family words do not become required URL prefixes.
+- Follow `stack127_docs/page-families.md`. Catalogs, directories, courses, tools, references, info pages, and legal pages share a predictable shell while keeping the visual format that suits their job. Page-family words do not become required URL prefixes.
 - The brand is written `stack127`, lowercase v, everywhere in user-facing copy, even at the start of a sentence.
 - Marker art explains concepts vaguely on purpose; clean charts (`npm run stack127:clean-charts`) state data precisely; tables compare repeated facts; screenshots prove real interfaces. Never put exact numbers in marker style and never put comparisons in paragraphs.
 - Treat "simple" as composed, soulful, and easy to follow. Use full sentences, human judgment, and clear visual relationships. Avoid decorative eyebrows, floating helper text, dashboard-style sentence fragments, and oversized caveat panels.
@@ -30,10 +30,12 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 
 - Pages are repo-owned Next.js routes under `app/`.
 - Canonical tool and reference URLs are flat, for example `/dns-lookup` and `/zfs-capacity-calculator`. Collection pages such as `/dns-tools`, `/domain-tools`, and `/storage-tools` organize discovery but do not own child URL namespaces.
-- Catalog route source lives under the non-URL route group `app/(site)/(catalogs)/`. This includes app directories, keyboard shortcuts, software license comparisons, and tool collection pages.
+- Catalog route source lives under the non-URL route group `app/(site)/(catalogs)/`. Catalogs combine stack127-owned pages, such as `/dns-tools`, `/domain-tools`, and `/storage-tools`.
+- Software and hardware directory source lives under `app/(site)/(directories)/`. Directory entries describe third-party apps, products, or devices rather than stack127-owned pages.
+- Stable fact and lookup page source lives under `app/(site)/(references)/`. This includes keyboard shortcuts, software license comparisons, EPP status codes, and the TLD directory.
 - Course route source lives under `app/(site)/(courses)/`; About and legal policies live under `app/(site)/(legal)/`.
 - Tool route source lives under the non-URL route group `app/(site)/(tools)/<tool-slug>/`. A tool may appear in several collections while keeping one route, docs folder, and ownership manifest.
-- Reference directories such as `/epp-status-codes` and `/tld-directory` live under `app/(site)/(catalogs)/` and never receive `stack127_tool_pages` rows.
+- Reference pages such as `/epp-status-codes` and `/tld-directory` live under `app/(site)/(references)/` and never receive `stack127_tool_pages` rows.
 - Do not create new tool URLs under `/<collection>/<tool-slug>`. Add the flat tool to every relevant collection instead.
 - Do not use Supabase-backed dynamic routing for normal site pages unless the user explicitly asks for it.
 - Keep page URLs stable and human-readable.

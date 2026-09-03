@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readdirSync, readFileSync } from "node:fs";
 import test from "node:test";
 
-const routeRoot = new URL("../../../app/(site)/(catalogs)/keyboard-shortcuts/", import.meta.url);
+const routeRoot = new URL("../../../app/(site)/(references)/keyboard-shortcuts/", import.meta.url);
 const page = readFileSync(new URL("page.tsx", routeRoot), "utf8");
 const directory = readFileSync(new URL("keyboard-shortcuts-directory.tsx", routeRoot), "utf8");
 const reference = readFileSync(new URL("keyboard-shortcuts-reference.tsx", routeRoot), "utf8");

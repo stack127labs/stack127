@@ -1,14 +1,20 @@
 import Link from "next/link";
 import { Code2, Scale } from "lucide-react";
-import type { DirectoryApp } from "@/lib/apps";
+import type { DirectoryApp, DirectoryAppIndex } from "@/lib/apps";
 import { findDirectoryLicenseId } from "@/lib/software-licenses";
 import { CategoryIcon } from "@/app/category-icon";
 
-export function getRamTier(app: DirectoryApp) {
-  const estimate = app.resource_estimates?.ram;
-  const estimatedRam = estimate
-    ? estimate.unit === "gb" ? estimate.estimate_min * 1024 : estimate.estimate_min
-    : null;
+type DirectoryAppTierSource = DirectoryApp | DirectoryAppIndex;
+
+export function getRamTier(app: DirectoryAppTierSource) {
+  const estimate = "ram_estimate_min_mb" in app
+    ? app.ram_estimate_min_mb
+    : app.resource_estimates?.ram;
+  const estimatedRam = typeof estimate === "number"
+    ? estimate
+    : estimate
+      ? estimate.unit === "gb" ? estimate.estimate_min * 1024 : estimate.estimate_min
+      : null;
   const ram = app.ram_min_mb ?? app.ram_recommended_mb ?? app.ram_default_limit_mb ?? estimatedRam;
 
   if (ram === null) {
@@ -30,8 +36,11 @@ export function getRamTier(app: DirectoryApp) {
   return "4gb+";
 }
 
-export function getStorageTier(app: DirectoryApp) {
-  const storage = app.storage_min_gb ?? app.resource_estimates?.storage?.estimate_min ?? null;
+export function getStorageTier(app: DirectoryAppTierSource) {
+  const estimatedStorage = "storage_estimate_min_gb" in app
+    ? app.storage_estimate_min_gb
+    : app.resource_estimates?.storage?.estimate_min;
+  const storage = app.storage_min_gb ?? estimatedStorage ?? null;
   if (storage === null) {
     if (app.storage_profile !== "unknown") return app.storage_profile;
     return app.storage_researched ? "not published" : "not checked";
@@ -53,7 +62,7 @@ export function hasStorageEstimate(app: DirectoryApp) {
   return app.storage_min_gb === null && Boolean(app.resource_estimates?.storage);
 }
 
-export function hasMobileApp(app: DirectoryApp) {
+export function hasMobileApp(app: Pick<DirectoryApp, "surfaces">) {
   return app.surfaces.includes("ios") || app.surfaces.includes("android");
 }
 

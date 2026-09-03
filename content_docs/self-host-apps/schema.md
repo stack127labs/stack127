@@ -65,4 +65,4 @@ Exact canonical source-code and homepage matches can be deduped automatically. N
 
 ## Rendering
 
-There are no per-app routes. Cards and the details drawer use the same server-loaded records. The complete records stay in server-rendered HTML so crawlers and AI agents can read the directory without opening the drawer.
+There are no per-app routes. The server loads the compact filter index in bounded batches, then fetches complete records only for the 30 apps on the current results page. This keeps the cards server-rendered without making one large database read or transferring every detail field for thousands of apps on each request.

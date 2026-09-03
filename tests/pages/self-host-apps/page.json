@@ -9,6 +9,7 @@
     "tests/pages/self-host-apps/install-options.test.mjs",
     "tests/pages/self-host-apps/license-filter.spec.ts",
     "tests/pages/self-host-apps/layout.spec.ts",
+    "tests/pages/self-host-apps/query-performance.test.mjs",
     "tests/pages/self-host-apps/source-model.test.mjs",
     "tests/stack127/seo.spec.ts"
   ],

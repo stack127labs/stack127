@@ -4,7 +4,7 @@ import { AppShell } from "../../../app-shell";
 import { PageCanvas } from "../../../page-canvas";
 import { Keyboard } from "lucide-react";
 import { loadShortcutApps } from "@/lib/shortcuts";
-import { KeyboardShortcutsSidebar } from "../../(catalogs)/_components/keyboard-shortcuts-sidebar";
+import { KeyboardShortcutsSidebar } from "../../(references)/_components/keyboard-shortcuts-sidebar";
 import { ShortcutsCheatSheetGenerator } from "./shortcuts-cheatsheet-generator";
 
 type SearchParams = Record<string, string | string[] | undefined>;
