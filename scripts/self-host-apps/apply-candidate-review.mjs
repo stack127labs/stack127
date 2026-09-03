@@ -12,6 +12,7 @@ import {
 } from "./lib/schema.mjs";
 import { buildInstallOptions } from "./lib/install-options.mjs";
 import { installMethods, installOptionsToRow } from "./lib/streamlined-storage.mjs";
+import { isManagedMediaUrl } from "../stack127/media/storage.mjs";
 
 const decisions = new Set(["publish", "duplicate", "reject", "needs_review"]);
 
@@ -65,8 +66,8 @@ function validatePublishReview(review) {
   if (record.self_hosting_status === "unknown") {
     errors.push("self_hosting_status must be verified before publication");
   }
-  if (!record.icon_url?.startsWith("/app-icons/")) {
-    errors.push("a cached local icon_url is required before publication");
+  if (!isManagedMediaUrl(record.icon_url, { directory: "self-host-apps", kind: "icons" })) {
+    errors.push("a managed icon_url is required before publication");
   }
   if (record.categories.length > 3) errors.push("use one to three controlled categories");
   if (record.self_hosting_status === "self_hostable" && !record.install_docs_url) {

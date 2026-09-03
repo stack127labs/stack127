@@ -1,8 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { fileURLToPath } from "node:url";
-import sharp from "sharp";
+import { isManagedMediaUrl } from "../../../scripts/stack127/media/storage.mjs";
 
 const root = new URL("../../../", import.meta.url);
 const batchPath = new URL("scripts/cli-apps/batches/curated-publish.json", root);
@@ -12,19 +11,18 @@ async function curatedRecords() {
   return batch.records ?? [];
 }
 
-test("every reviewed CLI app has a cached local icon", async () => {
+test("every reviewed CLI app uses the shared Supabase media bucket", async () => {
   const records = await curatedRecords();
 
   assert.ok(records.length >= 200, "expected the reviewed catalog batch");
 
   for (const record of records) {
-    const expectedUrl = `/cli-app-icons/${record.slug}.png`;
-    assert.equal(record.icon_url, expectedUrl, `${record.slug} needs its local icon URL`);
+    assert.equal(
+      isManagedMediaUrl(record.icon_url, { directory: "cli-apps", kind: "icons" }),
+      true,
+      `${record.slug} needs its managed media URL`,
+    );
     assert.ok(record.icon_source_url, `${record.slug} needs icon source provenance`);
-    const metadata = await sharp(fileURLToPath(new URL(`public${expectedUrl}`, root))).metadata();
-    assert.equal(metadata.format, "png", `${record.slug} icon must be PNG`);
-    assert.equal(metadata.width, 256, `${record.slug} icon must be 256px wide`);
-    assert.equal(metadata.height, 256, `${record.slug} icon must be 256px high`);
   }
 });
 
@@ -34,13 +32,14 @@ test("the CLI publisher stores icon URLs and their provenance", async () => {
   assert.match(publisher, /const iconUrl = record\.icon_url \?\? null/);
   assert.match(publisher, /maintenance_status, icon_url, screenshot_url/);
   assert.match(publisher, /icon_url = excluded\.icon_url/);
-  assert.match(publisher, /\["icon_url", "icon_cache"/);
+  assert.match(publisher, /\["icon_url", "media_storage"/);
 });
 
-test("the directory uses its local icon cache before the database is synchronized", async () => {
+test("the directory uses the database URL and a generated fallback", async () => {
   const browser = await readFile(new URL("app/(site)/(catalogs)/cli-apps/cli-app-browser.tsx", root), "utf8");
 
-  assert.match(browser, /app\.icon_url \?\? `\/cli-app-icons\/\$\{app\.slug\}\.png`/);
+  assert.match(browser, /app\.icon_url \?\? fallback/);
+  assert.doesNotMatch(browser, /\/cli-app-icons\//);
   assert.doesNotMatch(browser, /google\.com\/s2\/favicons/);
 });
 
@@ -51,5 +50,6 @@ test("the icon cache uses official sites or repository owners before a generated
   assert.match(cache, /github\.com/);
   assert.match(cache, /favicon/);
   assert.match(cache, /sharp/);
-  assert.match(cache, /public\/cli-app-icons/);
+  assert.match(cache, /uploadMediaObject/);
+  assert.doesNotMatch(cache, /public\/cli-app-icons/);
 });

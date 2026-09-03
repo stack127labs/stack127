@@ -60,6 +60,8 @@
     "stack127:marker-art": "node scripts/stack127/marker-art/generate.mjs",
     "stack127:clean-charts": "node scripts/stack127/clean-charts/generate.mjs",
     "stack127:brand:build": "node scripts/stack127/brand/build-assets.mjs",
+    "stack127:media:migrate-directory-icons": "node scripts/stack127/media/migrate-directory-icons.mjs",
+    "stack127:media:migrate-json-images": "node scripts/stack127/media/migrate-json-images.mjs",
     "stack127:repo:dataset:export": "node scripts/stack127/repos/export-dataset.mjs",
     "stack127:repo:dataset:sync": "node scripts/stack127/repos/sync-dataset-repo.mjs",
     "stack127:repo:tool:new": "node scripts/stack127/repos/create-tool-repo.mjs",

@@ -1,6 +1,6 @@
 # cli-apps catalog standard
 
-The reviewed catalog should work for someone who knows the job but not the app name. Raw package indexes do not meet that bar. Every published record needs an official project or vendor link, a locally cached icon with source provenance, an original stack127 summary, a reviewed type, one to three categories, platform support, an install method, a source model, a pricing model, and a verification date.
+The reviewed catalog should work for someone who knows the job but not the app name. Raw package indexes do not meet that bar. Every published record needs an official project or vendor link, a managed icon with source provenance, an original stack127 summary, a reviewed type, one to three categories, platform support, an install method, a source model, a pricing model, and a verification date.
 
 ## Coverage floor
 

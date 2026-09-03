@@ -47,8 +47,9 @@ SUPABASE_SECRET_KEY
 ```
 
 `DATABASE_URL` is required by current database-backed scripts and production
-runtime. The Supabase API keys remain available for features that use the API;
-they are not a substitute for `DATABASE_URL`.
+runtime. `SUPABASE_URL` and `SUPABASE_SECRET_KEY` are required by media upload
+scripts. The publishable key is available for browser-safe API reads; none of
+the API keys replace `DATABASE_URL`.
 
 ### Deployment And Infrastructure
 
@@ -193,9 +194,8 @@ SUPABASE_SECRET_KEY
 They were not configured at the time of the audit. GitHub discovery falls back
 to the workflow's automatic `GITHUB_TOKEN`; GitLab and Codeberg enrichment can
 run without provider tokens at lower anonymous rate limits. Supabase API keys
-are optional for the current release because the quality gate uses the
-repository-level database URL. Add them only when a workflow step actually uses
-the Supabase API.
+are required only for workflows that upload managed media. The release quality
+gate still uses the repository-level database URL.
 
 `GITHUB_TOKEN` itself is issued automatically by GitHub Actions and is not a
 stored secret that needs manual rotation.

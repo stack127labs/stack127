@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 
-import { access, mkdir, readFile, writeFile } from "node:fs/promises";
-import path from "node:path";
+import { readFile, writeFile } from "node:fs/promises";
 import sharp from "sharp";
 import { numberArg, parseArgs } from "./lib/args.mjs";
+import {
+  contentDigest,
+  isManagedMediaUrl,
+  mediaObjectPath,
+  uploadMediaObject,
+} from "../stack127/media/storage.mjs";
 
 const genericWebsiteHosts = new Set([
   "crates.io",
@@ -127,11 +132,10 @@ async function normalizeIcon(bytes) {
 async function main() {
   const args = parseArgs();
   if (!args.file) {
-    console.error("Usage: node scripts/cli-apps/cache-icons.mjs --file <batch.json> [--out public/cli-app-icons] [--refresh]");
+    console.error("Usage: node scripts/cli-apps/cache-icons.mjs --file <batch.json> [--refresh]");
     process.exit(1);
   }
 
-  const outputDir = args.out ?? "public/cli-app-icons";
   const raw = await readFile(args.file, "utf8");
   const input = JSON.parse(raw);
   const records = recordsFromInput(input);
@@ -145,31 +149,25 @@ async function main() {
   const result = { cached: 0, existing: 0, generated: 0, failed_sources: 0 };
   let nextIndex = 0;
 
-  await mkdir(outputDir, { recursive: true });
-
   async function cacheRecord(record) {
-    const filename = `${record.slug}.png`;
-    const outputPath = path.join(outputDir, filename);
-    const publicUrl = `/${path.relative("public", outputPath).split(path.sep).join("/")}`;
-
-    if (!refresh && record.icon_source_url) {
-      try {
-        await access(outputPath);
-        record.icon_url = publicUrl;
-        result.existing += 1;
-        return;
-      } catch {
-        // A missing file must be rebuilt even if the batch still has its source URL.
-      }
+    if (!refresh && isManagedMediaUrl(record.icon_url, { directory: "cli-apps", kind: "icons" })) {
+      result.existing += 1;
+      return;
     }
 
     for (const candidate of iconCandidates(record)) {
       try {
         const bytes = await fetchIcon(candidate.url);
         const png = await normalizeIcon(bytes);
-        await writeFile(outputPath, png);
+        const objectPath = mediaObjectPath({
+          directory: "cli-apps",
+          digest: contentDigest(png),
+          extension: "png",
+          kind: "icons",
+          slug: record.slug,
+        });
         record.icon_source_url = candidate.url;
-        record.icon_url = publicUrl;
+        record.icon_url = await uploadMediaObject({ bytes: png, contentType: "image/png", objectPath });
         result.cached += 1;
         return;
       } catch (error) {
@@ -179,9 +177,15 @@ async function main() {
     }
 
     const png = await normalizeIcon(generatedIcon(record));
-    await writeFile(outputPath, png);
+    const objectPath = mediaObjectPath({
+      directory: "cli-apps",
+      digest: contentDigest(png),
+      extension: "png",
+      kind: "icons",
+      slug: record.slug,
+    });
     record.icon_source_url = "generated:stack127-initials";
-    record.icon_url = publicUrl;
+    record.icon_url = await uploadMediaObject({ bytes: png, contentType: "image/png", objectPath });
     result.generated += 1;
   }
 
@@ -195,7 +199,7 @@ async function main() {
 
   await Promise.all(Array.from({ length: workerCount }, () => worker()));
   await writeFile(args.file, `${JSON.stringify(input, null, 2)}\n`);
-  console.log(JSON.stringify({ records: selected.length, ...result, output: outputDir }, null, 2));
+  console.log(JSON.stringify({ records: selected.length, ...result, bucket: "stack127-media" }, null, 2));
 }
 
 main().catch((error) => {

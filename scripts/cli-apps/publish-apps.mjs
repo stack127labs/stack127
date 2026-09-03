@@ -17,6 +17,7 @@
 import { parseArgs } from "./lib/args.mjs";
 import { slugify } from "./lib/normalize.mjs";
 import { withClient } from "./lib/db.mjs";
+import { isManagedMediaUrl } from "../stack127/media/storage.mjs";
 
 const validSourceModels = new Set(["open_source", "source_available", "closed_source", "freeware", "unknown"]);
 const validPricing = new Set(["free", "freemium", "paid", "subscription", "usage_based", "unknown"]);
@@ -40,7 +41,9 @@ function validateRecord(record) {
   const categories = review.categories ?? [];
   if (categories.length < 1 || categories.length > 3) errors.push("categories must contain 1 to 3 reviewed values");
   if (!record.last_verified_at && !review.last_verified_at) errors.push("missing last_verified_at");
-  if (!record.icon_url?.startsWith("/cli-app-icons/")) errors.push("missing cached local icon_url");
+  if (!isManagedMediaUrl(record.icon_url, { directory: "cli-apps", kind: "icons" })) {
+    errors.push("missing managed icon_url");
+  }
   if (!record.icon_source_url) errors.push("missing icon_source_url provenance");
   if (review.maintenance_status && !validMaintenance.has(review.maintenance_status)) {
     errors.push(`invalid maintenance_status: ${review.maintenance_status}`);
@@ -170,7 +173,7 @@ async function publishRecord(client, record) {
     provenance.push(["latest_version", record.source, record.source_url, "low", "from discovery payload; re-verify before quoting"]);
   }
   if (iconUrl) {
-    provenance.push(["icon_url", "icon_cache", record.icon_source_url, "medium", "normalized local PNG cached by stack127"]);
+    provenance.push(["icon_url", "media_storage", record.icon_source_url, "medium", "normalized PNG stored by stack127"]);
   }
 
   await client.query(

@@ -37,7 +37,9 @@ npm run self-host-apps:collect-github-evidence -- --file <batch.json>
 
 Selection uses `FOR UPDATE SKIP LOCKED` and marks claimed rows `enriching`, so two workers do not take the same work. Reviewers use `references/review-format.md`. Put supporting links in `sources` and `data_source_urls`; use `technical_fact_status` for checked-but-unpublished technical facts. There is no field-source table.
 
-The review applier validates and moves data. Publication requires an official identity, a cached icon, one to three controlled categories, a verified self-hosting classification, install documentation, and at least one source URL. Open and source-available apps need a verified repository and license. Closed-source apps need an official website and publisher identity, but no repository.
+The review applier validates and moves data. Publication requires an official identity, a managed icon in `stack127-media`, one to three controlled categories, a verified self-hosting classification, install documentation, and at least one source URL. Open and source-available apps need a verified repository and license. Closed-source apps need an official website and publisher identity, but no repository.
+
+`self-host-apps:cache-icons` fetches, normalizes, and uploads icon batches with eight workers by default. `self-host-apps:icon-integrity` checks published URLs with 24 workers by default. Both accept an explicit worker count when a source needs a lower request rate.
 
 ## Technical refresh
 

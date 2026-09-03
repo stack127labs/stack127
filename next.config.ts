@@ -3,6 +3,24 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
   distDir: process.env.STACK127_TEST_DIST_DIR ?? ".next",
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "tulgfrqamtcshdtmhvpx.supabase.co",
+        port: "",
+        pathname: "/storage/v1/object/public/stack127-media/directories/**",
+        search: "",
+      },
+      {
+        protocol: "https",
+        hostname: "phhrfvmncpqqmmgruktx.supabase.co",
+        port: "",
+        pathname: "/storage/v1/object/public/stack127-media/directories/**",
+        search: "",
+      },
+    ],
+  },
   output: "standalone",
   async redirects() {
     return [

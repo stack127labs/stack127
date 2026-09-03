@@ -107,7 +107,7 @@ function formatList(values: string[], labels?: Map<string, string>) {
 
 function AppIcon({ app, detail = false }: { app: TerminalApp; detail?: boolean }) {
   const fallback = generatedIconUrl(app.name, app.slug);
-  const imageUrl = app.icon_url ?? `/cli-app-icons/${app.slug}.png`;
+  const imageUrl = app.icon_url ?? fallback;
   const [src, setSrc] = useState(imageUrl);
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);

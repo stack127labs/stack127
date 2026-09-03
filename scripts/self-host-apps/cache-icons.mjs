@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 
-import { mkdir, readFile, writeFile } from "node:fs/promises";
-import path from "node:path";
+import { readFile, writeFile } from "node:fs/promises";
 import sharp from "sharp";
 import { parseArgs, numberArg } from "./lib/args.mjs";
+import {
+  contentDigest,
+  isManagedMediaUrl,
+  mediaObjectPath,
+  uploadMediaObject,
+} from "../stack127/media/storage.mjs";
 
 function recordsFromInput(input) {
   if (Array.isArray(input)) return input;
@@ -50,18 +55,24 @@ function iconCandidates(app) {
 }
 
 async function fetchIcon(url) {
-  const response = await fetch(url, {
-    headers: {
-      Accept: "image/avif,image/webp,image/png,image/jpeg,image/svg+xml,image/*,*/*;q=0.8",
-      "User-Agent": "stack127-icon-cache",
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`Icon fetch failed ${response.status}: ${url}`);
+  let lastError;
+  for (let attempt = 1; attempt <= 2; attempt += 1) {
+    try {
+      const response = await fetch(url, {
+        headers: {
+          Accept: "image/avif,image/webp,image/png,image/jpeg,image/svg+xml,image/*,*/*;q=0.8",
+          "User-Agent": "stack127-icon-cache",
+        },
+        redirect: "follow",
+        signal: AbortSignal.timeout(20_000),
+      });
+      if (!response.ok) throw new Error(`Icon fetch failed ${response.status}: ${url}`);
+      return Buffer.from(await response.arrayBuffer());
+    } catch (error) {
+      lastError = error;
+    }
   }
-
-  return Buffer.from(await response.arrayBuffer());
+  throw lastError;
 }
 
 async function normalizeIcon(bytes) {
@@ -78,27 +89,31 @@ async function normalizeIcon(bytes) {
 async function main() {
   const args = parseArgs();
   if (!args.file) {
-    console.error("Usage: npm run self-host-apps:cache-icons -- --file apps.json [--out public/app-icons]");
+    console.error("Usage: npm run self-host-apps:cache-icons -- --file apps.json [--refresh]");
     process.exit(1);
   }
 
-  const outputDir = args.out ?? "public/app-icons";
   const raw = await readFile(args.file, "utf8");
   const input = JSON.parse(raw);
   const records = recordsFromInput(input);
   const limit = numberArg(args, "limit", records.length);
+  const selected = records.slice(0, limit);
+  const workerCount = Math.min(numberArg(args, "workers", 8), selected.length || 1);
   let cached = 0;
   let skipped = 0;
   let failed = 0;
+  let nextIndex = 0;
 
-  await mkdir(outputDir, { recursive: true });
-
-  for (const app of records.slice(0, limit)) {
+  async function cacheRecord(app) {
+    if (!args.refresh && isManagedMediaUrl(app.icon_url, { directory: "self-host-apps", kind: "icons" })) {
+      skipped += 1;
+      return;
+    }
     const candidates = iconCandidates(app);
     if (candidates.length === 0) {
       console.warn(`warning ${app.slug}: no official image or icon domain`);
       skipped += 1;
-      continue;
+      return;
     }
 
     let stored = false;
@@ -106,10 +121,15 @@ async function main() {
       try {
         const bytes = await fetchIcon(candidate.url);
         const png = await normalizeIcon(bytes);
-        const filename = `${app.slug}.png`;
-        await writeFile(path.join(outputDir, filename), png);
+        const objectPath = mediaObjectPath({
+          directory: "self-host-apps",
+          digest: contentDigest(png),
+          extension: "png",
+          kind: "icons",
+          slug: app.slug,
+        });
         app.icon_source_url = candidate.url;
-        app.icon_url = `/app-icons/${filename}`;
+        app.icon_url = await uploadMediaObject({ bytes: png, contentType: "image/png", objectPath });
         cached += 1;
         stored = true;
         console.log(`Cached icon: ${app.slug} (${candidate.kind})`);
@@ -124,9 +144,19 @@ async function main() {
     }
   }
 
+  async function worker() {
+    while (nextIndex < selected.length) {
+      const app = selected[nextIndex];
+      nextIndex += 1;
+      await cacheRecord(app);
+    }
+  }
+
+  await Promise.all(Array.from({ length: workerCount }, () => worker()));
+
   await writeFile(args.file, `${JSON.stringify(input, null, 2)}\n`);
-  console.log(`Updated icon_url values in ${args.file}`);
-  console.log(`Icon cache complete: ${cached} cached, ${skipped} skipped, ${failed} failed.`);
+  console.log(`Updated managed icon_url values in ${args.file}`);
+  console.log(`Icon upload complete: ${cached} uploaded, ${skipped} skipped, ${failed} failed.`);
 }
 
 main().catch((error) => {
