@@ -86,3 +86,5 @@ export const ghostty: AppShortcuts = {
     },
   ],
 };
+
+export default ghostty;

@@ -256,3 +256,5 @@ export const zed: AppShortcuts = {
     },
   ],
 };
+
+export default zed;

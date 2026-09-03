@@ -281,3 +281,5 @@ export const macos: AppShortcuts = {
     },
   ],
 };
+
+export default macos;

@@ -14,6 +14,8 @@
     "test:static": "node scripts/stack127/quality/static-policy.mjs",
     "test:seo": "playwright test --project=chromium && playwright test --project=mobile",
     "test:seo:registry": "node --env-file=.env.database scripts/stack127/quality/seo-registry-check.mjs",
+    "keyboard-shortcuts:sync": "node --experimental-strip-types scripts/keyboard-shortcuts/sync-pages.mjs",
+    "keyboard-shortcuts:check": "node --experimental-strip-types scripts/keyboard-shortcuts/sync-pages.mjs --check",
     "quality": "npm run test && npm run test:seo:registry && npm run test:seo && npm run build",
     "self-host-apps:discover-awesome-selfhosted": "node scripts/self-host-apps/discover-awesome-selfhosted.mjs",
     "self-host-apps:discover-selfhst": "node scripts/self-host-apps/discover-selfhst.mjs",

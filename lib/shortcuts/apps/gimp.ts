@@ -1,0 +1,98 @@
+import { combo } from "../build.ts";
+import type { AppShortcuts } from "../types.ts";
+
+const platforms = ["windows", "linux"] as const;
+
+const gimp: AppShortcuts = {
+  slug: "gimp",
+  name: "GIMP",
+  category: "Image editor",
+  platforms: [...platforms],
+  intro:
+    "GIMP's official quick reference groups shortcuts by toolbox, image files, dialogs, and view controls. These entries cover the commands used most often when selecting, painting, editing layers, and exporting an image.",
+  versionContext:
+    "The official GIMP one-page quick reference publishes the desktop bindings without a separate macOS column. This record therefore covers Windows and Linux only, and keeps the documented Ctrl-based combinations as written.",
+  sourceUrl: "https://docs.gimp.org/quickreference/gimp-keys-en.pdf",
+  sourceLabel: "official GIMP keyboard shortcuts quick reference",
+  lastVerified: "2026-09-01",
+  groups: [
+    {
+      id: "toolbox",
+      title: "Toolbox",
+      intro: "Switch tools from the keyboard, then continue editing with the active tool instead of returning to the toolbox.",
+      shortcuts: [
+        { id: "help", action: "Open Help", keys: combo(platforms, ["F1"]) },
+        { id: "context-help", action: "Open Context Help", keys: combo(platforms, ["Shift", "F1"]) },
+        { id: "rectangle-select", action: "Rectangle Select", keys: combo(platforms, ["R"]) },
+        { id: "ellipse-select", action: "Ellipse Select", keys: combo(platforms, ["E"]) },
+        { id: "free-select", action: "Free Select", keys: combo(platforms, ["F"]) },
+        { id: "fuzzy-select", action: "Fuzzy Select", keys: combo(platforms, ["U"]) },
+        { id: "select-by-color", action: "Select by Color", keys: combo(platforms, ["Shift", "O"]) },
+        { id: "scissors", action: "Scissors Select", keys: combo(platforms, ["I"]) },
+        { id: "paths", action: "Paths", keys: combo(platforms, ["B"]) },
+        { id: "color-picker", action: "Color Picker", keys: combo(platforms, ["O"]) },
+        { id: "move", action: "Move", keys: combo(platforms, ["M"]) },
+        { id: "crop", action: "Crop or Resize", keys: combo(platforms, ["Shift", "C"]) },
+        { id: "rotate", action: "Rotate", keys: combo(platforms, ["Shift", "R"]) },
+        { id: "scale", action: "Scale", keys: combo(platforms, ["Shift", "T"]) },
+        { id: "shear", action: "Shear", keys: combo(platforms, ["Shift", "S"]) },
+        { id: "perspective", action: "Perspective", keys: combo(platforms, ["Shift", "P"]) },
+        { id: "flip", action: "Flip", keys: combo(platforms, ["Shift", "F"]) },
+        { id: "text", action: "Text", keys: combo(platforms, ["T"]) },
+        { id: "bucket-fill", action: "Bucket Fill", keys: combo(platforms, ["Shift", "B"]) },
+        { id: "blend", action: "Blend", keys: combo(platforms, ["G"]) },
+        { id: "pencil", action: "Pencil", keys: combo(platforms, ["N"]) },
+        { id: "paintbrush", action: "Paintbrush", keys: combo(platforms, ["P"]) },
+        { id: "eraser", action: "Eraser", keys: combo(platforms, ["Shift", "E"]) },
+        { id: "airbrush", action: "Airbrush", keys: combo(platforms, ["A"]) },
+        { id: "ink", action: "Ink", keys: combo(platforms, ["K"]) },
+        { id: "clone", action: "Clone", keys: combo(platforms, ["C"]) },
+        { id: "blur-sharpen", action: "Blur or Sharpen", keys: combo(platforms, ["Shift", "U"]) },
+        { id: "smudge", action: "Smudge", keys: combo(platforms, ["S"]) },
+        { id: "dodge-burn", action: "Dodge or Burn", keys: combo(platforms, ["Shift", "D"]) },
+        { id: "swap-colors", action: "Swap foreground and background colors", keys: combo(platforms, ["X"]) },
+        { id: "default-colors", action: "Restore default colors", keys: combo(platforms, ["D"]) },
+      ],
+    },
+    {
+      id: "image-files",
+      title: "Image files",
+      intro: "Create, open, save, duplicate, and export images using the file commands in GIMP's quick reference.",
+      shortcuts: [
+        { id: "new-image", action: "Create a new image", keys: combo(platforms, ["Ctrl", "N"]) },
+        { id: "open-image", action: "Open an image", keys: combo(platforms, ["Ctrl", "O"]) },
+        { id: "open-as-layer", action: "Open an image as a new layer", keys: combo(platforms, ["Ctrl", "Alt", "O"]) },
+        { id: "duplicate-image", action: "Duplicate the image", keys: combo(platforms, ["Ctrl", "D"]) },
+        { id: "save-image", action: "Save the image", keys: combo(platforms, ["Ctrl", "S"]) },
+        { id: "save-as", action: "Save under a new name", keys: combo(platforms, ["Ctrl", "Shift", "S"]) },
+        { id: "export-to", action: "Export to a file", keys: combo(platforms, ["Ctrl", "E"]) },
+        { id: "export-as", action: "Export to a new file", keys: combo(platforms, ["Ctrl", "Shift", "E"]) },
+        { id: "close-image", action: "Close the image", keys: combo(platforms, ["Ctrl", "W"]) },
+        { id: "quit", action: "Quit GIMP", keys: combo(platforms, ["Ctrl", "Q"]) },
+      ],
+    },
+    {
+      id: "dialogs-and-view",
+      title: "Dialogs and view",
+      intro: "Open commonly used docks, move through dialog controls, and change the GIMP window view from the keyboard.",
+      shortcuts: [
+        { id: "layers-dialog", action: "Open the Layers dialog", keys: combo(platforms, ["Ctrl", "L"]) },
+        { id: "brushes-dialog", action: "Open the Brushes dialog", keys: combo(platforms, ["Ctrl", "Shift", "B"]) },
+        { id: "patterns-dialog", action: "Open the Patterns dialog", keys: combo(platforms, ["Ctrl", "Shift", "P"]) },
+        { id: "gradients-dialog", action: "Open the Gradients dialog", keys: combo(platforms, ["Ctrl", "G"]) },
+        { id: "tool-options", action: "Open Tool Options", keys: combo(platforms, ["Ctrl", "Shift", "T"]) },
+        { id: "palettes-dialog", action: "Open the Palettes dialog", keys: combo(platforms, ["Ctrl", "P"]) },
+        { id: "navigation-dialog", action: "Open the Navigation dialog", keys: combo(platforms, ["Ctrl", "Shift", "N"]) },
+        { id: "close-dialog", action: "Close the current dialog", keys: combo(platforms, ["Alt", "F4"]) },
+        { id: "next-widget", action: "Move to the next widget", keys: combo(platforms, ["Tab"]) },
+        { id: "previous-widget", action: "Move to the previous widget", keys: combo(platforms, ["Shift", "Tab"]) },
+        { id: "fullscreen", action: "Toggle fullscreen", keys: combo(platforms, ["F11"]) },
+        { id: "quick-mask", action: "Toggle QuickMask", keys: combo(platforms, ["Shift", "Q"]) },
+        { id: "main-menu", action: "Open the main menu", keys: combo(platforms, ["F10"]) },
+        { id: "context-menu", action: "Open the context menu", keys: combo(platforms, ["Shift", "F10"]) },
+      ],
+    },
+  ],
+};
+
+export default gimp;

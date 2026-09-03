@@ -1,0 +1,202 @@
+import { combo, perPlatform } from "../build.ts";
+import type { AppShortcuts } from "../types.ts";
+
+const platforms = ["windows", "macos", "linux"] as const;
+
+export const onePassword: AppShortcuts = {
+  slug: "1password",
+  name: "1Password",
+  category: "Password manager",
+  platforms: [...platforms],
+  intro:
+    "1Password has separate keyboard layers for the desktop app, Quick Access, and the browser extension. The bindings below keep those contexts separate so the same key can be read without guessing where it works.",
+  versionContext:
+    "Current desktop defaults checked August 31, 2026. Global shortcuts can be changed in 1Password settings. Linux global shortcuts depend on X11 or user-configured Wayland bindings. iPhone and iPad shortcuts are outside stack127's current platform model.",
+  sourceUrl: "https://support.1password.com/keyboard-shortcuts/",
+  sourceLabel: "official 1Password keyboard shortcuts",
+  lastVerified: "2026-08-31",
+  groups: [
+    {
+      id: "global",
+      title: "Global shortcuts",
+      intro: "These defaults work outside the main window. 1Password lets you replace them in Settings.",
+      shortcuts: [
+        {
+          id: "show-quick-access",
+          action: "Show Quick Access",
+          keys: combo(platforms, ["Ctrl", "Shift", "Space"], ["Shift", "Cmd", "Space"]),
+          note: "The Linux default applies to X11. Wayland users configure a desktop-specific global binding.",
+        },
+        {
+          id: "lock-1password",
+          action: "Lock 1Password",
+          keys: combo(platforms, ["Ctrl", "Shift", "L"], ["Shift", "Cmd", "L"]),
+          note: "The Linux default applies to X11. Wayland users configure a desktop-specific global binding.",
+        },
+        {
+          id: "fill-in-browser",
+          action: "Fill in the browser",
+          keys: combo(platforms, ["Ctrl", "\\"], ["Cmd", "\\"]),
+          note: "The Linux default applies to X11. Wayland users configure a desktop-specific global binding.",
+        },
+      ],
+    },
+    {
+      id: "app-navigation",
+      title: "App navigation",
+      intro: "Move between accounts, lists, and sections of the desktop app, then control its sidebar and zoom level.",
+      shortcuts: [
+        {
+          id: "view-shortcuts",
+          action: "View keyboard shortcuts",
+          keys: perPlatform(platforms, {
+            windows: ["Ctrl", "Shift", "/"],
+            macos: ["Cmd", "/"],
+            linux: ["Ctrl", "Shift", "/"],
+          }),
+        },
+        { id: "open-settings", action: "Open settings", keys: combo(platforms, ["Ctrl", ","], ["Cmd", ","]) },
+        { id: "search", action: "Search for items", keys: combo(platforms, ["Ctrl", "F"], ["Cmd", "F"]) },
+        { id: "find-current-list", action: "Find items in the current list", keys: combo(platforms, ["Ctrl", "Alt", "F"], ["Option", "Cmd", "F"]) },
+        { id: "clear-search", action: "Clear the search field", keys: combo(platforms, ["Esc"]) },
+        { id: "all-accounts", action: "Switch to All Accounts", keys: combo(platforms, ["Ctrl", "1"], ["Cmd", "1"]) },
+        {
+          id: "account-by-number",
+          action: "Switch accounts and collections by position",
+          keys: combo(platforms, ["Ctrl", "2-9"], ["Cmd", "2-9"]),
+          note: "Use the number assigned to the account or collection.",
+        },
+        { id: "go-back", action: "Go back", keys: perPlatform(platforms, { windows: ["Alt", "Left"], macos: ["Cmd", "["], linux: ["Alt", "Left"] }) },
+        { id: "go-forward", action: "Go forward", keys: perPlatform(platforms, { windows: ["Alt", "Right"], macos: ["Cmd", "]"], linux: ["Alt", "Right"] }) },
+        { id: "focus-next-row", action: "Focus the next row", keys: combo(platforms, ["Down"]) },
+        { id: "focus-previous-row", action: "Focus the previous row", keys: combo(platforms, ["Up"]) },
+        { id: "focus-right", action: "Focus the right section", keys: combo(platforms, ["Right"]) },
+        { id: "focus-left", action: "Focus the left section", keys: combo(platforms, ["Left"]) },
+        {
+          id: "activate-focused-element",
+          action: "Activate the focused element",
+          keys: perPlatform(platforms, {
+            windows: ["Enter"],
+            macos: ["Return"],
+            linux: ["Enter"],
+          }).map((entry) => ({ ...entry, alternatives: [["Space"]] })),
+        },
+        { id: "toggle-sidebar", action: "Collapse or expand the sidebar", keys: combo(platforms, ["Ctrl", "Shift", "D"], ["Shift", "Cmd", "D"]) },
+        { id: "zoom-in", action: "Zoom in", keys: combo(platforms, ["Ctrl", "+"], ["Cmd", "+"]) },
+        {
+          id: "zoom-out",
+          action: "Zoom out",
+          keys: perPlatform(platforms, { windows: ["Ctrl", "-"], macos: ["Cmd", "-"], linux: ["Ctrl", "W"] }),
+          note: "The current 1Password support page lists Ctrl+W for Linux, while it lists Ctrl+- for Windows.",
+        },
+        { id: "actual-size", action: "Revert to actual size", keys: combo(platforms, ["Ctrl", "0"], ["Cmd", "0"]) },
+        { id: "minimize", action: "Minimize 1Password to the Dock", keys: perPlatform(platforms, { macos: ["Cmd", "M"] }) },
+        { id: "close-window", action: "Close the current window", keys: perPlatform(platforms, { macos: ["Cmd", "W"] }) },
+        { id: "linux-app-menu", action: "Show or hide the app menu in the title bar", keys: perPlatform(platforms, { linux: ["Alt"] }) },
+      ],
+    },
+    {
+      id: "items",
+      title: "Items",
+      intro: "Copy fields, open, create, edit, archive, and delete vault items from the desktop app's item list.",
+      shortcuts: [
+        { id: "copy-username", action: "Copy the username or primary field", keys: combo(platforms, ["Ctrl", "C"], ["Cmd", "C"]) },
+        { id: "copy-password", action: "Copy the password", keys: combo(platforms, ["Ctrl", "Shift", "C"], ["Shift", "Cmd", "C"]) },
+        { id: "copy-otp", action: "Copy the one-time password", keys: combo(platforms, ["Ctrl", "Alt", "C"], ["Option", "Cmd", "C"]) },
+        { id: "open-and-fill", action: "Open the selected login website and fill it", keys: combo(platforms, ["Ctrl", "Shift", "F"], ["Shift", "Cmd", "F"]) },
+        { id: "open-item-window", action: "Open the selected item in a new window", keys: combo(platforms, ["Ctrl", "O"], ["Cmd", "O"]) },
+        { id: "new-item", action: "Create a new item", keys: combo(platforms, ["Ctrl", "N"], ["Cmd", "N"]) },
+        { id: "edit-item", action: "Edit the selected item", keys: combo(platforms, ["Ctrl", "E"], ["Cmd", "E"]) },
+        { id: "save-item", action: "Save changes to an item", keys: combo(platforms, ["Ctrl", "S"], ["Cmd", "S"]) },
+        { id: "cancel-edit", action: "Cancel an edit", keys: combo(platforms, ["Esc"]) },
+        { id: "toggle-secure-fields", action: "Reveal or conceal secure fields", keys: combo(platforms, ["Ctrl", "R"], ["Cmd", "R"]) },
+        {
+          id: "temporarily-reveal-fields",
+          action: "Temporarily reveal all secure fields",
+          keys: combo(platforms, ["Ctrl", "Alt"], ["Option"]),
+          note: "Enable the hold-to-reveal option in Settings, Security before using this binding.",
+        },
+        { id: "archive-item", action: "Move the selected items to the Archive", keys: combo(platforms, ["Delete"]) },
+        { id: "delete-item", action: "Delete the selected items", keys: combo(platforms, ["Ctrl", "Delete"], ["Cmd", "Delete"]) },
+      ],
+    },
+    {
+      id: "quick-access",
+      title: "Quick Access",
+      intro: "Search accounts and act on the selected result without opening the full 1Password window.",
+      shortcuts: [
+        { id: "qa-toggle", action: "Open or close Quick Access", keys: combo(platforms, ["Ctrl", "Shift", "Space"], ["Shift", "Cmd", "Space"]) },
+        { id: "qa-clear-search", action: "Clear the Quick Access search field", keys: combo(platforms, ["Esc"]) },
+        { id: "qa-all-accounts", action: "Switch Quick Access to All Accounts", keys: combo(platforms, ["Ctrl", "1"], ["Cmd", "1"]) },
+        { id: "qa-account-by-number", action: "Switch accounts or collections by position", keys: combo(platforms, ["Ctrl", "2-9"], ["Cmd", "2-9"]) },
+        { id: "qa-actions", action: "View all actions for the selected item", keys: combo(platforms, ["Right"]) },
+        { id: "qa-copy-username", action: "Copy the username or primary field", keys: combo(platforms, ["Ctrl", "C"], ["Cmd", "C"]) },
+        { id: "qa-copy-password", action: "Copy the password", keys: combo(platforms, ["Ctrl", "Shift", "C"], ["Shift", "Cmd", "C"]) },
+        { id: "qa-copy-otp", action: "Copy the one-time password", keys: combo(platforms, ["Ctrl", "Alt", "C"], ["Option", "Cmd", "C"]) },
+        { id: "qa-details", action: "Open item details in a new window", keys: combo(platforms, ["Ctrl", "O"], ["Cmd", "O"]) },
+        { id: "qa-open-fill", action: "Open the login website and fill it", keys: perPlatform(platforms, { windows: ["Alt", "Enter"], macos: ["Option", "Return"], linux: ["Alt", "Enter"] }) },
+        { id: "qa-open-app", action: "Open the item in its app", keys: combo(platforms, ["Ctrl", "Shift", "O"], ["Shift", "Cmd", "O"]) },
+        { id: "qa-fill-focused-app", action: "Fill the item in the focused app", keys: perPlatform(platforms, { macos: ["Shift", "Return"] }) },
+      ],
+    },
+    {
+      id: "browser-extension",
+      title: "Browser extension",
+      intro: "Open the extension, move through its lists, copy fields, edit items, and use the password generator.",
+      shortcuts: [
+        {
+          id: "browser-toggle",
+          action: "Open or close the browser pop-up",
+          keys: perPlatform(platforms, {
+            windows: ["Ctrl", "Shift", "X"],
+            macos: ["Shift", "Cmd", "X"],
+            linux: ["Ctrl", "Shift", "X"],
+          }).map((entry) => ({
+            ...entry,
+            alternatives: [[entry.platform === "macos" ? "Cmd" : "Ctrl", "."]],
+          })),
+          note: "The primary binding is for Chrome, Edge, and Brave. The alternative is for Firefox. Safari uses Shift+Cmd+X.",
+        },
+        { id: "browser-search", action: "Search for items", keys: combo(platforms, ["Ctrl", "F"], ["Cmd", "F"]) },
+        { id: "browser-vaults", action: "Show the list of vaults", keys: combo(platforms, ["Ctrl", "D"], ["Cmd", "D"]) },
+        { id: "browser-category", action: "Open or close the category menu", keys: combo(platforms, ["Ctrl", "Down"], ["Cmd", "Down"]) },
+        { id: "browser-next", action: "Select the next category, item, or field", keys: combo(platforms, ["Down"]) },
+        { id: "browser-previous", action: "Select the previous category, item, or field", keys: combo(platforms, ["Up"]) },
+        { id: "browser-item-details", action: "Select item details", keys: combo(platforms, ["Right"]) },
+        { id: "browser-item-list", action: "Select the item list", keys: combo(platforms, ["Left"]) },
+        { id: "browser-expand-overview", action: "Expand item overview banners", keys: combo(platforms, ["Space"]) },
+        { id: "browser-activate", action: "Copy the selected detail or perform its default action", keys: combo(platforms, ["Enter"], ["Return"]) },
+        { id: "browser-copy-username", action: "Copy the selected item's username", keys: combo(platforms, ["Ctrl", "C"], ["Cmd", "C"]) },
+        { id: "browser-copy-password", action: "Copy the selected item's password", keys: combo(platforms, ["Ctrl", "Shift", "C"], ["Shift", "Cmd", "C"]) },
+        {
+          id: "browser-copy-otp",
+          action: "Copy the selected item's one-time password",
+          keys: perPlatform(platforms, {
+            windows: ["Ctrl", "Shift", "Windows", "C"],
+            macos: ["Control", "Shift", "Cmd", "C"],
+            linux: ["Ctrl", "Shift", "Super", "C"],
+          }),
+        },
+        { id: "browser-open-fill", action: "Open the selected login in a new tab and fill it", keys: combo(platforms, ["Ctrl", "Enter"], ["Cmd", "Return"]) },
+        { id: "browser-open-window", action: "Open the selected item in a separate window", keys: combo(platforms, ["Ctrl", "O"], ["Cmd", "O"]) },
+        { id: "browser-new-item", action: "Create a new item", keys: combo(platforms, ["Ctrl", "I"], ["Cmd", "I"]) },
+        { id: "browser-edit-item", action: "Edit the selected item", keys: combo(platforms, ["Ctrl", "E"], ["Cmd", "E"]) },
+        {
+          id: "browser-temporarily-reveal",
+          action: "Temporarily reveal all secure fields in the selected item",
+          keys: perPlatform(platforms, {
+            windows: ["Ctrl", "Alt"],
+            macos: ["Control", "Option"],
+            linux: ["Ctrl", "Alt"],
+          }),
+        },
+        { id: "browser-generator", action: "Show the password generator", keys: combo(platforms, ["Ctrl", "G"], ["Cmd", "G"]) },
+        { id: "browser-copy-generated", action: "Copy a password from the password generator", keys: combo(platforms, ["Ctrl", "C"], ["Cmd", "C"]) },
+        { id: "browser-lock", action: "Lock 1Password", keys: combo(platforms, ["Ctrl", "Shift", "L"], ["Shift", "Cmd", "L"]) },
+        { id: "browser-close", action: "Close the browser pop-up", keys: combo(platforms, ["Esc"]) },
+      ],
+    },
+  ],
+};
+
+export default onePassword;

@@ -23,3 +23,5 @@ separate tool. Charts, screenshots, provenance labels, and decorative copy do no
 
 The structured records in `lib/shortcuts` feed both pages. Unknown keys remain unknown. Every app
 keeps its official source URL and last-verified date in the data, not in the public catalog.
+Candidate records may be generated for review, but they stay `noindex` until publication is approved
+through `public.stack127_pages`.

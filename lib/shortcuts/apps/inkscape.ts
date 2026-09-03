@@ -1,0 +1,93 @@
+import { combo } from "../build.ts";
+import type { AppShortcuts } from "../types.ts";
+
+const platforms = ["windows", "linux"] as const;
+
+const inkscape: AppShortcuts = {
+  slug: "inkscape",
+  name: "Inkscape",
+  category: "Vector editor",
+  platforms: [...platforms],
+  intro:
+    "Inkscape's official key reference covers tools, files, object editing, z-order, and canvas views. These entries focus on the commands that recur while drawing and preparing a vector document.",
+  versionContext:
+    "The Inkscape documentation reference and its default key XML are maintained by the Inkscape project. The public reference does not publish a separate macOS column, so this record covers Windows and Linux and leaves custom keymaps out.",
+  sourceUrl: "https://inkscape.org/sl/doc/keys.html",
+  sourceLabel: "official Inkscape keyboard shortcuts",
+  lastVerified: "2026-09-01",
+  groups: [
+    {
+      id: "tools",
+      title: "Tools",
+      intro: "Switch drawing, selection, shape, text, fill, and measurement tools while working on the canvas.",
+      shortcuts: [
+        { id: "selector", action: "Select the Selector tool", keys: combo(platforms, ["S"]) },
+        { id: "node", action: "Select the Node tool", keys: combo(platforms, ["N"]) },
+        { id: "rectangle", action: "Select the Rectangle tool", keys: combo(platforms, ["R"]) },
+        { id: "ellipse", action: "Select the Ellipse tool", keys: combo(platforms, ["E"]) },
+        { id: "bezier", action: "Select the Bezier tool", keys: combo(platforms, ["B"]) },
+        { id: "pencil", action: "Select the Pencil tool", keys: combo(platforms, ["P"]) },
+        { id: "calligraphy", action: "Select the Calligraphy tool", keys: combo(platforms, ["C"]) },
+        { id: "text", action: "Select the Text tool", keys: combo(platforms, ["T"]) },
+        { id: "gradient", action: "Select the Gradient tool", keys: combo(platforms, ["G"]) },
+        { id: "three-d-box", action: "Select the 3D Box tool", keys: combo(platforms, ["X"]) },
+        { id: "zoom", action: "Select the Zoom tool", keys: combo(platforms, ["Z"]) },
+        { id: "measure", action: "Select the Measure tool", keys: combo(platforms, ["M"]) },
+        { id: "dropper", action: "Select the Dropper tool", keys: combo(platforms, ["D"]) },
+      ],
+    },
+    {
+      id: "files-and-editing",
+      title: "Files and editing",
+      intro: "Create, open, save, import, export, and change vector objects with the core document commands.",
+      shortcuts: [
+        { id: "new", action: "Create a new document", keys: combo(platforms, ["Ctrl", "N"]) },
+        { id: "open", action: "Open a document", keys: combo(platforms, ["Ctrl", "O"]) },
+        { id: "save", action: "Save the document", keys: combo(platforms, ["Ctrl", "S"]) },
+        { id: "save-as", action: "Save as", keys: combo(platforms, ["Ctrl", "Shift", "S"]) },
+        { id: "close", action: "Close the document", keys: combo(platforms, ["Ctrl", "W"]) },
+        { id: "quit", action: "Quit Inkscape", keys: combo(platforms, ["Ctrl", "Q"]) },
+        { id: "import", action: "Import a file", keys: combo(platforms, ["Ctrl", "I"]) },
+        { id: "export", action: "Export the drawing", keys: combo(platforms, ["Ctrl", "E"]) },
+        { id: "print", action: "Print the drawing", keys: combo(platforms, ["Ctrl", "P"]) },
+        { id: "undo", action: "Undo", keys: combo(platforms, ["Ctrl", "Z"]) },
+        { id: "redo", action: "Redo", keys: combo(platforms, ["Ctrl", "Y"]) },
+        { id: "cut", action: "Cut", keys: combo(platforms, ["Ctrl", "X"]) },
+        { id: "copy", action: "Copy", keys: combo(platforms, ["Ctrl", "C"]) },
+        { id: "paste", action: "Paste", keys: combo(platforms, ["Ctrl", "V"]) },
+        { id: "duplicate", action: "Duplicate selection", keys: combo(platforms, ["Ctrl", "D"]) },
+        { id: "select-all", action: "Select all", keys: combo(platforms, ["Ctrl", "A"]) },
+        { id: "deselect", action: "Deselect all", keys: combo(platforms, ["Esc"]) },
+        { id: "delete", action: "Delete selection", keys: combo(platforms, ["Delete"]) },
+      ],
+    },
+    {
+      id: "objects-and-view",
+      title: "Objects and view",
+      intro: "Group objects, convert paths, change stacking order, and choose a useful canvas view.",
+      shortcuts: [
+        { id: "group", action: "Group selected objects", keys: combo(platforms, ["Ctrl", "G"]) },
+        { id: "ungroup", action: "Ungroup selected objects", keys: combo(platforms, ["Ctrl", "Shift", "G"]) },
+        { id: "combine", action: "Combine paths", keys: combo(platforms, ["Ctrl", "K"]) },
+        { id: "break-apart", action: "Break apart paths", keys: combo(platforms, ["Ctrl", "Shift", "K"]) },
+        { id: "object-to-path", action: "Convert object to path", keys: combo(platforms, ["Ctrl", "Shift", "C"]) },
+        { id: "fill-stroke", action: "Open Fill and Stroke", keys: combo(platforms, ["Ctrl", "Shift", "F"]) },
+        { id: "align-distribute", action: "Open Align and Distribute", keys: combo(platforms, ["Ctrl", "Shift", "A"]) },
+        { id: "raise", action: "Raise selection", keys: combo(platforms, ["Page Up"]) },
+        { id: "lower", action: "Lower selection", keys: combo(platforms, ["Page Down"]) },
+        { id: "top", action: "Raise selection to top", keys: combo(platforms, ["Home"]) },
+        { id: "bottom", action: "Lower selection to bottom", keys: combo(platforms, ["End"]) },
+        { id: "zoom-drawing", action: "Zoom to drawing", keys: combo(platforms, ["4"]) },
+        { id: "zoom-page", action: "Zoom to page", keys: combo(platforms, ["5"]) },
+        { id: "zoom-selection", action: "Zoom to selection", keys: combo(platforms, ["6"]) },
+        { id: "zoom-100", action: "Zoom to 100 percent", keys: combo(platforms, ["1"]) },
+        { id: "zoom-in", action: "Zoom in", keys: combo(platforms, ["+"]) },
+        { id: "zoom-out", action: "Zoom out", keys: combo(platforms, ["-"]) },
+        { id: "fullscreen", action: "Toggle fullscreen", keys: combo(platforms, ["F11"]) },
+        { id: "hide-ui", action: "Show or hide the user interface", keys: combo(platforms, ["Tab"]) },
+      ],
+    },
+  ],
+};
+
+export default inkscape;

@@ -1,73 +1,22 @@
-import { shortcutCount, type AppShortcuts } from "./types.ts";
+import {
+  shortcutAppCatalog,
+  type ShortcutAppSummary,
+} from "./catalog.generated.ts";
 
-import { brave } from "./apps/brave.ts";
-import { chrome } from "./apps/chrome.ts";
-import { claudeCode } from "./apps/claude-code.ts";
-import { codex } from "./apps/codex.ts";
-import { cursor } from "./apps/cursor.ts";
-import { excel } from "./apps/excel.ts";
-import { figma } from "./apps/figma.ts";
-import { firefox } from "./apps/firefox.ts";
-import { ghostty } from "./apps/ghostty.ts";
-import { github } from "./apps/github.ts";
-import { gmail } from "./apps/gmail.ts";
-import { gnome } from "./apps/gnome.ts";
-import { googleSheets } from "./apps/google-sheets.ts";
-import { iterm2 } from "./apps/iterm2.ts";
-import { macos } from "./apps/macos.ts";
-import { neovim } from "./apps/neovim.ts";
-import { notion } from "./apps/notion.ts";
-import { opencode } from "./apps/opencode.ts";
-import { piCodingAgent } from "./apps/pi-coding-agent.ts";
-import { powershell } from "./apps/powershell.ts";
-import { slack } from "./apps/slack.ts";
-import { vim } from "./apps/vim.ts";
-import { vscode } from "./apps/vscode.ts";
-import { windows } from "./apps/windows.ts";
-import { windowsTerminal } from "./apps/windows-terminal.ts";
-import { zed } from "./apps/zed.ts";
+export { shortcutAppCatalog, type ShortcutAppSummary } from "./catalog.generated.ts";
+export {
+  loadShortcutApp,
+  loadShortcutApps,
+  shortcutAppLoaders,
+  type ShortcutAppSlug,
+} from "./loaders.generated.ts";
+export { shortcutCount } from "./types.ts";
 
-/** Every app in the reference, ordered by display name. */
-export const shortcutApps: AppShortcuts[] = [
-  brave,
-  chrome,
-  claudeCode,
-  codex,
-  cursor,
-  excel,
-  figma,
-  firefox,
-  ghostty,
-  github,
-  gmail,
-  gnome,
-  googleSheets,
-  iterm2,
-  macos,
-  neovim,
-  notion,
-  opencode,
-  piCodingAgent,
-  powershell,
-  slack,
-  vim,
-  vscode,
-  windows,
-  windowsTerminal,
-  zed,
-].sort((left, right) => left.name.localeCompare(right.name));
-
-const appsBySlug = new Map(shortcutApps.map((app) => [app.slug, app]));
-
-export function getShortcutApp(slug: string): AppShortcuts | undefined {
-  return appsBySlug.get(slug);
-}
-
-/** Category names in a stable, curated order for the directory. */
-export const shortcutCategories: string[] = [
+const preferredCategoryOrder = [
   "Code editor",
   "AI code editor",
   "AI coding agent",
+  "Developer tools",
   "Text editor",
   "Web browser",
   "Operating system",
@@ -80,10 +29,160 @@ export const shortcutCategories: string[] = [
   "Team chat",
   "Notes and docs",
   "Design tool",
+  "3D and CAD",
+  "Audio and video",
+  "Analytics",
+  "Documentation",
+  "File management",
+  "Forms",
+  "Game development",
+  "Git client",
+  "Launcher",
+  "Music",
+  "PDF",
+  "Presentation",
+  "Project management",
+  "Productivity",
+  "Remote access",
+  "Social",
+  "Time tracking",
+  "Work management",
+  "Writing",
 ];
 
-export function appsInCategory(category: string): AppShortcuts[] {
-  return shortcutApps.filter((app) => app.category === category);
+/** Keep the directory useful as the catalog grows without losing app-level labels in source data. */
+const categoryAliases: Record<string, string> = {
+  "3D creation suite": "3D and CAD",
+  "3D modeling and animation": "3D and CAD",
+  "3D texturing": "3D and CAD",
+  "3D design": "3D and CAD",
+  "3D sculpting": "3D and CAD",
+  "AI assistant": "AI assistant",
+  "AI coding assistant": "AI coding agent",
+  "AI pair programming": "AI coding agent",
+  "Android IDE": "Developer tools",
+  "Analytics": "Analytics",
+  "Audio and video editing": "Audio and video",
+  "Audio editor": "Audio and video",
+  "Building information modeling": "3D and CAD",
+  "CAD and engineering": "3D and CAD",
+  "Cloud storage": "File management",
+  "Code hosting": "Code hosting platform",
+  "Collaborative database": "Productivity",
+  "Collaborative documents": "Documentation",
+  Communication: "Team chat",
+  "Compositing and motion graphics": "Audio and video",
+  "Computer-aided design": "3D and CAD",
+  "Data and analytics": "Analytics",
+  "Database tools": "Developer tools",
+  "Developer tool": "Developer tools",
+  "Design handoff": "Design tool",
+  "Design and visual communication": "Design tool",
+  Diagramming: "Design tool",
+  "Digital audio workstation": "Audio and video",
+  "Digital illustration": "Design tool",
+  "Digital painting": "Design tool",
+  "Document editor": "Documentation",
+  "File archiver": "File management",
+  "File comparison": "File management",
+  "File transfer": "File management",
+  "Form builder": "Forms",
+  "Game engine": "Game development",
+  "Git client": "Git client",
+  "Image editor": "Design tool",
+  "IDE": "Developer tools",
+  "Interface design and prototyping": "Design tool",
+  Launcher: "Launcher",
+  "Motion graphics and compositing": "Audio and video",
+  "Music streaming and library": "Music",
+  "Music streaming": "Music",
+  "Music production": "Audio and video",
+  "Note-taking": "Documentation",
+  Notes: "Documentation",
+  "Notes and documents": "Documentation",
+  "Notes and writing": "Documentation",
+  "PDF editor": "PDF",
+  "PDF reader": "PDF",
+  "Page layout and publishing": "Documentation",
+  "Photo catalog and editor": "Design tool",
+  "Photo editing": "Design tool",
+  "Prototyping": "Design tool",
+  "Presentation editor": "Presentation",
+  "Presentation software": "Presentation",
+  "Product analytics": "Analytics",
+  "Productivity": "Productivity",
+  "Productivity launcher": "Launcher",
+  "Project management": "Project management",
+  "Prototyping and wireframing": "Design tool",
+  "Remote desktop": "Remote access",
+  "Screen recording": "Audio and video",
+  "Screen capture": "Operating system",
+  "Shared inbox": "Email",
+  "Social and community": "Social",
+  "Social media management": "Social",
+  "Social networking": "Social",
+  "Social media": "Social",
+  "Software development platform": "Developer tools",
+  "Streaming and recording": "Audio and video",
+  "Support desk": "Work management",
+  "Task management": "Project management",
+  "Team knowledge base": "Documentation",
+  "Transcription": "Audio and video",
+  "Video": "Audio and video",
+  "Video and audio": "Audio and video",
+  "Video conferencing": "Team chat",
+  "Video streaming": "Audio and video",
+  "Virtualization": "Developer tools",
+  "Visual collaboration": "Design tool",
+  "Vector editor": "Design tool",
+  "Text editors": "Text editor",
+  "Time tracking": "Time tracking",
+  "Translation and writing": "Writing",
+  "Vector design": "Design tool",
+  "Vector graphics editor": "Design tool",
+  "Video editing": "Audio and video",
+  "Video editor": "Audio and video",
+  "Video meetings": "Team chat",
+  "Whiteboard and diagrams": "Design tool",
+  "Whiteboards and collaboration": "Design tool",
+  Wireframing: "Design tool",
+  "Word processing": "Documentation",
+  "Office suite": "Documentation",
+  "Work management": "Project management",
+  "Website design": "Design tool",
+  "Web browsers": "Web browser",
+  "Windows utilities": "Operating system",
+  "Calendar and tasks": "Productivity",
+  "API client": "Developer tools",
+  "Customer support": "Work management",
+  "Issue tracking": "Project management",
+  "Knowledge management": "Documentation",
+  Messaging: "Team chat",
+  "Writing assistant": "Writing",
+  "Writing app": "Writing",
+  "Writing tool": "Writing",
+  Accounting: "Productivity",
+  "Customer relationship management": "Work management",
+  "Network analysis": "Developer tools",
+  Terminal: "Terminal emulator",
+  "Website builder": "Design tool",
+  "Content management": "Documentation",
+};
+
+export function shortcutCategory(category: string): string {
+  return categoryAliases[category] ?? category;
 }
 
-export { shortcutCount };
+const categories = new Set<string>(shortcutAppCatalog.map((app) => shortcutCategory(app.category)));
+
+/** Known categories keep their editorial order. New categories follow alphabetically. */
+export const shortcutCategories = [
+  ...preferredCategoryOrder.filter((category) => categories.has(category)),
+  ...[...categories]
+    .filter((category) => !preferredCategoryOrder.includes(category))
+    .sort((left, right) => left.localeCompare(right)),
+];
+
+export function appsInCategory(category: string): ShortcutAppSummary[] {
+  return shortcutAppCatalog.filter((app) => shortcutCategory(app.category) === category);
+}

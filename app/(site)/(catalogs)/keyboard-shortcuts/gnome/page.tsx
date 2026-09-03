@@ -1,5 +1,6 @@
+import app from "@/lib/shortcuts/apps/gnome";
 import { KeyboardShortcutsAppPage } from "../keyboard-shortcuts-app-page";
 
-export default function GnomeKeyboardShortcutsPage() {
-  return <KeyboardShortcutsAppPage slug="gnome" />;
+export default function KeyboardShortcutsPage() {
+  return <KeyboardShortcutsAppPage app={app} />;
 }

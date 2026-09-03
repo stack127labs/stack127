@@ -12,6 +12,12 @@
     "purpose": "Refreshes the committed reference datasets /domain-tools depends on: IANA RDAP bootstrap, the root zone TLD list, the Public Suffix List, and the Unicode IDNA and script tables."
   },
   {
+    "surface": "keyboard-shortcuts",
+    "folder": "scripts/keyboard-shortcuts",
+    "manifest": "scripts/keyboard-shortcuts/scripts.json",
+    "purpose": "Keeps compact app metadata, lazy loaders, route wrappers, and ownership manifests aligned with verified keyboard shortcut records."
+  },
+  {
     "surface": "stack127",
     "folder": "scripts/stack127",
     "manifest": null,

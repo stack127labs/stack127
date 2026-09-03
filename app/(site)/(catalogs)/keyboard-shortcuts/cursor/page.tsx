@@ -1,5 +1,6 @@
+import app from "@/lib/shortcuts/apps/cursor";
 import { KeyboardShortcutsAppPage } from "../keyboard-shortcuts-app-page";
 
-export default function CursorKeyboardShortcutsPage() {
-  return <KeyboardShortcutsAppPage slug="cursor" />;
+export default function KeyboardShortcutsPage() {
+  return <KeyboardShortcutsAppPage app={app} />;
 }

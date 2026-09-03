@@ -1,5 +1,6 @@
+import app from "@/lib/shortcuts/apps/macos";
 import { KeyboardShortcutsAppPage } from "../keyboard-shortcuts-app-page";
 
-export default function MacosKeyboardShortcutsPage() {
-  return <KeyboardShortcutsAppPage slug="macos" />;
+export default function KeyboardShortcutsPage() {
+  return <KeyboardShortcutsAppPage app={app} />;
 }

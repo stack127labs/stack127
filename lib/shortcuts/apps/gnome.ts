@@ -79,3 +79,5 @@ export const gnome: AppShortcuts = {
     },
   ],
 };
+
+export default gnome;

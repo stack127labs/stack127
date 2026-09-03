@@ -61,3 +61,32 @@ test("every shortcut data file has one canonical route and ownership manifest", 
   assert.deepEqual(routeSlugs, appSlugs);
   assert.deepEqual(manifestSlugs, appSlugs);
 });
+
+test("app routes import one record directly instead of loading the full registry", () => {
+  const appSlugs = readdirSync(
+    new URL("../../../lib/shortcuts/apps/", import.meta.url),
+  )
+    .filter((name) => name.endsWith(".ts"))
+    .map((name) => name.slice(0, -3));
+
+  for (const slug of appSlugs) {
+    const source = readFileSync(new URL(`${slug}/page.tsx`, routeRoot), "utf8");
+    assert.match(source, new RegExp(`@/lib/shortcuts/apps/${slug}`));
+    assert.match(source, /<KeyboardShortcutsAppPage app=\{app\} \/>/);
+    assert.doesNotMatch(source, /slug=/);
+  }
+});
+
+test("the directory and sidebar use the compact catalog", () => {
+  const sidebar = readFileSync(
+    new URL("../_components/keyboard-shortcuts-sidebar.tsx", routeRoot),
+    "utf8",
+  );
+
+  assert.match(directory, /shortcutAppCatalog/);
+  assert.match(directory, /appsInCategory/);
+  assert.match(sidebar, /shortcutAppCatalog/);
+  assert.match(sidebar, /appsInCategory/);
+  assert.match(sidebar, /\/keyboard-shortcuts#category-/);
+  assert.doesNotMatch(sidebar, /apps\.map\(/);
+});

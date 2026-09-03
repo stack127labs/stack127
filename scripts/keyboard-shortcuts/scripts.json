@@ -1,0 +1,6 @@
+[
+  {
+    "file": "sync-pages.mjs",
+    "purpose": "Generates compact shortcut metadata, lazy app loaders, concrete route wrappers, and page ownership manifests from verified app records."
+  }
+]

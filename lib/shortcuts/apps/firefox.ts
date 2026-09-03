@@ -160,3 +160,5 @@ export const firefox: AppShortcuts = {
     },
   ],
 };
+
+export default firefox;

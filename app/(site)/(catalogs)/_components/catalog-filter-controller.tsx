@@ -165,6 +165,8 @@ export function CatalogFilterController() {
       return undefined;
     }
 
+    form.dataset.liveFilterReady = "true";
+
     let searchTimer: ReturnType<typeof setTimeout> | undefined;
     let rangeTimer: ReturnType<typeof setTimeout> | undefined;
 
@@ -351,6 +353,8 @@ export function CatalogFilterController() {
     document.addEventListener("keydown", handleKeydown);
 
     return () => {
+      delete form.dataset.liveFilterReady;
+
       if (searchTimer) {
         clearTimeout(searchTimer);
       }

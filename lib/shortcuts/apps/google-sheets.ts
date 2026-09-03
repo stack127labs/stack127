@@ -170,3 +170,5 @@ export const googleSheets: AppShortcuts = {
     },
   ],
 };
+
+export default googleSheets;

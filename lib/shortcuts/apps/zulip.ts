@@ -1,0 +1,122 @@
+import { perPlatform } from "../build.ts";
+import type { AppShortcuts, Shortcut } from "../types.ts";
+
+const platforms = ["windows", "macos", "linux"] as const;
+
+const shared = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
+  id,
+  action,
+  keys: perPlatform(platforms, { windows: keys, macos: keys, linux: keys }),
+  ...(note ? { note } : {}),
+});
+
+export const zulip: AppShortcuts = {
+  slug: "zulip",
+  name: "Zulip",
+  category: "Team chat",
+  platforms: [...platforms],
+  intro:
+    "Zulip publishes a current Web and Desktop keyboard reference for streams, topics, direct messages, search, composing, and message actions.",
+  versionContext:
+    "Zulip keyboard shortcut reference checked September 1, 2026. The official Web and Desktop table uses Ctrl notation and includes the same app-level map for the listed desktop platforms.",
+  sourceUrl: "https://zulip.com/help/keyboard-shortcuts",
+  sourceLabel: "official Zulip keyboard shortcuts",
+  lastVerified: "2026-09-01",
+  groups: [
+    {
+      id: "basics",
+      title: "Basics",
+      intro: "Reply, start a topic or direct message, move through messages, and open help.",
+      shortcuts: [
+        shared("reply", "Reply to the selected message", ["R"], "Enter also replies to the selected message."),
+        shared("reply-enter", "Reply to the selected message", ["Enter"]),
+        shared("new-topic", "Start a new topic", ["C"]),
+        shared("new-dm", "Start a direct message", ["X"]),
+        shared("paste-formatted", "Paste formatted text", ["Ctrl", "V"]),
+        shared("paste-plain", "Paste plain text", ["Ctrl", "Shift", "V"]),
+        shared("cancel", "Cancel or save the current draft", ["Escape"], "Ctrl+[ is also documented."),
+        shared("drafts", "Open drafts", ["D"]),
+        shared("next-message", "Move to the next message", ["Down Arrow"], "J also moves to the next message."),
+        shared("next-message-j", "Move to the next message", ["J"]),
+        shared("last-message", "Move to the last message", ["End"], "Shift+G also moves to the last message."),
+        shared("last-message-shift-g", "Move to the last message", ["Shift", "G"]),
+        shared("next-unread-topic", "Move to the next unread topic", ["N"]),
+        shared("followed-topic", "Move to the next followed topic", ["Shift", "N"]),
+        shared("unread-dm", "Move to the next unread direct message", ["P"]),
+        shared("search", "Search messages", ["/"], "Ctrl+K also searches messages."),
+        shared("search-ctrl-k", "Search messages", ["Ctrl", "K"]),
+        shared("status", "Set your status", ["Shift", "Y"]),
+        shared("shortcut-help", "Show keyboard shortcuts", ["?"]),
+        shared("home", "Go to Home", ["Ctrl", "["]),
+      ],
+    },
+    {
+      id: "navigation",
+      title: "Navigation and scrolling",
+      intro: "Move between Zulip views, recent locations, and message positions.",
+      shortcuts: [
+        shared("previous-location", "Go back in location history", ["Alt", "Left Arrow"]),
+        shared("next-location", "Go forward in location history", ["Alt", "Right Arrow"]),
+        shared("stream-topic", "Open the stream or topic view", ["S"]),
+        shared("dm-feed", "Open the direct-message feed", ["Shift", "P"]),
+        shared("topics", "Open topics", ["Y"]),
+        shared("context", "Open the current context", ["Z"]),
+        shared("all-messages", "Open All Messages", ["Shift", "A"]),
+        shared("all-dms", "Open All DMs", ["Shift", "D"]),
+        shared("inbox", "Open Inbox", ["Shift", "I"]),
+        shared("recent", "Open recent conversations", ["T"]),
+        shared("combined-feed", "Open the combined feed", ["A"]),
+        shared("mentions", "Open mentions", ["Ctrl", "@"]),
+        shared("starred", "Open starred messages", ["*"]),
+        shared("page-up", "Scroll up", ["Page Up"]),
+        shared("page-down", "Scroll down", ["Page Down"]),
+        shared("first-message", "Move to the first message", ["Home"]),
+      ],
+    },
+    {
+      id: "compose",
+      title: "Compose",
+      intro: "Write replies, topics, and direct messages with formatting and preview controls.",
+      shortcuts: [
+        shared("quote", "Quote the selected message", [">"]),
+        shared("forward", "Forward the selected message", ["<"]),
+        shared("direct-reply", "Reply directly to the selected message", ["Shift", "R"]),
+        shared("mention", "Mention a user", ["@"]),
+        shared("send", "Send the message", ["Tab", "then", "Enter"], "Enter or Ctrl+Enter may send based on the compose settings."),
+        shared("new-line", "Insert a new line", ["Shift", "Enter"]),
+        shared("bold", "Bold text", ["Ctrl", "B"]),
+        shared("italic", "Italicize text", ["Ctrl", "I"]),
+        shared("link", "Insert a link", ["Ctrl", "Shift", "L"]),
+        shared("snippet", "Insert a snippet", ["Ctrl", "'"]),
+        shared("code", "Format code", ["Ctrl", "Shift", "C"]),
+        shared("preview", "Preview the message", ["Alt", "P"]),
+        shared("cancel-compose", "Cancel composing", ["Escape"]),
+      ],
+    },
+    {
+      id: "message-actions",
+      title: "Message actions",
+      intro: "Open message menus, edit or move messages, and change message state.",
+      shortcuts: [
+        shared("edit-last", "Edit the last message", ["Left Arrow"]),
+        shared("message-menu", "Open the message menu", ["I"]),
+        shared("edit-message", "Edit or view the original message", ["E"]),
+        shared("sender-card", "Open the sender card", ["U"]),
+        shared("read-receipts", "Open read receipts", ["Shift", "V"]),
+        shared("view-image", "Open the message image", ["V"]),
+        shared("move-message", "Move the message", ["M"]),
+        shared("message-history", "Open message history", ["Shift", "H"]),
+        shared("star-message", "Star or unstar the message", ["Ctrl", "S"]),
+        shared("emoji", "Open emoji selection", [":"]),
+        shared("first-emoji", "Choose the first emoji result", ["="]),
+        shared("thumbs-up", "Add a thumbs-up reaction", ["+"]),
+        shared("mark-unread", "Mark the message unread", ["Shift", "U"]),
+        shared("collapse", "Collapse the message", ["-"]),
+        shared("mute-topic", "Mute the topic", ["Shift", "M"]),
+        shared("copy-link", "Copy the message link", ["L"]),
+      ],
+    },
+  ],
+};
+
+export default zulip;

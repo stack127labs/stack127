@@ -161,3 +161,5 @@ export const opencode: AppShortcuts = {
     },
   ],
 };
+
+export default opencode;

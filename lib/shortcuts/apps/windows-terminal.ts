@@ -236,3 +236,5 @@ export const windowsTerminal: AppShortcuts = {
     },
   ],
 };
+
+export default windowsTerminal;

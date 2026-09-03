@@ -112,3 +112,5 @@ export const claudeCode: AppShortcuts = {
     },
   ],
 };
+
+export default claudeCode;

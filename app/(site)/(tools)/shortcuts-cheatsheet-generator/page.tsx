@@ -3,7 +3,7 @@ import { getRequiredToolPage } from "@/lib/tool-pages";
 import { AppShell } from "../../../app-shell";
 import { PageCanvas } from "../../../page-canvas";
 import { Keyboard } from "lucide-react";
-import { shortcutApps } from "@/lib/shortcuts";
+import { loadShortcutApps } from "@/lib/shortcuts";
 import { KeyboardShortcutsSidebar } from "../../(catalogs)/_components/keyboard-shortcuts-sidebar";
 import { ShortcutsCheatSheetGenerator } from "./shortcuts-cheatsheet-generator";
 
@@ -20,6 +20,7 @@ function initialSlugs(value: string) {
 export default async function ShortcutsCheatSheetGeneratorPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
   const toolPage = await getRequiredToolPage("shortcuts-cheatsheet-generator");
   const params = await searchParams;
+  const shortcutApps = await loadShortcutApps();
 
   return (
     <AppShell

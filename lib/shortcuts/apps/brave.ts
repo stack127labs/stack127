@@ -115,3 +115,5 @@ export const brave: AppShortcuts = {
     },
   ],
 };
+
+export default brave;

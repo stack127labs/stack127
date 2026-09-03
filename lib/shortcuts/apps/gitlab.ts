@@ -1,0 +1,95 @@
+import { combo } from "../build.ts";
+import type { AppShortcuts } from "../types.ts";
+
+const platforms = ["windows", "macos", "linux"] as const;
+
+const gitlab: AppShortcuts = {
+  slug: "gitlab",
+  name: "GitLab",
+  category: "Code hosting",
+  platforms: [...platforms],
+  intro:
+    "GitLab's web shortcuts move between projects, issues, merge requests, and the editor. This set follows the current GitLab.com and self-managed reference, including the sequential G routes that make project navigation fast.",
+  versionContext:
+    "GitLab publishes one web shortcut reference with macOS modifier differences where they matter. Windows and Linux share the Control-based bindings in the source. Some commands depend on the current project, issue, or merge request view.",
+  sourceUrl: "https://docs.gitlab.com/user/shortcuts/",
+  sourceLabel: "official GitLab keyboard shortcuts",
+  lastVerified: "2026-09-01",
+  groups: [
+    {
+      id: "global-navigation",
+      title: "Global navigation",
+      intro: "Open common GitLab areas, search, and the shortcut help dialog from any page that accepts global shortcuts.",
+      shortcuts: [
+        { id: "shortcut-help", action: "Show keyboard shortcuts", keys: combo(platforms, ["?"]) },
+        { id: "home", action: "Open the home page", keys: combo(platforms, ["Shift", "H"]) },
+        { id: "projects", action: "Open Projects", keys: combo(platforms, ["Shift", "P"]) },
+        { id: "groups", action: "Open Groups", keys: combo(platforms, ["Shift", "G"]) },
+        { id: "activity", action: "Open Activity", keys: combo(platforms, ["Shift", "A"]) },
+        { id: "milestones", action: "Open Milestones", keys: combo(platforms, ["Shift", "L"]) },
+        { id: "snippets", action: "Open Snippets", keys: combo(platforms, ["Shift", "S"]) },
+        { id: "search", action: "Search GitLab", keys: combo(platforms, ["S"]) },
+        { id: "filter", action: "Focus the current list filter", keys: combo(platforms, ["F"]) },
+        { id: "issues", action: "Open Issues", keys: combo(platforms, ["Shift", "I"]) },
+        { id: "merge-requests", action: "Open Merge Requests", keys: combo(platforms, ["Shift", "M"]) },
+        { id: "review-requests", action: "Open Review Requests", keys: combo(platforms, ["Shift", "R"]) },
+        { id: "todo", action: "Open To-Do", keys: combo(platforms, ["Shift", "T"]) },
+        { id: "performance-bar", action: "Open the performance bar", keys: combo(platforms, ["P", "then", "B"]) },
+        { id: "hide-overlay", action: "Hide the current overlay", keys: combo(platforms, ["Esc"]) },
+        { id: "toggle-gitlab-next", action: "Toggle GitLab Next", keys: combo(platforms, ["G", "then", "X"]) },
+        { id: "web-ide", action: "Open the Web IDE", keys: combo(platforms, ["."]) },
+        { id: "duo-chat", action: "Open GitLab Duo Chat", keys: combo(platforms, ["D"]) },
+      ],
+    },
+    {
+      id: "project-navigation",
+      title: "Project navigation",
+      intro: "Jump between project overview, files, commits, pipelines, environments, and collaboration areas with G routes.",
+      shortcuts: [
+        { id: "project-overview", action: "Open project overview", keys: combo(platforms, ["G", "then", "O"]) },
+        { id: "project-activity", action: "Open project activity", keys: combo(platforms, ["G", "then", "V"]) },
+        { id: "releases", action: "Open releases", keys: combo(platforms, ["G", "then", "R"]) },
+        { id: "files", action: "Open project files", keys: combo(platforms, ["G", "then", "F"]) },
+        { id: "find-file", action: "Search project files", keys: combo(platforms, ["T"]) },
+        { id: "commits", action: "Open commits", keys: combo(platforms, ["G", "then", "C"]) },
+        { id: "graph", action: "Open the repository graph", keys: combo(platforms, ["G", "then", "N"]) },
+        { id: "analytics", action: "Open analytics", keys: combo(platforms, ["G", "then", "D"]) },
+        { id: "work-items", action: "Open work items", keys: combo(platforms, ["G", "then", "I"]) },
+        { id: "new-issue", action: "Create a new issue", keys: combo(platforms, ["I"]) },
+        { id: "boards", action: "Open issue boards", keys: combo(platforms, ["G", "then", "B"]) },
+        { id: "project-merge-requests", action: "Open project merge requests", keys: combo(platforms, ["G", "then", "M"]) },
+        { id: "pipelines", action: "Open pipelines", keys: combo(platforms, ["G", "then", "P"]) },
+        { id: "jobs", action: "Open jobs", keys: combo(platforms, ["G", "then", "J"]) },
+        { id: "environments", action: "Open environments", keys: combo(platforms, ["G", "then", "E"]) },
+        { id: "clusters", action: "Open clusters", keys: combo(platforms, ["G", "then", "K"]) },
+        { id: "project-snippets", action: "Open project snippets", keys: combo(platforms, ["G", "then", "S"]) },
+        { id: "wiki", action: "Open the project wiki", keys: combo(platforms, ["G", "then", "W"]) },
+      ],
+    },
+    {
+      id: "issues-and-editor",
+      title: "Issues and editor",
+      intro: "Edit issues, format comments, and submit text from GitLab's issue and merge request editors.",
+      shortcuts: [
+        { id: "edit-issue", action: "Edit the current issue", keys: combo(platforms, ["E"]) },
+        { id: "assign", action: "Change the assignee", keys: combo(platforms, ["A"]) },
+        { id: "milestone", action: "Change the milestone", keys: combo(platforms, ["M"]) },
+        { id: "label", action: "Change labels", keys: combo(platforms, ["L"]) },
+        { id: "copy-reference", action: "Copy the issue reference", keys: combo(platforms, ["C", "then", "R"]) },
+        { id: "comment", action: "Focus the comment box", keys: combo(platforms, ["R"]) },
+        { id: "previous-design", action: "Show the previous design item", keys: combo(platforms, ["Left"]) },
+        { id: "next-design", action: "Show the next design item", keys: combo(platforms, ["Right"]) },
+        { id: "preview-markdown", action: "Preview Markdown", keys: combo(platforms, ["Ctrl", "Shift", "P"], ["Cmd", "Shift", "P"]) },
+        { id: "bold", action: "Bold selected text", keys: combo(platforms, ["Ctrl", "B"], ["Cmd", "B"]) },
+        { id: "italic", action: "Italicize selected text", keys: combo(platforms, ["Ctrl", "I"], ["Cmd", "I"]) },
+        { id: "strike", action: "Strike selected text", keys: combo(platforms, ["Ctrl", "Shift", "X"], ["Cmd", "Shift", "X"]) },
+        { id: "link", action: "Insert a link", keys: combo(platforms, ["Ctrl", "K"], ["Cmd", "K"]) },
+        { id: "outdent", action: "Outdent a list item", keys: combo(platforms, ["Ctrl", "["] , ["Cmd", "["]) },
+        { id: "indent", action: "Indent a list item", keys: combo(platforms, ["Ctrl", "]"], ["Cmd", "]"]) },
+        { id: "submit", action: "Submit the current form", keys: combo(platforms, ["Ctrl", "Enter"], ["Cmd", "Enter"]) },
+      ],
+    },
+  ],
+};
+
+export default gitlab;

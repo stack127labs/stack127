@@ -187,3 +187,5 @@ export const excel: AppShortcuts = {
     },
   ],
 };
+
+export default excel;

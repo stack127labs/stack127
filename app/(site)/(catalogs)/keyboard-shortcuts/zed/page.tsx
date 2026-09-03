@@ -1,5 +1,6 @@
+import app from "@/lib/shortcuts/apps/zed";
 import { KeyboardShortcutsAppPage } from "../keyboard-shortcuts-app-page";
 
-export default function ZedKeyboardShortcutsPage() {
-  return <KeyboardShortcutsAppPage slug="zed" />;
+export default function KeyboardShortcutsPage() {
+  return <KeyboardShortcutsAppPage app={app} />;
 }

@@ -119,3 +119,5 @@ export const chrome: AppShortcuts = {
     },
   ],
 };
+
+export default chrome;

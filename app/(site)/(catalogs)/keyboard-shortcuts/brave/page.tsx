@@ -1,5 +1,6 @@
+import app from "@/lib/shortcuts/apps/brave";
 import { KeyboardShortcutsAppPage } from "../keyboard-shortcuts-app-page";
 
-export default function BraveKeyboardShortcutsPage() {
-  return <KeyboardShortcutsAppPage slug="brave" />;
+export default function KeyboardShortcutsPage() {
+  return <KeyboardShortcutsAppPage app={app} />;
 }

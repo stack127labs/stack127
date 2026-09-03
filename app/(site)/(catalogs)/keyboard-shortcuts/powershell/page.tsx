@@ -1,5 +1,6 @@
+import app from "@/lib/shortcuts/apps/powershell";
 import { KeyboardShortcutsAppPage } from "../keyboard-shortcuts-app-page";
 
-export default function PowershellKeyboardShortcutsPage() {
-  return <KeyboardShortcutsAppPage slug="powershell" />;
+export default function KeyboardShortcutsPage() {
+  return <KeyboardShortcutsAppPage app={app} />;
 }

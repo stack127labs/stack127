@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Keyboard } from "lucide-react";
-import { appsInCategory, shortcutApps, shortcutCategories } from "@/lib/shortcuts";
-import { platformLabels, shortcutCount } from "@/lib/shortcuts/types";
+import { appsInCategory, shortcutAppCatalog, shortcutCategories } from "@/lib/shortcuts";
+import { platformLabels } from "@/lib/shortcuts/types";
 import { PageTitleIcon } from "@/app/page-title-icon";
 import { PageHeader } from "@/app/page-header";
 import styles from "./keyboard-shortcuts.module.css";
@@ -11,7 +11,7 @@ function categoryId(category: string) {
 }
 
 export function KeyboardShortcutsDirectory() {
-  const totalShortcuts = shortcutApps.reduce((total, app) => total + shortcutCount(app), 0);
+  const totalShortcuts = shortcutAppCatalog.reduce((total, app) => total + app.shortcutCount, 0);
 
   return (
     <div className={styles.page}>
@@ -22,7 +22,7 @@ export function KeyboardShortcutsDirectory() {
         <p>
           Choose an app, check its platforms, and open a printable sheet with the shortcuts already selected.
         </p>
-        <small>{shortcutApps.length} apps · {totalShortcuts} shortcuts · Windows, macOS, and Linux</small>
+        <small>{shortcutAppCatalog.length} apps · {totalShortcuts} shortcuts · Windows, macOS, and Linux</small>
       </PageHeader>
 
       <nav className={styles.categoryNav} aria-label="Shortcut categories">
@@ -59,7 +59,7 @@ export function KeyboardShortcutsDirectory() {
                           {app.platforms.map((platform) => <li key={platform}>{platformLabels[platform]}</li>)}
                         </ul>
                       </td>
-                      <td className={styles.count} data-label="Shortcuts">{shortcutCount(app)}</td>
+                      <td className={styles.count} data-label="Shortcuts">{app.shortcutCount}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -82,6 +82,8 @@ function directoryCategoryIntro(category: string) {
     "Code editor": "Editors for moving through a project, changing code, and keeping the workspace in reach.",
     "AI code editor": "Editors that add chat, inline edits, and agent actions to the normal coding loop.",
     "AI coding agent": "Terminal agents where a few keys control the session, queue work, or switch modes.",
+    "AI assistant": "General-purpose assistants where keyboard navigation and message controls keep a conversation moving.",
+    "Developer tools": "Editors, IDEs, API clients, and other tools for building and inspecting software.",
     "Text editor": "Modal editors built around movement, operators, and command-driven changes.",
     "Web browser": "The tab, navigation, page, and address-bar keys that remove repeated mouse work.",
     "Operating system": "System-level keys for windows, desktops, screenshots, text, and common controls.",
@@ -94,6 +96,25 @@ function directoryCategoryIntro(category: string) {
     "Team chat": "Channel navigation, message actions, huddles, and workspace controls.",
     "Notes and docs": "Block editing, markdown-style input, search, and movement through long pages.",
     "Design tool": "Tool selection, shape editing, layer movement, and view controls for a design canvas.",
+    "3D and CAD": "Modeling, drawing, rendering, and object controls for technical and 3D workspaces.",
+    "Audio and video": "Timeline, canvas, playback, recording, and editing controls for media work.",
+    Analytics: "Navigation, filtering, visuals, and report controls for data and analytics tools.",
+    Documentation: "Writing, editing, search, formatting, and page organization for document tools.",
+    "File management": "File, folder, archive, storage, and window controls for managing data.",
+    Forms: "Build, navigate, and edit form content with fewer pointer steps.",
+    "Game development": "Editor navigation, scene work, and project controls for game development.",
+    "Git client": "Repository, branch, commit, and diff actions in desktop Git clients.",
+    Launcher: "Search, open, and run tools from a keyboard-first launcher.",
+    Music: "Playback, queue, library, and navigation keys for music apps.",
+    PDF: "Document navigation, selection, annotation, and view controls for PDF tools.",
+    "Password manager": "Search, open, and manage saved items from a keyboard-first password manager.",
+    Presentation: "Slide navigation, editing, presentation, and object controls.",
+    "Project management": "Tasks, projects, views, planning, and team work controls.",
+    Productivity: "General workspace and collaboration commands for organizing work.",
+    "Remote access": "Connection, session, and remote-control commands.",
+    Social: "Navigation, publishing, messaging, and timeline controls for social tools.",
+    "Work management": "Inbox, assignment, support, and workflow controls for team operations.",
+    Writing: "Editing, writing assistance, and language tools for focused text work.",
   };
   return descriptions[category] ?? "Keyboard shortcuts grouped by the work this tool handles.";
 }

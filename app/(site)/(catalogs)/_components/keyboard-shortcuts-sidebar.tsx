@@ -1,38 +1,15 @@
 import { Keyboard, Printer } from "lucide-react";
 import { SidebarLabel } from "@/app/app-shell";
 import { SidebarList } from "@/app/sidebar-list";
-import { appsInCategory, shortcutCategories } from "@/lib/shortcuts";
-import { shortcutCount } from "@/lib/shortcuts/types";
+import { appsInCategory, shortcutAppCatalog, shortcutCategories } from "@/lib/shortcuts";
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/sidebar-panel";
 import styles from "./keyboard-shortcuts-sidebar.module.css";
 
 const iconProps = { size: 15, strokeWidth: 2.2 } as const;
 
-const sidebarGroups = [
-  {
-    title: "Editors and agents",
-    categories: ["Code editor", "AI code editor", "AI coding agent", "Text editor"],
-  },
-  {
-    title: "Browsers and desktop",
-    categories: ["Web browser", "Operating system", "Desktop environment"],
-  },
-  {
-    title: "Terminals and work",
-    categories: shortcutCategories.filter(
-      (category) =>
-        ![
-          "Code editor",
-          "AI code editor",
-          "AI coding agent",
-          "Text editor",
-          "Web browser",
-          "Operating system",
-          "Desktop environment",
-        ].includes(category),
-    ),
-  },
-] as const;
+function categorySlug(category: string) {
+  return category.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+}
 
 export function KeyboardShortcutsSidebar({
   activePage,
@@ -41,6 +18,10 @@ export function KeyboardShortcutsSidebar({
   activePage?: "directory" | "generator";
   activeSlug?: string;
 }) {
+  const activeApp = activeSlug
+    ? shortcutAppCatalog.find((app) => app.slug === activeSlug)
+    : undefined;
+
   return (
     <div className={`${sidebarPanelClassName} ${styles.panel}`}>
       <div className={sidebarPanelHeadingClassName}>
@@ -68,22 +49,32 @@ export function KeyboardShortcutsSidebar({
           />
         </div>
 
-        {sidebarGroups.map((group) => {
-          const apps = group.categories.flatMap((category) => appsInCategory(category));
-          return (
-            <div className={styles.group} key={group.title}>
-              <p className={styles.groupTitle}>{group.title}</p>
-              <SidebarList
-                items={apps.map((app) => ({
-                  href: "/keyboard-shortcuts/" + app.slug,
-                  label: app.name,
-                  count: String(shortcutCount(app)),
-                  active: activeSlug === app.slug,
-                }))}
-              />
-            </div>
-          );
-        })}
+        {activeApp ? (
+          <div className={styles.group}>
+            <p className={styles.groupTitle}>Current app</p>
+            <SidebarList
+              items={[
+                {
+                  href: "/keyboard-shortcuts/" + activeApp.slug,
+                  label: activeApp.name,
+                  count: String(activeApp.shortcutCount),
+                  active: true,
+                },
+              ]}
+            />
+          </div>
+        ) : null}
+
+        <div className={styles.group}>
+          <p className={styles.groupTitle}>Browse by category</p>
+          <SidebarList
+            items={shortcutCategories.map((category) => ({
+              href: "/keyboard-shortcuts#category-" + categorySlug(category),
+              label: category,
+              count: String(appsInCategory(category).length),
+            }))}
+          />
+        </div>
       </nav>
     </div>
   );

@@ -1,0 +1,161 @@
+import { perPlatform } from "../build.ts";
+import type { AppShortcuts, Shortcut } from "../types.ts";
+
+const platforms = ["windows", "macos", "linux"] as const;
+
+const all = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
+  id,
+  action,
+  keys: platforms.map((platform) => ({ platform, keys })),
+  ...(note ? { note } : {}),
+});
+
+const pair = (id: string, action: string, windowsLinux: string[], macos: string[], note?: string): Shortcut => ({
+  id,
+  action,
+  keys: perPlatform(platforms, { windows: windowsLinux, linux: windowsLinux, macos }),
+  ...(note ? { note } : {}),
+});
+
+const windowsLinuxOnly = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
+  id,
+  action,
+  keys: perPlatform(platforms, { windows: keys, linux: keys }),
+  ...(note ? { note } : {}),
+});
+
+export const matlab: AppShortcuts = {
+  slug: "matlab",
+  name: "MATLAB",
+  category: "Developer tools",
+  platforms: [...platforms],
+  intro:
+    "MATLAB's Editor shortcuts cover files, navigation, search, code editing, sections, running, folding, and desktop focus. Platform-specific columns are kept separate where MathWorks changes the modifier.",
+  versionContext:
+    "Current MATLAB Editor and desktop keyboard-shortcut tables checked September 1, 2026. The exact set depends on MATLAB release and operating-system keyboard settings; users can inspect or change bindings in Preferences.",
+  sourceUrl: "https://www.mathworks.com/help/matlab/matlab_prog/editor-keyboard-shortcuts.html",
+  sourceLabel: "official MathWorks MATLAB Editor shortcuts",
+  lastVerified: "2026-09-01",
+  groups: [
+    {
+      id: "editor-window",
+      title: "Editor windows and files",
+      intro: "Arrange the Editor, open files, save work, and move between documents.",
+      shortcuts: [
+        pair("maximize-editor", "Maximize or restore the Editor", ["Ctrl", "Shift", "M"], ["Cmd", "Shift", "M"]),
+        all("undock-editor", "Undock the Editor", ["Ctrl", "Shift", "U"]),
+        all("dock-editor", "Dock the Editor", ["Ctrl", "Shift", "D"]),
+        pair("activate-editor", "Activate the Editor", ["Ctrl", "Shift", "0"], ["Cmd", "Shift", "0"]),
+        pair("new-file", "Create a new file", ["Ctrl", "N"], ["Cmd", "N"]),
+        pair("open-file", "Open a file", ["Ctrl", "O"], ["Cmd", "O"]),
+        pair("open-template", "Create a file from a template", ["Ctrl", "Shift", "T"], ["Cmd", "Shift", "T"]),
+        pair("save-file", "Save the current file", ["Ctrl", "S"], ["Cmd", "S"]),
+        pair("save-as", "Save the current file as", ["Ctrl", "Shift", "S"], ["Cmd", "Shift", "S"]),
+        pair("print", "Print the current file", ["Ctrl", "P"], ["Cmd", "P"]),
+        pair("close-file", "Close the current file", ["Ctrl", "W"], ["Cmd", "W"]),
+        pair("reopen-file", "Reopen the most recently closed file", ["Ctrl", "Shift", "Z"], ["Cmd", "Shift", "Z"]),
+        pair("undo", "Undo the last edit", ["Ctrl", "Z"], ["Cmd", "Z"]),
+        pair("redo", "Redo the last edit", ["Ctrl", "Y"], ["Cmd", "Shift", "Z"]),
+      ],
+    },
+    {
+      id: "navigation-and-find",
+      title: "Navigation and search",
+      intro: "Jump through code, bookmarks, search results, and the current file.",
+      shortcuts: [
+        pair("go-to-line", "Go to a line number", ["Ctrl", "G"], ["Cmd", "L"]),
+        pair("toggle-bookmark", "Set or clear a bookmark", ["Ctrl", "F2"], ["Cmd", "F2"]),
+        all("next-bookmark", "Go to the next bookmark", ["F2"]),
+        all("previous-bookmark", "Go to the previous bookmark", ["Shift", "F2"]),
+        pair("previous-location", "Go to the previous location", ["Alt", "Left"], ["Ctrl", "Minus"]),
+        pair("next-location", "Go to the next location", ["Alt", "Right"], ["Ctrl", "Shift", "Minus"]),
+        pair("previous-paragraph", "Move to the previous paragraph", ["Alt", "Up"], ["Option", "Up"]),
+        pair("next-paragraph", "Move to the next paragraph", ["Alt", "Down"], ["Option", "Down"]),
+        pair("find", "Find text", ["Ctrl", "F"], ["Cmd", "F"]),
+        pair("find-next", "Find the next match", ["F3"], ["Cmd", "G"]),
+        pair("find-previous", "Find the previous match", ["Shift", "F3"], ["Cmd", "Shift", "G"]),
+        windowsLinuxOnly("find-files", "Find files", ["Alt", "M"]),
+        windowsLinuxOnly("find-functions", "Find functions", ["Alt", "W"]),
+        windowsLinuxOnly("find-symbols", "Find symbols", ["Alt", "X"]),
+        windowsLinuxOnly("find-sections", "Find sections", ["Alt", "S"]),
+        windowsLinuxOnly("find-references", "Find references", ["Alt", "R"]),
+        windowsLinuxOnly("find-actions", "Find actions", ["Alt", "A"]),
+        pair("replace", "Find and replace", ["Ctrl", "H"], ["Cmd", "Option", "F"]),
+        all("escape-find", "Close the Find or Replace bar", ["Esc"]),
+        pair("find-selection", "Find the selected text", ["Ctrl", "F3"], ["Cmd", "E"]),
+      ],
+    },
+    {
+      id: "editing-and-formatting",
+      title: "Editing and formatting",
+      intro: "Format code, comment blocks, indent lines, and manage the Editor's live-code tools.",
+      shortcuts: [
+        pair("live-script-section", "Insert a live-code section", ["Alt", "Enter"], ["Option", "Enter"]),
+        pair("live-editor-settings", "Open live-editor settings", ["Ctrl", "Alt", "T"], ["Ctrl", "Option", "T"]),
+        all("format-section-1", "Apply live-code format 1", ["Ctrl", "Shift", "1"]),
+        all("format-section-2", "Apply live-code format 2", ["Ctrl", "Shift", "2"]),
+        all("format-section-3", "Apply live-code format 3", ["Ctrl", "Shift", "3"]),
+        pair("live-code-layout", "Open the live-code layout menu", ["Ctrl", "Alt", "L"], ["Ctrl", "Option", "L"]),
+        pair("bold", "Toggle bold text", ["Ctrl", "B"], ["Cmd", "B"]),
+        pair("italic", "Toggle italic text", ["Ctrl", "I"], ["Cmd", "I"]),
+        all("underline", "Toggle underlined text", ["Ctrl", "U"]),
+        pair("comment-lines", "Comment or uncomment selected lines", ["Ctrl", "R"], ["Cmd", "/"]),
+        pair("block-comment", "Comment or uncomment a block", ["Ctrl", "Shift", "R"], ["Cmd", "Option", "/"]),
+        pair("join-lines", "Join selected lines", ["Ctrl", "J"], ["Cmd", "Shift", "W"]),
+        pair("toggle-indent", "Toggle automatic indentation", ["Ctrl", "I"], ["Cmd", "I"]),
+        pair("indent-right", "Indent the selected lines right", ["Ctrl", "]"], ["Cmd", "]"]),
+        pair("indent-left", "Indent the selected lines left", ["Ctrl", "["], ["Cmd", "["]),
+        pair("clear-line", "Clear the current line", ["Ctrl", "L"], ["Cmd", "C"]),
+        all("delete-line", "Delete the current line", ["Ctrl", "X"]),
+        all("copy-line", "Copy the current line", ["Ctrl", "Shift", "C"]),
+        all("select-line", "Select the current line", ["Ctrl", "Shift", "A"]),
+        pair("fold-code", "Fold the current code section", ["Ctrl", "Shift", "O"], ["Cmd", "Option", "O"]),
+        pair("toggle-comment", "Toggle the current block", ["Ctrl", "M"], ["Cmd", "M"]),
+      ],
+    },
+    {
+      id: "sections-and-running",
+      title: "Sections and running code",
+      intro: "Run the current section or file and move through code sections from the keyboard.",
+      shortcuts: [
+        pair("insert-section", "Insert a new code section", ["Ctrl", "Alt", "Enter"], ["Cmd", "Option", "Enter"]),
+        pair("run-section", "Run the current section", ["Ctrl", "Enter"], ["Cmd", "Enter"]),
+        pair("run-and-advance", "Run the current section and advance", ["Ctrl", "Shift", "Enter"], ["Cmd", "Shift", "Enter"]),
+        all("run-file", "Run the current file", ["F5"]),
+        pair("run-file-and-clear", "Run the file and clear the Command Window", ["Ctrl", "F5"], ["Cmd", "F5"]),
+        pair("run-selection", "Run the selected code", ["F12"], ["Cmd", "\\"]),
+        all("run-next-line", "Run the next line", ["F10"]),
+        all("run-next-section", "Run the next section", ["F11"]),
+        all("run-and-stop", "Run and stop at the next breakpoint", ["Shift", "F11"]),
+        all("stop-running", "Stop running code", ["Shift", "F5"]),
+        pair("section-up", "Move to the previous section", ["Ctrl", "Up"], ["Cmd", "Up"]),
+        pair("section-down", "Move to the next section", ["Ctrl", "Down"], ["Cmd", "Down"]),
+      ],
+    },
+    {
+      id: "view-and-desktop",
+      title: "View and desktop focus",
+      intro: "Change the Editor view, fold code, check spelling, and move focus around the MATLAB desktop.",
+      shortcuts: [
+        pair("toggle-full-screen", "Toggle full-screen Editor mode", ["Ctrl", "F11"], ["Cmd", "F11"]),
+        all("fold-level-1", "Fold one level", ["Ctrl", "Shift", "."]),
+        all("fold-level-2", "Fold two levels", ["Ctrl", "Shift", ".", "Ctrl", "Shift", "."]),
+        all("unfold-one-level", "Unfold one level", ["Ctrl", "Shift", ","]),
+        all("unfold-all", "Unfold all levels", ["Ctrl", "Shift", ",", "Ctrl", "Shift", ","]),
+        pair("zoom-reset", "Reset the Editor zoom", ["Ctrl", "Alt", "0"], ["Cmd", "Option", "0"]),
+        windowsLinuxOnly("spell-check", "Open the spelling suggestions", ["Alt", "F7"]),
+        pair("spell-next", "Find the next spelling error", ["Shift", "F7"], ["Option", "F7"]),
+        pair("next-desktop-group", "Move to the next desktop group", ["Ctrl", "F6"], ["Cmd", "F6"]),
+        pair("previous-desktop-group", "Move to the previous desktop group", ["Ctrl", "Shift", "F6"], ["Cmd", "Shift", "F6"]),
+        all("next-control", "Move focus to the next control", ["Tab"]),
+        pair("search-desktop", "Search the MATLAB desktop", ["Ctrl", "Shift", "Space"], ["Cmd", "Shift", "Space"]),
+        pair("preferences", "Open MATLAB Preferences", ["Ctrl", ","], ["Cmd", ","]),
+        all("shortcut-list", "Open the keyboard shortcut list", ["Ctrl", "/"]),
+        windowsLinuxOnly("interrupt", "Interrupt execution", ["Ctrl", "C"], "Ctrl+Break is also documented on Windows."),
+        { id: "interrupt-macos", action: "Interrupt execution", keys: [{ platform: "macos", keys: ["Cmd", "."] }] },
+      ],
+    },
+  ],
+};
+
+export default matlab;

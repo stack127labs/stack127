@@ -81,3 +81,5 @@ export const iterm2: AppShortcuts = {
     },
   ],
 };
+
+export default iterm2;

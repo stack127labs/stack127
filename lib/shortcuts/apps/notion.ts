@@ -158,3 +158,5 @@ export const notion: AppShortcuts = {
     },
   ],
 };
+
+export default notion;

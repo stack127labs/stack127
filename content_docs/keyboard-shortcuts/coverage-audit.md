@@ -1,10 +1,10 @@
 # Shortcut coverage audit
 
-Reviewed 2026-08-26. This is the editorial QA record for the structured data in `lib/shortcuts/apps/`. It is not displayed on the public pages.
+Reviewed from August 26 through September 1, 2026. This is the editorial QA record for the structured data in `lib/shortcuts/apps/`. It is not displayed on the public pages.
 
 ## Coverage standard
 
-The 26 published app records were checked against the current official reference for that app or platform. Rows use documented default bindings and supported built-in bindings, grouped by the work a reader is trying to do. Platform differences remain explicit, and documented alternative bindings are rendered as alternatives rather than as one impossible multi-key chord.
+All 218 published app records were checked against the current official reference for that app or platform. Rows use documented default bindings and supported built-in bindings, grouped by the work a reader is trying to do. Platform differences remain explicit, and documented alternative bindings are rendered as alternatives rather than as one impossible multi-key chord.
 
 The reference does not pretend that a remappable keymap, extension or plugin, user profile, shell integration, language server, Vim or Helix mode, or keyboard layout has one finite universal list. Those cases are called out in the app context or row note, and the official runtime/default keymap is linked where the source itself is the complete reference.
 
@@ -49,3 +49,15 @@ The reference does not pretend that a remappable keymap, extension or plugin, us
 - Ghostty and Zed provide a complete build or runtime keymap through their own commands or source files; the page presents the documented daily-use defaults and links that authoritative complete list.
 - Vim and Neovim are modal. Neovim LSP rows require an attached language server; its current built-in LSP defaults are documented separately from the quick reference, and plugin or user mappings can replace core behavior.
 - Claude Code, Codex, OpenCode, and Pi are terminal interfaces. Terminal emulator, shell, OS, and user keymap behavior can intercept a sequence before the application sees it.
+
+## Expansion review, September 1, 2026
+
+The AltPlusCtrl intake is tracked in `altplusctrl-backlog.md`. Source-checked candidate records and
+their decisions live in the numbered research files under `content_docs/keyboard-shortcuts/research/`.
+Verified candidates have typed records and generated routes for QA. Candidates whose official
+documentation only exposes isolated commands, a configurable in-app list, or a platform outside this
+page's contract remain blocked or unstarted instead of receiving guessed bindings.
+
+The 192 verified expansion records were approved for publication on September 3, 2026. Together with
+the original 26 records, the catalog has 218 published app references. The 71 blocked candidates do
+not have app records or routes.

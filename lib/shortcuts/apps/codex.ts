@@ -104,3 +104,5 @@ export const codex: AppShortcuts = {
     },
   ],
 };
+
+export default codex;

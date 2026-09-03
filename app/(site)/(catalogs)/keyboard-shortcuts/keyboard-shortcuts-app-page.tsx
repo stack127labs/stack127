@@ -1,13 +1,9 @@
-import { notFound } from "next/navigation";
 import { AppShell } from "@/app/app-shell";
-import { getShortcutApp } from "@/lib/shortcuts";
+import type { AppShortcuts } from "@/lib/shortcuts/types";
 import { KeyboardShortcutsSidebar } from "../_components/keyboard-shortcuts-sidebar";
 import { KeyboardShortcutsReference } from "./keyboard-shortcuts-reference";
 
-export function KeyboardShortcutsAppPage({ slug }: { slug: string }) {
-  const app = getShortcutApp(slug);
-  if (!app) notFound();
-
+export function KeyboardShortcutsAppPage({ app }: { app: AppShortcuts }) {
   return (
     <AppShell
       mainLabel={app.name + " keyboard shortcuts"}

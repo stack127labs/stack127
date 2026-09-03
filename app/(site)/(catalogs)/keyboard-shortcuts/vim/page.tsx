@@ -1,5 +1,6 @@
+import app from "@/lib/shortcuts/apps/vim";
 import { KeyboardShortcutsAppPage } from "../keyboard-shortcuts-app-page";
 
-export default function VimKeyboardShortcutsPage() {
-  return <KeyboardShortcutsAppPage slug="vim" />;
+export default function KeyboardShortcutsPage() {
+  return <KeyboardShortcutsAppPage app={app} />;
 }
