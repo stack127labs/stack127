@@ -1,0 +1,409 @@
+{
+  "generated_at": "2026-08-30T07:39:39.021Z",
+  "source_total": 57,
+  "resolved_total": 29,
+  "unresolved_total": 28,
+  "records": [
+    {
+      "model": "550SL",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-550sl",
+      "status": "unresolved"
+    },
+    {
+      "model": "725SL",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-725sl",
+      "status": "unresolved"
+    },
+    {
+      "model": "AE550",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-ae550",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-bl1250u.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2019/10/BL1250U_F.jpg",
+      "model": "BL1250U",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-bl1250u",
+      "status": "resolved"
+    },
+    {
+      "model": "BR1000ELCD",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-br1000elcd",
+      "status": "unresolved"
+    },
+    {
+      "model": "CP 1500C",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-cp-1500c",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-cp1000pfclcd.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2019/11/CP1000PFCLCD-F.jpg",
+      "model": "CP1000PFCLCD",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-cp1000pfclcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-cp1350avrlcd.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2016/07/CP1350AVRLCD-F.jpg",
+      "model": "CP1350AVRLCD",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-cp1350avrlcd",
+      "status": "resolved"
+    },
+    {
+      "model": "CP1350EPFCLCD",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-cp1350epfclcd",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-cp1350pfclcd.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2020/10/CP1350PFCLCD_F-2.jpg",
+      "model": "CP1350PFCLCD",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-cp1350pfclcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-cp1500avrlcd.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2016/07/CP1500AVRLCD_F-1.jpg",
+      "model": "CP1500AVRLCD",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-cp1500avrlcd",
+      "status": "resolved"
+    },
+    {
+      "model": "CP1500EPFCLCD",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-cp1500epfclcd",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-cp1500pfclcd.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2016/07/CP1500PFCLCD_F-3.jpg",
+      "model": "CP1500PFCLCD",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-cp1500pfclcd",
+      "status": "resolved"
+    },
+    {
+      "model": "CP825AVR-G / LE825G",
+      "reason": "HCL model is a family expression, not one exact CyberPower model",
+      "slug": "cyber-power-systems-cp825avr-g-le825g",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-cp850pfclcd.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2020/10/CP850PFCLCD_F.jpg",
+      "model": "CP850PFCLCD",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-cp850pfclcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-cp900avr.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2016/07/CP900AVR_F-3.jpg",
+      "model": "CP900AVR",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-cp900avr",
+      "status": "resolved"
+    },
+    {
+      "model": "CPJ500",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-cpj500",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-cps1100avr.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2017/04/CPS1100AVR_L2.jpg",
+      "model": "CPS1100AVR",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-cps1100avr",
+      "status": "resolved"
+    },
+    {
+      "model": "CPS1200AVR",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-cps1200avr",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-cps1250avr.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2017/04/CPS1250AVR_R.jpg",
+      "model": "CPS1250AVR",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-cps1250avr",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-cps1500avr.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2016/07/CPS1500AVR_F-1.jpg",
+      "model": "CPS1500AVR",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-cps1500avr",
+      "status": "resolved"
+    },
+    {
+      "model": "CPS1500AVR-HO",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-cps1500avr-ho",
+      "status": "unresolved"
+    },
+    {
+      "model": "CPS320AVR",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-cps320avr",
+      "status": "unresolved"
+    },
+    {
+      "model": "CPS500AVR",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-cps500avr",
+      "status": "unresolved"
+    },
+    {
+      "model": "CPS650AVR",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-cps650avr",
+      "status": "unresolved"
+    },
+    {
+      "model": "CPS685AVR",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-cps685avr",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-cps700avr.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2017/04/CPS700AVR_R.jpg",
+      "model": "CPS700AVR",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-cps700avr",
+      "status": "resolved"
+    },
+    {
+      "model": "CPS800AVR",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-cps800avr",
+      "status": "unresolved"
+    },
+    {
+      "model": "CPS825VA",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-cps825va",
+      "status": "unresolved"
+    },
+    {
+      "model": "CPS850AVR",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-cps850avr",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-cps900avr.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2017/04/CPS900AVR_V.jpg",
+      "model": "CPS900AVR",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-cps900avr",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-ec350g.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2017/04/EC350G_F.jpg",
+      "model": "EC350G",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-ec350g",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-ec750g.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2024/09/ec750g-front-vertical-photo-1.jpg",
+      "model": "EC750G",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-ec750g",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-ec850lcd.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2024/09/ec850lcd-front-vertical-photo-1.jpg",
+      "model": "EC850LCD",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-ec850lcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-ol3000rmxl2u.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2017/04/OL3000RMXL2U_F.jpg",
+      "model": "OL3000RMXL2U",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-ol3000rmxl2u",
+      "status": "resolved"
+    },
+    {
+      "model": "OR1500ERM1U",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-or1500erm1u",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-or2200lcdrm2u.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2017/04/OR2200LCDRM2U_F.jpg",
+      "model": "OR2200LCDRM2U",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-or2200lcdrm2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-or500lcdrm1u.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2016/07/OR500LCDRM1U_Front_H_1-1.jpg",
+      "model": "OR500LCDRM1U",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-or500lcdrm1u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-or700lcdrm1u.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2016/07/OR700LCDRM1U_Front_H_1-1.jpg",
+      "model": "OR700LCDRM1U",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-or700lcdrm1u",
+      "status": "resolved"
+    },
+    {
+      "model": "Power99",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-power99",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-pr1500rt2u.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2018/08/PR1500RT2U_F.jpg",
+      "model": "PR1500RT2U",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-pr1500rt2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-pr2200.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2026/08/pr2200rtxl2uacn-front-horizontal-photo-1.jpg",
+      "model": "PR2200",
+      "product_url": "https://www.cyberpowersystems.com/?s=PR2200",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-pr2200",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-pr2200lcdrt2u.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2017/04/PR2200LCDRT2U_F.jpg",
+      "model": "PR2200LCDRT2U",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-pr2200lcdrt2u",
+      "status": "resolved"
+    },
+    {
+      "model": "PR3000E",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-pr3000e",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-pr6000lcdrtxl5u.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2017/04/PR6000LCDRTXL5U_F.jpg",
+      "model": "PR6000LCDRTXL5U",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-pr6000lcdrtxl5u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-rmcard100.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2017/04/RMCARD100_F.jpg",
+      "model": "RMCARD100",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-rmcard100",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-rmcard201.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2017/04/RMCARD201_R.jpg",
+      "model": "RMCARD201",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-rmcard201",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-rmcard202.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2017/04/RMCARD202_F.jpg",
+      "model": "RMCARD202",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-rmcard202",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-rmcard205.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2024/06/rmcard205-front-photo-1.jpg",
+      "model": "RMCARD205",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-rmcard205",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "cyberpower-images/cyber-power-systems-rmcard301.webp",
+      "image_source_url": "https://www.cyberpowersystems.com/wp-content/uploads/2017/04/RMCARD301_L.jpg",
+      "model": "RMCARD301",
+      "quality": "official-manufacturer-product-image",
+      "slug": "cyber-power-systems-rmcard301",
+      "status": "resolved"
+    },
+    {
+      "model": "RT650EI",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-rt650ei",
+      "status": "unresolved"
+    },
+    {
+      "model": "UT2200E",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-ut2200e",
+      "status": "unresolved"
+    },
+    {
+      "model": "Value 1500ELCD-RU",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-value-1500elcd-ru",
+      "status": "unresolved"
+    },
+    {
+      "model": "Value 400E",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-value-400e",
+      "status": "unresolved"
+    },
+    {
+      "model": "Value 600E",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-value-600e",
+      "status": "unresolved"
+    },
+    {
+      "model": "Value 800E",
+      "reason": "Official search has no exact-model product page or image",
+      "slug": "cyber-power-systems-value-800e",
+      "status": "unresolved"
+    },
+    {
+      "model": "VP1200ELCD (ValueII_1200E)",
+      "reason": "HCL model is a family expression, not one exact CyberPower model",
+      "slug": "cyber-power-systems-vp1200elcd-valueii-1200e",
+      "status": "unresolved"
+    }
+  ]
+}

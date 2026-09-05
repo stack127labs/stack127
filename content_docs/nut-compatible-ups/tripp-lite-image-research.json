@@ -1,0 +1,970 @@
+{
+  "generated_at": "2026-08-30T06:51:08.045Z",
+  "source_total": 123,
+  "resolved_total": 112,
+  "unresolved_total": 11,
+  "records": [
+    {
+      "model": "(various)",
+      "reason": "Model is not an exact datasheet token",
+      "slug": "tripp-lite-various",
+      "status": "unresolved"
+    },
+    {
+      "model": "1500 LCD",
+      "reason": "Model is not an exact datasheet token",
+      "slug": "tripp-lite-1500-lcd",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-avr550u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/avr550u.pdf",
+      "model": "AVR550U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-avr550u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-avr700u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/avr700u.pdf",
+      "model": "AVR700U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-avr700u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-avr750u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/avr750u.pdf",
+      "model": "AVR750U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-avr750u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-avr900u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/avr900u.pdf",
+      "model": "AVR900U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-avr900u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-avr900utaa.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/avr900utaa.pdf",
+      "model": "AVR900UTAA",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-avr900utaa",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-avrx550u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/avrx550u.pdf",
+      "model": "AVRX550U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-avrx550u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-avrx550ud.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/avrx550ud.pdf",
+      "model": "AVRX550UD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-avrx550ud",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-avrx750u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/avrx750u.pdf",
+      "model": "AVRX750U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-avrx750u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-avrx750ud.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/avrx750ud.pdf",
+      "model": "AVRX750UD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-avrx750ud",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-avrx750uf.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/avrx750uf.pdf",
+      "model": "AVRX750UF",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-avrx750uf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-bc600sine.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/bc600sine.pdf",
+      "model": "BC600SINE",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-bc600sine",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-bcpers450.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/bcpers450.pdf",
+      "model": "BCPERS450",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-bcpers450",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-bcpro600.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/bcpro600.pdf",
+      "model": "BCPRO600",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-bcpro600",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-eco350ups.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/eco350ups.pdf",
+      "model": "ECO350UPS",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-eco350ups",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-eco550ups.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/eco550ups.pdf",
+      "model": "ECO550UPS",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-eco550ups",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-eco650lcd.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/eco650lcd.pdf",
+      "model": "ECO650LCD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-eco650lcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-eco750ups.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/eco750ups.pdf",
+      "model": "ECO750UPS",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-eco750ups",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-eco850lcd.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/eco850lcd.pdf",
+      "model": "ECO850LCD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-eco850lcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-ht850ups.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/ht850ups.pdf",
+      "model": "HT850UPS",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-ht850ups",
+      "status": "resolved"
+    },
+    {
+      "model": "HTR05-1U",
+      "reason": "Command failed: curl --resolve assets.tripplite.com:443:150.171.109.129 -L -sS --fail -o /tmp/stack127-nut-hcl-cache/tripp-lite-pdfs/tripp-lite-htr05-1u.pdf https://assets.tripplite.com/product-pdfs/en/htr05-1u.pdf\ncurl: (22) The requested URL returned error: 404\n",
+      "slug": "tripp-lite-htr05-1u",
+      "status": "unresolved"
+    },
+    {
+      "model": "HTR10-2U",
+      "reason": "Command failed: curl --resolve assets.tripplite.com:443:150.171.109.129 -L -sS --fail -o /tmp/stack127-nut-hcl-cache/tripp-lite-pdfs/tripp-lite-htr10-2u.pdf https://assets.tripplite.com/product-pdfs/en/htr10-2u.pdf\ncurl: (22) The requested URL returned error: 404\n",
+      "slug": "tripp-lite-htr10-2u",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-internet350u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/internet350u.pdf",
+      "model": "INTERNET350U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-internet350u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-internet550u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/internet550u.pdf",
+      "model": "INTERNET550U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-internet550u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-internet600u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/internet600u.pdf",
+      "model": "INTERNET600U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-internet600u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-internet750u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/internet750u.pdf",
+      "model": "INTERNET750U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-internet750u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-internet900u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/internet900u.pdf",
+      "model": "INTERNET900U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-internet900u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-internetoffice500.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/internetoffice500.pdf",
+      "model": "INTERNETOFFICE500",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-internetoffice500",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-internetoffice700.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/internetoffice700.pdf",
+      "model": "INTERNETOFFICE700",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-internetoffice700",
+      "status": "resolved"
+    },
+    {
+      "model": "OMNI1000LCD",
+      "reason": "Command failed: curl --resolve assets.tripplite.com:443:150.171.109.129 -L -sS --fail -o /tmp/stack127-nut-hcl-cache/tripp-lite-pdfs/tripp-lite-omni1000lcd.pdf https://assets.tripplite.com/product-pdfs/en/omni1000lcd.pdf\ncurl: (22) The requested URL returned error: 404\n",
+      "slug": "tripp-lite-omni1000lcd",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-omni650lcd.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/omni650lcd.pdf",
+      "model": "OMNI650LCD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-omni650lcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-omni900lcd.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/omni900lcd.pdf",
+      "model": "OMNI900LCD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-omni900lcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-omnismart300pnp.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/omnismart300pnp.pdf",
+      "model": "OMNISMART300PNP",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-omnismart300pnp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-omnismart500.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/omnismart500.pdf",
+      "model": "OMNISMART500",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-omnismart500",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-omnismart700.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/omnismart700.pdf",
+      "model": "OMNISMART700",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-omnismart700",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-omnivs1000.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/omnivs1000.pdf",
+      "model": "OMNIVS1000",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-omnivs1000",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-omnivs1500xl.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/omnivs1500xl.pdf",
+      "model": "OMNIVS1500XL",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-omnivs1500xl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-omnivs800.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/omnivs800.pdf",
+      "model": "OMNIVS800",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-omnivs800",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-omnivsint800.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/omnivsint800.pdf",
+      "model": "OMNIVSINT800",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-omnivsint800",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-pos500.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/pos500.pdf",
+      "model": "POS500",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-pos500",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-sm2200rmdvtaa.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/sm2200rmdvtaa.pdf",
+      "model": "SM2200RMDVTAA",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-sm2200rmdvtaa",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart1000lcd.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart1000lcd.pdf",
+      "model": "SMART1000LCD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart1000lcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart1000rm2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart1000rm2u.pdf",
+      "model": "SMART1000RM2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart1000rm2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart1000rmxl2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart1000rmxl2u.pdf",
+      "model": "SMART1000RMXL2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart1000rmxl2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart1050slt.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart1050slt.pdf",
+      "model": "SMART1050SLT",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart1050slt",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart1050sltaa.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart1050sltaa.pdf",
+      "model": "SMART1050SLTAA",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart1050sltaa",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart1200lcd.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart1200lcd.pdf",
+      "model": "SMART1200LCD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart1200lcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart1500crmxl.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart1500crmxl.pdf",
+      "model": "SMART1500CRMXL",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart1500crmxl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart1500lcd.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart1500lcd.pdf",
+      "model": "SMART1500LCD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart1500lcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart1500lcdxl.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart1500lcdxl.pdf",
+      "model": "SMART1500LCDXL",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart1500lcdxl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart1500rm2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart1500rm2u.pdf",
+      "model": "SMART1500RM2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart1500rm2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart1500rm2un.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart1500rm2un.pdf",
+      "model": "SMART1500RM2UN",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart1500rm2un",
+      "status": "resolved"
+    },
+    {
+      "model": "SMART1500RMXL2UA",
+      "reason": "First page does not identify the exact model",
+      "slug": "tripp-lite-smart1500rmxl2ua",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart1500rmxln.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart1500rmxln.pdf",
+      "model": "SMART1500RMXLN",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart1500rmxln",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart1500slt.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart1500slt.pdf",
+      "model": "SMART1500SLT",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart1500slt",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart2200crmxl.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart2200crmxl.pdf",
+      "model": "SMART2200CRMXL",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart2200crmxl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart2200rm2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart2200rm2u.pdf",
+      "model": "SMART2200RM2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart2200rm2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart2200rm2un.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart2200rm2un.pdf",
+      "model": "SMART2200RM2UN",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart2200rm2un",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart2200rmxl2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart2200rmxl2u.pdf",
+      "model": "SMART2200RMXL2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart2200rmxl2u",
+      "status": "resolved"
+    },
+    {
+      "model": "SMART2200RMXL2UP",
+      "reason": "Command failed: curl --resolve assets.tripplite.com:443:150.171.109.129 -L -sS --fail -o /tmp/stack127-nut-hcl-cache/tripp-lite-pdfs/tripp-lite-smart2200rmxl2up.pdf https://assets.tripplite.com/product-pdfs/en/smart2200rmxl2up.pdf\ncurl: (22) The requested URL returned error: 404\n",
+      "slug": "tripp-lite-smart2200rmxl2up",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart2200rmxln.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart2200rmxln.pdf",
+      "model": "SMART2200RMXLN",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart2200rmxln",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart2200slt.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart2200slt.pdf",
+      "model": "SMART2200SLT",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart2200slt",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart2200sltaa.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart2200sltaa.pdf",
+      "model": "SMART2200SLTAA",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart2200sltaa",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart2500xlhg.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart2500xlhg.pdf",
+      "model": "SMART2500XLHG",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart2500xlhg",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart2600rm2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart2600rm2u.pdf",
+      "model": "SMART2600RM2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart2600rm2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart3000crmxl.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart3000crmxl.pdf",
+      "model": "SMART3000CRMXL",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart3000crmxl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart3000rm2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart3000rm2u.pdf",
+      "model": "SMART3000RM2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart3000rm2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart3000rm2un.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart3000rm2un.pdf",
+      "model": "SMART3000RM2UN",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart3000rm2un",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart3000rmod2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart3000rmod2u.pdf",
+      "model": "SMART3000RMOD2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart3000rmod2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart3000rmxl2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart3000rmxl2u.pdf",
+      "model": "SMART3000RMXL2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart3000rmxl2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart3000rmxln.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart3000rmxln.pdf",
+      "model": "SMART3000RMXLN",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart3000rmxln",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart3000slt.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart3000slt.pdf",
+      "model": "SMART3000SLT",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart3000slt",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart500rt1u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart500rt1u.pdf",
+      "model": "SMART500RT1U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart500rt1u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart550usb.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart550usb.pdf",
+      "model": "SMART550USB",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart550usb",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart550usbwd.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart550usbwd.pdf",
+      "model": "SMART550USBWD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart550usbwd",
+      "status": "resolved"
+    },
+    {
+      "model": "SMART700USB",
+      "reason": "No unambiguous large first-page product image",
+      "slug": "tripp-lite-smart700usb",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart750rmxl2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart750rmxl2u.pdf",
+      "model": "SMART750RMXL2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart750rmxl2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart750slt.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart750slt.pdf",
+      "model": "SMART750SLT",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart750slt",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart750usb.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart750usb.pdf",
+      "model": "SMART750USB",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart750usb",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smart750xla.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smart750xla.pdf",
+      "model": "SMART750XLA",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smart750xla",
+      "status": "resolved"
+    },
+    {
+      "model": "SmartOnline",
+      "reason": "Command failed: curl --resolve assets.tripplite.com:443:150.171.109.129 -L -sS --fail -o /tmp/stack127-nut-hcl-cache/tripp-lite-pdfs/tripp-lite-smartonline.pdf https://assets.tripplite.com/product-pdfs/en/smartonline.pdf\ncurl: (22) The requested URL returned error: 404\n",
+      "slug": "tripp-lite-smartonline",
+      "status": "unresolved"
+    },
+    {
+      "model": "SmartUPS",
+      "reason": "Command failed: curl --resolve assets.tripplite.com:443:150.171.109.129 -L -sS --fail -o /tmp/stack127-nut-hcl-cache/tripp-lite-pdfs/tripp-lite-smartups.pdf https://assets.tripplite.com/product-pdfs/en/smartups.pdf\ncurl: (22) The requested URL returned error: 404\n",
+      "slug": "tripp-lite-smartups",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smc15002urm.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smc15002urm.pdf",
+      "model": "SMC15002URM",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smc15002urm",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smx1000lcd.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smx1000lcd.pdf",
+      "model": "SMX1000LCD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smx1000lcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smx1000rt2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smx1000rt2u.pdf",
+      "model": "SMX1000RT2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smx1000rt2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smx1050slt.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smx1050slt.pdf",
+      "model": "SMX1050SLT",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smx1050slt",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smx1200xlhg.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smx1200xlhg.pdf",
+      "model": "SMX1200XLHG",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smx1200xlhg",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smx1500lcd.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smx1500lcd.pdf",
+      "model": "SMX1500LCD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smx1500lcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smx1500slt.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smx1500slt.pdf",
+      "model": "SMX1500SLT",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smx1500slt",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smx1500xlrt2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smx1500xlrt2u.pdf",
+      "model": "SMX1500XLRT2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smx1500xlrt2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smx2200xlrt2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smx2200xlrt2u.pdf",
+      "model": "SMX2200XLRT2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smx2200xlrt2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smx3000rt2utaa.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smx3000rt2utaa.pdf",
+      "model": "SMX3000RT2UTAA",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smx3000rt2utaa",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smx3000xlrt2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smx3000xlrt2u.pdf",
+      "model": "SMX3000XLRT2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smx3000xlrt2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smx3000xlrt2ua.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smx3000xlrt2ua.pdf",
+      "model": "SMX3000XLRT2UA",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smx3000xlrt2ua",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smx500rt1u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smx500rt1u.pdf",
+      "model": "SMX500RT1U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smx500rt1u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-smx750slt.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/smx750slt.pdf",
+      "model": "SMX750SLT",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-smx750slt",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su1000rtxl2ua.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su1000rtxl2ua.pdf",
+      "model": "SU1000RTXL2UA",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su1000rtxl2ua",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su1000rtxlcd2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su1000rtxlcd2u.pdf",
+      "model": "SU1000RTXLCD2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su1000rtxlcd2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su1000xla.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su1000xla.pdf",
+      "model": "SU1000XLA",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su1000xla",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su1000xlcd.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su1000xlcd.pdf",
+      "model": "SU1000XLCD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su1000xlcd",
+      "status": "resolved"
+    },
+    {
+      "model": "SU1500RTXL2UA (SmartOnline)",
+      "reason": "Model is not an exact datasheet token",
+      "slug": "tripp-lite-su1500rtxl2ua-smartonline",
+      "status": "unresolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su1500rtxlcd2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su1500rtxlcd2u.pdf",
+      "model": "SU1500RTXLCD2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su1500rtxlcd2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su1500xl.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su1500xl.pdf",
+      "model": "SU1500XL",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su1500xl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su1500xlcd.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su1500xlcd.pdf",
+      "model": "SU1500XLCD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su1500xlcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su2200rtxl2ua.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su2200rtxl2ua.pdf",
+      "model": "SU2200RTXL2UA",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su2200rtxl2ua",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su2200rtxlcd2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su2200rtxlcd2u.pdf",
+      "model": "SU2200RTXLCD2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su2200rtxlcd2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su2200xla.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su2200xla.pdf",
+      "model": "SU2200XLA",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su2200xla",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su2200xlcd.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su2200xlcd.pdf",
+      "model": "SU2200XLCD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su2200xlcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su3000rtxl2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su3000rtxl2u.pdf",
+      "model": "SU3000RTXL2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su3000rtxl2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su3000rtxl3u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su3000rtxl3u.pdf",
+      "model": "SU3000RTXL3U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su3000rtxl3u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su3000rtxlcd3u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su3000rtxlcd3u.pdf",
+      "model": "SU3000RTXLCD3U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su3000rtxlcd3u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su3000rtxr3u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su3000rtxr3u.pdf",
+      "model": "SU3000RTXR3U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su3000rtxr3u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su3000rtxr3uhw.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su3000rtxr3uhw.pdf",
+      "model": "SU3000RTXR3UHW",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su3000rtxr3uhw",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su3000xl.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su3000xl.pdf",
+      "model": "SU3000XL",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su3000xl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su3000xlcd.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su3000xlcd.pdf",
+      "model": "SU3000XLCD",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su3000xlcd",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su750rtxl2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su750rtxl2u.pdf",
+      "model": "SU750RTXL2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su750rtxl2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su750rtxlcd2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su750rtxlcd2u.pdf",
+      "model": "SU750RTXLCD2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su750rtxlcd2u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-su750xl.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/su750xl.pdf",
+      "model": "SU750XL",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-su750xl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-suint1000rtxl2ua.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/suint1000rtxl2ua.pdf",
+      "model": "SUINT1000RTXL2UA",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-suint1000rtxl2ua",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-suint1500rtxl2ua.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/suint1500rtxl2ua.pdf",
+      "model": "SUINT1500RTXL2UA",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-suint1500rtxl2ua",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-suint2200rtxl2ua.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/suint2200rtxl2ua.pdf",
+      "model": "SUINT2200RTXL2UA",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-suint2200rtxl2ua",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "enriched-images/tripp-lite-suint3000rtxl2u.webp",
+      "image_source_url": "https://assets.tripplite.com/product-pdfs/en/suint3000rtxl2u.pdf",
+      "model": "SUINT3000RTXL2U",
+      "quality": "official-datasheet-product-image",
+      "slug": "tripp-lite-suint3000rtxl2u",
+      "status": "resolved"
+    }
+  ]
+}

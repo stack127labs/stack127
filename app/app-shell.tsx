@@ -48,6 +48,9 @@ export function AppShell({
               <Link href="/labs">labs</Link>
             </nav>
             <p>2026 stack127. all rights reserved.</p>
+            <p className={styles.footerDisclosure}>
+              As an Amazon Associate I earn from qualifying purchases.
+            </p>
           </footer>
         </section>
       </section>

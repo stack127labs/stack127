@@ -1,0 +1,3 @@
+[
+  {"file":"refresh-matter-devices.mjs","purpose":"Imports the complete CSA Matter certification catalog, enriches exact certificate matches from a pinned Matter Database checkout, groups repeated certifications into products, and promotes the complete catalog with exact images or explicit missing-image outcomes."}
+]

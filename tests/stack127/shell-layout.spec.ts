@@ -24,3 +24,11 @@ test("the shared shell uses the supplied image wordmark in both themes", async (
   await expect(header.locator('img[src="/logos/stack127-wordmark-on-dark.png"]')).toBeHidden();
   await expect(header.locator('img[src="/logos/stack127-wordmark-on-light.png"]')).toBeVisible();
 });
+
+test("the shared shell shows the Amazon Associates disclosure", async ({ page }) => {
+  await page.goto("/");
+
+  await expect(
+    page.getByText("As an Amazon Associate I earn from qualifying purchases.", { exact: true }),
+  ).toBeVisible();
+});

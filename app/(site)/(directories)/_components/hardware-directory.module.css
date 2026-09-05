@@ -1,0 +1,321 @@
+.card {
+  grid-template-rows: auto auto auto 1fr;
+}
+
+.cardImageFrame,
+.detailImageFrame {
+  align-items: center;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cardImageFrame {
+  height: 176px;
+}
+
+.cardImage,
+.detailImage {
+  height: 100%;
+  object-fit: contain;
+  padding: var(--space-4);
+  width: 100%;
+}
+
+.missingImage {
+  align-items: center;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-direction: column;
+  font-size: var(--text-small);
+  gap: var(--space-2);
+  justify-content: center;
+  padding: var(--space-4);
+  text-align: center;
+}
+
+.missingImage svg {
+  height: 28px;
+  width: 28px;
+}
+
+.cardHeading {
+  min-width: 0;
+  text-align: left;
+}
+
+.cardIdentity {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  margin: 0 0 var(--space-2);
+  overflow-wrap: anywhere;
+}
+
+.compatibilityRow,
+.compatibilityBadge {
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-text);
+  display: flex;
+  font-size: var(--text-small);
+  gap: var(--space-2);
+}
+
+.compatibilityRow {
+  padding: var(--space-3);
+  text-align: left;
+}
+
+.compatibilityRow strong {
+  margin-left: auto;
+  text-align: right;
+}
+
+.compatibilityRow[data-status="confirmed"] svg {
+  color: var(--color-success-text);
+}
+
+.compatibilityBadge {
+  padding: var(--space-1) var(--space-2);
+}
+
+.cardFacts {
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+}
+
+.cardFacts div {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: minmax(0, .75fr) minmax(0, 1fr);
+  padding: var(--space-2) 0;
+}
+
+.cardFacts dt,
+.cardFacts dd {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.cardFacts dt {
+  color: var(--color-text-muted);
+}
+
+.cardFacts dd {
+  color: var(--color-text);
+  text-align: right;
+}
+
+.card code,
+.detailModel {
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  overflow-wrap: anywhere;
+}
+
+.detailModel {
+  color: var(--color-text-muted);
+  margin: var(--space-1) 0 0;
+}
+
+.card :global(.meta-icon) {
+  color: var(--color-success-text);
+}
+
+.card :global(.directory-card-stats) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.detailImageFrame {
+  height: 240px;
+}
+
+.detailGroup h3 {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  margin: 0 0 var(--space-2);
+}
+
+.detailEvidence {
+  border: 1.5px solid var(--color-border-strong);
+  border-collapse: collapse;
+  color: var(--color-text);
+  font-size: var(--text-small);
+  width: 100%;
+}
+
+.detailEvidence caption {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  padding-bottom: var(--space-3);
+  text-align: left;
+}
+
+.detailEvidence th,
+.detailEvidence td {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-3);
+  text-align: left;
+}
+
+.detailEvidence thead th {
+  border-bottom: 1.5px solid var(--color-border-strong);
+  font-family: var(--font-display);
+}
+
+.detailEvidence tbody th,
+.detailEvidence tbody td {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-regular);
+}
+
+.identifierList {
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+}
+
+.identifierList div {
+  border-bottom: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: minmax(100px, .7fr) minmax(0, 1fr);
+  padding: var(--space-3) 0;
+}
+
+.identifierList dt,
+.identifierList dd {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.identifierList dt {
+  color: var(--color-text-muted);
+}
+
+.identifierList dd {
+  color: var(--color-text);
+  text-align: right;
+}
+
+.detailSection {
+  border-bottom: 1px solid var(--color-border);
+  min-width: 0;
+}
+
+.detailSection summary {
+  color: var(--color-text);
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  padding: var(--space-3) 0;
+}
+
+.detailSection summary span:last-child {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  font-weight: var(--weight-regular);
+  margin-left: var(--space-2);
+}
+
+.detailSection ul {
+  color: var(--color-text);
+  display: grid;
+  font-size: var(--text-small);
+  gap: var(--space-2);
+  line-height: 1.55;
+  margin: 0 0 var(--space-4);
+  padding-left: var(--space-5);
+}
+
+.variantSection {
+  border-bottom: 1px solid var(--color-border);
+  min-width: 0;
+}
+
+.variantSection summary {
+  align-items: center;
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  justify-content: space-between;
+  padding: var(--space-3) 0;
+}
+
+.variantSection summary span:last-child {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  font-weight: var(--weight-regular);
+}
+
+.variantTableWrap {
+  max-height: 420px;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.variantTable {
+  border-collapse: collapse;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  min-width: 920px;
+  width: 100%;
+}
+
+.variantTable th,
+.variantTable td {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  vertical-align: top;
+}
+
+.variantTable thead th {
+  background: var(--color-surface);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.variantTable tbody th {
+  font-weight: var(--weight-regular);
+}
+
+.variantTable a {
+  align-items: center;
+  display: inline-flex;
+  gap: var(--space-1);
+}
+
+@media (max-width: 560px) {
+  .identifierList div {
+    gap: var(--space-1);
+    grid-template-columns: 1fr;
+  }
+
+  .identifierList dd {
+    text-align: left;
+  }
+
+  .cardImageFrame {
+    height: 190px;
+  }
+}

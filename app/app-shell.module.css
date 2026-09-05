@@ -115,6 +115,15 @@
   white-space: normal;
 }
 
+.footer p.footerDisclosure {
+  color: var(--color-text);
+  flex-basis: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  text-align: center;
+  text-transform: none;
+}
+
 .footer a:hover {
   color: var(--color-text);
 }

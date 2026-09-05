@@ -9,6 +9,7 @@ const exampleFiles = [
   ".env.homelab.example",
   ".env.local.example",
   ".env.repos.example",
+  ".env.affiliate.example",
 ];
 
 function parseAssignments(text) {

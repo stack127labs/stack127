@@ -1,0 +1,112 @@
+.resultHeader {
+  align-items: baseline;
+  display: flex;
+  gap: var(--space-5);
+  justify-content: space-between;
+}
+
+.resultCount,
+.snapshotNote,
+.sourceLine {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  margin: 0;
+}
+
+.coverageLedger {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: var(--space-6);
+}
+
+.coverageLedger div {
+  border-right: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-4);
+}
+
+.coverageLedger div:last-child {
+  border-right: 0;
+}
+
+.coverageLedger strong {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+}
+
+.coverageLedger span {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+.guide {
+  grid-template-columns: minmax(0, 1fr);
+  margin-top: var(--space-14);
+  min-width: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.tableWrap {
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.evidenceTable {
+  border: 1.5px solid var(--color-border-strong);
+  border-collapse: collapse;
+  min-width: 620px;
+  width: 100%;
+}
+
+.evidenceTable th,
+.evidenceTable td {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-4);
+  text-align: left;
+  vertical-align: top;
+}
+
+.evidenceTable thead th {
+  border-bottom: 1.5px solid var(--color-border-strong);
+  font-family: var(--font-display);
+}
+
+.evidenceTable tbody th,
+.evidenceTable tbody td {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+}
+
+.evidenceTable tbody th {
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 560px) {
+  .resultHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .coverageLedger {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .coverageLedger div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .coverageLedger div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--color-border);
+  }
+}

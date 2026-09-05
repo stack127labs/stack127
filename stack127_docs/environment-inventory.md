@@ -4,7 +4,7 @@ This is the secret-free index of every active Stack127 environment surface. It
 records names, owners, and consumers only. Never add credential values, token
 fragments, database hosts, project references, or passwords to this document.
 
-Last reconciled: 20 August 2026.
+Last reconciled: 5 September 2026.
 
 ## Rules
 
@@ -31,8 +31,10 @@ Last reconciled: 20 August 2026.
 | `.env.analytics` | `.env.analytics.example` | Self-hosted Umami connection and administrative login. |
 | `.env.homelab` | `.env.homelab.example` | Homelab host identity and local administration. |
 | `.env.repos` | `.env.repos.example` | Local GitHub CLI and stack127 repo automation. |
+| `.env.affiliate` | `.env.affiliate.example` | Amazon Associates settings and future Creators API credentials. |
 
-All six populated files were verified as mode `0600` on 20 August 2026.
+The first six populated files were verified as mode `0600` on 20 August 2026.
+`.env.affiliate` was verified as mode `0600` on 4 September 2026.
 
 ### Managed Supabase
 
@@ -268,6 +270,31 @@ There are two intentional Cloudflare credentials:
 
 Do not replace the narrow CI token with the broad administration token. Do not
 use Cloudflare User API tokens for either purpose.
+
+## Amazon Associates
+
+`.env.affiliate` stores the Amazon Associates configuration for stack127. It is
+ignored by Git and must stay at mode `0600`. The tracked example lists the same
+keys without values.
+
+| Key | Secret? | Use |
+| --- | --- | --- |
+| `AMAZON_ASSOCIATES_PRIMARY_MARKETPLACE` | No | Primary Amazon marketplace. |
+| `AMAZON_ASSOCIATES_STORE_ID` | No | Associates Store ID for the primary marketplace. |
+| `AMAZON_ASSOCIATES_TRACKING_ID` | No | Tracking ID used for stack127 affiliate links. |
+| `AMAZON_ASSOCIATES_PARTNER_TAG` | No | Partner tag used by links and API requests. |
+| `AMAZON_ONELINK_ENABLED` | No | Whether OneLink is enabled for the account. |
+| `AMAZON_ONELINK_MARKETPLACES` | No | Marketplaces configured for OneLink. |
+| `AMAZON_CREATORS_API_CREDENTIAL_ID` | No | Creators API Credential ID. |
+| `AMAZON_CREATORS_API_SECRET` | Yes | Creators API secret. |
+| `AMAZON_CREATORS_API_VERSION` | No | Creators API credential version. |
+| `AMAZON_CREATORS_API_HOST` | No | Optional API host override. |
+| `AMAZON_CREATORS_API_REGION` | No | Optional credential-region record. |
+| `AMAZON_CREATORS_API_MARKETPLACE` | No | Optional marketplace override. |
+
+Affiliate scripts must load `.env.affiliate` explicitly. Next.js does not load
+this split file automatically. Never expose the Creators API secret to client
+code or print the real file.
 
 ## Rotation Checklist
 

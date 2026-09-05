@@ -25,8 +25,17 @@ test("catalogs contain only collections of stack127 pages", async () => {
   assert.deepEqual(await routeDirectories("catalogs"), ["dns-tools", "domain-tools", "storage-tools"]);
 });
 
-test("directories contain only third-party software listings", async () => {
-  assert.deepEqual(await routeDirectories("directories"), ["cli-apps", "self-host-apps"]);
+test("directories contain only third-party software and hardware listings", async () => {
+  assert.deepEqual(await routeDirectories("directories"), [
+    "cli-apps",
+    "local-security-cameras",
+    "matter-devices",
+    "nut-compatible-ups",
+    "self-host-apps",
+    "z-wave-devices",
+    "zigbee-coordinators",
+    "zigbee-devices",
+  ]);
 });
 
 test("references contain stable fact and lookup pages", async () => {
@@ -44,7 +53,13 @@ test("site routes are owned by explicit non-URL page families", async () => {
     "app/(site)/(catalogs)/domain-tools/page.tsx",
     "app/(site)/(catalogs)/storage-tools/page.tsx",
     "app/(site)/(directories)/cli-apps/page.tsx",
+    "app/(site)/(directories)/local-security-cameras/page.tsx",
+    "app/(site)/(directories)/matter-devices/page.tsx",
+    "app/(site)/(directories)/nut-compatible-ups/page.tsx",
     "app/(site)/(directories)/self-host-apps/page.tsx",
+    "app/(site)/(directories)/z-wave-devices/page.tsx",
+    "app/(site)/(directories)/zigbee-coordinators/page.tsx",
+    "app/(site)/(directories)/zigbee-devices/page.tsx",
     "app/(site)/(references)/epp-status-codes/page.tsx",
     "app/(site)/(references)/keyboard-shortcuts/page.tsx",
     "app/(site)/(references)/software-licenses-for-self-hosting/page.tsx",

@@ -1,0 +1,9 @@
+{
+  "route": "/zigbee-coordinators",
+  "state": "published",
+  "docs": ["content_docs/zigbee-coordinators", "stack127_docs/amazon-product-linking.md"],
+  "tests": ["tests/pages/hardware-directories/shared/amazon-affiliate.test.mjs", "tests/pages/hardware-directories/shared/directory-contract.test.mjs", "tests/pages/hardware-directories/shared/filters.test.mjs", "tests/pages/hardware-directories/shared/publication.test.mjs", "tests/stack127/seo.spec.ts"],
+  "scripts": ["scripts/zigbee-coordinators", "scripts/stack127/amazon-affiliate", "scripts/stack127/preview-hardware-directories.mjs", "scripts/stack127/qa-hardware-directories.mjs"],
+  "skills": ["skills/stack127/test-driven-page", "skills/stack127/visual-first-content"],
+  "repositories": []
+}

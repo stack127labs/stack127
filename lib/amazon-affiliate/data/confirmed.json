@@ -1,0 +1,5457 @@
+{
+  "generated_at": "2026-09-05T12:28:22.558Z",
+  "marketplace": "US",
+  "partner_tag": "stack127-20",
+  "reviews": [
+    {
+      "asin": "B07HJHJWGT",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "AduroSmart 81825 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/AduroSmart_81825.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "ERIA AduroSmart Smart Wireless dimming (Wireless dimmer)",
+          "url": "https://www.amazon.com/dp/B07HJHJWGT"
+        }
+      ],
+      "identity_hash": "68bfbefacaea8bb5",
+      "matched_identifiers": [
+        "AduroSmart",
+        "81825"
+      ],
+      "marketplace": "US",
+      "record_slug": "adurosmart-81825",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07PJT939B",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Aqara DJT11LM — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Aqara_DJT11LM.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Aqara Zigbee Vibration Sensor, Wireless Mini Glass Break Detector | For Alarm System, Home Automation, Requires Aqara Hub (not 3rd-Party), Compatible with HomeKit, Alexa, IFTTT, Home Assistant",
+          "url": "https://www.amazon.com/dp/B07PJT939B"
+        }
+      ],
+      "identity_hash": "2e768a1c644d0f3e",
+      "matched_identifiers": [
+        "Aqara",
+        "DJT11LM"
+      ],
+      "marketplace": "US",
+      "record_slug": "aqara-djt11lm",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0C5XKHCWM",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Aqara LGYCDD01LM — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Aqara_LGYCDD01LM.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Aqara LED Strip T1,6.5FT RGBIC Cuttable LED Strip Lights Matter Over Bridge | 16 Million Colors/Tunable White/Gradient Effects, Supports Apple Homekit Alexa, Requires Zigbee 3.0 Hub",
+          "url": "https://www.amazon.com/dp/B0C5XKHCWM"
+        }
+      ],
+      "identity_hash": "e04dbc73ac6a6912",
+      "matched_identifiers": [
+        "Aqara",
+        "LGYCDD01LM"
+      ],
+      "marketplace": "US",
+      "record_slug": "aqara-lgycdd01lm",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07D37VDM3",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Aqara MCCGQ11LM — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Aqara_MCCGQ11LM.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Aqara Zigbee Door and Window Sensor 1 Pack, Wireless Mini Contact Sensor | Home Automation, Requires Aqara Hub, Zigbee Connection, Kid Safety, Compatible with Apple HomeKit, Alexa, Works with IFTTT",
+          "url": "https://www.amazon.com/dp/B07D37VDM3"
+        }
+      ],
+      "identity_hash": "c30ccae09c72410a",
+      "matched_identifiers": [
+        "Aqara",
+        "MCCGQ11LM"
+      ],
+      "marketplace": "US",
+      "record_slug": "aqara-mccgq11lm",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0BHWS3VTZ",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Aqara MFCZQ12LM — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Aqara_MFKZQ12LM.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Aqara Cube T1 Pro, Requires AQARA ZIGBEE 3.0 HUB | 6 Sides to Control Different Scenes and Diverse Actions to Control Smart Home Devices, Supports Homekit, Alexa and IFTTT",
+          "url": "https://www.amazon.com/dp/B0BHWS3VTZ"
+        }
+      ],
+      "identity_hash": "67aa7addd16f336b",
+      "matched_identifiers": [
+        "Aqara",
+        "MFCZQ12LM"
+      ],
+      "marketplace": "US",
+      "record_slug": "aqara-mfczq12lm",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07D39MSZS",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Aqara SJCGQ11LM — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Aqara_SJCGQ11LM.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Aqara Water Leak Sensor 1 Pack, Zigbee Water Leak Detector for Alarm System | Requires AQARA HUB, App Notifications, Smart Home Automation, for Kitchen, Bathroom, Basement, Wireless, Works with IFTTT",
+          "url": "https://www.amazon.com/dp/B07D39MSZS"
+        }
+      ],
+      "identity_hash": "0eff756e64ea61d1",
+      "matched_identifiers": [
+        "Aqara",
+        "SJCGQ11LM"
+      ],
+      "marketplace": "US",
+      "record_slug": "aqara-sjcgq11lm",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B081ZQWX1F",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Aqara WS-USC01 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Aqara_WS-USC01.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Aqara Smart Light Switch (No Neutral, Single Rocker), Requires AQARA HUB | Zigbee Light Switch, Remote Control and Smart Home Automation, Compatible with HomeKit, Google, Works with Alexa, SmartThings",
+          "url": "https://www.amazon.com/dp/B081ZQWX1F"
+        }
+      ],
+      "identity_hash": "452f8032570a0b55",
+      "matched_identifiers": [
+        "Aqara",
+        "WS-USC01"
+      ],
+      "marketplace": "US",
+      "record_slug": "aqara-ws-usc01",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B081ZRND3K",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Aqara WS-USC03 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Aqara_WS-USC03.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Aqara Zigbee Smart Light Switch (with Neutral, Single Rocker) | Requires Aqara Hub, Remote Control and Set Timer for Home Automation, Compatible with Apple HomeKit Alexa Google Home",
+          "url": "https://www.amazon.com/dp/B081ZRND3K"
+        }
+      ],
+      "identity_hash": "5d961b17f914c3fe",
+      "matched_identifiers": [
+        "Aqara",
+        "WS-USC03"
+      ],
+      "marketplace": "US",
+      "record_slug": "aqara-ws-usc03",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0B9XZ96PH",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Aqara ZNCWWSQ01LM — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Aqara_ZNCWWSQ01LM.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Pet Supplies : Aqara Smart Pet Feeder C1, Auto Cat Food Dispenser with APP Control | REQUIRES AQARA Zigbee3.0 HUB, Automatic Feeder for Cats Dogs, Can be Controlled by Google Alexa Siri, Work with SmartThings",
+          "url": "https://www.amazon.com/dp/B0B9XZ96PH"
+        }
+      ],
+      "identity_hash": "4e06255702193165",
+      "matched_identifiers": [
+        "Aqara",
+        "ZNCWWSQ01LM"
+      ],
+      "marketplace": "US",
+      "record_slug": "aqara-zncwwsq01lm",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07ZTQZDDW",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "AXIS GR-ZB01-W — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Axis_GR-ZB01-W.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "AXIS Gear - Smart Blinds For Your Smart Home - DIY Home Automation - Powered by ZigBee + Bluetooth [2020 Edition]",
+          "url": "https://www.amazon.com/dp/B07ZTQZDDW"
+        }
+      ],
+      "identity_hash": "9409de9258a71236",
+      "matched_identifiers": [
+        "AXIS",
+        "GR-ZB01-W"
+      ],
+      "marketplace": "US",
+      "record_slug": "axis-gr-zb01-w",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B01JP7IJ2E",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Blaupunkt SCM-S1 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Blaupunkt_SCM-S1.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Blaupunkt SCM-S1 Smart Home Roller Shutter Relay Q-Series Security Systems: Roller Shutters, Garage Doors, Awnings, Blinds or Similar Automation and Control via App",
+          "url": "https://www.amazon.com/dp/B01JP7IJ2E"
+        }
+      ],
+      "identity_hash": "3cc0f7882cab95f1",
+      "matched_identifiers": [
+        "Blaupunkt",
+        "SCM-S1"
+      ],
+      "marketplace": "US",
+      "record_slug": "blaupunkt-scm-s1",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00PRBMDKW",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Bosch ISW-ZPR1-WP13 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Bosch_ISW-ZPR1-WP13.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Bosch Pro-Grade ZigBee Wireless Motion Detector ISW-ZPR1-WP13 - Requires Samsung SmartThings Hub",
+          "url": "https://www.amazon.com/dp/B00PRBMDKW"
+        }
+      ],
+      "identity_hash": "792e758b78f4466a",
+      "matched_identifiers": [
+        "Bosch",
+        "ISW-ZPR1-WP13"
+      ],
+      "marketplace": "US",
+      "record_slug": "bosch-isw-zpr1-wp13",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0B2JBR8JT",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "BTF-Lighting C03Z — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Tuya_C03Z.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "BTF-LIGHTING C03Z Zigbee 3.0 Controller for 4pin SMD COB RGB(+ R G B) LED | Indoor Tuya PWM Dimmer For Bedroom Cabinet Home Decor, Compatible With Echo Plus/4th Gen Tuya Gateway, DC5V/12V/24V 15A Max",
+          "url": "https://www.amazon.com/dp/B0B2JBR8JT"
+        }
+      ],
+      "identity_hash": "66ea8ebf189ace1e",
+      "matched_identifiers": [
+        "BTF-Lighting",
+        "C03Z"
+      ],
+      "marketplace": "US",
+      "record_slug": "btf-lighting-c03z",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B01G99KR94",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Centralite 3000-G — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Centralite_3000-G.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Centralite 3-Series Pearl Touch Thermostat, White",
+          "url": "https://www.amazon.com/dp/B01G99KR94"
+        }
+      ],
+      "identity_hash": "f1c7f4d36504f7c6",
+      "matched_identifiers": [
+        "Centralite",
+        "3000-G"
+      ],
+      "marketplace": "US",
+      "record_slug": "centralite-3000-g",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07BSXX5TD",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Centralite 3310-G — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Centralite_3310-G.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Centralite Zigbee Temperature & Humidity Sensor by Ezlo – Monitors Temperature and Humidity Levels Across Your Home – Ideal for Bedrooms, Living Rooms, and Nurseries. Works with Alexa and Zigbee Hubs",
+          "url": "https://www.amazon.com/dp/B07BSXX5TD"
+        }
+      ],
+      "identity_hash": "6975b32bcda102ce",
+      "matched_identifiers": [
+        "Centralite",
+        "3310-G"
+      ],
+      "marketplace": "US",
+      "record_slug": "centralite-3310-g",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B072DYHPY7",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Centralite 3315-C — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Centralite_3315-C.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Centralite Centralite by Ezlo Water Sensor | Monitors Your Whole Home for Leaks | Detects Water Leaks in a Kitchen, Bathroom, Basement or Laundry Room | Zigbee Smart Water Sensor",
+          "url": "https://www.amazon.com/dp/B072DYHPY7"
+        }
+      ],
+      "identity_hash": "0c9946d86d56d730",
+      "matched_identifiers": [
+        "Centralite",
+        "3315-C"
+      ],
+      "marketplace": "US",
+      "record_slug": "centralite-3315-c",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B071YQCWQM",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Centralite 3323-G — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Centralite_3323-G.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Centralite by Ezlo Micro Door and Window Sensor - Personal and Home Security - Wirelessly Notify Users of Arrivals and Departures - Works with Zigbee",
+          "url": "https://www.amazon.com/dp/B071YQCWQM"
+        }
+      ],
+      "identity_hash": "317866ff622805ab",
+      "matched_identifiers": [
+        "Centralite",
+        "3323-G"
+      ],
+      "marketplace": "US",
+      "record_slug": "centralite-3323-g",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0713STYJQ",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Centralite 3328-G — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Centralite_3328-G.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Centralite by Ezlo Micro Motion Sensor - Home Automation and Security - Lighting Scenes, Security Alarm, Alerts upon Motion Detection - Zigbee",
+          "url": "https://www.amazon.com/dp/B0713STYJQ"
+        }
+      ],
+      "identity_hash": "545f231b1465eedc",
+      "matched_identifiers": [
+        "Centralite",
+        "3328-G"
+      ],
+      "marketplace": "US",
+      "record_slug": "centralite-3328-g",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B01G82NWBW",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Centralite 3420-G — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Centralite_3420-G.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Centralite 3-Series Night Light",
+          "url": "https://www.amazon.com/dp/B01G82NWBW"
+        }
+      ],
+      "identity_hash": "9cf6255f227ee380",
+      "matched_identifiers": [
+        "Centralite",
+        "3420-G"
+      ],
+      "marketplace": "US",
+      "record_slug": "centralite-3420-g",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00R7B4IYO",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Commercial Electric 53170161 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Commercial_Electric_53170161.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Commercial Electric LED T41 4\" Recessed Light 3000k White",
+          "url": "https://www.amazon.com/dp/B00R7B4IYO"
+        }
+      ],
+      "identity_hash": "3b50a0cdfdfa27de",
+      "matched_identifiers": [
+        "Commercial Electric",
+        "53170161"
+      ],
+      "marketplace": "US",
+      "record_slug": "commercial-electric-53170161",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00TN589ZG",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "CREE B00TN589ZG — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Cree_B00TN589ZG.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Cree Connected 60W Soft White (2700K) Dimmable LED Light Bulb (Single Pack)",
+          "url": "https://www.amazon.com/dp/B00TN589ZG"
+        }
+      ],
+      "identity_hash": "b0bf8e9aaf1152e3",
+      "matched_identifiers": [
+        "CREE",
+        "B00TN589ZG"
+      ],
+      "marketplace": "US",
+      "record_slug": "cree-b00tn589zg",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07HN5CZCX",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Ecolink 4655BC0-R — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Ecolink_4655BC0-R.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Ecolink Wireless Door/Window Contact Zigbee Wireless Door/Window Contact, White (4655BC0-R)",
+          "url": "https://www.amazon.com/dp/B07HN5CZCX"
+        }
+      ],
+      "identity_hash": "f7c61b356f3b7d38",
+      "matched_identifiers": [
+        "Ecolink",
+        "4655BC0-R"
+      ],
+      "marketplace": "US",
+      "record_slug": "ecolink-4655bc0-r",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08428GHM8",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Enbrighten 43076 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Enbrighten_43076.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Enbrighten Zigbee Smart Light Switch with QuickFit and SimpleWire, Pairs Directly with Echo Show 10/Studio/Plus, White & Light Almond, 43076",
+          "url": "https://www.amazon.com/dp/B08428GHM8"
+        }
+      ],
+      "identity_hash": "dfdc11fe5c4dbe3f",
+      "matched_identifiers": [
+        "Enbrighten",
+        "43076"
+      ],
+      "marketplace": "US",
+      "record_slug": "enbrighten-43076",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08428GDS8",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Enbrighten 43080 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Enbrighten_43080.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Enbrighten Zigbee In-Wall Smart Dimmer, Paddle, White or Light Almond | Easy Install with Line/Load Swapping, Interchangeable Colored Paddles, Hub Required, Works with Alexa & Google Home",
+          "url": "https://www.amazon.com/dp/B08428GDS8"
+        }
+      ],
+      "identity_hash": "b00eda21b9172729",
+      "matched_identifiers": [
+        "Enbrighten",
+        "43080"
+      ],
+      "marketplace": "US",
+      "record_slug": "enbrighten-43080",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08Q4FPF2V",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Enbrighten 43082 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Enbrighten_43082.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Enbrighten Zigbee Dimmer, QuickFit & SimpleWire, Pairs Directly with Echo Show 10 & Echo Studio, Compatible with Alexa & Google Assistant, White & Light Almond, 43082",
+          "url": "https://www.amazon.com/dp/B08Q4FPF2V"
+        }
+      ],
+      "identity_hash": "f56bfb1bc386c58f",
+      "matched_identifiers": [
+        "Enbrighten",
+        "43082"
+      ],
+      "marketplace": "US",
+      "record_slug": "enbrighten-43082",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08428P2MC",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Enbrighten 43084 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Enbrighten_43084.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Enbrighten Zigbee Smart Light Switch with QuickFit and SimpleWire, Pairs Directly with Echo Show 10/Studio/Plus, Toggle, White, 43084",
+          "url": "https://www.amazon.com/dp/B08428P2MC"
+        }
+      ],
+      "identity_hash": "8b89b8cb309014b0",
+      "matched_identifiers": [
+        "Enbrighten",
+        "43084"
+      ],
+      "marketplace": "US",
+      "record_slug": "enbrighten-43084",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08428YB81",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Enbrighten 43090 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Enbrighten_43090.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Enbrighten Zigbee Dimmer, QuickFit & SimpleWire, Pairs Directly with Echo 4th Gen/Echo Show 10/Echo Studio/Echo Plus/Eero Pro 6, Works With Alexa, Google Assistant, White, Smart Light Switch, 43090",
+          "url": "https://www.amazon.com/dp/B08428YB81"
+        }
+      ],
+      "identity_hash": "e00a5158fe5ee865",
+      "matched_identifiers": [
+        "Enbrighten",
+        "43090"
+      ],
+      "marketplace": "US",
+      "record_slug": "enbrighten-43090",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0842B3Y4S",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Enbrighten 43094 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Enbrighten_43094.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Enbrighten Zigbee Switch, Dual Outlet Control Plug-In, Pairs Directly with Echo 4th Gen/Echo Show 10 (All)/Echo Studio/Echo Plus (All)/Eero Pro 6, White, 43094 : Patio, Lawn & Garden",
+          "url": "https://www.amazon.com/dp/B0842B3Y4S"
+        }
+      ],
+      "identity_hash": "cd9bad2fefe8d57a",
+      "matched_identifiers": [
+        "Enbrighten",
+        "43094"
+      ],
+      "marketplace": "US",
+      "record_slug": "enbrighten-43094",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0842B57S3",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Enbrighten 43100 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Enbrighten_43100.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Enbrighten Zigbee Smart Light Switch Outdoor Plug-In, Weather-Resistant, Pairs Directly with Echo 4th Gen/Echo Show 10 (All)/Echo Studio/Echo Plus (All)/Eero Pro 6, No Wiring Needed, Black, 43100",
+          "url": "https://www.amazon.com/dp/B0842B57S3"
+        }
+      ],
+      "identity_hash": "e45c5cb54b4300eb",
+      "matched_identifiers": [
+        "Enbrighten",
+        "43100"
+      ],
+      "marketplace": "US",
+      "record_slug": "enbrighten-43100",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0842BDN9R",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Enbrighten 43102 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Enbrighten_43102.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Enbrighten 43102 Zigbee In-Wall Tamper-Resistant Smart Outlet, White",
+          "url": "https://www.amazon.com/dp/B0842BDN9R"
+        }
+      ],
+      "identity_hash": "d1dcacbf505a60fd",
+      "matched_identifiers": [
+        "Enbrighten",
+        "43102"
+      ],
+      "marketplace": "US",
+      "record_slug": "enbrighten-43102",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0816X9ZDF",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Essentials 120112 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/essentials_120112.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "essentials Smart Home Solutions 120112 Smart Home Heizkörperthermostat Radiator thermostat, White",
+          "url": "https://www.amazon.com/dp/B0816X9ZDF"
+        }
+      ],
+      "identity_hash": "e9cdfe86c32081a9",
+      "matched_identifiers": [
+        "Essentials",
+        "120112"
+      ],
+      "marketplace": "US",
+      "record_slug": "essentials-120112",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07FTD9H7T",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Giderwel C05Z — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Giderwel_C05Z.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GIDERWEL Smart Zigbee 3.0 LED Controller RGBWW Work with ZigBee Hub Bridge,Echo Plus,Tuya Smart Hub for APP/Voice Control RGBCCT RGBW LED Strip Dimming and Color Changing(only Zigbee Controller)",
+          "url": "https://www.amazon.com/dp/B07FTD9H7T"
+        }
+      ],
+      "identity_hash": "ed83fcdc7d542316",
+      "matched_identifiers": [
+        "Giderwel",
+        "C05Z"
+      ],
+      "marketplace": "US",
+      "record_slug": "giderwel-c05z",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07R12DYLF",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-B-001Z — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-B-001Z.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO 4W E12 ZigBee RGBCCT Candelabra LED Candle Light Bulb 2000K~6500K White Light 200~250LM Compatible with SmartThings Alexa Echo Plus APP/Voice Control (ZigBee Hub Required)",
+          "url": "https://www.amazon.com/dp/B07R12DYLF"
+        }
+      ],
+      "identity_hash": "534375eddf4d78bf",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-B-001Z"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-b-001z",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07QXS57FG",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-B-007Z — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-B-007Z.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO 6W Smart ZigBee LED Bulb Colour Dimmable Lights RGB CCT 2700~6500K White Light Compatible with SmartThings Amazon Echo Plus Alexa App/Voice Control (Require ZigBee Hub)",
+          "url": "https://www.amazon.com/dp/B07QXS57FG"
+        }
+      ],
+      "identity_hash": "7a49a625cf869711",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-B-007Z"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-b-007z",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07ZNB6ZJQ",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-B-007ZS — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-B-007ZS.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Gledopto Zigbee Light Link Plus Radio Frequency Control, Standard Base Multi-Color 6 watt LED Bulb U.S. E26 Standard Base, RGB+CCT Bulb",
+          "url": "https://www.amazon.com/dp/B07ZNB6ZJQ"
+        }
+      ],
+      "identity_hash": "2022f1b1fa62e439",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-B-007ZS"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-b-007zs",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07QXS64WB",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-B-008Z — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-B-008Z.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO Smart ZigBee LED Bulb 12W E26 RGB CCT 2700~6500K White Light Dimmable Color LED Lighting Compatible with SmartThings Alexa Echo Plus App/Voice Control (Require ZigBee Hub)",
+          "url": "https://www.amazon.com/dp/B07QXS64WB"
+        }
+      ],
+      "identity_hash": "afddd40bffd4059a",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-B-008Z"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-b-008z",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B082HHKVKX",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-B-008ZS — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-B-008ZS.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Gledopto Zigbee Plus 12 watt LED Bulb U.S. E26 Base, Zigbee Light Link, RGB+CCT Bulb Standard Base Multi-Color LED Bulb",
+          "url": "https://www.amazon.com/dp/B082HHKVKX"
+        }
+      ],
+      "identity_hash": "1a7fa0b7dab8fcd2",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-B-008ZS"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-b-008zs",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07X8V8TBR",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-C-007 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-C-007.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO Smart Home ZigBee LED Strip Controller RGBW 1ID Dimmable Compatible with SmartThings Amazon Echo Plus Smart Phone App/Voice Control for RGBW LED Strip Light (Require ZigBee Hub)",
+          "url": "https://www.amazon.com/dp/B07X8V8TBR"
+        }
+      ],
+      "identity_hash": "749fa95e7ebcfc57",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-C-007"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-c-007",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B081SR4SV5",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-C-007S — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-C-007S.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO Zigbee3.0 RGBW Controller Pro LED Light Strip Controller RGB White Light Color Changing Tape Controller Compatible with Hue Bridge App Control (Zigbee Hub Required)",
+          "url": "https://www.amazon.com/dp/B081SR4SV5"
+        }
+      ],
+      "identity_hash": "d2cc3cf4ac796134",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-C-007S"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-c-007s",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07R32CS17",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-C-008 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-C-008.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO ZigBee 3.0 LED Strip Controller RGB+CCT Mix Dimmable Compatible with SmartThings Amazon Echo Plus App/Voice Control for RGB Warm White Cold White LED Strip Light (Require ZigBee Hub)",
+          "url": "https://www.amazon.com/dp/B07R32CS17"
+        }
+      ],
+      "identity_hash": "3be2928a61711707",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-C-008"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-c-008",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B081SRJRPZ",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-C-008S — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-C-008S.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO Zigbee3.0 LED Contoller WWCW Strip Light Controller Alexa Voice/Hub APP/Remote Control Dimmable Warm White Cold White Tape Light Controller Pro Compatible with Amazon Echo Plus",
+          "url": "https://www.amazon.com/dp/B081SRJRPZ"
+        }
+      ],
+      "identity_hash": "4ca52adfb99313ff",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-C-008S"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-c-008s",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07R39RVY6",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-D-004Z — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-D-004Z.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO Smart ZigBee 9W LED Recessed Ceiling Downlight Dimmable RGBCCT 2700~6500K White Light Compatible with SmartThings Alexa Echo Plus App/Voice Control (Require ZigBee Hub)",
+          "url": "https://www.amazon.com/dp/B07R39RVY6"
+        }
+      ],
+      "identity_hash": "6ad37b0ff5e159cd",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-D-004Z"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-d-004z",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B092J9TBTD",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-D-006P — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-D-006P.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO Zigbee 3.0 LED Downlight 6W RGBCCT Home Smart Recessed Ceiling Light Compatible with Amazon Echo Plus/SmartThings, Waterproof Pro Downlight Support App/Voice/2.4G RF Remote Control",
+          "url": "https://www.amazon.com/dp/B092J9TBTD"
+        }
+      ],
+      "identity_hash": "678c920300524242",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-D-006P"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-d-006p",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B093K39XPD",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-D-007P — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-D-007P.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO Zigbee 3.0 LED Downlight 12W RGBCCT Home Smart Recessed Ceiling Light Compatible with Amazon Echo Plus，Waterproof Pro Downlight Support App/Voice/2.4G RF Remote Control…",
+          "url": "https://www.amazon.com/dp/B093K39XPD"
+        }
+      ],
+      "identity_hash": "5524be9a2cefd4a4",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-D-007P"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-d-007p",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07QXXD292",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-FL-004TZ — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-FL-004TZ.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO Zigbee LED Flood Light 10W 700LM 2700K~6500K White Light IP65 Waterproof APP Control RGBCCT Outdoor Floodlight Great for Garage Parking (Without Plug)(Require ZigBee Hub)",
+          "url": "https://www.amazon.com/dp/B07QXXD292"
+        }
+      ],
+      "identity_hash": "36da6ce352ba8be2",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-FL-004TZ"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-fl-004tz",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07T96FZBX",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-G-001Z — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-G-001Z.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO Smart ZigBee3.0 Outdoor Garden Lamp Path Lights Tree Lighting Dimmable RGBCCT IP65 12W 850~950LM Compatible with Amazon Echo Plus SmartThings APP/Voice/Remote Control",
+          "url": "https://www.amazon.com/dp/B07T96FZBX"
+        }
+      ],
+      "identity_hash": "b5930ecc4122c7a4",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-G-001Z"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-g-001z",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B081TWY64Q",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-G-007Z — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-G-007Z.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO ZigBee LED Garden Landscape Path Lights Outdoor Lighting RGBCCT IP65 9W Garden Lamp Compatible with SmartThings Amazon Echo Plus App/ Voice Control (Require ZigBee Hub)",
+          "url": "https://www.amazon.com/dp/B081TWY64Q"
+        }
+      ],
+      "identity_hash": "95aa8848a0b1d44a",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-G-007Z"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-g-007z",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07T2Z374K",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-S-005Z — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-S-005Z.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO Smart ZigBee AC/DC 12V Small Voltage 4W RGBCCT Spotlight MR16 200LM 120° Beam Angle App/Voice Control Compatible with SmartThings Echo Plus (Require ZigBee Hub)",
+          "url": "https://www.amazon.com/dp/B07T2Z374K"
+        }
+      ],
+      "identity_hash": "e0db59e9b587ee16",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-S-005Z"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-s-005z",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07QWRLDMT",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-S-007Z — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-S-007Z.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO RGBCCT Intelligent Spotlight Bulb Zigbee GU10 Smart Phone App Control Adjustable Color and Brightness Compatible with Amazon Echo Plus SmartThings (Require ZigBee Hub)",
+          "url": "https://www.amazon.com/dp/B07QWRLDMT"
+        }
+      ],
+      "identity_hash": "37c2ffc5d33c210d",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-S-007Z"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-s-007z",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B091L1912K",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Gledopto GL-SD-001 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Gledopto_GL-SD-001.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "GLEDOPTO Triac AC Dimmer Light Switch Touch Control Brightness Zigbee 3.0 Home Smart LED Light Dimmer Hub APP/Voice/2.4G RF Remote Control Compatible with Amazon Ehco Plus: Amazon.com",
+          "url": "https://www.amazon.com/dp/B091L1912K"
+        }
+      ],
+      "identity_hash": "732e26532415f3c1",
+      "matched_identifiers": [
+        "Gledopto",
+        "GL-SD-001"
+      ],
+      "marketplace": "US",
+      "record_slug": "gledopto-gl-sd-001",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B077ZHDLY3",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Hampton Bay 99432 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Hampton_Bay_99432.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Hampton Bay Universal Wink Enabled White Ceiling Fan Premier Remote Control",
+          "url": "https://www.amazon.com/dp/B077ZHDLY3"
+        }
+      ],
+      "identity_hash": "fbe8067826f0275d",
+      "matched_identifiers": [
+        "Hampton Bay",
+        "99432"
+      ],
+      "marketplace": "US",
+      "record_slug": "hampton-bay-99432",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07BZ85VG4",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Hive DWS003 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Hive_DWS003.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Hive Window or Door Sensor, Smart Motion Sensor for Movement Detection & Home Automation, Works with Google Home, Requires Hive Hub",
+          "url": "https://www.amazon.com/dp/B07BZ85VG4"
+        }
+      ],
+      "identity_hash": "f59c8e5712d30828",
+      "matched_identifiers": [
+        "Hive",
+        "DWS003"
+      ],
+      "marketplace": "US",
+      "record_slug": "hive-dws003",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07CBLFSDH",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Hive HV-GSCXZB269 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Hive_HV-GSCXZB269.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Hive LED Light Bulb for Smart Home, Cool to Warm White, Works with Alexa & Google Home, Requires Hive Hub",
+          "url": "https://www.amazon.com/dp/B07CBLFSDH"
+        }
+      ],
+      "identity_hash": "ff9bcd533456fe0b",
+      "matched_identifiers": [
+        "Hive",
+        "HV-GSCXZB269"
+      ],
+      "marketplace": "US",
+      "record_slug": "hive-hv-gscxzb269",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B082W22BFC",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "IKEA E1744 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Ikea_E1744.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Ikea symfonisk Sound Remote White 203.704.82",
+          "url": "https://www.amazon.com/dp/B082W22BFC"
+        }
+      ],
+      "identity_hash": "d174985e442fdb3f",
+      "matched_identifiers": [
+        "IKEA",
+        "E1744"
+      ],
+      "marketplace": "US",
+      "record_slug": "ikea-e1744",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07KM1YZWW",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "IKEA E1810 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Ikea_E1810.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "IKEA 203.033.17 Trådfri Remote Control",
+          "url": "https://www.amazon.com/dp/B07KM1YZWW"
+        }
+      ],
+      "identity_hash": "dbc97e5c3075674f",
+      "matched_identifiers": [
+        "IKEA",
+        "E1810"
+      ],
+      "marketplace": "US",
+      "record_slug": "ikea-e1810",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07SD8SGZT",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Innr BE 220 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Innr_BE_220.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Innr BR30 Smart Bulb, Works With Philips Hue, Alexa, Hey Google, SmartThings (Hub Required), Zigbee, Dimmable Warm White LED Light Bulbs With E26 Base, 7.4W, 2-Pack, BE 220-2",
+          "url": "https://www.amazon.com/dp/B07SD8SGZT"
+        }
+      ],
+      "identity_hash": "0a41c7c0fddebfa4",
+      "matched_identifiers": [
+        "Innr",
+        "BE 220"
+      ],
+      "marketplace": "US",
+      "record_slug": "innr-be-220",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08BPJXDDW",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Innr OPL 130 C — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Innr_OPL_130_C.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "innr Smart Outdoor Lights, Color Pathway Lights, Works with Philips Hue*, Alexa, Hey Google, SmartThings (Hub Required) Zigbee Outdoor Lights, 3-Pack with Power Supply and RGBW Control Box, OPL 130C",
+          "url": "https://www.amazon.com/dp/B08BPJXDDW"
+        }
+      ],
+      "identity_hash": "696ea316ca566257",
+      "matched_identifiers": [
+        "Innr",
+        "OPL 130 C"
+      ],
+      "marketplace": "US",
+      "record_slug": "innr-opl-130-c",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B079MDGPJZ",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Innr RB 185 C — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Innr_RB_185_C.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "INNR RB 185 °C-3 9.5 W E27 LED Lamp Blue, Red, Yellow (Blue, Red, Yellow, White, 6 cm, 12 cm)",
+          "url": "https://www.amazon.com/dp/B079MDGPJZ"
+        }
+      ],
+      "identity_hash": "342f29303fea5a7f",
+      "matched_identifiers": [
+        "Innr",
+        "RB 185 C"
+      ],
+      "marketplace": "US",
+      "record_slug": "innr-rb-185-c",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07SQGG8Z7",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Innr SP 224 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Innr_SP_224.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Innr Zigbee Smart Plug, Works with Philips Hue*, Alexa and SmartThings | Zigbee Repeater, Energy Monitoring, 1-Pack : Industrial & Scientific",
+          "url": "https://www.amazon.com/dp/B07SQGG8Z7"
+        }
+      ],
+      "identity_hash": "648d355a9a6d208c",
+      "matched_identifiers": [
+        "Innr",
+        "SP 224"
+      ],
+      "marketplace": "US",
+      "record_slug": "innr-sp-224",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08P3T48MD",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Innr SP 234 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Innr_SP_234.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Innr Zigbee Smart Plug, Works with Philips Hue*, Alexa and SmartThings | Zigbee Repeater, Energy Monitoring, 1-Pack : Industrial & Scientific",
+          "url": "https://www.amazon.com/dp/B08P3T48MD"
+        }
+      ],
+      "identity_hash": "d315eb262d9c54c7",
+      "matched_identifiers": [
+        "Innr",
+        "SP 234"
+      ],
+      "marketplace": "US",
+      "record_slug": "innr-sp-234",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0BG329SH3",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Inovelli VZM31-SN — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Inovelli_VZM31-SN.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Inovelli 2-1 Smart Switch (On/Off or Dimmer) - Blue Series : Automotive",
+          "url": "https://www.amazon.com/dp/B0BG329SH3"
+        }
+      ],
+      "identity_hash": "a8003b7600213b88",
+      "matched_identifiers": [
+        "Inovelli",
+        "VZM31-SN"
+      ],
+      "marketplace": "US",
+      "record_slug": "inovelli-vzm31-sn",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B06XTJFWS8",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Iris 3326-L — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Iris_3326-L.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Iris Motion Sensor (Works with Iris) Model # 3326-L",
+          "url": "https://www.amazon.com/dp/B06XTJFWS8"
+        }
+      ],
+      "identity_hash": "4eb8e4a5e89aa19d",
+      "matched_identifiers": [
+        "Iris",
+        "3326-L"
+      ],
+      "marketplace": "US",
+      "record_slug": "iris-3326-l",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B072KT2VC2",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Kwikset 914C — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Kwikset_66492-001.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Kwikset Convert Smart Lock Conversion Kit (Amazon Key Edition – Amazon Cloud Cam required), Compatible with Alexa in Satin Nickel",
+          "url": "https://www.amazon.com/dp/B072KT2VC2"
+        }
+      ],
+      "identity_hash": "6a2ccfe88fff9a19",
+      "matched_identifiers": [
+        "Kwikset",
+        "914C"
+      ],
+      "marketplace": "US",
+      "record_slug": "kwikset-914c",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08XNZYBR1",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Kwikset 916TRL ZB — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Kwikset_916.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Kwikset 916 Keyless Entry Touchscreen SmartCode Electronic Deadbolt Smart Lock Featuring SmartKey Security and ZigBee 3.0 Technology in Contemporary Polished Chrome, Zigbee Hub Sold Separately",
+          "url": "https://www.amazon.com/dp/B08XNZYBR1"
+        }
+      ],
+      "identity_hash": "8a917f2869ef1c9d",
+      "matched_identifiers": [
+        "Kwikset",
+        "916TRL ZB"
+      ],
+      "marketplace": "US",
+      "record_slug": "kwikset-916trl-zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07Q46N1DV",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "LEDVANCE 4058075168572 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Ledvance_4058075168572.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "LEDVANCE Smart+ LED ZigBee Lamp Lamp, Zigbee White",
+          "url": "https://www.amazon.com/dp/B07Q46N1DV"
+        }
+      ],
+      "identity_hash": "bffa5a20d4b0bd22",
+      "matched_identifiers": [
+        "LEDVANCE",
+        "4058075168572"
+      ],
+      "marketplace": "US",
+      "record_slug": "ledvance-4058075168572",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B000U3DTVE",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Leviton DG15A-1BW — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Leviton_DG15A-1BW.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Leviton Decora Smart Plug-in Outlet, Zigbee Certified, DG15A-1BW, White - Electrical Equipment",
+          "url": "https://www.amazon.com/dp/B000U3DTVE"
+        }
+      ],
+      "identity_hash": "a8a9e37c4a66e4fa",
+      "matched_identifiers": [
+        "Leviton",
+        "DG15A-1BW"
+      ],
+      "marketplace": "US",
+      "record_slug": "leviton-dg15a-1bw",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B000U39QL6",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Leviton DG15S-1BW — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Leviton_DG15S-1BW.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Leviton Decora Smart Switch, Zigbee Certified, DG15S-1BW, White - Electronics Cable Connectors",
+          "url": "https://www.amazon.com/dp/B000U39QL6"
+        }
+      ],
+      "identity_hash": "dd74a580b68f45d9",
+      "matched_identifiers": [
+        "Leviton",
+        "DG15S-1BW"
+      ],
+      "marketplace": "US",
+      "record_slug": "leviton-dg15s-1bw",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B000U39QWU",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Leviton DG3HL-1BW — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Leviton_DG3HL-1BW.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Leviton Decora Smart Plug-in Dimmer, Zigbee Certified, DG3HL-1BW, White - Electronics Cable Connectors",
+          "url": "https://www.amazon.com/dp/B000U39QWU"
+        }
+      ],
+      "identity_hash": "012449d70df29221",
+      "matched_identifiers": [
+        "Leviton",
+        "DG3HL-1BW"
+      ],
+      "marketplace": "US",
+      "record_slug": "leviton-dg3hl-1bw",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B000U39QRK",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Leviton DG6HD-1BW — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Leviton_DG6HD-1BW.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Leviton Decora Smart Dimmer, Zigbee Certified, DG6HD-1BW, White - Electrical Distribution Wall Plates",
+          "url": "https://www.amazon.com/dp/B000U39QRK"
+        }
+      ],
+      "identity_hash": "410286e5a87c5354",
+      "matched_identifiers": [
+        "Leviton",
+        "DG6HD-1BW"
+      ],
+      "marketplace": "US",
+      "record_slug": "leviton-dg6hd-1bw",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07BK9RLBW",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Leviton DL15S-1BZ — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Leviton_DL15S-1BZ.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Leviton DL15S-1BZ WH/LA DEC Smart Lumina RF SW 15A120/277V: Amazon.com",
+          "url": "https://www.amazon.com/dp/B07BK9RLBW"
+        }
+      ],
+      "identity_hash": "7ae4810a42150b89",
+      "matched_identifiers": [
+        "Leviton",
+        "DL15S-1BZ"
+      ],
+      "marketplace": "US",
+      "record_slug": "leviton-dl15s-1bz",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B004VFGMHA",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Leviton RC-2000WH — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Leviton_RC-2000WH.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Leviton RC-2000WHZB Wireless Omnistat2 Multistage & Heat Pump with Humidity Control Thermostat, White - Programmable Household Thermostats",
+          "url": "https://www.amazon.com/dp/B004VFGMHA"
+        }
+      ],
+      "identity_hash": "f425ecbf27eac2af",
+      "matched_identifiers": [
+        "Leviton",
+        "RC-2000WH"
+      ],
+      "marketplace": "US",
+      "record_slug": "leviton-rc-2000wh",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08YDB1PCK",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Linkind LS21001 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Linkind_LS21001.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Linkind Water Leak Detector, 90dB Audio Alarm App Alerts (Linkind Hub Required) Water Leak Sensor, Wireless Zigbee Water Alarm Sensor for Bathroom, Kitchen, Basement, Laundry Room",
+          "url": "https://www.amazon.com/dp/B08YDB1PCK"
+        }
+      ],
+      "identity_hash": "167eb025c1be39f3",
+      "matched_identifiers": [
+        "Linkind",
+        "LS21001"
+      ],
+      "marketplace": "US",
+      "record_slug": "linkind-ls21001",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07W49TS34",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Linkind ZS110050078 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Linkind_ZS110050078.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Linkind Smart Home Security System Starter Kit, APP/Keypad Control Alarm System for Home Protection, 2.4GHz WiFi Only, 5 Pieces, with 110dB Siren Alarm, PIR Motion Sensor, Door/Window Sensor",
+          "url": "https://www.amazon.com/dp/B07W49TS34"
+        }
+      ],
+      "identity_hash": "da37138975f883be",
+      "matched_identifiers": [
+        "Linkind",
+        "ZS110050078"
+      ],
+      "marketplace": "US",
+      "record_slug": "linkind-zs110050078",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0C7C6L66J",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Linptech ES1 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Linptech_ES1.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Linptech Human Presence Sensor ES1,Smart Motion Sensor with 24G mmWave Radar,Occupancy Sensor Requires Tuya Zigbee Hub for Home Security and Automation,Compatible with Alexa,Smart Life,Z2MQTT,ZHA",
+          "url": "https://www.amazon.com/dp/B0C7C6L66J"
+        }
+      ],
+      "identity_hash": "5aea2e9269f83caf",
+      "matched_identifiers": [
+        "Linptech",
+        "ES1"
+      ],
+      "marketplace": "US",
+      "record_slug": "linptech-es1",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B014STZASK",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Lutron LZL4BWHL01 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Lutron_LZL4BWHL01.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Lutron Connected Bulb Remote",
+          "url": "https://www.amazon.com/dp/B014STZASK"
+        }
+      ],
+      "identity_hash": "8dfa977e1b1eafc0",
+      "matched_identifiers": [
+        "Lutron",
+        "LZL4BWHL01"
+      ],
+      "marketplace": "US",
+      "record_slug": "lutron-lzl4bwhl01",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07RJ14FBS",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Lutron Z3-1BRL — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Lutron_Z3-1BRL.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Lutron Aurora Smart Bulb Dimmer Switch, for Philips Hue Smart Bulbs | No app required, maintains connection with Philips Hue smart bulbs, even if Wi-Fi goes down, Z3-1BRL-WH-L0, White",
+          "url": "https://www.amazon.com/dp/B07RJ14FBS"
+        }
+      ],
+      "identity_hash": "823bca421087c032",
+      "matched_identifiers": [
+        "Lutron",
+        "Z3-1BRL"
+      ],
+      "marketplace": "US",
+      "record_slug": "lutron-z3-1brl",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07Z8NL1ZR",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "LUX KN-Z-WH1-B04 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/LUX_KN-Z-WH1-B04.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "LUX KONOz (zigbee 3.o) Smart Hub Thermostat, Compatible with Alexa, Google, Apple & Samsung, White",
+          "url": "https://www.amazon.com/dp/B07Z8NL1ZR"
+        }
+      ],
+      "identity_hash": "745e2cbd2ce7f2cb",
+      "matched_identifiers": [
+        "LUX",
+        "KN-Z-WH1-B04"
+      ],
+      "marketplace": "US",
+      "record_slug": "lux-kn-z-wh1-b04",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07XT1C9N5",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Moes ZK-xx-2U — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Moes_ZK-XX-2U.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "MOES ZigBee Smart Plug Dual USB Outlet Wireless Power Socket Hub Required Work with Echo Plus fits for Most Standard ZigBee 3.0 Hub,Voice Control Compatible with Alexa Google Home: Amazon.com",
+          "url": "https://www.amazon.com/dp/B07XT1C9N5"
+        }
+      ],
+      "identity_hash": "4b091fb86ea32d28",
+      "matched_identifiers": [
+        "Moes",
+        "ZK-xx-2U"
+      ],
+      "marketplace": "US",
+      "record_slug": "moes-zk-xx-2u",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0747VDHG3",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "OSRAM AC08562 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/OSRAM_AC08562.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Osram Smart+ Candle B40 E14, 4058075032682",
+          "url": "https://www.amazon.com/dp/B0747VDHG3"
+        }
+      ],
+      "identity_hash": "04875bfe9acdc232",
+      "matched_identifiers": [
+        "OSRAM",
+        "AC08562"
+      ],
+      "marketplace": "US",
+      "record_slug": "osram-ac08562",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B01M0RT72U",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "PEQ 3300-P — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/PeQ_3300-P.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "PEQ 3300-P Door and Window Sensor, White by PeQ",
+          "url": "https://www.amazon.com/dp/B01M0RT72U"
+        }
+      ],
+      "identity_hash": "8678b3779431a527",
+      "matched_identifiers": [
+        "PEQ",
+        "3300-P"
+      ],
+      "marketplace": "US",
+      "record_slug": "peq-3300-p",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00P8839DY",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "PEQ 3305-P — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/PeQ_3305-P.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "PEQ 3305-P Motion Sensor, White",
+          "url": "https://www.amazon.com/dp/B00P8839DY"
+        }
+      ],
+      "identity_hash": "5701ebbe5e9b6ae6",
+      "matched_identifiers": [
+        "PEQ",
+        "3305-P"
+      ],
+      "marketplace": "US",
+      "record_slug": "peq-3305-p",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0167H33DU",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips ['LST002'] — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LST002.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue 800276 White and Color Ambiance LightStrip Plus Dimmable LED Smart Light (Requires Hue Hub, Works with Alexa, HomeKit & Google Assistant), 80 inch",
+          "url": "https://www.amazon.com/dp/B0167H33DU"
+        }
+      ],
+      "identity_hash": "44407bff8fa553c8",
+      "matched_identifiers": [
+        "Philips",
+        "['LST002']"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lst002",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07D89P188",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips 1734430V0 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_1734430V0.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Inara White Outdoor Lantern, Wall Fixture & 1 Hue White A19 LED Smart Bulb, Use with Alexa, Homekit & Google Assistant (Hue Hub Required)",
+          "url": "https://www.amazon.com/dp/B07D89P188"
+        }
+      ],
+      "identity_hash": "537c48982c361704",
+      "matched_identifiers": [
+        "Philips",
+        "1734430V0"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-1734430v0",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07DBLWB3V",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips 1741730V7 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_1741730V7.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Lily Outdoor Smart LED Spotlight - White & Color Ambiance - Low Voltage Landscape Lighting - 1 Pack - Requires Bridge and Power Supply - Control with App and Voice - Weatherproof",
+          "url": "https://www.amazon.com/dp/B07DBLWB3V"
+        }
+      ],
+      "identity_hash": "e66ebf773115866b",
+      "matched_identifiers": [
+        "Philips",
+        "1741730V7"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-1741730v7",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07NDGD11D",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips 1743530P7 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_1743530P7.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Discover Outdoor Smart Flood Light Fixture, Black - 15W, White and Color Ambiance LED Color-Changing Light - 1 Pack - Requires Hue Bridge - Control with Hue App and Voice - Weatherproof",
+          "url": "https://www.amazon.com/dp/B07NDGD11D"
+        }
+      ],
+      "identity_hash": "a46532c57e355836",
+      "matched_identifiers": [
+        "Philips",
+        "1743530P7"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-1743530p7",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07NDGBHTQ",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips 1743630P7 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_1743630P7.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Welcome Outdoor White Smart Floodlight for Smart Home (Hue Hub Required), Smart Light Works with Alexa, Apple Homekit and Google Assistant",
+          "url": "https://www.amazon.com/dp/B07NDGBHTQ"
+        }
+      ],
+      "identity_hash": "ba6ff94fc594331c",
+      "matched_identifiers": [
+        "Philips",
+        "1743630P7"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-1743630p7",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07NDHCV36",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips 1744030V7 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_1744030V7.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Econic Down Outdoor Smart Wall Light, Black - E26 White and Color Ambiance LED Color-Changing Bulb - 1 Pack - Requires Hue Bridge - Control with Hue App and Voice - Weatherproof",
+          "url": "https://www.amazon.com/dp/B07NDHCV36"
+        }
+      ],
+      "identity_hash": "1c683fddf2cad956",
+      "matched_identifiers": [
+        "Philips",
+        "1744030V7"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-1744030v7",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B084JLJPJ5",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips 1746230V7 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_1746230V7.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Lily XL Outdoor Smart Spot Light - White & Color Ambiance LED Walkway Lights - Low Voltage Lighting - 1 Pack - Requires Bridge and Power Supply - Control with App and Voice - Weatherproof",
+          "url": "https://www.amazon.com/dp/B084JLJPJ5"
+        }
+      ],
+      "identity_hash": "7ec52c658d2ad166",
+      "matched_identifiers": [
+        "Philips",
+        "1746230V7"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-1746230v7",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08VDPG111",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips 1746730V7 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_1746730V7.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Lily Outdoor Smart Spotlight, 3-Pack | White & Color Ambiance, LED Walkway Lights, Low Voltage Lighting, Requires Bridge, Weatherproof, Control with App and Voice",
+          "url": "https://www.amazon.com/dp/B08VDPG111"
+        }
+      ],
+      "identity_hash": "d4128758a395d8e3",
+      "matched_identifiers": [
+        "Philips",
+        "1746730V7"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-1746730v7",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08K2YLZ8S",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips 4080248U9 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_4080248U9.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue White & Color Ambiance Signe Floor Lamp (Bluetooth Version, Works with Amazon Alexa, Apple HomeKit and Google Assistant), Floor Lamp (Old Version)",
+          "url": "https://www.amazon.com/dp/B08K2YLZ8S"
+        }
+      ],
+      "identity_hash": "fd08ddcbbd4b6766",
+      "matched_identifiers": [
+        "Philips",
+        "4080248U9"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-4080248u9",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B09BDLV9BV",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips 915005987601 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_915005987601.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Signe Smart Color Changing Floor Lamp, 1-Pack, Black | White & Color Ambiance, 2550 Lumens, Works with Alexa Google Assistant & Apple HomeKit, Use with Hue App",
+          "url": "https://www.amazon.com/dp/B09BDLV9BV"
+        }
+      ],
+      "identity_hash": "8d5fe91a584c55a5",
+      "matched_identifiers": [
+        "Philips",
+        "915005987601"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-915005987601",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08CK1L7BZ",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips 929002376501 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_929002376501.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Bloom Smart Table Lamp, White - White and Color Ambiance LED Color-Changing Light - 1 Pack - Control with Hue App - Works with Alexa, Google Assistant, and Apple Homekit",
+          "url": "https://www.amazon.com/dp/B08CK1L7BZ"
+        }
+      ],
+      "identity_hash": "90215db1a957e99b",
+      "matched_identifiers": [
+        "Philips",
+        "929002376501"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-929002376501",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0BB6NM186",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips 929003498601 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_929003498601.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Play Gradient PC Lightstrip, 24-27 Inch | For 32-34 Inch Screens, Smart LED, Sync for Entertainment, Gaming and Media, Bluetooth App Control, Smart Home",
+          "url": "https://www.amazon.com/dp/B0BB6NM186"
+        }
+      ],
+      "identity_hash": "27c6dc040e93ab23",
+      "matched_identifiers": [
+        "Philips",
+        "929003498601"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-929003498601",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07DBN3FSQ",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LCF001 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LCF001.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Calla White & Color Ambiance Outdoor Pathway Light Base Kit (Requires Hue Hub), 1 light, power supply & mounting kit, Works with Alexa, HomeKit & Google Assistant",
+          "url": "https://www.amazon.com/dp/B07DBN3FSQ"
+        }
+      ],
+      "identity_hash": "7a2424ea7d496c4a",
+      "matched_identifiers": [
+        "Philips",
+        "LCF001"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lcf001",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00OZLWTPY",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LCP003 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LCP003.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "PHILIPS 789090 Hue Beyond White and Color Ambiance Smart Pendant Light",
+          "url": "https://www.amazon.com/dp/B00OZLWTPY"
+        }
+      ],
+      "identity_hash": "e12bf4181b6455d2",
+      "matched_identifiers": [
+        "Philips",
+        "LCP003"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lcp003",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07DBGW73T",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LCS001 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LCS001.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Lily White & Color Outdoor Spot Light Base kit (Hue Hub Required), 3 Spot Lights with Power Supply + Mount, Works with Alexa, HomeKit & Google Assistant",
+          "url": "https://www.amazon.com/dp/B07DBGW73T"
+        }
+      ],
+      "identity_hash": "3926e5c090181ba9",
+      "matched_identifiers": [
+        "Philips",
+        "LCS001"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lcs001",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00HNLQQ7K",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LCT002 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LCT002.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue White and Color Ambiance 1st Generation BR30 60W Equivalent Dimmable LED Smart Flood Light (Older Model Compatible with Amazon Alexa Apple HomeKit and Google Assistant)",
+          "url": "https://www.amazon.com/dp/B00HNLQQ7K"
+        }
+      ],
+      "identity_hash": "39d8007172db24c4",
+      "matched_identifiers": [
+        "Philips",
+        "LCT002"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lct002",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B014H2OZ3O",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LCT003 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LCT003.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Dimmable LED Smart Spot Light (Compatible with Amazon Alexa Apple HomeKit and Google Assistant)",
+          "url": "https://www.amazon.com/dp/B014H2OZ3O"
+        }
+      ],
+      "identity_hash": "797842ffffacca65",
+      "matched_identifiers": [
+        "Philips",
+        "LCT003"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lct003",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B017OR0IVM",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LCT007 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LCT007.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips 456202 Hue White & Color Ambiance A19 Extension Bulb",
+          "url": "https://www.amazon.com/dp/B017OR0IVM"
+        }
+      ],
+      "identity_hash": "43972b2bc07b2272",
+      "matched_identifiers": [
+        "Philips",
+        "LCT007"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lct007",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B071YXBZP5",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LCT011 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LCT011.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue 468942 Single Premium BR30 Smart Bulb Downlight for 5-6 inch recessed cans, 16 million colors (Hue Hub Required, Works with Alexa), Old Version, White and Color Ambiance",
+          "url": "https://www.amazon.com/dp/B071YXBZP5"
+        }
+      ],
+      "identity_hash": "b4eca63438a99967",
+      "matched_identifiers": [
+        "Philips",
+        "LCT011"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lct011",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0753H5GKP",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LCT012 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LCT012.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue White and Color Decorative Candle 40W Dimmable Smart Bulb (Hue Hub Required), Works with Alexa, HomeKit & Google Assistant",
+          "url": "https://www.amazon.com/dp/B0753H5GKP"
+        }
+      ],
+      "identity_hash": "ec75a66620539a3e",
+      "matched_identifiers": [
+        "Philips",
+        "LCT012"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lct012",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00I811PG6",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LLC012 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LLC012.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Bloom Dimmable LED Smart Table Lamp (Requires Hue Hub, Works with Amazon Alexa, Apple HomeKit and Google Assistant)",
+          "url": "https://www.amazon.com/dp/B00I811PG6"
+        }
+      ],
+      "identity_hash": "78f06add2d7f0e88",
+      "matched_identifiers": [
+        "Philips",
+        "LLC012"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-llc012",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07XD578LD",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LOM004 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LOM004.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Smart Plug, White - 1 Pack - Turns Any Light Into a Smart Light - Control with Hue App - Compatible with Alexa, Google Assistant, and Apple HomeKit",
+          "url": "https://www.amazon.com/dp/B07XD578LD"
+        }
+      ],
+      "identity_hash": "9ec0ddcdb0b1505c",
+      "matched_identifiers": [
+        "Philips",
+        "LOM004"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lom004",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07QV9XLSD",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LTA002 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LTA002.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Smart 60W A19 LED Bulb - White Ambiance Warm-to-Cool White Light - 2 Pack - 800LM - E26 - Indoor - Control with Hue App - Works with Alexa, Google Assistant and Apple Homekit",
+          "url": "https://www.amazon.com/dp/B07QV9XLSD"
+        }
+      ],
+      "identity_hash": "7f17aba7a731de9b",
+      "matched_identifiers": [
+        "Philips",
+        "LTA002"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lta002",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07QZHLT1P",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LTB002 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LTB002.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue White Ambiance BR30 LED Smart Bulbs, Bluetooth & Zigbee Compatible (Hue Hub Optional), Works with Alexa & Google Assistant, Old Version, 2 Bulbs",
+          "url": "https://www.amazon.com/dp/B07QZHLT1P"
+        }
+      ],
+      "identity_hash": "24f95819d1cdc267",
+      "matched_identifiers": [
+        "Philips",
+        "LTB002"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-ltb002",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B072553RL7",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LTC002 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LTC002.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue White Ambiance Fair Dimmable LED Smart Flushmount (Works with Alexa Apple HomeKit, and Google Assistant)",
+          "url": "https://www.amazon.com/dp/B072553RL7"
+        }
+      ],
+      "identity_hash": "c8b9d4d458240c16",
+      "matched_identifiers": [
+        "Philips",
+        "LTC002"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-ltc002",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07G1Z3RF7",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LTC021 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LTC021.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue White Ambiance Adore Smart Flushmount Light + Dimmer Switch (Requires Hue Hub, Works with Amazon Alexa, HomeKit & Google Assistant)",
+          "url": "https://www.amazon.com/dp/B07G1Z3RF7"
+        }
+      ],
+      "identity_hash": "0cf5a38eef4f0219",
+      "matched_identifiers": [
+        "Philips",
+        "LTC021"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-ltc021",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B01KJYSOHC",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LTW011 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LTW011.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips 464800 Hue White Ambiance BR30 LED Bulb",
+          "url": "https://www.amazon.com/dp/B01KJYSOHC"
+        }
+      ],
+      "identity_hash": "45b344ec31e9afdc",
+      "matched_identifiers": [
+        "Philips",
+        "LTW011"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-ltw011",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07VP6V113",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LWA005 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LWA005.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue White Dimmable Filament A19 Smart Edison Vintage LED Bulb, Bluetooth & Hub Compatible (Hue Hub Optional), Voice Activated with Alexa",
+          "url": "https://www.amazon.com/dp/B07VP6V113"
+        }
+      ],
+      "identity_hash": "0f96120b31cb8c4b",
+      "matched_identifiers": [
+        "Philips",
+        "LWA005"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lwa005",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00O0EZ94O",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LWB004 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LWB004.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue LUX LED Smart Light Bulb, Dimmable, Works with Amazon Alexa",
+          "url": "https://www.amazon.com/dp/B00O0EZ94O"
+        }
+      ],
+      "identity_hash": "8f531f79af6ba49d",
+      "matched_identifiers": [
+        "Philips",
+        "LWB004"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lwb004",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B073SSNNNH",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LWB014 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LWB014.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips 453100 Hue White A19 2-Pack 60W Equivalent Dimmable LED Smart Bulb (Compatible with Amazon Alexa, Apple HomeKit, and Google Assistant), Soft White, Standard - 2 Pack",
+          "url": "https://www.amazon.com/dp/B073SSNNNH"
+        }
+      ],
+      "identity_hash": "afbf8cafc66149d5",
+      "matched_identifiers": [
+        "Philips",
+        "LWB014"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lwb014",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07D9XL641",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LWB015 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LWB015.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Smart 100W PAR38 LED Bulb - White and Color Ambiance Color-Changing Light - 1 Pack - 1300LM - E26 - Outdoor - Control with Hue App - Works with Alexa, Google Assistant and Apple Homekit : Musical Instruments",
+          "url": "https://www.amazon.com/dp/B07D9XL641"
+        }
+      ],
+      "identity_hash": "c9fe7d82e1ec9d2f",
+      "matched_identifiers": [
+        "Philips",
+        "LWB015"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lwb015",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07177XMF9",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LWE001 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LWE001.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue White Ambiance E12 Decorative Candle 40W Equivalent Dimmable LED Smart Bulb (Compatible with Amazon Alexa Apple HomeKit and Google Assistant)",
+          "url": "https://www.amazon.com/dp/B07177XMF9"
+        }
+      ],
+      "identity_hash": "c715983baa971559",
+      "matched_identifiers": [
+        "Philips",
+        "LWE001"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lwe001",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07VRF9NWK",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LWV002 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LWV002.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue White Dimmable Filament ST19 LED Smart Vintage Edison Bulb, Bluetooth & Hub Compatible (Hue Hub Optional), Voice Activated with Alexa",
+          "url": "https://www.amazon.com/dp/B07VRF9NWK"
+        }
+      ],
+      "identity_hash": "737d28ccdb7faa0a",
+      "matched_identifiers": [
+        "Philips",
+        "LWV002"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lwv002",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07D8BDC39",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips LWW001 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_LWW001.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Lucca White Outdoor Wall Light, Works with Amazon Alexa, Apple HomeKit & Google Assistant (Hue Hub Required)",
+          "url": "https://www.amazon.com/dp/B07D8BDC39"
+        }
+      ],
+      "identity_hash": "074ea1eb3c76397a",
+      "matched_identifiers": [
+        "Philips",
+        "LWW001"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-lww001",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07XV1HRVZ",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips ROM001 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_ROM001.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Wireless Smart Light Switch Button, White - 1 Pack - Portable and Battery Powered - Smart Home Control - Requires Hue Bridge - Easy, No-Wire Installation",
+          "url": "https://www.amazon.com/dp/B07XV1HRVZ"
+        }
+      ],
+      "identity_hash": "bda3d6b9047f4d95",
+      "matched_identifiers": [
+        "Philips",
+        "ROM001"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-rom001",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B01KJYSOGI",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Philips SML001 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Philips_SML001.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Philips Hue Smart Motion Sensor (Installation-Free Exclusive for Philips Hue Lights), Hue Hub Required",
+          "url": "https://www.amazon.com/dp/B01KJYSOGI"
+        }
+      ],
+      "identity_hash": "27203028bc574e94",
+      "matched_identifiers": [
+        "Philips",
+        "SML001"
+      ],
+      "marketplace": "US",
+      "record_slug": "philips-sml001",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00P7RURIG",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Quirky PTRPP-WH02 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Quirky_PTRPP-WH02.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Wink Quirky+GE Tripper Door/Window Sensor (2 count)",
+          "url": "https://www.amazon.com/dp/B00P7RURIG"
+        }
+      ],
+      "identity_hash": "3e4f59018b31bc9d",
+      "matched_identifiers": [
+        "Quirky",
+        "PTRPP-WH02"
+      ],
+      "marketplace": "US",
+      "record_slug": "quirky-ptrpp-wh02",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00MXNP54S",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Schlage BE468 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Schlage_BE468.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Schlage Lock Company BE468CAM625 Connect Camelot Touchscreen Deadbolt, Bright Chrome",
+          "url": "https://www.amazon.com/dp/B00MXNP54S"
+        }
+      ],
+      "identity_hash": "d5c97e39fbc6577e",
+      "matched_identifiers": [
+        "Schlage",
+        "BE468"
+      ],
+      "marketplace": "US",
+      "record_slug": "schlage-be468",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00TC9NC82",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Securifi PP-WHT-US — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Securifi_PP-WHT-US.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Securifi Peanut Smart Plug (1 Minute Setup) - Remotely Monitor and Control Lights Appliances using Free iOS/Android Apps and Browser Interface - White",
+          "url": "https://www.amazon.com/dp/B00TC9NC82"
+        }
+      ],
+      "identity_hash": "dd6c85855094319b",
+      "matched_identifiers": [
+        "Securifi",
+        "PP-WHT-US"
+      ],
+      "marketplace": "US",
+      "record_slug": "securifi-pp-wht-us",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07QGB12TS",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sengled E11-N13 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sengled_E11-N13.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sengled Smart Light Bulbs 100W, Zigbee Hub Required, Soft White Smart Bulbs Work with Alexa, Google, SmartThings, Echo 4th, Echo Show 10, Echo Plus, Dimmable A19 LED Light 2700K 1500LM, E26 1 Pack",
+          "url": "https://www.amazon.com/dp/B07QGB12TS"
+        }
+      ],
+      "identity_hash": "bf37c0d7fbf1872f",
+      "matched_identifiers": [
+        "Sengled",
+        "E11-N13"
+      ],
+      "marketplace": "US",
+      "record_slug": "sengled-e11-n13",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B073ZBYXKQ",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sengled E11-N1EA — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sengled_E11-N1EA.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sengled Zigbee Smart Light Bulbs, Smart Hub Required, Works with SmartThings and Echo with Built-in Hub, Voice Control with Alexa and Google Home, Color Changing 60W Eqv. A19 Alexa Light Bulb, 2 Pack",
+          "url": "https://www.amazon.com/dp/B073ZBYXKQ"
+        }
+      ],
+      "identity_hash": "26e0335e0e097d7a",
+      "matched_identifiers": [
+        "Sengled",
+        "E11-N1EA"
+      ],
+      "marketplace": "US",
+      "record_slug": "sengled-e11-n1ea",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B074QPM8T2",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sengled E12-N14 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sengled_E12-N14.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sengled Smart Bulb, Zigbee Hub Required, Smart Light Bulb Works with Alexa, Google Home, SmartThings, Homekit and Siri, BR30 Dimmable Flood Light Bulb for Cans, Soft White 2700K, 650 LM, 9W, 8 Pack",
+          "url": "https://www.amazon.com/dp/B074QPM8T2"
+        }
+      ],
+      "identity_hash": "dcf5678443794d4a",
+      "matched_identifiers": [
+        "Sengled",
+        "E12-N14"
+      ],
+      "marketplace": "US",
+      "record_slug": "sengled-e12-n14",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07HKW8XF6",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sengled E1C-NB6 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sengled_E1C-NB6.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sengled Smart Plug, S1 Auto Pairing with Alexa Devices, Energy Monitoring, Smart Outlet Remote Control, 15A Smart Socket, 1800W, Timer & Schedule, Bluetooth Mesh Smart Home, No Hub Required, 2-Pack",
+          "url": "https://www.amazon.com/dp/B07HKW8XF6"
+        }
+      ],
+      "identity_hash": "11405231711954dd",
+      "matched_identifiers": [
+        "Sengled",
+        "E1C-NB6"
+      ],
+      "marketplace": "US",
+      "record_slug": "sengled-e1c-nb6",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B092DBFFBY",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sengled E1C-NB7 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sengled_E1C-NB7.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sengled Smart Plug, S1 Auto Pairing with Alexa Devices, Energy Monitoring, Smart Outlet Remote Control, 15A Smart Socket, 1800W, Timer & Schedule, Bluetooth Mesh Smart Home, Hub Required, 4-Pack",
+          "url": "https://www.amazon.com/dp/B092DBFFBY"
+        }
+      ],
+      "identity_hash": "806197a228687532",
+      "matched_identifiers": [
+        "Sengled",
+        "E1C-NB7"
+      ],
+      "marketplace": "US",
+      "record_slug": "sengled-e1c-nb7",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07QD2SGDB",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sengled E1G-G8E — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sengled_E1G-G8E.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sengled Smart Zigbee Multicolor Light Strip, 2M (6.56ft) Base Kit, Hub Required, Also Compatible with Alexa & Google Assistant, RGBW, Extendable, High Brightness, 1400Lumens (E1G-G8E)",
+          "url": "https://www.amazon.com/dp/B07QD2SGDB"
+        }
+      ],
+      "identity_hash": "4b48b50f4d6eaffa",
+      "matched_identifiers": [
+        "Sengled",
+        "E1G-G8E"
+      ],
+      "marketplace": "US",
+      "record_slug": "sengled-e1g-g8e",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B018T6LC4E",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sercomm SZ-DWS04 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sercomm_SZ-DWS04.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Amazon.com : SERCOMM SZ-DWS04 Wireless Security Door Window Sensor Xfinity/TW ZigBee New in Box",
+          "url": "https://www.amazon.com/dp/B018T6LC4E"
+        }
+      ],
+      "identity_hash": "759e038036ca5b7c",
+      "matched_identifiers": [
+        "Sercomm",
+        "SZ-DWS04"
+      ],
+      "marketplace": "US",
+      "record_slug": "sercomm-sz-dws04",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07BN188C1",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sinopé DM2500ZB — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sinope_DM2500ZB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sinopé Smart programmable dimmer Switch 600 W - Zigbee: Amazon.com",
+          "url": "https://www.amazon.com/dp/B07BN188C1"
+        }
+      ],
+      "identity_hash": "2dedcacbf3433d49",
+      "matched_identifiers": [
+        "Sinopé",
+        "DM2500ZB"
+      ],
+      "marketplace": "US",
+      "record_slug": "sinope-dm2500zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07CGJ6XH2",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sinopé RM3250ZB — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sinope_RM3250ZB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sinopé RM3250ZB Electrical Load Controller – 50A – Zigbee",
+          "url": "https://www.amazon.com/dp/B07CGJ6XH2"
+        }
+      ],
+      "identity_hash": "3d80a83e6da60584",
+      "matched_identifiers": [
+        "Sinopé",
+        "RM3250ZB"
+      ],
+      "marketplace": "US",
+      "record_slug": "sinope-rm3250zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B083Y5XTL4",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sinopé SP2600ZB — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sinope_SP2600ZB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sinopé Smart Plug SP2600ZB (Compatible with Alexa) - Zigbee",
+          "url": "https://www.amazon.com/dp/B083Y5XTL4"
+        }
+      ],
+      "identity_hash": "f5cfd5a00aa3f298",
+      "matched_identifiers": [
+        "Sinopé",
+        "SP2600ZB"
+      ],
+      "marketplace": "US",
+      "record_slug": "sinope-sp2600zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07B6CKJ5C",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sinopé SW2500ZB — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sinope_SW2500ZB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sinopé Smart programmable Light Switch 1800 W - Zigbee: Amazon.com",
+          "url": "https://www.amazon.com/dp/B07B6CKJ5C"
+        }
+      ],
+      "identity_hash": "25dd9a89c561f7de",
+      "matched_identifiers": [
+        "Sinopé",
+        "SW2500ZB"
+      ],
+      "marketplace": "US",
+      "record_slug": "sinope-sw2500zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B077XNFQWH",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sinopé TH1123ZB — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sinope_TH1123ZB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sinopé Smart ZigBee Thermostat for Electric Baseboard TH1123ZB (Compatible with Alexa) 3000 W / 240 V - Compatible Hub Required",
+          "url": "https://www.amazon.com/dp/B077XNFQWH"
+        }
+      ],
+      "identity_hash": "f319e6c8b0aa38dd",
+      "matched_identifiers": [
+        "Sinopé",
+        "TH1123ZB"
+      ],
+      "marketplace": "US",
+      "record_slug": "sinope-th1123zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0785H4DDG",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sinopé TH1124ZB — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sinope_TH1124ZB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sinopé Smart Zigbee Thermostat for Electric Baseboard Heating TH1124ZB 4000 W / 240 V - Compatible Hub Required",
+          "url": "https://www.amazon.com/dp/B0785H4DDG"
+        }
+      ],
+      "identity_hash": "2f4e299735592304",
+      "matched_identifiers": [
+        "Sinopé",
+        "TH1124ZB"
+      ],
+      "marketplace": "US",
+      "record_slug": "sinope-th1124zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07PQTF53D",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sinopé TH1300ZB — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sinope_TH1300ZB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sinopé Smart Floor Heating Thermostat TH1300ZB (Compatible with Alexa) 3600 W / 240 V",
+          "url": "https://www.amazon.com/dp/B07PQTF53D"
+        }
+      ],
+      "identity_hash": "b2fc12de5446be73",
+      "matched_identifiers": [
+        "Sinopé",
+        "TH1300ZB"
+      ],
+      "marketplace": "US",
+      "record_slug": "sinope-th1300zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07TVF88JB",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sinopé TH1400ZB — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sinope_TH1400ZB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sinopé Smart Low Voltage Thermostat TH1400ZB (Compatible with Alexa) 24 V",
+          "url": "https://www.amazon.com/dp/B07TVF88JB"
+        }
+      ],
+      "identity_hash": "c7ad3215887cae7b",
+      "matched_identifiers": [
+        "Sinopé",
+        "TH1400ZB"
+      ],
+      "marketplace": "US",
+      "record_slug": "sinope-th1400zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B083Y3Z2QM",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sinopé TH1500ZB — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sinope_TH1500ZB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sinopé Smart Double-Pole Thermostat for Electric Heating TH1500ZB (Compatible with Alexa) 3600 W / 240 V",
+          "url": "https://www.amazon.com/dp/B083Y3Z2QM"
+        }
+      ],
+      "identity_hash": "d378c5dc7cc79591",
+      "matched_identifiers": [
+        "Sinopé",
+        "TH1500ZB"
+      ],
+      "marketplace": "US",
+      "record_slug": "sinope-th1500zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08GM8R4SM",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sinopé VA4220ZB — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sinope_VA4220ZB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sedna Smart Water Valve by Sinopé VA4220WF – ¾ in – Wi-Fi (Compatible with Alexa)",
+          "url": "https://www.amazon.com/dp/B08GM8R4SM"
+        }
+      ],
+      "identity_hash": "28fe464fa30c8655",
+      "matched_identifiers": [
+        "Sinopé",
+        "VA4220ZB"
+      ],
+      "marketplace": "US",
+      "record_slug": "sinope-va4220zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00JRLYCCK",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Smartenit 4040B — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Smartenit_4040B.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Smartenit 4040B ZBMLC30 40A Load Controller, Gray",
+          "url": "https://www.amazon.com/dp/B00JRLYCCK"
+        }
+      ],
+      "identity_hash": "13ff3310d5c7887f",
+      "matched_identifiers": [
+        "Smartenit",
+        "4040B"
+      ],
+      "marketplace": "US",
+      "record_slug": "smartenit-4040b",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B01IE35PCC",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SmartThings F-IRM-US-2 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/SmartThings_F-IRM-US-2.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Samsung Electronics F-IRM-US-2 SmartThings Motion Sensor",
+          "url": "https://www.amazon.com/dp/B01IE35PCC"
+        }
+      ],
+      "identity_hash": "60935f2933029b70",
+      "matched_identifiers": [
+        "SmartThings",
+        "F-IRM-US-2"
+      ],
+      "marketplace": "US",
+      "record_slug": "smartthings-f-irm-us-2",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B073GV2PQY",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SmartThings F-OUT-US-2 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/SmartThings_F-OUT-US-2.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Samsung F-OUT-US-2 SmartThings Outlet, White, Works with Alexa",
+          "url": "https://www.amazon.com/dp/B073GV2PQY"
+        }
+      ],
+      "identity_hash": "e798692e288e3549",
+      "matched_identifiers": [
+        "SmartThings",
+        "F-OUT-US-2"
+      ],
+      "marketplace": "US",
+      "record_slug": "smartthings-f-out-us-2",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07CPJCQ58",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SmartThings F-SS-MULT-001 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/SmartThings_F-SS-MULT-001.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Samsung SmartThings Multipurpose Sensor (Renewed)",
+          "url": "https://www.amazon.com/dp/B07CPJCQ58"
+        }
+      ],
+      "identity_hash": "3954bf0f06789aa8",
+      "matched_identifiers": [
+        "SmartThings",
+        "F-SS-MULT-001"
+      ],
+      "marketplace": "US",
+      "record_slug": "smartthings-f-ss-mult-001",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07Q1DLSBN",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SmartThings GP-LBU019BBAWU — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/SmartThings_GP-LBU019BBAWU.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SAMSUNG SmartThings Smart LED Light Bulb for Connected Home | Energy Efficient, Dimmable | Hub Required, Voice Control Compatible with Alexa, Google, or Bixby | Warm White (8ZA-A806ST-Q4R)",
+          "url": "https://www.amazon.com/dp/B07Q1DLSBN"
+        }
+      ],
+      "identity_hash": "75a296aaf1de562c",
+      "matched_identifiers": [
+        "SmartThings",
+        "GP-LBU019BBAWU"
+      ],
+      "marketplace": "US",
+      "record_slug": "smartthings-gp-lbu019bbawu",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07F8ZFFQK",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SmartThings IM6001-BTP01 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/SmartThings_IM6001-BTP01.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SAMSUNG SmartThings GP-U999SJVLEAA Remote Button, White",
+          "url": "https://www.amazon.com/dp/B07F8ZFFQK"
+        }
+      ],
+      "identity_hash": "a6fce4cc27a586b8",
+      "matched_identifiers": [
+        "SmartThings",
+        "IM6001-BTP01"
+      ],
+      "marketplace": "US",
+      "record_slug": "smartthings-im6001-btp01",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07F956F3B",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SmartThings IM6001-MPP01 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/SmartThings_IM6001-MPP01.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Samsung SmartThings Multipurpose Sensor [GP-U999SJVLAAA] Door & Window Sensor - Zigbee - White",
+          "url": "https://www.amazon.com/dp/B07F956F3B"
+        }
+      ],
+      "identity_hash": "7488a018e8571f69",
+      "matched_identifiers": [
+        "SmartThings",
+        "IM6001-MPP01"
+      ],
+      "marketplace": "US",
+      "record_slug": "smartthings-im6001-mpp01",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07F8ZHBLS",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SmartThings IM6001-MTP01 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/SmartThings_IM6001-MTP01.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SAMSUNG SmartThings GP-U999SJVLBAA Magnetic Motion Sensor, White",
+          "url": "https://www.amazon.com/dp/B07F8ZHBLS"
+        }
+      ],
+      "identity_hash": "6f17c7208cd475ab",
+      "matched_identifiers": [
+        "SmartThings",
+        "IM6001-MTP01"
+      ],
+      "marketplace": "US",
+      "record_slug": "smartthings-im6001-mtp01",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07F96JB63",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SmartThings IM6001-OTP05 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/SmartThings_IM6001-OTP05.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Samsung SmartThings Outlet [GP-U999SJVLDAA] Smart Plug - Alexa Google Home Compatible - Zigbee - White",
+          "url": "https://www.amazon.com/dp/B07F96JB63"
+        }
+      ],
+      "identity_hash": "1b564fee06d4de63",
+      "matched_identifiers": [
+        "SmartThings",
+        "IM6001-OTP05"
+      ],
+      "marketplace": "US",
+      "record_slug": "smartthings-im6001-otp05",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07F951JDP",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SmartThings IM6001-WLP01 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/SmartThings_IM6001-WLP01.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SAMSUNG SmartThings Water Leak Sensor [GP-U999SJVLCAA] - Automate Lights & Siren for Alert - Zigbee - White",
+          "url": "https://www.amazon.com/dp/B07F951JDP"
+        }
+      ],
+      "identity_hash": "41c9444825bd34a3",
+      "matched_identifiers": [
+        "SmartThings",
+        "IM6001-WLP01"
+      ],
+      "marketplace": "US",
+      "record_slug": "smartthings-im6001-wlp01",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B082PSKRSP",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sonoff S31 Lite zb — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_S31ZB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF Zigbee Smart Plug with ETL Certified, S31 Lite 15A Outlet, Zigbee Repeater, Works with SmartThings and Amazon Echo Plus, Hub Needed for Amazon Alexa",
+          "url": "https://www.amazon.com/dp/B082PSKRSP"
+        }
+      ],
+      "identity_hash": "e997128462239647",
+      "matched_identifiers": [
+        "Sonoff",
+        "S31 Lite zb"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-s31-lite-zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B09XMFX4Y7",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sonoff S40ZBTPB Lite — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_S40ZBTPB_Lite.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF Zigbee Smart Plug with ETL Certified, S40 Lite 15A Outlet, Zigbee Repeater, Works with SmartThings and Amazon Echo Plus, Hub Needed for Amazon Alexa 2-Pack",
+          "url": "https://www.amazon.com/dp/B09XMFX4Y7"
+        }
+      ],
+      "identity_hash": "849c871341dfa766",
+      "matched_identifiers": [
+        "Sonoff",
+        "S40ZBTPB Lite"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-s40zbtpb-lite",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07ZPRXMMD",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF BASICZBR3 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_BASICZBR3.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF BASICZBR3 Zigbee Smart Switch, Zigbee Home Smart Controller, Compatible with Amazon Alexa, Works with SmartThings hub",
+          "url": "https://www.amazon.com/dp/B07ZPRXMMD"
+        }
+      ],
+      "identity_hash": "ba2ba7e9f9ada07a",
+      "matched_identifiers": [
+        "SONOFF",
+        "BASICZBR3"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-basiczbr3",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0CL9JTMWF",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF SNZB-01P — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_SNZB-01P.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF Zigbee Switch, SNZB-01P Wireless Push Button, Supports to Create Smart Scenes, Trigger the Connected Devices on eWelink APP with Three Control Options, SONOFF ZigBee Bridge Required, 1Pack: Amazon.com",
+          "url": "https://www.amazon.com/dp/B0CL9JTMWF"
+        }
+      ],
+      "identity_hash": "bedbdec63106268a",
+      "matched_identifiers": [
+        "SONOFF",
+        "SNZB-01P"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-snzb-01p",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08BCJNDYQ",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF SNZB-02 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_SNZB-02.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF SNZB-02 ZigBee Indoor Temperature and Humidity Sensor for Checking the Room Climate, Indoor Thermometer Hygrometer with Alert, Compatible with Alexa Google Home, ZigBee 3.0 Bridge Required : Patio, Lawn & Garden",
+          "url": "https://www.amazon.com/dp/B08BCJNDYQ"
+        }
+      ],
+      "identity_hash": "257ae8fde604c593",
+      "matched_identifiers": [
+        "SONOFF",
+        "SNZB-02"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-snzb-02",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0C27TLFV1",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF SNZB-02D — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_SNZB-02D.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF Zigbee Indoor Temperature Humidity Sensor, SNZB-02D LCD Wireless Smart Thermometer Hygrometer, Compatible with Alexa & Google Home for Remote Monitoring and Home Automation, 2-Pack : Patio, Lawn & Garden",
+          "url": "https://www.amazon.com/dp/B0C27TLFV1"
+        }
+      ],
+      "identity_hash": "a3eddecc3e05ff96",
+      "matched_identifiers": [
+        "SONOFF",
+        "SNZB-02D"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-snzb-02d",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0CLLVHGWN",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF SNZB-02P — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_SNZB-02P.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF SNZB-02P Zigbee Temperature Humidity Sensor, Indoor Thermometer Hygrometer with Alert, Works with Alexa & Google Home for Remote Monitoring and Home Automation, ZigBee 3.0 Hub Required (1) : Appliances",
+          "url": "https://www.amazon.com/dp/B0CLLVHGWN"
+        }
+      ],
+      "identity_hash": "ac4b57a3e5e03f83",
+      "matched_identifiers": [
+        "SONOFF",
+        "SNZB-02P"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-snzb-02p",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08BFFJ69V",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF SNZB-03 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_SNZB-03.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF SNZB-03 ZigBee Motion Sensor, Wireless Motion Detector Get Alerts or Trigger Lights to Turn on, SONOFF Zigbee Bridge Required",
+          "url": "https://www.amazon.com/dp/B08BFFJ69V"
+        }
+      ],
+      "identity_hash": "bdf045c7b15905ce",
+      "matched_identifiers": [
+        "SONOFF",
+        "SNZB-03"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-snzb-03",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0C1GB4DVR",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF SNZB-03P — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_SNZB-03P.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF SNZB-03P Zigbee Motion Sensor, 3-Year Battery Life, for Alert System and Automations Wireless Motion Detector, SONOFF Zigbee Bridge Required, Batteries Included (1 Pack)",
+          "url": "https://www.amazon.com/dp/B0C1GB4DVR"
+        }
+      ],
+      "identity_hash": "e2d1fdcd954b81dd",
+      "matched_identifiers": [
+        "SONOFF",
+        "SNZB-03P"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-snzb-03p",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08BFGJ6RB",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF SNZB-04 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_SNZB-04.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF SNZB-04 ZigBee Wireless Door Window Sensor, Burglar Alarm for Home Security, Compatible with Alexa Google Home, Zigbee Bridge Hub Required",
+          "url": "https://www.amazon.com/dp/B08BFGJ6RB"
+        }
+      ],
+      "identity_hash": "0428cba36b6fa38e",
+      "matched_identifiers": [
+        "SONOFF",
+        "SNZB-04"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-snzb-04",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0DT629K85",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF SNZB-04P — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_SNZB-04P.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF SNZB-04P Zigbee Door Window Sensor, Send Alert to Your Smartphone for Home Security, Compatible with Alexa/Google Home, SONOFF Zigbee Bridge Required 1Pack",
+          "url": "https://www.amazon.com/dp/B0DT629K85"
+        }
+      ],
+      "identity_hash": "c2dd2f226fb6a026",
+      "matched_identifiers": [
+        "SONOFF",
+        "SNZB-04P"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-snzb-04p",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0DHV41FL2",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF SNZB-05P — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_SNZB-05P.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF SNZB-05P Zigbee Water Leak Sensor Without Detection Cable for Alarm System and Smart Home Automation, Wireless Mini Flood Detector for Kitchen Bathroom Basement 1Pack",
+          "url": "https://www.amazon.com/dp/B0DHV41FL2"
+        }
+      ],
+      "identity_hash": "291f4b191c3a6a9f",
+      "matched_identifiers": [
+        "SONOFF",
+        "SNZB-05P"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-snzb-05p",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0DNHP46DX",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF ZBM5-2C-120 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_ZBM5-2C-120.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF Zigbee Smart Light Switch, Required SONOFF Zigbee Hub, Interruptor Inteligente, Smart Switch No Neutral or with Neutral, Voice Control with Alexa Google Home, Zigbee Switch ZBM5-2C-120W",
+          "url": "https://www.amazon.com/dp/B0DNHP46DX"
+        }
+      ],
+      "identity_hash": "d557ea26f8f8f4b1",
+      "matched_identifiers": [
+        "SONOFF",
+        "ZBM5-2C-120"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-zbm5-2c-120",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0DNHM4RKK",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF ZBM5-3C-120 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_ZBM5-3C-120.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF Zigbee Smart Light Switch, Required SONOFF Zigbee Hub, Interruptor Inteligente, Smart Switch No Neutral or with Neutral, Voice Control with Alexa Google Home, Zigbee Switch ZBM5-3C-120W",
+          "url": "https://www.amazon.com/dp/B0DNHM4RKK"
+        }
+      ],
+      "identity_hash": "a20d0cf42a07cb8d",
+      "matched_identifiers": [
+        "SONOFF",
+        "ZBM5-3C-120"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-zbm5-3c-120",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0DDCHT457",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF ZBMicro — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_ZBMicro.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF Zigbee Smart USB Outlet, 5-22V DC Outlet Timer Smart Switch, Smart Home Devices Compatible with Alexa and Google Home, Zigbee Switch Wireless Support Fast Charging, USB 2.0 ZBMicro (2)",
+          "url": "https://www.amazon.com/dp/B0DDCHT457"
+        }
+      ],
+      "identity_hash": "b4d117e03cb095b5",
+      "matched_identifiers": [
+        "SONOFF",
+        "ZBMicro"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-zbmicro",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0BYNVBXDM",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF ZBMINIL2 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_ZBMINIL2.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF Zigbee Smart Light Switch, No Neutral, Hub Required, 2-Way Interruptor Inteligente, Voice Control with Alexa, Google Home and SmartThings, ZBMINIL2 4 Pack",
+          "url": "https://www.amazon.com/dp/B0BYNVBXDM"
+        }
+      ],
+      "identity_hash": "b3512ae798bb0229",
+      "matched_identifiers": [
+        "SONOFF",
+        "ZBMINIL2"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-zbminil2",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0DH29341J",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SONOFF ZBMINIR2 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_ZBMINIR2.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF ZigBee Smart Light Switch, SONOFF Zigbee Hub Required, Interruptor Inteligente Voice Control with Alexa & Google Home, Neutral Line Required Smart Home Device, Zigbee Switch ZBMINIR2: Amazon.com",
+          "url": "https://www.amazon.com/dp/B0DH29341J"
+        }
+      ],
+      "identity_hash": "aa13edbc0ea715e0",
+      "matched_identifiers": [
+        "SONOFF",
+        "ZBMINIR2"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-zbminir2",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07KWWLXD6",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Stelpro SMT402 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Stelpro_SMT402.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Stelpro ASMT402 Maestro Smart Home Thermostat to adds Maestro Connectivity to existing Line Voltage Electric Baseboards, Convectors, and Fan Heaters",
+          "url": "https://www.amazon.com/dp/B07KWWLXD6"
+        }
+      ],
+      "identity_hash": "e198fbe25f89fd85",
+      "matched_identifiers": [
+        "Stelpro",
+        "SMT402"
+      ],
+      "marketplace": "US",
+      "record_slug": "stelpro-smt402",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07KWLZMFK",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Stelpro ST218 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Stelpro_SORB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Stelpro ASORB1501WCW Orleans Bathroom Fan Heater Without Thermostat, 1500W 120V, White",
+          "url": "https://www.amazon.com/dp/B07KWLZMFK"
+        }
+      ],
+      "identity_hash": "b7e84996cfa85051",
+      "matched_identifiers": [
+        "Stelpro",
+        "ST218"
+      ],
+      "marketplace": "US",
+      "record_slug": "stelpro-st218-2",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00VAIKNJO",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Swann SWO-MOS1PA — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Swann_SWO-MOS1PA.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Amazon.com : Swann SWO-MOS1PA One Motion Sensor (White)",
+          "url": "https://www.amazon.com/dp/B00VAIKNJO"
+        }
+      ],
+      "identity_hash": "d0e285e023c041a5",
+      "matched_identifiers": [
+        "Swann",
+        "SWO-MOS1PA"
+      ],
+      "marketplace": "US",
+      "record_slug": "swann-swo-mos1pa",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00VAIKNF8",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Swann SWO-WDS1PA — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Swann_SWO-WDS1PA.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Amazon.com : Swann SWO-WDS1PA-US One Window/Door Sensor (White)",
+          "url": "https://www.amazon.com/dp/B00VAIKNF8"
+        }
+      ],
+      "identity_hash": "ff861ed975d791a1",
+      "matched_identifiers": [
+        "Swann",
+        "SWO-WDS1PA"
+      ],
+      "marketplace": "US",
+      "record_slug": "swann-swo-wds1pa",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00N9Z8KGY",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 484719 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_484719.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SYLVANIA 11-Watt (65W Equivalent) BR30 Zigbee wireless smart bulb 484719 Medium Base Soft White Dimmable Led Flood light",
+          "url": "https://www.amazon.com/dp/B00N9Z8KGY"
+        }
+      ],
+      "identity_hash": "deed9a5eb1e32c7f",
+      "matched_identifiers": [
+        "Sylvania",
+        "484719"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-484719",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B01M3OK6J7",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 70499 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_70499.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SYLVANIA LIGHTIFY ZigBee 4 Button (8 Function) Switch, Works with OSRAM LIGHTIFY Gateway and Amazon Alexa or the Google Assistant Voice Control",
+          "url": "https://www.amazon.com/dp/B01M3OK6J7"
+        }
+      ],
+      "identity_hash": "051ea2470bbf027a",
+      "matched_identifiers": [
+        "Sylvania",
+        "70499"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-70499",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0787HH3K6",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 71831 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_71831.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sylvania SMART+ ZigBee Bulb, Color Changing and Dimmable A19 LED Bulb,60 Watt Equivalent, Works with SmartThings, Wink, and Amazon Echo Plus",
+          "url": "https://www.amazon.com/dp/B0787HH3K6"
+        }
+      ],
+      "identity_hash": "f8bc615ef5497ad1",
+      "matched_identifiers": [
+        "Sylvania",
+        "71831"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-71831",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B01LYN5UIO",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 72567 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_72567.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sylvania Smart+ ZigBee Adjustable White Flush Mount LED Light Fixture, Works with SmartThings, Wink, and Amazon Echo Plus, Hub Needed for Amazon Alexa and The Google Assistant",
+          "url": "https://www.amazon.com/dp/B01LYN5UIO"
+        }
+      ],
+      "identity_hash": "8bb5eb435e5d1328",
+      "matched_identifiers": [
+        "Sylvania",
+        "72567"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-72567",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B01M7NFPO7",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 72569 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_72569.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sylvania 72569 LIGHTIFY Edge-Lit Under Cabinet Adjustable White",
+          "url": "https://www.amazon.com/dp/B01M7NFPO7"
+        }
+      ],
+      "identity_hash": "a3c2c8f691172dc0",
+      "matched_identifiers": [
+        "Sylvania",
+        "72569"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-72569",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B01M6UM8QD",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 72922-A — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_72922.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sylvania Smart ZigBee Smart Plug, Works with SmartThings, Wink, and Amazon Echo Plus, Hub Needed for Amazon Alexa / Google Assistant - 1 Pack",
+          "url": "https://www.amazon.com/dp/B01M6UM8QD"
+        }
+      ],
+      "identity_hash": "6a16083c5f45e549",
+      "matched_identifiers": [
+        "Sylvania",
+        "72922-A"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-72922-a",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0196M5YAS",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 73739 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_73739.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sylvania Smart ZigBee Full Color and Tunable White BR30 LED Bulb for SmartThings, Wink, Echo Plus, Hub Needed for Alexa and Google Assistant - 1 Pack (73739) : Industrial & Scientific",
+          "url": "https://www.amazon.com/dp/B0196M5YAS"
+        }
+      ],
+      "identity_hash": "f220f3197c05934a",
+      "matched_identifiers": [
+        "Sylvania",
+        "73739"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-73739",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B015KQ27SG",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 73740 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_73740.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sylvania Smart Zigbee Adjustable White BR30 LED Light Bulb for Alexa/Google Assistant, 9.5W, 2700K - 6500K, Hub Required - 1 Pack (73740) : Industrial & Scientific",
+          "url": "https://www.amazon.com/dp/B015KQ27SG"
+        }
+      ],
+      "identity_hash": "ac262b325fe91626",
+      "matched_identifiers": [
+        "Sylvania",
+        "73740"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-73740",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0196M601A",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 73741 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_73741.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sylvania Smart ZigBee 5\" / 6\" Recessed Downlight, Full Color and Tunable White, 13.5W LED for Alexa or Google Assistant, Hub Required - 1 Pack (73141),Adjustable White and Full Color,73741",
+          "url": "https://www.amazon.com/dp/B0196M601A"
+        }
+      ],
+      "identity_hash": "bfce226bd954f2b2",
+      "matched_identifiers": [
+        "Sylvania",
+        "73741"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-73741",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B015KQ29JI",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 73742 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_73742.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "OSRAM 73742 Sylvania Smart+ ZigBee Adjustable White RT 5/6 Recessed Lighting Kit, Works with SmartThings and Amazon Echo Plus, Hub Needed for Amazon Alexa and Google Assistant",
+          "url": "https://www.amazon.com/dp/B015KQ29JI"
+        }
+      ],
+      "identity_hash": "229fcb1e578f8d10",
+      "matched_identifiers": [
+        "Sylvania",
+        "73742"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-73742",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0196M620Y",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 73743 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_73743.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sylvania 73743 Lightify Smart Dimming Switch, Dimmer, White",
+          "url": "https://www.amazon.com/dp/B0196M620Y"
+        }
+      ],
+      "identity_hash": "966d385f43fd9641",
+      "matched_identifiers": [
+        "Sylvania",
+        "73743"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-73743",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07NPG3X4D",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 73773 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_73773.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sylvania 73773 Lighting Kit Smart+ ZigBee Full Color Flex XL Indoor Lightstrip : Everything Else",
+          "url": "https://www.amazon.com/dp/B07NPG3X4D"
+        }
+      ],
+      "identity_hash": "fe1bf1333c0725c4",
+      "matched_identifiers": [
+        "Sylvania",
+        "73773"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-73773",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B01G8ILZ5Q",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 73807 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_73807.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sylvania LIGHTIFY ZigBee Soft White BR30 LED Bulb, Works with SmartThings, Wink, and Amazon Echo Plus, Hub Needed for Amazon Alexa and The Google Assistant",
+          "url": "https://www.amazon.com/dp/B01G8ILZ5Q"
+        }
+      ],
+      "identity_hash": "1a8b2c895d185e9a",
+      "matched_identifiers": [
+        "Sylvania",
+        "73807"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-73807",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B06Y1HM5RR",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 74282 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_74282.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sylvania Smart Zigbee Adjustable White MR16 LED Bulb for SmartThings, Wink and Amazon Echo Plus, 2700K, 800 Lumens - 1 Pack (74282)",
+          "url": "https://www.amazon.com/dp/B06Y1HM5RR"
+        }
+      ],
+      "identity_hash": "ab13ea6a29769449",
+      "matched_identifiers": [
+        "Sylvania",
+        "74282"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-74282",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0727WZ3L2",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 74283 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_74283.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sylvania 74283 Dim Smart+ LED Light Bulb, A19 Dimmable White, 60W Equivalent, Works with SmartThings and Alexa, 10 Year Series, Dimmable Soft (Packaging May Vary)",
+          "url": "https://www.amazon.com/dp/B0727WZ3L2"
+        }
+      ],
+      "identity_hash": "42c437a298e7b394",
+      "matched_identifiers": [
+        "Sylvania",
+        "74283"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-74283",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B071L2DM4J",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 74580 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_74580.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sylvania Lightify LED Smart Connected Light 120 w Replacement PAR38 Dimmable White (74580)",
+          "url": "https://www.amazon.com/dp/B071L2DM4J"
+        }
+      ],
+      "identity_hash": "1bfd65bd68d068b1",
+      "matched_identifiers": [
+        "Sylvania",
+        "74580"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-74580",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0787LJCMC",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 74696 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_74696.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Sylvania 74696 SMART+ A19 OFD Soft White 10 Year LED Bulb, 60W Equivalent On/Off/Dim, Compatible with Alexa and SmartThings Dimamble",
+          "url": "https://www.amazon.com/dp/B0787LJCMC"
+        }
+      ],
+      "identity_hash": "caeb271f3ca59642",
+      "matched_identifiers": [
+        "Sylvania",
+        "74696"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-74696",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07FK5FC64",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sylvania 75541 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Sylvania_75541.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "LEDVANCE Sylvania Smart LED ZigBee RGBW Full Color Outdoor Accent Light Starter Kit, 14', Works with SmartThings and Amazon Echo Plus (75541), Clear",
+          "url": "https://www.amazon.com/dp/B07FK5FC64"
+        }
+      ],
+      "identity_hash": "0ed4defb85632c09",
+      "matched_identifiers": [
+        "Sylvania",
+        "75541"
+      ],
+      "marketplace": "US",
+      "record_slug": "sylvania-75541",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B09ZQGZX3G",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Third Reality 3RSB22BZ — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Third_Reality_3RSB22BZ.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "THIRDREALITY ZigBee Smart Button, 3-Way Remote Control, Require Zigbee hub, Work with SmartThings, Aeotec, Hubitat, Home Assistant, Third Reality Hub, Battery Included.",
+          "url": "https://www.amazon.com/dp/B09ZQGZX3G"
+        }
+      ],
+      "identity_hash": "7e9fefb161186e13",
+      "matched_identifiers": [
+        "Third Reality",
+        "3RSB22BZ"
+      ],
+      "marketplace": "US",
+      "record_slug": "third-reality-3rsb22bz",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08R9PS2KG",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Third Reality 3RWS18BZ — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Third_Reality_3RWS18BZ.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "THIRDREALITY Zigbee Water Leak Sensor with Dripping Detection,120dB Alarm,App Notifications Enabled When Work with Home Assistant and Compatible Zigbee HUB Like SmartThings,Aeotec or Third Reality Hub",
+          "url": "https://www.amazon.com/dp/B08R9PS2KG"
+        }
+      ],
+      "identity_hash": "2a06205926c73b67",
+      "matched_identifiers": [
+        "Third Reality",
+        "3RWS18BZ"
+      ],
+      "marketplace": "US",
+      "record_slug": "third-reality-3rws18bz",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B09V7LKF5X",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Treatlife MS — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Treatlife_Motion_Sensor.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "TREATLIFE Zigbee Motion Sensor, Smart Motion Sensor Detector for Alarm System, Smart Home Automation, Triggering Lights and Scenes, Compatible with Alexa Google Home (Hub Required and Sold Separately)",
+          "url": "https://www.amazon.com/dp/B09V7LKF5X"
+        }
+      ],
+      "identity_hash": "72f6d0bfc5cc89f7",
+      "matched_identifiers": [
+        "Treatlife",
+        "MS"
+      ],
+      "marketplace": "US",
+      "record_slug": "treatlife-ms",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0B2J2NVZB",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Tuya C02Z — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Tuya_C02Z.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "BTF-LIGHTING C02Z Zigbee 3.0 Controller for 3pin SMD/COB CCT(+ CW WW) LED | Indoor Tuya PWM Dimmer For 5050SMD/COB LED Strip, Compatible with Echo Plus/4th Gen Tuya Gateway, DC5V/12V/24V 15A Max",
+          "url": "https://www.amazon.com/dp/B0B2J2NVZB"
+        }
+      ],
+      "identity_hash": "2ee559a6a5effe22",
+      "matched_identifiers": [
+        "Tuya",
+        "C02Z"
+      ],
+      "marketplace": "US",
+      "record_slug": "tuya-c02z",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0BYDCY4YN",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Tuya YXZBRB58 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Tuya_YXZBRB58.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Smart Human Presence Sensor,Tuya Zigbee Hub Required, mmWave Radar Detector High Sensing Human Body Exists Sensor Home Security and Automatical",
+          "url": "https://www.amazon.com/dp/B0BYDCY4YN"
+        }
+      ],
+      "identity_hash": "b0fc1ad69ad72fbf",
+      "matched_identifiers": [
+        "Tuya",
+        "YXZBRB58"
+      ],
+      "marketplace": "US",
+      "record_slug": "tuya-yxzbrb58",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0CFHL81P8",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Tuya ZG-205Z/B — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Tuya_ZG-205Z-B.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Haozee Human Presence Sensor,Tuya Zigbee Millimeter Radar Wave Presence Detection Sensor,Requires TUYA HUB,Support Zigbee2mqtt,Home Assistant¡­, ZG-205Z/B",
+          "url": "https://www.amazon.com/dp/B0CFHL81P8"
+        }
+      ],
+      "identity_hash": "88f31bd1509e6dba",
+      "matched_identifiers": [
+        "Tuya",
+        "ZG-205Z/B"
+      ],
+      "marketplace": "US",
+      "record_slug": "tuya-zg-205z-b",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07X71ZS7J",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Xiaomi WXKG01LM — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Xiaomi_WXKG01LM.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SWITCH XIAOMI MI WIRELESS SWITCH INTERRUPTOR WIFI BLANCO",
+          "url": "https://www.amazon.com/dp/B07X71ZS7J"
+        }
+      ],
+      "identity_hash": "1b6f1501b2156af0",
+      "matched_identifiers": [
+        "Xiaomi",
+        "WXKG01LM"
+      ],
+      "marketplace": "US",
+      "record_slug": "xiaomi-wxkg01lm",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00IPR3M78",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Yale YRD210 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Yale_YRD210-HA.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Yale Security YRD-210-HA-619 Real Living Electronic Keyless Entry Push Button Deadbolt with Zigbee HA1.2 Technology, Satin Nickel",
+          "url": "https://www.amazon.com/dp/B00IPR3M78"
+        }
+      ],
+      "identity_hash": "c43d9d2133c3e683",
+      "matched_identifiers": [
+        "Yale",
+        "YRD210"
+      ],
+      "marketplace": "US",
+      "record_slug": "yale-yrd210",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B072LF66YX",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Yale YRD226 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Yale_YRD226.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Yale Assure Lock with Zigbee - Smart Touchscreen Keypad Deadbolt - Works with Xfinity Home, Amazon Echo Show, Amazon Echo Plus and More - Satin Nickel",
+          "url": "https://www.amazon.com/dp/B072LF66YX"
+        }
+      ],
+      "identity_hash": "14ee9a93028f4b1a",
+      "matched_identifiers": [
+        "Yale",
+        "YRD226"
+      ],
+      "marketplace": "US",
+      "record_slug": "yale-yrd226",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B06XX2VHHY",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Yale YRD226NR — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Yale_YRD226NR.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Yale Assure Deadbolt Lock with Touchscreen, Satin Nickel Digital Non-Connected Entry Door Lock with Electronic Keypad and Back-Up Key, ‎‎YRD226NR619",
+          "url": "https://www.amazon.com/dp/B06XX2VHHY"
+        }
+      ],
+      "identity_hash": "90ca0bb95e2a11ab",
+      "matched_identifiers": [
+        "Yale",
+        "YRD226NR"
+      ],
+      "marketplace": "US",
+      "record_slug": "yale-yrd226nr",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B071LCDK6L",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Yale YRD246 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Yale_YRD246.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Yale Security YRD246HA2619 Assure Lock Key Free Deadbolt with ZigBee, Satin Nickel",
+          "url": "https://www.amazon.com/dp/B071LCDK6L"
+        }
+      ],
+      "identity_hash": "398779ce02341f38",
+      "matched_identifiers": [
+        "Yale",
+        "YRD246"
+      ],
+      "marketplace": "US",
+      "record_slug": "yale-yrd246",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B076Y9D49P",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Yale YRD256 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Yale_YRD256.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Yale Assure Lock SL with Zigbee - Smart Key Free Touchscreen Keypad Deadbolt - Works with Xfinity Home, Amazon Echo Show, Amazon Echo Plus and More - Satin Nickel",
+          "url": "https://www.amazon.com/dp/B076Y9D49P"
+        }
+      ],
+      "identity_hash": "205a2f257168906e",
+      "matched_identifiers": [
+        "Yale",
+        "YRD256"
+      ],
+      "marketplace": "US",
+      "record_slug": "yale-yrd256",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B01JUBS19G",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Yale YRD446 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Yale_YRD446.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Yale Assure Lock with Bluetooth - Key Free Touchscreen in Oil Rubbed Bronze - Your Phone is Your Key (YRD446NR0BP)",
+          "url": "https://www.amazon.com/dp/B01JUBS19G"
+        }
+      ],
+      "identity_hash": "7d623fbf33ed237c",
+      "matched_identifiers": [
+        "Yale",
+        "YRD446"
+      ],
+      "marketplace": "US",
+      "record_slug": "yale-yrd446",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B077QCN4WM",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Zemismart ZM-DL-01 — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Zemismart_ZM-DL-01.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "zemismart ZigBee 3.0 RGBW 3.5 inch Recessed Retrofit Downlight 12W LED Dimmable Fixture Ceiling Light,Alexa Echo PlusHome Automation/Tuya app Control via Tuya Zigbee Hub: Amazon.com",
+          "url": "https://www.amazon.com/dp/B077QCN4WM"
+        }
+      ],
+      "identity_hash": "8521a5c33eed187c",
+      "matched_identifiers": [
+        "Zemismart",
+        "ZM-DL-01"
+      ],
+      "marketplace": "US",
+      "record_slug": "zemismart-zm-dl-01",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00XCVV8CS",
+      "directory": "zigbee-devices",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Zen Zen-01-W — Blakadder compatibility record",
+          "url": "https://zigbee.blakadder.com/Zen_Zen-01-W.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Zen Thermostat - ZigBee Edition",
+          "url": "https://www.amazon.com/dp/B00XCVV8CS"
+        }
+      ],
+      "identity_hash": "bdb52055e96187c0",
+      "matched_identifiers": [
+        "Zen",
+        "Zen-01-W"
+      ],
+      "marketplace": "US",
+      "record_slug": "zen-zen-01-w",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B00E6300DO",
+      "directory": "zigbee-coordinators",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "dresden elektronik BN-600052 — Compatibility record",
+          "url": "https://zigbee.blakadder.com/dresden_elektronik_RaspBee.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "dresden elektronik wireless RaspBee Premium - ZigBee addon for Raspberry Pi with Firmware",
+          "url": "https://www.amazon.com/dp/B00E6300DO"
+        }
+      ],
+      "identity_hash": "323b28c1dbaacf91",
+      "matched_identifiers": [
+        "dresden elektronik",
+        "BN-600052"
+      ],
+      "marketplace": "US",
+      "record_slug": "dresden-elektronik-bn-600052",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0BL6DQSB3",
+      "directory": "zigbee-coordinators",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SMLIGHT SLZB-06 — Compatibility record",
+          "url": "https://zigbee.blakadder.com/SMLIGHT_SLZB-06.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SMLIGHT SLZB-06U - Zigbee 3.0 to Ethernet,USB,and WiFi Gateway Coordinator with PoE, Works with Zigbee2MQTT, Home Assistant, ZHA",
+          "url": "https://www.amazon.com/dp/B0BL6DQSB3"
+        }
+      ],
+      "identity_hash": "4444f7e0bdfbd561",
+      "matched_identifiers": [
+        "SMLIGHT",
+        "SLZB-06"
+      ],
+      "marketplace": "US",
+      "record_slug": "smlight-slzb-06",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0CLCGV1RZ",
+      "directory": "zigbee-coordinators",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SMLIGHT SLZB-06M — Compatibility record",
+          "url": "https://zigbee.blakadder.com/SMLIGHT_SLZB-06M.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SMLIGHT SLZB-06M – A Zigbee 3.0 to Ethernet, USB, and WiFi Adapter with PoE Support, Works with Zigbee2MQTT, Home Assistant, ZHA",
+          "url": "https://www.amazon.com/dp/B0CLCGV1RZ"
+        }
+      ],
+      "identity_hash": "b4bb6dbb52ff146d",
+      "matched_identifiers": [
+        "SMLIGHT",
+        "SLZB-06M"
+      ],
+      "marketplace": "US",
+      "record_slug": "smlight-slzb-06m",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0DQ75W1LL",
+      "directory": "zigbee-coordinators",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SMLIGHT SLZB-06p10 — Compatibility record",
+          "url": "https://zigbee.blakadder.com/SMLIGHT_SLZB-06p10.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SMLIGHT SLZB-MR1 – A Zigbee 3.0 to Ethernet, USB, and WiFi Adapter with PoE Support, Works with Zigbee2MQTT, Home Assistant, ZHA",
+          "url": "https://www.amazon.com/dp/B0DQ75W1LL"
+        }
+      ],
+      "identity_hash": "19ad05e0ea71e3cb",
+      "matched_identifiers": [
+        "SMLIGHT",
+        "SLZB-06p10"
+      ],
+      "marketplace": "US",
+      "record_slug": "smlight-slzb-06p10",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0D1C9BGGJ",
+      "directory": "zigbee-coordinators",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SMLIGHT SLZB-06p7 — Compatibility record",
+          "url": "https://zigbee.blakadder.com/SMLIGHT_SLZB-06p7.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SMLIGHT SLZB-MR1 – A Zigbee 3.0 to Ethernet, USB, and WiFi Adapter with PoE Support, Works with Zigbee2MQTT, Home Assistant, ZHA",
+          "url": "https://www.amazon.com/dp/B0D1C9BGGJ"
+        }
+      ],
+      "identity_hash": "4c7bffac7ce5eff8",
+      "matched_identifiers": [
+        "SMLIGHT",
+        "SLZB-06p7"
+      ],
+      "marketplace": "US",
+      "record_slug": "smlight-slzb-06p7",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0D737SJ5G",
+      "directory": "zigbee-coordinators",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SMLIGHT SLZB-07 — Compatibility record",
+          "url": "https://zigbee.blakadder.com/SMLIGHT_SLZB-07.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SMLIGHT SLZB-07 Zigbee 3.0 Coordinator Thread/Matter Mini USB Adapter Works with Zigbee2MQTT, Home Assistant, ZHA",
+          "url": "https://www.amazon.com/dp/B0D737SJ5G"
+        }
+      ],
+      "identity_hash": "e39263053f0da7db",
+      "matched_identifiers": [
+        "SMLIGHT",
+        "SLZB-07"
+      ],
+      "marketplace": "US",
+      "record_slug": "smlight-slzb-07",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0CNVBCCR3",
+      "directory": "zigbee-coordinators",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "SMLIGHT SLZB-07p7 — Compatibility record",
+          "url": "https://zigbee.blakadder.com/SMLIGHT_SLZB-07p7.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SMLIGHT SLZB-07 Zigbee 3.0 USB Coordinator - Pre-Flashed and Ready-to-Use Zigbee Adapter for ZHA Home Assistant and Zigbee2MQTT",
+          "url": "https://www.amazon.com/dp/B0CNVBCCR3"
+        }
+      ],
+      "identity_hash": "caedd164f75a1ea4",
+      "matched_identifiers": [
+        "SMLIGHT",
+        "SLZB-07p7"
+      ],
+      "marketplace": "US",
+      "record_slug": "smlight-slzb-07p7",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08BFT44QL",
+      "directory": "zigbee-coordinators",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sonoff ZBBridge — Compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_ZBBridge.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF ZBBridge Smart Zigbee Bridge Hub, WI-FI & Zigbee Dual-protocol Supporting, APP Control and Multi-device Management",
+          "url": "https://www.amazon.com/dp/B08BFT44QL"
+        }
+      ],
+      "identity_hash": "09817be78057c395",
+      "matched_identifiers": [
+        "Sonoff",
+        "ZBBridge"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-zbbridge",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0B6P22YJC",
+      "directory": "zigbee-coordinators",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Sonoff ZBDongle-E — Compatibility record",
+          "url": "https://zigbee.blakadder.com/Sonoff_ZBDongle-E.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "SONOFF Zigbee 3.0 USB Dongle Plus-E Gateway, Universal Wireless Zigbee USB Adapter with Antenna for Home Assistant, Open HAB, Zigbee2MQTT etc",
+          "url": "https://www.amazon.com/dp/B0B6P22YJC"
+        }
+      ],
+      "identity_hash": "31eb0412736a414a",
+      "matched_identifiers": [
+        "Sonoff",
+        "ZBDongle-E"
+      ],
+      "marketplace": "US",
+      "record_slug": "sonoff-zbdongle-e",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0CXDY79NZ",
+      "directory": "zigbee-coordinators",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Z-Wave.Me ZME_mPCIe_ZW_ZB — Compatibility record",
+          "url": "https://zigbee.blakadder.com/Z-Wave.Me_ZME_mPCIe_ZW_ZB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Z-Wave.Me Z-Wave & Zigbee mPCIe Adapter",
+          "url": "https://www.amazon.com/dp/B0CXDY79NZ"
+        }
+      ],
+      "identity_hash": "8e40b363d4028d2e",
+      "matched_identifiers": [
+        "Z-Wave.Me",
+        "ZME_mPCIe_ZW_ZB"
+      ],
+      "marketplace": "US",
+      "record_slug": "z-wave-me-zme-mpcie-zw-zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0CX9DL5CP",
+      "directory": "zigbee-coordinators",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Z-Wave.Me ZME_ZSTATION_ZW_ZB — Compatibility record",
+          "url": "https://zigbee.blakadder.com/Z-Wave.Me_ZME_ZSTATION_ZW_ZB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Z-Station Z-Wave.Me - USB Adaptor for Z-Wave & Zigbee/Thread/BLE, black",
+          "url": "https://www.amazon.com/dp/B0CX9DL5CP"
+        }
+      ],
+      "identity_hash": "005615d11fd49201",
+      "matched_identifiers": [
+        "Z-Wave.Me",
+        "ZME_ZSTATION_ZW_ZB"
+      ],
+      "marketplace": "US",
+      "record_slug": "z-wave-me-zme-zstation-zw-zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0CHZ34ZYP",
+      "directory": "zigbee-coordinators",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Z-Wave.Me ZMEEWB7-ZW-ZB — Compatibility record",
+          "url": "https://zigbee.blakadder.com/Z-Wave.Me_ZMEEWB7-ZW-ZB.html"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Z-Wave.Me Wiren Board 7 Z-Wave, Zigbee, KNX, Modbus, RS-485, CAN controller with Debian Linux",
+          "url": "https://www.amazon.com/dp/B0CHZ34ZYP"
+        }
+      ],
+      "identity_hash": "43cf019c63dccb0a",
+      "matched_identifiers": [
+        "Z-Wave.Me",
+        "ZMEEWB7-ZW-ZB"
+      ],
+      "marketplace": "US",
+      "record_slug": "z-wave-me-zmeewb7-zw-zb",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B08NSY7KT6",
+      "directory": "local-security-cameras",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Amcrest ASH42-W — CC0 camera record",
+          "url": "https://github.com/ch-bas/cctv-camera-database/blob/dc681b16858bfcbddcfc09adb0d621588851a58e/data/cameras.json"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Amazon.com : Amcrest SmartHome 4MP Outdoor WiFi Camera Bullet 4MP Outdoor Security Camera, 98ft Night Vision, Built-in Mic, 101° FOV, 2.8mm Lens, MicroSD Storage, REP-ASH42-W (White) (Renewed)",
+          "url": "https://www.amazon.com/dp/B08NSY7KT6"
+        }
+      ],
+      "identity_hash": "542d082073dfde6b",
+      "matched_identifiers": [
+        "Amcrest",
+        "ASH42-W"
+      ],
+      "marketplace": "US",
+      "record_slug": "amcrest-ash42-w",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B074367GFP",
+      "directory": "local-security-cameras",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "INSTAR IN-9008 Full HD — CC0 camera record",
+          "url": "https://github.com/ch-bas/cctv-camera-database/blob/dc681b16858bfcbddcfc09adb0d621588851a58e/data/cameras.json"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Amazon.com : INSTAR IN-9008 Full HD White - IP Camera - Security Camera - Home Security System - Camera Outdoor - CCTV - CCTV Camera - LAN - WiFi - Night Vision - Alarm - PIR Sensor - RTSP",
+          "url": "https://www.amazon.com/dp/B074367GFP"
+        }
+      ],
+      "identity_hash": "477f38663bed2b89",
+      "matched_identifiers": [
+        "INSTAR",
+        "IN-9008 Full HD"
+      ],
+      "marketplace": "US",
+      "record_slug": "instar-in-9008-full-hd",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0D1C4D987",
+      "directory": "local-security-cameras",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "INSTAR IN-9420 2K+ — CC0 camera record",
+          "url": "https://github.com/ch-bas/cctv-camera-database/blob/dc681b16858bfcbddcfc09adb0d621588851a58e/data/cameras.json"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Amazon.com : INSTAR IN-9420 2K+ Black - LAN/PoE/WLAN Surveillance Camera with AI - IP Camera - PIR - controllable PTZ - for Indoor and Outdoor use - Audio - HomeKit - MQTT",
+          "url": "https://www.amazon.com/dp/B0D1C4D987"
+        }
+      ],
+      "identity_hash": "fe2a6db0711e1601",
+      "matched_identifiers": [
+        "INSTAR",
+        "IN-9420 2K+"
+      ],
+      "marketplace": "US",
+      "record_slug": "instar-in-9420-2k-plus",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B0G455SC6V",
+      "directory": "local-security-cameras",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "LTS LXPTZIP4C8WI-X25SDL — CC0 camera record",
+          "url": "https://github.com/ch-bas/cctv-camera-database/blob/dc681b16858bfcbddcfc09adb0d621588851a58e/data/cameras.json"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Amazon.com : LTS LXPTZIP4C8WI-X25SDL 8MP PTZ Camera – 25x Optical Zoom, Active Deterrence, AI Human/Vehicle Detection, Auto Tracking, IR/Warm Light, IP66, PoE+",
+          "url": "https://www.amazon.com/dp/B0G455SC6V"
+        }
+      ],
+      "identity_hash": "449267cf146d1bc8",
+      "matched_identifiers": [
+        "LTS",
+        "LXPTZIP4C8WI-X25SDL"
+      ],
+      "marketplace": "US",
+      "record_slug": "lts-lxptzip4c8wi-x25sdl",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    },
+    {
+      "asin": "B07BT7YT5Y",
+      "directory": "local-security-cameras",
+      "evidence": [
+        {
+          "kind": "source-record",
+          "title": "Swann SWWHD-OUTCAM — CC0 camera record",
+          "url": "https://github.com/ch-bas/cctv-camera-database/blob/dc681b16858bfcbddcfc09adb0d621588851a58e/data/cameras.json"
+        },
+        {
+          "kind": "amazon-result",
+          "title": "Amazon.com : Swann Outdoor Home Security IP Camera, 1080p Wifi Surveillance Cam, IP66 Weatherproof Rating, Night Vision, Heat & Motion Sensor, Wi-Fi Alexa + Google, SWWHD-OUTCAM, White",
+          "url": "https://www.amazon.com/dp/B07BT7YT5Y"
+        }
+      ],
+      "identity_hash": "1de339d999579658",
+      "matched_identifiers": [
+        "Swann",
+        "SWWHD-OUTCAM"
+      ],
+      "marketplace": "US",
+      "record_slug": "swann-swwhd-outcam",
+      "reviewed_at": "2026-09-05",
+      "status": "confirmed"
+    }
+  ]
+}

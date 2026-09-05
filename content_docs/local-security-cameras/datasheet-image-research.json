@@ -1,0 +1,3711 @@
+{
+  "generated_at": "2026-08-30T07:32:53.011Z",
+  "source_total": 529,
+  "resolved_total": 326,
+  "unresolved_total": 203,
+  "records": [
+    {
+      "model": "IPCA33500",
+      "reason": "https://c1.abus.com/asc-pim-assets-01/medias/docus/19/20170914-IPCA53000_BDA_Software_INT.pdf: 403 https://c1.abus.com/asc-pim-assets-01/medias/docus/19/20170914-IPCA53000_BDA_Software_INT.pdf | https://assets.abus.com/dam/132269_originalFile.pdf: No large product-photo candidate in the first two pages",
+      "slug": "abus-ipca33500",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCA52000",
+      "reason": "https://www.abus.com/var/ImagesPIM/d110001/medias/docus/19/20171018-IPCA22500_BDA_INT.pdf: 403 https://www.abus.com/var/ImagesPIM/d110001/medias/docus/19/20171018-IPCA22500_BDA_INT.pdf | https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipca52000",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCA52010",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipca52010",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCA53000",
+      "reason": "https://c1.abus.com/var/ImagesPIM/d110001/medias/docus/17/20160425-IPCA53000_BDA_Hardware_DE_UK.pdf: 403 https://c1.abus.com/var/ImagesPIM/d110001/medias/docus/17/20160425-IPCA53000_BDA_Hardware_DE_UK.pdf | https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipca53000",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCA62510",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipca62510",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCA62515",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipca62515",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCA62520",
+      "reason": "https://assets.abus.com/dam/132269_originalFile.pdf: No large product-photo candidate in the first two pages | https://c1.abus.com/asc-pim-assets-01/medias/docus/18/20170124-IPCA6x500_BDA_Hardware_DE_UK.pdf: 403 https://c1.abus.com/asc-pim-assets-01/medias/docus/18/20170124-IPCA6x500_BDA_Hardware_DE_UK.pdf",
+      "slug": "abus-ipca62520",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCA63500",
+      "reason": "https://assets.abus.com/dam/132269_originalFile.pdf: No large product-photo candidate in the first two pages | https://c1.abus.com/asc-pim-assets-01/medias/docus/18/20170124-IPCA6x500_BDA_Hardware_DE_UK.pdf: 403 https://c1.abus.com/asc-pim-assets-01/medias/docus/18/20170124-IPCA6x500_BDA_Hardware_DE_UK.pdf",
+      "slug": "abus-ipca63500",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCA66500",
+      "reason": "https://docs.rs-online.com/6db5/0900766b8151e4e8.pdf: No large product-photo candidate in the first two pages",
+      "slug": "abus-ipca66500",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCA68500",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipca68500",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCA72500",
+      "reason": "https://www.abus.com/var/ImagesPIM/d110001/medias/docus/19/20171018-IPCA22500_BDA_INT.pdf: 403 https://www.abus.com/var/ImagesPIM/d110001/medias/docus/19/20171018-IPCA22500_BDA_INT.pdf | https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipca72500",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCA72510",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipca72510",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCA72515",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipca72515",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCA72520",
+      "reason": "https://assets.abus.com/dam/132269_originalFile.pdf: No large product-photo candidate in the first two pages",
+      "slug": "abus-ipca72520",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCA78500",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipca78500",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCB62515A",
+      "reason": "https://c1.abus.com/asc-pim-assets-01/medias/docus/22/20190617-IPCB6x515AB_INST_DE_UK.pdf: 403 https://c1.abus.com/asc-pim-assets-01/medias/docus/22/20190617-IPCB6x515AB_INST_DE_UK.pdf | https://c1.abus.com/asc-pim-assets-01/medias/docus/23/ABUS-Link-Station-Supported-devices.pdf: 403 https://c1.abus.com/asc-pim-assets-01/medias/docus/23/ABUS-Link-Station-Supported-devices.pdf | https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcb62515a",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCB62520",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcb62520",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCB64515B",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcb64515b",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCB64520",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcb64520",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCB68520",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcb68520",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCB72515A",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcb72515a",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCB72520",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcb72520",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCB74520",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcb74520",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCB74615B",
+      "reason": "https://c1.abus.com/asc-pim-assets-01/medias/docus/22/20190619-IPCB7x615AB_INST_DE_GB.pdf: 403 https://c1.abus.com/asc-pim-assets-01/medias/docus/22/20190619-IPCB7x615AB_INST_DE_GB.pdf | https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcb74615b",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCB78520",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcb78520",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCB78615A",
+      "reason": "https://c1.abus.com/asc-pim-assets-01/medias/docus/22/20190619-IPCB7x615AB_INST_DE_GB.pdf: 403 https://c1.abus.com/asc-pim-assets-01/medias/docus/22/20190619-IPCB7x615AB_INST_DE_GB.pdf | https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcb78615a",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCS29511",
+      "reason": "https://c1.abus.com/asc-pim-assets-01/medias/docus/28/20230425-IPCS29511_BDA_INT.pdf: 403 https://c1.abus.com/asc-pim-assets-01/medias/docus/28/20230425-IPCS29511_BDA_INT.pdf",
+      "slug": "abus-ipcs29511",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCS62120",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcs62120",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCS82500",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcs82500",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCS82520",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcs82520",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCS82530",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcs82530",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCS83500",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-ipcs83500",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCS84531",
+      "reason": "https://c1.abus.com/var/ImagesPIM/d110001/medias/docus/29/220504-IPCS84511_84531_TVIP82561_BDA_INT.pdf: 403 https://c1.abus.com/var/ImagesPIM/d110001/medias/docus/29/220504-IPCS84511_84531_TVIP82561_BDA_INT.pdf",
+      "slug": "abus-ipcs84531",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IPCS84550",
+      "reason": "https://c1.abus.com/var/ImagesPIM/d110001/medias/docus/23/20200218-IPCS84530_IPCS84550-BDA-INT.pdf: 403 https://c1.abus.com/var/ImagesPIM/d110001/medias/docus/23/20200218-IPCS84530_IPCS84550-BDA-INT.pdf",
+      "slug": "abus-ipcs84550",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "TVIP83900",
+      "reason": "https://www.tinnes24.de/pdf/ABUS-Katalog-19-Video-IP-Sortiment.pdf: First two pages do not identify the exact camera model",
+      "slug": "abus-tvip83900",
+      "status": "unresolved",
+      "vendor": "ABUS"
+    },
+    {
+      "model": "IP4M-1055E",
+      "reason": "https://s3.amazonaws.com/amcrest-files/Documentation/IP4M-1055E+Technical+Specification.pdf: No large product-photo candidate in the first two pages",
+      "slug": "amcrest-ip4m-1055e",
+      "status": "unresolved",
+      "vendor": "Amcrest"
+    },
+    {
+      "model": "AC400 I81HQ",
+      "reason": "https://cdn.shopify.com/s/files/1/0110/6385/3156/files/I81HQ.pdf: First two pages do not identify the exact camera model",
+      "slug": "annke-ac400-i81hq",
+      "status": "unresolved",
+      "vendor": "Annke"
+    },
+    {
+      "model": "H4 PTZ 30x (2.0C-H4IRPTZ-DP30)",
+      "reason": "https://d8eqw8u9b6kgn.cloudfront.net/file_library/pdf/h4-ir-ptz/avigilon-h4-ir-ptz-datasheet-en-rev9.pdf: First two pages do not identify the exact camera model",
+      "slug": "avigilon-h4ptze-dp30",
+      "status": "unresolved",
+      "vendor": "Avigilon"
+    },
+    {
+      "model": "H5A 2MP Bullet (2.0C-H5A-BO1-IR)",
+      "reason": "https://www.avigilon.com/fs/documents/avigilon-h5a-line-camera-datasheet-en.pdf: First two pages do not identify the exact camera model",
+      "slug": "avigilon-h5a-bo1-ir-2mp",
+      "status": "unresolved",
+      "vendor": "Avigilon"
+    },
+    {
+      "model": "H5A 4MP Bullet (4.0C-H5A-BO1-IR)",
+      "reason": "https://www.avigilon.com/fs/documents/avigilon-h5a-line-camera-datasheet-en.pdf: First two pages do not identify the exact camera model",
+      "slug": "avigilon-h5a-bo1-ir-4mp",
+      "status": "unresolved",
+      "vendor": "Avigilon"
+    },
+    {
+      "model": "H5A 5MP Bullet (5.0C-H5A-BO2-IR)",
+      "reason": "https://www.avigilon.com/fs/documents/avigilon-h5a-line-camera-datasheet-en.pdf: First two pages do not identify the exact camera model",
+      "slug": "avigilon-h5a-bo2-ir-5mp",
+      "status": "unresolved",
+      "vendor": "Avigilon"
+    },
+    {
+      "model": "H6M 2MP Mini Dome (2.0C-H6M-D1-IR)",
+      "reason": "https://www.avigilon.com/fs/documents/avigilon-h6m-dome-datasheet-en.pdf: First two pages do not identify the exact camera model",
+      "slug": "avigilon-h6m-d1-ir-2mp",
+      "status": "unresolved",
+      "vendor": "Avigilon"
+    },
+    {
+      "model": "AUTODOME 7100i IR (NDP-7804-Z12L)",
+      "reason": "https://cdn.commerce.boschsecurity.com/public/documents/NDP_7804_Z12L_Data_sheet_enUS_126172057867.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-ndp-7804-z12l",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "AUTODOME IP starlight 5000i (NDP-5522-Z30)",
+      "reason": "https://assets.catalog.boschbuildingtechnologies.com/public/documents/NDP_5522_Z30_Data_sheet_enUS_125941031179.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-ndp-5522-z30",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "AUTODOME IP starlight 5000i (NDP-5522-Z30C)",
+      "reason": "https://cdn.commerce.boschsecurity.com/public/documents/NDP_5522_Z30C_Data_sheet_esES_125941033611.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-ndp-5522-z30c",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "DINION 5100i 2MP Bullet (NBE-5702-AL)",
+      "reason": "https://image.makewebeasy.net/makeweb/0/upnyp4ixT/Document/DINION_5100i_IR__Data_sheet_enUS_105250134283.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nbe-5702-al",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "DINION 5100i 5MP Bullet (NBE-5703-AL)",
+      "reason": "https://image.makewebeasy.net/makeweb/0/upnyp4ixT/Document/DINION_5100i_IR__Data_sheet_enUS_105250134283.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nbe-5703-al",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "DINION 7100i IR (NBE-7702-ALXT)",
+      "reason": "https://resources.keenfinity.tech/public/documents/DINION_7100i_IR_Data_Data_sheet_enUS_118826844939.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nbe-7702-alxt",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "DINION IP bullet 5000 HD (NTI-50022-A3)",
+      "reason": "https://assets.catalog.boschbuildingtechnologies.com/public/documents/NTI_5000_A3_Data_sheet_enUS_9007220087116299.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nti-50022-a3",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "DINION IP bullet 5000 HD (NTI-50022-A3S)",
+      "reason": "https://assets.catalog.boschbuildingtechnologies.com/public/documents/NTI_5000_A3_Data_sheet_enUS_9007220087116299.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nti-50022-a3s",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME 8000i Outdoor Dome (NDC-8502-R)",
+      "reason": "https://cdn.commerce.boschsecurity.com/public/documents/NDE_8502_R_Fixed_dom_Data_sheet_koKR_94290242059.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-ndc-8502-r-ooh",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME 8100i — X series (NDE-8703-RXT)",
+      "reason": "https://cdn.commerce.boschsecurity.com/public/documents/NDE_8703_RXT_Data_sheet_zhTW_125843041291.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nde-8703-rxt",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME 8100i IR 4MP — X series (NDE-8703-RXL)",
+      "reason": "https://cdn.commerce.boschsecurity.com/public/documents/NDE_8703_RXT_Data_sheet_zhTW_125843041291.pdf: First two pages do not identify the exact camera model | https://resources.keenfinity.tech/public/documents/NDE_8703_RXL_Data_sheet_enUS_125843025163.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nde-8703-rxl",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME 8100i X-series (NDE-8703-RX)",
+      "reason": "https://cdn.commerce.boschsecurity.com/public/documents/NDE_8703_RXT_Data_sheet_zhTW_125843041291.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nde-8703-rx",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME indoor 3100i IR (NDI-3702-AL)",
+      "reason": "https://cdn.commerce.boschsecurity.com/public/documents/NDI_3702_AL_GOV_Data_sheet_enUS_121022983563.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-ndi-3702-al",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME indoor 5100i 2MP (NDV-5702-AL)",
+      "reason": "https://www.hattelandtechnology.se/media/multicase/documents//bosch/ndv_5702_al_data_sheet_enus_98577396491.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-ndv-5702-al",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME indoor 5100i 5MP (NDV-5703-AL)",
+      "reason": "https://cdn.commerce.boschsecurity.com/public/documents/NDV_5703_AL_GOV_Data_sheet_enUS_101276195339.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-ndv-5703-al",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME IP starlight 8000i (NDE-8512-R)",
+      "reason": "https://keenfinity.blob.core.windows.net/public/documents/NDE_8512_R_Fixed__do_Data_sheet_enUS_92200399499.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nde-8512-r",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME IP starlight 8000i (NDE-8512-RX)",
+      "reason": "https://resources.keenfinity.tech/public/documents/NDE_8512_RX_Fixed_do_Data_sheet_enUS_92200431755.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nde-8512-rx",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME micro 3100i (NUE-3702-F02)",
+      "reason": "https://cdn.commerce.boschsecurity.com/public/documents/NUE_3702_F02_GOV_Data_sheet_enUS_118298731915.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nue-3702-f02",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME micro 3100i indoor (NUV-3702-F02)",
+      "reason": "https://cdn.commerce.boschsecurity.com/public/documents/NUV_3702_F02_Data_sheet_enUS_118298797067.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nuv-3702-f02",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME micro 3100i indoor (NUV-3702-F04)",
+      "reason": "https://assets.catalog.boschbuildingtechnologies.com/public/documents/NUE_3703_F02_Data_sheet_enUS_118298756235.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nuv-3702-f04",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME micro 3100i indoor (NUV-3702-F04H) — Micro dome 2MP HDR 106° HDMI",
+      "reason": "https://resources.keenfinity.tech/public/documents/FLEXIDOME_micro_3100_Data_sheet_esES_118298709131.pdf: First two pages do not identify the exact camera model | https://assets.catalog.boschbuildingtechnologies.com/public/documents/NUE_3703_F02_Data_sheet_enUS_118298756235.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nuv-3702-f04h",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME multi 7000i 4x5MP (NDM-7703-AL)",
+      "reason": "https://media.boschsecurity.com/fs/media/en/pb/media/support_1/tools/ip_video_product_overview.pdf: 404 https://media.boschsecurity.com/fs/media/en/pb/media/support_1/tools/ip_video_product_overview.pdf | https://resources.keenfinity.tech/public/documents/NDM_7703_AL_Fixed_do_Data_sheet_enUS_84181084299.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-ndm-7703-al",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME outdoor 5100i 2MP (NDE-5702-AL)",
+      "reason": "https://assets.catalog.boschbuildingtechnologies.com/public/documents/NDE_5702_AL_Data_sheet_enUS_98577427467.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nde-5702-al",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME outdoor 5100i 5MP (NDE-5703-AL)",
+      "reason": "https://assets.catalog.boschbuildingtechnologies.com/public/documents/NDE_5703_AL_Data_sheet_enUS_98577430411.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nde-5703-al",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "FLEXIDOME panoramic 5100i 6MP (NDS-5703-F360LE)",
+      "reason": "https://media.boschsecurity.com/fs/media/en/pb/media/support_1/tools/ip_video_product_overview.pdf: 404 https://media.boschsecurity.com/fs/media/en/pb/media/support_1/tools/ip_video_product_overview.pdf | https://cdn.commerce.boschsecurity.com/public/documents/NDS_5703_F360LE_Fixe_Data_sheet_enUS_91098305547.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-nds-5703-f360le",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "MIC IP fusion 9000i (MIC-9502-Z30BVF)",
+      "reason": "https://cdn.commerce.boschsecurity.com/public/documents/MIC_IP_fusion_9000i_Data_sheet_enUS_75058032907.pdf: First two pages do not identify the exact camera model",
+      "slug": "bosch-mic-9502-z30bvf",
+      "status": "unresolved",
+      "vendor": "Bosch"
+    },
+    {
+      "model": "IPC-HDW1239T1-LED-S6",
+      "reason": "https://material.dahuasecurity.com/uploads/cpq/prm-os-srv-res/smart/datasheetzipfiles/IPC-HDW1239T1-A-LED_S6_datasheet_20240131.pdf: First two pages do not identify the exact camera model",
+      "slug": "dahua-ipc-hdw1239t1-led-s6",
+      "status": "unresolved",
+      "vendor": "Dahua"
+    },
+    {
+      "model": "IPC-HDW1439T-A-LED-S4",
+      "reason": "https://material.dahuasecurity.com/uploads/soft/20221123/DH-IPC-HDW1439T1-A-LED-S4_datasheet_20220408.pdf: First two pages do not identify the exact camera model",
+      "slug": "dahua-ipc-hdw1439t-a-led-s4",
+      "status": "unresolved",
+      "vendor": "Dahua"
+    },
+    {
+      "model": "IPC-HDW1439T1-LED",
+      "reason": "https://material.dahuasecurity.com/uploads/cpq/prm-os-srv-res/smart/datasheetzipfiles/IPC-HDW1439T1-A-LED_S6_datasheet_20240131.pdf: First two pages do not identify the exact camera model",
+      "slug": "dahua-ipc-hdw1439t1-led",
+      "status": "unresolved",
+      "vendor": "Dahua"
+    },
+    {
+      "model": "IPC-HDW3841TP-ZAS",
+      "reason": "https://material.dahuasecurity.com/uploads/cpq/prm-os-srv-res/smart/datasheetzipfiles/IPC-HDW3841T-ZAS_Datasheet_20210330.pdf: First two pages do not identify the exact camera model",
+      "slug": "dahua-ipc-hdw3841tp-zas",
+      "status": "unresolved",
+      "vendor": "Dahua"
+    },
+    {
+      "model": "IPC-HFW1239S1-LED-S6",
+      "reason": "https://material.dahuasecurity.com/uploads/soft/20220516/DH-IPC-HFW1239S1-LED-S4_datasheet_20220516.pdf: First two pages do not identify the exact camera model",
+      "slug": "dahua-ipc-hfw1239s1-led-s6",
+      "status": "unresolved",
+      "vendor": "Dahua"
+    },
+    {
+      "model": "IPC-HFW1439S-LED-S4",
+      "reason": "https://material.dahuasecurity.com/uploads/soft/20230201/DH-IPC-HFW1439S1-LED-S4_datasheet_20220408-(1).pdf: First two pages do not identify the exact camera model",
+      "slug": "dahua-ipc-hfw1439s-led-s4",
+      "status": "unresolved",
+      "vendor": "Dahua"
+    },
+    {
+      "model": "IPC-HFW1439S1-LED",
+      "reason": "https://material.dahuasecurity.com/uploads/soft/20230201/DH-IPC-HFW1439S1-LED-S4_datasheet_20220408-(1).pdf: No large product-photo candidate in the first two pages",
+      "slug": "dahua-ipc-hfw1439s1-led",
+      "status": "unresolved",
+      "vendor": "Dahua"
+    },
+    {
+      "model": "IPC-HFW1439S1-LED-S4",
+      "reason": "https://material.dahuasecurity.com/uploads/soft/20230201/DH-IPC-HFW1439S1-LED-S4_datasheet_20220408-(1).pdf: No large product-photo candidate in the first two pages",
+      "slug": "dahua-ipc-hfw1439s1-led-s4",
+      "status": "unresolved",
+      "vendor": "Dahua"
+    },
+    {
+      "model": "IPC-HFW2831T-AS-S2 (LATAM)",
+      "reason": "https://www.dahuasecurity.com/asset/upload/uploads/soft/20200320/DH-IPC-HFW2831T-AS-S2_datasheet_20200318.pdf: First two pages do not identify the exact camera model",
+      "slug": "dahua-ipc-hfw2831t-as-s2-latam",
+      "status": "unresolved",
+      "vendor": "Dahua"
+    },
+    {
+      "model": "IPC-HFW2831TP-ZS",
+      "reason": "https://material.dahuasecurity.com/uploads/cpq/DH-IPC-HFW2831T-ZS-S2_datasheet_20201204.pdf: First two pages do not identify the exact camera model",
+      "slug": "dahua-ipc-hfw2831tp-zs",
+      "status": "unresolved",
+      "vendor": "Dahua"
+    },
+    {
+      "model": "IPC-HFW3449T1-AS-PV",
+      "reason": "https://materialfile.dahuasecurity.com/uploads/cpq/prm-os-srv-res/smart/datasheetzipfiles/IPC-HFW3449T1-AS-PV_S5_datasheet_20250709.pdf: No large product-photo candidate in the first two pages",
+      "slug": "dahua-ipc-hfw3449t1-as-pv",
+      "status": "unresolved",
+      "vendor": "Dahua"
+    },
+    {
+      "model": "IPC-HFW3849T1-AS-PV",
+      "reason": "https://www.dahuasecurity.com/asset/upload/uploads/cpq/prm-os-srv-res/smart/datasheetzipfiles/IPC-HFW3849T1-AS-PV-S3_datasheet_20220525.pdf: 404 https://www.dahuasecurity.com/asset/upload/uploads/cpq/prm-os-srv-res/smart/datasheetzipfiles/IPC-HFW3849T1-AS-PV-S3_datasheet_20220525.pdf",
+      "slug": "dahua-ipc-hfw3849t1-as-pv",
+      "status": "unresolved",
+      "vendor": "Dahua"
+    },
+    {
+      "model": "IPC-PFW8802-A180",
+      "reason": "https://www.dahuasecurity.com/asset/upload/uploads/soft/20200720/1.3DH-IPC-PFW8802-A180_datasheet20200428V2.pdf: 403 https://www.dahuasecurity.com/asset/upload/uploads/soft/20200720/1.3DH-IPC-PFW8802-A180_datasheet20200428V2.pdf",
+      "slug": "dahua-ipc-pfw8802-a180",
+      "status": "unresolved",
+      "vendor": "Dahua"
+    },
+    {
+      "model": "ITC237-PW1B-IRZ-LR",
+      "reason": "https://www.dahuasecurity.com/asset/upload/product/20180110/ITC237-PW1B-IRZ_Datasheet_20180105.pdf: First two pages do not identify the exact camera model",
+      "slug": "dahua-itc237-pw1b-irz-lr",
+      "status": "unresolved",
+      "vendor": "Dahua"
+    },
+    {
+      "model": "GV-ABL4701",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/ABL/Datasheet_IPCamABL4701.pdf: No large product-photo candidate in the first two pages",
+      "slug": "geovision-gv-abl4701",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-EFD4700",
+      "reason": "https://s3.amazonaws.com/geovision_downloads/Manual/IPCAM/Datasheet/Target/Datasheet_IPCamEFD4700.pdf: No large product-photo candidate in the first two pages",
+      "slug": "geovision-gv-efd4700",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "image_cache_file": "datasheet-images/geovision-gv-fer12700.webp",
+      "image_source_url": "https://s3.amazonaws.com/geovision_downloads/Manual/Fisheye/Datasheet_IPCamH265FER12700.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "geovision-gv-fer12700",
+      "status": "resolved"
+    },
+    {
+      "model": "GV-GBLN4800",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/Bullet/Datasheet_GV-GBLN4800.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-gbln4800",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-GBLP8900",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/Multi-Sensor_Panoramic/Datasheet_GV-GBLP8900.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-gblp8900",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-GDR4900",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/Dome/Datasheet_GV-GDR4900.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-gdr4900",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-GEB4900",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/Eyeball/Datasheet_GV-GEB4900.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-geb4900",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-PDR8800",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/Multi-Sensor_Panoramic/Datasheet_GV-PDR8800.pdf: Selected image is a technical line drawing, not a product photo",
+      "slug": "geovision-gv-pdr8800",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-RBL5811",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/Bullet/Datasheet_GV-RBL5811.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-rbl5811",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "image_cache_file": "datasheet-images/geovision-gv-sd2722-ir.webp",
+      "image_source_url": "https://dlcdn.geovision.com.tw/Manual/Speed-Dome/Datasheet/Datasheet_IPCamSD2722-IR.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "geovision-gv-sd2722-ir",
+      "status": "resolved"
+    },
+    {
+      "model": "GV-SD4825-IR",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/Speed-Dome/Datasheet/Datasheet_IPCamSD4825-IR.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-sd4825-ir",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TBL2705",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TBL/Datasheet_IPCamTBL2705.pdf: No large product-photo candidate in the first two pages",
+      "slug": "geovision-gv-tbl2705",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TBL2706",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TBL/Datasheet_IPCamTBL2706.pdf: 403 https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TBL/Datasheet_IPCamTBL2706.pdf",
+      "slug": "geovision-gv-tbl2706",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TBL2718",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TBL/Datasheet_IPCamTBL2718.pdf: No large product-photo candidate in the first two pages",
+      "slug": "geovision-gv-tbl2718",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TBL4700",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TBL/Datasheet_IPCamTBL4700.pdf: No large product-photo candidate in the first two pages",
+      "slug": "geovision-gv-tbl4700",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TBL4703",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TBL/Datasheet_IPCamTBL4703.pdf: No large product-photo candidate in the first two pages",
+      "slug": "geovision-gv-tbl4703",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TBL4705",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TBL/Datasheet_IPCamTBL4705.pdf: No large product-photo candidate in the first two pages",
+      "slug": "geovision-gv-tbl4705",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TBL4711",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TBL/Datasheet_IPCamTBL4711.pdf: No large product-photo candidate in the first two pages",
+      "slug": "geovision-gv-tbl4711",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TBL4807",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TBL/Datasheet_IPCamTBL4807.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-tbl4807",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TBL4810",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TBL/Datasheet_IPCamTBL4810.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-tbl4810",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TBL8810",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TBL/Datasheet_IPCamTBL8810.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-tbl8810",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TDR2702",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TDR/Datasheet_IPCamTDR2702.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-tdr2702",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TDR2705",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TDR/Datasheet_IPCamTDR2705.pdf: 403 https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TDR/Datasheet_IPCamTDR2705.pdf",
+      "slug": "geovision-gv-tdr2705",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TDR4700",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TDR/Datasheet_IPCamTDR4700.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-tdr4700",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TDR4702",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TDR/Datasheet_IPCamTDR4702.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-tdr4702",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TMS20811",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/Multi-Sensor_Panoramic/Datasheet_GV-TMS20811.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-tms20811",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TMS8800",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/Multi-Sensor_Panoramic/Datasheet_GV-TMS8800.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-tms8800",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TVD4810",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TVD/Datasheet_IPCamTVD4810.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-tvd4810",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GV-TVD8810",
+      "reason": "https://dlcdn.geovision.com.tw/Manual/IPCAM/Datasheet/TVD/Datasheet_IPCamTVD8810.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "geovision-gv-tvd8810",
+      "status": "unresolved",
+      "vendor": "GeoVision"
+    },
+    {
+      "model": "GSC3625",
+      "reason": "https://www.grandstream.com/hubfs/Product_Documentation/GSC362X_usermanual.pdf: First two pages do not identify the exact camera model",
+      "slug": "grandstream-gsc3625",
+      "status": "unresolved",
+      "vendor": "Grandstream"
+    },
+    {
+      "model": "ANO-L7082R",
+      "reason": "https://www.a1securitycameras.com/content/product_documents/59156/Hanwha-Techwin-(Samsung)-ANO-L7082R-Datasheet-A1.pdf: 403 https://www.a1securitycameras.com/content/product_documents/59156/Hanwha-Techwin-(Samsung)-ANO-L7082R-Datasheet-A1.pdf",
+      "slug": "hanwha-ano-l7082r",
+      "status": "unresolved",
+      "vendor": "Hanwha"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1021g2-liu.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000069642/DS-2CD1021G2-LIU_Datasheet_20260409.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1021g2-liu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1023g0e-i.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000007714/DS-2CD1023G0E-I_Datasheet_20260409.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1023g0e-i",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1023g2-iuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1023G2-IUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1023g2-iuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1023g2-liu.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000042453/DS-2CD1023G2-LIUF_Datasheet_20230914.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1023g2-liu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1023g2-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1023G2-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1023g2-liuf",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD1027G2H-LIU(F)",
+      "reason": "https://assets.hikvision.com/prd/public/all/doc/sm000059821/DS-2CD1027G2H-LIUF_Datasheet_20240718.pdf: fetch failed | https://assets.hikvision.com/prd/public/all/doc/sm000059821/DS-2CD1027G2H-LIUF_Datasheet_20240718.pdf: fetch failed",
+      "slug": "hikvision-ds-2cd1027g2h-liu",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1027g2h-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1027G2H-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1027g2h-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1043g2-iuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1043G2-IUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1043g2-iuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1043g2-liu.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000042445/DS-2CD1043G2-LIUF_Datasheet_20230914.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1043g2-liu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1043g2-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1043G2-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1043g2-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1047g0-luf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1047G0-LUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1047g0-luf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1047g2h-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1047G2H-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1047g2h-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1067g2h-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1067G2H-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1067g2h-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1123g2-i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1123G2-I.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1123g2-i",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1123g2-liu.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/m000064177/DS-2CD1123G2-LIUF_Datasheet_20230914.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1123g2-liu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1123g2-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1123G2-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1123g2-liuf",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD1127G0-LUF-D",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1127G0-LUF-D.pdf: First two pages do not identify the exact camera model",
+      "slug": "hikvision-ds-2cd1127g0-luf-d",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1127g2h-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1127G2H-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1127g2h-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1143g2-i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1143G2-I.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1143g2-i",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1143g2-iuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1143G2-IUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1143g2-iuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1143g2-liu.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000042443/DS-2CD1143G2-LIUF_Datasheet_20230914.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1143g2-liu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1143g2-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1143G2-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1143g2-liuf",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD1147G0-LUF-D",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1147G0-LUF-D.pdf: First two pages do not identify the exact camera model",
+      "slug": "hikvision-ds-2cd1147g0-luf-d",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1147g2h-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1147G2H-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1147g2h-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1167g2h-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1167G2H-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1167g2h-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1323g2-iuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1323G2-IUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1323g2-iuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1323g2-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1323G2-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1323g2-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1327g2h-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1327G2H-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1327g2h-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1343g2-iuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1343G2-IUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1343g2-iuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1343g2-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1343G2-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1343g2-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1347g2h-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1347G2H-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1347g2h-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1367g2h-liuf.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1367G2H-LIUF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1367g2h-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1623g2-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1623G2-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1623g2-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1643g2-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1643G2-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1643g2-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1723g2-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1723G2-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1723g2-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1743g2-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1743G2-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1743g2-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd1h43g2-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1H43G2-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd1h43g2-izs",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD1T27G0-LUF-C",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD1T27G0-LUF-C.pdf: First two pages do not identify the exact camera model",
+      "slug": "hikvision-ds-2cd1t27g0-luf-c",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd20126g3-iuy-srb.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000106810/DS-2CD20126G3-IUY_SRB-Black_Datasheet_20260724.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd20126g3-iuy-srb",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd20126g3-iy.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000106831/DS-2CD20126G3-IY_Datasheet_20260724.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd20126g3-iy",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd20166g3-iuy.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000106828/DS-2CD20166G3-IUY_Datasheet_20260724.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd20166g3-iuy",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd20166g3-iuy-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000106868/DS-2CD20166G3-IUY_SL_Datasheet_20260724.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd20166g3-iuy-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2021g1-i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2021G1-I-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2021g1-i",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2026g2-iu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2026G2-IU-D.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2026g2-iu",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2027G2-LU",
+      "reason": "https://assets.hikvision.com/prd/public/all/doc/sm000058317/DS-2CD2027G2-LU-C_Datasheet_V5.5.113_20230418.pdf: fetch failed",
+      "slug": "hikvision-ds-2cd2027g2-lu",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2043g2-iu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2043G2-IU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2043g2-iu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2043g2-l.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2043G2-L.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2043g2-l",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2043G2-LI2U",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2043G2-LI2U.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2043g2-li2u",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2046g2-iu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2046G2-IU-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2046g2-iu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2046g2-iu-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000059209/DS-2CD2046G2-IU_SL-C_Datasheet_20231116.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2046g2-iu-sl",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2046G2H-I2U/SLRB",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2046G2H-I2U_SLRB.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2046g2h-i2u-slrb",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2046g2h-iu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2046G2H-IU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2046g2h-iu",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2047G2-L",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000048866/DS-2CD2047G2-LU_SL_Datasheet_20260105.pdf: fetch failed",
+      "slug": "hikvision-ds-2cd2047g2-l",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2047g2h-liu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2047G2H-LIU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2047g2h-liu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2047g2h-liu-sl.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2047G2H-LIU_SL-eF.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2047g2h-liu-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2047g3-li2uy.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000077841/DS-2CD2047G3-LI2UY_SRB_Datasheet_20260105.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2047g3-li2uy",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2047g3-li2uy-slrb.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2047G3-LI2UY_SLRB.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2047g3-li2uy-slrb",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2066g2-iu-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000059251/DS-2CD2066G2-IU_SL-C_Datasheet_V5.7.11_20230202.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2066g2-iu-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2067g2h-liu-sl.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2067G2H-LIU_SL.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2067g2h-liu-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2083g2-iu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2083G2-IU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2083g2-iu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2086g2-iu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2086G2-IU-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2086g2-iu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2086g2-iu-sl.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2086G2-IU_SL-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2086g2-iu-sl",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2086G2H-I2U/SLRB",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2086G2H-I2U_SLRB.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2086g2h-i2u-slrb",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2086g2h-iu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2086G2H-IU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2086g2h-iu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2087g2-l.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000064598/DS-2CD2087G2-LU-C_Datasheet_V5.5.115_20230418.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2087g2-l",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2087g2h-liu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2087G2H-LIU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2087g2h-liu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2087g2h-liu-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000058455/DS-2CD2087G2H-LIU_SL-_Datasheet_20231116.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2087g2h-liu-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2087g3-li2uy-slrb.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2087G3-LI2UY_SLRB.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2087g3-li2uy-slrb",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2123g2-is.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2123G2-IS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2123g2-is",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2126G2-I",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2126G2-I-D.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2126g2-i",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2126g2-ims.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000108918/DS-2CD2126G2-IMS_Datasheet_20240409.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2126g2-ims",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2126g2-isu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2126G2-ISU-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2126g2-isu",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2143G2-LIPTRZS2UY",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/sm000106619/DS-2CD2143G2-LIPTRZS2UY_Datasheet_20260630.pdf: terminated",
+      "slug": "hikvision-ds-2cd2143g2-liptrzs2uy",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2146g2h-isu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2146G2H-ISU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2146g2h-isu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2146g3-iptrzs2uy.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000106624/DS-2CD2146G3-IPTRZS2UY_Datasheet_20260525.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2146g3-iptrzs2uy",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2147g2-su.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2147G2-SU-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2147g2-su",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2147g2h-lisu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2147G2H-LISU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2147g2h-lisu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2166g2-isu.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000059060/DS-2CD2166G2-ISU-C_Datasheet_V5.7.11_20230201.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2166g2-isu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2167g2h-lisu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2167G2H-LISU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2167g2h-lisu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2183g2-is.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2183G2-IS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2183g2-is",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2186g2-ims.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000108919/DS-2CD2186G2-IMS_Datasheet_20240409.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2186g2-ims",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2186g2-isu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2186G2-ISU-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2186g2-isu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2186g2h-isu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2186G2H-ISU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2186g2h-isu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2187g2-lsu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2187G2-LSU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2187g2-lsu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2187g2h-li.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000051719/DS-2CD2187G2H-LI_Datasheet_20260603.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2187g2h-li",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2187g2h-lisu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2187G2H-LISU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2187g2h-lisu",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2187G3-LIS2UY",
+      "reason": "https://assets.hikvision.com/prd/public/all/doc/m000144448/DS-2CD2187G3-LIS2UY_Datasheet_20241021.pdf: No large product-photo candidate in the first two pages | https://assets.hikvision.com/prd/normal/all/doc/sm000077860/fr-ca/DS-2CD2187G3-LIS2UY_Datasheet_20250414.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2187g3-lis2uy",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2CD23126G3-I2UY",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/sm000106793/DS-2CD23126G3-I2UY_Datasheet_20260724.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd23126g3-i2uy",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd23126g3-is2uy-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000106806/DS-2CD23126G3-IS2UY_SL_Datasheet_20260724.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd23126g3-is2uy-sl",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD23166G3-I(2U)Y",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/sm000106865/DS-2CD23166G3-I2UY_Datasheet_20251029.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd23166g3-i2uy",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2CD23166G3-IY",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/sm000106865/DS-2CD23166G3-IY_Datasheet_20260724.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd23166g3-iy",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2CD2323G2-IU",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2323G2-IU-D.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2323g2-iu",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2CD2326G2-IU",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2326G2-IU-D.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2326g2-iu",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2327g2-lu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2327G2-LU-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2327g2-lu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2343g2-iu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2343G2-IU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2343g2-iu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2346g2-isu-sl.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2346G2-ISU_SL-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2346g2-isu-sl",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2346G2H-IS2U/SLRB",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2346G2H-IS2U_SLRB.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2346g2h-is2u-slrb",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2346g2h-iu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2346G2H-IU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2346g2h-iu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2347g2-l.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000058334/DS-2CD2347G2-LU-C_Datasheet_20240417.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2347g2-l",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2347g2-lsu-sl.webp",
+      "image_source_url": "https://www.hikvision.com/content/dam/hikvision/usa/data-sheet/colorvu-ip/Datasheet-for-DS-2CD2347G2-LSU_SL.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2347g2-lsu-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2347g2p-lsu-sl.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2347G2P-LSU_SL-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2347g2p-lsu-sl",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2347G3-LI2UY",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/sm000077863/DS-2CD2347G3-LI2UY_Datasheet_20260713.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2347g3-li2uy",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2CD2347G3-LIS2UY/SLRB",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2347G3-LIS2UY_SLRB.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2347g3-lis2uy-slrb",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2CD2367G2-L",
+      "reason": "https://assets.hikvision.com/prd/public/all/doc/sm000058417/DS-2CD2367G2-LU-C_Datasheet_V5.7.11_20230418.pdf: 403 https://assets.hikvision.com/prd/public/all/doc/sm000058417/DS-2CD2367G2-LU-C_Datasheet_V5.7.11_20230418.pdf",
+      "slug": "hikvision-ds-2cd2367g2-l",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2CD2367G2H-LISU/SL",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000078503/DS-2CD2367G2H-LISU_SL_Datasheet_20260713.pdf: 403 https://assets.hikvision.com/prd/normal/all/doc/m000078503/DS-2CD2367G2H-LISU_SL_Datasheet_20260713.pdf",
+      "slug": "hikvision-ds-2cd2367g2h-lisu-sl",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2367g2h-liu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2367G2H-LIU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2367g2h-liu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2367g2p-lsu-sl.webp",
+      "image_source_url": "https://www.hikvision.com/content/dam/hikvision/pl/firmware/DS-2CD2367G2P-LSU_SLC_Datasheet_20240731_PL.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2367g2p-lsu-sl",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2367G3-LIS2UY/SL",
+      "reason": "https://assets.hikvision.com/prd/public/all/doc/m000144452/DS-2CD2367G3-LIS2UY_SLRB_Datasheet_20241021.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2367g3-lis2uy-sl",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2383g2-iu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2383G2-IU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2383g2-iu",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2386G2H-IS2U/SLRB",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2386G2H-IS2U_SLRB.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2386g2h-is2u-slrb",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2386g2h-iu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2386G2H-IU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2386g2h-iu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2387g2h-lisu-sl.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2387G2H-LISU_SL.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2387g2h-lisu-sl",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2387G3-LIS2UY/SL",
+      "reason": "https://assets.hikvision.com/prd/public/all/doc/sm000077874/DS-2CD2387G3-LIS2UY_SLRB_Datasheet_20250414.pdf: 403 https://assets.hikvision.com/prd/public/all/doc/sm000077874/DS-2CD2387G3-LIS2UY_SLRB_Datasheet_20250414.pdf",
+      "slug": "hikvision-ds-2cd2387g3-lis2uy-sl",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2CD2387G3-LIS2UY/SLRB",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2387G3-LIS2UY_SLRB.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2387g3-lis2uy-slrb",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2423g2-i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2423G2-I.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2423g2-i",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2423G2-IW",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2423G2-IW-W.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2423g2-iw",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2443g2-i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2443G2-I.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2443g2-i",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2446g2-i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2446G2-I-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2446g2-i",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2483g2-i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2483G2-I.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2483g2-i",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2523G2-IS",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2523G2-IS-D.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2523g2-is",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2546g2-iws.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2546G2-IWS-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2546g2-iws",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2547g2-ls.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2547G2-LS-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2547g2-ls",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2566g2-is.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000059285/DS-2CD2566G2-IS-C_Datasheet_V5.7.11_20230201.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2566g2-is",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2583g2-is.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2583G2-IS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2583g2-is",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2586g2-is.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2586G2-IS-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2586g2-is",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2623g2-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2623G2-IZS-D.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2623g2-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2643g2-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2643G2-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2643g2-izs",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2646G2-IZS",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2646G2-IZS_C.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2646g2-izs",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2646g2h-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2646G2H-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2646g2h-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2646g2ht-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2646G2HT-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2646g2ht-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2646g2t-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2646G2T-IZS-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2646g2t-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2647g2ht-lizs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2647G2HT-LIZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2647g2ht-lizs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2647g3-lizs2uy-slrb.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2647G3-LIZS2UY_SLRB.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2647g3-lizs2uy-slrb",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2647g3t-lizsy.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/m000144461/DS-2CD2647G3T-LIZSY_Datasheet_20250620.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2647g3t-lizsy",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2667g2ht-lizs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2667G2HT-LIZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2667g2ht-lizs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2686g2-izs.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000059137/DS-2CD2686G2-IZS-C_Datasheet_V5.5.112_20230218.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2686g2-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2686g2h-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2686G2H-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2686g2h-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2686g2ht-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2686G2HT-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2686g2ht-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2686g2t-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2686G2T-IZS-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2686g2t-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2687g2ht-lizs.webp",
+      "image_source_url": "https://www.hikvision.com/content/dam/hikvision/products/S000000001/S000000002/S000000003/S000000025/OFR007893/M000078496/SM000058446/Data_Sheet/DS-2CD2687G2HT-LIZS_Datasheet_20230720.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2687g2ht-lizs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2687g2t-lzs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2687G2T-LZS-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2687g2t-lzs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2687g3-lizs2uy-slrb.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2687G3-LIZS2UY_SLRB.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2687g3-lizs2uy-slrb",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2687G3T-LIZSY",
+      "reason": "https://assets.hikvision.com/prd/public/all/doc/sm000077889/DS-2CD2687G3T-LIZSY_Datasheet_20241018.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2687g3t-lizsy",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2723g2-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2723G2-IZS-D.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2723g2-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2726g2t-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2726G2T-IZS-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2726g2t-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2746g2-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2746G2-IZS-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2746g2-izs",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2746G2H-IPTRZS2U/SLRB",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2746G2H-IPTRZS2U_SLRB.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2746g2h-iptrzs2u-slrb",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2746g2ht-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2746G2HT-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2746g2ht-izs",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2747G2H-LIPTRZS2U/SLRB",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2747G2H-LIPTRZS2U_SLRB.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2747g2h-liptrzs2u-slrb",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2747g2ht-lizs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2747G2HT-LIZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2747g2ht-lizs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2747g2t-lzs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2747G2T-LZS-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2747g2t-lzs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2747g3-liptrzs2uy-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000077890/DS-2CD2747G3-LIPTRZS2UY_SL_Datasheet_20260629.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2747g3-liptrzs2uy-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2747g3-liptrzs2uy-srb.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000106994/DS-2CD2747G3-LIPTRZS2UY_SRBBlack_Datasheet_20260629.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2747g3-liptrzs2uy-srb",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2747g3-liptrzsy.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000107005/DS-2CD2747G3-LIPTRZSY_Datasheet_20260629.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2747g3-liptrzsy",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2767g2ht-lizs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2767G2HT-LIZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2767g2ht-lizs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2767g3-liptrzs2uy-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000077895/DS-2CD2767G3-LIPTRZS2UY_SLBlack_Datasheet_20260629.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2767g3-liptrzs2uy-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2767g3-liptrzsy.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000107013/DS-2CD2767G3-LIPTRZSY_Datasheet_20260629.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2767g3-liptrzsy",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2767G3T-LIZSY",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/sm000106992/DS-2CD2767G3T-LIZSY_Datasheet_20250506.pdf: 403 https://assets.hikvision.com/prd/normal/all/doc/sm000106992/DS-2CD2767G3T-LIZSY_Datasheet_20250506.pdf",
+      "slug": "hikvision-ds-2cd2767g3t-lizsy",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2783g2-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2783G2-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2783g2-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2786g2-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2786G2-IZS-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2786g2-izs",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2786G2H-IPTRZS2U/SLRB",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2786G2H-IPTRZS2U_SLRB.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2786g2h-iptrzs2u-slrb",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2786g2ht-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2786G2HT-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2786g2ht-izs",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2787G2H-LIPTRZS2U/SLRB",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2787G2H-LIPTRZS2U_SLRB.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2787g2h-liptrzs2u-slrb",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2787g2ht-lizs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2787G2HT-LIZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2787g2ht-lizs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2787g2t-lzs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2787G2T-LZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2787g2t-lzs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2787g3-liptrzs2uy-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000077899/DS-2CD2787G3-LIPTRZS2UY_SLBlack_Datasheet_20260629.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2787g3-liptrzs2uy-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2787g3-liptrzs2uy-srb.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000106989/DS-2CD2787G3-LIPTRZS2UY_SRBBlack_Datasheet_20260629.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2787g3-liptrzs2uy-srb",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2787g3-liptrzsy.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000107003/DS-2CD2787G3-LIPTRZSY_Datasheet_20260629.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2787g3-liptrzsy",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2955G0-ISU",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2955G0-ISU.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2955g0-isu",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2CD2D25G1-D/NF",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2D25G1-D_NF.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2d25g1-d-nf",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2e23g2-u.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2E23G2-U.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2e23g2-u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2e43g2-u.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2E43G2-U.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2e43g2-u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2h23g2-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2H23G2-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2h23g2-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2h43g2-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2H43G2-IZS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2h43g2-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2h86g2-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2H86G2-IZS-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2h86g2-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2h86g2t-izs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2H86G2T-IZS-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2h86g2t-izs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2h87g3-lizs2uy-slrb.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2H87G3-LIZS2UY_SLRB.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2h87g3-lizs2uy-slrb",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2H87G3-LIZSY",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/sm000077910/DS-2CD2H87G3-LIZS2UY_SLRB_Datasheet_20250925.pdf: 403 https://assets.hikvision.com/prd/normal/all/doc/sm000077910/DS-2CD2H87G3-LIZS2UY_SLRB_Datasheet_20250925.pdf",
+      "slug": "hikvision-ds-2cd2h87g3-lizsy",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t127g3p-lis2uy-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000107036/DS-2CD2T127G3P-LIS2UY_SLRB_Datasheet_20251209.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t127g3p-lis2uy-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t167g3p-lis2uy-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000107043/DS-2CD2T167G3P-LIS2UY_SLBlack_Datasheet_20260711.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t167g3p-lis2uy-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t23g2-2i-4i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T23G2-2I_4I-D.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t23g2-2i-4i",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t26g2-2i-4i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T26G2-2I_4I-D.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t26g2-2i-4i",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t27g2-l.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T27G2-L-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t27g2-l",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t43g2-2i-4i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T43G2-2I_4I.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t43g2-2i-4i",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t46g2-2i-4i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T46G2-2I_4I-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t46g2-2i-4i",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t46g2-isu-sl.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T46G2-ISU_SL-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t46g2-isu-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t46g2h-2i-4i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T46G2H-2I-4I.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t46g2h-2i-4i",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2T46G2H-IS2U/SLRB",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T46G2H-IS2U_SLRB.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2t46g2h-is2u-slrb",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2CD2T46G2P-ISU/SL",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T46G2P-ISU_SL-C.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2t46g2p-isu-sl",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t47g2h-li.webp",
+      "image_source_url": "https://download.discomp.cz/hikvision/datasheets/DS-2CD2T47G2H-LI.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t47g2h-li",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t47g2h-lisu-sl.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T47G2H-LISU_SL.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t47g2h-lisu-sl",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2T47G2P-LSU/SL",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T47G2P-LSU_SL-C.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2t47g2p-lsu-sl",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2CD2T47G3-LIS2UY/SLRB",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T47G3-LIS2UY_SLRB.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2t47g3-lis2uy-slrb",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t67g2h-li.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T67G2H-LI.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t67g2h-li",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t67g2h-lisu-sl.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T67G2H-LISU_SL.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t67g2h-lisu-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t83g2-2i-4i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T83G2-2I_4I.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t83g2-2i-4i",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t86g2-2i-4i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T86G2-2I_4I-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t86g2-2i-4i",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t86g2-isu-sl.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T86G2-ISU_SL-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t86g2-isu-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t86g2h-2i-4i.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T86G2H-2I_4I.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t86g2h-2i-4i",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2T86G2H-IS2U/SLRB",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T86G2H-IS2U_SLRB.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2t86g2h-is2u-slrb",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2CD2T87G2-4I",
+      "reason": "https://assets.hikvision.com/prd/public/all/doc/sm000064613/DS-2CD2T87G2-L-C_Datasheet_V5.5.115_20230418.pdf: First two pages do not identify the exact camera model",
+      "slug": "hikvision-ds-2cd2t87g2-4i",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t87g2h-li.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T87G2H-LI.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t87g2h-li",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t87g2h-lisu-sl.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T87G2H-LISU_SL.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t87g2h-lisu-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t87g2p-lsu-sl.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T87G2P-LSU_SL-C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t87g2p-lsu-sl",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD2T87G3-LIS2UY/SL",
+      "reason": "https://assets.hikvision.com/prd/public/all/doc/m000144460/DS-2CD2T87G3-LIS2UY_SLRB_Datasheet_20241018.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2t87g3-lis2uy-sl",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2CD2T87G3-LIS2UY/SLRB",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD2T87G3-LIS2UY_SLRB.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cd2t87g3-lis2uy-slrb",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd2t87g3p-lis2uy-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000107027/DS-2CD2T87G3P-LIS2UY_SLBlack_Datasheet_20260711.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd2t87g3p-lis2uy-sl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd3021g3-liuf.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000186174/DS-2CD3021G3-LIUF_Datasheet_20260602.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd3021g3-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd3021g3e-liu.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000186173/DS-2CD3021G3E-LIU_Datasheet_20260602.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd3021g3e-liu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd3041g3-liu.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000186175/DS-2CD3041G3-LIU_Datasheet_20260602.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd3041g3-liu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd3041g3-liuf.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000114590/DS-2CD3041G3-LIUF_Datasheet_20260602.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd3041g3-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd3043g2-iu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD3043G2-IU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd3043g2-iu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd3047g3e-liu.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000178684/DS-2CD3047G3E-LIU_Datasheet_20260606.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd3047g3e-liu",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd3056g2-is.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/m000035425/DS-2CD3056G2-IS-H_Datasheet_20230717.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd3056g2-is",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd3086g2-is.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000050059/DS-2CD3086G2-IS-H_Datasheet_20230712.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd3086g2-is",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd3121g3-liuf.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000186178/DS-2CD3121G3-LIUF_Datasheet_20260603.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd3121g3-liuf",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd3156g2-is-u.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000042240/DS-2CD3156G2-ISU-C_Datasheet_V5.5.112_20230214.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd3156g2-is-u",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd3343g2-isu.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD3343G2-ISU.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd3343g2-isu",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CD3686G2T-IZSY-H",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD3686G2T-IZSY-H.pdf: First two pages do not identify the exact camera model",
+      "slug": "hikvision-ds-2cd3686g2t-izsy-h",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd3766g2t-izs-y.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/m000068169/DS-2CD3766G2T-IZSY-H_Datasheet_20231211.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd3766g2t-izs-y",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd6365g1-ivs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD6365G1-IVS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd6365g1-ivs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd6365g1-s-rc.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD6365G1-S_RC.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd6365g1-s-rc",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd63c5g1-s-rc.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD63C5G1-S_RC.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd63c5g1-s-rc",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cd6w65g1-ivs.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CD6W65G1-IVS.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cd6w65g1-ivs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2cv2041g2-idw.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CV2041G2-IDW-W.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2cv2041g2-idw",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2CV2141G2-IDW-E",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CV2141G2-IDW-E.pdf: First two pages do not identify the exact camera model",
+      "slug": "hikvision-ds-2cv2141g2-idw-e",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2CV2Q21G1-IDW",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2CV2Q21G1-IDW-W.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2cv2q21g1-idw",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de2a404iw-de3-ws6.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE2A404IW-DE3_WS6_C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de2a404iw-de3-ws6",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de2a404iw-de3s6.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE2A404IW-DE3S6_C.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de2a404iw-de3s6",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2DE2C400IWG",
+      "reason": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE2C400IWG_W.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2de2c400iwg",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de3404w-det5.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE3404W-DET5.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de3404w-det5",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de3a400bw-de-wt5.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE3A400BW-DE_WT5.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de3a400bw-de-wt5",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de3a400bw-det5.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE3A400BW-DET5.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de3a400bw-det5",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de3a404iwg-e.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE3A404IWG-E.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de3a404iwg-e",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de3a404iwg-e-w.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE3A404IWG-E_W.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de3a404iwg-e-w",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de4215iw-det5.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE4215IW-DET5.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de4215iw-det5",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de4225iw-det5.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE4225IW-DET5.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de4225iw-det5",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de4425iw-det5.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE4425IW-DET5.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de4425iw-det5",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2DE4825WG-E3",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000148772/DS-2DE4825WG-E3_Datasheet_20251209.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2de4825wg-e3",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de4a225iw-de.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/m000045331/Datasheet-of-DS-2DE4A225IW-DES6_V5.7.11_20230303.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de4a225iw-de",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de4a225iw-des6.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE4A225IW-DES6.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de4a225iw-des6",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de4a225iwg-e.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/m000061271/Datasheet-of-DS-2DE4A225IWG-E_V5.7.4_20230224.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de4a225iwg-e",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de4a225iwg1-e.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000173406/DS-2DE4A225IWG1-E_Datasheet_20260107.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de4a225iwg1-e",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de4a425iw-de.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/m000045332/Datasheet-of-DS-2DE4A425IW-DES6_V5.7.3_20230303.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de4a425iw-de",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de4a425iwg1-e.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000173407/DS-2DE4A425IWG1-E_Datasheet_20250924.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de4a425iwg1-e",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de5225w-ae3t5.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE5225W-AE3T5.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de5225w-ae3t5",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de5425iw-aet5.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE5425IW-AET5.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de5425iw-aet5",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de7a225iw-aebt5.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE7A225IW-AEBT5.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de7a225iw-aebt5",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de7a225iwg-eb-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/m000161009/DS-2DE7A225IWG-EB_SL_Datasheet_20250113.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de7a225iwg-eb-sl",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2DE7A225IWG1-E",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000171694/DS-2DE7A225IWG1-E_Datasheet_20260528.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2de7a225iwg1-e",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de7a232iw-aebt5.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE7A232IW-AEBT5.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de7a232iw-aebt5",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de7a232iwg-eb-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/m000161010/DS-2DE7A232IWG-EB_SL_Datasheet_20250514.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de7a232iwg-eb-sl",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2DE7A232IWG1-E",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000171695/DS-2DE7A232IWG1-E_Datasheet_20260528.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2de7a232iwg1-e",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de7a425iwg-eb-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/m000161011/DS-2DE7A425IWG-EB_SL_Datasheet_20250514.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de7a425iwg-eb-sl",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2DE7A425IWG1-E",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000171696/DS-2DE7A425IWG1-E_Datasheet_20260806.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2de7a425iwg1-e",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de7a432iw-aebt5.webp",
+      "image_source_url": "https://download.axilogi.com/Hikvision/Datasheet/DS-2DE7A432IW-AEBT5.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de7a432iw-aebt5",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2de7a432iwg-eb-sl.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000161012/DS-2DE7A432IWG-EB_SL_Datasheet_20250514.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2de7a432iwg-eb-sl",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2DE7A432IWG1-E",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000171697/DS-2DE7A432IWG1-E_Datasheet_20260806.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2de7a432iwg1-e",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2DE7A632IWG1-E",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000171698/DS-2DE7A632IWG1-E_Datasheet_20260528.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2de7a632iwg1-e",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2DE7A825IWG1-E",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000171699/DS-2DE7A825IWG1-E_Datasheet_20260528.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2de7a825iwg1-e",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "model": "DS-2DF4420-DX(304)(E)",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000162961/DS-2DF4420-DX304E_Datasheet_20251211.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2df4420-dx304e",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2df4420-dx316le.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000162962/DS-2DF4420-DX316LE_Datasheet_20251211.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2df4420-dx316le",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2DF4420-DX(S6)(C)(304)",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000062492/DS-2DF4420-DXS6C304_Datasheet_20250801.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2df4420-dxs6c304",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2df4420-dxs6-316lc.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000058706/DS-2DF4420-DXS6_316LC_Datasheet_20251211.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2df4420-dxs6-316lc",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2df4420wg-xeyadce.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000162966/DS-2DF4420WG-XEYADCE_Datasheet_20251211.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2df4420wg-xeyadce",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2dp7d836ixg1-lef.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000095835/DS-2DP7D836IXG1-LEF_432IR_Datasheet_20260812.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2dp7d836ixg1-lef",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2dp8a440ixg1-lef.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000100844/DS-2DP8A440IXG1-LEF_624F0_Datasheet_20260511.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2dp8a440ixg1-lef",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2se4c215mwg-e.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000062042/DS-2SE4C215MWG-E12F0_Datasheet_20230829.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2se4c215mwg-e",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2se4c225mwg-e.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/m000070245/DS-2SE4C225MWG-E_26F0_Datasheet_20241017.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2se4c225mwg-e",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2se4c425mwg-4g.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/m000159416/DS-2SE4C425MWG-4G_14_Datasheet_20250615.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2se4c425mwg-4g",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2se7c432iwg-k.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000111081/DS-2SE7C432IWG-K_4G_14F0_Datasheet_20260622.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2se7c432iwg-k",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2se7c432mwg-eb.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/m000072481/DS-2SE7C432MWG-EB_26F0_Datasheet_20250522.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2se7c432mwg-eb",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2sf7c425mxg2-lm-el.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000101372/DS-2SF7C425MXG2_LM-EL_26_Datasheet_20260417.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2sf7c425mxg2-lm-el",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2sf7c442mxg2-lm-el.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000101348/DS-2SF7C442MXG2_LM-EL_26_Datasheet_20260702.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2sf7c442mxg2-lm-el",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2sf8c442mxg1-elw.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000074502/DS-2SF8C442MXG1-ELW_26_Datasheet_20260620.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2sf8c442mxg1-elw",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2sf8c848mxg1-elw.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000074551/DS-2SF8C848MXG1-ELW_26_Datasheet_20260620.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2sf8c848mxg1-elw",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2XE6646G0-LIZSADC",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000144120/DS-2XE6646G0-LIZSADC_Datasheet_20260708.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2xe6646g0-lizsadc",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2xs3q47g1-ld.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000069081/DS-2XS3Q47G1-LD_4G_Datasheet_20230708.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2xs3q47g1-ld",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2xs3q47g1-ldh.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/m000069080/DS-2XS3Q47G1-LDH_4G_Datasheet_20240422.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2xs3q47g1-ldh",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2XS6A46G1-IZS",
+      "reason": "https://assets.hikvision.com/prd/public/all/doc/m000069240/DS-2XS6A46G1-IZS_C36S80_Datasheet_20250416.pdf: 403 https://assets.hikvision.com/prd/public/all/doc/m000069240/DS-2XS6A46G1-IZS_C36S80_Datasheet_20250416.pdf | https://assets.hikvision.com/prd/public/all/doc/m000091100/DS-2XS6A46G1-IZS_4G_Datasheet_20250416.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2xs6a46g1-izs",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2xs6a46g1-lizs.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000173264/DS-2XS6A46G1-LIZS_4G_Datasheet_20251220.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2xs6a46g1-lizs",
+      "status": "resolved"
+    },
+    {
+      "model": "DS-2XS6A46G1/P-IZS",
+      "reason": "https://assets.hikvision.com/prd/public/all/doc/m000128283/DS-2XS6A46G1_P-IZS_4G_Datasheet_20250414.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ds-2xs6a46g1-p-izs",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ds-2xs6a46g1e-lizs.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000164709/DS-2XS6A46G1E-LIZS_C36S80_Datasheet_20250926.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ds-2xs6a46g1e-lizs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ids-2cd5347g2-v-xs.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000172232/iDS-2CD5347G2_V-XS_Datasheet_20260630.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ids-2cd5347g2-v-xs",
+      "status": "resolved"
+    },
+    {
+      "model": "iDS-2CD5387G2/V-XS",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000172233/iDS-2CD5387G2_V-XS_Datasheet_20260630.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ids-2cd5387g2-v-xs",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ids-2cd5a46g2-v-xzhsy.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000100540/iDS-2CD5A46G2_V-XZHSY_Datasheet_20260805.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ids-2cd5a46g2-v-xzhsy",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ids-2cd5a86g2-v-xzhsy.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000100543/iDS-2CD5A86G2_V-XZHSY_Datasheet_20260805.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ids-2cd5a86g2-v-xzhsy",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ids-2cd5d47g2-v-xs.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000172230/iDS-2CD5D47G2_V-XS_Datasheet_20260630.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ids-2cd5d47g2-v-xs",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ids-2cd5d87g2-v-xs.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000172231/iDS-2CD5D87G2_V-XS_Datasheet_20260430.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ids-2cd5d87g2-v-xs",
+      "status": "resolved"
+    },
+    {
+      "model": "iDS-2CD5T87G2/V-XZHSY",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000172234/iDS-2CD5T87G2_V-XHSY_Datasheet_20250924.pdf: First two pages do not identify the exact camera model",
+      "slug": "hikvision-ids-2cd5t87g2-v-xzhsy",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ids-2cd7a46g0-p-izhs-y.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000080301/iDS-2CD7A46G0_P-IZHSY-C_Datasheet_20231122.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ids-2cd7a46g0-p-izhs-y",
+      "status": "resolved"
+    },
+    {
+      "model": "iDS-2CD7A47G2-XZHSY",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/sm000066340/iDS-2CD7A47G2-XZHSY_Datasheet_20251205.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hikvision-ids-2cd7a47g2-xzhsy",
+      "status": "unresolved",
+      "vendor": "Hikvision"
+    },
+    {
+      "image_cache_file": "datasheet-images/hikvision-ids-2cd7t46g2-vx3-ihsy.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/public/all/doc/sm000086677/iDS-2CD7T46G2_VX3-IHSY_Datasheet_20250616.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hikvision-ids-2cd7t46g2-vx3-ihsy",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/hilook-ipc-d121h-m.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/m000000474/IPC-D121H-M_Datasheet_20260522.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hilook-ipc-d121h-m",
+      "status": "resolved"
+    },
+    {
+      "model": "IPC-T241H-C",
+      "reason": "https://assets.hikvision.com/prd/normal/all/doc/m000119302/IPC-T241H-C_Datasheet_20260701.pdf: No large product-photo candidate in the first two pages",
+      "slug": "hilook-ipc-t241h-c",
+      "status": "unresolved",
+      "vendor": "HiLook"
+    },
+    {
+      "model": "PTZ-N2C200M-DE",
+      "reason": "https://assets.hikvision.com/prd/public/all/doc/sm000066639/PTZ-N2C200M-DE_Datasheet_20250212.pdf: 403 https://assets.hikvision.com/prd/public/all/doc/sm000066639/PTZ-N2C200M-DE_Datasheet_20250212.pdf",
+      "slug": "hilook-ptz-n2c200m-de",
+      "status": "unresolved",
+      "vendor": "HiLook"
+    },
+    {
+      "image_cache_file": "datasheet-images/hilook-ptz-n2c400m-de.webp",
+      "image_source_url": "https://assets.hikvision.com/prd/normal/all/doc/sm000066640/PTZ-N2C400M-DE_Datasheet_20260129.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "hilook-ptz-n2c400m-de",
+      "status": "resolved"
+    },
+    {
+      "model": "Cruiser 2 5MP",
+      "reason": "https://datasheet.w.od.ua/files/imou/imou-cruiser-2-ipc-gs7ep-5m0we-datasheet_eng.pdf: No large product-photo candidate in the first two pages",
+      "slug": "imou-cruiser-2-5mp",
+      "status": "unresolved",
+      "vendor": "IMOU"
+    },
+    {
+      "model": "Cruiser Dual 2C 4G 6MP",
+      "reason": "https://static-website.imou.com/a1e2f021-4948-4045-986b-b626df772f2c.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "imou-cruiser-dual-2c-4g",
+      "status": "unresolved",
+      "vendor": "IMOU"
+    },
+    {
+      "model": "DK7 5MP",
+      "reason": "https://cctv.rs/wp-content/uploads/2024/07/Dahua-Imou-DK7.pdf: First two pages do not identify the exact camera model",
+      "slug": "imou-dk7-5mp",
+      "status": "unresolved",
+      "vendor": "IMOU"
+    },
+    {
+      "image_cache_file": "datasheet-images/imou-titan-pro-6mp.webp",
+      "image_source_url": "https://static-website.imou.com/673b89be-cf64-4782-b9cf-30f4779c1d81.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "imou-titan-pro-6mp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/jovision-jvs-n3122sl.webp",
+      "image_source_url": "https://img.bjyyb.net/sites/69500/69884/20251202145732835.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "jovision-jvs-n3122sl",
+      "status": "resolved"
+    },
+    {
+      "model": "JVS-N430K-SDL",
+      "reason": "https://img.bjyyb.net/sites/69500/69884/20251201172302737.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "jovision-jvs-n430k-sdl",
+      "status": "unresolved",
+      "vendor": "Jovision"
+    },
+    {
+      "image_cache_file": "datasheet-images/jovision-jvs-n437-pcl.webp",
+      "image_source_url": "https://img.bjyyb.net/sites/69500/69884/20260116144347544.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "jovision-jvs-n437-pcl",
+      "status": "resolved"
+    },
+    {
+      "model": "JVS-N537-SDL",
+      "reason": "https://img.bjyyb.net/sites/69500/69884/20251201171702417.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "jovision-jvs-n537-sdl",
+      "status": "unresolved",
+      "vendor": "Jovision"
+    },
+    {
+      "image_cache_file": "datasheet-images/jovision-jvs-n637-udl.webp",
+      "image_source_url": "https://img.bjyyb.net/sites/69500/69884/20251201142202339.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "jovision-jvs-n637-udl",
+      "status": "resolved"
+    },
+    {
+      "model": "JVS-N819-LPR",
+      "reason": "https://img.bjyyb.net/sites/69500/69884/20251127153254794.pdf: No large product-photo candidate in the first two pages",
+      "slug": "jovision-jvs-n819-lpr",
+      "status": "unresolved",
+      "vendor": "Jovision"
+    },
+    {
+      "image_cache_file": "datasheet-images/jovision-jvs-n837-udl.webp",
+      "image_source_url": "https://img.bjyyb.net/sites/69500/69884/20251201141830544.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "jovision-jvs-n837-udl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/jovision-jvs-n837-vdl.webp",
+      "image_source_url": "https://img.bjyyb.net/sites/69500/69884/20251223153512152.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "jovision-jvs-n837-vdl",
+      "status": "resolved"
+    },
+    {
+      "model": "JVS-N913-K1-PE",
+      "reason": "https://img.bjyyb.net/sites/69500/69884/20220512144551128.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "jovision-jvs-n913-k1-pe",
+      "status": "unresolved",
+      "vendor": "Jovision"
+    },
+    {
+      "model": "JVS-N935SL-HY-R2",
+      "reason": "https://img.bjyyb.net/sites/69500/69884/20251203150024514.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "jovision-jvs-n935sl-hy-r2",
+      "status": "unresolved",
+      "vendor": "Jovision"
+    },
+    {
+      "model": "JVS-N937-JDL",
+      "reason": "https://img.bjyyb.net/sites/69500/69884/20250811150628828.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "jovision-jvs-n937-jdl",
+      "status": "unresolved",
+      "vendor": "Jovision"
+    },
+    {
+      "model": "JVS-N937-SDL",
+      "reason": "https://img.bjyyb.net/sites/69500/69884/20251201150232920.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "jovision-jvs-n937-sdl",
+      "status": "unresolved",
+      "vendor": "Jovision"
+    },
+    {
+      "model": "JVS-N955-HY",
+      "reason": "https://img.bjyyb.net/sites/69500/69884/20251203150655802.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "jovision-jvs-n955-hy",
+      "status": "unresolved",
+      "vendor": "Jovision"
+    },
+    {
+      "model": "JVS-N97-X3",
+      "reason": "https://img.bjyyb.net/sites/69500/69884/20251203153007412.pdf: No large product-photo candidate in the first two pages",
+      "slug": "jovision-jvs-n97-x3",
+      "status": "unresolved",
+      "vendor": "Jovision"
+    },
+    {
+      "image_cache_file": "datasheet-images/lupus-le201-wlan.webp",
+      "image_source_url": "https://www.lupus-electronics.de/shop/documents/Datenblatt_10201_LE201_WLAN_.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "lupus-le201-wlan",
+      "status": "resolved"
+    },
+    {
+      "model": "LE203",
+      "reason": "https://s3.secureo.at/assets/dzn/lupus/lupusnet-handbuch-hd-le203.pdf: No large product-photo candidate in the first two pages",
+      "slug": "lupus-le203-poe",
+      "status": "unresolved",
+      "vendor": "Lupus Electronics"
+    },
+    {
+      "model": "Optera 4K IMM12036-1EIPQ",
+      "reason": "https://media.pelco.com/wp-content/uploads/2020/12/16134350/EN_C4015_Optera_IMM_Series_121620.pdf: First two pages do not identify the exact camera model",
+      "slug": "pelco-optera-4k-imo-panoramic",
+      "status": "unresolved",
+      "vendor": "Pelco"
+    },
+    {
+      "model": "Optera IMM12027-1EP",
+      "reason": "https://media.pelco.com/wp-content/uploads/2020/12/16134350/EN_C4015_Optera_IMM_Series_121620.pdf: First two pages do not identify the exact camera model",
+      "slug": "pelco-optera-imm12027-1ep",
+      "status": "unresolved",
+      "vendor": "Pelco"
+    },
+    {
+      "model": "Sarix Professional 4 IMP531-1ERS",
+      "reason": "https://www.pelco.com/fs/documents/pelco-sarix-pro-4-specification-sheet-en-073026.pdf: 404 https://www.pelco.com/fs/documents/pelco-sarix-pro-4-specification-sheet-en-073026.pdf",
+      "slug": "pelco-sarix-professional-4-imp531-1ers",
+      "status": "unresolved",
+      "vendor": "Pelco"
+    },
+    {
+      "model": "Sarix Professional 4 IMP831-1IRS",
+      "reason": "https://www.pelco.com/fs/documents/pelco-sarix-pro-4-specification-sheet-en-073026.pdf: 404 https://www.pelco.com/fs/documents/pelco-sarix-pro-4-specification-sheet-en-073026.pdf",
+      "slug": "pelco-sarix-professional-4-imp831-1irs",
+      "status": "unresolved",
+      "vendor": "Pelco"
+    },
+    {
+      "model": "Spectra Enhanced 7 S7230L-EW1",
+      "reason": "https://media.pelco.com/wp-content/uploads/2020/06/22125949/C5005S_Spectra_Enhanced-7_Spec_4K_061920.pdf: First two pages do not identify the exact camera model",
+      "slug": "pelco-spectra-enhanced-7-s7230l-ew1",
+      "status": "unresolved",
+      "vendor": "Pelco"
+    },
+    {
+      "model": "O8B9M",
+      "reason": "https://specotech.com/wp-content/uploads/2023/07/O8B9M_specsheet.pdf: Selected image is too visually sparse to be a useful product photo",
+      "slug": "speco-o8b9m",
+      "status": "unresolved",
+      "vendor": "Speco Technologies"
+    },
+    {
+      "image_cache_file": "datasheet-images/speco-o8d9.webp",
+      "image_source_url": "https://specotech.com/wp-content/uploads/2023/07/O8D9_specsheet.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "speco-o8d9",
+      "status": "resolved"
+    },
+    {
+      "model": "UniFi Protect G3 Bullet",
+      "reason": "https://dl.ubnt.com/datasheets/unifi/UniFi_Video_G3_DS.pdf: First two pages do not identify the exact camera model",
+      "slug": "ubiquiti-g3-bullet",
+      "status": "unresolved",
+      "vendor": "Ubiquiti"
+    },
+    {
+      "model": "UniFi Protect G3 PRO",
+      "reason": "https://dl.ubnt.com/datasheets/unifi/UniFi_Video_G3_DS.pdf: First two pages do not identify the exact camera model",
+      "slug": "ubiquiti-g3-pro",
+      "status": "unresolved",
+      "vendor": "Ubiquiti"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniarch-ipc-b242-adf28k-wp.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/8600d684-9e42-4a9a-a464-166988337bde/3b49f2e9-81a5-4ac9-831e-d4d590f789f8.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniarch-ipc-b242-adf28k-wp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniarch-ipc-b244-adf28k-wp.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/ee9922f0-fdb4-443e-93b3-c9fc642ca175/68050ccf-3400-4caf-b43d-36bc3f738798.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniarch-ipc-b244-adf28k-wp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniarch-ipc-p222-af40c.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/c7f16e0a-0383-4c17-8816-4146aa722983/40379839-eeaa-4b28-a642-280a7dc40419.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniarch-ipc-p222-af40c",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniarch-ipc-p224-af40c.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/8bfad90e-7537-4352-9ea7-05541452a1dd/5ae469ef-f46f-459d-9baf-3b2207e720c7.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniarch-ipc-p224-af40c",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniarch-ipc-t242-adf28k-wp.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/205640d0-064a-48eb-a575-f421552c6d30/1f1832ad-4030-4bc2-8c63-ee9c98d00af3.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniarch-ipc-t242-adf28k-wp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniarch-ipc-t244-adf28k-wp.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/2760f810-f153-4b55-97c2-5b280554fa0e/579ea296-3ac2-42f0-8877-69679aff45a3.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniarch-ipc-t244-adf28k-wp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniarch-uho-b1r-m2f3-a.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/d8abd2ee-d895-495b-be2a-b5694cc1853d/593dbf9d-ea1b-45a6-a398-80005e9529a8.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniarch-uho-b1r-m2f3-a",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniarch-uho-s2-m3-a.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/a8f70c6f-0d84-4917-a773-1d367564b139/274835e5-329d-4a95-81a1-179ae47d3b96.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniarch-uho-s2-m3-a",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniarch-uho-s2e-m3-a.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/fa111a30-580d-4b0f-b32b-fd2a186cc3e1/bdb2e75c-921e-416a-8800-7d364ce82fa0.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniarch-uho-s2e-m3-a",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2105sb-adf16km-i0.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/84b5c65d-c88b-47bc-8343-c3e28ef8e1e9/1f1784b1-a554-4fe4-a782-300b069961a2.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2105sb-adf16km-i0",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2108sb-adf16km-i0.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/d812aa35-9e67-41f9-bca2-09ef951af124/34895662-d56d-477b-8d43-014ddf292fc1.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2108sb-adf16km-i0",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2122lb-af28-dl-eco.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/5c7144d5-daa4-477e-8549-fae2592683ab/ae46fcd9-df18-49ea-87a4-83318a6ba031.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2122lb-af28-dl-eco",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2122lb-af28-eco.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/788ac294-101c-49d7-ba45-8c7bb049d08e/2921ec4c-d3bc-4a23-8661-640fef5d51a4.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2122lb-af28-eco",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2122lb-af28k-dl.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/0979bd44-63f6-4a80-aefa-4444b6775c49/b5dcb975-dcdd-479b-a45c-7d0894374ab3.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2122lb-af28k-dl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2122lb-af28wk-g.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/8dbd5334-58b7-4f1b-9417-20db0f618c0a/5a2d03b5-4035-429c-ac7d-382be9af9018.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2122lb-af28wk-g",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2122lb-asf28k-a.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/367b097b-69f1-4a47-b0d9-d808ac3003be/fb101fa7-3144-4a8a-ba6d-dba507557470.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2122lb-asf28k-a",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2122lb-sf28-a.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/8b1e0a86-96ae-49fe-8b88-fcd5d87d5720/95cb4729-b60a-4f00-8825-6e4b1d93c412.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2122lb-sf28-a",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2124lb-af28-dl-eco.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/53a093ae-4c3f-4d9c-a412-597c56576150/a0ac3a6f-4b59-4a2d-b555-3a5120f4a3d1.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2124lb-af28-dl-eco",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2124lb-af28-eco.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/ffb9403b-802e-4825-a257-6d416ea2075a/a180ffb2-ade5-458d-a15a-1f22be2c9556.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2124lb-af28-eco",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2124lb-af28k-dl.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/2c0a2875-3ef1-42bf-88ea-5ced59f74d2c/e2822925-d841-4867-a810-7157dd9e84ff.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2124lb-af28k-dl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2124lb-asf28k-a.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/305eb993-c4c8-46d1-abfa-4aebb229700f/3cd33c0f-98e4-49f5-b8d7-cbab334fd912.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2124lb-asf28k-a",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2125lb-sf28-a.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/1cfcd34a-a0c4-4442-aecf-1032ab08460b/c34c6dd7-838f-435f-b8d5-8c23e19edddb.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2125lb-sf28-a",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2312le-adf28k-wp-l.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/2823a111-1530-4fad-b33b-f938618c21b1/0220bd8e-1ee3-4cec-8932-61aeedacc5c2.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2312le-adf28k-wp-l",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2312le-adf28k-wp-l2.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/b363adc6-7bc1-4c29-afd7-40048131a9bf/f53068ee-d20d-4fc8-ba6f-5524597beab3.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2312le-adf28k-wp-l2",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2312le-adf28km-wp.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/75c4bb97-b0b0-401d-a29e-264e259d212b/42c898c6-5e66-4644-9aec-5cfb6804da4d.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2312le-adf28km-wp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2314le-adf28k-wp-l.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/d9d48f7c-b4db-45db-8cf2-2377927e6dba/b3d0f523-10f6-4ee2-ade6-19b50bcb69d4.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2314le-adf28k-wp-l",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2314le-adf28k-wp-l2.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/ed932be1-afee-411f-b19c-bf944597a8b3/15d82341-c57c-494f-89a3-7ef3da74c9e1.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2314le-adf28k-wp-l2",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2314le-adf28km-wp.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/511112ce-70c8-4061-a598-9fbad8650945/abaf8aee-389e-47ac-b42c-0d7e11bff421.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2314le-adf28km-wp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2318le-adf28km-wp.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/23365835-a2af-44de-8f2a-a126088a3f49/7fd8e6ef-af4a-4e6c-bd31-f2020922f561.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2318le-adf28km-wp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2322lp-adezk-di.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/801a9b88-f68f-4def-b4e2-003646849e0b/5893ac1b-96e3-4872-b126-1b15c279ecc3.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2322lp-adezk-di",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2324lb-adzk-h.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/c7aea8f5-b257-4309-bb57-05d83e5f46f3/e33396f1-b169-47bf-973c-60a26ba1b4d8.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2324lb-adzk-h",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2324lp-adezk-di.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/406d919b-5de5-4d33-a1f3-c2c66b468243/61ee368c-d8f7-40fa-bcfe-40b3632d563a.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2324lp-adezk-di",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc245lp-adf40kc-wp.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/494ad869-469c-4475-94c7-1e8577bae914/19792be2-1edb-465f-a513-c2df0fb9b9c8.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc245lp-adf40kc-wp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc28184ea-adx5k-f40-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/40da2f3f-140b-42b8-b3f9-ebf59e3ff137/463f74f3-1122-4b1e-8089-337c288abc21.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc28184ea-adx5k-f40-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2a12lp-adf40kc-4g-e.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/f4cdb2b6-b371-43d0-aed5-87155e023718/943c3d55-c2d6-4d88-b0f6-214abcfd5d20.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2a12lp-adf40kc-4g-e",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2a14lp-adf40kc-4g-e.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/25d9addf-a3e5-4f3e-84c4-e0edf718d19d/c67d09ae-b241-42ff-b88c-e32b0b22a962.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2a14lp-adf40kc-4g-e",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2b14se-adf28kmc-wp-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/119c1d2f-ca61-4cec-b3fa-54b0327eca03/2e9e2aef-ef02-4c63-91fb-3273c4feb6df.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2b14se-adf28kmc-wp-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2b14se-adzkmc-wp-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/733e280c-b4cf-446a-808a-0d6da85dc18a/64ba76d4-c1dc-4f3a-b60e-5ab2d0875f42.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2b14se-adzkmc-wp-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2b14ss-adf28kmc-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/29a4613d-4a2e-4847-bea2-5767db27649a/bb616327-dfff-4798-9320-0cef82976f17.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2b14ss-adf28kmc-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2b15ss-adf28kmc-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/0441e1e7-6480-4709-8a9c-6b5766102799/ecaa13f2-3135-4fe8-b659-9cccbb8680c2.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2b15ss-adf28kmc-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2b18se-adf28k-wp-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/1dc83915-57f5-4eb2-856f-b45dcae1fd54/56aecbb1-33ea-4161-99e0-a48942f6d223.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2b18se-adf28k-wp-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2b18se-adf28kmc-wp-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/35c88083-1857-45fa-bb64-ce044e2cc52e/43f41e22-65c6-495e-aae5-fe1f64e190a3.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2b18se-adf28kmc-wp-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2b18se-adzkmc-wp-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/8555c56c-390c-470c-8bfe-3b4a6906ade4/d74e5305-160f-4354-8e20-6c49f1a9892a.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2b18se-adzkmc-wp-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc2b18ss-adf28kmc-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/896dfb45-e6c8-4f4c-956d-90f3fb056e8e/e2e4a70d-3bbf-4a01-ab41-817a0071cc2c.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc2b18ss-adf28kmc-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc312lp-adf20kc-dl.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/7938aa93-6f4a-4a97-8bce-0626fbaa04b2/f701c4b2-bfa2-4596-b84a-dd08cf2ade78.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc312lp-adf20kc-dl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3224ss-adf28k-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/1f5cdd52-8dac-4d86-86af-cf450ced8c5d/d02900c2-e525-4a61-941b-446bf6792094.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3224ss-adf28k-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc322lb-asf28k-a.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/431f9209-40f8-422d-9fff-1206f36d740b/b9df874d-b2cd-4088-bb62-d0adccb0e43f.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc322lb-asf28k-a",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc322lb-sf28-a.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/bebc4815-90d0-4e8a-885e-5c57c686f815/2ffb89ae-3387-464d-a257-69f92738187e.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc322lb-sf28-a",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc324lb-asf28k-a.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/3c2f0b13-5e46-401d-a6df-3835d5ee1f15/f9dac59b-da12-432d-9081-a2f7d8390941.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc324lb-asf28k-a",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc325lb-sf28-a.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/2b749d74-9202-4a0f-a0cd-6b52d3d0670c/e4f2de68-cc28-4d49-8d3d-efda6b386f8f.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc325lb-sf28-a",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3522le-adf28k-wp.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/e907b307-d30b-464b-8c72-192cdc177357/068ffa3f-3aeb-4e67-a46f-a3c75cf47d8d.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3522le-adf28k-wp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3524le-adf28k-wp.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/b4ddf615-ef4f-4c57-a3d1-4bf3a2f4ca79/2d603c02-dc2d-40e6-80db-8bfa7f8f363f.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3524le-adf28k-wp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3528le-adf28k-wp.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/213add04-a449-4d9e-83cd-127d5a52ecfe/5bc8faa4-aee6-4283-abdf-44f76f7a4ae4.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3528le-adf28k-wp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3534lp-adezk-di.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/2643ba42-a49a-4978-9590-0fb1fbe0edcd/053f6748-8770-4f30-8aa1-4afad633f388.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3534lp-adezk-di",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3605sb-adf16km-i0.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/83303af0-4f8d-4697-988d-3cbb543bca9f/a73f4acb-c7fd-43e4-b341-ed2eead6c520.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3605sb-adf16km-i0",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3608sb-adf16km-i0.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/516b935d-abca-4a88-bad4-deb0aab12c25/dac63405-9416-49a9-963c-6b4c0a8f8fc0.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3608sb-adf16km-i0",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3612lb-af28k-dl.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/0e8a286f-8295-4fd4-8857-a37b90121d53/f7042688-2691-4464-8108-4c6f9b2f2b06.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3612lb-af28k-dl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3612lb-sf28-a.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/4d820de5-af8a-4e15-8fab-5bf5a87b5338/f3fdfa27-fd60-4aab-8c7d-5c6a3a7e1b7f.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3612lb-sf28-a",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3612le-adf28k-wp-l2.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/636d1222-24d2-431a-8bb6-ac938f1c6e2d/14e7814e-2484-4de0-b1c0-9cab82c6481a.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3612le-adf28k-wp-l2",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3614lb-af28k-dl.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/44dcc0d5-610e-4fc1-bce2-f0eef863d777/4cbf06a6-d8ca-4684-8600-719b59341d5d.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3614lb-af28k-dl",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3614le-adf28k-wp-l2.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/19e2699e-a11d-4723-bf16-94046a3b247b/a1463081-f2b5-48d4-ba02-c02353cde424.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3614le-adf28k-wp-l2",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3614sb-adf28kmc-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/5930915f-e0b6-46ca-ba5f-b86390b9b7b4/095f8b38-b95c-47d1-a2b6-4f801353e4a5.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3614sb-adf28kmc-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3615lb-sf28-a.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/daea5312-a9c0-44a6-9ea3-285695e6d690/5faf4dea-622b-4932-a298-57cffcb10811.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3615lb-sf28-a",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3618lb-adf28k-g.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/1ed6b3af-6684-49c5-8463-09c536854709/100aad5a-6e1b-402e-a2c0-2d71f686fc5d.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3618lb-adf28k-g",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3618sb-adf28kmc-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/38b9d5c7-788f-4eb3-87ea-09291090a2fc/afcca3a5-93fe-46c4-b4ea-db09dcfe4415.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3618sb-adf28kmc-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3622le-adf28k-wp.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/18a92e65-cb41-4821-a9f0-d102d74a3ff0/a062fd8b-451a-4f0d-8545-8e03b9a2d71c.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3622le-adf28k-wp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3622le-adf28k-wp-l.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/30f1f196-19ee-43a5-a5a1-910e00f4c898/5b0a459f-b849-4fd9-995a-ea54f62602f7.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3622le-adf28k-wp-l",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3624le-adf28k-wp.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/55ebe2e7-e7d4-40ad-9749-e00ff715090d/fb75210c-7d18-4b49-91f6-615e14d1ca12.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3624le-adf28k-wp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3624le-adf28k-wp-l.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/105724ea-f149-42e2-802a-ccd3a4931a5c/8152a5e6-07ef-432d-b1f8-79928d08b9d2.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3624le-adf28k-wp-l",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3628le-adf28k-wp.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/2a16698f-6038-4e4b-9c74-f92582b7294b/875e6d2f-b8ec-4e4a-b7b9-e94bc4984fa2.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3628le-adf28k-wp",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3634se-adf28k-wp-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/3c23110d-c7e8-42ee-aa21-12d0dd4eded7/a4c73189-910b-417c-ae45-0086c4c69374.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3634se-adf28k-wp-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3634se-adf28kmc-wp-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/a7fecb5f-25a1-409d-8161-5f453ec01663/5b44886e-eff6-4502-9142-5b0bcf878e54.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3634se-adf28kmc-wp-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3634se-adzkmc-wp-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/8f9ea62c-264e-441d-ac28-1b8180d69571/162380d6-bfc6-45e8-a808-0f25eeb07700.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3634se-adzkmc-wp-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3634ss-adf28kmc-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/8bc057c5-1e80-434d-95db-b22e70f14c5b/8c217cd1-f815-43bb-b431-f84bebd954ca.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3634ss-adf28kmc-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3635ss-adf28kmc-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/e287e4b2-c3ca-4e8f-9b83-3da449242214/34a0a193-24e9-401c-8f55-4caa92c5713c.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3635ss-adf28kmc-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3638se-adf28k-wp-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/e32bc391-b55d-4dc0-9db0-35cdec92f6b0/245f8f50-e68e-4f29-a38c-058f717b4f20.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3638se-adf28k-wp-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3638se-adzkmc-wp-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/d7df422a-038c-49ee-af08-8ff432e80cd7/693b41a6-0f0f-4f45-83e4-98662b50bebb.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3638se-adzkmc-wp-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc3638ss-adf28kmc-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/052e63fe-c4bb-4db8-82f9-5b96528ea0e9/86ec0c97-92a9-4013-812d-7000f95988a2.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc3638ss-adf28kmc-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc6314lwh-ax5c-vg2.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/39576fb3-47bf-4108-96ae-6a9cc21c98eb/4e8841d7-3a17-4572-8194-ecf3cf58dafa.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc6314lwh-ax5c-vg2",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc6324lwh-ax5c-vg2.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/3d319c87-164c-48c4-8bc0-7945f22f7960/3a46613e-d8fb-4f83-9db7-563525b2dc8d.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc6324lwh-ax5c-vg2",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc68188efw-x25-f40g-vh.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/6d2c9f30-eb0c-4f85-ba8a-773795afa390/23f3d3cb-7085-4cc3-922e-d0946fa40891.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc68188efw-x25-f40g-vh",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc815sb-adf14k-i0.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/64735db1-4f79-43bb-93a5-299e288ee90f/1b90106b-806c-4b2e-a376-1ba81ac781a5.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc815sb-adf14k-i0",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc816sb-adf16kmc-i1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/eb4d0d45-16fc-44b8-a51a-7d248c0e5bb1/033198cb-2f94-46c7-8459-7aa3cfef2ff7.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc816sb-adf16kmc-i1",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc9312lfw-af28-2x4.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/e3ace9ad-0836-4084-8b18-442a3bda1cde/f6ad5d5c-abd9-44ee-bd90-93ee1983baf3.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc9312lfw-af28-2x4",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc94144sr-x25-f40c.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/b5ffbd34-7949-4af7-829c-4e7a40e511ea/c5ad56ac-f62d-4d9c-a1f1-cce1463feb51.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc94144sr-x25-f40c",
+      "status": "resolved"
+    },
+    {
+      "image_cache_file": "datasheet-images/uniview-ipc98246efw-x42-w-vh1.webp",
+      "image_source_url": "https://ubox-eu.oss-eu-central-1.aliyuncs.com/datacenter/doc/d6bada2f-9e4b-416f-a53f-1158121a50ed/be25768a-3dbf-4d46-8f35-4ea8d3126b41.pdf",
+      "quality": "exact-model-datasheet-product-image",
+      "slug": "uniview-ipc98246efw-x42-w-vh1",
+      "status": "resolved"
+    },
+    {
+      "model": "CD32-E",
+      "reason": "https://docs.verkada.com/docs/video-security-cd32-e-datasheet.pdf: No large product-photo candidate in the first two pages",
+      "slug": "verkada-cd32-e",
+      "status": "unresolved",
+      "vendor": "Verkada"
+    },
+    {
+      "model": "CM41-E",
+      "reason": "https://docs.verkada.com/docs/video-security-cm41-e-datasheet.pdf: Selected image is a technical line drawing, not a product photo",
+      "slug": "verkada-cm41-e",
+      "status": "unresolved",
+      "vendor": "Verkada"
+    },
+    {
+      "model": "FE9391-EV",
+      "reason": "https://www.securityinformed.com/datasheets/vivotek-fe9391-ev-ip-dome-camera/co-1795-ga/VIVOTEK_12MP_Fisheye_FE9391-EV.PDF: No large product-photo candidate in the first two pages",
+      "slug": "vivotek-fe9391-ev",
+      "status": "unresolved",
+      "vendor": "Vivotek"
+    },
+    {
+      "model": "IB9388-HT-v2",
+      "reason": "http://download.vivotek.com/downloadfile/downloads/datasheets/ib9388-htdatasheet_en.pdf: First two pages do not identify the exact camera model",
+      "slug": "vivotek-ib9388-ht",
+      "status": "unresolved",
+      "vendor": "Vivotek"
+    }
+  ]
+}
