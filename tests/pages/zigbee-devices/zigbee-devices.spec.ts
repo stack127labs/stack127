@@ -1,7 +1,9 @@
 import { expect, test } from "playwright/test";
 
-test("the unpublished Zigbee directory is unavailable without a preview row", async ({ page }) => {
+test("the published Zigbee directory renders its searchable catalog", async ({ page }) => {
+  test.setTimeout(180_000);
   const response = await page.goto("/zigbee-devices");
-  expect(response?.status()).toBe(404);
-  await expect(page.locator("main h1")).toContainText(/not found/i);
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("[data-app-main] h1")).toContainText(/Zigbee compatible devices/i);
+  await expect(page.locator(".directory-card").first()).toBeVisible();
 });

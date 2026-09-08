@@ -1,6 +1,13 @@
 import { expect, test } from "playwright/test";
 
+test("the temporary component lab stays unavailable in production", async ({ page }) => {
+  test.skip(process.env.STACK127_TEST_SERVER !== "production", "Production route guard only.");
+  expect((await page.goto("/tool-ui-lab"))?.status()).toBe(404);
+  await expect(page.getByRole("heading", { name: "Tool components" })).toHaveCount(0);
+});
+
 test("the component lab exposes working controls without visible native selects", async ({ page }) => {
+  test.skip(process.env.STACK127_TEST_SERVER === "production", "The component lab is development-only.");
   await page.goto("/tool-ui-lab");
 
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Tool components");
@@ -56,6 +63,7 @@ test("the component lab exposes working controls without visible native selects"
 });
 
 test("the lab preserves its control flow at a narrow viewport", async ({ page }) => {
+  test.skip(process.env.STACK127_TEST_SERVER === "production", "The component lab is development-only.");
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/tool-ui-lab");
 
@@ -65,6 +73,7 @@ test("the lab preserves its control flow at a narrow viewport", async ({ page })
 });
 
 test("result components remain useful and contained", async ({ page }) => {
+  test.skip(process.env.STACK127_TEST_SERVER === "production", "The component lab is development-only.");
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/tool-ui-lab");
 

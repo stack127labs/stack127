@@ -1,6 +1,6 @@
 # Tool page data model migration
 
-Status: repository implementation complete on 2 September 2026. Database rollout is pending.
+Status: repository implementation, managed-development rollout, and production rollout complete on 2 September 2026.
 
 This record tracks the move from code-owned tool-page copy to database-owned Markdown. Current operating rules live in `stack127_docs/tool-pages.md` and `stack127_docs/stack127-repos.md`.
 
@@ -14,6 +14,9 @@ This record tracks the move from code-owned tool-page copy to database-owned Mar
 - Functional tool changes update `tool_version`, `tool_version_updated_at`, and the parent page's public `updated_at`.
 - Repositories owned by stack127 use the internal name "stack127 repos" and `stack127_repo_*` database columns. `github_projects` remains the third-party GitHub facts table.
 - `/epp-status-codes` and `/tld-directory` keep their flat URLs but move to the catalog route group.
+- The first production migration adds and backfills `row_created_at` while retaining `created_at` as
+  a temporary compatibility column. A later release may remove `created_at` only after the new
+  application has been deployed and verified independently.
 
 ## Implementation checklist
 
@@ -28,9 +31,26 @@ This record tracks the move from code-owned tool-page copy to database-owned Mar
 - [x] Document content-only updates, functional tool releases, and stack127 repo synchronization.
 - [x] Update the affected agent skills and ownership guidance.
 - [x] Run focused tests, the full test suite, a production build, two rollback-only database checks, and two omission audits.
+- [x] Reconcile managed-development migration history, apply the remaining chain, and verify the final schema and seed data.
 
 ## Rollout note
 
-`20260902080436_add_stack127_tool_pages.sql` has been validated against managed development inside transactions that were rolled back. It has not been applied to development or production.
+`20260902080436_add_stack127_tool_pages.sql` was first validated inside rolled-back transactions, then applied to managed development and production.
 
-Managed development has older migration-history entries still marked pending, including shortcut, storage, self-host app, and resource-row migrations. At least one of those older migrations conflicts with data already present when replayed as a chain. Do not run a blanket migration push. Reconcile the older history first, then apply this migration in order and verify the 34 tool rows before deploying the application code.
+Managed development already contained the exact effects of migrations `20260822090000`,
+`20260822100000`, and `20260831132300` without their history entries. Their shortcut rows,
+renamed root, table columns, constraints, and indexes were checked before the official Supabase
+migration-repair command marked those three versions as applied. The remaining migrations were then
+applied in order with `--include-all`.
+
+Post-migration checks found 34 valid tool rows at content revision 1 and tool version 1.0.0, no tool
+rows for `/epp-status-codes` or `/tld-directory`, no public-date violations, complete resource rows,
+the expected anonymous/authenticated read policy, and a fully aligned migration history.
+
+Production release [run 33628026503](https://github.com/stack127labs/stack127/actions/runs/33628026503)
+deployed merge commit `30f64761d78b80121d95a2cefbff0f5609f158f7`. The release migration,
+complete quality gate, production preflight, immutable image build, and Dokploy deployment all
+passed. Independent checks then confirmed that `/api/health?scope=deploy` reported the same commit,
+all 34 tool routes returned HTTP 200 with database Markdown in the server-rendered HTML, both
+reference routes remained public catalogs, and the production data matched the development
+invariants above.

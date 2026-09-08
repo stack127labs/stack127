@@ -59,7 +59,7 @@ Use both human-readable releases and immutable revisions:
 | BaseBuddy website | no tags | `7a0a9fa8dda235f4be7d2c467ed90bc1c71b9c70` | Not applicable | 2026-08-19 | Standalone private source |
 | BaseBuddy app | `v0.2.0` | `dd16eb96e4dac59b194f41e3e2d01472084d9172` (tag); `2ff50ab454805e498756d1013a1dc2af22acb7fd` (`main`) | Not applicable | 2026-08-19 | Standalone public source |
 | DNS Tools | no tags | `f437732151b4f35888c3b0e758dff79e90b99a24` (`main`) | Record per manual port | 2026-08-19 | No runtime/build dependency |
-| Stack127 datasets | no tags | `701ef491da3db6c2d56c1972671c5dbd38d08ddc` (`main`) | Generated from private export workflow | 2026-08-19 | Public output; private data source |
+| Stack127 datasets | no tags | `807f61d709da84b14572214f9d214c392315b1f1` (`main`) | Generated from private export workflow | 2026-09-01 | Public output; private data source |
 
 Never use a version number without its commit SHA when recording a cross-repository port. A tag can move or be interpreted differently; the SHA is the reproducible reference.
 

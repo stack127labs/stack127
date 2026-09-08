@@ -1,10 +1,8 @@
 import { expect, test } from "playwright/test";
 
-const localPreview = process.env.STACK127_TEST_DATABASE_ENV === ".env.local";
 
 test.describe("Drive Reliability Explorer", () => {
   test("keeps the clean canonical URL unchanged through hydration", async ({ page }) => {
-    test.skip(!localPreview, "Use the guarded managed-development preview for the registry-backed route.");
     await page.goto("/drive-reliability");
     await expect(page.getByRole("heading", { name: /drive reliability/i })).toBeVisible();
     const historyLength = await page.evaluate(() => history.length);
@@ -21,7 +19,6 @@ test.describe("Drive Reliability Explorer", () => {
   });
 
   test("requires a deliberate selection and keeps secondary filters disclosed", async ({ page }) => {
-    test.skip(!localPreview, "Use the guarded managed-development preview for the registry-backed route.");
     await page.goto("/drive-reliability");
 
     await expect(page.getByText("Observed AFR", { exact: true })).toHaveCount(0);
@@ -38,7 +35,6 @@ test.describe("Drive Reliability Explorer", () => {
   });
 
   test("filters, selects, resets, and restores a bounded share state", async ({ page }) => {
-    test.skip(!localPreview, "Use the guarded managed-development preview for the registry-backed route.");
     await page.goto("/drive-reliability");
     await expect(page.getByRole("heading", { name: /drive reliability/i })).toBeVisible();
     await page.getByText("Lifetime", { exact: true }).click();
@@ -52,7 +48,6 @@ test.describe("Drive Reliability Explorer", () => {
   });
 
   test("withholds rows and focuses invalid capacity input", async ({ page }) => {
-    test.skip(!localPreview, "Use the guarded managed-development preview for the registry-backed route.");
     await page.goto("/drive-reliability");
     await page.getByRole("button", { name: /filter model list/i }).click();
     const capacityInputs = page.locator('[data-capacity-fields] input[inputmode="decimal"]');
@@ -65,7 +60,6 @@ test.describe("Drive Reliability Explorer", () => {
   });
 
   test("keeps result evidence inspectable on mobile in both themes", async ({ page }) => {
-    test.skip(!localPreview, "Use the guarded managed-development preview for the registry-backed route.");
     await page.setViewportSize({ width: 375, height: 900 });
     await page.goto("/drive-reliability");
     await page.getByRole("searchbox", { name: /model/i }).fill("WUH722222ALE6L4");

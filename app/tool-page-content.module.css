@@ -47,8 +47,8 @@
   width: 100%;
 }
 
-.tableScroll th,
-.tableScroll td {
+.content .tableScroll th,
+.content .tableScroll td {
   border-bottom: 1px solid var(--color-border);
   color: var(--color-text);
   font-size: var(--text-body);
@@ -84,4 +84,12 @@
 
 .tableScroll tr:last-child > * {
   border-bottom: 0;
+}
+
+@media print {
+  .tableScroll { overflow-x: visible; }
+  .tableScroll table { width: 100%; }
+  .content .tableScroll th,
+  .content .tableScroll td,
+  .content .tableScroll code { overflow-wrap: normal; }
 }

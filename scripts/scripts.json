@@ -27,7 +27,7 @@
     "surface": "stack127",
     "folder": "scripts/stack127",
     "manifest": null,
-    "purpose": "Sitewide durable scripts, including reviewed tool-page content, version, and stack127 repo synchronization updates."
+    "purpose": "Sitewide durable scripts, including managed media, reviewed tool-page content, version, and stack127 repo synchronization updates."
   },
   {
     "surface": "dockerignore-tester",

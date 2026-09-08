@@ -1,7 +1,5 @@
 import { expect, test, type Page } from "playwright/test";
 
-const localPreview = process.env.STACK127_TEST_DATABASE_ENV === ".env.local";
-test.skip(!localPreview, "The interactive route needs the guarded local preview.");
 
 const route = "/nginx-proxy-pass-calculator";
 const toolName = "proxy_pass calculator inputs and results";

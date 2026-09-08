@@ -35,6 +35,10 @@ Unknown optional values should be `null`, not guessed.
 
 Automatic row timestamps and public dates are separate. Do not present `row_created_at` or `row_updated_at` to readers, use them for sitemap dates, or set `row_updated_at` manually. Tool-specific fields and their update rules are documented in `stack127_docs/tool-pages.md`.
 
+The first tool-page rollout retains the old `created_at` column only for zero-downtime compatibility
+with the previously deployed application. New code uses `row_created_at`. Remove the compatibility
+column in a later migration only after the new production image is verified.
+
 ## Indexing
 
 The route rules are intentionally simple:

@@ -1,10 +1,8 @@
 import { expect, test } from "playwright/test";
 
-const localPreview = process.env.STACK127_TEST_DATABASE_ENV === ".env.local";
 
 test.describe("unraid calculator guarded preview", () => {
   test.beforeEach(async ({ page }) => {
-    test.skip(!localPreview, "Requires the guarded managed-development preview; do not mutate a registry.");
     await page.addInitScript(() => {
       const originalFetch = window.fetch;
       window.fetch = (...args) => { throw new Error(`Unexpected fetch: ${String(args[0])}`); };

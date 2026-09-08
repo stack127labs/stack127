@@ -143,7 +143,7 @@
   {
     "name": "self-host-apps:cache-icons",
     "command": "npm run self-host-apps:cache-icons -- --file scripts/self-host-apps/batches/YYYY-MM-DD-enrichment-001.json",
-    "purpose": "Cache reviewed app icons in public/app-icons and update the batch records."
+    "purpose": "Normalize and upload reviewed app icons to stack127-media, then update the batch records with managed URLs."
   },
   {
     "name": "self-host-apps:audit-summaries",
@@ -172,8 +172,8 @@
   },
   {
     "name": "self-host-apps:icon-integrity",
-    "command": "node scripts/self-host-apps/icon-integrity.mjs --limit 5000 --show 100",
-    "purpose": "Verify that published app icons are usable local PNG files."
+    "command": "node scripts/self-host-apps/icon-integrity.mjs --limit 5000 --workers 24 --show 100",
+    "purpose": "Verify published managed icons concurrently and report unreachable or unmanaged records."
   },
   {
     "name": "self-host-apps:apply-qa-overrides",

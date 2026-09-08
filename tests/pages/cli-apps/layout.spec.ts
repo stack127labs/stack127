@@ -51,6 +51,14 @@ test("cards open a contextual details panel instead of exposing raw links", asyn
 });
 
 test("cards and details show cached app icons", async ({ page }) => {
+  const onePixelPng = Buffer.from(
+    "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=",
+    "base64",
+  );
+  await page.route(
+    /https:\/\/[^/]+\.supabase\.co\/storage\/v1\/object\/public\/stack127-media\/directories\/cli-apps\/icons\/.+/,
+    (route) => route.fulfill({ body: onePixelPng, contentType: "image/png", status: 200 }),
+  );
   await page.goto("/cli-apps");
 
   const icons = page.locator(".cli-card .directory-card-icon");
@@ -60,7 +68,10 @@ test("cards and details show cached app icons", async ({ page }) => {
     await icon.scrollIntoViewIfNeeded();
     await expect(icon).toHaveAttribute("data-image-loaded", "true");
     const image = icon.locator("img");
-    await expect(image).toHaveAttribute("src", /(?:\/cli-app-icons\/|\/stack127-media\/directories\/cli-apps\/icons\/)[a-z0-9-]+\.png$/);
+    await expect(image).toHaveAttribute(
+      "src",
+      /\/storage\/v1\/object\/public\/stack127-media\/directories\/cli-apps\/icons\/[a-z0-9._-]+-[0-9a-f]{16}\.(png|jpg|webp|avif|gif)$/,
+    );
     await expect(image).toHaveCSS("opacity", "1");
     expect(await image.evaluate((element: HTMLImageElement) => element.naturalWidth)).toBeGreaterThan(0);
   }

@@ -25,8 +25,8 @@ test("DNSSEC result leads with the real validation steps and requested answer", 
   await expect(page.getByText("Start with the DNS root trust anchor")).toBeVisible();
   await expect(page.getByText("RRSIG verified for the A answer.")).toBeVisible();
   await expect(page.getByRole("cell", { name: "192.0.2.10" })).toBeVisible();
-  await expect(page.getByText("The A answer is signed, and its signatures validate through the chain to the DNS root.")).toBeVisible();
-  await expect(page.getByRole("heading", { name: "When the signatures expire" })).toBeVisible();
+  await expect(page.getByText("Secure. The A answer for example.com is signed and validates through the chain to the DNS root.")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Signature validity" })).toBeVisible();
   await expect(page.getByRole("cell", { name: "ECDSAP256SHA256 (13)" })).toBeVisible();
   await expect(page.getByRole("cell", { name: "2371" })).toBeVisible();
 });
@@ -39,7 +39,7 @@ test("DNSSEC raw reports never widen the page", async ({ page }) => {
       verdict: "secure", explanation: "validated",
       validation: { outcome: "secure-positive", steps: [] },
       signatures: [],
-      answer: { responseCode: "NOERROR", authenticatedData: true, records: [], rawResponse: { Status: 0 }, error: null },
+      answer: { responseCode: "NOERROR", authenticatedData: true, records: [], rawResponse: { Status: 0, signature: "A".repeat(11_000) }, error: null },
       chain: [],
       validator: {
         name: "Namefi DNSSEC Audit",
@@ -51,7 +51,9 @@ test("DNSSEC raw reports never widen the page", async ({ page }) => {
   }));
   await page.goto("/dnssec-checker?name=bloxodes.com&type=A");
   await page.getByRole("button", { name: "Validate DNSSEC" }).click();
-  await page.getByText("Complete validator report", { exact: true }).click();
+  await expect(page.getByText("Complete validator report", { exact: true })).toHaveCount(0);
+  await page.getByRole("button", { name: "Raw requested answer", exact: true }).click();
+  await expect(page.locator("pre")).toContainText("A".repeat(11_000));
 
   const pageWidth = await page.evaluate(() => ({
     client: document.documentElement.clientWidth,
@@ -158,7 +160,7 @@ test("nameserver results label checker-side IPv6 skips without blaming the domai
   await expect(skippedRow.getByText("Skipped by checker", { exact: true })).toBeVisible();
   await expect(skippedRow.getByText("No IPv6 route", { exact: true })).toBeVisible();
   await expect(page.getByText(/did not answer over/)).toHaveCount(0);
-  const ipv6Row = page.getByRole("row").filter({ hasText: "2001:db8::53" });
+  const ipv6Row = page.getByRole("table", { name: /UDP, TCP, and authoritative/ }).getByRole("row").filter({ hasText: "2001:db8::53" });
   await expect(ipv6Row.getByText("Not run", { exact: true })).toHaveCount(2);
   await expect(ipv6Row.getByText("Not checked", { exact: true })).toBeVisible();
 });
@@ -182,9 +184,8 @@ test("SOA results stay readable and preserve skipped IPv6 evidence in the report
 
   await expect(page.getByText(/All addresses this checker could query for example\.com/)).toBeVisible();
   const skipped = page.getByRole("row").filter({ hasText: "2001:db8::53" });
-  await expect(skipped.getByText("Skipped by checker", { exact: true })).toBeVisible();
-  await expect(skipped.getByText("No IPv6 route", { exact: true })).toBeVisible();
-  await expect(page.getByText("a-very-long-nameserver-hostname.example.net", { exact: true })).toBeVisible();
+  await expect(skipped.getByRole("cell", { name: "Skipped by checker No IPv6 route", exact: true })).toBeVisible();
+  await expect(page.getByRole("rowheader", { name: "a-very-long-nameserver-hostname.example.net", exact: true })).toHaveCount(2);
   await expect(page.getByText("2,407,160,699")).toBeVisible();
   await expect(page.getByText(/ENETUNREACH/)).toHaveCount(0);
   const width = await page.evaluate(() => ({ client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth }));
@@ -210,6 +211,7 @@ test("DNS pages have print-safe shell and tables", async ({ page }) => {
   await expect(page.locator("[data-app-sidebar]")).toBeHidden();
   await expect(page.getByRole("contentinfo")).toBeHidden();
   await expect(page.locator(".dns-lookup-main")).toHaveCSS("display", "block");
-  await expect(page.locator(".dns-table-scroll").first()).toHaveCSS("overflow-x", "visible");
-  await expect(page.locator(".dns-status-table td").first()).toHaveCSS("overflow-wrap", "normal");
+  const supportingTable = page.locator('[data-tool-page-content] [role="region"]').first();
+  await expect(supportingTable).toHaveCSS("overflow-x", "visible");
+  await expect(supportingTable.locator("td").first()).toHaveCSS("overflow-wrap", "normal");
 });

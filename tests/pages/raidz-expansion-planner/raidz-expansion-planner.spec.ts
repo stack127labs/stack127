@@ -1,8 +1,6 @@
 import { expect, test, type Page } from "playwright/test";
 import { calculateRaidzExpansion } from "../../../lib/storage/zfs-expansion.ts";
 
-const localPreview = process.env.STACK127_TEST_DATABASE_ENV === ".env.local";
-test.skip(!localPreview, "The interactive route needs the guarded local preview.");
 
 async function fillValid(page: Page) {
   await page.getByRole("textbox", { name: /Current physical allocation/ }).fill("0.25");

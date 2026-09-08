@@ -22,12 +22,17 @@ test.describe("shortcut reference", () => {
     );
   });
 
-  test("the removed shortcut routes return 404 without redirecting", async ({ page }) => {
-    for (const path of ["/shortcuts", "/shortcuts/notion"]) {
+  test("genuine former shortcut routes permanently redirect to their replacements", async ({ page, request }) => {
+    for (const path of ["/shortcuts", "/shortcuts/notion", "/shortcuts/pi-coding-agent", "/shortcuts/cursor", "/shortcuts/zed"]) {
+      const redirect = await request.get(path, { maxRedirects: 0 });
+      expect(redirect.status()).toBe(308);
+      const destination = path.replace("/shortcuts", "/keyboard-shortcuts");
+      expect(new URL(redirect.headers().location, page.url() === "about:blank" ? "http://127.0.0.1:3334" : page.url()).pathname).toBe(destination);
       const response = await page.goto(path);
-      expect(response?.status()).toBe(404);
-      expect(new URL(page.url()).pathname).toBe(path);
+      expect(response?.status()).toBe(200);
+      expect(new URL(page.url()).pathname).toBe(destination);
     }
+    expect((await request.get("/shortcuts/not-a-real-former-app", { maxRedirects: 0 })).status()).toBe(404);
   });
 
   test("generator exposes app selection and a live empty state", async ({ page }) => {

@@ -53,7 +53,10 @@ export function ToolPageHeader({
 
 export function ToolPageMarkdown({ toolPage }: { toolPage: Stack127ToolPage }) {
   return (
-    <article className={`${styles.content} ${proseClassName} ${proseFlowClassName}`}>
+    <article
+      className={`${styles.content} ${proseClassName} ${proseFlowClassName}`}
+      data-tool-page-content
+    >
       <Markdown markdown={toolPage.content_markdown} />
     </article>
   );

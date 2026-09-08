@@ -52,6 +52,7 @@ function generatedManifest(slug, current) {
           "tests/pages/keyboard-shortcuts/keyboard-shortcuts.spec.ts",
         ]),
         "tests/pages/keyboard-shortcuts/shared/generation.test.mjs",
+        "tests/pages/keyboard-shortcuts/shared/publication.test.mjs",
       ]),
     ],
     scripts: [...new Set([...(current?.scripts ?? []), "scripts/keyboard-shortcuts"])],

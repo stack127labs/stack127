@@ -1,7 +1,5 @@
 import { expect, test, type Page } from "playwright/test";
 
-const localPreview = process.env.STACK127_TEST_DATABASE_ENV === ".env.local";
-test.skip(!localPreview, "The interactive route needs the guarded managed-development preview.");
 
 async function calculate(page: Page) {
   await page.getByRole("button", { name: "Calculate plan" }).click();

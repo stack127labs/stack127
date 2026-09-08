@@ -39,7 +39,9 @@ Selection uses `FOR UPDATE SKIP LOCKED` and marks claimed rows `enriching`, so t
 
 The legacy `self-host-apps:reset-categories` command is retired and exits without database access. It previously replaced all category links using imported labels and keyword matches. Existing categories need source review too. Correct them per app with `apply-qa-overrides.mjs`, `review_scope: "partial"`, expected categories, and official evidence URLs. Do not infer purpose from incidental words such as image, model, or server.
 
-The review applier validates and moves data. Publication requires an official identity, a cached icon, one to three controlled categories, a verified self-hosting classification, install documentation, and at least one source URL. Open and source-available apps need a verified repository and license. Closed-source apps need an official website and publisher identity, but no repository.
+The review applier validates and moves data. Publication requires an official identity, a managed icon in `stack127-media`, one to three controlled categories, a verified self-hosting classification, install documentation, and at least one source URL. Open and source-available apps need a verified repository and license. Closed-source apps need an official website and publisher identity, but no repository.
+
+`self-host-apps:cache-icons` fetches, normalizes, and uploads icon batches with eight workers by default. `self-host-apps:icon-integrity` checks published URLs with 24 workers by default. Both accept an explicit worker count when a source needs a lower request rate.
 
 ## Technical refresh
 

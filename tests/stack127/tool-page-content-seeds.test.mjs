@@ -36,6 +36,7 @@ test("the shared server renderer owns Markdown prose and table behavior", () => 
   const renderer = readFileSync("app/tool-page-content.tsx", "utf8");
   assert.match(renderer, /ReactMarkdown/);
   assert.match(renderer, /remarkGfm/);
+  assert.match(renderer, /data-tool-page-content/);
   assert.match(renderer, /proseClassName/);
   assert.match(renderer, /proseFlowClassName/);
   assert.match(renderer, /role="region"/);

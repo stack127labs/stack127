@@ -1,8 +1,6 @@
 import { expect, test } from "playwright/test";
 import type { Page } from "playwright/test";
 
-const localPreview = process.env.STACK127_TEST_DATABASE_ENV === ".env.local";
-test.skip(!localPreview, "The interactive route needs the guarded local preview.");
 
 async function chooseOption(page: Page, label: string, option: string) {
   await page.locator(`button[data-tool-label="${label}"]`).click();

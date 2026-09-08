@@ -4,7 +4,7 @@ This is the secret-free index of every active Stack127 environment surface. It
 records names, owners, and consumers only. Never add credential values, token
 fragments, database hosts, project references, or passwords to this document.
 
-Last reconciled: 4 September 2026.
+Last reconciled: 5 September 2026.
 
 ## Rules
 
@@ -31,10 +31,10 @@ Last reconciled: 4 September 2026.
 | `.env.analytics` | `.env.analytics.example` | Self-hosted Umami connection and administrative login. |
 | `.env.homelab` | `.env.homelab.example` | Homelab host identity and local administration. |
 | `.env.repos` | `.env.repos.example` | Local GitHub CLI and stack127 repo automation. |
-| `.env.affiliate` | `.env.affiliate.example` | Amazon Associates settings and future affiliate API credentials for stack127. |
+| `.env.affiliate` | `.env.affiliate.example` | Amazon Associates settings and future Creators API credentials. |
 
-The existing six populated files were verified as mode `0600` on 20 August 2026.
-The `.env.affiliate` file was created with mode `0600` on 4 September 2026.
+The first six populated files were verified as mode `0600` on 20 August 2026.
+`.env.affiliate` was verified as mode `0600` on 4 September 2026.
 
 ### Managed Supabase
 
@@ -49,8 +49,9 @@ SUPABASE_SECRET_KEY
 ```
 
 `DATABASE_URL` is required by current database-backed scripts and production
-runtime. The Supabase API keys remain available for features that use the API;
-they are not a substitute for `DATABASE_URL`.
+runtime. `SUPABASE_URL` and `SUPABASE_SECRET_KEY` are required by media upload
+scripts. The publishable key is available for browser-safe API reads; none of
+the API keys replace `DATABASE_URL`.
 
 ### Deployment And Infrastructure
 
@@ -195,9 +196,8 @@ SUPABASE_SECRET_KEY
 They were not configured at the time of the audit. GitHub discovery falls back
 to the workflow's automatic `GITHUB_TOKEN`; GitLab and Codeberg enrichment can
 run without provider tokens at lower anonymous rate limits. Supabase API keys
-are optional for the current release because the quality gate uses the
-repository-level database URL. Add them only when a workflow step actually uses
-the Supabase API.
+are required only for workflows that upload managed media. The release quality
+gate still uses the repository-level database URL.
 
 `GITHUB_TOKEN` itself is issued automatically by GitHub Actions and is not a
 stored secret that needs manual rotation.
@@ -273,29 +273,28 @@ use Cloudflare User API tokens for either purpose.
 
 ## Amazon Associates
 
-`.env.affiliate` stores the Amazon Associates configuration for stack127. It
-is ignored by Git and must stay at mode `0600`. The tracked example file lists
-the same keys without values.
+`.env.affiliate` stores the Amazon Associates configuration for stack127. It is
+ignored by Git and must stay at mode `0600`. The tracked example lists the same
+keys without values.
 
 | Key | Secret? | Use |
 | --- | --- | --- |
 | `AMAZON_ASSOCIATES_PRIMARY_MARKETPLACE` | No | Primary Amazon marketplace. |
 | `AMAZON_ASSOCIATES_STORE_ID` | No | Associates Store ID for the primary marketplace. |
 | `AMAZON_ASSOCIATES_TRACKING_ID` | No | Tracking ID used for stack127 affiliate links. |
-| `AMAZON_ASSOCIATES_PARTNER_TAG` | No | Partner tag used by affiliate links or API requests. |
-| `AMAZON_ONELINK_ENABLED` | No | Whether Amazon OneLink is enabled for the account. |
-| `AMAZON_ONELINK_MARKETPLACES` | No | Comma-separated marketplaces configured for OneLink. |
+| `AMAZON_ASSOCIATES_PARTNER_TAG` | No | Partner tag used by links and API requests. |
+| `AMAZON_ONELINK_ENABLED` | No | Whether OneLink is enabled for the account. |
+| `AMAZON_ONELINK_MARKETPLACES` | No | Marketplaces configured for OneLink. |
 | `AMAZON_CREATORS_API_CREDENTIAL_ID` | No | Creators API Credential ID. |
-| `AMAZON_CREATORS_API_SECRET` | Yes | Creators API Secret. |
-| `AMAZON_CREATORS_API_VERSION` | No | Creators API credential Version. |
-| `AMAZON_CREATORS_API_HOST` | No | Optional Creators API host override; the documented default is `https://creatorsapi.amazon`. |
-| `AMAZON_CREATORS_API_REGION` | No | Optional credential-region record; US credentials use North America. |
-| `AMAZON_CREATORS_API_MARKETPLACE` | No | Optional marketplace override; the US default is `www.amazon.com`. |
+| `AMAZON_CREATORS_API_SECRET` | Yes | Creators API secret. |
+| `AMAZON_CREATORS_API_VERSION` | No | Creators API credential version. |
+| `AMAZON_CREATORS_API_HOST` | No | Optional API host override. |
+| `AMAZON_CREATORS_API_REGION` | No | Optional credential-region record. |
+| `AMAZON_CREATORS_API_MARKETPLACE` | No | Optional marketplace override. |
 
-Affiliate-link, OneLink, and future Creators API scripts must load
-`.env.affiliate` explicitly. Next.js does not load this split environment file
-automatically. Never expose the Creators API Secret to client-side code or print
-the real file.
+Affiliate scripts must load `.env.affiliate` explicitly. Next.js does not load
+this split file automatically. Never expose the Creators API secret to client
+code or print the real file.
 
 ## Rotation Checklist
 

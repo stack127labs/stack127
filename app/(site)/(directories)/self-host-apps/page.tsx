@@ -2,7 +2,7 @@ import { HardDrive, Search } from "lucide-react";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { FaGithub } from "react-icons/fa6";
-import { getDirectoryAppIndex, getDirectoryAppsBySlugs, type DirectoryAppIndex as DirectoryApp } from "@/lib/apps";
+import { getDirectoryAppIndex, getDirectoryAppsBySlugs, type DirectoryAppIndex } from "@/lib/apps";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import {
   findDirectoryLicenseId,
@@ -163,7 +163,7 @@ function getPage(params: SearchParams) {
   return Number.isInteger(value) && value > 1 ? value : 1;
 }
 
-function matchesSearch(app: DirectoryApp, query: string) {
+function matchesSearch(app: DirectoryAppIndex, query: string) {
   if (!query) {
     return true;
   }
@@ -181,7 +181,7 @@ function matchesSearch(app: DirectoryApp, query: string) {
   return haystack.includes(query.toLowerCase());
 }
 
-function maintenanceValue(app: DirectoryApp) {
+function maintenanceValue(app: DirectoryAppIndex) {
   return app.maintenance_status;
 }
 
@@ -215,7 +215,7 @@ function compareTierDescending(order: string[], aTier: string, bTier: string) {
   return bIndex - aIndex;
 }
 
-function compareBySort(a: DirectoryApp, b: DirectoryApp, sort: string) {
+function compareBySort(a: DirectoryAppIndex, b: DirectoryAppIndex, sort: string) {
   if (sort === "name") {
     return a.name.localeCompare(b.name);
   }
@@ -234,7 +234,7 @@ function compareBySort(a: DirectoryApp, b: DirectoryApp, sort: string) {
   return b.popularity_score - a.popularity_score || a.name.localeCompare(b.name);
 }
 
-function sortApps(apps: DirectoryApp[], sort: string, params: SearchParams) {
+function sortApps(apps: DirectoryAppIndex[], sort: string, params: SearchParams) {
   const selectedRam = getKnownValue(params, "ram", ramTierOrder);
   const selectedStorage = getKnownValue(params, "storage", storageTierOrder);
 
@@ -263,7 +263,7 @@ function sortApps(apps: DirectoryApp[], sort: string, params: SearchParams) {
   });
 }
 
-function filterApps(apps: DirectoryApp[], params: SearchParams) {
+function filterApps(apps: DirectoryAppIndex[], params: SearchParams) {
   const query = getString(params, "q").trim();
   const categories = getValues(params, "category");
   const selectedLicenses = getValues(params, "license").filter((value) =>
@@ -561,21 +561,21 @@ export default async function SelfHostAppsPage({
   searchParams: Promise<SearchParams>;
 }) {
   const params = await searchParams;
-  const [apps, registryPage] = await Promise.all([
+  const [indexApps, registryPage] = await Promise.all([
     getDirectoryAppIndex(),
     getRequiredPublishedPage("self-host-apps"),
   ]);
   const sort = getString(params, "sort") || "popular";
   const selectedRam = getKnownValue(params, "ram", ramTierOrder);
   const selectedStorage = getKnownValue(params, "storage", storageTierOrder);
-  const filteredApps = sortApps(filterApps(apps, params), sort, params);
+  const filteredApps = sortApps(filterApps(indexApps, params), sort, params);
   const totalPages = Math.max(1, Math.ceil(filteredApps.length / pageSize));
   const currentPage = Math.min(getPage(params), totalPages);
   const startIndex = (currentPage - 1) * pageSize;
   const paginatedIndexApps = filteredApps.slice(startIndex, startIndex + pageSize);
   const paginatedApps = await getDirectoryAppsBySlugs(paginatedIndexApps.map((app) => app.slug));
   const categoryOptions = [...new Map(
-    apps
+    indexApps
       .flatMap((app) => app.categories)
       .map((category) => [
         category.slug,
@@ -590,7 +590,7 @@ export default async function SelfHostAppsPage({
     .sort((a, b) => a.label.localeCompare(b.label));
   const categoryMap = new Map(categoryOptions.map((option) => [option.value, option.label]));
   const licenseCounts = new Map<string, number>();
-  for (const app of apps) {
+  for (const app of indexApps) {
     const licenseId = findDirectoryLicenseId(app.license_spdx_id, app.license);
     if (licenseId) {
       licenseCounts.set(licenseId, (licenseCounts.get(licenseId) ?? 0) + 1);
@@ -607,7 +607,7 @@ export default async function SelfHostAppsPage({
   const licenseMap = new Map(licenseOptions.map((option) => [option.value, option.label]));
   const selectedLicenses = getValues(params, "license").filter((value) => licenseMap.has(value));
   const installCounts = new Map<string, number>();
-  for (const app of apps) {
+  for (const app of indexApps) {
     for (const method of app.install_methods) {
       installCounts.set(method, (installCounts.get(method) ?? 0) + 1);
     }

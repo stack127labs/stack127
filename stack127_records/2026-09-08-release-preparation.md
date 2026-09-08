@@ -1,6 +1,6 @@
 # Combined redesign release preparation
 
-The user authorized the combined local redesign, content, data, and migration release. Production has not been changed by this release preparation yet.
+The user authorized the combined local redesign, content, data, and migration release. The reviewed tool-content transfer is complete and verified. The replacement production image has not been deployed yet.
 
 ## Baselines and recovery
 
@@ -26,6 +26,14 @@ Development has only six self-host records versus 5,257 production rows. Never m
 
 ## Verification and pending work
 
-The first normal-permission run passed all 901 unit tests and static policy, then exposed stale publication manifests at the production registry gate. The registry check passed after state reconciliation. Restoring additional upstream tests exposed missing manifest ownership and an older full-directory query implementation; those were corrected. A new full quality run is in progress, logged to `/tmp/stack127-release-backup-breOuEtu/quality-final.log`.
+Local checkpoint `e1b388dc` on `codex/site-redesign-release` preserves the combined work. All 399 merge conflicts are resolved. Manifest arrays retain both branches' ownership entries. Catalog artwork is back in the catalog family. The redesigned cards, workbenches, controls, copy renderer, and shared layout remain, alongside production media management, directory query batching, publication history, and database compatibility.
+
+The merged tree passes all 910 unit tests, the 290-route static check, the production registry check, and the production build. Desktop browser testing exposed older assertions for pre-redesign headings and disclosures, an asynchronous request assertion, the obsolete shortcut 404 expectation, and print table wrapping. The assertions now follow the approved interface contracts while preserving behavioral checks. Print wrapping was corrected. Published storage tools no longer skip their interactive tests just because the test database is production.
+
+The content dry run verified development and production against the private snapshots. It covers 28 content changes, 34 tool versions, and 11 tool metadata or label changes. Six differing hardware metadata records predate the production publication release, so production keeps those newer values and sitemap priorities. Tool updates use the reviewed content and version commands separately. No app tables, publication flags, original publication dates, or repository-sync fields are copied from development.
+
+Durable private recovery copies of the working tree and both database snapshots are also in `/home/teja/.local/state/stack127/releases/2026-09-08/`. The archive SHA-256 matches the temporary copy.
+
+Production content verification passed after the transfer. All 34 tools match the saved development titles, introductions, supporting Markdown, and functional versions. The 28 changed content rows incremented production revision once. All registry fields other than the 11 approved metadata updates and update timestamps match the pre-transfer snapshot. Repository-sync fields, publication flags, original publication dates, and IDs are preserved. Logs and the idempotent verification runner are in the private recovery directory.
 
 Still required: finish all quality and browser checks; reconcile remaining upstream/local differences; create and verify sufficient production recovery backups; prepare guarded selective content and metadata updates; validate production assets and runtime configuration; commit and integrate Git history safely; deploy through the canonical workflow; verify exact SHA, data hashes, routes, redirects, and live behavior. No release completion claim is justified yet.

@@ -18,6 +18,8 @@ Every actionable unknown enters a research queue. Official project sites, source
 
 ## Show vs say
 
+Official app images are normalized into the public stack127 Supabase bucket. Preserve these managed URLs when importing or updating records.
+
 Use the approved Fact rows design from the card lab. Three cards fit beside the desktop sidebar, with two and one columns at narrower widths. Each card shows the actual app image, name, primary category and a +N count, full summary, then labeled rows for Source, Pricing, RAM, Storage, and Last update. Each row has a small semantic icon. Keep estimates and unknowns explicit. Clicking anywhere on the card opens the existing details drawer; do not link the whole card to an external site or redesign the drawer in this pass.
 
 Filters and the card grid do the discovery work. The dotted header uses one small server-rack drawing to identify the collection. Category, source model, install method, and license use compact controls. The detail drawer separates identity, installation destinations, system requirements, data services, release activity, source links, and uncertainty. App logos prove identity, while one-sentence summaries explain purpose. The page uses a generated monogram only when the app image is missing or fails to load. Counts are live database facts. Longer prose is reserved for uncertainty and the limits of a field.

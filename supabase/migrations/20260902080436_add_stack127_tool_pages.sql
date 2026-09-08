@@ -1,15 +1,15 @@
 -- Split universal page publication from tool-specific Markdown and release data.
 -- Existing public dates remain unchanged. The 1.0.0 values establish the first
 -- tracked stack127-hosted tool baseline; they do not claim historical releases.
+-- Keep created_at for one deployment cycle so the old application remains compatible
+-- while this migration runs before the replacement image is deployed.
 
 drop view if exists public.version127_pages;
 
 alter table public.stack127_pages
-  rename column created_at to row_created_at;
-
-alter table public.stack127_pages
   add column id bigint generated always as identity,
   add column page_family text,
+  add column row_created_at timestamptz,
   add column row_updated_at timestamptz;
 
 drop trigger if exists set_stack127_pages_updated_at on public.stack127_pages;
@@ -59,6 +59,7 @@ set
     when slug in ('', 'labs') then 'info'
     else 'catalog'
   end,
+  row_created_at = created_at,
   row_updated_at = updated_at;
 
 update public.stack127_pages
@@ -89,6 +90,8 @@ $$;
 
 alter table public.stack127_pages
   alter column page_family set not null,
+  alter column row_created_at set default now(),
+  alter column row_created_at set not null,
   alter column row_updated_at set default now(),
   alter column row_updated_at set not null,
   alter column updated_at drop default,

@@ -1,7 +1,5 @@
 import { expect, test } from "playwright/test";
 
-const localPreview = process.env.STACK127_TEST_DATABASE_ENV === ".env.local";
-test.skip(!localPreview, "The interactive route needs the guarded local preview.");
 
 async function addBatch(page: import("playwright/test").Page, domain: string, count: string, capacity: string) {
   await page.getByRole("button", { name: "Add OSD batch" }).click();

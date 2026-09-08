@@ -78,7 +78,9 @@ node scripts/stack127/amazon-affiliate/qa-rendered.mjs --base-url=http://127.0.0
 ```
 
 The scripts resume from their JSONL caches. Failed requests remain retryable.
-Use `--allow-pending` with the audit only for an honest progress report. Publication requires the audit without that flag.
+Use `--allow-pending` while exact Amazon review is incomplete. A directory may
+publish with pending reviews because only `confirmed` records render an Amazon
+link. Full affiliate coverage requires the audit without that flag.
 
 ## Creators API boundary
 

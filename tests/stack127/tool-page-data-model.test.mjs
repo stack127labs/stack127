@@ -72,7 +72,10 @@ test("the tools route group contains only interactive tools", () => {
 test("stack127_pages separates row timestamps from public dates", () => {
   const sql = toolPageMigration();
 
-  assert.match(sql, /rename column created_at to row_created_at/i);
+  assert.match(sql, /add column row_created_at timestamptz/i);
+  assert.match(sql, /row_created_at = created_at/i);
+  assert.doesNotMatch(sql, /rename column created_at to row_created_at/i);
+  assert.doesNotMatch(sql, /drop column created_at/i);
   assert.match(sql, /add column row_updated_at timestamptz/i);
   assert.match(sql, /add column id bigint generated always as identity/i);
   assert.match(sql, /add column page_family text/i);
@@ -160,6 +163,7 @@ test("tool page operating docs define content and functional update workflows", 
   assert.match(docs, /tool_version/);
   assert.match(docs, /row_created_at/);
   assert.match(docs, /row_updated_at/);
+  assert.match(docs, /temporary compatibility column/i);
   assert.match(docs, /stack127_repo_/);
   assert.match(docs, /github_projects/);
 });

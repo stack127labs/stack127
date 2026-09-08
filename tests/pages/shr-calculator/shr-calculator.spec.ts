@@ -1,8 +1,6 @@
 import { expect, test } from "playwright/test";
 import type { Page } from "playwright";
 
-const localPreview = process.env.STACK127_TEST_DATABASE_ENV === ".env.local";
-test.skip(!localPreview, "The tool requires the guarded managed-development preview.");
 
 async function addDrive(page: Page, capacity: string, unit = "TB") {
   await page.getByRole("button", { name: "Add drive" }).click();

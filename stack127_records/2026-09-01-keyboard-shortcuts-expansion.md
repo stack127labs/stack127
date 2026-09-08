@@ -9,9 +9,9 @@ sources. The backlog now contains a decision for all 263 candidate apps:
 - 0 remain unstarted.
 
 The verified records generate the catalog summary, lazy loaders, app routes, and ownership
-manifests. The catalog now contains 218 app records, including the original 26 published pages.
-The 192 new routes remain `noindex` and are not in `public.stack127_pages` or the sitemap. Future
-publication requires a separate editorial review and an explicit registry decision.
+manifests. On September 3, 2026, all 192 verified expansion routes were approved for publication.
+Migration `20260903053518_publish_keyboard_shortcut_expansion.sql` adds their exact
+`public.stack127_pages` rows. The catalog now contains 218 published app references.
 
 Current operating rules remain in `content_docs/keyboard-shortcuts/brief.md`,
 `content_docs/keyboard-shortcuts/publication.md`, and

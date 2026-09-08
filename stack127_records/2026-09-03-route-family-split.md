@@ -12,3 +12,7 @@ The move did not change any public URL, publication state, page content, or SEO 
 Shared directory controls moved with the directory routes. Keyboard shortcut navigation
 moved with the reference routes. The route-family test fixes the membership of all three
 groups so the old mixture does not return.
+
+The release gate also exposed a cold-load timeout on `/self-host-apps`. The route had been
+loading complete detail records for every published app before paginating. It now loads a
+compact filter index in bounded reads and fetches complete records only for the current page.

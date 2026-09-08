@@ -1,7 +1,5 @@
 import { expect, test } from "playwright/test";
 
-const localPreview = process.env.STACK127_TEST_DATABASE_ENV === ".env.local";
-test.skip(!localPreview, "The interactive route needs the guarded local preview.");
 
 test("starts clean, edits rows, and compares a mixed inventory", async ({ page }) => {
   await page.goto("/storage-layout-advisor");

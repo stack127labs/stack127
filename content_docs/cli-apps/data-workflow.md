@@ -35,9 +35,10 @@ tables.
 3. **Verify** (`verify-candidates.mjs`): fetches official evidence (GitHub
    API for repository facts, reachability probes for websites) into a batch
    file. Nothing publishes here.
-4. **Cache icons** (`cache-icons.mjs`): downloads each app's official site
-   favicon or repository-owner image, normalizes it to a local 256px PNG, and
-   records the source URL. A generated initial tile is the last fallback.
+4. **Store icons** (`cache-icons.mjs`): downloads each app's official site
+   favicon or repository-owner image, normalizes it to a 256px PNG, uploads it
+   to `stack127-media`, and records both the managed URL and source URL. A
+   generated initial tile is the last fallback.
 5. **Publish** (`publish-apps.mjs`): applies reviewed records. Publication
    requires a name, an original stack127 summary, an official URL, source
    model, pricing model, a primary type, 1 to 3 reviewed categories, and a
@@ -55,7 +56,8 @@ For a partial correction, use `apply-reviewed-corrections.mjs --env <env file> -
 - Use `unknown` or `null` instead of guessing.
 - Package names and command names are aliases, not automatically product names.
 - A record without a reliable official URL or source page does not publish.
-- Public cards load icons from `/cli-app-icons/`. They do not depend on a
-  third-party favicon service at request time.
+- Public cards load the `icon_url` stored in `terminal_apps`. Managed icons use
+  content-hashed paths under `directories/cli-apps/icons/` in `stack127-media`.
+  They do not depend on a third-party favicon service at request time.
 - The result is exhaustive across the attempted sources only. It is not proof
   that every terminal app in existence has been found.

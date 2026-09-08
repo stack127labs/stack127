@@ -1,7 +1,5 @@
 import { expect, test } from "playwright/test";
 
-const localPreview = process.env.STACK127_TEST_DATABASE_ENV === ".env.local";
-test.skip(!localPreview, "The interactive route needs the guarded managed-development preview.");
 
 test("shows the default result and clears stale output for an invalid edit", async ({ page }) => {
   await page.goto("/rebuild-calculator");

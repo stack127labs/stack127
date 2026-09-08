@@ -18,12 +18,18 @@ This split applies only to interactive tools. References and directories such as
 | `meta_description` | Search description. |
 | `is_published` | The only switch that makes the exact slug public. |
 | `row_created_at` | Internal time when the registry row was created. Never present it as the publication date. |
+| `created_at` | Temporary compatibility copy of the original creation time. New code must not read it. |
 | `row_updated_at` | Automatic internal time for the latest registry-row write. Do not set it manually. |
 | `published_at` | Public first-publication time. It is `null` while unpublished and is preserved after publication. |
 | `updated_at` | Public time of the latest meaningful content, tool, or SEO change. It is `null` while unpublished. |
 | `cover_image_url` | Optional social image. |
 | `page_type` | Schema.org page type. |
 | `sitemap_priority` | Sitemap priority from `0` to `1`. |
+
+`created_at` remains as a temporary compatibility column during this first release so the currently
+deployed application can keep reading the registry while the migration and new image roll out. New
+application code uses `row_created_at`. Remove `created_at` only in a later migration, after a
+separate production verification confirms that no deployed code or operational script reads it.
 
 `public.stack127_tool_pages` is the one-to-one tool extension. Its `page_id` must point to a `stack127_pages` row whose family is `tool`.
 

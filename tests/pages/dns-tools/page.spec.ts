@@ -3,21 +3,23 @@ import { expect, test } from "playwright/test";
 test("DNS tools hub shows only tools that are available", async ({ page }) => {
   await page.goto("/dns-tools");
 
-  await expect(page.getByRole("heading", { name: "What are you trying to fix?" })).toBeVisible();
+  const catalog = page.getByRole("region", { name: "Choose a DNS check" });
+  await expect(catalog).toBeVisible();
   for (const toolName of [
-    "DNS Lookup",
-    "DNS Trace Explorer",
-    "DNS Change Checker",
-    "Nameserver Delegation Checker",
-    "DNSSEC Chain Checker",
-    "SOA Consistency Checker",
-    "CAA Policy Checker",
+    "DNS lookup",
+    "DNS trace",
+    "DNS change checker",
+    "Nameserver checker",
+    "DNSSEC checker",
+    "SOA checker",
+    "CAA checker",
   ]) {
-    await expect(page.locator(".dns-tool-card").getByText(toolName, { exact: true })).toBeVisible();
+    await expect(catalog.getByRole("heading", { name: toolName, exact: true })).toBeVisible();
   }
-  await expect(page.getByText("I only need to see the current records.", { exact: true })).toBeVisible();
-  await expect(page.getByText("A DNS change still looks old.", { exact: true })).toBeVisible();
-  await expect(page.getByText("A certificate will not issue.", { exact: true })).toBeVisible();
+  await expect(catalog.getByRole("link")).toHaveCount(7);
+  await expect(catalog.getByRole("link", { name: /DNS lookup/ })).toContainText(/records.*resolver/);
+  await expect(catalog.getByRole("link", { name: /DNS change checker/ })).toContainText(/authoritative answer.*caches/);
+  await expect(catalog.getByRole("link", { name: /CAA checker/ })).toContainText(/certificate authorities/);
   await expect(page.locator('[data-app-main] a[href="/dns-lookup"]')).toBeVisible();
   await expect(page.getByRole("heading", { name: "Planned next" })).toHaveCount(0);
 });

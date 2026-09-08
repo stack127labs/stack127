@@ -106,7 +106,7 @@ test("DNS Trace Explorer renders a genuine root-to-answer path in simple languag
   await expect(page.getByRole("radio", { name: "A", exact: true })).toBeChecked();
   await expect(page.getByLabel("Resolver")).toHaveCount(0);
   await expect(page.getByText("All", { exact: true })).toHaveCount(0);
-  await expect(page.locator("article h2")).toHaveText([
+  await expect(page.locator("[data-tool-page-content] > h2")).toHaveText([
     "How a DNS trace works",
     "What each step tells you",
     "Where a DNS trace can stop",
@@ -180,7 +180,7 @@ test("blank input focuses one required error and a selected type drives the requ
   await input.fill("mail.example.com");
   await page.getByText("MX", { exact: true }).click();
   await page.getByRole("button", { name: "Trace DNS" }).click();
-  expect(requestBody).toEqual({ name: "mail.example.com", recordType: "MX" });
+  await expect.poll(() => requestBody).toEqual({ name: "mail.example.com", recordType: "MX" });
   await expect(page).toHaveURL(/\/dns-trace$/);
 });
 

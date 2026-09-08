@@ -1,10 +1,8 @@
 import { expect, test } from "playwright/test";
 
 const route = "/snapraid-mergerfs-planner";
-const localPreview = process.env.STACK127_TEST_DATABASE_ENV === ".env.local";
 
 test.beforeEach(async ({ page }) => {
-  test.skip(!localPreview, "The tool requires the guarded managed-development preview.");
   await page.goto(route);
 });
 

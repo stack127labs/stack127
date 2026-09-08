@@ -14,7 +14,8 @@
     "tests/pages/keyboard-shortcuts/shared/generation.test.mjs",
     "tests/pages/keyboard-shortcuts/keyboard-shortcuts.spec.ts",
     "tests/pages/keyboard-shortcuts/shared/presentation.test.mjs",
-    "tests/pages/keyboard-shortcuts/clean-layout.spec.ts"
+    "tests/pages/keyboard-shortcuts/clean-layout.spec.ts",
+    "tests/pages/keyboard-shortcuts/shared/publication.test.mjs"
   ],
   "scripts": [
     "scripts/keyboard-shortcuts"
