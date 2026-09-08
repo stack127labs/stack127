@@ -186,7 +186,7 @@ test("SOA results stay readable and preserve skipped IPv6 evidence in the report
   const skipped = page.getByRole("row").filter({ hasText: "2001:db8::53" });
   await expect(skipped.getByRole("cell", { name: "Skipped by checker No IPv6 route", exact: true })).toBeVisible();
   await expect(page.getByRole("rowheader", { name: "a-very-long-nameserver-hostname.example.net", exact: true })).toHaveCount(2);
-  await expect(page.getByText("2,407,160,699")).toBeVisible();
+  await expect(page.getByRole("cell", { name: "2,407,160,699", exact: true })).toBeVisible();
   await expect(page.getByText(/ENETUNREACH/)).toHaveCount(0);
   const width = await page.evaluate(() => ({ client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth }));
   expect(width.scroll).toBeLessThanOrEqual(width.client);
