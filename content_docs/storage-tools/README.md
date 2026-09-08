@@ -4,6 +4,7 @@ Status: foundation and four initial tools complete and published on 2026-08-09 a
 
 This folder owns the shared technical documentation for the `/storage-tools` collection. The collection and its first three flat tool routes are published through `supabase/migrations/20260809140000_publish_storage_tools.sql`; the RAIDZ Expansion Planner was published separately; see `publication.md`. The eight additional flat routes are included in collection discovery and are ready to publish together through `supabase/migrations/20260824140000_publish_eight_storage_tools.sql`. That migration is committed but has not been applied, so these routes are not live yet.
 
+- `brief.md` defines the audience, job, and shared visual format for the collection page.
 - `calculation-engine.md` defines the shared calculation contract, exact-byte rules, versioning, URL state, limits, and adapter workflow.
 - `content_docs/raid-calculator/` owns the completed RAID Capacity and Level Explorer brief, formula contract, and page notes.
 - `content_docs/zfs-capacity-calculator/` owns the completed ZFS Pool Capacity Calculator research, product, test, content-plan, and handoff artifacts.

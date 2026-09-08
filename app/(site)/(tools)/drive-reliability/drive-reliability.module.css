@@ -1,36 +1,21 @@
-.guide {
-  margin: 0 auto;
-  max-width: var(--measure-prose);
-  width: 100%;
-}
-
 .tool {
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-border-strong);
-  border-radius: var(--radius-xl);
   min-width: 0;
-  overflow: hidden;
 }
 
 .form,
 .result {
   display: grid;
-  gap: var(--space-7);
+  gap: var(--space-6);
   min-width: 0;
   padding: var(--space-7);
 }
 
 .result {
-  border-top: 1px solid var(--color-border-strong);
+  border-top: 1px solid var(--color-border);
 }
 
 .toolHeading,
-.resultBar,
-.answerHeading,
-.sectionHeading,
-.formActions,
-.sourceRow,
-.plotLegend {
+.sectionHeading {
   align-items: center;
   display: flex;
   gap: var(--space-4);
@@ -38,17 +23,11 @@
   min-width: 0;
 }
 
-.toolHeading > div,
-.answerHeading > div,
-.sectionHeading > div {
-  min-width: 0;
-}
-
 .toolHeading h2,
-.answer h3,
-.cohortSection h3,
-.comparisonSection h3,
-.emptyState h3 {
+.sectionHeading h3,
+.plot h3,
+.evidence h3,
+.source h3 {
   font-family: var(--font-display);
   font-size: var(--text-h3);
   font-weight: var(--weight-bold);
@@ -57,110 +36,42 @@
   margin: 0;
 }
 
-.annotation,
-.version,
-.count,
-.sourceRow,
-.answerMeta,
-.modelMeta {
+.sectionHeading p,
+.scrollHint {
   color: var(--color-text-muted);
   font-family: var(--font-mono);
   font-size: var(--text-small);
-  line-height: var(--line-body);
-}
-
-.annotation,
-.answerMeta {
-  margin: var(--space-1) 0 0;
-}
-
-.version,
-.count {
-  flex: 0 1 auto;
-  min-width: 0;
-  overflow-wrap: anywhere;
-  text-align: right;
-}
-
-.periodFieldset {
-  border: 0;
-  display: grid;
-  gap: var(--space-3);
   margin: 0;
-  min-width: 0;
-  padding: 0;
-}
-
-.periodFieldset legend,
-.field > span:first-child {
-  font-family: var(--font-display);
-  font-size: var(--text-body);
-  font-weight: var(--weight-semibold);
-  margin: 0 0 var(--space-2);
-  padding: 0;
-}
-
-.periodChoices {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.periodChoice {
-  cursor: pointer;
-  position: relative;
-}
-
-.periodChoice input {
-  inset: 0;
-  opacity: 0;
-  position: absolute;
-}
-
-.periodChoice span {
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
-  display: block;
-  font-size: var(--text-body);
-  min-height: 44px;
-  padding: var(--space-2) var(--space-4);
-}
-
-.periodChoice input:checked + span {
-  border-color: var(--color-accent-text);
-  color: var(--color-accent-text);
-  font-weight: var(--weight-semibold);
-}
-
-.periodChoice input:focus-visible + span,
-.field input:focus-visible,
-.field select:focus-visible,
-.toggle input:focus-visible,
-.secondaryButton:focus-visible,
-.selectButton:focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: 2px;
 }
 
 .filterGrid {
-  align-items: end;
+  align-items: start;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: minmax(12rem, 1fr) minmax(18rem, 2fr);
+  min-width: 0;
+}
+
+.capacityGroup {
   display: grid;
   gap: var(--space-4);
-  grid-template-columns: minmax(15rem, 2fr) repeat(3, minmax(7rem, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   min-width: 0;
 }
 
-.field {
-  display: grid;
-  min-width: 0;
+.capacityError {
+  color: var(--color-danger-text);
+  font-size: var(--text-body);
+  grid-column: 1 / -1;
+  margin: 0;
 }
 
-.field input,
-.field select {
+.manualLink {
   background: var(--color-bg);
   border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text);
+  font-family: var(--font-mono);
   font-size: var(--text-body);
   min-height: 44px;
   min-width: 0;
@@ -168,271 +79,28 @@
   width: 100%;
 }
 
-.formActions {
-  border-top: 1px solid var(--color-border);
-  padding-top: var(--space-5);
-}
-
-.toggle {
-  align-items: center;
-  display: flex;
-  font-size: var(--text-body);
-  gap: var(--space-3);
-  min-height: 44px;
-}
-
-.toggle input {
-  accent-color: var(--color-accent-text);
-  height: 20px;
-  width: 20px;
-}
-
-.secondaryButton,
-.selectButton {
-  align-items: center;
-  background: var(--color-surface-2);
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
-  color: var(--color-text);
-  cursor: pointer;
-  display: inline-flex;
-  font-size: var(--text-body);
-  gap: var(--space-2);
-  justify-content: center;
-  min-height: 44px;
-  padding: var(--space-2) var(--space-4);
-}
-
-.secondaryButton:hover,
-.selectButton:hover {
-  border-color: var(--color-accent-text);
-  color: var(--color-accent-text);
-}
-
-.selectButton[aria-pressed="true"] {
-  border-color: var(--color-accent-text);
-  color: var(--color-accent-text);
-  font-weight: var(--weight-semibold);
-}
-
-.status {
-  margin: 0;
-  min-height: 1.5rem;
-}
-
-.selectionPrompt {
-  border-top: 1px solid var(--color-border);
-  color: var(--color-text);
-  margin: 0;
-  padding-top: var(--space-7);
-}
-
-.resultBar {
-  align-items: start;
-}
-
-.answer,
-.cohortSection,
-.comparisonSection {
-  border-top: 1px solid var(--color-border);
+.locator,
+.answerRegion,
+.plot,
+.evidence,
+.source,
+.failureState {
   display: grid;
   gap: var(--space-5);
   min-width: 0;
+}
+
+.answerRegion {
+  border-top: 1px solid var(--color-border);
   padding-top: var(--space-7);
 }
 
-.answerHeading {
-  align-items: start;
-}
-
-.answerHeading h3 {
-  overflow-wrap: anywhere;
-}
-
-.evidenceLabel {
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
-  padding: var(--space-2) var(--space-3);
-  white-space: nowrap;
-}
-
-.primaryRate {
-  align-items: baseline;
-  display: flex;
-  gap: var(--space-4);
-}
-
-.primaryRate span,
-.metric span {
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
-}
-
-.primaryRate strong {
-  font-family: var(--font-display);
-  font-size: var(--text-h1);
-  font-weight: var(--weight-bold);
-  letter-spacing: var(--tracking-display);
-  line-height: 1;
-}
-
-.metricGrid {
-  border-top: 1px dashed var(--color-border);
-  display: grid;
-  gap: var(--space-4);
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  padding-top: var(--space-5);
-}
-
-.metric {
-  display: grid;
-  gap: var(--space-1);
-  min-width: 0;
-}
-
-.metric strong {
-  font-family: var(--font-mono);
-  font-size: var(--text-body);
-  font-weight: var(--weight-semibold);
-  overflow-wrap: anywhere;
-}
-
-.plotGroup {
-  display: grid;
-  gap: var(--space-3);
-}
-
-.plotLegend {
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
-}
-
-.plotList {
-  display: grid;
-  gap: var(--space-3);
-}
-
-.plotRow {
-  align-items: center;
-  display: grid;
-  gap: var(--space-3);
-  grid-template-columns: minmax(9rem, 15rem) minmax(8rem, 1fr) 4rem;
-  min-width: 0;
-}
-
-.plotLabel,
-.plotValue {
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
-  overflow-wrap: anywhere;
-}
-
-.plotValue {
-  text-align: right;
-}
-
-.plotTrack {
-  background: var(--color-surface-2);
-  border: 1px solid var(--color-border);
-  display: block;
-  height: 1rem;
-  min-width: 0;
-  position: relative;
-}
-
-.plotRange {
-  background: var(--color-border-strong);
-  height: 100%;
-  left: var(--range-left);
-  position: absolute;
-  width: var(--range-width);
-}
-
-.plotPoint {
-  background: var(--color-accent);
-  border: 2px solid var(--color-accent-contrast);
-  height: 1rem;
-  left: var(--point-left);
-  position: absolute;
-  top: -1px;
-  transform: translateX(-50%);
-  width: 0.5rem;
-}
-
-.tableScroll {
-  min-width: 0;
-  overflow-x: auto;
-  width: 100%;
-}
-
-.cohortTable,
-.comparisonTable {
-  border: 1.5px solid var(--color-border-strong);
-  border-collapse: collapse;
-  font-size: var(--text-body);
-  min-width: 720px;
-  width: 100%;
-}
-
-.cohortTable th,
-.cohortTable td,
-.comparisonTable th,
-.comparisonTable td {
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--space-3);
-  text-align: left;
-  vertical-align: middle;
-}
-
-.cohortTable thead th,
-.comparisonTable thead th {
-  border-bottom: 1.5px solid var(--color-border-strong);
-  font-family: var(--font-display);
-  font-weight: var(--weight-semibold);
-  white-space: nowrap;
-}
-
-.cohortTable tbody th,
-.cohortTable tbody td,
-.comparisonTable tbody th,
-.comparisonTable tbody td {
-  font-family: var(--font-mono);
-}
-
-.cohortTable tbody tr[data-selected="true"] {
-  background: var(--color-surface-2);
-}
-
-.cohortTable tbody tr:last-child th,
-.cohortTable tbody tr:last-child td,
-.comparisonTable tbody tr:last-child th,
-.comparisonTable tbody tr:last-child td {
-  border-bottom: 0;
-}
-
-.modelName,
-.modelMeta {
-  display: block;
-}
-
-.modelName {
-  overflow-wrap: anywhere;
-}
-
-.modelMeta {
-  margin-top: var(--space-1);
-}
-
+.selectionPrompt,
 .warning,
-.emptyState {
-  border: 1px solid var(--color-border-strong);
+.failureState p,
+.emptyState p {
+  font-size: var(--text-body);
   margin: 0;
-  padding: var(--space-4);
 }
 
 .warning strong {
@@ -440,30 +108,208 @@
 }
 
 .emptyState {
+  align-items: start;
+  border: 1px solid var(--color-border);
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-4);
+  justify-items: start;
+  padding: var(--space-4);
 }
 
-.emptyState p {
-  margin: 0;
+.locatorViewport {
+  min-width: 0;
 }
 
-.sourceRow {
-  border-top: 1px dashed var(--color-border);
-  color: var(--color-text-muted);
+.locatorTable {
+  border: 1.5px solid var(--color-border-strong);
+  border-collapse: collapse;
+  font-size: var(--text-body);
+  table-layout: fixed;
+  width: 100%;
+}
+
+.locatorTable th,
+.locatorTable td {
+  border-bottom: 1px solid var(--color-border);
+  overflow-wrap: anywhere;
+  padding: var(--space-3);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.locatorTable thead th {
+  border-bottom: 1.5px solid var(--color-border-strong);
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+}
+
+.locatorTable thead th:first-child {
+  width: 28%;
+}
+
+.locatorTable thead th:last-child {
+  width: 7.5rem;
+}
+
+.locatorTable tbody th,
+.locatorTable tbody td {
   font-family: var(--font-mono);
-  font-size: var(--text-small);
+}
+
+.locatorTable tbody tr:last-child th,
+.locatorTable tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.locatorTable tbody tr[data-selected="true"] {
+  background: var(--color-surface-2);
+}
+
+.plot {
+  border-top: 1px dashed var(--color-border);
   padding-top: var(--space-5);
 }
 
-.sourceRow a {
-  color: var(--color-link);
-  flex: 0 0 auto;
+.axisLabels {
+  display: flex;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  justify-content: space-between;
+  padding-left: min(18rem, 32%);
 }
 
-.sourceRow > span {
+.plotRows {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.plotRow {
+  align-items: center;
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: minmax(12rem, 32%) minmax(10rem, 1fr);
+  min-width: 0;
+}
+
+.plotCopy {
+  display: grid;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  gap: var(--space-1);
   min-width: 0;
   overflow-wrap: anywhere;
+}
+
+.plotCopy strong {
+  color: var(--color-text);
+}
+
+.plotCopy span {
+  color: var(--color-text-muted);
+}
+
+.plotTrack {
+  border-bottom: 1px solid var(--color-border-strong);
+  border-inline: 1px solid var(--color-border);
+  height: 2rem;
+  min-width: 0;
+  position: relative;
+}
+
+.plotTrack::after {
+  border-inline-start: 1px solid var(--color-border);
+  content: "";
+  inset-block: 0;
+  left: 50%;
+  position: absolute;
+}
+
+.plotRange {
+  border-top: 3px solid var(--color-border-strong);
+  left: var(--range-left);
+  position: absolute;
+  top: calc(50% - 1px);
+  width: var(--range-width);
+}
+
+.plotRange::before,
+.plotRange::after {
+  border-inline-start: 2px solid var(--color-border-strong);
+  content: "";
+  height: 0.75rem;
+  position: absolute;
+  top: -0.45rem;
+}
+
+.plotRange::before {
+  left: 0;
+}
+
+.plotRange::after {
+  right: 0;
+}
+
+.plotPoint {
+  background: var(--color-accent);
+  border: 2px solid var(--color-accent-contrast);
+  border-radius: 50%;
+  height: 0.9rem;
+  left: var(--point-left);
+  position: absolute;
+  top: calc(50% - 0.45rem);
+  transform: translateX(-50%);
+  width: 0.9rem;
+}
+
+.evidence,
+.source {
+  border-top: 1px dashed var(--color-border);
+  padding-top: var(--space-5);
+}
+
+.scrollHint {
+  display: none;
+}
+
+.evidenceViewport {
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.source dl {
+  display: grid;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  gap: var(--space-2) var(--space-5);
+  grid-template-columns: max-content minmax(0, 1fr);
+  margin: 0;
+}
+
+.source dl > div {
+  display: contents;
+}
+
+.source dt {
+  color: var(--color-text-muted);
+}
+
+.source dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.source a,
+.failureState a {
+  align-items: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  color: var(--color-link);
+  display: inline-flex;
+  font-size: var(--text-body);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
 }
 
 .visuallyHidden {
@@ -479,141 +325,103 @@
 }
 
 @media (max-width: 760px) {
-  .page {
-    gap: var(--space-10);
-    padding-top: var(--space-9);
-  }
-
   .form,
   .result {
     padding: var(--space-5);
   }
 
   .filterGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .searchField {
-    grid-column: 1 / -1;
-  }
-
-  .metricGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .plotRow {
-    grid-template-columns: minmax(7rem, 10rem) minmax(5rem, 1fr) 3.5rem;
-  }
-
-  .sourceRow,
-  .formActions,
-  .resultBar {
-    align-items: start;
-    flex-wrap: wrap;
-  }
-
-  .cohortTable,
-  .comparisonTable {
-    border: 0;
-    display: block;
-    min-width: 0;
-  }
-
-  .cohortTable thead,
-  .comparisonTable thead {
-    display: none;
-  }
-
-  .cohortTable tbody,
-  .comparisonTable tbody {
+  .locatorTable,
+  .locatorTable tbody {
     display: grid;
     gap: var(--space-4);
   }
 
-  .cohortTable tbody tr,
-  .comparisonTable tbody tr {
+  .locatorTable {
+    border: 0;
+  }
+
+  .locatorTable thead {
+    display: none;
+  }
+
+  .locatorTable tbody tr {
     border: 1.5px solid var(--color-border-strong);
     display: grid;
-    gap: 0;
     padding: var(--space-2) var(--space-3);
   }
 
-  .cohortTable tbody th,
-  .cohortTable tbody td,
-  .comparisonTable tbody th,
-  .comparisonTable tbody td {
+  .locatorTable tbody th,
+  .locatorTable tbody td {
     border-bottom: 1px solid var(--color-border);
     display: grid;
     gap: var(--space-3);
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
     padding: var(--space-2) 0;
     text-align: right;
   }
 
-  .cohortTable tbody th,
-  .comparisonTable tbody th {
-    display: block;
-    text-align: left;
-  }
-
-  .cohortTable tbody td::before,
-  .comparisonTable tbody td::before {
+  .locatorTable tbody th::before,
+  .locatorTable tbody td::before {
     color: var(--color-text-muted);
     content: attr(data-label);
     font-family: var(--font-sans);
     text-align: left;
   }
 
-  .cohortTable tbody td:last-child,
-  .comparisonTable tbody td:last-child {
+  .locatorTable tbody td:last-child {
     border-bottom: 0;
+    display: block;
+    padding-top: var(--space-3);
   }
 
-  .cohortTable tbody td:last-child .selectButton {
-    justify-self: end;
+  .locatorTable tbody td:last-child::before {
+    display: none;
+  }
+
+  .locatorTable tbody td:last-child button {
+    width: 100%;
+  }
+
+  .axisLabels {
+    padding-left: 0;
+  }
+
+  .plotRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .scrollHint {
+    display: block;
+  }
+
+  .source dl {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .source dl > div {
+    display: grid;
+    gap: var(--space-1);
   }
 }
 
 @media (max-width: 420px) {
-  .filterGrid,
-  .metricGrid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .searchField {
-    grid-column: auto;
-  }
-
   .toolHeading,
-  .answerHeading,
   .sectionHeading {
     align-items: start;
     flex-direction: column;
   }
+}
 
-  .version,
-  .count {
-    text-align: left;
+@media (max-width: 340px) {
+  .capacityGroup {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .primaryRate {
-    align-items: start;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .plotRow {
-    grid-template-columns: 1fr 4rem;
-  }
-
-  .plotTrack {
-    grid-column: 1 / -1;
-    grid-row: 2;
-  }
-
-  .plotValue {
-    align-self: end;
-    grid-column: 2;
-    grid-row: 1;
+  .capacityError {
+    grid-column: auto;
   }
 }

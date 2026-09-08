@@ -1,44 +1,9 @@
-import { ArrowUpRight, Binary, Database, Network, type LucideIcon } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { labProjects as projects } from "./projects";
 import { FaGithub } from "react-icons/fa6";
 import { InfoPage } from "../../info-page";
-import { proseLedeClassName } from "../../prose";
+import { siteSpotLabsArt } from "../art/site--spot-labs";
 import styles from "./labs.module.css";
-
-type LabProject = {
-  description: string;
-  icon: LucideIcon;
-  kind: string;
-  name: string;
-  repository: string;
-  website: string;
-};
-
-const projects: LabProject[] = [
-  {
-    name: "BaseBuddy",
-    kind: "learning tool",
-    description: "A visual base-conversion tool for learning and checking number systems.",
-    icon: Binary,
-    website: "https://basebuddy.stack127.com",
-    repository: "https://github.com/stack127labs/basebuddy",
-  },
-  {
-    name: "DNS tools",
-    kind: "open utilities",
-    description: "The open-source DNS utilities that power stack127's DNS collection.",
-    icon: Network,
-    website: "https://stack127.com/dns-tools",
-    repository: "https://github.com/stack127labs/dns-tools",
-  },
-  {
-    name: "stack127 datasets",
-    kind: "public datasets",
-    description: "Versioned public data exports used by stack127 directories and tools.",
-    icon: Database,
-    website: "https://stack127.com/self-host-apps",
-    repository: "https://github.com/stack127labs/stack127-datasets",
-  },
-];
 
 export default function LabsPage() {
   return (
@@ -48,15 +13,17 @@ export default function LabsPage() {
           Open projects from <mark>stack127 Labs</mark>
         </>
       }
+      heroArt={siteSpotLabsArt}
+      intro={
+        <p>
+          stack127 Labs is the public workshop behind the site, with small projects you can use and
+          inspect.
+        </p>
+      }
       slug="labs"
       title="Labs"
       wide
     >
-      <p className={proseLedeClassName}>
-        stack127 Labs is the public workshop behind the site. These projects are small,
-        independently useful, and open to inspect.
-      </p>
-
       <section className={styles.projectSection}>
         <h2>Three projects you can use or inspect</h2>
         <div className={styles.ledger}>

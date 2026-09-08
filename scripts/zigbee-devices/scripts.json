@@ -1,0 +1,18 @@
+[
+  {
+    "file": "image-enrichment.json",
+    "purpose": "Records reviewed model-specific image sources for eligible Zigbee records whose upstream checkout omits the product image."
+  },
+  {
+    "file": "refresh-zigbee-devices.mjs",
+    "purpose": "Builds or verifies the complete union of Zigbee2MQTT marketed devices and Blakadder compatibility records with normalized source-owned product images."
+  },
+  {
+    "file": "preview-local-page.mjs",
+    "purpose": "Adds or removes one temporary managed-development publication row for local visual review of /zigbee-devices."
+  },
+  {
+    "file": "qa-local-page.mjs",
+    "purpose": "Operates the temporary local preview across required widths and themes and records screenshots and overflow measurements."
+  }
+]

@@ -8,8 +8,8 @@ async function addBatch(page: import("playwright/test").Page, domain: string, co
   const index = await page.getByTestId("osd-batch").count();
   const row = page.getByTestId("osd-batch").nth(index - 1);
   await row.getByLabel("Failure-domain label").fill(domain);
-  await row.getByLabel("OSD count").fill(count);
-  await row.getByLabel("OSD capacity").fill(capacity);
+  await row.getByRole("textbox", { name: "OSD count", exact: true }).fill(count);
+  await row.getByRole("textbox", { name: "OSD capacity", exact: true }).fill(capacity);
 }
 
 test("plans replicated capacity and clears stale results on edit", async ({ page }) => {
@@ -20,28 +20,31 @@ test("plans replicated capacity and clears stale results on edit", async ({ page
   await addBatch(page, "host-b", "1", "4");
   await addBatch(page, "host-c", "1", "4");
   await page.getByRole("button", { name: "Plan capacity" }).click();
-  await expect(page.getByRole("heading", { name: "Modeled capacity", exact: true })).toBeFocused();
-  await expect(page.getByTestId("capacity-accounting")).toContainText("12 TB");
-  await expect(page.getByTestId("capacity-accounting")).toContainText("4 TB");
-  await page.getByLabel("Planning reserve").fill("25");
-  await expect(page.getByRole("heading", { name: "Modeled capacity", exact: true })).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Ceph capacity plan", exact: true })).toBeFocused();
+  await expect(page.getByLabel("Planning target")).toContainText("3.2 TB");
+  await expect(page.getByTestId("capacity-accounting")).toContainText("8 TB");
+  await expect(page.getByTestId("capacity-accounting")).toContainText("0.8 TB");
+  await page.getByRole("textbox", { name: "Planning reserve", exact: true }).fill("25");
+  await page.getByRole("textbox", { name: "Planning reserve", exact: true }).press("Tab");
+  await expect(page.getByRole("heading", { name: "Ceph capacity plan", exact: true })).toHaveCount(0);
   await expect(page).toHaveURL(/ceph-capacity-calculator$/);
 });
 
 test("plans EC, shows domains, and blocks insufficient failure domains", async ({ page }) => {
   await page.goto("/ceph-capacity-calculator");
-  await page.getByRole("radio", { name: "Erasure coding" }).check();
-  await page.getByLabel("Data chunks k").fill("4");
-  await page.getByLabel("Coding chunks m").fill("2");
+  await page.getByRole("radiogroup", { name: /Protection mode/ }).getByText("Erasure coding", { exact: true }).click();
+  await page.getByRole("textbox", { name: "Data chunks k", exact: true }).fill("4");
+  await page.getByRole("textbox", { name: "Coding chunks m", exact: true }).fill("2");
   for (let index = 1; index <= 5; index += 1) await addBatch(page, `host-${index}`, "1", "4");
   await page.getByRole("button", { name: "Plan capacity" }).click();
-  await expect(page.locator('[role="alert"]').filter({ hasText: "6 distinct" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Modeled capacity", exact: true })).toHaveCount(0);
+  await expect(page.getByText("Use 6 distinct host domains.", { exact: true })).toBeVisible();
+  await expect(page.getByText("Check the marked inputs.", { exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Ceph capacity plan", exact: true })).toHaveCount(0);
   await addBatch(page, "host-6", "1", "4");
   await page.getByRole("button", { name: "Plan capacity" }).click();
-  await expect(page.getByRole("heading", { name: "Modeled capacity", exact: true })).toBeFocused();
-  await expect(page.getByTestId("domain-table")).toContainText("Required domains");
-  await expect(page.getByTestId("domain-table")).toContainText("Largest-domain loss");
+  await expect(page.getByRole("heading", { name: "Ceph capacity plan", exact: true })).toBeFocused();
+  await expect(page.getByText("Required domains", { exact: true })).toBeVisible();
+  await expect(page.getByTestId("domain-table")).toContainText("host-6");
 });
 
 test("supports Enter, reset, share, and malformed shared state recovery", async ({ page, context }) => {
@@ -49,16 +52,16 @@ test("supports Enter, reset, share, and malformed shared state recovery", async 
   await addBatch(page, "host-a", "1", "2");
   await addBatch(page, "host-b", "1", "2");
   await addBatch(page, "host-c", "1", "2");
-  await page.getByLabel("OSD capacity").last().press("Enter");
-  await expect(page.getByRole("heading", { name: "Modeled capacity", exact: true })).toBeFocused();
+  await page.getByRole("textbox", { name: "OSD capacity", exact: true }).last().press("Enter");
+  await expect(page.getByRole("heading", { name: "Ceph capacity plan", exact: true })).toBeFocused();
   await page.getByRole("button", { name: "Share plan" }).click();
   await expect(page).toHaveURL(/state=/);
   await expect(page.getByRole("textbox", { name: "Share URL" })).toBeVisible();
   await page.getByRole("button", { name: "Reset" }).click();
-  await expect(page.getByRole("heading", { name: "Modeled capacity", exact: true })).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Ceph capacity plan", exact: true })).toHaveCount(0);
   await page.goto("/ceph-capacity-calculator?state=not-valid");
   await expect(page).toHaveURL(/ceph-capacity-calculator$/);
-  await expect(page.getByRole("status")).toContainText("shared plan");
+  await expect(page.getByRole("status")).toContainText(/shared plan/i);
   await context.clearCookies();
 });
 

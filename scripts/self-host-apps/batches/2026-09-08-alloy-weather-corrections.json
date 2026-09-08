@@ -1,0 +1,62 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Partial license, purpose, description, and category corrections from official repository evidence.",
+  "apps": [
+    {
+      "slug": "alloy",
+      "review_scope": "partial",
+      "license": "Apache-2.0",
+      "source_model": "open_source",
+      "summary": "Collects and forwards metrics, logs, traces, and profiles through configurable OpenTelemetry and Prometheus pipelines.",
+      "summary_source": "curated",
+      "categories": [
+        "monitoring-status"
+      ],
+      "expected": {
+        "license": "No license file declared (all rights reserved by default)",
+        "source_model": "source_available",
+        "summary": "Grafana Alloy is an OpenTelemetry Collector distribution with built-in Prometheus pipelines and support for metrics, logs, traces, and profiles, You will.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "ai-ml",
+          "monitoring-status",
+          "networking-dns"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/grafana/alloy/HEAD/LICENSE",
+        "https://raw.githubusercontent.com/grafana/alloy/HEAD/README.md"
+      ],
+      "pending_review": [
+        "Installation options, resource requirements, maintenance, surfaces, and remaining record metadata."
+      ]
+    },
+    {
+      "slug": "ambientweather2mqtt",
+      "review_scope": "partial",
+      "license": "MIT",
+      "source_model": "open_source",
+      "summary": "Sends local readings from Ambient Weather stations to an MQTT broker, with automatic sensor discovery in Home Assistant.",
+      "summary_source": "curated",
+      "categories": [
+        "home-automation-iot"
+      ],
+      "expected": {
+        "license": "No license file declared (all rights reserved by default)",
+        "source_model": "source_available",
+        "summary": "This package listens for local data from Ambient Weather stations (such as the WS-2902C) and converts the incoming data to MQTT events, The sensor data is.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "home-automation-iot"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/neilenns/ambientweather2mqtt/HEAD/LICENSE",
+        "https://raw.githubusercontent.com/neilenns/ambientweather2mqtt/HEAD/README.md"
+      ],
+      "pending_review": [
+        "Installation options, resource requirements, maintenance, surfaces, and remaining record metadata."
+      ]
+    }
+  ]
+}

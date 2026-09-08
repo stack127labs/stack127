@@ -10,7 +10,22 @@ import {
   Trash2,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { CodeBlock } from "../../../code-block";
+import {
+  ToolAllocationBar,
+  ToolButton,
+  ToolCheckbox,
+  ToolChoiceGroup,
+  ToolCodeOutput,
+  ToolCopyAction,
+  ToolDataTable,
+  ToolDisclosure,
+  ToolKeyValueList,
+  ToolNumberField,
+  ToolPrimaryResult,
+  ToolQuantityInput,
+  ToolSelect,
+  ToolStatus,
+} from "@/app/tool-ui/tool-controls";
 import {
   ZFS_CALCULATION_VERSION,
   ZFS_INPUT_VERSION,
@@ -83,6 +98,7 @@ const auxiliaryRoles: readonly ZfsAuxiliaryRole[] = ["spare", "slog", "l2arc", "
 const filesystemBlocks = [4, 8, 16, 32, 64, 128, 256, 512, 1_024, 2_048, 4_096, 8_192, 16_384];
 const zvolBlocks = [4, 8, 16, 32, 64, 128];
 const MAX_UI_DRIVES = 256;
+const inputUnitOptions = inputUnits.map((unit) => ({ id: unit, label: unit }));
 
 function emptyEditor(): EditorState {
   return {
@@ -264,15 +280,6 @@ function compileEditor(state: EditorState): CompileResult {
   };
 }
 
-function formatPercent(part: bigint, total: bigint) {
-  if (total === 0n) return "0%";
-  const hundredths = (part * 10_000n + total / 2n) / total;
-  if (part > 0n && hundredths === 0n) return "<0.01%";
-  const whole = hundredths / 100n;
-  const fraction = (hundredths % 100n).toString().padStart(2, "0").replace(/0+$/, "");
-  return fraction ? `${whole}.${fraction}%` : `${whole}%`;
-}
-
 function DriveRows({
   groupLabel,
   rows,
@@ -289,7 +296,7 @@ function DriveRows({
   return (
     <div className={styles.driveTable}>
       <div aria-hidden="true" className={styles.driveHeader}>
-        <span>Drive</span><span>Capacity</span><span>Unit</span><span />
+        <span>Drive</span><span>Capacity</span><span />
       </div>
       {rows.map((drive, index) => {
         const name = `${groupLabel} drive ${index + 1}`;
@@ -297,38 +304,28 @@ function DriveRows({
         return (
           <div className={styles.driveRow} data-testid={drive.id} key={drive.id}>
             <span className={styles.driveNumber}>{String(index + 1).padStart(2, "0")}</span>
-            <label>
-              <span className={styles.visuallyHidden}>{name} capacity</span>
-              <input
-                aria-describedby={error ? `error-${drive.id}` : undefined}
-                aria-invalid={Boolean(error)}
-                aria-label={`${name} capacity`}
-                data-focus-key={`capacity-${drive.id}`}
-                inputMode="decimal"
-                onChange={(event) => onChange(drive.id, { size: event.target.value })}
-                placeholder="e.g. 12"
-                value={drive.size}
-              />
-              {error ? <span className={styles.fieldError} id={`error-${drive.id}`}>{error}</span> : null}
-            </label>
-            <label>
-              <span className={styles.visuallyHidden}>{name} unit</span>
-              <select
-                aria-label={`${name} unit`}
-                onChange={(event) => onChange(drive.id, { unit: event.target.value as InputUnit })}
-                value={drive.unit}
-              >
-                {inputUnits.map((unit) => <option key={unit}>{unit}</option>)}
-              </select>
-            </label>
-            <button
+            <ToolQuantityInput
+              ariaLabel={`${name} capacity`}
+              dataFocusKey={`capacity-${drive.id}`}
+              error={error}
+              hideLabel
+              label={`${name} capacity`}
+              onChange={(size) => onChange(drive.id, { size })}
+              onUnitChange={(unit) => onChange(drive.id, { unit: unit as InputUnit })}
+              placeholder="12"
+              unit={drive.unit}
+              unitAriaLabel={`${name} unit`}
+              units={inputUnitOptions}
+              value={drive.size}
+            />
+            <ToolButton
               aria-label={`Remove ${name.toLowerCase()}`}
               className={styles.iconButton}
-              onClick={() => onRemove(drive.id)}
-              type="button"
+              onPress={() => onRemove(drive.id)}
+              variant="icon"
             >
               <Trash2 aria-hidden="true" size={17} />
-            </button>
+            </ToolButton>
           </div>
         );
       })}
@@ -349,15 +346,15 @@ function QuickDriveSetup({
   maximum: number;
   onApply: (count: number, size: string, unit: InputUnit) => void;
 }) {
-  const [count, setCount] = useState(String(rows.length || minimum));
+  const [count, setCount] = useState(rows.length || minimum);
   const [size, setSize] = useState("");
   const [unit, setUnit] = useState<InputUnit>("TB");
 
   useEffect(() => {
-    setCount(String(rows.length || minimum));
+    setCount(rows.length || minimum);
   }, [minimum, rows.length]);
 
-  const parsedCount = Number(count);
+  const parsedCount = count;
   let validCapacity = false;
   try {
     validCapacity = bytesFromUnit(size, unit) > 0n;
@@ -372,49 +369,35 @@ function QuickDriveSetup({
   return (
     <div className={styles.quickSetupPanel}>
       <div className={styles.quickSetup}>
-        <label>
-          <span>Drives</span>
-          <input
-            aria-label={`${groupLabel} drive count`}
-            inputMode="numeric"
-            max={maximum}
-            min={minimum}
-            onChange={(event) => setCount(event.target.value)}
-            type="number"
-            value={count}
-          />
-        </label>
-        <label>
-          <span>Same capacity</span>
-          <input
-            aria-label={`${groupLabel} shared capacity`}
-            inputMode="decimal"
-            onChange={(event) => setSize(event.target.value)}
-            placeholder="e.g. 18"
-            value={size}
-          />
-        </label>
-        <label>
-          <span>Unit</span>
-          <select
-            aria-label={`${groupLabel} shared unit`}
-            onChange={(event) => setUnit(event.target.value as InputUnit)}
-            value={unit}
-          >
-            {inputUnits.map((candidate) => <option key={candidate}>{candidate}</option>)}
-          </select>
-        </label>
-        <button
+        <ToolNumberField
+          ariaLabel={`${groupLabel} drive count`}
+          label="Drives"
+          max={maximum}
+          min={minimum}
+          onChange={setCount}
+          value={count}
+        />
+        <ToolQuantityInput
+          ariaLabel={`${groupLabel} shared capacity`}
+          label="Same capacity"
+          onChange={setSize}
+          onUnitChange={(value) => setUnit(value as InputUnit)}
+          placeholder="18"
+          unit={unit}
+          unitAriaLabel={`${groupLabel} shared unit`}
+          units={inputUnitOptions}
+          value={size}
+        />
+        <ToolButton
           aria-label={`Set all drives for ${groupLabel.toLowerCase()}`}
           className={styles.secondaryButton}
-          disabled={!canApply}
-          onClick={() => onApply(parsedCount, size, unit)}
-          type="button"
+          isDisabled={!canApply}
+          onPress={() => onApply(parsedCount, size, unit)}
+          variant="secondary"
         >
           Set all drives
-        </button>
+        </ToolButton>
       </div>
-      <p>Edit any drive afterward for a mixed-size vdev.</p>
     </div>
   );
 }
@@ -440,209 +423,149 @@ function Result({
     return bytes > 0n && /^0(?:\.0+)?\s/.test(formatted) ? `<0.01 ${outputUnit}` : formatted;
   };
   const raw = values.rawDataCapacityBytes.value;
-  const barParts = [
-    ["Writable", values.estimatedWritableBytes.value, styles.barWritable],
-    ["Slop", values.slopBytes.value, styles.barSlop],
-    ["Redundancy", values.losses.redundancyBytes, styles.barRedundancy],
-    ["Block rounding", values.losses.sectorRoundingBytes, styles.barRounding],
-    ["RAIDZ padding", values.losses.raidzPaddingBytes, styles.barPadding],
-    ["Mixed sizes", values.losses.mixedSizeBytes, styles.barMixed],
-    ["Alignment", values.losses.alignmentBytes, styles.barAlignment],
-    ["Tails", values.losses.tailBytes, styles.barTail],
-  ] as const;
-  const tableRows = [
-    ["Entered data devices", raw],
-    ["Alignment loss", values.losses.alignmentBytes],
-    ["Mixed-size loss", values.losses.mixedSizeBytes],
-    ["Mirror and parity", values.losses.redundancyBytes],
-    ["Sector rounding", values.losses.sectorRoundingBytes],
-    ["RAIDZ padding", values.losses.raidzPaddingBytes],
-    ["Block tails", values.losses.tailBytes],
-    ["Before slop", values.dataBeforeSlopBytes.value],
-    ["OpenZFS slop", values.slopBytes.value],
-    ["Estimated writable", values.estimatedWritableBytes.value],
-    ["Planning headroom", values.planningReserveBytes.value],
-    ["Planning target", values.planningTargetBytes.value],
-  ] as const;
-  const alwaysVisibleRows = new Set([
-    "Entered data devices",
-    "Before slop",
-    "Estimated writable",
-    "Planning headroom",
-    "Planning target",
-  ]);
-  const visibleTableRows = tableRows.filter(([label, bytes]) => bytes > 0n || alwaysVisibleRows.has(label));
-  const zeroTableRows = tableRows.filter(([label, bytes]) => bytes === 0n && !alwaysVisibleRows.has(label));
-  const barLabel = barParts.map(([label, bytes]) => `${label}: ${display(bytes)}`).join(", ");
+  const allocation = [
+    { id: "writable", label: "Writable", value: values.estimatedWritableBytes.value, tone: "chartreuse" as const },
+    { id: "slop", label: "OpenZFS slop", value: values.slopBytes.value, tone: "yellow" as const },
+    { id: "redundancy", label: "Redundancy", value: values.losses.redundancyBytes, tone: "cyan" as const },
+    { id: "rounding", label: "Block rounding", value: values.losses.sectorRoundingBytes, tone: "blue" as const },
+    { id: "padding", label: "RAIDZ padding", value: values.losses.raidzPaddingBytes, tone: "red" as const },
+    { id: "mixed", label: "Mixed sizes", value: values.losses.mixedSizeBytes, tone: "violet" as const },
+    { id: "alignment", label: "Alignment", value: values.losses.alignmentBytes, tone: "green" as const },
+    { id: "tails", label: "Tails", value: values.losses.tailBytes, tone: "strong" as const },
+  ];
+  const specialEnvelope = values.specialVdevs.reduce((total, special) => total + special.envelopeBytes, 0n);
+  const summaryRows = [
+    {
+      label: "Planning target",
+      value: `${display(values.planningTargetBytes.value)} at ${calculated.input.reserveBasisPoints / 100}% headroom`,
+    },
+    ...(values.conditionalLogicalBytes ? [{
+      label: "Conditional logical capacity",
+      value: `${display(values.conditionalLogicalBytes.value)} at ${calculated.input.compressionRatio?.numerator ? calculated.input.compressionRatio.numerator / 100 : 1}x compression`,
+    }] : []),
+  ];
 
   return (
     <div className={styles.result}>
       <div className={styles.resultHeader}>
-        <span>Pool result</span>
-        <fieldset className={styles.outputUnit}>
-          <legend className={styles.visuallyHidden}>Result unit</legend>
-          <div className={styles.choiceRow}>
-            {(["TiB", "TB"] as const).map((unit) => (
-              <label className={styles.choice} key={unit}>
-                <input
-                  aria-label={unit}
-                  checked={outputUnit === unit}
-                  name="zfs-output-unit"
-                  onChange={() => onOutputUnitChange(unit)}
-                  type="radio"
-                />
-                <span>{unit}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
+        <ToolChoiceGroup
+          label="Result unit"
+          onChange={(unit) => onOutputUnitChange(unit as OutputUnit)}
+          options={[{ id: "TiB", label: "TiB" }, { id: "TB", label: "TB" }]}
+          value={outputUnit}
+        />
       </div>
-      <div className={styles.resultSummary}>
-        <section className={styles.resultMetric}>
-          <h2 ref={resultHeadingRef} tabIndex={-1}>Estimated writable</h2>
-          <strong data-testid="writable-value">{display(values.estimatedWritableBytes.value)}</strong>
-          <span>After modeled allocation losses and OpenZFS slop</span>
-        </section>
-        <section className={styles.resultMetric}>
-          <h2>Planning target</h2>
-          <strong>{display(values.planningTargetBytes.value)}</strong>
-          <span>After {calculated.input.reserveBasisPoints / 100}% planning headroom</span>
-        </section>
-        {values.conditionalLogicalBytes ? (
-          <section className={styles.resultMetric} data-testid="conditional-logical">
-            <h2>Conditional logical</h2>
-            <strong>{display(values.conditionalLogicalBytes.value)}</strong>
-            <span>Only if your data reaches the entered compression ratio</span>
-          </section>
-        ) : null}
+      <div className={styles.answer}>
+        <h2 className={styles.visuallyHidden} ref={resultHeadingRef} tabIndex={-1}>Estimated writable</h2>
+        <ToolPrimaryResult
+          detail="After allocation losses and OpenZFS slop"
+          label="Estimated writable"
+          value={display(values.estimatedWritableBytes.value)}
+        />
+        <div data-testid={values.conditionalLogicalBytes ? "conditional-logical" : undefined}>
+          <ToolKeyValueList rows={summaryRows} />
+        </div>
       </div>
 
-      <section className={styles.resultSection} data-testid="vdev-topology">
-        <h2>Vdev topology</h2>
-        <ol className={styles.topologyList}>
-          {values.dataVdevs.map((vdev, index) => (
-            <li className={styles.topologyRow} key={vdev.id}>
-              <span className={styles.topologyNumber}>{String(index + 1).padStart(2, "0")}</span>
-              <span><strong>{vdev.label}</strong><small>{vdev.driveCount} drives</small></span>
-              <span><strong>{display(vdev.logicalDataBytes)}</strong><small>{vdev.failureStatement}</small></span>
-              <span className={styles.drivePips} aria-label={`${vdev.driveCount} drives`}>
-                {vdev.driveIds.map((driveId) => <i aria-hidden="true" key={driveId} />)}
-              </span>
-            </li>
-          ))}
-        </ol>
+      <section className={styles.resultSection}>
+        <h2>Vdev boundaries</h2>
+        <ToolDataTable
+          ariaLabel="Vdev boundaries"
+          columns={[
+            { id: "vdev", label: "Vdev" },
+            { id: "layout", label: "Layout" },
+            { id: "drives", label: "Drives" },
+            { id: "smallest", label: "Smallest" },
+            { id: "data", label: "Data" },
+            { id: "failure", label: "Failure boundary" },
+          ]}
+          rows={values.dataVdevs.map((vdev) => ({
+            id: vdev.id,
+            cells: {
+              vdev: vdev.label,
+              layout: typeLabel(vdev.type),
+              drives: vdev.driveCount,
+              smallest: display(vdev.commonMemberBytes),
+              data: display(vdev.logicalDataBytes),
+              failure: vdev.failureStatement,
+            },
+          }))}
+        />
       </section>
 
       <section className={styles.resultSection}>
         <div className={styles.sectionHeading}>
           <h2>Capacity allocation</h2>
-          <span>{display(raw)}</span>
+          <span>Entered: {display(raw)}</span>
         </div>
-        <div aria-label={barLabel} className={styles.capacityBar} role="img">
-          {barParts.map(([label, bytes, className]) => bytes > 0n ? (
-            <span
-              aria-hidden="true"
-              className={className}
-              key={label}
-              style={{ width: formatPercent(bytes, raw).replace("<", "") }}
-            />
-          ) : null)}
-        </div>
-        <ul aria-label="Capacity allocation legend" className={styles.allocationLegend}>
-          {barParts.map(([label, bytes, className]) => bytes > 0n ? (
-            <li key={label}>
-              <i aria-hidden="true" className={`${styles.legendSwatch} ${className}`} />
-              <span>{label}</span>
-              <strong>{display(bytes)}</strong>
-              <small>{formatPercent(bytes, raw)}</small>
-            </li>
-          ) : null)}
-        </ul>
-      </section>
-
-      <section className={styles.resultSection} data-testid="capacity-accounting">
-        <h2>Capacity accounting</h2>
-        <div className={styles.tableScroll} tabIndex={0}>
-          <table className={styles.accountingTable}>
-            <tbody>
-              {visibleTableRows.map(([label, bytes]) => (
-                <tr key={label}>
-                  <th scope="row">{label}</th>
-                  <td>{display(bytes)}</td>
-                  <td>{formatPercent(bytes, raw)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        {zeroTableRows.length > 0 ? (
-          <details className={styles.zeroDetails}>
-            <summary>Zero-value categories ({zeroTableRows.length})</summary>
-            <ul>
-              {zeroTableRows.map(([label]) => <li key={label}><span>{label}</span><strong>{display(0n)}</strong></li>)}
-            </ul>
-          </details>
-        ) : null}
+        <ToolAllocationBar
+          ariaLabel="Capacity allocation"
+          formatValue={(value) => display(value as bigint)}
+          palette="categorical"
+          segments={allocation}
+          total={raw}
+        />
       </section>
 
       {values.roleInventory.length > 0 ? (
         <section className={styles.resultSection}>
           <h2>Auxiliary inventory</h2>
-          <div className={styles.tableScroll} tabIndex={0}>
-            <table className={`${styles.accountingTable} ${styles.auxiliaryTable}`}>
-              <thead><tr><th>Role</th><th>Drives</th><th>Inventory</th><th>General data</th></tr></thead>
-              <tbody>
-                {values.roleInventory.map((row) => (
-                  <tr key={row.role}>
-                    <th scope="row">{roleLabel(row.role)}</th>
-                    <td data-label="Drives">{row.driveCount}</td>
-                    <td data-label="Inventory">{display(row.inventoryBytes)}</td>
-                    <td data-label="General data">{display(row.generalDataBytes)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          {values.specialVdevs.map((special) => (
-            <div className={styles.specialRow} key={special.id}>
-              <strong>Special envelope</strong>
-              <span>{display(special.envelopeBytes)}</span>
-              <small>Special loss can lose pools.</small>
-            </div>
-          ))}
+          <ToolDataTable
+            ariaLabel="Auxiliary inventory"
+            columns={[
+              { id: "role", label: "Role" },
+              { id: "drives", label: "Drives" },
+              { id: "inventory", label: "Inventory" },
+              { id: "general", label: "General data" },
+              { id: "special", label: "Special envelope" },
+              { id: "note", label: "Failure note" },
+            ]}
+            rows={values.roleInventory.map((row) => ({
+              id: row.role,
+              cells: {
+                role: roleLabel(row.role),
+                drives: row.driveCount,
+                inventory: display(row.inventoryBytes),
+                general: display(row.generalDataBytes),
+                special: row.role === "special" ? display(specialEnvelope) : "None",
+                note: row.role === "special" ? "Special loss can lose pools." : "None",
+              },
+            }))}
+          />
         </section>
       ) : null}
 
-      <section className={styles.resultSection} data-testid="dry-run-command">
-        <h2>Dry-run command</h2>
-        <CodeBlock className={styles.commandBlock} label="zpool create -n preview">{values.command}</CodeBlock>
-      </section>
+      <ToolCodeOutput
+        actions={<ToolCopyAction label="Copy command" value={values.command} />}
+        code={values.command}
+        label="Dry-run command"
+      />
 
-      <details className={styles.metadata}>
-        <summary>Formula metadata</summary>
-        <dl>
-          <div><dt>Calculation</dt><dd>{ZFS_CALCULATION_VERSION}</dd></div>
-          <div><dt>Input</dt><dd>{ZFS_INPUT_VERSION}</dd></div>
-          <div><dt>ashift</dt><dd>{values.ashift}</dd></div>
-          <div><dt>Block size</dt><dd>{formatBytes(values.blockSizeBytes, "KiB")}</dd></div>
-          <div><dt>Block model</dt><dd>Selected size only</dd></div>
-          <div><dt>Pool state</dt><dd>Fresh topology</dd></div>
-          <div><dt>Slop model</dt><dd>Embedded log excluded</dd></div>
-        </dl>
+      <ToolDisclosure label="Formula details">
+        <ToolKeyValueList rows={[
+          { label: "Calculation version", value: ZFS_CALCULATION_VERSION },
+          { label: "Input version", value: ZFS_INPUT_VERSION },
+          { label: "Workload", value: values.workload === "filesystem" ? "Filesystem" : "Zvol" },
+          { label: "ashift", value: values.ashift },
+          { label: "Block size", value: formatBytes(values.blockSizeBytes, "KiB") },
+          { label: "Block model", value: "Selected size only" },
+          { label: "Pool state", value: "Fresh topology" },
+          { label: "Slop model", value: "Embedded log excluded" },
+        ]} />
         <ul className={styles.sourceList}>
           {calculated.result.sources.map((source) => (
             <li key={source.url}><a href={source.url}>{source.title}</a></li>
           ))}
         </ul>
-      </details>
+      </ToolDisclosure>
 
       <div className={styles.resultActions}>
-        <button className={styles.secondaryButton} onClick={onCopySummary} type="button">
+        <ToolButton className={styles.secondaryButton} onPress={onCopySummary} variant="secondary">
           <Copy aria-hidden="true" size={17} /> Copy summary
-        </button>
-        <button className={styles.secondaryButton} onClick={onShare} type="button">
+        </ToolButton>
+        <ToolButton className={styles.secondaryButton} onPress={onShare} variant="secondary">
           <Share2 aria-hidden="true" size={17} /> Share configuration
-        </button>
+        </ToolButton>
       </div>
     </div>
   );
@@ -684,7 +607,7 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
     } catch {
       cleanStateUrl();
       setEditor(emptyEditor());
-      setStatus("Configuration restore failed");
+      setStatus("Shared configuration could not be restored.");
     }
   }, [initialState]);
 
@@ -964,122 +887,92 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
   const blockOptions = editor.workload === "filesystem" ? filesystemBlocks : zvolBlocks;
 
   return (
-    <section aria-label="ZFS pool capacity calculator" className={styles.tool}>
+    <section aria-label="ZFS pool capacity calculator" className={styles.tool} data-tool-workbench>
       <div className={styles.form}>
         <div className={styles.settingsGrid}>
-          <fieldset className={styles.fieldset}>
-            <legend>Workload</legend>
-            <div className={styles.choiceRow}>
-              {(["filesystem", "zvol"] as const).map((workload) => (
-                <label className={styles.choice} key={workload}>
-                  <input
-                    aria-label={workload === "filesystem" ? "Filesystem" : "Zvol"}
-                    checked={editor.workload === workload}
-                    name="zfs-workload"
-                    onChange={() => changeWorkload(workload)}
-                    type="radio"
-                  />
-                  <span>{workload === "filesystem" ? "Filesystem" : "Zvol"}</span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
-          <label className={styles.field}>
-            <span>{blockLabel}</span>
-            <select
-              aria-label={blockLabel}
-              onChange={(event) => mutate((current) => ({ ...current, blockSizeBytes: event.target.value }))}
-              value={editor.blockSizeBytes}
-            >
-              {blockOptions.map((size) => <option key={size} value={size * 1_024}>{size >= 1_024 ? `${size / 1_024} MiB` : `${size} KiB`}</option>)}
-            </select>
-          </label>
-          <label className={styles.field}>
-            <span>ashift</span>
-            <select
-              aria-label="ashift"
-              onChange={(event) => mutate((current) => ({ ...current, ashift: event.target.value as EditorState["ashift"] }))}
-              value={editor.ashift}
-            >
-              {[9, 12, 13, 14].map((value) => <option key={value}>{value}</option>)}
-            </select>
-          </label>
-          <label className={styles.field}>
-            <span>Planning headroom</span>
-            <span className={styles.inputSuffix}>
-              <input
-                aria-describedby={errors.headroom ? "headroom-error" : undefined}
-                aria-invalid={Boolean(errors.headroom)}
-                aria-label="Planning headroom"
-                data-focus-key="headroom"
-                inputMode="decimal"
-                onChange={(event) => mutate((current) => ({ ...current, headroom: event.target.value }))}
-                value={editor.headroom}
-              />
-              <i>%</i>
-            </span>
-            {errors.headroom ? <small className={styles.fieldError} id="headroom-error">{errors.headroom}</small> : null}
-          </label>
+          <ToolChoiceGroup
+            label="Workload"
+            onChange={(value) => changeWorkload(value as ZfsWorkload)}
+            options={[{ id: "filesystem", label: "Filesystem" }, { id: "zvol", label: "Zvol" }]}
+            required
+            value={editor.workload}
+          />
+          <ToolSelect
+            label={blockLabel}
+            onChange={(value) => mutate((current) => ({ ...current, blockSizeBytes: value }))}
+            options={blockOptions.map((size) => ({ id: String(size * 1_024), label: size >= 1_024 ? `${size / 1_024} MiB` : `${size} KiB` }))}
+            required
+            value={editor.blockSizeBytes}
+          />
+          <ToolSelect
+            label="ashift"
+            onChange={(value) => mutate((current) => ({ ...current, ashift: value as EditorState["ashift"] }))}
+            options={[9, 12, 13, 14].map((value) => ({ id: String(value), label: String(value) }))}
+            required
+            value={editor.ashift}
+          />
+          <ToolNumberField
+            dataFocusKey="slop"
+            error={errors.slop}
+            label="Slop shift"
+            max={31}
+            min={1}
+            onChange={(value) => mutate((current) => ({ ...current, slopShift: Number.isNaN(value) ? "" : String(value) }))}
+            required
+            value={Number(editor.slopShift)}
+          />
+          <ToolNumberField
+            dataFocusKey="headroom"
+            error={errors.headroom}
+            label="Planning headroom"
+            max={100}
+            min={0}
+            onChange={(value) => mutate((current) => ({ ...current, headroom: Number.isNaN(value) ? "" : String(value) }))}
+            required
+            step={1}
+            suffix="%"
+            value={Number(editor.headroom)}
+          />
         </div>
 
-        <details className={styles.advanced}>
-          <summary>Advanced assumptions</summary>
-          <div className={styles.advancedGrid}>
-            <label className={styles.field}>
-              <span>Slop shift</span>
-              <input
-                aria-describedby={errors.slop ? "slop-error" : undefined}
-                aria-invalid={Boolean(errors.slop)}
-                aria-label="Slop shift"
-                data-focus-key="slop"
-                inputMode="numeric"
-                onChange={(event) => mutate((current) => ({ ...current, slopShift: event.target.value }))}
-                value={editor.slopShift}
-              />
-              {errors.slop ? <small className={styles.fieldError} id="slop-error">{errors.slop}</small> : null}
-            </label>
-            <label className={styles.toggle}>
-              <input
-                aria-label="Compression scenario"
-                checked={editor.compressionEnabled}
-                onChange={(event) => mutate((current) => ({ ...current, compressionEnabled: event.target.checked }))}
-                type="checkbox"
-              />
-              <span>Compression scenario</span>
-            </label>
+        <div className={styles.advanced}>
+          <ToolDisclosure label={`Logical capacity scenario, ${editor.compressionEnabled ? `${editor.compressionRatio}x` : "off"}`}>
+          <div className={styles.optionalGrid}>
+            <ToolCheckbox
+              isSelected={editor.compressionEnabled}
+              onChange={(compressionEnabled) => mutate((current) => ({ ...current, compressionEnabled }))}
+            >
+              Compression scenario
+            </ToolCheckbox>
             {editor.compressionEnabled ? (
-              <label className={styles.field}>
-                <span>Compression ratio</span>
-                <span className={styles.inputSuffix}>
-                  <input
-                    aria-describedby={errors.compression ? "compression-error" : undefined}
-                    aria-invalid={Boolean(errors.compression)}
-                    aria-label="Compression ratio"
-                    data-focus-key="compression"
-                    inputMode="decimal"
-                    onChange={(event) => mutate((current) => ({ ...current, compressionRatio: event.target.value }))}
-                    value={editor.compressionRatio}
-                  />
-                  <i>×</i>
-                </span>
-                {errors.compression ? <small className={styles.fieldError} id="compression-error">{errors.compression}</small> : null}
-              </label>
+              <ToolNumberField
+                dataFocusKey="compression"
+                error={errors.compression}
+                label="Compression ratio"
+                min={1}
+                onChange={(value) => mutate((current) => ({ ...current, compressionRatio: Number.isNaN(value) ? "" : String(value) }))}
+                required
+                step={0.1}
+                suffix="×"
+                value={Number(editor.compressionRatio)}
+              />
             ) : null}
           </div>
-        </details>
+          </ToolDisclosure>
+        </div>
 
         <section className={styles.editorSection} aria-labelledby="data-vdevs-heading">
           <div className={styles.editorHeading}>
             <div><h2 id="data-vdevs-heading">Data vdevs</h2><span>{editor.dataVdevs.length} configured</span></div>
-            <button
+            <ToolButton
               className={styles.secondaryButton}
               data-focus-key="add-data"
-              disabled={editor.dataVdevs.length >= 64}
-              onClick={addDataVdev}
-              type="button"
+              isDisabled={editor.dataVdevs.length >= 64}
+              onPress={addDataVdev}
+              variant="secondary"
             >
               <Plus aria-hidden="true" size={17} /> Add data vdev
-            </button>
+            </ToolButton>
           </div>
           {editor.dataVdevs.length === 0 ? <p className={styles.emptyState}>No data vdevs yet.</p> : null}
           <div className={styles.vdevList}>
@@ -1091,21 +984,21 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
                   <div className={styles.vdevHeading}>
                     <h3 data-focus-key={`heading-${vdev.id}`} tabIndex={-1}>{label}</h3>
                     <div className={styles.vdevControls}>
-                      <label className={styles.vdevTypeField}>
-                        <span>Layout</span>
-                        <select
-                          aria-label={`${label} type`}
-                          data-focus-key={`type-${vdev.id}`}
-                          onChange={(event) => updateDataVdev(vdev.id, { type: event.target.value as ZfsDataVdevType })}
+                      <div className={styles.vdevTypeField}>
+                        <ToolSelect
+                          ariaLabel={`${label} type`}
+                          dataFocusKey={`type-${vdev.id}`}
+                          hideLabel
+                          label="Layout"
+                          onChange={(value) => updateDataVdev(vdev.id, { type: value as ZfsDataVdevType })}
+                          options={vdevTypes.map((type) => ({ id: type, label: typeLabel(type) }))}
                           value={vdev.type}
-                        >
-                          {vdevTypes.map((type) => <option key={type} value={type}>{typeLabel(type)}</option>)}
-                        </select>
-                      </label>
-                      <button aria-label={`Duplicate ${label.toLowerCase()}`} className={styles.iconButton} onClick={() => duplicateVdev(vdev.id)} title="Duplicate vdev" type="button"><Copy aria-hidden="true" size={16} /></button>
-                      <button aria-label={`Move ${label.toLowerCase()} up`} className={styles.iconButton} disabled={index === 0} onClick={() => moveVdev(vdev.id, -1)} title="Move vdev up" type="button"><ChevronUp aria-hidden="true" size={17} /></button>
-                      <button aria-label={`Move ${label.toLowerCase()} down`} className={styles.iconButton} disabled={index === editor.dataVdevs.length - 1} onClick={() => moveVdev(vdev.id, 1)} title="Move vdev down" type="button"><ChevronDown aria-hidden="true" size={17} /></button>
-                      <button aria-label={`Remove ${label.toLowerCase()}`} className={styles.iconButton} onClick={() => removeVdev(vdev.id)} title="Remove vdev" type="button"><Trash2 aria-hidden="true" size={17} /></button>
+                        />
+                      </div>
+                      <ToolButton aria-label={`Duplicate ${label.toLowerCase()}`} className={styles.iconButton} onPress={() => duplicateVdev(vdev.id)} title="Duplicate vdev" variant="icon"><Copy aria-hidden="true" size={16} /></ToolButton>
+                      <ToolButton aria-label={`Move ${label.toLowerCase()} up`} className={styles.iconButton} isDisabled={index === 0} onPress={() => moveVdev(vdev.id, -1)} title="Move vdev up" variant="icon"><ChevronUp aria-hidden="true" size={17} /></ToolButton>
+                      <ToolButton aria-label={`Move ${label.toLowerCase()} down`} className={styles.iconButton} isDisabled={index === editor.dataVdevs.length - 1} onPress={() => moveVdev(vdev.id, 1)} title="Move vdev down" variant="icon"><ChevronDown aria-hidden="true" size={17} /></ToolButton>
+                      <ToolButton aria-label={`Remove ${label.toLowerCase()}`} className={styles.iconButton} onPress={() => removeVdev(vdev.id)} title="Remove vdev" variant="icon"><Trash2 aria-hidden="true" size={17} /></ToolButton>
                     </div>
                   </div>
                   {groupError ? <p className={styles.groupError}>{groupError}</p> : null}
@@ -1125,31 +1018,30 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
                       rows={vdev.drives}
                     />
                   ) : <p className={styles.emptyGroup}>No drives</p>}
-                  <button className={styles.addDriveButton} disabled={vdev.drives.length >= 64 || totalDriveCount(editor) >= MAX_UI_DRIVES} onClick={() => addDataDrive(vdev.id)} type="button">
+                  <ToolButton className={styles.addDriveButton} isDisabled={vdev.drives.length >= 64 || totalDriveCount(editor) >= MAX_UI_DRIVES} onPress={() => addDataDrive(vdev.id)} variant="secondary">
                     <Plus aria-hidden="true" size={16} /> Add drive to {label.toLowerCase()}
-                  </button>
+                  </ToolButton>
                 </section>
               );
             })}
           </div>
         </section>
 
-        <section className={styles.editorSection} aria-labelledby="auxiliary-heading">
-          <div className={styles.editorHeading}>
-            <div><h2 id="auxiliary-heading">Auxiliary devices</h2><span>{editor.auxiliaryGroups.length} groups</span></div>
-            <div className={styles.auxiliaryAdd}>
-              <label>
-                <span className={styles.visuallyHidden}>Auxiliary role</span>
-                <select aria-label="Auxiliary role" onChange={(event) => setEditor((current) => ({ ...current, auxiliaryChoice: event.target.value as ZfsAuxiliaryRole }))} value={editor.auxiliaryChoice}>
-                  {auxiliaryRoles.map((role) => <option key={role} value={role}>{roleLabel(role)}</option>)}
-                </select>
-              </label>
-              <button className={styles.secondaryButton} disabled={editor.auxiliaryGroups.length >= 64} onClick={addAuxiliary} type="button">
-                <Plus aria-hidden="true" size={17} /> Add auxiliary role
-              </button>
-            </div>
+        <div className={styles.advanced}>
+          <ToolDisclosure label={`Optional devices, ${editor.auxiliaryGroups.length} ${editor.auxiliaryGroups.length === 1 ? "group" : "groups"}`}>
+          <section className={styles.optionalSection} aria-label="Optional devices">
+          <div className={styles.auxiliaryAdd}>
+            <ToolSelect
+              ariaLabel="Optional device role"
+              label="Auxiliary role"
+              onChange={(value) => setEditor((current) => ({ ...current, auxiliaryChoice: value as ZfsAuxiliaryRole }))}
+              options={auxiliaryRoles.map((role) => ({ id: role, label: roleLabel(role) }))}
+              value={editor.auxiliaryChoice}
+            />
+            <ToolButton className={styles.secondaryButton} isDisabled={editor.auxiliaryGroups.length >= 64} onPress={addAuxiliary} variant="secondary">
+              <Plus aria-hidden="true" size={17} /> Add auxiliary role
+            </ToolButton>
           </div>
-          {editor.auxiliaryGroups.length === 0 ? <p className={styles.emptyState}>No auxiliary devices.</p> : null}
           <div className={styles.vdevList}>
             {editor.auxiliaryGroups.map((group) => {
               const roleIndex = editor.auxiliaryGroups.filter((candidate) => candidate.role === group.role).findIndex((candidate) => candidate.id === group.id) + 1;
@@ -1161,14 +1053,16 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
                     <h3 data-focus-key={`heading-${group.id}`} tabIndex={-1}>{label}</h3>
                     <div className={styles.vdevControls}>
                       {group.role === "slog" ? (
-                        <label>
-                          <span className={styles.visuallyHidden}>{label} layout</span>
-                          <select aria-label={`${label} layout`} onChange={(event) => updateAuxiliary(group.id, { layout: event.target.value as ZfsAuxiliaryLayout })} value={group.layout}>
-                            <option value="single">Single</option><option value="mirror">Mirror</option>
-                          </select>
-                        </label>
+                        <ToolSelect
+                          ariaLabel={`${label} layout`}
+                          hideLabel
+                          label={`${label} layout`}
+                          onChange={(value) => updateAuxiliary(group.id, { layout: value as ZfsAuxiliaryLayout })}
+                          options={[{ id: "single", label: "Single" }, { id: "mirror", label: "Mirror" }]}
+                          value={group.layout}
+                        />
                       ) : null}
-                      <button aria-label={`Remove ${label.toLowerCase()}`} className={styles.iconButton} onClick={() => removeAuxiliary(group.id)} type="button"><Trash2 aria-hidden="true" size={17} /></button>
+                      <ToolButton aria-label={`Remove ${label.toLowerCase()}`} className={styles.iconButton} onPress={() => removeAuxiliary(group.id)} variant="icon"><Trash2 aria-hidden="true" size={17} /></ToolButton>
                     </div>
                   </div>
                   {group.role === "special" ? <p className={styles.specialWarning}>Special vdev loss can lose pools.</p> : null}
@@ -1181,24 +1075,26 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
                     rows={group.drives}
                   />
                   {(group.role === "slog" || group.role === "special") ? (
-                    <button className={styles.addDriveButton} onClick={() => addAuxiliaryDrive(group.id)} type="button">
+                    <ToolButton className={styles.addDriveButton} onPress={() => addAuxiliaryDrive(group.id)} variant="secondary">
                       <Plus aria-hidden="true" size={16} /> Add drive to {label.toLowerCase()}
-                    </button>
+                    </ToolButton>
                   ) : null}
                 </section>
               );
             })}
           </div>
-        </section>
+          </section>
+          </ToolDisclosure>
+        </div>
 
         {errors._form ? <p className={styles.formError} role="alert">{errors._form}</p> : null}
         <div className={styles.actionRow}>
-          <button aria-label="Reset calculator" className={styles.resetButton} onClick={resetCalculator} type="button">
+          <ToolButton aria-label="Reset calculator" className={styles.resetButton} onPress={resetCalculator} variant="secondary">
             <RotateCcw aria-hidden="true" size={17} /> Reset
-          </button>
-          <button className={styles.primaryButton} disabled={editor.dataVdevs.length === 0} onClick={calculatePool} type="button">
+          </ToolButton>
+          <ToolButton className={styles.primaryButton} isDisabled={editor.dataVdevs.length === 0} onPress={calculatePool} variant="primary">
             Calculate pool
-          </button>
+          </ToolButton>
         </div>
       </div>
 
@@ -1214,8 +1110,7 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
       ) : null}
 
       <div className={styles.statusArea}>
-        <p aria-live="polite" className={styles.status}>{status}</p>
-        {calculated ? <p className={styles.shareDisclosure}>Shared URLs expose inputs.</p> : null}
+        {status ? <ToolStatus tone={status.includes("blocked") || status.includes("failed") ? "danger" : "neutral"}>{status}</ToolStatus> : null}
         {shareUrl ? <input aria-label="Shared URL" className={styles.shareUrl} readOnly value={shareUrl} /> : null}
       </div>
     </section>

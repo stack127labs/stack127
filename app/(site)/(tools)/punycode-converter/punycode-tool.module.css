@@ -1,0 +1,37 @@
+.workbench { min-width: 0; }
+.form { align-items: stretch; display: grid; gap: var(--space-3) var(--space-4); grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto auto; min-width: 0; padding: clamp(22px, 4vw, 36px); }
+.queryField { grid-column: 1; grid-row: 1 / span 3; grid-template-rows: subgrid; }
+.submit { align-self: stretch; grid-column: 2; grid-row: 2; min-width: 190px; }
+.form > p { grid-column: 1 / -1; }
+.results { display: grid; gap: var(--space-10); min-width: 0; }
+.formsOutput { display: grid; gap: var(--space-5); min-width: 0; }
+.formsOutput h2, .section h2 { font-family: var(--font-display); font-size: var(--text-h3); font-weight: var(--weight-bold); letter-spacing: var(--tracking-display); line-height: var(--line-heading); margin: 0; }
+.formsOutput dl { border-bottom: 1px solid var(--color-border-strong); border-top: 1px solid var(--color-border-strong); margin: 0; }
+.formsOutput dl > div { align-items: center; display: grid; gap: var(--space-4); grid-template-columns: 120px minmax(0, 1fr) auto; min-width: 0; padding: var(--space-5) 0; }
+.formsOutput dl > div + div { border-top: 1px solid var(--color-border); }
+.formsOutput dt { color: var(--color-text-muted); }
+.formsOutput dd { margin: 0; min-width: 0; }
+.formsOutput code { display: block; font-size: var(--text-body); overflow-wrap: anywhere; }
+.formsOutput p, .findings p, .length, .danger, .related { margin: 0; }
+.findings { display: grid; gap: var(--space-3); max-width: var(--measure-prose); }
+.findings ul { display: grid; gap: var(--space-2); margin: 0; padding-left: var(--space-7); }
+.length, .danger { overflow-wrap: anywhere; }
+.danger { color: var(--color-danger-text); }
+.section { display: grid; gap: var(--space-5); min-width: 0; }
+.cellStack { display: grid; gap: var(--space-1); min-width: 0; overflow-wrap: anywhere; }
+.cellStack code, .section code { overflow-wrap: anywhere; word-break: break-word; }
+.meta { color: var(--color-text-muted); font-size: var(--text-small); }
+.metadata { color: var(--color-text-muted); display: grid; font-family: var(--font-mono); font-size: var(--text-small); gap: var(--space-3); margin: 0; }
+.metadata > div { display: grid; gap: var(--space-5); grid-template-columns: 150px minmax(0, 1fr); }
+.metadata dt, .metadata dd { margin: 0; overflow-wrap: anywhere; }
+.related { max-width: var(--measure-prose); overflow-wrap: anywhere; }
+
+@media (max-width: 640px) {
+  .form { gap: var(--space-5); grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; }
+  .queryField, .submit, .form > p { grid-column: 1; grid-row: auto; }
+  .queryField { grid-template-rows: auto; }
+  .submit { min-width: 0; width: 100%; }
+  .formsOutput dl > div { align-items: start; grid-template-columns: minmax(0, 1fr); }
+  .formsOutput dl button { justify-self: stretch; max-width: 100%; white-space: normal; width: 100%; }
+  .metadata > div { gap: var(--space-1); grid-template-columns: minmax(0, 1fr); }
+}

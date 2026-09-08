@@ -1,0 +1,248 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Partial publisher identity, installation, database and resource-source review.",
+  "apps": [
+    {
+      "slug": "alwaysbringagift",
+      "review_scope": "partial",
+      "name": "Always Bring a Gift",
+      "website_url": "https://github.com/Indemnity83/always-bring-a-gift",
+      "install_docs_url": "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md",
+      "docker_url": "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md#using-docker-run",
+      "docker_support": "official",
+      "compose_support": true,
+      "compose_url": "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md#using-docker-compose",
+      "database_types": [
+        "sqlite",
+        "postgresql",
+        "mysql"
+      ],
+      "persistent_storage": true,
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "unraid"
+      ],
+      "technical_fact_status": {
+        "ram": {
+          "status": "not_published",
+          "confidence": "high",
+          "checked_at": "2026-09-08",
+          "source_urls": [
+            "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md",
+            "https://github.com/Indemnity83/always-bring-a-gift/blob/main/README.md"
+          ],
+          "note": "The reviewed README and Docker deployment guide do not state a RAM requirement."
+        },
+        "docker": {
+          "status": "published",
+          "confidence": "high",
+          "checked_at": "2026-09-08",
+          "source_urls": [
+            "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md"
+          ],
+          "note": "Publisher provides the documented GHCR image."
+        },
+        "compose": {
+          "status": "published",
+          "confidence": "high",
+          "checked_at": "2026-09-08",
+          "source_urls": [
+            "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md"
+          ],
+          "note": "Publisher provides Docker Compose deployment examples."
+        },
+        "storage": {
+          "status": "not_published",
+          "confidence": "high",
+          "checked_at": "2026-09-08",
+          "source_urls": [
+            "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md",
+            "https://github.com/Indemnity83/always-bring-a-gift/blob/main/README.md"
+          ],
+          "note": "The reviewed deployment guide identifies persistent database and upload storage but gives no capacity requirement."
+        },
+        "database": {
+          "status": "published",
+          "confidence": "high",
+          "checked_at": "2026-09-08",
+          "source_urls": [
+            "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md"
+          ],
+          "note": "SQLite is embedded in the default container; PostgreSQL or MySQL can be configured instead."
+        },
+        "docker_image": {
+          "status": "published",
+          "confidence": "high",
+          "checked_at": "2026-09-08",
+          "source_urls": [
+            "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md"
+          ],
+          "note": "Publisher documents ghcr.io/indemnity83/always-bring-a-gift:latest."
+        }
+      },
+      "expected": {
+        "name": "AlwaysBringAGift",
+        "website_url": "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/unraid-template.xml",
+        "install_docs_url": "https://github.com/Indemnity83/always-bring-a-gift/blob/main/README.md",
+        "docker_url": "https://ghcr.io/",
+        "docker_support": "community",
+        "compose_support": false,
+        "compose_url": null,
+        "database_types": [],
+        "persistent_storage": null,
+        "deployment_methods": [
+          "docker",
+          "unraid"
+        ],
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://ghcr.io/",
+              "https://github.com/indemnity83/always-bring-a-gift",
+              "https://github.com/Indemnity83/always-bring-a-gift/blob/main/README.md",
+              "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/public/favicon.svg",
+              "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/unraid-template.xml"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://ghcr.io/",
+              "https://github.com/indemnity83/always-bring-a-gift",
+              "https://github.com/Indemnity83/always-bring-a-gift/blob/main/README.md",
+              "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/public/favicon.svg",
+              "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/unraid-template.xml"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://ghcr.io/",
+              "https://github.com/indemnity83/always-bring-a-gift",
+              "https://github.com/Indemnity83/always-bring-a-gift/blob/main/README.md",
+              "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/public/favicon.svg",
+              "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/unraid-template.xml"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://ghcr.io/",
+              "https://github.com/indemnity83/always-bring-a-gift",
+              "https://github.com/Indemnity83/always-bring-a-gift/blob/main/README.md",
+              "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/public/favicon.svg",
+              "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/unraid-template.xml"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://ghcr.io/",
+              "https://github.com/indemnity83/always-bring-a-gift",
+              "https://github.com/Indemnity83/always-bring-a-gift/blob/main/README.md",
+              "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/public/favicon.svg",
+              "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/unraid-template.xml"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://ghcr.io/",
+              "https://github.com/indemnity83/always-bring-a-gift",
+              "https://github.com/Indemnity83/always-bring-a-gift/blob/main/README.md",
+              "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/public/favicon.svg",
+              "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/unraid-template.xml"
+            ]
+          }
+        }
+      },
+      "reviewed_install_methods": [
+        "docker",
+        "compose",
+        "unraid"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://ghcr.io/",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "ghcr.io/indemnity83/always-bring-a-gift:latest",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://ghcr.io/",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/unraid-template.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/Indemnity83/always-bring-a-gift/main/unraid-template.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md#using-docker-run",
+          "image": "ghcr.io/indemnity83/always-bring-a-gift:latest",
+          "support_level": "official",
+          "source_url": "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md",
+          "note": null,
+          "sort_order": 10
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md#using-docker-compose",
+          "image": "ghcr.io/indemnity83/always-bring-a-gift:latest",
+          "support_level": "official",
+          "source_url": "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md",
+          "note": null,
+          "sort_order": 20
+        },
+        {
+          "method": "unraid",
+          "label": "Unraid template",
+          "url": "https://github.com/Indemnity83/always-bring-a-gift/blob/main/unraid-template.xml",
+          "image": "ghcr.io/indemnity83/always-bring-a-gift:latest",
+          "support_level": "official",
+          "source_url": "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md#unraid-community-applications",
+          "note": "Publisher-provided template for Unraid.",
+          "sort_order": 35
+        }
+      ],
+      "data_source_urls": [
+        "https://github.com/Indemnity83/always-bring-a-gift/blob/main/DOCKER.md",
+        "https://github.com/Indemnity83/always-bring-a-gift/blob/main/README.md",
+        "https://github.com/Indemnity83/always-bring-a-gift/blob/main/unraid-template.xml"
+      ],
+      "pending_review": [
+        "Maintenance and repository freshness, icon integrity, pricing including optional external services, and remaining record fields. The database requirement boolean remains unknown because its separate-server meaning needs reconciliation."
+      ]
+    }
+  ]
+}

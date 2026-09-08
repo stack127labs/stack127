@@ -1,6 +1,6 @@
 # Marker Art
 
-Marker art is the stack127 illustration style: bold hand drawn strokes, zigzag fills, and a handwritten font, in the spirit of a thick marker on a dark board. It is used for every diagram, chart, and visual explainer on the site. This doc is the single source of truth for how it works and how agents produce it.
+Marker art is the stack127 illustration style: bold hand-drawn strokes, restrained zigzag fills, and a handwritten font, in the spirit of a thick marker on a dark board. It is used for conceptual diagrams, meaningful spot art, hero art, and quiet doodles. Exact data belongs in clean charts. This doc is the single source of truth for how marker art works and how agents produce it.
 
 The chosen style came out of `dev-space/art-style-lab.html` (the "bold marker" candidate). The two skills that operate this system are `skills/stack127/marker-art-suggest` and `skills/stack127/marker-art-draw`.
 
@@ -50,15 +50,67 @@ The payoff of semantic color is instant reading: in a bar chart where heavy apps
 - Figure text is site copy: no em or en dashes, no hype words, and ranges written as "10 to 15W". The site writing rules apply inside SVGs too.
 - Every figure has exactly one takeaway, stated in the spec's `takeaway` field. That sentence becomes the SVG `<title>` (for crawlers and screen readers) and usually the visible figcaption. If you cannot state the takeaway in one sentence, it is two figures.
 
+## Four roles, four compositions
+
+Choose the role before drawing. Do not shrink a full diagram into a catalog card or enlarge a small icon into a hero.
+
+### Spot art
+
+Spot art identifies one page or tool inside a card or compact listing.
+
+- Draw one recognizable subject or relationship, with at most one supporting object.
+- Use no visible words, axes, legends, or miniature interface controls.
+- Keep the silhouette readable at the final card size. Detail that disappears there does not belong in the source.
+- Use ink for the structure and one semantic primary stroke for the subject.
+- Do not put the drawing inside another decorative box. The card already provides the boundary.
+
+### Hero art
+
+Hero art introduces the page's subject without competing with the h1.
+
+- Build one composed scene with a clear focal object and deliberate empty space.
+- Keep supporting objects fewer, smaller, and quieter than the focal object.
+- Avoid repeated symbols, scattered sparks, and filler marks used only to occupy space.
+- The art may suggest a relationship, but it should not require a legend or paragraph to decode.
+
+### Explainer
+
+An explainer makes one conceptual relationship visible.
+
+- Establish the reading direction before adding labels or connectors.
+- Use alignment and proximity to show groups. Add an outline only when it defines a real boundary.
+- Keep nodes large enough to recognize and connectors far enough from text to read cleanly.
+- Use the fewest labels that preserve the idea. Split a figure when secondary branches compete with the main path.
+- Use a clean chart or table when exact comparison matters.
+
+### Doodle
+
+A doodle is a quiet gesture in open space.
+
+- Use one continuous idea, not a collection of unrelated marks.
+- Keep it subordinate to nearby text and controls.
+- Doodles never carry required meaning and stay hidden from assistive technology.
+
+## Visual hierarchy and restraint
+
+- Start with the silhouette and major relationship. Add internal marks only after the figure already reads without them.
+- One shape or group is dominant. Supporting shapes must be visibly smaller, lighter, or simpler.
+- Preserve empty space around the focal object. A full canvas is not a finished canvas.
+- Color identifies meaning. Do not alternate tones to create variety.
+- Keep stroke weight and roughness consistent inside one figure. Extra wobble does not make weak composition feel handmade.
+- Avoid tiny repeated objects, crossing connectors, centered text inside irregular shapes, and labels resting on lines.
+- Do not use generic technology symbols when a page-specific object or relationship can identify the subject.
+- Never add art merely because a region feels empty. Fix spacing first; draw only when the image carries identity or understanding.
+
 ## Choosing the figure type
 
 Pick whatever shows the idea fastest. There is no fixed menu; if a better form exists for the claim, add it to the generator. Rough guide:
 
 | The claim is about | Reach for |
 | --- | --- |
-| comparing amounts | bar |
-| parts of a whole | donut |
-| change over time | line |
+| comparing approximate or conceptual amounts | bar |
+| a conceptual part of a whole | donut |
+| a conceptual direction of change | line |
 | how pieces connect | flow |
 | a sequence to follow | steps |
 | a choice with branches | decision |
@@ -72,6 +124,7 @@ Pick whatever shows the idea fastest. There is no fixed menu; if a better form e
 | backup proof by restore | restoreLoop |
 | a grouped course path | roadmap |
 | a folder, file, command, and URL workspace | workbench |
+| a small semantic drawing for a catalog card | toolSpot |
 | pure decoration, no data | doodle |
 
 ## Decorative doodles
@@ -82,6 +135,7 @@ Density is a judgment call, not a quota. Show the data the point needs, and stop
 
 ## Data accuracy
 
+- Marker art does not present exact values. Use the clean-chart pipeline when a reader needs to compare, quote, or reproduce a number.
 - Geometry is always computed from the numbers in the spec. Nobody eyeballs a bar length or a pie angle.
 - Every spec has `source` (where the numbers came from) and `dataAsOf` (a date). Real data gets a real source; conceptual figures say so.
 - The generator validates what it can: donut percentages must sum to 100, bar values must be numeric, line series need at least two points.
@@ -93,6 +147,18 @@ Overlapping text or crowded elements is a hard failure, not a style preference.
 
 - The generator lints estimated text bounding boxes and errors on overlaps and labels that leave the canvas.
 - The lint is heuristic (no browser at build time), so a real render review is still required: load the page, look at the figure in dark and light mode, and fix the spec if anything collides or crowds.
+
+## Review at the size people see
+
+The source SVG can look clean while the rendered figure fails. Review each figure in its real component and viewport.
+
+- Spot art: inspect it at the card's actual size. If its subject becomes an anonymous knot of strokes, simplify it.
+- Hero art: inspect it beside the real h1 and introduction. It should support their reading order, not pull attention away.
+- Explainer: inspect desktop and mobile layouts. Labels must remain readable without zooming or horizontal scrolling.
+- Doodle: inspect the whole viewport. Remove it when it makes the page feel busier or creates a false focal point.
+- Dark and light themes: verify hierarchy and semantic tones in both, not just basic contrast.
+
+Use a thumbnail check as well as a close inspection. The takeaway should survive when details are no longer visible.
 
 ## Accessibility and SEO
 
@@ -116,7 +182,7 @@ Common fields for every spec:
 }
 ```
 
-See `dev-space/marker-art-samples/` for a working sample of every figure type, and `app/self-hosting-for-beginners/basic-setup/art/five-pieces.spec.json` for a live flow figure. Generate a browsable showcase of any folder with `node scripts/stack127/marker-art/generate.mjs --index <dir>`.
+See `dev-space/marker-art-samples/` for working samples, `app/(site)/(courses)/self-hosting-for-beginners/basic-setup/art/five-pieces.spec.json` for a live flow figure, and `app/(site)/(catalogs)/_components/art/` for live tool spots. Generate a browsable showcase of any folder with `node scripts/stack127/marker-art/generate.mjs --index <dir>`.
 
 ## Workflow
 
@@ -127,4 +193,8 @@ See `dev-space/marker-art-samples/` for a working sample of every figure type, a
 
 ---
 
-_Internal doc. Created 2026-07-07, last updated 2026-07-07._
+_Internal doc. Created 2026-07-07, last updated 2026-09-04._
+
+## Homepage card artwork
+
+Every homepage card must have a spec-backed marker drawing in the homepage art registry. Never substitute an enlarged Lucide icon, another interface icon, a traced icon, or an ad hoc SVG for marker art. Small identity icons beside titles are separate and may remain. Add missing hardware subjects to the shared marker icon library, generate the spec artifacts, and inspect them at card size in both themes. The homepage art coverage test must pass before handoff.

@@ -115,3 +115,5 @@ export const vim: AppShortcuts = {
     },
   ],
 };
+
+export default vim;

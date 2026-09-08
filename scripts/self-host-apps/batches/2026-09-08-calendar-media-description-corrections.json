@@ -1,0 +1,48 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Partial review of descriptions and categories against official READMEs. Other fields remain pending.",
+  "apps": [
+    {
+      "slug": "agendav",
+      "review_scope": "partial",
+      "summary": "Manages personal and shared calendars in a browser using an existing CalDAV server.",
+      "summary_source": "curated",
+      "categories": ["calendars-contacts"],
+      "expected": {
+        "summary": "Image contains AgenDAV, php 7.4.28 and Apache2, setup for external MySQL database and DAV server Initial run will create example.settings.php and.",
+        "summary_source": "catalog_or_repository",
+        "categories": ["ai-ml", "databases", "photos-galleries"]
+      },
+      "data_source_urls": ["https://github.com/agendav/agendav"],
+      "pending_review": ["The official README states there is no official Docker image and its Compose file is for development. Review existing deployment claims and links.", "Review remaining identity, license, resource, maintenance, and installation fields."]
+    },
+    {
+      "slug": "antennas",
+      "review_scope": "partial",
+      "summary": "Connects Tvheadend to Plex DVR by presenting its TV streams as an HDHomeRun tuner.",
+      "summary_source": "curated",
+      "categories": ["media-servers"],
+      "expected": {
+        "summary": "HDHomeRun emulator for Plex/Jellyfin/Emby DVR to connect to Tvheadend.[br][br] To run this container, [b]first create a config.yml on the config folder[/b].",
+        "summary_source": "catalog_or_repository",
+        "categories": ["ai-ml", "system-admin-hosting"]
+      },
+      "data_source_urls": ["https://raw.githubusercontent.com/thejf/antennas/master/README.md"],
+      "pending_review": ["Review repository identity, install destinations, and the official Docker discovery limitation.", "Review remaining license, resource, maintenance, and metadata fields."]
+    },
+    {
+      "slug": "arrstalledhandler",
+      "review_scope": "partial",
+      "summary": "Removes stalled downloads from Radarr and Sonarr queues, with options to blocklist them and search for replacements.",
+      "summary_source": "curated",
+      "categories": ["automation", "media-servers"],
+      "expected": {
+        "summary": "ArrStalledHandler is a Python-based script designed to handle stalled downloads in Radarr and Sonarr by taking actions such as removing, blocklisting, or.",
+        "summary_source": "catalog_or_repository",
+        "categories": ["search"]
+      },
+      "data_source_urls": ["https://raw.githubusercontent.com/tommyvange/arrstalledhandler/main/README.md"],
+      "pending_review": ["README declares GPLv3 but the current license text says no license. Inspect LICENSE before correcting the source model.", "README documents Compose and SQLite, contrary to the stored technical evidence states. Correct those alongside installation records.", "Review remaining resource, maintenance, surface, and metadata fields."]
+    }
+  ]
+}

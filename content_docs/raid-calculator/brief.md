@@ -1,5 +1,11 @@
 # Brief: RAID Capacity and Level Explorer
 
+## Current supporting-content direction
+
+Approved September 6, 2026. Preserve the comparison and topology reasoning, consolidate duplicate FAQ content into the relevant sections, and end with platform verification, backup limits, and actual URL-sharing behavior.
+
+The working tool stays first. Use connected explanation at the depth the task needs, with no word, section, sentence, or visual-ratio quota. This direction supersedes earlier supporting-prose budgets in this page's planning artifacts; it does not change the engine or input contract. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
+
 ## Who is here
 
 Someone has a set of equal or mixed-size drives and wants to know what a conventional RAID layout would make usable before creating an array. They understand drive sizes and RAID names, but may not know how nested groups or mixed capacities change the answer.

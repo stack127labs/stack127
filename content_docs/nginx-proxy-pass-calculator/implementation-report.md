@@ -330,7 +330,7 @@ Unpublished. The route may be previewed only through the guarded local row and m
 | R10 | Editing any input after success immediately removes the result | Playwright test |
 | R11 | Calculate works by pointer and Enter, reset restores defaults, copy reports success or failure, and focus moves only after submit | Playwright keyboard and clipboard tests |
 | R12 | 320px, 375px, 760px, and desktop layouts show every value in both themes with no page-level horizontal overflow | Playwright measurements and Browser QA |
-| R13 | The complete tool uses the shared shell, one framed surface, one primary accent action, and no nested-card dashboard | Independent Browser QA |
+| R13 | The complete tool uses the shared shell, one workbench band, one primary accent action, and no nested-card dashboard | Independent Browser QA |
 | R14 | Inputs remain in the browser and neither state nor user values appear in the URL, storage, analytics, logs, or network | Static policy and Playwright request/state tests |
 | R15 | The server-rendered route contains an H1 and tool fallback identity while route metadata remains centralized | Static route tests |
 | R16 | The route stays unpublished, returns 404 without guarded preview, and remains absent from the sitemap | Manifest and SEO Playwright checks |

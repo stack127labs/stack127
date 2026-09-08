@@ -115,6 +115,16 @@ test("period, manufacturer, and capacity filters are applied before selection", 
   assert.equal(result.selected.length, 1);
 });
 
+test("model or manufacturer search matches manufacturers without case sensitivity", () => {
+  const result = resolveDriveReliability(snapshot(), {
+    ...DEFAULT_DRIVE_RELIABILITY_INPUT,
+    search: " wDc ",
+  });
+  assert.equal(result.status, "ready");
+  assert.ok(result.rows.length > 0);
+  assert.ok(result.rows.every((row) => row.manufacturer === "WDC"));
+});
+
 test("selection is capped at three records and unknown IDs are dropped", () => {
   const result = resolveDriveReliability(snapshot(), {
     ...DEFAULT_DRIVE_RELIABILITY_INPUT,

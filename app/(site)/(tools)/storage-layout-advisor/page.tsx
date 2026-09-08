@@ -1,11 +1,10 @@
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { getRequiredToolPage } from "@/lib/tool-pages";
 import { HardDrive } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { PageTitleIcon } from "../../../page-title-icon";
-import { PageHeader } from "../../../page-header";
 import { PageCanvas } from "../../../page-canvas";
 import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import { StorageLayoutAdvisor } from "./storage-layout-advisor";
-import { StorageLayoutAdvisorGuide } from "./storage-layout-advisor-guide";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
@@ -18,6 +17,7 @@ export default async function StorageLayoutAdvisorPage({
 }: {
   searchParams: Promise<SearchParams>;
 }) {
+  const toolPage = await getRequiredToolPage("storage-layout-advisor");
   const params = await searchParams;
   return (
     <AppShell
@@ -27,21 +27,12 @@ export default async function StorageLayoutAdvisorPage({
       sidebarLabel="Storage layout advisor sidebar"
     >
       <PageCanvas>
-        <PageHeader>
-          <h1>
-            <PageTitleIcon>
-              <HardDrive strokeWidth={2.2} />
-            </PageTitleIcon>{" "}
-            Storage layout <mark>advisor</mark>
-          </h1>
-          <p>
-            Compare layouts from the drives you have, a minimum protected-failure target, and a
-            workload preference. The result is a theoretical capacity and topology model, not
-            live filesystem space or a guarantee about a running array.
-          </p>
-        </PageHeader>
+        <ToolPageHeader
+          icon={<HardDrive strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
         <StorageLayoutAdvisor initialState={firstValue(params.state)} />
-        <StorageLayoutAdvisorGuide />
+        <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </AppShell>
   );

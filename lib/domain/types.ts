@@ -94,6 +94,8 @@ export type DomainRegistration = {
     domain: string;
     unicode: string;
     tld: string;
+    /** IANA category from the committed TLD directory. */
+    tldType?: "country-code" | "generic" | "infrastructure" | "sponsored" | null;
     suffix: string;
     reduced: boolean;
     isIdn: boolean;

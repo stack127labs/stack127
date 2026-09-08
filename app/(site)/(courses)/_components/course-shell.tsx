@@ -10,6 +10,7 @@ import { PageHeader } from "@/app/page-header";
 import { proseClassName, proseFlowClassName } from "@/app/prose";
 import { SidebarList } from "@/app/sidebar-list";
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/sidebar-panel";
+import { EntryHero } from "@/app/entry-hero";
 
 function formatUpdated(value: Date | string) {
   return new Date(value).toLocaleDateString("en-US", {
@@ -83,10 +84,11 @@ function renderHeading(heading: string, mark?: string) {
   return <>{heading.slice(0, index)}<mark>{mark}</mark>{heading.slice(index + mark.length)}</>;
 }
 
-export async function CourseLessonPage({ children, course, currentSlug, heading }: {
+export async function CourseLessonPage({ children, course, currentSlug, entryHeroArt, heading }: {
   children: ReactNode;
   course: CourseDefinition;
   currentSlug: string;
+  entryHeroArt?: string;
   heading: string;
 }) {
   const lesson = course.lessons.find((entry) => entry.slug === currentSlug);
@@ -104,6 +106,28 @@ export async function CourseLessonPage({ children, course, currentSlug, heading 
     crumbs.push({ name: lesson.sidebarLabel, path: courseLessonHref(course, lesson) });
   }
 
+  const headingBlock = (
+    <PageHeader>
+      <h1>{renderHeading(heading, lesson?.headingMark)}</h1>
+      <div className="lesson-byline">
+        <img
+          alt=""
+          className="lesson-author-avatar"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          referrerPolicy="no-referrer"
+          src={course.author.avatarUrl}
+          width="40"
+        />
+        <p>
+          <span>By {course.author.name}</span>
+          <span>Updated {formatUpdated(updatedAt)}</span>
+        </p>
+      </div>
+    </PageHeader>
+  );
+
   return (
     <AppShell
       mainLabel={heading}
@@ -112,26 +136,9 @@ export async function CourseLessonPage({ children, course, currentSlug, heading 
       sidebarLabel={`${course.title} sidebar`}
     >
       <JsonLd data={buildBreadcrumbStructuredData(crumbs)} />
+      {entryHeroArt ? <EntryHero align="start" art={entryHeroArt}>{headingBlock}</EntryHero> : null}
       <article className={`lesson-page ${proseClassName} ${proseFlowClassName}`}>
-        <PageHeader>
-          <h1>{renderHeading(heading, lesson?.headingMark)}</h1>
-          <div className="lesson-byline">
-            <img
-              alt=""
-              className="lesson-author-avatar"
-              decoding="async"
-              height="40"
-              loading="lazy"
-              referrerPolicy="no-referrer"
-              src={course.author.avatarUrl}
-              width="40"
-            />
-            <p>
-              <span>By {course.author.name}</span>
-              <span>Updated {formatUpdated(updatedAt)}</span>
-            </p>
-          </div>
-        </PageHeader>
+        {entryHeroArt ? null : headingBlock}
         {children}
         <LessonNavigation course={course} currentSlug={currentSlug} />
       </article>

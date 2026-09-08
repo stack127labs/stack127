@@ -1,7 +1,15 @@
 "use client";
 
 import { Download } from "lucide-react";
-import { useCallback, useState, type FormEvent, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type FormEvent,
+  type ReactNode,
+} from "react";
 import { websiteFaviconUrl } from "@/lib/dns/favicon.ts";
 import type { DomainRegistration } from "@/lib/domain/types.ts";
 
@@ -169,6 +177,7 @@ export function DomainForm({
   onSubmit,
   loading,
   error,
+  invalid = false,
   label = "Domain name",
   placeholder = "example.com",
   busyLabel = "Looking it up...",
@@ -180,34 +189,45 @@ export function DomainForm({
   onSubmit: (event: FormEvent) => void;
   loading: boolean;
   error: string | null;
+  invalid?: boolean;
   label?: string;
   placeholder?: string;
   busyLabel?: string;
   submitLabel?: string;
   children?: ReactNode;
 }) {
+  const errorId = useId();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (invalid) inputRef.current?.focus();
+  }, [invalid]);
+
   return (
-    <form className="domain-form" onSubmit={onSubmit}>
+    <form aria-busy={loading} className="domain-form" onSubmit={onSubmit}>
       <label className="domain-name-field">
         <span>{label}</span>
         <input
+          aria-describedby={invalid && error ? errorId : undefined}
+          aria-invalid={invalid}
           autoCapitalize="none"
           autoComplete="off"
           onChange={(event) => onChange(event.target.value)}
           placeholder={placeholder}
+          ref={inputRef}
           spellCheck={false}
           value={value}
         />
       </label>
       {children}
-      <button className="domain-submit" disabled={loading}>
-        {loading ? busyLabel : submitLabel}
-      </button>
       {error ? (
-        <p className="domain-form-error" role="alert">
+        <p className="domain-form-error" id={errorId} role="alert">
           {error}
         </p>
       ) : null}
+      <button aria-busy={loading} className="domain-submit" disabled={loading}>
+        {loading ? busyLabel : submitLabel}
+      </button>
     </form>
   );
 }

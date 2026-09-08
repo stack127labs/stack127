@@ -1,7 +1,21 @@
 "use client";
 
-import { Copy, RotateCcw, Share2 } from "lucide-react";
-import { useEffect, useRef, useState, type FormEvent, type RefObject } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import {
+  ToolActionRow,
+  ToolButton,
+  ToolChoiceGroup,
+  ToolCopyAction,
+  ToolDataTable,
+  ToolDisclosure,
+  ToolKeyValueList,
+  ToolNumberField,
+  ToolPrimaryResult,
+  ToolSelect,
+  ToolStatus,
+  ToolTextField,
+  toolOption,
+} from "@/app/tool-ui/tool-controls";
 import {
   DEFAULT_STORAGE_GROWTH_INPUT,
   buildStorageGrowthCopySummary,
@@ -29,6 +43,13 @@ const errorOrder: FieldKey[] = [
   "drivePrice", "enclosureCost", "averagePowerWatts", "hoursPerDay", "electricityRate",
   "replacementReserve", "backupAnnualBudget", "currency", "displayUnit",
 ];
+const layoutOptions = [
+  toolOption("mirror", "Mirror"),
+  toolOption("single-parity", "Single parity"),
+  toolOption("dual-parity", "Dual parity"),
+];
+const currencyOptions = ["USD", "EUR", "GBP", "INR"].map((currency) => toolOption(currency, currency));
+const displayUnitOptions = [toolOption("TB", "TB"), toolOption("TiB", "TiB")];
 
 function defaults(): StorageGrowthInput {
   return { ...DEFAULT_STORAGE_GROWTH_INPUT };
@@ -44,17 +65,22 @@ function signedCapacity(bytes: bigint, unit: StorageGrowthDisplayUnit) {
 
 function chartPoints(values: bigint[], planningCapacityBytes: bigint, unit: StorageGrowthDisplayUnit) {
   const width = 720;
-  const height = 250;
-  const left = 48;
+  const height = 280;
+  const left = 88;
   const right = 12;
-  const top = 20;
-  const bottom = 36;
-  const max = Math.max(1, capacityNumber(planningCapacityBytes, unit), ...values.map((value) => capacityNumber(value, unit)));
+  const top = 24;
+  const bottom = 52;
+  const maxBytes = values.reduce((maximum, value) => value > maximum ? value : maximum, planningCapacityBytes);
+  const max = Math.max(1, capacityNumber(maxBytes, unit));
   const x = (index: number) => left + (index * (width - left - right)) / Math.max(1, values.length - 1);
   const y = (value: number) => height - bottom - (value / max) * (height - top - bottom);
   return {
     width,
     height,
+    left,
+    top,
+    bottom,
+    maxBytes,
     x,
     y,
     demand: values.map((value, index) => `${x(index)},${y(capacityNumber(value, unit))}`).join(" "),
@@ -65,177 +91,117 @@ function chartPoints(values: bigint[], planningCapacityBytes: bigint, unit: Stor
 function GrowthChart({ values, unit }: { values: StorageGrowthValues; unit: StorageGrowthDisplayUnit }) {
   const chart = chartPoints(values.demandBytes, values.planningCapacityBytes, unit);
   return (
-    <div className={styles.chartFrame}>
-      <svg className={styles.chart} role="img" aria-labelledby="growth-chart-title growth-chart-description" viewBox={`0 0 ${chart.width} ${chart.height}`}>
-        <title id="growth-chart-title">Projected demand and planning capacity</title>
-        <desc id="growth-chart-description">Demand versus capacity after reserve.</desc>
-        <line className={styles.chartAxis} x1="48" x2="48" y1="20" y2="214" />
-        <line className={styles.chartAxis} x1="48" x2="708" y1="214" y2="214" />
-        <polyline className={styles.capacityLine} fill="none" points={chart.capacity} />
-        <polyline className={styles.demandLine} fill="none" points={chart.demand} />
-        {values.demandBytes.map((value, index) => (
-          <g key={index}>
-            <circle className={styles.demandDot} cx={chart.x(index)} cy={chart.y(capacityNumber(value, unit))} r="4" />
-            <text className={styles.chartLabel} x={chart.x(index)} y="235" textAnchor="middle">{index}</text>
-          </g>
-        ))}
-      </svg>
-      <div className={styles.legend} aria-label="Chart legend">
+    <figure className={styles.chartFigure}>
+      <div className={styles.chartFrame}>
+        <svg className={styles.chart} role="img" aria-labelledby="growth-chart-title growth-chart-description" viewBox={`0 0 ${chart.width} ${chart.height}`}>
+          <title id="growth-chart-title">Projected demand and capacity after reserve</title>
+          <desc id="growth-chart-description">Projected demand by year compared with fixed planning capacity.</desc>
+          <line className={styles.chartAxis} x1={chart.left} x2={chart.left} y1={chart.top} y2={chart.height - chart.bottom} />
+          <line className={styles.chartAxis} x1={chart.left} x2={chart.width - 12} y1={chart.height - chart.bottom} y2={chart.height - chart.bottom} />
+          <text className={styles.chartLabel} x={chart.left - 10} y={chart.top + 4} textAnchor="end">{formatCapacity(chart.maxBytes, unit)}</text>
+          <text className={styles.chartLabel} x={chart.left - 10} y={chart.height - chart.bottom + 4} textAnchor="end">0 {unit}</text>
+          <polyline className={styles.capacityLine} fill="none" points={chart.capacity} />
+          <polyline className={styles.demandLine} fill="none" points={chart.demand} />
+          {values.demandBytes.map((value, index) => (
+            <g key={index}>
+              <circle className={styles.demandDot} cx={chart.x(index)} cy={chart.y(capacityNumber(value, unit))} r="4" />
+              <text className={styles.chartLabel} x={chart.x(index)} y={chart.height - 30} textAnchor="middle">{index}</text>
+            </g>
+          ))}
+          <text className={styles.chartLabel} x={(chart.left + chart.width - 12) / 2} y={chart.height - 8} textAnchor="middle">Year</text>
+        </svg>
+      </div>
+      <figcaption className={styles.legend}>
         <span><i className={styles.legendDemand} />Projected demand</span>
         <span><i className={styles.legendCapacity} />Capacity after reserve</span>
-      </div>
-    </div>
+      </figcaption>
+    </figure>
   );
 }
 
-function Field({
-  id,
-  label,
-  value,
-  onChange,
-  error,
-  inputMode = "decimal",
-  suffix,
-  min,
-  max,
-  inputRef,
-}: {
-  id: FieldKey;
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-  error?: string;
-  inputMode?: "decimal" | "numeric";
-  suffix?: string;
-  min?: string;
-  max?: string;
-  inputRef: (node: HTMLElement | null) => void;
-}) {
-  const errorId = `${id}-error`;
-  return (
-    <label className={styles.field} htmlFor={id}>
-      <span>{label}</span>
-      <span className={styles.inputWithSuffix}>
-        <input
-          ref={inputRef}
-          id={id}
-          name={id}
-          type="text"
-          inputMode={inputMode}
-          value={value}
-          min={min}
-          max={max}
-          aria-invalid={Boolean(error)}
-          aria-describedby={error ? errorId : undefined}
-          onChange={(event) => onChange(event.target.value)}
-        />
-        {suffix ? <i>{suffix}</i> : null}
-      </span>
-      {error ? <small className={styles.error} id={errorId}>{error}</small> : null}
-    </label>
-  );
-}
-
-function Result({ values, input, onDisplayUnitChange, onCopy, onShare, status, shareUrl, headingRef }: {
+function Result({ values, input, shareUrl, status, onShare }: {
   values: StorageGrowthValues;
   input: StorageGrowthInput;
-  onDisplayUnitChange: (unit: StorageGrowthDisplayUnit) => void;
-  onCopy: () => void;
-  onShare: () => void;
-  status: string;
   shareUrl: string;
-  headingRef: RefObject<HTMLHeadingElement | null>;
+  status: string;
+  onShare: () => void;
 }) {
   const unit = input.displayUnit;
-  const horizonIndex = values.demandBytes.length - 1;
-  const horizonDemand = values.demandBytes[horizonIndex] ?? 0n;
-  const verdict = values.shortfallYear === null
-    ? `Your plan clears ${input.horizonYears} years.`
-    : `Your plan reaches reserve in year ${values.shortfallYear}.`;
+  const horizon = values.demandBytes.length - 1;
+  const horizonDemand = values.demandBytes[horizon] ?? 0n;
+  const answer = values.shortfallYear === null ? `Covers ${input.horizonYears} years` : `Shortfall in year ${values.shortfallYear}`;
+  const tone = values.shortfallYear === null ? "success" : "warning";
   return (
-    <section className={styles.result} aria-labelledby="storage-growth-result-heading">
-      <div className={styles.answerTop}>
-        <div>
-          <h2 id="storage-growth-result-heading" ref={headingRef} tabIndex={-1}>Your plan</h2>
-          <p className={styles.verdict}>{verdict}</p>
-          <p className={styles.answerDetail}>
-            Year {horizonIndex}: {formatCapacity(horizonDemand, unit)} demand; {formatCapacity(values.planningCapacityBytes, unit)} after reserve.
-          </p>
-        </div>
-        <label className={styles.displayUnit} htmlFor="displayUnit">
-          Display unit
-          <select id="displayUnit" value={unit} onChange={(event) => onDisplayUnitChange(event.target.value as StorageGrowthDisplayUnit)}>
-            <option value="TB">TB</option>
-            <option value="TiB">TiB</option>
-          </select>
-        </label>
-      </div>
+    <section aria-live="polite" className={styles.result} data-testid="growth-result">
+      <h2 className={styles.resultHeading} id="storage-growth-result-heading" tabIndex={-1}>Storage runway</h2>
+      <ToolPrimaryResult
+        detail={`Year ${horizon} demand ${formatCapacity(horizonDemand, unit)} · Capacity after reserve ${formatCapacity(values.planningCapacityBytes, unit)}`}
+        label="Storage runway"
+        tone={tone}
+        value={answer}
+      />
 
-      <div className={styles.metrics} aria-label="Plan summary">
-        <div><span>Capacity after reserve</span><strong>{formatCapacity(values.planningCapacityBytes, unit)}</strong></div>
-        <div><span>Year {horizonIndex} demand</span><strong>{formatCapacity(horizonDemand, unit)}</strong></div>
-        <div><span>Total TCO</span><strong>{formatMoney(values.costs.totalMinor, input.currency)}</strong></div>
-        <div><span>Power cost</span><strong>{formatMoney(values.costs.powerMinor, input.currency)}</strong></div>
-      </div>
+      <section className={styles.resultSection}>
+        <h2>Growth runway</h2>
+        <GrowthChart unit={unit} values={values} />
+      </section>
 
-      <div className={styles.chartSection}>
-        <div className={styles.sectionHeading}>
-          <h3>Growth runway</h3>
-          <span>Years 0-{horizonIndex}</span>
-        </div>
-        <GrowthChart values={values} unit={unit} />
-      </div>
+      <section className={styles.resultSection}>
+        <h2>Year-by-year plan</h2>
+        <ToolDataTable
+          ariaLabel="Storage growth by year"
+          columns={[
+            { id: "year", label: "Year" },
+            { id: "demand", label: "Projected demand" },
+            { id: "headroom", label: "Headroom after reserve" },
+            { id: "state", label: "State" },
+          ]}
+          rows={values.demandBytes.map((demand, year) => {
+            const headroom = values.planningCapacityBytes - demand;
+            return {
+              id: String(year),
+              cells: {
+                year,
+                demand: formatCapacity(demand, unit),
+                headroom: signedCapacity(headroom, unit),
+                state: demand > values.planningCapacityBytes ? "Over reserve" : demand === values.planningCapacityBytes ? "At reserve" : "Within reserve",
+              },
+            };
+          })}
+        />
+      </section>
 
-      <div className={styles.tableSection}>
-        <div className={styles.sectionHeading}><h3>Year-by-year plan</h3></div>
-        <div className={styles.tableWrap}>
-          <table className={styles.table}>
-            <thead><tr><th>Year</th><th>Projected demand</th><th>Headroom after reserve</th><th>State</th></tr></thead>
-            <tbody>
-              {values.demandBytes.map((demand, year) => {
-                const headroom = values.planningCapacityBytes - demand;
-                return <tr key={year}>
-                  <th scope="row" data-label="Year">{year}</th>
-                  <td data-label="Projected demand">{formatCapacity(demand, unit)}</td>
-                  <td data-label="Headroom after reserve">{signedCapacity(headroom, unit)}</td>
-                  <td data-label="State">{demand > values.planningCapacityBytes ? "Over reserve" : demand === values.planningCapacityBytes ? "At reserve" : "Within reserve"}</td>
-                </tr>;
-              })}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <section className={styles.resultSection}>
+        <h2>Cost breakdown</h2>
+        <ToolDataTable
+          ariaLabel={`Cost breakdown in ${input.currency}`}
+          columns={[{ id: "category", label: "Category" }, { id: "cost", label: `Cost (${input.currency})` }]}
+          rows={[
+            { id: "hardware", cells: { category: "Hardware", cost: formatMoney(values.costs.hardwareMinor, input.currency) } },
+            { id: "power", cells: { category: "Power", cost: formatMoney(values.costs.powerMinor, input.currency) } },
+            { id: "replacement", cells: { category: "Replacement reserve", cost: formatMoney(values.costs.replacementMinor, input.currency) } },
+            { id: "backup", cells: { category: "Backup budget", cost: formatMoney(values.costs.backupMinor, input.currency) } },
+            { id: "total", cells: { category: <strong>Total TCO</strong>, cost: <strong>{formatMoney(values.costs.totalMinor, input.currency)}</strong> } },
+          ]}
+        />
+      </section>
 
-      <div className={styles.tableSection}>
-        <div className={styles.sectionHeading}><h3>Cost over the horizon</h3><span>{input.currency}</span></div>
-        <table className={`${styles.table} ${styles.costTable}`}>
-          <tbody>
-            <tr><th scope="row">Hardware</th><td>{formatMoney(values.costs.hardwareMinor, input.currency)}</td></tr>
-            <tr><th scope="row">Power</th><td>{formatMoney(values.costs.powerMinor, input.currency)}</td></tr>
-            <tr><th scope="row">Replacement reserve</th><td>{formatMoney(values.costs.replacementMinor, input.currency)}</td></tr>
-            <tr><th scope="row">Backup budget</th><td>{formatMoney(values.costs.backupMinor, input.currency)}</td></tr>
-            <tr className={styles.totalRow}><th scope="row">Total TCO</th><td>{formatMoney(values.costs.totalMinor, input.currency)}</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <ToolActionRow>
+        <ToolCopyAction label="Copy summary" value={buildStorageGrowthCopySummary(input, values)} />
+        <ToolButton onPress={onShare}>Share plan</ToolButton>
+      </ToolActionRow>
+      {shareUrl ? <ToolTextField label="Share URL" readOnly value={shareUrl} /> : null}
+      {status ? <ToolStatus>{status}</ToolStatus> : null}
 
-      <div className={styles.resultActions}>
-        <button type="button" onClick={onCopy}><Copy size={17} />Copy summary</button>
-        <button type="button" onClick={onShare}><Share2 size={17} />Share plan</button>
-      </div>
-      {shareUrl ? <label className={styles.shareLink} htmlFor="shareUrl">Share URL<input id="shareUrl" readOnly value={shareUrl} onFocus={(event) => event.currentTarget.select()} /></label> : null}
-      {status ? <p className={styles.actionStatus} role="status" aria-live="polite">{status}</p> : null}
-
-      <details className={styles.receipt}>
-        <summary>Formula receipt</summary>
-        <dl>
-          <div><dt>Layout</dt><dd>{input.layout}; {values.dataMembers} data members</dd></div>
-          <div><dt>Capacity</dt><dd>{formatCapacity(values.modeledUsableBytes, unit)} usable; {formatCapacity(values.reserveBytes, unit)} reserve</dd></div>
-          <div><dt>Growth</dt><dd>{input.annualGrowth}% compounded once yearly</dd></div>
-          <div><dt>Costs</dt><dd>Drive, enclosure, power, replacement, backup</dd></div>
-          <div><dt>Version</dt><dd>Formula v{values.metadata.calculationVersion}; input v{values.metadata.inputVersion}</dd></div>
-        </dl>
-      </details>
+      <ToolDisclosure label="Formula receipt">
+        <ToolKeyValueList rows={[
+          { label: "Layout", value: `${input.layout}; ${values.dataMembers} data members` },
+          { label: "Capacity model", value: `${formatCapacity(values.modeledUsableBytes, unit)} usable; ${formatCapacity(values.reserveBytes, unit)} reserve` },
+          { label: "Growth", value: `${input.annualGrowth}% compounded yearly` },
+          { label: "Cost categories", value: "Drive, enclosure, power, replacement, backup" },
+          { label: "Version", value: `Formula ${values.metadata.calculationVersion}; input ${values.metadata.inputVersion}` },
+        ]} />
+      </ToolDisclosure>
     </section>
   );
 }
@@ -245,10 +211,9 @@ export function StorageGrowthPlanner({ initialState }: { initialState: string })
   const [calculated, setCalculated] = useState<Calculated | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState("");
-  const [restoreStatus, setRestoreStatus] = useState("");
   const [shareUrl, setShareUrl] = useState("");
   const fieldRefs = useRef<Record<string, HTMLElement | null>>({});
-  const resultRef = useRef<HTMLHeadingElement>(null);
+  const focusResult = useRef(false);
 
   useEffect(() => {
     if (!initialState) return;
@@ -258,51 +223,53 @@ export function StorageGrowthPlanner({ initialState }: { initialState: string })
       if (result.status === "valid") {
         setInput(restored.input);
         setCalculated({ values: result.values });
-        setRestoreStatus(restored.message);
-        setShareUrl(window.location.href);
+        setStatus(restored.message);
         return;
       }
     }
     setInput(defaults());
     setCalculated(null);
-    setRestoreStatus(restored.message);
+    setStatus(restored.message);
     window.history.replaceState(null, "", window.location.pathname);
   }, [initialState]);
 
   useEffect(() => {
-    if (calculated) resultRef.current?.focus({ preventScroll: true });
+    if (focusResult.current && calculated) {
+      focusResult.current = false;
+      window.setTimeout(() => document.getElementById("storage-growth-result-heading")?.focus({ preventScroll: true }), 0);
+    }
   }, [calculated]);
 
-  const clearUrl = () => {
+  function clearUrl() {
     if (window.location.search) window.history.replaceState(null, "", window.location.pathname);
-  };
+  }
 
-  const update = (field: FieldKey, value: string) => {
-    const hadResult = calculated !== null;
+  function update(field: FieldKey, value: string) {
     setInput((current) => ({ ...current, [field]: value } as StorageGrowthInput));
     setCalculated(null);
     setErrors({});
-    setRestoreStatus("");
     setShareUrl("");
-    setStatus(hadResult ? "Result cleared." : "");
-    clearUrl();
-  };
-
-  const changeDisplayUnit = (displayUnit: StorageGrowthDisplayUnit) => {
-    setInput((current) => ({ ...current, displayUnit }));
     setStatus("");
-  };
+    clearUrl();
+  }
 
-  const focusFirstError = (nextErrors: Record<string, string>) => {
+  function changeDisplayUnit(displayUnit: StorageGrowthDisplayUnit) {
+    setInput((current) => ({ ...current, displayUnit }));
+    setShareUrl("");
+    setStatus("");
+    clearUrl();
+  }
+
+  function focusFirstError(nextErrors: Record<string, string>) {
     for (const field of errorOrder) {
       if (nextErrors[field]) {
         fieldRefs.current[field]?.focus();
         return;
       }
     }
-  };
+  }
 
-  const submit = (event?: FormEvent<HTMLFormElement>) => {
+  function submit(event?: FormEvent<HTMLFormElement>) {
     event?.preventDefault();
     const result: StorageGrowthCalculationResult = calculateStorageGrowthPlan(input);
     if (result.status === "invalid") {
@@ -310,116 +277,107 @@ export function StorageGrowthPlanner({ initialState }: { initialState: string })
       setErrors(nextErrors);
       setCalculated(null);
       setShareUrl("");
-      setStatus("Fix the marked input.");
-      focusFirstError(nextErrors);
+      setStatus("Check the marked inputs.");
+      window.setTimeout(() => focusFirstError(nextErrors), 0);
       return;
     }
     setErrors({});
     setCalculated({ values: result.values });
-    setStatus("Plan calculated.");
-  };
+    setStatus("");
+    focusResult.current = true;
+  }
 
-  const reset = () => {
+  function reset() {
     setInput(defaults());
     setCalculated(null);
     setErrors({});
-    setStatus("");
-    setRestoreStatus("");
+    setStatus("Plan reset.");
     setShareUrl("");
     window.history.replaceState(null, "", window.location.pathname);
-    fieldRefs.current.currentData?.focus();
-  };
+    window.setTimeout(() => fieldRefs.current.currentData?.focus(), 0);
+  }
 
-  const copy = async () => {
-    if (!calculated) return;
-    try {
-      await navigator.clipboard.writeText(buildStorageGrowthCopySummary(input, calculated.values));
-      setStatus("Summary copied.");
-    } catch {
-      setStatus("Copy failed. Select the result.");
-    }
-  };
-
-  const share = async () => {
+  async function share() {
     if (!calculated) return;
     try {
       const url = new URL(window.location.href);
       url.search = "";
       url.searchParams.set("state", encodeStorageGrowthState(input));
-      window.history.replaceState(null, "", url.toString());
+      window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
       setShareUrl(url.toString());
       try {
         await navigator.clipboard.writeText(url.toString());
-        setStatus("Share link copied.");
+        setStatus("Share URL copied.");
       } catch {
-        setStatus("Share link ready.");
+        setStatus("Share URL ready.");
       }
     } catch {
       setStatus("Share failed.");
     }
-  };
+  }
 
-  const errorSummary = Object.entries(errors);
+  const numberField = (field: FieldKey, label: string, suffix?: string, options?: { min?: number; max?: number; step?: number }) => (
+    <ToolNumberField
+      dataFocusKey={field}
+      error={errors[field]}
+      inputRef={(node) => { fieldRefs.current[field] = node; }}
+      label={label}
+      max={options?.max}
+      min={options?.min}
+      onChange={(value) => update(field, Number.isNaN(value) ? "" : String(value))}
+      required
+      step={options?.step}
+      suffix={suffix}
+      value={Number(input[field])}
+    />
+  );
+
   return (
-    <section className={styles.tool} aria-label="storage growth planner inputs and results">
-      <form className={styles.form} onSubmit={submit} noValidate>
-        {restoreStatus ? <p className={styles.restoreStatus} role="status" aria-live="polite">{restoreStatus}</p> : null}
-        {errorSummary.length > 0 ? <div className={styles.errorSummary} role="alert">
-          <h2>Fix the marked input</h2>
-          <ul>{errorSummary.map(([field, message]) => <li key={field}>{message}</li>)}</ul>
-        </div> : null}
-        <fieldset className={styles.fieldset}>
-          <legend>Demand and horizon</legend>
+    <div aria-label="storage growth planner inputs and results" className={styles.tool} data-tool-workbench role="region">
+      <form className={styles.form} noValidate onSubmit={submit}>
+        <section className={styles.formSection}>
+          <h2>Demand</h2>
           <div className={styles.controlGrid}>
-            <Field id="currentData" label="Current data" value={input.currentData} suffix="TB" error={errors.currentData} inputRef={(node) => { fieldRefs.current.currentData = node; }} onChange={(value) => update("currentData", value)} />
-            <Field id="annualGrowth" label="Annual growth" value={input.annualGrowth} suffix="%" error={errors.annualGrowth} inputRef={(node) => { fieldRefs.current.annualGrowth = node; }} onChange={(value) => update("annualGrowth", value)} />
-            <Field id="horizonYears" label="Horizon" value={input.horizonYears} suffix="years" error={errors.horizonYears} inputMode="numeric" inputRef={(node) => { fieldRefs.current.horizonYears = node; }} onChange={(value) => update("horizonYears", value)} />
-            <Field id="reserve" label="Operating reserve" value={input.reserve} suffix="%" error={errors.reserve} inputRef={(node) => { fieldRefs.current.reserve = node; }} onChange={(value) => update("reserve", value)} />
+            {numberField("currentData", "Current data", "TB", { min: 0, max: 1000, step: 0.1 })}
+            {numberField("annualGrowth", "Annual growth", "%", { min: 0, max: 100, step: 0.1 })}
+            {numberField("horizonYears", "Horizon", "years", { min: 1, max: 10 })}
+            {numberField("reserve", "Operating reserve", "%", { min: 0, max: 50, step: 0.1 })}
           </div>
-        </fieldset>
+        </section>
 
-        <fieldset className={styles.fieldset}>
-          <legend>Local drive plan</legend>
-          <fieldset className={styles.layoutFieldset} aria-labelledby="layout-legend">
-            <legend id="layout-legend">Layout</legend>
-            <div className={styles.choiceRow}>
-              {(["mirror", "single-parity", "dual-parity"] as StorageGrowthLayout[]).map((layout) => (
-                <label className={styles.choice} key={layout}>
-                  <input type="radio" name="layout" value={layout} checked={input.layout === layout} aria-invalid={Boolean(errors.layout)} aria-describedby={errors.layout ? "layout-error" : undefined} onChange={() => update("layout", layout)} />
-                  <span>{layout === "single-parity" ? "Single parity" : layout === "dual-parity" ? "Dual parity" : "Mirror"}</span>
-                </label>
-              ))}
-            </div>
-            {errors.layout ? <small className={styles.error} id="layout-error">{errors.layout}</small> : null}
-          </fieldset>
+        <section className={styles.formSection}>
+          <h2>Local plan</h2>
+          <ToolChoiceGroup error={errors.layout} label="Layout" onChange={(layout) => update("layout", layout)} options={layoutOptions} required value={input.layout} />
           <div className={styles.controlGrid}>
-            <Field id="driveCount" label="Drive count" value={input.driveCount} error={errors.driveCount} inputMode="numeric" inputRef={(node) => { fieldRefs.current.driveCount = node; }} onChange={(value) => update("driveCount", value)} />
-            <Field id="driveSize" label="Drive size" value={input.driveSize} suffix="TB" error={errors.driveSize} inputRef={(node) => { fieldRefs.current.driveSize = node; }} onChange={(value) => update("driveSize", value)} />
+            {numberField("driveCount", "Drive count", undefined, { min: 2, max: 24 })}
+            {numberField("driveSize", "Drive size", "TB", { min: 0.1, max: 100, step: 0.1 })}
           </div>
-        </fieldset>
+        </section>
 
-        <fieldset className={styles.fieldset}>
-          <legend>Cost assumptions</legend>
+        <section className={styles.formSection}>
+          <h2>Costs</h2>
           <div className={styles.controlGrid}>
-            <label className={styles.field} htmlFor="currency"><span>Currency</span><select id="currency" value={input.currency} aria-invalid={Boolean(errors.currency)} onChange={(event) => update("currency", event.target.value)} ref={(node) => { fieldRefs.current.currency = node; }}><option>USD</option><option>EUR</option><option>GBP</option><option>INR</option></select>{errors.currency ? <small className={styles.error}>{errors.currency}</small> : null}</label>
-            <Field id="drivePrice" label="Drive price" value={input.drivePrice} error={errors.drivePrice} inputRef={(node) => { fieldRefs.current.drivePrice = node; }} onChange={(value) => update("drivePrice", value)} />
-            <Field id="enclosureCost" label="Enclosure cost" value={input.enclosureCost} error={errors.enclosureCost} inputRef={(node) => { fieldRefs.current.enclosureCost = node; }} onChange={(value) => update("enclosureCost", value)} />
-            <Field id="averagePowerWatts" label="Average draw" value={input.averagePowerWatts} suffix="W" error={errors.averagePowerWatts} inputMode="numeric" inputRef={(node) => { fieldRefs.current.averagePowerWatts = node; }} onChange={(value) => update("averagePowerWatts", value)} />
-            <Field id="hoursPerDay" label="Hours per day" value={input.hoursPerDay} suffix="hours" error={errors.hoursPerDay} inputMode="numeric" inputRef={(node) => { fieldRefs.current.hoursPerDay = node; }} onChange={(value) => update("hoursPerDay", value)} />
-            <Field id="electricityRate" label="Electricity rate" value={input.electricityRate} suffix="/kWh" error={errors.electricityRate} inputRef={(node) => { fieldRefs.current.electricityRate = node; }} onChange={(value) => update("electricityRate", value)} />
-            <Field id="replacementReserve" label="Replacement reserve" value={input.replacementReserve} suffix="%" error={errors.replacementReserve} inputRef={(node) => { fieldRefs.current.replacementReserve = node; }} onChange={(value) => update("replacementReserve", value)} />
-            <Field id="backupAnnualBudget" label="Backup budget" value={input.backupAnnualBudget} suffix="/year" error={errors.backupAnnualBudget} inputRef={(node) => { fieldRefs.current.backupAnnualBudget = node; }} onChange={(value) => update("backupAnnualBudget", value)} />
+            <ToolSelect error={errors.currency} label="Currency" onChange={(currency) => update("currency", currency)} options={currencyOptions} required value={input.currency} />
+            {numberField("drivePrice", "Drive price", input.currency, { min: 0, max: 100000, step: 0.01 })}
+            {numberField("enclosureCost", "Enclosure cost", input.currency, { min: 0, max: 100000, step: 0.01 })}
+            {numberField("averagePowerWatts", "Average draw", "W", { min: 0, max: 2000 })}
+            {numberField("hoursPerDay", "Hours per day", "hours", { min: 0, max: 24 })}
+            {numberField("electricityRate", "Electricity rate", `${input.currency}/kWh`, { min: 0, max: 10, step: 0.01 })}
+            {numberField("replacementReserve", "Replacement reserve", "%", { min: 0, max: 25, step: 0.1 })}
+            {numberField("backupAnnualBudget", "Backup budget", `${input.currency}/year`, { min: 0, max: 100000, step: 0.01 })}
           </div>
-        </fieldset>
+        </section>
 
-        <div className={styles.formActions}>
-          <button className={styles.primaryAction} type="submit">Calculate plan</button>
-          <button type="button" onClick={reset}><RotateCcw size={17} />Reset</button>
-          {status && !calculated ? <p className={styles.actionStatus} role="status" aria-live="polite">{status}</p> : null}
-        </div>
-        <p className={styles.privacyNote}>Runs locally. Values stay in this browser.</p>
+        <ToolChoiceGroup label="Result unit" onChange={(unit) => changeDisplayUnit(unit as StorageGrowthDisplayUnit)} options={displayUnitOptions} required value={input.displayUnit} />
+
+        <ToolActionRow>
+          <ToolButton type="submit" variant="primary">Calculate plan</ToolButton>
+          <ToolButton onPress={reset}>Reset</ToolButton>
+        </ToolActionRow>
+        {status && !calculated ? <ToolStatus tone={Object.keys(errors).length ? "danger" : "neutral"}>{status}</ToolStatus> : null}
       </form>
-      {calculated ? <Result values={calculated.values} input={input} onDisplayUnitChange={changeDisplayUnit} onCopy={copy} onShare={share} status={status} shareUrl={shareUrl} headingRef={resultRef} /> : null}
-    </section>
+
+      {calculated ? <Result input={input} onShare={share} shareUrl={shareUrl} status={status} values={calculated.values} /> : null}
+    </div>
   );
 }

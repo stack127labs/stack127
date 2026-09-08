@@ -162,3 +162,5 @@ export const slack: AppShortcuts = {
     },
   ],
 };
+
+export default slack;

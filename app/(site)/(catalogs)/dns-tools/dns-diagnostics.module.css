@@ -42,7 +42,7 @@
 }
 
 .favicon {
-  border-radius: 6px;
+  border-radius: var(--radius);
   height: 32px;
   opacity: 0;
   width: 32px;
@@ -72,7 +72,7 @@
   align-items: center;
   background: transparent;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text);
   cursor: pointer;
   display: inline-flex;
@@ -103,7 +103,7 @@
 
 .sources {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   overflow: hidden;
 }
 
@@ -132,7 +132,7 @@
 .stateWarn,
 .stateBad,
 .stateQuiet {
-  border-radius: 999px;
+  border-radius: var(--radius);
   font-size: var(--text-small);
   font-weight: var(--weight-semibold);
   padding: 4px 8px;
@@ -182,7 +182,7 @@
 .raw pre {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   box-sizing: border-box;
   font-size: var(--text-small);
   margin: var(--space-4) 0 0;
@@ -204,7 +204,7 @@
 .finding {
   background: var(--color-surface-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   display: grid;
   gap: var(--space-3);
   padding: var(--space-6);
@@ -233,7 +233,7 @@
 
 .pathStep {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   display: grid;
   gap: var(--space-2);
   padding: var(--space-4);
@@ -267,7 +267,7 @@
 .chainStep::before {
   background: var(--color-surface);
   border: 2px solid var(--color-accent);
-  border-radius: 999px;
+  border-radius: 50%;
   content: "";
   height: 11px;
   left: calc(-1 * var(--space-7) - 6px);
@@ -293,8 +293,8 @@
 .nextCheck a,
 a.nextCheck {
   color: var(--color-link);
-  text-decoration: underline;
-  text-decoration-color: var(--color-border-strong);
+  text-decoration: none;
+  text-decoration-color: currentColor;
   text-underline-offset: 3px;
 }
 

@@ -10,4 +10,4 @@ They should leave with clear expectations about acceptable use, changing technic
 
 ## Show vs say
 
-These are behavioral and legal boundaries, so concise prose is the right medium. Question-free headings group each promise and limitation in the place a reader expects it. There are no repeated product facts to compare, no exact data to chart, and no interface that a screenshot would clarify. The updated date remains quiet metadata at the end.
+These are behavioral and legal boundaries, so concise prose is the right medium. Question-free headings group each promise and limitation in the place a reader expects it. The dotted header uses one small document-and-boundaries drawing to signal scope and responsibility. There are no repeated product facts to compare, no exact data to chart, and no interface that a screenshot would clarify. The updated date remains quiet metadata at the end.

@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-z-wave-devices",
+  "type": "toolSpot",
+  "takeaway": "A wall switch represents Z-Wave home controls.",
+  "source": "Conceptual hardware illustration, no product or compatibility claim.",
+  "dataAsOf": "2026-09-08",
+  "width": 140,
+  "height": 120,
+  "seed": 415,
+  "data": {
+    "icon": "wallSwitch"
+  }
+}

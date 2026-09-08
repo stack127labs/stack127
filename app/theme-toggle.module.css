@@ -2,7 +2,7 @@
   align-items: center;
   background: transparent;
   border: 0;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   display: inline-flex;
   height: var(--control-height-sm);
   justify-content: center;

@@ -132,3 +132,5 @@ export const neovim: AppShortcuts = {
     },
   ],
 };
+
+export default neovim;

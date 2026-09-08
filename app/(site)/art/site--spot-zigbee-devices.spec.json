@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-zigbee-devices",
+  "type": "toolSpot",
+  "takeaway": "A contact sensor detects an opening door.",
+  "source": "Conceptual hardware illustration, no product or compatibility claim.",
+  "dataAsOf": "2026-09-08",
+  "width": 140,
+  "height": 120,
+  "seed": 413,
+  "data": {
+    "icon": "contactSensor"
+  }
+}

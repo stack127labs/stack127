@@ -1,12 +1,13 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
+import { readToolPageSeed } from "../../helpers/tool-page-content.mjs";
 
 const route = new URL("../../../app/(site)/(tools)/nginx-proxy-pass-calculator/", import.meta.url);
 const pagePath = new URL("page.tsx", route);
 const clientPath = new URL("nginx-proxy-pass-calculator.tsx", route);
 const stylesPath = new URL("nginx-proxy-pass-calculator.module.css", route);
-const guidePath = new URL("nginx-proxy-pass-guide.tsx", route);
+const sharedControlsPath = new URL("../../../app/tool-ui/tool-controls.module.css", import.meta.url);
 const enginePath = new URL("../../../lib/nginx/proxy-pass-uri.ts", import.meta.url);
 const previewPath = new URL("../../../scripts/nginx-proxy-pass-calculator/preview-local-page.mjs", import.meta.url);
 const verifierPath = new URL("../../../scripts/nginx-proxy-pass-calculator/verify-nginx-fixtures.mjs", import.meta.url);
@@ -38,17 +39,19 @@ test("keeps the technical build tool-only and centrally managed", () => {
   const page = readFileSync(pagePath, "utf8");
   const client = readFileSync(clientPath, "utf8");
   const styles = readFileSync(stylesPath, "utf8");
+  const controlStyles = readFileSync(sharedControlsPath, "utf8");
   assert.match(page, /NGINX proxy_pass URI Calculator/);
   assert.match(client, /Calculate upstream URL/);
   assert.match(client, /Final upstream URL/);
-  assert.match(client, /Slash comparison/);
+  assert.match(client, /Compare the final slash/);
   assert.match(`${client}\n${readFileSync(enginePath, "utf8")}`, /1\.30\.4/);
   assert.doesNotMatch(page, /export const metadata|generateMetadata|application\/ld\+json|canonical|robots|sitemap/i);
   assert.doesNotMatch(`${page}\n${client}`, /<h2>FAQ|Methodology|Related reading|How to use|—|–/i);
-  assert.match(styles, /\.tool\s*\{[^}]*border:\s*1\.5px solid var\(--color-border-strong\);/s);
+  assert.match(client, /data-tool-workbench/);
+  assert.doesNotMatch(styles, /\.tool\s*\{[^}]*(?:border:\s*1\.5px|border-radius:)/s);
   assert.match(styles, /@media \(max-width: 760px\)/);
   assert.match(styles, /@media \(max-width: 390px\)/);
-  assert.match(styles, /min-height:\s*44px/);
+  assert.match(`${styles}\n${controlStyles}`, /min-height:\s*44px/);
   assert.match(styles, /min-width:\s*0/);
   assert.match(styles, /overflow-wrap:\s*anywhere/);
   assert.doesNotMatch(styles, /border-left\s*:|box-shadow\s*:|linear-gradient|radial-gradient/);
@@ -63,18 +66,15 @@ test("guards preview mutations to a local database", () => {
 });
 
 test("serves a concise server-rendered guide around the stable calculator", () => {
-  assert.equal(existsSync(guidePath), true);
   const page = readFileSync(pagePath, "utf8");
-  const guide = readFileSync(guidePath, "utf8");
-  assert.match(page, /Enter the matched static location/);
-  assert.match(page, /runs in this browser/);
-  assert.match(page, /NginxProxyPassGuide/);
+  const guide = readToolPageSeed("nginx-proxy-pass-calculator");
+  assert.match(page, /<ToolPageHeader/);
+  assert.match(page, /<ToolPageMarkdown/);
   assert.match(guide, /Use the location NGINX actually matched/);
   assert.match(guide, /Common static cases/);
   assert.match(guide, /Read the result as one replacement chain/);
   assert.match(guide, /When the answer needs live NGINX/);
   assert.match(guide, /Verify the target in the running configuration/);
-  assert.match(guide, /proseClassName/);
   assert.match(guide, /https:\/\/nginx\.org\/en\/docs\/http\/ngx_http_proxy_module\.html#proxy_pass/);
   assert.match(guide, /https:\/\/nginx\.org\/en\/docs\/http\/ngx_http_rewrite_module\.html#rewrite/);
   assert.doesNotMatch(`${page}\n${guide}`, /FAQ|best tool|guarantee|always correct|—|–/i);

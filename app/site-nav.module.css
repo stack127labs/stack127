@@ -31,7 +31,7 @@
   justify-content: flex-end;
 }
 
-/* Nav links read like the site's quiet mono metadata, separated by dots. */
+/* Top navigation keeps neutral text, separated by dots. */
 .links a {
   color: var(--color-text-muted);
   font-family: var(--font-mono);
@@ -69,8 +69,25 @@
   }
 }
 
+/* At the 320px minimum width, enlarged text leaves room for the wordmark and
+   theme action only. The sidebar drawer still exposes the full navigation. */
+@media (max-width: 420px) {
+  .nav {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .links {
+    display: none;
+  }
+}
+
 @media print {
   .header {
     position: static;
   }
+}
+
+.links a[href]:hover,
+.links a[href]:focus-visible {
+  text-decoration: none;
 }

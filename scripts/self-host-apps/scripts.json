@@ -1,5 +1,9 @@
 [
   {
+    "file": "quarantine-generated-estimates.mjs",
+    "purpose": "Remove only identified deployment-shape-v1 estimates after exact snapshot checks. Defaults to rollback and requires a recoverable before-value backup before commit."
+  },
+  {
     "file": "backfill-open-source-pricing.mjs",
     "purpose": "Sets free-to-self-host pricing only for published apps with an already reviewed open-source model and license, and records the source URL on the app row."
   },
@@ -49,12 +53,12 @@
   {
     "name": "self-host-apps:refresh-app-catalog-facts",
     "command": "npm run self-host-apps:refresh-app-catalog-facts -- --truenas-dir <checkout> --umbrel-dir <checkout> --dry-run",
-    "purpose": "Extract reviewed Docker, Compose, database, package memory-cap, persistent-storage, and release facts from official appliance catalogs."
+    "purpose": "Collect pending appliance-package evidence without publishing inferred facts or advancing review dates."
   },
   {
     "name": "self-host-apps:refresh-primary-technical-facts",
-    "command": "npm run self-host-apps:refresh-primary-technical-facts -- --refresh-all --requirements-file <reviewed-requirements.json> --out report.json",
-    "purpose": "Check official primary sources for RAM, storage, database, Docker, and Compose facts across the full published catalog. Applying a batch requires a separate reviewed requirements file, and researched nulls remain null instead of becoming estimates."
+    "command": "npm run self-host-apps:refresh-primary-technical-facts -- --refresh-all --out report.json",
+    "purpose": "Collect possible technical facts and source URLs across the published catalogue without writing app facts or verification dates. Every record remains pending source review."
   },
   {
     "name": "self-host-apps:refresh-install-options",
@@ -64,7 +68,7 @@
   {
     "name": "self-host-apps:propose-resource-estimates",
     "command": "npm run self-host-apps:propose-resource-estimates -- --limit 5000 --out <resource-estimates.json>",
-    "purpose": "Propose broad, low-confidence RAM and storage planning ranges from deployment-shape signals for editorial review; this command never mutates data."
+    "purpose": "Create RAM and storage research tasks with source leads, without generating numeric estimates or mutating data."
   },
   {
     "name": "self-host-apps:apply-resource-estimates",
@@ -99,7 +103,7 @@
   {
     "name": "self-host-apps:reset-categories",
     "command": "npm run self-host-apps:reset-categories -- --dry-run",
-    "purpose": "Reset self-host app category rows and links to the controlled stack127 taxonomy."
+    "purpose": "Retired safety entry point. Exits without database access and directs callers to source-reviewed category corrections."
   },
   {
     "name": "self-host-apps:select-enrichment-batch",

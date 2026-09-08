@@ -38,6 +38,12 @@ The Stack127 scripts explicitly bind Next.js to `0.0.0.0`, which includes the
 Tailscale interface while keeping the app off the public internet unless the
 host firewall says otherwise.
 
+`next.config.ts` automatically adds the host's current Tailscale IPv4 address
+to Next.js `allowedDevOrigins`. This lets client-side JavaScript, hot reload,
+drawers, filters, and interactive tools work when the site is opened from
+another device. Restart the development server after the Tailscale interface
+or address changes.
+
 ```bash
 npm run dev
 ```
@@ -59,5 +65,7 @@ always return the Tailscale URL as a Markdown link.
 - Confirm the Mac is online in the same Tailscale network.
 - Confirm the server is listening on port `3333` and that the homelab firewall
   permits port `3333` on the Tailscale interface only.
+- If pages render but controls do not respond, restart the development server
+  and check that its startup config includes the current Tailscale address.
 - Do not substitute a public IP, port-forward, or production hostname for this
   development link.

@@ -39,8 +39,8 @@ test("cards open a contextual details panel instead of exposing raw links", asyn
 
   const firstCard = page.locator(".cli-card").first();
   await expect(firstCard.locator("a")).toHaveCount(0);
-  await expect(firstCard.locator(".directory-meta-list > span")).toHaveCount(3);
-  await expect(firstCard.locator(".directory-meta-list")).toContainText("license");
+  await expect(firstCard.locator("[data-card-facts] > div")).toHaveCount(6);
+  await expect(firstCard.locator("[data-card-facts]")).toContainText("License");
   await firstCard.click();
 
   const panel = page.getByRole("dialog");
@@ -60,7 +60,7 @@ test("cards and details show cached app icons", async ({ page }) => {
     await icon.scrollIntoViewIfNeeded();
     await expect(icon).toHaveAttribute("data-image-loaded", "true");
     const image = icon.locator("img");
-    await expect(image).toHaveAttribute("src", /\/cli-app-icons\/[a-z0-9-]+\.png$/);
+    await expect(image).toHaveAttribute("src", /(?:\/cli-app-icons\/|\/stack127-media\/directories\/cli-apps\/icons\/)[a-z0-9-]+\.png$/);
     await expect(image).toHaveCSS("opacity", "1");
     expect(await image.evaluate((element: HTMLImageElement) => element.naturalWidth)).toBeGreaterThan(0);
   }

@@ -25,7 +25,7 @@
   align-items: flex-start;
   background: var(--code-bg);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   display: flex;
   gap: var(--space-3);
   padding: var(--space-6) var(--space-4) var(--space-6) var(--space-7);
@@ -36,7 +36,7 @@
   appearance: none;
   background: transparent;
   border: 0;
-  border-radius: 4px;
+  border-radius: var(--radius);
   color: var(--code-muted);
   cursor: pointer;
   display: inline-flex;

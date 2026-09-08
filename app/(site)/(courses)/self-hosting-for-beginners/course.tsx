@@ -6,6 +6,7 @@ import {
   CourseLessonLink,
   CourseLessonPage,
 } from "../_components/course-shell";
+import { siteSpotCourseArt } from "../../art/site--spot-course";
 
 export function LessonPage({ children, currentSlug, heading }: {
   children: ReactNode;
@@ -16,6 +17,7 @@ export function LessonPage({ children, currentSlug, heading }: {
     <CourseLessonPage
       course={selfHostingForBeginnersCourse}
       currentSlug={currentSlug}
+      entryHeroArt={currentSlug === "" ? siteSpotCourseArt : undefined}
       heading={heading}
     >
       {children}

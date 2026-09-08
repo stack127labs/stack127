@@ -1,89 +1,100 @@
 import { Globe } from "lucide-react";
 import Link from "next/link";
 import { AppShell } from "@/app/app-shell";
-import { dotBandClassName } from "@/app/dot-band";
-import { Doodle } from "@/app/doodle";
-import { siteDoodlePlantArt } from "../../art/site--doodle-plant";
-import { DomainToolsSidebar } from "./domain-tools-sidebar";
+import { EntryHero } from "@/app/entry-hero";
+import { PageCanvas } from "@/app/page-canvas";
+import { siteSpotDomainToolsArt } from "../../art/site--spot-domain-tools";
+import { ToolCatalogSidebar } from "../_components/tool-catalog-sidebar";
 import { coverageSummary } from "@/lib/domain/bootstrap.ts";
 import { PageTitleIcon } from "@/app/page-title-icon";
 import { PageHeader } from "@/app/page-header";
 import { proseSectionFlowClassName } from "@/app/prose";
+import { domainAgeArt } from "../_components/art/domain-age";
+import { domainAvailabilityArt } from "../_components/art/domain-availability";
+import { domainExpiryArt } from "../_components/art/domain-expiry";
+import { domainLookupArt } from "../_components/art/domain-lookup";
+import { domainOwnerArt } from "../_components/art/domain-owner";
+import { domainRegistrarArt } from "../_components/art/domain-registrar";
+import { domainReportArt } from "../_components/art/domain-report";
+import { eppStatusArt } from "../_components/art/epp-status";
+import { multiTldArt } from "../_components/art/multi-tld";
+import { punycodeArt } from "../_components/art/punycode";
+import { tldDirectoryArt } from "../_components/art/tld-directory";
+import { transferReadinessArt } from "../_components/art/transfer-readiness";
+import { ToolCatalog, type CatalogTool } from "../_components/tool-catalog";
 
-const tools = [
+const tools: CatalogTool[] = [
   {
     href: "/domain-lookup",
-    name: "Domain Registration Lookup",
-    reason: "I want the whole registration record.",
-    detail:
-      "Shows who the domain is registered through, when it was created, when it expires, what the registry is currently allowing, and what contact details have been withheld.",
+    name: "Domain lookup",
+    description: "Read the registrar, dates, status codes, nameservers, and published contact fields.",
+    art: domainLookupArt,
   },
   {
     href: "/domain-age",
-    name: "Domain Age Checker",
-    reason: "I want to know how old this domain is.",
-    detail: "Gives the registration date and works out the age, and explains why that is not the same as the age of the site.",
+    name: "Domain age checker",
+    description: "Find the registration date and measure the domain's age without treating it as the age of the website.",
+    art: domainAgeArt,
   },
   {
     href: "/domain-expiry",
-    name: "Domain Expiry Checker",
-    reason: "I want to know when this expires.",
-    detail: "Shows the date and, more usefully, what happens in the two or three months after it passes.",
+    name: "Domain expiry checker",
+    description: "See the expiry date and the renewal or deletion stages that may follow it.",
+    art: domainExpiryArt,
   },
   {
     href: "/domain-availability",
-    name: "Domain Availability Checker",
-    reason: "I want to know if a name is taken.",
-    detail: "Asks the registry directly. We sell nothing, so there is no reason for us to be anything other than straight with you.",
+    name: "Domain availability",
+    description: "Ask the registry whether a domain is registered, available, or unknown.",
+    art: domainAvailabilityArt,
   },
   {
     href: "/multi-tld-availability",
-    name: "Multi-TLD Availability",
-    reason: "I want one name checked across several endings.",
-    detail: "One name against a handful of endings at once, with every row reporting its own outcome.",
+    name: "Multi-TLD availability",
+    description: "Check one name across several domain endings and keep each registry answer separate.",
+    art: multiTldArt,
   },
   {
     href: "/domain-owner",
-    name: "Domain Registrant Lookup",
-    reason: "I want to know who is behind a domain.",
-    detail:
-      "Shows what is published, exactly which fields were withheld and how, and the routes that still exist for making contact.",
+    name: "Registrant lookup",
+    description: "See which owner details are public, which were withheld, and how contact may still work.",
+    art: domainOwnerArt,
   },
   {
     href: "/domain-registrar",
-    name: "Registrar Lookup",
-    reason: "I need the registrar, or somewhere to report abuse.",
-    detail: "Names the registrar, gives the abuse contact, and untangles the registry and reseller confusion.",
+    name: "Registrar lookup",
+    description: "Find the registrar, its abuse contact, and any reseller shown in the record.",
+    art: domainRegistrarArt,
   },
   {
     href: "/transfer-readiness",
-    name: "Domain Transfer Readiness",
-    reason: "I want to move this to another registrar.",
-    detail: "Works out what is blocking the move, separates what you can fix from what you cannot, and says what it cannot see.",
+    name: "Transfer readiness",
+    description: "Check visible transfer blocks and separate what you can fix from what the lookup cannot see.",
+    art: transferReadinessArt,
   },
   {
     href: "/domain-report",
-    name: "Domain Registration Report",
-    reason: "I want the registration and the DNS checked together.",
-    detail: "Runs both engines and looks for the places where the registry and the live DNS disagree.",
+    name: "Domain report",
+    description: "Check registration and live DNS together, then surface the places where they disagree.",
+    art: domainReportArt,
   },
   {
     href: "/epp-status-codes",
     name: "Domain status codes",
-    reason: "My domain has a status I do not understand.",
-    detail: "Explains every status code, who set it, and whether it is yours to remove.",
+    description: "Understand what each EPP status means, who set it, and whether you can remove it.",
+    art: eppStatusArt,
   },
   {
     href: "/punycode-converter",
-    name: "Punycode and IDN Converter",
-    reason: "This name has odd characters in it.",
-    detail: "Converts between the readable form and the ASCII form DNS carries, and flags names that mix writing systems.",
+    name: "Punycode converter",
+    description: "Convert between a readable internationalized name and the ASCII form used by DNS.",
+    art: punycodeArt,
   },
   {
     href: "/tld-directory",
-    name: "TLD Directory",
-    reason: "I want to know who runs an ending.",
-    detail: "Every ending in the root zone, its operator, whether it is signed, and whether we can look names up under it.",
+    name: "TLD directory",
+    description: "Find who runs each root-zone ending and whether it supports DNSSEC and RDAP lookups.",
+    art: tldDirectoryArt,
   },
 ];
 
@@ -93,13 +104,12 @@ export default function DomainToolsPage() {
   return (
     <AppShell
       mainLabel="Domain tools"
-      menuLabel="Domain tools"
-      sidebar={<DomainToolsSidebar active="hub" />}
-      sidebarLabel="Domain tools sidebar"
+      menuLabel="Tool catalogs"
+      sidebar={<ToolCatalogSidebar active="domain-tools" />}
+      sidebarLabel="Tool catalogs sidebar"
     >
-      <div className={`${dotBandClassName} domain-hero-band`}>
-        <div className="domain-hero-band-inner">
-          <PageHeader>
+      <EntryHero art={siteSpotDomainToolsArt} wide>
+        <PageHeader>
             <h1>
               <PageTitleIcon>
                 <Globe strokeWidth={2.2} />
@@ -107,31 +117,13 @@ export default function DomainToolsPage() {
               Free domain <mark>lookup tools</mark> that answer from the registry
             </h1>
             <p>
-              Look up who registered a domain, when it was created, when it expires,
-              whether a name is available, and what its status codes actually mean.
-              Every answer comes from the registry that runs the ending rather than from
-              a reseller trying to sell you something, and none of these tools ask you
-              to sign up.
+              Check registration, availability, ownership, expiry, transfers, and status codes
+              using current registry and registrar data.
             </p>
-          </PageHeader>
-        </div>
-        <Doodle className="domain-hero-doodle" placement="corner" svg={siteDoodlePlantArt} />
-      </div>
-      <main className="domain-hub-main domain-hub-after-hero">
-
-        <section aria-labelledby="tools-title" className="domain-hub-section">
-          <h2 id="tools-title">Which domain tool do you need?</h2>
-          {tools.map((tool) => (
-            <Link className="domain-tool-card" href={tool.href} key={tool.href}>
-              <span className="domain-tool-card-copy">
-                <strong className="domain-tool-card-name">{tool.name}</strong>
-                <span className="domain-tool-card-reason">{tool.reason}</span>
-                <small>{tool.detail}</small>
-              </span>
-              <span aria-hidden="true">→</span>
-            </Link>
-          ))}
-        </section>
+        </PageHeader>
+      </EntryHero>
+      <PageCanvas>
+        <ToolCatalog heading="Choose a domain check" tools={tools} />
 
         <hr className="domain-divider" />
 
@@ -201,7 +193,7 @@ export default function DomainToolsPage() {
             </p>
           </section>
         </article>
-      </main>
+      </PageCanvas>
     </AppShell>
   );
 }

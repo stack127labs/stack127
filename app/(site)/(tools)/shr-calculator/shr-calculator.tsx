@@ -1,14 +1,26 @@
 "use client";
 
-import { Copy, HardDrive, Plus, RotateCcw, Share2, Trash2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import {
+  ToolActionRow,
+  ToolAllocationBar,
+  ToolButton,
+  ToolChoiceGroup,
+  ToolDataTable,
+  ToolKeyValueList,
+  ToolPrimaryResult,
+  ToolQuantityInput,
+  ToolRepeatableList,
+  ToolStatus,
+  ToolTextField,
+  toolOption,
+} from "@/app/tool-ui/tool-controls";
 import {
   MAX_SHR_DRIVES,
   calculateShrCapacity,
   decodeShrState,
   encodeShrState,
   formatCapacity,
-  formatPercent,
   parseCapacity,
   type ShrCapacityUnit,
   type ShrCalculationResult,
@@ -35,7 +47,6 @@ type EditorState = {
 type CalculatedState = {
   input: ShrInput;
   values: ShrValues;
-  comparison: ShrValues | null;
 };
 
 type CompileResult = {
@@ -45,6 +56,12 @@ type CompileResult = {
 };
 
 const inputUnits: readonly InputUnit[] = ["TB", "GB", "TiB", "GiB"];
+const inputUnitOptions = inputUnits.map((unit) => toolOption(unit, unit));
+const modeOptions = [
+  toolOption("shr1", "SHR-1 · 1-drive protection"),
+  toolOption("shr2", "SHR-2 · 2-drive protection"),
+];
+const outputUnitOptions = [toolOption("TB", "TB"), toolOption("TiB", "TiB")];
 
 function emptyEditor(): EditorState {
   return { mode: "shr1", drives: [] };
@@ -129,10 +146,6 @@ function displayValue(bytes: bigint, unit: OutputUnit): string {
   return bytes > 0n && /^0(?:\.0+)?$/.test(formatted) ? `<0.01 ${unit}` : `${formatted} ${unit}`;
 }
 
-function formatBarWidth(bytes: bigint, raw: bigint): string {
-  return formatPercent(bytes, raw).replace(/^</, "");
-}
-
 function resultSummary(calculated: CalculatedState, unit: OutputUnit): string {
   const { values } = calculated;
   return [
@@ -148,202 +161,148 @@ function resultSummary(calculated: CalculatedState, unit: OutputUnit): string {
 function DriveRows({
   rows,
   errors,
+  onAdd,
   onChange,
   onRemove,
 }: {
-  rows: readonly DriveRow[];
+  rows: DriveRow[];
   errors: Readonly<Record<string, string>>;
+  onAdd: () => void;
   onChange: (id: string, patch: Partial<DriveRow>) => void;
   onRemove: (id: string) => void;
 }) {
   return (
-    <div className={styles.driveTable}>
-      <div aria-hidden="true" className={styles.driveHeader}>
-        <span>Drive</span>
-        <span>Capacity</span>
-        <span>Unit</span>
-        <span />
-      </div>
-      {rows.map((drive, index) => {
+    <ToolRepeatableList
+      addDisabled={rows.length >= MAX_SHR_DRIVES}
+      addLabel="Add drive"
+      ariaLabel="Drive inventory"
+      items={rows}
+      onAdd={onAdd}
+      onRemove={onRemove}
+      renderItem={(drive, index) => {
         const label = `Drive ${index + 1}`;
-        const error = errors[`capacity-${drive.id}`];
         return (
-          <div className={styles.driveRow} data-testid={`drive-row-${drive.id}`} key={drive.id}>
-            <span className={styles.driveNumber}>{String(index + 1).padStart(2, "0")}</span>
-            <label>
-              <span className={styles.visuallyHidden}>{label} capacity</span>
-              <input
-                aria-describedby={error ? `error-${drive.id}` : undefined}
-                aria-invalid={Boolean(error)}
-                aria-label={`${label} capacity`}
-                data-focus-key={`capacity-${drive.id}`}
-                inputMode="decimal"
-                onChange={(event) => onChange(drive.id, { size: event.target.value })}
-                placeholder="e.g. 12"
-                value={drive.size}
-              />
-              {error ? <span className={styles.fieldError} id={`error-${drive.id}`}>{error}</span> : null}
-            </label>
-            <label>
-              <span className={styles.visuallyHidden}>{label} unit</span>
-              <select
-                aria-label={`${label} unit`}
-                onChange={(event) => onChange(drive.id, { unit: event.target.value as InputUnit })}
-                value={drive.unit}
-              >
-                {inputUnits.map((unit) => <option key={unit}>{unit}</option>)}
-              </select>
-            </label>
-            <button
-              aria-label={`Remove drive ${index + 1}`}
-              className={styles.iconButton}
-              onClick={() => onRemove(drive.id)}
-              type="button"
-            >
-              <Trash2 aria-hidden="true" size={17} />
-            </button>
+          <div className={styles.driveEditor} data-testid={`drive-row-${drive.id}`}>
+            <span aria-hidden="true" className={styles.driveNumber}>{String(index + 1).padStart(2, "0")}</span>
+            <ToolQuantityInput
+              ariaLabel={`${label} capacity`}
+              dataFocusKey={`capacity-${drive.id}`}
+              error={errors[`capacity-${drive.id}`]}
+              hideLabel
+              label={`${label} capacity`}
+              onChange={(size) => onChange(drive.id, { size })}
+              onUnitChange={(unit) => onChange(drive.id, { unit: unit as InputUnit })}
+              placeholder="12"
+              required
+              unit={drive.unit}
+              unitAriaLabel={`${label} unit`}
+              units={inputUnitOptions}
+              value={drive.size}
+            />
           </div>
         );
-      })}
-    </div>
+      }}
+    />
   );
 }
 
 function CapacityResult({
   calculated,
   outputUnit,
+  shareUrl,
   onOutputUnitChange,
   onCopy,
   onShare,
 }: {
   calculated: CalculatedState;
   outputUnit: OutputUnit;
+  shareUrl: string;
   onOutputUnitChange: (unit: OutputUnit) => void;
   onCopy: () => void;
   onShare: () => void;
 }) {
   const { values } = calculated;
-  const raw = values.rawCapacityBytes;
   const reservedData = values.dataBeforeSystemBytes < values.systemReserveBytes
     ? values.dataBeforeSystemBytes
     : values.systemReserveBytes;
   const barParts = [
-    ["Estimated pool", values.estimatedPoolCapacityBytes, styles.barData],
-    ["System reserve", reservedData, styles.barReserve],
-    ["Protection", values.protectionBytes, styles.barProtection],
-    ["Unused", values.unusedBytes, styles.barUnused],
-  ] as const;
+    { id: "pool", label: "Estimated pool", tone: "chartreuse" as const, value: values.estimatedPoolCapacityBytes },
+    { id: "reserve", label: "System reserve", tone: "yellow" as const, value: reservedData },
+    { id: "protection", label: "Protection", tone: "cyan" as const, value: values.protectionBytes },
+    { id: "unused", label: "Unused", tone: "violet" as const, value: values.unusedBytes },
+  ];
 
   return (
     <section className={styles.result} data-testid="capacity-result" aria-live="polite">
-      <div className={styles.resultHeader}>
-        <div>
-          <span className={styles.resultKicker}>SHR result</span>
-          <p className={styles.resultSentence}>
-            This is the modeled capacity for a fresh {values.mode === "shr1" ? "SHR-1" : "SHR-2"} pool with {values.driveCount} drives.
-          </p>
-        </div>
-        <fieldset className={styles.outputUnit}>
-          <legend className={styles.visuallyHidden}>Result unit</legend>
-          <div className={styles.choiceRow}>
-            {(["TB", "TiB"] as const).map((unit) => (
-              <label className={styles.choice} key={unit}>
-                <input
-                  aria-label={unit}
-                  checked={outputUnit === unit}
-                  name="shr-output-unit"
-                  onChange={() => onOutputUnitChange(unit)}
-                  type="radio"
-                />
-                <span>{unit}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
+      <div className={styles.resultUnit}>
+        <ToolChoiceGroup
+          label="Result unit"
+          onChange={(unit) => onOutputUnitChange(unit as OutputUnit)}
+          options={outputUnitOptions}
+          value={outputUnit}
+        />
       </div>
 
-      <div className={styles.resultSummary}>
-        <section className={`${styles.resultMetric} ${styles.resultMetricPrimary}`}>
-          <h2>Estimated pool capacity</h2>
-          <strong data-testid="primary-capacity">{displayValue(values.estimatedPoolCapacityBytes, outputUnit)}</strong>
-          <span>After the modeled system reserve</span>
-        </section>
-        <section className={styles.resultMetric}>
-          <h2>Protection</h2>
-          <strong data-testid="result-protection">{displayValue(values.protectionBytes, outputUnit)}</strong>
-          <span>{values.parityDrives} parity drive tier{values.parityDrives === 1 ? "" : "s"}</span>
-        </section>
-        <section className={styles.resultMetric}>
-          <h2>Unused high tiers</h2>
-          <strong data-testid="result-unused">{displayValue(values.unusedBytes, outputUnit)}</strong>
-          <span>Drive space the selected mode cannot use</span>
-        </section>
+      <h2 className={styles.resultHeading} tabIndex={-1}>{values.mode === "shr1" ? "SHR-1" : "SHR-2"} capacity</h2>
+      <div data-testid="primary-capacity">
+        <ToolPrimaryResult
+          detail={`${values.driveCount} drives · after modeled system reserve`}
+          label="Estimated pool capacity"
+          value={displayValue(values.estimatedPoolCapacityBytes, outputUnit)}
+        />
       </div>
+
+      <ToolKeyValueList rows={[{
+        label: "Fault tolerance",
+        value: `${values.parityDrives} drive${values.parityDrives === 1 ? "" : "s"}`,
+      }]} />
 
       <section className={styles.resultSection}>
         <h2>Capacity allocation</h2>
-        <div aria-label={barParts.map(([label, bytes]) => `${label}: ${displayValue(bytes, outputUnit)}`).join(", ")} className={styles.capacityBar} role="img">
-          {barParts.map(([label, bytes, className]) => bytes > 0n ? (
-            <span
-              aria-hidden="true"
-              className={className}
-              key={label}
-              style={{ width: formatBarWidth(bytes, raw) }}
-            />
-          ) : null)}
-        </div>
-        <ul aria-label="Capacity allocation legend" className={styles.allocationLegend}>
-          {barParts.map(([label, bytes, className]) => (
-            <li key={label}>
-              <i aria-hidden="true" className={`${styles.legendSwatch} ${className}`} />
-              <span>{label}</span>
-              <strong>{displayValue(bytes, outputUnit)}</strong>
-              <small>{formatPercent(bytes, raw)}</small>
-            </li>
-          ))}
-        </ul>
+        <ToolAllocationBar
+          ariaLabel="Capacity allocation"
+          formatValue={(value) => displayValue(value as bigint, outputUnit)}
+          palette="categorical"
+          segments={barParts}
+          total={values.rawCapacityBytes}
+        />
       </section>
 
       <section className={styles.resultSection}>
-        <div className={styles.sectionHeading}>
-          <h2>Capacity bands</h2>
-          <span>{values.driveCount} drives, {values.parityDrives} parity</span>
-        </div>
-        <div className={styles.tableScroll} tabIndex={0}>
-          <table aria-label="SHR capacity bands" className={styles.bandsTable}>
-            <thead>
-              <tr><th scope="col">Band</th><th scope="col">Active drives</th><th scope="col">Data</th><th scope="col">Protection</th><th scope="col">Unused</th></tr>
-            </thead>
-            <tbody>
-              {values.tiers.map((tier) => (
-                <tr key={`${tier.startBytes}-${tier.endBytes}`}>
-                  <th data-label="Band" scope="row">{formatCapacity(tier.startBytes, outputUnit)} to {formatCapacity(tier.endBytes, outputUnit)} {outputUnit}</th>
-                  <td data-label="Active drives">{tier.activeDrives}</td>
-                  <td data-label="Data">{displayValue(tier.dataBytes, outputUnit)}</td>
-                  <td data-label="Protection">{displayValue(tier.protectionBytes, outputUnit)}</td>
-                  <td data-label="Unused">{displayValue(tier.unusedBytes, outputUnit)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <h2>Capacity bands</h2>
+        <ToolDataTable
+          ariaLabel="SHR capacity bands"
+          columns={[
+            { id: "band", label: "Band" },
+            { id: "drives", label: "Drives" },
+            { id: "data", label: "Data" },
+            { id: "protection", label: "Protection" },
+            { id: "unused", label: "Unused" },
+          ]}
+          rows={values.tiers.map((tier) => ({
+            id: `${tier.startBytes}-${tier.endBytes}`,
+            cells: {
+              band: `${formatCapacity(tier.startBytes, outputUnit)} to ${formatCapacity(tier.endBytes, outputUnit)} ${outputUnit}`,
+              drives: tier.activeDrives,
+              data: displayValue(tier.dataBytes, outputUnit),
+              protection: displayValue(tier.protectionBytes, outputUnit),
+              unused: displayValue(tier.unusedBytes, outputUnit),
+            },
+          }))}
+        />
       </section>
 
-      <section className={styles.resultNote}>
-        <HardDrive aria-hidden="true" size={19} />
-        <p>Configuration is for a fresh pool. It does not model expansion history, filesystem overhead, snapshots, or rebuild safety.</p>
-      </section>
+      <p className={styles.resultNote}>Fresh-pool estimate. Filesystem overhead and expansion history are not modeled.</p>
 
       {values.warnings.map((warning) => <p className={styles.warning} key={warning}>{warning}</p>)}
 
-      <div className={styles.resultActions}>
-        <button className={styles.secondaryButton} onClick={onCopy} type="button">
-          <Copy aria-hidden="true" size={17} /> Copy result
-        </button>
-        <button className={styles.secondaryButton} onClick={onShare} type="button">
-          <Share2 aria-hidden="true" size={17} /> Share configuration
-        </button>
-      </div>
+      <ToolActionRow>
+        <ToolButton onPress={onCopy}>Copy result</ToolButton>
+        <ToolButton onPress={onShare}>Share configuration</ToolButton>
+      </ToolActionRow>
+      {shareUrl ? (
+        <ToolTextField label="Shared configuration URL" readOnly value={shareUrl} />
+      ) : null}
     </section>
   );
 }
@@ -357,7 +316,6 @@ export function ShrCalculator({ initialState }: { initialState: string }) {
   const [shareUrl, setShareUrl] = useState("");
   const pendingFocus = useRef<string | null>(null);
   const focusResult = useRef(false);
-  const addDriveButtonRef = useRef<HTMLButtonElement>(null);
 
   function cleanStateUrl() {
     const url = new URL(window.location.href);
@@ -372,12 +330,8 @@ export function ShrCalculator({ initialState }: { initialState: string }) {
       const envelope = decodeShrState(initialState);
       const result = calculateShrCapacity(envelope.payload);
       if (result.status !== "valid" || !result.values) throw new Error("restore");
-      const comparisonResult = calculateShrCapacity({
-        mode: envelope.payload.mode === "shr1" ? "shr2" : "shr1",
-        drives: envelope.payload.drives,
-      });
       setEditor(editorFromInput(envelope.payload));
-      setCalculated({ input: envelope.payload, values: result.values, comparison: comparisonResult.values });
+      setCalculated({ input: envelope.payload, values: result.values });
       setStatus("Configuration restored");
     } catch {
       cleanStateUrl();
@@ -446,13 +400,9 @@ export function ShrCalculator({ initialState }: { initialState: string }) {
       setStatus("Check the configuration before calculating.");
       return;
     }
-    const comparisonResult = calculateShrCapacity({
-      mode: compiled.input.mode === "shr1" ? "shr2" : "shr1",
-      drives: compiled.input.drives,
-    });
     setErrors({});
-    setCalculated({ input: compiled.input, values: result.values, comparison: comparisonResult.values });
-    setStatus("Capacity calculated");
+    setCalculated({ input: compiled.input, values: result.values });
+    setStatus("");
     focusResult.current = true;
   }
 
@@ -493,84 +443,37 @@ export function ShrCalculator({ initialState }: { initialState: string }) {
     setShareUrl("");
     cleanStateUrl();
     setStatus("Calculator reset");
-    window.setTimeout(() => addDriveButtonRef.current?.focus(), 0);
+    window.setTimeout(() => document.querySelector<HTMLElement>("section[aria-label='Drive inventory'] button")?.focus(), 0);
   }
 
   const hasBlankCapacity = editor.drives.some((drive) => !drive.size.trim());
   const calculateDisabled = editor.drives.length === 0 || hasBlankCapacity;
 
   return (
-    <div className={styles.tool}>
+    <div className={styles.tool} data-tool-workbench>
       <form aria-label="SHR capacity calculator" className={styles.form} onSubmit={calculate}>
-        <div className={styles.formIntro}>
-          <div>
-            <h2>Build the drive inventory</h2>
-            <p>Enter the marketed capacity and unit for every drive. Mixed sizes are handled in separate capacity bands.</p>
-          </div>
-          <span className={styles.formMeta}>2 to {MAX_SHR_DRIVES} drives</span>
-        </div>
-
-        <fieldset className={styles.modeFieldset}>
-          <legend>Protection mode</legend>
-          <div className={styles.choiceRow}>
-            <label className={styles.choice}>
-              <input
-                aria-label="SHR-1"
-                checked={editor.mode === "shr1"}
-                name="shr-mode"
-                onChange={() => updateMode("shr1")}
-                type="radio"
-              />
-              <span><strong>SHR-1</strong> · one-drive protection</span>
-            </label>
-            <label className={styles.choice}>
-              <input
-                aria-label="SHR-2"
-                checked={editor.mode === "shr2"}
-                name="shr-mode"
-                onChange={() => updateMode("shr2")}
-                type="radio"
-              />
-              <span><strong>SHR-2</strong> · two-drive protection</span>
-            </label>
-          </div>
-        </fieldset>
+        <ToolChoiceGroup
+          label="Protection mode"
+          onChange={(mode) => updateMode(mode as ShrMode)}
+          options={modeOptions}
+          required
+          value={editor.mode}
+        />
 
         <section className={styles.inventorySection}>
           <div className={styles.sectionHeading}>
-            <div>
-              <h2>Drive inventory</h2>
-              <p>Use decimal or binary units exactly as entered on the drive label.</p>
-            </div>
+            <h2>Drives</h2>
             <span className={styles.sectionCount}>{editor.drives.length} / {MAX_SHR_DRIVES}</span>
           </div>
-          {editor.drives.length > 0 ? (
-            <DriveRows rows={editor.drives} errors={errors} onChange={updateDrive} onRemove={removeDrive} />
-          ) : (
-            <p className={styles.emptyState}>Add the drives you are considering to start the estimate.</p>
-          )}
+          <DriveRows rows={editor.drives} errors={errors} onAdd={addDrive} onChange={updateDrive} onRemove={removeDrive} />
           {errors.inventory ? <p className={styles.formError}>{errors.inventory}</p> : null}
-          <button
-            ref={addDriveButtonRef}
-            className={styles.addDriveButton}
-            disabled={editor.drives.length >= MAX_SHR_DRIVES}
-            onClick={addDrive}
-            type="button"
-          >
-            <Plus aria-hidden="true" size={17} /> Add drive
-          </button>
         </section>
 
-        <div className={styles.actionRow}>
-          <button className={styles.resetButton} onClick={resetCalculator} type="button">
-            <RotateCcw aria-hidden="true" size={17} /> Reset calculator
-          </button>
-          <button className={styles.primaryButton} disabled={calculateDisabled} type="submit">
-            Calculate capacity
-          </button>
-        </div>
-        <p aria-live="polite" className={styles.status}>{status}</p>
-        {shareUrl ? <input aria-label="Shared configuration URL" className={styles.shareUrl} readOnly value={shareUrl} /> : null}
+        <ToolActionRow>
+          <ToolButton isDisabled={calculateDisabled} type="submit" variant="primary">Calculate capacity</ToolButton>
+          <ToolButton onPress={resetCalculator}>Reset</ToolButton>
+        </ToolActionRow>
+        {status ? <ToolStatus tone={Object.keys(errors).length ? "danger" : "neutral"}>{status}</ToolStatus> : null}
       </form>
 
       {calculated ? (
@@ -580,6 +483,7 @@ export function ShrCalculator({ initialState }: { initialState: string }) {
           onOutputUnitChange={setOutputUnit}
           onShare={shareConfiguration}
           outputUnit={outputUnit}
+          shareUrl={shareUrl}
         />
       ) : null}
     </div>

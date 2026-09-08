@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
+import { readToolPageSeed } from "../../helpers/tool-page-content.mjs";
 
 const route = new URL("../../../app/(site)/(tools)/zfs-padding-calculator/", import.meta.url);
 const pagePath = new URL("page.tsx", route);
 const clientPath = new URL("zfs-padding-calculator.tsx", route);
-const guidePath = new URL("zfs-padding-guide.tsx", route);
 const stylesPath = new URL("zfs-padding-calculator.module.css", route);
 const enginePath = new URL("../../../lib/storage/zfs-padding.ts", import.meta.url);
 const primitivePath = new URL("../../../lib/storage/zfs-raidz-allocation.ts", import.meta.url);
@@ -20,7 +20,7 @@ const migrationPath = new URL(
 );
 
 test("the published padding route owns every source file", () => {
-  for (const file of [pagePath, clientPath, guidePath, stylesPath, enginePath, primitivePath, migrationPath]) assert.equal(existsSync(file), true, file.pathname);
+  for (const file of [pagePath, clientPath, stylesPath, enginePath, primitivePath, migrationPath]) assert.equal(existsSync(file), true, file.pathname);
   const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
   assert.equal(manifest.route, "/zfs-padding-calculator");
   assert.equal(manifest.state, "published");
@@ -30,18 +30,43 @@ test("the published padding route owns every source file", () => {
 test("server identity, simple introduction, and concise tool UI stay inside the page boundary", () => {
   const page = readFileSync(pagePath, "utf8");
   const client = readFileSync(clientPath, "utf8");
-  assert.match(page, /ZFS block size and padding/);
-  assert.match(page, /<mark>calculator<\/mark>/);
-  assert.match(page, /one uncompressed ZFS block/);
-  assert.match(page, /<ZfsPaddingGuide \/>/);
-  for (const label of ["RAIDZ level", "Vdev width", "Workload", "recordsize", "ashift", "Calculate allocation", "Nearby block sizes", "Show calculation", "Copy summary", "Share configuration"]) assert.match(client, new RegExp(label));
+  assert.match(page, /getRequiredToolPage\("zfs-padding-calculator"\)/);
+  assert.match(page, /<ToolPageHeader/);
+  assert.match(page, /<ToolPageMarkdown/);
+  for (const label of ["Geometry", "RAIDZ level", "Vdev width", "Block model", "Workload", "recordsize", "ashift", "Calculate allocation", "Physical allocation", "Allocation composition", "Nearby block sizes", "Calculation details", "Copy summary", "Share configuration"]) assert.match(client, new RegExp(label));
   assert.doesNotMatch(`${page}\n${client}`, /FAQ|How to use|Methodology|—|–/);
   assert.doesNotMatch(page, /export const metadata|generateMetadata|application\/ld\+json|canonical|robots/);
   assert.doesNotMatch(client, /best|optimal|recommended|installed free space|predict compression/i);
 });
 
+test("implements the ready interface contract with shared controls and no duplicate result facts", () => {
+  const client = readFileSync(clientPath, "utf8");
+  for (const primitive of [
+    "ToolActionRow",
+    "ToolAllocationBar",
+    "ToolButton",
+    "ToolChoiceGroup",
+    "ToolCopyAction",
+    "ToolDataTable",
+    "ToolDisclosure",
+    "ToolKeyValueList",
+    "ToolPrimaryResult",
+    "ToolQuantityInput",
+    "ToolSelect",
+    "ToolTextField",
+  ]) assert.match(client, new RegExp(`\\b${primitive}\\b`));
+  assert.match(client, /palette="categorical"/);
+  assert.match(client, /tone: "chartreuse"/);
+  assert.match(client, /tone: "cyan"/);
+  assert.match(client, /tone: "blue"/);
+  assert.match(client, /tone: "violet"/);
+  assert.match(client, /row\.selected \? `\$\{formatZfsPaddingBytes\(row\.blockSizeBytes\)\} Current`/);
+  assert.doesNotMatch(client, /primaryMetrics|sectorEquation|comparisonTrack|formatZfsPaddingMultiplier|>Overhead<|>Multiplier<|Show calculation/);
+  assert.doesNotMatch(client, /Number\([^)]*(?:bytes|Bytes)|parseFloat\([^)]*(?:bytes|Bytes)/);
+});
+
 test("the guide explains the controls, one exact example, limits, privacy, and next step", () => {
-  const guide = readFileSync(guidePath, "utf8");
+  const guide = readToolPageSeed("zfs-padding-calculator");
   for (const copy of [
     "What each option changes",
     "recordsize.*volblocksize.*describe different blocks",
@@ -52,7 +77,7 @@ test("the guide explains the controls, one exact example, limits, privacy, and n
     "Need whole-pool capacity",
   ]) assert.match(guide, new RegExp(copy));
   for (const value of ["Logical data", "Parity", "Padding", "Physical allocation", "24 KiB"]) assert.match(guide, new RegExp(value));
-  assert.match(guide, /href="\/zfs-capacity-calculator"/);
+  assert.match(guide, /\]\(\/zfs-capacity-calculator\)/);
   assert.doesNotMatch(guide, /FAQ|How to use|Methodology|best|optimal|recommended|—|–/i);
 });
 
@@ -67,15 +92,17 @@ test("formula and state behavior remain outside React and offline", () => {
   assert.doesNotMatch(client, /fetch\(|localStorage|sessionStorage|WebSocket|Worker/);
 });
 
-test("one framed tool reflows without clipped results", () => {
+test("the shared workbench reflows without clipped results", () => {
   const styles = readFileSync(stylesPath, "utf8");
-  assert.match(styles, /\.tool\s*\{[^}]*border:\s*1\.5px solid var\(--color-border-strong\);/s);
+  const client = readFileSync(clientPath, "utf8");
+  assert.match(client, /data-tool-workbench/);
+  assert.doesNotMatch(styles, /\.tool\s*\{[^}]*(?:border:\s*1\.5px|border-radius:)/s);
   assert.match(styles, /@media \(max-width: 760px\)/);
   assert.match(styles, /@media \(max-width: 390px\)/);
   assert.match(styles, /min-height:\s*44px/);
   assert.match(styles, /min-width:\s*0/);
   assert.match(styles, /overflow-wrap:\s*anywhere/);
-  assert.match(styles, /\.guideTableScroll\s*\{[^}]*overflow-x:\s*auto/s);
+  assert.match(styles, /\.calculationDetails\s*\{[^}]*min-width:\s*0/s);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
   assert.doesNotMatch(styles, /border-left\s*:|box-shadow\s*:|linear-gradient|radial-gradient/);
   for (const declaration of styles.match(/font-size\s*:[^;]+;/g) ?? []) assert.match(declaration, /var\(--text-(?:body|small|h1|h2|h3)\)/);

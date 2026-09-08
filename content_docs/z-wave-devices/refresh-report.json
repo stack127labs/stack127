@@ -1,0 +1,744 @@
+{
+  "coverage": {
+    "detail_total": 4344,
+    "certification_total": 4344,
+    "eligible_total": 3154,
+    "excluded_total": 0,
+    "failures": [],
+    "image_failures": [
+      {
+        "name": "Amdocs Connected Home Gateway",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "adt-security-services-inc-amdocs-connected-home-gateway-asg1001",
+        "vendor": "ADT Security Services Inc."
+      },
+      {
+        "name": "ZRR154 - Duplex Receptacle",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "advanced-control-technologies-inc-zrr154-duplex-receptacle-zrr154",
+        "vendor": "Advanced Control Technologies, Inc."
+      },
+      {
+        "name": "Recessed Door Sensor",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "aeotec-recessed-door-sensor-dsb54-zwus",
+        "vendor": "Aeotec"
+      },
+      {
+        "name": "BFT B-EBA",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "bft-spa-bft-b-eba-p111535",
+        "vendor": "BFT SpA"
+      },
+      {
+        "name": "Buffalo HW-100V15A-ZW",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "buffalo-buffalo-hw-100v15a-zw-hw-100v15a-zw",
+        "vendor": "Buffalo"
+      },
+      {
+        "name": "Buffalo HW-450HP-ZWE Software Application",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "buffalo-buffalo-hw-450hp-zwe-software-application-home-connect-620",
+        "vendor": "Buffalo"
+      },
+      {
+        "name": "Buffalo HW-UZW USB Dongle",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "buffalo-buffalo-hw-uzw-usb-dongle-hw-uzw",
+        "vendor": "Buffalo"
+      },
+      {
+        "name": "Buffalo TM-H2VHA081 Switch",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "buffalo-buffalo-tm-h2vha081-switch-tm-h2vha081",
+        "vendor": "Buffalo"
+      },
+      {
+        "name": "Buffalo TM-H2VHD081 USB Stick",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "buffalo-buffalo-tm-h2vhd081-usb-stick-tm-h2vhd081",
+        "vendor": "Buffalo"
+      },
+      {
+        "name": "Buffalo TM-H2VHGW081W",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "buffalo-buffalo-tm-h2vhgw081w-tm-h2vhgw081w",
+        "vendor": "Buffalo"
+      },
+      {
+        "name": "Wall plug smart switch",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "caqoon-wall-plug-smart-switch-wp-us-2-u2-1",
+        "vendor": "CAQOON"
+      },
+      {
+        "name": "Cisco Connected Life Gateway",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "cisco-systems-inc-cisco-connected-life-gateway-8202",
+        "vendor": "Cisco Systems, Inc."
+      },
+      {
+        "name": "ThinkEssentials v.2.0",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "controlthink-lc-thinkessentials-v-2-0-thinkessentials-v-2-0",
+        "vendor": "ControlThink LC"
+      },
+      {
+        "name": "ZWUSB100-XX",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "controlthink-lc-zwusb100-xx-zc08-08050006",
+        "vendor": "ControlThink LC"
+      },
+      {
+        "name": "ZWB100 - Z-Wave Bridge",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "cybertan-technology-inc-zwb100-z-wave-bridge-zwb100",
+        "vendor": "CyberTAN Technology Inc."
+      },
+      {
+        "name": "Danfoss Randall - RZ1 (Single Channel RF Relay Switching Unit)",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "danfoss-danfoss-randall-rz1-single-channel-rf-relay-switching-unit-zc08-11060022",
+        "vendor": "Danfoss"
+      },
+      {
+        "name": "Danfoss RXZ1",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "danfoss-danfoss-rxz1-087n743100",
+        "vendor": "Danfoss"
+      },
+      {
+        "name": "HC-10",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "danfoss-hc-10-dfbh10z1-088n7110",
+        "vendor": "Danfoss"
+      },
+      {
+        "name": "HC-5",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "danfoss-hc-5-dfbh5z01-088n7105",
+        "vendor": "Danfoss"
+      },
+      {
+        "name": "RZ1-HP - Single Channel RF Relay Switching Unit",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "danfoss-rz1-hp-single-channel-rf-relay-switching-unit-rz1-hp",
+        "vendor": "Danfoss"
+      },
+      {
+        "name": "EchoStar USB Link",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "dish-echostar-usb-link-203126",
+        "vendor": "Dish"
+      },
+      {
+        "name": "DucoTronic CO2 sensor",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "duco-ducotronic-co2-sensor-zc08-11060023",
+        "vendor": "Duco"
+      },
+      {
+        "name": "EBV Connect Setpoint Thermostat",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "ebv-ebv-connect-setpoint-thermostat-014g0800",
+        "vendor": "Ebv"
+      },
+      {
+        "name": "EbV floor heating regulator",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "ebv-ebv-floor-heating-regulator-9600801000",
+        "vendor": "Ebv"
+      },
+      {
+        "name": "AC Motor Controller - Window Coverings",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "electronic-solutions-inc-ac-motor-controller-window-coverings-abmhz-eu",
+        "vendor": "Electronic Solutions, Inc."
+      },
+      {
+        "name": "Everspring (MK Dimmer Module 868.1 MHz)",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "everspring-everspring-mk-dimmer-module-868-1-mhz-zc08-11080013",
+        "vendor": "Everspring"
+      },
+      {
+        "name": "Everspring QFN Testing",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "everspring-everspring-qfn-testing-zc08-12020016",
+        "vendor": "Everspring"
+      },
+      {
+        "name": "Roller Shutter FLiRS module",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "fakro-roller-shutter-flirs-module-zwrs-module",
+        "vendor": "FAKRO"
+      },
+      {
+        "name": "Micro Dimmer FX-D211",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "flex-automation-micro-dimmer-fx-d211-fx-d211",
+        "vendor": "FLEX AUTOMATION"
+      },
+      {
+        "name": "Micro Relay FX-R211",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "flex-automation-micro-relay-fx-r211-fx-r211",
+        "vendor": "FLEX AUTOMATION"
+      },
+      {
+        "name": "Relay FIT Triplo FXR-5013",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "flex-automation-relay-fit-triplo-fxr-5013-fxr-5013",
+        "vendor": "FLEX AUTOMATION"
+      },
+      {
+        "name": "Z-Wave Gateway w/ Casiva Server Solution",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "flex-control-z-wave-gateway-w-casiva-server-solution-sc102",
+        "vendor": "Flex-Control"
+      },
+      {
+        "name": "Power Switch",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "followgood-power-switch-swz-1002",
+        "vendor": "Followgood"
+      },
+      {
+        "name": "In-Wall Smart Outlet",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "ge-in-wall-smart-outlet-14286-zw1001",
+        "vendor": "GE"
+      },
+      {
+        "name": "Gemalto Multi Access Gateway",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "gemalto-gemalto-multi-access-gateway-300115",
+        "vendor": "Gemalto"
+      },
+      {
+        "name": "Genius Valve 014G0804",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "genius-valve-genius-valve-014g0804-014g0804",
+        "vendor": "Genius Valve"
+      },
+      {
+        "name": "WD9005Z1: SerialAPI PC Controller with flash",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "good-way-technology-co-ltd-wd9005z1-serialapi-pc-controller-with-flash-zc08-09120003",
+        "vendor": "Good Way Technology, Co., Ltd"
+      },
+      {
+        "name": "HM-AM001",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "homemanageables-inc-hm-am001-zc08-08050018",
+        "vendor": "Homemanageables, Inc."
+      },
+      {
+        "name": "HM-DW001",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "homemanageables-inc-hm-dw001-zc08-08050019",
+        "vendor": "Homemanageables, Inc."
+      },
+      {
+        "name": "HM-LM001",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "homemanageables-inc-hm-lm001-zc08-08050022",
+        "vendor": "Homemanageables, Inc."
+      },
+      {
+        "name": "Generation Meter Series P.",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "horstmann-generation-meter-series-p-p123xxxr",
+        "vendor": "Horstmann"
+      },
+      {
+        "name": "Sanjose USB Dongle",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "i-care-sanjose-usb-dongle-zw-66",
+        "vendor": "I-Care"
+      },
+      {
+        "name": "iControl iHub Gateway Software",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "icontrol-networks-icontrol-ihub-gateway-software-ihub-1103",
+        "vendor": "iControl Networks"
+      },
+      {
+        "name": "Wintop iGate",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "igate-wintop-igate-igate",
+        "vendor": "Igate"
+      },
+      {
+        "name": "QFN Hardware Certification for Schlage Lock",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "ingersoll-rand-securities-technologies-qfn-hardware-certification-for-schlage-lock-zc08-12060006",
+        "vendor": "Ingersoll Rand Securities Technologies"
+      },
+      {
+        "name": "SmoothRemote",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "innovus-smoothremote-zc08-08090001",
+        "vendor": "Innovus"
+      },
+      {
+        "name": "UTC HA640-05-06-00 Zerowire Certification",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "interlogix-utc-ha640-05-06-00-zerowire-certification-ha640-05-06-00",
+        "vendor": "Interlogix"
+      },
+      {
+        "name": "UTC Zerowire Certification",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "interlogix-utc-zerowire-certification-zw-6404",
+        "vendor": "Interlogix"
+      },
+      {
+        "name": "UTC ZW-6400 Zerowire Certification",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "interlogix-utc-zw-6400-zerowire-certification-zw-6400",
+        "vendor": "Interlogix"
+      },
+      {
+        "name": "ZW-6400-AU Zerowire Certification",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "interlogix-zw-6400-au-zerowire-certification-zw-6400-au",
+        "vendor": "Interlogix"
+      },
+      {
+        "name": "Iwatsu Illumination Sensor",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "iwatsu-iwatsu-illumination-sensor-ne-lsen-100",
+        "vendor": "Iwatsu"
+      },
+      {
+        "name": "Iwatsu LED Dimmer",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "iwatsu-iwatsu-led-dimmer-zc08-12070004",
+        "vendor": "Iwatsu"
+      },
+      {
+        "name": "Iwatsu Motion Sensor",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "iwatsu-iwatsu-motion-sensor-ne-psen-100",
+        "vendor": "Iwatsu"
+      },
+      {
+        "name": "Iwatsu NE-1LCNT",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "iwatsu-iwatsu-ne-1lcnt-ne-1lcnt",
+        "vendor": "Iwatsu"
+      },
+      {
+        "name": "Iwatsu Smart Connect NE-4CT",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "iwatsu-iwatsu-smart-connect-ne-4ct-ne-4ct",
+        "vendor": "Iwatsu"
+      },
+      {
+        "name": "Iwatsu Smart Connect NE-4CT-2P",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "iwatsu-iwatsu-smart-connect-ne-4ct-2p-ne-4ct-2p",
+        "vendor": "Iwatsu"
+      },
+      {
+        "name": "ZW3001 - Dimmer Wall Switch",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "jasco-products-company-zw3001-dimmer-wall-switch-zw3001",
+        "vendor": "Jasco Products Company"
+      },
+      {
+        "name": "JTB-1007-02 Curtain Motor",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "jintaobao-jtb-1007-02-curtain-motor-jtb-1007-02",
+        "vendor": "Jintaobao"
+      },
+      {
+        "name": "LGUplus Gateway Dongle",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "lg-uplus-lguplus-gateway-dongle-gwg-01",
+        "vendor": "LG Uplus"
+      },
+      {
+        "name": "Honeywell LCP500-L Lyric Touch Panel",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "lyric-honeywell-lcp500-l-lyric-touch-panel-lcp500-l",
+        "vendor": "Lyric"
+      },
+      {
+        "name": "Contact Temperature Sensor",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "manodo-contact-temperature-sensor-cts200-rf",
+        "vendor": "Manodo"
+      },
+      {
+        "name": "ITS-RF - Temperature Sensor",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "manodo-its-rf-temperature-sensor-its-rf",
+        "vendor": "Manodo"
+      },
+      {
+        "name": "OTS100-RF - Outdoor Temperature Sensor",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "manodo-ots100-rf-outdoor-temperature-sensor-ots100-rf",
+        "vendor": "Manodo"
+      },
+      {
+        "name": "Levermann Renz GmbH APz- Empfnger",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "martin-renz-gmbh-levermann-renz-gmbh-apz-empf-nger-zc08-11040005",
+        "vendor": "Martin Renz GmbH"
+      },
+      {
+        "name": "Martin Renz GmbH Handsender 5-Kanal (FZ-HS5)",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "martin-renz-gmbh-martin-renz-gmbh-handsender-5-kanal-fz-hs5-zc08-11080016",
+        "vendor": "Martin Renz GmbH"
+      },
+      {
+        "name": "5036xx - Wireless Cover for built-in dimmer",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "merten-5036xx-wireless-cover-for-built-in-dimmer-5036xx",
+        "vendor": "Merten"
+      },
+      {
+        "name": "5069 - Merten RF Remote Control",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "merten-5069-merten-rf-remote-control-5069",
+        "vendor": "Merten"
+      },
+      {
+        "name": "Mitsumi USB Dongle, #DT64-1204",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "mitsumi-mitsumi-usb-dongle-dt64-1204-zc08-11120003",
+        "vendor": "MITSUMI"
+      },
+      {
+        "name": "2G Battery Controller",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "mk-electric-2g-battery-controller-lib2m",
+        "vendor": "MK Electric"
+      },
+      {
+        "name": "Motorola CPx100",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "motorola-motorola-cpx100-cpx100-1b1a-us1",
+        "vendor": "Motorola"
+      },
+      {
+        "name": "I-Bridge Z-Wave Controller",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "napco-i-bridge-z-wave-controller-i-bridge",
+        "vendor": "Napco"
+      },
+      {
+        "name": "Home Automation and Control Unit",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "netgear-home-automation-and-control-unit-pgzng1",
+        "vendor": "Netgear"
+      },
+      {
+        "name": "AME Qbox",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "qbox-ame-qbox-6618-1200-2306",
+        "vendor": "Qbox"
+      },
+      {
+        "name": "AI Switch US (QEES)",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "qees-aps-ai-switch-us-qees-ai-switch",
+        "vendor": "QEES ApS"
+      },
+      {
+        "name": "QEES P321I MyKey Remote EU",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "qees-aps-qees-p321i-mykey-remote-eu-321-iq-wb-a1",
+        "vendor": "QEES ApS"
+      },
+      {
+        "name": "IQ Panel",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "qolsys-inc-iq-panel-qs-9004-vrz",
+        "vendor": "Qolsys Inc."
+      },
+      {
+        "name": "Quby QB2 Energy Display",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "quby-quby-qb2-energy-display-qb2",
+        "vendor": "Quby"
+      },
+      {
+        "name": "Raritan - PX-SM230",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "raritan-computer-inc-raritan-px-sm230-zc08-09070007",
+        "vendor": "Raritan Computer, Inc."
+      },
+      {
+        "name": "RCS PMC40-LC Load Controller",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "rcs-rcs-pmc40-lc-load-controller-pmc40-lc",
+        "vendor": "RCS"
+      },
+      {
+        "name": "RCS PSCH21 Pool Controller",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "rcs-rcs-psch21-pool-controller-psch21",
+        "vendor": "RCS"
+      },
+      {
+        "name": "RCS XL524 Thermostat",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "rcs-rcs-xl524-thermostat-xl524",
+        "vendor": "RCS"
+      },
+      {
+        "name": "Remotec BW8377IL",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "remotec-remotec-bw8377il-bw8377il",
+        "vendor": "Remotec"
+      },
+      {
+        "name": "AC1-ZW",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "rs-scene-automation-ac1-zw-zc08-08010005",
+        "vendor": "RS Scene Automation"
+      },
+      {
+        "name": "DC1-ZW",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "rs-scene-automation-dc1-zw-zc08-08010004",
+        "vendor": "RS Scene Automation"
+      },
+      {
+        "name": "Horstmann SGR Electricity meter",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "secure-controls-horstmann-sgr-electricity-meter-zc08-08110002",
+        "vendor": "Secure Controls"
+      },
+      {
+        "name": "Secure SES301 Temperature Sensor",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "secure-controls-secure-ses301-temperature-sensor-ses301",
+        "vendor": "Secure Controls"
+      },
+      {
+        "name": "USB-Z-Wave",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "seluxit-usb-z-wave-zc08-07110004",
+        "vendor": "Seluxit"
+      },
+      {
+        "name": "Clamp Power Meter",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "sercomm-clamp-power-meter-sw-clp01-eu",
+        "vendor": "Sercomm"
+      },
+      {
+        "name": "Energy switch",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "sercomm-energy-switch-sw-esw02-eu",
+        "vendor": "Sercomm"
+      },
+      {
+        "name": "SHARP - HOME TRANSLATOR SH",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "sharp-corporation-sharp-home-translator-sh-zc08-10120001",
+        "vendor": "Sharp Corporation"
+      },
+      {
+        "name": "SHARP - SMART TAP SH",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "sharp-corporation-sharp-smart-tap-sh-zc08-10120005",
+        "vendor": "Sharp Corporation"
+      },
+      {
+        "name": "Axesstel AX140 Alert System",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "smart-alert-axesstel-ax140-alert-system-ax140",
+        "vendor": "Smart Alert"
+      },
+      {
+        "name": "Teleprtall Remote (SMK remote)",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "smk-teleprtall-remote-smk-remote-zc08-10090005",
+        "vendor": "SMK"
+      },
+      {
+        "name": "Aoya Switch",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "sola-aoya-switch-zc08-15030002",
+        "vendor": "Sola"
+      },
+      {
+        "name": "ZURC Remote Control",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "swiid-zurc-remote-control-sw-zrc2",
+        "vendor": "Swiid"
+      },
+      {
+        "name": "Easy Light Dimmer Link",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "team-precision-public-co-ltd-easy-light-dimmer-link-zdl301eu",
+        "vendor": "Team Precision Public Co.,Ltd"
+      },
+      {
+        "name": "TKB Switch TZ36S",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "tkb-home-tkb-switch-tz36s-tz36s",
+        "vendor": "TKB Home"
+      },
+      {
+        "name": "TKB Switch TZ56D",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "tkb-home-tkb-switch-tz56d-tz56d",
+        "vendor": "TKB Home"
+      },
+      {
+        "name": "TKB Switch TZ56S",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "tkb-home-tkb-switch-tz56s-tz56s",
+        "vendor": "TKB Home"
+      },
+      {
+        "name": "T500LB Thermostat",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "trane-t500lb-thermostat-t500lb",
+        "vendor": "Trane"
+      },
+      {
+        "name": "XL624/XR624 Thermostat",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "trane-xl624-xr624-thermostat-xl624-xr624",
+        "vendor": "Trane"
+      },
+      {
+        "name": "U-Fairy Control Valve",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "u-fairy-g-r-u-fairy-control-valve-gr-105",
+        "vendor": "U-Fairy G. R."
+      },
+      {
+        "name": "06-0001-0000-00-0011-Z",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "unbranded-06-0001-0000-00-0011-z-06-0001-0000-00-0011-z",
+        "vendor": "Unbranded"
+      },
+      {
+        "name": "Insignia cTV RF Remote",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "universal-electronics-inc-insignia-ctv-rf-remote-zc08-10110001",
+        "vendor": "Universal Electronics Inc."
+      },
+      {
+        "name": "Z-Wave 5 Device Remote - Universal Remote",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "universal-electronics-inc-z-wave-5-device-remote-universal-remote-5300bj0-xxx-r",
+        "vendor": "Universal Electronics Inc."
+      },
+      {
+        "name": "USB Dongle",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "vision-usb-dongle-zu1401jp",
+        "vendor": "Vision"
+      },
+      {
+        "name": "ProDrive - 3324B-Z",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "wayne-dalton-prodrive-3324b-z-zc08-08020003",
+        "vendor": "Wayne-Dalton"
+      },
+      {
+        "name": "Z-Wave Light Kit 3951-Z",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "wayne-dalton-z-wave-light-kit-3951-z-zc08-09030004",
+        "vendor": "Wayne-Dalton"
+      },
+      {
+        "name": "Essence Add-on Controller",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "we-r-essence-add-on-controller-es800zwd",
+        "vendor": "We.R"
+      },
+      {
+        "name": "WeBeHome Gateway",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "webehome-webehome-gateway-wbh-hg-900",
+        "vendor": "WeBeHome"
+      },
+      {
+        "name": "Wintop iDoorSensor",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "wintop-wintop-idoorsensor-82",
+        "vendor": "Wintop"
+      },
+      {
+        "name": "Wintop iSensor",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "wintop-wintop-isensor-80",
+        "vendor": "Wintop"
+      },
+      {
+        "name": "RF remote controller",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "wintop-electric-rf-remote-controller-6121r",
+        "vendor": "Wintop Electric"
+      },
+      {
+        "name": "YDM3168",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "yale-locks-hardware-ydm3168-ydm3168",
+        "vendor": "Yale Locks & Hardware"
+      },
+      {
+        "name": "PyZW - Python Based Static Ctrl for Z-Wave Wireless network",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "z-wave-me-pyzw-python-based-static-ctrl-for-z-wave-wireless-network-pyzw",
+        "vendor": "Z-Wave.Me"
+      },
+      {
+        "name": "Dimmer Module",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "zyxel-dimmer-module-shd2210",
+        "vendor": "ZyXEL"
+      },
+      {
+        "name": "Door-Window Sensor",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "zyxel-door-window-sensor-shd-1111",
+        "vendor": "ZyXEL"
+      },
+      {
+        "name": "On/Off Plug with Metering",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "zyxel-on-off-plug-with-metering-shd3110",
+        "vendor": "ZyXEL"
+      },
+      {
+        "name": "Smoke Sensor",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "zyxel-smoke-sensor-shd1115",
+        "vendor": "ZyXEL"
+      },
+      {
+        "name": "Temperature/Humidity Sensor",
+        "reason": "No exact product image found for any certification in this product group",
+        "slug": "zyxel-temperature-humidity-sensor-shd1110",
+        "vendor": "ZyXEL"
+      }
+    ],
+    "image_total": 3034,
+    "low_resolution_image_total": 154,
+    "missing_image_total": 120,
+    "record_total": 3154,
+    "source_image_failure_total": 147,
+    "source_total": 4344,
+    "zwave_js_match_total": 3459
+  },
+  "generated_at": "2026-08-30T08:06:39.278Z",
+  "ready_for_catalog": true,
+  "ready_for_publication": false,
+  "source_label": "Z-Wave Alliance Product Catalog with Z-Wave JS enrichment",
+  "source_revision": "Alliance 2026-08-30T08:05:19.850Z; Z-Wave JS c4c599e1e6a0f6fab1f356f92307b8f94e895e60",
+  "source_url": "https://products.z-wavealliance.org/"
+}

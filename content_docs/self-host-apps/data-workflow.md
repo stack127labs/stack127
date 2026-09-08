@@ -37,26 +37,36 @@ npm run self-host-apps:collect-github-evidence -- --file <batch.json>
 
 Selection uses `FOR UPDATE SKIP LOCKED` and marks claimed rows `enriching`, so two workers do not take the same work. Reviewers use `references/review-format.md`. Put supporting links in `sources` and `data_source_urls`; use `technical_fact_status` for checked-but-unpublished technical facts. There is no field-source table.
 
+The legacy `self-host-apps:reset-categories` command is retired and exits without database access. It previously replaced all category links using imported labels and keyword matches. Existing categories need source review too. Correct them per app with `apply-qa-overrides.mjs`, `review_scope: "partial"`, expected categories, and official evidence URLs. Do not infer purpose from incidental words such as image, model, or server.
+
 The review applier validates and moves data. Publication requires an official identity, a cached icon, one to three controlled categories, a verified self-hosting classification, install documentation, and at least one source URL. Open and source-available apps need a verified repository and license. Closed-source apps need an official website and publisher identity, but no repository.
 
 ## Technical refresh
 
-Official primary and appliance sources can fill Docker, Compose, database, persistence, release, and appliance memory facts. Apply numeric requirements only from a separately reviewed requirements file. If the source has no RAM or storage value, leave the exact field null and set the status to `not_published`.
+Primary-source collection records possible Docker, Compose, database, persistence, and resource facts for review. It does not publish them or advance review dates. A parser match is a lead, not a verified fact. A missing match does not prove that a publisher has no supported deployment or requirement.
 
 ```bash
-npm run self-host-apps:refresh-primary-technical-facts -- --refresh-all --requirements-file <reviewed-requirements.json> --out <report.json>
-npm run self-host-apps:refresh-primary-technical-facts -- --refresh-all --apply-reviewed --requirements-file <reviewed-requirements.json> --out <report.json>
-npm run self-host-apps:refresh-app-catalog-facts -- --truenas-dir <checkout> --umbrel-dir <checkout> --apply-reviewed
+npm run self-host-apps:refresh-primary-technical-facts -- --refresh-all --out <report.json>
+npm run self-host-apps:refresh-app-catalog-facts -- --truenas-dir <checkout> --umbrel-dir <checkout> --out <report.json>
 ```
 
-Planning estimates are separate reviewed records:
+Both technical collectors produce pending evidence only. Appliance defaults and service names are scoped to that package, not automatically treated as requirements of every app deployment. Apply field corrections after source review; neither collector can advance a verification date or publish a parser result.
+
+Planning estimates are separate reviewed records. The proposal command creates research tasks without numbers:
+
 
 ```bash
 npm run self-host-apps:propose-resource-estimates -- --limit 5000 --out <resource-estimates.json>
 npm run self-host-apps:apply-resource-estimates -- --file <reviewed-estimates.json> --apply-reviewed
 ```
 
-Estimates must include a range, kind, confidence, basis, and source URL. They are always shown as `(estimated)`.
+An estimate submitted to the applier must include a range, kind, confidence, basis, and source URLs, plus a `review` object with:
+
+- `method`: `measurement`, `calculation`, or `published_estimate`.
+- `workload`: the user count, dataset, enabled services, or other conditions the range describes.
+- `explanation`: how the cited evidence supports the numbers, including the calculation when applicable.
+
+The writer retains workload and explanation with the estimate note. Estimates are always shown as `(estimated)`. A generic deployment-shape range is not a reviewed estimate. Do not assign numbers from database counts, categories, or persistence flags. An app's homepage is not numerical evidence merely because it is reachable. Keep old generated ranges in the audit queue until they are replaced by supported estimates or removed with a recoverable record of the change.
 
 Install destinations are refreshed into one row per app:
 
@@ -66,7 +76,7 @@ npm run self-host-apps:refresh-install-options -- --limit 5000 --apply
 
 Docker links point to a registry or install page. Dockerfiles, Compose files, repositories, and READMEs are not Docker install buttons. Appliance links are emitted only when a reviewed catalog or package source supplies them.
 
-GitHub Actions runs the primary-facts refresh weekly and the catalog discovery job weekly. Each job uploads its JSON report as an artifact. A failed source or unreadable app is visible in the job output and report; it is not converted to an unverified value.
+GitHub Actions collects primary-source evidence and inspects install destinations weekly without applying changes. The catalogue discovery job also runs weekly. Reports remain review inputs. Apply corrections only after reading the cited sources, using the guarded field-correction workflow documented in `scripts/stack127/directory-quality/README.md`. A failed source or unreadable app stays pending; it must not become a negative factual claim or receive a new verification date.
 
 ## QA
 

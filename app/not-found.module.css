@@ -21,6 +21,6 @@
 }
 
 .panel a {
-  color: var(--color-accent-text);
+  color: var(--color-link);
   font-weight: var(--weight-semibold);
 }

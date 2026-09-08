@@ -32,7 +32,7 @@
   align-items: center;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text);
   cursor: pointer;
   display: inline-flex;
@@ -55,7 +55,7 @@
 
 .toggleIcon span {
   background: currentColor;
-  border-radius: 1px;
+  border-radius: var(--radius);
   height: 2px;
   width: 100%;
 }
@@ -68,21 +68,26 @@
 }
 
 .content {
+  container-type: inline-size;
   flex: 1 0 auto;
   min-width: 0;
 }
 
 .footer {
-  align-items: center;
   border-top: 1px solid var(--color-border);
   color: var(--color-text-muted);
-  display: flex;
+  display: block;
   flex: 0 0 auto;
+  padding: var(--space-4) var(--container-gutter);
+}
+
+.footerTop {
+  align-items: center;
+  display: flex;
   flex-wrap: wrap;
   gap: var(--space-7);
   justify-content: space-between;
   min-height: 42px;
-  padding: var(--space-4) var(--container-gutter);
 }
 
 .footerBrand {
@@ -100,8 +105,8 @@
   justify-content: center;
 }
 
-.footer a,
-.footer p {
+.footerTop a,
+.footerTop p {
   color: var(--color-text-muted);
   font-family: var(--font-mono);
   font-size: var(--text-small);
@@ -111,11 +116,11 @@
   white-space: nowrap;
 }
 
-.footer p {
+.footerTop p {
   white-space: normal;
 }
 
-.footer a:hover {
+.footerTop a:hover {
   color: var(--color-text);
 }
 
@@ -184,7 +189,7 @@
     align-items: center;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius);
     color: var(--color-text);
     cursor: pointer;
     display: inline-flex;
@@ -207,9 +212,12 @@
   }
 
   .footer {
+    padding: var(--space-4) 22px;
+  }
+
+  .footerTop {
     gap: var(--space-5);
     min-height: 40px;
-    padding: var(--space-4) 22px;
   }
 
   .footerLinks {
@@ -235,4 +243,17 @@
     min-height: 0;
     overflow: visible;
   }
+}
+
+/* Sidebar navigation keeps neutral text and its existing row states. */
+.sidebar a[href],
+.sidebar a[href]:hover,
+.sidebar a[href]:focus-visible {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.footer a[href]:hover,
+.footer a[href]:focus-visible {
+  text-decoration: none;
 }

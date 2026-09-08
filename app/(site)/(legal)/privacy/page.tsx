@@ -1,5 +1,5 @@
 import { InfoPage, infoUpdatedClassName } from "@/app/info-page";
-import { proseLedeClassName } from "@/app/prose";
+import { siteHeroPrivacyArt } from "../../art/site--hero-privacy";
 
 export default function PrivacyPage() {
   return (
@@ -9,13 +9,16 @@ export default function PrivacyPage() {
           Privacy policy of <mark>stack127</mark>
         </>
       }
+      heroArt={siteHeroPrivacyArt}
+      intro={
+        <p>
+          stack127 collects as little personal information as it can while keeping the site useful,
+          fast, and safe.
+        </p>
+      }
       slug="privacy"
       title="Privacy"
     >
-        <p className={proseLedeClassName}>
-          stack127 is a technical directory. We try to collect as little personal information as we can while still keeping the site useful, fast, and safe.
-        </p>
-
         <section>
           <h2>What we collect</h2>
           <p>

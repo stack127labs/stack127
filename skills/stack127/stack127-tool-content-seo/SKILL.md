@@ -1,11 +1,11 @@
 ---
 name: stack127-tool-content-seo
-description: Plan complete, concise tool-page content, search intent, headings, metadata direction, internal links, result interpretation, limitations, and the visual-versus-prose outline for one stack127 calculator, checker, converter, lookup, generator, explorer, or technical utility. Use after ready research, implementation, and test-design reports when the user asks for the writing and SEO document. Produce a manual-content-ready outline only; do not draft final public page prose or implement the page.
+description: Plan complete, concise tool-page content, search intent, headings, metadata direction, internal links, result interpretation, limitations, and the visual-versus-prose outline for one stack127 calculator, checker, converter, lookup, generator, explorer, or technical utility. Use after ready research, implementation, interface, and test-design artifacts when the user asks for the writing and SEO document. Produce a manual-content-ready outline only; do not draft final public page prose or implement the page.
 ---
 
 # stack127 tool content and SEO
 
-Plan only the words users need around a working visual tool. Do not turn the page into an article with a calculator attached.
+Plan useful, search-friendly supporting content around a working tool. Keep the tool first and primary while giving readers enough explanation to understand and use its answer. Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` when proposing public headings and metadata or setting the writer's direction. This skill owns search intent and coverage, not a separate voice.
 
 ## Required output
 
@@ -16,9 +16,9 @@ Stop after this document. Do not draft final paragraphs, call a writer, create m
 ## Prerequisites
 
 1. Read `AGENTS.md`.
-2. Read `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, and `brief.md` completely. Require all three reports to say `Status: ready` and require route/tool identity to match.
+2. Read `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `edge-cases-and-tests.md`, and `brief.md` completely. Require all four reports or contracts to say `Status: ready` and require route/tool identity to match.
 3. Run the pipeline validator with `--stage=test`. Stop if it fails.
-4. Record SHA-256 fingerprints for all four inputs in the writing and SEO plan. Treat later changes to any input as invalidating this plan.
+4. Record SHA-256 fingerprints for all five inputs in the writing and SEO plan. Treat later changes to any input as invalidating this plan.
 5. Read `stack127_docs/visual-first.md`, `writing-style.md`, and `seo.md`, plus `skills/stack127/visual-first-content/SKILL.md`.
 6. Read `skills/stack127/references/homelab-browser-and-search.md`. Verify the current result page for the exact primary query and two or three close intent variations using the Codex in-app Browser when available or standalone Playwright in homelab CLI mode. Use SearXNG with `bing,duckduckgo` for search discovery when configured, otherwise record the actual search backend. Record the date, backend, engines, viewport, and visible result shapes. Reuse recent competitive research, but verify that intent has not shifted.
 
@@ -28,7 +28,7 @@ State:
 
 - the one query family this page should satisfy;
 - the immediate answer the user expects from the interface;
-- the minimum explanation needed to trust and use that answer;
+- the explanation needed to interpret, use, and verify that answer;
 - adjacent intent that deserves an internal link instead of another section;
 - intent the page will deliberately not target.
 
@@ -47,7 +47,7 @@ Create a coverage map before the heading outline. For each question, record wher
 - how user inputs are handled, including local-browser privacy when true;
 - what to verify next in the real system or which adjacent page continues the task.
 
-Do not require one heading per question. Let the live interface answer what it already makes clear and use supporting content only for gaps. Mark an irrelevant question with a reason instead of silently omitting it.
+Do not require one heading per question. Treat `interface-contract.md` as the closed inventory of what the live tool already answers. Use supporting content only for unresolved interpretation or context. Mark an irrelevant question with a reason instead of silently omitting it.
 
 ## Plan headings and media
 
@@ -60,9 +60,11 @@ Create an outline in reading order. For each section include:
 - source/evidence;
 - maximum useful depth and what must not be repeated.
 
-Set an explicit static prose budget before outlining: no more than five static prose sections and 700 drafted words total. The interactive tool, exact result visualization, tables, diagrams, and screenshots do not count as prose sections. Keep `Primary medium: Tool UI` and require `Prose is the minority: yes`. Cover the completeness map by grouping related questions and using the right visual medium, not by silently exceeding the ceiling.
+Keep `Primary medium: Tool UI`, but do not set default word, section, or prose-to-visual quotas. Record the useful depth and stopping point for each topic. Preserve explicit user length constraints when supplied. A clear tool can need a substantial supporting guide; do not invent diagrams or discard necessary explanations to make prose a minority.
 
-The tool and answer come before explanatory content. Headings must carry the point or ask the real question. Someone skimming headings alone should understand the page.
+For rewrites, identify useful existing coverage before proposing cuts. Distinguish repeated facts from explanations of why those facts matter. Plan the thread connecting the sections, not only a checklist of topics. Use the approved Domain Age content decisions as a quality reference, not as a required outline for other tools.
+
+The tool and answer come before explanatory content. Headings must carry the point or ask a real search question in natural language. Include the relevant tool, operation, or concept where it clarifies the section; do not repeat keyword variants mechanically. Someone skimming headings alone should understand the page.
 
 Use the template's controlled medium names exactly: `Tool UI`, `Exact result visualization`, `Exact chart`, `Clean chart`, `Table`, `Topology/diagram`, `Diagram`, `Screenshot`, `Marker concept`, or `Sentences`. Do not relabel prose as copy, FAQ, explanation, paragraph, or text; every `Sentences` row must map one-to-one to a reserved `COPY-` assignment for the later manual content pass.
 
@@ -98,7 +100,7 @@ These are registry proposals, not route metadata. Do not add metadata, canonical
 
 ## Prepare the manual prose handoff
 
-Define exactly which static public sections the user may provide after the tool is built. Give every section a stable ID such as `COPY-01`. Include facts, sources, word limit, shape constraints, banned claims, required caveats, and section IDs. Keep this handoff out of `$stack127-tool-build`; that skill implements no prose.
+Define exactly which static public sections the user may provide after the tool is built. Give every section a stable ID such as `COPY-01`. Include facts, sources, useful depth, a stopping point, banned claims, required caveats, and section IDs. Numeric word limits belong here only when requested by the user. Keep this handoff out of `$stack127-tool-build`; that skill implements no prose.
 
 Do not write the final prose yourself.
 

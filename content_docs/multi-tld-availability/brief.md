@@ -1,5 +1,11 @@
 # Brief: Multi-TLD Availability
 
+## Current supporting-content direction
+
+Approved September 6, 2026. Explain one label across selected endings, independent row outcomes, purchase checks, coverage, limits, and freshness. Do not present the default ending selection as purchasing advice or infer that unsupported endings cannot be checked elsewhere.
+
+The working tool stays first. Use connected explanation at the depth the task needs, with no word, section, sentence, or visual-ratio quota. This direction supersedes earlier supporting-prose budgets in this page's planning artifacts; it does not change the engine or input contract. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
+
 ## Who is here
 
 Someone has one name and wants a bounded registry-backed check across several reviewed TLDs without prices or sales pressure.

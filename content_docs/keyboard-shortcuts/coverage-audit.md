@@ -49,3 +49,14 @@ The reference does not pretend that a remappable keymap, extension or plugin, us
 - Ghostty and Zed provide a complete build or runtime keymap through their own commands or source files; the page presents the documented daily-use defaults and links that authoritative complete list.
 - Vim and Neovim are modal. Neovim LSP rows require an attached language server; its current built-in LSP defaults are documented separately from the quick reference, and plugin or user mappings can replace core behavior.
 - Claude Code, Codex, OpenCode, and Pi are terminal interfaces. Terminal emulator, shell, OS, and user keymap behavior can intercept a sequence before the application sees it.
+
+## Expansion review, September 1, 2026
+
+The AltPlusCtrl intake is tracked in `altplusctrl-backlog.md`. Source-checked candidate records and
+their decisions live in the numbered research files under `content_docs/keyboard-shortcuts/research/`.
+Verified candidates have typed records and generated `noindex` routes for QA. Candidates whose official
+documentation only exposes isolated commands, a configurable in-app list, or a platform outside this
+page's contract remain blocked or unstarted instead of receiving guessed bindings.
+
+The catalog still has 26 published app references. Candidate routes are not publication approval and do
+not change the `public.stack127_pages` rows or sitemap.

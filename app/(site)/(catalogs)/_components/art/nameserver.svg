@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 110" role="img" aria-labelledby="ma-title-catalog--nameserver" data-marker-art="catalog--nameserver">
+<title id="ma-title-catalog--nameserver">A server and branch stand for a parent nameserver handoff.</title>
+<g transform="translate(1.3 0)">
+<path d="M39.61 25.31 C63.95 22.34, 73.61 23.42, 101.44 24.02 M41.65 23.06 C55.52 20.70, 65.56 21.16, 95.49 20.57 M99.98 26.11 C101.36 45.09, 97.18 62.18, 99.83 85.06 M98.61 20.78 C99.52 33.75, 98.35 48.34, 95.95 87.89 M98.68 91.93 C87.30 91.70, 78.05 84.19, 40.41 89.43 M97.53 88.84 C78.09 85.99, 57.83 88.08, 43.98 88.34 M42.63 88.28 C45.25 64.00, 40.75 35.69, 42.25 18.73 M41.34 88.78 C43.88 68.98, 43.06 48.89, 41.53 20.42" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-ink,#f2f2ee);fill:none"/>
+<path d="M45.61 44.96 C59.08 43.33, 76.63 46.73, 95.57 42.47 M42.39 43.34 C55.51 42.79, 65.99 46.25, 96.37 46.07" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-ink,#f2f2ee);fill:none"/>
+<path d="M43.21 64.61 C62.60 62.01, 79.66 67.74, 98.11 69.31 M43.13 67.82 C55.51 64.88, 70.62 67.14, 97.26 67.37" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-ink,#f2f2ee);fill:none"/>
+<circle cx="85.84" cy="33.176" r="3.64" style="fill:var(--ma-ink,#f2f2ee)"/>
+<circle cx="85.84" cy="55" r="3.64" style="fill:var(--ma-ink,#f2f2ee)"/>
+<circle cx="85.84" cy="76.824" r="3.64" style="fill:var(--ma-ink,#f2f2ee)"/>
+<path d="M68.61 89.22 C67.91 89.60, 67.22 84.24, 72.55 76.02 M71.06 92.29 C68.50 89.24, 69.01 82.40, 70.54 76.76" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+<path d="M35.86 94.74 C60.33 92.41, 77.99 94.39, 97.32 88.65 M42.06 90.82 C58.65 93.37, 76.10 93.24, 101.56 92.42" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+<circle cx="40" cy="92" r="2.8" style="fill:var(--ma-primary,#bafc3c)"/>
+<circle cx="100" cy="92" r="2.8" style="fill:var(--ma-primary,#bafc3c)"/>
+</g>
+</svg>

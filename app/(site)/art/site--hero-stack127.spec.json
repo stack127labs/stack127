@@ -1,0 +1,11 @@
+{
+  "id": "site--hero-stack127",
+  "type": "toolSpot",
+  "takeaway": "A terminal prompt on stacked app windows represents the software and tools collected on stack127.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-06",
+  "width": 140,
+  "height": 124,
+  "seed": 251,
+  "data": { "icon": "softwareStack" }
+}

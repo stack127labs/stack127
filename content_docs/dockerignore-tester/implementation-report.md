@@ -273,7 +273,7 @@ There is no loading or partial-result wireframe. Maximum accepted input must fin
 
 | Claim or task | Medium | Position | Why this medium |
 | --- | --- | --- | --- |
-| Enter effective rules and path probes | Tool UI | First framed surface after one-sentence introduction | Editing is the primary job and visual |
+| Enter effective rules and path probes | Tool UI | First workbench band after one-sentence introduction | Editing is the primary job and visual |
 | Included or excluded answer | Tool UI answer sentence and exact counts | First result content | Conclusion must be scannable before detail |
 | Repeated path verdicts | Responsive table that stacks visually on narrow screens | Below answer | Path, verdict, and deciding line repeat |
 | Ordered matching and inherited parent-match explanation | Expandable table within each semantic result row | On demand | Direct matches, inherited evidence, and state transitions are exact repeated data and would overwhelm the first answer |

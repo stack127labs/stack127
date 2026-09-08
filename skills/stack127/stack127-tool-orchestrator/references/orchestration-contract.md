@@ -13,8 +13,9 @@
 | --- | --- | --- | --- | --- | --- |
 | Research | `$stack127-tool-research` | Tool name, route, repository | `competitive-report.md` | `--expect=research` | Research worker |
 | Product | `$stack127-tool-product-plan` | Ready research | `implementation-report.md`, `brief.md` | `--expect=product` | Research or product |
-| Test design | `$stack127-tool-test-design` | Ready research and product | `edge-cases-and-tests.md` | `--expect=test` | Product or test design |
-| Build | `$stack127-tool-build` | Ready research, product, tests, brief | Route, engine, tests, manifest, scoped scripts | `--expect=build`, tool-only audit, tests | Owning planning worker or builder |
+| Interface plan | `$stack127-tool-interface-plan` | Ready product and brief | `interface-contract.md` | `--expect=interface` | Product or interface planning |
+| Test design | `$stack127-tool-test-design` | Ready research, product, interface, and brief | `edge-cases-and-tests.md` | `--expect=test` | Product, interface planning, or test design |
+| Build | `$stack127-tool-build` | Ready research, product, interface, tests, and brief | Route, engine, tests, manifest, scoped scripts | `--expect=build`, tool-only audit, tests | Owning planning worker or builder |
 | Independent QA | Read-only Browser or Playwright reviewer | Running local route and contracts | Findings only | P0/P1 closed | Builder or product |
 | Competitive re-review | Fresh read-only reviewer using the selected visual backend | Finished tool and research URLs | Findings appended to research or reported | Technical gaps closed | Research, product, or builder |
 | Content/SEO plan | `$stack127-tool-content-seo` | Stable technical tool and ready artifacts | `writing-and-seo.md` only | Content-stage validator | Owning upstream stage |
@@ -48,9 +49,13 @@ Resolve the flat canonical route before delegation by inspecting the top-level n
 
 > Use `$stack127-tool-product-plan` at `<absolute skill path>` for `<route>`. Read the ready research and repository patterns, create only the implementation report and brief, run the product validator, and stop. Do not implement.
 
+### Interface-plan prompt shape
+
+> Use `$stack127-tool-interface-plan` at `<absolute skill path>` for `<route>`. Create only `interface-contract.md` from the ready product artifacts, inspect the existing route when this is a retrofit, run the interface validator, and stop before code or tests.
+
 ### Test-design prompt shape
 
-> Use `$stack127-tool-test-design` at `<absolute skill path>` for `<route>`. Create only the edge-case and test contract from ready upstream artifacts, run the test validator, and stop. Return unresolved product decisions upstream.
+> Use `$stack127-tool-test-design` at `<absolute skill path>` for `<route>`. Create only the edge-case and test contract from the ready product and interface artifacts, run the test validator, and stop. Return unresolved product or interface decisions upstream.
 
 ### Builder prompt shape
 

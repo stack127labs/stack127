@@ -132,7 +132,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T10:52:43.000Z"
       },
-      "icon_url": "/cli-app-icons/n8n.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/n8n-18b25fda416b7deb.png"
     },
     {
       "id": "936763d9-b5bd-49e9-b86b-dcbfb386971a",
@@ -259,7 +259,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T08:43:08.000Z"
       },
-      "icon_url": "/cli-app-icons/ohmyzsh.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/ohmyzsh-d53be1a61092c91e.png"
     },
     {
       "id": "d9729b0e-d82b-48c0-ad66-88d07215b9c8",
@@ -364,7 +364,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T01:59:47Z"
       },
-      "icon_url": "/cli-app-icons/ollama.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/ollama-c5626986c51af553.png"
     },
     {
       "id": "997a8760-3cf8-45e6-b928-b29c18bfbb23",
@@ -463,7 +463,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T22:26:03Z"
       },
-      "icon_url": "/cli-app-icons/yt-dlp.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/yt-dlp-7579ab4a2e154eb3.png"
     },
     {
       "id": "154212bc-4855-4530-a8ae-3c52ae177839",
@@ -559,7 +559,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T09:53:29Z"
       },
-      "icon_url": "/cli-app-icons/go.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/go-944d3d2444c72283.png"
     },
     {
       "id": "4076b477-9b50-4f10-ae05-d9ea5703983d",
@@ -659,7 +659,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T13:10:56Z"
       },
-      "icon_url": "/cli-app-icons/shadcn-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/shadcn-cli-2c63908df9c5b36a.png"
     },
     {
       "id": "ee97f015-976e-4dc9-8e47-fb6fc742484a",
@@ -751,7 +751,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T12:08:20Z"
       },
-      "icon_url": "/cli-app-icons/deno.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/deno-be3887d8f100af8e.png"
     },
     {
       "id": "fe402e19-a932-4e41-98cb-1d6e8b5e50e2",
@@ -845,7 +845,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T01:08:09Z"
       },
-      "icon_url": "/cli-app-icons/gemini-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/gemini-cli-1898ba1b611f8ac4.png"
     },
     {
       "id": "aee37346-d38c-4a6d-b1a4-bcc55417cbb2",
@@ -970,7 +970,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T05:36:54.000Z"
       },
-      "icon_url": "/cli-app-icons/sherlock.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/sherlock-58e9771700b9d712.png"
     },
     {
       "id": "be1bccd1-265c-4862-ae20-0b76f84d7406",
@@ -1068,7 +1068,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T13:04:40Z"
       },
-      "icon_url": "/cli-app-icons/bun.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/bun-f30ff2974a9d922e.png"
     },
     {
       "id": "3c2c6f0f-d293-4b74-8494-e4365172db8f",
@@ -1166,7 +1166,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T19:56:40Z"
       },
-      "icon_url": "/cli-app-icons/hugo.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/hugo-0c6adff0b9ef4049.png"
     },
     {
       "id": "8287d1d8-f771-46be-8886-59ef36d3d4ad",
@@ -1258,7 +1258,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T13:10:23Z"
       },
-      "icon_url": "/cli-app-icons/uv.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/uv-ef2c6886d1df2acd.png"
     },
     {
       "id": "417f4ccb-8570-4e31-bbda-86a25dd4d565",
@@ -1362,7 +1362,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T04:28:14Z"
       },
-      "icon_url": "/cli-app-icons/fzf.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/fzf-d2677e21c42966e3.png"
     },
     {
       "id": "ed5b1475-69f0-4fe3-8955-dc8138ddaa84",
@@ -1450,7 +1450,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T20:33:50Z"
       },
-      "icon_url": "/cli-app-icons/claude-code.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/claude-code-46130581b30996a9.png"
     },
     {
       "id": "b81dc4ce-3175-468f-b8bd-e866b0f72e00",
@@ -1551,7 +1551,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T04:03:20.000Z"
       },
-      "icon_url": "/cli-app-icons/tabby.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/tabby-4856e2a29b24776e.png"
     },
     {
       "id": "4b49dd89-0bf4-47e2-ba67-5f8f1406ad64",
@@ -1658,7 +1658,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-19T03:07:24Z"
       },
-      "icon_url": "/cli-app-icons/caddy.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/caddy-99951a03d1381d68.png"
     },
     {
       "id": "3c653e5d-f0f6-42db-8c04-eee2b31a0342",
@@ -1749,7 +1749,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-09T22:50:11Z"
       },
-      "icon_url": "/cli-app-icons/act.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/act-ba76dcec4ecd8849.png"
     },
     {
       "id": "9e3b7773-590c-43a5-9110-a905d3415284",
@@ -1839,7 +1839,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-19T18:12:49Z"
       },
-      "icon_url": "/cli-app-icons/ansible.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/ansible-16617aa507a5240b.png"
     },
     {
       "id": "294d0057-d9b3-4370-94f8-a9198ffd74f8",
@@ -1954,7 +1954,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-17T19:36:06.000Z"
       },
-      "icon_url": "/cli-app-icons/alacritty.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/alacritty-33393ec9da55d432.png"
     },
     {
       "id": "18f7950d-183c-4ebe-8ae7-6a349f8e5471",
@@ -2064,7 +2064,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T10:09:36.000Z"
       },
-      "icon_url": "/cli-app-icons/warp.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/warp-29d19d2bca7b7f4a.png"
     },
     {
       "id": "4a14542d-8449-4d90-b85e-73256955639d",
@@ -2152,7 +2152,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T12:51:48Z"
       },
-      "icon_url": "/cli-app-icons/codex-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/codex-cli-99a267352f6fdf09.png"
     },
     {
       "id": "443e8c0f-7176-462b-8099-b9cb28a8611e",
@@ -2293,7 +2293,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T07:37:48.000Z"
       },
-      "icon_url": "/cli-app-icons/tldr.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/tldr-adad4a0853863f4e.png"
     },
     {
       "id": "44031421-52c5-498d-81c0-a10e28874dc2",
@@ -2391,7 +2391,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T11:44:03Z"
       },
-      "icon_url": "/cli-app-icons/prometheus.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/prometheus-2146f7a6a5f8dcb2.png"
     },
     {
       "id": "0129be5e-f81b-4593-af59-3cee0424c3a2",
@@ -2493,7 +2493,7 @@
         "latest_version": null,
         "latest_release_at": "2026-07-14T20:47:14.000Z"
       },
-      "icon_url": "/cli-app-icons/termux-app.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/termux-app-8b86dff73efde8de.png"
     },
     {
       "id": "7a8663c4-a7c8-46a9-81fc-5c72bc5a2516",
@@ -2579,7 +2579,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T06:32:58Z"
       },
-      "icon_url": "/cli-app-icons/cline.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/cline-b4a739fc31340147.png"
     },
     {
       "id": "b7ab101c-1c1d-4bb1-84a0-2d82661d8158",
@@ -2682,7 +2682,7 @@
         "latest_version": null,
         "latest_release_at": "2024-08-13T13:37:46Z"
       },
-      "icon_url": "/cli-app-icons/mkcert.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/mkcert-21013fc29aa06a00.png"
     },
     {
       "id": "3f50c747-886a-446c-b372-74b2b0231f54",
@@ -2787,7 +2787,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T12:28:17Z"
       },
-      "icon_url": "/cli-app-icons/ffmpeg.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/ffmpeg-f3a38968bd985b81.png"
     },
     {
       "id": "e20ff5dd-db20-425d-94bf-edc24449e967",
@@ -2914,7 +2914,7 @@
         "latest_version": null,
         "latest_release_at": "2026-06-23T03:10:19.000Z"
       },
-      "icon_url": "/cli-app-icons/rich.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/rich-ce8fc247383541f4.png"
     },
     {
       "id": "439fb07d-539f-491f-9cc1-cbdac25c6201",
@@ -3026,7 +3026,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T11:52:46Z"
       },
-      "icon_url": "/cli-app-icons/rclone.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/rclone-7844e68cd16388af.png"
     },
     {
       "id": "ddf369dc-e2a0-4833-a76e-dcea3a10528b",
@@ -3137,7 +3137,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T23:21:01.000Z"
       },
-      "icon_url": "/cli-app-icons/powershell.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/powershell-cc75c61be7eaec4c.png"
     },
     {
       "id": "ae6794f0-0f82-46a1-968c-c2a2679d8c4e",
@@ -3246,7 +3246,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T12:40:31Z"
       },
-      "icon_url": "/cli-app-icons/gitea-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/gitea-cli-b0f02465a1a302ce.png"
     },
     {
       "id": "e25ea856-b56e-43c2-99a1-c91f1e9afac6",
@@ -3346,7 +3346,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T17:37:09Z"
       },
-      "icon_url": "/cli-app-icons/etcdctl.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/etcdctl-714c264a7d048279.png"
     },
     {
       "id": "474825cd-60bb-4721-bad0-d2ce95682167",
@@ -3439,7 +3439,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T13:10:25Z"
       },
-      "icon_url": "/cli-app-icons/terraform.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/terraform-6cce74db11e1e63b.png"
     },
     {
       "id": "30d0378f-3b02-410a-9c7f-ed4b16e251e8",
@@ -3568,7 +3568,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T00:40:55.000Z"
       },
-      "icon_url": "/cli-app-icons/acme-sh.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/acme-sh-76a552e6c2e5371e.png"
     },
     {
       "id": "434ce52f-c390-40eb-9c87-4f7928463e62",
@@ -3660,7 +3660,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T12:11:48Z"
       },
-      "icon_url": "/cli-app-icons/homebrew.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/homebrew-7097884fed5d3261.png"
     },
     {
       "id": "8a2b02ed-80ce-487c-aa36-42eb5d7d76d6",
@@ -3771,7 +3771,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-14T07:30:27.000Z"
       },
-      "icon_url": "/cli-app-icons/zx.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/zx-21013fc29aa06a00.png"
     },
     {
       "id": "2402bdae-5460-4a55-82f8-aada8fc5886e",
@@ -3880,7 +3880,7 @@
         "latest_version": null,
         "latest_release_at": "2026-06-29T11:03:02.000Z"
       },
-      "icon_url": "/cli-app-icons/hyper.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/hyper-82be9e7aef6f9c10.png"
     },
     {
       "id": "d4f1e25f-a28c-4389-a024-45aab91231ef",
@@ -3952,7 +3952,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/emacs.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/emacs-eecf8e512bb093a3.png"
     },
     {
       "id": "d1831f2a-edeb-413f-b55d-c5e184f39e25",
@@ -4019,7 +4019,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/nano.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/nano-5513bccd45658019.png"
     },
     {
       "id": "d6e56bec-a864-4d86-9186-e99f6d6872a5",
@@ -4086,7 +4086,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/screen.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/screen-eecf8e512bb093a3.png"
     },
     {
       "id": "14d8dfd5-bbe1-441b-97b6-7fd2c8f02070",
@@ -4153,7 +4153,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/bash.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/bash-eecf8e512bb093a3.png"
     },
     {
       "id": "80921ddf-6b9b-44a6-b6dd-53d41ffbd170",
@@ -4220,7 +4220,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/zsh.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/zsh-15ed4402a8d9d971.png"
     },
     {
       "id": "960ec27c-4007-4ac2-b3ac-8dbca7bd4d49",
@@ -4290,7 +4290,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/parallel.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/parallel-eecf8e512bb093a3.png"
     },
     {
       "id": "3353f3b6-c9cb-4ea7-96db-667e2d283472",
@@ -4357,7 +4357,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/remind.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/remind-54b9f8b14773a8bd.png"
     },
     {
       "id": "c6d36203-12c3-42f7-8c00-5d9cc61fcfae",
@@ -4427,7 +4427,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/mercurial.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/mercurial-f3c60e30fa5ee237.png"
     },
     {
       "id": "5999ab85-0093-4f5f-beac-91e3740c1168",
@@ -4495,7 +4495,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/ncdu.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/ncdu-9cbe3b5f329496e6.png"
     },
     {
       "id": "27402405-3b28-4039-a025-d4bc89dd21a4",
@@ -4566,7 +4566,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/password-store.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/password-store-81fe2825c148aad2.png"
     },
     {
       "id": "bc7f943e-198a-4318-b92c-6bef440abe7f",
@@ -4633,7 +4633,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/calcurse.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/calcurse-b94659b85056f6ef.png"
     },
     {
       "id": "378c83be-c32e-4395-8034-7394a0e0bb7f",
@@ -4705,7 +4705,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/gnupg.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/gnupg-c26ad3d88888dd7d.png"
     },
     {
       "id": "0ca2d94c-a6c5-4097-b4cd-522d410affc4",
@@ -4770,7 +4770,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/dash.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/dash-290a16d481d1897f.png"
     },
     {
       "id": "b923a8f5-9b02-4849-81a8-a2487535d740",
@@ -4835,7 +4835,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/oils.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/oils-e0021df85ee01b92.png"
     },
     {
       "id": "e4c53405-8c96-43aa-a1f2-04aabaf8cba4",
@@ -4901,7 +4901,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/st.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/st-f359ab977b6c8f97.png"
     },
     {
       "id": "fe51f818-d6bd-4e80-b039-1a1b39651d5e",
@@ -4970,7 +4970,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/testdisk.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/testdisk-cefef2eb761ed34c.png"
     },
     {
       "id": "8fdff763-e92e-4c9a-8e4e-97f605ace008",
@@ -5046,7 +5046,7 @@
         "latest_version": null,
         "latest_release_at": "2024-01-31T03:35:06.000Z"
       },
-      "icon_url": "/cli-app-icons/2048-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/2048-cli-75c8e06f0ad6b911.png"
     },
     {
       "id": "41fed71e-795e-46fc-8a43-8c7d3906b912",
@@ -5123,7 +5123,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-02T19:32:56.000Z"
       },
-      "icon_url": "/cli-app-icons/aerc.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/aerc-bc7de538fdf3e4e9.png"
     },
     {
       "id": "03f29ef2-957c-4464-b196-8c2a78c23f97",
@@ -5196,7 +5196,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/age.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/age-21013fc29aa06a00.png"
     },
     {
       "id": "9342e098-d6a2-4650-9b71-9c1e9be4cb04",
@@ -5288,7 +5288,7 @@
         "latest_version": null,
         "latest_release_at": "2026-02-23T11:16:42.000Z"
       },
-      "icon_url": "/cli-app-icons/aichat.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/aichat-f0c95a550d2b5d47.png"
     },
     {
       "id": "08b26b51-635b-427c-9cc6-e5a7fce478a0",
@@ -5377,7 +5377,7 @@
         "latest_version": null,
         "latest_release_at": "2026-05-22T14:02:20.000Z"
       },
-      "icon_url": "/cli-app-icons/aider.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/aider-359b4065a58a89d5.png"
     },
     {
       "id": "18f2056d-f30e-47ea-9ec5-6fd99837e6c3",
@@ -5442,7 +5442,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/air.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/air-7eacca24fb319bea.png"
     },
     {
       "id": "7331161b-4f51-48ec-b0b4-417cf21b7c1d",
@@ -5535,7 +5535,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-18T16:44:56.000Z"
       },
-      "icon_url": "/cli-app-icons/ani-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/ani-cli-a86ff2d7e006f5bd.png"
     },
     {
       "id": "9791958d-b564-43e8-a8ac-2490e2c37c73",
@@ -5610,7 +5610,7 @@
         "latest_version": "3.5.1",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/argocd.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/argocd-5eb33dea317fab98.png"
     },
     {
       "id": "0998b94b-5e2d-4a8c-a33f-f2186d1a0223",
@@ -5696,7 +5696,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-14T09:03:57.000Z"
       },
-      "icon_url": "/cli-app-icons/asciinema.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/asciinema-b5c3c2eb484853e7.png"
     },
     {
       "id": "390356d3-c664-4a3c-92be-49c196d2277f",
@@ -5787,7 +5787,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-18T18:07:41.000Z"
       },
-      "icon_url": "/cli-app-icons/ast-grep.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/ast-grep-3062c192dae64492.png"
     },
     {
       "id": "fdc221da-bf2d-4b3f-9766-093f5907a5ee",
@@ -5881,7 +5881,7 @@
         "latest_version": null,
         "latest_release_at": "2026-06-25T17:59:56.000Z"
       },
-      "icon_url": "/cli-app-icons/atlas.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/atlas-4768e02237a668f7.png"
     },
     {
       "id": "17664278-3aa8-4aa7-bb61-41601d2420c7",
@@ -5961,7 +5961,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T22:25:58.000Z"
       },
-      "icon_url": "/cli-app-icons/atuin.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/atuin-0af2c265f853093e.png"
     },
     {
       "id": "1c616d5e-2f17-4751-90e4-4244623da9d1",
@@ -6033,7 +6033,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/aws-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/aws-cli-36175803df340db6.png"
     },
     {
       "id": "5bb75ff2-ec08-47f8-8355-b1623595afab",
@@ -6104,7 +6104,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/azure-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/azure-cli-cc75c61be7eaec4c.png"
     },
     {
       "id": "38f6b5e3-087e-489e-adc1-a961d151fba4",
@@ -6184,7 +6184,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-01T01:34:33.000Z"
       },
-      "icon_url": "/cli-app-icons/bandwhich.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/bandwhich-08f69c530e471c88.png"
     },
     {
       "id": "a0fdcd58-9569-4066-9efb-16b7f810cef9",
@@ -6249,7 +6249,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/bastet.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/bastet-ccf333a622b004ef.png"
     },
     {
       "id": "e69edefb-f41d-42c8-b7fe-ec83b00caf08",
@@ -6338,7 +6338,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-11T14:39:20.000Z"
       },
-      "icon_url": "/cli-app-icons/bat.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/bat-2367913714a3ff64.png"
     },
     {
       "id": "78c3ea73-b057-4ca0-8d07-cd86e0b4c869",
@@ -6402,7 +6402,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/beancount.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/beancount-2572bacbd386aa04.png"
     },
     {
       "id": "93ddf5a2-d615-4677-b4b0-658a8e600942",
@@ -6483,7 +6483,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T09:05:46.000Z"
       },
-      "icon_url": "/cli-app-icons/beets.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/beets-af5f294007b37867.png"
     },
     {
       "id": "2338988c-f272-40ca-a184-b20cac8c535d",
@@ -6566,7 +6566,7 @@
         "latest_version": null,
         "latest_release_at": "2026-02-04T18:00:26.000Z"
       },
-      "icon_url": "/cli-app-icons/bore.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/bore-21013fc29aa06a00.png"
     },
     {
       "id": "46afbf5d-de12-4d37-8022-4a13f1a396b4",
@@ -6646,7 +6646,7 @@
         "latest_version": "1.4.5",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/borgbackup.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/borgbackup-637a42bc67db7eb6.png"
     },
     {
       "id": "d0c30e1a-021c-41c3-aa07-5e63607515fe",
@@ -6738,7 +6738,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T05:23:33.000Z"
       },
-      "icon_url": "/cli-app-icons/bottom.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/bottom-f26e8b4fe99ee289.png"
     },
     {
       "id": "57550006-0803-4737-8703-0be999d9059b",
@@ -6820,7 +6820,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-19T07:29:21.000Z"
       },
-      "icon_url": "/cli-app-icons/broot.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/broot-08dd56d6bcc2095d.png"
     },
     {
       "id": "a32c1bcd-aa2d-4b48-b9e1-cb264f81d60f",
@@ -6885,7 +6885,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/browsh.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/browsh-000a934d55fe81a4.png"
     },
     {
       "id": "fdf3dae3-d01e-49be-9ff0-8acd0acc4bf9",
@@ -6969,7 +6969,7 @@
         "latest_version": null,
         "latest_release_at": "2025-04-26T20:13:06.000Z"
       },
-      "icon_url": "/cli-app-icons/btop.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/btop-54a7a159a04b5c95.png"
     },
     {
       "id": "ca4aed71-d335-4f3d-b4ec-bb5e58ab187c",
@@ -7037,7 +7037,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/buildah.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/buildah-1af8c8d929733e04.png"
     },
     {
       "id": "ef99da93-d26b-4bc1-a11c-b4e66f2be402",
@@ -7129,7 +7129,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-17T23:02:31.000Z"
       },
-      "icon_url": "/cli-app-icons/carapace.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/carapace-8e286549f4bede15.png"
     },
     {
       "id": "b9d48116-f3de-4b48-a734-51fb73f2dfd9",
@@ -7205,7 +7205,7 @@
         "latest_version": null,
         "latest_release_at": "2024-07-01T14:31:50.000Z"
       },
-      "icon_url": "/cli-app-icons/carbonyl.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/carbonyl-04e3007240055f22.png"
     },
     {
       "id": "2cf74124-62d3-4d61-98c0-ce263f7b5158",
@@ -7286,7 +7286,7 @@
         "latest_version": null,
         "latest_release_at": "2025-11-05T14:46:01.000Z"
       },
-      "icon_url": "/cli-app-icons/cava.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/cava-1a0421185ba76874.png"
     },
     {
       "id": "f49cb982-c1a5-4b31-8e0a-e9df1f0b9759",
@@ -7350,7 +7350,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/cbonsai.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/cbonsai-26aa0ee2557869d1.png"
     },
     {
       "id": "835cf7b4-3a4b-40ea-8352-67cb7be74f81",
@@ -7441,7 +7441,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T08:36:10.000Z"
       },
-      "icon_url": "/cli-app-icons/chafa.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/chafa-5d57d04a7a55fa0c.png"
     },
     {
       "id": "1b10ece3-ca9f-427f-a892-648904a6914f",
@@ -7506,7 +7506,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/chawan.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/chawan-4b8dc915f1ff9df2.png"
     },
     {
       "id": "64affca1-a908-4957-863d-d27c6a2009da",
@@ -7582,7 +7582,7 @@
         "latest_version": "5.1.0",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/cheat.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/cheat-7aaad47c145b2a0c.png"
     },
     {
       "id": "3dd6603c-36bc-4c35-84b1-f806bce78403",
@@ -7653,7 +7653,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/checkov.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/checkov-07589cac9be2fb02.png"
     },
     {
       "id": "8e06f57a-9e4e-4289-94e9-c7321b3f612c",
@@ -7746,7 +7746,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-17T01:41:43.000Z"
       },
-      "icon_url": "/cli-app-icons/chess-tui.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/chess-tui-b3a5df9dd0c1580f.png"
     },
     {
       "id": "04c841bc-2a8d-466a-a790-1e63e408ce28",
@@ -7814,7 +7814,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/chezmoi.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/chezmoi-e85af863503e0bc4.png"
     },
     {
       "id": "196d2a9b-fb4d-47d5-9ee9-cff6d04acba6",
@@ -7886,7 +7886,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/cloc.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/cloc-90c1283a65af3eb3.png"
     },
     {
       "id": "ba581971-e29f-433b-96bb-5e292fa99298",
@@ -7958,7 +7958,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/cloudflared.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/cloudflared-6de5fda9f1e13e19.png"
     },
     {
       "id": "f2d2fbe8-8cd2-400b-8b21-fd891356a633",
@@ -8024,7 +8024,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/cmus.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/cmus-ea3533bfe2e4a7de.png"
     },
     {
       "id": "5df32bd3-94d9-4043-959c-adb686440e7a",
@@ -8096,7 +8096,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/cosign.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/cosign-d23778c5e537c8c9.png"
     },
     {
       "id": "f3fc08d9-b578-45fe-b8c0-918a5433fa76",
@@ -8169,7 +8169,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/croc.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/croc-87d1cae5bbf6e484.png"
     },
     {
       "id": "314e5326-f712-428a-9985-68b6cbc61fcc",
@@ -8240,7 +8240,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/csvkit.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/csvkit-ce8fc247383541f4.png"
     },
     {
       "id": "23d00b98-431b-4126-a147-13320b448fd8",
@@ -8307,7 +8307,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/curl.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/curl-cdd77e135a5b261a.png"
     },
     {
       "id": "eebdaec7-667f-4d0e-837c-ec75508f2c72",
@@ -8378,7 +8378,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/dagger.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/dagger-ab450e96efa6e421.png"
     },
     {
       "id": "909e971c-fb2c-4862-88c7-b7e1dd72406d",
@@ -8474,7 +8474,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-16T19:25:05.000Z"
       },
-      "icon_url": "/cli-app-icons/dasel.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/dasel-34afc4319a87cb65.png"
     },
     {
       "id": "0b2a8e3f-8f30-44aa-b4d8-2e3d74463e36",
@@ -8549,7 +8549,7 @@
         "latest_version": "0.65.3",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/datasette.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/datasette-ce8fc247383541f4.png"
     },
     {
       "id": "9f801baa-97f1-4a84-bf02-9c52af07877a",
@@ -8620,7 +8620,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/dbmate.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/dbmate-09d34409374385d0.png"
     },
     {
       "id": "7d23595c-9836-409c-9633-feb12c599211",
@@ -8688,7 +8688,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/delta.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/delta-66cebaa3a475965e.png"
     },
     {
       "id": "4063b1e2-7895-4c0d-aa45-8785cc822608",
@@ -8764,7 +8764,7 @@
         "latest_version": null,
         "latest_release_at": "2020-02-08T00:08:14.000Z"
       },
-      "icon_url": "/cli-app-icons/devbox.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/devbox-896d6235e486abc1.png"
     },
     {
       "id": "6826db87-6f92-4214-9ce4-7b3ba771ec1f",
@@ -8839,7 +8839,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/difftastic.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/difftastic-04feb6dcdcb01efc.png"
     },
     {
       "id": "b5c58a3a-8008-439c-bd6b-564abea0d542",
@@ -8924,7 +8924,7 @@
         "latest_version": null,
         "latest_release_at": "2026-03-31T18:52:06.000Z"
       },
-      "icon_url": "/cli-app-icons/direnv.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/direnv-b5836a5ceffd7805.png"
     },
     {
       "id": "ec054ba2-8171-414d-9b4d-ad933173b607",
@@ -9008,7 +9008,7 @@
         "latest_version": null,
         "latest_release_at": "2025-12-15T17:20:36.000Z"
       },
-      "icon_url": "/cli-app-icons/dive.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/dive-8749fb73bb5dcc90.png"
     },
     {
       "id": "2e9477c3-60c9-464f-84f7-15ca6469dff6",
@@ -9089,7 +9089,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-17T02:44:11.000Z"
       },
-      "icon_url": "/cli-app-icons/dnsx.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/dnsx-422eab8479b1335a.png"
     },
     {
       "id": "45ee0b31-52b7-4e70-b0fd-b911937344c8",
@@ -9155,7 +9155,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/docker-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/docker-cli-c492c03155b67f4d.png"
     },
     {
       "id": "626799ef-05fc-416f-93b4-d0a3604a0a87",
@@ -9235,7 +9235,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T05:55:17.000Z"
       },
-      "icon_url": "/cli-app-icons/doctl.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/doctl-396646f683803fe5.png"
     },
     {
       "id": "0b89ccaa-18f8-494b-bf8f-b36f7596e205",
@@ -9305,7 +9305,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/doggo.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/doggo-bdd412e9fb9eccd3.png"
     },
     {
       "id": "dc57ba74-e2ba-4a98-9e30-997b5e422f3b",
@@ -9377,7 +9377,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/dua.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/dua-ae5dfb3c8d71afd1.png"
     },
     {
       "id": "ab3fcf87-43ab-4596-9020-e0b0f6e004d0",
@@ -9448,7 +9448,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/duckdb.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/duckdb-4be912a84bda49fb.png"
     },
     {
       "id": "ce3fb377-c4d4-4ae6-b271-7e5b908e671f",
@@ -9543,7 +9543,7 @@
         "latest_version": null,
         "latest_release_at": "2026-01-13T11:07:14.000Z"
       },
-      "icon_url": "/cli-app-icons/duf.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/duf-3614f0024d0739de.png"
     },
     {
       "id": "22cd93c0-2ad6-4a38-8f97-3d0fbf93dba2",
@@ -9616,7 +9616,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/dust.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/dust-883e36ba7bb65d84.png"
     },
     {
       "id": "4e201f60-6361-484d-b3ab-a9b007025315",
@@ -9692,7 +9692,7 @@
         "latest_version": "0.8.16",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/earthly.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/earthly-19cfbb6d9494c38d.png"
     },
     {
       "id": "83dc02b7-b70e-4bfa-a7b8-e17952ae8605",
@@ -9758,7 +9758,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/elinks.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/elinks-2cd096802d63126f.png"
     },
     {
       "id": "a670f323-6a38-4e6f-9e2a-780bd322e578",
@@ -9836,7 +9836,7 @@
         "latest_version": null,
         "latest_release_at": "2026-03-31T22:04:07.000Z"
       },
-      "icon_url": "/cli-app-icons/elvish.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/elvish-dea503f0f392d15a.png"
     },
     {
       "id": "878be76d-fb63-4317-9eb7-3177bfb186ae",
@@ -9907,7 +9907,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/entr.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/entr-5fed0d715398b1af.png"
     },
     {
       "id": "8cc3863c-e712-4871-8216-cf3c5585cfe9",
@@ -9995,7 +9995,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-06T19:53:22.000Z"
       },
-      "icon_url": "/cli-app-icons/eza.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/eza-f94ff477ae1d7cc7.png"
     },
     {
       "id": "1b5a0038-3cbe-492d-b4a5-f16724cc98e4",
@@ -10060,7 +10060,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/fabric.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/fabric-7693e9f6905ea4ee.png"
     },
     {
       "id": "8d5d408b-b4bf-47e0-8308-967106d19623",
@@ -10149,7 +10149,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T02:50:39.000Z"
       },
-      "icon_url": "/cli-app-icons/fastfetch.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/fastfetch-0c0b7c69d87b868e.png"
     },
     {
       "id": "e0c3adbf-e6f9-49bd-b173-d94a3e162d0e",
@@ -10214,7 +10214,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/fclones.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/fclones-7c7e1b1e240f39f3.png"
     },
     {
       "id": "7a2296ac-3b3b-4f4e-bb12-1c6562aa55d6",
@@ -10303,7 +10303,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-11T17:42:55.000Z"
       },
-      "icon_url": "/cli-app-icons/fd.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/fd-2367913714a3ff64.png"
     },
     {
       "id": "b75ef35e-6a25-4f67-89e1-eeef9c105ef5",
@@ -10370,7 +10370,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/feroxbuster.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/feroxbuster-31d11844cfe59b9e.png"
     },
     {
       "id": "5fb59073-b89d-481d-8581-763d2192bfdb",
@@ -10454,7 +10454,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/ffuf.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/ffuf-7cddf4444efc15ac.png"
     },
     {
       "id": "5434c304-5165-4fa0-9b51-242d41e47004",
@@ -10536,7 +10536,7 @@
         "latest_version": null,
         "latest_release_at": "2026-06-21T10:55:05.000Z"
       },
-      "icon_url": "/cli-app-icons/fish.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/fish-93213db58979314d.png"
     },
     {
       "id": "16c50511-3057-428e-a463-03cb964c31ce",
@@ -10617,7 +10617,7 @@
         "latest_version": null,
         "latest_release_at": "2026-02-21T15:18:10.000Z"
       },
-      "icon_url": "/cli-app-icons/flux.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/flux-4aef0f3291c92995.png"
     },
     {
       "id": "da704444-dbff-46e5-93ad-207699516948",
@@ -10687,7 +10687,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/flyctl.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/flyctl-e9d3091ae4bc35d8.png"
     },
     {
       "id": "1ce35c00-2d2d-4d65-bfa1-ddc44cdead3a",
@@ -10768,7 +10768,7 @@
         "latest_version": null,
         "latest_release_at": "2026-03-09T19:07:58.000Z"
       },
-      "icon_url": "/cli-app-icons/foot.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/foot-20ae8dc67d85548e.png"
     },
     {
       "id": "c9cd9a03-da48-4b68-ae66-1ced1247d480",
@@ -10856,7 +10856,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T18:39:14.000Z"
       },
-      "icon_url": "/cli-app-icons/fq.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/fq-9c3e5e1cec478587.png"
     },
     {
       "id": "dfa46482-7bac-495e-aa62-8e38df7ff581",
@@ -10922,7 +10922,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/frp.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/frp-884f9a9c75a6616d.png"
     },
     {
       "id": "ea4951c5-8a76-46d9-a593-5e9272fddacf",
@@ -11007,7 +11007,7 @@
         "latest_version": null,
         "latest_release_at": "2026-07-28T11:36:44.000Z"
       },
-      "icon_url": "/cli-app-icons/fx.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/fx-f3babc3f52c8f8d8.png"
     },
     {
       "id": "4a07c155-80d3-457d-bf08-12def66a6515",
@@ -11080,7 +11080,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/gallery-dl.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/gallery-dl-634f4754db938edf.png"
     },
     {
       "id": "7ab7aec0-9dd9-4263-869e-5d19a78a92de",
@@ -11161,7 +11161,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-18T23:54:04.000Z"
       },
-      "icon_url": "/cli-app-icons/gdu.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/gdu-4b5117c6e3d1091a.png"
     },
     {
       "id": "bb537010-3a88-4be5-846b-400bfe07349d",
@@ -11225,7 +11225,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T05:08:20.000Z"
       },
-      "icon_url": "/cli-app-icons/ghostty.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/ghostty-71a18d7f2fee9990.png"
     },
     {
       "id": "055408c6-c311-4aaa-a41a-9b0e11172234",
@@ -11303,7 +11303,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T22:20:31.000Z"
       },
-      "icon_url": "/cli-app-icons/git.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/git-ce0975d285811c83.png"
     },
     {
       "id": "de881330-d60e-4c84-bcda-a78115217bea",
@@ -11375,7 +11375,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/git-lfs.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/git-lfs-7887ec0d51f3706c.png"
     },
     {
       "id": "77a893f4-6fa7-48d4-81c1-2959ae445f82",
@@ -11450,7 +11450,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/github-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/github-cli-a00feacd39fda0ad.png"
     },
     {
       "id": "c81c9193-2a74-45ba-8e20-23fcc30c61f8",
@@ -11546,7 +11546,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-19T04:15:06.000Z"
       },
-      "icon_url": "/cli-app-icons/gitleaks.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/gitleaks-bea8cd298c368330.png"
     },
     {
       "id": "1e479000-ec87-4734-a64e-a3d2508bed21",
@@ -11634,7 +11634,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-04T08:27:21.000Z"
       },
-      "icon_url": "/cli-app-icons/gitui.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/gitui-8965b3203b944609.png"
     },
     {
       "id": "2c506453-657d-4cb1-b832-6ee0fdbe5948",
@@ -11707,7 +11707,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/glab.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/glab-1cde6aeb61ab224c.png"
     },
     {
       "id": "3f557829-e55c-4251-a2cc-3e08eb5382a4",
@@ -11791,7 +11791,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-18T11:20:49.000Z"
       },
-      "icon_url": "/cli-app-icons/glances.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/glances-3a1da1df16deee0b.png"
     },
     {
       "id": "7fb60b71-1bb8-4445-b65d-8d5b7f0e7cf2",
@@ -11872,7 +11872,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-16T00:02:03.000Z"
       },
-      "icon_url": "/cli-app-icons/glow.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/glow-c135473ad0855552.png"
     },
     {
       "id": "645b309b-0bb8-4c3c-80ad-482ee5995784",
@@ -11953,7 +11953,7 @@
         "latest_version": "3.53.1",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/go-task.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/go-task-03a41588772caee6.png"
     },
     {
       "id": "6c1043c3-b22b-45e5-b51b-3de171f9a6ae",
@@ -12021,7 +12021,7 @@
         "latest_version": "v1.46.0",
         "latest_release_at": "2026-08-21T06:31:21.000Z"
       },
-      "icon_url": "/cli-app-icons/goose.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/goose-6505c4aeee40ccf5.png"
     },
     {
       "id": "efca2f57-cf7c-4a7e-9860-3cf3451dbde3",
@@ -12099,7 +12099,7 @@
         "latest_version": "2.17.1",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/goreleaser.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/goreleaser-f47076fd643d4d59.png"
     },
     {
       "id": "b5be7d67-7161-4842-89f5-ac987fb6ad67",
@@ -12187,7 +12187,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-10T10:33:12.000Z"
       },
-      "icon_url": "/cli-app-icons/gping.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/gping-f9783e3c011a4ff1.png"
     },
     {
       "id": "7598cd0a-1ae6-4dcf-b80f-1f86c72c4c7e",
@@ -12275,7 +12275,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T10:42:12.000Z"
       },
-      "icon_url": "/cli-app-icons/gptme.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/gptme-23cabdb046e5327e.png"
     },
     {
       "id": "25292d38-fafe-4281-8096-a58394ba0799",
@@ -12353,7 +12353,7 @@
         "latest_version": null,
         "latest_release_at": "2025-05-31T15:00:47.000Z"
       },
-      "icon_url": "/cli-app-icons/gron.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/gron-7142e4d541444923.png"
     },
     {
       "id": "8202faf4-8ea2-4428-900b-a71c41f819d6",
@@ -12425,7 +12425,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/grpcurl.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/grpcurl-6a3c42af112954e9.png"
     },
     {
       "id": "c043490e-c419-4f8b-9808-6c021f96a4fb",
@@ -12495,7 +12495,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/grype.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/grype-28381f151fb8a7da.png"
     },
     {
       "id": "9798efde-c839-4e7d-9c79-e6828e4c61e7",
@@ -12574,7 +12574,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T08:08:40.000Z"
       },
-      "icon_url": "/cli-app-icons/gum.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/gum-c135473ad0855552.png"
     },
     {
       "id": "d543b554-55f6-46c6-bc71-69e278d9799a",
@@ -12663,7 +12663,7 @@
         "latest_version": null,
         "latest_release_at": "2025-06-11T17:58:29.000Z"
       },
-      "icon_url": "/cli-app-icons/helix.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/helix-d95208aad45f3cf1.png"
     },
     {
       "id": "382fb918-4425-454c-b965-5d1e5e1ea19f",
@@ -12736,7 +12736,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/helm.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/helm-97c0eebddd702293.png"
     },
     {
       "id": "2253add9-3238-42bc-8c10-8abfd71890f9",
@@ -12827,7 +12827,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-16T19:58:59.000Z"
       },
-      "icon_url": "/cli-app-icons/himalaya.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/himalaya-4566461ea1fd4444.png"
     },
     {
       "id": "4b63c6f3-96ba-41f2-bf8a-c2f6af875398",
@@ -12916,7 +12916,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-18T15:45:41.000Z"
       },
-      "icon_url": "/cli-app-icons/hledger.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/hledger-ba76dcec4ecd8849.png"
     },
     {
       "id": "55d6e968-8f60-4edd-97a4-c9d142b488dc",
@@ -12987,7 +12987,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/htmlq.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/htmlq-08be6a42ccf2c0df.png"
     },
     {
       "id": "935b3522-db31-44fd-b9d7-d7c4e5ecf1a1",
@@ -13071,7 +13071,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-16T16:08:54.000Z"
       },
-      "icon_url": "/cli-app-icons/htop.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/htop-4489390a685c074b.png"
     },
     {
       "id": "ddfe0b73-ac60-4b06-878b-5ba2d42dbdc1",
@@ -13144,7 +13144,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/httpie.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/httpie-ce70b5cdc29fbe8b.png"
     },
     {
       "id": "f3c7e954-3509-4157-a486-95631d47368e",
@@ -13229,7 +13229,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T08:28:47.000Z"
       },
-      "icon_url": "/cli-app-icons/hurl.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/hurl-3d7771de7bfd55c7.png"
     },
     {
       "id": "4acb7b36-d7e1-4acc-a675-6230955ab865",
@@ -13316,7 +13316,7 @@
         "latest_version": null,
         "latest_release_at": "2026-04-30T08:23:25.000Z"
       },
-      "icon_url": "/cli-app-icons/hyperfine.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/hyperfine-2367913714a3ff64.png"
     },
     {
       "id": "7d830b39-8b8f-49f9-ad9f-5686a44a2dee",
@@ -13387,7 +13387,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/imagemagick.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/imagemagick-40f4290d7cd7a726.png"
     },
     {
       "id": "a944ebf8-81bf-4c3f-afff-2310488af2f2",
@@ -13464,7 +13464,7 @@
         "latest_version": "2.16.2",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/infracost.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/infracost-741f7747d9a560c8.png"
     },
     {
       "id": "4600b6ff-34f8-408c-9378-c240ca85dd0a",
@@ -13536,7 +13536,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/iperf3.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/iperf3-65cb27ac8f32888b.png"
     },
     {
       "id": "92e2cc77-6f5f-403d-a54f-1a9348e7e8f1",
@@ -13601,7 +13601,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/iredis.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/iredis-03cc311bf997cbbb.png"
     },
     {
       "id": "22b930f0-e952-494e-b290-e81ade83d1f2",
@@ -13667,7 +13667,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/irssi.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/irssi-c1025431eed658ee.png"
     },
     {
       "id": "d622aeec-6164-4d6d-ba02-0cc205780be8",
@@ -13743,7 +13743,7 @@
         "latest_version": "1.31.1",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/jdupes.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/jdupes-20ae8dc67d85548e.png"
     },
     {
       "id": "73c76909-4fd2-47f2-8c3f-28951fe6de97",
@@ -13821,7 +13821,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-18T01:33:06.000Z"
       },
-      "icon_url": "/cli-app-icons/jless.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/jless-3e92f63d05c58e18.png"
     },
     {
       "id": "c79e3b7d-cfca-466c-8e3d-fce9acc9fc36",
@@ -13894,7 +13894,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/jq.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/jq-0f67c04b91d2457e.png"
     },
     {
       "id": "1c2ef32e-7432-4769-8bba-f945e212834d",
@@ -13983,7 +13983,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T18:49:22.000Z"
       },
-      "icon_url": "/cli-app-icons/jrnl.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/jrnl-80a3ff2e6e99dbf9.png"
     },
     {
       "id": "d1075407-8b4a-4dc4-b0ae-59dff9d6f4e8",
@@ -14051,7 +14051,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/jujutsu.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/jujutsu-106f52fa89806cf0.png"
     },
     {
       "id": "019df536-3866-4f3c-bc21-0adbfd29b12c",
@@ -14124,7 +14124,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/just.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/just-8ede917acc6e0d69.png"
     },
     {
       "id": "1eec7af4-d8a2-4762-a6d2-7d8941b3ca1c",
@@ -14195,7 +14195,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/k3d.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/k3d-ce04b3dd32f08fee.png"
     },
     {
       "id": "33837151-8573-492d-957a-e64e58d888f4",
@@ -14263,7 +14263,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/k9s.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/k9s-1870d848b7e91fac.png"
     },
     {
       "id": "328c3b0d-0eb4-4c5a-a546-5e6ca4c94b87",
@@ -14329,7 +14329,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/kakoune.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/kakoune-ad1b5dfa49738d12.png"
     },
     {
       "id": "7417f383-a341-427d-a86e-671896e99285",
@@ -14395,7 +14395,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/keepassxc-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/keepassxc-cli-673fba9e295ca9f7.png"
     },
     {
       "id": "40f7bc59-5f84-4862-8592-e51d9a54dd35",
@@ -14472,7 +14472,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T06:24:52.000Z"
       },
-      "icon_url": "/cli-app-icons/khal.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/khal-ce8fc247383541f4.png"
     },
     {
       "id": "4d968a3e-b013-4fe0-baa6-e2d8948c7e83",
@@ -14544,7 +14544,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/kind.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/kind-637f4ac7a6313426.png"
     },
     {
       "id": "e84d4963-52bc-4566-8b4b-8778f7788e0e",
@@ -14631,7 +14631,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T07:50:47.000Z"
       },
-      "icon_url": "/cli-app-icons/kitty.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/kitty-3f688129811f98fa.png"
     },
     {
       "id": "740372e6-ac97-4e11-9480-aa6262e7cf14",
@@ -14697,7 +14697,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/kopia.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/kopia-3aa35e195532a4e6.png"
     },
     {
       "id": "ff9e88ef-4424-4716-8b2b-4798cd6e0650",
@@ -14769,7 +14769,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/kubectl.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/kubectl-6dc685023707cde7.png"
     },
     {
       "id": "2754350e-9a3a-43e6-a86d-1e09d8831768",
@@ -14841,7 +14841,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/kubectx.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/kubectx-f49233cd43255934.png"
     },
     {
       "id": "dc5f339e-f8d8-4e06-93c9-21a03f300396",
@@ -14912,7 +14912,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/kustomize.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/kustomize-28381f151fb8a7da.png"
     },
     {
       "id": "f54cffc7-ec26-4d16-922b-e0b3db436ba1",
@@ -14981,7 +14981,7 @@
         "latest_version": "v0.25.2",
         "latest_release_at": "2026-04-19T02:51:06.000Z"
       },
-      "icon_url": "/cli-app-icons/lazydocker.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/lazydocker-512d3723b8d6f420.png"
     },
     {
       "id": "44b4a991-0dde-4e7e-88e4-cfe9576ef81e",
@@ -15064,7 +15064,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T19:58:53.000Z"
       },
-      "icon_url": "/cli-app-icons/lazygit.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/lazygit-512d3723b8d6f420.png"
     },
     {
       "id": "4fe702bd-3133-4c34-a0d0-82e78bc9ff5e",
@@ -15130,7 +15130,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/ledger.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/ledger-6fc3efb37b121dfb.png"
     },
     {
       "id": "20f7c66a-17cd-480c-93bd-1291171deb09",
@@ -15208,7 +15208,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-15T02:07:20.000Z"
       },
-      "icon_url": "/cli-app-icons/lf.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/lf-e4ddffcdfe4f7d52.png"
     },
     {
       "id": "5aa9834c-f34a-4cdb-a44b-0ebdc718c526",
@@ -15273,7 +15273,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/litecli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/litecli-68286c578919bcd3.png"
     },
     {
       "id": "294be9e0-a961-43d5-a01b-c7bae757fb1d",
@@ -15351,7 +15351,7 @@
         "latest_version": "10520",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/llama-cpp.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/llama-cpp-441ab800adea41b9.png"
     },
     {
       "id": "ec0d5ae9-37ed-49b7-97bd-2712a7fca141",
@@ -15419,7 +15419,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/llm.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/llm-972df9182481ae44.png"
     },
     {
       "id": "fd5454de-7385-483c-9994-bf8e0d72a023",
@@ -15509,7 +15509,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-05T02:27:24.000Z"
       },
-      "icon_url": "/cli-app-icons/lnav.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/lnav-17ebe56e2e945e4c.png"
     },
     {
       "id": "34ef2dee-02c1-4eca-a108-a30a5656868c",
@@ -15604,7 +15604,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-05T12:12:12.000Z"
       },
-      "icon_url": "/cli-app-icons/lynis.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/lynis-55059d87dc768ae2.png"
     },
     {
       "id": "0ad57697-c23b-4822-a907-c2b7635fb42a",
@@ -15682,7 +15682,7 @@
         "latest_version": null,
         "latest_release_at": "2026-04-14T01:07:32.000Z"
       },
-      "icon_url": "/cli-app-icons/mcfly.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/mcfly-10d6f008324db2e3.png"
     },
     {
       "id": "6baad48c-5e0e-427f-974f-090abd3d3c81",
@@ -15761,7 +15761,7 @@
         "latest_version": null,
         "latest_release_at": "2026-06-19T10:39:10.000Z"
       },
-      "icon_url": "/cli-app-icons/mdcat.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/mdcat-fd2fb7ba25d246a6.png"
     },
     {
       "id": "6b25d4d3-2284-47de-82df-4dda5580b52f",
@@ -15848,7 +15848,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T01:16:34.000Z"
       },
-      "icon_url": "/cli-app-icons/micro.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/micro-c0ebb7f34643f82c.png"
     },
     {
       "id": "c4759905-118a-41db-81ac-c07503fa1e2c",
@@ -15914,7 +15914,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/midnight-commander.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/midnight-commander-cc7358e760902eb8.png"
     },
     {
       "id": "3c69e0b6-e11b-4410-ae24-1dc4ae87090b",
@@ -16013,7 +16013,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T13:37:02.000Z"
       },
-      "icon_url": "/cli-app-icons/miller.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/miller-3aecae4ebb047334.png"
     },
     {
       "id": "a1bce6d8-ffdf-4967-b5f4-5ace24fae71e",
@@ -16085,7 +16085,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/minikube.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/minikube-c29694bb33f92764.png"
     },
     {
       "id": "bc92d2ef-0f54-4c8d-9ed1-ed694a847084",
@@ -16157,7 +16157,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/mise.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/mise-abe44fb9386d302d.png"
     },
     {
       "id": "f498d4ba-fe93-4d5d-b01f-2f02c2f494d9",
@@ -16225,7 +16225,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/mitmproxy.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/mitmproxy-dcae1fb9daaf6e52.png"
     },
     {
       "id": "7ccb7df4-4bb8-475a-9a4d-e933b7c05ecc",
@@ -16291,7 +16291,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/mods.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/mods-c135473ad0855552.png"
     },
     {
       "id": "864d05f2-8e76-4a48-abab-315395d93e44",
@@ -16375,7 +16375,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T11:12:06.000Z"
       },
-      "icon_url": "/cli-app-icons/mongosh.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/mongosh-691b0bcb2eb2e76a.png"
     },
     {
       "id": "2003cf2a-35b7-47ce-8e6e-572f83f07a80",
@@ -16441,7 +16441,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/mosh.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/mosh-49fd7da74a3a34f1.png"
     },
     {
       "id": "543945c2-4a68-4d49-a569-efeed9e176b6",
@@ -16507,7 +16507,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/mpv.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/mpv-743a038cfa2363ce.png"
     },
     {
       "id": "0895ed00-3d78-468a-8621-134cc232d209",
@@ -16578,7 +16578,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/mtr.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/mtr-3335db83a3d184d8.png"
     },
     {
       "id": "d19d78df-d518-46f2-9976-bf02deb3d1f7",
@@ -16666,7 +16666,7 @@
         "latest_version": null,
         "latest_release_at": "2026-03-23T02:00:57.000Z"
       },
-      "icon_url": "/cli-app-icons/musikcube.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/musikcube-f49c7af27f24891b.png"
     },
     {
       "id": "44dfa348-7c28-4430-834e-9527517628b2",
@@ -16737,7 +16737,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/mycli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/mycli-68286c578919bcd3.png"
     },
     {
       "id": "5df7c3b3-1b9b-416b-a5a6-fd5707bd7f48",
@@ -16834,7 +16834,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T01:56:48.000Z"
       },
-      "icon_url": "/cli-app-icons/nb.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/nb-0c899e296bebdd5e.png"
     },
     {
       "id": "ce4faeb0-6a36-4765-abcc-710c1b12133b",
@@ -16900,7 +16900,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/ncspot.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/ncspot-ed4469316c99dc95.png"
     },
     {
       "id": "4b1438e5-022e-46c6-aac9-ede6794ee759",
@@ -16992,7 +16992,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T12:18:15.000Z"
       },
-      "icon_url": "/cli-app-icons/neomutt.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/neomutt-f3060a38164bb5a7.png"
     },
     {
       "id": "1e6a93ee-81df-4aec-b790-c40861f3a92b",
@@ -17059,7 +17059,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/neovim.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/neovim-a1d3f486e7acdaea.png"
     },
     {
       "id": "ccafd22b-43b7-4c25-8d1f-603754bd752c",
@@ -17125,7 +17125,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/nethack.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/nethack-cfa165624d7687bd.png"
     },
     {
       "id": "314e7274-f664-4efa-a19c-ee12937d9f01",
@@ -17213,7 +17213,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/newsboat.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/newsboat-6669defa7a6d9729.png"
     },
     {
       "id": "00d45cb3-5e4a-4368-b379-744ce8a2c300",
@@ -17281,7 +17281,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/nix.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/nix-3da15f10f3f9367a.png"
     },
     {
       "id": "7f2ed7ad-a43b-4697-a1d4-67ba8ccdcbd8",
@@ -17353,7 +17353,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/nmap.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/nmap-8ee5cb06fb99e83e.png"
     },
     {
       "id": "c1382346-7f85-4124-a39c-38e09e7d87c4",
@@ -17425,7 +17425,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/nnn.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/nnn-df6bc07c6c414703.png"
     },
     {
       "id": "dc985768-3f3a-4fd3-8099-0bb92665015a",
@@ -17500,7 +17500,7 @@
         "latest_version": "3.11.1",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/nuclei.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/nuclei-422eab8479b1335a.png"
     },
     {
       "id": "79346e5d-6504-4cc7-8f49-bb378b3bce58",
@@ -17565,7 +17565,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/nudoku.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/nudoku-ad6a4982639b8591.png"
     },
     {
       "id": "162a6b61-1468-41a2-9f6c-96338f095f47",
@@ -17644,7 +17644,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T09:39:03.000Z"
       },
-      "icon_url": "/cli-app-icons/nushell.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/nushell-10169dde2bb7ffc0.png"
     },
     {
       "id": "d8ced1e1-18ac-4988-b7db-8c30b3f7575f",
@@ -17709,7 +17709,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/oh-my-posh.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/oh-my-posh-468e21a14414159c.png"
     },
     {
       "id": "2a18a0fd-a673-4ae0-8421-3874aab45926",
@@ -17794,7 +17794,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-17T07:04:40.000Z"
       },
-      "icon_url": "/cli-app-icons/onefetch.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/onefetch-71e2aefd5f4c8a5b.png"
     },
     {
       "id": "cab9827e-7067-47fd-8bfd-a456cf56aa7c",
@@ -17857,7 +17857,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/open-interpreter.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/open-interpreter-75c8e06f0ad6b911.png"
     },
     {
       "id": "bc4b1334-d4f0-4b7d-9a2e-031058a48c74",
@@ -17928,7 +17928,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/opencode.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/opencode-102ba0023b656389.png"
     },
     {
       "id": "3f580d53-567e-46c4-ba77-f307a215cce4",
@@ -18004,7 +18004,7 @@
         "latest_version": "1.12.6",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/opentofu.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/opentofu-5d8c7c0bfea2833e.png"
     },
     {
       "id": "5552568a-d4fb-41f3-b88f-34f5cb3d199e",
@@ -18080,7 +18080,7 @@
         "latest_version": "2.5.1",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/osv-scanner.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/osv-scanner-21013fc29aa06a00.png"
     },
     {
       "id": "02831f5d-4af5-4ba9-81a1-00c4922dc5ca",
@@ -18159,7 +18159,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-17T23:44:58.000Z"
       },
-      "icon_url": "/cli-app-icons/ouch.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/ouch-984b476257c285d4.png"
     },
     {
       "id": "08d94e87-8f2b-440d-ab16-90618067a9a0",
@@ -18230,7 +18230,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/packer.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/packer-6cce74db11e1e63b.png"
     },
     {
       "id": "0c37a467-e68c-4fa8-93aa-59694ddc3633",
@@ -18303,7 +18303,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/pandoc.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/pandoc-1ec3a6242265756b.png"
     },
     {
       "id": "f6535d02-1c97-4403-939f-e9120bb063c2",
@@ -18382,7 +18382,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-01T06:03:15.000Z"
       },
-      "icon_url": "/cli-app-icons/pg-activity.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/pg-activity-925855a8b703071b.png"
     },
     {
       "id": "1632a067-48df-4829-bc89-991c0e3fd29f",
@@ -18448,7 +18448,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/pgcli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/pgcli-68286c578919bcd3.png"
     },
     {
       "id": "55a024ce-211e-489e-9136-259d87edcd23",
@@ -18541,7 +18541,7 @@
         "latest_version": null,
         "latest_release_at": "2025-10-03T21:49:58.000Z"
       },
-      "icon_url": "/cli-app-icons/plandex.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/plandex-d0b2da1b09b016b6.png"
     },
     {
       "id": "8f39d046-aebc-476e-acb5-84b8d4f876a3",
@@ -18612,7 +18612,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/podman.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/podman-ce8fc247383541f4.png"
     },
     {
       "id": "2f716617-e292-43d1-85bf-1fa3b8805c57",
@@ -18692,7 +18692,7 @@
         "latest_version": null,
         "latest_release_at": "2026-05-22T17:58:25.000Z"
       },
-      "icon_url": "/cli-app-icons/pokete.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/pokete-f644b1cf8e44514d.png"
     },
     {
       "id": "885e6a32-ddb3-4827-8c71-7adc0993e47e",
@@ -18783,7 +18783,7 @@
         "latest_version": null,
         "latest_release_at": "2026-03-25T23:30:48.000Z"
       },
-      "icon_url": "/cli-app-icons/posting.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/posting-51669e5c5da14555.png"
     },
     {
       "id": "eab14fd0-41d0-4e23-bd18-3c0ffe5f18d3",
@@ -18845,7 +18845,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/powerlevel10k.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/powerlevel10k-5bf2ed13a46746f0.png"
     },
     {
       "id": "850eea3a-2870-420c-af57-3c23ff002c73",
@@ -18915,7 +18915,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/pre-commit.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/pre-commit-9cad46f6323f453c.png"
     },
     {
       "id": "894d39b5-ae5f-4312-a92f-772efaa0a462",
@@ -19000,7 +19000,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-17T22:59:06.000Z"
       },
-      "icon_url": "/cli-app-icons/process-compose.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/process-compose-f0670a237d1fe8d8.png"
     },
     {
       "id": "d3d93ca5-154b-4012-bed8-092eba77c2f2",
@@ -19078,7 +19078,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-17T20:09:04.000Z"
       },
-      "icon_url": "/cli-app-icons/procs.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/procs-fdd610ed21f524c4.png"
     },
     {
       "id": "b154243e-e9c0-43bf-83ef-8cf477089cf5",
@@ -19150,7 +19150,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/pulumi.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/pulumi-c9877fb04fa451c3.png"
     },
     {
       "id": "14b47142-3b6e-4483-bc19-007d56230753",
@@ -19217,7 +19217,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/qsv.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/qsv-c121f035eae957ae.png"
     },
     {
       "id": "97e94fcb-bbf6-4fcc-ae83-7b6fa2927aa9",
@@ -19290,7 +19290,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/railway-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/railway-cli-062c19cbf6194152.png"
     },
     {
       "id": "e3fca20e-38d0-4c63-9d08-b4d8e36412cc",
@@ -19370,7 +19370,7 @@
         "latest_version": null,
         "latest_release_at": "2023-03-26T14:16:23.000Z"
       },
-      "icon_url": "/cli-app-icons/ranger.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/ranger-bd76a24ceb6baa83.png"
     },
     {
       "id": "978ed0c4-1457-47d7-a913-4622da3af3e3",
@@ -19438,7 +19438,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/restic.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/restic-3c9d2a2e4c383a09.png"
     },
     {
       "id": "ea05455d-0cc2-40d6-8677-3b14f8caa56e",
@@ -19530,7 +19530,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-04T13:59:44.000Z"
       },
-      "icon_url": "/cli-app-icons/ripgrep.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/ripgrep-40e35aee4eace0ee.png"
     },
     {
       "id": "2402ab2d-19ed-430c-8d16-dd5f99e5dd8c",
@@ -19618,7 +19618,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/rustscan.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/rustscan-9ab2fae8607bc466.png"
     },
     {
       "id": "1495338b-9fbb-4dcc-8d8d-ea6abef8228b",
@@ -19707,7 +19707,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T23:40:47.000Z"
       },
-      "icon_url": "/cli-app-icons/scc.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/scc-90599479f23388bc.png"
     },
     {
       "id": "36ab2bbf-254f-458e-a784-e5fabdd310a7",
@@ -19793,7 +19793,7 @@
         "latest_version": null,
         "latest_release_at": "2026-02-25T19:26:21.000Z"
       },
-      "icon_url": "/cli-app-icons/sd.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/sd-4abe7a74d6ada34f.png"
     },
     {
       "id": "498cce7e-f778-489a-91e5-818b6257d513",
@@ -19872,7 +19872,7 @@
         "latest_version": null,
         "latest_release_at": "2026-07-01T16:45:20.000Z"
       },
-      "icon_url": "/cli-app-icons/sheldon.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/sheldon-92c56a0064aafde3.png"
     },
     {
       "id": "89400540-675f-4379-8042-5f93ba0505ed",
@@ -19966,7 +19966,7 @@
         "latest_version": null,
         "latest_release_at": "2026-07-02T06:03:01.000Z"
       },
-      "icon_url": "/cli-app-icons/shell-gpt.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/shell-gpt-266dc5cdd49d0c73.png"
     },
     {
       "id": "ca61dfee-6fef-4b57-93c9-c22a7f6d6381",
@@ -20048,7 +20048,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-04T08:32:46.000Z"
       },
-      "icon_url": "/cli-app-icons/shellcheck.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/shellcheck-a32b7da901242c83.png"
     },
     {
       "id": "6124b9ff-da60-4b0c-b695-db3d06425494",
@@ -20120,7 +20120,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/shfmt.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/shfmt-1ce8f0c7c1c68fa9.png"
     },
     {
       "id": "e3281979-5819-494f-a002-b76005e963dc",
@@ -20189,7 +20189,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/skopeo.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/skopeo-4bef6df4747ebcec.png"
     },
     {
       "id": "4ca8d205-3365-43c5-af4c-93b750cab72d",
@@ -20268,7 +20268,7 @@
         "latest_version": null,
         "latest_release_at": "2026-07-08T18:44:50.000Z"
       },
-      "icon_url": "/cli-app-icons/slides.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/slides-4a4c59b4ba58edfc.png"
     },
     {
       "id": "f29197c1-0115-4209-be7c-3317aac07620",
@@ -20341,7 +20341,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/sops.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/sops-28381f151fb8a7da.png"
     },
     {
       "id": "e171082e-1333-42ce-897a-d92890cae89e",
@@ -20411,7 +20411,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/spotdl.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/spotdl-e85af863503e0bc4.png"
     },
     {
       "id": "ae7377d5-1901-4292-891a-bd663db39b4c",
@@ -20487,7 +20487,7 @@
         "latest_version": "1.31.1",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/sqlc.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/sqlc-774370605040af0b.png"
     },
     {
       "id": "ec113f82-cad9-4a51-ab60-f20b636a02c6",
@@ -20562,7 +20562,7 @@
         "latest_version": "4.3.0",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/sqlfluff.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/sqlfluff-00a6f3eb907aee3b.png"
     },
     {
       "id": "3a434ed4-20a8-4923-aeb1-c6ba69b0caea",
@@ -20641,7 +20641,7 @@
         "latest_version": "3.53.4",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/sqlite.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/sqlite-309a033204fc2e54.png"
     },
     {
       "id": "770be94d-35dc-407d-bb48-16fa169b806a",
@@ -20722,7 +20722,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-14T00:01:52.000Z"
       },
-      "icon_url": "/cli-app-icons/sqlite-utils.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/sqlite-utils-ce8fc247383541f4.png"
     },
     {
       "id": "871ccb29-beff-4d7b-bf91-de82c727c092",
@@ -20793,7 +20793,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/sshuttle.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/sshuttle-ce8fc247383541f4.png"
     },
     {
       "id": "652c6f75-7cf9-4dc5-a93f-8618a8ca12cb",
@@ -20873,7 +20873,7 @@
         "latest_version": null,
         "latest_release_at": "2025-11-05T14:50:49.000Z"
       },
-      "icon_url": "/cli-app-icons/starship.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/starship-abeee800ebac5763.png"
     },
     {
       "id": "c73294b5-ca3b-42c9-8a66-7e026be1d181",
@@ -20948,7 +20948,7 @@
         "latest_version": "0.30.6-2",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/step-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/step-cli-715552cde25d4558.png"
     },
     {
       "id": "f830cad7-c7d5-47cc-9489-3edf1e6eb26d",
@@ -21019,7 +21019,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/stern.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/stern-cf3614aa7dc03b81.png"
     },
     {
       "id": "8823c60c-9a71-4262-94ab-7453bcf28a28",
@@ -21089,7 +21089,7 @@
         "latest_version": "7.2",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/strace.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/strace-6608c39e66a39791.png"
     },
     {
       "id": "80005d8b-d0d5-4c93-b542-092eb1e94ea2",
@@ -21173,7 +21173,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T20:40:53.000Z"
       },
-      "icon_url": "/cli-app-icons/streamlink.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/streamlink-45a4718c7922ea14.png"
     },
     {
       "id": "7287530e-b47c-4976-9af2-d7de033d727a",
@@ -21246,7 +21246,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/stripe-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/stripe-cli-0848e7633eee47e2.png"
     },
     {
       "id": "6efa8364-a61b-4cbb-aa9f-3ae93de5ff1c",
@@ -21320,7 +21320,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/supabase-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/supabase-cli-fe6452c193d3b863.png"
     },
     {
       "id": "63ac87fe-d162-474f-91c8-b28aa72bfe3a",
@@ -21390,7 +21390,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/syft.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/syft-28381f151fb8a7da.png"
     },
     {
       "id": "c7e0b860-4e8d-4cf8-b926-8ddb83806300",
@@ -21455,7 +21455,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/sysdig.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/sysdig-b7d6056ffc3b04a2.png"
     },
     {
       "id": "5430fd67-0370-4fbb-86fd-50193b0671d0",
@@ -21529,7 +21529,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/tailscale.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/tailscale-21c9bff71d8b6a78.png"
     },
     {
       "id": "58c2860d-1239-40b1-aba6-de9c4139b37c",
@@ -21598,7 +21598,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/taskwarrior.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/taskwarrior-45ea69417369b786.png"
     },
     {
       "id": "6c70a95b-b3ec-404c-b1b4-2671d1b37b5d",
@@ -21669,7 +21669,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/tcpdump.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/tcpdump-744a60b2707c407f.png"
     },
     {
       "id": "1d0df3d4-f0d8-43a8-b844-fa413ddaa8f3",
@@ -21739,7 +21739,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/tealdeer.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/tealdeer-04eef3e411792658.png"
     },
     {
       "id": "5840383f-c1a0-4f01-9513-4e026e45502a",
@@ -21823,7 +21823,7 @@
         "latest_version": null,
         "latest_release_at": "2024-04-30T06:15:11.000Z"
       },
-      "icon_url": "/cli-app-icons/termshark.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/termshark-3f939fcd2c746e7d.png"
     },
     {
       "id": "696511f9-b58c-446b-9124-df39f42f666b",
@@ -21892,7 +21892,7 @@
         "latest_version": "1.6.1-patch4",
         "latest_release_at": "2024-09-27T19:56:52.737Z"
       },
-      "icon_url": "/cli-app-icons/termusic.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/termusic-29e2c8f7fbe3bf20.png"
     },
     {
       "id": "981e6bd2-aa13-47d5-83ec-2673b62a48e5",
@@ -21972,7 +21972,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T19:36:28.000Z"
       },
-      "icon_url": "/cli-app-icons/terragrunt.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/terragrunt-12578426e9a04dfe.png"
     },
     {
       "id": "610fdad0-677e-41cb-bb38-133eaa6a01ff",
@@ -22051,7 +22051,7 @@
         "latest_version": null,
         "latest_release_at": "2026-07-27T23:00:48.000Z"
       },
-      "icon_url": "/cli-app-icons/tig.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/tig-c27ea7156d6b7938.png"
     },
     {
       "id": "7a051970-a672-466a-b8a2-20ebec3b0b93",
@@ -22131,7 +22131,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-19T10:41:45.000Z"
       },
-      "icon_url": "/cli-app-icons/timewarrior.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/timewarrior-45ea69417369b786.png"
     },
     {
       "id": "661d6b25-2efd-444e-9e0a-dc6f7e7856fd",
@@ -22202,7 +22202,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/tmux.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/tmux-13b738a8d6b7dcc0.png"
     },
     {
       "id": "bea1cfd4-b36f-47d8-a527-79a9bf242045",
@@ -22274,7 +22274,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/tokei.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/tokei-afe5c7c4760c75c7.png"
     },
     {
       "id": "4f472794-fb15-4583-85bf-abb0aff3833a",
@@ -22353,7 +22353,7 @@
         "latest_version": null,
         "latest_release_at": "2026-07-04T09:27:34.000Z"
       },
-      "icon_url": "/cli-app-icons/toot.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/toot-68d5aea49cb44835.png"
     },
     {
       "id": "577cef05-1a28-41bb-b31f-fb1e512d04bb",
@@ -22423,7 +22423,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/trash-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/trash-cli-2130787e0bf28945.png"
     },
     {
       "id": "594921de-caae-45e7-90f4-f76e29cfdc80",
@@ -22496,7 +22496,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/trivy.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/trivy-7e4d5ed5eb620af0.png"
     },
     {
       "id": "d71d9288-a007-47c5-8194-33e59b1c13aa",
@@ -22571,7 +22571,7 @@
         "latest_version": "3.97.0",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/trufflehog.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/trufflehog-e0ee500698887480.png"
     },
     {
       "id": "caf85c01-7d10-4c97-8bf4-7162e99b5b03",
@@ -22634,7 +22634,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/tty-solitaire.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/tty-solitaire-ed1dd06e1b1d6c54.png"
     },
     {
       "id": "7312bc9b-7737-4066-9dc0-0c3ef4a09c59",
@@ -22710,7 +22710,7 @@
         "latest_version": "6.2.1",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/universal-ctags.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/universal-ctags-92681898f86bcf09.png"
     },
     {
       "id": "f0d6c257-444c-4063-b462-02f60d703ced",
@@ -22800,7 +22800,7 @@
         "latest_version": null,
         "latest_release_at": "2026-06-19T14:42:20.000Z"
       },
-      "icon_url": "/cli-app-icons/usql.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/usql-51cf67532a7175af.png"
     },
     {
       "id": "aeb5509d-7fb1-4863-bbc9-daa23215e673",
@@ -22883,7 +22883,7 @@
         "latest_version": null,
         "latest_release_at": "2026-07-21T10:38:19.000Z"
       },
-      "icon_url": "/cli-app-icons/vault.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/vault-328625a65b68ee60.png"
     },
     {
       "id": "432c2188-456b-406e-8abc-bc12a55e9285",
@@ -22974,7 +22974,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T09:18:17.000Z"
       },
-      "icon_url": "/cli-app-icons/vdirsyncer.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/vdirsyncer-ce8fc247383541f4.png"
     },
     {
       "id": "e51a80fc-093a-4699-ba36-3f13b805968c",
@@ -23046,7 +23046,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/vercel-cli.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/vercel-cli-0b8caa08c93fa5db.png"
     },
     {
       "id": "7decc367-b1d1-4fdc-af3f-a97d357eddb5",
@@ -23127,7 +23127,7 @@
         "latest_version": null,
         "latest_release_at": "2019-02-15T21:55:57.000Z"
       },
-      "icon_url": "/cli-app-icons/vim.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/vim-50a4f946af9015b5.png"
     },
     {
       "id": "e87feb15-6a6b-4250-b2be-7b44e76f8a4f",
@@ -23222,7 +23222,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-15T18:52:44.000Z"
       },
-      "icon_url": "/cli-app-icons/visidata.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/visidata-b760c257a6dec669.png"
     },
     {
       "id": "266250bf-3342-4787-88fa-1d72e2bc3f03",
@@ -23304,7 +23304,7 @@
         "latest_version": null,
         "latest_release_at": "2025-12-15T10:20:59.000Z"
       },
-      "icon_url": "/cli-app-icons/viu.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/viu-8546ac5b1e81832e.png"
     },
     {
       "id": "acfc08ea-cbe2-4a4f-9a5a-bb2413bda147",
@@ -23387,7 +23387,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T00:12:37.000Z"
       },
-      "icon_url": "/cli-app-icons/watchexec.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/watchexec-17aee2705ea6d08d.png"
     },
     {
       "id": "f63c4f7c-a660-461c-b026-9b6c02384380",
@@ -23476,7 +23476,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-13T10:17:56.000Z"
       },
-      "icon_url": "/cli-app-icons/websocat.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/websocat-7e62284c438b4706.png"
     },
     {
       "id": "1f539456-bcdd-4826-829e-493a7c1f3c37",
@@ -23542,7 +23542,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/weechat.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/weechat-ae3cb3095ba84f3c.png"
     },
     {
       "id": "5ed50a67-e279-4a74-9ca9-a6a3cdfe5ba8",
@@ -23624,7 +23624,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T07:51:14.000Z"
       },
-      "icon_url": "/cli-app-icons/wezterm.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/wezterm-ebc0bf2cdb173b96.png"
     },
     {
       "id": "0185e52e-4ad6-427d-82e3-ef5631ba44af",
@@ -23694,7 +23694,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/wrangler.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/wrangler-6de5fda9f1e13e19.png"
     },
     {
       "id": "deef5db0-a301-4d91-9cac-6e5e9596ee94",
@@ -23779,7 +23779,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-16T21:58:33.000Z"
       },
-      "icon_url": "/cli-app-icons/xh.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/xh-d77d572568bf35b4.png"
     },
     {
       "id": "06d9efa9-1159-4817-a7af-ae36a7dd0ec4",
@@ -23845,7 +23845,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/xonsh.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/xonsh-a889bec990112a06.png"
     },
     {
       "id": "05c4bb2b-0402-4595-ac13-e4046fe6ef86",
@@ -23922,7 +23922,7 @@
         "latest_version": "4.5.8",
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/yara.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/yara-6d5af156a77f08d0.png"
     },
     {
       "id": "c015fbd7-c20a-4249-bf58-deaee2a34acb",
@@ -24024,7 +24024,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-21T10:08:56.000Z"
       },
-      "icon_url": "/cli-app-icons/yazi.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/yazi-c2884aaed7672845.png"
     },
     {
       "id": "80a9578b-dcb1-4b8b-8f39-d3b968447e02",
@@ -24116,7 +24116,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T09:08:08.000Z"
       },
-      "icon_url": "/cli-app-icons/yq.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/yq-118adc270a55416e.png"
     },
     {
       "id": "bfad90a5-70d9-4d97-8f8c-710a3e4e6400",
@@ -24193,7 +24193,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-20T09:12:36.000Z"
       },
-      "icon_url": "/cli-app-icons/zellij.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/zellij-fa909ccebb296107.png"
     },
     {
       "id": "dc9636ff-8c0c-4a72-9975-d7d83a4e8340",
@@ -24273,7 +24273,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-03T23:33:33.000Z"
       },
-      "icon_url": "/cli-app-icons/zk.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/zk-eaa69bb012b8a931.png"
     },
     {
       "id": "b02b10f0-6e60-4398-99e4-6b47c8c84cf1",
@@ -24374,7 +24374,7 @@
         "latest_version": null,
         "latest_release_at": "2026-08-19T10:40:09.000Z"
       },
-      "icon_url": "/cli-app-icons/zoxide.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/zoxide-5612cb13ffc081f3.png"
     },
     {
       "slug": "dokku",
@@ -24420,7 +24420,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/dokku.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/dokku-3bdef180345757c6.png"
     },
     {
       "slug": "goose-ai",
@@ -24470,7 +24470,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/goose-ai.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/goose-ai-3fe0abaaed8b346d.png"
     },
     {
       "slug": "vis-editor",
@@ -24523,7 +24523,7 @@
         "latest_version": null,
         "latest_release_at": null
       },
-      "icon_url": "/cli-app-icons/vis-editor.png"
+      "icon_url": "https://tulgfrqamtcshdtmhvpx.supabase.co/storage/v1/object/public/stack127-media/directories/cli-apps/icons/vis-editor-b8ca82af6b7b71d6.png"
     }
   ]
 }

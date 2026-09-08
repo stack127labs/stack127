@@ -1,39 +1,56 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import type { WalkStep } from "@namefi/dnssec-audit";
-import type { NormalizedDnsRecord } from "@/lib/dns/types.ts";
+import {
+  ToolActionRow,
+  ToolButton,
+  ToolChoiceGroup,
+  ToolDataTable,
+  ToolDisclosure,
+  ToolDownloadAction,
+  ToolKeyValueList,
+  ToolRawOutput,
+  ToolResultLead,
+  ToolStatus,
+  ToolTextField,
+  type ToolOption,
+} from "@/app/tool-ui/tool-controls";
 import { DNSSEC_RECORD_TYPES, type DnssecRecordType, type DnssecSignature, type DnssecVerdict } from "@/lib/dns/dnssec-types.ts";
-import { DiagnosticResultHeader, diagnosticReportJson, DownloadResultButton } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
-import styles from "../../(catalogs)/dns-tools/dns-diagnostics.module.css";
+import type { NormalizedDnsRecord } from "@/lib/dns/types.ts";
+import { diagnosticReportJson } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
+import styles from "./dnssec-checker.module.css";
 
-type Evidence = { responseCode: string | null; authenticatedData: boolean | null; records: NormalizedDnsRecord[]; rawResponse: unknown; error: string | null };
-type Outcome = "secure-positive" | "secure-nodata" | "secure-nxdomain" | "insecure" | "bogus" | null;
-type Result = {
-  query: { name: string; recordType: DnssecRecordType };
-  checkedAt: string;
-  durationMs: number;
-  verdict: DnssecVerdict;
-  explanation: string;
-  validation: { outcome: Outcome; steps: WalkStep[] };
-  signatures: DnssecSignature[];
-  answer: Evidence;
-  chain: Array<{ zone: string; ds: Evidence | null; dnskey: Evidence }>;
-  validator: { name: string; performedLocalValidation: boolean; exitCode: number; rawReport: unknown };
+type Evidence = {
+  authenticatedData: boolean | null;
+  error: string | null;
+  rawResponse: unknown;
+  records: NormalizedDnsRecord[];
+  responseCode: string | null;
 };
 
-const labels: Record<DnssecVerdict, string> = { secure: "Secure", insecure: "Insecure", bogus: "Bogus", indeterminate: "Indeterminate" };
+type Outcome = "secure-positive" | "secure-nodata" | "secure-nxdomain" | "insecure" | "bogus" | null;
 
-function resultSentence(result: Result) {
-  switch (result.validation.outcome) {
-    case "secure-positive": return `The ${result.query.recordType} answer is signed, and its signatures validate through the chain to the DNS root.`;
-    case "secure-nodata": return `The name exists, but it has no ${result.query.recordType} record. DNSSEC provided a signed proof of that absence.`;
-    case "secure-nxdomain": return "The name does not exist, and DNSSEC provided a signed proof of that result.";
-    case "insecure": return "The validator found a signed proof that this delegation is unsigned. That means DNSSEC is not protecting this answer, but the chain is not broken.";
-    case "bogus": return "The name is expected to validate, but a key, signature, DS link, or denial proof failed. Validating resolvers may return SERVFAIL.";
-    default: return "The validator could not finish with enough evidence to call this answer secure, insecure, or bogus.";
-  }
-}
+type Result = {
+  answer: Evidence;
+  chain: Array<{ dnskey: Evidence; ds: Evidence | null; zone: string }>;
+  checkedAt: string;
+  durationMs: number;
+  explanation: string;
+  query: { name: string; recordType: DnssecRecordType };
+  signatures: DnssecSignature[];
+  validation: { outcome: Outcome; steps: WalkStep[] };
+  validator: { exitCode: number; name: string; performedLocalValidation: boolean; rawReport: unknown };
+  verdict: DnssecVerdict;
+};
+
+const recordTypeOptions: ToolOption[] = DNSSEC_RECORD_TYPES.map((type) => ({ id: type, label: type }));
+const verdictLabels: Record<DnssecVerdict, string> = {
+  bogus: "Bogus",
+  indeterminate: "Indeterminate",
+  insecure: "Insecure",
+  secure: "Secure",
+};
 
 function stepName(step: WalkStep) {
   if (step.kind === "root-trust-anchor") return "Start with the DNS root trust anchor";
@@ -45,55 +62,334 @@ function stepName(step: WalkStep) {
   return step.zone ? `Check ${step.zone}` : "Validation note";
 }
 
+function verdictDetail(result: Result) {
+  switch (result.validation.outcome) {
+    case "secure-positive":
+      return `The ${result.query.recordType} answer for ${result.query.name} is signed and validates through the chain to the DNS root.`;
+    case "secure-nodata":
+      return `${result.query.name} exists, but it has no ${result.query.recordType} record. DNSSEC validated the signed proof of that absence.`;
+    case "secure-nxdomain":
+      return `${result.query.name} does not exist, and DNSSEC validated the signed denial proof.`;
+    case "insecure":
+      return `The chain proves that ${result.query.name} is not DNSSEC-protected, but the chain is not broken.`;
+    case "bogus": {
+      const failedStep = result.validation.steps.find((step) => !step.ok);
+      const failure = failedStep ? `the first failed chain step was ${stepName(failedStep)}` : "a required chain step failed";
+      return `The ${result.query.recordType} answer for ${result.query.name} should validate, but ${failure}. Validating resolvers may return SERVFAIL.`;
+    }
+    default:
+      return result.validation.steps.length > 0
+        ? `The validator could not gather enough evidence to classify the ${result.query.recordType} answer for ${result.query.name}.`
+        : `The validator could not complete the ${result.query.recordType} check for ${result.query.name}.`;
+  }
+}
+
+function verdictTone(verdict: DnssecVerdict) {
+  if (verdict === "secure") return "success";
+  if (verdict === "bogus") return "danger";
+  return "warning";
+}
+
 function signatureTime(signature: DnssecSignature) {
   const seconds = Math.abs(signature.secondsRemaining);
+  const roundedDays = Math.round(seconds / 86400);
+  const roundedHours = Math.round(seconds / 3600);
+  const roundedMinutes = Math.max(1, Math.round(seconds / 60));
   const value = seconds >= 86400
-    ? `${Math.round(seconds / 86400)} day${Math.round(seconds / 86400) === 1 ? "" : "s"}`
+    ? `${roundedDays} day${roundedDays === 1 ? "" : "s"}`
     : seconds >= 3600
-      ? `${Math.round(seconds / 3600)} hour${Math.round(seconds / 3600) === 1 ? "" : "s"}`
-      : `${Math.max(1, Math.round(seconds / 60))} minute${Math.max(1, Math.round(seconds / 60)) === 1 ? "" : "s"}`;
+      ? `${roundedHours} hour${roundedHours === 1 ? "" : "s"}`
+      : `${roundedMinutes} minute${roundedMinutes === 1 ? "" : "s"}`;
   if (signature.status === "expired") return `Expired ${value} ago`;
-  if (signature.status === "not-yet-valid") return `Not valid yet · expires in ${value}`;
+  if (signature.status === "not-yet-valid") return `Not valid yet. Expires in ${value}.`;
   return `${value} remaining`;
 }
 
-export function DnssecChecker({ initialName = "", initialRecordType = "A" }: { initialName?: string; initialRecordType?: DnssecRecordType }) {
+function authenticatedDataLabel(value: boolean | null, supporting = false) {
+  if (value === null) return "Not reported.";
+  if (value) return supporting ? "Set. Supporting resolver evidence only." : "Set. Resolver evidence only.";
+  return supporting ? "Not set. Supporting resolver evidence only." : "Not set. Resolver evidence only.";
+}
+
+function recordRows(records: NormalizedDnsRecord[]) {
+  return records.map((record, index) => ({
+    id: `${record.ownerName}-${record.type}-${record.value}-${index}`,
+    cells: {
+      owner: <code>{record.ownerName}</code>,
+      ttl: record.resolverTtlSeconds === null ? "Not reported" : `${record.resolverTtlSeconds.toLocaleString("en-US")} seconds`,
+      type: record.type,
+      value: <code>{record.value}</code>,
+    },
+  }));
+}
+
+const recordColumns = [
+  { id: "owner", label: "Owner" },
+  { id: "type", label: "Type" },
+  { id: "value", label: "Value" },
+  { id: "ttl", label: "Resolver TTL" },
+];
+
+function EvidenceBlock({ evidence, recordType, zone }: {
+  evidence: Evidence;
+  recordType: "DS" | "DNSKEY";
+  zone: string;
+}) {
+  return (
+    <section className={styles.evidenceBlock}>
+      <h5>{recordType}</h5>
+      <ToolKeyValueList rows={[
+        { label: "Response code", value: evidence.responseCode ?? "Not reported" },
+        { label: "Resolver AD", value: authenticatedDataLabel(evidence.authenticatedData) },
+      ]} />
+      {evidence.error ? (
+        <p className={styles.evidenceMessage}>{evidence.error}</p>
+      ) : evidence.records.length > 0 ? (
+        <ToolDataTable
+          ariaLabel={`${recordType} records for ${zone}`}
+          columns={recordColumns}
+          rows={recordRows(evidence.records)}
+        />
+      ) : (
+        <p className={styles.evidenceMessage}>No {recordType} records were returned.</p>
+      )}
+    </section>
+  );
+}
+
+function requestedAnswerMessage(result: Result) {
+  if (result.answer.error) return result.answer.error;
+  if (result.validation.outcome === "secure-nodata") {
+    return `No ${result.query.recordType} record rows were returned by the evidence lookup.`;
+  }
+  if (result.validation.outcome === "secure-nxdomain") {
+    return "No record rows were returned because the requested name does not exist.";
+  }
+  return `No ${result.query.recordType} record rows were returned by the evidence lookup.`;
+}
+
+export function DnssecChecker({ initialName = "", initialRecordType = "A" }: {
+  initialName?: string;
+  initialRecordType?: DnssecRecordType;
+}) {
   const [name, setName] = useState(initialName);
   const [recordType, setRecordType] = useState(initialRecordType);
   const [result, setResult] = useState<Result | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [nameError, setNameError] = useState<string | null>(null);
+  const [recordTypeError, setRecordTypeError] = useState<string | null>(null);
+  const [requestError, setRequestError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const recordTypeRef = useRef<HTMLDivElement>(null);
   const report = useMemo(() => result ? diagnosticReportJson("DNSSEC Chain Checker", result) : "", [result]);
+  const signatures = useMemo(
+    () => result ? [...result.signatures].sort((left, right) => left.expiration.localeCompare(right.expiration)) : [],
+    [result],
+  );
+
+  useEffect(() => setHydrated(true), []);
 
   async function submit(event: FormEvent) {
     event.preventDefault();
-    if (!name.trim()) return setError("Enter a domain or hostname.");
-    setLoading(true); setError(null);
+    if (!name.trim()) {
+      setResult(null);
+      setNameError("Enter a domain or hostname.");
+      setRecordTypeError(null);
+      setRequestError(null);
+      nameRef.current?.focus();
+      return;
+    }
+
+    setLoading(true);
+    setResult(null);
+    setNameError(null);
+    setRecordTypeError(null);
+    setRequestError(null);
     try {
-      const response = await fetch("/api/dns/dnssec-checker", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ name, recordType }) });
+      const response = await fetch("/api/dns/dnssec-checker", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ name, recordType }),
+      });
       const data = await response.json();
       if (!response.ok) throw new Error(data?.error?.message ?? "The DNSSEC check failed.");
       setResult(data);
-    } catch (caught) { setError(caught instanceof Error ? caught.message : "The DNSSEC check failed."); }
-    finally { setLoading(false); }
+    } catch (caught) {
+      const message = caught instanceof Error ? caught.message : "The DNSSEC check failed.";
+      if (/record type|choose A,/i.test(message)) {
+        setRecordTypeError(message);
+        recordTypeRef.current?.querySelector<HTMLElement>("[role=radio]")?.focus();
+      } else if (/domain|hostname/i.test(message)) {
+        setNameError(message);
+        nameRef.current?.focus();
+      } else {
+        setRequestError(message);
+      }
+    } finally {
+      setLoading(false);
+    }
   }
 
-  return <section className="dns-tool" aria-label="DNSSEC chain checker">
-    <form className="dns-lookup-form" onSubmit={submit}>
-      <label className="dns-name-field"><span>Domain or hostname</span><input autoCapitalize="none" autoComplete="off" onChange={(event) => setName(event.target.value)} placeholder="cloudflare.com" spellCheck={false} value={name} /></label>
-      <fieldset className="dns-record-type-picker"><legend>Record type</legend><div className="dns-record-type-options">{DNSSEC_RECORD_TYPES.map((type) => <label key={type}><input checked={recordType === type} name="dnssec-type" onChange={() => setRecordType(type)} type="radio"/><span>{type}</span></label>)}</div></fieldset>
-      <button className="dns-submit" disabled={loading}>{loading ? "Validating DNSSEC..." : "Validate DNSSEC"}</button>
-      {error ? <p className="dns-form-error" role="alert">{error}</p> : null}
-    </form>
-    {result ? <section className={styles.results} aria-live="polite">
-      <DiagnosticResultHeader action={<DownloadResultButton contents={report} filename={`${result.query.name}-${result.query.recordType}-dnssec-report.json`} type="application/json;charset=utf-8" />} checkedAt={result.checkedAt} durationMs={result.durationMs} hostname={result.query.name}>
-        <p><strong className={result.verdict === "secure" ? styles.stateGood : result.verdict === "bogus" ? styles.stateBad : styles.stateWarn}>{labels[result.verdict]}</strong> {resultSentence(result)}</p>
-      </DiagnosticResultHeader>
-      <section className={styles.section}><h3>What the validator checked</h3>{result.validation.steps.length ? <ol className={styles.chain}>{result.validation.steps.map((step, index) => <li className={styles.chainStep} data-ok={String(step.ok)} key={`${step.kind}-${step.zone ?? step.qname ?? index}-${index}`}><h4>{stepName(step)}</h4><p>{step.detail}</p></li>)}</ol> : <p className={styles.empty}>No validation steps were returned. The downloadable report keeps the failure details.</p>}</section>
-      <section className={styles.section}><h3>The answer that was validated</h3>{result.answer.records.length ? <div className="dns-table-scroll"><table className={`dns-status-table ${styles.compactTable}`}><thead><tr><th>Owner</th><th>Type</th><th>Value</th><th>Resolver TTL</th></tr></thead><tbody>{result.answer.records.map((record, index) => <tr key={`${record.ownerName}-${record.value}-${index}`}><th><code>{record.ownerName}</code></th><td>{record.type}</td><td><code>{record.value}</code></td><td>{record.resolverTtlSeconds === null ? "Not reported" : `${record.resolverTtlSeconds.toLocaleString("en-US")}s`}</td></tr>)}</tbody></table></div> : <p className={styles.empty}>{result.validation.outcome === "secure-nodata" ? `No ${result.query.recordType} record exists at this name, and the validator checked the signed proof.` : result.validation.outcome === "secure-nxdomain" ? "The name does not exist, and the validator checked the signed proof." : result.answer.error ?? `No ${result.query.recordType} record was returned.`}</p>}<details className={styles.raw}><summary>Raw requested answer</summary><pre>{JSON.stringify(result.answer, null, 2)}</pre></details></section>
-      {result.signatures.length ? <section className={styles.section}><h3>When the signatures expire</h3><p className={styles.inlineNote}>Each signed record set has its own validity window. The first signature to expire is the one to watch; there is no single expiry time for the whole domain.</p><div className="dns-table-scroll"><table className={`dns-status-table ${styles.compactTable}`}><thead><tr><th>Record set</th><th>Signer</th><th>Algorithm</th><th>Key tag</th><th>Valid from</th><th>Valid until</th><th>Status</th></tr></thead><tbody>{result.signatures.map((signature) => <tr key={`${signature.ownerName}-${signature.typeCovered}-${signature.keyTag}-${signature.expiration}`}><th><code>{signature.typeCovered}</code> for <code>{signature.ownerName}</code></th><td><code>{signature.signerName}</code></td><td>{signature.algorithmName} ({signature.algorithm})</td><td>{signature.keyTag}</td><td>{new Date(signature.inception).toLocaleString()}</td><td>{new Date(signature.expiration).toLocaleString()}</td><td>{signatureTime(signature)}</td></tr>)}</tbody></table></div></section> : null}
-      <details className={styles.raw}><summary>DS and DNSKEY evidence by zone</summary><pre>{JSON.stringify(result.chain, null, 2)}</pre></details>
-      <details className={styles.raw}><summary>Complete validator report</summary><pre>{JSON.stringify(result.validator.rawReport, null, 2)}</pre></details>
-    </section> : null}
-  </section>;
+  return (
+    <section
+      aria-label="DNSSEC chain checker"
+      className={styles.workbench}
+      data-hydrated={hydrated}
+      data-tool-workbench
+    >
+      <form aria-busy={loading || undefined} className={styles.form} onSubmit={submit}>
+        <ToolTextField
+          autoCapitalize="none"
+          autoComplete="off"
+          error={nameError}
+          inputMode="url"
+          inputRef={nameRef}
+          label="Domain or hostname"
+          onChange={(value) => {
+            setName(value);
+            if (nameError || requestError) {
+              setNameError(null);
+              setRequestError(null);
+            }
+          }}
+          placeholder="cloudflare.com"
+          required
+          spellCheck={false}
+          value={name}
+        />
+        <div ref={recordTypeRef}>
+          <ToolChoiceGroup
+            error={recordTypeError}
+            label="Record type"
+            onChange={(value) => {
+              setRecordType(value as DnssecRecordType);
+              if (recordTypeError || requestError) {
+                setRecordTypeError(null);
+                setRequestError(null);
+              }
+            }}
+            options={recordTypeOptions}
+            required
+            value={recordType}
+          />
+        </div>
+        <ToolActionRow>
+          <ToolButton className={styles.submit} isDisabled={loading} type="submit" variant="primary">
+            {loading ? "Validating DNSSEC..." : "Validate DNSSEC"}
+          </ToolButton>
+        </ToolActionRow>
+        {loading ? <ToolStatus>Validating DNSSEC...</ToolStatus> : null}
+        {requestError ? <ToolStatus tone="danger">{requestError}</ToolStatus> : null}
+      </form>
+
+      {result ? (
+        <section aria-live="polite" className={styles.results} data-dnssec-results>
+          <div className={styles.resultLeadRow}>
+            <div data-dnssec-verdict>
+              <ToolResultLead>
+                <span className={styles.verdictWord} data-tone={verdictTone(result.verdict)} data-verdict-word>
+                  {verdictLabels[result.verdict]}.
+                </span>{" "}
+                {verdictDetail(result)}
+              </ToolResultLead>
+            </div>
+            <ToolDownloadAction
+              contents={report}
+              filename={`${result.query.name}-${result.query.recordType}-dnssec-report.json`}
+              label="Download report"
+              mimeType="application/json;charset=utf-8"
+            />
+          </div>
+
+          <section className={styles.resultSection}>
+            <h3>What the validator checked</h3>
+            {result.validation.steps.length > 0 ? (
+              <ol aria-label="DNSSEC validation chain" className={styles.chain}>
+                {result.validation.steps.map((step, index) => (
+                  <li data-state={step.ok ? "passed" : "failed"} key={`${step.kind}-${step.zone ?? step.qname ?? index}-${index}`}>
+                    <h4>
+                      {stepName(step)}{" "}
+                      <span className={styles.stepState}>{step.ok ? "Passed" : "Failed"}</span>
+                    </h4>
+                    <p>{step.detail}</p>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <p className={styles.evidenceMessage}>No validation steps were returned.</p>
+            )}
+          </section>
+
+          <section className={styles.resultSection}>
+            <h3>Requested answer</h3>
+            <ToolKeyValueList rows={[
+              { label: "Response code", value: result.answer.responseCode ?? "Not reported" },
+              { label: "Resolver AD", value: authenticatedDataLabel(result.answer.authenticatedData, true) },
+            ]} />
+            {result.answer.records.length > 0 ? (
+              <ToolDataTable
+                ariaLabel="Requested answer records"
+                columns={recordColumns}
+                rows={recordRows(result.answer.records)}
+              />
+            ) : (
+              <p className={styles.evidenceMessage}>{requestedAnswerMessage(result)}</p>
+            )}
+            <div className={styles.requestedRaw} data-requested-raw>
+              <ToolRawOutput label="Raw requested answer" value={result.answer} />
+            </div>
+          </section>
+
+          {signatures.length > 0 ? (
+            <section className={styles.resultSection}>
+              <h3>Signature validity</h3>
+              <ToolDataTable
+                ariaLabel="DNSSEC signatures"
+                columns={[
+                  { id: "recordSet", label: "Record set" },
+                  { id: "signer", label: "Signer" },
+                  { id: "algorithm", label: "Algorithm" },
+                  { id: "keyTag", label: "Key tag" },
+                  { id: "validFrom", label: "Valid from" },
+                  { id: "validUntil", label: "Valid until" },
+                  { id: "status", label: "Status" },
+                ]}
+                rows={signatures.map((signature) => ({
+                  id: `${signature.ownerName}-${signature.typeCovered}-${signature.keyTag}-${signature.expiration}`,
+                  cells: {
+                    algorithm: `${signature.algorithmName} (${signature.algorithm})`,
+                    keyTag: signature.keyTag,
+                    recordSet: <><code>{signature.typeCovered}</code> for <code>{signature.ownerName}</code></>,
+                    signer: <code>{signature.signerName}</code>,
+                    status: signatureTime(signature),
+                    validFrom: new Date(signature.inception).toLocaleString(),
+                    validUntil: new Date(signature.expiration).toLocaleString(),
+                  },
+                }))}
+              />
+            </section>
+          ) : null}
+
+          <ToolDisclosure label="DS and DNSKEY evidence by zone">
+            <div className={styles.zoneEvidence} data-zone-evidence>
+              {result.chain.map((zone) => (
+                <section className={styles.zone} key={zone.zone}>
+                  <h4>{zone.zone} zone</h4>
+                  {zone.ds ? <EvidenceBlock evidence={zone.ds} recordType="DS" zone={zone.zone} /> : null}
+                  <EvidenceBlock evidence={zone.dnskey} recordType="DNSKEY" zone={zone.zone} />
+                </section>
+              ))}
+            </div>
+          </ToolDisclosure>
+
+          <dl className={styles.metadata}>
+            <div><dt>Checked</dt><dd>{new Date(result.checkedAt).toLocaleString()}</dd></div>
+            <div><dt>Duration</dt><dd>{result.durationMs.toLocaleString("en-US")} ms</dd></div>
+            <div><dt>Validation</dt><dd>{result.validator.performedLocalValidation ? `Local, ${result.validator.name}` : result.validator.name}</dd></div>
+          </dl>
+        </section>
+      ) : null}
+    </section>
+  );
 }

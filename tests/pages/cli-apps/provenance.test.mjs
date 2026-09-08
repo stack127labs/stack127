@@ -8,6 +8,15 @@ async function read(relativePath) {
   return readFile(new URL(relativePath, root), "utf8");
 }
 
+test("assembling curated evidence cannot invent completed reviews", async () => {
+  const builder = await read("scripts/cli-apps/build-curated-batch.mjs");
+  assert.doesNotMatch(builder, /derivationDate/);
+  assert.doesNotMatch(builder, /reachable: Boolean/);
+  assert.doesNotMatch(builder, /decision: "publish"/);
+  assert.match(builder, /decision: "needs_review"/);
+  assert.match(builder, /last_verified_at: null/);
+});
+
 test("publishing requires provenance and verification dates", async () => {
   const publishScript = await read("scripts/cli-apps/publish-apps.mjs");
 
@@ -41,6 +50,7 @@ test("published summaries are original stack127 writing", async () => {
   const publishScript = await read("scripts/cli-apps/publish-apps.mjs");
 
   assert.match(publishScript, /original stack127 summary/);
+  assert.match(publishScript, /validateSummary\(review\.summary\)/, "publication must reject imported markup and unfinished descriptions");
 });
 
 test("candidate review decisions keep the queue honest", async () => {

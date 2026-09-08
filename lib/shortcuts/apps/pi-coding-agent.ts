@@ -144,3 +144,5 @@ export const piCodingAgent: AppShortcuts = {
     },
   ],
 };
+
+export default piCodingAgent;

@@ -1,19 +1,12 @@
 #!/usr/bin/env node
 
-// Merge verified batches with curated editorial overrides into a publish input
-// file for publish-apps.mjs. Curated entries win; unverified defaults fall
-// back to unknowns rather than guesses.
+// Assemble candidate evidence and existing editorial suggestions for review.
+// Assembly is not verification and cannot authorize publication.
 
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "./lib/args.mjs";
 import { curated } from "./curated-map.mjs";
-
-function derivationDate(github) {
-  const raw = github?.pushed_at ?? null;
-  if (!raw) return new Date().toISOString().slice(0, 10);
-  try { return new Date(raw).toISOString().slice(0, 10); } catch { return new Date().toISOString().slice(0, 10); }
-}
 
 function maintenanceFrom(github, override) {
   if (override) return override.toLowerCase();
@@ -75,7 +68,7 @@ async function main() {
     });
     for (const record of extraRecords) {
       // Fallback to candidate-row evidence when no GitHub verification exists.
-      recordsBySlug.set(record.slug, { ...record, evidence: { website: { reachable: Boolean(record.website_url) } } });
+      recordsBySlug.set(record.slug, { ...record, evidence: { website: { status: "unchecked" } } });
     }
     const found = extraRecords.map((r) => r.slug).join(", ");
     const missing = extraSlugs.filter((s) => !extraRecords.some((r) => r.slug === s)).join(", ");
@@ -95,7 +88,7 @@ async function main() {
         repository_url: override.repository_url ?? null,
         summary_raw: override.summary,
         source_type: "manual",
-        evidence: { website: { reachable: false } },
+        evidence: { website: { status: "unchecked" } },
       });
     }
   }
@@ -120,10 +113,12 @@ async function main() {
       website_url: override.website_url ?? record.website_url ?? github?.homepage ?? null,
       repository_url: override.repository_url ?? record.repository_url ?? (github ? `https://github.com/${github.full_name}` : null),
       source_url: override.repository_url ?? override.website_url ?? record.source_url ?? null,
-      last_verified_at: derivationDate(github),
-      verified_at: new Date().toISOString(),
+      last_verified_at: null,
+      evidence_collected_at: record.verified_at ?? null,
+      verified_at: null,
       review: {
-        decision: "publish",
+        decision: "needs_review",
+        notes: "Assembled evidence and prior editorial suggestions. Verify every field against primary sources before approving publication and setting a review date.",
         summary: override.summary,
         aliases: override.aliases ?? [],
         primary_type: override.primary_type,
@@ -144,10 +139,10 @@ async function main() {
   }
 
   // Also emit explicit exclusions for anything curated as skip/excluded? Not needed yet.
-  console.log(`built ${records.length} curated publish records from ${recordsBySlug.size} verified candidates`);
+  console.log(`assembled ${records.length} pending review records from ${recordsBySlug.size} candidates`);
 
   await mkdir(path.dirname(out), { recursive: true });
-  await writeFile(out, `${JSON.stringify({ generated_at: new Date().toISOString(), records }, null, 2)}\n`);
+  await writeFile(out, `${JSON.stringify({ generated_at: new Date().toISOString(), review_status: "pending", records }, null, 2)}\n`, { flag: "wx" });
   console.log(`wrote ${out}`);
 }
 

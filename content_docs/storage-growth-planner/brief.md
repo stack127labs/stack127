@@ -1,5 +1,11 @@
 # Brief: Storage Growth and TCO Planner
 
+## Current supporting-content direction
+
+Approved September 6, 2026. Start from measured retained data, explain compounded growth and reserve crossing, then cost assumptions and a power example. Distinguish a budget reserve from a failure forecast or a real backup.
+
+The working tool stays first. Use connected explanation at the depth the task needs, with no word, section, sentence, or visual-ratio quota. This direction supersedes earlier supporting-prose budgets in this page's planning artifacts; it does not change the engine or input contract. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
+
 ## Who is here
 
 A homelab owner is deciding whether a local storage purchase will cover the data already on disk and the growth they expect over the next few years. They know their current data size, drive price, power draw, and electricity rate, but they want the capacity runway and cost in one place.
@@ -10,7 +16,7 @@ They leave with a modeled capacity after operating reserve, a year-by-year growt
 
 ## Show vs say
 
-- The tool UI is the primary visual: one framed form and result surface with clear demand, local-plan, and cost inputs.
+- The tool UI is the primary visual: one full-width workbench with clear demand, local-plan, and cost inputs.
 - An exact clean chart shows projected data against capacity after reserve. It has real year labels and exact values, not marker art.
 - A year-by-year table shows demand, remaining headroom, and cumulative cost. On narrow screens it becomes labelled rows instead of clipping or relying on hidden horizontal scrolling.
 - A compact cost table separates hardware, power, replacement reserve, backup budget, and total TCO.

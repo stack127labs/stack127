@@ -79,6 +79,15 @@ export function assessTransfer(registration: DomainRegistration, now = new Date(
       selfServiceable: false,
       evidence: "server transfer prohibited",
     });
+  } else {
+    findings.push({
+      id: "server-lock",
+      title: "Registry transfer lock",
+      state: "clear",
+      detail: "No registry transfer lock is published.",
+      selfServiceable: false,
+      evidence: null,
+    });
   }
 
   if (has("pending transfer")) {
@@ -90,6 +99,15 @@ export function assessTransfer(registration: DomainRegistration, now = new Date(
         "This domain is already in the middle of a transfer. If you did not start it, contact your registrar now, because a transfer can still be refused while it is pending.",
       selfServiceable: false,
       evidence: "pending transfer",
+    });
+  } else {
+    findings.push({
+      id: "pending-transfer",
+      title: "Pending transfer",
+      state: "clear",
+      detail: "No pending transfer status is published.",
+      selfServiceable: false,
+      evidence: null,
     });
   }
 
@@ -103,6 +121,15 @@ export function assessTransfer(registration: DomainRegistration, now = new Date(
         : "This domain is in the redemption period. It has been deleted and has to be restored by the current registrant before anything else can happen.",
       selfServiceable: false,
       evidence: has("pending delete") ? "pending delete" : "redemption period",
+    });
+  } else {
+    findings.push({
+      id: "lifecycle",
+      title: "Deletion lifecycle",
+      state: "clear",
+      detail: "No redemption or pending-delete status is published.",
+      selfServiceable: false,
+      evidence: null,
     });
   }
 
@@ -164,6 +191,15 @@ export function assessTransfer(registration: DomainRegistration, now = new Date(
       selfServiceable: true,
       evidence: registration.registryExpiryDate,
     });
+  } else {
+    findings.push({
+      id: "expiry",
+      title: "Expiry proximity",
+      state: "unknown",
+      detail: "The registry does not publish an expiry date.",
+      selfServiceable: true,
+      evidence: null,
+    });
   }
 
   // DNSSEC is the most commonly missed transfer failure.
@@ -177,6 +213,24 @@ export function assessTransfer(registration: DomainRegistration, now = new Date(
       selfServiceable: true,
       evidence: `delegationSigned: true${registration.dsRecordCount ? `, ${registration.dsRecordCount} DS record(s)` : ""}`,
     });
+  } else if (registration.dnssecSigned === false) {
+    findings.push({
+      id: "dnssec",
+      title: "DNSSEC",
+      state: "clear",
+      detail: "The registration record does not publish a signed delegation.",
+      selfServiceable: true,
+      evidence: "delegationSigned: false",
+    });
+  } else {
+    findings.push({
+      id: "dnssec",
+      title: "DNSSEC",
+      state: "unknown",
+      detail: "The registry does not publish a DNSSEC state.",
+      selfServiceable: true,
+      evidence: null,
+    });
   }
 
   if (registration.nameservers.length) {
@@ -188,6 +242,15 @@ export function assessTransfer(registration: DomainRegistration, now = new Date(
         "A transfer moves the registration, not your DNS hosting or email. If your current registrar is also serving DNS, the records can disappear when the domain leaves. Copy the zone to its new home before transferring.",
       selfServiceable: true,
       evidence: registration.nameservers.map((nameserver) => nameserver.hostname).join(", "),
+    });
+  } else {
+    findings.push({
+      id: "nameservers",
+      title: "DNS hosting",
+      state: "unknown",
+      detail: "The registration record does not publish nameservers. Confirm DNS hosting before the transfer.",
+      selfServiceable: true,
+      evidence: null,
     });
   }
 

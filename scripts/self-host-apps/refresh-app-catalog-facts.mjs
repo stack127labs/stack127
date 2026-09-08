@@ -12,7 +12,6 @@ import {
 } from "./lib/catalog-facts.mjs";
 import { withClient } from "./lib/db.mjs";
 
-const reviewedFlag = "--apply-reviewed";
 
 function unique(values) {
   return [...new Set(values.filter(Boolean))];
@@ -125,80 +124,9 @@ function mergeEvidence(records) {
   };
 }
 
-function technicalStatus(facts, checkedAt) {
-  const entry = (published, sourceUrl, note) => ({
-    status: published ? "published" : "not_published",
-    confidence: published ? "high" : "low",
-    source_urls: sourceUrl ? [sourceUrl] : [],
-    checked_at: checkedAt,
-    note,
-  });
-  return {
-    ram: entry(Boolean(facts.memoryLimitMb), facts.ramSourceUrl, "Appliance package checked for RAM information."),
-    storage: entry(Boolean(facts.persistentStorage), facts.storageSourceUrl, "Appliance package checked for storage information."),
-    database: entry(facts.databaseTypes.length > 0, facts.databaseSourceUrl, "Appliance package checked for datastore services."),
-    docker: entry(Boolean(facts.dockerImage), facts.dockerSourceUrl, "Appliance package checked for container support."),
-    docker_image: entry(Boolean(facts.dockerImage), facts.dockerSourceUrl, "Appliance package checked for an exact image."),
-    compose: entry(Boolean(facts.composeSupport), facts.composeSourceUrl, "Appliance package checked for Compose support."),
-  };
-}
-
-async function writeFacts(client, app, facts, checkedAt) {
-  const databaseTypes = normalizeDatabaseTypes([...app.database_types, ...facts.databaseTypes]);
-  const deploymentMethods = unique([
-    ...app.deployment_methods,
-    ...(facts.dockerImage ? ["docker"] : []),
-    ...(facts.composeSupport ? ["compose"] : []),
-  ]);
-
-  await client.query(
-    `
-      update public.self_host_apps
-      set docker_image = coalesce(docker_image, $2),
-          docker_support = case when docker_support = 'unknown' and $2 is not null then 'community' else docker_support end,
-          deployment_methods = $3::text[],
-          compose_support = case when $4::boolean is true then true else compose_support end,
-          compose_url = coalesce(compose_url, $5),
-          requires_database = case when cardinality($6::text[]) > 0 then true else requires_database end,
-          database_types = $6::text[],
-          ram_default_limit_mb = coalesce(ram_default_limit_mb, $7),
-          persistent_storage = case when $8::boolean is true then true else persistent_storage end,
-          release_version = coalesce(release_version, $9),
-          release_published_at = coalesce(release_published_at, $10),
-          release_checked_at = case when $9 is not null then $11 else release_checked_at end,
-          technical_facts_checked_at = $11,
-          technical_fact_status = $12::jsonb,
-          data_source_urls = coalesce((
-            select array_agg(distinct url order by url)
-            from unnest(coalesce(data_source_urls, '{}') || $13::text[]) as values(url)
-          ), '{}'),
-          data_checked_at = $11,
-          data_confidence = case when $12::jsonb @> '{"docker":{"confidence":"high"}}'::jsonb then 'high' else data_confidence end,
-          updated_at = now()
-      where id = $1
-    `,
-    [
-      app.id,
-      facts.dockerImage,
-      deploymentMethods,
-      facts.composeSupport,
-      facts.composeUrl,
-      databaseTypes,
-      facts.memoryLimitMb,
-      facts.persistentStorage,
-      facts.releaseVersion,
-      facts.releasePublishedAt,
-      checkedAt,
-      JSON.stringify(technicalStatus(facts, checkedAt)),
-      [facts.dockerSourceUrl, facts.composeSourceUrl, facts.databaseSourceUrl, facts.storageSourceUrl, facts.ramSourceUrl, facts.releaseSourceUrl].filter(Boolean),
-    ],
-  );
-}
-
 async function main() {
   const args = parseArgs();
-  const applyReviewed = Boolean(args["apply-reviewed"]);
-  if (args["dry-run"] && applyReviewed) throw new Error("Use either --dry-run or --apply-reviewed, not both.");
+  if (args["apply-reviewed"] || args.apply) throw new Error("This command collects evidence only. Use source-reviewed partial corrections to publish facts.");
 
   const checkedAt = new Date().toISOString();
   const result = await withClient(async (client) => {
@@ -228,8 +156,8 @@ async function main() {
       apps.set(row.id, current);
     }
 
-    await client.query("begin");
-    const report = { checked: 0, updated: 0, failed: [], facts: {} };
+    await client.query("begin read only");
+    const report = { checked: 0, failed: [], facts: {}, records: [] };
     try {
       for (const app of apps.values()) {
         try {
@@ -245,15 +173,13 @@ async function main() {
               report.facts[key] = (report.facts[key] ?? 0) + 1;
             }
           }
-          if (applyReviewed) await writeFacts(client, app, facts, checkedAt);
-          report.updated += 1;
+          report.records.push({ slug: app.slug, review_status: "pending", evidence, candidate_facts: facts });
         } catch (error) {
           report.failed.push({ slug: app.slug, error: error.message });
         }
       }
 
-      if (applyReviewed) await client.query("commit");
-      else await client.query("rollback");
+      await client.query("rollback");
       return report;
     } catch (error) {
       await client.query("rollback");
@@ -263,16 +189,15 @@ async function main() {
 
   const output = {
     checked_at: checkedAt,
-    mode: applyReviewed ? "applied" : "dry_run",
+    mode: "evidence_only",
     ...result,
   };
-  if (args.out) await writeFile(args.out, `${JSON.stringify(output, null, 2)}\n`);
+  if (args.out) await writeFile(args.out, `${JSON.stringify(output, null, 2)}\n`, { flag: "wx" });
   console.log(JSON.stringify(output, null, 2));
   if (result.failed.length > 0) process.exitCode = 1;
 }
 
 main().catch((error) => {
   console.error(error.stack ?? error.message);
-  console.error(`Use ${reviewedFlag} only after reviewing the dry-run report.`);
   process.exit(1);
 });

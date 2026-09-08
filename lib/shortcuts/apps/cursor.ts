@@ -99,3 +99,5 @@ export const cursor: AppShortcuts = {
     },
   ],
 };
+
+export default cursor;

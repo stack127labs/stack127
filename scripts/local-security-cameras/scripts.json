@@ -1,0 +1,4 @@
+[
+  {"file":"refresh-local-security-cameras.mjs","purpose":"Imports every RTSP or ONVIF camera from a pinned CC0 checkout, preserves stream and installation evidence, and promotes the complete catalog with exact images or explicit missing-image outcomes."},
+  {"file":"research-datasheet-images.mjs","purpose":"Validates exact camera models in declared PDF evidence and extracts real product photos while rejecting page backgrounds, sparse graphics, and technical drawings."}
+]

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import test from "node:test";
 
 const homePath = new URL("../../../app/(site)/page.tsx", import.meta.url);
@@ -24,6 +24,16 @@ const featuredToolSlugs = [
   "nfs-firewall-rules",
 ];
 
+test("home hero uses one simple software stack without labels or connectors", () => {
+  const spec = JSON.parse(readFileSync(new URL("../../../app/(site)/art/site--hero-stack127.spec.json", import.meta.url), "utf8"));
+  assert.equal(spec.type, "toolSpot");
+  assert.equal(spec.data.icon, "softwareStack");
+  assert.equal(spec.data.motif, undefined);
+  const svg = readFileSync(new URL("../../../app/(site)/art/site--hero-stack127.svg", import.meta.url), "utf8");
+  assert.doesNotMatch(svg, /<text\b/);
+  assert.match(svg, /A terminal prompt on stacked app windows/);
+});
+
 test("home includes the keyboard shortcuts directory in the curated feature set", () => {
   const home = readFileSync(homePath, "utf8");
   const helpers = readFileSync(helpersPath, "utf8");
@@ -45,18 +55,28 @@ test("labs, keyboard shortcuts, and cli apps have homepage marker spots", () => 
   }
 });
 
-test("home features the four uncollected tools with icons and marker spots", () => {
+test("home excludes individual tools and includes every top-level directory, catalog, and reference", () => {
   const home = readFileSync(homePath, "utf8");
   const helpers = readFileSync(helpersPath, "utf8");
 
   for (const slug of featuredToolSlugs) {
-    assert.match(helpers, new RegExp(`["]${slug}["]`), `${slug} is home eligible`);
-    assert.match(home, new RegExp(`["]${slug}["]:\\s*[A-Z]`), `${slug} has an icon`);
-    assert.match(home, new RegExp(`["]${slug}["]:\\s*siteSpot`), `${slug} has marker art`);
+    assert.doesNotMatch(helpers, new RegExp(`["]${slug}["]`), `${slug} is not home eligible`);
+    assert.doesNotMatch(home, new RegExp(`["]${slug}["]:`), `${slug} has no home card`);
   }
 
-  for (const artSlug of ["dockerignore", "home-assistant-energy", "nginx-proxy-pass", "nfs-firewall"]) {
-    assert.match(home, new RegExp(`siteSpot${artSlug.split("-").map((part) => part[0].toUpperCase() + part.slice(1)).join("")}Art`));
+  const toolsRoot = new URL("../../../app/(site)/(tools)/", import.meta.url);
+  for (const slug of readdirSync(toolsRoot)) {
+    if (!existsSync(new URL(`${slug}/page.tsx`, toolsRoot))) continue;
+    assert.doesNotMatch(helpers, new RegExp(`"${slug}"`), `${slug} stays inside a collection`);
+  }
+
+  for (const family of ["directories", "catalogs", "references"]) {
+    const root = new URL(`../../../app/(site)/(${family})/`, import.meta.url);
+    for (const slug of readdirSync(root)) {
+      if (!existsSync(new URL(`${slug}/page.tsx`, root))) continue;
+      assert.match(helpers, new RegExp(`"${slug}"`), `${slug} is home eligible`);
+      assert.match(home, new RegExp(`"${slug}":\\s*[A-Z]`), `${slug} has an icon`);
+    }
   }
 });
 
@@ -95,5 +115,23 @@ test("the storage release publishes the hub and all three calculators", () => {
     "zfs-padding-calculator",
   ]) {
     assert.match(migration, new RegExp(`'${slug}'`), `${slug} is published by migration`);
+  }
+});
+
+test("every homepage identity has generated marker art, never an enlarged UI icon", () => {
+  const home = readFileSync(homePath, "utf8");
+  const icons = home.match(/const pageIcons[^=]*= \{([\s\S]*?)\n\};/)[1];
+  const art = home.match(/const pageArt[^=]*= \{([\s\S]*?)\n\};/)[1];
+  for (const [, slug] of icons.matchAll(/"([^"]+)":/g)) {
+    assert.match(art, new RegExp(`"${slug}":`), `${slug} needs its own marker spot`);
+  }
+  assert.doesNotMatch(home, /home-page-card-symbol|art \? <Doodle/);
+  for (const slug of ["local-security-cameras", "nut-compatible-ups", "zigbee-coordinators", "zigbee-devices", "matter-devices", "z-wave-devices"]) {
+    const base = new URL(`../../../app/(site)/art/site--spot-${slug}`, import.meta.url);
+    assert.ok(existsSync(`${base.pathname}.spec.json`));
+    assert.ok(existsSync(`${base.pathname}.ts`));
+    const svg = readFileSync(`${base.pathname}.svg`, "utf8");
+    assert.doesNotMatch(svg, /<text\b|lucide/);
+    assert.match(svg, /--ma-primary/);
   }
 });

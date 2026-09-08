@@ -10,4 +10,6 @@ They should leave knowing who Teja is, what stack127 is building, why the name f
 
 ## Show vs say
 
-This page is a personal explanation, so sentences carry the story and judgment. A short linked list proves the current product range more clearly than screenshots or decorative art would. There is no repeated quantitative comparison that needs a chart or table. Contact and follow links stay in the relevant sections instead of becoming separate promotional cards.
+The "How we earn money" section explains affiliate commissions, no extra cost to the buyer, and the independence of rankings and placement. Include Amazon's required Associate statement verbatim. Directory disclosures link directly to this section.
+
+This page is a personal explanation, so sentences carry the story and judgment. The dotted header uses one small server-and-paths drawing to connect Teja's personal project with the tools, directories, and guides it has become. A short linked list proves the current product range more clearly than screenshots would. There is no repeated quantitative comparison that needs a chart or table. Contact and follow links stay in the relevant sections instead of becoming separate promotional cards.

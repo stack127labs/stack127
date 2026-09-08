@@ -123,3 +123,5 @@ export const powershell: AppShortcuts = {
     },
   ],
 };
+
+export default powershell;

@@ -1,0 +1,1 @@
+{"id":"catalog--zfs-padding","type":"toolSpot","takeaway":"Compared blocks stand for data, parity, and padding in one allocation.","source":"conceptual figure, no external data","dataAsOf":"2026-09-04","width":140,"height":110,"seed":233,"data":{"icon":"grid","motif":"compare"}}

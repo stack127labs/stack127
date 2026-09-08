@@ -33,27 +33,31 @@ test.describe("unraid calculator guarded preview", () => {
 
   test("starts as a clean single-parity editor", async ({ page }) => {
     await expect(page.getByRole("heading", { name: /Unraid Main Array calculator/i })).toBeVisible();
-    await expect(page.getByRole("group", { name: "Parity protection" })).toBeVisible();
+    await expect(page.getByRole("radiogroup", { name: "Parity protection" })).toBeVisible();
     await expect(page.getByRole("button", { name: "Calculate capacity" })).toBeVisible();
     await expect(page.getByTestId("capacity-accounting")).toHaveCount(0);
     await expect(page.getByRole("textbox", { name: "Parity 1 capacity" })).toBeVisible();
     await expect(page.getByRole("button", { name: "Add data drive" })).toBeVisible();
+    await expect(page).toHaveURL(/\/unraid-calculator$/);
+    await expect(page.getByText("Plan a future data drive")).toBeVisible();
+    await expect(page.getByText("No data drives yet")).toHaveCount(0);
   });
 
   test("changes explicit parity rows without changing data roles", async ({ page }) => {
     const parity = page.getByRole("radiogroup", { name: "Parity protection" });
-    await parity.getByRole("radio", { name: "None" }).check();
+    await parity.getByRole("radio", { name: "None" }).focus();
+    await page.keyboard.press("Space");
     await expect(page.getByRole("textbox", { name: /Parity .* capacity/ })).toHaveCount(0);
-    await parity.getByRole("radio", { name: "Dual" }).check();
+    await parity.getByRole("radio", { name: "Dual parity" }).focus();
+    await page.keyboard.press("Space");
     await expect(page.getByRole("textbox", { name: /Parity .* capacity/ })).toHaveCount(2);
-    await expect(page.getByRole("status")).toContainText(/2 parity/i);
   });
 
-  test("adds several explicit data rows without assigning their roles", async ({ page }) => {
-    await page.getByRole("spinbutton", { name: "Data rows to add" }).fill("4");
-    await page.getByRole("button", { name: "Add rows" }).click();
+  test("adds several explicit data rows one at a time", async ({ page }) => {
+    for (let index = 0; index < 4; index += 1) await page.getByRole("button", { name: "Add data drive" }).click();
     await expect(page.getByRole("textbox", { name: /Data .* capacity/ })).toHaveCount(4);
     await expect(page.getByRole("textbox", { name: "Data 4 capacity" })).toBeVisible();
+    await expect(page.getByRole("spinbutton", { name: "Data rows to add" })).toHaveCount(0);
   });
 
   test("calculates exact mixed-drive capacity and exposes accounting and topology", async ({ page }) => {
@@ -67,24 +71,24 @@ test.describe("unraid calculator guarded preview", () => {
     await page.getByRole("button", { name: "Add data drive" }).click();
     await page.getByRole("textbox", { name: "Data 4 capacity" }).fill("4");
     await page.getByRole("button", { name: "Calculate capacity" }).click();
-    await expect(page.getByRole("heading", { name: /24 TB data capacity|21\.83 TiB data capacity/i })).toBeVisible();
-    await expect(page.getByTestId("capacity-accounting")).toContainText("Assigned parity capacity");
-    await expect(page.getByTestId("role-topology")).toContainText("PARITY 1");
-    await expect(page.getByRole("status")).toContainText(/data capacity/i);
+    await expect(page.getByLabel("Current data capacity")).toContainText(/24 TB|21\.83 TiB/i);
+    await expect(page.getByTestId("capacity-accounting")).toContainText("Assigned parity");
+    await expect(page.getByTestId("capacity-accounting")).not.toContainText("Raw installed capacity");
+    await page.getByText("Assigned drives").click();
+    await expect(page.getByRole("table", { name: "Assigned drives" })).toContainText("Parity 1");
+    await expect(page.getByText("Data capacity calculated.", { exact: true })).toBeVisible();
   });
 
   test("keeps the formula and unit boundary auditable in the result disclosure", async ({ page }) => {
     await page.getByRole("textbox", { name: "Parity 1 capacity" }).fill("8");
-    await page.getByRole("button", { name: "Add rows" }).click();
+    for (let index = 0; index < 4; index += 1) await page.getByRole("button", { name: "Add data drive" }).click();
     for (const [index, value] of ["8", "8", "4", "4"].entries()) {
       await page.getByRole("textbox", { name: `Data ${index + 1} capacity` }).fill(value);
     }
     await page.getByRole("button", { name: "Calculate capacity" }).click();
-    await page.getByText("Formula details").click();
-    const details = page.locator("details");
-    await expect(details).toContainText("Data capacity = sum of current data drives");
-    await expect(details).toContainText("Parity headroom is assigned parity space");
-    await expect(details).toContainText("TB = 10^12 bytes; TiB = 2^40 bytes");
+    await page.getByText("Formula and sources").click();
+    await expect(page.getByText("Data capacity = sum of current data drives.")).toBeVisible();
+    await expect(page.getByText("TB = 10^12 bytes; TiB = 2^40 bytes. Calculations use exact bytes.")).toBeVisible();
   });
 
   test("clears a stale result and focuses the first invalid capacity", async ({ page }) => {
@@ -111,11 +115,20 @@ test.describe("unraid calculator guarded preview", () => {
     await page.getByRole("textbox", { name: "Parity 1 capacity" }).fill("8");
     await page.getByRole("button", { name: "Add data drive" }).click();
     await page.getByRole("textbox", { name: "Data 1 capacity" }).fill("8");
-    await page.getByRole("textbox", { name: /Proposed data drive capacity/i }).fill("9");
+    await page.getByText("Plan a future data drive").click();
+    await page.getByRole("textbox", { name: /Future data drive capacity/i }).fill("9");
     await page.getByRole("button", { name: "Calculate capacity" }).click();
     await expect(page.getByTestId("capacity-accounting")).toBeVisible();
-    await expect(page.getByTestId("growth-status")).toContainText(/blocked/i);
+    await expect(page.getByTestId("growth-status")).toContainText(/parity upgrade required/i);
     await expect(page.getByTestId("growth-status")).not.toContainText(/projected data capacity.*TB/i);
+  });
+
+  test("keeps the optional growth result absent until a future drive is entered", async ({ page }) => {
+    await page.getByRole("textbox", { name: "Parity 1 capacity" }).fill("8");
+    await page.getByRole("button", { name: "Add data drive" }).click();
+    await page.getByRole("textbox", { name: "Data 1 capacity" }).fill("8");
+    await page.getByRole("button", { name: "Calculate capacity" }).click();
+    await expect(page.getByTestId("growth-status")).toHaveCount(0);
   });
 
   test("copies only after explicit actions and has a reset path", async ({ page }) => {
@@ -124,11 +137,48 @@ test.describe("unraid calculator guarded preview", () => {
     await page.getByRole("textbox", { name: "Data 1 capacity" }).fill("8");
     await page.getByRole("button", { name: "Calculate capacity" }).click();
     await page.getByRole("button", { name: "Copy summary" }).click();
-    await expect(page.getByRole("status")).toContainText(/copied|failed/i);
-    await expect(page.locator('[class*="copyStatus"]')).toContainText(/copied|failed/i);
+    await expect(page.getByText(/Summary copied|Copy failed/)).toBeVisible();
     await page.getByRole("button", { name: "Reset" }).click();
     await expect(page.getByRole("textbox", { name: "Parity 1 capacity" })).toHaveValue("");
     await expect(page.getByTestId("capacity-accounting")).toHaveCount(0);
+  });
+
+  test("writes query state only after Share configuration", async ({ page }) => {
+    await page.getByRole("textbox", { name: "Parity 1 capacity" }).fill("8");
+    await page.getByRole("button", { name: "Add data drive" }).click();
+    await page.getByRole("textbox", { name: "Data 1 capacity" }).fill("8");
+    await page.getByRole("button", { name: "Calculate capacity" }).click();
+    await expect(page).toHaveURL(/\/unraid-calculator$/);
+    await page.getByRole("button", { name: "Share configuration" }).click();
+    await expect(page).toHaveURL(/\/unraid-calculator\?state=/);
+    await expect(page.getByRole("textbox", { name: "Shared configuration URL" })).toBeVisible();
+  });
+
+  test("keeps the expanded result contained in dark and light modes", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 900 });
+    await page.getByRole("textbox", { name: "Parity 1 capacity" }).fill("12");
+    for (const value of ["12", "8", "4"]) {
+      await page.getByRole("button", { name: "Add data drive" }).click();
+      await page.getByRole("textbox", { name: `Data ${await page.getByRole("textbox", { name: /Data .* capacity/ }).count()} capacity` }).fill(value);
+    }
+    await page.getByText("Plan a future data drive").click();
+    await page.getByRole("textbox", { name: "Future data drive capacity" }).fill("10");
+    await page.getByRole("button", { name: "Calculate capacity" }).click();
+    await page.getByText("Assigned drives").click();
+    await page.getByText("Formula and sources").click();
+
+    const measure = () => page.evaluate(() => ({ document: document.documentElement.scrollWidth, viewport: window.innerWidth }));
+    const darkMobile = await measure();
+    expect(darkMobile.document).toBeLessThanOrEqual(darkMobile.viewport);
+    await page.getByRole("button", { name: "Switch to light mode" }).click();
+    const lightMobile = await measure();
+    expect(lightMobile.document).toBeLessThanOrEqual(lightMobile.viewport);
+    await page.setViewportSize({ width: 1280, height: 900 });
+    const lightDesktop = await measure();
+    expect(lightDesktop.document).toBeLessThanOrEqual(lightDesktop.viewport);
+    await page.getByRole("button", { name: "Switch to dark mode" }).click();
+    const darkDesktop = await measure();
+    expect(darkDesktop.document).toBeLessThanOrEqual(darkDesktop.viewport);
   });
 
   for (const width of [320, 375, 760, 1280]) {

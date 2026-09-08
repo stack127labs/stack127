@@ -300,7 +300,7 @@ All controls must work by keyboard. RAIDZ and workload use native radio inputs; 
 | Claim or task | Medium | Position | Why this medium |
 | --- | --- | --- | --- |
 | Name and scope of the utility | Tool UI plus server-rendered h1 | Top of main content | The build stage needs only the exact page identity. Explanatory prose is intentionally deferred to the manual content stage. |
-| Configure RAIDZ geometry and one block | Tool UI | Head of the single framed tool | Five visible controls make dependencies inspectable without a wizard or nested cards. |
+| Configure RAIDZ geometry and one block | Tool UI | Head of the shared workbench | Five visible controls make dependencies inspectable without a wizard or nested cards. |
 | See the physical answer | Tool UI answer sentence | First result row | The user came for the physical allocation, so the conclusion precedes diagnostics. |
 | Distinguish logical data, sector rounding, parity, and padding | Exact result visualization | Directly below the answer | A labeled proportional bar is faster to scan than prose and reconciles the total. |
 | Read exact sector and byte values | Tool UI definition rows | Below the bar | Labels plus mono values remain legible at narrow widths and do not require a wide table. |

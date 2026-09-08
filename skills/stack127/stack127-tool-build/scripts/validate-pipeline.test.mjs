@@ -165,13 +165,99 @@ The tool UI and result show the relationship. One short sentence carries the cav
 `;
     writeFileSync(join(directory, "brief.md"), brief);
 
+    const interfaceContract = `# Interface contract: Test tool
+Status: ready
+Tool: Test tool
+Route: \`/test-tools/test-tool\`
+Mode: pipeline
+Depends on: \`brief.md\`, \`implementation-report.md\`
+Input fingerprint: \`brief.md sha256:${hash(brief)}\`
+Input fingerprint: \`implementation-report.md sha256:${hash(implementation)}\`
+## User task
+- Primary user: A technical operator planning a real change.
+- Question: What exact value follows from this input?
+- Lead answer: The calculated value with its unit.
+- Next decision: Whether the value fits the operator's stated boundary.
+## Information decisions
+| Item | User question | Source | Disposition | Reason | Duplicate guard |
+| --- | --- | --- | --- | --- | --- |
+| Input value | What should be calculated? | User | input | It changes the answer. | Show once in the control. |
+| Calculated value | What is the answer? | Engine | lead | It is the user's primary job. | Do not repeat it in a summary card. |
+| Formula boundary | What does the value exclude? | Product contract | supporting | It prevents misuse. | State once beside the answer. |
+| Internal precision | How was rounding stored? | Engine | omit | It does not change the next decision. | Keep out of the interface. |
+## Input contract
+| Order | Input or action | Required, default, or derived | Affects lead answer | Effective value | Placement | Component | Why visible | Narrow layout |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | Value | Required | Yes | User-entered number | Visible | ToolNumberInput | It defines the calculation. | Full row. |
+| 2 | Calculate | Primary action | Not applicable | Commits the current input | Visible | ToolButton | It commits the input. | Full row below input. |
+## Result contract
+| Order | Region | Unique user question | Data | Treatment | Evidence or omission guard |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Answer | What exact value follows from this input? | Calculated value and unit | Large answer | No duplicate summary. |
+| 2 | Boundary | What does this answer exclude? | Contract exclusion | One quiet supporting row | No formula essay. |
+## Visual semantics
+| Candidate | Relationship to communicate | Does geometry encode truth? | Decision |
+| --- | --- | --- | --- |
+| Large answer | One exact conclusion | Yes, hierarchy encodes primacy rather than magnitude. | Use one lead answer. |
+| Progress bar | Position within a known range | No, the answer has no meaningful denominator. | Omit. |
+## State contract
+| State | Inputs and actions | Lead result | Supporting result | Error or recovery | Focus or announcement |
+| --- | --- | --- | --- | --- | --- |
+| Initial | Input enabled | Absent | Absent | No error | Focus input. |
+| Invalid | Input enabled | Cleared | Absent | One field error | Focus invalid input. |
+| Loading | Input locked briefly | Prior result hidden | Absent | Cancel not needed | Announce calculation. |
+| Success | Input enabled | Current answer | Boundary visible | No error | Announce answer. |
+| Failure | Input enabled | Cleared | Absent | One retry action | Focus recovery. |
+## Component contract
+| Need | Chosen component | Why it fits | Rejected alternative |
+| --- | --- | --- | --- |
+| Exact numeric input | ToolNumberInput | Preserves label and numeric keyboard. | Free text field lacks numeric controls. |
+| Dominant result | ToolLargeAnswer | Makes one conclusion primary. | Metric cards repeat equal-weight facts. |
+## Responsive contract
+| Width or condition | Layout and reading order | Longest realistic value | Overflow owner |
+| --- | --- | --- | --- |
+| Desktop | Input, action, answer, boundary | 999,999,999.99 units | None. |
+| 390px | Input, action, answer, boundary in one column | 999,999,999.99 units | Answer wraps safely. |
+| 320px | Same order with full-width action | 999,999,999.99 units | None. |
+## Interface wireframes
+### Desktop result
+\`\`\`text
+[Value                         ][Calculate]
+42 units
+Boundary: documented scope only
+\`\`\`
+### Narrow mobile result
+\`\`\`text
+[Value              ]
+[Calculate          ]
+42 units
+Boundary: documented scope only
+\`\`\`
+### Initial, invalid, loading, empty, partial, failure, and expanded states
+The state table defines every applicable state; no empty, partial, or expanded state applies to this deterministic result.
+## Removed or rejected
+- Remove the repeated metric summary because it answers the same question as the lead value.
+## Acceptance criteria
+| ID | Category | Observable interface requirement | Evidence |
+| --- | --- | --- | --- |
+| UI-001 | lead | Success shows one dominant answer. | Browser inspection. |
+| UI-002 | deduplication | No formatted result value is repeated. | Browser test. |
+| UI-003 | visual-truth | The result uses no geometry without a real scale. | Browser inspection. |
+| UI-004 | responsive | The 320px page has no horizontal overflow. | Browser test. |
+| UI-005 | url | Opening the clean canonical route leaves the URL unchanged through hydration. | Browser test. |
+## Open questions and blockers
+- None. The product and information decisions are closed.
+`;
+    writeFileSync(join(directory, "interface-contract.md"), interfaceContract);
+
     const edgeCases = `# Edge cases and tests: Test tool
 Status: ready
 Tool: Test tool
 Route: \`/test-tools/test-tool\`
-Depends on: \`competitive-report.md\`, \`implementation-report.md\`, \`brief.md\`
+Depends on: \`competitive-report.md\`, \`implementation-report.md\`, \`interface-contract.md\`, \`brief.md\`
 Input fingerprint: \`competitive-report.md sha256:${hash(competitive)}\`
 Input fingerprint: \`implementation-report.md sha256:${hash(implementation)}\`
+Input fingerprint: \`interface-contract.md sha256:${hash(interfaceContract)}\`
 Input fingerprint: \`brief.md sha256:${hash(brief)}\`
 ## Risk model
 ${filler}
@@ -179,6 +265,11 @@ ${filler}
 | Requirement | Cases |
 | --- | --- |
 | R1 | EC-001 through EC-008 and FF-001 through FF-003 |
+| UI-001 | EC-001 verifies a single current answer. |
+| UI-002 | EC-004 verifies one recovery surface. |
+| UI-003 | EC-006 verifies the visual treatment. |
+| UI-004 | EC-007 verifies narrow layout. |
+| UI-005 | EC-009 verifies clean-route URL stability. |
 ## Coverage checklist
 | Family | Cases or reason |
 | --- | --- |
@@ -197,14 +288,15 @@ ${filler}
 ## Edge-case matrix
 | ID | Priority | Category | Input | System outcome | User experience | Side effects | Test file | Requirement |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| EC-001 | P0 | Invalid input | letters | No result | Recovery beside field | No URL update | tests/test.test.mjs | R1 |
+| EC-001 | P0 | Invalid input | letters | No result | Recovery beside field | No URL update | tests/test.test.mjs | R1, UI-001 |
 | EC-002 | P0 | Boundary | value above maximum | No result | Boundary shown beside field | No URL update | tests/test.test.mjs | R1 |
 | EC-003 | P0 | Precision | repeating decimal | Preserve source precision | Rounded display names rule | URL keeps source value | tests/test.test.mjs | R1 |
-| EC-004 | P1 | Concurrency | rapid repeat submit | One deterministic result | No duplicate feedback | One URL update | tests/page.spec.mjs | R1 |
+| EC-004 | P1 | Concurrency | rapid repeat submit | One deterministic result | No duplicate feedback | One URL update | tests/page.spec.mjs | R1, UI-002 |
 | EC-005 | P1 | Shared state | malformed query | Restore clean state | Explain recovery | Replace invalid URL | tests/page.spec.mjs | R1 |
-| EC-006 | P1 | Accessibility | keyboard submit | Calculate once | Result is announced | URL may update | tests/page.spec.mjs | R1 |
-| EC-007 | P1 | Responsive | long result on narrow screen | Exact value remains intact | No clipping | No side effect | tests/page.spec.mjs | R1 |
+| EC-006 | P1 | Accessibility | keyboard submit | Calculate once | Result is announced without false geometry | URL may update | tests/page.spec.mjs | R1, UI-003 |
+| EC-007 | P1 | Responsive | long result on narrow screen | Exact value remains intact | No clipping | No side effect | tests/page.spec.mjs | R1, UI-004 |
 | EC-008 | P0 | Security | HTML-like pasted input | Reject as invalid | Render as inert text | No logs or analytics | tests/test.test.mjs | R1 |
+| EC-009 | P0 | Clean route | Open the canonical route without query parameters | Keep initial defaults | No unexpected announcement | URL and history remain unchanged | tests/page.spec.mjs | UI-005 |
 ## Formula or resolution fixtures
 | ID | Input | Output | Oracle | Branch |
 | --- | --- | --- | --- | --- |
@@ -236,9 +328,10 @@ Every P0 and P1 case has an owner, deterministic fixture, and expected user expe
 Status: ready
 Tool: Test tool
 Route: \`/test-tools/test-tool\`
-Depends on: \`competitive-report.md\`, \`implementation-report.md\`, \`edge-cases-and-tests.md\`, \`brief.md\`
+Depends on: \`competitive-report.md\`, \`implementation-report.md\`, \`interface-contract.md\`, \`edge-cases-and-tests.md\`, \`brief.md\`
 Input fingerprint: \`competitive-report.md sha256:${hash(competitive)}\`
 Input fingerprint: \`implementation-report.md sha256:${hash(implementation)}\`
+Input fingerprint: \`interface-contract.md sha256:${hash(interfaceContract)}\`
 Input fingerprint: \`edge-cases-and-tests.md sha256:${hash(edgeCases)}\`
 Input fingerprint: \`brief.md sha256:${hash(brief)}\`
 SERP checked: 2026-08-03
@@ -282,7 +375,7 @@ ${filler}
 `;
     writeFileSync(join(directory, "writing-and-seo.md"), writing);
 
-    callback({ directory, files: { competitive, implementation, brief, edgeCases, writing } });
+    callback({ directory, files: { competitive, implementation, brief, interfaceContract, edgeCases, writing } });
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -302,12 +395,23 @@ test("accepts a substantive, fingerprinted pipeline", () => {
 
 test("validates the research stage without downstream artifacts", () => {
   withFixture(({ directory }) => {
-    for (const file of ["implementation-report.md", "brief.md", "edge-cases-and-tests.md", "writing-and-seo.md"]) {
+    for (const file of ["implementation-report.md", "brief.md", "interface-contract.md", "edge-cases-and-tests.md", "writing-and-seo.md"]) {
       rmSync(join(directory, file));
     }
     const result = run(directory, "--stage=research");
     assert.equal(result.status, 0, result.stderr);
     assert.match(result.stdout, /Tool-page research stage ready/);
+  });
+});
+
+test("validates the interface stage before test design", () => {
+  withFixture(({ directory }) => {
+    for (const file of ["edge-cases-and-tests.md", "writing-and-seo.md"]) {
+      rmSync(join(directory, file));
+    }
+    const result = run(directory, "--stage=interface");
+    assert.equal(result.status, 0, result.stderr);
+    assert.match(result.stdout, /Tool-page interface stage ready/);
   });
 });
 
@@ -374,6 +478,18 @@ test("rejects an edge case that references an unknown requirement", () => {
   });
 });
 
+test("rejects an untested interface requirement", () => {
+  withFixture(({ directory, files }) => {
+    writeFileSync(
+      join(directory, "edge-cases-and-tests.md"),
+      files.edgeCases.replace(/, UI-004/g, ""),
+    );
+    const result = run(directory, "--stage=test");
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /UI-004 has no edge-case coverage/);
+  });
+});
+
 test("rejects a token edge-case plan that skips required coverage", () => {
   withFixture(({ directory, files }) => {
     writeFileSync(
@@ -393,6 +509,44 @@ test("rejects prose disguised as an unrecognized medium", () => {
     const result = run(directory);
     assert.equal(result.status, 1);
     assert.match(result.stderr, /unrecognized medium \"faq\"/);
+  });
+});
+
+test("accepts useful prose-led explanation without length or media-ratio quotas", () => {
+  withFixture(({ directory, files }) => {
+    let writing = files.writing
+      .replace(/^Prose is the minority:.*\n/m, "")
+      .replace(/^Static prose budget:.*\n/m, "")
+      .replace("80 words, one paragraph", "Explain the boundary and when to verify it; stop before implementation internals");
+    const outline = [];
+    const assignments = [];
+    for (let number = 2; number <= 7; number++) {
+      const id = `COPY-${String(number).padStart(2, "0")}`;
+      outline.push(`| ${number + 2} | Reader question ${number} | Meaningful uncertainty ${number} | Verified interpretation | Sentences | Primary source | Avoid repeating the result | ${id} |`);
+      assignments.push(`| ${id} | Reader question ${number} | Resolve this uncertainty | Verified source and product contract | Explain the consequence and stop when the next check is clear | Do not repeat earlier explanations |`);
+    }
+    writing = writing.replace("## Formula explanation", `${outline.join("\n")}\n## Formula explanation`);
+    writing = writing.replace("## Source ledger", `${assignments.join("\n")}\n## Source ledger`);
+    writeFileSync(join(directory, "writing-and-seo.md"), writing);
+    const result = run(directory);
+    assert.equal(result.status, 0, result.stderr);
+  });
+});
+
+test("does not enforce a legacy default word ceiling on a sourced content plan", () => {
+  withFixture(({ directory, files }) => {
+    writeFileSync(join(directory, "writing-and-seo.md"), files.writing.replace("120 words maximum", "1200 words maximum"));
+    const result = run(directory);
+    assert.equal(result.status, 0, result.stderr);
+  });
+});
+
+test("still rejects a prose assignment without facts or a stopping point", () => {
+  withFixture(({ directory, files }) => {
+    writeFileSync(join(directory, "writing-and-seo.md"), files.writing.replace("Formula and primary source | 80 words, one paragraph", " | "));
+    const result = run(directory);
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /needs facts, a depth\/stopping point, and repetition guard/);
   });
 });
 

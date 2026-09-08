@@ -1,5 +1,11 @@
 # Brief: Ceph Capacity and Failure-Domain Planner
 
+## Current supporting-content direction
+
+Approved September 6, 2026. Teach the capacity ratios with a labeled hypothetical example, then explain grouping and largest-domain removal before live-cluster limits and verification. Keep exact accounting in tables and definitions beside the terms.
+
+The working tool stays first. Use connected explanation at the depth the task needs, with no word, section, sentence, or visual-ratio quota. This direction supersedes earlier supporting-prose budgets in this page's planning artifacts; it does not change the engine or input contract. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
+
 ## Who is here
 
 A homelab operator or small-cluster administrator is comparing Ceph pool layouts before buying drives or writing a CRUSH rule. They know the OSD count and approximate capacities, but need to see whether their chosen replication or EC profile fits the physical failure domains.

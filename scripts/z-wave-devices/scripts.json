@@ -1,0 +1,5 @@
+[
+  {"file":"refresh-z-wave-devices.mjs","purpose":"Imports every Z-Wave Alliance certification, groups repeated product identities, adds exact Z-Wave JS matches and exact images, and promotes the complete catalog while retaining explicit missing-image outcomes."},
+  {"file":"research-opensmarthouse-images.mjs","purpose":"Recovers missing Alliance product photos only through exact OpenSmartHouse protocol or model matches and writes a review ledger."},
+  {"file":"lib/catalog.mjs","purpose":"Parses Alliance certification pages and builds the shared decision-focused record contract."}
+]

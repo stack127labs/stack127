@@ -5,14 +5,39 @@ description: Review one or more stack127 pages and propose where marker art (han
 
 # Marker Art Suggest
 
-Use this skill in `/Users/ravitejaknts/projects/Stack127` to propose marker art placements for site pages. The output is a set of concrete, data backed proposals the user can approve. Drawing happens later, in the `marker-art-draw` skill.
+Use this skill in the current stack127 workspace to propose marker art placements for site pages. The output is a small set of concrete proposals the user can approve. Drawing happens later, in the `marker-art-draw` skill.
 
 ## First Checks
 
 - Read `stack127_docs/marker-art.md`. It is the law for style, semantic color, data accuracy, and figure choice.
 - Read the target page(s) under `app/` in full, including any existing `art/*.spec.json` next to them, so you never propose a duplicate of an existing figure.
-- Check `dev-space/marker-art-samples/` if you need to see what each figure type looks like.
-- Check `stack127_docs/writing-style.md`; figure labels and captions are site copy.
+- Inspect the real rendered placement when possible. A catalog spot, hero, explainer, and doodle solve different problems and cannot share one composition by resizing it.
+- Check `dev-space/marker-art-samples/` only when you need to understand generator syntax. Live figures matching the intended role are the visual reference.
+- Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` when proposing figure labels, captions, or alt text. Use its caption and accessibility guidance; keep composition decisions in this skill.
+
+## Decide Whether Art Earns the Space
+
+- Name the user question or page identity the art will clarify.
+- Do not propose art for a region that only needs better spacing or hierarchy.
+- Do not illustrate a sentence that is already easier to read than the drawing.
+- Do not use marker art for exact values or comparisons. Propose a clean chart or table instead.
+- Prefer one strong, page-specific object or relationship over a collage of related symbols.
+- If the art needs a paragraph to explain it, propose a simpler figure or no figure.
+
+## Compose Before Naming a Figure Type
+
+For every proposal, define:
+
+- role: spot, hero, explainer, or doodle;
+- one takeaway;
+- focal object or group;
+- reading direction;
+- necessary supporting objects;
+- semantic use of color;
+- final rendered placement and approximate size;
+- what must be removed for the figure to remain clear at that size.
+
+Only then choose an existing figure type or explain why a new recurring type is needed. Spot proposals use no visible text and at most one supporting object. Hero proposals preserve empty space and stay subordinate to the h1. Explainers show one relationship with the fewest necessary labels. Doodles never carry required meaning.
 
 ## What a Good Proposal Is
 
@@ -21,7 +46,7 @@ A proposal is one paragraph plus a small block, per placement:
 - **Where**: the exact section or paragraph the figure sits after, quoted or referenced by heading.
 - **The takeaway**: the one sentence the figure exists to make instant. If the paragraph makes three claims, pick the one that benefits most from being visual.
 - **Figure type and why**: pick whatever shows the idea fastest. Do not force content into the existing types; if a better form would land quicker, say so and note that the generator needs a new figure type for it.
-- **The data**: the actual numbers or structure, with a source. Research real values when the claim is factual (RAM use, power draw, prices). Conceptual figures say "conceptual, no external data".
+- **The structure**: the actual relationship, with a source when the claim is factual. Conceptual figures say "conceptual, no external data". Exact numbers, prices, and measurements belong in a clean chart or table.
 - **Tones**: which semantic colors carry the meaning (per the doc: primary is the subject, good is recommended or light, warn is heavy or risky, note is neutral highlight).
 
 ## Judgment Rules
@@ -29,6 +54,7 @@ A proposal is one paragraph plus a small block, per placement:
 - Propose art where a visual genuinely beats prose: comparisons, compositions, flows, sequences, decisions, and anything a reader would otherwise have to hold in their head.
 - Do not propose art for content that is already instant as text, and do not decorate. A figure that adds no speed is clutter.
 - Density is a judgment call. Show what the point needs; if it will not pass a two second squint, split it into two proposals.
+- Judge at the final rendered size. Detail that disappears in a card or beside a hero is clutter even when the source SVG looks clean.
 - Respect what exists: if a page already has a figure making the same point, propose replacing or improving it rather than adding a sibling.
 - The one takeaway rule is absolute: one figure, one claim.
 

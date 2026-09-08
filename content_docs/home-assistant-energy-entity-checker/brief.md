@@ -1,5 +1,11 @@
 # Brief: Home Assistant Energy Entity Eligibility Checker
 
+## Current supporting-content direction
+
+Approved September 6, 2026. Tell readers where to obtain current attributes, teach power versus energy, keep the selected-field requirement table, then explain statistics, counter behavior, rule-version scope, and real-instance verification.
+
+The working tool stays first. Use connected explanation at the depth the task needs, with no word, section, sentence, or visual-ratio quota. This direction supersedes earlier supporting-prose budgets in this page's planning artifacts; it does not change the engine or input contract. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
+
 ## Who is here
 
 A Home Assistant user has an entity that is missing from one Energy dashboard picker. They can copy its current state attributes, but they should not need to know the picker rules or recorder internals first.

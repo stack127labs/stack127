@@ -1,13 +1,22 @@
 {
   "route": "/",
   "state": "published",
-  "docs": ["content_docs/home"],
+  "docs": [
+    "content_docs/home"
+  ],
   "tests": [
     "tests/pages/home/home.test.mjs",
+    "tests/pages/home/hero-art.spec.ts",
+    "tests/pages/home/navigation.spec.ts",
+    "tests/stack127/entry-page-visual-system.test.mjs",
     "tests/stack127/seo.spec.ts",
     "tests/stack127/shell-layout.spec.ts"
   ],
-  "scripts": [],
-  "skills": [],
+  "scripts": [
+    "scripts/stack127/marker-art"
+  ],
+  "skills": [
+    "skills/stack127/marker-art-draw"
+  ],
   "repositories": []
 }

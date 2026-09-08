@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-nut-compatible-ups",
+  "type": "toolSpot",
+  "takeaway": "A backup power unit keeps equipment running through a power cut.",
+  "source": "Conceptual hardware illustration, no product or compatibility claim.",
+  "dataAsOf": "2026-09-08",
+  "width": 140,
+  "height": 120,
+  "seed": 411,
+  "data": {
+    "icon": "backupPower"
+  }
+}

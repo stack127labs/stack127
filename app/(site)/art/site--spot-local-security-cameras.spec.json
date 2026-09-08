@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-local-security-cameras",
+  "type": "toolSpot",
+  "takeaway": "A camera lens identifies local security cameras.",
+  "source": "Conceptual hardware illustration, no product or compatibility claim.",
+  "dataAsOf": "2026-09-08",
+  "width": 140,
+  "height": 120,
+  "seed": 410,
+  "data": {
+    "icon": "securityCamera"
+  }
+}

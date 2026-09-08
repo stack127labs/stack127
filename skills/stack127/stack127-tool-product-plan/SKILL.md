@@ -58,7 +58,9 @@ Set `Contract type: formula` or `Contract type: resolution` in the report header
 
 ## Design the interaction visually
 
-Make the tool itself the primary visual. Follow the stack127 rule: one clear framed tool with form and result in the same surface, no nested card dashboard.
+Make the tool itself the primary visual. Follow the stack127 rule: one full-width workbench band with form and result in the same surface, no boxed-in tool card or nested card dashboard.
+
+This stage owns product behavior and technical truth, not the final information composition. Its wireframes are product constraints. A fresh `$stack127-tool-interface-plan` worker will decide the final visible inventory, omissions, component fit, result-region questions, visual semantics, and responsive composition before test design. Do not preselect components or add output merely because the data contract exposes it.
 
 Create ASCII wireframes for desktop and narrow mobile in these states when relevant:
 
@@ -94,7 +96,7 @@ Set `Status: ready` only when:
 - the primary job and winning thesis are singular and evidence-backed;
 - all P0 formula, source, data, privacy, and product decisions are resolved;
 - every visible state and transition has an expected experience;
-- wireframes are concrete enough to implement without redesigning;
+- wireframes are concrete enough for interface planning without inventing product behavior;
 - the result hierarchy is visual and answer-first;
 - scope, non-goals, file ownership, and acceptance criteria are explicit;
 - `brief.md` matches the report and does not introduce extra prose.

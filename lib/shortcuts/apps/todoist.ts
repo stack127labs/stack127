@@ -1,0 +1,136 @@
+import { combo, perPlatform } from "../build.ts";
+import type { AppShortcuts, Shortcut } from "../types.ts";
+
+const platforms = ["windows", "macos"] as const;
+
+const desktop = (id: string, action: string, windows: string[], macos: string[], note?: string): Shortcut => ({
+  id,
+  action,
+  keys: perPlatform(platforms, { windows, macos }),
+  ...(note ? { note } : {}),
+});
+
+const shared = (id: string, action: string, keys: string[], note?: string): Shortcut => ({
+  id,
+  action,
+  keys: combo(platforms, keys),
+  ...(note ? { note } : {}),
+});
+
+export const todoist: AppShortcuts = {
+  slug: "todoist",
+  name: "Todoist",
+  category: "Task management",
+  platforms: [...platforms],
+  intro:
+    "Todoist's current reference covers general app navigation, quick add, global desktop controls, task editing, projects, sorting, upcoming view, calendar layout, and multi-window workflows. This map keeps web and desktop commands together while showing platform-specific bindings explicitly.",
+  versionContext:
+    "Todoist Help keyboard shortcut reference last updated July 2, 2026 and checked September 1, 2026. Todoist documents QWERTY and QWERTZ layouts, and global Quick Add or Ramble shortcuts do not work on Linux; this record covers Windows 10/11 and macOS.",
+  sourceUrl: "https://todoist.com/help/articles/use-keyboard-shortcuts-in-todoist-Wyovn2",
+  sourceLabel: "official Todoist keyboard shortcuts",
+  lastVerified: "2026-09-01",
+  groups: [
+    {
+      id: "general-and-navigation",
+      title: "General and navigation",
+      intro: "Search, open Quick Find, move through views, and reach Todoist's main areas with single keys or two-key sequences.",
+      shortcuts: [
+        shared("quick-add", "Open Quick Add", ["Q"]),
+        shared("search", "Search tasks", ["/"] , "F is an additional documented search key."),
+        shared("dismiss", "Dismiss or cancel", ["Esc"]),
+        shared("sidebar", "Open or close the sidebar", ["M"]),
+        desktop("quick-find", "Open Quick Find", ["Ctrl", "K"], ["Cmd", "K"]),
+        desktop("print", "Print the current view", ["Ctrl", "P"], ["Cmd", "P"]),
+        desktop("zoom-in", "Increase the font size", ["Ctrl", "="], ["Cmd", "="]),
+        desktop("zoom-out", "Decrease the font size", ["Ctrl", "-"], ["Cmd", "-"]),
+        desktop("reset-zoom", "Reset the font size", ["Ctrl", "0"], ["Cmd", "0"]),
+        desktop("collapse-expand-all", "Collapse or expand all sections and sub-tasks", ["Ctrl", "Alt", "0"], ["Cmd", "Option", "0"]),
+        shared("home", "Go to Home", ["H"], "G then H is an additional documented route."),
+        shared("inbox", "Open the Inbox", ["G", "then", "I"]),
+        shared("today", "Open Today", ["G", "then", "T"]),
+        shared("upcoming", "Open Upcoming", ["G", "then", "U"]),
+        shared("labels", "Open Labels", ["G", "then", "L"]),
+        shared("projects", "Open Projects", ["G", "then", "P"]),
+        shared("section", "Go to a section", ["G", "then", "/"]),
+        shared("productivity", "Open Productivity", ["O", "then", "P"]),
+        shared("help", "Open Help", ["O", "then", "H"]),
+        shared("notifications", "Open notifications", ["O", "then", "N"]),
+        shared("profile-menu", "Open the profile menu", ["O", "then", "U"]),
+        shared("settings", "Open Settings", ["O", "then", "S"]),
+        shared("theme", "Open the theme menu", ["O", "then", "T"]),
+        shared("focus-up", "Move focus up", ["K"], "Up Arrow is an additional documented key."),
+        shared("focus-down", "Move focus down", ["J"], "Down Arrow is an additional documented key."),
+        shared("focus-right", "Move focus right", ["Right Arrow"]),
+        shared("focus-left", "Move focus left", ["Left Arrow"]),
+        desktop("back", "Go back to the previous view", ["Alt", "Left Arrow"], ["Cmd", "["]),
+        desktop("forward", "Go forward to the most recent view", ["Alt", "Right Arrow"], ["Cmd", "]"]),
+      ],
+    },
+    {
+      id: "global-desktop",
+      title: "Global desktop shortcuts",
+      intro: "Open Quick Add or Ramble and show or hide the Todoist desktop window when it is minimized or behind another app.",
+      shortcuts: [
+        desktop("global-quick-add", "Open Quick Add from anywhere", ["Ctrl", "Space"], ["Option", "Space"]),
+        desktop("global-ramble-new", "Start Quick Ramble in a new app download", ["Alt", "Shift", "R"], ["Option", "Shift", "R"]),
+        desktop("global-ramble-existing", "Start Quick Ramble in an existing app download", ["Alt", "Space"], ["Shift", "Option", "Space"]),
+        desktop("show-hide", "Show or hide Todoist", ["Win", "Alt", "S"], ["Cmd", "Ctrl", "T"]),
+      ],
+    },
+    {
+      id: "tasks",
+      title: "Tasks and quick add",
+      intro: "Create, edit, complete, schedule, prioritize, assign, move, and remove tasks from a focused Todoist list.",
+      shortcuts: [
+        shared("new-task-bottom", "Add a task to the bottom of the list", ["A"]),
+        shared("new-task-top", "Add a task to the top of the list", ["Shift", "A"]),
+        shared("save-new-task", "Save a task and create another below", ["Enter"]),
+        shared("save-new-task-above", "Save a task and create another above", ["Ctrl", "Enter"]),
+        shared("complete", "Complete the focused task", ["E"]),
+        desktop("open-task", "Open the task view", ["Enter"], ["Enter"]),
+        desktop("edit-task", "Edit the task", ["Ctrl", "E"], ["Cmd", "E"]),
+        shared("save-edits", "Save task edits", ["Ctrl", "Enter"] , "Cmd+Enter is the macOS equivalent."),
+        shared("close-task", "Close the task view", ["Esc"]),
+        shared("set-date", "Set a date", ["T"]),
+        shared("remove-date", "Remove a date", ["Shift", "T"]),
+        shared("priority", "Set a priority level", ["1"], "Use 1 through 4 for the four priority levels."),
+        shared("change-priority", "Change the priority level", ["Y"]),
+        shared("comment", "Add a comment", ["C"]),
+        shared("label", "Add a label", ["L"]),
+        shared("assign", "Assign or reassign a task", ["Shift", "R"]),
+        shared("move-task", "Move the task", ["V"]),
+        shared("more-actions", "Open more task actions", ["."]),
+        shared("select-task", "Select the focused task", ["X"]),
+        desktop("delete-task", "Delete selected tasks", ["Shift", "Delete"], ["Cmd", "Delete"]),
+        desktop("copy-link", "Copy a link to the task", ["Shift", "Ctrl", "C"], ["Shift", "Cmd", "C"]),
+        desktop("indent", "Increase the task indent", ["Ctrl", "]"], ["Ctrl", "]"]),
+        desktop("outdent", "Decrease the task indent", ["Ctrl", "["], ["Ctrl", "["]),
+        shared("toggle-subtasks", "Show or hide sub-tasks", ["Shift", "E"]),
+      ],
+    },
+    {
+      id: "projects-and-views",
+      title: "Projects, sorting, and views",
+      intro: "Change project layouts, add sections, sort tasks, and move through Upcoming or Calendar layouts with the documented view commands.",
+      shortcuts: [
+        shared("layout", "Change to list, board, or calendar layout", ["Shift", "V"]),
+        shared("add-section", "Add a section", ["S"]),
+        shared("share-project", "Share the project", ["Shift", "S"]),
+        shared("sort-date", "Sort by date", ["D"]),
+        shared("sort-priority", "Sort by priority", ["P"]),
+        shared("sort-name", "Sort alphabetically", ["N"]),
+        shared("sort-assignee", "Sort by assignee", ["R"]),
+        shared("project-actions", "Open more project actions", ["W"]),
+        desktop("upcoming-today", "Go to today in Upcoming", ["Home"], ["Option", "Shift", "Y"]),
+        shared("upcoming-next-week", "Go to next week in Upcoming", ["Shift", "Right Arrow"]),
+        shared("upcoming-previous-week", "Go to the previous week in Upcoming", ["Shift", "Left Arrow"]),
+        desktop("calendar-today", "Return to today in Calendar", ["T"], ["T"]),
+        desktop("new-window", "Open the current view in a new window", ["Shift", "Ctrl", "N"], ["Shift", "Cmd", "N"]),
+        desktop("new-home-window", "Open a new Home window", ["Shift", "Alt", "Ctrl", "N"], ["Shift", "Option", "Cmd", "N"]),
+        desktop("float-window", "Keep the window on top", ["Ctrl", "F11"], ["Option", "Cmd", "F"]),
+      ],
+    },
+  ],
+};
+
+export default todoist;

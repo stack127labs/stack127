@@ -19,9 +19,9 @@ Sidebar titles use the shared `SidebarLabel` component from `app/app-shell.tsx`.
 A route family with several cooperating components may use one colocated family stylesheet imported by that family's layout. Current examples are:
 
 - `app/(site)/(catalogs)/dns-tools/dns-tools.css`;
-- `app/(site)/(catalogs)/_components/catalog-directory.css`;
+- `app/(site)/(directories)/_components/directory.css`;
 - `app/(site)/(courses)/self-hosting-for-beginners/course.css`;
-- `app/(site)/(catalogs)/software-licenses-for-self-hosting/software-licenses.css`.
+- `app/(site)/(references)/software-licenses-for-self-hosting/software-licenses.css`.
 
 Prefer CSS Modules for new components and new single-page work. Use a family stylesheet when multiple files in the same route family intentionally share selectors. Do not move a family stylesheet into `globals.css` for convenience.
 
@@ -32,7 +32,7 @@ Flat tool pages live under `app/(site)/(tools)/`. The `(tools)` segment never ap
 1. Start with the shared `AppShell`, navigation, sidebar-panel, prose, media, and code-block primitives where they fit.
 2. Put the page's remaining styles in its route folder or beside its component.
 3. Import family CSS from the nearest route layout. Import a CSS Module directly from its owning component.
-4. Use semantic tokens from `globals.css`; do not create another global token layer in a page file.
+4. Use semantic tokens from `globals.css`; do not create another global token layer in a page file. Every bounded UI shape uses the shared 2px `--radius` token.
 5. Keep reading copy inside the prose primitive. Keep controls, tables, metadata, and tool results on the compact UI scale.
 6. Check the page in both themes and at desktop and mobile widths.
 

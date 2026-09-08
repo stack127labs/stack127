@@ -1,77 +1,90 @@
 import { Network } from "lucide-react";
-import Link from "next/link";
 import { AppShell } from "@/app/app-shell";
-import { dotBandClassName } from "@/app/dot-band";
-import { Doodle } from "@/app/doodle";
-import { siteDoodleArrowLoopArt } from "../../art/site--doodle-arrow-loop";
-import { DnsToolsSidebar } from "./dns-tools-sidebar";
-import { PageTitleIcon } from "@/app/page-title-icon";
+import { EntryHero } from "@/app/entry-hero";
+import { PageCanvas } from "@/app/page-canvas";
 import { PageHeader } from "@/app/page-header";
+import { PageTitleIcon } from "@/app/page-title-icon";
+import { siteSpotDnsToolsArt } from "../../art/site--spot-dns-tools";
+import { caaArt } from "../_components/art/caa";
+import { dnsChangeArt } from "../_components/art/dns-change";
+import { dnsLookupArt } from "../_components/art/dns-lookup";
+import { dnsTraceArt } from "../_components/art/dns-trace";
+import { dnssecArt } from "../_components/art/dnssec";
+import { nameserverArt } from "../_components/art/nameserver";
+import { soaArt } from "../_components/art/soa";
+import { ToolCatalog, type CatalogTool } from "../_components/tool-catalog";
+import { ToolCatalogSidebar } from "../_components/tool-catalog-sidebar";
+
+const tools: CatalogTool[] = [
+  {
+    href: "/dns-lookup",
+    name: "DNS lookup",
+    description: "See the records returned by a public resolver or the domain's authoritative nameserver.",
+    art: dnsLookupArt,
+  },
+  {
+    href: "/dns-trace",
+    name: "DNS trace",
+    description: "Follow referrals from the root servers to find where a lookup stops.",
+    art: dnsTraceArt,
+  },
+  {
+    href: "/dns-change-checker",
+    name: "DNS change checker",
+    description: "Compare the authoritative answer with the copies still held by public resolver caches.",
+    art: dnsChangeArt,
+  },
+  {
+    href: "/nameserver-checker",
+    name: "Nameserver checker",
+    description: "Check the parent handoff, glue records, and whether every nameserver answers.",
+    art: nameserverArt,
+  },
+  {
+    href: "/dnssec-checker",
+    name: "DNSSEC checker",
+    description: "Validate the signed chain from the root to one DNS answer.",
+    art: dnssecArt,
+  },
+  {
+    href: "/soa-checker",
+    name: "SOA checker",
+    description: "Compare the serial and timing values served by every nameserver.",
+    art: soaArt,
+  },
+  {
+    href: "/caa-checker",
+    name: "CAA checker",
+    description: "Find which certificate authorities may issue normal and wildcard certificates.",
+    art: caaArt,
+  },
+];
 
 export default function DnsToolsPage() {
   return (
     <AppShell
       mainLabel="DNS tools"
-      menuLabel="DNS tools"
-      sidebar={<DnsToolsSidebar active="hub" />}
-      sidebarLabel="DNS tools sidebar"
+      menuLabel="Tool catalogs"
+      sidebar={<ToolCatalogSidebar active="dns-tools" />}
+      sidebarLabel="Tool catalogs sidebar"
     >
-      <div className={`${dotBandClassName} dns-hero-band`}>
-        <div className="dns-hero-band-inner">
-          <PageHeader>
-            <h1>
-              <PageTitleIcon>
-                <Network strokeWidth={2.2} />
-              </PageTitleIcon>{" "}
-              DNS <mark>tools</mark> to check records and find what broke
-            </h1>
-            <p>
-              A small set of tools for seeing what your domain is really doing in DNS. Look up
-              records, follow a lookup from the root servers down to the final answer, compare
-              what public resolvers still have cached against the real source, and check the
-              quieter pieces that break email, certificates, and websites when they go wrong.
-            </p>
-          </PageHeader>
-        </div>
-        <Doodle className="dns-hero-doodle" placement="corner" svg={siteDoodleArrowLoopArt} />
-      </div>
-      <main className="dns-hub-main dns-hub-after-hero">
-
-        <section aria-labelledby="available-tools-title" className="dns-hub-section">
-          <h2 id="available-tools-title">What are you trying to fix?</h2>
-          <Link className="dns-tool-card" href="/dns-lookup">
-            <span className="dns-tool-card-copy">
-              <strong className="dns-tool-card-name">DNS Lookup</strong>
-              <span className="dns-tool-card-reason">I only need to see the current records.</span>
-              <small>DNS lookup shows what a public resolver or the domain's authoritative nameserver returns now.</small>
-            </span>
-            <span aria-hidden="true">→</span>
-          </Link>
-          <Link className="dns-tool-card" href="/dns-trace">
-            <span className="dns-tool-card-copy">
-              <strong className="dns-tool-card-name">DNS Trace Explorer</strong>
-              <span className="dns-tool-card-reason">The domain returns SERVFAIL.</span>
-              <small>DNS Trace Explorer follows the handoffs from the root and shows where the path stops.</small>
-            </span>
-            <span aria-hidden="true">→</span>
-          </Link>
-          <Link className="dns-tool-card" href="/dns-change-checker">
-            <span className="dns-tool-card-copy"><strong className="dns-tool-card-name">DNS Change Checker</strong><span className="dns-tool-card-reason">A DNS change still looks old.</span><small>DNS Change Checker compares the source with the copies held by public resolver caches.</small></span><span aria-hidden="true">→</span>
-          </Link>
-          <Link className="dns-tool-card" href="/nameserver-checker">
-            <span className="dns-tool-card-copy"><strong className="dns-tool-card-name">Nameserver Delegation Checker</strong><span className="dns-tool-card-reason">I moved nameservers.</span><small>Nameserver Delegation Checker checks the parent handoff, glue, and whether every server answers.</small></span><span aria-hidden="true">→</span>
-          </Link>
-          <Link className="dns-tool-card" href="/dnssec-checker">
-            <span className="dns-tool-card-copy"><strong className="dns-tool-card-name">DNSSEC Chain Checker</strong><span className="dns-tool-card-reason">DNSSEC looks broken.</span><small>DNSSEC Chain Checker validates the signed chain from the root to one answer.</small></span><span aria-hidden="true">→</span>
-          </Link>
-          <Link className="dns-tool-card" href="/soa-checker">
-            <span className="dns-tool-card-copy"><strong className="dns-tool-card-name">SOA Consistency Checker</strong><span className="dns-tool-card-reason">Nameservers may be out of sync.</span><small>SOA Consistency Checker compares the serial and timing values served by every nameserver.</small></span><span aria-hidden="true">→</span>
-          </Link>
-          <Link className="dns-tool-card" href="/caa-checker">
-            <span className="dns-tool-card-copy"><strong className="dns-tool-card-name">CAA Policy Checker</strong><span className="dns-tool-card-reason">A certificate will not issue.</span><small>CAA Policy Checker finds which certificate authorities may issue normal and wildcard certificates.</small></span><span aria-hidden="true">→</span>
-          </Link>
-        </section>
-      </main>
+      <EntryHero art={siteSpotDnsToolsArt} wide>
+        <PageHeader>
+          <h1>
+            <PageTitleIcon>
+              <Network strokeWidth={2.2} />
+            </PageTitleIcon>{" "}
+            DNS <mark>tools</mark> to check records and find what broke
+          </h1>
+          <p>
+            Look up current records, trace referrals, compare cached answers, and check the DNS
+            settings that affect websites, email, and certificates.
+          </p>
+        </PageHeader>
+      </EntryHero>
+      <PageCanvas>
+        <ToolCatalog heading="Choose a DNS check" tools={tools} />
+      </PageCanvas>
     </AppShell>
   );
 }

@@ -80,7 +80,7 @@ Run the route ownership manifest checks, static policy, unpublished route checks
 
 | View | State | Check |
 | --- | --- | --- |
-| Desktop dark | Empty generator | Tool frame, controls, and empty preview align |
+| Desktop dark | Empty generator | Workbench, controls, and empty preview align |
 | Desktop dark | Brave selected | Preview table is readable and source footer is present |
 | Mobile dark | Directory | App rows reflow without page overflow |
 | Mobile light | Brave selected | Key chips and labels remain readable |

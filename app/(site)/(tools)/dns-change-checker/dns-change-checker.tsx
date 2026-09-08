@@ -1,10 +1,22 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
+import {
+  ToolActionRow,
+  ToolButton,
+  ToolDataTable,
+  ToolDownloadAction,
+  ToolRawOutput,
+  ToolResultLead,
+  ToolSelect,
+  ToolStatus,
+  ToolTextField,
+  type ToolOption,
+} from "@/app/tool-ui/tool-controls";
 import { CHANGE_RECORD_TYPES, type ChangeRecordType, type DnsSourceAnswer } from "@/lib/dns/diagnostic-types.ts";
 import { groupDnsSources } from "@/lib/dns/diagnostic-presentation.ts";
-import { DiagnosticResultHeader, diagnosticReportJson, DownloadResultButton } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
-import styles from "../../(catalogs)/dns-tools/dns-diagnostics.module.css";
+import { diagnosticReportJson } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
+import styles from "./dns-change-checker.module.css";
 
 type Result = {
   query: { name: string; recordType: ChangeRecordType; expectedAnswer: string | null };
@@ -24,95 +36,314 @@ type Result = {
   };
 };
 
-function stateFor(group: ReturnType<typeof groupDnsSources>[number]) {
-  if (group.error) return { label: "No reply", className: styles.stateBad };
-  if (group.responseCode !== "NOERROR") return { label: group.responseCode ?? "No reply", className: styles.stateWarn };
-  return group.records.length
-    ? { label: "Records found", className: styles.stateGood }
-    : { label: "No record", className: styles.stateQuiet };
+const recordTypeOptions: ToolOption[] = CHANGE_RECORD_TYPES.map((type) => ({ id: type, label: type }));
+
+function normalizedRecordSet(source: DnsSourceAnswer) {
+  return source.records
+    .map((record) => `${record.ownerName}|${record.type}|${record.value.trim().replace(/\.$/, "").toLowerCase()}`)
+    .sort()
+    .join("\n");
 }
 
-function AnswerGroups({ sources, authoritative }: { sources: DnsSourceAnswer[]; authoritative: boolean }) {
-  const groups = groupDnsSources(sources);
-  return <div className={styles.sources}>{groups.map((group) => {
-    const state = stateFor(group);
-    return <div className={styles.source} key={group.key}>
-      <header className={styles.sourceHeader}>
-        <h3>{group.sources.length} source{group.sources.length === 1 ? "" : "s"} returned this answer</h3>
-        <span className={state.className}>{state.label}</span>
-      </header>
-      {group.error ? <p className={styles.empty}>{group.error}</p> : group.records.length ? <ul className={styles.records}>{group.records.map((record, index) => <li className={styles.record} key={`${record.ownerName}-${record.value}-${index}`}><code>{record.value}</code><small>{record.ownerName} · {record.type}</small></li>)}</ul> : <p className={styles.empty}>No {sources[0]?.records[0]?.type ?? "record of this type"} was returned.</p>}
-      <p className={styles.sourceList}>{group.sources.map((source) => {
-        const ttls = [...new Set(source.records.map((record) => record.resolverTtlSeconds).filter((ttl): ttl is number => ttl !== null))];
-        return <span key={source.id}><strong>{source.label}{source.server ? ` · ${source.server.address}` : ""}</strong>{ttls.length ? ` · ${authoritative ? "TTL" : "Resolver TTL"} ${ttls.join(" / ")}s` : ""}</span>;
-      })}</p>
-      <details className={styles.raw}><summary>Raw responses from these sources</summary><pre>{JSON.stringify(group.sources.map((source) => ({ source: source.label, server: source.server, response: source.rawResponse, error: source.error })), null, 2)}</pre></details>
-    </div>;
-  })}</div>;
+function authoritativeReferenceKey(sources: DnsSourceAnswer[]) {
+  const counts = new Map<string, number>();
+  let referenceKey: string | null = null;
+  let referenceCount = 0;
+  for (const source of sources) {
+    if (source.error || source.responseCode !== "NOERROR" || source.authoritative !== true) continue;
+    const key = normalizedRecordSet(source);
+    const count = (counts.get(key) ?? 0) + 1;
+    counts.set(key, count);
+    if (count > referenceCount) {
+      referenceKey = key;
+      referenceCount = count;
+    }
+  }
+  return referenceKey;
 }
 
-function resolverAgreementSentence(result: Result) {
+function resolverAgreementSentence(result: Result, hasUsableAuthoritativeAnswer: boolean) {
   const usableReplies = result.resolvers.filter((source) => !source.error && source.responseCode === "NOERROR").length;
   const unavailable = Math.max(0, result.summary.totalResolvers - usableReplies);
-  const agreement = usableReplies === 0
-    ? "No public resolver returned a usable reply."
-    : usableReplies === 1
-      ? result.summary.agreeingResolvers === 1
-        ? "The one usable public resolver reply matches it."
-        : "The one usable public resolver reply does not match it."
-      : `${result.summary.agreeingResolvers} of ${usableReplies} usable public resolver replies match it.`;
+  let agreement: string;
+  if (!hasUsableAuthoritativeAnswer) {
+    agreement = usableReplies === 0
+      ? "No public resolver returned a usable reply."
+      : `${usableReplies} public resolver ${usableReplies === 1 ? "reply was" : "replies were"} usable, but there is no authoritative reference to compare ${usableReplies === 1 ? "it" : "them"} with.`;
+  } else if (usableReplies === 0) {
+    agreement = "No public resolver returned a usable reply.";
+  } else if (usableReplies === 1) {
+    agreement = result.summary.agreeingResolvers === 1
+      ? "The one usable public resolver reply matches it."
+      : "The one usable public resolver reply does not match it.";
+  } else {
+    agreement = `${result.summary.agreeingResolvers} of ${usableReplies} usable public resolver replies match it.`;
+  }
   if (unavailable === 0) return agreement;
   return `${agreement} ${unavailable} other resolver${unavailable === 1 ? "" : "s"} did not return a usable reply.`;
 }
 
-export function DnsChangeChecker({ initialName = "", initialRecordType = "A" }: { initialName?: string; initialRecordType?: ChangeRecordType }) {
+function leadSentence(result: Result) {
+  const usableAuthoritative = result.authoritative.filter(
+    (source) => !source.error && source.responseCode === "NOERROR" && source.authoritative === true,
+  );
+  const usableSources = [...usableAuthoritative, ...result.resolvers.filter(
+    (source) => !source.error && source.responseCode === "NOERROR",
+  )];
+  const allUsableAnswersEmpty = usableSources.length > 0 && usableSources.every((source) => source.records.length === 0);
+  const unavailableAuthoritative = Math.max(0, result.authoritative.length - usableAuthoritative.length);
+  const empty = allUsableAnswersEmpty
+    ? `No ${result.query.recordType} record was returned by the usable sources checked. `
+    : "";
+  const hasUsableAuthoritativeAnswer = usableAuthoritative.length > 0;
+  let authoritative = !hasUsableAuthoritativeAnswer
+    ? "None of the authoritative nameserver addresses returned a usable answer, so there is no source answer to compare yet."
+    : usableAuthoritative.length === 1
+      ? "One authoritative nameserver returned a usable answer."
+    : result.summary.authoritativeServersAgree
+      ? `The usable authoritative nameserver replies agree on ${allUsableAnswersEmpty ? "that empty" : "the current"} answer.`
+      : `The authoritative nameservers returned more than one answer. ${result.summary.matchingAuthoritativeSources} of ${result.summary.totalAuthoritativeSources} usable authoritative replies returned the answer used for comparison.`;
+  if (unavailableAuthoritative > 0) {
+    authoritative += ` ${unavailableAuthoritative} other authoritative nameserver address${unavailableAuthoritative === 1 ? "" : "es"} did not return a usable reply.`;
+  }
+  const expected = result.query.expectedAnswer && result.summary.expectedAnswerMatches
+    ? result.summary.expectedAnswerMatches.length > 0
+      ? ` The expected value appears in ${result.summary.expectedAnswerMatches.length} source${result.summary.expectedAnswerMatches.length === 1 ? "" : "s"}.`
+      : " The expected value did not appear in any response received."
+    : "";
+  return `${empty}${authoritative} ${resolverAgreementSentence(result, hasUsableAuthoritativeAnswer)}${expected}`;
+}
+
+function sourceState(source: DnsSourceAnswer, authoritative: boolean, referenceKey: string | null) {
+  if (source.error) return "No usable reply";
+  if (source.responseCode !== "NOERROR") return source.responseCode ?? "No usable reply";
+  if (!authoritative && referenceKey !== null) {
+    return normalizedRecordSet(source) === referenceKey ? "Matches reference" : "Different answer";
+  }
+  return source.records.length > 0 ? "Answered" : "No record";
+}
+
+function ttlValue(source: DnsSourceAnswer) {
+  const values = [...new Set(source.records
+    .map((record) => record.resolverTtlSeconds)
+    .filter((value): value is number => value !== null))];
+  if (values.length === 0) return "";
+  return values.map((value) => `${value.toLocaleString("en-US")} seconds`).join(" / ");
+}
+
+function sourceRows(sources: DnsSourceAnswer[], authoritative: boolean, referenceKey: string | null) {
+  return sources.map((source) => ({
+    id: source.id,
+    cells: {
+      source: source.label,
+      ...(authoritative ? { address: source.server?.address ?? "" } : {}),
+      ttl: ttlValue(source),
+      state: sourceState(source, authoritative, referenceKey),
+      error: source.error ?? "",
+    },
+  }));
+}
+
+function AnswerValues({ group, recordType }: {
+  group: ReturnType<typeof groupDnsSources>[number];
+  recordType: ChangeRecordType;
+}) {
+  if (group.error) return <p className={styles.groupMessage}>No usable reply.</p>;
+  if (group.records.length === 0) return <p className={styles.groupMessage}>No {recordType} record returned.</p>;
+  return (
+    <ul className={styles.answerValues} data-answer-values>
+      {group.records.map((record, index) => (
+        <li key={`${record.ownerName}-${record.type}-${record.value}-${index}`}>
+          <code>{record.value}</code>
+          <span>{record.ownerName} · {record.type}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function AnswerGroups({ authoritative, recordType, referenceKey, sectionName, sources }: {
+  authoritative: boolean;
+  recordType: ChangeRecordType;
+  referenceKey: string | null;
+  sectionName: string;
+  sources: DnsSourceAnswer[];
+}) {
+  const groups = groupDnsSources(sources);
+  const columns = [
+    { id: "source", label: "Source" },
+    ...(authoritative ? [{ id: "address", label: "Address" }] : []),
+    { id: "ttl", label: authoritative ? "Authoritative TTL" : "Resolver TTL" },
+    { id: "state", label: "State" },
+    { id: "error", label: "Error" },
+  ];
+
+  return (
+    <div className={styles.answerGroups}>
+      {groups.map((group, index) => (
+        <section className={styles.answerGroup} data-answer-group key={group.key}>
+          <AnswerValues group={group} recordType={recordType} />
+          <div className={styles.tableRegion}>
+            <ToolDataTable
+              ariaLabel={`${sectionName} sources for answer ${index + 1}`}
+              columns={columns}
+              rows={sourceRows(group.sources, authoritative, referenceKey)}
+            />
+          </div>
+          <div className={styles.rawList}>
+            {group.sources.map((source) => (
+              <div data-dns-change-raw key={source.id}>
+                <ToolRawOutput
+                  label={`Raw response from ${source.label}`}
+                  value={{ source: source.label, server: source.server, response: source.rawResponse, error: source.error }}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  );
+}
+
+function PreviousResultStatus({ error, loading, stale }: { error: string | null; loading: boolean; stale: boolean }) {
+  let children: ReactNode = null;
+  if (loading) children = "Previous result. A new check is running.";
+  else if (error) children = "Previous result. The latest check failed.";
+  else if (stale) children = "Previous result. Inputs changed since this check.";
+  return children ? <ToolStatus tone={error ? "warning" : "neutral"}>{children}</ToolStatus> : null;
+}
+
+export function DnsChangeChecker({ initialName = "", initialRecordType = "A" }: {
+  initialName?: string;
+  initialRecordType?: ChangeRecordType;
+}) {
   const [name, setName] = useState(initialName);
   const [recordType, setRecordType] = useState(initialRecordType);
   const [expectedAnswer, setExpectedAnswer] = useState("");
   const [result, setResult] = useState<Result | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [validationError, setValidationError] = useState<string | null>(null);
+  const [requestError, setRequestError] = useState<string | null>(null);
+  const [resultIsStale, setResultIsStale] = useState(false);
   const [loading, setLoading] = useState(false);
+  const nameRef = useRef<HTMLInputElement>(null);
   const report = useMemo(() => result ? diagnosticReportJson("DNS Change Checker", result) : "", [result]);
+  const referenceKey = useMemo(() => result ? authoritativeReferenceKey(result.authoritative) : null, [result]);
   const hasUsableAuthoritativeAnswer = result?.authoritative.some(
     (source) => !source.error && source.responseCode === "NOERROR" && source.authoritative === true,
   ) ?? false;
 
   async function submit(event: FormEvent) {
     event.preventDefault();
-    if (!name.trim()) return setError("Enter a domain or hostname.");
-    setLoading(true); setError(null);
+    if (!name.trim()) {
+      if (result) setResultIsStale(true);
+      setValidationError("Enter a domain or hostname.");
+      nameRef.current?.focus();
+      return;
+    }
+    setLoading(true);
+    setValidationError(null);
+    setRequestError(null);
     try {
-      const response = await fetch("/api/dns/change-checker", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ name, recordType, expectedAnswer }) });
+      const response = await fetch("/api/dns/change-checker", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ name, recordType, expectedAnswer }),
+      });
       const data = await response.json();
       if (!response.ok) throw new Error(data?.error?.message ?? "The DNS change check failed.");
       setResult(data);
-    } catch (caught) { setError(caught instanceof Error ? caught.message : "The DNS change check failed."); }
-    finally { setLoading(false); }
+      setResultIsStale(false);
+    } catch (caught) {
+      setRequestError(caught instanceof Error ? caught.message : "The DNS change check failed.");
+    } finally {
+      setLoading(false);
+    }
   }
 
-  return <section className="dns-tool" aria-label="DNS change checker">
-    <form className="dns-lookup-form" onSubmit={submit}>
-      <label className="dns-name-field"><span>Domain or hostname</span><input autoCapitalize="none" autoComplete="off" onChange={(event) => setName(event.target.value)} placeholder="www.google.com" spellCheck={false} value={name} /></label>
-      <fieldset className="dns-record-type-picker"><legend>Record type</legend><div className="dns-record-type-options">{CHANGE_RECORD_TYPES.map((type) => <label key={type}><input checked={recordType === type} name="change-type" onChange={() => setRecordType(type)} type="radio" /><span>{type}</span></label>)}</div></fieldset>
-      <label className="dns-name-field"><span>Expected answer <small>(optional)</small></span><input autoCapitalize="none" autoComplete="off" onChange={(event) => setExpectedAnswer(event.target.value)} placeholder="The new value you expect to see" spellCheck={false} value={expectedAnswer} /></label>
-      <button className="dns-submit" disabled={loading}>{loading ? "Checking DNS..." : "Check DNS change"}</button>
-      {error ? <p className="dns-form-error" role="alert">{error}</p> : null}
-    </form>
-    {result ? <section className={styles.results} aria-live="polite">
-      <DiagnosticResultHeader action={<DownloadResultButton contents={report} filename={`${result.query.name}-${result.query.recordType}-dns-change-report.json`} />} checkedAt={result.checkedAt} durationMs={result.durationMs} hostname={result.query.name}>
-        <p>
-          {!hasUsableAuthoritativeAnswer
-            ? "None of the authoritative nameserver addresses returned a usable answer, so there is no source answer to compare yet. Check the source responses below before reading the resolver caches."
-            : result.summary.authoritativeServersAgree
-              ? `The authoritative nameservers agree on the current answer. ${resolverAgreementSentence(result)}`
-              : `The authoritative nameservers returned more than one answer. This can happen while a change is settling, but some DNS providers also vary answers on purpose. ${result.summary.matchingAuthoritativeSources} of ${result.summary.totalAuthoritativeSources} usable authoritative replies returned the answer used for comparison. ${resolverAgreementSentence(result)}`}
-        </p>
-        {result.ipv6Connectivity === false ? <p>IPv6 authoritative checks were skipped because this checker does not have IPv6 connectivity.</p> : null}
-        {!result.summary.authoritativeServersAgree && hasUsableAuthoritativeAnswer ? <p>If you did not expect the answers to vary, <a className={styles.nextCheck} href={`/soa-checker?name=${encodeURIComponent(result.zone)}`}>compare their SOA serials</a> to see whether one nameserver is still serving an older copy of the zone.</p> : null}
-      </DiagnosticResultHeader>
-      {result.query.expectedAnswer && result.summary.expectedAnswerMatches ? <div className={styles.finding} data-tone={result.summary.expectedAnswerMatches.length ? "good" : "warning"}><p>{result.summary.expectedAnswerMatches.length ? `The value you expected appears in ${result.summary.expectedAnswerMatches.length} source${result.summary.expectedAnswerMatches.length === 1 ? "" : "s"}.` : "The value you expected did not appear in any response we received."}</p></div> : null}
-      <section className={styles.section}><h3>Published by the authoritative nameservers</h3><AnswerGroups authoritative sources={result.authoritative} /></section>
-      <section className={styles.section}><h3>Seen in public resolver caches</h3><AnswerGroups authoritative={false} sources={result.resolvers} /></section>
-    </section> : null}
-  </section>;
+  return (
+    <section aria-label="DNS change checker" className={styles.workbench} data-tool-workbench>
+      <form className={styles.form} onSubmit={submit}>
+        <ToolTextField
+          autoCapitalize="none"
+          autoComplete="off"
+          error={validationError}
+          inputRef={nameRef}
+          label="Domain or hostname"
+          onChange={(value) => {
+            setName(value);
+            if (result) setResultIsStale(true);
+            if (validationError) setValidationError(null);
+          }}
+          placeholder="www.google.com"
+          required
+          spellCheck={false}
+          value={name}
+        />
+        <ToolSelect
+          label="Record type"
+          onChange={(value) => {
+            setRecordType(value as ChangeRecordType);
+            if (result) setResultIsStale(true);
+          }}
+          options={recordTypeOptions}
+          required
+          value={recordType}
+        />
+        <ToolTextField
+          autoCapitalize="none"
+          autoComplete="off"
+          label="Expected answer (optional)"
+          onChange={(value) => {
+            setExpectedAnswer(value);
+            if (result) setResultIsStale(true);
+          }}
+          placeholder="The new value you expect to see"
+          spellCheck={false}
+          value={expectedAnswer}
+        />
+        <ToolActionRow>
+          <ToolButton className={styles.submit} isDisabled={loading} type="submit" variant="primary">
+            {loading ? "Checking DNS..." : "Check DNS change"}
+          </ToolButton>
+        </ToolActionRow>
+        {loading ? <ToolStatus>Checking authoritative sources and public resolver caches.</ToolStatus> : null}
+        {requestError ? <ToolStatus tone="danger">{requestError}</ToolStatus> : null}
+      </form>
+
+      {result ? (
+        <section aria-busy={loading || undefined} aria-live="polite" className={styles.results} data-dns-change-results>
+          <PreviousResultStatus error={requestError} loading={loading} stale={resultIsStale} />
+          <header className={styles.resultHeader}>
+            <h2>{result.query.name} <span>{result.query.recordType}</span></h2>
+            <div data-dns-change-lead>
+              <ToolResultLead>{leadSentence(result)}</ToolResultLead>
+            </div>
+            {result.ipv6Connectivity === false ? (
+              <p className={styles.ipv6Note}>IPv6 authoritative checks were skipped because this checker does not have IPv6 connectivity.</p>
+            ) : null}
+          </header>
+
+          <section className={styles.resultSection}>
+            <h3>Published by authoritative nameservers</h3>
+            <AnswerGroups authoritative recordType={result.query.recordType} referenceKey={referenceKey} sectionName="Authoritative" sources={result.authoritative} />
+          </section>
+
+          <section className={styles.resultSection}>
+            <h3>Seen in public resolver caches</h3>
+            <AnswerGroups authoritative={false} recordType={result.query.recordType} referenceKey={referenceKey} sectionName="Public resolver" sources={result.resolvers} />
+          </section>
+
+          {!result.summary.authoritativeServersAgree && hasUsableAuthoritativeAnswer ? (
+            <p className={styles.nextCheck}>If you did not expect the answers to vary, <a href={`/soa-checker?name=${encodeURIComponent(result.zone)}`}>compare their SOA serials</a> to see whether one nameserver still has an older copy of the zone.</p>
+          ) : null}
+
+          <footer className={styles.resultFooter}>
+            <p>Checked {new Date(result.checkedAt).toLocaleString()} in {result.durationMs.toLocaleString("en-US")} ms.</p>
+            <ToolDownloadAction contents={report} filename={`${result.query.name}-${result.query.recordType}-dns-change-report.json`} label="Download report" mimeType="application/json;charset=utf-8" />
+          </footer>
+        </section>
+      ) : null}
+    </section>
+  );
 }

@@ -3,6 +3,7 @@
 import { buildRegistration } from "./normalize.ts";
 import { normalizeDomainInput } from "./public-suffix.ts";
 import { fetchRegistrar, fetchRegistry, registrarUrlFrom, type FetchOptions } from "./rdap.ts";
+import { tldTypeFor } from "./tld-directory.ts";
 import type { DomainRegistration } from "./types.ts";
 
 export type LookupOptions = FetchOptions & {
@@ -29,6 +30,7 @@ export async function lookupDomain(rawInput: string, options: LookupOptions = {}
       domain: query.domain,
       unicode: query.unicode,
       tld: query.tld,
+      tldType: tldTypeFor(query.tld),
       suffix: query.suffix,
       reduced: query.reduced,
       isIdn: query.isIdn,

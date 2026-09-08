@@ -38,16 +38,18 @@ export function AppShell({
         <section className={styles.main} aria-label={mainLabel} data-app-main>
           <div className={styles.content}>{children}</div>
           <footer className={styles.footer} aria-label="Site footer">
-            <Link className={styles.footerBrand} href="/" aria-label="stack127 home">
-              <BrandWordmark />
-            </Link>
-            <nav className={styles.footerLinks} aria-label="Legal pages">
-              <Link href="/privacy">privacy</Link>
-              <Link href="/terms">terms</Link>
-              <Link href="/about">about</Link>
-              <Link href="/labs">labs</Link>
-            </nav>
-            <p>2026 stack127. all rights reserved.</p>
+            <div className={styles.footerTop}>
+              <Link className={styles.footerBrand} href="/" aria-label="stack127 home">
+                <BrandWordmark />
+              </Link>
+              <nav className={styles.footerLinks} aria-label="Legal pages">
+                <Link href="/privacy">privacy</Link>
+                <Link href="/terms">terms</Link>
+                <Link href="/about">about</Link>
+                <Link href="/labs">labs</Link>
+              </nav>
+              <p>2026 stack127. all rights reserved.</p>
+            </div>
           </footer>
         </section>
       </section>

@@ -14,7 +14,7 @@ const toolMoves = [
     "dnssec-checker",
     "nameserver-checker",
     "soa-checker",
-  ].map((slug) => ({ family: "dns-tools", published: true, slug })),
+  ].map((slug) => ({ family: "dns-tools", published: true, routeGroup: "(tools)", slug })),
   ...[
     "domain-age",
     "domain-availability",
@@ -28,22 +28,27 @@ const toolMoves = [
     "punycode-converter",
     "tld-directory",
     "transfer-readiness",
-  ].map((slug) => ({ family: "domain-tools", published: true, slug })),
+  ].map((slug) => ({
+    family: "domain-tools",
+    published: true,
+    routeGroup: ["epp-status-codes", "tld-directory"].includes(slug) ? "(references)" : "(tools)",
+    slug,
+  })),
   ...[
     "raid-calculator",
     "raidz-expansion-planner",
     "zfs-capacity-calculator",
     "zfs-padding-calculator",
-  ].map((slug) => ({ family: "storage-tools", published: true, slug })),
+  ].map((slug) => ({ family: "storage-tools", published: true, routeGroup: "(tools)", slug })),
 ];
 
 function source(relativePath) {
   return readFileSync(path.join(root, relativePath), "utf8");
 }
 
-test("every existing tool has flat route, docs, tests, and ownership", () => {
-  for (const { family, published, slug } of toolMoves) {
-    const routeDirectory = path.join(root, "app/(site)/(tools)", slug);
+test("every existing flat page has the correct source family, docs, tests, and ownership", () => {
+  for (const { family, published, routeGroup, slug } of toolMoves) {
+    const routeDirectory = path.join(root, "app/(site)", routeGroup, slug);
     const docsDirectory = path.join(root, "content_docs", slug);
     const testsDirectory = path.join(root, "tests/pages", slug);
     const manifest = JSON.parse(source(`tests/pages/${slug}/page.json`));
@@ -83,7 +88,7 @@ test("published flat tools are not inferred to be home collection pages", () => 
 });
 
 test("new public tool repositories link to the flat hosted URL", () => {
-  const creator = source("scripts/stack127/github/create-tool-repo.mjs");
+  const creator = source("scripts/stack127/repos/create-tool-repo.mjs");
 
   assert.match(creator, /https:\/\/stack127\.com\/\$\{slug\}/);
   assert.doesNotMatch(creator, /stack127\.com\/tools\//);

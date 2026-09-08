@@ -14,7 +14,7 @@ export function testDnsToolPage(contract: DnsToolPageContract) {
     await expect(page.locator("[data-app-main] h1")).toHaveText(contract.heading);
     await expect(page.getByLabel("Domain or hostname")).toBeVisible();
     await expect(page.getByRole("button", { name: contract.button })).toBeVisible();
-    await expect(page.locator(".dns-reference-content > section")).toHaveCount(contract.sections);
+    await expect(page.locator("[data-tool-page-content] > h2")).toHaveCount(contract.sections);
     await expect(page.locator('meta[name="robots"]')).not.toHaveAttribute("content", /noindex/i);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
       "href",

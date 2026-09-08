@@ -11,25 +11,29 @@ const remove = process.argv.includes("--remove");
 const pool = new pg.Pool({ connectionString: databaseUrl });
 try {
   if (remove) {
-    await pool.query("delete from public.stack127_pages where slug = $1", ["dockerignore-tester"]);
-    console.log("Removed the local dockerignore preview row.");
+    const result = await pool.query(
+      `update public.stack127_pages
+       set is_published = false, published_at = null, updated_at = null
+       where slug = $1 and page_family = 'tool'`,
+      ["dockerignore-tester"],
+    );
+    if (result.rowCount !== 1) throw new Error("The dockerignore tool registry row is missing.");
+    console.log("Unpublished the local dockerignore preview without deleting its tool content.");
   } else {
-    await pool.query(
+    const result = await pool.query(
       `
-        insert into public.stack127_pages (
-          slug, label, meta_title, meta_description, is_published,
-          published_at, cover_image_url, page_type, sitemap_priority
-        ) values ($1, $2, $3, $4, true, now(), null, $5, $6)
-        on conflict (slug) do update set
-          label = excluded.label,
-          meta_title = excluded.meta_title,
-          meta_description = excluded.meta_description,
+        update public.stack127_pages
+        set
+          label = $2,
+          meta_title = $3,
+          meta_description = $4,
           is_published = true,
-          published_at = coalesce(public.stack127_pages.published_at, excluded.published_at),
-          cover_image_url = excluded.cover_image_url,
-          page_type = excluded.page_type,
-          sitemap_priority = excluded.sitemap_priority,
+          published_at = coalesce(published_at, now()),
+          cover_image_url = null,
+          page_type = $5,
+          sitemap_priority = $6,
           updated_at = now()
+        where slug = $1 and page_family = 'tool'
       `,
       [
         "dockerignore-tester",
@@ -40,7 +44,8 @@ try {
         0.5,
       ],
     );
-    console.log("Added the local dockerignore preview row.");
+    if (result.rowCount !== 1) throw new Error("The dockerignore tool registry row is missing.");
+    console.log("Published the local dockerignore preview using its existing tool row.");
   }
 } finally {
   await pool.end();

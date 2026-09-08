@@ -20,30 +20,31 @@ One domain name, normalized as elsewhere. No other controls.
 
 ## What the result shows
 
-Lead with time remaining, then the date, then where the domain currently sits in its lifecycle.
+Lead with one answer that matches the domain's state. During normal registration, show the remaining time in large type with the domain and registry expiry date below it.
 
-```
-stack127.com expires in 11 months, on 3 July 2027. The registry has no
-expiry-related status on it, so it is in normal registered state.
-```
-
-When a domain is past its expiry date, the status codes tell us where it is, and that becomes the lead:
-
-```
-example.com passed its registry expiry date on 12 June 2026. The registry has it
-in redemptionPeriod, which means it was deleted and the registrant can still
-restore it by paying a redemption fee. It is not available to register.
+```text
+Time until registry expiry
+11 months
+stack127.com, expires 3 July 2027.
 ```
 
-Alongside:
+When an expiry-related status is present, that state becomes the large answer:
 
-- the registry expiry date from the `expiration` event, as published and in UTC
-- the registrar expiry date from the `registrar expiration` event, shown as its own field and never merged into the one above
-- days remaining, or days elapsed if past, computed from the registry date because that is the one the registry acts on
-- every EPP status code relevant to the lifecycle, in plain language: `autoRenewPeriod`, `redemptionPeriod`, `pendingDelete`, `pendingRestore`, `clientHold`, `serverHold`
-- the same three-point time path as Domain Age Checker, reused rather than reinvented
+```text
+Expiry state
+Redemption period
+example.com. Not available to register. The previous registrant may still restore it.
+```
 
-A lifecycle diagram below the result, showing the stages in order with their durations. This is the highest value visual on the page.
+Then show:
+
+- a compact ordered list of the possible post-expiry stages, their typical lengths, and what each state permits
+- registry and registrar expiry dates as a two-value comparison only when both exist and their displayed dates differ
+- expiry-related EPP status evidence in a table only when those statuses exist
+- the registry host and fetch date as quiet metadata
+- a downloadable report and the raw registry response behind contained disclosures
+
+Do not repeat the lead expiry date in another result block. Do not merge genuinely different registry and registrar dates. Do not draw the conditional lifecycle on a time axis, turn it into a percentage, or predict when the domain will be released or available.
 
 ## The lifecycle we describe
 
@@ -80,7 +81,7 @@ Compute time remaining fresh at request time from the cached RDAP response, neve
 
 ## What the page must tell the reader
 
-- That expiry does not mean the name becomes available on that date, with the lifecycle diagram as the proof.
+- That expiry does not mean the name becomes available on that date, with the ordered stage list as the proof.
 - That auto-renew status is invisible to this tool, so an approaching date is not automatically a problem.
 - That a domain in `redemptionPeriod` is not available and that restoring it costs meaningfully more than a renewal, typically a registry redemption fee on top of the registrar's charge.
 - Which server published the date and when we fetched it.
@@ -92,7 +93,7 @@ Compute time remaining fresh at request time from the cached RDAP response, neve
 2. The form.
 3. Time remaining, the date, current lifecycle position.
 4. One divider.
-5. The lifecycle, as a diagram followed by prose explaining each stage. Do not turn each stage into a card.
+5. The post-expiry path as one ordered stage list. Supporting prose explains policy differences without repeating the list.
 6. What to do if you own the domain: where the real risk is, which is payment and contact email rather than the date.
 7. What to expect if you want somebody else's domain, honestly, including that drop catching exists.
 8. Coverage, ccTLD differences, freshness, privacy, and links to Domain Registration Lookup and EPP Status Code Explainer.

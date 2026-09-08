@@ -49,8 +49,9 @@ const tools = [
   { href: "/tld-directory", icon: <Globe {...iconProps} />, id: "tlds", label: "TLD Directory" },
 ] as const;
 
-/** How many domain tools exist now; the home page card shows this count. */
-export const domainToolCount = tools.length;
+/** References have their own home cards and are not counted as interactive tools. */
+export const domainReferenceCount = tools.filter((tool) => tool.id === "status-codes" || tool.id === "tlds").length;
+export const domainToolCount = tools.length - domainReferenceCount;
 
 export function DomainToolsSidebar({ active }: { active: DomainToolId }) {
   return (

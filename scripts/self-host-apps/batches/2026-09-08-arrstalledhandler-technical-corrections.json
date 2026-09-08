@@ -1,0 +1,235 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Partial source model, official documentation and deployment correction.",
+  "apps": [
+    {
+      "slug": "arrstalledhandler",
+      "review_scope": "partial",
+      "license": "GPL-3.0",
+      "source_model": "open_source",
+      "website_url": "https://github.com/tommyvange/ArrStalledHandler",
+      "docs_url": "https://github.com/tommyvange/ArrStalledHandler#readme",
+      "install_docs_url": "https://github.com/tommyvange/ArrStalledHandler#deployment",
+      "docker_support": "official",
+      "compose_support": true,
+      "compose_url": "https://github.com/tommyvange/ArrStalledHandler#docker-deployment-docker-hub",
+      "database_types": [
+        "sqlite"
+      ],
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/tommyvange/arrstalledhandler",
+            "https://github.com/tommyvange/ArrStalledHandler/issues",
+            "https://hub.docker.com/r/tommythebeast/arrstalledhandler",
+            "https://raw.githubusercontent.com/tommyvange/unraid-templates/main/ArrStalledHandler/ArrStalledHandler.xml",
+            "https://raw.githubusercontent.com/tommyvange/unraid-templates/refs/heads/main/ArrStalledHandler/logo.png"
+          ]
+        },
+        "docker": {
+          "status": "published",
+          "note": "The project README publishes its Docker image and run instructions.",
+          "checked_at": "2026-09-08",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/tommyvange/ArrStalledHandler#readme"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "note": "The project README includes a Compose configuration using its published Docker image.",
+          "checked_at": "2026-09-08",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/tommyvange/ArrStalledHandler#readme"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/tommyvange/arrstalledhandler",
+            "https://github.com/tommyvange/ArrStalledHandler/issues",
+            "https://hub.docker.com/r/tommythebeast/arrstalledhandler",
+            "https://raw.githubusercontent.com/tommyvange/unraid-templates/main/ArrStalledHandler/ArrStalledHandler.xml",
+            "https://raw.githubusercontent.com/tommyvange/unraid-templates/refs/heads/main/ArrStalledHandler/logo.png"
+          ]
+        },
+        "database": {
+          "status": "published",
+          "note": "Uses an embedded SQLite file to track stalled downloads. No separate database server is needed.",
+          "checked_at": "2026-09-08",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/tommyvange/ArrStalledHandler#readme",
+            "https://raw.githubusercontent.com/tommyvange/arrstalledhandler/main/main.py"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "note": "The project README identifies tommythebeast/arrstalledhandler as its Docker image.",
+          "checked_at": "2026-09-08",
+          "confidence": "high",
+          "source_urls": [
+            "https://github.com/tommyvange/ArrStalledHandler#readme"
+          ]
+        }
+      },
+      "expected": {
+        "license": "No license file declared (all rights reserved by default)",
+        "source_model": "source_available",
+        "website_url": "https://raw.githubusercontent.com/tommyvange/unraid-templates/main/ArrStalledHandler/ArrStalledHandler.xml",
+        "docs_url": "https://github.com/tommyvange/ArrStalledHandler/issues",
+        "install_docs_url": "https://github.com/tommyvange/ArrStalledHandler/issues",
+        "docker_support": "community",
+        "compose_support": false,
+        "compose_url": null,
+        "database_types": [],
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/tommyvange/arrstalledhandler",
+              "https://github.com/tommyvange/ArrStalledHandler/issues",
+              "https://hub.docker.com/r/tommythebeast/arrstalledhandler",
+              "https://raw.githubusercontent.com/tommyvange/unraid-templates/main/ArrStalledHandler/ArrStalledHandler.xml",
+              "https://raw.githubusercontent.com/tommyvange/unraid-templates/refs/heads/main/ArrStalledHandler/logo.png"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/tommyvange/arrstalledhandler",
+              "https://github.com/tommyvange/ArrStalledHandler/issues",
+              "https://hub.docker.com/r/tommythebeast/arrstalledhandler",
+              "https://raw.githubusercontent.com/tommyvange/unraid-templates/main/ArrStalledHandler/ArrStalledHandler.xml",
+              "https://raw.githubusercontent.com/tommyvange/unraid-templates/refs/heads/main/ArrStalledHandler/logo.png"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/tommyvange/arrstalledhandler",
+              "https://github.com/tommyvange/ArrStalledHandler/issues",
+              "https://hub.docker.com/r/tommythebeast/arrstalledhandler",
+              "https://raw.githubusercontent.com/tommyvange/unraid-templates/main/ArrStalledHandler/ArrStalledHandler.xml",
+              "https://raw.githubusercontent.com/tommyvange/unraid-templates/refs/heads/main/ArrStalledHandler/logo.png"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/tommyvange/arrstalledhandler",
+              "https://github.com/tommyvange/ArrStalledHandler/issues",
+              "https://hub.docker.com/r/tommythebeast/arrstalledhandler",
+              "https://raw.githubusercontent.com/tommyvange/unraid-templates/main/ArrStalledHandler/ArrStalledHandler.xml",
+              "https://raw.githubusercontent.com/tommyvange/unraid-templates/refs/heads/main/ArrStalledHandler/logo.png"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/tommyvange/arrstalledhandler",
+              "https://github.com/tommyvange/ArrStalledHandler/issues",
+              "https://hub.docker.com/r/tommythebeast/arrstalledhandler",
+              "https://raw.githubusercontent.com/tommyvange/unraid-templates/main/ArrStalledHandler/ArrStalledHandler.xml",
+              "https://raw.githubusercontent.com/tommyvange/unraid-templates/refs/heads/main/ArrStalledHandler/logo.png"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/tommyvange/arrstalledhandler",
+              "https://github.com/tommyvange/ArrStalledHandler/issues",
+              "https://hub.docker.com/r/tommythebeast/arrstalledhandler",
+              "https://raw.githubusercontent.com/tommyvange/unraid-templates/main/ArrStalledHandler/ArrStalledHandler.xml",
+              "https://raw.githubusercontent.com/tommyvange/unraid-templates/refs/heads/main/ArrStalledHandler/logo.png"
+            ]
+          }
+        }
+      },
+      "reviewed_install_methods": [
+        "docker",
+        "compose"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://hub.docker.com/r/tommythebeast/arrstalledhandler",
+          "note": "Community-maintained image. Verify the publisher before pulling.",
+          "image": "tommythebeast/arrstalledhandler",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://hub.docker.com/r/tommythebeast/arrstalledhandler",
+          "support_level": "community"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/tommyvange/unraid-templates/main/ArrStalledHandler/ArrStalledHandler.xml",
+          "note": "Listed in the Unraid Community Applications catalog; verify the template publisher before installing.",
+          "image": null,
+          "label": "Unraid catalog",
+          "method": "unraid",
+          "sort_order": 35,
+          "source_url": "https://raw.githubusercontent.com/tommyvange/unraid-templates/main/ArrStalledHandler/ArrStalledHandler.xml",
+          "support_level": "community"
+        }
+      ],
+      "install_options": [
+        {
+          "url": "https://hub.docker.com/r/tommythebeast/arrstalledhandler",
+          "note": null,
+          "image": "tommythebeast/arrstalledhandler",
+          "label": "Docker image",
+          "method": "docker",
+          "sort_order": 10,
+          "source_url": "https://github.com/tommyvange/ArrStalledHandler#readme",
+          "support_level": "official"
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/tommyvange/ArrStalledHandler#docker-deployment-docker-hub",
+          "image": "tommythebeast/arrstalledhandler:latest",
+          "support_level": "official",
+          "source_url": "https://github.com/tommyvange/ArrStalledHandler#readme",
+          "note": "Compose configuration is included in the project README.",
+          "sort_order": 20
+        }
+      ],
+      "data_source_urls": [
+        "https://github.com/tommyvange/ArrStalledHandler#readme",
+        "https://raw.githubusercontent.com/tommyvange/arrstalledhandler/main/main.py",
+        "https://raw.githubusercontent.com/tommyvange/arrstalledhandler/main/LICENSE"
+      ],
+      "pending_review": [
+        "Resource evidence states and removed estimate references",
+        "Maintenance, remaining installation options, interface surfaces, and other metadata",
+        "Clarify requires_database field semantics for embedded databases before changing its null value"
+      ]
+    }
+  ]
+}

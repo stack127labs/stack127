@@ -11,19 +11,14 @@ Edit text to remove AI patterns and add human voice.
 
 1. Scan for the patterns below.
 2. Rewrite. Preserve meaning, match intended tone.
-3. Add soul (see next section).
+3. Preserve the intended voice and useful connections between ideas.
 4. Self-audit: "What makes this obviously AI generated?" Fix remaining tells.
 
-## Adding soul
+## Preserve the voice
 
-Removing patterns is half the job. Sterile, voiceless writing is just as obvious.
+For website copy, read and apply `skills/stack127/stack127-writing-voice/SKILL.md` before this cleanup pass. That skill owns tone; this checklist removes filler and AI-shaped patterns without introducing another voice. If the voice skill led you here, continue with cleanup rather than loading it recursively.
 
-- **Have opinions.** React to facts instead of neutrally listing pros and cons.
-- **Vary rhythm.** Short sentences. Then longer ones that take their time. Mix it up.
-- **Acknowledge complexity.** "Impressive but also kind of unsettling" beats "impressive."
-- **Use "I" when it fits.** First person isn't unprofessional.
-- **Let some mess in.** Perfect structure looks machine-made.
-- **Be specific.** Not "this is concerning" but "there's something unsettling about agents churning away at 3am."
+For chat and internal documentation, preserve the requested tone and keep communication direct. Do not add opinions, anecdotes, or personality merely because cleanup made the text shorter. Preserve useful nuance and flow.
 
 ## Patterns to detect and fix
 

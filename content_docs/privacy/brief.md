@@ -10,4 +10,4 @@ They should understand what Cloudflare, the VPS, Umami, registries, registrars, 
 
 ## Show vs say
 
-Policy details need full sentences because the limits and caveats matter. Headings separate collection, use, sharing, external links, choices, and future changes so the page can be scanned. A chart would imply precision that the policy does not have, and a table would separate caveats from the claims they qualify. Concrete data-flow wording replaces decorative diagrams or callout panels.
+Policy details need full sentences because the limits and caveats matter. Headings separate collection, use, sharing, external links, choices, and future changes so the page can be scanned. The dotted header uses one small shield-and-boundary drawing to show the page's core promise without pretending to map every data flow. A chart would imply precision that the policy does not have, and a table would separate caveats from the claims they qualify. Concrete wording replaces extra callout panels.

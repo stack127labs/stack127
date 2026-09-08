@@ -10,4 +10,4 @@ The reader should move from the idea of self-hosting to a working app they can r
 
 ## Show vs say
 
-The course sidebar shows order and progress. Each lesson uses prose for judgment, instructions, and caveats; marker art for mental models; screenshots for real interfaces; tables only for repeated facts; and code blocks for commands. Lessons share one reading width, heading rhythm, author treatment, and previous or next handoff. The course does not use a marketing landing page, decorative labels, or summary panels that repeat the lesson.
+The course sidebar shows order and progress. The opening lesson uses the dotted entry header and one small self-hosting drawing; later lessons keep plain reading headers. Each lesson uses prose for judgment, instructions, and caveats; marker art for mental models; screenshots for real interfaces; tables only for repeated facts; and code blocks for commands. Lessons share one reading width, heading rhythm, author treatment, and previous or next handoff. The course does not use a marketing landing page, decorative labels, or summary panels that repeat the lesson.

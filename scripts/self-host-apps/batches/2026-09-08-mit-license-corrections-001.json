@@ -1,0 +1,57 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Partial license text and source-model correction after reading each complete root license file.",
+  "apps": [
+    {
+      "slug": "abs-kosync-bridge",
+      "review_scope": "partial",
+      "license": "MIT",
+      "source_model": "open_source",
+      "expected": {
+        "license": "No license file declared (all rights reserved by default)",
+        "source_model": "source_available"
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/cporcellijr/abs-kosync-bridge/HEAD/LICENSE"
+      ],
+      "pending_review": [
+        "Description and purpose categories",
+        "Deployment, resources, maintenance, and remaining metadata"
+      ]
+    },
+    {
+      "slug": "accept-bot",
+      "review_scope": "partial",
+      "license": "MIT",
+      "source_model": "open_source",
+      "expected": {
+        "license": "No license file declared (all rights reserved by default)",
+        "source_model": "source_available"
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/brockbreacher/accept-bot/HEAD/LICENSE"
+      ],
+      "pending_review": [
+        "Description and purpose categories",
+        "Deployment, resources, maintenance, and remaining metadata"
+      ]
+    },
+    {
+      "slug": "accessflow",
+      "review_scope": "partial",
+      "license": "MIT",
+      "source_model": "open_source",
+      "expected": {
+        "license": "No license file declared (all rights reserved by default)",
+        "source_model": "source_available"
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/pantanet96/accessflow/HEAD/LICENSE"
+      ],
+      "pending_review": [
+        "Description and purpose categories",
+        "Deployment, resources, maintenance, and remaining metadata"
+      ]
+    }
+  ]
+}

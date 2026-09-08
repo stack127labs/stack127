@@ -16,6 +16,8 @@ Those sources help us find omissions. They do not supply public descriptions. Pr
 
 ## Maintenance
 
-Run `verify-curated-links.mjs` before rebuilding a large batch. It checks every official URL in the repo-owned expansion and fails on broken links after a retry. Rebuild with `build-curated-batch.mjs`, cache icons with `cache-icons.mjs`, run `publish-apps.mjs --dry-run`, publish to the intended database, and refresh the coverage report.
+Run `verify-curated-links.mjs` before rebuilding a large batch. It checks every official URL in the repo-owned expansion and fails on broken links after a retry. Assemble evidence with `build-curated-batch.mjs`, then review every record against primary sources. The builder outputs `needs_review` records without verification dates. A repository push date, a present URL, and a successful link check do not establish factual review. Cache icons with `cache-icons.mjs`, explicitly approve reviewed records and their review dates, run `publish-apps.mjs --dry-run`, publish to the intended database, and refresh the coverage report.
 
 The catalog keeps unknown values visible. A missing language, license, release, or star count stays unknown instead of borrowing a guess from a package mirror.
+
+Verify that an installation command installs this exact project, not a dependency or a similarly named program. The partial correction workflow can remove unsupported `install_methods` with expected-value guards and a source URL. It cannot add new methods; additions still require the reviewed publication workflow. Removing an unverified claim does not establish that no third-party package exists.

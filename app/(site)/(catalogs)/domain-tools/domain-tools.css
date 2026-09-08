@@ -71,7 +71,7 @@
   align-items: center;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text);
   display: flex;
   gap: var(--space-8);
@@ -103,14 +103,9 @@
   color: var(--color-text-muted);
 }
 
-/* The tool is one clear box: the form is the head, results render below a
-   divider inside the same frame. */
+/* Controls and results share one workbench band. */
 .domain-tool {
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-border-strong);
-  border-radius: var(--radius-xl);
   gap: 0;
-  overflow: hidden;
 }
 
 .domain-tool > * + * {
@@ -141,7 +136,7 @@
 .domain-name-field input {
   background: var(--color-surface);
   border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text);
   font-family: var(--font-mono);
   font-size: var(--text-body);
@@ -159,7 +154,7 @@
 .domain-submit {
   background: var(--color-accent);
   border: 1px solid var(--color-accent);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-accent-contrast);
   cursor: pointer;
   font: inherit;
@@ -188,7 +183,7 @@
   align-items: center;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   display: flex;
   gap: var(--space-3);
   font-size: var(--text-small);
@@ -217,7 +212,7 @@
 }
 
 .domain-favicon {
-  border-radius: 6px;
+  border-radius: var(--radius);
   height: 32px;
   opacity: 0;
   width: 32px;
@@ -231,7 +226,7 @@
   align-items: center;
   background: transparent;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text);
   cursor: pointer;
   display: inline-flex;
@@ -251,7 +246,7 @@
  * site. This is where the eye should land first on a result.
  */
 .domain-state {
-  border-radius: 999px;
+  border-radius: var(--radius);
   display: inline-block;
   font-size: var(--text-small);
   font-weight: var(--weight-semibold);
@@ -279,7 +274,7 @@
   color: var(--color-text-muted);
 }
 
-/* Results: the answer reads directly inside the tool box, not in a nested card. */
+/* Results read directly inside the workbench, not in a nested card. */
 .domain-answer {
   display: grid;
   gap: var(--space-5);
@@ -331,7 +326,7 @@
 
 .domain-timeline-track {
   background: var(--color-surface-2);
-  border-radius: 999px;
+  border-radius: var(--radius);
   height: 8px;
   overflow: hidden;
   position: relative;
@@ -434,7 +429,7 @@
 .domain-finding {
   background: var(--color-surface-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   display: grid;
   gap: var(--space-3);
   padding: var(--space-7);
@@ -529,7 +524,7 @@
 /* Raw response disclosure, one per server. */
 .domain-raw {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
 }
 
 .domain-raw > summary {

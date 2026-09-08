@@ -1,233 +1,237 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { StatePill } from "../../(catalogs)/domain-tools/domain-lookup-client";
-import type { LabelResult } from "@/lib/domain/punycode.ts";
-import type { CharacterDetail, ScriptAnalysis } from "@/lib/domain/unicode.ts";
+import Link from "next/link";
+import { useRef, useState, type FormEvent } from "react";
+import {
+  ToolButton,
+  ToolCopyAction,
+  ToolDataTable,
+  ToolResultLead,
+  ToolStatus,
+  ToolTextField,
+} from "@/app/tool-ui/tool-controls";
+import {
+  characterRows,
+  inspectInput,
+  labelRows,
+  scriptAssessment,
+  type PunycodeOutcome,
+} from "./punycode-view";
+import styles from "./punycode-tool.module.css";
 
-type Analysed = {
-  label: LabelResult;
-  scripts: ScriptAnalysis;
-  characters: CharacterDetail[];
-  octets: number;
-};
+function ConvertedForms({ outcome }: { outcome: PunycodeOutcome }) {
+  const identical = outcome.unicode === outcome.ascii;
+  const oneLabel = outcome.kind === "url" ? "URL" : "Domain";
+  const rows = identical
+    ? [{ label: oneLabel, copy: `Copy ${oneLabel.toLowerCase()}`, success: `${oneLabel} copied`, value: outcome.ascii }]
+    : [
+        { label: "Unicode", copy: "Copy Unicode", success: "Unicode copied", value: outcome.unicode },
+        { label: outcome.kind === "url" ? "ASCII URL" : "ASCII for DNS", copy: "Copy ASCII", success: "ASCII copied", value: outcome.ascii },
+      ];
+  return (
+    <output aria-label="Converted forms" className={styles.formsOutput}>
+      <h2>Converted {identical ? "form" : "forms"}</h2>
+      <dl>
+        {rows.map((row) => (
+          <div key={row.label}>
+            <dt>{row.label}</dt>
+            <dd><code>{row.value}</code></dd>
+            <ToolCopyAction label={row.copy} successLabel={row.success} value={row.value} />
+          </div>
+        ))}
+      </dl>
+      {identical ? <p>Unicode and ASCII are identical.</p> : null}
+    </output>
+  );
+}
 
-type Outcome = {
-  unicode: string;
-  ascii: string;
-  labels: Analysed[];
-  problems: string[];
-  problemText: string[];
-  unicodeVersion: string;
-};
+function LabelTable({ outcome }: { outcome: PunycodeOutcome }) {
+  return (
+    <ToolDataTable
+      ariaLabel="Hostname label breakdown"
+      columns={[
+        { id: "label", label: "Label" },
+        { id: "unicode", label: "Unicode" },
+        { id: "ascii", label: "ASCII for DNS" },
+        { id: "scripts", label: "Scripts" },
+        { id: "length", label: "ASCII length" },
+      ]}
+      rows={labelRows(outcome.labels).map((row) => ({
+        cells: {
+          ascii: <span className={styles.cellStack}><code>{row.ascii}</code><span className={styles.meta}>{row.conversion}</span></span>,
+          label: row.label,
+          length: <span className={row.overLimit ? styles.danger : undefined}>{row.length}</span>,
+          scripts: row.scripts,
+          unicode: <code>{row.unicode}</code>,
+        },
+        id: row.id,
+      }))}
+    />
+  );
+}
+
+function CharacterTable({ outcome }: { outcome: PunycodeOutcome }) {
+  const rows = characterRows(outcome.labels);
+  if (!rows.length) return null;
+  return (
+    <section className={styles.section}>
+      <h2>Characters in non-ASCII labels</h2>
+      <ToolDataTable
+        ariaLabel="Characters in non-ASCII labels"
+        columns={[
+          { id: "position", label: "Label and position" },
+          { id: "character", label: "Character" },
+          { id: "codePoint", label: "Code point" },
+          { id: "name", label: "Unicode name" },
+          { id: "script", label: "Script" },
+        ]}
+        rows={rows.map((row) => ({
+          cells: {
+            character: <code>{row.character}</code>,
+            codePoint: <code>{row.codePoint}</code>,
+            name: row.name,
+            position: row.position,
+            script: row.script,
+          },
+          id: row.id,
+        }))}
+      />
+    </section>
+  );
+}
+
+function Results({ outcome }: { outcome: PunycodeOutcome }) {
+  return (
+    <section aria-label="Punycode conversion result" className={styles.results}>
+      <ConvertedForms outcome={outcome} />
+
+      {outcome.problemText.length ? (
+        <section aria-label="Validation findings" aria-live="polite" className={styles.findings}>
+          <p>This hostname cannot be used as-is:</p>
+          <ul>{outcome.problemText.map((text) => <li key={text}>{text}</li>)}</ul>
+        </section>
+      ) : null}
+
+      <ToolResultLead>{scriptAssessment(outcome.labels)}</ToolResultLead>
+
+      <p className={outcome.hostnameOctets > 253 ? styles.danger : styles.length}>
+        ASCII hostname length: <strong>{outcome.hostnameOctets} of 253 bytes</strong>
+      </p>
+
+      <section className={styles.section}>
+        <h2>Label breakdown</h2>
+        <LabelTable outcome={outcome} />
+      </section>
+
+      <CharacterTable outcome={outcome} />
+
+      <dl aria-label="Conversion processing" className={styles.metadata}>
+        <div><dt>Unicode data</dt><dd>{outcome.unicodeVersion}</dd></div>
+        <div><dt>Processing</dt><dd>UTS-46 non-transitional, STD3 ASCII rules</dd></div>
+        <div><dt>Not checked</dt><dd>Bidi, CONTEXTJ, and CONTEXTO rules</dd></div>
+      </dl>
+
+      {!outcome.problems.length ? (
+        <p className={styles.related}>
+          Open the <Link href={`/domain-lookup?name=${encodeURIComponent(outcome.asciiHostname)}`}>registration lookup</Link> or <Link href={`/dns-lookup?name=${encodeURIComponent(outcome.asciiHostname)}`}>DNS lookup</Link> for <code>{outcome.asciiHostname}</code>.
+        </p>
+      ) : null}
+    </section>
+  );
+}
 
 export function PunycodeTool() {
   const [value, setValue] = useState("");
-  const [outcome, setOutcome] = useState<Outcome | null>(null);
+  const [outcome, setOutcome] = useState<PunycodeOutcome | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [failure, setFailure] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const inFlight = useRef(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  async function submit(event: FormEvent) {
+  function changeValue(next: string) {
+    setValue(next);
+    setError(null);
+    setFailure(null);
+    setOutcome(null);
+  }
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const trimmed = value.trim();
-    if (!trimmed) {
-      setError("Enter a domain name.");
+    if (inFlight.current) return;
+    setOutcome(null);
+    setFailure(null);
+    let parsed: ReturnType<typeof inspectInput>;
+    try {
+      parsed = inspectInput(value);
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "Enter a domain name or URL.");
+      requestAnimationFrame(() => inputRef.current?.focus());
       return;
     }
+
+    inFlight.current = true;
     setBusy(true);
     setError(null);
     try {
-      // The Unicode tables are large, so they load only when someone actually
-      // converts something. Nothing leaves the browser either way.
       const [punycode, unicode] = await Promise.all([
         import("@/lib/domain/punycode.ts"),
         import("@/lib/domain/unicode.ts"),
       ]);
-
-      let host = trimmed;
-      if (/^[a-z][a-z0-9+.-]*:\/\//i.test(host)) {
-        try {
-          host = new URL(host).hostname;
-        } catch {
-          setError("That looks like a web address but it could not be read.");
-          setBusy(false);
-          return;
-        }
-      }
-      host = host.split("/")[0].replace(/\.$/, "");
-
-      const converted = punycode.convertName(host, unicode.mapLabel);
+      const converted = punycode.convertName(parsed.hostname, unicode.mapLabel);
+      const labels = converted.labels.map((label) => ({
+        characters: /^[\x00-\x7f]*$/.test(label.unicode) ? [] : unicode.describeCharacters(label.unicode),
+        label,
+        octets: punycode.octetLength(label.ascii),
+        scripts: unicode.analyzeScripts(label.unicode),
+      }));
+      const problemText = [...new Set(converted.problems.map((problem) => punycode.LABEL_PROBLEM_TEXT[problem]))];
       setOutcome({
-        unicode: converted.unicode,
-        ascii: converted.ascii,
-        unicodeVersion: unicode.UNICODE_VERSION,
+        ascii: parsed.reconstruct(converted.ascii),
+        asciiHostname: converted.ascii,
+        hostnameOctets: punycode.octetLength(converted.ascii),
+        kind: parsed.kind,
+        labels,
         problems: converted.problems,
-        problemText: converted.problems.map((problem) => punycode.LABEL_PROBLEM_TEXT[problem]),
-        labels: converted.labels.map((label) => ({
-          label,
-          scripts: unicode.analyzeScripts(label.unicode),
-          characters: /^[\x00-\x7f]*$/.test(label.unicode) ? [] : unicode.describeCharacters(label.unicode),
-          octets: punycode.octetLength(label.ascii),
-        })),
+        problemText,
+        unicode: parsed.reconstruct(converted.unicode),
+        unicodeHostname: converted.unicode,
+        unicodeVersion: unicode.UNICODE_VERSION,
       });
     } catch {
-      setError("Something went wrong converting that name.");
+      setFailure("The browser could not convert this name. Try again.");
     } finally {
+      inFlight.current = false;
       setBusy(false);
     }
   }
 
-  const suspicious = outcome?.labels.filter((entry) => entry.scripts.latinMixedWithOther) ?? [];
-
   return (
-    <section className="domain-tool" aria-label="Punycode and IDN converter">
-      <form className="domain-form" onSubmit={submit}>
-        <label className="domain-name-field">
-          <span>Domain name, in either form</span>
-          <input
-            autoCapitalize="none"
-            autoComplete="off"
-            onChange={(event) => setValue(event.target.value)}
-            placeholder="münchen.de or xn--mnchen-3ya.de"
-            spellCheck={false}
-            value={value}
-          />
-        </label>
-        <button className="domain-submit" disabled={busy}>
-          {busy ? "Converting..." : "Convert it"}
-        </button>
-        {error ? (
-          <p className="domain-form-error" role="alert">
-            {error}
-          </p>
-        ) : null}
+    <section aria-label="Punycode and IDN converter" className={`domain-tool ${styles.workbench}`} data-tool-workbench>
+      <form aria-busy={busy} className={styles.form} onSubmit={submit}>
+        <ToolTextField
+          autoCapitalize="none"
+          autoComplete="off"
+          className={styles.queryField}
+          description="Conversion runs in this browser. Nothing is sent to stack127."
+          error={error}
+          inputMode="url"
+          inputRef={inputRef}
+          label="Domain name or URL"
+          onChange={changeValue}
+          placeholder="münchen.de or xn--mnchen-3ya.de"
+          readOnly={busy}
+          required
+          spellCheck={false}
+          value={value}
+        />
+        <ToolButton aria-busy={busy} className={styles.submit} isDisabled={busy} type="submit" variant="primary">
+          {busy ? "Converting..." : "Convert domain"}
+        </ToolButton>
+        {busy ? <ToolStatus>Loading Unicode data and converting...</ToolStatus> : null}
+        {failure ? <ToolStatus tone="danger">{failure}</ToolStatus> : null}
       </form>
-
-      {outcome ? (
-        <section className="domain-results" aria-live="polite">
-          <div className="domain-answer">
-            <div className="domain-answer-head">
-              {suspicious.length ? (
-                <StatePill tone="bad">Mixes writing systems</StatePill>
-              ) : outcome.problems.length ? (
-                <StatePill tone="warn">Not a valid domain name</StatePill>
-              ) : outcome.labels.some((entry) => entry.label.converted) ? (
-                <StatePill tone="good">Converted, single script</StatePill>
-              ) : (
-                <StatePill tone="quiet">Plain ASCII</StatePill>
-              )}
-            </div>
-            <p className="domain-answer-lead">
-              <code>{outcome.unicode}</code> is <code>{outcome.ascii}</code>
-            </p>
-            {suspicious.length ? (
-              <p>
-                {suspicious.length === 1 ? "One part of this name mixes" : "Some parts of this name mix"} writing
-                systems: {suspicious.map((entry) => entry.scripts.scripts.join(" and ")).join("; ")}. That is the shape
-                used to make one domain look like another. It is a reason to look closely at the characters below, not
-                proof of anything on its own.
-              </p>
-            ) : outcome.labels.some((entry) => entry.label.converted) ? (
-              <p>Nothing about this name mixes writing systems.</p>
-            ) : (
-              <p>This name is plain ASCII, so both forms are the same and there is nothing to convert.</p>
-            )}
-            <p className="domain-meta">
-              Converted in your browser. Nothing was sent anywhere. Unicode {outcome.unicodeVersion}.
-            </p>
-          </div>
-
-          {outcome.problemText.length ? (
-            <div className="domain-findings">
-              {outcome.problemText.map((text) => (
-                <div className="domain-finding" data-tone="warn" key={text}>
-                  <p>{text}</p>
-                </div>
-              ))}
-            </div>
-          ) : null}
-
-          <section>
-            <h2>Part by part</h2>
-            <div className="domain-table-scroll">
-              <table className="domain-table">
-                <thead>
-                  <tr>
-                    <th>Readable</th>
-                    <th>As DNS carries it</th>
-                    <th>Writing system</th>
-                    <th>Bytes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {outcome.labels.map((entry, index) => (
-                    <tr key={`${entry.label.ascii}-${index}`}>
-                      <td>
-                        <code>{entry.label.unicode}</code>
-                      </td>
-                      <td>
-                        <code>{entry.label.ascii}</code>
-                        {entry.label.converted ? null : <small> (unchanged)</small>}
-                      </td>
-                      <td>{entry.scripts.scripts.length ? entry.scripts.scripts.join(", ") : "ASCII only"}</td>
-                      <td>
-                        {entry.octets > 63 ? (
-                          <StatePill tone="bad">{entry.octets} of 63</StatePill>
-                        ) : entry.octets > 50 ? (
-                          <StatePill tone="warn">{entry.octets} of 63</StatePill>
-                        ) : (
-                          <span className="domain-state-quiet">{entry.octets} of 63</span>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          {outcome.labels.some((entry) => entry.characters.length) ? (
-            <section>
-              <h2>Every character that is not plain ASCII</h2>
-              <div className="domain-table-scroll">
-                <table className="domain-table">
-                  <thead>
-                    <tr>
-                      <th>Character</th>
-                      <th>Code point</th>
-                      <th>Writing system</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {outcome.labels.flatMap((entry, labelIndex) =>
-                      entry.characters.map((character, index) => {
-                        // In a Latin name, a character from another script is the one
-                        // doing the impersonating. Point straight at it.
-                        const odd = entry.scripts.latinMixedWithOther && character.script !== "Latin"
-                          && character.script !== "Common" && character.script !== "Inherited";
-                        return (
-                          <tr key={`${labelIndex}-${index}`}>
-                            <td>
-                              <code>{character.character}</code>
-                            </td>
-                            <td>
-                              <code>{character.codePoint}</code>
-                            </td>
-                            <td>
-                              {character.name}{" "}
-                              {odd ? <StatePill tone="bad">Not Latin</StatePill> : null}
-                            </td>
-                          </tr>
-                        );
-                      }),
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </section>
-          ) : null}
-        </section>
-      ) : null}
+      {outcome ? <Results outcome={outcome} /> : null}
     </section>
   );
 }

@@ -3,15 +3,6 @@
   gap: var(--space-8);
 }
 
-.home-hero-band {
-  padding: var(--space-12) var(--container-gutter) var(--space-11);
-}
-
-.home-hero-doodle {
-  right: 48px;
-  top: 34px;
-}
-
 .home-main {
   display: grid;
   gap: var(--space-12);
@@ -22,6 +13,12 @@
   display: grid;
   gap: var(--space-5);
   max-width: var(--measure-prose);
+}
+
+@media (min-width: 1100px) {
+  .home-intro {
+    max-width: min(var(--measure-prose), calc(100% - 154px));
+  }
 }
 
 .home-intro h1 {
@@ -36,7 +33,7 @@
 
 .home-intro h1 mark {
   background: var(--color-accent);
-  border-radius: 6px;
+  border-radius: var(--radius);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   color: var(--color-accent-contrast);
@@ -60,7 +57,7 @@
 .home-page-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius);
   color: var(--color-text);
   display: grid;
   gap: var(--space-7);
@@ -79,6 +76,8 @@
 .home-page-card-art {
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 130px;
   padding: var(--space-4) 0 0;
 }
 
@@ -96,7 +95,7 @@
 
 .home-page-card h2 {
   align-items: center;
-  color: var(--color-text);
+  color: var(--color-link);
   display: flex;
   font-family: var(--font-display);
   font-size: var(--text-h3);
@@ -186,16 +185,12 @@
 
 .home-start a:hover {
   text-decoration: underline;
-  text-decoration-color: var(--color-accent);
+  text-decoration-color: currentColor;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
 }
 
 @media (max-width: 960px) {
-  .home-hero-band {
-    padding: var(--space-10) 22px;
-  }
-
   .home-main {
     gap: var(--space-10);
     padding: var(--space-10) 22px 54px;
@@ -211,3 +206,8 @@
     grid-template-columns: 1fr;
   }
 }
+
+.home-page-card[href]:hover,
+.home-page-card[href]:focus-visible { text-decoration: none; }
+.home-page-card[href]:hover h2,
+.home-page-card[href]:focus-visible h2 { text-decoration: underline; text-underline-offset: 3px; }

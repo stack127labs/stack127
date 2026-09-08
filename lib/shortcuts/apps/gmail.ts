@@ -145,3 +145,5 @@ export const gmail: AppShortcuts = {
     },
   ],
 };
+
+export default gmail;

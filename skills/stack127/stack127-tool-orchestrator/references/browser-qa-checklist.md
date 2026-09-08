@@ -48,6 +48,8 @@ For every target width:
 - use semantic colors with sufficient contrast and redundant labels, patterns, or text so color is not the only signal;
 - make the primary answer the strongest useful element;
 - reject nested-card dashboards, unreadable grayscale, decorative clutter, oversized inputs, and helper-copy walls.
+- compare every visible formatted value and fail facts that appear in more than one result region without a distinct user question;
+- verify that every table, timeline, chart, progress bar, diagram, or large answer passes the visual truth recorded in `interface-contract.md`;
 - after writing, confirm the introduction is short, the tool still dominates the page, paragraphs have calm consistent spacing, tables scroll or reflow without page overflow, and supporting content does not repeat the live result;
 
 Apply a two-second scan:
@@ -57,6 +59,15 @@ Apply a two-second scan:
 3. Is the answer immediately identifiable?
 4. Does the visualization explain the relationship?
 5. Can the user find the next corrective action after an error?
+
+Then run a comprehension pass without reading the internal reports:
+
+1. State the one answer the tool gives.
+2. State what each result region uniquely adds.
+3. Name any visible fact shown twice.
+4. Name anything that can be removed without losing an input, answer, decision, recovery path, or evidence.
+
+Any unclear answer, repeated fact, or removable region is a P1 interface finding unless the interface contract gives a concrete reason for it.
 
 ## Accessibility and state
 
@@ -86,4 +97,4 @@ Return technical and interaction gaps to the builder. Return missing, unclear, r
 
 ## Pass criteria
 
-Pass only when no P0 or P1 finding remains, all values are visible at every target width in both themes, the complete primary workflow succeeds by pointer and keyboard, invalid state cannot coexist with a credible result, the simple content remains readable without page-level overflow, and the complete page matches the established stack127 shell. The report must state whether the final evidence came from the in-app Browser or standalone Playwright.
+Pass only when no P0 or P1 finding remains, the lead answer is identifiable without internal context, each result region answers a distinct question, no formatted fact is needlessly repeated, every visual encodes a truthful relationship, all values are visible at every target width in both themes, the complete primary workflow succeeds by pointer and keyboard, invalid state cannot coexist with a credible result, the simple content remains readable without page-level overflow, and the complete page matches the established stack127 shell. The report must state whether the final evidence came from the in-app Browser or standalone Playwright.

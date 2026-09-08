@@ -1,0 +1,16 @@
+{
+  "coverage": {
+    "detail_total": 78,
+    "eligible_total": 78,
+    "excluded_total": 2613,
+    "failures": [],
+    "image_total": 78,
+    "record_total": 78,
+    "source_total": 2691
+  },
+  "generated_at": "2026-08-30T05:53:56.609Z",
+  "ready_for_publication": true,
+  "source_label": "Blakadder Zigbee coordinator records",
+  "source_revision": "d96e8aaf72ecdad807d3930900d9c8433051d2b4",
+  "source_url": "https://github.com/blakadder/zigbee"
+}

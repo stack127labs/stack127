@@ -1,0 +1,13 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Current source-model correction only. Stored Zlib license fields are already consistent with the current license file.",
+  "apps": [{
+    "slug": "batcharr",
+    "review_scope": "partial",
+    "source_model": "open_source",
+    "expected": {"source_model": "source_available"},
+    "data_source_urls": ["https://raw.githubusercontent.com/bmj812/batcharr/main/LICENSE", "https://raw.githubusercontent.com/bmj812/batcharr/main/README.md"],
+    "review_note": "Current LICENSE grants use, modification, and redistribution under zlib terms. README explains that older MIT releases retain their original license. Do not describe the current project as merely source-available.",
+    "pending_review": ["Remaining deployment, resource, platform, maintenance, and icon fields"]
+  }]
+}

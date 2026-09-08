@@ -9,7 +9,7 @@
 .item a,
 .itemStatic {
   align-items: baseline;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text);
   display: grid;
   gap: var(--space-4);
@@ -74,7 +74,7 @@
 .tag {
   align-self: center;
   border: 1px solid var(--color-border);
-  border-radius: 999px;
+  border-radius: var(--radius);
   color: var(--color-text-muted);
   font-size: var(--text-small);
   padding: 0 var(--space-2);

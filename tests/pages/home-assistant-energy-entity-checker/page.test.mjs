@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
+import { readToolPageSeed } from "../../helpers/tool-page-content.mjs";
 
 const route = new URL("../../../app/(site)/(tools)/home-assistant-energy-entity-checker/", import.meta.url);
 const pagePath = new URL("page.tsx", route);
 const clientPath = new URL("home-assistant-energy-entity-checker.tsx", route);
-const guidePath = new URL("home-assistant-energy-guide.tsx", route);
 const stylesPath = new URL("home-assistant-energy-entity-checker.module.css", route);
 const enginePath = new URL("../../../lib/home-assistant-energy/eligibility.ts", import.meta.url);
 const previewPath = new URL("../../../scripts/home-assistant-energy-entity-checker/preview-local-page.mjs", import.meta.url);
@@ -13,7 +13,7 @@ const migrationPath = new URL("../../../supabase/migrations/20260809120000_publi
 const manifestPath = new URL("page.json", import.meta.url);
 
 test("owns one flat published route", () => {
-  for (const file of [pagePath, clientPath, guidePath, stylesPath, enginePath, previewPath, migrationPath]) assert.equal(existsSync(file), true, file.pathname);
+  for (const file of [pagePath, clientPath, stylesPath, enginePath, previewPath, migrationPath]) assert.equal(existsSync(file), true, file.pathname);
   const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
   assert.equal(manifest.route, "/home-assistant-energy-entity-checker");
   assert.equal(manifest.state, "published");
@@ -30,16 +30,14 @@ test("keeps evaluation pure, local, and untrusted text inert", () => {
 test("keeps the tool primary and the complete guide server-rendered", () => {
   const page = readFileSync(pagePath, "utf8");
   const client = readFileSync(clientPath, "utf8");
-  const guide = readFileSync(guidePath, "utf8");
+  const guide = readToolPageSeed("home-assistant-energy-entity-checker");
   const styles = readFileSync(stylesPath, "utf8");
-  assert.match(page, /Home Assistant Energy Entity Eligibility Checker/);
-  assert.match(page, /intended Home Assistant Energy field/i);
-  assert.match(page, /runs in this browser/i);
-  assert.match(page, /cannot\s+inspect recorder health/i);
+  assert.match(page, /<ToolPageHeader/);
+  assert.match(page, /<ToolPageMarkdown/);
   assert.match(client, /Check entity/);
-  assert.match(client, /Energy picker/);
-  assert.match(client, /Long-term statistics/);
-  assert.match(page, /<HomeAssistantEnergyEntityChecker \/>[\s\S]*<HomeAssistantEnergyGuide \/>/);
+  assert.match(client, /Intended Energy field/);
+  assert.match(client, /Eligibility conclusions/);
+  assert.match(page, /<HomeAssistantEnergyEntityChecker \/>[\s\S]*<ToolPageMarkdown/);
   assert.doesNotMatch(guide, /^\s*["']use client["'];/m);
   assert.match(guide, /Choose the Energy field before judging the sensor/);
   assert.match(guide, /Each Energy field accepts a specific attribute combination/);
@@ -51,11 +49,11 @@ test("keeps the tool primary and the complete guide server-rendered", () => {
   assert.match(guide, /cannot\s+guarantee/i);
   assert.match(guide, /home-assistant\.io\/docs\/energy\/faq/);
   assert.match(guide, /developers\.home-assistant\.io\/docs\/core\/entity\/sensor/);
-  assert.match(guide, /href="\/privacy"/);
-  assert.match(guide, /role="region"[\s\S]*tabIndex=\{0\}[\s\S]*<table/);
+  assert.match(guide, /\]\(\/privacy\)/);
   assert.doesNotMatch(client, /Choose the Energy field before judging|A matching result still needs Home Assistant/);
   assert.match(`${client}\n${readFileSync(enginePath, "utf8")}`, /2026\.8\.1/);
-  assert.match(styles, /\.tool\s*\{[^}]*border:\s*1\.5px solid var\(--color-border-strong\);/s);
+  assert.match(client, /data-tool-workbench/);
+  assert.doesNotMatch(styles, /\.tool\s*\{[^}]*(?:border:\s*1\.5px|border-radius:)/s);
   assert.match(styles, /@media \(max-width: 760px\)/);
   assert.match(styles, /@media \(max-width: 390px\)/);
   assert.match(styles, /min-height:\s*44px/);

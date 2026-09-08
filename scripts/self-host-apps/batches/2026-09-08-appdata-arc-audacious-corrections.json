@@ -1,0 +1,82 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Partial purpose, description, and category corrections based on project documentation.",
+  "apps": [
+    {
+      "slug": "appdata-cleanup-plus",
+      "review_scope": "partial",
+      "summary": "Finds unused Docker appdata folders on Unraid so you can review, quarantine, or delete selected folders.",
+      "summary_source": "curated",
+      "categories": [
+        "system-admin-hosting"
+      ],
+      "expected": {
+        "summary": "Appdata Cleanup Plus scans for unused Docker appdata folders and exact ZFS dataset candidates, then lets you review, dry run, quarantine, restore, audit, or.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "project-task-management",
+          "system-admin-hosting"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/alexphillips-dev/appdata-cleanup-plus/main/README.md"
+      ],
+      "pending_review": [
+        "Verify plugin installation classification and Unraid 7.0.0+ requirement. ZFS datasets cannot use the ordinary folder quarantine workflow.",
+        "All remaining fields still require full-record review."
+      ]
+    },
+    {
+      "slug": "arc-relay",
+      "review_scope": "partial",
+      "summary": "Manages connections between AI tools and MCP servers, with access controls, request filtering, and activity logs.",
+      "summary_source": "curated",
+      "categories": [
+        "ai-ml",
+        "developer-tools",
+        "identity-access"
+      ],
+      "expected": {
+        "summary": "Arc Relay is a management proxy for Model Context Protocol (MCP) servers, It sits between your AI tools (Claude Code, Claude Desktop, Cursor, etc.) and your.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "ai-ml",
+          "identity-access",
+          "monitoring-status"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/comma-compliance/arc-relay/main/README.md"
+      ],
+      "pending_review": [
+        "Verify official install destinations, SQLite, optional hosted integrations, and Docker socket requirements for managed servers.",
+        "All remaining fields still require full-record review."
+      ]
+    },
+    {
+      "slug": "audacious",
+      "review_scope": "partial",
+      "summary": "Plays audio files through the Audacious desktop player, available in a browser through an unofficial Docker container.",
+      "summary_source": "curated",
+      "categories": [
+        "music-audio"
+      ],
+      "expected": {
+        "summary": "Audacious is a free and audio player software with a focus on low resource use, high audio quality, and support for a wide range of audio formats, The.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "ai-ml",
+          "music-audio",
+          "photos-galleries"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/jlesage/docker-audacious/master/README.md"
+      ],
+      "pending_review": [
+        "Distinguish the Audacious publisher and license from the unofficial container. Review browser audio configuration, which is not supported over VNC.",
+        "All remaining fields still require full-record review."
+      ]
+    }
+  ]
+}

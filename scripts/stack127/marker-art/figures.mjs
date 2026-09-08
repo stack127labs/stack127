@@ -983,6 +983,18 @@ const DOODLE_SHAPES = {
     A.line(32, 86, 86, 86, { stroke: "@sub" });
     A.line(94, 80, 94, 92, { stroke: "@primary" });
   },
+  // one home server branching into the three main kinds of work on stack127
+  stack127Map(A) {
+    drawIcon(A, "server", 34, 62, 34, "@ink");
+    A.line(52, 62, 68, 62, { stroke: "@primary" });
+    A.line(68, 28, 68, 96, { stroke: "@primary" });
+    A.arrow(68, 28, 98, 28, { tone: "@sub" });
+    A.arrow(68, 62, 98, 62, { tone: "@primary" });
+    A.arrow(68, 96, 98, 96, { tone: "@sub" });
+    drawIcon(A, "search", 112, 28, 18, "@sub");
+    drawIcon(A, "terminal", 112, 62, 18, "@primary");
+    drawIcon(A, "document", 112, 96, 18, "@sub");
+  },
 };
 
 function doodle(spec, A) {
@@ -993,6 +1005,42 @@ function doodle(spec, A) {
     );
   }
   draw(A);
+}
+
+/* ---------------- tool-spot: small semantic art for scan cards ---------------- */
+function toolSpot(spec, A) {
+  const d = spec.data;
+  const cx = A.w / 2;
+  const cy = A.h / 2;
+  drawIcon(A, d.icon, cx, cy, Math.min(A.w, A.h) * 0.48, "@ink");
+
+  if (d.motif === "check") {
+    drawCheck(A, A.w - 25, 25, "@primary");
+  } else if (d.motif === "path") {
+    A.arrow(14, A.h - 18, A.w - 18, 20, { tone: "@primary", curve: 0.28 });
+  } else if (d.motif === "compare") {
+    A.line(14, 24, 36, 24, { stroke: "@sub" });
+    A.line(A.w - 36, A.h - 22, A.w - 14, A.h - 22, { stroke: "@primary" });
+    A.arrow(34, 28, A.w - 34, A.h - 28, { tone: "@sub", curve: -0.18 });
+  } else if (d.motif === "branch") {
+    A.line(cx, A.h - 18, cx, A.h - 34, { stroke: "@primary" });
+    A.line(cx - 30, A.h - 18, cx + 30, A.h - 18, { stroke: "@primary" });
+    A.dot(cx - 30, A.h - 18, 2.8, "@primary");
+    A.dot(cx + 30, A.h - 18, 2.8, "@primary");
+  } else if (d.motif === "alert") {
+    A.line(A.w - 24, 16, A.w - 24, 34, { stroke: "@primary" });
+    A.dot(A.w - 24, 44, 2.8, "@primary");
+  } else if (d.motif === "expand") {
+    A.arrow(cx, A.h - 18, 18, A.h - 18, { tone: "@sub" });
+    A.arrow(cx, A.h - 18, A.w - 18, A.h - 18, { tone: "@primary" });
+  } else if (d.motif === "boundary") {
+    A.line(18, 16, 18, A.h - 16, { stroke: "@sub" });
+    A.line(A.w - 18, 16, A.w - 18, A.h - 16, { stroke: "@primary" });
+  } else if (d.motif === "stack") {
+    A.line(18, A.h - 18, A.w - 18, A.h - 18, { stroke: "@primary" });
+    A.dot(24, 22, 2.2, "@sub");
+    A.dot(A.w - 24, 22, 2.2, "@primary");
+  }
 }
 
 export const FIGURES = {
@@ -1014,4 +1062,5 @@ export const FIGURES = {
   workbench,
   buckets,
   doodle,
+  toolSpot,
 };

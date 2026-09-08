@@ -1,0 +1,46 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Wanderer identity correction and removal of a database-only component from the app catalogue.",
+  "apps": [
+    {
+      "slug": "wanderer",
+      "review_scope": "partial",
+      "summary": "Saves GPS trails in a searchable map-based catalogue, with route planning and sharing.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "docker_url": "https://hub.docker.com/r/flomp/wanderer-web",
+      "expected": {
+        "summary": "Trail database where you can upload your recorded tracks or create new ones and add various metadata to build an easily searchable catalogue.",
+        "summary_source": "stack127_enriched",
+        "summary_confidence": "medium",
+        "docker_url": "https://github.com/open-wanderer/wanderer/blob/HEAD/docker-compose.yml"
+      },
+      "data_source_urls": [
+        "https://github.com/open-wanderer/wanderer",
+        "https://hub.docker.com/r/flomp/wanderer-web",
+        "https://wanderer.to/run/installation/docker/"
+      ],
+      "pending_review": [
+        "Remaining installation options and support levels",
+        "Resource requirements and technical evidence states",
+        "Pricing, maintenance, and remaining metadata"
+      ]
+    },
+    {
+      "slug": "wanderer-database",
+      "review_scope": "partial",
+      "published": false,
+      "expected": {
+        "published": true
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/nwithan8/unraid_templates/main/templates/wanderer_db.xml",
+        "https://github.com/open-wanderer/wanderer/blob/main/docker-compose.yml",
+        "https://github.com/Flomp/wanderer"
+      ],
+      "decision": "quarantine_component",
+      "canonical_slug": "wanderer",
+      "reason": "The source template explicitly calls this the database component. The old repository redirects to the same project already listed as wanderer. Preserve this row and its evidence, but do not present it as a separate standalone app."
+    }
+  ]
+}

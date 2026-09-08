@@ -1,0 +1,5 @@
+[
+  {"file":"refresh-nut-compatible-ups.mjs","purpose":"Imports every UPS row from a pinned NUT HCL checkout, groups connection variants, preserves provenance, and promotes the complete catalog with exact images or explicit missing-image outcomes."},
+  {"file":"research-tripp-lite-images.mjs","purpose":"Matches exact Tripp Lite HCL models to official datasheets and extracts verified first-page product photos without mutating route data."},
+  {"file":"research-cyberpower-images.mjs","purpose":"Matches exact CyberPower HCL models through official manufacturer search and caches verified structured product images for review."}
+]

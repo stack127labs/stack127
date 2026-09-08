@@ -1,0 +1,60 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Partial license, purpose, description, and category corrections.",
+  "apps": [
+    {
+      "slug": "alwaysbringagift",
+      "review_scope": "partial",
+      "license": "MIT",
+      "source_model": "open_source",
+      "summary": "Keeps birthdays, anniversaries, gift ideas, and past gifts together for the people you buy for.",
+      "summary_source": "curated",
+      "categories": [
+        "calendars-contacts"
+      ],
+      "expected": {
+        "license": "No license file declared (all rights reserved by default)",
+        "source_model": "source_available",
+        "summary": "Always Bring a Gift (ABAG) is a simple, self‑hosted gift‑tracking app designed to help you remember events, track people, and keep ideas organized across.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "ai-ml"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/indemnity83/always-bring-a-gift/HEAD/LICENSE",
+        "https://raw.githubusercontent.com/indemnity83/always-bring-a-gift/HEAD/README.md"
+      ],
+      "pending_review": [
+        "Deployment and install options, SQLite and optional database evidence, resources, maintenance, and remaining metadata."
+      ]
+    },
+    {
+      "slug": "amarr",
+      "review_scope": "partial",
+      "license": "MIT",
+      "source_model": "open_source",
+      "summary": "Connects Sonarr and Radarr to an existing aMule installation so they can search for and manage downloads.",
+      "summary_source": "curated",
+      "categories": [
+        "media-servers"
+      ],
+      "expected": {
+        "license": "No license file declared (all rights reserved by default)",
+        "source_model": "source_available",
+        "summary": "This connector allows using aMule as a download client for starr apps, It works by emulating a torrent client, so your starr apps will manage your downloads.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "developer-tools"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/vexdev/amarr/main/LICENSE.md",
+        "https://raw.githubusercontent.com/vexdev/amarr/main/README.md"
+      ],
+      "pending_review": [
+        "Deployment and install options, supported aMule version range, resources, maintenance, and remaining metadata."
+      ]
+    }
+  ]
+}

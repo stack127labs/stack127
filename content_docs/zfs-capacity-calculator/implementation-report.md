@@ -88,7 +88,7 @@ All capacity operations use `bigint`. Define `ceilDiv(a, b) = (a + b - 1) / b`, 
 3. **Calculate logical sectors for the selected block.** `L = ceilDiv(B, S)`. One physical copy consumes `L * S` bytes. Its sector-rounding cost is `Q = L * S - B` bytes.
 4. **Calculate a mirror vdev.** Let `K = floor(m / (L * S))`, the count of selected-size blocks that fit on one member. Estimated logical data is `D_v = K * B`. Mirrored-copy bytes are `R_v = K * (N - 1) * L * S`. Sector-rounding bytes for the primary copy are `Q_v = K * Q`. Tail bytes are `T_v = C - K * N * L * S`. The identity `C = D_v + R_v + Q_v + T_v` must hold. Failure tolerance is any `N - 1` members of that mirror.
 5. **Calculate a RAIDZ vdev.** Let parity count be `P`, data-column limit `W = N - P`, parity sectors per selected block `Y = P * ceilDiv(L, W)`, sectors before RAIDZ padding `F = L + Y`, and allocated sectors `A = roundUp(F, P + 1)`. Let `K = floor((C / S) / A)`. Then estimated logical data is `D_v = K * B`, sector-rounding bytes are `Q_v = K * Q`, parity bytes are `R_v = K * Y * S`, RAIDZ padding bytes are `G_v = K * (A - F) * S`, and tail bytes are `T_v = C - K * A * S`. The identity `C = D_v + Q_v + R_v + G_v + T_v` must hold. Failure tolerance is `P` failed members in that vdev, not `P` failures anywhere in the pool.
-6. **Aggregate data vdevs without flattening them.** `D_pool = sum(D_v)`. Sum every loss category independently for the exact accounting table. A valid pool must also reconcile `R_data = D_pool + mixed-size waste + sector alignment + mirror or parity bytes + sector rounding + RAIDZ padding + tails`.
+6. **Aggregate data vdevs without flattening them.** `D_pool = sum(D_v)`. Sum every loss category independently for the exact allocation figure. A valid pool must also reconcile `R_data = D_pool + mixed-size waste + sector alignment + mirror or parity bytes + sector rounding + RAIDZ padding + tails`.
 7. **Apply the modelled OpenZFS slop reserve.** Let `H = min(D_pool >> slopShift, 128 GiB)`. Let `slop = max(H, min(D_pool >> 1, 128 MiB))`. Estimated writable physical data is `E = max(0, D_pool - slop)`. Version 1 does not subtract embedded-log space from slop, so this is a conservative planning model rather than a byte-for-byte promise of `spa_get_slop_space()`.
 8. **Calculate auxiliary-role reporting.** Spare, SLOG, and L2ARC capacity is reported only as role inventory. For each mirrored special vdev, align members as in step 2 and report `specialEnvelope = min(a_i)` with mixed-size waste and failure tolerance. Do not add the envelope to `E`, subtract pool slop from it, or predict how much metadata and `special_small_blocks` data will occupy it.
 9. **Apply optional planning headroom.** `userReserve = floor(E * reserveBasisPoints / 10,000)` and `planningTarget = E - userReserve`. This is an overlay on estimated writable physical capacity, not another segment of raw physical loss.
@@ -351,16 +351,16 @@ All native radio, select, input, details, and button behavior remains keyboard o
 | --- | --- | --- | --- |
 | Name the tool and distinguish a planning estimate from installed free space | Sentences | Server-rendered h1 and one lede above the tool | This is the promise and its necessary boundary, not repeated data. |
 | Construct mixed top-level vdevs and auxiliary roles | Tool UI | First and dominant visual | The topology is user input and should look like the pool that will be created. |
-| Show the answer and planning target | Tool UI | First result line inside the same framed tool | The user came for one decision, so the conclusion leads. |
-| Show per-vdev capacity and failure boundaries | Topology/diagram | Directly under the result sentence | Repeated visual groups preserve the actual OpenZFS failure structure better than prose. |
+| Show the answer and planning target | Tool UI | First result line inside the same workbench | The user came for one decision, so the conclusion leads. |
+| Show per-vdev capacity and failure boundaries | Table | Directly under the lead result | Repeated columns compare each vdev without inventing geometry that cannot encode member size or failure behavior. |
 | Reconcile entered data capacity | Exact result visualization | Under per-vdev topology | One proportional horizontal bar makes the relative allocation immediately scannable. |
-| State every allocation value and classification | Table | Beside or below the bar, stacked on narrow screens | Exact repeated labels and values need a table, including segments too small to see. |
+| State every allocation value and classification | Allocation legend | Directly below the bar | The shared allocation figure keeps every exact label and value visible, including segments too small to see. |
 | Separate spare, SLOG, L2ARC, and special inventory | Table | After general capacity accounting | Repeated role facts are clearer as structured rows and stay out of the primary capacity bar. |
 | Preview topology syntax | Code block | Near the end of the valid result | The command is exact technical text and must remain copyable and visibly non-executing. |
 | Explain the formula, slop, block-size model, and expansion limit | Sentences plus compact formula table | Collapsed details inside the result, followed by a short server-rendered reference section | These are caveats and definitions that should sit beside the numbers they limit. |
 | Compare this tool with the conventional RAID calculator | Internal link sentence | Short related-tool footer | It gives users with non-ZFS arrays a clear next path without adding another comparison surface. |
 
-There is no marker art or screenshot. The tool itself, exact bar, topology rows, accounting table, and command preview carry the page. Decorative media would compete with the capacity answer.
+There is no marker art or screenshot. The tool itself, exact bar, vdev table, auxiliary table, and command preview carry the page. Decorative media would compete with the capacity answer.
 
 ## Technical plan
 
@@ -409,14 +409,14 @@ Unpublished. The route, sidebar entry, hub link, tests, and local registry previ
 | R7 | Each valid mirror vdev reconciles common raw bytes to logical data, mirrored copies, sector rounding, and tail bytes exactly. | Unit property tests |
 | R8 | Each valid RAIDZ vdev uses version 1 sector, parity-row, and `P + 1` padding equations and reconciles common raw bytes exactly. | Unit fixtures and OpenZFS source contract test |
 | R9 | Mixed-size and sector-alignment loss is calculated per vdev from its own smallest aligned member, not from the smallest drive in the whole pool. | Unit fixtures |
-| R10 | Per-vdev topology and failure tolerance appear before the pool total, and no pool-wide tolerance number implies failures can occur in any placement. | Browser and static page test |
+| R10 | Per-vdev contribution and failure tolerance appear in one table after the lead answer, and no pool-wide tolerance number implies failures can occur in any placement. | Browser and static page test |
 | R11 | OpenZFS slop uses the selected shift, 128 MiB floor, 128 GiB cap, and small-pool half-space rule, with the embedded-log exclusion stated. | Unit boundary tests and result details |
 | R12 | The default 20% planning headroom appears separately from estimated writable physical data and does not reduce or segment the raw physical-capacity bar. | Unit and Browser tests |
 | R13 | An enabled compression ratio changes only the conditional logical-data scenario at the planning target; it never changes physical capacity. | Unit and Browser tests |
 | R14 | Spare, SLOG, and L2ARC devices appear in physical inventory but add zero general data capacity. | Unit and Browser tests |
 | R15 | A special vdev must be mirrored and appears as a separate smallest-member capacity envelope with a permanence warning, never in general writable capacity. | Unit and Browser tests |
-| R16 | A successful calculation begins with equally scannable estimated-writable and planning-target values, then shows per-vdev rows, one exact allocation bar, an accounting table, auxiliary roles, and formula metadata inside one framed tool. | Browser screenshot and accessibility test |
-| R17 | The result accounting reconciles all entered data-device bytes, and every non-zero bar segment remains available as an exact table value and accessible text even when visually narrow. | Unit and Browser tests |
+| R16 | A successful calculation begins with one dominant estimated-writable value and a secondary planning target, then shows the vdev table, one exact allocation bar, optional auxiliary inventory, the command, and formula details. | Browser screenshot and accessibility test |
+| R17 | The allocation reconciles all entered data-device bytes, and every category remains available as an exact labelled value even when its segment is zero or visually narrow. | Unit and Browser tests |
 | R18 | Any input or topology edit immediately removes the old result and removes the `state` parameter. Invalid submission never coexists with old or partial numeric results. | Browser test |
 | R19 | Successful and repeated calculations do not change the URL or add history entries. Only `Share configuration` creates versioned URL state. | Browser history test |
 | R20 | A valid shared link restores the full normalized topology and recalculates with its recorded formula/input version. A corrupt, unsafe, oversized, future, or wrong-calculator state restores nothing and returns to the clean route with a notice. | Unit codec and Browser tests |

@@ -1,16 +1,24 @@
+import { siteSpotLocalSecurityCamerasArt } from "./art/site--spot-local-security-cameras";
+import { siteSpotNutCompatibleUpsArt } from "./art/site--spot-nut-compatible-ups";
+import { siteSpotZigbeeCoordinatorsArt } from "./art/site--spot-zigbee-coordinators";
+import { siteSpotZigbeeDevicesArt } from "./art/site--spot-zigbee-devices";
+import { siteSpotMatterDevicesArt } from "./art/site--spot-matter-devices";
+import { siteSpotZWaveDevicesArt } from "./art/site--spot-z-wave-devices";
 import {
   BookOpen,
-  FileSearch,
-  Gauge,
+  BatteryCharging,
+  Camera,
   Globe,
   HardDrive,
   Keyboard,
   FlaskConical,
   Layers3,
   Network,
-  Route,
+  Radio,
+  RadioTower,
+  ListChecks,
   Scale,
-  ShieldCheck,
+  HouseWifi,
   SquareTerminal,
   type LucideIcon,
 } from "lucide-react";
@@ -25,10 +33,15 @@ import { siteSpotLicensesArt } from "./art/site--spot-licenses";
 import { siteSpotLabsArt } from "./art/site--spot-labs";
 import { siteSpotKeyboardShortcutsArt } from "./art/site--spot-keyboard-shortcuts";
 import { siteSpotSelfHostAppsArt } from "./art/site--spot-self-host-apps";
-import { siteSpotDockerignoreArt } from "./art/site--spot-dockerignore";
-import { siteSpotHomeAssistantEnergyArt } from "./art/site--spot-home-assistant-energy";
-import { siteSpotNfsFirewallArt } from "./art/site--spot-nfs-firewall";
-import { siteSpotNginxProxyPassArt } from "./art/site--spot-nginx-proxy-pass";
+import { eppStatusArt } from "./(catalogs)/_components/art/epp-status";
+import { tldDirectoryArt } from "./(catalogs)/_components/art/tld-directory";
+import { getTerminalApps } from "@/lib/terminal-apps";
+import { getHardwareDirectoryCount } from "@/lib/hardware-directories";
+import { getZigbeeDevices } from "@/lib/zigbee-devices";
+import { shortcutAppCatalog } from "@/lib/shortcuts/catalog.generated";
+import { STATUS_CODES } from "@/lib/domain/status-codes";
+import tldDirectory from "@/lib/domain/data/tld-directory.json";
+import { labProjects } from "./labs/projects";
 import { siteSpotStorageToolsArt } from "./art/site--spot-storage-tools";
 import { getSelfHostAppsStats } from "@/lib/apps";
 import {
@@ -42,17 +55,17 @@ import {
 import { lessons } from "@/lib/self-hosting-for-beginners";
 import { licenses } from "@/lib/software-licenses";
 import { AppShell, SidebarLabel } from "../app-shell";
-import { dotBandClassName } from "../dot-band";
 import { Doodle } from "../doodle";
+import { EntryHero } from "../entry-hero";
 import { SidebarList } from "../sidebar-list";
 import { dnsToolCount } from "./(catalogs)/dns-tools/dns-tools-sidebar";
-import { domainToolCount } from "./(catalogs)/domain-tools/domain-tools-sidebar";
+import { domainToolCount, domainReferenceCount } from "./(catalogs)/domain-tools/domain-tools-sidebar";
 import { storageToolCount } from "./(catalogs)/storage-tools/storage-tools-sidebar";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
 } from "../sidebar-panel";
-import { siteDoodleStarArt } from "./art/site--doodle-star";
+import { siteHeroStack127Art } from "./art/site--hero-stack127";
 
 export const dynamic = "force-dynamic";
 
@@ -68,34 +81,42 @@ const legalSlugs = new Set(["about", "privacy", "terms"]);
 const pageIcons: Record<string, LucideIcon> = {
   "cli-apps": SquareTerminal,
   "dns-tools": Network,
-  "dockerignore-tester": FileSearch,
   "domain-tools": Globe,
-  "home-assistant-energy-entity-checker": Gauge,
+  "epp-status-codes": ListChecks,
   "labs": FlaskConical,
-  "nfs-firewall-rules": ShieldCheck,
-  "nginx-proxy-pass-calculator": Route,
+  "local-security-cameras": Camera,
+  "matter-devices": HouseWifi,
+  "nut-compatible-ups": BatteryCharging,
   "self-host-apps": HardDrive,
   "keyboard-shortcuts": Keyboard,
   "self-hosting-for-beginners": BookOpen,
   "software-licenses-for-self-hosting": Scale,
   "storage-tools": Layers3,
+  "tld-directory": Globe,
+  "z-wave-devices": Radio,
+  "zigbee-coordinators": RadioTower,
+  "zigbee-devices": RadioTower,
 };
 
 /** Marker spot per feature page: the card's visual one-liner. */
 const pageArt: Record<string, string> = {
+  "local-security-cameras": siteSpotLocalSecurityCamerasArt,
+  "nut-compatible-ups": siteSpotNutCompatibleUpsArt,
+  "zigbee-coordinators": siteSpotZigbeeCoordinatorsArt,
+  "zigbee-devices": siteSpotZigbeeDevicesArt,
+  "matter-devices": siteSpotMatterDevicesArt,
+  "z-wave-devices": siteSpotZWaveDevicesArt,
   "cli-apps": siteSpotCliAppsArt,
   "dns-tools": siteSpotDnsToolsArt,
-  "dockerignore-tester": siteSpotDockerignoreArt,
   "domain-tools": siteSpotDomainToolsArt,
-  "home-assistant-energy-entity-checker": siteSpotHomeAssistantEnergyArt,
+  "epp-status-codes": eppStatusArt,
   "keyboard-shortcuts": siteSpotKeyboardShortcutsArt,
   "labs": siteSpotLabsArt,
-  "nfs-firewall-rules": siteSpotNfsFirewallArt,
-  "nginx-proxy-pass-calculator": siteSpotNginxProxyPassArt,
   "self-host-apps": siteSpotSelfHostAppsArt,
   "self-hosting-for-beginners": siteSpotCourseArt,
   "software-licenses-for-self-hosting": siteSpotLicensesArt,
   "storage-tools": siteSpotStorageToolsArt,
+  "tld-directory": tldDirectoryArt,
 };
 
 function HomeSidebar({ pages }: { pages: Stack127Page[] }) {
@@ -123,10 +144,24 @@ function HomeSidebar({ pages }: { pages: Stack127Page[] }) {
   );
 }
 
-function buildCardStats(
+async function buildCardStats(
   page: Stack127Page,
   appStats: Awaited<ReturnType<typeof getSelfHostAppsStats>>,
-): HomeStat[] {
+): Promise<HomeStat[]> {
+  const metric = (label: string, count: number): HomeStat => ({ label, value: count.toLocaleString("en-US") });
+  switch (page.slug) {
+    case "cli-apps": return [metric("apps", (await getTerminalApps()).length)];
+    case "zigbee-devices": return [metric("devices", getZigbeeDevices().length)];
+    case "zigbee-coordinators": return [metric("coordinators", await getHardwareDirectoryCount(page.slug))];
+    case "local-security-cameras": return [metric("cameras", await getHardwareDirectoryCount(page.slug))];
+    case "nut-compatible-ups": return [metric("UPS models", await getHardwareDirectoryCount(page.slug))];
+    case "z-wave-devices":
+    case "matter-devices": return [metric("devices", await getHardwareDirectoryCount(page.slug))];
+    case "keyboard-shortcuts": return [metric("apps", shortcutAppCatalog.length), metric("shortcuts", shortcutAppCatalog.reduce((total, app) => total + app.shortcutCount, 0))];
+    case "epp-status-codes": return [metric("status codes", STATUS_CODES.length)];
+    case "tld-directory": return [metric("domain extensions", tldDirectory.rows.length)];
+    case "labs": return [metric("projects", labProjects.length)];
+  }
   if (page.slug === "self-host-apps") {
     return [{ label: "apps", value: appStats.appCount.toLocaleString("en-US") }];
   }
@@ -145,14 +180,14 @@ function buildCardStats(
   }
 
   if (page.slug === "domain-tools") {
-    return [{ label: "tools", value: domainToolCount.toLocaleString("en-US") }];
+    return [metric("tools", domainToolCount), metric("references", domainReferenceCount)];
   }
 
   if (page.slug === "storage-tools") {
     return [{ label: "tools", value: storageToolCount.toLocaleString("en-US") }];
   }
 
-  return [];
+  throw new Error(`Home card metric is missing for ${page.slug}`);
 }
 
 function HomePageCard({
@@ -164,14 +199,13 @@ function HomePageCard({
 }) {
   const Icon = pageIcons[page.slug];
   const art = pageArt[page.slug];
+  if (!art) throw new Error(`Home card marker art is missing for ${page.slug}`);
 
   return (
     <Link className="home-page-card" href={pathFromSlug(page.slug)}>
-      {art ? (
-        <span className="home-page-card-art">
-          <Doodle svg={art} />
-        </span>
-      ) : null}
+      <span className="home-page-card-art" aria-hidden="true">
+        <Doodle svg={art} />
+      </span>
       <div className="home-page-card-copy">
         <h2>
           {Icon ? (
@@ -245,6 +279,7 @@ export default async function Home() {
   ]);
   const visibleMainPages = mainPages.filter(isHomeVisiblePage);
   const featurePages = visibleMainPages.filter(isHomeFeaturePage);
+  const cardStats = await Promise.all(featurePages.map((page) => buildCardStats(page, appStats)));
   const startItems = startHereItems(new Set(featurePages.map((page) => page.slug)));
 
   return (
@@ -254,7 +289,7 @@ export default async function Home() {
       sidebar={<HomeSidebar pages={visibleMainPages} />}
       sidebarLabel="Home sidebar"
     >
-      <div className={`${dotBandClassName} home-hero-band`}>
+      <EntryHero art={siteHeroStack127Art} wide>
         <header className="home-intro">
           <h1 id="home-title">
             Practical tools for people who <mark>tinker</mark>
@@ -264,15 +299,14 @@ export default async function Home() {
             more techy stuff.
           </p>
         </header>
-        <Doodle className="home-hero-doodle" placement="corner" svg={siteDoodleStarArt} />
-      </div>
+      </EntryHero>
       <section className="home-main" aria-labelledby="home-title">
         <div className="home-page-grid">
-          {featurePages.map((page) => (
+          {featurePages.map((page, index) => (
             <HomePageCard
               key={page.slug}
               page={page}
-              stats={buildCardStats(page, appStats)}
+              stats={cardStats[index]}
             />
           ))}
         </div>

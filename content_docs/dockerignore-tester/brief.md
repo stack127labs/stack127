@@ -10,6 +10,6 @@ They paste one effective ignore file and a batch of context-relative paths, test
 
 ## Show vs say
 
-The framed tool remains the main visual: two editors lead to an answer sentence, exact included and excluded counts, and a responsive result table whose expandable rows show the ordered rule trace. Pattern diagnostics use a table because line number, source text, normalized form, and status repeat.
+The full-width workbench remains the main visual: two editors lead to an answer sentence, exact included and excluded counts, and a responsive result table whose expandable rows show the ordered rule trace. Pattern diagnostics use a table because line number, source text, normalized form, and status repeat.
 
 Supporting content answers the questions the interface cannot answer alone. A short introduction defines the result and boundary. Sentences explain which ignore file is effective, how to choose representative path probes, and how to troubleshoot a surprising verdict. One compact table explains useful Docker pattern forms, and one compact table separates matcher evidence from real build proof. The built-in example carries the worked example instead of adding another visual. There is no marker art, chart, screenshot, FAQ, generator advice, or article-length tutorial because those would compete with the live tool.

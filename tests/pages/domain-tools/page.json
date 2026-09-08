@@ -5,6 +5,8 @@
     "content_docs/domain-tools"
   ],
   "tests": [
+    "tests/stack127/entry-page-visual-system.test.mjs",
+    "tests/stack127/catalog-layout.spec.ts",
     "tests/pages/domain-tools/shared/punycode.test.mjs",
     "tests/pages/domain-tools/shared/public-suffix.test.mjs",
     "tests/pages/domain-tools/shared/bootstrap.test.mjs",

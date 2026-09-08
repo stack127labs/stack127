@@ -105,7 +105,7 @@ test("nameserver results keep transport, glue, and network evidence separate", a
   await page.getByRole("button", { name: "Check nameservers" }).click();
   await expect(page.getByText("ns1.example.com did not answer over TCP at 192.0.2.10.")).toBeVisible();
   await expect(page.getByRole("cell", { name: "192.0.2.11" })).toBeVisible();
-  await expect(page.getByText(/Example Network · AS64500 · 192\.0\.2\.0\/24/)).toBeVisible();
+  await expect(page.getByRole("row").filter({ hasText: "192.0.2.10" }).last()).toContainText("Example NetworkAS64500192.0.2.0/24US");
 
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "Download report" }).click();
@@ -153,11 +153,14 @@ test("nameserver results label checker-side IPv6 skips without blaming the domai
   await page.getByLabel("Domain or hostname").fill("example.com");
   await page.getByRole("button", { name: "Check nameservers" }).click();
 
-  await expect(page.getByText("IPv6 checks were skipped because this checker does not have IPv6 connectivity.")).toBeVisible();
+  await expect(page.getByText(/example\.com has a healthy delegation/)).toBeVisible();
+  const skippedRow = page.getByRole("row").filter({ hasText: "2001:db8::53" });
+  await expect(skippedRow.getByText("Skipped by checker", { exact: true })).toBeVisible();
+  await expect(skippedRow.getByText("No IPv6 route", { exact: true })).toBeVisible();
   await expect(page.getByText(/did not answer over/)).toHaveCount(0);
   const ipv6Row = page.getByRole("row").filter({ hasText: "2001:db8::53" });
-  await expect(ipv6Row.getByRole("cell", { name: "Skipped" })).toHaveCount(2);
-  await expect(ipv6Row.getByRole("cell", { name: "Not checked" })).toBeVisible();
+  await expect(ipv6Row.getByText("Not run", { exact: true })).toHaveCount(2);
+  await expect(ipv6Row.getByText("Not checked", { exact: true })).toBeVisible();
 });
 
 test("SOA results stay readable and preserve skipped IPv6 evidence in the report", async ({ page }) => {
@@ -177,7 +180,10 @@ test("SOA results stay readable and preserve skipped IPv6 evidence in the report
   await page.getByLabel("Domain or hostname").fill("example.com");
   await page.getByRole("button", { name: "Compare SOA records" }).click();
 
-  await expect(page.getByText("IPv6 checks were skipped because this checker does not have IPv6 connectivity.")).toBeVisible();
+  await expect(page.getByText(/All addresses this checker could query for example\.com/)).toBeVisible();
+  const skipped = page.getByRole("row").filter({ hasText: "2001:db8::53" });
+  await expect(skipped.getByText("Skipped by checker", { exact: true })).toBeVisible();
+  await expect(skipped.getByText("No IPv6 route", { exact: true })).toBeVisible();
   await expect(page.getByText("a-very-long-nameserver-hostname.example.net", { exact: true })).toBeVisible();
   await expect(page.getByText("2,407,160,699")).toBeVisible();
   await expect(page.getByText(/ENETUNREACH/)).toHaveCount(0);

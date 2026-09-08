@@ -21,6 +21,7 @@ export type MultiTldRow = {
   detail: string;
   registrar: string | null;
   expiryDate: string | null;
+  sourceHost: string | null;
   fetchedAt: string | null;
   fromCache: boolean;
 };

@@ -24,7 +24,7 @@ test("the site navigation links to cli-apps", async () => {
 });
 
 test("the cli-apps page exposes language and license filters", async () => {
-  const page = await read("app/(site)/(catalogs)/cli-apps/page.tsx");
+  const page = await read("app/(site)/(directories)/cli-apps/page.tsx");
   assert.match(page, /name="language"/);
   assert.match(page, /name="license"/);
   assert.match(page, /languageOptions/);
@@ -32,7 +32,7 @@ test("the cli-apps page exposes language and license filters", async () => {
 });
 
 test("the directory filter logic supports license filtering", async () => {
-  const filters = await read("app/(site)/(catalogs)/cli-apps/filters.ts");
+  const filters = await read("app/(site)/(directories)/cli-apps/filters.ts");
   assert.match(filters, /getValues\(params, "license"\)/);
   assert.match(filters, /licenses\.length/);
 });

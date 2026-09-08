@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
+import { readToolPageSeed } from "../../helpers/tool-page-content.mjs";
 
 const root = new URL("../../../", import.meta.url);
 const read = (path) => readFileSync(new URL(path, root), "utf8");
@@ -12,7 +13,6 @@ test("owns one published flat route with the requested files", () => {
   for (const path of [
     "app/(site)/(tools)/unraid-calculator/page.tsx",
     "app/(site)/(tools)/unraid-calculator/unraid-calculator.tsx",
-    "app/(site)/(tools)/unraid-calculator/unraid-calculator-guide.tsx",
     "app/(site)/(tools)/unraid-calculator/unraid-calculator.module.css",
     "app/(site)/(tools)/unraid-calculator/unraid-calculator-engine.ts",
   ]) assert.equal(existsSync(new URL(path, root)), true, path);
@@ -20,23 +20,18 @@ test("owns one published flat route with the requested files", () => {
 
 test("keeps the server route identity and COPY-01 intro at the array boundary", () => {
   const page = read("app/(site)/(tools)/unraid-calculator/page.tsx");
-  assert.match(page, /Unraid Main Array/);
-  assert.match(page, /Plan a Main Array for a homelab from explicit parity and data roles/);
-  assert.match(page, /array-level data capacity/);
-  assert.match(page, /Filesystem-visible space remains unknown/);
-  assert.match(page, /<UnraidCalculatorGuide \/>/);
+  assert.match(page, /getRequiredToolPage\("unraid-calculator"\)/);
+  assert.match(page, /<ToolPageHeader/);
+  assert.match(page, /<ToolPageMarkdown/);
   assert.doesNotMatch(page, /export const metadata|generateMetadata|application\/ld\+json|canonical|robots/);
   assert.doesNotMatch(page, /FAQ|How to use|Related/);
 });
 
 test("covers COPY-02 through COPY-05 in a concise server-rendered guide", () => {
   const page = read("app/(site)/(tools)/unraid-calculator/page.tsx");
-  const guide = read("app/(site)/(tools)/unraid-calculator/unraid-calculator-guide.tsx");
+  const guide = readToolPageSeed("unraid-calculator");
   const routeSource = `${page}\n${guide}`;
 
-  assert.match(guide, /<article/);
-  assert.match(guide, /proseClassName/);
-  assert.match(guide, /proseFlowClassName/);
   for (const heading of [
     "Read the headline as array-level data capacity, not filesystem free space",
     "Verify a planned disk change in the official Unraid docs",
@@ -44,8 +39,7 @@ test("covers COPY-02 through COPY-05 in a concise server-rendered guide", () => 
     "Your drive list stays in the browser",
   ]) assert.match(guide, new RegExp(heading));
   assert.match(guide, /Protection modes/);
-  assert.match(guide, /<table className=\{styles\.guideTable\}>/);
-  assert.match(guide, /tabIndex=\{0\}/);
+  assert.match(guide, /^\| Mode/m);
   for (const phrase of [
     "planning envelope",
     "filesystem metadata",
@@ -60,10 +54,9 @@ test("covers COPY-02 through COPY-05 in a concise server-rendered guide", () => 
     "/raid-calculator",
     "/zfs-capacity-calculator",
     "/raidz-expansion-planner",
-  ]) assert.match(guide, new RegExp(`href=\"${href.replaceAll("/", "\\/")}\"`));
+  ]) assert.match(guide, new RegExp(href.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 
   const visibleWords = guide
-    .replace(/<[^>]+>/g, " ")
     .replace(/[{}()=\"'`;,:./]/g, " ")
     .split(/\s+/)
     .filter(Boolean);
@@ -90,12 +83,32 @@ test("uses the approved result structures and input-only versioned state", () =>
   assert.match(client, /Copy summary/);
   assert.match(client, /Share configuration/);
   assert.match(client, /Reset/);
-  assert.match(client, /aria-live="polite"/);
+  assert.match(client, /ToolStatus/);
   assert.match(client, /history\.replaceState/);
   assert.match(engine, /UNRAID_CALCULATION_VERSION\s*=\s*1/);
   assert.match(engine, /UNRAID_INPUT_VERSION\s*=\s*1/);
   assert.match(engine, /encodeStorageState/);
   assert.match(engine, /decodeStorageState/);
+});
+
+test("implements the ready interface contract with shared controls and one answer hierarchy", () => {
+  const client = read("app/(site)/(tools)/unraid-calculator/unraid-calculator.tsx");
+  for (const component of [
+    "ToolChoiceGroup",
+    "ToolQuantityInput",
+    "ToolRepeatableList",
+    "ToolDisclosure",
+    "ToolPrimaryResult",
+    "ToolKeyValueList",
+    "ToolAllocationBar",
+    "ToolDataTable",
+  ]) assert.match(client, new RegExp(component));
+
+  assert.match(client, /Plan a future data drive/);
+  assert.match(client, /Assigned drives/);
+  assert.match(client, /Current data capacity/);
+  assert.doesNotMatch(client, /Rows to add|Add rows|No data drives yet|Array-level result|Data plus parity equals raw|Largest data drive|Parity headroom/);
+  assert.doesNotMatch(client, /<select|<option|capacityBar|roleTable/);
 });
 
 test("keeps route CSS local, responsive, and free of banned visual treatments", () => {

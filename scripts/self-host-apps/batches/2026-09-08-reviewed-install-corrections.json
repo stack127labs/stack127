@@ -1,0 +1,707 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Source-backed description and selected installation corrections. Not full-record verification.",
+  "apps": [
+    {
+      "slug": "1time",
+      "review_scope": "partial",
+      "summary": "Creates encrypted sharing links for passwords and files, with limits on how often they can be opened.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "categories": [
+        "file-sharing-sync",
+        "security-privacy"
+      ],
+      "docker_support": "official",
+      "docker_url": "https://github.com/shingrus/1time.io/pkgs/container/1time-backend",
+      "docker_image": "ghcr.io/shingrus/1time-backend:latest",
+      "compose_support": true,
+      "compose_url": "https://github.com/shingrus/1time.io/blob/master/docker-compose.yml",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "native"
+      ],
+      "requires_database": true,
+      "database_types": [
+        "redis"
+      ],
+      "persistent_storage": true,
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://1time.io/",
+            "https://github.com/shingrus/1time.io",
+            "https://github.com/shingrus/1time.io#readme",
+            "https://opengraph.githubassets.com/1/shingrus/1time.io",
+            "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+            "https://selfhostedworld.com/software/1time"
+          ]
+        },
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-08",
+          "confidence": "high",
+          "note": "The publisher provides backend and web container images.",
+          "source_urls": [
+            "https://github.com/shingrus/1time.io/blob/master/docker-compose.yml"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-08",
+          "confidence": "high",
+          "note": "The official Compose deployment includes the web app, backend, and Redis.",
+          "source_urls": [
+            "https://github.com/shingrus/1time.io/blob/master/docker-compose.yml"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://1time.io/",
+            "https://github.com/shingrus/1time.io",
+            "https://github.com/shingrus/1time.io#readme",
+            "https://opengraph.githubassets.com/1/shingrus/1time.io",
+            "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+            "https://selfhostedworld.com/software/1time"
+          ]
+        },
+        "database": {
+          "status": "published",
+          "checked_at": "2026-09-08",
+          "confidence": "high",
+          "note": "The backend uses Redis; the Compose deployment persists Redis data and uploaded file blobs.",
+          "source_urls": [
+            "https://github.com/shingrus/1time.io/blob/master/docker-compose.yml"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-08",
+          "confidence": "high",
+          "note": "The Compose file uses the publisher's backend and web images from GHCR.",
+          "source_urls": [
+            "https://github.com/shingrus/1time.io/blob/master/docker-compose.yml"
+          ]
+        }
+      },
+      "expected": {
+        "summary": "Zero-knowledge one-time secret sharing, Create a one-time link for a password, API key, or file, Encrypted client-side in the browser, never reaches the.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "categories": [
+          "ai-ml",
+          "knowledge-notes",
+          "password-managers"
+        ],
+        "docker_support": "none",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_support": false,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "requires_database": null,
+        "database_types": [],
+        "persistent_storage": null,
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://1time.io/",
+              "https://github.com/shingrus/1time.io",
+              "https://github.com/shingrus/1time.io#readme",
+              "https://opengraph.githubassets.com/1/shingrus/1time.io",
+              "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+              "https://selfhostedworld.com/software/1time"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://1time.io/",
+              "https://github.com/shingrus/1time.io",
+              "https://github.com/shingrus/1time.io#readme",
+              "https://opengraph.githubassets.com/1/shingrus/1time.io",
+              "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+              "https://selfhostedworld.com/software/1time"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://1time.io/",
+              "https://github.com/shingrus/1time.io",
+              "https://github.com/shingrus/1time.io#readme",
+              "https://opengraph.githubassets.com/1/shingrus/1time.io",
+              "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+              "https://selfhostedworld.com/software/1time"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://1time.io/",
+              "https://github.com/shingrus/1time.io",
+              "https://github.com/shingrus/1time.io#readme",
+              "https://opengraph.githubassets.com/1/shingrus/1time.io",
+              "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+              "https://selfhostedworld.com/software/1time"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://1time.io/",
+              "https://github.com/shingrus/1time.io",
+              "https://github.com/shingrus/1time.io#readme",
+              "https://opengraph.githubassets.com/1/shingrus/1time.io",
+              "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+              "https://selfhostedworld.com/software/1time"
+            ]
+          },
+          "docker_image": {
+            "note": "Primary sources checked; no prebuilt image was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://1time.io/",
+              "https://github.com/shingrus/1time.io",
+              "https://github.com/shingrus/1time.io#readme",
+              "https://opengraph.githubassets.com/1/shingrus/1time.io",
+              "https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md",
+              "https://selfhostedworld.com/software/1time"
+            ]
+          }
+        }
+      },
+      "data_source_urls": [
+        "https://github.com/shingrus/1time.io",
+        "https://github.com/shingrus/1time.io/blob/master/docker-compose.yml",
+        "https://raw.githubusercontent.com/shingrus/1time.io/master/LICENSE"
+      ],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Backend image",
+          "url": "https://github.com/shingrus/1time.io/pkgs/container/1time-backend",
+          "image": "ghcr.io/shingrus/1time-backend:latest",
+          "source_url": "https://github.com/shingrus/1time.io/blob/master/docker-compose.yml",
+          "note": null,
+          "sort_order": 10,
+          "support_level": "official"
+        },
+        {
+          "method": "docker",
+          "label": "Web image",
+          "url": "https://github.com/shingrus/1time.io/pkgs/container/1time-web",
+          "image": "ghcr.io/shingrus/1time-web:latest",
+          "source_url": "https://github.com/shingrus/1time.io/blob/master/docker-compose.yml",
+          "note": null,
+          "sort_order": 11,
+          "support_level": "official"
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/shingrus/1time.io/blob/master/docker-compose.yml",
+          "image": null,
+          "source_url": "https://github.com/shingrus/1time.io/blob/master/docker-compose.yml",
+          "note": null,
+          "sort_order": 20,
+          "support_level": "official"
+        }
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://github.com/shingrus/1time.io#readme",
+          "note": "Publisher installation documentation; verify dependencies and platform support.",
+          "image": null,
+          "label": "Native installation",
+          "method": "native",
+          "sort_order": 60,
+          "source_url": "https://github.com/shingrus/1time.io#readme",
+          "support_level": "official"
+        }
+      ],
+      "pending_review": [
+        "Resource requirements and planning estimates",
+        "Native installation details",
+        "Maintenance classification",
+        "Publisher, pricing, icons, and remaining metadata"
+      ]
+    },
+    {
+      "slug": "4ga-boards",
+      "review_scope": "partial",
+      "summary": "Organizes team projects into shared Kanban boards with nested tasks, Markdown descriptions, and live updates.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "docker_url": "https://github.com/rargames/4gaboards/pkgs/container/4gaboards",
+      "technical_fact_status": {
+        "ram": {
+          "note": "Official primary source checked for RAM.",
+          "status": "published",
+          "checked_at": "2026-09-02T04:30:23.499Z",
+          "confidence": "low",
+          "source_urls": [
+            "https://4gaboards.com",
+            "https://github.com/RARgames/4gaBoards",
+            "https://github.com/RARgames/4gaBoards/blob/HEAD/docker-compose.yml",
+            "https://github.com/RARgames/4gaBoards#readme",
+            "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/docker-compose.yml",
+            "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/README.md"
+          ]
+        },
+        "docker": {
+          "note": "Official primary source checked for Docker support.",
+          "status": "published",
+          "checked_at": "2026-09-02T04:30:23.499Z",
+          "confidence": "high",
+          "source_urls": [
+            "https://4gaboards.com",
+            "https://github.com/RARgames/4gaBoards",
+            "https://github.com/RARgames/4gaBoards/blob/HEAD/docker-compose.yml",
+            "https://github.com/RARgames/4gaBoards#readme",
+            "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/docker-compose.yml",
+            "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/README.md"
+          ]
+        },
+        "compose": {
+          "note": "Official primary source checked for Compose support.",
+          "status": "published",
+          "checked_at": "2026-09-02T04:30:23.499Z",
+          "confidence": "high",
+          "source_urls": [
+            "https://4gaboards.com",
+            "https://github.com/RARgames/4gaBoards",
+            "https://github.com/RARgames/4gaBoards/blob/HEAD/docker-compose.yml",
+            "https://github.com/RARgames/4gaBoards#readme",
+            "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/docker-compose.yml",
+            "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/README.md"
+          ]
+        },
+        "storage": {
+          "note": "Official primary source checked for storage.",
+          "status": "published",
+          "checked_at": "2026-09-02T04:30:23.499Z",
+          "confidence": "high",
+          "source_urls": [
+            "https://4gaboards.com",
+            "https://github.com/RARgames/4gaBoards",
+            "https://github.com/RARgames/4gaBoards/blob/HEAD/docker-compose.yml",
+            "https://github.com/RARgames/4gaBoards#readme",
+            "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/docker-compose.yml",
+            "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/README.md"
+          ]
+        },
+        "database": {
+          "status": "published",
+          "checked_at": "2026-09-08",
+          "confidence": "high",
+          "note": "PostgreSQL stores application data. Redis is optional; the publisher also provides a Compose deployment without Redis.",
+          "source_urls": [
+            "https://github.com/RARgames/4gaBoards/blob/main/docker-compose.yml",
+            "https://github.com/RARgames/4gaBoards/blob/main/docker-compose-no-redis.yml"
+          ]
+        },
+        "docker_image": {
+          "note": "Official primary source checked for a prebuilt image.",
+          "status": "published",
+          "checked_at": "2026-09-02T04:30:23.499Z",
+          "confidence": "high",
+          "source_urls": [
+            "https://4gaboards.com",
+            "https://github.com/RARgames/4gaBoards",
+            "https://github.com/RARgames/4gaBoards/blob/HEAD/docker-compose.yml",
+            "https://github.com/RARgames/4gaBoards#readme",
+            "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/docker-compose.yml",
+            "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/README.md"
+          ]
+        }
+      },
+      "expected": {
+        "summary": "Straightforward realtime kanban boards management for intuitive task tracking, 4ga Boards features an elegant dark mode, collapsible todo lists, and.",
+        "summary_source": "stack127_enriched",
+        "summary_confidence": "medium",
+        "docker_url": "https://github.com/RARgames/4gaBoards/blob/HEAD/docker-compose.yml",
+        "technical_fact_status": {
+          "ram": {
+            "note": "Official primary source checked for RAM.",
+            "status": "published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "low",
+            "source_urls": [
+              "https://4gaboards.com",
+              "https://github.com/RARgames/4gaBoards",
+              "https://github.com/RARgames/4gaBoards/blob/HEAD/docker-compose.yml",
+              "https://github.com/RARgames/4gaBoards#readme",
+              "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/docker-compose.yml",
+              "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/README.md"
+            ]
+          },
+          "docker": {
+            "note": "Official primary source checked for Docker support.",
+            "status": "published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "high",
+            "source_urls": [
+              "https://4gaboards.com",
+              "https://github.com/RARgames/4gaBoards",
+              "https://github.com/RARgames/4gaBoards/blob/HEAD/docker-compose.yml",
+              "https://github.com/RARgames/4gaBoards#readme",
+              "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/docker-compose.yml",
+              "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/README.md"
+            ]
+          },
+          "compose": {
+            "note": "Official primary source checked for Compose support.",
+            "status": "published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "high",
+            "source_urls": [
+              "https://4gaboards.com",
+              "https://github.com/RARgames/4gaBoards",
+              "https://github.com/RARgames/4gaBoards/blob/HEAD/docker-compose.yml",
+              "https://github.com/RARgames/4gaBoards#readme",
+              "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/docker-compose.yml",
+              "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/README.md"
+            ]
+          },
+          "storage": {
+            "note": "Official primary source checked for storage.",
+            "status": "published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "high",
+            "source_urls": [
+              "https://4gaboards.com",
+              "https://github.com/RARgames/4gaBoards",
+              "https://github.com/RARgames/4gaBoards/blob/HEAD/docker-compose.yml",
+              "https://github.com/RARgames/4gaBoards#readme",
+              "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/docker-compose.yml",
+              "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/README.md"
+            ]
+          },
+          "database": {
+            "note": "Official deployment checked for datastore services.",
+            "status": "published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "high",
+            "source_urls": [
+              "https://4gaboards.com",
+              "https://github.com/RARgames/4gaBoards",
+              "https://github.com/RARgames/4gaBoards/blob/HEAD/docker-compose.yml",
+              "https://github.com/RARgames/4gaBoards#readme",
+              "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/docker-compose.yml",
+              "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/README.md"
+            ]
+          },
+          "docker_image": {
+            "note": "Official primary source checked for a prebuilt image.",
+            "status": "published",
+            "checked_at": "2026-09-02T04:30:23.499Z",
+            "confidence": "high",
+            "source_urls": [
+              "https://4gaboards.com",
+              "https://github.com/RARgames/4gaBoards",
+              "https://github.com/RARgames/4gaBoards/blob/HEAD/docker-compose.yml",
+              "https://github.com/RARgames/4gaBoards#readme",
+              "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/docker-compose.yml",
+              "https://raw.githubusercontent.com/RARgames/4gaBoards/HEAD/README.md"
+            ]
+          }
+        }
+      },
+      "data_source_urls": [
+        "https://github.com/RARgames/4gaBoards",
+        "https://github.com/RARgames/4gaBoards/blob/main/docker-compose.yml",
+        "https://github.com/RARgames/4gaBoards/blob/main/docker-compose-no-redis.yml",
+        "https://raw.githubusercontent.com/RARgames/4gaBoards/main/LICENSE"
+      ],
+      "pending_review": [
+        "Resource requirement and storage-profile claims",
+        "Remaining installation methods",
+        "Maintenance classification",
+        "Publisher, pricing, icons, and remaining metadata"
+      ]
+    },
+    {
+      "slug": "apache-apisix",
+      "review_scope": "partial",
+      "summary": "Routes API requests between services, with load balancing, authentication, and limits on traffic.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "website_url": "https://apisix.apache.org/",
+      "docs_url": "https://apisix.apache.org/docs/apisix/getting-started/",
+      "install_docs_url": "https://apisix.apache.org/docs/apisix/installation-guide/",
+      "docker_support": "official",
+      "docker_url": "https://hub.docker.com/r/apache/apisix",
+      "docker_image": "apache/apisix:3.18.0-debian",
+      "compose_support": true,
+      "compose_url": "https://github.com/apache/apisix-docker/blob/master/example/docker-compose.yml",
+      "deployment_methods": [
+        "docker",
+        "compose",
+        "helm",
+        "native"
+      ],
+      "technical_fact_status": {
+        "ram": {
+          "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/apache/apisix",
+            "https://github.com/apache/apisix#readme",
+            "https://openalternative.co/apache-apisix",
+            "https://opengraph.githubassets.com/1/apache/apisix"
+          ]
+        },
+        "docker": {
+          "status": "published",
+          "checked_at": "2026-09-08",
+          "confidence": "high",
+          "note": "Apache documents Docker installation and publishes the apache/apisix image.",
+          "source_urls": [
+            "https://apisix.apache.org/docs/apisix/installation-guide/",
+            "https://github.com/apache/apisix-docker/blob/master/example/docker-compose.yml"
+          ]
+        },
+        "compose": {
+          "status": "published",
+          "checked_at": "2026-09-08",
+          "confidence": "high",
+          "note": "Apache maintains a Compose example and links it from the installation guide.",
+          "source_urls": [
+            "https://apisix.apache.org/docs/apisix/installation-guide/",
+            "https://github.com/apache/apisix-docker/blob/master/example/docker-compose.yml"
+          ]
+        },
+        "storage": {
+          "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://github.com/apache/apisix",
+            "https://github.com/apache/apisix#readme",
+            "https://openalternative.co/apache-apisix",
+            "https://opengraph.githubassets.com/1/apache/apisix"
+          ]
+        },
+        "database": {
+          "status": "published",
+          "checked_at": "2026-09-08",
+          "confidence": "high",
+          "note": "Traditional deployments use etcd. Standalone mode can load configuration from local files instead. Requirements depend on deployment mode.",
+          "source_urls": [
+            "https://apisix.apache.org/docs/apisix/deployment-modes/"
+          ]
+        },
+        "docker_image": {
+          "status": "published",
+          "checked_at": "2026-09-08",
+          "confidence": "high",
+          "note": "The official Compose example defaults to apache/apisix:3.18.0-debian.",
+          "source_urls": [
+            "https://github.com/apache/apisix-docker/blob/master/example/docker-compose.yml"
+          ]
+        }
+      },
+      "expected": {
+        "summary": "Apache APISIX is an API gateway built on NGINX and etcd, offering dynamic routing, 100+ plugins, load balancing, authentication, and traffic management for.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high",
+        "website_url": null,
+        "docs_url": "https://github.com/apache/apisix#readme",
+        "install_docs_url": "https://github.com/apache/apisix#readme",
+        "docker_support": "none",
+        "docker_url": null,
+        "docker_image": null,
+        "compose_support": false,
+        "compose_url": null,
+        "deployment_methods": [
+          "native"
+        ],
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/apache/apisix",
+              "https://github.com/apache/apisix#readme",
+              "https://openalternative.co/apache-apisix",
+              "https://opengraph.githubassets.com/1/apache/apisix"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://github.com/apache/apisix",
+              "https://github.com/apache/apisix#readme",
+              "https://openalternative.co/apache-apisix",
+              "https://opengraph.githubassets.com/1/apache/apisix"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/apache/apisix",
+              "https://github.com/apache/apisix#readme",
+              "https://openalternative.co/apache-apisix",
+              "https://opengraph.githubassets.com/1/apache/apisix"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/apache/apisix",
+              "https://github.com/apache/apisix#readme",
+              "https://openalternative.co/apache-apisix",
+              "https://opengraph.githubassets.com/1/apache/apisix"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/apache/apisix",
+              "https://github.com/apache/apisix#readme",
+              "https://openalternative.co/apache-apisix",
+              "https://opengraph.githubassets.com/1/apache/apisix"
+            ]
+          },
+          "docker_image": {
+            "note": "Primary sources checked; no prebuilt image was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://github.com/apache/apisix",
+              "https://github.com/apache/apisix#readme",
+              "https://openalternative.co/apache-apisix",
+              "https://opengraph.githubassets.com/1/apache/apisix"
+            ]
+          }
+        }
+      },
+      "data_source_urls": [
+        "https://github.com/apache/apisix",
+        "https://apisix.apache.org/docs/apisix/installation-guide/",
+        "https://github.com/apache/apisix-docker/blob/master/example/docker-compose.yml",
+        "https://apisix.apache.org/docs/apisix/deployment-modes/",
+        "https://raw.githubusercontent.com/apache/apisix/master/LICENSE"
+      ],
+      "install_options": [
+        {
+          "method": "docker",
+          "label": "Docker image",
+          "url": "https://hub.docker.com/r/apache/apisix",
+          "image": "apache/apisix:3.18.0-debian",
+          "source_url": "https://github.com/apache/apisix-docker/blob/master/example/docker-compose.yml",
+          "note": null,
+          "sort_order": 10,
+          "support_level": "official"
+        },
+        {
+          "method": "compose",
+          "label": "Docker Compose",
+          "url": "https://github.com/apache/apisix-docker/blob/master/example/docker-compose.yml",
+          "image": null,
+          "source_url": "https://apisix.apache.org/docs/apisix/installation-guide/",
+          "note": "Example deployment; review credentials and services before use.",
+          "sort_order": 20,
+          "support_level": "official"
+        },
+        {
+          "method": "helm",
+          "label": "Helm chart",
+          "url": "https://github.com/apache/apisix-helm-chart",
+          "image": null,
+          "source_url": "https://apisix.apache.org/docs/apisix/installation-guide/",
+          "note": null,
+          "sort_order": 30,
+          "support_level": "official"
+        },
+        {
+          "method": "native",
+          "label": "Native installation",
+          "url": "https://apisix.apache.org/docs/apisix/installation-guide/",
+          "image": null,
+          "source_url": "https://apisix.apache.org/docs/apisix/installation-guide/",
+          "note": null,
+          "sort_order": 60,
+          "support_level": "official"
+        }
+      ],
+      "reviewed_install_methods": [
+        "docker",
+        "compose",
+        "helm",
+        "native"
+      ],
+      "expected_install_options": [
+        {
+          "url": "https://github.com/apache/apisix#readme",
+          "note": "Publisher installation documentation; verify dependencies and platform support.",
+          "image": null,
+          "label": "Native installation",
+          "method": "native",
+          "sort_order": 60,
+          "source_url": "https://github.com/apache/apisix#readme",
+          "support_level": "official"
+        }
+      ],
+      "pending_review": [
+        "Resource requirements and planning estimates",
+        "Conditional database display",
+        "Categories and supported interfaces",
+        "Maintenance classification",
+        "Publisher, pricing, icons, and remaining metadata"
+      ]
+    }
+  ]
+}

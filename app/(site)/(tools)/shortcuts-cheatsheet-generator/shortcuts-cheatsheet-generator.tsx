@@ -1,51 +1,39 @@
 "use client";
 
+import { Printer } from "lucide-react";
 import { useState } from "react";
+import { ToolButton, ToolCheckbox, ToolChoiceGroup, ToolSearchField, ToolStatus, toolOption } from "@/app/tool-ui/tool-controls";
 import { buildCheatSheet, type CheatSheetAppSelection, type CheatSheetAppSection } from "@/lib/shortcuts/cheatsheet";
 import { platformLabels, type AppShortcuts, type PlatformId } from "@/lib/shortcuts/types";
 import styles from "./shortcuts-cheatsheet-generator.module.css";
 
-type Props = {
-  apps: AppShortcuts[];
-  initialSlugs: string[];
-};
+type Props = { apps: AppShortcuts[]; initialSlugs: string[] };
 
 function SheetTable({ entry }: { entry: CheatSheetAppSection }) {
-  return (
-    <table className={styles.sheetTable}>
-      <thead>
-        <tr>
-          <th scope="col">Action</th>
-          {entry.platforms.map((platform) => <th key={platform} scope="col">{platformLabels[platform]}</th>)}
-        </tr>
-      </thead>
-      <tbody>
-        {entry.sections.flatMap((section) => [
-          <tr key={section.group.id + "-heading"}>
-            <th className={styles.sheetGroup} colSpan={entry.platforms.length + 1} scope="colgroup">{section.group.title}</th>
-          </tr>,
-          ...section.shortcuts.map((shortcut) => (
-            <tr key={shortcut.id}>
-              <td>{shortcut.action}</td>
-              {entry.platforms.map((platform) => {
-                const binding = shortcut.keys.find((key) => key.platform === platform);
-                const bindings = binding ? [binding.keys, ...(binding.alternatives ?? [])] : [];
-                return <td key={platform}>{bindings.length > 0 ? bindings.map((keys) => keys.join(" ")).join(" or ") : "Not documented"}</td>;
-              })}
-            </tr>
-          )),
-        ])}
-      </tbody>
-    </table>
-  );
+  return <table className={styles.sheetTable}>
+    <thead><tr><th scope="col">Action</th>{entry.platforms.map((platform) => <th key={platform} scope="col">{platformLabels[platform]}</th>)}</tr></thead>
+    {entry.sections.map((section) => <tbody key={section.group.id}>
+      <tr><th className={styles.sheetGroup} colSpan={entry.platforms.length + 1} scope="rowgroup">{section.group.title}</th></tr>
+      {section.shortcuts.map((shortcut) => <tr key={shortcut.id}>
+        <th scope="row">{shortcut.action}</th>
+        {entry.platforms.map((platform) => { const binding = shortcut.keys.find((key) => key.platform === platform); const bindings = binding ? [binding.keys, ...(binding.alternatives ?? [])] : []; return <td key={platform}>{bindings.length ? bindings.map((keys) => keys.join(" ")).join(" or ") : "Not documented"}</td>; })}
+      </tr>)}
+    </tbody>)}
+  </table>;
+}
+
+function SheetSource({ app }: { app: AppShortcuts }) {
+  return <p className={styles.sheetSource}>Source: <a href={app.sourceUrl}>{app.sourceLabel}</a> · <span>{app.sourceUrl}</span> · Verified <time dateTime={app.lastVerified}>{app.lastVerified}</time></p>;
 }
 
 export function ShortcutsCheatSheetGenerator({ apps, initialSlugs }: Props) {
-  const [selected, setSelected] = useState<Set<string>>(new Set(initialSlugs));
+  const knownInitial = initialSlugs.filter((slug) => apps.some((app) => app.slug === slug));
+  const [selected, setSelected] = useState<Set<string>>(() => new Set(knownInitial));
+  const [filter, setFilter] = useState("");
   const [platformChoice, setPlatformChoice] = useState<Record<string, "all" | PlatformId>>({});
   const [excludedGroups, setExcludedGroups] = useState<Record<string, Set<string>>>({});
   const selectedApps = apps.filter((app) => selected.has(app.slug));
-
+  const visibleApps = apps.filter((app) => app.name.toLocaleLowerCase().includes(filter.trim().toLocaleLowerCase()));
   const selections: CheatSheetAppSelection[] = selectedApps.map((app) => {
     const choice = platformChoice[app.slug] ?? "all";
     const platforms = choice === "all" ? app.platforms : [choice];
@@ -53,110 +41,48 @@ export function ShortcutsCheatSheetGenerator({ apps, initialSlugs }: Props) {
     const groupIds = excluded ? app.groups.filter((group) => !excluded.has(group.id)).map((group) => group.id) : null;
     return { slug: app.slug, platforms, groupIds };
   });
+  let result;
+  let failed = false;
+  try { result = buildCheatSheet(apps, selections); } catch { failed = true; result = { ok: false as const, reason: "The sheet could not be built. Your choices are still here." }; }
 
-  const result = buildCheatSheet(apps, selections);
-
-  function toggleApp(slug: string) {
-    setSelected((current) => {
-      const next = new Set(current);
-      if (next.has(slug)) next.delete(slug);
-      else next.add(slug);
-      return next;
-    });
+  function toggleApp(slug: string, isSelected: boolean) { setSelected((current) => { const next = new Set(current); if (isSelected) next.add(slug); else next.delete(slug); return next; }); }
+  function toggleGroup(slug: string, groupId: string, isSelected: boolean) {
+    setExcludedGroups((current) => { const next = { ...current }; const groups = new Set(next[slug] ?? []); if (isSelected) groups.delete(groupId); else groups.add(groupId); next[slug] = groups; return next; });
   }
 
-  function toggleGroup(slug: string, groupId: string) {
-    setExcludedGroups((current) => {
-      const next = { ...current };
-      const groups = new Set(next[slug] ?? []);
-      if (groups.has(groupId)) groups.delete(groupId);
-      else groups.add(groupId);
-      next[slug] = groups;
-      return next;
-    });
-  }
-
-  return (
-    <section className={styles.tool} aria-label="Cheat sheet options">
-      <div className={styles.controls}>
-        <div className={styles.controlHeading}>
-          <h2>Choose apps</h2>
-          <span>{selectedApps.length} selected</span>
-        </div>
-        <div className={styles.appChoices}>
-          {apps.map((app) => (
-            <label className={styles.checkRow} key={app.slug}>
-              <input type="checkbox" checked={selected.has(app.slug)} onChange={() => toggleApp(app.slug)} />
-              <span>{app.name}</span>
-            </label>
-          ))}
-        </div>
-
-        {selectedApps.map((app) => (
-          <details className={styles.appOptions} key={app.slug} open>
-            <summary>{app.name}</summary>
-            {app.platforms.length > 1 ? (
-              <fieldset className={styles.optionGroup}>
-                <legend>Platform</legend>
-                <div className={styles.radioRow}>
-                  {(["all", ...app.platforms] as const).map((choice) => (
-                    <label className={styles.radioLabel} key={choice}>
-                      <input
-                        type="radio"
-                        name={"platform-" + app.slug}
-                        value={choice}
-                        checked={(platformChoice[app.slug] ?? "all") === choice}
-                        onChange={() => setPlatformChoice((current) => ({ ...current, [app.slug]: choice }))}
-                      />
-                      <span>{choice === "all" ? "All platforms" : platformLabels[choice]}</span>
-                    </label>
-                  ))}
-                </div>
-              </fieldset>
-            ) : null}
-            <fieldset className={styles.optionGroup}>
-              <legend>Groups</legend>
-              <div className={styles.groupChoices}>
-                {app.groups.map((group) => (
-                  <label className={styles.checkRow} key={group.id}>
-                    <input
-                      type="checkbox"
-                      checked={!(excludedGroups[app.slug] ?? new Set()).has(group.id)}
-                      onChange={() => toggleGroup(app.slug, group.id)}
-                    />
-                    <span>{group.title}</span>
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-          </details>
-        ))}
+  return <section className={styles.tool} data-tool-workbench aria-label="Cheat sheet options and preview">
+    <div className={styles.controls}>
+      <h2>Choose apps</h2>
+      <ToolSearchField label="Filter apps" onChange={setFilter} placeholder="Search apps" value={filter} />
+      <div className={styles.appChoices} aria-label="Apps" role="group">
+        {visibleApps.map((app) => <ToolCheckbox isSelected={selected.has(app.slug)} key={app.slug} onChange={(checked) => toggleApp(app.slug, checked)}>{app.name}</ToolCheckbox>)}
+        {!visibleApps.length ? <p>No apps match this filter.</p> : null}
       </div>
-
-      <div className={styles.preview}>
-        <div className={styles.previewHeading}>
-          <p role="status">{result.ok ? result.doc.apps.length + " apps, " + result.doc.shortcutCount + " shortcuts" : result.reason}</p>
-          <button className={styles.printButton} type="button" disabled={!result.ok} onClick={() => window.print()}>Print sheet</button>
-        </div>
-        <div className={styles.sheetFrame}>
-          {result.ok ? (
-            <div className={styles.sheet} data-print-root>
-              <h2>{result.doc.apps.length === 1 ? result.doc.apps[0].app.name + " keyboard shortcuts" : "Keyboard shortcuts cheat sheet"}</h2>
-              <p className={styles.sheetContext}>
-                {result.doc.apps.map((entry) => entry.app.name + " · " + entry.platforms.map((platform) => platformLabels[platform]).join(", ")).join("  |  ")}
-              </p>
-              {result.doc.apps.map((entry) => (
-                <section className={styles.sheetApp} key={entry.app.slug}>
-                  {result.doc.apps.length > 1 ? <h3>{entry.app.name} keyboard shortcuts</h3> : null}
-                  <SheetTable entry={entry} />
-                </section>
-              ))}
-            </div>
-          ) : (
-            <p className={styles.empty}>Choose an app to see the sheet.</p>
-          )}
-        </div>
+      <div className={styles.selectedOptions}>
+        {selectedApps.map((app) => { const hasNoGroups = app.groups.every((group) => (excludedGroups[app.slug] ?? new Set()).has(group.id)); const groupErrorId = `groups-${app.slug}-error`; return <section className={styles.appOptions} key={app.slug} aria-labelledby={`options-${app.slug}`}>
+          <h3 id={`options-${app.slug}`}>{app.name}</h3>
+          {app.platforms.length > 1 ? <ToolChoiceGroup label="Platform" onChange={(choice) => setPlatformChoice((current) => ({ ...current, [app.slug]: choice as "all" | PlatformId }))} options={[toolOption("all", "All platforms"), ...app.platforms.map((platform) => toolOption(platform, platformLabels[platform]))]} value={platformChoice[app.slug] ?? "all"} /> : null}
+          <fieldset aria-describedby={hasNoGroups ? groupErrorId : undefined} aria-invalid={hasNoGroups || undefined} className={styles.groups}><legend>Groups</legend>{app.groups.map((group) => <ToolCheckbox isSelected={!(excludedGroups[app.slug] ?? new Set()).has(group.id)} key={group.id} onChange={(checked) => toggleGroup(app.slug, group.id, checked)}>{group.title}</ToolCheckbox>)}{hasNoGroups ? <p className={styles.groupError} id={groupErrorId}>Select at least one group for {app.name}.</p> : null}</fieldset>
+        </section>; })}
       </div>
-    </section>
-  );
+    </div>
+
+    <div className={styles.preview}>
+      <div className={styles.previewHeading}>
+        {result.ok ? <ToolStatus>{result.doc.apps.length} {result.doc.apps.length === 1 ? "app" : "apps"}, {result.doc.shortcutCount} shortcuts</ToolStatus> : <ToolStatus tone={failed ? "danger" : "neutral"}>{selectedApps.length ? result.reason : "Choose an app to see the sheet."}</ToolStatus>}
+        <ToolButton isDisabled={!result.ok} onPress={() => window.print()} variant="primary"><Printer aria-hidden="true" size={18} /> Print sheet</ToolButton>
+      </div>
+      {result.ok ? <div className={styles.sheetFrame} aria-label="Printable sheet preview" role="region" tabIndex={0}>
+        <article className={styles.sheet} data-print-root>
+          <h2>{result.doc.apps.length === 1 ? `${result.doc.apps[0].app.name} keyboard shortcuts` : "Keyboard shortcuts cheat sheet"}</h2>
+          <p className={styles.sheetContext}>{result.doc.apps.map((entry) => `${entry.app.name} · ${entry.platforms.map((platform) => platformLabels[platform]).join(", ")}`).join("  |  ")}</p>
+          {result.doc.apps.map((entry) => <section className={styles.sheetApp} key={entry.app.slug}>
+            {result.doc.apps.length > 1 ? <h3>{entry.app.name} keyboard shortcuts</h3> : null}
+            <SheetTable entry={entry} />
+            <SheetSource app={entry.app} />
+          </section>)}
+        </article>
+      </div> : null}
+    </div>
+  </section>;
 }

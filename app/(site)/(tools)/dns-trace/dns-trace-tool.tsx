@@ -1,6 +1,18 @@
 "use client";
 
-import { useMemo, useRef, useState, type FormEvent } from "react";
+import Link from "next/link";
+import { useRef, useState, type FormEvent, type ReactNode } from "react";
+import {
+  ToolButton,
+  ToolChoiceGroup,
+  ToolCopyAction,
+  ToolDataTable,
+  ToolKeyValueList,
+  ToolRawOutput,
+  ToolResultLead,
+  ToolStatus,
+  ToolTextField,
+} from "@/app/tool-ui/tool-controls";
 import { formatAuthoritativeTtl } from "@/lib/dns/format-record.ts";
 import {
   TRACE_RECORD_TYPES,
@@ -8,6 +20,8 @@ import {
   type DnsTraceResponse,
   type DnsTraceStep,
 } from "@/lib/dns/trace-types.ts";
+import type { NormalizedDnsRecord } from "@/lib/dns/types.ts";
+import { sentenceFragment } from "./dns-trace-format";
 import styles from "./dns-trace.module.css";
 
 function stageTitle(step: DnsTraceStep) {
@@ -32,38 +46,137 @@ function traceAsText(result: DnsTraceResponse) {
   return lines.join("\n");
 }
 
-function RecordRows({ records }: { records: DnsTraceStep["answerRecords"] }) {
-  if (records.length === 0) return null;
+function decisiveReason(result: DnsTraceResponse, lastStep: DnsTraceStep | undefined) {
+  return result.warnings.at(-1)
+    ?? lastStep?.attempts.at(-1)?.error
+    ?? lastStep?.message
+    ?? "The trace could not reach a DNS server.";
+}
+
+function outcomeSentence(result: DnsTraceResponse) {
+  const lastStep = result.steps.at(-1);
+  const server = lastStep?.server?.hostname;
+  const type = result.query.recordType;
+  const normalizedName = result.query.normalizedName;
+  const finalName = result.finalName;
+
+  if (result.outcome === "found") {
+    const answerKind = lastStep?.authoritative ? "an authoritative" : "a final";
+    const destination = server ? ` at ${server}` : "";
+    if (finalName !== normalizedName) {
+      return `The trace followed ${normalizedName} to ${finalName} and reached ${answerKind} ${type} answer${destination}.`;
+    }
+    return `The trace reached ${answerKind} ${type} answer for ${finalName}${destination}.`;
+  }
+
+  if (result.outcome === "no_answer") {
+    return `The trace reached ${server ?? "the final nameserver"}, but it returned no ${type} record for ${finalName}.`;
+  }
+
+  if (result.outcome === "nxdomain") {
+    const source = lastStep?.authoritative ? "The authoritative nameserver" : "The nameserver";
+    return `${source}${server ? ` ${server}` : ""} says ${finalName} does not exist.`;
+  }
+
+  const reason = sentenceFragment(decisiveReason(result, lastStep));
+  if (!lastStep) return `The trace stopped before reaching a DNS server because ${reason}.`;
+  return `The trace stopped at ${stageTitle(lastStep).toLocaleLowerCase()} because ${reason}.`;
+}
+
+function responseValue(step: DnsTraceStep) {
+  const authority = step.authoritative === true
+    ? "authoritative"
+    : step.authoritative === false
+      ? "not authoritative"
+      : "authority not reported";
+  const duration = step.durationMs === null
+    ? "time not reported"
+    : `${step.durationMs.toLocaleString("en-US")} ms`;
+  return <><code>{step.responseCode ?? "No response code"}</code>, {authority}, {duration}</>;
+}
+
+function RecordTable({
+  ariaLabel,
+  collapseLabel,
+  heading,
+  records,
+}: {
+  ariaLabel: string;
+  collapseLabel?: string;
+  heading: string;
+  records: NormalizedDnsRecord[];
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const hasMore = Boolean(collapseLabel) && records.length > 4;
+  const visibleRecords = hasMore && !expanded ? records.slice(0, 4) : records;
+
+  if (!records.length) return null;
   return (
-    <div className={styles.records}>
-      {records.map((record, index) => (
-        <div className={styles.record} key={`${record.ownerName}-${record.type}-${record.value}-${index}`}>
-          <span><code>{record.type}</code> for <code>{record.ownerName}</code></span>
-          <code className={styles.recordValue}>{record.value}</code>
-          <small><strong>TTL</strong> {formatAuthoritativeTtl(record.resolverTtlSeconds)}</small>
-        </div>
-      ))}
+    <section className={styles.evidenceGroup}>
+      <h4>{heading}</h4>
+      <ToolDataTable
+        ariaLabel={ariaLabel}
+        columns={[
+          { id: "type", label: "Type" },
+          { id: "name", label: "Name" },
+          { id: "value", label: "Value" },
+          { id: "ttl", label: "TTL" },
+        ]}
+        rows={visibleRecords.map((record, index) => ({
+          id: `${record.ownerName}-${record.type}-${record.value}-${index}`,
+          cells: {
+            type: <code>{record.type}</code>,
+            name: <code>{record.ownerName}</code>,
+            value: <code>{record.value}</code>,
+            ttl: formatAuthoritativeTtl(record.resolverTtlSeconds),
+          },
+        }))}
+      />
+      {hasMore ? (
+        <ToolButton
+          aria-expanded={expanded}
+          className={styles.expandButton}
+          onClick={() => setExpanded((current) => !current)}
+          type="button"
+          variant="ghost"
+        >
+          {expanded ? `Show fewer ${collapseLabel}` : `Show all ${records.length} ${collapseLabel}`}
+        </ToolButton>
+      ) : null}
+    </section>
+  );
+}
+
+function ExpandableValues({ label, values }: { label: string; values: ReactNode[] }) {
+  const [expanded, setExpanded] = useState(false);
+  const hasMore = values.length > 4;
+  const visibleValues = expanded ? values : values.slice(0, 4);
+
+  return (
+    <div className={styles.valueList}>
+      <div>{visibleValues.map((value, index) => <span key={index}>{value}</span>)}</div>
+      {hasMore ? (
+        <ToolButton
+          aria-expanded={expanded}
+          className={styles.expandButton}
+          onClick={() => setExpanded((current) => !current)}
+          type="button"
+          variant="ghost"
+        >
+          {expanded ? `Show fewer ${label}` : `Show all ${values.length} ${label}`}
+        </ToolButton>
+      ) : null}
     </div>
   );
 }
 
-function ExpandableCodes({ label, values }: { label: string; values: string[] }) {
-  const [expanded, setExpanded] = useState(false);
-  const hasMore = values.length > 4;
-  const visible = expanded ? values : values.slice(0, 4);
+function ValueGroup({ actionLabel, heading, values }: { actionLabel: string; heading: string; values: ReactNode[] }) {
+  if (!values.length) return null;
   return (
-    <div>
-      {visible.map((value) => <code key={value}>{value}</code>)}
-      {hasMore ? (
-        <button
-          aria-expanded={expanded}
-          onClick={() => setExpanded((value) => !value)}
-          type="button"
-        >
-          {expanded ? `Show fewer ${label}` : `Show all ${values.length} ${label}`}
-        </button>
-      ) : null}
-    </div>
+    <section className={styles.evidenceGroup}>
+      <h4>{heading}</h4>
+      <ExpandableValues label={actionLabel} values={values} />
+    </section>
   );
 }
 
@@ -73,102 +186,121 @@ function TraceStep({ step }: { step: DnsTraceStep }) {
       <span aria-hidden="true" className={styles.marker}>{step.sequence}</span>
       <div className={styles.stepBody}>
         <header className={styles.stepHeader}>
-          <div>
-            <h3>{stageTitle(step)}</h3>
-            <p>{step.message}</p>
-          </div>
-          <span className={`${styles.state} ${styles[step.outcome]}`}>{step.responseCode ?? "Stopped"}</span>
+          <h3>{stageTitle(step)}</h3>
+          <p>{step.message}</p>
         </header>
 
-        {step.server ? (
-          <p className={styles.serverLine}>
-            We asked <code>{step.server.hostname}</code> at <code>{step.server.address}</code> for <code>{step.requestedType}</code> on <code>{step.questionName}</code>.
-            {step.durationMs === null ? null : <> It replied in {step.durationMs.toLocaleString("en-US")} ms.</>}
-          </p>
+        <ToolKeyValueList
+          rows={[
+            ...(step.server ? [{
+              label: "Server",
+              value: <><code>{step.server.hostname}</code> <code>{step.server.address}</code></>,
+            }] : []),
+            {
+              label: "Question",
+              value: <><code>{step.questionName}</code> <code>{step.requestedType}</code></>,
+            },
+            { label: "Response", value: responseValue(step) },
+          ]}
+        />
+
+        <ValueGroup
+          actionLabel="nameservers"
+          heading="Nameservers in the referral"
+          values={step.nameservers.map((nameserver) => <code key={nameserver}>{nameserver}</code>)}
+        />
+        <RecordTable
+          ariaLabel={`Glue records from step ${step.sequence}`}
+          collapseLabel="glue addresses"
+          heading="Glue from this referral"
+          records={step.glueRecords}
+        />
+        <RecordTable
+          ariaLabel={`Included nameserver addresses from step ${step.sequence}`}
+          collapseLabel="nameserver addresses"
+          heading="Nameserver addresses included with this referral"
+          records={step.additionalAddressRecords}
+        />
+        <RecordTable
+          ariaLabel={`Answer records from step ${step.sequence}`}
+          heading="Answer records"
+          records={step.answerRecords}
+        />
+
+        {step.attempts.length ? (
+          <section className={styles.evidenceGroup}>
+            <h4>Earlier server attempts</h4>
+            <ToolDataTable
+              ariaLabel={`Earlier server attempts from step ${step.sequence}`}
+              columns={[
+                { id: "server", label: "Server" },
+                { id: "address", label: "Address" },
+                { id: "duration", label: "Duration" },
+                { id: "error", label: "Error" },
+              ]}
+              rows={step.attempts.map((attempt, index) => ({
+                id: `${attempt.server.hostname}-${attempt.server.address}-${index}`,
+                cells: {
+                  server: <code>{attempt.server.hostname}</code>,
+                  address: <code>{attempt.server.address}</code>,
+                  duration: `${attempt.durationMs.toLocaleString("en-US")} ms`,
+                  error: attempt.error,
+                },
+              }))}
+            />
+          </section>
         ) : null}
 
-        {step.nameservers.length > 0 ? (
-          <div className={styles.referralBlock}>
-            <span>Nameservers in the referral</span>
-            <ExpandableCodes label="nameservers" values={step.nameservers} />
-          </div>
-        ) : null}
-
-        {step.glueRecords.length > 0 ? (
-          <div className={styles.referralBlock}>
-            <span>Glue from this referral</span>
-            <ExpandableCodes label="glue addresses" values={step.glueRecords.map((record) => `${record.ownerName} → ${record.value}`)} />
-          </div>
-        ) : null}
-
-        {step.additionalAddressRecords.length > 0 ? (
-          <div className={styles.referralBlock}>
-            <span>Nameserver addresses included with this referral</span>
-            <ExpandableCodes label="nameserver addresses" values={step.additionalAddressRecords.map((record) => `${record.ownerName} → ${record.value}`)} />
-          </div>
-        ) : null}
-
-        <RecordRows records={step.answerRecords} />
-
-        {step.attempts.length > 0 ? (
-          <div className={styles.attempts}>
-            <p>The trace tried another server first:</p>
-            {step.attempts.map((attempt, index) => (
-              <p key={`${attempt.server.address}-${index}`}><code>{attempt.server.hostname}</code>: {attempt.error}</p>
-            ))}
-          </div>
-        ) : null}
-
-        <details className={styles.raw}>
-          <summary>Raw response from this step</summary>
-          <pre>{JSON.stringify(step.rawResponse ?? { attempts: step.attempts }, null, 2)}</pre>
-        </details>
+        <ToolRawOutput
+          label="Raw response from this step"
+          value={step.rawResponse ?? { attempts: step.attempts }}
+        />
       </div>
     </li>
   );
 }
 
 function TraceResults({ result }: { result: DnsTraceResponse }) {
-  const [copied, setCopied] = useState(false);
-  const lastStep = result.steps.at(-1);
-  const authority = lastStep?.authoritative === true
-    ? "was authoritative"
-    : lastStep?.authoritative === false
-      ? "was not authoritative"
-      : "did not report whether it was authoritative";
-  const finalResponse = lastStep?.responseCode
-    ? `The last response ${authority} and returned ${lastStep.responseCode}.`
-    : "The last step did not return a DNS response code.";
-  return (
-    <section aria-live="polite" className={styles.results} tabIndex={-1}>
-      <header className={styles.resultHeader}>
-        <div>
-          <h2>{result.query.normalizedName}</h2>
-          <p>The trace took {result.steps.length.toLocaleString("en-US")} {result.steps.length === 1 ? "step" : "steps"} and {result.durationMs.toLocaleString("en-US")} ms. {finalResponse}</p>
-        </div>
-        <button
-          aria-label="Copy trace"
-          onClick={async () => {
-            await navigator.clipboard.writeText(traceAsText(result));
-            setCopied(true);
-            window.setTimeout(() => setCopied(false), 1500);
-          }}
-          type="button"
-        >
-          {copied ? "Copied" : "Copy trace"}
-        </button>
-      </header>
+  const decisiveWarning = result.outcome === "error" ? decisiveReason(result, result.steps.at(-1)) : null;
+  const remainingWarnings = [...new Set(result.warnings)].filter((warning) => warning !== decisiveWarning);
 
-      <ol className={styles.timeline}>
+  return (
+    <section aria-label="DNS trace result" aria-live="polite" className={styles.results} data-dns-trace-result>
+      <div className={styles.resultLead}>
+        <ToolResultLead>{outcomeSentence(result)}</ToolResultLead>
+        <ToolCopyAction
+          failureLabel="Copy failed"
+          label="Copy trace"
+          successLabel="Trace copied"
+          value={traceAsText(result)}
+        />
+      </div>
+
+      <ol aria-label="DNS trace path" className={styles.path}>
         {result.steps.map((step) => <TraceStep key={step.sequence} step={step} />)}
       </ol>
 
-      {result.outcome === "found" ? (
-        <p className={styles.complete}>The trace reached an answer for <code>{result.finalName}</code>.</p>
-      ) : result.warnings.length > 0 ? (
-        <div className={styles.warning}>{result.warnings.map((warning) => <p key={warning}>{warning}</p>)}</div>
+      {remainingWarnings.length ? (
+        <ToolStatus tone="warning">{remainingWarnings.join(" ")}</ToolStatus>
       ) : null}
-      {result.outcome === "error" ? <p className={styles.nextCheck}><a href={`/nameserver-checker?name=${encodeURIComponent(result.query.normalizedName)}`}>Check the nameserver delegation</a> to compare the parent handoff, glue, and the answers from each nameserver.</p> : null}
+
+      {result.outcome === "error" ? (
+        <p className={styles.nextCheck}>
+          <Link href={`/nameserver-checker?name=${encodeURIComponent(result.query.normalizedName)}`}>Check the nameserver delegation</Link>{" "}
+          to compare the parent handoff, glue, and the answers from each nameserver.
+        </p>
+      ) : null}
+
+      <dl className={styles.metadata}>
+        <div>
+          <dt>Checked</dt>
+          <dd><time dateTime={result.checkedAt}>{new Date(result.checkedAt).toLocaleString()}</time></dd>
+        </div>
+        <div>
+          <dt>Total duration</dt>
+          <dd>{result.durationMs.toLocaleString("en-US")} ms</dd>
+        </div>
+      </dl>
     </section>
   );
 }
@@ -183,68 +315,89 @@ export function DnsTraceTool({
   const [name, setName] = useState(initialName);
   const [recordType, setRecordType] = useState<DnsTraceRecordType>(initialRecordType);
   const [result, setResult] = useState<DnsTraceResponse | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [fieldError, setFieldError] = useState<string | null>(null);
+  const [requestError, setRequestError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const controllerRef = useRef<AbortController | null>(null);
-  const requestBody = useMemo(() => ({ name, recordType }), [name, recordType]);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  function clearErrors() {
+    if (fieldError) setFieldError(null);
+    if (requestError) setRequestError(null);
+  }
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (loading) return;
+    setResult(null);
     if (!name.trim()) {
-      setError("Enter a domain or hostname.");
+      setRequestError(null);
+      setFieldError("Enter a domain or hostname.");
+      requestAnimationFrame(() => inputRef.current?.focus());
       return;
     }
-    controllerRef.current?.abort();
-    const controller = new AbortController();
-    controllerRef.current = controller;
+
     setLoading(true);
-    setError(null);
+    setFieldError(null);
+    setRequestError(null);
     try {
       const response = await fetch("/api/dns/trace", {
-        body: JSON.stringify(requestBody),
+        body: JSON.stringify({ name, recordType }),
         headers: { "content-type": "application/json" },
         method: "POST",
-        signal: controller.signal,
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data?.error?.message ?? "The DNS trace failed.");
       setResult(data as DnsTraceResponse);
     } catch (traceError) {
-      if (!controller.signal.aborted) setError(traceError instanceof Error ? traceError.message : "The DNS trace failed.");
+      setRequestError(traceError instanceof Error ? traceError.message : "The DNS trace failed.");
     } finally {
-      if (!controller.signal.aborted) setLoading(false);
+      setLoading(false);
     }
   }
 
   return (
-    <section aria-label="DNS trace form" className="dns-tool">
-      <form className="dns-lookup-form" onSubmit={submit}>
-        <label className="dns-name-field">
-          <span>Domain or hostname</span>
-          <input
-            autoCapitalize="none"
-            autoComplete="off"
-            onChange={(event) => setName(event.target.value)}
-            placeholder="www.google.com"
-            spellCheck={false}
-            type="text"
-            value={name}
-          />
-        </label>
-        <fieldset className="dns-record-type-picker" role="radiogroup">
-          <legend>Record type</legend>
-          <div className="dns-record-type-options">
-            {TRACE_RECORD_TYPES.map((type) => (
-              <label key={type}>
-                <input checked={recordType === type} name="trace-record-type" onChange={() => setRecordType(type)} type="radio" value={type} />
-                <span>{type}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
-        <button className="dns-submit" disabled={loading} type="submit">{loading ? "Tracing DNS..." : "Trace DNS"}</button>
-        {error ? <p className="dns-form-error" role="alert">{error}</p> : null}
+    <section aria-label="DNS trace explorer" className={styles.workbench} data-tool-workbench>
+      <form aria-busy={loading} className={styles.form} onSubmit={submit}>
+        <ToolTextField
+          autoCapitalize="none"
+          autoComplete="off"
+          error={fieldError}
+          inputMode="url"
+          inputRef={inputRef}
+          label="Domain or hostname"
+          name="name"
+          onChange={(value) => {
+            setName(value);
+            clearErrors();
+          }}
+          placeholder="www.example.com"
+          required
+          spellCheck={false}
+          type="text"
+          value={name}
+        />
+        <ToolChoiceGroup
+          label="Record type"
+          onChange={(value) => {
+            setRecordType(value as DnsTraceRecordType);
+            clearErrors();
+          }}
+          options={TRACE_RECORD_TYPES.map((type) => ({ id: type, label: type }))}
+          value={recordType}
+        />
+        <ToolButton
+          aria-busy={loading}
+          className={styles.submit}
+          isDisabled={loading}
+          type="submit"
+          variant="primary"
+        >
+          {loading ? "Tracing DNS..." : "Trace DNS"}
+        </ToolButton>
+        {loading ? <ToolStatus>Tracing DNS...</ToolStatus> : null}
+        {requestError ? <ToolStatus tone="danger">{requestError}</ToolStatus> : null}
       </form>
+
       {result ? <TraceResults result={result} /> : null}
     </section>
   );

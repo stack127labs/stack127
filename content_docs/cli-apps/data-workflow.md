@@ -48,6 +48,8 @@ tables.
 
 ## Rules
 
+For a partial correction, use `apply-reviewed-corrections.mjs --env <env file> --file <batch.json>`. It defaults to a rollback-only dry run. Add `--apply` after reviewing that result. Each changed field needs its prior value and a primary source URL. The command locks the current row, rejects stale reviews, updates field provenance, and preserves `last_verified_at`. A description rewrite is not a full-record verification. Keep the corresponding curated source aligned so a later rebuild does not restore the old wording.
+
 - Never copy a competitor description as public copy. Published summaries are
   written by stack127.
 - Use `unknown` or `null` instead of guessing.

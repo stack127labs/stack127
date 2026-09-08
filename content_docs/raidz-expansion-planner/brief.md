@@ -10,11 +10,11 @@ They leave with a step-by-step expansion plan that shows modeled logical capacit
 
 ## Show vs say
 
-- The live tool is the page's primary visual. Its single framed surface keeps current geometry, final width, member and added-disk sizes, current physical allocation, representative block size, `ashift`, and the explicit `Plan expansion` action together.
+- The live tool is the page's primary visual. Its full-width workbench keeps current geometry, final width, member and added-disk sizes, current physical allocation, representative block size, `ashift`, and the explicit `Plan expansion` action together.
 - The result begins with the modeled capacity gained immediately and the unchanged RAIDZ level. Current, immediate final, fresh final, and geometry-gap values sit together and reported capacity is explicitly unknown.
 - One exact proportional bar divides the fresh final logical envelope into old logical payload, immediately writable new data, and the geometry gap. Adjacent values remain authoritative for tiny or zero segments.
 - A compact table or narrow-screen timeline shows every sequential one-disk width with immediate envelope, gain, fresh comparator, and gap. The tool does not imply that several disks attach in one command.
 - A calculation disclosure carries the exact sector and integer derivation, representative-block assumption, occupancy remainder, formula version, and dated OpenZFS sources.
 - A small concept table after the tool distinguishes reflow, rewrite, and reported accounting. A compact preflight table carries OpenZFS 2.3+, the feature flag, healthy-vdev requirement, new-disk size, unchanged parity, and excluded operations.
 - Sentences are limited to the page promise, why old and new blocks differ, why a live reported-capacity number is not predicted, what the representative block-size model excludes, and which adjacent stack127 tool answers whole-pool or block-padding questions.
-- There is no marker art, clean chart, or screenshot. The exact final-width composition and step timeline already explain the important relationship more precisely than a decorative figure could.
+- There is no marker art or screenshot. The exact final-width composition and expansion-step table explain the important relationship directly.

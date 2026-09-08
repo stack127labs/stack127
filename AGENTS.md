@@ -15,14 +15,17 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - Prefer structured facts when they are clearer than prose, but do not break natural explanations into labels, fragments, or a card for every fact.
 - Use the shared shell, design tokens, typography, spacing, and component patterns before inventing new UI.
 - Follow `stack127_docs/design-system.md`. Body text has exactly two sizes: `--text-body` for everything, `--text-small` only for card descriptions, metadata, captions, and sidebar items. The chartreuse accent is a fill for at most the h1 mark, one primary button, the active pagination page, focus, and the active tab underline; accent-colored text uses `--color-accent-text`. Muted text is only for annotations such as metadata, captions, and counts — reading copy uses `--color-text`.
+- Follow `stack127_docs/tool-interface.md` when designing or changing an interactive tool. Start from the user's task, keep one primary action, remove repeated explanations, preserve labels and recovery, and make the answer more prominent than settings or metadata.
 - Follow `stack127_docs/css-architecture.md`. Keep `app/globals.css` limited to tokens, reset, and document defaults; colocate page and component styles with their owner.
-- Follow `stack127_docs/writing-style.md` for all public-facing copy and `stack127_docs/visual-first.md` for planning what gets shown versus said. When asked to write a page, propose the visual format mix first and push back on text-heavy requests, including Teja's. Content pages need a `content_docs/<page-slug>/brief.md` before implementation.
+- Follow `stack127_docs/writing-style.md` for house conventions and `stack127_docs/visual-first.md` for planning what gets shown versus said. Before drafting a page, propose the appropriate format mix or apply an already approved direction. Push back when a format obscures the subject, not merely because it contains substantial prose. Content pages need a `content_docs/<page-slug>/brief.md` before implementation.
+- Before writing or reviewing any public-facing words, read and apply `skills/stack127/stack127-writing-voice/SKILL.md`. It owns the shared website voice, including prose, headings, metadata, interface text, captions, accessibility text, and legal copy. `stack127_docs/writing-style.md` is its companion for house conventions and examples. Task-specific skills keep their own content, SEO, and design responsibilities; do not duplicate voice rules in them.
 - Apply `skills/stack127/unslop/SKILL.md` to every public sentence and to durable documentation. Remove decorative labels, canned transitions, fake quotes, filler, and other AI-shaped phrasing before considering copy complete.
-- Follow `stack127_docs/page-families.md`. Catalogs, courses, tools, references, info pages, and legal pages share a predictable shell while keeping the visual format that suits their job. Page-family words do not become required URL prefixes.
+- Follow `stack127_docs/page-families.md`. Catalogs, directories, courses, tools, references, info pages, and legal pages share a predictable shell while keeping the visual format that suits their job. Page-family words do not become required URL prefixes.
 - The brand is written `stack127`, lowercase v, everywhere in user-facing copy, even at the start of a sentence.
 - Marker art explains concepts vaguely on purpose; clean charts (`npm run stack127:clean-charts`) state data precisely; tables compare repeated facts; screenshots prove real interfaces. Never put exact numbers in marker style and never put comparisons in paragraphs.
 - Treat "simple" as composed, soulful, and easy to follow. Use full sentences, human judgment, and clear visual relationships. Avoid decorative eyebrows, floating helper text, dashboard-style sentence fragments, and oversized caveat panels.
 - Never decorate a callout, result, finding, or information box with a colored line along its left edge. Use calm spacing, a neutral full border, a restrained background, or semantic text when distinction is genuinely useful. Structural connector lines in a real timeline or chain are different and may remain neutral.
+- Text links use `--color-link` at rest and gain an underline on hover or keyboard focus. Keep this consistent in page content and tables. Sidebar, top-bar, and footer links keep their previous neutral text and navigation states, without hover underlines.
 - Keep dark mode as the default feel.
 - Unknown or `null` is better than fake precision.
 
@@ -30,13 +33,18 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 
 - Pages are repo-owned Next.js routes under `app/`.
 - Canonical tool and reference URLs are flat, for example `/dns-lookup` and `/zfs-capacity-calculator`. Collection pages such as `/dns-tools`, `/domain-tools`, and `/storage-tools` organize discovery but do not own child URL namespaces.
-- Catalog route source lives under the non-URL route group `app/(site)/(catalogs)/`. This includes app directories, keyboard shortcuts, software license comparisons, and tool collection pages.
+- Catalog route source lives under the non-URL route group `app/(site)/(catalogs)/`. Catalogs combine stack127-owned pages, such as `/dns-tools`, `/domain-tools`, and `/storage-tools`.
+- Software and hardware directory source lives under `app/(site)/(directories)/`. Directory entries describe third-party apps, products, or devices rather than stack127-owned pages.
+- Stable fact and lookup page source lives under `app/(site)/(references)/`. This includes keyboard shortcuts, software license comparisons, EPP status codes, and the TLD directory.
 - Course route source lives under `app/(site)/(courses)/`; About and legal policies live under `app/(site)/(legal)/`.
 - Tool route source lives under the non-URL route group `app/(site)/(tools)/<tool-slug>/`. A tool may appear in several collections while keeping one route, docs folder, and ownership manifest.
+- Reference pages such as `/epp-status-codes` and `/tld-directory` live under `app/(site)/(references)/` and never receive `stack127_tool_pages` rows.
 - Do not create new tool URLs under `/<collection>/<tool-slug>`. Add the flat tool to every relevant collection instead.
 - Do not use Supabase-backed dynamic routing for normal site pages unless the user explicitly asks for it.
 - Keep page URLs stable and human-readable.
 - Public publication is controlled only by `public.stack127_pages`.
+- `public.stack127_pages.row_created_at` and `row_updated_at` are internal row times. `published_at` and `updated_at` are deliberate public dates. Never use an internal row time as a public date.
+- Interactive tool titles, introductions, supporting Markdown, versions, and stack127 repo sync facts live in `public.stack127_tool_pages`. Read `stack127_docs/tool-pages.md` before changing them.
 - Do not add `metadata`, `generateMetadata`, robots rules, canonical URLs, sitemap dates, or page JSON-LD inside page route files.
 - Exact published slugs in `stack127_pages` are `index, follow` and appear in `/sitemap.xml`.
 - Routes outside a published root return `404`, even if code exists in the repo.
@@ -51,6 +59,7 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - Sitewide docs live under `stack127_docs/`.
 - Current operating truth belongs in `stack127_docs/`. Dated decisions, migrations, and completed work belong in `stack127_records/YYYY-MM-DD-<topic>.md`. A record may explain why the current rule exists, but it does not override a current doc.
 - Do not recreate the old `content/` prose workflow.
+- Do not keep a second live copy of tool Markdown in route files or `content_docs`. Use the reviewed content command in `stack127_docs/tool-pages.md`; content-only changes increment `content_revision` and never `tool_version`.
 
 ## Scripts
 
@@ -59,22 +68,23 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - Sitewide scripts live under `scripts/stack127/`.
 - Do not add one-off scripts to `package.json`.
 - Durable package scripts should include the page slug, for example `self-host-apps:refresh-github`.
+- Functional tool changes use the test-first build workflow and then the reviewed version command. They increment `tool_version`, not `content_revision`, unless copy also changed in a separate content update.
 
 ## Tests
 
 - Every route has one ownership manifest under `tests/pages/<route>/page.json`; `/` uses `tests/pages/home/page.json`.
 - Put tests that protect one page beside that page manifest.
 - Keep route-family tests in that family's `shared` folder and sitewide tests in `tests/stack127/`.
-- The ownership manifest is the index for the page's docs, tests, scripts, skills, and local page artifacts. External repositories are tracked in `stack127_docs/public-repositories.md`, not copied into this repository.
+- The ownership manifest is the index for the page's docs, tests, scripts, skills, and local page artifacts. stack127 repos are tracked in `stack127_docs/stack127-repos.md`, not copied into this repository.
 
-## External repositories
+## stack127 repos
 
 - The private source-of-truth repository is `stack127labs/stack127`.
-- External repositories belong to the `stack127labs` GitHub organization.
-- External repositories are independent source-of-truth repositories. Do not keep nested checkouts, tracked copies, submodules, or runtime/build dependencies under this repository.
-- Track external repository visibility, remotes, branches, source-of-truth boundaries, version/revision status, and deliberate manual-port relationships in `stack127_docs/public-repositories.md`.
-- Clone an external repository separately under `/home/teja/projects/<repo-name>` when editing it. Run its own quality gate and CI from that checkout.
-- If private and external projects need similar code, port a deliberate snapshot and record the source release/commit; never create an implicit cross-repository dependency.
+- stack127 repos belong to the `stack127labs` GitHub organization.
+- stack127 repos are independent source-of-truth repositories. Do not keep nested checkouts, tracked copies, submodules, or runtime/build dependencies under this repository.
+- Track visibility, remotes, branches, source-of-truth boundaries, version/revision status, and deliberate manual-port relationships in `stack127_docs/stack127-repos.md`.
+- Clone a stack127 repo separately under `/home/teja/projects/<repo-name>` when editing it. Run its own quality gate and CI from that checkout.
+- If private and stack127 repos need similar code, port a deliberate snapshot and record the source release and commit. Never create an implicit cross-repository dependency.
 
 ## Skills
 
@@ -85,6 +95,7 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - Global Codex or Claude-facing skill installs should be copied or symlinked from the repo.
 - For self-host app work, use skills under `skills/self-host-apps/` before creating new ad hoc workflows.
 - For Stack127 page work, read `skills/stack127/test-driven-page/SKILL.md` before changing routes, SEO behavior, or publication state.
+- For a new tool or substantial tool redesign, use `skills/stack127/stack127-tool-interface-plan/SKILL.md` before test design or implementation. The planner decides the visible information model; the builder must not invent extra controls or result regions.
 - For production release or deployment work, read `skills/stack127/stack127-release-e2e/SKILL.md` before touching the release workflow, Dokploy, Cloudflare Access, or production verification.
 - For generated cover image intake, read `skills/stack127/cover-image-intake/SKILL.md`; remove junk metadata but keep clean SEO-friendly metadata in the final JPG when tooling supports it.
 
@@ -95,7 +106,7 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - `.env.deploy` is for VPS, Cloudflare, Dokploy, and deployment automation values.
 - `.env.analytics` is for analytics values such as Umami URL and site ID when needed.
 - `.env.homelab` is for homelab host and local administration values.
-- `.env.repos` is for local GitHub CLI and external-repository automation values.
+- `.env.repos` is for local GitHub CLI and stack127 repo automation values.
 - Keep the full secret-free key and runtime inventory aligned with `stack127_docs/environment-inventory.md` and the tracked `*.example` schemas.
 - Next.js automatically reads normal Next env files such as `.env.local`. Custom split env files must be loaded explicitly by deploy tooling, scripts, command flags, or a script-level env loader.
 - Never commit secrets.
@@ -124,3 +135,7 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - Keep migrations, seeds, docs, scripts, and UI aligned when a schema or data workflow changes.
 - `public.self_host_apps` is the page-owned source of truth for `/self-host-apps`. It may contain open-source, source-available, and closed-source apps when self-hosting is verified.
 - Keep broad discovery in `self_host_app_candidates`. Discovery must not publish, classify categories, or turn source metadata into editorial facts.
+
+## Homepage card artwork
+
+Every homepage card must have a spec-backed marker drawing in the homepage art registry. Never substitute an enlarged Lucide icon, another interface icon, a traced icon, or an ad hoc SVG for marker art. Small identity icons beside titles are separate and may remain. Add missing hardware subjects to the shared marker icon library, generate the spec artifacts, and inspect them at card size in both themes. The homepage art coverage test must pass before handoff.

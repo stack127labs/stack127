@@ -339,7 +339,8 @@ function rowMatches(row: DriveReliabilityRow, input: DriveReliabilityInput): boo
   const manufacturer = normalizeManufacturer(input.manufacturer);
   const rowModel = normalizeModel(row.model);
   const rowManufacturer = normalizeManufacturer(row.manufacturer);
-  if (search && !rowModel.includes(search) && !rowManufacturer.includes(search)) return false;
+  const searchableManufacturer = normalizeModel(row.manufacturer);
+  if (search && !rowModel.includes(search) && !searchableManufacturer.includes(search)) return false;
   if (manufacturer && rowManufacturer !== manufacturer) return false;
   if (input.minCapacityTb !== null && (row.capacityTb === null || row.capacityTb < input.minCapacityTb)) return false;
   if (input.maxCapacityTb !== null && (row.capacityTb === null || row.capacityTb > input.maxCapacityTb)) return false;

@@ -1,0 +1,56 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Partial description and purpose category review.",
+  "apps": [
+    {
+      "slug": "autoheal",
+      "review_scope": "partial",
+      "summary": "Restarts selected Docker containers when their configured health checks report them as unhealthy.",
+      "summary_source": "curated",
+      "categories": [
+        "monitoring-status",
+        "system-admin-hosting"
+      ],
+      "expected": {
+        "summary": "Monitor and restart unhealthy docker containers, This functionality was proposed to be included with the addition of HEALTHCHECK, however didn't make the.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "ai-ml",
+          "monitoring-status",
+          "system-admin-hosting"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/willfarrell/docker-autoheal/master/README.md"
+      ],
+      "pending_review": [
+        "Verify Docker access requirements, install support, and remaining metadata; the container relies on existing HEALTHCHECK definitions.",
+        "Full-record review remains pending."
+      ]
+    },
+    {
+      "slug": "batcharr",
+      "review_scope": "partial",
+      "summary": "Imports lists of movies and TV shows, lets you review the matches, and sends approved requests to Radarr and Sonarr.",
+      "summary_source": "curated",
+      "categories": [
+        "media-servers"
+      ],
+      "expected": {
+        "summary": "Batcharr is a bulk media request and review interface for Radarr and Sonarr, Import copied external lists, pasted movie and TV titles, TXT/CSV/JSON files, or.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "communication",
+          "password-managers"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/bmj812/batcharr/main/README.md"
+      ],
+      "pending_review": [
+        "README reports a change from MIT to zlib licensing. Verify the current LICENSE and release scope before correcting license fields. Review SQLite, container architecture, and installation records.",
+        "Full-record review remains pending."
+      ]
+    }
+  ]
+}

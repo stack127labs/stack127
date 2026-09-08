@@ -1,5 +1,9 @@
 # Brief: CAA Policy Checker
 
+## September 6 content maintenance
+
+Keep the inheritance explanation and field table. Clarify that an empty issuer does not override another authorization, link the CAA standard, and describe remote-query limits. The database remains the only live prose source. Keep the current tool behavior and publication state unchanged.
+
 ## Who is here
 
 A domain owner or certificate operator needs to know which certificate authorities may issue for one hostname, including wildcard issuance and inherited policy.

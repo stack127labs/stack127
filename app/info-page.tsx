@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import { AppShell, SidebarLabel } from "./app-shell";
 import { proseClassName, proseSectionFlowClassName } from "./prose";
+import { EntryHero } from "./entry-hero";
+import { PageHeader } from "./page-header";
 import styles from "./info-page.module.css";
 import {
   sidebarPanelClassName,
@@ -16,6 +18,10 @@ type InfoPageProps = {
   title: string;
   /** Full h1, name plus the point, with its mark phrase. Defaults to title. */
   heading?: ReactNode;
+  /** One short paragraph that defines the page inside the dotted hero. */
+  intro: ReactNode;
+  /** Generated marker art that explains the page's subject at a glance. */
+  heroArt: string;
   /** Lets a data-heavy info page use the full reading canvas. */
   wide?: boolean;
 };
@@ -49,7 +55,7 @@ function InfoSidebar({ label }: { label: string }) {
   );
 }
 
-export async function InfoPage({ children, slug, title, heading, wide = false }: InfoPageProps) {
+export async function InfoPage({ children, slug, title, heading, intro, heroArt, wide = false }: InfoPageProps) {
   const registryPage = await getRequiredPublishedPage(slug);
 
   return (
@@ -59,10 +65,15 @@ export async function InfoPage({ children, slug, title, heading, wide = false }:
       sidebar={<InfoSidebar label={registryPage.label} />}
       sidebarLabel={`${title} sidebar`}
     >
+      <EntryHero art={heroArt} wide={wide}>
+        <PageHeader>
+          <h1>{heading ?? title}</h1>
+          {intro}
+        </PageHeader>
+      </EntryHero>
       <article
         className={`${styles.page} ${wide ? styles.widePage : ""} ${proseClassName} ${proseSectionFlowClassName}`}
       >
-        <h1>{heading ?? title}</h1>
         {children}
       </article>
     </AppShell>

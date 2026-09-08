@@ -20,11 +20,12 @@
   line-height: var(--line-h1);
   margin: 0;
   max-width: 820px;
+  overflow-wrap: anywhere;
 }
 
 .header h1 mark {
   background: var(--color-accent);
-  border-radius: 6px;
+  border-radius: var(--radius);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   color: var(--color-accent-contrast);
@@ -37,6 +38,7 @@
   line-height: var(--line-body);
   margin: 0;
   max-width: var(--measure-prose);
+  overflow-wrap: anywhere;
 }
 
 .header > p:last-child:not(:first-child) {

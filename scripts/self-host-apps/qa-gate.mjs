@@ -1,27 +1,17 @@
 #!/usr/bin/env node
 
-import { existsSync, readFileSync, statSync, writeFileSync, mkdirSync } from "node:fs";
-import path from "node:path";
+import { writeFileSync, mkdirSync } from "node:fs";
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { validateSummary } from "./lib/summary-rules.mjs";
+import { isManagedMediaUrl } from "../stack127/media/storage.mjs";
 
 const dockerHighRiskPattern =
   /(^|\/)(\.github|\.ci|\.devcontainer|dev|vendor|test|tests|testing|ci|e2e(?:[-_][^/]*)?|fixtures?|examples?|docker-compose-examples|test-infrastructure|tests_integration)(\/|$)|devcontainer|dev-container|compose\.dev|docker-compose\.dev|docker-compose[-.]ci|compose[-.]ci|example|gitpod|\.ddev/i;
 function iconBlockers(row) {
-  if (!row.icon_url?.startsWith("/app-icons/")) return ["icon_not_local"];
-  const file = path.join(process.cwd(), "public", row.icon_url);
-  if (!existsSync(file)) return ["icon_missing_file"];
-  const stat = statSync(file);
-  if (stat.size < 200) return ["icon_tiny_file"];
-  const buffer = readFileSync(file);
-  const isPng =
-    buffer.length >= 8 &&
-    buffer[0] === 0x89 &&
-    buffer[1] === 0x50 &&
-    buffer[2] === 0x4e &&
-    buffer[3] === 0x47;
-  return isPng ? [] : ["icon_not_png"];
+  return isManagedMediaUrl(row.icon_url, { directory: "self-host-apps", kind: "icons" })
+    ? []
+    : ["icon_not_managed"];
 }
 
 function summaryBlockers(row) {

@@ -7,6 +7,10 @@ Depends on: `competitive-report.md`
 Input fingerprint: `competitive-report.md sha256:7acb0fd6b1bf4a28e3b58c5dd9c353475f5d483267d159c4f4d661fe3be0dc9a`
 Contract type: formula
 
+## Interface retrofit
+
+The interface was rebuilt on 2026-09-05 against `interface-contract.md`. The calculator now uses the shared tool controls, keeps the future-drive scenario in a disclosure, shows current data capacity once as the lead, and moves assigned roles into an evidence disclosure. The formula and serialized input versions remain unchanged. The managed development tool version is `1.1.0`.
+
 ## Product decision
 
 - Primary user: A homelab builder with a mixed set of HDDs who is deciding which disks belong in a new or expanded Unraid Main Array before assigning or buying them.
@@ -339,7 +343,7 @@ Loading and upstream-failure wireframes do not apply. Calculation has no upstrea
 | Claim or task | Medium | Position | Why this medium |
 | --- | --- | --- | --- |
 | What the calculator answers and where it stops | Two short server-rendered sentences | Above the tool | Scope needs judgment and a filesystem boundary, not a visual metric. |
-| Choose parity and assign current roles | Tool UI | First region of the single framed tool | Role assignment is the user's action and should never be hidden in prose or auto-sorting. |
+| Choose parity and assign current roles | Tool UI | First region of the shared workbench | Role assignment is the user's action and should never be hidden in prose or auto-sorting. |
 | Data, parity, and raw capacity relationship | Exact result visualization plus exact value table | First result region | The bar shows the part-to-whole relationship; the table preserves exact values and zero categories. |
 | Which disks hold which role | Topology/diagram with accessible role rows | Directly below the headline result | A role map makes the parity rule and mixed inventory auditable. |
 | Zero, single, and dual parity protection | Small comparison table | Compact guide after the tool | Repeated protection facts belong in rows, not a paragraph. |
@@ -347,7 +351,7 @@ Loading and upstream-failure wireframes do not apply. Calculation has no upstrea
 | Formula version, derivation, units, and sources | Native disclosure with exact text and links | End of the tool result | Experts can audit the model without slowing the primary answer. |
 | Filesystem, cache-pool, backup, and operational boundaries | Short sentences beside the affected claim | Guide after the tool | These are caveats and decisions, not exact data to chart. |
 
-No marker art, clean chart, or screenshot is needed. The live role topology, exact accounting visualization, and growth dependency already explain the important relationships precisely. The tool UI is the primary visual and there is one framed tool surface with no nested card dashboard.
+No marker art, clean chart, or screenshot is needed. The live role topology, exact accounting visualization, and growth dependency already explain the important relationships precisely. The tool UI is the primary visual and uses one workbench band with no nested card dashboard.
 
 ## Technical plan
 
@@ -355,7 +359,7 @@ No marker art, clean chart, or screenshot is needed. The live role topology, exa
 
 - Route source: `app/(site)/(tools)/unraid-calculator/page.tsx`. It will render `AppShell`, the storage sidebar identity, `PageTitleIcon`, the server-rendered title and scope sentences, the client tool island, and later the concise supporting guide. It will not export metadata or define canonical, robots, sitemap, or JSON-LD behavior.
 - Client island: `app/(site)/(tools)/unraid-calculator/unraid-calculator.tsx`. It will own draft strings, role-row editing, explicit submission, result rendering, focus, live announcements, copy, share, reset, and output-unit presentation. It will not own formula logic.
-- Colocated styles: `app/(site)/(tools)/unraid-calculator/unraid-calculator.module.css`. It will use storage-family patterns and semantic tokens, one outer tool frame, a responsive role-row layout, no global selectors, no gradients, no shadows, and no colored left-edge callouts.
+- Colocated styles: `app/(site)/(tools)/unraid-calculator/unraid-calculator.module.css`. It uses storage-family patterns and semantic tokens, the shared workbench hook, a responsive role-row layout, no global selectors, no gradients, no shadows, and no colored left-edge callouts.
 - Pure engine: `app/(site)/(tools)/unraid-calculator/unraid-calculator-engine.ts`. It will own typed input guards, exact-byte normalization boundaries, current-role calculation, proposed-drive growth status, structured issues, formula metadata, assumptions, sources, uncertainty, and the route-local calculator and input version constants. It may import existing shared byte, result, state, and type primitives read-only, but it must not edit, export through, or register anything in `lib/storage/`.
 - Shared primitives: use existing `lib/storage/bytes.ts`, `result.ts`, `state.ts`, and storage engine types only through read-only imports as needed. The client calls `encodeStorageState` and `decodeStorageState` directly with `calculatorId = unraid-main-array`, `calculationVersion = 1`, and `inputVersion = 1`; it does not use or mutate `createStorageCalculatorRegistry`, `lib/storage/index.ts`, or any shared calculator adapter registry.
 - Page ownership manifest: `tests/pages/unraid-calculator/page.json`, state `unpublished`, with later route, engine, Browser, static, and SEO references. It is not created in this planning stage.
@@ -386,7 +390,7 @@ Keep `/unraid-calculator` unpublished. Do not add a production `public.stack127_
 | ID | Observable acceptance criterion | Evidence at build time |
 | --- | --- | --- |
 | R1 | The canonical route is the flat `/unraid-calculator` path, with no nested storage-tools URL. | Route source, ownership manifest, static route inventory, and Browser URL check. |
-| R2 | A clean visit shows one framed tool with zero, single, and dual parity choices, explicit parity and data role areas, an optional proposed data row, Calculate capacity, and Reset, with no result. | Page test and Browser clean-state assertions. |
+| R2 | A clean visit shows one workbench with zero, single, and dual parity choices, explicit parity and data role areas, an optional proposed data row, Calculate capacity, and Reset, with no result. | Page test and Browser clean-state assertions. |
 | R3 | Zero, one, and two parity modes normalize to exactly 0, 1, and 2 explicit parity rows, and changing mode never auto-assigns or silently reorders data roles. | Route-local engine input tests importing `unraid-calculator-engine.ts` directly and Browser mode/row assertions. |
 | R4 | Current data and parity rows accept mixed `GB`, `TB`, `GiB`, and `TiB` values and normalize them to exact whole-byte `bigint` values using the documented factors. | Route-local engine tests plus read-only shared byte-primitive tests with decimal, binary, fractional, and mixed-unit fixtures. |
 | R5 | Empty, parity-only, zero, negative, exponent, malformed, non-whole-byte, oversized, duplicate-ID, over-64-row, and role-count-mismatch inputs return no numeric result and structured recovery. | Route-local engine invalid-input tests and Browser invalid-state coverage. |

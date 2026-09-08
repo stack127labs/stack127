@@ -12,10 +12,12 @@ Own one tool from idea to a complete unpublished page. Delegate bounded stages t
 1. Read `AGENTS.md` and the complete files for:
    - `skills/stack127/stack127-tool-research/SKILL.md`;
    - `skills/stack127/stack127-tool-product-plan/SKILL.md`;
+   - `skills/stack127/stack127-tool-interface-plan/SKILL.md`;
    - `skills/stack127/stack127-tool-test-design/SKILL.md`;
    - `skills/stack127/stack127-tool-build/SKILL.md`;
    - `skills/stack127/stack127-tool-content-seo/SKILL.md`;
    - `skills/stack127/stack127-tool-writing/SKILL.md`;
+   - `skills/stack127/stack127-writing-voice/SKILL.md`;
    - `skills/stack127/visual-first-content/SKILL.md`;
    - `skills/stack127/test-driven-page/SKILL.md`.
 2. Read `references/orchestration-contract.md` completely before launching a worker.
@@ -34,7 +36,7 @@ Do not publish, change registry metadata, commit, push, open a pull request, or 
 
 - Maintain one visible plan with exactly one active stage.
 - Send the user a concise update when a stage starts, passes, returns for revision, or blocks.
-- Use a fresh bounded worker for research, product planning, test design, independent QA, competitive re-review, content/SEO planning, and writing.
+- Use a fresh bounded worker for research, product planning, interface planning, test design, independent QA, competitive re-review, content/SEO planning, and writing.
 - Use one builder worker for implementation and send later implementation feedback back to that worker when possible.
 - Keep dependency stages sequential. Do not start a downstream worker from draft or blocked inputs.
 - Give workers the tool name, route, repository path, required skill path, input artifacts, allowed write scope, and exact stop condition. Do not give them the desired conclusions.
@@ -76,33 +78,39 @@ Launch a fresh worker with `$stack127-tool-product-plan`. Require one decisive j
 
 Reject plans that defer action semantics, responsive behavior, state restoration, invalid-result behavior, or result visualization to the builder. Run the inspector with `--expect=product` after review.
 
-### 4. Test contract
+### 4. Interface contract
+
+Launch a fresh worker with `$stack127-tool-interface-plan`. Require one user question, one lead answer, an information inventory with explicit omissions, justified inputs and actions, distinct result-region questions, visual truth tests, all applicable states, realistic desktop and narrow wireframes, and observable `UI-` requirements.
+
+Reject contracts that start from available components, repeat a formatted fact, use a visual whose geometry does not encode the claimed relationship, or leave hierarchy and responsive behavior to the builder. Run the inspector with `--expect=interface` after review.
+
+### 5. Test contract
 
 Launch a fresh worker with `$stack127-tool-test-design`. Require exact P0/P1 cases, authoritative fixtures, requirement traceability, recovery behavior, accessibility, state, security, responsive, SEO, and performance coverage.
 
 Return missing behavior to product planning instead of inventing it here. Run the inspector with `--expect=test` after review.
 
-### 5. Test-first build
+### 6. Test-first build
 
-Launch one builder with `$stack127-tool-build`. Require ownership first, failing tests before production code, a pure technical core outside React, the approved tool interface, a guarded local preview, progressive tests, and no public page prose.
+Launch one builder with `$stack127-tool-build`. Require ownership first, failing tests before production code, a pure technical core outside React, the ready interface contract, a guarded local preview, progressive tests, and no public page prose. The builder may not add a control, result region, explanatory sentence, or visualization that the interface contract rejected or did not justify.
 
 Require the builder to compare the shell, page width, spacing, typography, and controls with at least two established sibling pages before styling. Require explicit action semantics: inventory/edit actions must never replace the primary calculate/check/generate action.
 
 Do not accept a builder report without focused test commands, results, visual states and backend checked, publication cleanup, and a diff summary.
 
-### 6. Independent Browser QA
+### 7. Independent Browser QA
 
 Launch a fresh read-only QA worker against the running local route. Do not pass the builder's conclusions or suspected bugs. Require the complete checklist in `references/browser-qa-checklist.md`, using the in-app Browser or standalone Playwright according to the backend preflight. Require screenshots or measurements for failures, the backend name, and reproducible findings.
 
 Check the worker's evidence. Send P0 and P1 findings to the builder. After each fix batch, rerun the affected workflow and the relevant widths; do not validate only the changed control.
 
-### 7. Post-build competitive review
+### 8. Post-build competitive review
 
 Launch a fresh reviewer to operate the finished tool and the strongest relevant competitors with the selected visual backend. Compare time to first answer, action clarity, result usefulness, technical transparency, mobile behavior, accessibility, privacy, clean URL behavior, and honest limitations.
 
 Return technical or interaction gaps upstream. Record content-only gaps for the content-plan and writing stages.
 
-### 8. Final technical gates
+### 9. Final technical gates
 
 Run:
 
@@ -117,23 +125,23 @@ Require all tool-owned P0 and P1 tests, focused fixtures, Browser checks, and th
 
 If `npm run quality` fails in an unrelated route, record the exact command and failure, prove it is unrelated, run the target's focused gates and `npm run build` separately, and continue the page pipeline when those pass. Do not edit the unrelated system or describe the repository-wide quality gate as passing.
 
-### 9. Content and SEO plan
+### 10. Content and SEO plan
 
 After the technical UI is stable, launch a fresh worker with `$stack127-tool-content-seo`. Permit only `writing-and-seo.md`: search intent, heading/media outline, metadata proposals, internal links, sources, limits, and stable `COPY-*` assignments.
 
 Do not let this worker edit the route or draft final prose. Run the content-stage pipeline validator after review.
 
-### 10. Simple page writing
+### 11. Simple page writing
 
 Launch a fresh worker with `$stack127-tool-writing`. Use this writing direction in the prompt:
 
-> Write the content part for this page in a simple style. Keep it easy for anyone to understand and keep things simple. Add detail only when it resolves a real user question. Do not overcomplicate the page.
+> Use `$stack127-tool-writing` with `$stack127-writing-voice` to write the supporting content from the approved content plan. Keep the intro problem-led and the tool first. Cover meaningful use, interpretation, limits, and next verification steps, using the format each question needs. Keep the shared voice in its own skill rather than restating it in this handoff.
 
-Require complete coverage of what the tool is, how to choose meaningful inputs and use it for the real task, how to interpret the result, the concepts or syntax that commonly surprise users, honest limitations, local handling or privacy when true, and the next real verification step. Do not require identical headings across tools. Require tests before prose, a short introduction before the tool, a compact server-rendered guide after it, shared prose styles, and no publication changes. Permit only the route, its route-owned styles and tests, and required ownership updates. Require the worker to inspect two sibling tool pages and verify a real calculated result at desktop and narrow widths in both themes with the selected visual backend.
+Require complete coverage of what the tool is, how to choose meaningful inputs and use it for the real task, how to interpret the result, the concepts or syntax that commonly surprise users, honest limitations, local handling or privacy when true, and the next real verification step. Do not require identical headings across tools. Require appropriate tests, a short introduction before the tool, a server-rendered guide after it, shared prose styles, and no publication changes. Permit the scoped content-only development update through the reviewed command, page docs, and necessary route-owned styles, tests, and ownership updates. Keep `tool_version` unchanged for copy-only work. Require the worker to inspect two sibling tool pages and verify a real calculated result at desktop and narrow widths in both themes with the selected visual backend.
 
 Read the rendered page without relying on internal reports and answer every completeness-contract question from `$stack127-tool-writing`. Return omissions to the writer. Remove duplicated result narration, mechanical button-click instructions, unnecessary headings, FAQs, methodology filler, and claims not supported by the ready artifacts. Return technical mismatches upstream. Send writing or responsive P0/P1 findings back to the writer and require regression tests.
 
-### 11. Final page gates and visual handoff
+### 12. Final page gates and visual handoff
 
 Run:
 
@@ -149,7 +157,7 @@ Then the main orchestrator agent must perform the final visual inspection itself
 
 If the same proven unrelated repository failure remains, report it prominently, rerun the target's focused gates and `npm run build` separately, then continue the final visual handoff. Stop only when a target-owned gate, production build, P0/P1 finding, or required permission remains blocked.
 
-### 12. Handoff and stop
+### 13. Handoff and stop
 
 Use `references/handoff-template.md`. Report the local URL, supported behavior, limitations, artifacts, tests, backend-labelled Browser or Playwright evidence, competitive position, P2 follow-ups, publication state, content structure, and any unrelated repository gate warning.
 

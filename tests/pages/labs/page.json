@@ -3,6 +3,7 @@
   "state": "published",
   "docs": ["content_docs/labs"],
   "tests": [
+    "tests/stack127/entry-page-visual-system.test.mjs",
     "tests/pages/labs/labs.test.mjs",
     "tests/stack127/seo.spec.ts"
   ],

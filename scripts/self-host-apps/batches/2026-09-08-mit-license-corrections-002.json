@@ -1,0 +1,95 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Partial code license, purpose, description and category corrections.",
+  "apps": [
+    {
+      "slug": "ace-step",
+      "review_scope": "partial",
+      "license": "MIT",
+      "source_model": "open_source",
+      "summary": "Generates music from text descriptions and lyrics, with tools for editing audio and creating covers.",
+      "summary_source": "curated",
+      "categories": [
+        "ai-ml",
+        "music-audio"
+      ],
+      "expected": {
+        "license": "No license file declared (all rights reserved by default)",
+        "source_model": "source_available",
+        "summary": "ACE-Step 1.5 - AI Music Generation, Generate full songs with vocals, instrumentals, and lyrics using a Diffusion Transformer, Supports text-to-music.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "ai-ml",
+          "music-audio",
+          "system-admin-hosting"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/ace-step/ace-step-1.5/HEAD/LICENSE",
+        "https://raw.githubusercontent.com/ace-step/ace-step-1.5/HEAD/README.md"
+      ],
+      "pending_review": [
+        "MIT classification describes repository code. Verify model-weight license scope and hardware requirements independently.",
+        "Deployment, resource, maintenance, and remaining metadata"
+      ]
+    },
+    {
+      "slug": "active-streams",
+      "review_scope": "partial",
+      "license": "MIT",
+      "source_model": "open_source",
+      "summary": "Shows active Plex, Emby, and Jellyfin streams in an Unraid dashboard widget, including playback progress and viewers.",
+      "summary_source": "curated",
+      "categories": [
+        "media-servers",
+        "monitoring-status"
+      ],
+      "expected": {
+        "license": "No license file declared (all rights reserved by default)",
+        "source_model": "source_available",
+        "summary": "Dashboard widget displaying active streams from Plex, Emby, and Jellyfin media servers, Shows real-time playback info including title, user, device.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "ai-ml",
+          "monitoring-status",
+          "video-conferencing"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/gthrift/activestreams-unraid/HEAD/LICENSE",
+        "https://raw.githubusercontent.com/gthrift/activestreams-unraid/HEAD/README.md"
+      ],
+      "pending_review": [
+        "Deployment, resource, maintenance, and remaining metadata"
+      ]
+    },
+    {
+      "slug": "actual-ical",
+      "review_scope": "partial",
+      "license": "MIT",
+      "source_model": "open_source",
+      "summary": "Turns scheduled transactions in Actual Budget into an iCal feed you can view in a calendar app.",
+      "summary_source": "curated",
+      "categories": [
+        "calendars-contacts",
+        "finance-budgeting"
+      ],
+      "expected": {
+        "license": "No license file declared (all rights reserved by default)",
+        "source_model": "source_available",
+        "summary": "A simple application to expose Actual Scheduled Transactions in iCal format.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "developer-tools"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/matheusvellone/actual-ical/HEAD/LICENSE",
+        "https://raw.githubusercontent.com/matheusvellone/actual-ical/HEAD/README.md"
+      ],
+      "pending_review": [
+        "Deployment, resource, maintenance, and remaining metadata"
+      ]
+    }
+  ]
+}

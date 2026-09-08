@@ -24,7 +24,7 @@ Contract type: resolution
 - Show source period, source date, inclusion rule, model, capacity, drive count, drive days, failures, AFR, and average age when present.
 - Show an approximate 95% evidence interval beside the point AFR.
 - Select up to three models for a same-period comparison.
-- Keep the primary answer and the supporting data in one framed tool surface.
+- Keep the primary answer and the supporting data in one workbench band.
 - Provide explicit reset and share actions. The clean base route must not serialize filter state automatically.
 - Show unknown or unavailable values as `Unknown`, `Not reported`, or no-data states. Never backfill a missing age, interval, or model row from another period.
 - Attribute Backblaze and link to the source report and dataset page.

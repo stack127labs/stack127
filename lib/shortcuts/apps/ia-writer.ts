@@ -1,0 +1,97 @@
+import { combo } from "../build.ts";
+import type { AppShortcuts } from "../types.ts";
+
+const platforms = ["macos"] as const;
+
+const iaWriter: AppShortcuts = {
+  slug: "ia-writer",
+  name: "iA Writer",
+  category: "Writing app",
+  platforms: [...platforms],
+  intro:
+    "iA Writer's Mac shortcuts cover files, search, Markdown structure, formatting, preview, and export. They follow the current iA Writer reference so a writer can stay in the editor from first draft to final output.",
+  versionContext:
+    "The official iA Writer page publishes the Mac app shortcuts and notes that bindings can change with app updates. The Windows page was not used here because the current public reference did not expose an equivalent complete table.",
+  sourceUrl: "https://ia.net/writer/support/basics/shortcuts",
+  sourceLabel: "official iA Writer Mac shortcuts",
+  lastVerified: "2026-09-01",
+  groups: [
+    {
+      id: "files-and-search",
+      title: "Files and search",
+      intro: "Create, save, search, and open documents in the library without leaving iA Writer's Mac workflow.",
+      shortcuts: [
+        { id: "new-current", action: "Create a new document in the current window", keys: combo(platforms, ["Cmd", "N"]) },
+        { id: "new-document", action: "Create a new document", keys: combo(platforms, ["Option", "Cmd", "N"]) },
+        { id: "new-library", action: "Create a new document in the Library", keys: combo(platforms, ["Shift", "Cmd", "N"]) },
+        { id: "save", action: "Save the document", keys: combo(platforms, ["Cmd", "S"]) },
+        { id: "duplicate", action: "Duplicate the document", keys: combo(platforms, ["Shift", "Cmd", "S"]) },
+        { id: "save-as", action: "Save as", keys: combo(platforms, ["Option", "Shift", "Cmd", "S"]) },
+        { id: "quick-search", action: "Open quick search", keys: combo(platforms, ["Shift", "Cmd", "O"]) },
+        { id: "open-search-result", action: "Open the selected search result", keys: combo(platforms, ["Enter"]) },
+        { id: "open-new-search-result", action: "Open a search result in a new window", keys: combo(platforms, ["Shift", "Enter"]) },
+        { id: "cycle-areas", action: "Cycle organizer, list, and editor", keys: combo(platforms, ["Ctrl", "Tab"]) },
+        { id: "settings", action: "Open settings", keys: combo(platforms, ["Cmd", ","]) },
+        { id: "find", action: "Find text", keys: combo(platforms, ["Cmd", "F"]) },
+        { id: "replace", action: "Find and replace", keys: combo(platforms, ["Option", "Cmd", "F"]) },
+        { id: "find-next", action: "Find the next match", keys: combo(platforms, ["Cmd", "G"]) },
+        { id: "find-previous", action: "Find the previous match", keys: combo(platforms, ["Shift", "Cmd", "G"]) },
+      ],
+    },
+    {
+      id: "structure-and-formatting",
+      title: "Structure and formatting",
+      intro: "Apply headings, lists, tasks, emphasis, links, code, and indentation while writing Markdown.",
+      shortcuts: [
+        { id: "heading-1", action: "Apply Heading 1", keys: combo(platforms, ["Cmd", "1"]) },
+        { id: "heading-2", action: "Apply Heading 2", keys: combo(platforms, ["Cmd", "2"]) },
+        { id: "heading-3", action: "Apply Heading 3", keys: combo(platforms, ["Cmd", "3"]) },
+        { id: "heading-4", action: "Apply Heading 4", keys: combo(platforms, ["Cmd", "4"]) },
+        { id: "heading-5", action: "Apply Heading 5", keys: combo(platforms, ["Cmd", "5"]) },
+        { id: "heading-6", action: "Apply Heading 6", keys: combo(platforms, ["Cmd", "6"]) },
+        { id: "task", action: "Insert a task", keys: combo(platforms, ["Option", "Cmd", "L"]) },
+        { id: "ordered-list", action: "Insert an ordered list", keys: combo(platforms, ["Shift", "Cmd", "L"]) },
+        { id: "ordered-task", action: "Insert an ordered task", keys: combo(platforms, ["Option", "Shift", "Cmd", "L"]) },
+        { id: "complete-task", action: "Complete a task", keys: combo(platforms, ["Option", "Cmd", "X"]) },
+        { id: "indent", action: "Indent the current line", keys: combo(platforms, ["Tab"]) },
+        { id: "outdent", action: "Outdent the current line", keys: combo(platforms, ["Shift", "Tab"]) },
+        { id: "move-line-up", action: "Move the current line up", keys: combo(platforms, ["Option", "Cmd", "Up"]) },
+        { id: "move-line-down", action: "Move the current line down", keys: combo(platforms, ["Option", "Cmd", "Down"]) },
+        { id: "bold", action: "Bold text", keys: combo(platforms, ["Cmd", "B"]) },
+        { id: "italic", action: "Italicize text", keys: combo(platforms, ["Cmd", "I"]) },
+        { id: "strike", action: "Strike through text", keys: combo(platforms, ["Option", "Cmd", "U"]) },
+        { id: "highlight", action: "Highlight text", keys: combo(platforms, ["Shift", "Cmd", "U"]) },
+        { id: "link", action: "Insert a link", keys: combo(platforms, ["Cmd", "K"]) },
+        { id: "image", action: "Insert an image link", keys: combo(platforms, ["Option", "Cmd", "K"]) },
+        { id: "wikilink", action: "Insert a wikilink", keys: combo(platforms, ["Shift", "Cmd", "K"]) },
+        { id: "footnote", action: "Insert a footnote", keys: combo(platforms, ["Ctrl", "Cmd", "K"]) },
+        { id: "code", action: "Format as code", keys: combo(platforms, ["Cmd", "J"]) },
+        { id: "code-block", action: "Insert a code block", keys: combo(platforms, ["Shift", "Cmd", "J"]) },
+      ],
+    },
+    {
+      id: "focus-and-export",
+      title: "Focus and export",
+      intro: "Change focus, preview a document, adjust the interface, and export or print the finished text.",
+      shortcuts: [
+        { id: "previous-history", action: "Move to the previous edit location", keys: combo(platforms, ["Ctrl", "Cmd", "Left"]) },
+        { id: "next-history", action: "Move to the next edit location", keys: combo(platforms, ["Ctrl", "Cmd", "Right"]) },
+        { id: "dark-light", action: "Toggle dark and light interface", keys: combo(platforms, ["Ctrl", "Cmd", "N"]) },
+        { id: "library", action: "Show or hide the Library", keys: combo(platforms, ["Ctrl", "Cmd", "S"]) },
+        { id: "preview", action: "Open preview", keys: combo(platforms, ["Cmd", "R"]) },
+        { id: "fullscreen", action: "Toggle fullscreen", keys: combo(platforms, ["Ctrl", "Cmd", "F"]) },
+        { id: "close-window", action: "Close the current window", keys: combo(platforms, ["Cmd", "W"]) },
+        { id: "close-all-windows", action: "Close all windows", keys: combo(platforms, ["Option", "Cmd", "W"]) },
+        { id: "export", action: "Export the document", keys: combo(platforms, ["Shift", "Cmd", "E"]) },
+        { id: "print", action: "Print the document", keys: combo(platforms, ["Cmd", "P"]) },
+        { id: "plain-print", action: "Print plain text", keys: combo(platforms, ["Option", "Cmd", "P"]) },
+        { id: "page-setup", action: "Open page setup", keys: combo(platforms, ["Shift", "Cmd", "P"]) },
+        { id: "focus", action: "Toggle Focus mode", keys: combo(platforms, ["Cmd", "D"]) },
+        { id: "syntax", action: "Toggle syntax highlighting", keys: combo(platforms, ["Shift", "Cmd", "D"]) },
+        { id: "style-check", action: "Toggle Style Check", keys: combo(platforms, ["Option", "Shift", "Cmd", "D"]) },
+      ],
+    },
+  ],
+};
+
+export default iaWriter;

@@ -1,0 +1,87 @@
+.content {
+  max-width: var(--measure-prose);
+  min-width: 0;
+  width: 100%;
+}
+
+.content pre {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  max-width: 100%;
+  overflow-x: auto;
+  padding: var(--space-5);
+}
+
+.content pre code {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+}
+
+.content blockquote {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: var(--space-5);
+}
+
+.content blockquote p {
+  margin: 0;
+}
+
+.tableScroll {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.tableScroll table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tableScroll th,
+.tableScroll td {
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+  overflow-wrap: break-word;
+  padding: var(--space-4) var(--space-5);
+  text-align: left;
+  vertical-align: top;
+  white-space: normal;
+}
+
+.content .tableScroll code {
+  overflow-wrap: break-word;
+  white-space: normal;
+  word-break: normal;
+}
+
+@media (max-width: 640px) {
+  .tableScroll th,
+  .tableScroll td {
+    padding: var(--space-3);
+  }
+
+  .tableScroll table:has(th:nth-child(2):last-child):has(td:first-child code) td:last-child {
+    min-width: 22ch;
+  }
+}
+
+.tableScroll th {
+  background: var(--color-surface-2);
+  font-weight: var(--weight-semibold);
+}
+
+.tableScroll tr:last-child > * {
+  border-bottom: 0;
+}

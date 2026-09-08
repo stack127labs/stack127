@@ -7,7 +7,7 @@
 .ledger {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius);
   overflow: hidden;
 }
 
@@ -66,7 +66,7 @@
   align-items: center;
   background: var(--color-surface-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-accent-text);
   display: inline-flex;
   flex: 0 0 auto;
@@ -123,8 +123,17 @@
   width: fit-content;
 }
 
+.actions a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
 .actions a:hover,
 .organizationLink:hover {
+  color: var(--color-link);
+}
+
+.actions a:hover {
   color: var(--color-link);
 }
 
@@ -204,7 +213,7 @@
   .projects tbody tr {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius);
     display: grid;
     gap: var(--space-7);
     padding: var(--space-8);
@@ -238,3 +247,5 @@
     grid-column: 1;
   }
 }
+
+.organizationLink { color: var(--color-link); }

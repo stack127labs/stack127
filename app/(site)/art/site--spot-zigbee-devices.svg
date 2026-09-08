@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" role="img" aria-labelledby="ma-title-site--spot-zigbee-devices" data-marker-art="site--spot-zigbee-devices">
+<title id="ma-title-site--spot-zigbee-devices">A contact sensor detects an opening door.</title>
+<g transform="translate(0.8 0.3)">
+<path d="M36.66 30.03 C49.70 25.26, 55.01 27.87, 69.56 24.97 M40.47 26.10 C50.34 29.19, 60.03 26.34, 70.03 26.56 M69.09 23.48 C70.47 48.76, 72.60 62.18, 71.66 91.87 M66.57 25.10 C67.56 49.10, 66.55 68.83, 69.42 90.75 M68.52 94.94 C58.11 90.12, 44.52 89.62, 36.14 93.67 M68.03 93.96 C60.85 91.45, 54.53 93.42, 37.73 92.32 M43.21 95.89 C44.71 73.32, 43.20 45.83, 35.54 25.99 M40.36 90.97 C40.06 79.06, 37.93 63.72, 40.09 25.93" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-ink,#f2f2ee);fill:none"/>
+<path d="M84.28 40.43 C84.20 36.13, 93.66 40.39, 102.10 42.28 M83.02 41.21 C87.58 40.58, 93.00 40.71, 97.46 38.86 M98.65 36.68 C99.32 53.68, 102.90 63.33, 100.91 81.57 M99.83 38.19 C100.04 56.84, 96.98 69.01, 98.70 80.92 M97.30 77.97 C90.64 81.97, 83.61 80.56, 78.34 83.78 M98.69 79.06 C92.90 81.70, 91.54 79.29, 79.91 81.60 M79.54 78.43 C83.28 74.69, 78.14 63.85, 83.04 40.33 M80.77 78.29 C79.15 62.20, 82.28 49.83, 80.97 38.58" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-ink,#f2f2ee);fill:none"/>
+<path d="M68.24 58.97 C72.28 61.85, 73.69 61.06, 80.11 59.62 M66.50 60.03 C72.03 60.49, 79.05 59.76, 81.05 58.86" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+<circle cx="53.872" cy="40.992000000000004" r="2" style="fill:var(--ma-sub,#9d9c95)"/>
+</g>
+</svg>

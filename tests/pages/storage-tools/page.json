@@ -3,6 +3,8 @@
   "state": "published",
   "docs": ["content_docs/storage-tools"],
   "tests": [
+    "tests/stack127/entry-page-visual-system.test.mjs",
+    "tests/stack127/catalog-layout.spec.ts",
     "tests/stack127/seo.spec.ts",
     "tests/pages/storage-tools/hub.test.mjs",
     "tests/pages/storage-tools/shared/storage-engine.test.mjs",

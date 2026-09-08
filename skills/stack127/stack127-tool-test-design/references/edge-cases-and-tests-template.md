@@ -8,9 +8,10 @@ Copy this structure to `content_docs/<route-without-leading-slash>/edge-cases-an
 Status: draft
 Tool: [[tool name]]
 Route: `/[[route]]`
-Depends on: `competitive-report.md`, `implementation-report.md`, `brief.md`
+Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `brief.md`
 Input fingerprint: `competitive-report.md sha256:[[64 lowercase hex characters]]`
 Input fingerprint: `implementation-report.md sha256:[[64 lowercase hex characters]]`
+Input fingerprint: `interface-contract.md sha256:[[64 lowercase hex characters]]`
 Input fingerprint: `brief.md sha256:[[64 lowercase hex characters]]`
 
 ## Risk model
@@ -26,6 +27,7 @@ Input fingerprint: `brief.md sha256:[[64 lowercase hex characters]]`
 | Requirement ID | Implementation requirement | Covered by cases |
 | --- | --- | --- |
 | R1 | [[observable requirement]] | EC-001, FT-001 |
+| UI-001 | [[observable interface requirement]] | EC-002, manual comprehension check |
 
 ## Coverage checklist
 
@@ -50,7 +52,7 @@ Every row must point to one or more `EC-` cases or say `Not applicable:` followe
 
 | ID | Priority | Category | Setup/input | Expected system outcome | Expected user experience | Side effects allowed | Test level/file | Requirement |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| EC-001 | P0 | Input | [[exact input]] | [[exact outcome]] | [[visibility, recovery, focus, announcement]] | [[request, URL, storage, analytics]] | [[unit/API/E2E/manual and path]] | R1 |
+| EC-001 | P0 | Input | [[exact input]] | [[exact outcome]] | [[visibility, recovery, focus, announcement]] | [[request, URL, storage, analytics]] | [[unit/API/E2E/manual and path]] | R1, UI-001 |
 
 ## Formula or resolution fixtures
 
@@ -78,6 +80,7 @@ Every row must point to one or more `EC-` cases or say `Not applicable:` followe
 
 | View/state | Viewport/theme | Exact check | Pass condition |
 | --- | --- | --- | --- |
+| Successful result without internal reports | Desktop and narrow, both themes | State the lead answer, the unique question answered by each region, any repeated formatted fact, and anything removable | One clear answer; every region is distinct; no needless repetition or removable UI |
 
 ## Test data and mocks
 
@@ -87,6 +90,7 @@ Every row must point to one or more `EC-` cases or say `Not applicable:` followe
 
 - [ ] Every P0 and P1 case has an expected outcome, requirement ID, test level, file owner, and deterministic fixture or manual rationale.
 - [ ] Every formula branch and invariant has an oracle fixture specification.
+- [ ] Every `UI-` requirement covers hierarchy, distinct result purpose, truthful geometry, removal guards, and responsive behavior where applicable.
 - [ ] The build stage has an ordered focused-test plan and a full-quality-gate plan.
 
 ## Open questions and blockers

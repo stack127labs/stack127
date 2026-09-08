@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
-import path from "node:path";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { validateSummary } from "./lib/summary-rules.mjs";
+import { isManagedMediaUrl } from "../stack127/media/storage.mjs";
 
 const dockerHighRiskPattern =
   /(devcontainer|dev-container|compose\.dev|docker-compose\.dev|\/test|testing|ci|e2e|vendor|\.github)/i;
@@ -25,8 +25,8 @@ const issueWeights = {
   db_false_with_non_sqlite_types: 100,
   db_unknown_with_types: 90,
   docker_high_risk_url: 80,
-  icon_missing_file: 80,
-  icon_not_png: 75,
+  icon_missing: 80,
+  icon_not_managed: 75,
   license_missing: 65,
   ram_pending: 60,
   storage_pending: 55,
@@ -37,8 +37,6 @@ const issueWeights = {
   compose_pending: 55,
   docker_weak_url: 55,
   database_pending: 55,
-  remote_icon: 50,
-  icon_tiny: 45,
   install_docs_readme_fallback: 40,
   docs_readme_fallback: 35,
   release_missing_recent_commit: 35,
@@ -52,36 +50,12 @@ const issueWeights = {
 };
 
 function iconIssues(row) {
-  const issues = [];
   if (!row.icon_url) {
-    issues.push("icon_missing_file");
-    return issues;
+    return ["icon_missing"];
   }
-
-  if (!String(row.icon_url).startsWith("/app-icons/")) {
-    issues.push("remote_icon");
-    return issues;
-  }
-
-  const file = path.join(process.cwd(), "public", row.icon_url);
-  if (!existsSync(file)) {
-    issues.push("icon_missing_file");
-    return issues;
-  }
-
-  const stat = statSync(file);
-  if (stat.size < 200) issues.push("icon_tiny");
-
-  const buffer = readFileSync(file);
-  const isPng =
-    buffer.length >= 8 &&
-    buffer[0] === 0x89 &&
-    buffer[1] === 0x50 &&
-    buffer[2] === 0x4e &&
-    buffer[3] === 0x47;
-  if (!isPng) issues.push("icon_not_png");
-
-  return issues;
+  return isManagedMediaUrl(row.icon_url, { directory: "self-host-apps", kind: "icons" })
+    ? []
+    : ["icon_not_managed"];
 }
 
 function summaryIssues(row) {

@@ -1,278 +1,46 @@
-.guide {
-  max-width: var(--measure-prose);
-  margin-top: var(--space-14);
-}
-
-.tool {
-  display: grid;
-  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
-  border: 1.5px solid var(--color-border-strong);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-}
-
-.controls {
-  min-width: 0;
-  padding: var(--space-8);
-  border-right: 1px solid var(--color-border-strong);
-}
-
-.controlHeading,
-.previewHeading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-5);
-}
-
-.controlHeading {
-  margin-bottom: var(--space-6);
-}
-
-.controlHeading h2 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: var(--text-h2);
-  line-height: var(--line-heading);
-}
-
-.controlHeading span,
-.previewHeading p {
-  margin: 0;
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
-}
-
-.appChoices,
-.groupChoices {
-  display: grid;
-  gap: var(--space-1);
-}
-
-.appChoices {
-  max-height: 320px;
-  margin-bottom: var(--space-8);
-  overflow-y: auto;
-}
-
-.checkRow,
-.radioLabel {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  min-height: 40px;
-  cursor: pointer;
-}
-
-.checkRow input,
-.radioLabel input {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--color-accent-text);
-  flex: 0 0 auto;
-}
-
-.appOptions {
-  border-top: 1px solid var(--color-border);
-  padding: var(--space-5) 0;
-}
-
-.appOptions summary {
-  cursor: pointer;
-  font-family: var(--font-display);
-  font-weight: var(--weight-semibold);
-}
-
-.appOptions summary::marker {
-  color: var(--color-accent-text);
-}
-
-.optionGroup {
-  margin: var(--space-5) 0 0;
-  padding: 0;
-  border: 0;
-}
-
-.optionGroup legend {
-  margin-bottom: var(--space-2);
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
-}
-
-.radioRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-5);
-}
-
-.preview {
-  min-width: 0;
-  padding: var(--space-8);
-}
-
-.previewHeading {
-  margin-bottom: var(--space-6);
-}
-
-.previewHeading p {
-  color: var(--color-text);
-  font-family: var(--font-sans);
-  font-size: var(--text-body);
-}
-
-.printButton {
-  min-height: 42px;
-  padding: var(--space-3) var(--space-5);
-  border: 0;
-  border-radius: var(--radius-lg);
-  background: var(--color-accent);
-  color: var(--color-accent-contrast);
-  font-weight: var(--weight-semibold);
-}
-
-.printButton:disabled {
-  cursor: not-allowed;
-  opacity: 0.45;
-}
-
-.printButton:focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: 2px;
-}
-
-.sheetFrame {
-  min-width: 0;
-  border-top: 1px solid var(--color-border);
-  padding-top: var(--space-6);
-}
-
-.sheet {
-  max-width: 760px;
-  padding: var(--space-8);
-  background: #fff;
-  color: #161616;
-}
-
-.sheet h2,
-.sheet h3 {
-  margin: 0;
-  font-family: var(--font-display);
-  line-height: var(--line-heading);
-}
-
-.sheet h2 {
-  font-size: var(--text-h2);
-}
-
-.sheetContext {
-  margin: var(--space-2) 0 0;
-  color: #555;
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
-}
-
-.sheet h3 {
-  margin-top: var(--space-8);
-  font-size: var(--text-h3);
-}
-
-.sheetTable {
-  width: 100%;
-  margin-top: var(--space-3);
-  border-collapse: collapse;
-  font-size: var(--text-small);
-}
-
-.sheetTable th,
-.sheetTable td {
-  padding: var(--space-2);
-  border-bottom: 1px solid #d9d9d9;
-  text-align: left;
-  vertical-align: top;
-}
-
-.sheetTable thead th {
-  border-bottom: 1.5px solid #161616;
-}
-
-.sheetTable .sheetGroup {
-  background: #f2f2f2;
-  font-family: var(--font-mono);
-}
-
-.empty {
-  margin: 0;
-  padding: var(--space-14) var(--space-8);
-  border: 1px dashed var(--color-border-strong);
-  color: var(--color-text-muted);
-  text-align: center;
-}
-
-@media (max-width: 900px) {
-  .tool {
-    grid-template-columns: 1fr;
-  }
-
-  .controls {
-    border-right: 0;
-    border-bottom: 1px solid var(--color-border-strong);
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding-top: var(--space-11);
-  }
-
-  .controls,
-  .preview {
-    padding: var(--space-6);
-  }
-
-  .appChoices {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .previewHeading {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .printButton {
-    width: 100%;
-  }
-
-  .sheet {
-    padding: var(--space-5);
-  }
-
-  .sheetFrame {
-    overflow-x: auto;
-  }
-
-  .sheet {
-    min-width: 620px;
-  }
-}
-
+.tool { display: grid; grid-template-columns: minmax(280px, 360px) minmax(0, 1fr); min-width: 0; }
+.controls, .preview { min-width: 0; padding: var(--space-7); }
+.controls { border-right: 1px solid var(--color-border); display: grid; gap: var(--space-6); }
+.controls h2, .appOptions h3 { font-family: var(--font-display); line-height: var(--line-heading); margin: 0; }
+.controls h2 { font-size: var(--text-h2); }
+.appOptions h3 { font-size: var(--text-h3); }
+.appChoices { display: grid; gap: var(--space-1); max-height: 320px; overflow-y: auto; }
+.appChoices p { color: var(--color-text-muted); font-size: var(--text-small); margin: 0; }
+.appChoices > :global([role="checkbox"]), .groups > :global([role="checkbox"]) { min-height: 44px; }
+.controls :global(input[type="search"]), .appOptions :global(label:has(input[type="radio"])) { min-height: 44px; }
+.selectedOptions { display: grid; gap: var(--space-7); }
+.appOptions { border-top: 1px solid var(--color-border); display: grid; gap: var(--space-5); padding-top: var(--space-5); }
+.groups { border: 0; display: grid; gap: var(--space-1); margin: 0; min-width: 0; padding: 0; }
+.groups legend { font-family: var(--font-display); font-size: var(--text-body); font-weight: var(--weight-semibold); margin-bottom: var(--space-2); padding: 0; }
+.groupError { color: var(--color-danger-text); font-size: var(--text-small); margin: var(--space-2) 0 0; }
+.preview { display: grid; gap: var(--space-6); align-content: start; }
+.previewHeading { align-items: center; display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; }
+.previewHeading > :first-child { flex: 1 1 16rem; }
+.previewHeading button { min-height: 44px; }
+.sheetFrame { max-width: 100%; overflow-x: auto; padding-bottom: var(--space-3); }
+.sheetFrame:focus-visible { outline: var(--focus-ring); outline-offset: 2px; }
+.sheet { background: #fff; color: #161616; min-width: 680px; padding: var(--space-8); width: 760px; }
+.sheet h2, .sheet h3 { font-family: var(--font-display); line-height: var(--line-heading); margin: 0; }
+.sheet h2 { font-size: var(--text-h2); }
+.sheet h3 { font-size: var(--text-h3); margin-top: var(--space-8); }
+.sheetContext, .sheetSource { color: #555; font-family: var(--font-mono); font-size: var(--text-small); line-height: var(--line-body); overflow-wrap: anywhere; }
+.sheetContext { margin: var(--space-2) 0 0; }
+.sheetSource { margin: var(--space-3) 0 0; }
+.sheetSource a { color: #161616; }
+.sheetTable { border-collapse: collapse; font-size: var(--text-small); margin-top: var(--space-3); width: 100%; }
+.sheetTable th, .sheetTable td { border-bottom: 1px solid #d9d9d9; padding: var(--space-2); text-align: left; vertical-align: top; }
+.sheetTable thead { display: table-header-group; }
+.sheetTable thead th { border-bottom: 1.5px solid #161616; }
+.sheetTable .sheetGroup { background: #f2f2f2; font-family: var(--font-mono); }
+.sheetTable tbody { break-inside: avoid; }
+@media (max-width: 900px) { .tool { grid-template-columns: 1fr; } .controls { border-bottom: 1px solid var(--color-border); border-right: 0; } }
+@media (max-width: 600px) { .controls, .preview { padding-inline: var(--space-5); } .previewHeading { align-items: stretch; flex-direction: column; } .previewHeading button { width: 100%; } .appChoices { grid-template-columns: 1fr; } }
+@media (max-width: 390px) { .controls, .preview { padding-inline: var(--space-4); } }
 @media print {
-  .page,
-  .page * {
-    visibility: hidden;
-  }
-
-  .sheet,
-  .sheet * {
-    visibility: visible;
-  }
-
-  .sheet {
-    position: absolute;
-    inset: 0;
-    max-width: none;
-    min-width: 0;
-    padding: 0;
-  }
+  :global(body):has(.sheet) * { visibility: hidden !important; }
+  :global(body):has(.sheet) .sheet, :global(body):has(.sheet) .sheet * { visibility: visible !important; }
+  .sheetFrame { overflow: visible; }
+  .sheet { inset: 0; max-width: none; min-width: 0; padding: 0; position: absolute; width: 100%; }
+  .sheetSource span { display: inline; }
 }
+@media (prefers-reduced-motion: reduce) { .tool * { scroll-behavior: auto !important; } }

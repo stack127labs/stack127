@@ -10,9 +10,9 @@ test("routeFromPageFile maps app site page files to public routes", () => {
     routeFromPageFile("app/(site)/(courses)/self-hosting-for-beginners/linux-ssh-basics/page.tsx"),
     "/self-hosting-for-beginners/linux-ssh-basics",
   );
-  assert.equal(routeFromPageFile("app/(site)/(catalogs)/self-host-apps/page.tsx"), "/self-host-apps");
+  assert.equal(routeFromPageFile("app/(site)/(directories)/self-host-apps/page.tsx"), "/self-host-apps");
   assert.equal(
-    routeFromPageFile("app/(site)/(catalogs)/software-licenses-for-self-hosting/page.tsx"),
+    routeFromPageFile("app/(site)/(references)/software-licenses-for-self-hosting/page.tsx"),
     "/software-licenses-for-self-hosting",
   );
   assert.equal(routeFromPageFile("app/(site)/(legal)/privacy/page.tsx"), "/privacy");

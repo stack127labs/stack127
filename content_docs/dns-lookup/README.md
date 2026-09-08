@@ -23,13 +23,7 @@ Use complete, natural sentences. Let typography, spacing, tables, and visual rel
 
 Write every table row for someone seeing the term for the first time. Explain what it shows and when they would care in plain language instead of replacing one DNS term with another undefined DNS term.
 
-After the tool, keep one connected path:
-
-1. briefly explain how to run a useful lookup with an exact name, record selection, and resolver; keep this in natural paragraphs because the tool does not need a numbered procedure
-2. briefly explain the alias owner name and Resolver TTL around one small visual; do not add a table that repeats fields already visible in the result
-3. show the supported record types in one simple table
-4. connect common troubleshooting jobs to the record types and values worth comparing
-5. use one simple table for response meanings, then explain resolver differences, scope, and privacy without splitting every caveat into a separate section
+The current content plan is in `brief.md`; its source checks and QA evidence are in `writing-and-seo.md`. Follow the reader from choosing the exact name to interpreting its records, investigating different answers, and checking email or verification names. Use two wrapping tables for record types and response meanings. Explain TTL, DNSSEC, scope, and privacy in connected prose, with unfamiliar terms defined when they matter. Do not require a second alias figure, duplicate troubleshooting table, or a fixed section count.
 
 Use one divider between the interactive tool and this content path. Do not put divider lines between the explanatory sections themselves; spacing and headings should carry that structure.
 
@@ -59,7 +53,7 @@ The fixed public endpoints are:
 - Control D unfiltered: `https://freedns.controld.com/p0`
 - Yandex DNS Basic: `https://common.dot.dns.yandex.net/dns-query`
 
-The resolver registry owns labels, endpoints, and the short policy sentence shown below the picker. Do not accept an endpoint from the browser or interpolate a user-controlled hostname into an upstream URL.
+The resolver registry owns labels, endpoints, and policy metadata. The picker shows the resolver label without a helper sentence. Do not accept an endpoint from the browser or interpolate a user-controlled hostname into an upstream URL.
 
 Authoritative lookup first walks from the requested name toward its zone using Cloudflare as a fixed bootstrap resolver. It resolves the zone's NS hostname, rejects loopback, private, link-local, documentation, multicast, reserved, and other non-public addresses, then sends a non-recursive DNS query directly to that nameserver on port 53. It starts with UDP and retries over TCP only when the response is truncated. Response IDs must match, reply size and time are bounded, and a non-authoritative answer is rejected.
 
@@ -77,7 +71,7 @@ Per-query alias observations and raw provider responses are retained. Inconsiste
 
 AD, CD, RD, RA, and TC normalize to `true`, `false`, or `null`. The UI renders Yes, No, or Not reported. Missing or invalid fields never default to false.
 
-AD true means the selected public resolver reports that it authenticated the returned data. It is not a complete DNSSEC diagnosis. AD false alone does not prove breakage because the name may be unsigned. Authoritative nameservers do not normally validate their own answers for the client, so their AD state is not presented as a DNSSEC verdict. Full validation belongs in the later DNSSEC Chain Checker.
+The result shows DNSSEC authentication as one compact value: `Authenticated`, `Not authenticated`, `Mixed`, `Not reported`, or `Not checked`. AD true means the selected public resolver reports that it authenticated the returned data. It is not a complete DNSSEC diagnosis. AD false alone does not prove breakage because the name may be unsigned. Authoritative nameservers do not normally validate their own answers for the client, so their AD state is not presented as a DNSSEC verdict. Full validation belongs in the later DNSSEC Chain Checker.
 
 ## Raw results
 
@@ -111,7 +105,7 @@ PTR converts an IPv4 address to its `in-addr.arpa` name or an IPv6 address to it
 
 Returned public A and AAAA addresses are enriched through Team Cymru's DNS IP-to-ASN service. Store the BGP origin ASN, announced prefix, assigned country code, and ASN description as nullable fields. This is network ownership/routing context, not geolocation, and enrichment failure must never fail or change the DNS answer.
 
-NS hostnames are resolved through the fixed Cloudflare wire-format adapter with separate A and AAAA queries. Show those addresses inline as `Nameserver addresses`; do not call them glue because they may have come from a separate recursive lookup. Enrich those public addresses through the same capped, best-effort ASN path. Cap enrichment at eight nameservers and sixteen unique public addresses per lookup.
+NS hostnames are resolved through the fixed Cloudflare wire-format adapter with separate A and AAAA queries. Show those addresses in a full-width table below the nameserver. Keep the nameserver TTL and copy action in a separate header row so they never cover table columns. Do not call the addresses glue because they may have come from a separate recursive lookup. Enrich those public addresses through the same capped, best-effort ASN path. Cap enrichment at eight nameservers and sixteen unique public addresses per lookup.
 
 ## Privacy and limits
 

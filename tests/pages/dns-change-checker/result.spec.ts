@@ -1,15 +1,7 @@
-import { readFileSync } from "node:fs";
 import { expect, test } from "playwright/test";
 
-const favicon = readFileSync("public/favicon-32x32.png");
-
-test("DNS Change results show the site favicon and download the complete report", async ({ page }, testInfo) => {
+test("DNS Change results omit the site favicon and download the complete report", async ({ page }) => {
   const hostname = "favicon.test";
-  await page.route(`https://${hostname}/favicon.ico`, (route) => route.fulfill({
-    body: favicon,
-    contentType: "image/png",
-    status: 200,
-  }));
   await page.route("**/api/dns/change-checker", (route) => route.fulfill({
     contentType: "application/json",
     body: JSON.stringify({
@@ -25,9 +17,7 @@ test("DNS Change results show the site favicon and download the complete report"
   await page.goto("/dns-change-checker");
   await page.getByLabel("Domain or hostname").fill(hostname);
   await page.getByRole("button", { name: "Check DNS change" }).click();
-  if (testInfo.project.name !== "mobile") {
-    await expect(page.locator(`img[src="https://${hostname}/favicon.ico"]`)).toBeVisible();
-  }
+  await expect(page.locator(`img[src="https://${hostname}/favicon.ico"]`)).toHaveCount(0);
 
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "Download report" }).click();

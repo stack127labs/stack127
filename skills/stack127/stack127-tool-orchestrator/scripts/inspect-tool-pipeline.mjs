@@ -5,18 +5,20 @@ import { dirname, relative, resolve, sep } from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
-const EXPECTATIONS = ["intake", "research", "product", "test", "build", "handoff"];
+const EXPECTATIONS = ["intake", "research", "product", "interface", "test", "build", "handoff"];
 const REQUIRED_ARTIFACTS = {
   intake: [],
   research: ["competitive-report.md"],
   product: ["competitive-report.md", "implementation-report.md", "brief.md"],
-  test: ["competitive-report.md", "implementation-report.md", "brief.md", "edge-cases-and-tests.md"],
-  build: ["competitive-report.md", "implementation-report.md", "brief.md", "edge-cases-and-tests.md"],
-  handoff: ["competitive-report.md", "implementation-report.md", "brief.md", "edge-cases-and-tests.md", "writing-and-seo.md"],
+  interface: ["competitive-report.md", "implementation-report.md", "brief.md", "interface-contract.md"],
+  test: ["competitive-report.md", "implementation-report.md", "brief.md", "interface-contract.md", "edge-cases-and-tests.md"],
+  build: ["competitive-report.md", "implementation-report.md", "brief.md", "interface-contract.md", "edge-cases-and-tests.md"],
+  handoff: ["competitive-report.md", "implementation-report.md", "brief.md", "interface-contract.md", "edge-cases-and-tests.md", "writing-and-seo.md"],
 };
 const REPORT_FILES = new Set([
   "competitive-report.md",
   "implementation-report.md",
+  "interface-contract.md",
   "edge-cases-and-tests.md",
   "writing-and-seo.md",
 ]);
@@ -112,6 +114,7 @@ export function inspectPipeline({ repositoryRoot, routeInput, expectation, runVa
   const stageByExpectation = {
     research: "research",
     product: "product",
+    interface: "interface",
     test: "test",
     build: "test",
     handoff: "content",
@@ -158,6 +161,9 @@ export function inspectPipeline({ repositoryRoot, routeInput, expectation, runVa
       }
       if (!manifest.skills?.includes("skills/stack127/stack127-tool-build")) {
         errors.push("ownership manifest must list skills/stack127/stack127-tool-build");
+      }
+      if (!manifest.skills?.includes("skills/stack127/stack127-tool-interface-plan")) {
+        errors.push("ownership manifest must list skills/stack127/stack127-tool-interface-plan");
       }
       if (expectation === "handoff" && !manifest.skills?.includes("skills/stack127/stack127-tool-writing")) {
         errors.push("ownership manifest must list skills/stack127/stack127-tool-writing at handoff");

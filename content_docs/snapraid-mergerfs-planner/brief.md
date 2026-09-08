@@ -1,5 +1,11 @@
 # Brief: SnapRAID and mergerfs Config Planner
 
+## Current supporting-content direction
+
+Approved September 6, 2026. Keep the role table and host-verification sequence; add the sync-window consequence and content-file purpose before path validation. Distinct paths do not prove independent devices.
+
+The working tool stays first. Use connected explanation at the depth the task needs, with no word, section, sentence, or visual-ratio quota. This direction supersedes earlier supporting-prose budgets in this page's planning artifacts; it does not change the engine or input contract. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
+
 ## Who is here
 
 A Linux homelab administrator is assembling a mixed-drive SnapRAID array with a mergerfs pool. They know mount paths and disk sizes, but want to review the relationship between the two config files before editing `/etc`.

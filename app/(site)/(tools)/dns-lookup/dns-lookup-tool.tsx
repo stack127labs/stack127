@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { ToolButton, ToolDataTable, ToolSelect, ToolTextField } from "@/app/tool-ui/tool-controls";
 import { dnsRecordsCsv } from "@/lib/dns/export.ts";
 import { websiteFaviconUrl } from "@/lib/dns/favicon.ts";
 import { formatAuthoritativeTtl, formatResolverTtl, recordFields } from "@/lib/dns/format-record.ts";
 import { caaPropertyCounts, traceLinkForLookup } from "@/lib/dns/result-presentation.ts";
-import { dnsResolverProfiles, resolverLabel, resolverProfile } from "@/lib/dns/resolvers.ts";
+import { dnsResolverProfiles, resolverLabel } from "@/lib/dns/resolvers.ts";
 import type {
   DnsAliasEdge,
   DnsAddressDetail,
@@ -18,9 +19,13 @@ import type {
   NormalizedDnsRecord,
 } from "@/lib/dns/types.ts";
 
-const recordOptions: { accessibleLabel?: string; label: string; value: DnsSelection }[] = [
+const commonRecordOptions: { label: string; value: DnsSelection }[] = [
   { label: "All", value: "all" },
-  ...(["A", "AAAA", "CNAME", "MX", "NS", "TXT", "CAA", "SOA", "SRV", "DS", "DNSKEY", "PTR"] as DnsRecordType[])
+  ...(["A", "AAAA", "CNAME", "MX", "NS", "TXT", "PTR"] as DnsRecordType[])
+    .map((value) => ({ label: value, value })),
+];
+const specializedRecordOptions: { label: string; value: DnsSelection }[] = [
+  ...(["CAA", "SOA", "SRV", "DS", "DNSKEY"] as DnsRecordType[])
     .map((value) => ({ label: value, value })),
 ];
 type DnsLookupToolProps = {
@@ -125,6 +130,55 @@ function RecordRow({
   const fields = recordFields(record);
   const addressDetail = (record.type === "A" || record.type === "AAAA") ? addressDetails.get(record.value) : undefined;
   const nsAddresses = record.type === "NS" ? nameserverAddresses.get(record.value.replace(/\.$/, "").toLowerCase()) ?? [] : [];
+  const recordMeta = (
+    <div className="dns-record-meta">
+      <span>
+        <strong>
+          {authoritative ? "Authoritative TTL" : "Resolver TTL"}
+          <span aria-label={`About ${authoritative ? "Authoritative TTL" : "Resolver TTL"}`} className="dns-ttl-help" tabIndex={0} title={ttlHelp(authoritative)}>i</span>
+        </strong>
+        {authoritative ? formatAuthoritativeTtl(record.resolverTtlSeconds) : formatResolverTtl(record.resolverTtlSeconds)}
+      </span>
+      <CopyRecordButton record={record} />
+    </div>
+  );
+
+  if (nsAddresses.length > 0) {
+    return (
+      <li className="dns-record-item dns-record-item-nameserver" data-record-type={record.type}>
+        <div className="dns-nameserver-record-heading">
+          <code className="dns-record-value">{fields[0]?.value ?? record.value}</code>
+          {recordMeta}
+        </div>
+        <div className="dns-nameserver-addresses">
+          <ToolDataTable
+            ariaLabel={`Addresses for ${record.value.replace(/\.$/, "")}`}
+            columns={[
+              { id: "address", label: "Address" },
+              { id: "network", label: "Network" },
+              { id: "provider", label: "Provider" },
+              { id: "country", label: "Country" },
+              { id: "asn", label: "ASN" },
+            ]}
+            rows={nsAddresses.map((address) => {
+              const detail = addressDetails.get(address);
+              return {
+                id: address,
+                cells: {
+                  address,
+                  network: detail?.prefix ?? "Unknown",
+                  provider: detail?.networkName ?? "Unknown",
+                  country: detail?.countryCode ?? "Unknown",
+                  asn: detail?.asn ? `AS${detail.asn}` : "Unknown",
+                },
+              };
+            })}
+          />
+        </div>
+      </li>
+    );
+  }
+
   return (
     <li className="dns-record-item" data-record-type={record.type}>
       <div className="dns-record-primary">
@@ -141,23 +195,8 @@ function RecordRow({
           </dl>
         )}
         <NetworkLine detail={addressDetail} />
-        {nsAddresses.length > 0 ? (
-          <div className="dns-nameserver-addresses">
-            <span>Nameserver addresses</span>
-            {nsAddresses.map((address) => <NetworkLine address={address} detail={addressDetails.get(address)} key={address} />)}
-          </div>
-        ) : null}
       </div>
-      <div className="dns-record-meta">
-        <span>
-          <strong>
-            {authoritative ? "Authoritative TTL" : "Resolver TTL"}
-            <span aria-label={`About ${authoritative ? "Authoritative TTL" : "Resolver TTL"}`} className="dns-ttl-help" tabIndex={0} title={ttlHelp(authoritative)}>i</span>
-          </strong>
-          {authoritative ? formatAuthoritativeTtl(record.resolverTtlSeconds) : formatResolverTtl(record.resolverTtlSeconds)}
-        </span>
-        <CopyRecordButton record={record} />
-      </div>
+      {recordMeta}
     </li>
   );
 }
@@ -284,18 +323,72 @@ function WebsiteFavicon({ hostname }: { hostname: string }) {
   );
 }
 
-function dnssecSummary(queryResults: DnsQueryResult[], resolver: string) {
+function dnssecStatus(queryResults: DnsQueryResult[], resolver: string) {
   if (resolver === "Authoritative nameserver") {
-    return "Authoritative nameservers do not normally validate their own answers for you. Use a public resolver or a full DNSSEC chain check when you need to confirm DNSSEC validation.";
+    return {
+      detail: "Authoritative nameservers do not validate their own answers for the client.",
+      tone: "neutral",
+      value: "Not checked",
+    };
   }
   const reported = new Set(queryResults.map((result) => result.flags.authenticatedData));
   if (reported.size !== 1) {
-    return `${resolver} gave different DNSSEC authentication results across these queries. You can open each raw response to compare them.`;
+    return {
+      detail: `${resolver} returned different authentication flags across the queries.`,
+      tone: "warning",
+      value: "Mixed",
+    };
   }
   const value = queryResults[0]?.flags.authenticatedData ?? null;
-  if (value === true) return `${resolver} authenticated this answer with DNSSEC. This does not replace a full check of the domain's DNSSEC setup.`;
-  if (value === false) return `${resolver} did not mark this answer as authenticated. That is normal for unsigned names and does not by itself mean DNSSEC is broken.`;
-  return `${resolver} did not report whether this answer was authenticated with DNSSEC.`;
+  if (value === true) {
+    return {
+      detail: `${resolver} marked the answer as authenticated.`,
+      tone: "success",
+      value: "Authenticated",
+    };
+  }
+  if (value === false) {
+    return {
+      detail: `${resolver} did not mark the answer as authenticated. This can be normal for an unsigned name.`,
+      tone: "neutral",
+      value: "Not authenticated",
+    };
+  }
+  return {
+    detail: `${resolver} did not report an authentication flag.`,
+    tone: "neutral",
+    value: "Not reported",
+  };
+}
+
+function joinedRecordTypes(types: string[]) {
+  if (types.length < 2) return types[0] ?? "";
+  if (types.length === 2) return `${types[0]} and ${types[1]}`;
+  return `${types.slice(0, -1).join(", ")}, and ${types[types.length - 1]}`;
+}
+
+function resultHeadline(result: DnsLookupResponse) {
+  const foundTypes = result.queryResults
+    .filter((query) => query.terminalRecords.length > 0)
+    .map((query) => query.requestedType);
+  const failedCount = result.queryResults.filter(
+    (query) => query.outcome === "provider_error" || query.outcome === "timeout",
+  ).length;
+  const name = result.query.normalizedName;
+
+  if (foundTypes.length > 3) {
+    return `Found records in ${foundTypes.length} of ${result.queryResults.length} types for ${name}`;
+  }
+  if (foundTypes.length > 0) {
+    return `Found ${joinedRecordTypes(foundTypes)} records for ${name}`;
+  }
+  if (failedCount === result.queryResults.length) {
+    return `Could not complete the DNS lookup for ${name}`;
+  }
+  if (failedCount > 0) {
+    return `No records returned for ${name}; some queries failed`;
+  }
+  return `No DNS records returned for ${name}`;
 }
 
 function LookupResults({ result }: { result: DnsLookupResponse }) {
@@ -308,6 +401,7 @@ function LookupResults({ result }: { result: DnsLookupResponse }) {
   const hasLongGroups = result.queryResults.some((query) => query.requestedType !== "CAA" && ownerGroups(query.terminalRecords).some(([, records]) => records.length > 5));
   const traceLink = traceLinkForLookup(result);
   const checkedDnssecRecords = result.queryResults.some((query) => query.requestedType === "DS" || query.requestedType === "DNSKEY");
+  const dnssec = dnssecStatus(result.queryResults, resolver);
 
   function downloadRecords() {
     const csv = dnsRecordsCsv({ authoritative, queryResults: result.queryResults, resolverLabel: resolver });
@@ -325,7 +419,7 @@ function LookupResults({ result }: { result: DnsLookupResponse }) {
         <div className="dns-results-heading-row">
           <div className="dns-result-site">
             <WebsiteFavicon hostname={result.query.normalizedName} key={result.query.normalizedName} />
-            <h2>{result.query.normalizedName}</h2>
+            <h2 className="dns-result-answer">{resultHeadline(result)}</h2>
           </div>
           <div className="dns-result-controls">
             {traceLink ? <a href={traceLink.href}>Trace this name</a> : null}
@@ -376,7 +470,13 @@ function LookupResults({ result }: { result: DnsLookupResponse }) {
         </section>
       ) : <AliasChain authoritative={authoritative} edges={result.aliasChain} />}
 
-      <p className="dns-dnssec-summary">{dnssecSummary(result.queryResults, resolver)}</p>
+      <div
+        aria-label={`DNSSEC authentication: ${dnssec.value}. ${dnssec.detail}`}
+        className="dns-dnssec-status"
+      >
+        <span>DNSSEC authentication</span>
+        <strong data-tone={dnssec.tone}>{dnssec.value}</strong>
+      </div>
 
       <div className="dns-record-stack">
         {result.queryResults.map((query) => (
@@ -403,25 +503,32 @@ export function DnsLookupTool({
   const [name, setName] = useState(initialName);
   const [resolver, setResolver] = useState<DnsResolver>(initialResolver);
   const [selection, setSelection] = useState<DnsSelection>(initialSelection);
+  const [specializedOpen, setSpecializedOpen] = useState(
+    specializedRecordOptions.some((option) => option.value === initialSelection),
+  );
   const [result, setResult] = useState<DnsLookupResponse | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [nameError, setNameError] = useState<string | null>(null);
+  const [requestError, setRequestError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const controllerRef = useRef<AbortController | null>(null);
+  const nameInputRef = useRef<HTMLInputElement | null>(null);
   const initialRun = useRef(false);
 
   const requestBody = useMemo(() => ({ name, resolver, selection }), [name, resolver, selection]);
-  const selectedResolver = resolverProfile(resolver);
 
   async function runLookup(body = requestBody) {
     if (!body.name.trim()) {
-      setError("Enter a DNS name.");
+      setNameError(body.selection === "PTR" ? "Enter an IP address." : "Enter a DNS name.");
+      nameInputRef.current?.focus();
       return;
     }
     controllerRef.current?.abort();
     const controller = new AbortController();
     controllerRef.current = controller;
     setLoading(true);
-    setError(null);
+    setNameError(null);
+    setRequestError(null);
+    setResult(null);
     try {
       const response = await fetch("/api/dns/lookup", {
         body: JSON.stringify(body),
@@ -434,7 +541,7 @@ export function DnsLookupTool({
       setResult(data as DnsLookupResponse);
     } catch (lookupError) {
       if (controller.signal.aborted) return;
-      setError(lookupError instanceof Error ? lookupError.message : "The DNS lookup failed.");
+      setRequestError(lookupError instanceof Error ? lookupError.message : "The DNS lookup failed.");
     } finally {
       if (!controller.signal.aborted) setLoading(false);
     }
@@ -451,31 +558,42 @@ export function DnsLookupTool({
     void runLookup();
   }
 
+  function chooseSelection(nextSelection: DnsSelection) {
+    setSelection(nextSelection);
+    setNameError(null);
+    setRequestError(null);
+  }
+
   return (
-    <section className="dns-tool" id="lookup" aria-label="DNS lookup form">
-      <form className="dns-lookup-form" onSubmit={submit}>
-        <label className="dns-name-field">
-          <span>{selection === "PTR" ? "IP address" : "DNS name"}</span>
-          <input
+    <section aria-busy={loading} className="dns-tool dns-lookup-tool" data-tool-workbench id="lookup" aria-label="DNS lookup form">
+      <form className="dns-lookup-form" noValidate onSubmit={submit}>
+        <div className="dns-name-field">
+          <ToolTextField
             autoCapitalize="none"
             autoComplete="off"
-            onChange={(event) => setName(event.target.value)}
+            error={nameError}
+            inputRef={nameInputRef}
+            label={selection === "PTR" ? "IP address" : "DNS name"}
+            onChange={(value) => {
+              setName(value);
+              if (nameError) setNameError(null);
+              if (requestError) setRequestError(null);
+            }}
             placeholder={selection === "PTR" ? "8.8.8.8" : "google.com"}
+            required
             spellCheck={false}
-            type="text"
             value={name}
           />
-        </label>
+        </div>
         <fieldset className="dns-record-type-picker" role="radiogroup">
           <legend>Record type</legend>
           <div className="dns-record-type-options">
-            {recordOptions.map((option) => (
+            {commonRecordOptions.map((option) => (
               <label key={option.value}>
                 <input
-                  aria-label={option.accessibleLabel}
                   checked={selection === option.value}
                   name="record-type"
-                  onChange={() => setSelection(option.value)}
+                  onChange={() => chooseSelection(option.value)}
                   type="radio"
                   value={option.value}
                 />
@@ -483,22 +601,49 @@ export function DnsLookupTool({
               </label>
             ))}
           </div>
+          <details
+            className="dns-record-type-specialized"
+            onToggle={(event) => setSpecializedOpen(event.currentTarget.open)}
+            open={specializedOpen}
+          >
+            <summary>
+              <span>Specialized record types</span>
+              {specializedRecordOptions.some((option) => option.value === selection) ? <small>{selection} selected</small> : null}
+            </summary>
+            <div className="dns-record-type-options">
+              {specializedRecordOptions.map((option) => (
+                <label key={option.value}>
+                  <input
+                    checked={selection === option.value}
+                    name="record-type"
+                    onChange={() => chooseSelection(option.value)}
+                    type="radio"
+                    value={option.value}
+                  />
+                  <span>{option.label}</span>
+                </label>
+              ))}
+            </div>
+          </details>
         </fieldset>
         <div className="dns-form-options">
-          <label>
-            <span>Resolver</span>
-            <select onChange={(event) => setResolver(event.target.value as DnsResolver)} value={resolver}>
-              {dnsResolverProfiles.map((profile) => (
-                <option key={profile.id} value={profile.id}>{profile.label}</option>
-              ))}
-            </select>
-            <small>{selectedResolver.policy}</small>
-          </label>
-          <button className="dns-submit" disabled={loading} type="submit">{loading ? "Looking up..." : "Look up DNS"}</button>
+          <ToolSelect
+            label="Resolver"
+            onChange={(value) => {
+              setResolver(value as DnsResolver);
+              setRequestError(null);
+            }}
+            options={dnsResolverProfiles.map((profile) => ({ id: profile.id, label: profile.label }))}
+            required
+            value={resolver}
+          />
+          <ToolButton className="dns-submit" isDisabled={loading} type="submit" variant="primary">
+            {loading ? "Looking up…" : "Look up DNS"}
+          </ToolButton>
         </div>
-        {error ? <p className="dns-form-error" role="alert">{error}</p> : null}
+        {requestError ? <p className="dns-form-error dns-request-error" role="alert">{requestError}</p> : null}
       </form>
-      {loading ? <p className="dns-loading" aria-live="polite">Querying {resolverLabel(resolver)}...</p> : null}
+      {loading ? <p className="dns-loading" aria-live="polite">Querying {resolverLabel(resolver)}…</p> : null}
       {result ? <LookupResults result={result} /> : null}
     </section>
   );

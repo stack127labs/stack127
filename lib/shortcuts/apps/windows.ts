@@ -198,3 +198,5 @@ export const windows: AppShortcuts = {
     },
   ],
 };
+
+export default windows;

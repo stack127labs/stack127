@@ -6,47 +6,36 @@ const root = process.cwd();
 const originals = path.join(root, "public", "brand", "originals");
 const logos = path.join(root, "public", "logos");
 
-const wordmarkSource = path.join(originals, "stack127-wordmark-original.png");
-const markSource = path.join(originals, "stack127-mark-original.png");
+const wordmarkSource = path.join(originals, "stack127-wordmark-approved.png");
 
 const darkBackground = { r: 16, g: 16, b: 16 };
 const lightBackground = { r: 244, g: 242, b: 236 };
 const darkInk = { r: 0, g: 0, b: 0 };
 const lightInk = { r: 242, g: 242, b: 238 };
 
-async function extractedLogo(source, ink, padding = 24) {
-  const { data, info } = await sharp(source)
-    .greyscale()
-    .raw()
-    .toBuffer({ resolveWithObject: true });
+// The approved wordmark is off-white with a chartreuse dot on near-black.
+// Threshold only the background; map both foreground colors to exact site tokens.
+async function extractedLogo(source, ink, padding = 8, markOnly = false) {
+  const { data, info } = await sharp(source).removeAlpha().raw().toBuffer({ resolveWithObject: true });
   const rgba = Buffer.alloc(info.width * info.height * 4);
-
-  for (let index = 0; index < data.length; index += 1) {
-    const sourceAlpha = 255 - data[index];
-    const alpha = sourceAlpha <= 8
-      ? 0
-      : Math.round(((sourceAlpha - 8) * 255) / 247);
-    const offset = index * 4;
-
-    rgba[offset] = ink.r;
-    rgba[offset + 1] = ink.g;
-    rgba[offset + 2] = ink.b;
-    rgba[offset + 3] = alpha;
+  for (let index = 0; index < info.width * info.height; index += 1) {
+    const offset = index * info.channels;
+    const r = data[offset], g = data[offset + 1], b = data[offset + 2];
+    const accent = g > r * 1.12 && g > b * 1.8;
+    const brightness = Math.max(r, g, b);
+    const alpha = Math.round(Math.max(0, Math.min(1, (brightness - 32) / 200)) * 255);
+    const target = index * 4;
+    rgba[target] = accent ? 186 : ink.r;
+    rgba[target + 1] = accent ? 252 : ink.g;
+    rgba[target + 2] = accent ? 60 : ink.b;
+    rgba[target + 3] = alpha;
   }
-
-  return sharp(rgba, {
-    raw: { channels: 4, height: info.height, width: info.width },
-  })
-    .trim({ background: { alpha: 0, b: 0, g: 0, r: 0 }, threshold: 1 })
-    .extend({
-      background: { alpha: 0, b: 0, g: 0, r: 0 },
-      bottom: padding,
-      left: padding,
-      right: padding,
-      top: padding,
-    })
-    .png({ compressionLevel: 9 })
-    .toBuffer();
+  let output = sharp(rgba, { raw: { channels: 4, height: info.height, width: info.width } });
+  // Crop at the empty column between k and 1 in the approved source.
+  if (markOnly) output = sharp(await output.extract({ left: 1207, top: 0, width: info.width - 1207, height: info.height }).png().toBuffer());
+  return output.trim({ background: { alpha: 0, b: 0, g: 0, r: 0 }, threshold: 1 })
+    .extend({ background: { alpha: 0, b: 0, g: 0, r: 0 }, bottom: padding, left: padding, right: padding, top: padding })
+    .png({ compressionLevel: 9 }).toBuffer();
 }
 
 async function squareMark(mark, background, size) {
@@ -108,10 +97,10 @@ function icoFromPngs(entries) {
 async function main() {
   await mkdir(logos, { recursive: true });
 
-  const wordmarkOnLight = await extractedLogo(wordmarkSource, darkInk, 24);
-  const wordmarkOnDark = await extractedLogo(wordmarkSource, lightInk, 24);
-  const markOnLight = await extractedLogo(markSource, darkInk, 32);
-  const markOnDark = await extractedLogo(markSource, lightInk, 32);
+  const wordmarkOnLight = await extractedLogo(wordmarkSource, darkInk);
+  const wordmarkOnDark = await extractedLogo(wordmarkSource, lightInk);
+  const markOnLight = await extractedLogo(wordmarkSource, darkInk, 8, true);
+  const markOnDark = await extractedLogo(wordmarkSource, lightInk, 8, true);
 
   await Promise.all([
     writeFile(path.join(logos, "stack127-wordmark-on-light.png"), wordmarkOnLight),

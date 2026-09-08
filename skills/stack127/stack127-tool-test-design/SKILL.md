@@ -1,6 +1,6 @@
 ---
 name: stack127-tool-test-design
-description: Produce the exhaustive edge-case and test contract for one stack127 calculator, checker, converter, lookup, generator, explorer, or technical utility. Use after a ready competitive report and implementation report when the user asks what can go wrong, how every invalid or boundary input should behave, what tests are required, or for an edge-cases and tests report. Design tests and fixtures only; do not implement the page or test files.
+description: Produce the exhaustive edge-case and test contract for one stack127 calculator, checker, converter, lookup, generator, explorer, or technical utility. Use after ready competitive, implementation, interface, and brief artifacts when the user asks what can go wrong, how invalid or boundary input should behave, what interface failures must be prevented, or what tests are required. Design tests and fixtures only; do not implement the page or test files.
 ---
 
 # stack127 tool test design
@@ -16,11 +16,11 @@ Stop after this document. Do not create executable tests or page code.
 ## Prerequisites
 
 1. Read `AGENTS.md`.
-2. Read `competitive-report.md`, `implementation-report.md`, and `brief.md` completely. Require both reports to say `Status: ready` and require the route and tool name to agree.
-3. Run the pipeline validator with `--stage=product`. Stop if it fails.
-4. Record SHA-256 fingerprints for all three inputs in the test report. Treat a later mismatch as a stale downstream artifact.
+2. Read `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, and `brief.md` completely. Require all three contracts or reports to say `Status: ready` and require the route and tool name to agree.
+3. Run the pipeline validator with `--stage=interface`. Stop if it fails.
+4. Record SHA-256 fingerprints for all four inputs in the test report. Treat a later mismatch as a stale downstream artifact.
 5. Read the relevant engine, route-family tests, ownership manifests, `skills/stack127/test-driven-page/SKILL.md`, and `stack127_docs/quality-workflow.md`.
-6. Return to `$stack127-tool-product-plan` if an expected behavior, requirement ID, formula, source precedence, or invalid-state decision is missing. Do not invent a product decision inside the test report.
+6. Return product behavior, formula, source precedence, or scope gaps to `$stack127-tool-product-plan`. Return missing hierarchy, result-region, component, omission, visual-semantic, or responsive decisions to `$stack127-tool-interface-plan`. Do not invent either kind of decision inside the test report.
 
 ## Build the risk model
 
@@ -42,6 +42,7 @@ Cover every applicable family:
 - copy, share, download, serialization, encoding, version compatibility, and privacy leakage;
 - focus order, labels, descriptions, error association, live regions, reduced motion, zoom, keyboard-only use, and screen-reader result order;
 - dark/light themes, narrow/wide viewports, long translated-like strings, long values, tables, overflow, and touch targets;
+- one lead answer, distinct result-region questions, duplicate formatted facts, removable regions, and the truth of any timeline, progress bar, chart, table, diagram, or large answer;
 - untrusted input/output, HTML injection, URL injection, SSRF, prototype keys, oversized payloads, abuse limits, and secrets in analytics or logs;
 - server rendering, hydration, no-JavaScript explanatory content, query noindex, canonical behavior, ownership manifest, and publication state;
 - deterministic engine performance, client bundle restraint, request concurrency, cache behavior, and layout stability.
@@ -61,7 +62,7 @@ For every edge case, specify:
 - whether a request, URL update, analytics event, or stored state is allowed;
 - test level and proposed file;
 - fixture or oracle source;
-- requirement ID from the implementation report.
+- requirement ID from the implementation report or interface contract.
 
 Do not use vague expectations such as "handle gracefully" or "show an error". Do not assert exact prose unless wording is safety-critical; assert meaning, location, semantics, and recovery.
 
@@ -84,6 +85,7 @@ Set `Status: ready` only when:
 - every P0 and P1 row has an owner, expected UX, test level, and file;
 - concurrency, recovery, accessibility, privacy, security, SEO, state, and responsive behavior are covered or explicitly not applicable;
 - the proposed test set is traceable to the implementation acceptance criteria.
+- every `UI-` acceptance criterion has an automated P0/P1 case or a repeatable manual comprehension check with a stated reason automation is insufficient.
 
 Otherwise set `Status: blocked` and return the missing decision to the correct upstream stage.
 

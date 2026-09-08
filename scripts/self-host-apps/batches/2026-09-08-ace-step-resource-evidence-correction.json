@@ -1,0 +1,164 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Add official model-license evidence and remove unsupported completed resource-review claims.",
+  "apps": [
+    {
+      "slug": "ace-step",
+      "review_scope": "partial",
+      "technical_fact_status": {
+        "ram": {
+          "status": "unchecked",
+          "confidence": "low",
+          "checked_at": null,
+          "source_urls": [
+            "https://github.com/ace-step/ACE-Step-1.5#-quick-start"
+          ],
+          "note": "System RAM requirements need review for the selected model and offload settings. Published GPU VRAM figures are not system RAM requirements."
+        },
+        "docker": {
+          "note": "Container support recorded from an install or catalog source.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://acestep.io/favicon-256.ico",
+            "https://github.com/ace-step/ace-step-1.5",
+            "https://hub.docker.com/r/spaceinvaderone/ace-step/",
+            "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/Ace-Step.xml"
+          ]
+        },
+        "compose": {
+          "note": "Primary sources checked; no Compose deployment was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://acestep.io/favicon-256.ico",
+            "https://github.com/ace-step/ace-step-1.5",
+            "https://hub.docker.com/r/spaceinvaderone/ace-step/",
+            "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/Ace-Step.xml"
+          ]
+        },
+        "storage": {
+          "status": "unchecked",
+          "confidence": "low",
+          "checked_at": null,
+          "source_urls": [
+            "https://github.com/ace-step/ACE-Step-1.5#-quick-start"
+          ],
+          "note": "Storage requirements need review for the selected model downloads and retained output. No reviewed planning estimate is available."
+        },
+        "database": {
+          "note": "Primary sources checked; no database requirement was published.",
+          "status": "not_published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "low",
+          "source_urls": [
+            "https://acestep.io/favicon-256.ico",
+            "https://github.com/ace-step/ace-step-1.5",
+            "https://hub.docker.com/r/spaceinvaderone/ace-step/",
+            "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/Ace-Step.xml"
+          ]
+        },
+        "docker_image": {
+          "note": "Container image recorded.",
+          "status": "published",
+          "checked_at": "2026-09-02T14:22:59.972798+00:00",
+          "confidence": "high",
+          "source_urls": [
+            "https://acestep.io/favicon-256.ico",
+            "https://github.com/ace-step/ace-step-1.5",
+            "https://hub.docker.com/r/spaceinvaderone/ace-step/",
+            "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/Ace-Step.xml"
+          ]
+        }
+      },
+      "expected": {
+        "technical_fact_status": {
+          "ram": {
+            "note": "Primary sources checked; publisher did not publish a RAM requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://acestep.io/favicon-256.ico",
+              "https://github.com/ace-step/ace-step-1.5",
+              "https://hub.docker.com/r/spaceinvaderone/ace-step/",
+              "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/Ace-Step.xml"
+            ]
+          },
+          "docker": {
+            "note": "Container support recorded from an install or catalog source.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://acestep.io/favicon-256.ico",
+              "https://github.com/ace-step/ace-step-1.5",
+              "https://hub.docker.com/r/spaceinvaderone/ace-step/",
+              "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/Ace-Step.xml"
+            ]
+          },
+          "compose": {
+            "note": "Primary sources checked; no Compose deployment was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://acestep.io/favicon-256.ico",
+              "https://github.com/ace-step/ace-step-1.5",
+              "https://hub.docker.com/r/spaceinvaderone/ace-step/",
+              "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/Ace-Step.xml"
+            ]
+          },
+          "storage": {
+            "note": "Primary sources checked; publisher did not publish a storage requirement. Planning range is shown separately as estimated.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://acestep.io/favicon-256.ico",
+              "https://github.com/ace-step/ace-step-1.5",
+              "https://hub.docker.com/r/spaceinvaderone/ace-step/",
+              "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/Ace-Step.xml"
+            ]
+          },
+          "database": {
+            "note": "Primary sources checked; no database requirement was published.",
+            "status": "not_published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "low",
+            "source_urls": [
+              "https://acestep.io/favicon-256.ico",
+              "https://github.com/ace-step/ace-step-1.5",
+              "https://hub.docker.com/r/spaceinvaderone/ace-step/",
+              "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/Ace-Step.xml"
+            ]
+          },
+          "docker_image": {
+            "note": "Container image recorded.",
+            "status": "published",
+            "checked_at": "2026-09-02T14:22:59.972798+00:00",
+            "confidence": "high",
+            "source_urls": [
+              "https://acestep.io/favicon-256.ico",
+              "https://github.com/ace-step/ace-step-1.5",
+              "https://hub.docker.com/r/spaceinvaderone/ace-step/",
+              "https://raw.githubusercontent.com/SpaceinvaderOne/Docker-Templates-Unraid/master/spaceinvaderone/Ace-Step.xml"
+            ]
+          }
+        }
+      },
+      "data_source_urls": [
+        "https://huggingface.co/ACE-Step/Ace-Step1.5/raw/main/README.md",
+        "https://github.com/ace-step/ACE-Step-1.5"
+      ],
+      "review_note": "The official Ace-Step1.5 model card identifies MIT. Do not generalize this check to every optional model variant. Resource review remains pending; keep system RAM and GPU VRAM distinct.",
+      "pending_review": [
+        "Variant-specific model terms",
+        "System RAM, downloads, offload configuration, and storage",
+        "Remaining installation and metadata fields"
+      ]
+    }
+  ]
+}

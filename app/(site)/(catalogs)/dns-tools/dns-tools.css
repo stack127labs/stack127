@@ -54,7 +54,7 @@
   align-items: center;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text);
   display: flex;
   gap: var(--space-8);
@@ -97,19 +97,14 @@
 
 .dns-planned-list li {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text-muted);
   padding: var(--space-6) var(--space-7);
 }
 
-/* The tool is one clear box: the form is the head, results render below a
-   divider inside the same frame. */
+/* Controls and results share one workbench band. */
 .dns-tool {
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-border-strong);
-  border-radius: var(--radius-xl);
   gap: 0;
-  overflow: hidden;
 }
 
 .dns-tool > * + * {
@@ -138,19 +133,19 @@
 }
 
 .dns-name-field,
-.dns-form-options label {
+.dns-form-options > label {
   display: grid;
   gap: var(--space-3);
 }
 
 .dns-name-field > span,
-.dns-form-options label > span {
+.dns-form-options > label > span {
   color: var(--color-text-muted);
   font-size: var(--text-small);
 }
 
 .dns-name-field small,
-.dns-form-options label small {
+.dns-form-options > label small {
   color: var(--color-text-muted);
   font-size: var(--text-small);
   line-height: var(--line-body);
@@ -160,7 +155,7 @@
 .dns-form-options select {
   background: var(--color-surface);
   border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text);
   font: inherit;
   min-height: var(--control-height-lg);
@@ -218,7 +213,7 @@
   align-items: center;
   background: var(--color-surface-2);
   border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text-muted);
   display: inline-flex;
   font-family: var(--font-mono);
@@ -243,6 +238,56 @@
   background: var(--color-accent);
   border-color: var(--color-accent);
   color: var(--color-accent-contrast);
+}
+
+/* DNS lookup keeps the main action as the only accent fill. */
+.dns-lookup-tool .dns-name-field label,
+.dns-lookup-tool .dns-record-type-picker legend {
+  color: var(--color-text);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+}
+
+.dns-lookup-tool .dns-record-type-options span {
+  background: transparent;
+  color: var(--color-text);
+  font-size: var(--text-body);
+}
+
+.dns-lookup-tool .dns-record-type-options input:checked + span {
+  background: var(--color-surface-2);
+  border-color: var(--color-accent-text);
+  color: var(--color-accent-text);
+}
+
+.dns-record-type-specialized {
+  display: grid;
+  gap: var(--space-4);
+  width: fit-content;
+}
+
+.dns-record-type-specialized summary {
+  color: var(--color-text);
+  cursor: pointer;
+  width: fit-content;
+}
+
+.dns-record-type-specialized summary::marker {
+  color: var(--color-text-muted);
+}
+
+.dns-record-type-specialized summary:focus-visible {
+  outline: var(--focus-ring);
+}
+
+.dns-record-type-specialized summary small {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  margin-left: var(--space-3);
+}
+
+.dns-record-type-specialized[open] summary {
+  margin-bottom: var(--space-4);
 }
 
 .dns-examples,
@@ -271,12 +316,17 @@
 .dns-show-more {
   background: var(--color-surface-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text);
   cursor: pointer;
   font: inherit;
   font-size: var(--text-small);
   padding: 8px 10px;
+  text-decoration: none;
+}
+
+.dns-result-controls a {
+  color: var(--color-link);
   text-decoration: none;
 }
 
@@ -294,13 +344,13 @@
 .dns-submit {
   background: var(--color-accent);
   border: 1px solid var(--color-accent);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-accent-contrast);
   cursor: pointer;
   font: inherit;
   font-weight: var(--weight-semibold);
   min-height: var(--control-height-lg);
-  padding: 10px 18px;
+  padding: 9px 18px;
 }
 
 .dns-submit:disabled {
@@ -340,11 +390,16 @@
   color: var(--color-text);
   font-family: var(--font-display);
   font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
   letter-spacing: var(--tracking-display);
 }
 
+.dns-result-answer {
+  overflow-wrap: anywhere;
+}
+
 .dns-results-heading-row {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-5);
@@ -366,6 +421,19 @@
   outline: none;
 }
 
+.dns-result-controls a:hover,
+.dns-result-controls a:focus-visible {
+  color: var(--color-link);
+}
+
+.dns-lookup-tool .dns-result-controls button,
+.dns-lookup-tool .dns-result-controls a {
+  align-items: center;
+  display: inline-flex;
+  font-size: var(--text-body);
+  min-height: var(--control-height-lg);
+}
+
 .dns-result-site {
   align-items: center;
   display: flex;
@@ -374,7 +442,7 @@
 }
 
 .dns-site-favicon {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   flex: 0 0 32px;
   height: 32px;
   object-fit: contain;
@@ -399,7 +467,7 @@
 
 .dns-result-nav-item {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   font-family: var(--font-mono);
   font-size: var(--text-small);
   font-weight: var(--weight-semibold);
@@ -449,7 +517,7 @@
 .dns-warning-list,
 .dns-alias-summary,
 .dns-alias-variants {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   padding: var(--space-7) var(--space-8);
 }
 
@@ -497,11 +565,33 @@
   font-size: var(--text-small);
 }
 
-.dns-dnssec-summary {
+.dns-dnssec-status {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.dns-dnssec-status span,
+.dns-dnssec-status strong {
+  font-size: var(--text-small);
+}
+
+.dns-dnssec-status span {
+  color: var(--color-text-muted);
+}
+
+.dns-dnssec-status strong {
   color: var(--color-text);
-  line-height: var(--line-body);
-  margin: 0;
-  max-width: 820px;
+  font-family: var(--font-mono);
+}
+
+.dns-dnssec-status strong[data-tone="success"] {
+  color: var(--color-success-text);
+}
+
+.dns-dnssec-status strong[data-tone="warning"] {
+  color: var(--color-warning-text);
 }
 
 .dns-ttl-explanation {
@@ -564,7 +654,7 @@
 
 .dns-record-list {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   list-style: none;
   margin: 0;
   overflow: hidden;
@@ -589,6 +679,24 @@
 .dns-record-item[data-record-type="SOA"] {
   align-items: start;
   grid-template-columns: minmax(0, 1fr);
+}
+
+.dns-record-item-nameserver {
+  align-items: stretch;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.dns-nameserver-record-heading {
+  align-items: center;
+  display: flex;
+  gap: var(--space-6);
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.dns-nameserver-record-heading > code {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .dns-record-item[data-record-type="SOA"] .dns-record-meta {
@@ -657,7 +765,7 @@
 .dns-ttl-help {
   align-items: center;
   border: 1px solid var(--color-border-strong);
-  border-radius: 999px;
+  border-radius: 50%;
   color: var(--color-text-muted);
   cursor: help;
   display: inline-flex;
@@ -711,7 +819,7 @@
   align-items: center;
   background: transparent;
   border: 0;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text-muted);
   cursor: pointer;
   display: inline-flex;
@@ -776,7 +884,7 @@
 
 .dns-reference-content details {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
 }
 
 .dns-reference-content details > summary {
@@ -803,7 +911,7 @@
 
 .dns-inline-raw pre {
   background: var(--color-surface-2);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   font-size: var(--text-small);
   margin: 0;
   max-height: 520px;
@@ -845,7 +953,7 @@
 .dns-answer-path {
   background: var(--color-surface-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   display: grid;
   gap: var(--space-6);
   margin: var(--space-3) 0;
@@ -863,7 +971,7 @@
 .dns-answer-path > div code {
   background: var(--color-surface);
   border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-accent-text);
   padding: var(--space-3) var(--space-4);
 }
@@ -985,7 +1093,7 @@
   .dns-hub-main,
   .dns-lookup-main {
     gap: var(--space-11);
-    padding: var(--space-10) 22px 54px;
+    padding: var(--space-10) var(--container-gutter) 54px;
   }
 
   .dns-form-options,
@@ -1002,6 +1110,16 @@
 
   .dns-record-meta > span {
     text-align: left;
+  }
+
+  .dns-nameserver-record-heading {
+    align-items: start;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dns-nameserver-record-heading .dns-record-meta {
+    justify-content: space-between;
   }
 
   .dns-submit {

@@ -1,7 +1,18 @@
 "use client";
 
-import { Copy, RotateCcw } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 import { Fragment, useEffect, useRef, useState, type FormEvent } from "react";
+import {
+  ToolActionRow,
+  ToolButton,
+  ToolChoiceGroup,
+  ToolCopyAction,
+  ToolDisclosure,
+  ToolResultLead,
+  ToolStatus,
+  ToolTextArea,
+  toolOption,
+} from "@/app/tool-ui/tool-controls";
 import {
   buildDockerignoreCopySummary,
   evaluateDockerignore,
@@ -44,8 +55,8 @@ export function DockerignoreTester() {
   const [failed, setFailed] = useState(false);
   const rulesRef = useRef<HTMLTextAreaElement>(null);
   const pathsRef = useRef<HTMLTextAreaElement>(null);
-  const answerRef = useRef<HTMLHeadingElement>(null);
-  const failureRef = useRef<HTMLHeadingElement>(null);
+  const answerRef = useRef<HTMLElement>(null);
+  const failureRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (removeStateParameter()) {
@@ -113,120 +124,84 @@ export function DockerignoreTester() {
     rulesRef.current?.focus();
   };
 
-  const copyResults = async () => {
-    if (!result) return;
-    try {
-      await navigator.clipboard.writeText(buildDockerignoreCopySummary(result));
-      setStatus("Results copied");
-    } catch {
-      setStatus("Copy failed");
-    }
-  };
-
   return (
-    <section aria-label=".dockerignore tester inputs and results" className={styles.tool}>
+    <section aria-label=".dockerignore tester inputs and results" className={styles.tool} data-tool-workbench>
       <form className={styles.form} onSubmit={submit}>
-        <fieldset className={styles.sourceFieldset}>
-          <legend>Effective file</legend>
-          <div className={styles.choiceRow}>
-            <label className={styles.choice}>
-              <input
-                checked={sourceMode === "root"}
-                name="source-mode"
-                onChange={() => {
-                  setSourceMode("root");
-                  clearResult();
-                }}
-                type="radio"
-              />
-              <span>Root .dockerignore</span>
-            </label>
-            <label className={styles.choice}>
-              <input
-                checked={sourceMode === "dockerfile-specific"}
-                name="source-mode"
-                onChange={() => {
-                  setSourceMode("dockerfile-specific");
-                  clearResult();
-                }}
-                type="radio"
-              />
-              <span>Dockerfile-specific</span>
-            </label>
-          </div>
+        <div className={styles.sourceFieldset}>
+          <ToolChoiceGroup
+            label="Effective file"
+            onChange={(next) => {
+              setSourceMode(next as DockerignoreSourceMode);
+              clearResult();
+            }}
+            options={[toolOption("root", "Root .dockerignore"), toolOption("dockerfile-specific", "Dockerfile-specific")]}
+            value={sourceMode}
+          />
           <p className={styles.sourceNote}>
             {sourceMode === "root" ? "Tests the root file." : "This file replaces the root file."}
           </p>
-        </fieldset>
+        </div>
 
         <div className={styles.editors}>
-          <label className={styles.editor}>
-            <span>.dockerignore rules</span>
-            <textarea
-              aria-describedby={errors.rules ? "dockerignore-rules-error" : undefined}
-              aria-invalid={Boolean(errors.rules)}
+          <ToolTextArea
+              className={styles.editor}
+              error={errors.rules}
               autoCapitalize="none"
-              onChange={(event) => {
-                setRules(event.target.value);
+              inputRef={rulesRef}
+              label=".dockerignore rules"
+              onChange={(next) => {
+                setRules(next);
                 setErrors((current) => ({ ...current, rules: undefined }));
                 clearResult();
               }}
               placeholder={"node_modules\n*.log"}
-              ref={rulesRef}
+              rows={8}
               spellCheck={false}
               value={rules}
-            />
-            {errors.rules ? <span className={styles.error} id="dockerignore-rules-error">{errors.rules}</span> : null}
-          </label>
-          <label className={styles.editor}>
-            <span>Context-relative paths</span>
-            <textarea
-              aria-describedby={errors.paths ? "dockerignore-paths-error" : undefined}
-              aria-invalid={Boolean(errors.paths)}
+          />
+          <ToolTextArea
+              className={styles.editor}
+              error={errors.paths}
               autoCapitalize="none"
-              onChange={(event) => {
-                setPaths(event.target.value);
+              inputRef={pathsRef}
+              label="Context-relative paths"
+              onChange={(next) => {
+                setPaths(next);
                 setErrors((current) => ({ ...current, paths: undefined }));
                 clearResult();
               }}
               placeholder={"src/index.ts\ndebug.log"}
-              ref={pathsRef}
+              required
+              rows={8}
               spellCheck={false}
               value={paths}
-            />
-            {errors.paths ? <span className={styles.error} id="dockerignore-paths-error">{errors.paths}</span> : null}
-          </label>
+          />
         </div>
 
         <p className={styles.privacy}>Rules and paths stay in your browser.</p>
         <p className={styles.verdictNote}>Final rules decide Included or Excluded.</p>
-        {notice ? <p className={styles.notice}>{notice}</p> : null}
-        <div className={styles.formActions}>
-          <button className={styles.secondaryButton} onClick={loadExample} type="button">Load example</button>
-          <button className={styles.secondaryButton} onClick={reset} type="button">
+        {notice ? <ToolStatus>{notice}</ToolStatus> : null}
+        <ToolActionRow>
+          <ToolButton onPress={loadExample} type="button">Load example</ToolButton>
+          <ToolButton onPress={reset} type="button">
             <RotateCcw aria-hidden="true" size={18} /> Reset
-          </button>
-          <button className={styles.primaryButton} type="submit">Test patterns</button>
-        </div>
+          </ToolButton>
+          <ToolButton type="submit" variant="primary">Test patterns</ToolButton>
+        </ToolActionRow>
       </form>
 
       {failed ? (
-        <section className={styles.failure} role="alert">
-          <h2 ref={failureRef} tabIndex={-1}>Matcher failed</h2>
-          <button className={styles.secondaryButton} onClick={() => submit()} type="button">Try again</button>
+        <section className={styles.failure} ref={failureRef} role="alert" tabIndex={-1}>
+          <ToolStatus tone="danger">The matcher could not finish. Your inputs are still here.</ToolStatus>
+          <ToolButton onPress={() => submit()} type="button">Try again</ToolButton>
         </section>
       ) : null}
 
       {result ? (
-        <section className={styles.result}>
+        <section className={styles.result} ref={answerRef} tabIndex={-1}>
           <header className={styles.resultHeader}>
-            <div>
-              <h2 ref={answerRef} tabIndex={-1}>{answerFor(result)}</h2>
-              <p className={styles.counts}>Excluded {result.counts.excluded} · Included {result.counts.included}</p>
-            </div>
-            <button className={styles.secondaryButton} onClick={copyResults} type="button">
-              <Copy aria-hidden="true" size={18} /> Copy results
-            </button>
+            <ToolResultLead>{answerFor(result)}</ToolResultLead>
+            <ToolCopyAction label="Copy results" successLabel="Results copied" value={buildDockerignoreCopySummary(result)} />
           </header>
 
           <table className={styles.resultTable}>
@@ -249,8 +224,7 @@ export function DockerignoreTester() {
                   </tr>
                   <tr className={styles.traceRow}>
                     <td colSpan={3} data-label="Details">
-                    <details className={styles.trace}>
-                      <summary>Show trace</summary>
+                    {row.trace.length ? <div className={styles.trace}><ToolDisclosure label={`Show trace for ${row.rawPath}`}>
                       <table>
                         <thead><tr><th>Line</th><th>Rule</th><th>Match</th><th>State</th></tr></thead>
                         <tbody>
@@ -264,7 +238,7 @@ export function DockerignoreTester() {
                           ))}
                         </tbody>
                       </table>
-                    </details>
+                    </ToolDisclosure></div> : null}
                     </td>
                   </tr>
                 </Fragment>
@@ -272,8 +246,7 @@ export function DockerignoreTester() {
             </tbody>
           </table>
 
-          <details className={styles.diagnostics}>
-            <summary>Rule diagnostics</summary>
+          <div className={styles.diagnostics}><ToolDisclosure label="Rule diagnostics">
             <table>
               <thead><tr><th>Line</th><th>Source</th><th>Normalized</th><th>Status</th></tr></thead>
               <tbody>
@@ -287,7 +260,7 @@ export function DockerignoreTester() {
                 ))}
               </tbody>
             </table>
-          </details>
+          </ToolDisclosure></div>
           <p className={styles.provenance}>Moby {result.version} · Linux slash · {result.commit}</p>
         </section>
       ) : null}

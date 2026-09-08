@@ -1,0 +1,250 @@
+.tool,
+.form,
+.inventory,
+.result,
+.resultFocus,
+.resultRegion,
+.details,
+.groupRecords {
+  display: grid;
+  min-width: 0;
+}
+
+.tool {
+  gap: var(--space-7);
+  padding-block: var(--space-8);
+}
+
+.form,
+.result {
+  gap: var(--space-7);
+}
+
+.groupSize {
+  max-width: 24rem;
+}
+
+.inventory {
+  border-top: 1px solid var(--color-border);
+  gap: var(--space-5);
+  padding-top: var(--space-6);
+}
+
+.inventoryHeading h2,
+.resultRegion h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.inventoryHeading p,
+.regionHeading > span {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: var(--space-1) 0 0;
+}
+
+.emptyInventory {
+  align-items: center;
+  border-block: 1px solid var(--color-border);
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+  padding-block: var(--space-4);
+}
+
+.emptyInventory p,
+.inventoryError {
+  margin: 0;
+}
+
+.inventoryError {
+  color: var(--color-danger-text);
+}
+
+.driveEditor {
+  align-items: start;
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  min-width: 0;
+}
+
+.driveNumber {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  padding-top: calc(var(--space-6) + 10px);
+  white-space: nowrap;
+}
+
+.formActions > div {
+  justify-content: flex-start;
+}
+
+.resultFocus {
+  border-top: 1px solid var(--color-border);
+  outline: none;
+  padding-top: var(--space-8);
+}
+
+.resultFocus:focus-visible {
+  outline: 2px solid var(--color-accent-text);
+  outline-offset: 3px;
+}
+
+.answerHeader {
+  align-items: start;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: minmax(0, 1fr) 9rem;
+  min-width: 0;
+}
+
+.outputUnit {
+  min-width: 0;
+  padding-top: var(--space-4);
+}
+
+.resultRegion {
+  gap: var(--space-4);
+}
+
+.regionHeading {
+  align-items: baseline;
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+}
+
+.groupRecords {
+  display: none;
+  gap: var(--space-4);
+}
+
+.groupRecords dl {
+  border-block: 1px solid var(--color-border-strong);
+  margin: 0;
+}
+
+.groupRecords dl > div {
+  border-bottom: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  padding-block: var(--space-3);
+}
+
+.groupRecords dl > div:last-child {
+  border-bottom: 0;
+}
+
+.groupRecords dt,
+.groupRecords dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.groupRecords dt {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+}
+
+.groupRecords dd {
+  font-family: var(--font-mono);
+}
+
+.details {
+  gap: var(--space-5);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.details > code {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  padding: var(--space-3);
+  white-space: normal;
+}
+
+.details ul {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding-inline-start: var(--space-6);
+}
+
+.sources {
+  line-height: var(--line-body);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.sources a {
+  color: var(--color-link);
+}
+
+@media (max-width: 760px) {
+  .answerHeader {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .outputUnit {
+    max-width: 9rem;
+    padding-top: 0;
+  }
+
+  .groupTable {
+    display: none;
+  }
+
+  .groupRecords {
+    display: grid;
+  }
+}
+
+@media (max-width: 520px) {
+  .tool {
+    padding-block: var(--space-7);
+  }
+
+  .form,
+  .result {
+    gap: var(--space-6);
+  }
+
+  .driveEditor {
+    gap: var(--space-2);
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .driveNumber {
+    padding-top: 0;
+  }
+
+  .emptyInventory {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .regionHeading {
+    align-items: start;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .formActions > div {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .formActions button {
+    width: 100%;
+  }
+}

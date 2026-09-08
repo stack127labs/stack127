@@ -1,29 +1,21 @@
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { getRequiredToolPage } from "@/lib/tool-pages";
 import { ShieldCheck } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { PageTitleIcon } from "../../../page-title-icon";
-import { PageHeader } from "../../../page-header";
 import { PageCanvas } from "../../../page-canvas";
-import { NfsFirewallRulesGuide } from "./nfs-firewall-rules-guide";
 import { NfsFirewallRulesPlanner } from "./nfs-firewall-rules-planner";
 
-export default function NfsFirewallRulesPage() {
+export default async function NfsFirewallRulesPage() {
+  const toolPage = await getRequiredToolPage("nfs-firewall-rules");
   return (
     <AppShell mainLabel="NFS Firewall Rules Planner">
       <PageCanvas>
-        <PageHeader>
-          <h1>
-            <PageTitleIcon><ShieldCheck strokeWidth={2.2} /></PageTitleIcon>{" "}
-            NFS Firewall <mark>Rules Planner</mark>
-          </h1>
-          <p>
-            Build a reviewable inbound-listener plan for one Linux NFS server or client. Choose the
-            NFS version, peer CIDR, and firewall, then enter any locally verified listener ports the
-            selected branch needs. The calculation runs in this browser and does not inspect your
-            hosts or apply rules.
-          </p>
-        </PageHeader>
+        <ToolPageHeader
+          icon={<ShieldCheck strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
         <NfsFirewallRulesPlanner />
-        <NfsFirewallRulesGuide />
+        <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </AppShell>
   );

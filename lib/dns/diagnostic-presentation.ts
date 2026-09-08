@@ -29,7 +29,7 @@ export function groupDnsSources(sources: DnsSourceAnswer[]) {
 }
 
 function soaKey(observation: SoaObservation) {
-  if (!observation.soa) return `error|${observation.server.hostname}|${observation.error}`;
+  if (!observation.soa) return `error|${observation.server.hostname}|${observation.authoritative}|${observation.error}`;
   const soa = observation.soa;
   return [
     observation.server.hostname,

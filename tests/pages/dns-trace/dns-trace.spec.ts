@@ -106,7 +106,7 @@ test("DNS Trace Explorer renders a genuine root-to-answer path in simple languag
   await expect(page.getByRole("radio", { name: "A", exact: true })).toBeChecked();
   await expect(page.getByLabel("Resolver")).toHaveCount(0);
   await expect(page.getByText("All", { exact: true })).toHaveCount(0);
-  await expect(page.locator(".dns-reference-content > section > h2")).toHaveText([
+  await expect(page.locator("article h2")).toHaveText([
     "How a DNS trace works",
     "What each step tells you",
     "Where a DNS trace can stop",
@@ -116,23 +116,37 @@ test("DNS Trace Explorer renders a genuine root-to-answer path in simple languag
   await page.getByLabel("Domain or hostname").fill("www.example.com");
   await page.getByRole("button", { name: "Trace DNS" }).click();
 
-  await expect(page.getByRole("heading", { name: "www.example.com" })).toBeVisible();
-  await expect(page.getByText("The trace took 3 steps and 84 ms. The last response was authoritative and returned NOERROR.")).toBeVisible();
+  await expect(page.getByText("The trace reached an authoritative A answer for www.example.com at ns1.example.com.", { exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "www.example.com" })).toHaveCount(0);
+  await expect(page.getByText(/The trace took 3 steps/)).toHaveCount(0);
   await expect(page.locator('[data-trace-step]')).toHaveCount(3);
   await expect(page.locator('[data-trace-step="root"]')).toContainText("root nameserver pointed us");
-  await expect(page.locator('[data-trace-step="root"]')).toContainText("We asked a.root-servers.net at 198.41.0.4 for A on www.example.com. It replied in 14 ms.");
+  await expect(page.locator('[data-trace-step="root"]')).toContainText("Server");
+  await expect(page.locator('[data-trace-step="root"]')).toContainText("a.root-servers.net");
+  await expect(page.locator('[data-trace-step="root"]')).toContainText("Question");
+  await expect(page.locator('[data-trace-step="root"]')).toContainText("www.example.com A");
+  await expect(page.locator('[data-trace-step="root"]')).toContainText("NOERROR, not authoritative, 14 ms");
   await expect(page.locator('[data-trace-step="tld"]')).toContainText(".com nameserver pointed us");
   await expect(page.locator('[data-trace-step="authoritative"]')).toContainText("returned the A record");
-  await expect(page.getByText("93.184.216.34", { exact: true })).toBeVisible();
+  await expect(page.getByRole("table", { name: "Answer records from step 3" })).toContainText("93.184.216.34");
   const rootStep = page.locator('[data-trace-step="root"]');
+  const referralNameservers = rootStep.getByRole("heading", { name: "Nameservers in the referral" }).locator("..");
   await expect(rootStep.getByText("Glue from this referral", { exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "Copy trace" })).toHaveCount(1);
   await expect(rootStep.getByRole("button", { name: "Show all 5 nameservers" })).toBeVisible();
   await expect(rootStep.getByText("e.gtld-servers.net", { exact: true })).toHaveCount(0);
+  const rootGlue = rootStep.getByRole("table", { name: "Glue records from step 1" });
+  await expect(rootGlue.getByText("e.gtld-servers.net", { exact: true })).toHaveCount(0);
+  await expect(rootStep.getByRole("button", { name: "Show all 5 glue addresses" })).toBeVisible();
+  await rootStep.getByRole("button", { name: "Show all 5 glue addresses" }).click();
+  await expect(rootGlue.getByText("e.gtld-servers.net", { exact: true })).toBeVisible();
+  await expect(rootStep.getByRole("button", { name: "Show fewer glue addresses" })).toBeVisible();
   await rootStep.getByRole("button", { name: "Show all 5 nameservers" }).click();
-  await expect(rootStep.getByText("e.gtld-servers.net", { exact: true })).toBeVisible();
+  await expect(referralNameservers.getByText("e.gtld-servers.net", { exact: true })).toBeVisible();
   await expect(rootStep.getByRole("button", { name: "Show fewer nameservers" })).toBeVisible();
-  await expect(page.locator('[data-trace-step] details')).toHaveCount(3);
+  await expect(page.getByRole("button", { name: "Raw response from this step" })).toHaveCount(3);
+  await expect(page.getByText("Checked", { exact: true })).toHaveCount(1);
+  await expect(page.getByText("Total duration", { exact: true })).toHaveCount(1);
   await expect(page.getByText(/health score/i)).toHaveCount(0);
   await expect(page.getByText(/globally propagated/i)).toHaveCount(0);
 });
@@ -147,6 +161,96 @@ test("query-param trace states prefill the question and remain noindex", async (
     "href",
     "https://stack127.com/dns-trace",
   );
+  await expect(page).toHaveURL(/\/dns-trace\?name=mail\.example\.com&type=MX$/);
+});
+
+test("blank input focuses one required error and a selected type drives the request", async ({ page }) => {
+  let requestBody: unknown;
+  await page.route("**/api/dns/trace", async (route) => {
+    requestBody = route.request().postDataJSON();
+    await route.fulfill({ contentType: "application/json", json: fixture, status: 200 });
+  });
+  await page.goto("/dns-trace");
+  const input = page.getByRole("textbox", { name: /Domain or hostname/ });
+  await page.getByRole("button", { name: "Trace DNS" }).click();
+  await expect(input).toBeFocused();
+  await expect(input).toHaveAttribute("aria-invalid", "true");
+  await expect(page.getByText("Enter a domain or hostname.", { exact: true })).toHaveCount(1);
+
+  await input.fill("mail.example.com");
+  await page.getByText("MX", { exact: true }).click();
+  await page.getByRole("button", { name: "Trace DNS" }).click();
+  expect(requestBody).toEqual({ name: "mail.example.com", recordType: "MX" });
+  await expect(page).toHaveURL(/\/dns-trace$/);
+});
+
+test("a later trace clears stale evidence while loading and after request failure", async ({ page }) => {
+  let requestCount = 0;
+  let releaseSecond!: () => void;
+  const secondResponse = new Promise<void>((resolve) => { releaseSecond = resolve; });
+  await page.route("**/api/dns/trace", async (route) => {
+    requestCount += 1;
+    if (requestCount === 1) {
+      await route.fulfill({ contentType: "application/json", json: fixture, status: 200 });
+      return;
+    }
+    await secondResponse;
+    await route.fulfill({
+      contentType: "application/json",
+      json: { error: { message: "The DNS trace took too long and was stopped safely." } },
+      status: 504,
+    });
+  });
+
+  await page.goto("/dns-trace");
+  const input = page.getByRole("textbox", { name: /Domain or hostname/ });
+  await input.fill("www.example.com");
+  await page.getByRole("button", { name: "Trace DNS" }).click();
+  await expect(page.locator("[data-dns-trace-result]")).toBeVisible();
+
+  await input.fill("failed.example");
+  await page.getByText("MX", { exact: true }).click();
+  await page.getByRole("button", { name: "Trace DNS" }).click();
+  await expect(page.locator("[data-dns-trace-result]")).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Tracing DNS..." })).toBeDisabled();
+  await expect(page.getByText("Tracing DNS...", { exact: true })).toHaveCount(2);
+
+  releaseSecond();
+  await expect(page.getByText("The DNS trace took too long and was stopped safely.", { exact: true })).toHaveCount(1);
+  await expect(input).toHaveValue("failed.example");
+  await expect(page.getByRole("radio", { name: "MX", exact: true })).toBeChecked();
+  await expect(page.locator("[data-dns-trace-result]")).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Trace DNS" })).toBeEnabled();
+});
+
+test("alias, no-record, and NXDOMAIN traces use one truthful result sentence", async ({ page }) => {
+  const responses = [
+    {
+      ...fixture,
+      finalName: "edge.example.net",
+      steps: fixture.steps.map((step, index) => index === fixture.steps.length - 1
+        ? { ...step, questionName: "edge.example.net", answerRecords: [{ ...step.answerRecords[0], ownerName: "edge.example.net" }] }
+        : step),
+    },
+    { ...fixture, query: { ...fixture.query, recordType: "MX" }, outcome: "no_answer", finalRecords: [], steps: fixture.steps.map((step, index) => index === fixture.steps.length - 1 ? { ...step, requestedType: "MX", outcome: "no_answer", answerRecords: [] } : step) },
+    { ...fixture, query: { ...fixture.query, recordType: "MX" }, outcome: "nxdomain", finalName: "missing.example.com", finalRecords: [], steps: fixture.steps.map((step, index) => index === fixture.steps.length - 1 ? { ...step, requestedType: "MX", outcome: "nxdomain", answerRecords: [], responseCode: "NXDOMAIN" } : step) },
+  ];
+  await page.route("**/api/dns/trace", (route) => route.fulfill({ contentType: "application/json", json: responses.shift(), status: 200 }));
+  await page.goto("/dns-trace");
+  const input = page.getByRole("textbox", { name: /Domain or hostname/ });
+  await input.fill("www.example.com");
+
+  await page.getByRole("button", { name: "Trace DNS" }).click();
+  await expect(page.getByText("The trace followed www.example.com to edge.example.net and reached an authoritative A answer at ns1.example.com.", { exact: true })).toBeVisible();
+
+  await page.getByText("MX", { exact: true }).click();
+  await page.getByRole("button", { name: "Trace DNS" }).click();
+  await expect(page.getByText("The trace reached ns1.example.com, but it returned no MX record for www.example.com.", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Check the nameserver delegation" })).toHaveCount(0);
+
+  await page.getByRole("button", { name: "Trace DNS" }).click();
+  await expect(page.getByText("The authoritative nameserver ns1.example.com says missing.example.com does not exist.", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Check the nameserver delegation" })).toHaveCount(0);
 });
 
 test("a trace that stops at the delegation points to the nameserver checker", async ({ page }) => {
@@ -158,6 +262,8 @@ test("a trace that stops at the delegation points to the nameserver checker", as
   await page.goto("/dns-trace");
   await page.getByLabel("Domain or hostname").fill("www.example.com");
   await page.getByRole("button", { name: "Trace DNS" }).click();
+  await expect(page.getByText("The trace stopped at .com nameserver because no delegated nameserver answered.", { exact: true })).toBeVisible();
+  await expect(page.getByText("No delegated nameserver answered.", { exact: true })).toHaveCount(0);
   await expect(page.getByRole("link", { name: "Check the nameserver delegation" })).toHaveAttribute("href", "/nameserver-checker?name=www.example.com");
 });
 

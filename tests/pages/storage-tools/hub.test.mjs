@@ -14,68 +14,68 @@ const migrationPath = new URL(
 const expectedStorageTools = [
   {
     href: "/raid-calculator",
-    name: "RAID Capacity and Level Explorer",
+    name: "RAID calculator",
     sidebarLabel: "RAID calculator",
   },
   {
     href: "/zfs-capacity-calculator",
-    name: "ZFS Pool Capacity Calculator",
+    name: "ZFS capacity calculator",
     sidebarLabel: "ZFS calculator",
   },
   {
     href: "/zfs-padding-calculator",
-    name: "ZFS Block Size and Padding Calculator",
+    name: "ZFS padding calculator",
     sidebarLabel: "ZFS padding",
   },
   {
     href: "/raidz-expansion-planner",
-    name: "RAIDZ Expansion Planner",
+    name: "RAIDZ expansion planner",
     sidebarLabel: "RAIDZ expansion",
   },
   {
     href: "/shr-calculator",
-    name: "Synology SHR Capacity Calculator",
+    name: "SHR calculator",
     sidebarLabel: "SHR calculator",
   },
   {
     href: "/unraid-calculator",
-    name: "Unraid Main Array Calculator",
+    name: "Unraid calculator",
     sidebarLabel: "Unraid calculator",
   },
   {
     href: "/snapraid-mergerfs-planner",
-    name: "SnapRAID and mergerfs Config Planner",
+    name: "SnapRAID and mergerfs planner",
     sidebarLabel: "SnapRAID and mergerfs",
   },
   {
     href: "/drive-reliability",
-    name: "Drive Reliability Explorer",
+    name: "Drive reliability explorer",
     sidebarLabel: "Drive reliability",
   },
   {
     href: "/rebuild-calculator",
-    name: "Rebuild Window and Read-Error Exposure Calculator",
+    name: "Rebuild exposure calculator",
     sidebarLabel: "Rebuild exposure",
   },
   {
     href: "/ceph-capacity-calculator",
-    name: "Ceph Capacity and Failure-Domain Planner",
+    name: "Ceph capacity planner",
     sidebarLabel: "Ceph capacity",
   },
   {
     href: "/storage-growth-planner",
-    name: "Storage Growth and TCO Planner",
+    name: "Storage growth planner",
     sidebarLabel: "Storage growth",
   },
   {
     href: "/storage-layout-advisor",
-    name: "Storage Layout Advisor",
+    name: "Storage layout advisor",
     sidebarLabel: "Layout advisor",
   },
 ];
 
 test("the published storage hub lists all completed calculators", () => {
-  const hubHrefs = [...page.matchAll(/<Link className=\{styles\.toolLink\} href="([^"]+)">/g)].map(
+  const hubHrefs = [...page.matchAll(/href: "([^"]+)",/g)].map(
     (match) => match[1],
   );
   const availableToolsBlock = sidebar.match(
@@ -100,7 +100,7 @@ test("the published storage hub lists all completed calculators", () => {
   assert.equal(new Set(sidebarHrefs).size, 12);
 
   for (const tool of expectedStorageTools) {
-    assert.match(page, new RegExp(`<strong>${tool.name}</strong>`));
+    assert.match(page, new RegExp(`name: "${tool.name}"`));
     assert.match(sidebar, new RegExp(`label: "${tool.sidebarLabel}"`));
   }
 });

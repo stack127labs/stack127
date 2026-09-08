@@ -1,399 +1,121 @@
-.guide {
-  max-width: var(--measure-prose);
-  padding-block: var(--space-5) var(--space-8);
-  width: 100%;
-}
-
 .tool {
   min-width: 0;
-  border: 1.5px solid var(--color-border-strong);
-  border-radius: var(--radius-xl);
-  background: var(--color-surface);
-  overflow: hidden;
 }
 
-.formSection,
-.actions,
+.form,
 .result,
-.noResult,
-.shareRow {
+.noEligible {
+  display: grid;
+  gap: var(--space-7);
   min-width: 0;
   padding: var(--space-7);
 }
 
-.formSection + .formSection,
-.actions,
-.result,
-.noResult,
-.shareRow {
-  border-top: 1px solid var(--color-border);
+.form > *,
+.result > *,
+.goalGrid > *,
+.driveEditor > *,
+.topologyGroup > * {
+  min-width: 0;
 }
 
-.sectionHeading,
-.resultLead,
-.targetRow,
-.shareRow,
-.actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.inventorySection,
+.resultSection {
+  display: grid;
   gap: var(--space-4);
+  min-width: 0;
 }
 
 .sectionHeading {
-  margin-bottom: var(--space-5);
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: space-between;
 }
 
 .sectionHeading h2,
-.sectionHeading h3,
-.resultLead h2,
-.noResult h2 {
-  margin: 0;
+.inventorySection h2,
+.resultSection h2,
+.resultHeading,
+.noEligible h2 {
   font-family: var(--font-display);
   font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
   line-height: var(--line-heading);
+  margin: 0;
 }
 
 .sectionHeading span,
-.resultMeta,
-.resultChoice label,
-.modelNote,
-.status {
+.driveNumber,
+.topologyGroup header span {
   color: var(--color-text-muted);
   font-family: var(--font-mono);
   font-size: var(--text-small);
 }
 
-.driveList {
+.driveEditor {
+  align-items: start;
   display: grid;
-  gap: var(--space-4);
+  gap: var(--space-3);
+  grid-template-columns: 2.25rem minmax(0, 1fr);
   min-width: 0;
 }
 
-.driveRow {
-  display: grid;
-  gap: var(--space-2);
-  min-width: 0;
-}
-
-.driveRow > label,
-.targetRow > label,
-.formSection fieldset legend {
-  font-weight: var(--weight-semibold);
-}
-
-.driveControls {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 7rem auto;
+.driveNumber {
   align-items: center;
-  gap: var(--space-2);
-  min-width: 0;
-}
-
-.tool input,
-.tool select,
-.tool button {
+  display: flex;
   min-height: 44px;
-  border-radius: var(--radius-lg);
-  font: inherit;
 }
 
-.tool input,
-.tool select {
-  min-width: 0;
-  border: 1px solid var(--color-border-strong);
-  background: var(--color-bg);
-  color: var(--color-text);
-  padding: 0 var(--space-3);
+.goalGrid {
+  align-items: start;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.tool button {
-  cursor: pointer;
-  padding: 0 var(--space-4);
-  font-weight: var(--weight-semibold);
+.result,
+.noEligible {
+  border-top: 1px solid var(--color-border-strong);
 }
 
-.tool button:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-.tool button:focus-visible,
-.tool input:focus-visible,
-.tool select:focus-visible,
-.tool h2:focus-visible {
+.resultHeading:focus-visible,
+.noEligible h2:focus-visible {
   outline: var(--focus-ring);
   outline-offset: 2px;
 }
 
-.primaryButton {
-  border: 1px solid var(--color-accent);
-  background: var(--color-accent);
-  color: var(--color-accent-contrast);
-}
-
-.secondaryButton {
-  border: 1px solid var(--color-border-strong);
-  background: var(--color-surface);
-  color: var(--color-text);
-}
-
-.secondaryButton:hover {
-  background: var(--color-surface-2);
-}
-
-.removeButton {
-  border: 0;
-  background: transparent;
-  color: var(--color-danger-text);
-}
-
-.removeButton:hover {
-  background: var(--color-surface-2);
-}
-
-.fieldError {
+.emptyAlternatives,
+.boundary,
+.noEligible p {
+  line-height: var(--line-body);
   margin: 0;
-  color: var(--color-danger-text);
-  font-size: var(--text-small);
-}
-
-.formSection fieldset {
-  min-width: 0;
-  border: 0;
-  margin: 0 0 var(--space-6);
-  padding: 0;
-}
-
-.formSection fieldset:last-of-type {
-  margin-bottom: var(--space-5);
-}
-
-.formSection fieldset legend {
-  margin-bottom: var(--space-3);
-}
-
-.choiceRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  min-width: 0;
-}
-
-.choice {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  gap: var(--space-2);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 0 var(--space-3);
-}
-
-.choice:has(input:checked) {
-  border-color: var(--color-accent-text);
-  color: var(--color-accent-text);
-}
-
-.choice input {
-  min-height: auto;
-  accent-color: var(--color-accent);
-}
-
-.targetRow {
-  justify-content: flex-start;
-}
-
-.targetRow select {
-  width: 6rem;
-}
-
-.actions {
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-
-.status {
-  min-height: 1.4em;
-  padding: 0 var(--space-7) var(--space-4);
-}
-
-.resultLead {
-  align-items: flex-start;
-}
-
-.resultLead h2 {
-  max-width: 28ch;
-}
-
-.resultAnswer {
-  margin: var(--space-4) 0 var(--space-1);
-  font-size: 1.35rem;
-}
-
-.resultAnswer strong {
-  font-family: var(--font-mono);
-  font-size: 1.45rem;
-}
-
-.resultMeta,
-.fitReason,
-.modelNote {
-  margin: 0;
-}
-
-.fitReason {
-  margin-top: var(--space-3);
-}
-
-.resultChoice {
-  display: grid;
-  gap: var(--space-2);
-  min-width: 6rem;
-}
-
-.resultChoice select {
-  width: 6rem;
-}
-
-.resultRule {
-  border-top: 1px dashed var(--color-border);
-  margin: 0 var(--space-7);
-}
-
-.resultSection {
-  min-width: 0;
-  padding: var(--space-7) 0 0;
-}
-
-.resultSection .sectionHeading {
-  padding: 0 var(--space-7);
-}
-
-.tableWrap {
-  min-width: 0;
-  overflow: hidden;
-}
-
-.comparisonTable {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-}
-
-.comparisonTable th,
-.comparisonTable td {
-  min-width: 0;
-  border-top: 1px solid var(--color-border);
-  padding: var(--space-3) var(--space-7);
-  text-align: left;
-  vertical-align: top;
-  overflow-wrap: anywhere;
-}
-
-.comparisonTable thead th {
-  border-top: 1.5px solid var(--color-border-strong);
-  font-family: var(--font-display);
-  font-weight: var(--weight-bold);
-}
-
-.comparisonTable tbody th,
-.comparisonTable tbody td:not(:last-child) {
-  font-family: var(--font-mono);
-}
-
-.bestTag {
-  display: inline-block;
-  margin-left: var(--space-2);
-  color: var(--color-accent-text);
-  font-family: var(--font-sans);
-  font-size: var(--text-small);
-  font-weight: var(--weight-semibold);
-}
-
-.capacityBar {
-  display: flex;
-  min-height: 20px;
-  margin: 0 var(--space-7);
-  overflow: hidden;
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface-2);
-}
-
-.capacityUsable,
-.capacityRedundancy,
-.capacityMismatch {
-  min-width: 2px;
-}
-
-.capacityUsable {
-  background: var(--color-accent);
-}
-
-.capacityRedundancy {
-  background: var(--color-border-strong);
-}
-
-.capacityMismatch {
-  background: var(--color-text-muted);
-}
-
-.capacityValues {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-4);
-  margin: var(--space-4) var(--space-7) 0;
-}
-
-.capacityValues div {
-  min-width: 0;
-}
-
-.capacityValues dt {
-  color: var(--color-text-muted);
-  font-size: var(--text-small);
-}
-
-.capacityValues dd {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-2);
-  margin: var(--space-1) 0 0;
-  font-family: var(--font-mono);
-}
-
-.capacityValues dd span {
-  color: var(--color-text-muted);
-  font-size: var(--text-small);
+  max-width: var(--measure-prose);
 }
 
 .topology {
   display: grid;
   gap: var(--space-3);
-  padding: 0 var(--space-7);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
 }
 
 .topologyGroup {
-  min-width: 0;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-3);
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: var(--space-4);
 }
 
-.topologyLabel {
+.topologyGroup header {
+  align-items: baseline;
   display: flex;
   flex-wrap: wrap;
+  gap: var(--space-3);
   justify-content: space-between;
-  gap: var(--space-2);
-  margin-bottom: var(--space-3);
-}
-
-.topologyLabel span {
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
 }
 
 .topologyDrives {
@@ -402,159 +124,34 @@
   gap: var(--space-2);
 }
 
-.driveChip {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
+.topologyDrives span {
   border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
-  padding: 0 var(--space-3);
-  font-family: var(--font-mono);
-}
-
-.modelNote {
-  padding: var(--space-4) var(--space-7) 0;
-}
-
-.noResult h2 {
-  margin-bottom: var(--space-3);
-}
-
-.noResult p {
-  margin: 0;
-}
-
-.shareRow {
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.sharedUrl {
-  flex: 1 1 22rem;
-  max-width: 100%;
   font-family: var(--font-mono);
   font-size: var(--text-small);
-}
-
-.visuallyHidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  clip-path: inset(50%);
+  padding: var(--space-2) var(--space-3);
 }
 
 @media (max-width: 760px) {
-  .formSection,
-  .actions,
+  .form,
   .result,
-  .noResult,
-  .shareRow {
+  .noEligible {
     padding: var(--space-5);
   }
 
-  .status {
-    padding-right: var(--space-5);
-    padding-left: var(--space-5);
-  }
-
-  .resultRule {
-    margin-right: var(--space-5);
-    margin-left: var(--space-5);
-  }
-
-  .resultSection .sectionHeading,
-  .comparisonTable th,
-  .comparisonTable td,
-  .capacityBar,
-  .topology,
-  .modelNote {
-    padding-right: var(--space-5);
-    padding-left: var(--space-5);
-  }
-
-  .comparisonTable {
-    table-layout: auto;
-  }
-
-  .comparisonTable thead {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-  }
-
-  .comparisonTable,
-  .comparisonTable tbody,
-  .comparisonTable tr,
-  .comparisonTable th,
-  .comparisonTable td {
-    display: block;
-  }
-
-  .comparisonTable tr {
-    padding: var(--space-3) 0;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .comparisonTable tbody tr:first-child {
-    border-top: 1.5px solid var(--color-border-strong);
-  }
-
-  .comparisonTable th,
-  .comparisonTable td {
-    display: grid;
-    grid-template-columns: minmax(7rem, 42%) minmax(0, 1fr);
-    gap: var(--space-3);
-    border-top: 0;
-    padding-top: var(--space-1);
-    padding-bottom: var(--space-1);
-  }
-
-  .comparisonTable td::before {
-    color: var(--color-text-muted);
-    content: attr(data-label);
-    font-family: var(--font-sans);
-  }
-
-  .comparisonTable tbody th::before {
-    color: var(--color-text-muted);
-    content: attr(data-label);
-    font-family: var(--font-sans);
-    font-weight: var(--weight-regular);
-  }
-
-  .comparisonTable tbody th {
-    font-family: var(--font-sans);
-  }
-
-  .bestTag {
-    margin-left: 0;
+  .goalGrid,
+  .topology {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
-@media (max-width: 420px) {
-  .driveControls {
-    grid-template-columns: minmax(0, 1fr) 5.8rem;
+@media (max-width: 380px) {
+  .form,
+  .result,
+  .noEligible {
+    padding-inline: var(--space-4);
   }
 
-  .removeButton {
-    grid-column: 1 / -1;
-    justify-self: start;
-  }
-
-  .resultLead,
-  .targetRow {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .capacityValues {
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
+  .driveEditor {
+    grid-template-columns: 1.75rem minmax(0, 1fr);
   }
 }

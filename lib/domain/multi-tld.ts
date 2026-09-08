@@ -25,6 +25,7 @@ function rowFor(tld: string, domain: string, status: RdapFetchStatus, extra: Par
     detail: "",
     registrar: null,
     expiryDate: null,
+    sourceHost: null,
     fetchedAt: null,
     fromCache: false,
     ...extra,
@@ -112,6 +113,7 @@ export async function checkMultipleTlds(rawName: string, requestedTlds: string[]
       rows[index] = rowFor(tld, domain, result.status, {
         registrar,
         expiryDate,
+        sourceHost: coverage.url ? new URL(coverage.url).host : null,
         fetchedAt: result.fetchedAt,
         fromCache: result.fromCache,
       });

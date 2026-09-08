@@ -10,23 +10,28 @@ test.beforeEach(async ({ page }) => {
 
 test("generates a reviewable pair of files from the baseline inventory", async ({ page }) => {
   await page.getByRole("button", { name: "Check and generate" }).click();
-  await expect(page.getByRole("heading", { name: "Review both files before touching /etc." })).toBeVisible();
-  await expect(page.getByRole("region", { name: "Configuration checks" })).toBeVisible();
-  await expect(page.locator("pre").nth(0)).toContainText("parity /mnt/parity1/snapraid.parity");
-  await expect(page.locator("pre").nth(0)).toContainText("data d4 /mnt/disk4");
-  await expect(page.locator("pre").nth(1)).toContainText("/mnt/disk1:/mnt/disk2:/mnt/disk3:/mnt/disk4");
-  await expect(page.getByRole("heading", { name: "Review both files before touching /etc." })).toBeFocused();
+  const verdict = page.getByRole("heading", { name: "Configuration ready for review" });
+  await expect(verdict).toBeVisible();
+  await expect(page.getByText("4 disks · 32 TB", { exact: true })).toBeVisible();
+  await expect(page.getByText("1 disk · 12 TB", { exact: true })).toBeVisible();
+  await expect(page.getByText("2 copies", { exact: true })).toBeVisible();
+  await expect(page.getByRole("region", { name: "/etc/snapraid.conf" }).locator("pre")).toContainText("parity /mnt/parity1/snapraid.parity");
+  await expect(page.getByRole("region", { name: "/etc/snapraid.conf" }).locator("pre")).toContainText("data d4 /mnt/disk4");
+  await expect(page.getByRole("region", { name: "/etc/fstab mergerfs line" }).locator("pre")).toContainText("/mnt/disk1:/mnt/disk2:/mnt/disk3:/mnt/disk4");
+  await expect(verdict).toBeFocused();
+  await expect(page.getByText("Review both files before touching /etc.", { exact: true })).toHaveCount(0);
+  await expect(page.getByRole("region", { name: "Configuration checks" })).toHaveCount(0);
 });
 
 test("rejects smaller parity and focuses the marked capacity", async ({ page }) => {
-  const parityCapacity = page.locator("#parity-capacity-0");
+  const parityCapacity = page.getByRole("textbox", { name: "Parity disk 1 capacity", exact: true });
   await parityCapacity.fill("7");
   await expect(parityCapacity).toHaveValue("7");
   await page.getByRole("button", { name: "Check and generate" }).click();
   await expect(parityCapacity).toHaveAttribute("aria-invalid", "true");
   await expect(parityCapacity).toBeFocused();
-  await expect(parityCapacity).toHaveAttribute("aria-describedby", /parity-capacity-0-error/);
-  await expect(page.locator("[role='alert'][aria-live='polite']")).toContainText("Parity is smaller than data");
+  await expect(parityCapacity).toHaveAttribute("aria-describedby", /.+/);
+  await expect(page.getByText(/Parity is smaller than data/)).toHaveCount(1);
   await expect(page.locator("pre")).toHaveCount(0);
 });
 
@@ -40,9 +45,9 @@ test("collects content minimum errors without creating partial output", async ({
 
 test("keeps inventory actions separate and clears a stale result on edit", async ({ page }) => {
   await page.getByRole("button", { name: "Check and generate" }).click();
-  await expect(page.getByRole("heading", { name: "Review both files before touching /etc." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Configuration ready for review" })).toBeVisible();
   await page.getByLabel("Data disk 1 mount path").fill("/mnt/edited");
-  await expect(page.getByRole("heading", { name: "Review both files before touching /etc." })).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Configuration ready for review" })).toHaveCount(0);
   await page.getByRole("button", { name: "Add data disk" }).click();
   await expect(page.getByLabel("Data disk 5 mount path")).toBeVisible();
   await page.getByRole("button", { name: "Remove data disk 5" }).click();
@@ -61,7 +66,7 @@ test("keeps the minimum data, parity, and content rows available", async ({ page
 
 test("submits from the focused input and reset restores defaults", async ({ page }) => {
   await page.getByLabel("Mergerfs pool mount").press("Enter");
-  await expect(page.getByRole("heading", { name: "Review both files before touching /etc." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Configuration ready for review" })).toBeVisible();
   await page.getByRole("button", { name: "Reset" }).click();
   await expect(page.getByLabel("Data disk 1 mount path")).toBeFocused();
   await expect(page.getByLabel("Data disk 1 mount path")).toHaveValue("/mnt/disk1");
@@ -69,21 +74,52 @@ test("submits from the focused input and reset restores defaults", async ({ page
   await expect(page).toHaveURL(/snapraid-mergerfs-planner$/);
 });
 
-test("reports clipboard success and keeps code selectable when permission fails", async ({ page }) => {
+test("copies each generated artifact and keeps both code blocks selectable", async ({ page }) => {
   await page.addInitScript(() => {
     Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async (text: string) => { (window as typeof window & { copied?: string }).copied = text; } } });
   });
   await page.goto(route);
   await page.getByRole("button", { name: "Check and generate" }).click();
   await page.getByRole("button", { name: "Copy snapraid.conf" }).click();
-  await expect(page.getByText("snapraid.conf copied.", { exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "snapraid.conf copied" })).toBeVisible();
   expect(await page.evaluate(() => (window as typeof window & { copied?: string }).copied ?? "")).toContain("parity /mnt/parity1");
+  await page.getByRole("button", { name: "Copy fstab line" }).click();
+  await expect(page.getByRole("button", { name: "fstab line copied" })).toBeVisible();
+  expect(await page.evaluate(() => (window as typeof window & { copied?: string }).copied ?? "")).toContain("fuse.mergerfs");
+  await expect(page.getByRole("region", { name: "/etc/snapraid.conf" }).locator("pre")).toHaveAttribute("tabindex", "0");
+  await expect(page.getByRole("region", { name: "/etc/fstab mergerfs line" }).locator("pre")).toHaveAttribute("tabindex", "0");
+});
 
+test("keeps copy failure local to the selected artifact", async ({ page }) => {
+  await page.getByRole("button", { name: "Check and generate" }).click();
   await page.evaluate(() => {
-    Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("denied"); } } });
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: { writeText: async () => { throw new Error("denied"); } },
+    });
+    Object.defineProperty(document, "execCommand", {
+      configurable: true,
+      value: () => false,
+    });
   });
   await page.getByRole("button", { name: "Copy fstab line" }).click();
-  await expect(page.getByText("Copy failed. The code remains selectable above.", { exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Copy failed" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Copy snapraid.conf" })).toBeVisible();
+  await expect(page.getByRole("region", { name: "/etc/fstab mergerfs line" }).locator("pre")).toContainText("fuse.mergerfs");
+});
+
+test("keeps every output-driving setting visible and applies changes on submit", async ({ page }) => {
+  await expect(page.getByRole("radiogroup", { name: /Mergerfs policy/ })).toBeVisible();
+  await expect(page.getByRole("radiogroup", { name: /SnapRAID blocksize/ })).toBeVisible();
+  await expect(page.getByRole("checkbox", { name: "Include standard excludes" })).toBeVisible();
+  await page.getByText("Most free", { exact: true }).click();
+  await page.getByText("1024 KiB", { exact: true }).click();
+  await page.getByText("Include standard excludes", { exact: true }).click();
+  await page.getByRole("button", { name: "Check and generate" }).click();
+  await expect(page.getByRole("region", { name: "/etc/fstab mergerfs line" })).toContainText("category.create=mfs");
+  await expect(page.getByRole("region", { name: "/etc/snapraid.conf" })).toContainText("blocksize 1024");
+  await expect(page.getByRole("region", { name: "/etc/snapraid.conf" })).not.toContainText("exclude /lost+found/");
+  await expect(page).toHaveURL(/snapraid-mergerfs-planner$/);
 });
 
 test("has no page overflow for a populated result at narrow widths", async ({ page }) => {
@@ -97,8 +133,22 @@ test("has no page overflow for a populated result at narrow widths", async ({ pa
       expect((await button.boundingBox())?.height ?? 0, `small action at ${width}px`).toBeGreaterThanOrEqual(44);
     }
     await page.evaluate(() => document.documentElement.setAttribute("data-theme", "light"));
-    await expect(page.getByRole("heading", { name: "Review both files before touching /etc." })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Configuration ready for review" })).toBeVisible();
   }
+});
+
+test("contains the longest supported branch list on a 320px page", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 900 });
+  for (let index = 4; index < 42; index += 1) {
+    await page.getByRole("button", { name: "Add data disk" }).click();
+  }
+  await expect(page.getByText("42 / 42", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Check and generate" }).click();
+  const fstab = page.getByRole("region", { name: "/etc/fstab mergerfs line" });
+  await expect(fstab).toContainText("/mnt/disk42");
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  expect(overflow).toBeLessThanOrEqual(1);
+  expect(await fstab.locator("pre").locator("..").evaluate((node) => node.scrollWidth > node.clientWidth)).toBe(true);
 });
 
 test("does not serialize paths or use browser storage for the local calculation", async ({ page }) => {

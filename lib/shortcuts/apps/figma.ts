@@ -184,3 +184,5 @@ export const figma: AppShortcuts = {
     },
   ],
 };
+
+export default figma;

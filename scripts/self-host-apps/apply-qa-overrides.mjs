@@ -4,8 +4,10 @@ import { readFile } from "node:fs/promises";
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { appColumns, appColumnTypes } from "./lib/schema.mjs";
+import { guardPartialCorrection, guardInstallCorrection, mergeReviewedInstallOptions } from "./lib/reviewed-corrections.mjs";
+import { installMethods, installOptionsToRow } from "./lib/streamlined-storage.mjs";
 
-const editableColumns = appColumns.filter((column) => column !== "slug");
+const editableColumns = appColumns.filter((column) => column !== "slug" && column !== "data_source_urls");
 
 function recordsFromInput(input) {
   if (Array.isArray(input)) return input;
@@ -63,12 +65,12 @@ async function recordDataSources(client, appId, record, currentRow) {
         select array_agg(distinct url order by url)
         from unnest(coalesce(data_source_urls, '{}') || $2::text[]) as values(url)
       ), '{}'),
-      data_checked_at = now(),
-      data_confidence = coalesce(nullif($3, ''), data_confidence),
+      data_checked_at = case when $4 then data_checked_at else now() end,
+      data_confidence = case when $4 then data_confidence else coalesce(nullif($3, ''), data_confidence) end,
       updated_at = now()
       where id = $1
     `,
-    [appId, urls, record.confidence ?? "high"],
+    [appId, urls, record.confidence ?? "high", record.review_scope === "partial"],
   );
 }
 
@@ -81,15 +83,19 @@ async function applyRecord(client, record, dryRun) {
     return;
   }
 
-  const current = await client.query("select id, source_code_url, website_url from public.self_host_apps where slug = $1", [
+  const current = await client.query("select * from public.self_host_apps where slug = $1 for update", [
     record.slug,
   ]);
   if (current.rowCount === 0) throw new Error(`Missing app row: ${record.slug}`);
   const currentRow = current.rows[0];
   const appId = currentRow.id;
+  if (Object.hasOwn(record, "categories")) {
+    currentRow.categories = (await client.query("select category.slug from public.self_host_app_category_links link join public.self_host_app_categories category on category.id = link.category_id where link.app_id = $1 order by category.slug", [appId])).rows.map(row => row.slug);
+  }
+  guardPartialCorrection(record, currentRow);
 
   if (columns.length > 0) {
-    const values = [record.slug, ...columns.map((column) => record[column])];
+    const values = [record.slug, ...columns.map((column) => appColumnTypes[column] === "jsonb" ? JSON.stringify(record[column]) : record[column])];
     const assignments = columns
       .map((column, index) => `${column} = ${sqlValue(column, `$${index + 2}`)}`)
       .join(",\n          ");
@@ -108,6 +114,18 @@ async function applyRecord(client, record, dryRun) {
 
   if (Object.hasOwn(record, "categories")) {
     await replaceCategoryLinks(client, appId, record.categories);
+  }
+
+  if (record.install_options) {
+    const currentInstall = (await client.query("select * from public.self_host_app_install_options where app_id = $1 for update", [appId])).rows[0];
+    guardInstallCorrection(record, currentInstall?.options ?? []);
+    const options = mergeReviewedInstallOptions(currentInstall?.options ?? [], record.install_options, record.reviewed_install_methods);
+    const row = installOptionsToRow(options, { catalogSources: currentInstall?.catalog_sources ?? [], checkedAt: currentInstall?.checked_at ?? null });
+    if (row.options.length !== options.length) throw new Error(`${record.slug}: invalid install option`);
+    const columns = ["options", "catalog_sources", "source_urls", "checked_at", "docker_images", ...installMethods.map(method => `${method}_urls`)];
+    const fields = ["app_id", ...columns];
+    const values = [appId, ...columns.map(column => ["options", "catalog_sources"].includes(column) ? JSON.stringify(row[column]) : row[column])];
+    await client.query(`insert into public.self_host_app_install_options (${fields.join(", ")}) values (${fields.map((_, i) => `$${i + 1}`).join(", ")}) on conflict (app_id) do update set ${columns.map(column => `${column} = excluded.${column}`).join(", ")}, updated_at = now()`, values);
   }
 
   await recordDataSources(client, appId, record, currentRow);

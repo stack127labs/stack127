@@ -1,5 +1,9 @@
 # Brief: DNSSEC Chain Checker
 
+## September 6 content maintenance
+
+Keep the chain explanation and verdict table. Distinguish signature validity windows from DNSKEY fields, link the record definitions, and avoid website-safety claims. The database remains the only live prose source. Keep the current tool behavior and publication state unchanged.
+
 ## Who is here
 
 A domain or DNS operator needs a cryptographic verdict for one answer or denial proof, not a guess from a resolver flag.

@@ -12,13 +12,13 @@ The primary stack127 development workspace is now the homelab checkout:
 
 The private source-of-truth repository is `stack127labs/stack127`, using the `main` branch. Normal work should start on the homelab, pull from GitHub before editing, and push reviewed commits back to GitHub. The Mac checkout is an inactive fallback at `/Users/ravitejaknts/projects/Stack127`; it should not receive independent edits because that would create two working copies that can diverge.
 
-External repositories are independent checkouts beside the private workspace. The BaseBuddy website checkout is at:
+stack127 repos use independent checkouts beside the private workspace. The BaseBuddy website checkout is at:
 
 ```text
 /home/teja/projects/basebuddy-website
 ```
 
-It tracks `stack127labs/basebuddy-website` on branch `self-host-dev`. Its files and Git history are separate from the private stack127 repository. BaseBuddy app, DNS Tools, and Stack127 datasets are also separate checkouts when needed. See `stack127_docs/public-repositories.md` for the complete registry and clone workflow.
+It tracks `stack127labs/basebuddy-website` on branch `self-host-dev`. Its files and Git history are separate from the private stack127 repository. BaseBuddy app, DNS Tools, and stack127 datasets are also separate checkouts when needed. See `stack127_docs/stack127-repos.md` for the complete registry and clone workflow.
 
 ## Git and homelab setup
 
@@ -26,7 +26,7 @@ It tracks `stack127labs/basebuddy-website` on branch `self-host-dev`. Its files 
 - The homelab checkout tracks `origin/main` and had no tracked changes after synchronization.
 - GitHub CLI was already authenticated on the homelab. `gh auth setup-git` connected that existing authentication to Git operations, so non-interactive pulls work.
 - Cleanup commit `199ed8b` added the reproducible managed-development seed and the database-function security migration.
-- External repositories are not nested under the private checkout and do not appear in its Git status. Clone them separately under `/home/teja/projects/<repo-name>` only when working on them.
+- stack127 repos are not nested under the private checkout and do not appear in its Git status. Clone them separately under `/home/teja/projects/<repo-name>` only when working on them.
 
 ## Environment files
 

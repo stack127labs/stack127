@@ -1,0 +1,130 @@
+import { combo } from "../build.ts";
+import type { AppShortcuts } from "../types.ts";
+
+const platforms = ["windows", "macos", "linux"] as const;
+
+export const krita: AppShortcuts = {
+  slug: "krita",
+  name: "Krita",
+  category: "Digital painting",
+  platforms: [...platforms],
+  intro:
+    "Krita's default menu, selection, layer, canvas, brush, and text-editor shortcuts keep drawing work close to the keyboard.",
+  versionContext:
+    "Defaults from the Krita Manual 5.3.0, checked September 1, 2026. Krita lets users replace the default scheme, export custom profiles, and assign alternate shortcuts; this page records the documented defaults. The manual publishes the same Ctrl-based command notation for the cross-platform commands below.",
+  sourceUrl: "https://docs.krita.org/en/reference_manual/preferences/shortcut_settings.html",
+  sourceLabel: "Krita Manual 5.3.0 shortcut settings",
+  lastVerified: "2026-09-01",
+  groups: [
+    {
+      id: "files",
+      title: "Files and application",
+      intro: "Create, open, save, close, and quit Krita documents with the default file-menu commands.",
+      shortcuts: [
+        { id: "new", action: "Create a new document", keys: combo(platforms, ["Ctrl", "N"]) },
+        { id: "open", action: "Open a document", keys: combo(platforms, ["Ctrl", "O"]) },
+        { id: "save", action: "Save the current document", keys: combo(platforms, ["Ctrl", "S"]) },
+        { id: "save-incremental", action: "Save an incremental version", keys: combo(platforms, ["Ctrl", "Alt", "S"]) },
+        { id: "save-backup", action: "Save an incremental backup", keys: combo(platforms, ["F4"]) },
+        { id: "close", action: "Close the current document", keys: combo(platforms, ["Ctrl", "W"]) },
+        { id: "close-all", action: "Close all documents", keys: combo(platforms, ["Ctrl", "Shift", "W"]) },
+        { id: "quit", action: "Quit Krita", keys: combo(platforms, ["Ctrl", "Q"]) },
+      ],
+    },
+    {
+      id: "selection-and-clipboard",
+      title: "Selection and clipboard",
+      intro: "Copy, cut, paste, and manage selections. The selection source documents Insert and Delete as alternatives where provided.",
+      shortcuts: [
+        {
+          id: "copy",
+          action: "Copy the selection",
+          keys: platforms.map((platform) => ({ platform, keys: ["Ctrl", "C"], alternatives: [["Ctrl", "Ins"]] })),
+        },
+        {
+          id: "paste",
+          action: "Paste the clipboard",
+          keys: platforms.map((platform) => ({ platform, keys: ["Ctrl", "V"], alternatives: [["Shift", "Ins"]] })),
+        },
+        {
+          id: "cut",
+          action: "Cut the selection",
+          keys: platforms.map((platform) => ({ platform, keys: ["Ctrl", "X"], alternatives: [["Shift", "Del"]] })),
+        },
+        { id: "copy-merged", action: "Copy from all layers", keys: combo(platforms, ["Ctrl", "Shift", "C"]) },
+        { id: "copy-new-layer", action: "Copy the selection to a new layer", keys: combo(platforms, ["Ctrl", "Alt", "J"]) },
+        { id: "cut-new-layer", action: "Cut the selection to a new layer", keys: combo(platforms, ["Ctrl", "Shift", "J"]) },
+        { id: "show-selection", action: "Show or hide the selection", keys: combo(platforms, ["Ctrl", "H"]) },
+        { id: "select-all", action: "Select all", keys: combo(platforms, ["Ctrl", "A"]) },
+        { id: "deselect", action: "Deselect all", keys: combo(platforms, ["Ctrl", "Shift", "A"]) },
+      ],
+    },
+    {
+      id: "layers",
+      title: "Layers",
+      intro: "Create, group, duplicate, and merge layers from the default Krita layer commands.",
+      shortcuts: [
+        { id: "duplicate", action: "Duplicate the selected layer", keys: combo(platforms, ["Ctrl", "J"]) },
+        { id: "merge-down", action: "Merge with the layer below", keys: combo(platforms, ["Ctrl", "E"]) },
+        { id: "flatten", action: "Flatten the image", keys: combo(platforms, ["Ctrl", "Shift", "E"]) },
+        { id: "new-paint-layer", action: "Insert a new paint layer", keys: combo(platforms, ["Ins"]) },
+        { id: "new-group", action: "Create a layer group", keys: combo(platforms, ["Ctrl", "G"]) },
+      ],
+    },
+    {
+      id: "canvas-and-brush",
+      title: "Canvas and brush",
+      intro: "Change the canvas view, brush state, colors, and common image adjustments while painting.",
+      shortcuts: [
+        { id: "canvas-only", action: "Show canvas-only mode", keys: combo(platforms, ["Tab"]) },
+        { id: "full-screen", action: "Enter or exit full-screen mode", keys: combo(platforms, ["Ctrl", "Shift", "F"]) },
+        { id: "instant-preview", action: "Toggle instant preview", keys: combo(platforms, ["Shift", "L"]) },
+        { id: "soft-proofing", action: "Activate soft proofing", keys: combo(platforms, ["Ctrl", "Y"]) },
+        { id: "out-of-gamut", action: "Toggle out-of-gamut warnings", keys: combo(platforms, ["Ctrl", "Shift", "Y"]) },
+        { id: "mirror-view", action: "Mirror the canvas view", keys: combo(platforms, ["M"]) },
+        { id: "grid", action: "Show or hide the grid", keys: combo(platforms, ["Ctrl", "Shift", "'"]) },
+        { id: "zoom-in", action: "Zoom in", keys: combo(platforms, ["+"]) },
+        { id: "zoom-out", action: "Zoom out", keys: combo(platforms, ["-"]) },
+        { id: "zoom-100", action: "Set zoom to 100 percent", keys: combo(platforms, ["1"]) },
+        { id: "fit-canvas", action: "Fit the document in the canvas", keys: combo(platforms, ["2"]) },
+        { id: "fit-width", action: "Fit the document width in the canvas", keys: combo(platforms, ["3"]) },
+        { id: "eraser", action: "Toggle eraser mode", keys: combo(platforms, ["E"]) },
+        { id: "last-preset", action: "Switch between the last two presets", keys: combo(platforms, ["/"]) },
+        { id: "darker", action: "Make the active color darker", keys: combo(platforms, ["K"]) },
+        { id: "lighter", action: "Make the active color lighter", keys: combo(platforms, ["L"]) },
+        { id: "opacity-decrease", action: "Decrease brush opacity", keys: combo(platforms, ["I"]) },
+        { id: "opacity-increase", action: "Increase brush opacity", keys: combo(platforms, ["O"]) },
+        { id: "reset-colors", action: "Reset foreground and background colors", keys: combo(platforms, ["D"]) },
+        { id: "swap-colors", action: "Swap foreground and background colors", keys: combo(platforms, ["X"]) },
+        { id: "levels", action: "Open Levels adjustment", keys: combo(platforms, ["Ctrl", "L"]) },
+        { id: "curves", action: "Open Curves adjustment", keys: combo(platforms, ["Ctrl", "M"]) },
+        { id: "color-balance", action: "Open Color Balance adjustment", keys: combo(platforms, ["Ctrl", "B"]) },
+        { id: "invert", action: "Invert colors", keys: combo(platforms, ["Ctrl", "I"]) },
+      ],
+    },
+    {
+      id: "text-editor",
+      title: "Text editor",
+      intro: "When the vector text editor is active, use its documented editing, find, zoom, and text-formatting commands.",
+      shortcuts: [
+        { id: "text-save", action: "Save text edits", keys: combo(platforms, ["Ctrl", "S"]) },
+        { id: "text-close", action: "Close the text editor", keys: combo(platforms, ["Ctrl", "W"]) },
+        { id: "text-undo", action: "Undo the last text edit", keys: combo(platforms, ["Ctrl", "Z"]) },
+        { id: "text-redo", action: "Redo the last text edit", keys: combo(platforms, ["Ctrl", "Shift", "Z"]) },
+        { id: "text-find", action: "Find text", keys: combo(platforms, ["Ctrl", "F"]) },
+        { id: "text-next", action: "Find the next match", keys: combo(platforms, ["F3"]) },
+        { id: "text-previous", action: "Find the previous match", keys: combo(platforms, ["Shift", "F3"]) },
+        { id: "text-replace", action: "Find and replace text", keys: combo(platforms, ["Ctrl", "R"]) },
+        { id: "text-zoom-out", action: "Zoom out text", keys: combo(platforms, ["Ctrl", "-"]) },
+        { id: "text-zoom-in", action: "Zoom in text", keys: combo(platforms, ["Ctrl", "+"]) },
+        { id: "text-bold", action: "Bold selected text", keys: combo(platforms, ["Ctrl", "B"]) },
+        { id: "text-italic", action: "Italicize selected text", keys: combo(platforms, ["Ctrl", "I"]) },
+        { id: "text-underline", action: "Underline selected text", keys: combo(platforms, ["Ctrl", "U"]) },
+        { id: "text-superscript", action: "Apply superscript", keys: combo(platforms, ["Ctrl", "Shift", "P"]) },
+        { id: "text-subscript", action: "Apply subscript", keys: combo(platforms, ["Ctrl", "Shift", "B"]) },
+      ],
+    },
+  ],
+};
+
+export default krita;

@@ -1,10 +1,11 @@
 # Page families
 
-stack127 has six page families. They share the site shell, canvas, title treatment, reading
+stack127 has seven page families. They share the site shell, canvas, title treatment, reading
 rhythm, and design tokens. They do not pretend every kind of page has the same job.
 
-URLs stay short and flat. A tool can live at `/dns-lookup`, a catalog at `/cli-apps`, and a course
-at `/self-hosting-for-beginners`. Words such as `tools`, `catalogs`, or `courses` are not required
+URLs stay short and flat. A tool can live at `/dns-lookup`, a directory at `/cli-apps`, a catalog
+at `/dns-tools`, and a course at `/self-hosting-for-beginners`. Words such as `tools`, `directories`,
+`catalogs`, or `courses` are not required
 URL prefixes.
 
 Source ownership uses non-URL route groups:
@@ -12,7 +13,9 @@ Source ownership uses non-URL route groups:
 ```text
 app/(site)/(catalogs)/
 app/(site)/(courses)/
+app/(site)/(directories)/
 app/(site)/(legal)/
+app/(site)/(references)/
 app/(site)/(tools)/
 ```
 
@@ -31,13 +34,24 @@ read metadata, or understand a table.
 
 ## Catalogs
 
-Catalogs help someone compare and choose from many entries. Self-hosted apps, terminal apps,
-keyboard shortcuts, and software licenses are catalogs even though their best result formats differ.
+Catalogs combine stack127-owned pages in one place. `/dns-tools`, `/domain-tools`, and
+`/storage-tools` are catalogs because their entries lead to stack127 tools. A catalog organizes
+discovery but does not own the child pages or their URL namespace.
 
-Catalog routes and their shared controls live under `app/(site)/(catalogs)/`. Tool collection pages
-such as `/dns-tools` also belong here because their job is discovery, not calculation.
+Catalog routes live under `app/(site)/(catalogs)/`.
 
-- Use the shared catalog header, controls, spacing, and filter components.
+- Link to the canonical flat route for every included page.
+- Keep shared navigation and active states owned by the catalog when several pages use them.
+- Do not place third-party software, hardware records, courses, or stable fact tables here.
+
+## Directories
+
+Directories help someone find and compare third-party software or hardware. Self-hosted apps,
+terminal apps, cameras, coordinators, UPS models, and smart-home devices belong here.
+
+Directory routes and their shared controls live under `app/(site)/(directories)/`.
+
+- Use the shared directory header, controls, spacing, and filter components.
 - Use cards when each result has several facts and an identity of its own.
 - Use a table when people compare the same compact fields across many rows.
 - Keep filters in the sidebar on wide screens and in the existing drawer on small screens.
@@ -59,15 +73,22 @@ Tools help someone answer one concrete question. The title and introduction come
 by one clearly framed interface. Results remain in that frame or connect to it directly.
 Supporting guidance follows with the shared prose rhythm.
 
+Tool routes live under `app/(site)/(tools)/`. Their interactive system remains in code. Their title,
+introduction, and supporting Markdown live in `public.stack127_tool_pages` and render through the
+shared server content layer. Read `stack127_docs/tool-pages.md` before changing tool content or a
+tool version.
+
 Use neutral borders, calm background changes, and useful diagrams. Do not scatter inputs or results
 across unrelated cards. Do not show runtime, fixture, crawler, draft, registry, or deployment terms
 unless the tool itself is explicitly about those concepts.
 
 ## References
 
-References help someone retrieve or compare stable facts. Use prose for explanation, tables for
-repeated fields, and anchored sections for scanning. Keyboard shortcut tables and software license
-comparisons use this reference mode inside the catalog family.
+References help someone retrieve or compare stable facts. They are not a tool family and do not
+receive a `stack127_tool_pages` record. Reference routes live under `app/(site)/(references)/`.
+Use prose for explanation, tables for repeated fields, and anchored sections for scanning.
+Keyboard shortcut tables, software license comparisons, EPP status codes, and the TLD directory
+belong here.
 
 ## Info pages
 

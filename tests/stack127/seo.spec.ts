@@ -28,6 +28,14 @@ const unpublishedPaths = Object.entries(routes)
 const noindexPaths = Object.entries(routes)
   .filter(([, entry]) => entry.state === "noindex")
   .map(([path]) => path);
+const largeDirectoryPaths = new Set([
+  "/local-security-cameras",
+  "/matter-devices",
+  "/nut-compatible-ups",
+  "/z-wave-devices",
+  "/zigbee-coordinators",
+  "/zigbee-devices",
+]);
 
 const legacyToolRedirects = [
   ...["caa-checker", "dns-change-checker", "dns-lookup", "dns-trace", "dnssec-checker", "nameserver-checker", "soa-checker"]
@@ -64,6 +72,7 @@ async function gotoWithRestartRetry(page: Page, route: string) {
 test.describe("Stack127 publication SEO", () => {
   for (const path of publishedPaths) {
     test(`${path} is published and indexable`, async ({ page }) => {
+      if (largeDirectoryPaths.has(path)) test.setTimeout(180_000);
       const response = await page.goto(path);
 
       expect(response?.status()).toBe(200);

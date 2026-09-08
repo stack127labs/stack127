@@ -2,7 +2,13 @@
   "route": "/about",
   "state": "published",
   "docs": ["content_docs/about"],
-  "tests": ["tests/stack127/seo.spec.ts"],
+  "tests": [
+    "tests/pages/hardware-directories/shared/affiliate-disclosure.test.mjs",
+    "tests/pages/hardware-directories/shared/affiliate-disclosure.spec.ts",
+    "tests/stack127/entry-page-visual-system.test.mjs",
+    "tests/stack127/catalog-layout.spec.ts",
+    "tests/stack127/seo.spec.ts"
+  ],
   "scripts": [],
   "skills": [],
   "repositories": []

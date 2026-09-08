@@ -200,7 +200,7 @@ The direct competitor was operated with default, valid, and malformed data-size 
 | Validation and recovery | Malformed input silently narrows | User must inspect | Varies | Invalid state clears output, preserves input, and gives a concrete recovery path |
 | Policy transparency | Fixed defaults | Depends on example | Not applicable | Show why `category.create`, `func.getattr`, `cache.files`, and `minfreespace` are in the line |
 | Privacy and side effects | Not stated; copy output only | Manual commands may be run | Usually local calculation | State that the planner runs locally, emits text only, and never touches a host |
-| Narrow-screen behavior | No page overflow at 390 px | Not applicable | jro overflowed; others fit | Keep inventory rows and code blocks within the tool frame with measured long-output behavior |
+| Narrow-screen behavior | No page overflow at 390 px | Not applicable | jro overflowed; others fit | Keep inventory rows and code blocks within the workbench with measured long-output behavior |
 
 ## Formula and data disagreements
 

@@ -3,6 +3,10 @@
   "state": "published",
   "docs": ["content_docs/cli-apps"],
   "tests": [
+    "tests/pages/directories/shared/review-inventory.test.mjs",
+    "tests/pages/directories/shared/app-fact-cards.spec.ts",
+    "tests/pages/directories/shared/app-fact-cards.test.mjs",
+    "tests/stack127/entry-page-visual-system.test.mjs",
     "tests/pages/cli-apps/catalog-breadth.spec.ts",
     "tests/pages/cli-apps/catalog-depth.test.mjs",
     "tests/pages/cli-apps/catalog-images.test.mjs",
@@ -13,6 +17,7 @@
     "tests/pages/cli-apps/empty-state.spec.ts",
     "tests/pages/cli-apps/navigation.test.mjs",
     "tests/pages/cli-apps/provenance.test.mjs",
+    "tests/pages/cli-apps/reviewed-corrections.test.mjs",
     "tests/pages/cli-apps/source-coverage.test.mjs",
     "tests/stack127/seo.spec.ts"
   ],

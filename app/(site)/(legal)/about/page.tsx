@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { InfoPage } from "@/app/info-page";
-import { proseLedeClassName } from "@/app/prose";
+import { siteHeroAboutArt } from "../../art/site--hero-about";
 
 export default function AboutPage() {
   return (
@@ -10,13 +10,16 @@ export default function AboutPage() {
           About <mark>stack127</mark>
         </>
       }
+      heroArt={siteHeroAboutArt}
+      intro={
+        <p>
+          stack127 is a practical technical directory built by Ravi Teja KNTS for people who like
+          to understand and tinker with the technology they use.
+        </p>
+      }
       slug="about"
       title="About"
     >
-        <p className={proseLedeClassName}>
-          stack127 is a practical technical directory built and maintained by me, Ravi Teja KNTS (just call me Teja). It is for everyone who likes to tinker with the tech they use.
-        </p>
-
         <section>
           <h2>Who runs this</h2>
           <p>
@@ -58,6 +61,17 @@ export default function AboutPage() {
               <Link href="/software-licenses-for-self-hosting">Software licenses</Link>, what those license labels actually mean
             </li>
           </ul>
+        </section>
+
+        <section id="how-we-earn-money" style={{ scrollMarginTop: "calc(var(--top-bar-height) + var(--space-6))" }}>
+          <h2>How we earn money</h2>
+          <p>
+            Some links on stack127 are affiliate links. If you buy through one, we earn a
+            commission at no extra cost to you. Affiliate commissions do not influence our
+            rankings or placement. We include a disclosure on directory pages where affiliate
+            links appear.
+          </p>
+          <p>As an Amazon Associate I earn from qualifying purchases.</p>
         </section>
 
         <section>

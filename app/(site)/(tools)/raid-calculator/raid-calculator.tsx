@@ -1,16 +1,31 @@
 "use client";
 
-import { Plus, RotateCcw, Trash2 } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  ToolActionRow,
+  ToolAllocationBar,
+  ToolButton,
+  ToolChoiceGroup,
+  ToolDataTable,
+  ToolDisclosure,
+  ToolKeyValueList,
+  ToolNumberField,
+  ToolPrimaryResult,
+  ToolQuantityInput,
+  ToolRepeatableList,
+  ToolStatus,
+  toolOption,
+} from "@/app/tool-ui/tool-controls";
 import {
   bytesFromUnit,
   createDriveInventory,
   decodeStorageState,
   formatBytes,
+  type StorageCalculationResult,
   type StorageCapacityUnit,
-  type StorageDrive,
 } from "@/lib/storage/index.ts";
 import {
+  RAID_CALCULATION_VERSION,
+  RAID_INPUT_VERSION,
   calculateRaidCapacity,
   raidCalculatorRegistry,
   raidLevelDetails,
@@ -20,39 +35,30 @@ import {
   type RaidCalculatorInput,
   type RaidLevel,
 } from "@/lib/storage/raid.ts";
-import styles from "../../(catalogs)/storage-tools/storage-tools.module.css";
+import { RotateCcw } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import styles from "./raid-calculator.module.css";
 
 type InputUnit = "TB" | "GB" | "TiB" | "GiB";
 type OutputUnit = "TB" | "TiB";
 
-type DriveRow = Readonly<{
-  id: string;
-  size: string;
-  unit: InputUnit;
-}>;
+type DriveRow = Readonly<{ id: string; size: string; unit: InputUnit }>;
+type UiState = Readonly<{ level: RaidLevel; groupSize: number | null; drives: readonly DriveRow[] }>;
+type EditorErrors = { driveErrors: Record<string, string>; groupSizeError: string; inventoryError: string };
+type Calculated = { input: RaidCalculatorInput; result: StorageCalculationResult<RaidCalculationValues> };
 
-type UiState = Readonly<{
-  level: RaidLevel;
-  groupSize: number | null;
-  drives: readonly DriveRow[];
-}>;
-
-const DEFAULT_STATE: UiState = Object.freeze({
-  level: "raid5",
-  groupSize: null,
-  drives: Object.freeze([]),
-});
-
-const inputUnits: readonly InputUnit[] = ["TB", "GB", "TiB", "GiB"];
+const DEFAULT_STATE: UiState = Object.freeze({ level: "raid5", groupSize: null, drives: Object.freeze([]) });
+const EMPTY_ERRORS: EditorErrors = { driveErrors: {}, groupSizeError: "", inventoryError: "" };
+const inputUnits = ["TB", "GB", "TiB", "GiB"].map((unit) => toolOption(unit, unit));
+const outputUnits = ["TiB", "TB"].map((unit) => toolOption(unit, unit));
+const levelOptions = raidLevels.map((level) => toolOption(level, raidLevelDetails[level].label));
 const nestedLevels = new Set<RaidLevel>(["raid10", "raid50", "raid60"]);
 const MAX_UI_DRIVES = 64;
 
 function capacityForDisplay(bytes: bigint): Pick<DriveRow, "size" | "unit"> {
   const candidates: ReadonlyArray<readonly [InputUnit, bigint]> = [
-    ["TB", 1_000_000_000_000n],
-    ["TiB", 1_099_511_627_776n],
-    ["GB", 1_000_000_000n],
-    ["GiB", 1_073_741_824n],
+    ["TB", 1_000_000_000_000n], ["TiB", 1_099_511_627_776n],
+    ["GB", 1_000_000_000n], ["GiB", 1_073_741_824n],
   ];
   for (const [unit, multiplier] of candidates) {
     if (bytes % multiplier === 0n) return { size: (bytes / multiplier).toString(), unit };
@@ -60,27 +66,47 @@ function capacityForDisplay(bytes: bigint): Pick<DriveRow, "size" | "unit"> {
   return { size: formatBytes(bytes, "GB", { maximumFractionDigits: 6 }).replace(" GB", ""), unit: "GB" };
 }
 
-function uiStateFromEncoded(encoded: string): UiState {
-  if (!encoded) return DEFAULT_STATE;
+function defaultGroupSize(level: RaidLevel) {
+  if (level === "raid10") return 2;
+  if (level === "raid50") return 3;
+  if (level === "raid60") return 4;
+  return null;
+}
+
+function restoreState(encoded: string): { state: UiState; calculated: Calculated | null; recovery: string } {
+  if (!encoded) return { state: DEFAULT_STATE, calculated: null, recovery: "" };
   try {
-    const state = decodeStorageState(encoded);
-    if (state.calculatorId !== "raid-capacity" || !validateRaidCalculatorInput(state.payload)) {
-      return DEFAULT_STATE;
-    }
-    return Object.freeze({
-      level: state.payload.level,
-      groupSize: state.payload.groupSize,
-      drives: Object.freeze(state.payload.drives.map((drive) => Object.freeze({
+    const envelope = decodeStorageState(encoded);
+    if (
+      envelope.calculatorId !== "raid-capacity"
+      || envelope.calculatorVersion !== RAID_CALCULATION_VERSION
+      || envelope.inputVersion !== RAID_INPUT_VERSION
+      || !validateRaidCalculatorInput(envelope.payload)
+    ) throw new Error("state");
+    const result = calculateRaidCapacity(envelope.payload);
+    if (!result.values) throw new Error("state");
+    const state = Object.freeze({
+      level: envelope.payload.level,
+      groupSize: envelope.payload.groupSize,
+      drives: Object.freeze(envelope.payload.drives.map((drive) => Object.freeze({
         id: drive.id,
         ...capacityForDisplay(drive.capacityBytes),
       }))),
     });
+    return { state, calculated: { input: envelope.payload, result }, recovery: "Shared array loaded." };
   } catch {
-    return DEFAULT_STATE;
+    return { state: DEFAULT_STATE, calculated: null, recovery: "Shared array could not load." };
   }
 }
 
-function calculationInput(state: UiState): RaidCalculatorInput {
+function nextDriveNumber(drives: readonly DriveRow[]) {
+  return drives.reduce((highest, drive) => {
+    const number = Number(drive.id.replace("disk-", ""));
+    return Number.isSafeInteger(number) ? Math.max(highest, number) : highest;
+  }, 0) + 1;
+}
+
+function buildInput(state: UiState): RaidCalculatorInput {
   return {
     level: state.level,
     groupSize: state.groupSize,
@@ -92,252 +118,225 @@ function calculationInput(state: UiState): RaidCalculatorInput {
   };
 }
 
-function defaultGroupSize(level: RaidLevel) {
-  if (level === "raid10") return 2;
-  if (level === "raid50") return 3;
-  if (level === "raid60") return 4;
-  return null;
+function validateEditor(state: UiState): { errors: EditorErrors; calculated: Calculated | null } {
+  const errors: EditorErrors = { driveErrors: {}, groupSizeError: "", inventoryError: "" };
+  const minimum = raidLevelDetails[state.level].minimumDrives;
+
+  for (const drive of state.drives) {
+    try {
+      if (bytesFromUnit(drive.size, drive.unit as StorageCapacityUnit) <= 0n) throw new Error("capacity");
+    } catch {
+      errors.driveErrors[drive.id] = "Enter a positive capacity as a plain decimal.";
+    }
+  }
+
+  if (state.drives.length < minimum) {
+    errors.inventoryError = `Add at least ${minimum} drive${minimum === 1 ? "" : "s"} for ${raidLevelDetails[state.level].label}.`;
+  }
+  if (state.level === "raid10" && state.drives.length % 2 !== 0 && state.drives.length >= minimum) {
+    errors.inventoryError = "RAID 10 needs an even number of drives.";
+  }
+  if (state.level === "raid50" || state.level === "raid60") {
+    const groupSize = state.groupSize ?? 0;
+    const groupMinimum = state.level === "raid50" ? 3 : 4;
+    if (groupSize < groupMinimum) {
+      errors.groupSizeError = `${raidLevelDetails[state.level].label} needs at least ${groupMinimum} drives in each subgroup.`;
+    } else if (state.drives.length >= minimum && state.drives.length % groupSize !== 0) {
+      errors.groupSizeError = `${state.drives.length} drives do not divide into equal groups of ${groupSize}.`;
+    } else if (state.drives.length >= minimum && state.drives.length / groupSize < 2) {
+      errors.groupSizeError = `${raidLevelDetails[state.level].label} needs at least two subgroups.`;
+    }
+  }
+
+  if (Object.keys(errors.driveErrors).length || errors.inventoryError || errors.groupSizeError) {
+    return { errors, calculated: null };
+  }
+  try {
+    const input = buildInput(state);
+    const result = calculateRaidCapacity(input);
+    if (!result.values) {
+      errors.groupSizeError = result.issues.find((issue) => issue.path === "groupSize")?.message ?? "";
+      errors.inventoryError = result.issues.find((issue) => issue.path === "drives")?.message ?? "";
+      return { errors, calculated: null };
+    }
+    return { errors, calculated: { input, result } };
+  } catch {
+    errors.inventoryError = "Check the drive capacities and try again.";
+    return { errors, calculated: null };
+  }
 }
 
-function formatPercent(part: bigint, total: bigint) {
-  if (total === 0n) return "0%";
-  const hundredths = (part * 10_000n + total / 2n) / total;
-  const whole = hundredths / 100n;
-  const fraction = (hundredths % 100n).toString().padStart(2, "0").replace(/0+$/, "");
-  return fraction ? `${whole}.${fraction}%` : `${whole}%`;
+function formatOperationCount(values: RaidCalculationValues) {
+  const count = values.smallRandomWrite.operations;
+  return `${count} backend operation${count === 1 ? "" : "s"} in the classic model.`;
 }
 
-function groupNumber(level: RaidLevel, groupSize: number | null, index: number) {
-  if (!nestedLevels.has(level)) return null;
-  const size = level === "raid10" ? 2 : groupSize;
-  return size ? Math.floor(index / size) + 1 : null;
-}
-
-function nextDriveNumber(drives: readonly DriveRow[]) {
-  return drives.reduce((highest, drive) => {
-    const number = Number(drive.id.replace("disk-", ""));
-    return Number.isSafeInteger(number) ? Math.max(highest, number) : highest;
-  }, 0) + 1;
-}
-
-function HardDriveGlyph() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <path d="M4 6.5h16l1 7.5v3.5H3V14l1-7.5Z" />
-      <path d="M3 14h18" />
-      <circle cx="17.5" cy="15.8" r=".8" />
-    </svg>
-  );
-}
-
-function Result({
-  drives,
-  values,
-  outputUnit,
-  onOutputUnitChange,
-}: {
-  drives: readonly StorageDrive[];
-  values: RaidCalculationValues;
+function Result({ calculated, outputUnit, onOutputUnitChange }: {
+  calculated: Calculated;
   outputUnit: OutputUnit;
   onOutputUnitChange: (unit: OutputUnit) => void;
 }) {
+  const values = calculated.result.values as RaidCalculationValues;
   const display = (value: bigint) => formatBytes(value, outputUnit, { maximumFractionDigits: 2 });
-  const raw = values.rawCapacityBytes.value;
-  const driveById = new Map(drives.map((drive) => [drive.id, drive]));
-  const capacityParts = [
-    {
-      key: "usable",
-      label: "Usable",
-      value: values.usableCapacityBytes.value,
-      className: styles.capacityUsable,
+  const positions = new Map(calculated.input.drives.map((drive, index) => [drive.id, index + 1]));
+  const groupRows = values.groups.map((group) => ({
+    id: group.id,
+    cells: {
+      group: group.label,
+      members: group.driveIds.map((id) => `Drive ${positions.get(id) ?? "?"}`).join(", "),
+      usable: display(group.usableCapacityBytes),
+      mismatch: display(group.sizeMismatchBytes),
     },
-    {
-      key: "redundancy",
-      label: "Redundancy",
-      value: values.redundancyBytes.value,
-      className: styles.capacityRedundancy,
-    },
-    {
-      key: "mismatch",
-      label: "Size mismatch",
-      value: values.sizeMismatchBytes.value,
-      className: styles.capacityMismatch,
-    },
-  ] as const;
+  }));
+  const groupDetailRows = values.groups.flatMap((group) => [
+    { label: `${group.label} raw`, value: `${group.rawCapacityBytes.toLocaleString("en-US")} bytes` },
+    ...(group.componentCapacityBytes === null ? [] : [{
+      label: `${group.label} component`,
+      value: `${group.componentCapacityBytes.toLocaleString("en-US")} bytes`,
+    }]),
+  ]);
 
   return (
-    <div className={styles.result} aria-live="polite">
-      <div className={styles.resultHeader}>
-        <div aria-label="Theoretical usable capacity" className={styles.resultHeadline}>
-          <p><strong>{display(values.usableCapacityBytes.value)}</strong> theoretically usable</p>
-          <span>{values.levelLabel} · {values.driveCount} drives · {display(raw)} raw</span>
+    <div className={styles.result}>
+      <div className={styles.answerHeader}>
+        <ToolPrimaryResult
+          detail={`${values.levelLabel} across ${values.driveCount} drive${values.driveCount === 1 ? "" : "s"}.`}
+          label="Theoretical usable capacity"
+          value={display(values.usableCapacityBytes.value)}
+        />
+        <div className={styles.outputUnit}>
+          <ToolChoiceGroup
+            label="Output unit"
+            onChange={(unit) => onOutputUnitChange(unit as OutputUnit)}
+            options={outputUnits}
+            value={outputUnit}
+          />
         </div>
-        <fieldset className={styles.resultUnit}>
-          <legend className={styles.visuallyHidden}>Result unit</legend>
-          <div className={styles.choiceRow}>
-            {(["TiB", "TB"] as const).map((unit) => (
-              <label className={styles.choice} key={unit}>
-                <input
-                  checked={outputUnit === unit}
-                  name="output-unit"
-                  onChange={() => onOutputUnitChange(unit)}
-                  type="radio"
-                />
-                <span>{unit}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
       </div>
 
-      {values.sizeMismatchBytes.value > 0n ? (
-        <p className={styles.warningText}>
-          {display(values.sizeMismatchBytes.value)} is stranded because at least one group contains
-          drives larger than its smallest member.
-        </p>
+      <section aria-labelledby="raw-allocation-title" className={styles.resultRegion}>
+        <div className={styles.regionHeading}>
+          <h3 id="raw-allocation-title">Raw capacity allocation</h3>
+          <span>{display(values.rawCapacityBytes.value)} raw</span>
+        </div>
+        <ToolAllocationBar
+          ariaLabel="Raw capacity allocation"
+          formatValue={(value) => display(value as bigint)}
+          palette="categorical"
+          segments={[
+            { id: "usable", label: "Usable", tone: "chartreuse", value: values.usableCapacityBytes.value },
+            { id: "redundancy", label: "Redundancy", tone: "cyan", value: values.redundancyBytes.value },
+            { id: "mismatch", label: "Size mismatch", tone: "violet", value: values.sizeMismatchBytes.value },
+          ]}
+          total={values.rawCapacityBytes.value}
+        />
+      </section>
+
+      {nestedLevels.has(values.level) ? (
+        <section aria-labelledby="nested-groups-title" className={styles.resultRegion}>
+          <h3 id="nested-groups-title">Nested drive groups</h3>
+          <div className={styles.groupTable}>
+            <ToolDataTable
+              ariaLabel="Nested drive groups"
+              columns={[
+                { id: "group", label: "Group" }, { id: "members", label: "Members" },
+                { id: "usable", label: "Usable" }, { id: "mismatch", label: "Mismatch" },
+              ]}
+              rows={groupRows}
+            />
+          </div>
+          <div aria-label="Nested drive groups" className={styles.groupRecords}>
+            {groupRows.map((row) => (
+              <dl key={row.id}>
+                <div><dt>Group</dt><dd>{row.cells.group}</dd></div>
+                <div><dt>Members</dt><dd>{row.cells.members}</dd></div>
+                <div><dt>Usable</dt><dd>{row.cells.usable}</dd></div>
+                <div><dt>Mismatch</dt><dd>{row.cells.mismatch}</dd></div>
+              </dl>
+            ))}
+          </div>
+        </section>
       ) : null}
 
-      <section aria-labelledby="capacity-breakdown-title" className={styles.resultSection}>
-        <div className={styles.resultSectionHeading}>
-          <h2 id="capacity-breakdown-title">Where the raw capacity goes</h2>
-          <span>{display(raw)} total</span>
-        </div>
-        <div
-          aria-label={`${formatPercent(values.usableCapacityBytes.value, raw)} usable, ${formatPercent(values.redundancyBytes.value, raw)} redundancy, and ${formatPercent(values.sizeMismatchBytes.value, raw)} size mismatch`}
-          className={styles.capacityBar}
-          role="img"
-        >
-          {capacityParts.map((part) => part.value > 0n ? (
-            <span
-              className={part.className}
-              key={part.key}
-              style={{ width: formatPercent(part.value, raw) }}
-            />
-          ) : null)}
-        </div>
-        <dl className={styles.capacityValues}>
-          {capacityParts.map((part) => (
-            <div key={part.key}>
-              <dt><span className={`${styles.capacitySwatch} ${part.className}`} />{part.label}</dt>
-              <dd><strong>{display(part.value)}</strong><span>{formatPercent(part.value, raw)}</span></dd>
-            </div>
-          ))}
-        </dl>
+      <section aria-labelledby="array-behavior-title" className={styles.resultRegion}>
+        <h3 id="array-behavior-title">Array behavior</h3>
+        <ToolKeyValueList rows={[
+          { label: "Failure tolerance", value: values.failureTolerance.statement },
+          { label: "Small random write", value: formatOperationCount(values) },
+        ]} />
       </section>
 
-      <section aria-labelledby="array-topology-title" className={styles.resultSection}>
-        <h2 id="array-topology-title">Drive arrangement</h2>
-        <div className={styles.topology}>
-          {values.groups.map((group) => (
-            <div className={styles.topologyStrip} key={group.id}>
-              <div className={styles.topologyHeading}>
-                <strong>{group.label}</strong>
-                <span>
-                  {display(group.usableCapacityBytes)} usable
-                  {group.sizeMismatchBytes > 0n ? ` · ${display(group.sizeMismatchBytes)} mismatch` : ""}
-                </span>
-              </div>
-              <div className={styles.topologyDrives}>
-                {group.driveIds.map((driveId) => (
-                  <div className={styles.topologyDrive} key={driveId}>
-                    <HardDriveGlyph />
-                    <span>
-                      {driveId.replace("disk-", "Drive ")}
-                      <small>{driveById.has(driveId) ? display(driveById.get(driveId)!.capacityBytes) : "Unknown"}</small>
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-        <p className={styles.topologyNote}>
-          {values.level === "linear" || values.level === "jbod"
-            ? "Every supplied byte contributes to this concatenated layout."
-            : values.groups.length > 1
-              ? "Groups use the entered drive order, so placement changes capacity and the failure boundary."
-              : "Every member is capped by the smallest drive in this group."}
-        </p>
-      </section>
-
-      <dl className={styles.resultFacts}>
-        <div>
-          <dt>Failure tolerance</dt>
-          <dd>{values.failureTolerance.statement}</dd>
-        </div>
-        <div>
-          <dt>Small random write</dt>
-          <dd>{values.smallRandomWrite.statement}</dd>
-        </div>
-      </dl>
-
-      <aside className={styles.backupNote}>
-        <strong>RAID is not backup.</strong> It does not recover deletion, corruption, ransomware,
-        theft, fire, or a bad command. Keep an independent copy and check that it restores.
-      </aside>
-
-      <details className={styles.methodDetails}>
-        <summary>Formula, assumptions, and sources</summary>
-        <div>
-          <p><code>usable + redundancy + size mismatch = raw capacity</code></p>
-          <ul>
-            <li>Each striped or redundant group is clipped to its smallest member.</li>
-            <li>The result excludes controller metadata, partitions, filesystems, and reserved space.</li>
-            <li>Nested groups use drives in the order shown.</li>
-          </ul>
-          <p>
-            Sources: <a href="https://docs.kernel.org/admin-guide/md.html">Linux kernel RAID documentation</a>,{" "}
-            <a href="https://man7.org/linux/man-pages/man8/mdadm.8.html"><code>mdadm(8)</code></a>, and{" "}
-            <a href="https://www.dell.com/support/manuals/en-us/unity-880f/unity_p_pool_config/drive-iops-by-raid-type?guid=guid-b32204b2-a11b-4f25-b086-e8c135df04f1&amp;lang=en-us">Dell Unity&apos;s random-write operation reference</a>. Checked 2026-08-01.
+      <ToolDisclosure label="Calculation details">
+        <div className={styles.details} data-testid="calculation-details">
+          <ToolKeyValueList rows={[
+            { label: "Scenario", value: `${values.levelLabel}, ${values.driveCount} drives` },
+            { label: "Formula version", value: String(RAID_CALCULATION_VERSION) },
+            ...groupDetailRows,
+          ]} />
+          <code>{calculated.result.derivation.find((item) => item.id === "capacity_balance")?.result}</code>
+          <ul>{calculated.result.assumptions.map((item) => <li key={item.id}>{item.statement}</li>)}</ul>
+          <p className={styles.sources}>
+            Sources:{" "}
+            {calculated.result.sources.map((source, index) => (
+              <span key={source.url}>
+                {index ? ", " : ""}<a href={source.url}>{source.title}</a>, checked {source.checkedAt}
+              </span>
+            ))}.
           </p>
         </div>
-      </details>
+      </ToolDisclosure>
     </div>
   );
 }
 
 export function RaidCalculator({ initialState }: { initialState: string }) {
-  const [state, setState] = useState<UiState>(() => uiStateFromEncoded(initialState));
-  const [resultRequested, setResultRequested] = useState(
-    () => uiStateFromEncoded(initialState).drives.length > 0,
-  );
+  const restored = useRef<ReturnType<typeof restoreState> | null>(null);
+  if (!restored.current) restored.current = restoreState(initialState);
+  const [state, setState] = useState<UiState>(restored.current.state);
+  const [calculated, setCalculated] = useState<Calculated | null>(restored.current.calculated);
+  const [errors, setErrors] = useState<EditorErrors>(EMPTY_ERRORS);
+  const [attempted, setAttempted] = useState(false);
   const [outputUnit, setOutputUnit] = useState<OutputUnit>("TiB");
+  const [status, setStatus] = useState(restored.current.recovery);
   const userHasEdited = useRef(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
-  const calculation = useMemo(() => {
-    if (state.drives.length === 0) return { input: null, result: null, inputError: null };
-    try {
-      const input = calculationInput(state);
-      return { input, result: calculateRaidCapacity(input), inputError: null };
-    } catch {
-      return { input: null, result: null, inputError: "Every drive needs a positive capacity written as a plain decimal number." };
-    }
-  }, [state]);
+  useEffect(() => {
+    if (initialState && restored.current?.calculated === null) history.replaceState(null, "", window.location.pathname);
+  }, [initialState]);
 
   useEffect(() => {
     if (!userHasEdited.current) return;
     const url = new URL(window.location.href);
-    if (state.drives.length === 0 || !calculation.input) {
+    if (state.drives.length === 0) {
       url.searchParams.delete("state");
     } else {
-      const encoded = raidCalculatorRegistry.encode("raid-capacity", calculation.input);
-      url.searchParams.set("state", encoded);
+      try {
+        const input = buildInput(state);
+        url.searchParams.set("state", raidCalculatorRegistry.encode("raid-capacity", input));
+      } catch {
+        url.searchParams.delete("state");
+      }
     }
     window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
-  }, [calculation.input, state.drives.length]);
+  }, [state]);
 
-  function updateStateFromUser(nextState: UiState | ((current: UiState) => UiState)) {
+  function updateState(nextState: UiState | ((current: UiState) => UiState)) {
     userHasEdited.current = true;
-    setResultRequested(false);
-    setState(nextState);
+    setCalculated(null);
+    setStatus("");
+    const next = typeof nextState === "function" ? nextState(state) : nextState;
+    setState(next);
+    if (attempted) setErrors(validateEditor(next).errors);
   }
 
   function changeLevel(level: RaidLevel) {
-    updateStateFromUser((current) => ({ ...current, level, groupSize: defaultGroupSize(level) }));
+    updateState((current) => ({ ...current, level, groupSize: defaultGroupSize(level) }));
   }
 
   function updateDrive(id: string, patch: Partial<DriveRow>) {
-    updateStateFromUser((current) => ({
+    updateState((current) => ({
       ...current,
       drives: current.drives.map((drive) => drive.id === id ? { ...drive, ...patch } : drive),
     }));
@@ -345,187 +344,154 @@ export function RaidCalculator({ initialState }: { initialState: string }) {
 
   function addDrive() {
     if (state.drives.length >= MAX_UI_DRIVES) return;
-    updateStateFromUser((current) => ({
+    updateState((current) => ({
       ...current,
-      drives: [...current.drives, {
-        id: `disk-${nextDriveNumber(current.drives)}`,
-        size: "",
-        unit: "TB",
-      }],
+      drives: [...current.drives, { id: `disk-${nextDriveNumber(current.drives)}`, size: "", unit: "TB" }],
     }));
-  }
-
-  function showResult() {
-    setResultRequested(true);
   }
 
   function removeDrive(id: string) {
-    updateStateFromUser((current) => ({
-      ...current,
-      drives: current.drives.filter((drive) => drive.id !== id),
+    const removedIndex = state.drives.findIndex((drive) => drive.id === id);
+    const nextCount = state.drives.length - 1;
+    updateState((current) => ({ ...current, drives: current.drives.filter((drive) => drive.id !== id) }));
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const focusNumber = Math.min(removedIndex + 1, nextCount);
+      const target = nextCount > 0
+        ? formRef.current?.querySelector<HTMLElement>(`[aria-label="Remove drive ${focusNumber}"]`)
+        : formRef.current?.querySelector<HTMLElement>("[data-add-drive] button");
+      target?.focus();
     }));
   }
 
-  function resetCalculator() {
-    userHasEdited.current = true;
-    setResultRequested(false);
-    setState(DEFAULT_STATE);
-    setOutputUnit("TiB");
+  function focusFirstError(nextErrors: EditorErrors) {
+    if (nextErrors.groupSizeError) {
+      formRef.current?.querySelector<HTMLElement>('[data-focus-key="group-size"]')?.focus();
+      return;
+    }
+    const firstDrive = state.drives.find((drive) => nextErrors.driveErrors[drive.id]);
+    if (firstDrive) {
+      formRef.current?.querySelector<HTMLElement>(`[data-focus-key="${firstDrive.id}"]`)?.focus();
+      return;
+    }
+    if (nextErrors.inventoryError) formRef.current?.querySelector<HTMLElement>("[data-add-drive] button, [data-repeatable-row]:last-child input")?.focus();
   }
 
-  const groupSizeMinimum = state.level === "raid60" ? 4 : 3;
-  const groupSizeMaximum = Math.max(groupSizeMinimum, Math.floor(state.drives.length / 2));
-  const groupSizeOptions = Array.from(new Set([
-    ...Array.from({ length: groupSizeMaximum - groupSizeMinimum + 1 }, (_, index) => groupSizeMinimum + index),
-    ...(state.groupSize ? [state.groupSize] : []),
-  ])).sort((left, right) => left - right);
+  function submit() {
+    setAttempted(true);
+    setStatus("");
+    const checked = validateEditor(state);
+    setErrors(checked.errors);
+    setCalculated(checked.calculated);
+    if (!checked.calculated) {
+      focusFirstError(checked.errors);
+      return;
+    }
+    requestAnimationFrame(() => resultRef.current?.focus());
+  }
+
+  function reset() {
+    userHasEdited.current = true;
+    setState(DEFAULT_STATE);
+    setCalculated(null);
+    setErrors(EMPTY_ERRORS);
+    setAttempted(false);
+    setOutputUnit("TiB");
+    setStatus("");
+    history.replaceState(null, "", window.location.pathname);
+    requestAnimationFrame(() => formRef.current?.querySelector<HTMLInputElement>('input[type="radio"][value="raid5"]')?.focus());
+  }
+
+  const groupMinimum = state.level === "raid60" ? 4 : 3;
 
   return (
-    <section className={styles.tool} aria-label="RAID capacity calculator">
-      <div className={styles.toolForm}>
-        <fieldset className={styles.fieldset}>
-          <legend>RAID level</legend>
-          <div className={styles.choiceRow} role="radiogroup" aria-label="RAID level">
-            {raidLevels.map((level) => (
-              <label className={styles.choice} key={level}>
-                <input
-                  checked={state.level === level}
-                  name="raid-level"
-                  onChange={() => changeLevel(level)}
-                  type="radio"
-                  value={level}
-                />
-                <span>{raidLevelDetails[level].label}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
+    <section aria-label="RAID capacity calculator" className={styles.tool} data-tool-workbench>
+      <form className={styles.form} noValidate onSubmit={(event) => { event.preventDefault(); submit(); }} ref={formRef}>
+        <ToolChoiceGroup
+          label="RAID level"
+          onChange={(level) => changeLevel(level as RaidLevel)}
+          options={levelOptions}
+          required
+          value={state.level}
+        />
 
-        <section className={styles.inventory} aria-labelledby="drive-inventory-title">
+        {(state.level === "raid50" || state.level === "raid60") ? (
+          <div className={styles.groupSize}>
+            <ToolNumberField
+              dataFocusKey="group-size"
+              error={errors.groupSizeError}
+              label={`Drives per ${state.level === "raid50" ? "RAID 5" : "RAID 6"} group`}
+              min={groupMinimum}
+              onChange={(groupSize) => updateState((current) => ({ ...current, groupSize }))}
+              required
+              step={1}
+              suffix="drives"
+              value={state.groupSize ?? groupMinimum}
+            />
+          </div>
+        ) : null}
+
+        <section aria-labelledby="drive-inventory-title" className={styles.inventory}>
           <div className={styles.inventoryHeading}>
-            <div>
-              <h2 id="drive-inventory-title">Drive inventory</h2>
-              <p>
-                {state.drives.length === 0
-                  ? "Empty array"
-                  : `${state.drives.length} drive${state.drives.length === 1 ? "" : "s"} in entered order`}
-              </p>
-            </div>
-            <div className={styles.inventoryControls}>
-              <button
-                className={styles.addButton}
-                disabled={state.drives.length >= MAX_UI_DRIVES}
-                onClick={addDrive}
-                type="button"
-              >
-                <Plus aria-hidden="true" size={18} /> Add drive
-              </button>
-              {state.drives.length > 0 ? (
-                <button className={styles.resetButton} onClick={resetCalculator} type="button">
-                  <RotateCcw aria-hidden="true" size={17} /> Reset
-                </button>
-              ) : null}
-            </div>
+            <h2 id="drive-inventory-title">Drive inventory</h2>
+            {state.drives.length ? <p>{state.drives.length} drive{state.drives.length === 1 ? "" : "s"}</p> : null}
           </div>
 
-          <div className={styles.driveTable}>
-            {state.drives.length === 0 ? (
-              <p className={styles.emptyInventory}>No drives in this array yet.</p>
-            ) : (
-              <>
-              <div aria-hidden="true" className={styles.driveTableHeader}>
-                <span>Drive</span><span>Capacity</span><span>Unit</span><span />
-              </div>
-              {state.drives.map((drive, index) => {
-                const group = groupNumber(state.level, state.groupSize, index);
-                return (
-                  <div className={styles.driveRow} key={drive.id}>
-                    <div className={styles.driveIdentity}>
-                      <span className={styles.driveNumber}>{String(index + 1).padStart(2, "0")}</span>
-                      {group ? <span className={styles.groupTag}>G{group}</span> : null}
-                    </div>
-                    <label>
-                      <span className={styles.visuallyHidden}>Drive {index + 1} capacity</span>
-                      <input
-                        aria-label={`Drive ${index + 1} capacity`}
-                        inputMode="decimal"
-                        onChange={(event) => updateDrive(drive.id, { size: event.target.value })}
-                        value={drive.size}
-                      />
-                    </label>
-                    <label>
-                      <span className={styles.visuallyHidden}>Drive {index + 1} unit</span>
-                      <select
-                        aria-label={`Drive ${index + 1} unit`}
-                        onChange={(event) => updateDrive(drive.id, { unit: event.target.value as InputUnit })}
-                        value={drive.unit}
-                      >
-                        {inputUnits.map((unit) => <option key={unit}>{unit}</option>)}
-                      </select>
-                    </label>
-                    <button
-                      aria-label={`Remove drive ${index + 1}`}
-                      className={styles.removeButton}
-                      onClick={() => removeDrive(drive.id)}
-                      type="button"
-                    >
-                      <Trash2 aria-hidden="true" size={17} />
-                    </button>
-                  </div>
-                );
-              })}
-              </>
-            )}
-          </div>
+          {state.drives.length ? (
+            <ToolRepeatableList
+              addDisabled={state.drives.length >= MAX_UI_DRIVES}
+              addLabel="Add drive"
+              ariaLabel="Drive inventory"
+              items={[...state.drives]}
+              onAdd={addDrive}
+              onRemove={removeDrive}
+              renderItem={(drive, index) => (
+                <div className={styles.driveEditor}>
+                  <span className={styles.driveNumber}>Drive {String(index + 1).padStart(2, "0")}</span>
+                  <ToolQuantityInput
+                    ariaLabel={`Drive ${index + 1} capacity`}
+                    dataFocusKey={drive.id}
+                    error={errors.driveErrors[drive.id]}
+                    label="Capacity"
+                    onChange={(size) => updateDrive(drive.id, { size })}
+                    onUnitChange={(unit) => updateDrive(drive.id, { unit: unit as InputUnit })}
+                    placeholder="4"
+                    required
+                    unit={drive.unit}
+                    unitAriaLabel={`Drive ${index + 1} unit`}
+                    units={inputUnits}
+                    value={drive.size}
+                  />
+                </div>
+              )}
+            />
+          ) : (
+            <div className={styles.emptyInventory}>
+              <p>No drives added.</p>
+              <span data-add-drive><ToolButton onPress={addDrive} variant="secondary">Add drive</ToolButton></span>
+            </div>
+          )}
 
-          {state.level === "raid10" && state.drives.length > 0 ? (
-            <p className={styles.groupingNote}>Adjacent drives form mirror pairs: 1 + 2, 3 + 4, and so on.</p>
-          ) : null}
-
-          {(state.level === "raid50" || state.level === "raid60") && state.drives.length > 0 ? (
-            <label className={styles.groupSizeControl}>
-              <span>Drives per {state.level === "raid50" ? "RAID 5" : "RAID 6"} group</span>
-              <select
-                onChange={(event) => updateStateFromUser((current) => ({ ...current, groupSize: Number(event.target.value) }))}
-                value={state.groupSize ?? groupSizeMinimum}
-              >
-                {groupSizeOptions.map((size) => (
-                  <option key={size} value={size}>{size} drives</option>
-                ))}
-              </select>
-            </label>
-          ) : null}
-
-          <button
-            className={styles.inventoryCalculate}
-            disabled={state.drives.length === 0}
-            onClick={showResult}
-            type="button"
-          >
-            Show result
-          </button>
+          {state.drives.length >= MAX_UI_DRIVES ? <ToolStatus>Maximum 64 drives.</ToolStatus> : null}
+          {errors.inventoryError ? <p className={styles.inventoryError} role="alert">{errors.inventoryError}</p> : null}
         </section>
-      </div>
 
-      {resultRequested ? (
-        calculation.inputError ? (
-          <div className={styles.invalidResult} aria-live="polite">
-            <h2>One drive capacity needs attention</h2>
-            <p>{calculation.inputError}</p>
-          </div>
-        ) : calculation.result?.status === "invalid" ? (
-          <div className={styles.invalidResult} aria-live="polite">
-            <h2>This {raidLevelDetails[state.level].label} layout is not valid yet</h2>
-            <ul>{calculation.result.issues.map((issue) => <li key={issue.code}>{issue.message}</li>)}</ul>
-          </div>
-        ) : calculation.result?.values ? (
-          <Result
-            drives={calculation.input?.drives ?? []}
-            onOutputUnitChange={setOutputUnit}
-            outputUnit={outputUnit}
-            values={calculation.result.values}
-          />
-        ) : null
+        <div className={styles.formActions}>
+          <ToolActionRow>
+            <ToolButton type="submit" variant="primary">Calculate capacity</ToolButton>
+            {state.drives.length || state.level !== DEFAULT_STATE.level ? (
+              <ToolButton onPress={reset} type="button" variant="ghost">
+                <RotateCcw aria-hidden="true" size={17} /> Reset
+              </ToolButton>
+            ) : null}
+          </ToolActionRow>
+        </div>
+        {status ? <ToolStatus tone={status.includes("could not") ? "danger" : "neutral"}>{status}</ToolStatus> : null}
+      </form>
+
+      {calculated ? (
+        <div aria-label="RAID capacity result" className={styles.resultFocus} ref={resultRef} tabIndex={-1}>
+          <Result calculated={calculated} onOutputUnitChange={setOutputUnit} outputUnit={outputUnit} />
+        </div>
       ) : null}
     </section>
   );

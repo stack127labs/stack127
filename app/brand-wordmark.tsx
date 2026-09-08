@@ -14,17 +14,17 @@ export function BrandWordmark({ className }: BrandWordmarkProps) {
         alt=""
         className={`${styles.image} ${styles.onDark}`}
         decoding="async"
-        height="354"
+        height="282"
         src="/logos/stack127-wordmark-on-dark.png"
-        width="1801"
+        width="1451"
       />
       <img
         alt=""
         className={`${styles.image} ${styles.onLight}`}
         decoding="async"
-        height="354"
+        height="282"
         src="/logos/stack127-wordmark-on-light.png"
-        width="1801"
+        width="1451"
       />
     </span>
   );

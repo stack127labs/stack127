@@ -1,11 +1,39 @@
 import type { NextConfig } from "next";
+import { collectAllowedDevOrigins } from "./lib/allowed-dev-origins";
+import { legacyShortcutRedirects } from "./lib/legacy-shortcut-redirects";
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["127.0.0.1"],
+  allowedDevOrigins: collectAllowedDevOrigins(),
   distDir: process.env.STACK127_TEST_DIST_DIR ?? ".next",
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "tulgfrqamtcshdtmhvpx.supabase.co",
+        port: "",
+        pathname: "/storage/v1/object/public/stack127-media/directories/**",
+        search: "",
+      },
+      {
+        protocol: "https",
+        hostname: "phhrfvmncpqqmmgruktx.supabase.co",
+        port: "",
+        pathname: "/storage/v1/object/public/stack127-media/directories/**",
+        search: "",
+      },
+    ],
+  },
   output: "standalone",
+  outputFileTracingIncludes: {
+    "/local-security-cameras": ["./lib/hardware-directories/data/local-security-cameras.json"],
+    "/matter-devices": ["./lib/hardware-directories/data/matter-devices.json"],
+    "/nut-compatible-ups": ["./lib/hardware-directories/data/nut-compatible-ups.json"],
+    "/z-wave-devices": ["./lib/hardware-directories/data/z-wave-devices.json"],
+    "/zigbee-coordinators": ["./lib/hardware-directories/data/zigbee-coordinators.json"],
+  },
   async redirects() {
     return [
+      ...legacyShortcutRedirects,
       { source: "/dns-tools/caa-checker", destination: "/caa-checker", permanent: true },
       { source: "/dns-tools/dns-change-checker", destination: "/dns-change-checker", permanent: true },
       { source: "/dns-tools/dns-lookup", destination: "/dns-lookup", permanent: true },

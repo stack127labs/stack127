@@ -9,6 +9,7 @@
   letter-spacing: var(--tracking-display);
   line-height: var(--line-heading);
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .prose h1 {
@@ -18,7 +19,7 @@
 
 .prose h1 mark {
   background: var(--color-accent);
-  border-radius: 6px;
+  border-radius: var(--radius);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   color: var(--color-accent-contrast);
@@ -60,20 +61,26 @@
   gap: var(--space-prose-paragraph);
 }
 
-.flow > :where(h2):not(:first-child) {
+.flow > * {
+  min-width: 0;
+}
+
+.flow > :where(h2):not(:first-child),
+.sectionFlow > section > :where(h2):not(:first-child) {
   margin-top: var(--space-prose-heading-2);
 }
 
-.flow > :where(h3, h4):not(:first-child) {
+.flow > :where(h3, h4):not(:first-child),
+.sectionFlow > section > :where(h3, h4):not(:first-child) {
   margin-top: var(--space-prose-heading-3);
 }
 
-.sectionFlow > section + section {
-  margin-top: var(--space-prose-section);
+.sectionFlow.sectionFlow {
+  gap: 0;
 }
 
-.sectionFlow > section > :where(h2, h3, h4):first-child {
-  margin-bottom: var(--space-2);
+.sectionFlow > * + * {
+  margin-top: var(--space-prose-section);
 }
 
 .prose a {
@@ -83,7 +90,7 @@
 
 .prose a:hover {
   text-decoration: underline;
-  text-decoration-color: var(--color-accent);
+  text-decoration-color: currentColor;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
 }
@@ -91,16 +98,18 @@
 .prose :not(pre) > code {
   background: var(--color-surface-2);
   border: 1px solid var(--color-border);
-  border-radius: 4px;
+  border-radius: var(--radius);
   font-family: var(--font-mono);
   font-size: 0.85em;
+  overflow-wrap: anywhere;
   padding: 0.1em 0.35em;
+  word-break: break-word;
 }
 
 .prose kbd {
   background: var(--color-surface-2);
   border: 1px solid var(--color-border-strong);
-  border-radius: 4px;
+  border-radius: var(--radius);
   box-shadow: 0 1px 0 var(--color-border-strong);
   font-family: var(--font-mono);
   font-size: 0.8em;

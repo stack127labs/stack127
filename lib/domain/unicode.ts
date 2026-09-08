@@ -6,14 +6,20 @@
  */
 
 import idnaData from "./data/idna-mapping.json" with { type: "json" };
+import nameData from "./data/unicode-names.json" with { type: "json" };
 import scriptData from "./data/unicode-scripts.json" with { type: "json" };
 
 type Range = [number, number, string];
 
 const idnaRanges = idnaData.ranges as Range[];
 const scriptRanges = scriptData.ranges as Range[];
+const characterNames = nameData.names as Record<string, string>;
 
 export const UNICODE_VERSION = idnaData.unicodeVersion as string;
+
+if (nameData.unicodeVersion !== UNICODE_VERSION || scriptData.unicodeVersion !== UNICODE_VERSION) {
+  throw new Error("Unicode mapping, script, and character-name data must use the same version.");
+}
 
 function lookup(ranges: Range[], codePoint: number): string | null {
   let low = 0;
@@ -112,21 +118,26 @@ export type CharacterDetail = {
   script: string;
 };
 
-const SCRIPT_LABELS: Record<string, string> = {
-  Latin: "Latin",
-  Cyrillic: "Cyrillic",
-  Greek: "Greek",
-  Han: "Han",
-  Hiragana: "Hiragana",
-  Katakana: "Katakana",
-  Hangul: "Hangul",
-  Arabic: "Arabic",
-  Hebrew: "Hebrew",
-  Devanagari: "Devanagari",
-  Thai: "Thai",
-  Common: "Common",
-  Inherited: "Inherited",
-};
+const HANGUL_LEADS = ["G", "GG", "N", "D", "DD", "R", "M", "B", "BB", "S", "SS", "", "J", "JJ", "C", "K", "T", "P", "H"];
+const HANGUL_VOWELS = ["A", "AE", "YA", "YAE", "EO", "E", "YEO", "YE", "O", "WA", "WAE", "OE", "YO", "U", "WEO", "WE", "WI", "YU", "EU", "YI", "I"];
+const HANGUL_TAILS = ["", "G", "GG", "GS", "N", "NJ", "NH", "D", "L", "LG", "LM", "LB", "LS", "LT", "LP", "LH", "M", "B", "BS", "S", "SS", "NG", "J", "C", "K", "T", "P", "H"];
+
+function algorithmicName(codePoint: number) {
+  if (codePoint >= 0xac00 && codePoint <= 0xd7a3) {
+    const offset = codePoint - 0xac00;
+    const lead = Math.floor(offset / 588);
+    const vowel = Math.floor((offset % 588) / 28);
+    const tail = offset % 28;
+    return `HANGUL SYLLABLE ${HANGUL_LEADS[lead]}${HANGUL_VOWELS[vowel]}${HANGUL_TAILS[tail]}`;
+  }
+  if ((codePoint >= 0x3400 && codePoint <= 0x4dbf)
+    || (codePoint >= 0x4e00 && codePoint <= 0x9fff)
+    || (codePoint >= 0x20000 && codePoint <= 0x2fa1f)
+    || (codePoint >= 0x30000 && codePoint <= 0x323af)) {
+    return `CJK UNIFIED IDEOGRAPH-${codePoint.toString(16).toUpperCase()}`;
+  }
+  return null;
+}
 
 export function describeCharacters(value: string): CharacterDetail[] {
   return Array.from(value, (character) => {
@@ -135,7 +146,7 @@ export function describeCharacters(value: string): CharacterDetail[] {
     return {
       character,
       codePoint: `U+${codePoint.toString(16).toUpperCase().padStart(4, "0")}`,
-      name: SCRIPT_LABELS[script] ?? script,
+      name: characterNames[codePoint.toString(16).toUpperCase()] ?? algorithmicName(codePoint) ?? "UNASSIGNED OR UNNAMED CHARACTER",
       script,
     };
   });

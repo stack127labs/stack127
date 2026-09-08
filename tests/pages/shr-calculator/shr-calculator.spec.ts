@@ -6,9 +6,12 @@ test.skip(!localPreview, "The tool requires the guarded managed-development prev
 
 async function addDrive(page: Page, capacity: string, unit = "TB") {
   await page.getByRole("button", { name: "Add drive" }).click();
-  const row = page.locator("[data-testid^='drive-row-']").last();
+  const row = page.locator("[data-repeatable-row]").last();
   await row.getByLabel(/capacity$/i).fill(capacity);
-  await row.getByLabel(/unit$/i).selectOption(unit);
+  if (unit !== "TB") {
+    await row.getByRole("button", { name: /unit/i }).click();
+    await page.getByRole("option", { name: unit, exact: true }).click();
+  }
 }
 
 async function addDrives(page: Page, capacities: string[], unit = "TB") {
@@ -25,30 +28,30 @@ test.describe("SHR capacity calculator", () => {
     await expect(page.getByRole("button", { name: "Calculate capacity" })).toBeEnabled();
     await page.getByRole("button", { name: "Calculate capacity" }).click();
     await expect(page.getByText("SHR-1 needs at least 2 drives.", { exact: true })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Estimated pool capacity", exact: true })).toHaveCount(0);
+    await expect(page.getByLabel("Estimated pool capacity", { exact: true })).toHaveCount(0);
   });
 
   test("calculates mixed SHR-1 and separates exact categories", async ({ page }) => {
     await page.goto("/shr-calculator");
     await addDrives(page, ["4", "4", "8", "8"]);
     await page.getByRole("button", { name: "Calculate capacity" }).click();
-    await expect(page.getByRole("heading", { name: "Estimated pool capacity", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "SHR-1 capacity", exact: true })).toBeVisible();
     await expect(page.getByTestId("primary-capacity")).toContainText(/15\.96/);
-    await expect(page.getByTestId("result-protection")).toContainText(/8/);
-    await expect(page.getByTestId("result-unused")).toContainText(/0/);
+    await expect(page.getByLabel("Capacity allocation")).toContainText(/Protection\s*8 TB/);
+    await expect(page.getByLabel("Capacity allocation")).toContainText(/Unused\s*0 TB/);
     await expect(page.getByRole("heading", { name: "Capacity bands", exact: true })).toBeVisible();
     await expect(page.getByRole("table", { name: "SHR capacity bands" })).toBeVisible();
-    await expect(page.getByText("Configuration is for a fresh pool", { exact: false })).toBeVisible();
+    await expect(page.getByText("Fresh-pool estimate.", { exact: false })).toBeVisible();
   });
 
   test("switches to SHR-2 and shows an unused high tier", async ({ page }) => {
     await page.goto("/shr-calculator");
     await addDrives(page, ["4", "4", "8", "8"]);
-    await page.getByLabel("SHR-2").check();
+    await page.getByText("SHR-2 · 2-drive protection", { exact: true }).click();
     await page.getByRole("button", { name: "Calculate capacity" }).click();
     await expect(page.getByTestId("primary-capacity")).toContainText(/7\.96/);
-    await expect(page.getByTestId("result-protection")).toContainText(/8/);
-    await expect(page.getByTestId("result-unused")).toContainText(/8/);
+    await expect(page.getByLabel("Capacity allocation")).toContainText(/Protection\s*8 TB/);
+    await expect(page.getByLabel("Capacity allocation")).toContainText(/Unused\s*8 TB/);
     await expect(page.getByRole("row", { name: /Unused/ })).toBeVisible();
   });
 
@@ -56,14 +59,14 @@ test.describe("SHR capacity calculator", () => {
     await page.goto("/shr-calculator");
     await addDrives(page, ["4", "4", "4", "4"]);
     await page.getByRole("button", { name: "Calculate capacity" }).click();
-    await page.getByLabel("SHR-2").check();
+    await page.getByText("SHR-2 · 2-drive protection", { exact: true }).click();
     await page.getByRole("button", { name: "Remove drive 4" }).click();
-    await expect(page.getByRole("heading", { name: "Estimated pool capacity", exact: true })).toHaveCount(0);
+    await expect(page.getByLabel("Estimated pool capacity", { exact: true })).toHaveCount(0);
     await page.getByRole("button", { name: "Calculate capacity" }).click();
     await expect(page.getByText(/SHR-2 needs at least 4 drives/i)).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Estimated pool capacity", exact: true })).toHaveCount(0);
+    await expect(page.getByLabel("Estimated pool capacity", { exact: true })).toHaveCount(0);
     await page.getByRole("button", { name: "Add drive" }).click();
-    await expect(page.getByLabel("Drive 4 capacity")).toBeFocused();
+    await expect(page.getByRole("textbox", { name: "Drive 4 capacity", exact: true })).toBeFocused();
   });
 
   test("supports keyboard submit, reset, copy, and explicit share", async ({ page, context }) => {
@@ -71,8 +74,8 @@ test.describe("SHR capacity calculator", () => {
     await page.goto("/shr-calculator");
     await page.getByRole("button", { name: "Add drive" }).focus();
     await page.getByRole("button", { name: "Add drive" }).press("Enter");
-    await page.getByLabel("Drive 1 capacity").fill("4");
-    await page.getByLabel("Drive 1 capacity").press("Enter");
+    await page.getByRole("textbox", { name: "Drive 1 capacity", exact: true }).fill("4");
+    await page.getByRole("textbox", { name: "Drive 1 capacity", exact: true }).press("Enter");
     await expect(page.getByText("SHR-1 needs at least 2 drives.", { exact: true })).toBeVisible();
     await addDrives(page, ["4", "8", "8"]);
     await page.getByRole("button", { name: "Calculate capacity" }).click();
@@ -81,7 +84,7 @@ test.describe("SHR capacity calculator", () => {
     await page.getByRole("button", { name: "Share configuration" }).click();
     await expect(page).toHaveURL(/\?state=/);
     await expect(page.getByLabel("Shared configuration URL")).toBeVisible();
-    await page.getByRole("button", { name: "Reset calculator" }).click();
+    await page.getByRole("button", { name: "Reset", exact: true }).click();
     await expect(page).toHaveURL(/shr-calculator$/);
     await expect(page.getByRole("button", { name: "Add drive" })).toBeFocused();
   });
@@ -115,6 +118,10 @@ test.describe("SHR capacity calculator", () => {
       expect((box?.x ?? 0) + (box?.width ?? width)).toBeLessThanOrEqual(width + 1);
       await expect(page.getByTestId("primary-capacity")).toBeVisible();
       await expect(page.getByRole("table", { name: "SHR capacity bands" })).toBeVisible();
+      const allocation = page.getByLabel("Capacity allocation");
+      const allocationBox = await allocation.boundingBox();
+      expect(allocationBox?.x).toBeGreaterThanOrEqual(0);
+      expect((allocationBox?.x ?? 0) + (allocationBox?.width ?? width)).toBeLessThanOrEqual(width + 1);
       const calculatedOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
       expect(calculatedOverflow).toBeLessThanOrEqual(1);
     });

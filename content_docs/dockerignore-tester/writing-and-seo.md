@@ -17,7 +17,7 @@ Static prose budget: 5 sections, 650 words maximum
 
 | Priority | Query family | Immediate job | Expected result shape | Page response |
 | --- | --- | --- | --- | --- |
-| Primary | `.dockerignore pattern tester`, `test dockerignore` | Test one effective ignore file against several representative paths | Batch verdicts with deciding rules | The framed tool returns Included or Excluded, the deciding line, and an ordered trace for every probe |
+| Primary | `.dockerignore pattern tester`, `test dockerignore` | Test one effective ignore file against several representative paths | Batch verdicts with deciding rules | The workbench returns Included or Excluded, the deciding line, and an ordered trace for every probe |
 | Close | `how to test dockerignore file` | Check rules without first instrumenting a build | Tool plus an honest verification boundary | The matcher answers immediately, then the guide explains when a real build is still required |
 | Close | `dockerignore negate pattern not working` | Understand why a later exception did or did not change the result | Ordered rule evidence | The trace distinguishes Direct and Parent evidence and keeps the final two-state verdict clear |
 | Close | `dockerignore pattern syntax checker` | Understand Docker-specific pattern forms and malformed input | Diagnostics plus concise syntax reference | Rule diagnostics preserve line numbers and the guide covers the small set of useful Docker forms |

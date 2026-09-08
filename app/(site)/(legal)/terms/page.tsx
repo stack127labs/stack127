@@ -1,5 +1,5 @@
 import { InfoPage, infoUpdatedClassName } from "@/app/info-page";
-import { proseLedeClassName } from "@/app/prose";
+import { siteHeroTermsArt } from "../../art/site--hero-terms";
 
 export default function TermsPage() {
   return (
@@ -9,13 +9,16 @@ export default function TermsPage() {
           Terms and conditions to use <mark>stack127</mark>
         </>
       }
+      heroArt={siteHeroTermsArt}
+      intro={
+        <p>
+          stack127 is a directory and reference site, not a managed service, marketplace, security
+          auditor, or professional advice provider.
+        </p>
+      }
       slug="terms"
       title="Terms"
     >
-        <p className={proseLedeClassName}>
-          These terms are here to keep expectations clear. stack127 is a directory and reference site, not a managed service, marketplace, security auditor, or professional advice provider.
-        </p>
-
         <section>
           <h2>Using the site</h2>
           <p>

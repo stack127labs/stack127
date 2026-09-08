@@ -1,5 +1,11 @@
 # Brief: Domain Availability Checker
 
+## Current supporting-content direction
+
+Approved September 6, 2026. Separate a missing registry record from purchase eligibility. Keep the outcome table, then explain reservations, pricing, stale data, and the next registrar check. State the checker's RDAP coverage limit without generalizing it to other tools.
+
+The working tool stays first. Use connected explanation at the depth the task needs, with no word, section, sentence, or visual-ratio quota. This direction supersedes earlier supporting-prose budgets in this page's planning artifacts; it does not change the engine or input contract. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
+
 ## Who is here
 
 Someone wants to know whether a domain currently exists in its registry without using a registrar sales search.

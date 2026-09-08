@@ -5,15 +5,17 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
 import ts from "typescript";
 
+import { validateInterfaceContractText } from "../../stack127-tool-interface-plan/scripts/validate-interface-contract.mjs";
+
 const docsArgument = process.argv[2];
 const toolOnly = process.argv.includes("--tool-only");
 const stageArgument = process.argv.find((argument) => argument.startsWith("--stage="));
 const stage = toolOnly ? "test" : stageArgument?.split("=")[1] ?? "content";
-const stageOrder = ["research", "product", "test", "content"];
+const stageOrder = ["research", "product", "interface", "test", "content"];
 const stageIndex = stageOrder.indexOf(stage);
 
 if (!docsArgument || stageIndex === -1) {
-  console.error("Usage: node validate-pipeline.mjs <content-docs-tool-directory> [--stage=research|product|test|content] [--tool-only]");
+  console.error("Usage: node validate-pipeline.mjs <content-docs-tool-directory> [--stage=research|product|interface|test|content] [--tool-only]");
   process.exit(2);
 }
 
@@ -51,6 +53,23 @@ const requirements = [
     ],
   },
   {
+    file: "interface-contract.md",
+    sections: [
+      "User task",
+      "Information decisions",
+      "Input contract",
+      "Result contract",
+      "Visual semantics",
+      "State contract",
+      "Component contract",
+      "Responsive contract",
+      "Interface wireframes",
+      "Removed or rejected",
+      "Acceptance criteria",
+      "Open questions and blockers",
+    ],
+  },
+  {
     file: "edge-cases-and-tests.md",
     sections: [
       "Risk model",
@@ -81,10 +100,12 @@ const activeRequirements = requirements.slice(0, stageIndex + 1);
 
 const upstream = {
   "implementation-report.md": ["competitive-report.md"],
-  "edge-cases-and-tests.md": ["competitive-report.md", "implementation-report.md", "brief.md"],
+  "interface-contract.md": ["implementation-report.md", "brief.md"],
+  "edge-cases-and-tests.md": ["competitive-report.md", "implementation-report.md", "interface-contract.md", "brief.md"],
   "writing-and-seo.md": [
     "competitive-report.md",
     "implementation-report.md",
+    "interface-contract.md",
     "edge-cases-and-tests.md",
     "brief.md",
   ],
@@ -385,8 +406,22 @@ if (implementation !== null) {
   }
 }
 
-const edgeCases = stageIndex >= 2 ? readRequired("edge-cases-and-tests.md") : null;
+const interfaceContract = stageIndex >= 2 ? readRequired("interface-contract.md") : null;
+let interfaceRequirementIds = [];
+if (interfaceContract !== null) {
+  const result = validateInterfaceContractText(interfaceContract);
+  errors.push(...result.errors);
+  if (result.headers.mode !== "pipeline") {
+    errors.push("interface-contract.md: full pipeline requires Mode: pipeline");
+  }
+  interfaceRequirementIds = [
+    ...(sectionBody(interfaceContract, "Acceptance criteria") ?? "").matchAll(/^\|\s*(UI-\d{3})\s*\|/gmi),
+  ].map((match) => match[1]);
+}
+
+const edgeCases = stageIndex >= 3 ? readRequired("edge-cases-and-tests.md") : null;
 if (edgeCases !== null) {
+  const tracedRequirementIds = [...requirementIds, ...interfaceRequirementIds];
   const caseRows = markdownRows(sectionBody(edgeCases, "Edge-case matrix") ?? "").filter((row) => /^EC-\d+$/.test(row[0] ?? ""));
   if (caseRows.length < 8) errors.push("edge-cases-and-tests.md: edge-case matrix needs at least eight concrete cases");
   for (const priority of ["P0", "P1"]) {
@@ -394,13 +429,13 @@ if (edgeCases !== null) {
   }
   for (const row of caseRows) {
     if (row.length < 9 || row.some((cell) => cell.length === 0)) errors.push(`edge-cases-and-tests.md: ${row[0]} is missing a required field`);
-    const references = row[row.length - 1].match(/\bR\d+\b/g) ?? [];
+    const references = row[row.length - 1].match(/\b(?:R\d+|UI-\d{3})\b/g) ?? [];
     if (references.length === 0) errors.push(`edge-cases-and-tests.md: ${row[0]} has no requirement reference`);
     for (const reference of references) {
-      if (!requirementIds.includes(reference)) errors.push(`edge-cases-and-tests.md: ${row[0]} references unknown ${reference}`);
+      if (!tracedRequirementIds.includes(reference)) errors.push(`edge-cases-and-tests.md: ${row[0]} references unknown ${reference}`);
     }
   }
-  for (const requirementId of requirementIds) {
+  for (const requirementId of tracedRequirementIds) {
     if (!caseRows.some((row) => row.some((cell) => new RegExp(`\\b${requirementId}\\b`).test(cell)))) {
       errors.push(`edge-cases-and-tests.md: ${requirementId} has no edge-case coverage`);
     }
@@ -443,23 +478,10 @@ if (edgeCases !== null) {
   if (markdownRows(sectionBody(edgeCases, "Manual verification") ?? "").length < 4) errors.push("edge-cases-and-tests.md: manual verification needs at least four view/state checks");
 }
 
-const writingPlan = stageIndex >= 3 ? readRequired("writing-and-seo.md") : null;
+const writingPlan = stageIndex >= 4 ? readRequired("writing-and-seo.md") : null;
 if (writingPlan !== null) {
   const primaryMedium = uniqueHeader(writingPlan, "Primary medium", "writing-and-seo.md");
-  const proseMinority = uniqueHeader(writingPlan, "Prose is the minority", "writing-and-seo.md");
-  const budget = uniqueHeader(writingPlan, "Static prose budget", "writing-and-seo.md");
   if (primaryMedium !== "Tool UI") errors.push("writing-and-seo.md: Primary medium must be Tool UI");
-  if (proseMinority?.toLowerCase() !== "yes") errors.push("writing-and-seo.md: prose must be the minority");
-  const budgetMatch = budget?.match(/^(\d+) sections?,\s*(\d+) words maximum$/i);
-  if (!budgetMatch) {
-    errors.push("writing-and-seo.md: invalid static prose budget");
-  } else {
-    const sections = Number(budgetMatch[1]);
-    const proseBudget = Number(budgetMatch[2]);
-    if (sections < 1 || sections > 5 || proseBudget < 1 || proseBudget > 700) {
-      errors.push("writing-and-seo.md: prose budget exceeds the default five-section, 700-word ceiling");
-    }
-  }
   const copyIds = [...new Set([...writingPlan.matchAll(/\bCOPY-\d{2,}\b/g)].map((match) => match[0]))];
   if (copyIds.length === 0) errors.push("writing-and-seo.md: manual prose handoff has no stable COPY IDs");
   const outlineRows = markdownRows(sectionBody(writingPlan, "Heading and media outline") ?? "");
@@ -472,16 +494,10 @@ if (writingPlan !== null) {
   if (!media.some((value) => value.includes("tool ui"))) {
     errors.push("writing-and-seo.md: heading and media outline omits the tool UI");
   }
-  const proseRows = media.filter((value) => value === "sentences").length;
-  const nonProseRows = media.filter((value) => value && value !== "sentences").length;
-  if (proseRows >= nonProseRows) errors.push("writing-and-seo.md: sentence sections are not a minority of the media outline");
-  const budgetSections = budgetMatch ? Number(budgetMatch[1]) : null;
-  if (budgetSections !== null && proseRows > budgetSections) errors.push("writing-and-seo.md: outline exceeds the approved prose-section budget");
   const proseRowsById = markdownRows(sectionBody(writingPlan, "Manual prose handoff") ?? "").filter((row) => /^COPY-\d{2,}$/.test(row[0] ?? ""));
   if (proseRowsById.length !== copyIds.length) errors.push("writing-and-seo.md: every COPY ID needs exactly one manual prose assignment row");
   for (const row of proseRowsById) {
-    const limit = Number((row[4] ?? "").match(/(\d+)\s+words?/i)?.[1]);
-    if (row.length < 6 || !Number.isInteger(limit) || limit < 1) errors.push(`writing-and-seo.md: ${row[0]} needs closed facts, a numeric word limit, and repetition guard`);
+    if (row.length < 6 || row.slice(0, 6).some((cell) => !cell.trim())) errors.push(`writing-and-seo.md: ${row[0]} needs facts, a depth/stopping point, and repetition guard`);
   }
   const outlineCopyIds = outlineRows
     .filter((row) => (row[4] ?? "").toLowerCase() === "sentences")

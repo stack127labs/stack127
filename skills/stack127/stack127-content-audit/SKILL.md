@@ -10,7 +10,7 @@ Use this skill in `/Users/ravitejaknts/projects/Stack127` for strict, evidence-b
 ## First Checks
 
 - Read `AGENTS.md`.
-- Read `stack127_docs/writing-style.md`.
+- Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` and its house-conventions companion, `stack127_docs/writing-style.md`.
 - If the target belongs to a page family with docs, read `content_docs/<page-slug>/` before judging the page.
 - Inspect the route/source under `app/`, the shared shell/components it uses, and any page-specific docs or manifest files that define scope.
 - If the user says "check", "evaluate", "audit", or "tell me", stay read-only unless they explicitly ask for edits.
@@ -62,7 +62,7 @@ Do not drift into a full product, directory, database, performance, SEO, or desi
    - Identify exact places where a new reader will likely pause, branch out, or get lost.
 
 6. Judge voice and trust.
-   - Apply `stack127_docs/writing-style.md` and any page-family voice docs.
+   - Apply the shared writing-voice skill at the tone appropriate to the page. Page-family docs may define facts and format, not a competing voice.
    - Check for generic filler, AI-tell phrasing, overconfident safety claims, weak caveats, repeated facts, unsupported "easy/simple" claims, and tone mismatch.
    - Prefer concrete, lived-in examples over broad category lists.
 

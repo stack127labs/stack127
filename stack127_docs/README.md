@@ -8,6 +8,8 @@ Those records explain how the repository arrived here, but current docs win if t
 
 - `design-system.md`: visual tokens and UI rules.
 - `page-families.md`: the shared structure for catalogs, courses, tools, references, info pages, and legal pages.
+- `tool-pages.md`: tool-page tables, Markdown ownership, public dates, versions, and reviewed update commands.
+- `stack127-repos.md`: boundaries, inventory, automation, and revision tracking for repositories owned by stack127.
 - `brand-assets.md`: preserved logo originals, production variants, favicon choice, and regeneration workflow.
 - `writing-style.md`: content voice, accuracy, prose, and summary rules.
 - `repo-structure.md`: docs, scripts, page ownership, and environment conventions.

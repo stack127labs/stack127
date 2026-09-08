@@ -314,7 +314,7 @@ The server uses the client-established session connection for callbacks.
 
 | Claim or task | Medium | Position | Why this medium |
 | --- | --- | --- | --- |
-| Choose protocol, protected host, firewall, family, peer, and verified ports | Tool UI | First inside the framed tool | These choices directly change the plan |
+| Choose protocol, protected host, firewall, family, peer, and verified ports | Tool UI | First inside the workbench | These choices directly change the plan |
 | Immediate conclusion | Exact result visualization | First in the result region | The user needs ready, incomplete, or no-additional-rule status before syntax |
 | Repeated listener facts | Table | Under the answer | Endpoint, source, protocol, port, and provenance repeat across services |
 | Missing local facts | Exact result visualization | Beside the known table in incomplete state | It is recovery, not background prose |
@@ -341,7 +341,7 @@ No marker art, screenshot, or chart is justified. The service-and-direction tabl
 - `scripts/nfs-firewall-rules/preview-local-page.mjs`: guarded local-only preview that restores publication state.
 - `scripts/nfs-firewall-rules/scripts.json`: route script ownership.
 
-Use no new production dependency. The engine should remain auditable TypeScript. Compare the framed tool, page width, controls, table treatment, and mobile result with `/home-assistant-energy-entity-checker`, `/nginx-proxy-pass-calculator`, and `/dockerignore-tester` before styling.
+Use no new production dependency. The engine should remain auditable TypeScript. Compare the workbench width, controls, table treatment, and mobile result with `/home-assistant-energy-entity-checker`, `/nginx-proxy-pass-calculator`, and `/dockerignore-tester` before styling.
 
 ### Accessibility, privacy, security, and performance
 
@@ -363,7 +363,7 @@ Unpublished. The ownership manifest must say `unpublished`, the guarded local pr
 
 | ID | Observable acceptance criterion | Evidence at build time |
 | --- | --- | --- |
-| R1 | The clean page uses the locked flat route and renders one framed tool with no result. | Static route test and Browser |
+| R1 | The clean page uses the locked flat route and renders one workbench with no result. | Static route test and Browser |
 | R2 | Server-side NFSv4.1+ yields exactly TCP/2049 from the client CIDR. | Unit fixture |
 | R3 | Server-side NFSv4.0 also yields TCP/2049 and states that client callback planning is separate. | Unit fixture and Browser |
 | R4 | Client-side NFSv4.1+ yields `no_additional_rule`, not an empty success or port 2049 inbound rule. | Unit and Playwright fixture |

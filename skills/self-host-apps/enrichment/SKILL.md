@@ -12,6 +12,7 @@ Scripts move data. Codex makes editorial and factual decisions. Never generate s
 ## Run
 
 1. Read `content_docs/self-host-apps/data-workflow.md`, `content-rules.md`, and `schema.md`.
+   Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` for app summaries and other public wording. Use its directory-entry tone while preserving the verified-fact and structured-field rules below.
 2. Claim up to 100 candidates:
    `npm run self-host-apps:select-candidate-batch -- --limit 100 --out <batch.json>`
 3. For GitHub candidates, collect API evidence:
@@ -38,7 +39,7 @@ Scripts move data. Codex makes editorial and factual decisions. Never generate s
 - Assign one to three controlled categories by purpose.
 - Use `null` or `unknown` when official evidence is absent.
 - RAM, storage, database needs, Docker support, Compose support, and surfaces require direct evidence.
-- When a publisher does not state RAM or storage, a separate reviewed estimate may be added by `self-host-apps:propose-resource-estimates` and `self-host-apps:apply-resource-estimates`; those ranges are explicitly low-confidence planning guidance and must never replace an exact requirement.
+- When a publisher does not state RAM or storage, keep the exact value null. `self-host-apps:propose-resource-estimates` creates research tasks, not numeric ranges. A separate estimate needs a documented measurement, calculation, or published estimate, a stated workload, and an explanation tied to its sources before `self-host-apps:apply-resource-estimates` can accept it. Database counts, categories, or an attached homepage URL do not justify a range. See the review contract in `content_docs/self-host-apps/data-workflow.md`.
 - Docker source files remain evidence. Use `self-host-apps:refresh-install-options` to publish a registry destination, Compose link, or verified appliance catalog option.
 - A Dockerfile proves a file exists; it does not by itself prove supported production deployment.
 - Put the URLs used for a decision in `sources` or `data_source_urls`, and add a `technical_fact_status` entry when a technical source was checked. There is no field-source table.

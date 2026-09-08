@@ -65,17 +65,26 @@ try {
     await pool.query(
       `
         insert into public.stack127_pages
-          (slug, label, meta_title, meta_description, is_published, published_at, page_type, sitemap_priority)
-        values ($1, $2, $3, $4, $5, case when $5 then now() else null end, $6, $7)
+          (slug, label, meta_title, meta_description, is_published, published_at, updated_at, page_type, sitemap_priority, page_family)
+        values (
+          $1, $2, $3, $4, $5,
+          case when $5 then now() else null end,
+          case when $5 then now() else null end,
+          $6, $7, 'course'
+        )
         on conflict (slug) do update set
           label = excluded.label,
           meta_title = excluded.meta_title,
           meta_description = excluded.meta_description,
           page_type = excluded.page_type,
           sitemap_priority = excluded.sitemap_priority,
+          page_family = 'course',
           is_published = excluded.is_published,
-          published_at = coalesce(public.stack127_pages.published_at, excluded.published_at),
-          updated_at = now()
+          published_at = case
+            when excluded.is_published then coalesce(public.stack127_pages.published_at, excluded.published_at)
+            else null
+          end,
+          updated_at = case when excluded.is_published then now() else null end
       `,
       [
         page.slug,

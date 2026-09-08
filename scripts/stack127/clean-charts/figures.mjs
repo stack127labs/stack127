@@ -38,7 +38,7 @@ function bar(spec, C) {
     const y = top + index * rowH;
     const w = Math.max((item.value / ceiling) * barMax, 2);
     C.text(x0 - 10, y + 21, item.label, { anchor: "end", size: 13 });
-    C.rect(x0, y + 8, w, 18, { fill: toneOf(item.tone), rx: 3 });
+    C.rect(x0, y + 8, w, 18, { fill: toneOf(item.tone), rx: 2 });
     C.text(x0 + w + 10, y + 21, formatValue(item.value, d.valueFormat), {
       size: 12.5,
       mono: true,

@@ -277,5 +277,29 @@ export function buildInstallOptions(app, sourceRows = []) {
     }
   }
 
+  // Every self-hostable app should expose at least one actionable path. Some
+  // projects publish native/package instructions without a registry image or
+  // compose file, so retain the publisher's installation page as the fallback
+  // instead of leaving an empty install-options row.
+  if (options.length === 0) {
+    const fallbackUrl = [app.install_docs_url, app.docs_url, app.source_code_url, app.website_url]
+      .find((value) => isHttpUrl(value));
+    if (fallbackUrl) {
+      const methods = new Set(Array.isArray(app.deployment_methods) ? app.deployment_methods : []);
+      const method = methods.has("package") ? "package"
+        : methods.has("binary") ? "binary"
+          : methods.has("native") ? "native"
+            : "native";
+      add({
+        method,
+        url: fallbackUrl,
+        support_level: "official",
+        source_url: fallbackUrl,
+        note: "Publisher installation documentation; verify dependencies and platform support.",
+        sort_order: 60,
+      });
+    }
+  }
+
   return options.sort((a, b) => a.sort_order - b.sort_order || a.label.localeCompare(b.label) || a.url.localeCompare(b.url));
 }

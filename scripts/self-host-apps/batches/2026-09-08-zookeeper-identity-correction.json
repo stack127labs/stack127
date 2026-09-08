@@ -1,0 +1,25 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Identity, description, category, source model, repository and license only. Resource and installation facts remain pending the full audit.",
+  "apps": [
+    {
+      "slug": "apache-zookeeper",
+      "name": "Apache ZooKeeper",
+      "summary": "Coordinates distributed applications so their servers can share configuration, discover services, and choose a leader.",
+      "source_model": "open_source",
+      "source_code_url": "https://github.com/apache/zookeeper",
+      "source_code_host": "github",
+      "license": "Apache-2.0",
+      "license_spdx_id": "Apache-2.0",
+      "license_type": "permissive",
+      "categories": ["developer-tools"],
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "data_source_urls": [
+        "https://zookeeper.apache.org/",
+        "https://zookeeper.apache.org/doc/current/zookeeperOver.html",
+        "https://raw.githubusercontent.com/apache/zookeeper/master/LICENSE.txt"
+      ]
+    }
+  ]
+}

@@ -12,10 +12,22 @@
     "purpose": "Refreshes the committed reference datasets /domain-tools depends on: IANA RDAP bootstrap, the root zone TLD list, the Public Suffix List, and the Unicode IDNA and script tables."
   },
   {
+    "surface": "punycode-converter",
+    "folder": "scripts/punycode-converter",
+    "manifest": null,
+    "purpose": "Refreshes the pinned Unicode character names used by /punycode-converter."
+  },
+  {
+    "surface": "keyboard-shortcuts",
+    "folder": "scripts/keyboard-shortcuts",
+    "manifest": "scripts/keyboard-shortcuts/scripts.json",
+    "purpose": "Keeps compact app metadata, lazy loaders, route wrappers, and ownership manifests aligned with verified keyboard shortcut records."
+  },
+  {
     "surface": "stack127",
     "folder": "scripts/stack127",
     "manifest": null,
-    "purpose": "Sitewide durable scripts that are not owned by one page."
+    "purpose": "Sitewide durable scripts, including reviewed tool-page content, version, and stack127 repo synchronization updates."
   },
   {
     "surface": "dockerignore-tester",
@@ -70,5 +82,41 @@
     "folder": "scripts/cli-apps",
     "manifest": "scripts/cli-apps/scripts.json",
     "purpose": "Discovery, dedupe, verification, curation, publishing, and coverage for /cli-apps."
+  },
+  {
+    "surface": "zigbee-devices",
+    "folder": "scripts/zigbee-devices",
+    "manifest": "scripts/zigbee-devices/scripts.json",
+    "purpose": "Refreshes, verifies, previews, and visually checks the source-backed /zigbee-devices catalog."
+  },
+  {
+    "surface": "zigbee-coordinators",
+    "folder": "scripts/zigbee-coordinators",
+    "manifest": "scripts/zigbee-coordinators/scripts.json",
+    "purpose": "Refreshes the pinned coordinator records and normalized images used by /zigbee-coordinators."
+  },
+  {
+    "surface": "z-wave-devices",
+    "folder": "scripts/z-wave-devices",
+    "manifest": "scripts/z-wave-devices/scripts.json",
+    "purpose": "Imports the complete Z-Wave Alliance catalog, official product images, certification details, and exact Z-Wave JS enrichment used by /z-wave-devices."
+  },
+  {
+    "surface": "nut-compatible-ups",
+    "folder": "scripts/nut-compatible-ups",
+    "manifest": "scripts/nut-compatible-ups/scripts.json",
+    "purpose": "Refreshes the reviewed NUT HCL records and official product images used by /nut-compatible-ups."
+  },
+  {
+    "surface": "local-security-cameras",
+    "folder": "scripts/local-security-cameras",
+    "manifest": "scripts/local-security-cameras/scripts.json",
+    "purpose": "Refreshes the reviewed CC0 local-camera records and manufacturer images used by /local-security-cameras."
+  },
+  {
+    "surface": "matter-devices",
+    "folder": "scripts/matter-devices",
+    "manifest": "scripts/matter-devices/scripts.json",
+    "purpose": "Refreshes the pictured certification records used by /matter-devices."
   }
 ]

@@ -1,0 +1,1 @@
+{"id":"catalog--ceph","type":"toolSpot","takeaway":"A server branching into peers stands for capacity spread across Ceph failure domains.","source":"conceptual figure, no external data","dataAsOf":"2026-09-04","width":140,"height":110,"seed":240,"data":{"icon":"server","motif":"branch"}}

@@ -16,19 +16,24 @@ Fields:
 
 | column | purpose |
 | --- | --- |
+| `id` | Internal page identity and primary key |
 | `slug` | URL path without leading slash, for example `self-host-apps` or `self-hosting-for-beginners/linux-ssh-basics` |
+| `page_family` | Page ownership family: `tool`, `catalog`, `course`, `info`, or `legal` |
 | `label` | Compact UI label for sidebars, home cards, and other chrome. Keep short and lowercase unless a proper noun needs different casing |
 | `meta_title` | Full browser/search title |
 | `meta_description` | Search description |
 | `is_published` | Whether the exact slug is a public SEO page |
-| `created_at` | Registry creation date |
-| `published_at` | Date the exact slug became public |
-| `updated_at` | Last meaningful SEO/content update for sitemap `lastmod` and JSON-LD |
+| `row_created_at` | Internal registry-row creation time. It is not a public date |
+| `row_updated_at` | Automatic internal time of the latest registry-row write |
+| `published_at` | Public time the exact slug first became public; `null` while unpublished |
+| `updated_at` | Deliberate public time of the latest meaningful SEO, content, or tool change; `null` while unpublished |
 | `cover_image_url` | Optional Open Graph/Twitter image |
 | `page_type` | Schema.org page type, for example `WebPage` or `CollectionPage` |
 | `sitemap_priority` | Sitemap priority from `0` to `1` |
 
 Unknown optional values should be `null`, not guessed.
+
+Automatic row timestamps and public dates are separate. Do not present `row_created_at` or `row_updated_at` to readers, use them for sitemap dates, or set `row_updated_at` manually. Tool-specific fields and their update rules are documented in `stack127_docs/tool-pages.md`.
 
 ## Indexing
 
@@ -71,5 +76,5 @@ Do not block useful pages in `robots.txt` just to handle duplicates. Prefer `noi
 1. Build the repo-owned route under `app/`.
 2. Keep page code free of metadata, robots, canonical, sitemap, and JSON-LD exports.
 3. Add or update the page docs under `content_docs/<page-slug>/`.
-4. Insert a reviewed row into `public.stack127_pages` when the page should become public.
+4. Insert a reviewed row into `public.stack127_pages` with the correct `page_family` when the page should become public.
 5. Verify the exact URL renders with `index, follow`, appears in `/sitemap.xml`, and child/query variants stay `noindex, follow`.

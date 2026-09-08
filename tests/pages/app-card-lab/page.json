@@ -1,0 +1,10 @@
+{
+  "route": "/app-card-lab",
+  "state": "noindex",
+  "reason": "Temporary card comparison, available only in development. Returns 404 in production and is not added to the publication registry.",
+  "docs": ["content_docs/app-card-lab/brief.md"],
+  "tests": ["tests/pages/app-card-lab/app-card-lab.test.mjs", "tests/pages/app-card-lab/app-card-lab.spec.ts"],
+  "scripts": [],
+  "skills": ["skills/stack127/test-driven-page", "skills/stack127/stack127-writing-voice", "skills/stack127/unslop"],
+  "repositories": []
+}

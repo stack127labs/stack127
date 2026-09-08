@@ -10,8 +10,8 @@ Produce a clean printable cheat sheet containing exactly the apps, platforms, an
 
 ## Show vs say
 
-- Controls: one framed tool box. App checkboxes, a platform radio row per multi-platform app, group checkboxes per selected app, and one primary Print button that calls window.print().
-- Preview: a real, live rendering of the printed sheet inside the tool frame, styled like paper regardless of site theme. What you see is what prints.
+- Controls: one full-width workbench band. App checkboxes, a platform radio row per multi-platform app, group checkboxes per selected app, and one primary Print button that calls window.print().
+- Preview: a real, live rendering of the printed sheet inside the workbench, styled like paper regardless of site theme. What you see is what prints.
 - Print CSS hides every control and prints only the sheet.
 - Page content: a concise introduction before the tool, a short server-rendered guide after it, and app names with the words "keyboard shortcuts" in the printable sheet. The guide explains how to choose a useful set, what the sheet includes, what it leaves out, and where to continue.
 - Engine stays pure TypeScript in lib/shortcuts: selection in, document out, unit tested. React only renders the document.

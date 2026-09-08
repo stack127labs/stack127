@@ -14,7 +14,7 @@ Use these rules when reviewing apps for `/self-host-apps`.
 - An official Docker image is valid distribution evidence. A community image must be labeled `community` and must not imply publisher support.
 - Link Docker actions to a registry or package page where someone can pull or install the image. A Dockerfile, Compose file, repository, or README can support the evidence record but is not a Docker install destination.
 - Platform catalogs such as TrueNAS SCALE and Umbrel may be listed as separate install options when their catalog URL is verified. Catalog inclusion does not imply publisher support.
-- RAM and storage ranges may be shown only when reviewed with an evidence URL, basis, and confidence, and must carry an explicit `estimated` label.
+- RAM and storage ranges need a documented measurement, calculation, or published estimate, with a stated workload, evidence URLs, basis, and confidence. They must carry an explicit `estimated` label. Do not generate ranges from category or database-count defaults.
 - Do not add generic tags, verdicts, long descriptions, or per-app prose pages.
 
 ## Summaries
@@ -34,6 +34,12 @@ Powerful open-source self-hosted photo management solution.
 ```
 
 Avoid filler such as `solution`, `powerful`, `ultimate`, `seamless`, and `all-in-one`.
+
+Do not generate public summaries from imported descriptions or topics, or truncate them to a character limit and append punctuation. Imported markup and unfinished sentences block publication until the text is reviewed. A passing automated check does not establish factual accuracy. Review the complete sentence against the official project evidence.
+
+## Review dates
+
+Repository and release refresh dates describe those checks only. Do not label them `facts checked` or advance a general review date after changing a subset of fields. Record the scope and sources of each editorial correction. Resource and installation checks keep their own evidence dates and unknown states.
 
 ## Rendering
 

@@ -100,6 +100,35 @@ export type DirectoryApp = {
   categories: AppCategory[];
 };
 
+export type DirectoryAppIndex = Pick<
+  DirectoryApp,
+  | "slug"
+  | "name"
+  | "summary"
+  | "license"
+  | "license_spdx_id"
+  | "source_model"
+  | "publisher_name"
+  | "maintenance_status"
+  | "docker_support"
+  | "compose_support"
+  | "requires_database"
+  | "ram_min_mb"
+  | "ram_recommended_mb"
+  | "ram_default_limit_mb"
+  | "ram_researched"
+  | "storage_profile"
+  | "storage_min_gb"
+  | "storage_researched"
+  | "popularity_score"
+  | "surfaces"
+  | "categories"
+> & {
+  install_methods: string[];
+  ram_estimate_min_mb: number | null;
+  storage_estimate_min_gb: number | null;
+};
+
 export type SelfHostAppsStats = {
   appCount: number;
   categoryCount: number;
@@ -114,8 +143,10 @@ export type DirectoryLicenseCount = {
 };
 
 const categoryJoin = `
-  left join lateral (
-    select coalesce(
+  left join (
+    select
+      app_category.app_id,
+      coalesce(
       jsonb_agg(
         jsonb_build_object(
           'name', category.name,
@@ -128,8 +159,8 @@ const categoryJoin = `
     ) as categories
     from public.self_host_app_category_links app_category
     join public.self_host_app_categories category on category.id = app_category.category_id
-    where app_category.app_id = app.id
-  ) category_set on true
+    group by app_category.app_id
+  ) category_set on category_set.app_id = app.id
 `;
 
 const resourceEstimateJoin = `
@@ -265,6 +296,12 @@ function normalizeInstallOptions(value: unknown): DirectoryInstallOption[] {
     }));
 }
 
+function normalizeStringArray(value: unknown): string[] {
+  return normalizeJsonArray<unknown>(value).filter(
+    (item): item is string => typeof item === "string" && item.length > 0,
+  );
+}
+
 export async function getSelfHostAppsStats(): Promise<SelfHostAppsStats> {
   const result = await getPool().query<{
     active_count: number | string;
@@ -387,7 +424,143 @@ export async function getSelfHostAppsModifiedAt(): Promise<Date | null> {
   return date.getUTCFullYear() === 1970 ? null : date;
 }
 
-export async function getDirectoryApps(): Promise<DirectoryApp[]> {
+const DIRECTORY_APP_INDEX_CACHE_TTL_MS = 60_000;
+const DIRECTORY_APP_INDEX_BATCH_SIZE = 750;
+let directoryAppIndexCache: { value: DirectoryAppIndex[]; expiresAt: number } | null = null;
+let directoryAppIndexRequest: Promise<DirectoryAppIndex[]> | null = null;
+
+type DirectoryAppIndexRow = Omit<DirectoryAppIndex, "categories" | "install_methods"> & {
+  categories: unknown;
+  install_methods: unknown;
+};
+
+async function loadDirectoryAppIndexBatch(
+  limit: number,
+  offset: number,
+): Promise<DirectoryAppIndex[]> {
+  const result = await getPool().query<DirectoryAppIndexRow>(
+    `
+      select
+        app.slug,
+        app.name,
+        app.summary,
+        app.license,
+        app.license_spdx_id,
+        app.source_model,
+        app.publisher_name,
+        app.maintenance_status,
+        app.docker_support,
+        app.compose_support,
+        app.requires_database,
+        app.ram_min_mb,
+        app.ram_recommended_mb,
+        app.ram_default_limit_mb,
+        coalesce(
+          (app.technical_fact_status -> 'ram' ->> 'status') in ('published', 'not_published'),
+          false
+        ) as ram_researched,
+        app.storage_profile,
+        app.storage_min_gb::float8 as storage_min_gb,
+        coalesce(
+          (app.technical_fact_status -> 'storage' ->> 'status') in ('published', 'not_published'),
+          false
+        ) as storage_researched,
+        app.popularity_score::float8 as popularity_score,
+        app.surfaces,
+        resource_estimate.ram_estimate_min_mb::float8 as ram_estimate_min_mb,
+        resource_estimate.storage_estimate_min_gb::float8 as storage_estimate_min_gb,
+        coalesce(
+          array(
+            select distinct install_method.value ->> 'method'
+            from jsonb_array_elements(coalesce(install_option.options, '[]'::jsonb)) install_method(value)
+            where install_method.value ->> 'method' is not null
+            order by install_method.value ->> 'method'
+          ),
+          '{}'::text[]
+        ) as install_methods,
+        coalesce(category_set.categories, '[]'::jsonb) as categories
+      from public.self_host_apps app
+      left join public.self_host_app_resource_estimates resource_estimate on resource_estimate.app_id = app.id
+      left join public.self_host_app_install_options install_option on install_option.app_id = app.id
+      left join lateral (
+        select coalesce(
+          jsonb_agg(
+            jsonb_build_object(
+              'name', category.name,
+              'slug', category.slug,
+              'icon_key', category.icon_key
+            )
+            order by category.sort_order, category.name
+          ),
+          '[]'::jsonb
+        ) as categories
+        from public.self_host_app_category_links app_category
+        join public.self_host_app_categories category on category.id = app_category.category_id
+        where app_category.app_id = app.id
+      ) category_set on true
+      where app.published = true
+        and app.self_hosting_status = 'self_hostable'
+      order by app.name asc, app.slug asc
+      limit $1
+      offset $2
+    `,
+    [limit, offset],
+  );
+
+  return result.rows.map((app) => ({
+    ...app,
+    categories: normalizeCategories(app.categories),
+    install_methods: normalizeStringArray(app.install_methods),
+  }));
+}
+
+async function loadDirectoryAppIndex(): Promise<DirectoryAppIndex[]> {
+  const countResult = await getPool().query<{ app_count: number | string }>(
+    `
+      select count(*) as app_count
+      from public.self_host_apps app
+      where app.published = true
+        and app.self_hosting_status = 'self_hostable'
+    `,
+  );
+  const appCount = Number(countResult.rows[0]?.app_count ?? 0);
+  const batchCount = Math.ceil(appCount / DIRECTORY_APP_INDEX_BATCH_SIZE);
+  const batches = await Promise.all(
+    Array.from({ length: batchCount }, (_, batchIndex) =>
+      loadDirectoryAppIndexBatch(
+        DIRECTORY_APP_INDEX_BATCH_SIZE,
+        batchIndex * DIRECTORY_APP_INDEX_BATCH_SIZE,
+      ),
+    ),
+  );
+
+  return batches.flat();
+}
+
+export async function getDirectoryAppIndex(): Promise<DirectoryAppIndex[]> {
+  const now = Date.now();
+  if (directoryAppIndexCache && directoryAppIndexCache.expiresAt > now) {
+    return directoryAppIndexCache.value;
+  }
+
+  if (!directoryAppIndexRequest) {
+    directoryAppIndexRequest = loadDirectoryAppIndex()
+      .then((value) => {
+        directoryAppIndexCache = {
+          value,
+          expiresAt: Date.now() + DIRECTORY_APP_INDEX_CACHE_TTL_MS,
+        };
+        return value;
+      })
+      .finally(() => {
+        directoryAppIndexRequest = null;
+      });
+  }
+
+  return directoryAppIndexRequest;
+}
+
+async function loadDirectoryAppsBySlugs(slugs: string[]): Promise<DirectoryApp[]> {
   const result = await getPool().query<
     Omit<DirectoryApp, "categories"> & { categories: unknown }
   >(
@@ -488,10 +661,11 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
       ${categoryJoin}
       ${resourceEstimateJoin}
       ${installOptionJoin}
-      where app.published = true
+      where app.slug = any($1::text[])
+        and app.published = true
         and app.self_hosting_status = 'self_hostable'
-      order by app.name asc
     `,
+    [slugs],
   );
 
   return result.rows.map((app) => ({
@@ -500,6 +674,19 @@ export async function getDirectoryApps(): Promise<DirectoryApp[]> {
     install_options: normalizeInstallOptions(app.install_options),
     categories: normalizeCategories(app.categories),
   }));
+}
+
+export async function getDirectoryAppsBySlugs(slugs: string[]): Promise<DirectoryApp[]> {
+  if (slugs.length === 0) {
+    return [];
+  }
+
+  const apps = await loadDirectoryAppsBySlugs(slugs);
+  const appsBySlug = new Map(apps.map((app) => [app.slug, app]));
+
+  return slugs
+    .map((slug) => appsBySlug.get(slug))
+    .filter((app): app is DirectoryApp => Boolean(app));
 }
 
 export async function getDirectoryLicenseCounts(): Promise<DirectoryLicenseCount[]> {

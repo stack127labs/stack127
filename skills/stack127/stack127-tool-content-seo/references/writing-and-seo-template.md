@@ -8,15 +8,15 @@ Copy this structure to `content_docs/<route-without-leading-slash>/writing-and-s
 Status: draft
 Tool: [[tool name]]
 Route: `/[[route]]`
-Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
+Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `edge-cases-and-tests.md`, `brief.md`
 Input fingerprint: `competitive-report.md sha256:[[64 lowercase hex characters]]`
 Input fingerprint: `implementation-report.md sha256:[[64 lowercase hex characters]]`
+Input fingerprint: `interface-contract.md sha256:[[64 lowercase hex characters]]`
 Input fingerprint: `edge-cases-and-tests.md sha256:[[64 lowercase hex characters]]`
 Input fingerprint: `brief.md sha256:[[64 lowercase hex characters]]`
 SERP checked: [[YYYY-MM-DD]]
 Primary medium: Tool UI
-Prose is the minority: yes
-Static prose budget: [[1 to 5]] sections, [[1 to 700]] words maximum
+Content depth: [[what readers need to understand and where this page stops]]
 
 ## Search intent
 
@@ -30,6 +30,8 @@ Static prose budget: [[1 to 5]] sections, [[1 to 700]] words maximum
 ## Page promise
 
 [[One sentence describing what the user can get and the important boundary.]]
+
+Reading flow: [[how each part develops the explanation and leads to the next reader question]]
 
 ## Content completeness map
 
@@ -72,12 +74,13 @@ Static prose budget: [[1 to 5]] sections, [[1 to 700]] words maximum
 
 ### Sections reserved for later manual writing
 
-| Section ID | Heading | Purpose | Required facts and sources | Word limit and shape | Banned claims or repetition |
+| Section ID | Heading | Purpose | Required facts and sources | Useful depth and stopping point | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
-| COPY-01 | [[approved heading]] | [[one user need]] | [[closed-world facts and sources]] | [[maximum words and paragraph shape]] | [[claims and visual facts not to repeat]] |
+| COPY-01 | [[approved heading]] | [[one user need]] | [[closed-world facts and sources]] | [[what needs explanation and what belongs elsewhere]] | [[claims and visual facts not to repeat]] |
 
 ### Voice and accuracy constraints
 - Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
+- Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` for public wording. This plan owns search intent and useful coverage, not a separate voice.
 - Write `stack127`, lowercase.
 - Use no em dash or en dash.
 - Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.

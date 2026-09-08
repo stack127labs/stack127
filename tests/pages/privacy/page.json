@@ -3,6 +3,7 @@
   "state": "published",
   "docs": ["content_docs/privacy"],
   "tests": [
+    "tests/stack127/entry-page-visual-system.test.mjs",
     "tests/pages/privacy/privacy.test.mjs",
     "tests/stack127/seo.spec.ts"
   ],

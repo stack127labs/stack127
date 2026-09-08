@@ -1,5 +1,11 @@
 # Brief: Domain Registration Lookup
 
+## Current supporting-content direction
+
+Approved September 6, 2026. Start with the public registration question, explain accepted names, then use a field table and source/date interpretation. Follow with redaction, focused next checks, and remote data handling. Keep registration history and missing evidence distinct from current published facts.
+
+The working tool stays first. Use connected explanation at the depth the task needs, with no word, section, sentence, or visual-ratio quota. This direction supersedes earlier supporting-prose budgets in this page's planning artifacts; it does not change the engine or input contract. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
+
 ## Who is here
 
 A reader needs the complete current registration record for one domain and wants to know which facts came from the registry or registrar.

@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-zigbee-coordinators",
+  "type": "toolSpot",
+  "takeaway": "A USB radio coordinator connects a Zigbee network to its host.",
+  "source": "Conceptual hardware illustration, no product or compatibility claim.",
+  "dataAsOf": "2026-09-08",
+  "width": 140,
+  "height": 120,
+  "seed": 412,
+  "data": {
+    "icon": "radioCoordinator"
+  }
+}

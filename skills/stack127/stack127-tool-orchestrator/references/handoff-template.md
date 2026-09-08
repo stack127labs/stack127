@@ -8,6 +8,7 @@ Use this structure in the final response. Omit empty subsections, but never omit
 - Route:
 - Local URL:
 - Contract type:
+- `interface-contract.md` status:
 - Publication state:
 - Primary job completed:
 
@@ -35,6 +36,7 @@ Use this structure in the final response. Omit empty subsections, but never omit
 - Browser backend: (Codex in-app Browser or standalone Playwright CLI)
 - Browser or Playwright tests:
 - Widths and themes checked:
+- Comprehension check: (lead answer, unique purpose of each region, repeated facts, removable UI)
 - Main-agent visual handoff: (visible in-app tab, or Playwright screenshots/measurements and local URL)
 - `npm run test`:
 - `npm run quality` and production build:

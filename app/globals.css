@@ -19,6 +19,15 @@
   --color-warning-text: #a05a00;
   --color-danger-text: #b3261e;
 
+  /* exact charts and categorical data, never status text */
+  --color-data-chartreuse: #8fc51f;
+  --color-data-cyan: #1596a3;
+  --color-data-blue: #4f6fd1;
+  --color-data-yellow: #c78a14;
+  --color-data-red: #c8554f;
+  --color-data-violet: #865fc2;
+  --color-data-green: #3f8f52;
+
   --color-overlay: rgba(0, 0, 0, 0.36);
   --focus-ring: 0 0 0 2px var(--color-accent);
 
@@ -41,8 +50,7 @@
   /* layout */
   --container-max: 1160px;
   --container-gutter: clamp(24px, 5vw, 72px);
-  --radius-xl: 12px;
-  --radius-lg: 8px;
+  --radius: 2px;
   --space-1: 4px;
   --space-2: 6px;
   --space-3: 8px;
@@ -58,9 +66,9 @@
   --space-13: 40px;
   --space-14: 48px;
   --space-prose-paragraph: var(--space-7);
-  --space-prose-heading-2: var(--space-10);
-  --space-prose-heading-3: var(--space-7);
-  --space-prose-section: 64px;
+  --space-prose-heading-2: var(--space-7);
+  --space-prose-heading-3: var(--space-3);
+  --space-prose-section: var(--space-13);
   --control-height-sm: 32px;
   --control-height-md: 40px;
   --control-height-lg: 42px;
@@ -103,6 +111,13 @@
   --color-success-text: #7ddc64;
   --color-warning-text: #ffb757;
   --color-danger-text: #ff8a80;
+  --color-data-chartreuse: #bafc3c;
+  --color-data-cyan: #45cbd3;
+  --color-data-blue: #7691f2;
+  --color-data-yellow: #efb84f;
+  --color-data-red: #ed746c;
+  --color-data-violet: #aa82df;
+  --color-data-green: #65bd76;
   --color-overlay: rgba(0, 0, 0, 0.48);
 
   /* marker art semantic tones (dark, matches the SVG fallbacks) */
@@ -145,8 +160,15 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--color-link);
   text-decoration: none;
+  text-underline-offset: 3px;
+}
+
+a[href]:hover,
+a[href]:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: currentColor;
 }
 
 button,

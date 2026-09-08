@@ -1,6 +1,6 @@
 # Visual first: how stack127 pages show instead of tell
 
-People do not read this site line by line. They scan, find the thing, and leave with it. So every page is planned as a set of visuals connected by a few good sentences, not as an article with pictures added later.
+People need to scan for an answer and read further when they need context. Plan each page around that job. Keep interactive tools first, use visuals for relationships they communicate well, and give explanations enough room to connect the facts. Visual-first does not require prose to be a minority.
 
 This doc covers the media system, when to use which, the page brief, and the rule that you push back on text-heavy requests.
 
@@ -8,9 +8,9 @@ This doc covers the media system, when to use which, the page brief, and the rul
 
 When someone asks for a page ("let's write a page about software licenses"), the first deliverable is a format proposal, not a draft. Look at the subject, decide what each part should be (chart, table, drawing, screenshot, sentences), and answer with the mix:
 
-"Most of this page wants to be a verdict table per license and one marker drawing of how copyleft spreads. The writing is maybe six sentences: what a license is, and one recommendation. Here is the plan."
+"The repeated license obligations fit a comparison table. A marker drawing could explain how copyleft spreads; prose should explain what those obligations mean for the reader's project. Here is the proposed mix."
 
-This applies to everyone, including Teja. If the request is text-first and the subject is not, say so and suggest the better format. Text wins only when the content is genuinely a story, a judgment, or a caveat.
+This applies to everyone, including Teja. If the requested format obscures the subject, suggest a better one. Prose is appropriate for context, causes, interpretation, and decisions, as well as stories and caveats. An approved direction can be applied without another confirmation. Never replace necessary explanation with decorative visuals or disconnected labels to meet a length or media-ratio target.
 
 ## The four media, and when each one wins
 
@@ -26,7 +26,7 @@ Everything visual carries its takeaway as the caption. If you cannot caption it 
 
 ## What sentences are for
 
-Sentences carry judgment, story, and caveats: the recommendation, the gotcha, the "why this matters", the one confusing thing explained where the confusion happens. That is real writing and it stays first person and casual, per `writing-style.md`. What sentences never do here: recite numbers, walk through comparisons, or describe what a visual already shows.
+Sentences explain causes, consequences, judgment, and caveats where the reader needs them. Keep them conversational and connected, per `writing-style.md`; first person is optional, not a requirement. Do not recite a table's values or narrate every element of a visual. Explain what the reader should understand from it when the implication is not already clear.
 
 ## Every page has a brief
 
@@ -44,7 +44,7 @@ What they leave with: an answer, a running thing, a decision.
 
 ## Show vs say
 The format mix. Which parts are a chart, table, drawing, or screenshot,
-and the few things that genuinely need sentences.
+and the questions that need connected explanation.
 ```
 
 The brief is the contract: if the brief says "verdict table", the page does not grow four paragraphs of license prose later. Update the brief when the page's job changes. New pages need the brief before implementation; existing pages get one when they are next reworked.
@@ -64,7 +64,7 @@ That is the whole page. Everything else the old version said in paragraphs was a
 
 1. Read or write the brief.
 2. List the claims the page makes.
-3. Assign each claim a medium using the table above. Default is not-prose.
+3. Choose the clearest medium for each claim and plan the thread connecting the explanation. Preserve useful coverage when rewriting.
 4. Make the visuals (specs for figures and charts, capture screenshots).
-5. Write the connecting sentences last, in the `writing-style.md` voice.
-6. Run the quick check in `writing-style.md`.
+5. Write the supporting explanation in the `writing-style.md` voice. Use as much depth as the task needs without repeating the visuals.
+6. Run the review pass in `skills/stack127/stack127-writing-voice/SKILL.md` and the owning content skill's coverage checks.

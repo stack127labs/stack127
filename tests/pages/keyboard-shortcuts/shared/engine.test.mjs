@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { shortcutApps } from "../../../../lib/shortcuts/index.ts";
+import { loadShortcutApps } from "../../../../lib/shortcuts/index.ts";
 import { buildCheatSheet } from "../../../../lib/shortcuts/cheatsheet.ts";
+
+const shortcutApps = await loadShortcutApps();
 
 test("an empty selection is invalid", () => {
   const result = buildCheatSheet(shortcutApps, []);

@@ -332,3 +332,5 @@ export const github: AppShortcuts = {
     },
   ],
 };
+
+export default github;

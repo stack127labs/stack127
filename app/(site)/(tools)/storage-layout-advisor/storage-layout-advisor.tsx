@@ -1,7 +1,22 @@
 "use client";
 
-import { useRef, useState, type RefObject } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
+  ToolActionRow,
+  ToolAllocationBar,
+  ToolButton,
+  ToolChoiceGroup,
+  ToolDataTable,
+  ToolPrimaryResult,
+  ToolQuantityInput,
+  ToolRepeatableList,
+  ToolStatus,
+  ToolTextField,
+  toolOption,
+} from "@/app/tool-ui/tool-controls";
+import { formatBytes } from "../../../../lib/storage/index.ts";
+import {
+  MAX_ADVISOR_DRIVES,
   advisorDisplayUnits,
   advisorInputUnits,
   advisorPlatforms,
@@ -18,7 +33,6 @@ import {
   type StorageLayoutAdvisorInput,
   type StorageLayoutAdvisorValues,
 } from "./storage-layout-advisor-engine";
-import { formatBytes } from "../../../../lib/storage/index.ts";
 import styles from "./storage-layout-advisor.module.css";
 
 type UiState = StorageLayoutAdvisorInput;
@@ -40,29 +54,24 @@ const platformLabels: Record<AdvisorPlatform, string> = {
   openzfs: "OpenZFS",
   "nas-raid": "NAS RAID",
 };
-
 const workloadLabels: Record<AdvisorWorkload, string> = {
   general: "General",
   bulk: "Bulk files",
   "vm-db": "VMs and databases",
 };
+const inputUnitOptions = advisorInputUnits.map((unit) => toolOption(unit, unit));
+const platformOptions = advisorPlatforms.map((platform) => toolOption(platform, platformLabels[platform]));
+const workloadOptions = advisorWorkloads.map((workload) => toolOption(workload, workloadLabels[workload]));
+const protectionOptions = [0, 1, 2, 3].map((count) => toolOption(String(count), String(count)));
+const displayUnitOptions = advisorDisplayUnits.map((unit) => toolOption(unit, unit));
 
 function parseInitialState(encoded: string) {
   if (!encoded) return { state: DEFAULT_STATE, submitted: false, message: "" };
   try {
-    const state = decodeStorageLayoutAdvisorState(encoded);
-    return { state, submitted: true, message: "Layout restored." };
+    return { state: decodeStorageLayoutAdvisorState(encoded), submitted: true, message: "Layout restored." };
   } catch {
-    return { state: DEFAULT_STATE, submitted: false, message: "Restore failed. Clean defaults loaded." };
+    return { state: DEFAULT_STATE, submitted: false, message: "Shared layout could not load." };
   }
-}
-
-function formatPercent(part: bigint, total: bigint) {
-  if (total === 0n) return "0%";
-  const hundredths = (part * 10_000n + total / 2n) / total;
-  const whole = hundredths / 100n;
-  const fraction = (hundredths % 100n).toString().padStart(2, "0").replace(/0+$/, "");
-  return fraction ? `${whole}.${fraction}%` : `${whole}%`;
 }
 
 function fieldIssue(values: ReturnType<typeof calculateStorageLayoutAdvisor>["issues"], path: string) {
@@ -73,133 +82,96 @@ function displayBytes(value: bigint, unit: AdvisorDisplayUnit) {
   return formatBytes(value, unit, { maximumFractionDigits: 2 });
 }
 
-function Result({
-  values,
-  headingRef,
-  onDisplayUnitChange,
-}: {
+function Result({ values, sharedUrl, status, onShare }: {
   values: StorageLayoutAdvisorValues;
-  headingRef: RefObject<HTMLHeadingElement | null>;
-  onDisplayUnitChange: (unit: AdvisorDisplayUnit) => void;
+  sharedUrl: string;
+  status: string;
+  onShare: () => void;
 }) {
-  const raw = values.rawCapacityBytes;
   const best = values.bestCandidate;
-  const parts = [
-    { id: "usable", label: "Usable", value: best.usableBytes },
-    { id: "redundancy", label: "Redundancy", value: best.redundancyBytes },
-    { id: "mismatch", label: "Mismatch", value: best.mismatchBytes },
-  ] as const;
-
+  const alternatives = values.eligibleCandidates.filter((candidate) => candidate.id !== best.id);
+  const failureLabel = `${best.guaranteedTolerance} protected failure${best.guaranteedTolerance === 1 ? "" : "s"}`;
   return (
-    <section className={styles.result} data-testid="layout-result" aria-labelledby="best-fit-title">
-      <div className={styles.resultLead}>
-        <div>
-          <h2 id="best-fit-title" ref={headingRef} tabIndex={-1}>
-            Best fit: {best.label}
-          </h2>
-          <p className={styles.resultAnswer}>
-            <strong>{displayBytes(best.usableBytes, values.displayUnit)}</strong> usable
-          </p>
-          <p className={styles.resultMeta}>
-            {best.guaranteedTolerance} failures · {best.efficiencyBasisPoints / 100}% efficient
-          </p>
-          <p className={styles.fitReason}>{best.fitReason}</p>
-        </div>
-        <div className={styles.resultChoice}>
-          <label htmlFor="display-unit">Display unit</label>
-          <select id="display-unit" onChange={(event) => onDisplayUnitChange(event.currentTarget.value as AdvisorDisplayUnit)} value={values.displayUnit} aria-label="Display unit">
-            {advisorDisplayUnits.map((unit) => <option key={unit} value={unit}>{unit}</option>)}
-          </select>
-        </div>
-      </div>
+    <section aria-live="polite" className={styles.result} data-testid="layout-result">
+      <h2 className={styles.resultHeading} id="best-fit-title" tabIndex={-1}>Layout recommendation</h2>
+      <ToolPrimaryResult
+        detail={`${displayBytes(best.usableBytes, values.displayUnit)} usable · ${failureLabel} · ${best.efficiencyBasisPoints / 100}% efficient · ${best.fitReason}`}
+        label="Best fit"
+        value={best.label}
+      />
 
-      <div className={styles.resultRule} />
-
-      <section className={styles.resultSection} data-testid="layout-comparison" aria-labelledby="comparison-title">
-        <div className={styles.sectionHeading}>
-          <h3 id="comparison-title">Layout comparison</h3>
-          <span>{values.eligibleCandidates.length} eligible</span>
-        </div>
-        <div className={styles.tableWrap}>
-          <table className={styles.comparisonTable}>
-            <thead>
-              <tr>
-                <th scope="col">Layout</th>
-                <th scope="col">Usable</th>
-                <th scope="col">Redundancy</th>
-                <th scope="col">Mismatch</th>
-                <th scope="col">Tolerance</th>
-                <th scope="col">Fit</th>
-              </tr>
-            </thead>
-            <tbody>
-              {values.eligibleCandidates.map((candidate, index) => (
-                <tr key={candidate.id}>
-                  <th scope="row" data-label="Layout">
-                    {candidate.label}
-                    {index === 0 ? <span className={styles.bestTag}>Best</span> : null}
-                  </th>
-                  <td data-label="Usable">{displayBytes(candidate.usableBytes, values.displayUnit)}</td>
-                  <td data-label="Redundancy">{displayBytes(candidate.redundancyBytes, values.displayUnit)}</td>
-                  <td data-label="Mismatch">{displayBytes(candidate.mismatchBytes, values.displayUnit)}</td>
-                  <td data-label="Tolerance">{candidate.guaranteedTolerance}</td>
-                  <td data-label="Fit">{candidate.fitReason}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+      <section className={styles.resultSection} data-testid="capacity-accounting">
+        <h2>Capacity allocation</h2>
+        <ToolAllocationBar
+          ariaLabel="Capacity allocation"
+          formatValue={(value) => displayBytes(value as bigint, values.displayUnit)}
+          palette="categorical"
+          segments={[
+            { id: "usable", label: "Usable", tone: "chartreuse", value: best.usableBytes },
+            { id: "redundancy", label: "Redundancy", tone: "cyan", value: best.redundancyBytes },
+            { id: "mismatch", label: "Mismatch", tone: "yellow", value: best.mismatchBytes },
+          ]}
+          total={best.rawBytes}
+        />
       </section>
 
-      <section className={styles.resultSection} data-testid="capacity-accounting" aria-labelledby="accounting-title">
+      <section className={styles.resultSection} data-testid="layout-comparison">
         <div className={styles.sectionHeading}>
-          <h3 id="accounting-title">Capacity accounting</h3>
-          <span>{displayBytes(raw, values.displayUnit)} raw</span>
+          <h2>Eligible alternatives</h2>
+          <span>{alternatives.length}</span>
         </div>
-        <div className={styles.capacityBar} role="img" aria-label="Capacity accounting">
-          {parts.map((part) => part.value > 0n ? (
-            <span
-              className={`${styles[`capacity${part.id[0].toUpperCase()}${part.id.slice(1)}`]}`}
-              key={part.id}
-              style={{ width: formatPercent(part.value, raw) }}
-            />
-          ) : null)}
-        </div>
-        <dl className={styles.capacityValues}>
-          {parts.map((part) => (
-            <div key={part.id}>
-              <dt>{part.label}</dt>
-              <dd>
-                <strong>{displayBytes(part.value, values.displayUnit)}</strong>
-                <span>{formatPercent(part.value, raw)}</span>
-              </dd>
-            </div>
-          ))}
-        </dl>
+        {alternatives.length ? (
+          <ToolDataTable
+            ariaLabel="Eligible layout alternatives"
+            columns={[
+              { id: "layout", label: "Layout" },
+              { id: "usable", label: "Usable" },
+              { id: "redundancy", label: "Redundancy" },
+              { id: "mismatch", label: "Mismatch" },
+              { id: "tolerance", label: "Tolerance" },
+              { id: "fit", label: "Fit" },
+            ]}
+            rows={alternatives.map((candidate) => ({
+              id: candidate.id,
+              cells: {
+                layout: candidate.label,
+                usable: displayBytes(candidate.usableBytes, values.displayUnit),
+                redundancy: displayBytes(candidate.redundancyBytes, values.displayUnit),
+                mismatch: displayBytes(candidate.mismatchBytes, values.displayUnit),
+                tolerance: candidate.guaranteedTolerance,
+                fit: candidate.fitReason,
+              },
+            }))}
+          />
+        ) : <p className={styles.emptyAlternatives}>No other layout meets the selected goals.</p>}
       </section>
 
-      <section className={styles.resultSection} data-testid="layout-topology" aria-labelledby="topology-title">
+      <section className={styles.resultSection} data-testid="layout-topology">
         <div className={styles.sectionHeading}>
-          <h3 id="topology-title">Topology</h3>
+          <h2>Top-fit topology</h2>
           <span>{best.toleranceStatement}</span>
         </div>
-        <div className={styles.topology}>
+        <div className={styles.topology} role="img" aria-label={`${best.label} topology`}>
           {best.groups.map((group) => (
-            <div className={styles.topologyGroup} key={group.id}>
-              <div className={styles.topologyLabel}>
+            <section className={styles.topologyGroup} key={group.id}>
+              <header>
                 <strong>{group.label}</strong>
                 <span>{displayBytes(group.commonBytes, values.displayUnit)} common</span>
-              </div>
+              </header>
               <div className={styles.topologyDrives}>
-                {group.driveIds.map((driveId) => (
-                  <span className={styles.driveChip} key={driveId}>{driveId.replace("drive-", "Drive ")}</span>
-                ))}
+                {group.driveIds.map((driveId) => <span key={driveId}>{driveId.replace("drive-", "Drive ")}</span>)}
               </div>
-            </div>
+            </section>
           ))}
         </div>
-        <p className={styles.modelNote}>Theoretical layout model.</p>
       </section>
+
+      <ToolActionRow>
+        <ToolButton onPress={onShare}>Share layout</ToolButton>
+      </ToolActionRow>
+      {sharedUrl ? <ToolTextField label="Shared URL" readOnly value={sharedUrl} /> : null}
+      {status ? <ToolStatus>{status}</ToolStatus> : null}
+      <p className={styles.boundary}>Theoretical capacity. Verify the platform layout, grouping, and expansion rules.</p>
     </section>
   );
 }
@@ -210,9 +182,8 @@ export function StorageLayoutAdvisor({ initialState }: { initialState: string })
   const [submitted, setSubmitted] = useState(initial.submitted);
   const [statusMessage, setStatusMessage] = useState(initial.message);
   const [sharedUrl, setSharedUrl] = useState("");
-  const driveRefs = useRef<Array<HTMLInputElement | null>>([]);
-  const resultHeadingRef = useRef<HTMLHeadingElement | null>(null);
-  const noEligibleRef = useRef<HTMLHeadingElement | null>(null);
+  const pendingFocus = useRef<string | null>(null);
+  const focusResult = useRef(false);
 
   const calculation = calculateStorageLayoutAdvisor(state);
   const invalidIssues = calculation.status === "invalid" ? calculation.issues : [];
@@ -220,66 +191,90 @@ export function StorageLayoutAdvisor({ initialState }: { initialState: string })
   const showResult = submitted && calculation.status === "valid";
   const showNoEligible = submitted && noEligible;
 
-  function focusCorrection() {
-    const firstDriveIssue = invalidIssues.find((item) => item.path?.startsWith("drives["));
-    const match = firstDriveIssue?.path?.match(/^drives\[(\d+)\]\.(size|unit)$/);
-    if (match) {
-      const index = Number(match[1]);
-      if (match[2] === "size") driveRefs.current[index]?.focus();
-      return;
-    }
-    document.getElementById(firstDriveIssue?.path ?? "protected-failures")?.focus();
-  }
+  useEffect(() => {
+    if (initialState && initial.message.includes("could not")) window.history.replaceState(null, "", window.location.pathname);
+  }, [initial.message, initialState]);
 
-  function handleChange(change: (current: UiState) => UiState, keepResult = false) {
+  useEffect(() => {
+    if (pendingFocus.current) {
+      document.querySelector<HTMLElement>(`[data-focus-key="${pendingFocus.current}"]`)?.focus();
+      pendingFocus.current = null;
+    }
+    if (focusResult.current && showResult) {
+      document.getElementById("best-fit-title")?.focus({ preventScroll: true });
+      focusResult.current = false;
+    }
+  }, [state, submitted, showResult]);
+
+  function handleChange(change: (current: UiState) => UiState) {
     setState(change);
-    if (!keepResult) setSubmitted(false);
+    setSubmitted(false);
     setSharedUrl("");
+    setStatusMessage("");
     if (window.location.search) window.history.replaceState(null, "", window.location.pathname);
   }
 
-  function handleCompare() {
-    setSubmitted(true);
-    if (calculation.status === "invalid" && !noEligible) {
-      setSubmitted(false);
-      setStatusMessage("Fix the highlighted field.");
-      window.requestAnimationFrame(focusCorrection);
-      return;
-    }
-    setStatusMessage(noEligible ? "No eligible layout." : "Layouts compared.");
-    window.requestAnimationFrame(() => (noEligible ? noEligibleRef.current : resultHeadingRef.current)?.focus());
-  }
-
   function addDrive() {
-    if (state.drives.length >= 64) return;
-    const next: StorageLayoutAdvisorDriveInput = {
-      id: `drive-${state.drives.length + 1}`,
-      size: "4",
-      unit: "TB",
-    };
-    const nextIndex = state.drives.length;
-    handleChange((current) => ({ ...current, drives: [...current.drives, next] }));
-    window.requestAnimationFrame(() => driveRefs.current[nextIndex]?.focus());
-  }
-
-  function removeDrive(index: number) {
+    if (state.drives.length >= MAX_ADVISOR_DRIVES) return;
+    const nextNumber = state.drives.reduce((max, drive) => Math.max(max, Number(/^drive-(\d+)$/.exec(drive.id)?.[1] ?? 0)), 0) + 1;
     handleChange((current) => ({
       ...current,
-      drives: current.drives.filter((_, driveIndex) => driveIndex !== index),
+      drives: [...current.drives, { id: `drive-${nextNumber}`, size: "4", unit: "TB" }],
     }));
-    window.requestAnimationFrame(() => driveRefs.current[Math.max(0, index - 1)]?.focus());
   }
 
-  function shareLayout() {
+  function updateDrive(id: string, patch: Partial<StorageLayoutAdvisorDriveInput>) {
+    handleChange((current) => ({
+      ...current,
+      drives: current.drives.map((drive) => drive.id === id ? { ...drive, ...patch } : drive),
+    }));
+  }
+
+  function removeDrive(id: string) {
+    handleChange((current) => ({ ...current, drives: current.drives.filter((drive) => drive.id !== id) }));
+  }
+
+  function compare() {
+    setSubmitted(true);
+    setSharedUrl("");
+    if (calculation.status === "invalid") {
+      if (noEligible) {
+        setStatusMessage("No eligible layout.");
+        window.setTimeout(() => document.getElementById("no-layout-title")?.focus(), 0);
+        return;
+      }
+      const firstDriveIssue = invalidIssues.find((item) => item.path?.startsWith("drives["));
+      const match = firstDriveIssue?.path?.match(/^drives\[(\d+)\]\.(size|unit)$/);
+      if (match) {
+        pendingFocus.current = `drive-${Number(match[1]) + 1}-capacity`;
+        window.setTimeout(() => {
+          if (!pendingFocus.current) return;
+          document.querySelector<HTMLElement>(`[data-focus-key="${pendingFocus.current}"]`)?.focus();
+          pendingFocus.current = null;
+        }, 0);
+      }
+      setSubmitted(false);
+      setStatusMessage("Check the marked inputs.");
+      return;
+    }
+    setStatusMessage("");
+    focusResult.current = true;
+  }
+
+  async function shareLayout() {
     if (calculation.status !== "valid") return;
     try {
-      const encoded = encodeStorageLayoutAdvisorState(state);
       const url = new URL(window.location.href);
-      url.searchParams.set("state", encoded);
-      window.history.replaceState(null, "", url);
+      url.search = "";
+      url.searchParams.set("state", encodeStorageLayoutAdvisorState(state));
+      window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
       setSharedUrl(url.toString());
-      setStatusMessage("Shared layout URL ready.");
-      void navigator.clipboard?.writeText(url.toString()).catch(() => undefined);
+      try {
+        await navigator.clipboard.writeText(url.toString());
+        setStatusMessage("Shared URL copied.");
+      } catch {
+        setStatusMessage("Shared URL ready.");
+      }
     } catch {
       setStatusMessage("Share failed.");
     }
@@ -290,133 +285,72 @@ export function StorageLayoutAdvisor({ initialState }: { initialState: string })
     setState(DEFAULT_STATE);
     setSubmitted(false);
     setSharedUrl("");
-    setStatusMessage("Reset complete.");
-    window.requestAnimationFrame(() => driveRefs.current[0]?.focus());
+    setStatusMessage("Layout reset.");
+    window.setTimeout(() => document.querySelector<HTMLElement>("section[aria-label='Drive inventory'] input")?.focus(), 0);
   }
 
   return (
-    <form className={styles.tool} onSubmit={(event) => { event.preventDefault(); handleCompare(); }} noValidate>
-      <div className={styles.formSection}>
-        <div className={styles.sectionHeading}>
-          <h2>Drives</h2>
-          <span>{state.drives.length} / 64</span>
-        </div>
-        <div className={styles.driveList}>
-          {state.drives.map((drive, index) => {
-            const sizePath = `drives[${index}].size`;
-            const unitPath = `drives[${index}].unit`;
-            const sizeError = fieldIssue(invalidIssues, sizePath);
-            const unitError = fieldIssue(invalidIssues, unitPath);
-            return (
-              <div className={styles.driveRow} key={drive.id}>
-                <label htmlFor={`${drive.id}-size`}>Drive {index + 1} capacity</label>
-                <div className={styles.driveControls}>
-                  <input
-                    aria-describedby={sizeError ? `${drive.id}-error` : undefined}
-                    aria-invalid={sizeError ? true : undefined}
-                    id={`${drive.id}-size`}
-                    inputMode="decimal"
-                    onChange={(event) => {
-                      const size = event.currentTarget.value;
-                      handleChange((current) => ({
-                        ...current,
-                        drives: current.drives.map((item, itemIndex) => itemIndex === index ? { ...item, size } : item),
-                      }));
-                    }}
-                    ref={(node) => { driveRefs.current[index] = node; }}
+    <div className={styles.tool} data-tool-workbench>
+      <form aria-label="Storage layout advisor" className={styles.form} noValidate onSubmit={(event) => { event.preventDefault(); compare(); }}>
+        <section className={styles.inventorySection}>
+          <div className={styles.sectionHeading}>
+            <h2>Drives</h2>
+            <span>{state.drives.length} / {MAX_ADVISOR_DRIVES}</span>
+          </div>
+          <ToolRepeatableList
+            addDisabled={state.drives.length >= MAX_ADVISOR_DRIVES}
+            addLabel="Add drive"
+            ariaLabel="Drive inventory"
+            items={[...state.drives]}
+            onAdd={addDrive}
+            onRemove={removeDrive}
+            renderItem={(drive, index) => {
+              const sizeError = fieldIssue(invalidIssues, `drives[${index}].size`);
+              const unitError = fieldIssue(invalidIssues, `drives[${index}].unit`);
+              return (
+                <div className={styles.driveEditor}>
+                  <span aria-hidden="true" className={styles.driveNumber}>{String(index + 1).padStart(2, "0")}</span>
+                  <ToolQuantityInput
+                    ariaLabel={`Drive ${index + 1} capacity`}
+                    dataFocusKey={`drive-${index + 1}-capacity`}
+                    error={sizeError || unitError}
+                    hideLabel
+                    label={`Drive ${index + 1} capacity`}
+                    onChange={(size) => updateDrive(drive.id, { size })}
+                    onUnitChange={(unit) => updateDrive(drive.id, { unit: unit as AdvisorInputUnit })}
+                    required
+                    unit={drive.unit}
+                    unitAriaLabel={`Drive ${index + 1} unit`}
+                    units={inputUnitOptions}
                     value={drive.size}
                   />
-                  <label className={styles.visuallyHidden} htmlFor={`${drive.id}-unit`}>Drive {index + 1} unit</label>
-                  <select
-                    aria-describedby={unitError ? `${drive.id}-error` : undefined}
-                    aria-invalid={unitError ? true : undefined}
-                    id={`${drive.id}-unit`}
-                    onChange={(event) => {
-                      const unit = event.currentTarget.value as AdvisorInputUnit;
-                      handleChange((current) => ({
-                        ...current,
-                        drives: current.drives.map((item, itemIndex) => itemIndex === index ? { ...item, unit } : item),
-                      }));
-                    }}
-                    value={drive.unit}
-                  >
-                    {advisorInputUnits.map((unit) => <option key={unit}>{unit}</option>)}
-                  </select>
-                  <button className={styles.removeButton} disabled={state.drives.length <= 1} onClick={() => removeDrive(index)} type="button">Remove</button>
                 </div>
-                {sizeError || unitError ? <p className={styles.fieldError} id={`${drive.id}-error`}>{sizeError || unitError}</p> : null}
-              </div>
-            );
-          })}
-        </div>
-        <button className={styles.secondaryButton} disabled={state.drives.length >= 64} onClick={addDrive} type="button">Add drive</button>
-      </div>
-
-      <div className={styles.formSection}>
-        <fieldset>
-          <legend>Platform</legend>
-          <div className={styles.choiceRow}>
-            {advisorPlatforms.map((platform) => (
-              <label className={styles.choice} key={platform}>
-                <input checked={state.platform === platform} name="platform" onChange={() => handleChange((current) => ({ ...current, platform }))} type="radio" />
-                <span>{platformLabels[platform]}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>Workload</legend>
-          <div className={styles.choiceRow}>
-            {advisorWorkloads.map((workload) => (
-              <label className={styles.choice} key={workload}>
-                <input checked={state.workload === workload} name="workload" onChange={() => handleChange((current) => ({ ...current, workload }))} type="radio" />
-                <span>{workloadLabels[workload]}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
-        <div className={styles.targetRow}>
-          <label htmlFor="protected-failures">Protected failures</label>
-          <select
-            id="protected-failures"
-            onChange={(event) => {
-              const protectedFailures = Number(event.currentTarget.value) as AdvisorProtectionTarget;
-              handleChange((current) => ({ ...current, protectedFailures }));
+              );
             }}
-            value={state.protectedFailures}
-          >
-            {[0, 1, 2, 3].map((value) => <option key={value} value={value}>{value}</option>)}
-          </select>
+          />
+        </section>
+
+        <div className={styles.goalGrid}>
+          <ToolChoiceGroup label="Platform" onChange={(platform) => handleChange((current) => ({ ...current, platform: platform as AdvisorPlatform }))} options={platformOptions} required value={state.platform} />
+          <ToolChoiceGroup label="Workload" onChange={(workload) => handleChange((current) => ({ ...current, workload: workload as AdvisorWorkload }))} options={workloadOptions} required value={state.workload} />
+          <ToolChoiceGroup label="Protected failures" onChange={(count) => handleChange((current) => ({ ...current, protectedFailures: Number(count) as AdvisorProtectionTarget }))} options={protectionOptions} required value={String(state.protectedFailures)} />
+          <ToolChoiceGroup label="Display unit" onChange={(unit) => handleChange((current) => ({ ...current, displayUnit: unit as AdvisorDisplayUnit }))} options={displayUnitOptions} required value={state.displayUnit} />
         </div>
-      </div>
 
-      <div className={styles.actions}>
-        <button className={styles.primaryButton} type="submit">Compare layouts</button>
-        <button className={styles.secondaryButton} onClick={resetLayout} type="button">Reset layout</button>
-      </div>
-
-      <div aria-live="polite" className={styles.status} role="status">{statusMessage}</div>
+        <ToolActionRow>
+          <ToolButton type="submit" variant="primary">Compare layouts</ToolButton>
+          <ToolButton onPress={resetLayout}>Reset</ToolButton>
+        </ToolActionRow>
+        {statusMessage && !showResult ? <ToolStatus tone={showNoEligible || calculation.status === "invalid" ? "danger" : "neutral"}>{statusMessage}</ToolStatus> : null}
+      </form>
 
       {showNoEligible ? (
-        <section className={styles.noResult} aria-labelledby="no-layout-title">
-          <h2 id="no-layout-title" ref={noEligibleRef} tabIndex={-1}>No eligible layout</h2>
-          <p>Add drives or lower target.</p>
+        <section className={styles.noEligible}>
+          <h2 id="no-layout-title" tabIndex={-1}>No eligible layout</h2>
+          <p>Add drives or lower the protected-failure target.</p>
         </section>
       ) : null}
-      {showResult && calculation.values ? (
-        <Result
-          headingRef={resultHeadingRef}
-          onDisplayUnitChange={(displayUnit) => handleChange((current) => ({ ...current, displayUnit }), true)}
-          values={calculation.values}
-        />
-      ) : null}
-
-      {showResult ? (
-        <div className={styles.shareRow}>
-          <button className={styles.secondaryButton} onClick={shareLayout} type="button">Share layout</button>
-          {sharedUrl ? <input aria-label="Shared URL" className={styles.sharedUrl} readOnly value={sharedUrl} /> : null}
-        </div>
-      ) : null}
-    </form>
+      {showResult && calculation.values ? <Result onShare={shareLayout} sharedUrl={sharedUrl} status={statusMessage} values={calculation.values} /> : null}
+    </div>
   );
 }

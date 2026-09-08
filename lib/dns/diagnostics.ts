@@ -6,8 +6,10 @@ import { safeDnsErrorMessage } from "./errors.ts";
 import { canonicalDnsName, normalizeDnsInput } from "./normalize-name.ts";
 import { recordTypeCode, recordTypeName } from "./record-types.ts";
 import { dnsResolverProfiles, resolverLabel } from "./resolvers.ts";
+import { compareSerials } from "./serial-arithmetic.ts";
 import { traceDns } from "./trace.ts";
 export { negativeCacheTtlSeconds } from "./diagnostic-presentation.ts";
+export { compareSerials } from "./serial-arithmetic.ts";
 import { enrichDnsAddresses } from "./network-enrichment.ts";
 import type { DnsAddressDetail, DnsRecordType, DnsResolver, NormalizedDnsRecord } from "./types.ts";
 
@@ -196,14 +198,6 @@ export function parseSoaRecord(record: RawDnsWireRecord | NormalizedDnsRecord): 
     minimumSeconds: numbers[4],
     ttlSeconds: "TTL" in record ? record.TTL : record.resolverTtlSeconds,
   };
-}
-
-export function compareSerials(left: number, right: number): "same" | "left-newer" | "right-newer" | "undefined" {
-  const modulo = 2 ** 32;
-  const delta = ((left - right) % modulo + modulo) % modulo;
-  if (delta === 0) return "same";
-  if (delta === 2 ** 31) return "undefined";
-  return delta < 2 ** 31 ? "left-newer" : "right-newer";
 }
 
 async function resolveNameserverAddresses(

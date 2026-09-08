@@ -2,7 +2,8 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const source = await readFile(new URL("../../../app/(site)/labs/page.tsx", import.meta.url), "utf8");
+const source = await readFile(new URL("../../../app/(site)/labs/page.tsx", import.meta.url), "utf8")
+  + await readFile(new URL("../../../app/(site)/labs/projects.ts", import.meta.url), "utf8");
 const styles = await readFile(
   new URL("../../../app/(site)/labs/labs.module.css", import.meta.url),
   "utf8",

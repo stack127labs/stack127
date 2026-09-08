@@ -1,4 +1,4 @@
-name: Refresh self-host app technical facts
+name: Collect self-host app technical evidence
 
 on:
   workflow_dispatch:
@@ -33,17 +33,15 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - name: Refresh primary technical facts
+      - name: Collect primary technical evidence
         run: >-
           npm run self-host-apps:refresh-primary-technical-facts --
-          ${{ github.event_name == 'schedule' || inputs.refresh_all == true && '--refresh-all' || '' }}
-          --apply-reviewed
-          --requirements-file scripts/self-host-apps/batches/2026-08-29-primary-requirements-reviewed.json
+          ${{ (github.event_name == 'schedule' || inputs.refresh_all == true) && '--refresh-all' || '' }}
           --concurrency 16
           --out scripts/self-host-apps/batches/${{ github.run_id }}-technical-refresh.json
-      - name: Refresh install destinations
+      - name: Inspect install destinations
         if: always()
-        run: npm run self-host-apps:refresh-install-options -- --limit 5000 --apply
+        run: npm run self-host-apps:refresh-install-options -- --limit 5000
       - name: Run publication quality gate
         if: always()
         run: npm run self-host-apps:qa-gate -- --limit 5000 --out scripts/self-host-apps/batches/${{ github.run_id }}-technical-qa-gate.json

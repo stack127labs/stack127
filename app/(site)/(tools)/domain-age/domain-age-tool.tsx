@@ -1,149 +1,275 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
-import type { DomainRegistration } from "@/lib/domain/types.ts";
+import { useMemo, useRef, useState, type FormEvent } from "react";
 import {
-  DomainForm,
-  DownloadReportButton,
-  Notes,
-  RawResponses,
-  ResultHeader,
-  SourceNote,
-  StatePill,
-  Timeline,
-  UnavailableNote,
+  ToolActionRow,
+  ToolButton,
+  ToolDisclosure,
+  ToolDownloadAction,
+  ToolPrimaryResult,
+  ToolRawOutput,
+  ToolStatus,
+  ToolTextField,
+  ToolTimeline,
+  type ToolTimelineEvent,
+} from "@/app/tool-ui/tool-controls";
+import type { DomainRegistration, RdapFetch } from "@/lib/domain/types.ts";
+import {
   daysBetween,
   formatDate,
   humanDuration,
   reportJson,
   useDomainLookup,
-  type Tone,
 } from "../../(catalogs)/domain-tools/domain-lookup-client";
+import styles from "./domain-age-tool.module.css";
 
-/**
- * Age reads as trust, and that is exactly the mistake. Very new is worth a second
- * look, re-registered is worth knowing about, and everything else is just a fact.
- */
-function agePill(days: number | null, reregistered: boolean): { tone: Tone; label: string } {
-  if (days === null) return { tone: "quiet", label: "No date published" };
-  if (reregistered) return { tone: "warn", label: "Re-registered" };
-  if (days < 30) return { tone: "warn", label: "Registered this month" };
-  if (days < 365) return { tone: "quiet", label: "Under a year old" };
-  return { tone: "quiet", label: `${Math.floor(days / 365)} years old` };
+function sourceHost(fetch: RdapFetch | null) {
+  if (!fetch?.url) return "Registry";
+  try {
+    return new URL(fetch.url).host;
+  } catch {
+    return "Registry";
+  }
+}
+
+function timelineDate(value: string) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    timeZone: "UTC",
+    year: "numeric",
+  });
+}
+
+function timelineEvents(result: DomainRegistration): ToolTimelineEvent[] {
+  const now = new Date();
+  const events: Array<ToolTimelineEvent & { timestamp: number }> = [];
+
+  function add(id: string, label: string, value: string | null, state?: ToolTimelineEvent["state"]) {
+    if (!value) return;
+    const timestamp = new Date(value).getTime();
+    if (Number.isNaN(timestamp)) return;
+    events.push({
+      dateTime: value,
+      id,
+      label,
+      state: state ?? (timestamp < now.getTime() ? "past" : "future"),
+      timestamp,
+      value: timelineDate(value),
+    });
+  }
+
+  add("registration", result.reregistrationDate ? "First registered" : "Registered", result.registrationDate);
+  add("reregistration", "Re-registered", result.reregistrationDate);
+  add("transfer", "Transferred", result.transferDate);
+  add("changed", "Last changed", result.lastChangedDate);
+  add("today", "Today", now.toISOString(), "current");
+  add("expiry", "Registry expiry", result.registryExpiryDate);
+
+  return events.sort((left, right) => left.timestamp - right.timestamp);
+}
+
+function unavailableResult(result: DomainRegistration) {
+  if (result.status === "not_registered") {
+    return (
+      <ToolPrimaryResult
+        detail={`${result.query.unicode} has no current registration age.`}
+        label="Domain age"
+        value="Not registered"
+      />
+    );
+  }
+
+  if (result.status === "no_service") {
+    return (
+      <ToolPrimaryResult
+        detail={`No RDAP registration service is published for .${result.query.tld}.`}
+        label="Domain age"
+        tone="warning"
+        value="Unavailable"
+      />
+    );
+  }
+
+  if (result.status === "rate_limited" || result.status === "blocked") {
+    return (
+      <ToolPrimaryResult
+        detail="The registry limited this request. Try again in a few minutes."
+        label="Domain age"
+        tone="warning"
+        value="Could not check"
+      />
+    );
+  }
+
+  if (result.status === "timeout" || result.status === "registry_error") {
+    return (
+      <ToolPrimaryResult
+        detail="The registry did not answer properly. Try again shortly."
+        label="Domain age"
+        tone="warning"
+        value="Could not check"
+      />
+    );
+  }
+
+  return null;
+}
+
+function SourceMetadata({ result }: { result: DomainRegistration }) {
+  const fetch = result.registryFetch;
+  if (!fetch) return null;
+
+  return (
+    <dl aria-label="Registry source" className={styles.metadata}>
+      <div>
+        <dt>Registry</dt>
+        <dd>{sourceHost(fetch)}</dd>
+      </div>
+      <div>
+        <dt>Fetched</dt>
+        <dd><time dateTime={fetch.fetchedAt}>{formatDate(fetch.fetchedAt)}</time>{fetch.fromCache ? ", cached" : ""}</dd>
+      </div>
+      {result.registryDatabaseUpdated ? (
+        <div>
+          <dt>Registry data</dt>
+          <dd><time dateTime={result.registryDatabaseUpdated}>{formatDate(result.registryDatabaseUpdated)}</time></dd>
+        </div>
+      ) : null}
+    </dl>
+  );
+}
+
+function RawEvidence({ result }: { result: DomainRegistration }) {
+  const responses = [
+    { fetch: result.registryFetch, label: "Registry response" },
+    { fetch: result.registrarFetch, label: "Registrar response" },
+  ].filter((entry): entry is { fetch: RdapFetch; label: string } => Boolean(entry.fetch));
+
+  return responses.map(({ fetch, label }) => (
+    <ToolRawOutput
+      key={label}
+      label={label}
+      value={fetch.body ?? { error: fetch.error }}
+    />
+  ));
 }
 
 export function DomainAgeTool({ initialName = "" }: { initialName?: string }) {
   const [name, setName] = useState(initialName);
-  const { result, error, loading, run, setError } = useDomainLookup<DomainRegistration>();
+  const [validationError, setValidationError] = useState<string | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const { result, error, loading, run } = useDomainLookup<DomainRegistration>();
   const report = useMemo(() => (result ? reportJson("Domain Age Checker", result) : ""), [result]);
 
   function submit(event: FormEvent) {
     event.preventDefault();
-    if (!name.trim()) return setError("Enter a domain name.");
+    if (!name.trim()) {
+      setValidationError("Enter a domain name.");
+      requestAnimationFrame(() => inputRef.current?.focus());
+      return;
+    }
+    setValidationError(null);
     void run({ name, includeRegistrar: false });
   }
 
   const start = result?.reregistrationDate ?? result?.registrationDate ?? null;
   const ageDays = start ? Math.abs(daysBetween(start) ?? 0) : null;
-  const pill = agePill(ageDays, Boolean(result?.reregistrationDate));
 
   return (
-    <section className="domain-tool" aria-label="Domain age checker">
-      <DomainForm
-        busyLabel="Checking..."
-        error={error}
-        loading={loading}
-        onChange={setName}
-        onSubmit={submit}
-        submitLabel="Check the age"
-        value={name}
-      />
+    <section aria-label="Domain age checker" className={`domain-tool ${styles.workbench}`} data-tool-workbench>
+      <form aria-busy={loading} className={styles.form} onSubmit={submit}>
+        <ToolTextField
+          autoCapitalize="none"
+          autoComplete="off"
+          className={styles.queryField}
+          error={validationError}
+          inputMode="url"
+          inputRef={inputRef}
+          label="Domain name"
+          onChange={(value) => {
+            setName(value);
+            if (validationError) setValidationError(null);
+          }}
+          placeholder="example.com"
+          required
+          spellCheck={false}
+          value={name}
+        />
+        <ToolButton
+          aria-busy={loading}
+          className={styles.submit}
+          isDisabled={loading}
+          type="submit"
+          variant="primary"
+        >
+          {loading ? "Checking domain age..." : "Check domain age"}
+        </ToolButton>
+        {error ? (
+          <div className={styles.requestError}>
+            <ToolStatus tone="danger">{error}</ToolStatus>
+          </div>
+        ) : null}
+      </form>
 
       {result ? (
-        <section className="domain-results" aria-live="polite">
-          <ResultHeader
-            action={<DownloadReportButton contents={report} filename={`${result.query.domain}-age.json`} />}
-            hostname={result.query.unicode}
-          />
-
-          <UnavailableNote registration={result} />
-
-          {result.status === "not_registered" ? (
-            <div className="domain-answer">
-              <div className="domain-answer-head">
-                <StatePill tone="quiet">Not registered</StatePill>
-              </div>
-              <p className="domain-answer-lead">
-                {result.query.unicode} is not registered, so it has no age.
-              </p>
-            </div>
-          ) : null}
-
+        <section aria-label="Domain age result" aria-live="polite" className={styles.results} role="region">
           {result.status === "registered" ? (
-            <div className="domain-answer">
-              <div className="domain-answer-head">
-                <StatePill tone={pill.tone}>{pill.label}</StatePill>
-              </div>
-              {ageDays === null ? (
-                <>
-                  <p className="domain-answer-lead">
-                    The registry for <code>.{result.query.tld}</code> does not publish a registration date for{" "}
-                    {result.query.unicode}.
-                  </p>
-                  <p>
-                    That is a gap in what this registry chooses to publish, not a sign of anything unusual about the
-                    domain. Several country endings work this way.
-                  </p>
-                </>
-              ) : result.reregistrationDate ? (
-                <>
-                  <p className="domain-answer-lead">
-                    {result.query.unicode} was first registered on {formatDate(result.registrationDate)}, but the
-                    registry records a re-registration on {formatDate(result.reregistrationDate)}.
-                  </p>
-                  <p>
-                    This means the domain was registered subsequently to its initial registration. The current
-                    registration is {humanDuration(ageDays)} old. This event does not say why the domain was registered
-                    again or whether its owner changed.
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p className="domain-answer-lead">
-                    {result.query.unicode} has been registered for {humanDuration(ageDays)}.
-                  </p>
-                  <p>
-                    The registration was created on {formatDate(result.registrationDate)}. The registry does not publish
-                    a re-registration date for it. This current record does not reveal whether the domain existed under
-                    an earlier registration before that date.
-                  </p>
-                </>
-              )}
-              <SourceNote registration={result} />
-            </div>
-          ) : null}
-
-          <Notes notes={result.notes} />
-
-          {result.status === "registered" && start ? (
-            <section>
-              <h2>Where it sits in its term</h2>
-              <Timeline
-                end={result.registryExpiryDate}
-                start={start}
-                startLabel={result.reregistrationDate ? "Re-registered" : "Registered"}
+            ageDays === null ? (
+              <ToolPrimaryResult
+                detail={`The registry for .${result.query.tld} does not publish a registration date.`}
+                label="Current registration age"
+                value="Unknown"
               />
-              {result.lastChangedDate ? (
-                <p>
-                  The registry says information in this registration record last changed on{" "}
-                  {formatDate(result.lastChangedDate)}. RDAP does not identify what changed, why it changed, or whether
-                  the website itself changed.
-                </p>
-              ) : null}
-            </section>
+            ) : (
+              <>
+                <ToolPrimaryResult
+                  detail={`${result.query.unicode}, since ${formatDate(start)}.`}
+                  label="Current registration age"
+                  value={humanDuration(ageDays)}
+                />
+
+                <div className={styles.timeline}>
+                  <ToolTimeline ariaLabel="Registration timeline" events={timelineEvents(result)} />
+                </div>
+
+                {result.reregistrationDate ? (
+                  <p className={styles.caveat}>
+                    The registry records a later registration date but does not say why the domain was registered
+                    again or whether ownership changed.
+                  </p>
+                ) : (
+                  <p className={styles.caveat}>
+                    Registration date only. It does not date the website or its current owner. Older registration
+                    history may not be published.
+                  </p>
+                )}
+              </>
+            )
+          ) : unavailableResult(result)}
+
+          <SourceMetadata result={result} />
+
+          {result.notes.length ? (
+            <ToolDisclosure label="Lookup notes">
+              <ul className={styles.notes}>
+                {result.notes.map((note) => <li key={note}>{note}</li>)}
+              </ul>
+            </ToolDisclosure>
           ) : null}
 
-          <RawResponses registration={result} />
+          <ToolActionRow>
+            <ToolDownloadAction
+              contents={report}
+              filename={`${result.query.domain}-age.json`}
+              label="Download report"
+              mimeType="application/json;charset=utf-8"
+            />
+          </ToolActionRow>
+
+          <RawEvidence result={result} />
         </section>
       ) : null}
     </section>

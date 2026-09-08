@@ -1,0 +1,81 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Source-reviewed descriptions and purpose categories for three bridge utilities.",
+  "apps": [
+    {
+      "slug": "airbridge",
+      "review_scope": "partial",
+      "summary": "Sends audio from DLNA media servers to AirPlay speakers and Chromecast devices.",
+      "summary_source": "curated",
+      "categories": [
+        "music-audio"
+      ],
+      "expected": {
+        "summary": "Airbridge bridges DLNA/UPnP audio streams to AirPlay (RAOP) devices, [br][br] Creates virtual DLNA renderers that forward audio to AirPlay speakers, allowing.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "ai-ml",
+          "music-audio",
+          "video-conferencing"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/kenyonj/airbridge/main/README.md"
+      ],
+      "pending_review": [
+        "The publisher labels this early development and not yet recommended for production. Review how the directory presents maturity, deployment support, and embedded SQLite.",
+        "Other facts remain pending full-record review."
+      ]
+    },
+    {
+      "slug": "airconnect",
+      "review_scope": "partial",
+      "summary": "Plays AirPlay audio on UPnP, Sonos, and Chromecast devices, with a web interface for monitoring the bridges.",
+      "summary_source": "curated",
+      "categories": [
+        "music-audio"
+      ],
+      "expected": {
+        "summary": "AirPlay to UPnP/Sonos and Chromecast, in a single container, with a web interface for seeing what is actually happening, Host networking is required, not a.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "ai-ml",
+          "music-audio",
+          "networking-dns"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/iflip721/airconnect/main/README.md"
+      ],
+      "pending_review": [
+        "Review this packaging and patching layer against the upstream AirConnect listing for possible duplication. Verify networking requirements, installation links, and license details.",
+        "Other facts remain pending full-record review."
+      ]
+    },
+    {
+      "slug": "amcrest-ptz-bridge",
+      "review_scope": "partial",
+      "summary": "Lets Frigate pan and tilt Amcrest SmartHome cameras through a local ONVIF bridge, without handling their video streams.",
+      "summary_source": "curated",
+      "categories": [
+        "home-automation-iot"
+      ],
+      "expected": {
+        "summary": "Expose the local DVRIP pan and tilt controls of an Amcrest SmartHome camera as an ONVIF PTZ service for Frigate, Video and audio remain direct between the.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "ai-ml",
+          "music-audio",
+          "video-conferencing"
+        ]
+      },
+      "data_source_urls": [
+        "https://raw.githubusercontent.com/gaming09/amcrest-ptz-bridge/main/README.md"
+      ],
+      "pending_review": [
+        "Review installation records, camera compatibility, publisher identity, and interface surfaces. It does not add zoom, presets, or Frigate autotracking.",
+        "Other facts remain pending full-record review."
+      ]
+    }
+  ]
+}

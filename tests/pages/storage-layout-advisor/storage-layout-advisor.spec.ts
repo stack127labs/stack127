@@ -6,15 +6,15 @@ test.skip(!localPreview, "The interactive route needs the guarded local preview.
 test("starts clean, edits rows, and compares a mixed inventory", async ({ page }) => {
   await page.goto("/storage-layout-advisor");
   await expect(page.getByRole("heading", { level: 1 })).toContainText(/Storage layout advisor/i);
-  await expect(page.getByLabel("Drive 1 capacity")).toHaveValue("4");
-  await expect(page.getByRole("heading", { name: /Best fit/i })).toHaveCount(0);
+  await expect(page.getByRole("textbox", { name: "Drive 1 capacity", exact: true })).toHaveValue("4");
+  await expect(page.getByRole("heading", { name: "Layout recommendation", exact: true })).toHaveCount(0);
   await page.getByRole("button", { name: "Add drive" }).click();
-  await expect(page.getByLabel("Drive 3 capacity")).toBeFocused();
-  await page.getByLabel("Drive 1 capacity").fill("4");
-  await page.getByLabel("Drive 2 capacity").fill("8");
-  await page.getByLabel("Drive 3 capacity").fill("8");
+  await expect(page.getByRole("textbox", { name: "Drive 3 capacity", exact: true })).toBeFocused();
+  await page.getByRole("textbox", { name: "Drive 1 capacity", exact: true }).fill("4");
+  await page.getByRole("textbox", { name: "Drive 2 capacity", exact: true }).fill("8");
+  await page.getByRole("textbox", { name: "Drive 3 capacity", exact: true }).fill("8");
   await page.getByRole("button", { name: "Compare layouts" }).click();
-  await expect(page.getByRole("heading", { name: /Best fit/i })).toBeFocused();
+  await expect(page.getByRole("heading", { name: "Layout recommendation", exact: true })).toBeFocused();
   await expect(page.getByTestId("layout-comparison")).toBeVisible();
   await expect(page.getByTestId("capacity-accounting")).toBeVisible();
   await expect(page.getByTestId("layout-topology")).toBeVisible();
@@ -24,13 +24,13 @@ test("starts clean, edits rows, and compares a mixed inventory", async ({ page }
 test("clears stale results and focuses the first invalid field", async ({ page }) => {
   await page.goto("/storage-layout-advisor");
   await page.getByRole("button", { name: "Compare layouts" }).click();
-  await expect(page.getByRole("heading", { name: /Best fit/i })).toBeFocused();
-  await page.getByLabel("Drive 1 capacity").fill("-1");
-  await expect(page.getByRole("heading", { name: /Best fit/i })).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Layout recommendation", exact: true })).toBeFocused();
+  await page.getByRole("textbox", { name: "Drive 1 capacity", exact: true }).fill("-1");
+  await expect(page.getByRole("heading", { name: "Layout recommendation", exact: true })).toHaveCount(0);
   await page.getByRole("button", { name: "Compare layouts" }).click();
-  await expect(page.getByLabel("Drive 1 capacity")).toBeFocused();
-  await expect(page.getByRole("status")).toHaveText("Fix the highlighted field.");
-  await expect(page.getByLabel("Drive 1 capacity")).toHaveAttribute("aria-invalid", "true");
+  await expect(page.getByRole("textbox", { name: "Drive 1 capacity", exact: true })).toBeFocused();
+  await expect(page.getByText("Check the marked inputs.", { exact: true })).toBeVisible();
+  await expect(page.getByRole("textbox", { name: "Drive 1 capacity", exact: true })).toHaveAttribute("aria-invalid", "true");
 });
 
 test("clears a shared URL when an input changes", async ({ page }) => {
@@ -38,9 +38,9 @@ test("clears a shared URL when an input changes", async ({ page }) => {
   await page.getByRole("button", { name: "Compare layouts" }).click();
   await page.getByRole("button", { name: "Share layout" }).click();
   await expect(page).toHaveURL(/\?state=/);
-  await page.getByLabel("Drive 1 capacity").fill("6");
+  await page.getByRole("textbox", { name: "Drive 1 capacity", exact: true }).fill("6");
   await expect(page).toHaveURL(/storage-layout-advisor$/);
-  await expect(page.getByRole("heading", { name: /Best fit/i })).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Layout recommendation", exact: true })).toHaveCount(0);
 });
 
 test("filters protection, shares explicitly, restores, and resets", async ({ page, context }) => {
@@ -48,28 +48,28 @@ test("filters protection, shares explicitly, restores, and resets", async ({ pag
   await page.goto("/storage-layout-advisor");
   await page.getByRole("button", { name: "Add drive" }).click();
   await page.getByRole("button", { name: "Add drive" }).click();
-  await page.getByLabel("Protected failures").selectOption("2");
+  await page.getByRole("radiogroup", { name: /Protected failures/ }).getByText("2", { exact: true }).click();
   await page.getByRole("button", { name: "Compare layouts" }).click();
-  await expect(page.getByRole("heading", { name: /Best fit/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Layout recommendation", exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Share layout" }).click();
   await expect(page).toHaveURL(/\?state=/);
   const shared = page.url();
   const restored = await context.newPage();
   await restored.goto(shared);
   await expect(restored.getByText(/restored/i)).toBeVisible();
-  await expect(restored.getByRole("heading", { name: /Best fit/i })).toBeVisible();
-  await restored.getByRole("button", { name: "Reset layout" }).click();
+  await expect(restored.getByRole("heading", { name: "Layout recommendation", exact: true })).toBeVisible();
+  await restored.getByRole("button", { name: "Reset", exact: true }).click();
   await expect(restored).toHaveURL(/storage-layout-advisor$/);
-  await expect(restored.getByLabel("Drive 1 capacity")).toHaveValue("4");
+  await expect(restored.getByRole("textbox", { name: "Drive 1 capacity", exact: true })).toHaveValue("4");
 });
 
 test("supports keyboard submission and invalid shared state recovery", async ({ page }) => {
   await page.goto("/storage-layout-advisor?state=broken");
-  await expect(page.getByText(/restore/i)).toBeVisible();
+  await expect(page.getByText(/could not load/i)).toBeVisible();
   const compare = page.getByRole("button", { name: "Compare layouts" });
   await compare.focus();
   await compare.press("Enter");
-  await expect(page.getByRole("heading", { name: /Best fit/i })).toBeFocused();
+  await expect(page.getByRole("heading", { name: "Layout recommendation", exact: true })).toBeFocused();
 });
 
 for (const { width, height } of [

@@ -1,11 +1,10 @@
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { getRequiredToolPage } from "@/lib/tool-pages";
 import { HardDrive } from "lucide-react";
 import { AppShell } from "../../../app-shell";
-import { PageTitleIcon } from "../../../page-title-icon";
-import { PageHeader } from "../../../page-header";
 import { PageCanvas } from "../../../page-canvas";
 import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import { UnraidCalculator } from "./unraid-calculator";
-import { UnraidCalculatorGuide } from "./unraid-calculator-guide";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
@@ -18,6 +17,7 @@ export default async function UnraidCalculatorPage({
 }: {
   searchParams: Promise<SearchParams>;
 }) {
+  const toolPage = await getRequiredToolPage("unraid-calculator");
   const params = await searchParams;
 
   return (
@@ -28,22 +28,12 @@ export default async function UnraidCalculatorPage({
       sidebarLabel="Storage tools sidebar"
     >
       <PageCanvas>
-        <PageHeader>
-          <h1>
-            <PageTitleIcon>
-              <HardDrive strokeWidth={2.2} />
-            </PageTitleIcon>{" "}
-            Unraid Main Array <mark>calculator</mark>
-          </h1>
-          <p>
-            Plan a Main Array for a homelab from explicit parity and data roles you already know,
-            then see array-level data capacity and one future drive&apos;s parity boundary.
-            Filesystem-visible space remains unknown, and the calculator stops at that planning
-            boundary.
-          </p>
-        </PageHeader>
+        <ToolPageHeader
+          icon={<HardDrive strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
         <UnraidCalculator initialState={firstValue(params.state)} />
-        <UnraidCalculatorGuide />
+        <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
     </AppShell>
   );

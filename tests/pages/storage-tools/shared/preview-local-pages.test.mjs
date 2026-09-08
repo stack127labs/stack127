@@ -24,7 +24,7 @@ test("the shared storage preview owns exactly the eight guarded publication rout
   assert.match(previewSource, /begin/i);
   assert.match(previewSource, /commit/i);
   assert.match(previewSource, /rollback/i);
-  assert.match(previewSource, /remaining.*0|zero.*remaining/i);
+  assert.match(previewSource, /without deleting their tool content/i);
 });
 
 test("the preview guard positively identifies managed development and rejects production", () => {
@@ -36,11 +36,14 @@ test("the preview guard positively identifies managed development and rejects pr
   assert.match(previewSource, /127\\.0\\.0\\.1|localhost/);
 });
 
-test("preview insertion is temporary and cannot overwrite an existing registry row", () => {
+test("preview publication preserves the seeded tool registry and content rows", () => {
   assert.match(previewSource, /select[\s\S]*where slug = any/i);
-  assert.match(previewSource, /existing registry rows.*refusing|refusing.*existing registry rows/i);
+  assert.match(previewSource, /update public\.stack127_pages/i);
+  assert.match(previewSource, /page_family = 'tool'/i);
+  assert.match(previewSource, /public\.stack127_tool_pages/i);
   assert.doesNotMatch(previewSource, /on conflict/i);
-  assert.match(previewSource, /delete from public\.stack127_pages/);
+  assert.doesNotMatch(previewSource, /insert into public\.stack127_pages/i);
+  assert.doesNotMatch(previewSource, /delete from public\.stack127_pages/i);
 });
 
 test("all eight route manifests use the shared preview script", () => {

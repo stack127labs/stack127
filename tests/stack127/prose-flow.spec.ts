@@ -55,6 +55,40 @@ test("later course headings get a stronger section break", async ({ page }) => {
   });
 
   expect(gapBeforeHeading).not.toBeNull();
-  expect(gapBeforeHeading!).toBeGreaterThanOrEqual(30);
-  expect(gapBeforeHeading!).toBeLessThanOrEqual(44);
+  expect(gapBeforeHeading!).toBeGreaterThanOrEqual(31);
+  expect(gapBeforeHeading!).toBeLessThanOrEqual(33);
+});
+
+test("section wrappers use one 40px break instead of stacking layout gaps", async ({ page }) => {
+  await page.goto("/about");
+
+  const heading = page.getByRole("heading", { name: "Why stack127?", exact: true });
+  const gapBeforeHeading = await heading.evaluate((element) => {
+    const section = element.parentElement;
+    const previousSection = section?.previousElementSibling;
+    if (!previousSection) return null;
+    return element.getBoundingClientRect().top - previousSection.getBoundingClientRect().bottom;
+  });
+
+  expect(gapBeforeHeading).not.toBeNull();
+  expect(gapBeforeHeading!).toBeGreaterThanOrEqual(39);
+  expect(gapBeforeHeading!).toBeLessThanOrEqual(41);
+});
+
+test("nested h3 headings keep a subordinate 24px break", async ({ page }) => {
+  await page.goto("/raid-calculator");
+
+  const heading = page.getByRole("heading", {
+    name: "How much usable space do four 4 TB drives give in RAID 5?",
+    exact: true,
+  });
+  const gapBeforeHeading = await heading.evaluate((element) => {
+    const previous = element.previousElementSibling;
+    if (!previous) return null;
+    return element.getBoundingClientRect().top - previous.getBoundingClientRect().bottom;
+  });
+
+  expect(gapBeforeHeading).not.toBeNull();
+  expect(gapBeforeHeading!).toBeGreaterThanOrEqual(23);
+  expect(gapBeforeHeading!).toBeLessThanOrEqual(25);
 });

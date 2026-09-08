@@ -1,5 +1,11 @@
 # Brief: Registrar Lookup
 
+## Current supporting-content direction
+
+Approved September 6, 2026. Explain registrar, registry, and reseller roles before account recovery or reporting. Keep contact expectations bounded and use source identifiers and fetched dates without promising an abuse outcome.
+
+The working tool stays first. Use connected explanation at the depth the task needs, with no word, section, sentence, or visual-ratio quota. This direction supersedes earlier supporting-prose budgets in this page's planning artifacts; it does not change the engine or input contract. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
+
 ## Who is here
 
 A domain owner or abuse reporter needs to identify the registrar, find the right contact, or understand an unfamiliar reseller relationship.

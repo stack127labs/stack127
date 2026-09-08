@@ -1,0 +1,1 @@
+{"id":"catalog--zfs-capacity","type":"toolSpot","takeaway":"Stacked storage layers stand for vdevs combined into a ZFS pool.","source":"conceptual figure, no external data","dataAsOf":"2026-09-04","width":140,"height":110,"seed":232,"data":{"icon":"layers","motif":"stack"}}

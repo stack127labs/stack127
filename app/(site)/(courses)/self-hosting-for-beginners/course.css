@@ -52,7 +52,7 @@
    carry semantic color. Never a tinted background or a colored edge. */
 .lesson-callout {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   display: grid;
   gap: var(--space-3);
   padding: var(--space-7) var(--space-8);
@@ -103,7 +103,7 @@
 
 .lesson-nav-link {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   display: grid;
   gap: var(--space-1);
   padding: var(--space-6) var(--space-7);
@@ -125,7 +125,7 @@
 }
 
 .lesson-nav-title {
-  color: var(--color-text);
+  color: var(--color-link);
   font-size: var(--text-small);
 }
 
@@ -139,7 +139,7 @@
 .lesson-code {
   background: var(--color-surface-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   margin: 0;
   overflow-x: auto;
   padding: var(--space-6) var(--space-7);
@@ -148,7 +148,7 @@
 .lesson-table {
   background: var(--color-surface);
   border: 1.5px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   border-collapse: collapse;
   overflow: hidden;
   width: 100%;
@@ -202,3 +202,6 @@
     margin: 0;
   }
 }
+
+.lesson-nav-link:hover .lesson-nav-title,
+.lesson-nav-link:focus-visible .lesson-nav-title { text-decoration: underline; text-underline-offset: 3px; }

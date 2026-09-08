@@ -12,6 +12,7 @@ type AppSidebarProps = {
 };
 
 const DRAWER_ID = "app-sidebar-drawer";
+const COMPACT_SIDEBAR_QUERY = "(max-width: 960px)";
 
 /**
  * Desktop renders the sidebar as an in-grid sticky column.
@@ -24,6 +25,18 @@ export function AppSidebar({ children, label, menuLabel }: AppSidebarProps) {
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const compactSidebar = window.matchMedia(COMPACT_SIDEBAR_QUERY);
+    const closeAtDesktopWidth = (event: MediaQueryListEvent) => {
+      if (!event.matches) {
+        setOpen(false);
+      }
+    };
+
+    compactSidebar.addEventListener("change", closeAtDesktopWidth);
+    return () => compactSidebar.removeEventListener("change", closeAtDesktopWidth);
+  }, []);
 
   useEffect(() => {
     if (!open) {

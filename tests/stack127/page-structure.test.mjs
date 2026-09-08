@@ -4,21 +4,21 @@ import test from "node:test";
 
 const globals = await readFile(new URL("../../app/globals.css", import.meta.url), "utf8");
 const prose = await readFile(new URL("../../app/prose.module.css", import.meta.url), "utf8");
-const cliPage = await readFile(new URL("../../app/(site)/(catalogs)/cli-apps/page.tsx", import.meta.url), "utf8");
+const cliPage = await readFile(new URL("../../app/(site)/(directories)/cli-apps/page.tsx", import.meta.url), "utf8");
 const selfHostPage = await readFile(
-  new URL("../../app/(site)/(catalogs)/self-host-apps/page.tsx", import.meta.url),
+  new URL("../../app/(site)/(directories)/self-host-apps/page.tsx", import.meta.url),
   "utf8",
 );
 const cliLayout = await readFile(
-  new URL("../../app/(site)/(catalogs)/cli-apps/layout.tsx", import.meta.url),
+  new URL("../../app/(site)/(directories)/cli-apps/layout.tsx", import.meta.url),
   "utf8",
 );
 const selfHostLayout = await readFile(
-  new URL("../../app/(site)/(catalogs)/self-host-apps/layout.tsx", import.meta.url),
+  new URL("../../app/(site)/(directories)/self-host-apps/layout.tsx", import.meta.url),
   "utf8",
 );
-const catalogFilters = await readFile(
-  new URL("../../app/(site)/(catalogs)/_components/catalog-filters.tsx", import.meta.url),
+const directoryFilters = await readFile(
+  new URL("../../app/(site)/(directories)/_components/directory-filters.tsx", import.meta.url),
   "utf8",
 );
 
@@ -34,19 +34,21 @@ test("one prose system owns reading rhythm", () => {
   }
 
   assert.match(prose, /\.flow\s*>\s*:where\(h2\)/);
-  assert.match(prose, /\.sectionFlow\s*>\s*section\s*\+\s*section/);
-  assert.match(globals, /--space-prose-heading-2:\s*var\(--space-10\)/);
-  assert.match(globals, /--space-prose-heading-3:\s*var\(--space-7\)/);
+  assert.match(prose, /\.sectionFlow\.sectionFlow\s*\{[^}]*gap:\s*0/s);
+  assert.match(prose, /\.sectionFlow\s*>\s*\*\s*\+\s*\*/);
+  assert.match(globals, /--space-prose-heading-2:\s*var\(--space-7\)/);
+  assert.match(globals, /--space-prose-heading-3:\s*var\(--space-3\)/);
+  assert.match(globals, /--space-prose-section:\s*var\(--space-13\)/);
 });
 
-test("app catalogs use the shared catalog presentation", () => {
-  assert.match(cliLayout, /catalog-directory\.css/);
-  assert.match(selfHostLayout, /catalog-directory\.css/);
-  assert.match(cliPage, /catalog-filters/);
-  assert.match(selfHostPage, /catalog-filters/);
-  assert.match(catalogFilters, /CatalogTagSelectGroup/);
-  assert.match(cliPage, /CatalogFilterController/);
-  assert.match(selfHostPage, /CatalogFilterController/);
+test("app directories use the shared directory presentation", () => {
+  assert.match(cliLayout, /directory\.css/);
+  assert.match(selfHostLayout, /directory\.css/);
+  assert.match(cliPage, /directory-filters/);
+  assert.match(selfHostPage, /directory-filters/);
+  assert.match(directoryFilters, /DirectoryTagSelectGroup/);
+  assert.match(cliPage, /DirectoryFilterController/);
+  assert.match(selfHostPage, /DirectoryFilterController/);
   assert.doesNotMatch(cliPage, /function TagSelectGroup/);
   assert.doesNotMatch(selfHostPage, /function TagSelectGroup/);
   assert.doesNotMatch(cliPage, /\.\.\/self-host-apps\/sort-dropdown/);
@@ -62,7 +64,7 @@ test("page families share one visible heading component", async () => {
   const courseShell = await readFile(new URL("../../app/(site)/(courses)/_components/course-shell.tsx", import.meta.url), "utf8");
   const courseModel = await readFile(new URL("../../lib/courses.ts", import.meta.url), "utf8");
   const shortcuts = await readFile(
-    new URL("../../app/(site)/(catalogs)/keyboard-shortcuts/keyboard-shortcuts-directory.tsx", import.meta.url),
+    new URL("../../app/(site)/(references)/keyboard-shortcuts/keyboard-shortcuts-directory.tsx", import.meta.url),
     "utf8",
   );
 
@@ -80,10 +82,10 @@ test("page families share one visible heading component", async () => {
     "utf8",
   );
   assert.match(toolPage, /<PageCanvas/);
-  assert.match(toolPage, /<PageHeader/);
+  assert.match(toolPage, /<ToolPageHeader/);
 });
 
-test("catalog pages do not expose crawler or development records in the UI", () => {
+test("directory pages do not expose crawler or development records in the UI", () => {
   assert.doesNotMatch(cliPage, /full app records/i);
   assert.doesNotMatch(selfHostPage, /full app records/i);
   assert.doesNotMatch(cliPage, /DirectoryCrawlerRecords/);

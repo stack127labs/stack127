@@ -13,10 +13,11 @@ Use the semantic names for new UI:
 | Color | `--color-bg`, `--color-surface`, `--color-surface-2`, `--color-text`, `--color-text-muted`, `--color-border`, `--color-border-strong` |
 | Accent | `--color-accent` (fills only), `--color-accent-text` (accent-colored text), `--color-accent-contrast` (text on accent fills), `--color-link` |
 | Status | `--color-success-text`, `--color-warning-text`, `--color-danger-text` — text colors only, never backgrounds |
+| Data | `--color-data-chartreuse`, `--color-data-cyan`, `--color-data-blue`, `--color-data-yellow`, `--color-data-red`, `--color-data-violet`, `--color-data-green` — chart and allocation fills only |
 | Type | `--font-display`, `--font-sans`, `--font-mono`, `--text-body`, `--text-small`, `--line-body`, `--line-heading`, `--tracking-display`, `--weight-regular`, `--weight-semibold`, `--weight-bold` |
 | Headings | `--text-h1` + `--line-h1`, `--text-h2`, `--text-h3` |
 | Space | `--space-1` through `--space-14`, `--measure-prose` |
-| Radius | `--radius-lg` (8px, standard), `--radius-xl` (12px, large panels) |
+| Radius | `--radius` (2px for every bounded UI shape) |
 | Effects | `--focus-ring`, `--motion-fast`, `--motion-base` |
 | Layout | `--container-max`, `--container-gutter`, `--top-bar-height`, `--sidebar-width` |
 
@@ -28,6 +29,7 @@ The previous token scale (`--text-sm`, `--color-accent-soft`, `--shadow-card`, a
 - Text on an accent fill always uses `--color-accent-contrast`. Never white on chartreuse.
 - Accent-colored text always uses `--color-accent-text`; raw `#bafc3c` fails contrast as text on the light background.
 - Semantic color only colors words, and only when the meaning is real: `--color-success-text`, `--color-warning-text`, `--color-danger-text`. No tinted panels, no colored left edges, no badge soup.
+- Data colors encode categories in charts and allocation figures. They never imply success, warning, or danger on their own, and they never replace labels or exact values.
 - Muted text is the exception, not the default. `--color-text-muted` is reserved for true annotations: mono metadata rows, captions, timestamps, counts, and sidebar helper text. Card descriptions, ledes, section notes, and all reading copy use `--color-text`.
 
 ## Typography
@@ -62,18 +64,19 @@ Every page h1 highlights one editorially chosen phrase with a `<mark>` styled as
 - Reading copy uses `--color-text`, not muted.
 - Use no default dividers between prose sections unless a specific reference page needs them.
 - Keep section spacing calm: enough air to scan, not enough to feel editorial or blog-like.
-- In one prose flow, later `h2` headings sit 40px after the preceding element and later `h3` or `h4` headings sit 32px after it. These totals include the normal paragraph gap.
+- Reading elements use a 16px gap. In one prose flow, later `h2` headings sit 32px after the preceding element and later `h3` or `h4` headings sit 24px after it. Separate prose sections use one 40px break. These are total gaps, so page layouts must not add another gap on top.
 - Keep gaps between forms, results, cards, navigation, and other structural regions in their owning page or component styles.
 - Write headings normally in the source text, for example `Privacy`, `What we collect`, and `External links`.
-- Links use `--color-link` with a subtle hover underline.
+- Links use `--color-link` at rest, with no underline. Hover and keyboard focus add an underline in the same color. Apply this across page content and tables. Sidebar, top-bar, and footer links are exceptions, keeping their previous neutral text and navigation states without hover underlines. Linked cards color their destination title. Filled action buttons keep contrasting text, and disabled navigation stays muted. Component styles must preserve this shared link treatment.
 
 ## Rules
 
 - Dark is home: design on `#101010` first, then verify light mode. Anything that only works in one theme is wrong in both.
 - One container, one left edge: header text, hero, prose, and components align to the same `--container-max` container with `--container-gutter`. Only rules, full-bleed bands, and page-corner doodles may bleed full width.
+- Top-level entry pages use the shared dotted `EntryHero`. This includes home, catalogs, directories, course entry pages, labs, and legal pages. Individual tools, lessons, records, and dense reference pages keep a plain task-first header.
 - Direct the eye by size, then weight, then accent — in that order. Color is the last resort.
 - Use borders before shadows; the site has no decorative shadows and no gradients.
-- Cards and panels use `--radius-lg`; large framed panels use `--radius-xl`. Avoid nested cards.
+- Cards, panels, controls, tags, title marks, tables, and media frames use `--radius`. True circles may use `50%` when the shape carries meaning, such as a timeline node or numbered step. Avoid nested cards.
 - Use the 4px/8px spacing rhythm through `--space-*`.
 - Use `--font-mono` for facts, slugs, versions, stats, and metadata. Never uppercase with positive letter spacing.
 - Structure without eyebrows: sections start with a display heading and, when useful, one lede sentence. No kickers, no "Overview" headings, no label-and-value walls — facts live in sentences or tables.
@@ -86,15 +89,25 @@ Every page h1 highlights one editorially chosen phrase with a `<mark>` styled as
 
 ## Component Direction
 
+Interactive tool controls and result hierarchy follow `stack127_docs/tool-interface.md`. This document owns their visual tokens; the tool-interface document owns their task flow, component roles, and states.
+
 Buttons: primary is an accent fill with `--color-accent-contrast` text, one per view; secondary is surface plus `--color-border-strong` border; ghost is plain text that gains a `--color-surface-2` background on hover.
 
-Cards: `--color-surface` on a 1px `--color-border`, `--radius-lg`, a dashed `--color-border` divider above the mono metadata row, and a hover state that turns the border to `--color-accent`. Titles use `--font-display`; descriptions use `--text-small` with `--color-text`.
+Cards: `--color-surface` on a 1px `--color-border`, `--radius`, a dashed `--color-border` divider above the mono metadata row, and a hover state that turns the border to `--color-accent`. Titles use `--font-display`; descriptions use `--text-small` with `--color-text`. Tool catalogs use the shared three-column `ToolCatalog` grid, falling to two and then one column. Each card has one simple tool name, one sentence, and one semantic marker spot.
 
 Tables: 1.5px `--color-border-strong` outer border, `--font-display` bold header row over a strong rule, `--color-border` row dividers, mono for data values.
 
-Tools are one clear box: a `--color-border-strong` frame at `--radius-xl` whose head is the form and whose results render below a `--color-border` divider inside the same frame. Results read like an answer: a full sentence at `--text-body` first, the data table second, and timing or provider metadata last in `--text-small` mono muted text. No nested cards inside the tool box.
+App directory cards use the approved Fact rows variant in `app-fact-card.tsx`. Show the actual app image beside its name and primary category, with +N for additional categories. Follow the summary with labeled fact rows, each with a small semantic icon and a mono value. Use neutral solid row dividers and a stronger neutral hover border. Keep full values, estimates, and unknowns visible. The whole card opens the existing app details drawer. The desktop grid has three columns, falling to two and one as the main column narrows.
+
+Hardware directories use `hardware-fact-card.tsx` with a 200px-tall contained product image, one vendor/model heading, and the same `AppCardFacts` rows. Use the product name when a grouped record has no real model identifier. Do not add subtitles, summary paragraphs, repeated identity lines, or a separate compatibility box. Compatibility stays a fact row alongside the practical fields. Preserve full values and the existing detail drawer. Missing or failed product images show an explicit placeholder rather than a generated illustration.
+
+Tools use one full-width workbench band. Its `--color-surface` background and `--color-border-strong` top and bottom rules span the entire main column beside the sidebar. The interactive content stays centered at the page's normal tool width. The band has no side borders or corner radius. The form leads and results render below a `--color-border` divider in the same band. Supporting prose returns to the normal reading width. Results read like an answer: a full sentence at `--text-body` first, the data table second, and timing or provider metadata last in `--text-small` mono muted text. Do not put nested cards around the whole tool or its major sections.
 
 Sidebars that list things use `SidebarList` from `app/sidebar-list.tsx`: small rows, optional mono numbers and counts, and a `--color-surface-2` active fill with an accent-ink leading cell. Linear lists lead with mono numbers, non-linear lists lead with a meaningful monochrome icon, and lists with no sensible icon fall back to the quiet chevron. Do not hand-roll another sidebar link list.
+
+Tool catalog sidebars link between published tool catalogs and mark the current catalog. Individual tools belong in the catalog's main cards, not a duplicate sidebar list. Individual tool pages keep their family tool navigation.
+
+The homepage lists published top-level directories, tool catalogs, and references, plus the course and Labs collection. It does not list individual tools or individual reference sheets. Each card shows a meaningful count from its destination's data. New top-level collections need a home entry, identity icon, metric, and coverage test.
 
 Each feature page has one identity icon, used in three places: its sidebar row, its home card title, and through `PageTitleIcon` (`app/page-title-icon.tsx`) beside its h1. The h1 treatment is an unboxed, em-sized icon in `--color-accent-text`, aligned optically with the title. Feature pages also carry one marker spot doodle on their home card; the spot says what the page is in one drawing.
 

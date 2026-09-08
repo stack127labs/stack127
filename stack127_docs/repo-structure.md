@@ -6,19 +6,28 @@ Stack127 is organized by page so the site can grow without mixing docs, scripts,
 
 All normal pages are repo-owned Next.js routes under `app/`.
 
-Use Supabase for structured data where it helps a page, but do not build normal site routing from Supabase rows unless explicitly requested.
+Routes remain repo-owned. `stack127_pages` controls publication and SEO, while family tables may own
+structured page data. Interactive tool code stays under `app/(site)/(tools)/`; tool titles,
+introductions, supporting Markdown, and version records live in `stack127_tool_pages`. See
+`stack127_docs/tool-pages.md` for the ownership boundary and update commands.
 
 Page source is grouped by job without changing URLs:
 
 ```text
-app/(site)/(catalogs)/  # directories, comparisons, and collection pages
-app/(site)/(courses)/   # ordered teaching paths
-app/(site)/(legal)/     # about, privacy, and terms
-app/(site)/(tools)/     # calculators, lookups, and generators
+app/(site)/(catalogs)/    # collections of stack127-owned pages
+app/(site)/(courses)/     # ordered teaching paths
+app/(site)/(directories)/ # third-party software and hardware directories
+app/(site)/(legal)/       # about, privacy, and terms
+app/(site)/(references)/  # stable facts, codes, and comparisons
+app/(site)/(tools)/       # calculators, lookups, and generators
 ```
 
 Shared components for one family live in that group's `_components/` folder. Components used by
 the whole site stay directly under `app/`.
+
+Catalogs contain links to stack127-owned pages. Directories contain third-party software and
+hardware records. References contain stable facts, codes, and comparisons. Do not place
+`/epp-status-codes`, `/tld-directory`, or another reference under `(tools)`.
 
 ## Page Docs
 
@@ -78,6 +87,10 @@ Sitewide scripts live at:
 scripts/stack127/
 ```
 
+Reviewed tool-page database mutations live under `scripts/stack127/tool-pages/`. stack127-owned
+repository automation lives under `scripts/stack127/repos/`; its scaffold is
+`templates/stack127-tool-repo/`. Third-party GitHub project data remains a separate database concern.
+
 Only durable scripts should be listed in `package.json`. Avoid adding one-off scripts there.
 
 Package script names should include the page slug where possible:
@@ -130,7 +143,7 @@ Use split env files by concern:
 - `.env.deploy`: the explicit OVH production identity plus Cloudflare, Dokploy, SSH, and deploy automation values. It must not contain generic legacy `VPS_*` keys or the Hostinger Dokploy URL.
 - `.env.analytics`: analytics values such as self-hosted Umami URL and website ID.
 - `.env.homelab`: homelab host and local administration values.
-- `.env.repos`: local GitHub CLI and external-repository automation values.
+- `.env.repos`: local GitHub CLI and stack127 repo automation values.
 
 Next.js reads standard Next env files automatically, including `.env.local`. It does not automatically read custom split files such as `.env.database` or `.env.deploy`; production deploy tooling must pass those values into the runtime environment.
 

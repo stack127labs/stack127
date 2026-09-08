@@ -1,5 +1,6 @@
 import dns from "node:dns";
 import { Pool } from "pg";
+import { observePoolErrors } from "./database-errors";
 
 dns.setDefaultResultOrder("ipv4first");
 
@@ -24,6 +25,7 @@ export function getPool() {
       max: 4,
       query_timeout: 15000,
     });
+    observePoolErrors(globalForPg.homeLabHqPgPool);
   }
 
   return globalForPg.homeLabHqPgPool;

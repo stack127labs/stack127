@@ -267,7 +267,7 @@ Loading, upstream, and restored states are not applicable because version one is
 - Server route: `app/(site)/(tools)/snapraid-mergerfs-planner/page.tsx` owns the shell, server-rendered identity, search-parameter omission, and the later server-rendered guide import. It must not own metadata, canonical, robots, sitemap, or JSON-LD.
 - Client tool: `app/(site)/(tools)/snapraid-mergerfs-planner/snapraid-mergerfs-planner.tsx` owns the smallest form island, add/remove rows, explicit submit, focus, live status, code copy, and reset. It must not contain the later explanatory guide.
 - Pure engine: `app/(site)/(tools)/snapraid-mergerfs-planner/snapraid-merfs-engine.ts` is route-local and owns parsing, path relations, capacity comparisons, validation, stable config rendering, policy presets, and version constants. It must not import React, access the DOM, read the filesystem, call `fetch`, or inspect host state.
-- Styles: `app/(site)/(tools)/snapraid-mergerfs-planner/snapraid-mergerfs-planner.module.css` owns the tool frame, row layout, result blocks, code wrapping, table behavior, and responsive rules. Do not change `app/globals.css`, the storage hub styles, or the shared sidebar.
+- Styles: `app/(site)/(tools)/snapraid-mergerfs-planner/snapraid-mergerfs-planner.module.css` owns the row layout, result blocks, code wrapping, table behavior, and responsive rules. The route uses the shared workbench hook without changing `app/globals.css`, the storage hub styles, or the shared sidebar.
 - Guide: later writing owns `app/(site)/(tools)/snapraid-mergerfs-planner/snapraid-merfs-guide.tsx`, using the shared prose class names and route module only for table or code layout.
 - Tests: `tests/pages/snapraid-mergerfs-planner/page.json`, `page.test.mjs`, `snapraid-merfs-engine.test.mjs`, and `snapraid-mergerfs-planner.spec.ts` own route structure, engine fixtures, rendered behavior, accessibility, responsive states, and unpublished coverage.
 - Local preview: `scripts/storage-tools/preview-local-pages.mjs` may alter only the identified managed-development database, must reject production or any other target, refuse existing rows, and remove its exact temporary rows. It must not update migrations or publication source files.
@@ -278,7 +278,7 @@ Loading, upstream, and restored states are not applicable because version one is
 
 - Use real labels, fieldsets for row groups, `aria-describedby` for errors, one result heading, one alert region for invalid state, and a polite status for copy feedback.
 - Keep every add, remove, reset, copy, and primary action at least 44px tall. Preserve keyboard order and Enter submit without trapping focus.
-- Render code in selectable `pre` blocks with `overflow-x: auto` inside the tool frame, while ensuring the page itself has no horizontal scroll. Long generated lines must remain readable.
+- Render code in selectable `pre` blocks with `overflow-x: auto` inside the workbench, while ensuring the page itself has no horizontal scroll. Long generated lines must remain readable.
 - Treat every path and policy label as untrusted text. Use React text nodes, no `dangerouslySetInnerHTML`, no dynamic HTML, no shell execution, and no network calls.
 - Reject path characters that would make the output ambiguous or inject fstab/config directives. Do not log or serialize user paths. Clipboard is the only optional browser side effect.
 - Keep the engine synchronous and deterministic. The client bundle should include only the engine, controls, icons, and formatting needed for this route.

@@ -22,7 +22,7 @@
 .toolLink {
   align-items: center;
   border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text);
   display: grid;
   gap: var(--space-4);
@@ -49,13 +49,6 @@
   font-size: var(--text-small);
   line-height: var(--line-body);
   margin-top: var(--space-2);
-}
-
-.tool {
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-border-strong);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
 }
 
 .toolForm {
@@ -101,7 +94,7 @@
 
 .choice span {
   border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   display: block;
   font-size: var(--text-body);
   padding: var(--space-2) var(--space-4);
@@ -156,7 +149,7 @@
 .groupSizeControl select {
   background: var(--color-bg);
   border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   color: var(--color-text);
   font-size: var(--text-body);
   min-height: 42px;
@@ -169,7 +162,7 @@
 .resetButton,
 .removeButton {
   align-items: center;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   cursor: pointer;
   display: inline-flex;
   font-size: var(--text-body);
@@ -570,7 +563,7 @@
 
 .backupNote {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   padding: var(--space-4);
 }
 

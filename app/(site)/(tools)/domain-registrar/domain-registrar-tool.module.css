@@ -1,0 +1,147 @@
+.workbench,
+.results,
+.section,
+.evidence { min-width: 0; }
+
+.form {
+  align-items: stretch;
+  display: grid;
+  gap: var(--space-3) var(--space-4);
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto auto;
+  min-width: 0;
+  padding: clamp(22px, 4vw, 36px);
+}
+
+.queryField { grid-column: 1; grid-row: 1 / span 3; grid-template-rows: subgrid; }
+.submit { align-self: stretch; grid-column: 2; grid-row: 2; min-width: 224px; }
+.formStatus { grid-column: 1 / -1; }
+
+.results {
+  display: grid;
+  gap: var(--space-10);
+}
+
+.checkedName,
+.note,
+.recovery { margin: 0; max-width: var(--measure-prose); overflow-wrap: anywhere; }
+.note { color: var(--color-text-muted); font-size: var(--text-small); }
+
+.section {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.section h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.detailValues,
+.sourcedValue {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.sourcedValue > :first-child { overflow-wrap: anywhere; }
+
+.sourcedValue small {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+.roleChain {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.roleChain li {
+  border-top: 1px solid var(--color-border-strong);
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: var(--space-5) var(--space-7) 0 0;
+  position: relative;
+}
+
+.roleChain li:not(:last-child)::after {
+  color: var(--color-text-muted);
+  content: "→";
+  position: absolute;
+  right: var(--space-3);
+  top: var(--space-5);
+}
+
+.roleChain span,
+.roleChain small {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+}
+
+.roleChain strong,
+.roleChain small { overflow-wrap: anywhere; }
+
+.nextSteps {
+  display: grid;
+  margin: 0;
+}
+
+.nextSteps > div {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-7);
+  grid-template-columns: minmax(130px, 0.35fr) minmax(0, 1fr);
+  padding: var(--space-4) 0;
+}
+
+.nextSteps dt { color: var(--color-text-muted); }
+.nextSteps dd { margin: 0; overflow-wrap: anywhere; }
+
+.metadata {
+  color: var(--color-text-muted);
+  display: grid;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.metadata > div { display: grid; gap: var(--space-5); grid-template-columns: 150px minmax(0, 1fr); }
+.metadata dt, .metadata dd { margin: 0; }
+.metadata dd { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); overflow-wrap: anywhere; }
+
+.download { display: flex; justify-content: flex-end; }
+.notes { display: grid; gap: var(--space-3); margin: 0; max-width: var(--measure-prose); padding-left: var(--space-7); }
+.evidence { display: grid; gap: var(--space-5); }
+.evidence button { max-width: 100%; overflow-wrap: anywhere; white-space: normal; }
+
+@media (max-width: 760px) {
+  .roleChain { gap: var(--space-5); grid-template-columns: minmax(0, 1fr); }
+  .roleChain li { border-left: 1px solid var(--color-border-strong); border-top: 0; padding: 0 0 var(--space-6) var(--space-5); }
+  .roleChain li:not(:last-child)::after { bottom: 0; content: "↓"; left: calc(var(--space-5) * -0.45); right: auto; top: auto; }
+}
+
+@media (max-width: 640px) {
+  .form { gap: var(--space-5); grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; }
+  .queryField, .submit, .formStatus { grid-column: 1; grid-row: auto; }
+  .queryField { grid-template-rows: auto; }
+  .submit, .download > * { min-width: 0; width: 100%; }
+  .submit, .download > * { white-space: normal; }
+  .nextSteps > div, .metadata > div { gap: var(--space-1); grid-template-columns: minmax(0, 1fr); }
+  .metadata dd { display: grid; gap: var(--space-1); }
+}
+
+@media print {
+  .form { display: none; }
+  .results { display: block; }
+  .results > * + * { margin-top: var(--space-8); }
+}

@@ -21,6 +21,7 @@ const applicationTables = [
   "terminal_app_import_runs",
   "terminal_app_field_sources",
   "stack127_pages",
+  "stack127_tool_pages",
 ];
 
 function envValue(filePath, key) {

@@ -1,5 +1,11 @@
 # Brief: Drive Reliability Explorer
 
+## Current supporting-content direction
+
+Approved September 6, 2026. Explain source periods, cohorts, drive days, annualized rate, and statistical uncertainty before purchasing limits. A zero-failure sample does not imply zero risk; the interval is not a disk-lifespan range.
+
+The working tool stays first. Use connected explanation at the depth the task needs, with no word, section, sentence, or visual-ratio quota. This direction supersedes earlier supporting-prose budgets in this page's planning artifacts; it does not change the engine or input contract. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
+
 ## Who is here
 
 A homelab or NAS builder has an exact hard-drive model in mind, or is comparing a short list before a purchase or replacement. They know that Backblaze publishes fleet data, but need the model, period, sample, and evidence strength in one place.

@@ -40,7 +40,7 @@ test("recognizes a ready flat-route pipeline through test design", (context) => 
   context.after(() => rmSync(fixtureRoot, { recursive: true, force: true }));
   const docsDirectory = join(fixtureRoot, "content_docs", "example-tool");
   mkdirSync(docsDirectory, { recursive: true });
-  for (const artifact of ["competitive-report.md", "implementation-report.md", "edge-cases-and-tests.md"]) {
+  for (const artifact of ["competitive-report.md", "implementation-report.md", "interface-contract.md", "edge-cases-and-tests.md"]) {
     writeFileSync(join(docsDirectory, artifact), "Status: ready\nTool: Example Tool\nRoute: `/example-tool`\n");
   }
   writeFileSync(join(docsDirectory, "brief.md"), "# Example tool brief\n");
@@ -81,7 +81,8 @@ test("enforces unpublished build ownership", (context) => {
   mkdirSync(manifestDirectory, { recursive: true });
   mkdirSync(join(fixtureRoot, "skills/stack127/stack127-tool-orchestrator"), { recursive: true });
   mkdirSync(join(fixtureRoot, "skills/stack127/stack127-tool-build"), { recursive: true });
-  for (const artifact of ["competitive-report.md", "implementation-report.md", "edge-cases-and-tests.md"]) {
+  mkdirSync(join(fixtureRoot, "skills/stack127/stack127-tool-interface-plan"), { recursive: true });
+  for (const artifact of ["competitive-report.md", "implementation-report.md", "interface-contract.md", "edge-cases-and-tests.md"]) {
     writeFileSync(join(docsDirectory, artifact), `Status: ready\nTool: Synthetic Tool\nRoute: \`${route}\`\n`);
   }
   writeFileSync(join(docsDirectory, "brief.md"), "# Synthetic brief\n");
@@ -98,6 +99,7 @@ test("enforces unpublished build ownership", (context) => {
     skills: [
       "skills/stack127/stack127-tool-orchestrator",
       "skills/stack127/stack127-tool-build",
+      "skills/stack127/stack127-tool-interface-plan",
     ],
   };
   writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);

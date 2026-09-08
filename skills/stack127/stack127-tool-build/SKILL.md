@@ -1,6 +1,6 @@
 ---
 name: stack127-tool-build
-description: Build and verify the interactive technical core of one stack127 calculator, checker, converter, lookup, generator, explorer, or utility from its ready competitive, product, test, and brief artifacts. Use only when the user explicitly asks to implement the tool. Enforce tests first, implement the formula or resolution engine and visual interface, verify it with the in-app Browser when available or standalone Playwright in homelab CLI mode, and run repository quality gates. Do not research, draft, request, integrate, or add explanatory page prose, SEO sections, FAQs, or article content.
+description: Build and verify the interactive technical core of one stack127 calculator, checker, converter, lookup, generator, explorer, or utility from its ready competitive, product, interface, test, and brief artifacts. Use only when the user explicitly asks to implement the tool. Enforce tests first, implement the formula or resolution engine and contracted interface, verify it with the in-app Browser when available or standalone Playwright in homelab CLI mode, and run repository quality gates. Do not research, draft, request, integrate, or add explanatory page prose, SEO sections, FAQs, or article content.
 ---
 
 # stack127 tool build
@@ -10,17 +10,19 @@ Build exactly one working tool. Deliver the tool surface only; the user will add
 ## Prerequisites
 
 1. Read `AGENTS.md`.
+   Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` to contracted interface wording. Its control, result, and error guidance applies here; its guide-writing guidance does not authorize explanatory page prose.
 2. Read `skills/stack127/test-driven-page/SKILL.md` and `skills/stack127/visual-first-content/SKILL.md` completely.
 3. Read `stack127_docs/design-system.md`, `css-architecture.md`, `visual-first.md`, `writing-style.md`, `seo.md`, and `quality-workflow.md`.
-4. Read `skills/stack127/references/homelab-browser-and-search.md` before visual verification and record the selected backend.
-5. Run:
+4. Read `stack127_docs/tool-pages.md` for the route/content boundary and functional version workflow.
+5. Read `skills/stack127/references/homelab-browser-and-search.md` before visual verification and record the selected backend.
+6. Run:
 
    ```bash
    node skills/stack127/stack127-tool-build/scripts/validate-pipeline.mjs content_docs/<route-without-leading-slash> --stage=test
    ```
 
-6. Stop if validation fails. Require ready `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, and `brief.md`. Do not require or consume `writing-and-seo.md`.
-7. Inspect the route family, shared components, libraries, tests, manifests, scripts, and worktree. Preserve unrelated and user-owned edits.
+7. Stop if validation fails. Require ready `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `edge-cases-and-tests.md`, and `brief.md`. Do not require or consume `writing-and-seo.md`.
+8. Inspect the route family, shared components, libraries, tests, manifests, scripts, and worktree. Preserve unrelated and user-owned edits.
 
 ## Tool-only boundary
 
@@ -39,6 +41,8 @@ Do not add:
 - placeholder prose, empty content headings, lorem ipsum, or a reserved article shell;
 - content from `writing-and-seo.md` or any writer.
 
+Do not edit `intro_markdown`, `content_markdown`, or `content_revision`. Those belong to the content-only workflow.
+
 If a planning artifact proposes explanatory prose, leave it for the user's later content pass. Preserve the underlying product behavior or structured result, but do not convert the prose into helper copy. Keep operational language short; shorten any static or interpolated public string that reaches eight words.
 
 ## Required order
@@ -49,7 +53,7 @@ Create or update `tests/pages/<route>/page.json` before or alongside tests. Keep
 
 ### 2. Write failing tests first
 
-Implement the P0 and P1 cases from `edge-cases-and-tests.md` before production code. Start with pure engine tests and exact fixtures, then API or route boundaries, then rendered behavior. Add P2 tests only for meaningful regressions.
+Implement the P0 and P1 cases from `edge-cases-and-tests.md` before production code. Cover both product `R` requirements and interface `UI-` requirements. Start with pure engine tests and exact fixtures, then API or route boundaries, then rendered behavior. Add P2 tests only for meaningful regressions.
 
 Do not weaken expectations to match implementation. Return unresolved formula, source, interaction, or state decisions to the owning planning skill.
 
@@ -61,16 +65,20 @@ Return structured invalid, unknown, partial, and error states. Never show a plau
 
 ### 4. Build the interface
 
-Implement the approved wireframes and interaction contract:
+Implement `interface-contract.md` exactly. It owns the visible inputs, actions, result regions, component choices, omissions, reading order, and responsive behavior. Do not add a region because data exists or a component is available. Return a missing or contradictory interface decision to `$stack127-tool-interface-plan`.
+
+Also preserve the product interaction contract:
 
 - keep the client island as small as practical;
-- use one clear framed tool with form and result in the same surface;
+- use one full-width workbench band with form and result in the same surface;
 - make the answer the strongest element;
 - use exact bars, charts, tables, or topology for exact relationships;
 - avoid nested cards, dashboards, helper-copy clutter, decorative eyebrows, fake scores, gradients, shadows, and colored left-edge callouts;
 - reuse the shared shell, tokens, typography, spacing, icons, and components;
 - colocate CSS with its owner and verify dark mode first;
 - preserve focus, keyboard, screen-reader, mobile, URL, retry, reset, and stale-result behavior.
+
+Compare visible formatted values across the whole result. A value may appear twice only when each occurrence answers a documented different question. Every timeline, progress bar, chart, table, diagram, and large answer must pass the truth test recorded in the interface contract.
 
 Do not add a dependency when a small auditable implementation is sufficient.
 
@@ -102,6 +110,8 @@ Judge the tool in a two-second scan:
 - Is any helper sentence unnecessary?
 - Does anything look like generic dashboard furniture?
 
+Then hide the contracts and state the answer in one sentence. Name what each remaining result region uniquely adds. Treat an unclear answer, a repeated fact, or a removable region as a failed interface requirement.
+
 After visual verification, restore preview state and run:
 
 ```bash
@@ -109,6 +119,8 @@ node skills/stack127/stack127-tool-build/scripts/validate-pipeline.mjs content_d
 ```
 
 The tool-only audit discovers every TypeScript and TSX file in the route and rejects long static or fragmented public copy. Fix violations by removing or shortening prose, not by splitting strings or omitting files.
+
+When the user-observable tool behavior changed, use the dry-run-first functional version command in `stack127_docs/tool-pages.md` against development. Bump `tool_version` once after the implementation and focused tests pass. A refactor with no behavior change does not receive a new version. Do not record a stack127 repo sync unless that repository was actually compared or synchronized.
 
 ### 6. Run the full gate
 
@@ -122,10 +134,12 @@ Call the tool complete only when:
 - all P0 and P1 cases pass;
 - formula or data fixtures reconcile with the approved contract;
 - the rendered tool matches approved state wireframes in both themes and target widths;
+- the rendered information model matches `interface-contract.md`, with one lead answer, no unjustified region, no repeated formatted fact, and truthful visual geometry;
 - the calculated result has no clipped or offscreen values at 320px, 375px, 760px, or desktop width;
 - no explanatory page prose, content section, FAQ, or writing artifact was added;
+- a user-observable functional change has a reviewed `tool_version` bump, while `content_revision` is unchanged;
 - the ownership manifest is complete;
 - `npm run quality` passes;
 - preview and publication state are restored.
 
-Report the technical system built, tests run, visual states checked, selected backend, preview cleanup, and any P2 follow-up. Explicitly confirm that no page prose was added. Do not publish, deploy, commit, push, or open a pull request unless requested.
+Report the technical system built, tool version before and after when changed, tests run, visual states checked, selected backend, preview cleanup, and any P2 follow-up. Explicitly confirm that no page prose or content revision was added. Do not publish, deploy, commit, push, or open a pull request unless requested.

@@ -4,7 +4,7 @@ Route: `/domain-age`
 
 Publication state: controlled by the exact `domain-age` row in `public.stack127_pages`.
 
-Status: plan.
+Status: implemented. The content flow follows the approved brief.
 
 ## Purpose
 
@@ -20,33 +20,36 @@ One domain name, normalized the same way as Domain Registration Lookup. No other
 
 ## What the result shows
 
-Lead with the age, in the units a person would say out loud, then the date it derives from.
+Lead with the age in the units a person would say out loud. Put the domain and the date it derives from directly below it.
 
-```
-stack127.com has been registered for 3 weeks. The registration was created on
-3 July 2026 and the registry has held a record for it continuously since then,
-as far as this lookup can see.
+```text
+Current registration age
+3 weeks
+stack127.com, since 3 July 2026.
 ```
 
 Then, quietly:
 
 - the exact `registration` event timestamp as published, and in UTC
-- age expressed precisely, in years, months, and days
+- a rounded age for readability, with the reported date available on the timeline
 - which server the date came from
 - the `reregistration` date when the registry publishes one, which changes the answer materially, see below
 - the `transfer` date when published, since a name that changed registrars recently is a different situation from one held in place
 - the `last changed` date when present, because a name registered in 2004 and last changed yesterday is a different situation from one untouched for years
 
-When a `reregistration` event is present, it leads instead of being a footnote:
+When a `reregistration` event is present, the large age uses that later date. The timeline keeps the first registration visible:
 
-```
-example.com was first registered on 4 March 2003, but the registry records a
-reregistration on 2 February 2026. The name was dropped at some point and
-picked up again, so the current registration is 6 months old even though the
-name itself has existed for 23 years.
+```text
+Current registration age
+6 months
+example.com, since 2 February 2026.
+
+First registered  ->  Re-registered  ->  Today  ->  Registry expiry
 ```
 
-Show a small horizontal time path: creation date, today, expiry date. Three points and two spans. That single visual replaces two paragraphs of explanation and shows immediately whether the domain is near renewal.
+Keep one short caveat below the timeline: RDAP does not say why the domain was registered again or whether ownership changed.
+
+Show a small horizontal time path. Include registration, re-registration, transfer, last change, today, and registry expiry only when each date exists. The path becomes vertical on narrow screens. Do not invent a progress percentage because registration age has no meaningful target.
 
 Do not show a score, a trust rating, an age percentile, or a comparison against other domains.
 
@@ -57,7 +60,7 @@ The `registration` event from the registry RDAP response, plus `reregistration` 
 Details that matter:
 
 - `reregistration` is a registered RDAP event action and some registries publish it. When it is there, compute the current registration age from it and show the original registration date as history. When it is absent, we cannot tell a continuously held name from a re-registered one, and that is the caveat below rather than a silent assumption.
-- Registrars sometimes publish a different creation date from the registry. Use the registry. If the registrar hop returns a conflicting `registration`, show the disagreement rather than hiding it, because it is genuinely interesting when it happens.
+- This checker requests the registry record with `includeRegistrar: false`. It does not fetch or compare the registrar's registration date.
 - Compute age from the current date at request time, in UTC, and do not cache the computed age. Cache the RDAP response, derive the age fresh. A cached "3 weeks" that is served for two days is wrong.
 
 ## What this tool cannot do
@@ -79,15 +82,14 @@ The three that must be visible without expanding anything:
 2. If a domain previously expired and was re-registered, the clock restarted, and most registries do not publish enough for us to tell either way.
 3. Which registry published the date, and when we fetched it.
 
-Then, in the explanation: what age is legitimately useful for, and what it is not. Give a real example of each rather than a list of warnings. The honest framing is that age is one input among several, most useful as a contradiction detector: a company claiming twenty years of history on a domain registered eight months ago is worth a second look.
+The supporting explanation covers what the age can establish and what it cannot. A recent registration does not disprove the age of a business, which may have used another domain before. Do not turn that difference into a verdict about trust.
 
 ## Content flow
 
-1. Title and a paragraph that says what the tool returns and immediately what it means.
-2. The form.
-3. The age, the date, and the time path visual.
-4. One divider.
-5. What the creation date actually records, including the drop and re-registration case and why we can sometimes date it and usually cannot. This is the core of the page.
-6. What people use domain age for, honestly: SEO evaluation, acquisition, fraud checking, and where each of those over-reads it.
-7. A short note that a domain's real history needs sources this tool does not have, with `web.archive.org` named as the practical one.
-8. Coverage, freshness, privacy, and a link to Domain Registration Lookup for the full record.
+1. One intro paragraph describing the problem, input, and answer.
+2. The existing form, age result, timeline, and source evidence.
+3. Supporting sections covering the registration date, website history, registration events, SEO interpretation, and missing or differing ages.
+4. One wrapping comparison table for renewal, transfer, expiry, and deletion followed by registration.
+5. One glossary list defining remaining unfamiliar terms used in the result.
+
+The page brief records the September 6 expansion requested after reviewing the older-page PDF. Keep useful detail and conversational explanations with descriptive search headings, but omit repeated field lists, sample results, and duplicate FAQs. Live copy belongs only in `stack127_tool_pages`; use the reviewed content command and leave `tool_version` unchanged for copy edits. Sitewide skills remain unchanged pending review.

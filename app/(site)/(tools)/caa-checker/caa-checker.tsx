@@ -1,23 +1,193 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useMemo, useRef, useState, type FormEvent } from "react";
+import {
+  ToolActionRow,
+  ToolButton,
+  ToolDataTable,
+  ToolDownloadAction,
+  ToolRawOutput,
+  ToolResultLead,
+  ToolStatus,
+  ToolTextField,
+} from "@/app/tool-ui/tool-controls";
 import type { CaaRecord } from "@/lib/dns/diagnostic-types.ts";
-import { DiagnosticResultHeader, diagnosticReportJson, DownloadResultButton } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
-import styles from "../../(catalogs)/dns-tools/dns-diagnostics.module.css";
+import { diagnosticReportJson } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
+import styles from "./caa-checker.module.css";
 
 type SearchReason = "requested" | "alias" | "parent";
-type Level = { name: string; searchReason: SearchReason; responseCode: string | null; records: CaaRecord[]; aliasTarget: string | null; rawResponse: unknown; error: string | null };
-type Result = { checkedAt: string; durationMs: number; query: { inputName: string }; status: "undetermined" | "policy_found" | "no_policy"; effectiveName: string | null; levels: Level[]; records: CaaRecord[]; normal: { unrestricted: boolean; denied: boolean; issuers: string[] }; wildcard: { unrestricted: boolean; denied: boolean; issuers: string[] }; usesIssueForWildcard: boolean; iodef: Array<{ value: string; validUrl: boolean }>; unknownCriticalTags: string[]; malformedRecords: number; error: string | null };
 
-function Policy({ title, policy, note }: { title: string; policy: Result["normal"]; note?: string }) {
-  const sentence = policy.denied ? "No certificate authority is allowed." : policy.unrestricted ? "CAA does not restrict this kind of certificate." : `${policy.issuers.join(", ")} ${policy.issuers.length === 1 ? "is" : "are"} allowed.`;
-  return <div className={styles.finding} data-tone={policy.denied ? "warning" : "good"}><p><strong>{title}</strong><br/>{sentence}{note ? ` ${note}` : ""}</p></div>;
+type Level = {
+  name: string;
+  searchReason: SearchReason;
+  responseCode: string | null;
+  records: CaaRecord[];
+  aliasTarget: string | null;
+  rawResponse: unknown;
+  error: string | null;
+};
+
+type Policy = {
+  unrestricted: boolean;
+  denied: boolean;
+  issuers: string[];
+};
+
+type Result = {
+  checkedAt: string;
+  durationMs: number;
+  query: { inputName: string };
+  status: "undetermined" | "policy_found" | "no_policy";
+  effectiveName: string | null;
+  levels: Level[];
+  records: CaaRecord[];
+  normal: Policy;
+  wildcard: Policy;
+  usesIssueForWildcard: boolean;
+  iodef: Array<{ value: string; validUrl: boolean }>;
+  unknownCriticalTags: string[];
+  malformedRecords: number;
+  error: string | null;
+};
+
+const listFormatter = new Intl.ListFormat("en", {
+  style: "long",
+  type: "conjunction",
+});
+
+function policySentence(policy: Policy) {
+  if (policy.denied) return "No certificate authority is allowed.";
+  if (policy.unrestricted) return "CAA does not restrict this kind of certificate.";
+  if (!policy.issuers.length) return "No certificate authority is listed.";
+  return `${listFormatter.format(policy.issuers)} may issue.`;
 }
 
-function reasonText(reason: SearchReason) {
-  if (reason === "requested") return "Started with the certificate name";
-  if (reason === "alias") return "Followed its CNAME";
-  return "Moved to the next parent of the certificate name";
+function reasonLabel(reason: SearchReason) {
+  if (reason === "requested") return "Requested name";
+  if (reason === "alias") return "Alias target";
+  return "Parent name";
+}
+
+function levelOutcome(level: Level) {
+  if (level.error) return "Lookup failed";
+  if (level.records.length) {
+    return `Policy found, ${level.records.length.toLocaleString("en-US")} ${level.records.length === 1 ? "record" : "records"}`;
+  }
+  return "No CAA here";
+}
+
+function rawEvidence(levels: Level[]) {
+  return levels.map((level) => ({
+    name: level.name,
+    searchReason: level.searchReason,
+    responseCode: level.responseCode,
+    aliasTarget: level.aliasTarget,
+    rawResponse: level.rawResponse,
+    error: level.error,
+  }));
+}
+
+function qualificationMessages(result: Result) {
+  const messages: string[] = [];
+  if (result.unknownCriticalTags.length) {
+    const tags = listFormatter.format(result.unknownCriticalTags);
+    messages.push(
+      `The policy has ${result.unknownCriticalTags.length === 1 ? "an unknown critical tag" : "unknown critical tags"}: ${tags}. A certificate authority must understand ${result.unknownCriticalTags.length === 1 ? "it" : "them"} before issuing.`,
+    );
+  }
+  if (result.malformedRecords) {
+    messages.push(
+      `${result.malformedRecords.toLocaleString("en-US")} CAA ${result.malformedRecords === 1 ? "record is" : "records are"} malformed, so this policy may not work as intended.`,
+    );
+  }
+  const invalidIodefCount = result.iodef.filter((entry) => !entry.validUrl).length;
+  if (invalidIodefCount) {
+    messages.push(
+      `${invalidIodefCount.toLocaleString("en-US")} iodef ${invalidIodefCount === 1 ? "destination has" : "destinations have"} an invalid URL. iodef accepts mailto, HTTP, or HTTPS URLs.`,
+    );
+  }
+  return messages;
+}
+
+function PolicyLead({ result }: { result: Result }) {
+  const undetermined = result.status === "undetermined";
+  const noPolicy = result.status === "no_policy";
+
+  return (
+    <section
+      aria-atomic="true"
+      aria-label="Effective CAA policy result"
+      aria-live={undetermined ? "assertive" : "polite"}
+      className={styles.lead}
+      role={undetermined ? "alert" : "region"}
+    >
+      <ToolResultLead>Effective CAA policy</ToolResultLead>
+
+      {undetermined ? (
+        <div className={styles.undetermined}>
+          <p>The effective CAA policy could not be determined.</p>
+          <p>{result.error ?? "The DNS search did not complete."}</p>
+        </div>
+      ) : noPolicy ? (
+        <div className={styles.noPolicy}>
+          <p>CAA does not restrict normal or wildcard issuance for {result.query.inputName}.</p>
+          <p>This does not promise that a certificate authority will issue.</p>
+        </div>
+      ) : (
+        <div className={styles.policyRows}>
+          <div data-tone={result.normal.denied ? "danger" : undefined}>
+            <h3>Normal certificates</h3>
+            <p>{policySentence(result.normal)}</p>
+          </div>
+          <div data-tone={result.wildcard.denied ? "danger" : undefined}>
+            <h3>Wildcard certificates</h3>
+            <p>{policySentence(result.wildcard)}</p>
+          </div>
+        </div>
+      )}
+
+      {result.status === "policy_found" && result.effectiveName ? (
+        <div className={styles.location}>
+          <p>
+            {result.effectiveName === result.query.inputName ? "Policy found at" : "Policy inherited from"}{" "}
+            <code>{result.effectiveName}</code>.
+          </p>
+          {result.usesIssueForWildcard ? (
+            <p>No <code>issuewild</code> record was found, so the <code>issue</code> policy also applies to wildcard certificates.</p>
+          ) : null}
+        </div>
+      ) : null}
+    </section>
+  );
+}
+
+function LookupPath({ levels }: { levels: Level[] }) {
+  return (
+    <section aria-labelledby="caa-path-heading" className={styles.evidenceSection}>
+      <h3 id="caa-path-heading">Where the policy came from</h3>
+      <ol aria-label="CAA lookup path" className={styles.path}>
+        {levels.map((level, index) => (
+          <li className={styles.pathStep} key={`${level.searchReason}-${level.name}-${index}`}>
+            <span aria-hidden="true" className={styles.stepNumber}>{index + 1}</span>
+            <div className={styles.stepBody}>
+              <div className={styles.stepHeader}>
+                <span className={styles.stepReason}>{reasonLabel(level.searchReason)}</span>
+                <strong data-tone={level.error ? "danger" : level.records.length ? "success" : "neutral"}>
+                  {levelOutcome(level)}
+                </strong>
+              </div>
+              <code className={styles.stepName}>{level.name}</code>
+              <p className={styles.stepMeta}>
+                {level.responseCode ?? "No response code"}
+                {level.aliasTarget ? <>. CNAME to <code>{level.aliasTarget}</code></> : null}
+              </p>
+              {level.error ? <p className={styles.stepError}>{level.error}</p> : null}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
 }
 
 export function CaaChecker({ initialName = "" }: { initialName?: string }) {
@@ -25,32 +195,135 @@ export function CaaChecker({ initialName = "" }: { initialName?: string }) {
   const [result, setResult] = useState<Result | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const report = useMemo(() => result ? diagnosticReportJson("CAA Policy Checker", result) : "", [result]);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const report = useMemo(
+    () => (result ? diagnosticReportJson("CAA Policy Checker", result) : ""),
+    [result],
+  );
 
   async function submit(event: FormEvent) {
     event.preventDefault();
-    if (!name.trim()) return setError("Enter a domain or hostname.");
-    setLoading(true); setError(null);
+    setResult(null);
+    if (!name.trim()) {
+      setError("Enter a domain or hostname.");
+      requestAnimationFrame(() => inputRef.current?.focus());
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
     try {
-      const response = await fetch("/api/dns/caa-checker", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ name }) });
+      const response = await fetch("/api/dns/caa-checker", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ name }),
+      });
       const data = await response.json();
       if (!response.ok) throw new Error(data?.error?.message ?? "The CAA check failed.");
       setResult(data);
-    } catch (caught) { setError(caught instanceof Error ? caught.message : "The CAA check failed."); }
-    finally { setLoading(false); }
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "The CAA check failed.");
+    } finally {
+      setLoading(false);
+    }
   }
 
-  return <section className="dns-tool" aria-label="CAA policy checker">
-    <form className="dns-lookup-form" onSubmit={submit}><label className="dns-name-field"><span>Domain or hostname</span><input autoCapitalize="none" autoComplete="off" onChange={(event) => setName(event.target.value)} placeholder="www.github.com" spellCheck={false} value={name} /></label><button className="dns-submit" disabled={loading}>{loading ? "Finding CAA policy..." : "Check CAA policy"}</button>{error ? <p className="dns-form-error" role="alert">{error}</p> : null}</form>
-    {result ? <section className={styles.results} aria-live="polite">
-      <DiagnosticResultHeader action={<DownloadResultButton contents={report} filename={`${result.query.inputName}-caa-report.json`} />} checkedAt={result.checkedAt} durationMs={result.durationMs} hostname={result.query.inputName}>
-        <p>{result.status === "undetermined" ? `We could not determine the effective CAA policy. ${result.error ?? "The DNS search did not complete."}` : result.status === "no_policy" ? "No CAA policy was found on this name or its parents, so CAA does not restrict which certificate authority may issue." : `The policy that applies to this name was found at ${result.effectiveName}.`}</p>
-      </DiagnosticResultHeader>
-      {result.status !== "undetermined" ? <div className={styles.grid}><Policy title="Normal certificates" policy={result.normal} /><Policy title="Wildcard certificates" policy={result.wildcard} note={result.usesIssueForWildcard ? "There is no issuewild record, so the issue records apply here too." : undefined} /></div> : null}
-      {result.records.length ? <section className={styles.section}><h3>The records that create this policy</h3><div className="dns-table-scroll"><table className={`dns-status-table ${styles.compactTable}`}><thead><tr><th>Flag</th><th>Tag</th><th>Value</th><th>Resolver TTL</th></tr></thead><tbody>{result.records.map((record, index) => <tr key={`${record.tag}-${record.value}-${index}`}><td>{record.flags}{record.critical ? " · critical" : ""}</td><td><code>{record.tag || "Malformed"}</code></td><td><code>{record.value}</code></td><td>{record.ttlSeconds === null ? "Not reported" : `${record.ttlSeconds.toLocaleString("en-US")}s`}</td></tr>)}</tbody></table></div>{result.iodef.length ? <p className={styles.inlineNote}>Incident reports: {result.iodef.map((entry) => `${entry.value}${entry.validUrl ? "" : " (not a valid mailto or HTTP URL)"}`).join(", ")}</p> : null}</section> : null}
-      {result.unknownCriticalTags.length ? <div className={styles.finding} data-tone="warning"><p>The policy contains an unknown critical tag: {result.unknownCriticalTags.join(", ")}. A certificate authority must understand that tag before it can issue.</p></div> : null}
-      {result.malformedRecords ? <div className={styles.finding} data-tone="warning"><p>{result.malformedRecords} CAA record{result.malformedRecords === 1 ? " is" : "s are"} malformed, so the policy may not be interpreted as intended.</p></div> : null}
-      <section className={styles.section}><h3>Where the policy came from</h3><div className={styles.sources}>{result.levels.map((level, index) => <div className={styles.source} key={`${level.name}-${index}`}><header className={styles.sourceHeader}><h3><code>{level.name}</code></h3><span className={level.records.length ? styles.stateGood : level.error ? styles.stateBad : styles.stateQuiet}>{level.records.length ? "Policy found" : level.error ? "Lookup failed" : "No CAA here"}</span></header><p>{reasonText(level.searchReason)}{level.aliasTarget ? ` and found an alias to ${level.aliasTarget}.` : "."}</p><details className={styles.raw}><summary>Raw CAA response</summary><pre>{JSON.stringify(level.rawResponse ?? { error: level.error }, null, 2)}</pre></details></div>)}</div></section>
-    </section> : null}
-  </section>;
+  const qualifications = result && result.status !== "undetermined"
+    ? qualificationMessages(result)
+    : [];
+
+  return (
+    <section aria-label="CAA policy checker" className={styles.workbench} data-tool-workbench>
+      <form aria-busy={loading} className={styles.form} onSubmit={submit}>
+        <ToolTextField
+          autoCapitalize="none"
+          autoComplete="off"
+          className={styles.queryField}
+          error={error}
+          inputMode="url"
+          inputRef={inputRef}
+          label="Domain or hostname"
+          name="name"
+          onChange={(value) => {
+            setName(value);
+            if (error) setError(null);
+          }}
+          placeholder="www.github.com"
+          required
+          spellCheck={false}
+          type="text"
+          value={name}
+        />
+        <ToolButton
+          aria-busy={loading}
+          className={styles.submit}
+          isDisabled={loading}
+          type="submit"
+          variant="primary"
+        >
+          {loading ? "Checking CAA policy..." : "Check CAA policy"}
+        </ToolButton>
+        {loading ? (
+          <div className={styles.loadingStatus}>
+            <ToolStatus>Checking CAA policy...</ToolStatus>
+          </div>
+        ) : null}
+      </form>
+
+      {result ? (
+        <section aria-label="CAA policy result" className={styles.results} data-caa-result>
+          <PolicyLead result={result} />
+
+          {qualifications.length ? (
+            <div aria-label="Policy qualifications" className={styles.qualifications}>
+              <ToolStatus tone="warning">{qualifications.join(" ")}</ToolStatus>
+            </div>
+          ) : null}
+
+          {result.status !== "undetermined" && result.records.length ? (
+            <section aria-labelledby="caa-records-heading" className={styles.evidenceSection}>
+              <h3 id="caa-records-heading">The records that create this policy</h3>
+              <ToolDataTable
+                ariaLabel="Effective CAA records"
+                columns={[
+                  { id: "flag", label: "Flag" },
+                  { id: "tag", label: "Tag" },
+                  { id: "value", label: "Value" },
+                  { id: "ttl", label: "Resolver TTL" },
+                ]}
+                rows={result.records.map((record, index) => ({
+                  id: `${record.flags}-${record.tag}-${record.value}-${index}`,
+                  cells: {
+                    flag: `${record.flags}${record.critical ? ", critical" : ""}`,
+                    tag: <code>{record.tag || "Malformed"}</code>,
+                    value: <code>{record.value}</code>,
+                    ttl: record.ttlSeconds === null
+                      ? "Not reported"
+                      : `${record.ttlSeconds.toLocaleString("en-US")}s`,
+                  },
+                }))}
+              />
+            </section>
+          ) : null}
+
+          <LookupPath levels={result.levels} />
+
+          <p className={styles.metadata}>
+            Checked {new Date(result.checkedAt).toLocaleString()} in {result.durationMs.toLocaleString("en-US")} ms.
+          </p>
+
+          <ToolActionRow>
+            <ToolDownloadAction
+              contents={report}
+              filename={`${result.query.inputName}-caa-report.json`}
+              label="Download report"
+              mimeType="application/json;charset=utf-8"
+            />
+          </ToolActionRow>
+
+          <ToolRawOutput label="Raw CAA responses" value={rawEvidence(result.levels)} />
+        </section>
+      ) : null}
+    </section>
+  );
 }

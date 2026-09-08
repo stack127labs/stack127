@@ -160,7 +160,7 @@ flowchart TD
   C --> D{"All inputs valid?"}
   D -->|"No"| E["Clear stale result, show inline recovery, focus first error"]
   E --> B
-  D -->|"Yes"| F["Show answer, composition bar, width timeline, and accounting boundary"]
+  D -->|"Yes"| F["Show answer, composition bar, expansion-step table, and accounting boundary"]
   F --> G{"Next action"}
   G -->|"Edit"| H["Clear result and shared state"]
   H --> B
@@ -341,7 +341,7 @@ Partial/no data: not rendered; incomplete form is an editor state, not a result
 | Claim or task | Medium | Position | Why this medium |
 | --- | --- | --- | --- |
 | What this planner answers | Two-sentence server-rendered introduction | Immediately below h1, before tool | A short scope boundary prevents users from confusing expansion with a fresh pool calculator. |
-| Enter the current vdev and intended widths | Tool UI form in the single framed surface | Tool head | Inputs are actions, not prose or cards. |
+| Enter the current vdev and intended widths | Tool UI form in the shared workbench | Tool head | Inputs are actions, not prose or cards. |
 | Immediate answer and unchanged parity | Answer sentence plus four exact values | First result region | The real decision is visible before audit detail. |
 | Old logical payload, new writable capacity, and gap | One exact proportional bar with adjacent value rows | Directly under answer | This is a part-to-whole relationship at the final width. |
 | One-disk expansion sequence | Compact responsive table/timeline | After final-width bar | Three or more repeated width facts belong in a table, with structural connectors allowed on narrow screens. |
@@ -358,7 +358,7 @@ No marker art, clean chart, or screenshot is required. The live width timeline a
 
 - Route source: `app/(site)/(tools)/raidz-expansion-planner/page.tsx`. It renders the shared `AppShell`, title treatment, short server introduction, client tool island, and later server-rendered guide. It contains no route-owned metadata, canonical, robots, sitemap, or JSON-LD logic.
 - Client island: `app/(site)/(tools)/raidz-expansion-planner/raidz-expansion-planner.tsx`. It owns editor strings, submission, restoration, focus, copy/share/reset behavior, unit display, and result rendering. It does not own formula logic.
-- Colocated styling: `app/(site)/(tools)/raidz-expansion-planner/raidz-expansion-planner.module.css`. It uses shared tokens and prose primitives, one outer tool frame, no nested card dashboard, no page-level overflow, and no changes to `app/globals.css`.
+- Colocated styling: `app/(site)/(tools)/raidz-expansion-planner/raidz-expansion-planner.module.css`. It uses shared tokens and prose primitives, the shared workbench hook, no nested card dashboard, no page-level overflow, and no changes to `app/globals.css`.
 - Pure engine: `lib/storage/zfs-expansion.ts`. It owns strict input validation, integer formulas, step generation, result values, source metadata, summary formatting, adapter registration, and versions. Export it from `lib/storage/index.ts`.
 - Shared primitive: reuse `lib/storage/zfs-raidz-allocation.ts` without duplicating its math. A needed shared fix requires regression tests for the ZFS capacity and padding tools before adoption.
 - Collection ownership: add the flat `/raidz-expansion-planner` link and identity icon to `app/(site)/(catalogs)/storage-tools/page.tsx` and `storage-tools-sidebar.tsx`; update only collection-owned count and tests. The collection does not own the tool's URL namespace.
@@ -372,7 +372,7 @@ No marker art, clean chart, or screenshot is required. The live width timeline a
 
 - Use a semantic form, fieldsets for RAIDZ level and workload, visible labels, native number/text inputs and selects, real buttons, one h1, ordered headings, `aria-invalid`, `aria-describedby`, and a focused result heading.
 - Keep capacity value and unit in one logical labeled group. On narrow screens, reflow the group without separating its error or losing source order.
-- The composition bar has an accessible sentence naming every segment and exact value. The table remains the authoritative repeated-fact structure and uses column headers on desktop, labeled stacked rows on narrow screens.
+- The composition bar keeps every segment name and exact value in its legend. The table remains the authoritative repeated-fact structure and uses column headers at every width inside its own scroll viewport.
 - Do not rely on chartreuse or semantic color alone. Dark and light themes must preserve contrast, focus, zero-value legibility, and selected-state meaning.
 - All calculation and encoding happen locally. Make no network requests, analytics events containing inputs or results, cookies, storage writes, device access, file upload, command execution, or clipboard read. Clipboard write occurs only after Copy or Share.
 - Treat restored state as untrusted. Enforce envelope version, byte limit, exact keys, safe object prototypes, calculator ID, formula/input versions, BigInt validation, input bounds, and fresh recalculation. Never render serialized result text.
@@ -407,7 +407,7 @@ Keep `/raidz-expansion-planner` unpublished. It must not be added to the product
 | R17 | Copy writes a plain-text summary only after user action and reports success or failure without reading the clipboard. | Component/Browser tests. |
 | R18 | The calculation trace lists initial/future block allocations, old block count, physical remainder, free physical bytes, formula version, assumptions, and dated OpenZFS sources. | Unit result contract, page test, Browser disclosure. |
 | R19 | No loading, upstream failure, duration estimate, safety verdict, parity conversion, compression estimate, or numeric reported-capacity result appears. | Static and negative unit tests. |
-| R20 | The framed tool, actions, values, composition bar, and timeline fit 1280, 809, 390, and 320 CSS pixel widths in both themes with no page overflow. | Browser measurements and visual review. |
+| R20 | The workbench, actions, values, composition bar, and expansion-step table fit 1280, 809, 390, and 320 CSS pixel widths in both themes with no page overflow. | Browser measurements and visual review. |
 | R21 | The route adds no new dependency, network request, input analytics, cookies, local/session storage, upload, device access, or command execution; calculation completes within the 50 ms budget. | Static scan, Browser request log, performance unit test. |
 | R22 | The storage-tools collection links to the flat route with the same identity icon and count, without creating a nested `/storage-tools/raidz-expansion-planner` route. | Hub tests, route inventory, and Browser. |
 

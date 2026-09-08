@@ -142,15 +142,13 @@ test("DNS Lookup renders corrected TTL, alias, owner, DNSSEC summary, and per-re
     "DNS lookup for any domain's records",
   );
   await expect(page.getByRole("navigation", { name: "Breadcrumb" })).toHaveCount(0);
-  await expect(page.locator("[data-app-main] main header p").first()).toHaveText(
-    "Enter a domain or hostname to see its DNS records, or choose PTR to find the hostname connected to an IP address. You can check a public resolver's cached answer or ask the domain's authoritative nameserver directly. Leave All selected if you are not sure which record you need.",
-  );
+  await expect(page.locator("[data-app-main] main header p").first()).not.toBeEmpty();
   const recordTypePicker = page.getByRole("radiogroup", { name: "Record type" });
   await expect(recordTypePicker).toBeVisible();
-  await expect(recordTypePicker.getByRole("radio")).toHaveCount(13);
+  await expect(recordTypePicker.getByRole("radio")).toHaveCount(8);
   await expect(recordTypePicker.getByRole("radio", { name: "All" })).toBeChecked();
-  await expect(recordTypePicker.locator("select")).toHaveCount(0);
-  await expect(page.getByLabel("Resolver").locator("option")).toHaveText([
+  await page.locator('button[data-tool-label="Resolver"]').click();
+  await expect(page.getByRole("listbox").getByRole("option")).toHaveText([
     "Cloudflare",
     "Google Public DNS",
     "Quad9",
@@ -160,35 +158,13 @@ test("DNS Lookup renders corrected TTL, alias, owner, DNSSEC summary, and per-re
     "Yandex DNS",
     "Authoritative nameserver",
   ]);
+  await page.keyboard.press("Escape");
   await expect(page.locator(".dns-examples")).toHaveCount(0);
   await expect(page.getByRole("button", { name: "_dmarc.example.com", exact: true })).toHaveCount(0);
-  await expect(page.locator(".dns-record-table tbody tr")).toHaveCount(12);
-  await expect(page.locator(".dns-status-table tbody tr")).toHaveCount(5);
-  await expect(page.locator(".dns-status-table")).toContainText("SERVFAIL");
-  await expect(page.locator(".dns-status-table")).toContainText("NXDOMAIN");
+  const supportingContent = page.locator(".dns-lookup-main article");
+  await expect(supportingContent).not.toBeEmpty();
   await expect(page.locator(".dns-page-header .dns-page-kicker")).toHaveCount(0);
-  await expect(page.locator(".dns-reference-content > section > h2")).toHaveText([
-    "How to check DNS records",
-    "What DNS lookup results mean",
-    "Which DNS record type should you check?",
-    "When a DNS lookup helps",
-    "When the answer looks wrong",
-  ]);
-  await expect(page.locator(".dns-reference-content")).toHaveCSS("border-top-width", "1px");
-  await expect(page.locator(".dns-reference-content > section").first()).toHaveCSS("border-top-width", "0px");
-  await expect(page.locator(".dns-reference-content > section").first()).toHaveCSS("border-bottom-width", "0px");
-  await expect(page.locator(".dns-scope-note")).toHaveCSS("border-top-width", "0px");
-  await expect(page.locator("#how-to-check ol")).toHaveCount(0);
-  await expect(page.locator("#how-to-check")).toContainText("Enter the exact domain or hostname you want to check");
-  await expect(page.locator("#how-to-check")).toContainText("compare it with the records in your DNS provider");
   await expect(page.locator(".dns-result-guide")).toHaveCount(0);
-  await expect(page.locator("#read-results .dns-answer-path")).toBeVisible();
-  await expect(page.locator("#read-results")).toContainText("Resolver TTL is how much cache time");
-  await expect(page.locator(".dns-use-case-table tbody tr")).toHaveCount(7);
-  await expect(page.locator("#record-types")).toContainText("Not sure where to start? Leave All selected");
-  await expect(page.locator("#use-cases")).toContainText("This tool is handy when something should be working or should have changed");
-  await expect(page.locator("#status-meanings")).toContainText("No record does not always mean the whole domain is broken");
-  await expect(page.locator(".dns-scope-note")).toContainText("We do not save your lookup history");
 
   await page.getByLabel("DNS name").fill("www.example.com");
   await page.getByRole("button", { name: "Look up DNS" }).click();
@@ -213,7 +189,10 @@ test("DNS Lookup renders corrected TTL, alias, owner, DNSSEC summary, and per-re
   await expect(page.locator('section[data-record-type="A"]')).toContainText("Example Network");
   await expect(page.locator('section[data-record-type="A"]')).toContainText("AS64500");
   await expect(page.getByText(/Cloudflare returned records for/)).toHaveCount(0);
-  await expect(page.getByText(/Cloudflare authenticated this answer with DNSSEC/)).toBeVisible();
+  const dnssecStatus = page.locator(".dns-dnssec-status");
+  await expect(dnssecStatus).toContainText("DNSSEC authentication");
+  await expect(dnssecStatus).toContainText("Authenticated");
+  await expect(page.locator(".dns-dnssec-summary")).toHaveCount(0);
   await expect(page.getByRole("button", { name: "Copy lookup link" })).toHaveCount(0);
   await expect(page.getByRole("button", { name: "Copy results" })).toHaveCount(0);
   await expect(page.getByRole("button", { name: "Download records" })).toBeVisible();
@@ -229,6 +208,130 @@ test("DNS Lookup renders corrected TTL, alias, owner, DNSSEC summary, and per-re
   await page.locator('[data-record-type="A"] .dns-inline-raw > summary').click();
   await expect(page.locator('[data-record-type="A"] .dns-inline-raw')).toContainText('"Status": 0');
   await expect(page.locator(".dns-raw-results")).toHaveCount(0);
+});
+
+test("DNS supporting content is server-rendered and its reference tables fit the reading column", async ({ page }) => {
+  const response = await page.goto("/dns-lookup");
+  const html = await response!.text();
+  const article = page.locator(".dns-lookup-main article");
+  const headings = await article.locator("h2").allTextContents();
+  expect(headings.length).toBeGreaterThan(0);
+  for (const heading of headings) expect(html).toContain(heading);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://stack127.com/dns-lookup");
+  await expect(page.locator('meta[name="robots"]')).not.toHaveAttribute("content", /noindex/);
+
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const theme of ["dark", "light"]) {
+      if (await page.locator("html").getAttribute("data-theme") !== theme) {
+        await page.getByRole("button", { name: `Switch to ${theme} mode` }).click();
+      }
+      const tables = article.getByRole("table");
+      expect(await tables.count()).toBeGreaterThan(0);
+      for (const table of await tables.all()) {
+        const bounds = await table.evaluate((element) => ({
+          width: element.getBoundingClientRect().width,
+          region: element.parentElement!.clientWidth,
+          scroll: element.parentElement!.scrollWidth,
+        }));
+        expect(bounds.width).toBeLessThanOrEqual(bounds.region + 1);
+        expect(bounds.scroll).toBe(bounds.region);
+        await expect(table.locator("..")).toHaveAttribute("tabindex", "0");
+      }
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+    }
+  }
+});
+
+test("the lookup uses the custom resolver picker and keeps specialized record types out of the main row", async ({ page }) => {
+  await page.goto("/dns-lookup");
+
+  expect(await page.locator(".dns-lookup-form select").evaluateAll((selects) => selects.every((select) => select.parentElement?.parentElement?.style.clipPath === "inset(50%)"))).toBe(true);
+  const picker = page.getByRole("radiogroup", { name: "Record type" });
+  await expect(picker.getByRole("radio", { name: "CAA", exact: true })).not.toBeVisible();
+  await picker.locator("summary").click();
+  await expect(picker.getByRole("radio", { name: "CAA", exact: true })).toBeVisible();
+
+  await page.locator('button[data-tool-label="Resolver"]').click();
+  await page.getByRole("option", { name: "Quad9" }).click();
+  await expect(page.locator('button[data-tool-label="Resolver"]')).toContainText("Quad9");
+  await expect(page.getByText("Uses Cloudflare's public recursive resolver.")).toHaveCount(0);
+});
+
+test("the resolver row aligns on desktop and switches as one unit on mobile", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/dns-lookup");
+  let resolver = await page.locator('button[data-tool-label="Resolver"]').boundingBox();
+  let submit = await page.getByRole("button", { name: "Look up DNS" }).boundingBox();
+  expect(resolver).not.toBeNull();
+  expect(submit).not.toBeNull();
+  expect(Math.abs(resolver!.y - submit!.y)).toBeLessThanOrEqual(1);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.reload();
+  resolver = await page.locator('button[data-tool-label="Resolver"]').boundingBox();
+  submit = await page.getByRole("button", { name: "Look up DNS" }).boundingBox();
+  expect(submit!.y).toBeGreaterThan(resolver!.y + resolver!.height);
+  expect(Math.abs(submit!.width - resolver!.width)).toBeLessThanOrEqual(1);
+});
+
+test("nameserver enrichment uses a table for repeated address fields", async ({ page }) => {
+  const nsFixture = {
+    ...fixture,
+    query: { ...fixture.query, selection: "NS" },
+    nameserverAddresses: [{ nameserver: "jill.ns.cloudflare.com", addresses: ["172.64.32.122", "2606:4700:50::a29f:207a"] }],
+    addressDetails: [
+      { address: "172.64.32.122", asn: 13335, networkName: "CLOUDFLARENET - Cloudflare, Inc.", prefix: "172.64.32.0/24", countryCode: "US" },
+      { address: "2606:4700:50::a29f:207a", asn: 13335, networkName: "CLOUDFLARENET - Cloudflare, Inc.", prefix: "2606:4700:50::/44", countryCode: "US" },
+    ],
+    queryResults: [{
+      ...fixture.queryResults[0],
+      requestedType: "NS",
+      flags: { ...fixture.queryResults[0].flags, authenticatedData: false },
+      terminalRecords: [{ ownerName: "example.com", type: "NS", typeCode: 2, value: "jill.ns.cloudflare.com.", resolverTtlSeconds: 86400 }],
+    }],
+  };
+  await page.route("**/api/dns/lookup", (route) => route.fulfill({ contentType: "application/json", json: nsFixture, status: 200 }));
+  await page.goto("/dns-lookup");
+  await page.getByLabel("DNS name").fill("example.com");
+  await page.getByRole("button", { name: "Look up DNS" }).click();
+
+  const table = page.getByRole("table", { name: "Addresses for jill.ns.cloudflare.com" });
+  await expect(table).toBeVisible();
+  await expect(table.getByRole("columnheader")).toHaveText(["Address", "Network", "Provider", "Country", "ASN"]);
+  await expect(table.locator("tbody tr")).toHaveCount(2);
+  await expect(table).toContainText("AS13335");
+  await expect(page.locator(".dns-dnssec-status")).toContainText("Not authenticated");
+
+  const record = page.locator('[data-record-type="NS"] .dns-record-item');
+  const tableViewport = table.locator("..");
+  const ttl = record.locator(".dns-record-meta");
+  const [recordBox, tableBox, ttlBox] = await Promise.all([
+    record.boundingBox(),
+    tableViewport.boundingBox(),
+    ttl.boundingBox(),
+  ]);
+  expect(recordBox).not.toBeNull();
+  expect(tableBox).not.toBeNull();
+  expect(ttlBox).not.toBeNull();
+  expect(tableBox!.width).toBeGreaterThan(recordBox!.width * 0.85);
+  expect(ttlBox!.y + ttlBox!.height).toBeLessThanOrEqual(tableBox!.y);
+  expect(await record.evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  const mobileTable = page.getByRole("table", { name: "Addresses for jill.ns.cloudflare.com" });
+  const mobileViewport = mobileTable.locator("..");
+  const mobileScroll = await mobileViewport.evaluate((element) => {
+    element.scrollLeft = element.scrollWidth;
+    return {
+      clientWidth: element.clientWidth,
+      scrollLeft: element.scrollLeft,
+      scrollWidth: element.scrollWidth,
+    };
+  });
+  expect(mobileScroll.scrollWidth).toBeGreaterThan(mobileScroll.clientWidth);
+  expect(mobileScroll.scrollLeft).toBeGreaterThan(0);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
 });
 
 test("CAA keeps issuewild policies visible and long results have one Expand all control", async ({ page }) => {

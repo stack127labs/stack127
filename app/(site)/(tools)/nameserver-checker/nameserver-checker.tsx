@@ -1,79 +1,301 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
-import type { DelegationCheck } from "@/lib/dns/diagnostic-types.ts";
-import { DiagnosticResultHeader, diagnosticReportJson, DownloadResultButton } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
-import styles from "../../(catalogs)/dns-tools/dns-diagnostics.module.css";
+import { useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
+import {
+  ToolButton,
+  ToolDataTable,
+  ToolDisclosure,
+  ToolDownloadAction,
+  ToolRawOutput,
+  ToolResultLead,
+  ToolStatus,
+  ToolTextField,
+} from "@/app/tool-ui/tool-controls";
+import type {
+  DelegationCheck,
+  DelegationObservation,
+  NameserverAddressObservation,
+  NameserverReachability,
+} from "@/lib/dns/diagnostic-types.ts";
+import { diagnosticReportJson } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
+import {
+  checkedAddressCount,
+  delegationContextNotes,
+  delegationDiagnosis,
+  delegationHostnames,
+  delegationRow,
+  networkDetails,
+  remainingDelegationFindings,
+  transportText,
+} from "./nameserver-checker-view";
+import styles from "./nameserver-checker.module.css";
 
-function sameMembers(left: string[], right: string[]) {
-  return left.length === right.length && left.every((value) => right.includes(value));
+function StackedValues({ values, mono = false }: { values: ReactNode[]; mono?: boolean }) {
+  return <span className={styles.stackedValues}>{values.map((value, index) => mono ? <code key={index}>{value}</code> : <span key={index}>{value}</span>)}</span>;
 }
 
-function glueKind(hostname: string, zone: string, parentZone: string) {
-  if (hostname === zone || hostname.endsWith(`.${zone}`)) return "required";
-  if (hostname === parentZone || hostname.endsWith(`.${parentZone}`)) return "sibling";
-  return "out-of-bailiwick";
+function DelegationChain({ result }: { result: DelegationCheck }) {
+  const testedAddresses = checkedAddressCount(result);
+  return (
+    <section className={styles.chainSection}>
+      <h3>Delegation path</h3>
+      <ol aria-label="DNS delegation path" className={styles.chain}>
+        <li><span>Parent referral</span><code>{result.parentZone}</code><small>{result.parentDelegatedNameservers.length} NS record{result.parentDelegatedNameservers.length === 1 ? "" : "s"}</small></li>
+        <li><span>Delegated zone</span><code>{result.zone}</code><small>{result.childPublishedNameservers.length} published name{result.childPublishedNameservers.length === 1 ? "" : "s"}</small></li>
+        <li><span>Direct checks</span><strong>{testedAddresses}</strong><small>address{testedAddresses === 1 ? "" : "es"}</small></li>
+      </ol>
+    </section>
+  );
 }
 
-function glueText(hostname: string, result: DelegationCheck) {
-  const values = result.parentGlue.filter((glue) => glue.hostname === hostname).map((glue) => glue.address);
-  if (values.length) return values.join(", ");
-  const kind = glueKind(hostname, result.zone, result.parentZone);
-  if (kind === "required") return "Missing required glue";
-  if (kind === "sibling") return "No sibling glue supplied";
-  return "Glue is not needed here";
+function ResultLists({ context, issues }: { context: string[]; issues: string[] }) {
+  if (!issues.length && !context.length) return null;
+  return (
+    <div className={styles.listGroups}>
+      {issues.length ? <section><h3>Other issues</h3><ol>{issues.map((issue) => <li key={issue}>{issue}</li>)}</ol></section> : null}
+      {context.length ? <section><h3>Check context</h3><ul>{context.map((note) => <li key={note}>{note}</li>)}</ul></section> : null}
+    </div>
+  );
 }
 
-function authoritativeAddressText(hostname: string, result: DelegationCheck) {
-  const observations = result.authoritativeAddressObservations.filter((observation) => observation.hostname === hostname && observation.authoritative === true);
-  const addresses = [...new Set(observations.flatMap((observation) => observation.addresses))];
-  if (addresses.length) return addresses.join(", ");
-  if (observations.length) return "No A or AAAA record";
-  return glueKind(hostname, result.zone, result.parentZone) === "required" ? "Could not verify" : "Not checked here";
+function DelegationTable({ result }: { result: DelegationCheck }) {
+  const hostnames = delegationHostnames(result);
+  if (!hostnames.length) return null;
+  return (
+    <section className={styles.resultSection}>
+      <h3>Delegation, glue, and addresses</h3>
+      <ToolDataTable
+        ariaLabel="Nameserver delegation, glue, and address comparison"
+        columns={[
+          { id: "nameserver", label: "Nameserver" },
+          { id: "parent", label: "Parent" },
+          { id: "child", label: "Child" },
+          { id: "rule", label: "Glue rule" },
+          { id: "glue", label: "Parent glue" },
+          { id: "zone", label: "Zone A and AAAA" },
+          { id: "tested", label: "Tested addresses" },
+        ]}
+        rows={hostnames.map((hostname) => {
+          const row = delegationRow(result, hostname);
+          return {
+            id: hostname,
+            cells: {
+              nameserver: <code>{hostname}</code>,
+              parent: row.parent,
+              child: row.child,
+              rule: row.glueRule,
+              glue: <StackedValues mono values={row.parentGlue} />,
+              zone: <StackedValues mono values={row.zoneAddresses} />,
+              tested: <StackedValues mono values={row.testedAddresses} />,
+            },
+          };
+        })}
+      />
+    </section>
+  );
 }
 
-function networkText(address: string, result: DelegationCheck) {
-  const detail = result.addressDetails.find((candidate) => candidate.address === address);
-  if (!detail) return "Not reported";
-  return [detail.networkName, detail.asn === null ? null : `AS${detail.asn}`, detail.prefix].filter(Boolean).join(" · ") || "Not reported";
+function SoaValue({ check }: { check: NameserverReachability }) {
+  if (check.skippedReason) return <StackedValues values={["Not checked", "No IPv6 route in checker"]} />;
+  if (!check.soa) return "No SOA returned";
+  return <StackedValues mono values={[check.soa.ownerName, `Primary ${check.soa.primaryNameserver}`]} />;
+}
+
+function AddressTable({ result }: { result: DelegationCheck }) {
+  if (!result.reachability.length) return null;
+  return (
+    <section className={styles.resultSection}>
+      <h3>Nameserver address checks</h3>
+      <ToolDataTable
+        ariaLabel="UDP, TCP, and authoritative SOA checks by nameserver address"
+        columns={[
+          { id: "server", label: "Server and address" },
+          { id: "scope", label: "Scope" },
+          { id: "network", label: "Network" },
+          { id: "udp", label: "UDP" },
+          { id: "tcp", label: "TCP" },
+          { id: "soa", label: "Authoritative SOA" },
+        ]}
+        rows={result.reachability.map((check) => ({
+          id: `${check.server.hostname}-${check.server.address}`,
+          cells: {
+            server: <StackedValues mono values={[check.server.hostname, check.server.address]} />,
+            scope: check.skippedReason ? <StackedValues values={["Skipped by checker", "No IPv6 route"]} /> : "Checked",
+            network: <StackedValues values={networkDetails(result, check.server.address)} />,
+            udp: <StackedValues values={transportText(check, "udp")} />,
+            tcp: <StackedValues values={transportText(check, "tcp")} />,
+            soa: <SoaValue check={check} />,
+          },
+        }))}
+      />
+    </section>
+  );
+}
+
+function MissingRaw({ detail }: { detail: string }) {
+  return <p className={styles.missingRaw}>{detail}</p>;
+}
+
+function ObservationRaw({ kind, observation }: { kind: string; observation: DelegationObservation }) {
+  const source = `${observation.server.hostname} at ${observation.server.address}`;
+  return observation.rawResponse
+    ? <ToolRawOutput label={`${kind} response from ${source}`} value={observation.rawResponse} />
+    : <MissingRaw detail={`${kind} response from ${source}: ${observation.error ?? "No response captured"}.`} />;
+}
+
+function AddressObservationRaw({ observation }: { observation: NameserverAddressObservation }) {
+  const source = `${observation.hostname} via ${observation.server.hostname} at ${observation.server.address}`;
+  return (
+    <section className={styles.rawGroup}>
+      <h4>{source}</h4>
+      {(["A", "AAAA"] as const).map((type) => observation.rawResponses[type]
+        ? <ToolRawOutput key={type} label={`${type} response`} value={observation.rawResponses[type]} />
+        : <MissingRaw key={type} detail={`${type}: ${observation.error ?? "No response captured"}.`} />)}
+    </section>
+  );
+}
+
+function DelegationEvidence({ result }: { result: DelegationCheck }) {
+  const hasEvidence = result.parentObservations.length || result.childObservations.length || result.authoritativeAddressObservations.length;
+  if (!hasEvidence) return null;
+  return (
+    <ToolDisclosure label="Parent, child, and address responses">
+      <div className={styles.rawEvidence}>
+        {result.parentObservations.map((item, index) => <ObservationRaw kind="Parent" key={`parent-${index}-${item.server.address}`} observation={item} />)}
+        {result.childObservations.map((item, index) => <ObservationRaw kind="Child" key={`child-${index}-${item.server.address}`} observation={item} />)}
+        {result.authoritativeAddressObservations.map((item, index) => <AddressObservationRaw key={`address-${index}-${item.server.address}`} observation={item} />)}
+      </div>
+    </ToolDisclosure>
+  );
+}
+
+function ReachabilityRaw({ check }: { check: NameserverReachability }) {
+  const source = `${check.server.hostname} at ${check.server.address}`;
+  return (
+    <section className={styles.rawGroup}>
+      <h4>{source}</h4>
+      {(["udp", "tcp"] as const).map((transport) => check.rawResponses[transport]
+        ? <ToolRawOutput key={transport} label={`${transport.toUpperCase()} response`} value={check.rawResponses[transport]} />
+        : <MissingRaw key={transport} detail={`${transport.toUpperCase()}: ${check.skippedReason ? "Not run by this checker" : check[transport].error ?? "No response captured"}.`} />)}
+    </section>
+  );
+}
+
+function ReachabilityEvidence({ result }: { result: DelegationCheck }) {
+  if (!result.reachability.length) return null;
+  return (
+    <ToolDisclosure label="UDP and TCP responses">
+      <div className={styles.rawEvidence}>{result.reachability.map((check) => <ReachabilityRaw check={check} key={`${check.server.hostname}-${check.server.address}`} />)}</div>
+    </ToolDisclosure>
+  );
+}
+
+function RunMetadata({ result }: { result: DelegationCheck }) {
+  return (
+    <dl className={styles.metadata}>
+      <div><dt>Checked</dt><dd><time dateTime={result.checkedAt}>{new Date(result.checkedAt).toLocaleString()}</time></dd></div>
+      <div><dt>Duration</dt><dd>{result.durationMs.toLocaleString("en-US")} ms</dd></div>
+    </dl>
+  );
+}
+
+function NameserverResult({ result }: { result: DelegationCheck }) {
+  const diagnosis = delegationDiagnosis(result);
+  const issues = remainingDelegationFindings(result, diagnosis.leadFinding);
+  const context = delegationContextNotes(result);
+  const report = diagnosticReportJson("Nameserver Delegation Checker", result);
+  return (
+    <section aria-label="Nameserver delegation result" className={styles.results} data-nameserver-result>
+      <div className={styles.resultLead} data-tone={diagnosis.tone}>
+        <div aria-atomic="true" aria-live="polite"><ToolResultLead>{diagnosis.text}</ToolResultLead></div>
+        <ToolDownloadAction contents={report} filename={`${result.zone}-nameserver-report.json`} label="Download report" mimeType="application/json;charset=utf-8" />
+      </div>
+      <DelegationChain result={result} />
+      <ResultLists context={context} issues={issues} />
+      <DelegationTable result={result} />
+      <DelegationEvidence result={result} />
+      <AddressTable result={result} />
+      <ReachabilityEvidence result={result} />
+      <RunMetadata result={result} />
+    </section>
+  );
 }
 
 export function NameserverChecker({ initialName = "" }: { initialName?: string }) {
   const [name, setName] = useState(initialName);
   const [result, setResult] = useState<DelegationCheck | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [fieldError, setFieldError] = useState<string | null>(null);
+  const [requestError, setRequestError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const report = useMemo(() => result ? diagnosticReportJson("Nameserver Delegation Checker", result) : "", [result]);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const submittedName = useMemo(() => name.trim(), [name]);
 
-  async function submit(event: FormEvent) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!name.trim()) return setError("Enter a domain or hostname.");
-    setLoading(true); setError(null);
+    if (loading) return;
+    setResult(null);
+    if (!submittedName) {
+      setRequestError(null);
+      setFieldError("Enter a domain or hostname.");
+      requestAnimationFrame(() => inputRef.current?.focus());
+      return;
+    }
+    setLoading(true);
+    setFieldError(null);
+    setRequestError(null);
     try {
-      const response = await fetch("/api/dns/nameserver-checker", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ name }) });
+      const response = await fetch("/api/dns/nameserver-checker", {
+        body: JSON.stringify({ name }),
+        headers: { "content-type": "application/json" },
+        method: "POST",
+      });
       const data = await response.json();
-      if (!response.ok) throw new Error(data?.error?.message ?? "The nameserver check failed.");
-      setResult(data);
-    } catch (caught) { setError(caught instanceof Error ? caught.message : "The nameserver check failed."); }
-    finally { setLoading(false); }
+      if (!response.ok) {
+        const message = data?.error?.message ?? "The nameserver check failed.";
+        if (response.status === 400) {
+          setFieldError(message);
+          requestAnimationFrame(() => inputRef.current?.focus());
+          return;
+        }
+        throw new Error(message);
+      }
+      setResult(data as DelegationCheck);
+    } catch (caught) {
+      setRequestError(caught instanceof Error ? caught.message : "The nameserver check failed.");
+    } finally {
+      setLoading(false);
+    }
   }
 
-  const listsAgree = result ? sameMembers(result.parentDelegatedNameservers, result.childPublishedNameservers) : false;
-  return <section className="dns-tool" aria-label="Nameserver delegation checker">
-    <form className="dns-lookup-form" onSubmit={submit}>
-      <label className="dns-name-field"><span>Domain or hostname</span><input autoCapitalize="none" autoComplete="off" onChange={(event) => setName(event.target.value)} placeholder="github.com" spellCheck={false} value={name} /></label>
-      <button className="dns-submit" disabled={loading}>{loading ? "Checking nameservers..." : "Check nameservers"}</button>
-      {error ? <p className="dns-form-error" role="alert">{error}</p> : null}
-    </form>
-    {result ? <section className={styles.results} aria-live="polite">
-      <DiagnosticResultHeader action={<DownloadResultButton contents={report} filename={`${result.zone}-nameserver-report.json`} />} checkedAt={result.checkedAt} durationMs={result.durationMs} hostname={result.inputName}>
-        <p>{listsAgree ? `The parent and ${result.zone} publish the same nameservers.` : `The parent and ${result.zone} publish different nameserver lists.`} We tested every address available to this checker over UDP and TCP to make sure it can answer authoritatively.</p>
-      </DiagnosticResultHeader>
-      <div className={styles.flow} aria-label="DNS delegation path"><span className={styles.pathStep}><small>Parent zone</small><code>{result.parentZone}</code></span><span aria-hidden="true">→</span><span className={styles.pathStep}><small>Delegated zone</small><code>{result.zone}</code></span><span aria-hidden="true">→</span><span className={styles.pathStep}><small>Authoritative servers</small><strong>{result.parentDelegatedNameservers.length}</strong></span></div>
-      {result.findings.length ? result.findings.map((finding) => <div className={styles.finding} data-tone="warning" key={finding}><p>{finding}</p></div>) : <div className={styles.finding} data-tone="good"><p>The parent and child lists agree, and every checked nameserver answered authoritatively over both UDP and TCP.</p></div>}
-      {(result.notes ?? []).map((note) => <div className={styles.finding} key={note}><p>{note}</p></div>)}
-      <section className={styles.section}><h3>Does the delegation agree?</h3><div className="dns-table-scroll"><table className={`dns-status-table ${styles.compactTable}`}><thead><tr><th>Nameserver</th><th>At parent</th><th>Inside the zone</th><th>Glue from parent</th><th>A and AAAA in the zone</th></tr></thead><tbody>{[...new Set([...result.parentDelegatedNameservers, ...result.childPublishedNameservers])].map((hostname) => <tr key={hostname}><th><code>{hostname}</code></th><td>{result.parentDelegatedNameservers.includes(hostname) ? "Yes" : "No"}</td><td>{result.childPublishedNameservers.includes(hostname) ? "Yes" : "No"}</td><td>{glueText(hostname, result)}</td><td>{authoritativeAddressText(hostname, result)}</td></tr>)}</tbody></table></div><p className={styles.inlineNote}>For nameservers inside the zone, the parent glue and the zone's own A or AAAA records should agree. Sibling glue can help but is not always supplied. A nameserver outside the parent zone does not need glue in this referral.</p><details className={styles.raw}><summary>Raw delegation and address responses</summary><pre>{JSON.stringify({ parent: result.parentObservations, child: result.childObservations, authoritativeAddresses: result.authoritativeAddressObservations }, null, 2)}</pre></details></section>
-      <section className={styles.section}><h3>Can each nameserver answer?</h3><div className="dns-table-scroll"><table className={`dns-status-table ${styles.compactTable}`}><thead><tr><th>Server</th><th>Network</th><th>UDP</th><th>TCP</th><th>Authoritative SOA</th></tr></thead><tbody>{result.reachability.map((check) => <tr className={check.skippedReason ? styles.skippedRow : undefined} key={`${check.server.hostname}-${check.server.address}`}><th><code>{check.server.hostname}</code><br/><small>{check.server.address}</small></th><td>{networkText(check.server.address, result)}</td><td>{check.skippedReason ? "Skipped" : check.udp.reachable ? "Answered" : "No reply"}</td><td>{check.skippedReason ? "Skipped" : check.tcp.reachable ? "Answered" : "No reply"}</td><td>{check.skippedReason ? "Not checked" : check.soa && (check.udp.authoritative || check.tcp.authoritative) ? "Yes" : "No"}</td></tr>)}</tbody></table></div><details className={styles.raw}><summary>Raw reachability responses</summary><pre>{JSON.stringify(result.reachability, null, 2)}</pre></details></section>
-    </section> : null}
-  </section>;
+  return (
+    <section aria-label="Nameserver delegation checker" className={styles.workbench} data-tool-workbench>
+      <form aria-busy={loading} className={styles.form} onSubmit={submit}>
+        <ToolTextField
+          autoCapitalize="none"
+          autoComplete="off"
+          error={fieldError}
+          inputMode="url"
+          inputRef={inputRef}
+          label="Domain or hostname"
+          name="name"
+          onChange={(value) => {
+            setName(value);
+            if (fieldError) setFieldError(null);
+            if (requestError) setRequestError(null);
+          }}
+          placeholder="github.com"
+          required
+          spellCheck={false}
+          type="text"
+          value={name}
+        />
+        <ToolButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">
+          {loading ? "Checking nameservers..." : "Check nameservers"}
+        </ToolButton>
+        {loading ? <div className={styles.formStatus}><ToolStatus>Checking nameservers...</ToolStatus></div> : null}
+        {requestError ? <div className={styles.formStatus}><ToolStatus tone="danger">{requestError}</ToolStatus></div> : null}
+      </form>
+      {result ? <NameserverResult result={result} /> : null}
+    </section>
+  );
 }

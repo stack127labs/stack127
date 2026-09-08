@@ -3,6 +3,8 @@
   "state": "published",
   "docs": ["content_docs/rebuild-calculator"],
   "tests": [
+    "tests/pages/tools/shared/tool-workbench.test.mjs",
+    "tests/pages/tools/shared/tool-workbench.spec.ts",
     "tests/stack127/seo.spec.ts",
     "tests/pages/rebuild-calculator/rebuild-calculator.test.mjs",
     "tests/pages/rebuild-calculator/page.test.mjs",
@@ -11,7 +13,10 @@
   ],
   "scripts": ["scripts/storage-tools/preview-local-pages.mjs"],
   "skills": [
+    "skills/stack127/stack127-writing-voice/SKILL.md",
     "skills/stack127/test-driven-page",
+    "skills/stack127/stack127-tool-interface-plan",
+    "skills/stack127/stack127-tool-interface-design",
     "skills/stack127/visual-first-content",
     "skills/stack127/stack127-tool-build",
     "skills/stack127/stack127-tool-orchestrator",

@@ -1,0 +1,103 @@
+{
+  "reviewed_at": "2026-09-08",
+  "scope": "Quick pass fixing visible imported markup, unfinished summaries, and unrelated categories from official README evidence.",
+  "apps": [
+    {
+      "slug": "gpodder2go",
+      "review_scope": "partial",
+      "summary": "Manages podcast subscriptions for compatible gPodder clients through a server API.",
+      "summary_source": "curated",
+      "categories": [
+        "music-audio"
+      ],
+      "expected": {
+        "summary": "Gpodder2go is a simple, golang, drop-in replacement for gpodder/mygpo server to handle podcast subscriptions management for gpodder clients, [br] Enter the.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "ai-ml",
+          "music-audio",
+          "system-admin-hosting"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/oxtyped/gpodder2go"
+      ],
+      "pending_review": [
+        "Other fields are outside this quick description and category correction."
+      ]
+    },
+    {
+      "slug": "ofelia",
+      "review_scope": "partial",
+      "summary": "Runs scheduled commands on a host or in Docker containers, with jobs configured through files or container labels.",
+      "summary_source": "curated",
+      "categories": [
+        "automation",
+        "system-admin-hosting"
+      ],
+      "expected": {
+        "summary": "Ofelia is a modern and low footprint job scheduler for docker environments, built on Go, [br] This runs tasks on a schedule, either inside this container or.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "ai-ml",
+          "documents-pdfs",
+          "project-task-management"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/mcuadros/ofelia"
+      ],
+      "pending_review": [
+        "Other fields are outside this quick description and category correction."
+      ]
+    },
+    {
+      "slug": "stackyard",
+      "review_scope": "partial",
+      "summary": "Organizes homelab apps into a dashboard of launchers, folders, and widgets for connected services.",
+      "summary_source": "curated",
+      "categories": [
+        "dashboards"
+      ],
+      "expected": {
+        "summary": "A homelab dashboard you actually want to look at.[br][br]Most dashboards are a wall of numbers and charts, Stackyard is the opposite: a calm, launcher-style.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "ai-ml",
+          "databases",
+          "storage-backup"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/sandobserver/stackyard"
+      ],
+      "pending_review": [
+        "Other fields are outside this quick description and category correction."
+      ]
+    },
+    {
+      "slug": "youtube-dl-server",
+      "review_scope": "partial",
+      "summary": "Downloads videos to your server through a web interface or REST API using yt-dlp.",
+      "summary_source": "curated",
+      "categories": [
+        "media-servers"
+      ],
+      "expected": {
+        "summary": "Web / REST interface for downloading youtube videos onto a server.[br] Enter a video url to download the video to the server, Url can be to YouTube or any.",
+        "summary_source": "catalog_or_repository",
+        "categories": [
+          "ai-ml",
+          "system-admin-hosting",
+          "video-conferencing"
+        ]
+      },
+      "data_source_urls": [
+        "https://github.com/manbearwiz/youtube-dl-server"
+      ],
+      "pending_review": [
+        "Other fields are outside this quick description and category correction."
+      ]
+    }
+  ]
+}

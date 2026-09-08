@@ -41,7 +41,7 @@ export type EligibilityRule = Readonly<{
   correction: string | null;
 }>;
 
-type CounterResult = Readonly<{
+export type CounterResult = Readonly<{
   status: "pass" | "fail" | "unknown" | "not_applicable";
   reason: string;
   correction: null;

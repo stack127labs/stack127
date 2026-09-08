@@ -1,0 +1,1414 @@
+{
+  "generated_at": "2026-08-30T06:57:57.360Z",
+  "source_total": 205,
+  "candidate_device_total": 332,
+  "resolved_total": 58,
+  "unresolved_total": 147,
+  "records": [
+    {
+      "alliance_id": 1789,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/honeywell-opower-th8320zw1026/",
+      "confidence": "unique-model-token-and-vendor",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/182/reference/TH8320ZW.JPG",
+      "opensmarthouse_id": 182,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/182",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 1808,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/martin-renz-gmbh-handsender-5-kanal-fz-hs5/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 1813,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/everspring-mk-dimmer-module-868-1-mhz/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 1814,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/everspring-z-wave-dimmer-lamp-module-plug-300-series-919-8-mhz/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/25/reference/AD142-l.jpg",
+      "opensmarthouse_id": 25,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/25",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 1815,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/plug-switch-z-wave-on-off-plug-eu-300-series/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/26/reference/an157.jpg",
+      "opensmarthouse_id": 26,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/26",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 1816,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/plug-switch-919-8-mhz-z-wave-on-off-plug-300-series/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/26/reference/an157.jpg",
+      "opensmarthouse_id": 26,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/26",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 1829,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/esi-dbmz-india/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 1830,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/esi-dbmz-hong-kong/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 1841,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/rz1-hp-single-channel-rf-relay-switching-unit/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 1842,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/ducotronic-co2-sensor/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 1843,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/danfoss-randall-rz1-single-channel-rf-relay-switching-unit/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 1905,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/levermann-renz-gmbh-apz-empf%c2%84nger/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 1908,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/pyzw-python-based-static-ctrl-for-z-wave-wireless-network/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 1929,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/icontrol-ihub-gateway-software/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 1979,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/z-wave-gateway-w-casiva-server-solution/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 1980,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/sharp-smart-tap-sh/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 1987,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/sharp-home-translator-sh/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 1990,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/insignia-ctv-rf-remote/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2001,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/teleprtall-remote-smk-remote/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2002,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/insignia-led-tv-32/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2011,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/aeon-labs-home-energy-meter-eu/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/84/reference/aeotec-z-wave-home-energy-meter-gen5-packaging.jpg",
+      "opensmarthouse_id": 84,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/84",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2034,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/zrr154-duplex-receptacle/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2059,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/ai-switch-us-qees/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2060,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/easy-light-dimmer-link/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2063,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/easy-light-switch-link/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/954/reference/zslphoto.jpg",
+      "opensmarthouse_id": 954,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/954",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2082,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/hrv-ccm-z-wave-certificering/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/166/reference/airccm.png",
+      "opensmarthouse_id": 166,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/166",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2113,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/horstmann-sr-electricity-meter/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/1013/reference/picture.JPG",
+      "opensmarthouse_id": 1013,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/1013",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2120,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/wd9005z1-serialapi-pc-controller-with-flash/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2123,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/zrw103-being-moved-to-300-series/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/1297/reference/zrw103.jpg",
+      "opensmarthouse_id": 1297,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/1297",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2202,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/2g-battery-controller-3/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2203,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/2g-battery-controller-4/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2234,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/tz-3300-eu-handheld-remote-control/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2257,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/rf-remote-controller/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2272,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/raritan-px-sm230/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2309,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/zw4101/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/42/reference/z-zw4104-jasco-z-wave-appliance-module-3.png",
+      "opensmarthouse_id": 42,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/42",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2310,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/zw3101-plug-in-dimmer-lamp-module/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/44/reference/ZW3101.jpg",
+      "opensmarthouse_id": 44,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/44",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2311,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/zw3001-dimmer-wall-switch/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2320,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/ac-motor-controller-window-coverings/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2325,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/ac-motor-control-drapery-tracks/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2334,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/z-wave-light-kit-3951-z/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2358,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/5069-merten-rf-remote-control/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2369,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/ots100-rf-outdoor-temperature-sensor/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2370,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/contact-temperature-sensor/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2373,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/horstmann-sgr-electricity-meter/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2423,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/smoothremote/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2446,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/5036xx-wireless-cover-for-built-in-dimmer/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2459,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/raone-smartpower/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/61/reference/SmartPower.png",
+      "opensmarthouse_id": 61,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/61",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2468,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/hm-lm001/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2473,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/hm-dw001/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2474,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/hm-am001/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2498,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/zwusb100-xx/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2513,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/its-rf-temperature-sensor/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2514,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/prodrive-3324b-z/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2519,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/ac1-zw/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2520,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/dc1-zw/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2521,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/zwb100-z-wave-bridge/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2528,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/usb-z-wave/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2529,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/z-wave-5-device-remote-universal-remote/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2530,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/thinkessentials-v-2-0/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2533,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/leviton-vrp15-scene-capable-in-wall-switch-module/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/373/reference/rzp03.gif",
+      "opensmarthouse_id": 373,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/373",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2551,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/secure-srt321-zwave-stat-tx-2/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/989/reference/srt321.jpg",
+      "opensmarthouse_id": 989,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/989",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2554,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/duco-co2-rh-sensor/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2569,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/enerwave-plug-in-module-series/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/507/reference/ZW15S.jpg",
+      "opensmarthouse_id": 507,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/507",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2570,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/i-bridge-z-wave-controller/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2579,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/mitsumi-usb-dongle-dt64-1204/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2606,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/wintop-igate/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2615,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/secure-scp318-zwave-programmer-thermostat-tx-rx/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/652/reference/c17zw.jpg",
+      "opensmarthouse_id": 652,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/652",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2630,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/schneider-merten-mtn5051-0000/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/1572/reference/P127171_web.JPG",
+      "opensmarthouse_id": 1572,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/1572",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2631,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/everspring-qfn-testing/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2653,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/qfn-hardware-certification-for-schlage-lock/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2702,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/qees-p321i-mykey-remote-eu/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2705,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/secure-ses301-temperature-sensor/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2712,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/icontrol-ihub/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2717,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/quby-qb2-energy-display/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2718,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/home-automation-and-control-unit/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2727,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/iwatsu-led-dimmer/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2732,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/danfoss-rxz1/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2743,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/danfoss-rxz3/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2744,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/danfoss-rxz2/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2777,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/motorola-cpx100/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2778,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/iwatsu-smart-bridge/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2779,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/iwatsu-smart-connect-led-dimmer/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2794,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/vision-security-door-sensor-br/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/105/reference/vision-security-door-window-sensor-z-wave-zd2102-5.jpg",
+      "opensmarthouse_id": 105,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/105",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2795,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/vision-security-pir-sensor-br/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/104/reference/ZP3102.png",
+      "opensmarthouse_id": 104,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/104",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2798,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/danfoss-ret-bz/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2803,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/t500lb-thermostat/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2840,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/wintop-idoorsensor/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2841,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/wintop-isensor/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2853,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/vision-security-dimmer-brg1-433/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/978/reference/2gig-z-brdg-433.jpg",
+      "opensmarthouse_id": 978,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/978",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2904,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/iwatsu-zw-lc-dimmer/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2905,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/buffalo-tm-h2vhd081-usb-stick/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2910,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/iwatsu-zw-gw-controller/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2911,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/iwatsu-illumination-sensor/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2912,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/iwatsu-motion-sensor/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2915,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/buffalo-tm-h2vha081-switch/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2923,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/buffalo-hw-100v15a-zw/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2956,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/buffalo-hw-uzw-usb-dongle/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2969,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/stella-z-thermostat/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/183/reference/stellaz.jpg",
+      "opensmarthouse_id": 183,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/183",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 2976,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/power-switch/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 2989,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/xl624-xr624-thermostat/",
+      "opensmarthouse_id": 282,
+      "reason": "Matched device has no unambiguous product image",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3012,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/usb-dongle/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3031,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/in-wall-dual-relay-switch/",
+      "confidence": "unique-model-token-and-vendor",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/112/reference/ZL7432.jpg",
+      "opensmarthouse_id": 112,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/112",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 3034,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/roller-shutter-flirs-module/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3067,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/energy-switch/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3068,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/on-off-module-french-plug/",
+      "confidence": "unique-model-token-and-vendor",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/159/reference/s-l640.jpg",
+      "opensmarthouse_id": 159,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/159",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 3087,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/pir-sensor-4/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/1587/reference/evr-sp103.jpg",
+      "opensmarthouse_id": 1587,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/1587",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 3096,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/buffalo-hw-450hp-zwe-software-application/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3097,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/illuminance-sensor-unit-with-z-wave-control/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3098,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/illuminance-sensor-unit-with-z-wave-control-2/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3099,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/motion-sensor-5/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3100,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/motion-sensor-6/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3101,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/smoke-sensor-2/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3102,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/flood-sensor-3/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3103,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/plug-in-on-off-module/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/1373/reference/an145.jpg",
+      "opensmarthouse_id": 1373,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/1373",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 3104,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/dimmer-module-2/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3105,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/indoor-siren-4/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3106,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/on-off-plug-with-metering/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3127,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/temperature-humidity-sensor-2/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3131,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/clamp-power-meter/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3140,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/door-window-sensor-3/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3145,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/ame-qbox/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3148,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/sanjose-usb-dongle/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3153,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/door-lock-2/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/752/reference/z-wave-main.jpg",
+      "opensmarthouse_id": 752,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/752",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 3158,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/buffalo-tm-h2vhgw081w/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3161,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/iwatsu-smart-connect-ne-4ct-2p/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3162,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/iwatsu-smart-connect-ne-4ct/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3170,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/axesstel-ax140-alert-system/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3173,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/iwatsu-smart-bridge-ne-hmgw/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3178,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/webehome-gateway/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3179,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/essence-add-on-controller/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3243,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/rcs-pmc40-lc-load-controller/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3267,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/u-fairy-control-valve/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3336,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/rcs-psch21-pool-controller/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3644,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/generation-meter-series-p/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3891,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/danfoss-rs-014g0160-thermostat-2/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/359/reference/danfoss-link-rs-z-wave.png",
+      "opensmarthouse_id": 359,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/359",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 3892,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/devolo-rs-014g0159-thermostat/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/359/reference/danfoss-link-rs-z-wave.png",
+      "opensmarthouse_id": 359,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/359",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 3893,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/iwatsu-ne-dmgw/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3894,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/iwatsu-ne-1lcnt/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3929,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/diehlcontrols-dimmer-actuator-2/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3964,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/cisco-connected-life-gateway/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3965,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/echostar-usb-link/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3970,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/rcs-xl524-thermostat/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 3983,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/lguplus-gateway-dongle/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 4033,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/ebv-floor-heating-regulator/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 4061,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/ebv-connect-setpoint-thermostat/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 4062,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/gemalto-multi-access-gateway/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 4069,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/devolo-connect/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/295/reference/devolo-home-control-heizkoerperthermostat.jpg",
+      "opensmarthouse_id": 295,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/295",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 4146,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/aoya-switch/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 4182,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/aeon-labs-panic-button-dsa38-zweu/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/88/reference/dsa38.jpg",
+      "opensmarthouse_id": 88,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/88",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 4187,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/jtb-1007-02-curtain-motor/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 4188,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/aeon-labs-panic-button-dsa38-zwau/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/88/reference/dsa38.jpg",
+      "opensmarthouse_id": 88,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/88",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 4217,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/yale-keyfree-lock/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/292/reference/ykfcon-nomod-ch-ysp-3-1.jpg",
+      "opensmarthouse_id": 292,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/292",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 4259,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/bft-b-eba/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 4336,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/aeon-labs-door-window-sensor2nd-edition-dsb29-zwil/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/67/reference/z-stick.png",
+      "opensmarthouse_id": 67,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/67",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 4479,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/tkb-tz55s/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/781/reference/TZ35S.jpg",
+      "opensmarthouse_id": 781,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/781",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 4480,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/tkb-tz35s/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/781/reference/TZ35S.jpg",
+      "opensmarthouse_id": 781,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/781",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 4481,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/tkb-tz55d-dimmer/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/781/reference/TZ35S.jpg",
+      "opensmarthouse_id": 781,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/781",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 4482,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/tkb-tz35d-dimmer/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/781/reference/TZ35S.jpg",
+      "opensmarthouse_id": 781,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/781",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 4597,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/nodon-wall-switch/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/294/reference/CWS-3101.jpg",
+      "opensmarthouse_id": 294,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/294",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 4631,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/kwikset-912-door-lock-for-anz/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/1041/reference/Screen-Shot-2019-04-07-at-4-57-56-PM.png",
+      "opensmarthouse_id": 1041,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/1041",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 4632,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/kwikset-914-door-lock-for-anz/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 4633,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/kwikset-916-door-lock-for-anz/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 4702,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/tkb-switch-tz36d/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/605/reference/TZ36D.jpg",
+      "opensmarthouse_id": 605,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/605",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 4703,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/tkb-switch-tz36s/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 4704,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/tkb-switch-tz56s/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 4705,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/tkb-switch-tz56d/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 4797,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/amdocs-connected-home-gateway/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 4997,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/kichler-lvps-switch/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/1169/reference/15DC300.jpg",
+      "opensmarthouse_id": 1169,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/1169",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 5022,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/danfoss-devolo-connect-z-v1-05-014g0801/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/295/reference/devolo-home-control-heizkoerperthermostat.jpg",
+      "opensmarthouse_id": 295,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/295",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 5023,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/danfoss-living-connect-z-v1-06-014g0013/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/165/reference/Connect-LC13-m.jpg",
+      "opensmarthouse_id": 165,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/165",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 5173,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/honeywell-lcp500-l-lyric-touch-panel/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 5385,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/danfoss-heizk-rperthermostat-014g0802-v1-01/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/502/reference/psbz-coqon-dthermz6-16794.jpg",
+      "opensmarthouse_id": 502,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/502",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 5447,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/eurotronic-comet-z/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/372/reference/CometZ.jpg",
+      "opensmarthouse_id": 372,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/372",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 5448,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/danfoss-raumthermostat-014g0164-v1-0/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/501/reference/pbsz-coqon-dthermz5-17100.jpg",
+      "opensmarthouse_id": 501,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/501",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 5548,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/aeon-labs-micro-double-smart-switch-dsc17103-zwus/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/81/reference/DSC17.jpg",
+      "opensmarthouse_id": 81,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/81",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 5549,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/aeon-labs-micro-motor-controller-dsc14104-zwus/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/289/reference/DSC14.png",
+      "opensmarthouse_id": 289,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/289",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 5635,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/hc-10/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 5636,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/hc-5/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 5654,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/iq-panel/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 5766,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/ydm3168/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 6016,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/c-stat/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/21/reference/SCSC-17.jpg",
+      "opensmarthouse_id": 21,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/21",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 6249,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/zl7431us/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/111/reference/7431.png",
+      "opensmarthouse_id": 111,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/111",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 6316,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/zl7432us-in-wall-2-relays-switch/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/112/reference/ZL7432.jpg",
+      "opensmarthouse_id": 112,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/112",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 6317,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/danfoss-zwe-connect/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/502/reference/psbz-coqon-dthermz6-16794.jpg",
+      "opensmarthouse_id": 502,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/502",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 6339,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/wall-plug-smart-switch/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 6405,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/remotec-bw8377il/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 6662,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/zurc-remote-control/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 6907,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/utc-zerowire-certification/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 7174,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/utc-ha640-05-06-00-zerowire-certification/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 7175,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/utc-zw-6400-zerowire-certification/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 7209,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/zw-6400-au-zerowire-certification/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 7314,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/genius-valve-014g0804/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 7512,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/vrc0p/",
+      "confidence": "unique-model-token-and-vendor",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/883/reference/VRC0P-325.jpg",
+      "opensmarthouse_id": 883,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/883",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 7741,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/in-wall-smart-outlet-3/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 7763,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/recessed-door-sensor/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 8197,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/lizy0007/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/372/reference/CometZ.jpg",
+      "opensmarthouse_id": 372,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/372",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 8198,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/lizy0002/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/372/reference/CometZ.jpg",
+      "opensmarthouse_id": 372,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/372",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 8199,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/lizy001/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/372/reference/CometZ.jpg",
+      "opensmarthouse_id": 372,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/372",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 9208,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/ydm4109/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/292/reference/ykfcon-nomod-ch-ysp-3-1.jpg",
+      "opensmarthouse_id": 292,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/292",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 9209,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/ydm3109/",
+      "confidence": "previously-validated-exact-match",
+      "image_source_url": "https://opensmarthouse.org/zwavedatabase/292/reference/ykfcon-nomod-ch-ysp-3-1.jpg",
+      "opensmarthouse_id": 292,
+      "source_url": "https://opensmarthouse.org/zwavedatabase/292",
+      "status": "resolved"
+    },
+    {
+      "alliance_id": 9210,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/relay-fit-triplo-fxr-5013/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 9211,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/micro-relay-fx-r211/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 9212,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/micro-dimmer-fx-d211/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 10192,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/06-0001-0000-00-0011-z/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    },
+    {
+      "alliance_id": 16566,
+      "alliance_url": "https://products.z-wavealliance.org/z-wave-product/i-bridge-z-wave-controller-3/",
+      "reason": "No exact OpenSmartHouse identity match",
+      "status": "unresolved"
+    }
+  ]
+}

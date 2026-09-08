@@ -286,7 +286,7 @@ There is no network loading or upstream failure state. If a calculating status i
 
 | Claim or task | Medium | Position | Why this medium |
 | --- | --- | --- | --- |
-| Enter the scenario | Tool UI | First framed surface | Inputs are the user's job, not article prose. |
+| Enter the scenario | Tool UI | First workbench band | Inputs are the user's job, not article prose. |
 | Total degraded window | Exact result metric | Top of result | This is the primary answer. |
 | Copy time versus replacement delay | Segmented duration visual plus exact labels | Immediately below primary metric | The relationship is easier to scan than a paragraph. |
 | Source-drive count and bytes read | Exact result metrics and details table | Beside the window | These values audit the calculation. |

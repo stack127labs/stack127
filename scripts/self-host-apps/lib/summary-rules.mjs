@@ -10,24 +10,6 @@ export const bannedSummaryPatterns = [
   /\brobust\b/i,
 ];
 
-const cleanupPatterns = [
-  [/\bopen[- ]source\b/gi, ""],
-  [/\bopen[- ]sourced\b/gi, ""],
-  [/\bself[- ]hosted\b/gi, ""],
-  [/\bself[- ]hostable\b/gi, ""],
-  [/\bsolution\b/gi, "app"],
-  [/\bplatform\b/gi, "app"],
-  [/\s+/g, " "],
-  [/\ball[- ]in[- ]one\b/gi, ""],
-  [/\bpowerful\b/gi, ""],
-  [/\bultimate\b/gi, ""],
-  [/\bseamless\b/gi, ""],
-  [/\brobust\b/gi, ""],
-  [/\bfree software\b/gi, "software"],
-  [/\bweb application\b/gi, "web app"],
-  [/\bweb-based\b/gi, "web"],
-];
-
 export function slugify(value) {
   return String(value ?? "")
     .trim()
@@ -42,50 +24,6 @@ export function sentenceCase(value) {
   return text ? `${text.charAt(0).toUpperCase()}${text.slice(1)}` : "";
 }
 
-export function trimSentence(value, maxLength = 158) {
-  let text = String(value ?? "")
-    .replace(/[\r\n]+/g, " ")
-    .replace(/[–—]/g, "-")
-    .replace(/\s+/g, " ")
-    .trim();
-
-  if (!text) return "";
-  text = text.replace(/([.!?])\s+/g, ", ");
-  text = text.replace(/[.!?]+$/g, "");
-  if (text.length > maxLength) {
-    text = text.slice(0, maxLength).replace(/\s+\S*$/, "");
-  }
-  text = text
-    .replace(/\s*\([^)]*$/g, "")
-    .replace(/(?:,\s*)+$/g, "")
-    .trim();
-  return `${sentenceCase(text)}.`;
-}
-
-export function rewriteSummaryFromInputs({ name, description, topics = [] }) {
-  let text = String(description ?? "").trim();
-  for (const [pattern, replacement] of cleanupPatterns) {
-    text = text.replace(pattern, replacement);
-  }
-  text = text
-    .replace(/\(\s*[,;\s]*\)/g, " ")
-    .replace(/\s*\([^)]*$/g, "")
-    .replace(/\bfully\s+and\s+/gi, "")
-    .replace(/\bfast,\s*secure,\s*and\s+/gi, "fast and secure ")
-    .replace(/\s+([,.;:])/g, "$1")
-    .replace(/([([{])\s+/g, "$1")
-    .replace(/\s+([)\]}])/g, "$1")
-    .replace(/\s*,\s*,+/g, ", ")
-    .replace(/\s+/g, " ")
-    .replace(/^[-:,\s]+|[-:,\s]+$/g, "");
-
-  if (!text && Array.isArray(topics) && topics.length > 0) {
-    text = `${name} app for ${topics.slice(0, 3).join(", ").replace(/-/g, " ")}`;
-  }
-
-  return trimSentence(text || `${name} app.`);
-}
-
 export function validateSummary(summary) {
   const errors = [];
   const warnings = [];
@@ -97,6 +35,12 @@ export function validateSummary(summary) {
   }
 
   const sentenceCount = (text.match(/[.!?](\s|$)/g) ?? []).length;
+  if (/\[\/?(?:br|b|i|u|url|img|span|color|size)(?:\]|[=\s])|<\/?[a-z][^>]*>/i.test(text)) {
+    errors.push("summary contains imported markup; write a reviewed plain-text description");
+  }
+  if (/\b(?:and|or|the|a|an|your|when)\s*[.!?]*$/i.test(text) || /\b(?:and|which|that|it|this)\s+(?:is|are)\s*[.!?]*$/i.test(text)) {
+    errors.push("summary appears unfinished; review the complete sentence");
+  }
   const wordCount = text.split(/\s+/).filter(Boolean).length;
   if (sentenceCount > 1) errors.push("summary must be one sentence");
   if (text.length > 160) warnings.push("summary should stay under 160 characters");

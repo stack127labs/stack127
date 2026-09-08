@@ -1,5 +1,9 @@
 # Brief: Nameserver Delegation Checker
 
+## September 6 content maintenance
+
+Keep the glue and handoff explanation. Qualify what matching lists prove and explain that mismatches can cause intermittent failures. The database remains the only live prose source. Keep the current tool behavior and publication state unchanged.
+
 ## Who is here
 
 A domain operator is diagnosing delegation, glue, reachability, or parent-versus-child nameserver disagreement.

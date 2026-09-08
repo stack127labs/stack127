@@ -10,7 +10,7 @@ export const curated = {
   ...curatedExpansion,
   // TUI + terminal emulators
   "alacritty": {
-    summary: "A focused, GPU-accelerated terminal emulator that stays out of your way.",
+    summary: "Displays shell sessions in a GPU-rendered terminal, with searchable scrollback and keyboard-driven text selection.",
     primary_type: "terminal_emulator",
     categories: ["terminal-ui"],
     platforms: ["linux", "macos", "windows"],
@@ -70,7 +70,7 @@ export const curated = {
     aliases: ["oh-my-zsh", "omz"],
   },
   "bash": {
-    summary: "The Bourne Again SHell, the default shell on most Unix systems and macOS.",
+    summary: "Runs commands interactively or from scripts to automate tasks in a Unix-style shell.",
     primary_type: "shell",
     categories: ["terminal-ui"],
     platforms: ["linux", "macos", "bsd"],

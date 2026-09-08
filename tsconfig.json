@@ -36,7 +36,11 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     ".next-playwright/types/**/*.ts",
-    ".next-playwright/dev/types/**/*.ts"
+    ".next-playwright/dev/types/**/*.ts",
+    ".next-zfs-padding/types/**/*.ts",
+    ".next-zfs-padding/dev/types/**/*.ts",
+    ".next-dns-change/types/**/*.ts",
+    ".next-dns-change/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",

@@ -1,317 +1,259 @@
 "use client";
 
-import { useMemo, useState, type FormEvent, type ReactNode } from "react";
-import { lookupStatus } from "@/lib/domain/status-codes.ts";
-import type { DomainRegistration } from "@/lib/domain/types.ts";
+import Link from "next/link";
+import { useRef, useState, type FormEvent, type ReactNode } from "react";
 import {
-  DomainForm,
-  DownloadReportButton,
-  Notes,
-  RawResponses,
-  ResultHeader,
-  SourceNote,
-  StatePill,
-  Timeline,
-  UnavailableNote,
-  daysBetween,
-  formatDate,
-  reportJson,
-  useDomainLookup,
-  type Tone,
-} from "../../(catalogs)/domain-tools/domain-lookup-client";
+  ToolButton,
+  ToolDataTable,
+  ToolDisclosure,
+  ToolDownloadAction,
+  ToolKeyValueList,
+  ToolPrimaryResult,
+  ToolRawOutput,
+  ToolStatus,
+  ToolTextField,
+} from "@/app/tool-ui/tool-controls";
+import { parseRedactions } from "@/lib/domain/redaction.ts";
+import { lookupStatus } from "@/lib/domain/status-codes.ts";
+import type { DomainEntity, DomainRegistration, RdapFetch } from "@/lib/domain/types.ts";
+import {
+  dateRows,
+  filteredLookupNotes,
+  formatLookupDate,
+  lookupSourceHost,
+  lookupVerdict,
+  sourceForRecordGroup,
+} from "./domain-lookup-view";
+import styles from "./domain-lookup-tool.module.css";
 
-function Fact({
-  term,
-  children,
-  emphasis,
-  tone,
-  unknown,
-}: {
-  term: string;
-  children: ReactNode;
-  emphasis?: boolean;
-  tone?: Tone;
-  unknown?: boolean;
-}) {
+const sourceText = (source: string) => source === "registrar" ? "Registrar" : "Registry";
+
+function NormalizationNote({ result }: { result: DomainRegistration }) {
+  if (!result.query.reduced && !result.query.isIdn && !result.query.guessedSuffix) return null;
+  const parts = [`Checked ${result.query.unicode}`];
+  if (result.query.reduced) parts.push(`after reducing ${result.query.input} to its registrable domain`);
+  if (result.query.isIdn) parts.push(`using the registry name ${result.query.domain}`);
+  if (result.query.guessedSuffix) parts.push("using a best-guess public suffix");
+  return <p className={styles.normalization}>{parts.join(", ")}.</p>;
+}
+
+function providerContributions(result: DomainRegistration, source: "Registry" | "Registrar") {
+  const contributions = new Set<string>();
+  if (source === "Registry" && result.registryFetch?.status === "registered") contributions.add("registration state");
+  if (dateRows(result).some((row) => row.value !== "Not published" && row.source === source)) contributions.add("dates");
+  if (result.statuses.length && sourceForRecordGroup(result, "statuses") === source) contributions.add("status");
+  if (result.nameservers.length && sourceForRecordGroup(result, "nameservers") === source) contributions.add("nameservers");
+  if (result.dnssecSigned !== null && sourceForRecordGroup(result, "dnssec") === source) contributions.add("DNSSEC");
+  const registrarEntities = result.entities.filter((entity) => entity.roles.includes("registrar") || entity.roles.includes("abuse"));
+  if (registrarEntities.some((entity) => sourceText(entity.source) === source)) contributions.add("registrar facts");
+  if (source === "Registrar" && result.registrar.rdapUrl) contributions.add("registrar facts");
+  if (result.entities.some((entity) => sourceText(entity.source) === source && !entity.roles.includes("registrar") && !entity.roles.includes("abuse"))) contributions.add("contacts");
+  const fetch = source === "Registry" ? result.registryFetch : result.registrarFetch;
+  if (fetch && parseRedactions(fetch.body).length) contributions.add("redaction");
+  return [...contributions];
+}
+
+function SourceMap({ result }: { result: DomainRegistration }) {
+  if (result.status !== "registered") return null;
+  const providers = [
+    result.registryFetch ? { fetch: result.registryFetch, source: "Registry" as const } : null,
+    result.registrarFetch?.status === "registered" ? { fetch: result.registrarFetch, source: "Registrar" as const } : null,
+  ].filter((entry): entry is { fetch: RdapFetch; source: "Registry" | "Registrar" } => Boolean(entry))
+    .map((entry) => ({ ...entry, contributions: providerContributions(result, entry.source) }))
+    .filter((entry) => entry.contributions.length);
+  if (!providers.length) return null;
   return (
-    <div>
-      <dt>{term}</dt>
-      <dd data-emphasis={emphasis ? "true" : undefined} data-tone={tone} data-unknown={unknown ? "true" : undefined}>
-        {children}
-      </dd>
-    </div>
+    <figure aria-label="Sources contributing to the current registration record" className={styles.sourceMap}>
+      <figcaption>Where this record came from</figcaption>
+      <div className={styles.sourceNodes}>
+        {providers.map(({ contributions, fetch, source }) => (
+          <div className={styles.sourceNode} key={source}>
+            <strong>{source}</strong>
+            <code>{lookupSourceHost(fetch.url) ?? "Source host not reported"}</code>
+            <span>{contributions.join(", ")}</span>
+          </div>
+        ))}
+        <div className={styles.recordNode}>Current registration record</div>
+      </div>
+    </figure>
   );
 }
 
-/** One pill that says what this domain is, before any prose. */
-function headlinePill(registration: DomainRegistration): { tone: Tone; label: string } {
-  if (registration.status === "not_registered") return { tone: "quiet", label: "Not registered" };
-  const codes = registration.statuses.map((status) => status.rdap);
-  if (codes.includes("pending delete")) return { tone: "bad", label: "Pending delete" };
-  if (codes.includes("redemption period")) return { tone: "bad", label: "In redemption" };
-  if (codes.includes("client hold") || codes.includes("server hold")) {
-    return { tone: "bad", label: "On hold, not resolving" };
-  }
-  const days = daysBetween(registration.registryExpiryDate);
-  if (days !== null && days < 0) return { tone: "bad", label: "Past its expiry date" };
-  if (days !== null && days <= 30) return { tone: "warn", label: `Expires in ${days} days` };
-  return { tone: "good", label: "Registered" };
+function Dates({ result }: { result: DomainRegistration }) {
+  return (
+    <section className={styles.group}>
+      <h3>Dates</h3>
+      <ToolDataTable
+        ariaLabel="Registration dates and sources"
+        columns={[{ id: "date", label: "Date" }, { id: "value", label: "Published value" }, { id: "source", label: "Source" }]}
+        rows={dateRows(result).map((row) => ({ id: row.id, cells: { date: row.label, value: row.value, source: row.source } }))}
+      />
+    </section>
+  );
 }
 
-function leadSentence(registration: DomainRegistration) {
-  const name = registration.query.unicode;
-  if (registration.status === "not_registered") {
-    return `${name} is not registered. The registry for .${registration.query.tld} has no record of it.`;
-  }
-  const registrar = registration.registrar.name;
-  const created = formatDate(registration.registrationDate);
-  const expires = formatDate(registration.registryExpiryDate);
-  const parts = [`${name} is registered`];
-  if (registrar) parts.push(`through ${registrar}`);
-  if (created) parts.push(`It was created on ${created}`);
-  if (expires) parts.push(`and the registry expiry date is ${expires}`);
-  return `${parts[0]}${parts[1] ? ` ${parts[1]}` : ""}. ${parts.slice(2).join(" ")}${parts.length > 2 ? "." : ""}`;
+function sourced(value: ReactNode, source = "Registry") {
+  return <span className={styles.sourcedValue}>{value}<small>{source}</small></span>;
+}
+
+function RegistrarFacts({ result }: { result: DomainRegistration }) {
+  const rows: Array<{ label: string; value: ReactNode }> = [];
+  const registrarEntity = result.entities.find((entity) => entity.roles.includes("registrar"));
+  const abuseEntity = result.entities.find((entity) => entity.roles.includes("abuse"));
+  const registrarSource = registrarEntity ? sourceText(registrarEntity.source) : "Registry";
+  const abuseSource = abuseEntity ? sourceText(abuseEntity.source) : registrarSource;
+  if (result.registrar.ianaId) rows.push({ label: "IANA ID", value: sourced(result.registrar.ianaId, registrarSource) });
+  if (result.registrar.abuseEmail) rows.push({ label: "Abuse email", value: sourced(<a href={`mailto:${result.registrar.abuseEmail}`}>{result.registrar.abuseEmail}</a>, abuseSource) });
+  if (result.registrar.abusePhone) rows.push({ label: "Abuse phone", value: sourced(result.registrar.abusePhone, abuseSource) });
+  if (result.registrar.url) rows.push({ label: "Website", value: sourced(<a href={result.registrar.url}>{result.registrar.url}</a>, registrarSource) });
+  if (result.registrar.rdapUrl) rows.push({ label: "Registrar RDAP", value: sourced(<a href={result.registrar.rdapUrl}>{lookupSourceHost(result.registrar.rdapUrl) ?? result.registrar.rdapUrl}</a>, "Registrar") });
+  if (!rows.length) return null;
+  return <section className={styles.group}><h3>Registrar</h3><ToolKeyValueList rows={rows} /></section>;
+}
+
+function actor(status: string) {
+  const known = lookupStatus(status);
+  if (!known) return "Unknown";
+  if (known.group === "registrar_lock") return "Registrar";
+  if (known.group === "registry_lock") return "Registry";
+  return "Lifecycle";
+}
+
+function Statuses({ result }: { result: DomainRegistration }) {
+  if (!result.statuses.length) return null;
+  const source = sourceForRecordGroup(result, "statuses");
+  return (
+    <section className={styles.group}>
+      <h3>Status codes</h3>
+      <ToolDataTable ariaLabel="Registration status codes" columns={[{ id: "status", label: "Status" }, { id: "actor", label: "Set by" }, { id: "meaning", label: "Meaning and action" }, { id: "source", label: "Source" }]} rows={result.statuses.map((status) => {
+        const known = lookupStatus(status.rdap);
+        return { id: status.rdap, cells: {
+          status: <span className={styles.statusCode}><code>{status.epp ?? status.rdap}</code>{status.epp ? <small>{status.rdap}</small> : null}</span>,
+          actor: actor(status.rdap),
+          meaning: known ? `${known.meaning}${known.action ? ` ${known.action}` : ""}` : "No explanation is available for this returned status.",
+          source,
+        } };
+      })} />
+    </section>
+  );
+}
+
+function Nameservers({ result }: { result: DomainRegistration }) {
+  const source = sourceForRecordGroup(result, "nameservers");
+  const rows = result.nameservers.length ? result.nameservers.map((nameserver) => ({ id: nameserver.hostname, cells: {
+    hostname: <code>{nameserver.hostname}</code>,
+    addresses: nameserver.addresses.length ? nameserver.addresses.map((address) => <code className={styles.address} key={address}>{address}</code>) : "Not published",
+    source,
+  } })) : [{ id: "none", cells: { hostname: "None published", addresses: "Not published", source } }];
+  return <section className={styles.group}><h3>Nameservers</h3><ToolDataTable ariaLabel="Nameservers on record" columns={[{ id: "hostname", label: "Nameserver" }, { id: "addresses", label: "Glue addresses" }, { id: "source", label: "Source" }]} rows={rows} /><Link href={`/nameserver-checker?name=${encodeURIComponent(result.query.unicode)}`}>Check the live delegation</Link></section>;
+}
+
+function Dnssec({ result }: { result: DomainRegistration }) {
+  const delegation = result.dnssecSigned === null ? "Not reported" : result.dnssecSigned ? "DS record published" : "No DS record published";
+  const rows = [{ label: "Delegation", value: sourced(delegation, sourceForRecordGroup(result, "dnssec")) }];
+  if (result.dsRecordCount !== null) rows.push({ label: "DS records", value: sourced(result.dsRecordCount.toLocaleString("en-US"), sourceForRecordGroup(result, "dnssec")) });
+  return <section className={styles.group}><h3>DNSSEC delegation</h3><ToolKeyValueList rows={rows} /><Link href={`/dnssec-checker?name=${encodeURIComponent(result.query.unicode)}`}>Validate the DNSSEC chain</Link></section>;
+}
+
+function contactRows(entities: DomainEntity[]) {
+  return entities.filter((entity) => !entity.roles.includes("registrar") && !entity.roles.includes("abuse")).flatMap((entity, entityIndex) => entity.fields.filter((field) => field.value.trim()).map((field, fieldIndex) => ({
+    id: `${entityIndex}-${fieldIndex}-${field.label}`,
+    cells: { role: entity.roles.join(", ") || "Contact", field: field.label, value: field.value, source: sourceText(entity.source) },
+  })));
+}
+
+function RedactionRows(result: DomainRegistration) {
+  const rows = ([{ fetch: result.registryFetch, source: "Registry" }, { fetch: result.registrarFetch, source: "Registrar" }] as const).flatMap(({ fetch, source }) => fetch ? parseRedactions(fetch.body).map((item, index) => ({ id: `${source}-${index}-${item.field}`, cells: { field: item.field, treatment: item.explanation, source } })) : []);
+  if (rows.length) return rows;
+  return result.redactions.map((item, index) => ({ id: `reported-${index}-${item.field}`, cells: { field: item.field, treatment: item.explanation, source: result.registrarFetch ? "Registrar" : "Registry" } }));
+}
+
+function Contacts({ result }: { result: DomainRegistration }) {
+  const contacts = contactRows(result.entities);
+  const redactions = RedactionRows(result);
+  return (
+    <section className={styles.group}>
+      <h3>Contacts and redaction</h3>
+      {contacts.length ? <ToolDataTable ariaLabel="Published domain contacts" columns={[{ id: "role", label: "Role" }, { id: "field", label: "Field" }, { id: "value", label: "Value" }, { id: "source", label: "Source" }]} rows={contacts} /> : null}
+      {redactions.length ? <ToolDataTable ariaLabel="Declared contact redactions" columns={[{ id: "field", label: "Field" }, { id: "treatment", label: "Treatment" }, { id: "source", label: "Source" }]} rows={redactions} /> : null}
+      {!contacts.length && !redactions.length ? <p className={styles.unknownContacts}>{result.redactionDeclared ? "The provider declared redaction without naming fields." : "No public contacts or redaction declaration were published."}</p> : null}
+      <Link href={`/domain-owner?name=${encodeURIComponent(result.query.unicode)}`}>Check ways to contact the domain owner</Link>
+    </section>
+  );
+}
+
+function Freshness({ result }: { result: DomainRegistration }) {
+  const rows = [{ fetch: result.registryFetch, label: "Registry response" }, { fetch: result.registrarFetch, label: "Registrar response" }].filter((entry): entry is { fetch: RdapFetch; label: string } => Boolean(entry.fetch));
+  if (!rows.length) return null;
+  return <dl aria-label="Source freshness" className={styles.metadata}>{rows.map(({ fetch, label }) => <div key={label}><dt>{label}</dt><dd><span>{lookupSourceHost(fetch.url) ?? "Host not reported"}</span><time dateTime={fetch.fetchedAt}>{formatLookupDate(fetch.fetchedAt)}</time>{fetch.fromCache ? <span>Cached</span> : null}</dd></div>)}</dl>;
+}
+
+function RawEvidence({ result }: { result: DomainRegistration }) {
+  return <div className={styles.evidence}>{[{ fetch: result.registryFetch, label: "Registry response" }, { fetch: result.registrarFetch, label: "Registrar response" }].filter((entry): entry is { fetch: RdapFetch; label: string } => Boolean(entry.fetch)).map(({ fetch, label }) => <ToolRawOutput key={label} label={`${label}${lookupSourceHost(fetch.url) ? ` from ${lookupSourceHost(fetch.url)}` : ""}`} value={fetch.body ?? { error: fetch.error }} />)}</div>;
+}
+
+function LookupResult({ result }: { result: DomainRegistration }) {
+  const verdict = lookupVerdict(result);
+  const notes = filteredLookupNotes(result);
+  const report = JSON.stringify({ tool: "Domain Registration Lookup", reportVersion: 1, ...result }, null, 2);
+  const registered = result.status === "registered";
+  const registrarFailure = result.registrarFetch && result.registrarFetch.status !== "registered";
+  return <section aria-label="Domain registration result" className={styles.results} data-domain-lookup-result>
+    <RegistrationLead detail={verdict.detail} value={verdict.value} />
+    <NormalizationNote result={result} />
+    <SourceMap result={result} />
+    {registrarFailure ? <ToolStatus tone="warning">The registrar response was incomplete. Registry facts remain available.</ToolStatus> : null}
+    {registered ? <><Dates result={result} /><RegistrarFacts result={result} /><Statuses result={result} /><Nameservers result={result} /><Dnssec result={result} /><Contacts result={result} /></> : null}
+    {result.status === "no_service" ? <p className={styles.recovery}>See RDAP coverage in the <Link href="/tld-directory">TLD directory</Link>.</p> : null}
+    <Freshness result={result} />
+    <div className={styles.download}><ToolDownloadAction contents={report} filename={`${result.query.domain}-registration.json`} label="Download report" mimeType="application/json;charset=utf-8" /></div>
+    {notes.length ? <ToolDisclosure label="Lookup notes"><ul className={styles.notes}>{notes.map((note) => <li key={note}>{note}</li>)}</ul></ToolDisclosure> : null}
+    <RawEvidence result={result} />
+  </section>;
+}
+
+function RegistrationLead({ announce = true, detail, value }: { announce?: boolean; detail: string; value: string }) {
+  return <div aria-atomic={announce ? "true" : undefined} aria-live={announce ? "polite" : undefined}><ToolPrimaryResult detail={detail} label="Registration record" value={value} /></div>;
 }
 
 export function DomainLookupTool({ initialName = "" }: { initialName?: string }) {
   const [name, setName] = useState(initialName);
-  const { result, error, loading, run, setError } = useDomainLookup<DomainRegistration>();
-  const report = useMemo(() => (result ? reportJson("Domain Registration Lookup", result) : ""), [result]);
+  const [result, setResult] = useState<DomainRegistration | null>(null);
+  const [fieldError, setFieldError] = useState<string | null>(null);
+  const [requestError, setRequestError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  function submit(event: FormEvent) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!name.trim()) return setError("Enter a domain name.");
-    void run({ name });
+    if (loading) return;
+    setResult(null);
+    if (!name.trim()) { setFieldError("Enter a domain name."); setRequestError(null); requestAnimationFrame(() => inputRef.current?.focus()); return; }
+    setLoading(true); setFieldError(null); setRequestError(null);
+    try {
+      const response = await fetch("/api/domain/lookup", { body: JSON.stringify({ name }), headers: { "content-type": "application/json" }, method: "POST" });
+      const data = await response.json();
+      if (!response.ok) {
+        const message = data?.error?.message ?? "The registration lookup failed.";
+        if (response.status === 400) { setFieldError(message); requestAnimationFrame(() => inputRef.current?.focus()); return; }
+        throw new Error(message);
+      }
+      setResult(data as DomainRegistration);
+    } catch (caught) { setRequestError(caught instanceof Error ? caught.message : "The registration lookup failed."); }
+    finally { setLoading(false); }
   }
 
-  const headline = result ? headlinePill(result) : null;
-  const expiryDays = result ? daysBetween(result.registryExpiryDate) : null;
-
-  return (
-    <section className="domain-tool" aria-label="Domain registration lookup">
-      <DomainForm
-        error={error}
-        loading={loading}
-        onChange={setName}
-        onSubmit={submit}
-        value={name}
-      />
-
-      {result ? (
-        <section className="domain-results" aria-live="polite">
-          <ResultHeader
-            action={
-              <DownloadReportButton contents={report} filename={`${result.query.domain}-registration.json`} />
-            }
-            hostname={result.query.unicode}
-          />
-
-          <UnavailableNote registration={result} />
-
-          {result.status === "registered" || result.status === "not_registered" ? (
-            <div className="domain-answer">
-              {headline ? (
-                <div className="domain-answer-head">
-                  <StatePill tone={headline.tone}>{headline.label}</StatePill>
-                </div>
-              ) : null}
-              <p className="domain-answer-lead">{leadSentence(result)}</p>
-              {result.statuses.length ? (
-                <p>
-                  The registry currently has {result.statuses.length === 1 ? "one status" : `${result.statuses.length} statuses`}{" "}
-                  on it: {result.statuses.map((status) => status.rdap).join(", ")}.
-                </p>
-              ) : null}
-              <Timeline end={result.registryExpiryDate} start={result.registrationDate} />
-              <SourceNote registration={result} />
-            </div>
-          ) : null}
-
-          <Notes notes={result.notes} />
-
-          {result.status === "registered" ? (
-            <>
-              <section>
-                <h2>Dates</h2>
-                <dl className="domain-fact-list">
-                  <Fact term="Registered" unknown={!result.registrationDate}>
-                    {formatDate(result.registrationDate) ?? "Not published by this registry"}
-                  </Fact>
-                  {result.reregistrationDate ? (
-                    <Fact term="Re-registered" tone="warn">
-                      {formatDate(result.reregistrationDate)}
-                      <small>The name was dropped at some point and picked up again.</small>
-                    </Fact>
-                  ) : null}
-                  <Fact
-                    emphasis
-                    term="Registry expiry"
-                    tone={expiryDays === null ? undefined : expiryDays < 0 ? "bad" : expiryDays <= 30 ? "warn" : undefined}
-                    unknown={!result.registryExpiryDate}
-                  >
-                    {formatDate(result.registryExpiryDate) ?? "Not published"}
-                    <small>This is the date the registry acts on.</small>
-                  </Fact>
-                  <Fact term="Registrar expiry" unknown={!result.registrarExpiryDate}>
-                    {formatDate(result.registrarExpiryDate) ?? "Not published by the registrar"}
-                    <small>A separate field. It can differ from the registry date when a renewal has not caught up.</small>
-                  </Fact>
-                  {result.transferDate ? (
-                    <Fact term="Last transferred">{formatDate(result.transferDate)}</Fact>
-                  ) : null}
-                  <Fact term="Record last changed" unknown={!result.lastChangedDate}>
-                    {formatDate(result.lastChangedDate) ?? "Not published"}
-                    <small>When the registry record changed. It does not say what changed.</small>
-                  </Fact>
-                  <Fact term="Registry database updated" unknown={!result.registryDatabaseUpdated}>
-                    {formatDate(result.registryDatabaseUpdated) ?? "Not published"}
-                    <small>When the registry refreshed its own copy. Nothing to do with this domain.</small>
-                  </Fact>
-                </dl>
-              </section>
-
-              <section>
-                <h2>Registrar</h2>
-                <dl className="domain-fact-list">
-                  <Fact emphasis term="Registrar" unknown={!result.registrar.name}>
-                    {result.registrar.name ?? "Not published"}
-                  </Fact>
-                  <Fact term="IANA ID" unknown={!result.registrar.ianaId}>{result.registrar.ianaId ?? "Not published"}</Fact>
-                  <Fact term="Abuse contact" unknown={!result.registrar.abuseEmail}>
-                    {result.registrar.abuseEmail ?? "Not published"}
-                    {result.registrar.abusePhone ? <small>{result.registrar.abusePhone}</small> : null}
-                  </Fact>
-                </dl>
-              </section>
-
-              {result.statuses.length ? (
-                <section>
-                  <h2>Status codes</h2>
-                  <div className="domain-table-scroll">
-                    <table className="domain-table">
-                      <thead>
-                        <tr>
-                          <th>Code</th>
-                          <th>Who set it</th>
-                          <th>What it means</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {result.statuses.map((status) => {
-                          const known = lookupStatus(status.rdap);
-                          const tone: Tone = !known
-                            ? "quiet"
-                            : known.removesFromDns
-                              ? "bad"
-                              : known.group === "registry_lock"
-                                ? "warn"
-                                : known.group === "normal"
-                                  ? "good"
-                                  : "quiet";
-                          return (
-                            <tr key={status.rdap}>
-                              <td>
-                                <code>{status.rdap}</code>
-                                {status.epp && status.epp !== status.rdap ? (
-                                  <small style={{ display: "block" }}>
-                                    <code>{status.epp}</code>
-                                  </small>
-                                ) : null}
-                              </td>
-                              <td>
-                                <StatePill tone={tone}>
-                                  {!known
-                                    ? "Not in our reference"
-                                    : known.removesFromDns
-                                      ? "Stops DNS"
-                                      : known.group === "registrar_lock"
-                                        ? "Your registrar set it"
-                                        : known.group === "registry_lock"
-                                          ? "The registry set it"
-                                          : known.group === "normal"
-                                            ? "Normal"
-                                            : "In progress"}
-                                </StatePill>
-                              </td>
-                              <td>
-                                {known ? (
-                                  <>
-                                    {known.meaning}{" "}
-                                    <a href="/epp-status-codes">More on status codes</a>
-                                  </>
-                                ) : (
-                                  "We do not have an explanation for this one, so it is shown exactly as the registry returned it."
-                                )}
-                              </td>
-                            </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
-                </section>
-              ) : null}
-
-              <section>
-                <h2>Nameservers and DNSSEC</h2>
-                <dl className="domain-fact-list">
-                  <Fact term="Nameservers on record" tone={result.nameservers.length ? undefined : "warn"} unknown={!result.nameservers.length}>
-                    {result.nameservers.length
-                      ? result.nameservers.map((nameserver) => nameserver.hostname).join(", ")
-                      : "None on record, so nothing resolves under this domain"}
-                    <small>
-                      This is what the registry holds. It can differ from what DNS is actually serving.{" "}
-                      <a href="/nameserver-checker">Check the delegation</a>.
-                    </small>
-                  </Fact>
-                  <Fact term="DNSSEC" unknown={result.dnssecSigned === null}>
-                    {result.dnssecSigned === null
-                      ? "Not reported by this registry"
-                      : result.dnssecSigned
-                        ? "Signed, so a DS record is published"
-                        : "Not signed"}
-                    <small>
-                      This says whether a DS record exists, not whether the chain validates.{" "}
-                      <a href="/dnssec-checker">Validate the chain</a>.
-                    </small>
-                  </Fact>
-                </dl>
-              </section>
-
-              {result.redactions.length ? (
-                <section>
-                  <h2>What the registrar withheld</h2>
-                  <p>
-                    The registrar published a machine readable list of the contact fields it removed, so you can see
-                    exactly what exists without it being public. There is more on this, including how to make contact,
-                    on the <a href="/domain-owner">registrant lookup</a>.
-                  </p>
-                  <div className="domain-table-scroll">
-                    <table className="domain-table">
-                      <thead>
-                        <tr>
-                          <th>Field</th>
-                          <th>What was done to it</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {result.redactions.map((redaction) => (
-                          <tr key={`${redaction.field}-${redaction.method}`}>
-                            <td>{redaction.field}</td>
-                            <td>{redaction.explanation}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </section>
-              ) : null}
-            </>
-          ) : null}
-
-          <RawResponses registration={result} />
-        </section>
-      ) : null}
-    </section>
-  );
+  return <section aria-label="Domain registration lookup" className={`domain-tool ${styles.workbench}`} data-tool-workbench>
+    <form aria-busy={loading} className={styles.form} onSubmit={submit}>
+      <ToolTextField autoCapitalize="none" autoComplete="off" className={styles.queryField} error={fieldError} inputMode="url" inputRef={inputRef} label="Domain name" name="name" onChange={(value) => { setName(value); if (fieldError) setFieldError(null); if (requestError) setRequestError(null); }} placeholder="example.com" required spellCheck={false} type="text" value={name} />
+      <ToolButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">{loading ? "Looking up registration..." : "Look up registration"}</ToolButton>
+      {loading ? <div className={styles.formStatus}><ToolStatus>Looking up registration...</ToolStatus></div> : null}
+    </form>
+    {result ? <LookupResult result={result} /> : requestError ? (
+      <section aria-label="Domain registration result" className={styles.results} data-domain-lookup-result>
+        <RegistrationLead announce={false} detail={`${name.trim()} could not be checked.`} value="Cannot determine" />
+        <ToolStatus tone="danger">{requestError}</ToolStatus>
+      </section>
+    ) : null}
+  </section>;
 }

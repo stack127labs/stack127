@@ -3,6 +3,8 @@
   "state": "published",
   "docs": ["content_docs/nginx-proxy-pass-calculator"],
   "tests": [
+    "tests/pages/tools/shared/tool-workbench.test.mjs",
+    "tests/pages/tools/shared/tool-workbench.spec.ts",
     "tests/stack127/seo.spec.ts",
     "tests/pages/nginx-proxy-pass-calculator/nginx-proxy-pass-calculator.test.mjs",
     "tests/pages/nginx-proxy-pass-calculator/fixtures/nginx-1.30.4.json",
@@ -14,6 +16,8 @@
     "scripts/nginx-proxy-pass-calculator/verify-nginx-fixtures.mjs"
   ],
   "skills": [
+    "skills/stack127/stack127-tool-interface-plan/SKILL.md",
+    "skills/stack127/stack127-tool-interface-design/SKILL.md",
     "skills/stack127/test-driven-page",
     "skills/stack127/visual-first-content",
     "skills/stack127/stack127-tool-build",

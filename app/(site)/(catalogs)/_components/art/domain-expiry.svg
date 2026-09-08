@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 110" role="img" aria-labelledby="ma-title-catalog--domain-expiry" data-marker-art="catalog--domain-expiry">
+<title id="ma-title-catalog--domain-expiry">A clock and alert stand for an approaching registration expiry.</title>
+<g transform="translate(-10.6 4.9)">
+<path d="M76.70 29.99 C81.79 30.70, 86.50 33.80, 89.94 38.49 C93.37 43.19, 97.49 52.54, 97.29 58.17 C97.10 63.79, 92.84 68.38, 88.77 72.23 C84.71 76.07, 78.06 80.45, 72.91 81.23 C67.75 82.01, 62.45 80.04, 57.86 76.91 C53.27 73.78, 47.12 68.13, 45.36 62.46 C43.61 56.78, 44.91 47.98, 47.31 42.85 C49.71 37.71, 51.93 30.67, 59.76 31.65 C67.59 32.64, 89.74 42.00, 94.32 48.75 C98.90 55.49, 87.28 71.83, 87.24 72.12 M68.90 28.46 C74.35 27.86, 82.12 30.64, 86.09 34.48 C90.06 38.33, 91.57 45.95, 92.71 51.53 C93.86 57.10, 95.83 62.98, 92.95 67.94 C90.07 72.91, 81.09 78.87, 75.42 81.32 C69.75 83.78, 64.05 84.98, 58.93 82.65 C53.81 80.32, 46.79 73.31, 44.70 67.32 C42.62 61.34, 44.67 52.08, 46.42 46.76 C48.18 41.43, 50.78 38.69, 55.22 35.36 C59.66 32.03, 70.18 27.57, 73.07 26.76 C75.96 25.95, 72.61 29.86, 72.55 30.50" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-ink,#f2f2ee);fill:none"/>
+<path d="M71.19 54.10 C72.83 49.81, 68.13 47.20, 71.08 38.74 M69.91 53.61 C69.02 50.45, 71.14 42.99, 70.17 41.69" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-ink,#f2f2ee);fill:none"/>
+<path d="M69.56 52.70 C73.34 55.73, 78.18 61.75, 84.34 62.22 M70.40 55.41 C73.57 56.78, 74.87 58.19, 82.36 61.39" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-ink,#f2f2ee);fill:none"/>
+<path d="M113.25 18.47 C118.00 18.90, 118.49 32.54, 114.42 32.17 M117.21 15.17 C116.01 20.74, 117.45 24.00, 117.81 33.61" stroke-width="2.6" stroke-linecap="round" fill-rule="evenodd" style="stroke:var(--ma-primary,#bafc3c);fill:none"/>
+<circle cx="116" cy="44" r="2.8" style="fill:var(--ma-primary,#bafc3c)"/>
+</g>
+</svg>

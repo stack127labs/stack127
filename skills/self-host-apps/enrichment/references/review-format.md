@@ -12,7 +12,8 @@ Use one record per claimed candidate:
         "slug": "example",
         "name": "Example",
         "summary": "Direct sentence explaining what the app helps a user do.",
-        "icon_url": "/app-icons/example.png",
+        "icon_url": "https://<project-ref>.supabase.co/storage/v1/object/public/stack127-media/directories/self-host-apps/icons/example-0123456789abcdef.png",
+        "icon_source_url": "https://example.org/icon.png",
         "website_url": "https://example.org",
         "source_code_url": "https://github.com/example/example",
         "source_code_host": "github",
@@ -69,5 +70,7 @@ Use one record per claimed candidate:
 ```
 
 Add the URLs that support the review to `sources` and `data_source_urls`. If an official source was checked but did not publish a technical value, keep the value `null` or `unknown` and record that outcome in `technical_fact_status` with `status: "not_published"`. Do not invent a number or create a field-level provenance record.
+
+Use `self-host-apps:cache-icons` to replace the illustrative icon URL with the uploaded content-hashed URL before applying a publish review.
 
 For a confirmed name match, set `app_id` to the existing app UUID. For `duplicate`, `reject`, or `needs_review`, omit `app` and include the required app ID or reason.
