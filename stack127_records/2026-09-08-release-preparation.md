@@ -36,4 +36,6 @@ Durable private recovery copies of the working tree and both database snapshots 
 
 Production content verification passed after the transfer. All 34 tools match the saved development titles, introductions, supporting Markdown, and functional versions. The 28 changed content rows incremented production revision once. All registry fields other than the 11 approved metadata updates and update timestamps match the pre-transfer snapshot. Repository-sync fields, publication flags, original publication dates, and IDs are preserved. Logs and the idempotent verification runner are in the private recovery directory.
 
+The browser gate now uses two isolated workers. The larger route catalog and the newly enabled published-tool checks still run in full, for both desktop and mobile. Development-only labs retain their production 404 checks rather than being treated as public pages.
+
 Still required: finish all quality and browser checks; reconcile remaining upstream/local differences; create and verify sufficient production recovery backups; prepare guarded selective content and metadata updates; validate production assets and runtime configuration; commit and integrate Git history safely; deploy through the canonical workflow; verify exact SHA, data hashes, routes, redirects, and live behavior. No release completion claim is justified yet.

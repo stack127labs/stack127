@@ -76,10 +76,10 @@ test("section wrappers use one 40px break instead of stacking layout gaps", asyn
 });
 
 test("nested h3 headings keep a subordinate 24px break", async ({ page }) => {
-  await page.goto("/raid-calculator");
+  await page.goto("/dns-lookup");
 
   const heading = page.getByRole("heading", {
-    name: "How much usable space do four 4 TB drives give in RAID 5?",
+    name: 'Does "Not authenticated" mean DNSSEC is broken?',
     exact: true,
   });
   const gapBeforeHeading = await heading.evaluate((element) => {

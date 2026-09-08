@@ -138,9 +138,14 @@ test.describe("Stack127 publication SEO", () => {
   });
 
   for (const path of noindexPaths) {
-    test(`${path} is visible but remains noindex`, async ({ page }) => {
+    test(`${path} respects its non-public route policy`, async ({ page }) => {
       const response = await gotoWithRestartRetry(page, path);
 
+      if (process.env.STACK127_TEST_SERVER === "production" && ["/app-card-lab", "/tool-ui-lab"].includes(path)) {
+        expect(response?.status()).toBe(404);
+        await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/i);
+        return;
+      }
       expect(response?.status()).toBe(200);
       await expect(page.locator("[data-app-main] h1")).toHaveCount(1);
       await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/i);

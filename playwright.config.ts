@@ -4,7 +4,7 @@ export default defineConfig({
   testDir: "./tests",
   testMatch: ["**/*.spec.ts"],
   timeout: Number(process.env.STACK127_TEST_TIMEOUT_MS ?? 60_000),
-  workers: 1,
+  workers: 2,
   expect: {
     timeout: 5_000,
   },
