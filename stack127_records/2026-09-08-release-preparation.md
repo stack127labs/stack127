@@ -38,7 +38,7 @@ Production content verification passed after the transfer. All 34 tools match th
 
 The browser gate now uses two isolated workers. The larger route catalog and the newly enabled published-tool checks still run in full, for both desktop and mobile. Development-only labs retain their production 404 checks rather than being treated as public pages.
 
-Still required: finish all quality and browser checks; reconcile remaining upstream/local differences; create and verify sufficient production recovery backups; prepare guarded selective content and metadata updates; validate production assets and runtime configuration; commit and integrate Git history safely; deploy through the canonical workflow; verify exact SHA, data hashes, routes, redirects, and live behavior. No release completion claim is justified yet.
+Still required: finish the full quality gate, deploy through the canonical workflow, and verify the exact live revision, data, routes, redirects, and behavior. Reconciliation, targeted recovery backups, content transfer, and Git integration are complete.
 
 ## GitHub permission blocker
 
@@ -46,4 +46,6 @@ The combined release is now on local main. GitHub rejected the push because the 
 
 The user must grant the GitHub CLI workflow scope with `gh auth refresh -h github.com -s workflow` before the same complete release can be pushed. Do not omit the workflow change or bypass the deployment gate. Production tool content is already transferred and verified; the live code remains `8877b785d154baf288c975aa8c462544e4fd55ac`.
 
-The refreshed desktop run is logged in `quality-final-release.log`. Its one SOA selector failure was corrected and independently passed in desktop and mobile, recorded in `soa-final.log`. Complete the remaining local checks and the fresh CI quality gate after access is restored.
+The refreshed desktop run is logged in `quality-final-release.log`: 768 passed, five skipped, and three failed. The SOA selector failure was corrected and independently passed in desktop and mobile, recorded in `soa-final.log`. The other two failures were strict selectors on development-only lab pages, where Next.js adds another noindex tag for the 404 response. The tests now require every robots tag to contain noindex, without assuming exactly one tag.
+
+On September 9, the refreshed GitHub login includes the required workflow scope. Remote main remains unchanged. The complete release can now proceed through the normal quality and deployment gates.

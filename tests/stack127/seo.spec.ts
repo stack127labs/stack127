@@ -143,7 +143,12 @@ test.describe("Stack127 publication SEO", () => {
 
       if (process.env.STACK127_TEST_SERVER === "production" && ["/app-card-lab", "/tool-ui-lab"].includes(path)) {
         expect(response?.status()).toBe(404);
-        await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/i);
+        const robots = page.locator('meta[name="robots"]');
+        await expect(robots).not.toHaveCount(0);
+        // Next.js may add its own noindex tag when the route calls notFound().
+        for (const tag of await robots.all()) {
+          await expect(tag).toHaveAttribute("content", /noindex/i);
+        }
         return;
       }
       expect(response?.status()).toBe(200);
