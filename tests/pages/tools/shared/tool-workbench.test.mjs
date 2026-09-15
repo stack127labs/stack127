@@ -66,6 +66,13 @@ test("every interactive tool uses the shared workbench hook", () => {
   }
 });
 
+test("tool routes do not add a divider below the workbench", () => {
+  for (const slug of expectedToolSlugs) {
+    const page = readFileSync(path.join(toolsRoot, slug, "page.tsx"), "utf8");
+    assert.doesNotMatch(page, /<hr\b/, `${slug} must rely on the workbench container instead of a page divider`);
+  }
+});
+
 test("the shared workbench is a full-width band, not a rounded box", () => {
   const stylePath = path.join(root, "app/(site)/_components/tool-workbench.css");
   const shellStylePath = path.join(root, "app/app-shell.module.css");

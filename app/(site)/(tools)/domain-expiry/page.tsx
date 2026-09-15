@@ -29,9 +29,7 @@ export default async function DomainExpiryPage({ searchParams }: { searchParams:
 
         <DomainExpiryTool initialName={first(params.name)} />
 
-        <hr className="domain-divider" />
-
-          <ToolPageMarkdown toolPage={toolPage} />
+        <ToolPageMarkdown toolPage={toolPage} />
       </main>
     </AppShell>
   );

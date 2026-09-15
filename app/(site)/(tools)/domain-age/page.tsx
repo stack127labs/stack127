@@ -34,8 +34,6 @@ export default async function DomainAgePage({
 
         <DomainAgeTool initialName={first(params.name)} />
 
-        <hr className="domain-divider" />
-
         <div className={styles.guide}>
           <ToolPageMarkdown toolPage={toolPage} />
         </div>

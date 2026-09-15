@@ -23,8 +23,6 @@ export default async function MultiTldAvailabilityPage() {
 
         <MultiTldTool />
 
-        <hr className="domain-divider" />
-
         <ToolPageMarkdown toolPage={toolPage} />
       </main>
     </AppShell>

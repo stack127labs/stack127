@@ -28,8 +28,6 @@ export default async function DomainRegistrarPage({ searchParams }: { searchPara
 
         <DomainRegistrarTool initialName={first(params.name)} />
 
-        <hr className="domain-divider" />
-
         <ToolPageMarkdown toolPage={toolPage} />
       </main>
     </AppShell>

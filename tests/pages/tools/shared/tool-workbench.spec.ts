@@ -8,6 +8,25 @@ const representativeRoutes = [
   "/home-assistant-energy-entity-checker",
 ];
 
+const routesWithoutExtraDivider = [
+  "/domain-age",
+  "/domain-expiry",
+  "/domain-registrar",
+  "/domain-report",
+  "/multi-tld-availability",
+  "/punycode-converter",
+  "/transfer-readiness",
+];
+
+for (const route of routesWithoutExtraDivider) {
+  test(`${route} has no standalone divider below the workbench`, async ({ page }) => {
+    await page.goto(route);
+
+    await expect(page.locator("[data-tool-workbench]")).toBeVisible();
+    await expect(page.locator("main > hr")).toHaveCount(0);
+  });
+}
+
 for (const route of ["/nfs-firewall-rules", "/nginx-proxy-pass-calculator", "/raid-calculator", "/shr-calculator", "/snapraid-mergerfs-planner", "/home-assistant-energy-entity-checker", "/transfer-readiness"]) {
   test(`${route} contains wide mobile guide tables in keyboard-accessible scroll regions`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 873 });

@@ -32,8 +32,6 @@ export default async function TransferReadinessPage({ searchParams }: { searchPa
 
         <TransferReadinessTool initialName={first(params.name)} />
 
-        <hr className="domain-divider" />
-
         <ToolPageMarkdown toolPage={toolPage} />
       </main>
     </AppShell>

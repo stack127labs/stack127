@@ -28,8 +28,6 @@ export default async function DomainReportPage({ searchParams }: { searchParams:
 
         <DomainReportTool initialName={first(params.name)} />
 
-        <hr className="domain-divider" />
-
         <ToolPageMarkdown toolPage={toolPage} />
       </main>
     </AppShell>

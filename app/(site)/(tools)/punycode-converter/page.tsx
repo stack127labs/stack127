@@ -23,8 +23,6 @@ export default async function PunycodeConverterPage() {
 
         <PunycodeTool />
 
-        <hr className="domain-divider" />
-
         <ToolPageMarkdown toolPage={toolPage} />
       </main>
     </AppShell>
