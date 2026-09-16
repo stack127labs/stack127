@@ -1,20 +1,22 @@
-.canvas {
-  display: grid;
-  gap: var(--space-13);
-  margin: 0 auto;
-  max-width: 1120px;
+.frame {
+  margin: 0;
+  max-width: none;
   min-width: 0;
-  padding: var(--space-13) var(--container-gutter) var(--space-14);
+  padding: var(--page-padding-top) var(--container-gutter) var(--page-padding-bottom);
   width: 100%;
 }
 
-.wide {
-  max-width: var(--container-max);
+.grid {
+  display: grid;
+  gap: var(--space-13);
 }
 
-@media (max-width: 760px) {
-  .canvas {
+.reading {
+  max-width: calc(var(--measure-prose) + var(--container-gutter) + var(--container-gutter));
+}
+
+@media (max-width: 900px) {
+  .grid {
     gap: var(--space-10);
-    padding-block: var(--space-9) var(--space-12);
   }
 }

@@ -23,8 +23,10 @@ The group names organize the repository and never appear in public URLs.
 
 ## Shared structure
 
-Every page uses the shared site navigation and `AppShell`. New pages use `PageCanvas` for outer
-width and spacing when the family does not already provide a deliberate full-width shell. Visible
+Every page uses the shared site navigation and `AppShell`. All page families use `PageCanvas` and
+the same responsive gutters. Text-led pages use its 760px reading width. Directories, tool
+workbenches, tables, and card grids stay wide. Both widths start at the same left edge. `EntryHero`
+uses the canvas internally, so entry headers and body sections align. Do not nest canvases. Visible
 titles and introductions use `PageHeader`. Reading content uses the classes exported by
 `app/prose.ts` so heading and paragraph rhythm comes from one place.
 

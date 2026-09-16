@@ -11,28 +11,28 @@ export function SiteNav() {
           <BrandWordmark />
         </Link>
         <div className={styles.links}>
-          <Link href="/cli-apps">cli apps</Link>
+          <Link href="/">explore</Link>
           <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
             ·
           </span>
-          <Link href="/self-host-apps">self-host apps</Link>
-          <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
-            ·
-          </span>
-          <Link className={styles.secondaryLink} href="/labs">
-            labs
-          </Link>
-          <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
-            ·
-          </span>
-          <Link className={styles.secondaryLink} href="/dns-tools">
-            dns tools
-          </Link>
+          <Link className={styles.secondaryLink} href="/dns-tools">dns tools</Link>
           <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
             ·
           </span>
           <Link className={styles.secondaryLink} href="/domain-tools">
             domain tools
+          </Link>
+          <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
+            ·
+          </span>
+          <Link className={styles.secondaryLink} href="/storage-tools">
+            storage tools
+          </Link>
+          <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
+            ·
+          </span>
+          <Link className={styles.secondaryLink} href="/labs">
+            labs
           </Link>
         </div>
         <div className={styles.actions}>

@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import "../../(catalogs)/dns-tools/dns-tools.css";
@@ -34,7 +35,7 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
       sidebar={<DnsToolsSidebar active="lookup" />}
       sidebarLabel="DNS lookup sidebar"
     >
-      <main className="dns-lookup-main">
+      <PageCanvas as="main" className="dns-lookup-main">
         <ToolPageHeader
           icon={<Search strokeWidth={2.2} />}
           toolPage={toolPage}
@@ -49,7 +50,7 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
         <div className={styles.guide}>
           <ToolPageMarkdown toolPage={toolPage} />
         </div>
-      </main>
+      </PageCanvas>
     </AppShell>
   );
 }

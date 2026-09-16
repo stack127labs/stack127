@@ -1,0 +1,14 @@
+{
+  "objectClassName": "autnum",
+  "handle": "AS13335",
+  "startAutnum": 13335,
+  "endAutnum": 13335,
+  "name": "CLOUDFLARENET",
+  "status": ["active"],
+  "country": "US",
+  "events": [{"eventAction": "registration", "eventDate": "2010-07-14T00:00:00Z"}],
+  "entities": [
+    {"handle": "CLOUD14-ARIN", "roles": ["registrant"], "vcardArray": ["vcard", [["version", {}, "text", "4.0"], ["fn", {}, "text", "Cloudflare, Inc."], ["org", {}, "text", ["Cloudflare, Inc."]]]]},
+    {"handle": "ABUSEC1387-ARIN", "roles": ["abuse"], "vcardArray": ["vcard", [["version", {}, "text", "4.0"], ["email", {}, "text", "abuse@cloudflare.com"]]]}
+  ]
+}

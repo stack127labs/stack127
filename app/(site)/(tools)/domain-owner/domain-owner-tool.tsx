@@ -55,7 +55,7 @@ function SourceMap({ result }: { result: DomainRegistration }) {
   const responses = [
     result.registryFetch?.status === "registered" ? { fetch: result.registryFetch, source: "registry" as const } : null,
     result.registrarFetch?.status === "registered" ? { fetch: result.registrarFetch, source: "registrar" as const } : null,
-  ].filter((item): item is { fetch: RdapFetch; source: RdapSource } => Boolean(item));
+  ].filter((item): item is { fetch: RdapFetch; source: "registry" | "registrar" } => Boolean(item));
   if (!responses.length) return null;
   return (
     <figure aria-label="Registry and registrar contributions to the public registrant record" className={styles.sourceMap}>

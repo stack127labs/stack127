@@ -1,7 +1,10 @@
 .content {
-  max-width: var(--measure-prose);
   min-width: 0;
   width: 100%;
+}
+
+.content > :where(h2, h3, h4, p, ul, ol, blockquote) {
+  max-width: var(--measure-prose);
 }
 
 .content pre {
@@ -36,7 +39,7 @@
 .tableScroll {
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  max-width: 100%;
+  max-width: var(--measure-prose);
   min-width: 0;
   overflow-x: auto;
   width: 100%;

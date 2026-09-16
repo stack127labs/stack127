@@ -49,3 +49,11 @@ The user must grant the GitHub CLI workflow scope with `gh auth refresh -h githu
 The refreshed desktop run is logged in `quality-final-release.log`: 768 passed, five skipped, and three failed. The SOA selector failure was corrected and independently passed in desktop and mobile, recorded in `soa-final.log`. The other two failures were strict selectors on development-only lab pages, where Next.js adds another noindex tag for the 404 response. The tests now require every robots tag to contain noindex, without assuming exactly one tag.
 
 On September 9, the refreshed GitHub login includes the required workflow scope. Remote main remains unchanged. The complete release can now proceed through the normal quality and deployment gates.
+
+## Live verification and timezone correction
+
+Release `f5a23db5ccc3c7a12d0d8956c7c75c34376d2271` passed the complete local and CI gates and deployed through Actions run `34312953154`. Both gates passed 910 unit tests, 771 desktop browser tests, and 767 mobile browser tests. The migration step confirmed production was already up to date.
+
+Independent live checks passed all 288 published routes, five redirects, two private-lab 404s, the sitemap, robots, repeated directory requests, and the exact live build revision. All 34 tool records still matched the approved transfer.
+
+Additional live browser testing passed 46 checks but found React hydration errors in both app directories. The server used UTC while date formatting implicitly used each browser's timezone. UTC passed; Kolkata and Los Angeles each reproduced the failure for both directories. New timezone regression tests reproduced four failures before the fix. App card and drawer dates now explicitly use UTC, keeping the original date format and layout. This correction must pass the complete release workflow and live verification before the release is considered finished.

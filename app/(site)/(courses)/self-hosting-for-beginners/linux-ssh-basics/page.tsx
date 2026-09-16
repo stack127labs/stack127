@@ -2,6 +2,7 @@ import { getLesson } from "@/lib/self-hosting-for-beginners";
 import { MediaFigure } from "@/app/media-figure";
 import { MarkerArt } from "@/app/marker-art";
 import { Callout, LessonLink, LessonPage } from "../course";
+import { sshKeyPathArt } from "./art/ssh-key-path";
 import { sshRunsThereArt } from "./art/ssh-runs-there";
 import { CodeBlock } from "@/app/code-block";
 
@@ -63,6 +64,11 @@ export default function Page() {
           more secure. It takes two commands, run on your own computer, not the server. First,
           generate the key pair:
         </p>
+
+        <MarkerArt
+          caption="Make the key on your computer, copy its public half to the server, and use it on future logins."
+          svg={sshKeyPathArt}
+        />
 
         <CodeBlock>ssh-keygen</CodeBlock>
 

@@ -1,0 +1,12 @@
+{
+  "objectClassName": "ip network",
+  "handle": "2001:4860:4860:: - 2001:4860:4860:ffff:ffff:ffff:ffff:ffff",
+  "startAddress": "2001:4860:4860::",
+  "endAddress": "2001:4860:4860:ffff:ffff:ffff:ffff:ffff",
+  "ipVersion": "v6",
+  "name": "GOOGLE-IPV6",
+  "type": "ASSIGNED",
+  "country": "US",
+  "status": ["active"],
+  "entities": [{"handle": "GOGL", "roles": ["registrant"], "vcardArray": ["vcard", [["version", {}, "text", "4.0"], ["fn", {}, "text", "Google LLC"]]]}]
+}

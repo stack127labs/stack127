@@ -2,13 +2,15 @@
 
 ## Who is here
 
-A technical reader has landed without a specific tool in mind, or has heard about stack127 and wants to see what is available. They understand the broad subjects but should not need to learn the site structure first.
+A tech tinkerer or hustler has landed without a specific tool in mind, or has heard about stack127 and wants to see what is available. They may be exploring a project, solving a work problem, or learning something new. They should not need a homelab background to understand the site.
 
 ## The job
 
-They should identify the useful surface for their current task and reach it in one click. A newcomer should also see a short path into the course, app directory, or license reference.
+They should identify a useful resource for their current task and reach it in one click. The opening uses the agreed byline, "Tools and directories for tech tinkerers and hustlers." Start here offers existing paths into domain tools, CLI apps, keyboard shortcuts, and the self-hosting course.
 
 ## Show vs say
+
+Keep the current layout and generated artwork. Use a short introduction and existing published links. Describe the broader audience without presenting future paid tools, ads, or topic landing pages as available.
 
 List every published top-level software directory, hardware directory, tool catalog, and reference page. Keep the course and Labs collection. Do not feature individual tools or individual shortcut reference sheets. Publication still comes from the central registry, not this navigation list.
 

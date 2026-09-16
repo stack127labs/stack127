@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { notFound } from "next/navigation";
 import { Bot, CalendarDays, Code2, GitCommitHorizontal, HardDrive, HousePlug, MemoryStick, Monitor, Package, Scale, Star, Tag, WalletCards, type LucideIcon } from "lucide-react";
 import { AppShell, SidebarLabel } from "@/app/app-shell";
@@ -78,7 +79,7 @@ export default function AppCardLabPage() {
           </nav>
         </div>
       }>
-      <div className={styles.lab}>
+      <PageCanvas as="div" flow className={styles.lab}>
         <PageHeader><h1>App <mark>cards</mark></h1></PageHeader>
         {designs.map((design, index) => (
           <section className={styles.design} id={design.id} key={design.id} data-card-design={design.style} aria-labelledby={`${design.id}-title`}>
@@ -114,7 +115,7 @@ export default function AppCardLabPage() {
             </div>
           </section>
         ))}
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

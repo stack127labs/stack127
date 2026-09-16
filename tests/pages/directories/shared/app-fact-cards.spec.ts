@@ -1,6 +1,27 @@
 import { expect, test } from "playwright/test";
 
 for (const route of ["self-host-apps", "cli-apps"]) {
+  for (const timezoneId of ["UTC", "Asia/Kolkata", "America/Los_Angeles"]) {
+    test(`${route} hydrates without date mismatches in ${timezoneId}`, async ({ browser, baseURL }) => {
+      const context = await browser.newContext({ baseURL, timezoneId });
+      try {
+        const page = await context.newPage();
+        const errors: string[] = [];
+        page.on("pageerror", (error) => errors.push(error.message));
+        expect((await page.goto(`/${route}`))?.status()).toBe(200);
+        await page.locator(".directory-card").first().click();
+        await expect(page.getByRole("dialog")).toBeVisible();
+        await page.keyboard.press("Escape");
+        await expect(page.getByRole("dialog")).not.toBeVisible();
+        expect(errors).toEqual([]);
+      } finally {
+        await context.close();
+      }
+    });
+  }
+}
+
+for (const route of ["self-host-apps", "cli-apps"]) {
   test(`${route} fact cards stay readable and open the existing details`, async ({ page }, testInfo) => {
     const errors: string[] = [];
     page.on("pageerror", (error) => errors.push(error.message));

@@ -1,7 +1,9 @@
 {
   "route": "/self-host-apps",
   "state": "published",
-  "docs": ["content_docs/self-host-apps"],
+  "docs": [
+    "content_docs/self-host-apps"
+  ],
   "tests": [
     "tests/pages/self-host-apps/technical-refresh-review.test.mjs",
     "tests/pages/self-host-apps/resource-quarantine.test.mjs",
@@ -19,9 +21,14 @@
     "tests/pages/self-host-apps/layout.spec.ts",
     "tests/pages/self-host-apps/query-performance.test.mjs",
     "tests/pages/self-host-apps/source-model.test.mjs",
-    "tests/stack127/seo.spec.ts"
+    "tests/stack127/seo.spec.ts",
+    "tests/stack127/page-spacing.spec.ts"
   ],
-  "scripts": ["scripts/self-host-apps"],
-  "skills": ["skills/self-host-apps"],
+  "scripts": [
+    "scripts/self-host-apps"
+  ],
+  "skills": [
+    "skills/self-host-apps"
+  ],
   "repositories": []
 }

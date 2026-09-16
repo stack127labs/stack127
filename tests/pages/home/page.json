@@ -10,13 +10,17 @@
     "tests/pages/home/navigation.spec.ts",
     "tests/stack127/entry-page-visual-system.test.mjs",
     "tests/stack127/seo.spec.ts",
-    "tests/stack127/shell-layout.spec.ts"
+    "tests/stack127/shell-layout.spec.ts",
+    "tests/stack127/site-direction.spec.ts",
+    "tests/stack127/page-spacing.spec.ts"
   ],
   "scripts": [
     "scripts/stack127/marker-art"
   ],
   "skills": [
-    "skills/stack127/marker-art-draw"
+    "skills/stack127/marker-art-draw",
+    "skills/stack127/test-driven-page",
+    "skills/stack127/stack127-writing-voice"
   ],
   "repositories": []
 }

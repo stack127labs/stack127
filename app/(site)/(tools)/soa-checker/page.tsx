@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import "../../(catalogs)/dns-tools/dns-tools.css";
@@ -14,13 +15,13 @@ export default async function SoaCheckerPage({ searchParams }: { searchParams: P
   const toolPage = await getRequiredToolPage("soa-checker");
   const params = await searchParams;
   return <AppShell mainLabel="SOA Consistency Checker" menuLabel="DNS tools" sidebar={<DnsToolsSidebar active="soa" />} sidebarLabel="DNS tools sidebar">
-    <main className={styles.main}>
+    <PageCanvas as="main" className={styles.main}>
       <ToolPageHeader
         icon={<FileClock strokeWidth={2.2} />}
         toolPage={toolPage}
       />
       <SoaChecker initialName={first(params.name)} />
       <ToolPageMarkdown toolPage={toolPage} />
-    </main>
+    </PageCanvas>
   </AppShell>;
 }

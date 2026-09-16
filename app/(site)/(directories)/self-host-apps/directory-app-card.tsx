@@ -92,6 +92,7 @@ export function formatCardDate(value: Date | string | null) {
   }
 
   return new Intl.DateTimeFormat("en", {
+    timeZone: "UTC",
     day: "numeric",
     month: "short",
     year: "numeric",

@@ -19,7 +19,8 @@ test("the keyboard shortcut catalog owns the directory and app references", () =
   assert.match(page, /KeyboardShortcutsDirectory/);
   assert.match(directory, /export function KeyboardShortcutsDirectory/);
   assert.match(reference, /export function KeyboardShortcutsReference/);
-  assert.match(styles, /var\(--container-gutter\)/);
+  assert.match(directory, /<PageCanvas/);
+  assert.match(reference, /<PageCanvas/);
   assert.match(styles, /grid-template-columns: 1fr/);
 });
 

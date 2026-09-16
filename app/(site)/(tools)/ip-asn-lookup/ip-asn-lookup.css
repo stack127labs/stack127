@@ -1,0 +1,15 @@
+.ip-asn-lookup-main {
+  display: grid;
+  gap: var(--space-13);
+  margin: 0 auto;
+  max-width: 1080px;
+  padding: var(--space-13) clamp(24px, 5vw, 72px) 64px;
+  width: 100%;
+}
+
+@media (max-width: 760px) {
+  .ip-asn-lookup-main {
+    gap: var(--space-10);
+    padding: var(--space-9) 22px 48px;
+  }
+}

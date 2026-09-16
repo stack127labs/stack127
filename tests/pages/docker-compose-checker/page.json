@@ -1,0 +1,28 @@
+{
+  "route": "/docker-compose-checker",
+  "state": "unpublished",
+  "reason": "The checker is under technical and content review. Publish it only after a separate registry decision.",
+  "docs": ["content_docs/docker-compose-checker"],
+  "tests": [
+    "tests/pages/tools/shared/tool-workbench.test.mjs",
+    "tests/pages/tools/shared/tool-workbench.spec.ts",
+    "tests/stack127/seo.spec.ts",
+    "tests/pages/docker-compose-checker/page.test.mjs",
+    "tests/pages/docker-compose-checker/docker-compose-checker.test.mjs",
+    "tests/pages/docker-compose-checker/docker-compose-checker.spec.ts"
+  ],
+  "scripts": ["scripts/docker-compose-checker/preview-local-page.mjs"],
+  "skills": [
+    "skills/stack127/stack127-tool-orchestrator",
+    "skills/stack127/stack127-tool-build",
+    "skills/stack127/stack127-tool-interface-plan",
+    "skills/stack127/stack127-tool-test-design",
+    "skills/stack127/visual-first-content",
+    "skills/stack127/stack127-tool-writing",
+    "skills/stack127/test-driven-page",
+    "skills/stack127/stack127-tool-interface-design",
+    "skills/stack127/stack127-writing-voice/SKILL.md",
+    "skills/stack127/unslop/SKILL.md"
+  ],
+  "repositories": []
+}

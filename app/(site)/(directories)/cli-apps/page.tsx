@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { Search, SquareTerminal } from "lucide-react";
 import Link from "next/link";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
@@ -413,7 +414,7 @@ export default async function CliAppsPage({
       sidebar={sidebar}
       sidebarLabel="Terminal app filters"
     >
-      <EntryHero art={siteSpotCliAppsArt} wide>
+      <EntryHero art={siteSpotCliAppsArt}>
         <PageHeader>
           <h1>
             <PageTitleIcon>
@@ -427,7 +428,7 @@ export default async function CliAppsPage({
           </p>
         </PageHeader>
       </EntryHero>
-      <div className="directory-results">
+      <PageCanvas as="div" flow className="directory-results">
         <ActiveFilters categoryMap={categoryMap} params={params} />
 
         {paginatedApps.length > 0 ? (
@@ -475,7 +476,7 @@ export default async function CliAppsPage({
             <Link href="/cli-apps">show all apps</Link>
           </div>
         )}
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

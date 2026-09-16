@@ -34,6 +34,7 @@ for (const [slug, phrases] of Object.entries(coverage)) {
 
 test("the shared server renderer owns Markdown prose and table behavior", () => {
   const renderer = readFileSync("app/tool-page-content.tsx", "utf8");
+  const styles = readFileSync("app/tool-page-content.module.css", "utf8");
   assert.match(renderer, /ReactMarkdown/);
   assert.match(renderer, /remarkGfm/);
   assert.match(renderer, /data-tool-page-content/);
@@ -42,4 +43,8 @@ test("the shared server renderer owns Markdown prose and table behavior", () => 
   assert.match(renderer, /role="region"/);
   assert.match(renderer, /tabIndex=\{0\}/);
   assert.doesNotMatch(renderer, /rehypeRaw|dangerouslySetInnerHTML/);
+  assert.match(styles, /> :where\(h2, h3, h4, p, ul, ol, blockquote\)/);
+  assert.match(styles, /max-width: var\(--measure-prose\)/);
+  assert.match(styles, /\.tableScroll[\s\S]*max-width: var\(--measure-prose\)/);
+  assert.match(styles, /\.tableScroll[\s\S]*width: 100%/);
 });

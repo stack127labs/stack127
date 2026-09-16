@@ -1,14 +1,17 @@
 {
   "route": "/zfs-capacity-calculator",
   "state": "published",
-  "docs": ["content_docs/zfs-capacity-calculator"],
+  "docs": [
+    "content_docs/zfs-capacity-calculator"
+  ],
   "tests": [
     "tests/pages/tools/shared/tool-workbench.test.mjs",
     "tests/pages/tools/shared/tool-workbench.spec.ts",
     "tests/stack127/seo.spec.ts",
     "tests/pages/zfs-capacity-calculator/zfs-capacity-calculator.test.mjs",
     "tests/pages/zfs-capacity-calculator/page.test.mjs",
-    "tests/pages/zfs-capacity-calculator/zfs-capacity-calculator.spec.ts"
+    "tests/pages/zfs-capacity-calculator/zfs-capacity-calculator.spec.ts",
+    "tests/stack127/page-spacing.spec.ts"
   ],
   "scripts": [
     "scripts/storage-tools/preview-local-pages.mjs",

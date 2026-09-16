@@ -36,6 +36,18 @@
     "purpose": "Verifies matcher fixtures, current BuildKit behavior, and the published /dockerignore-tester route."
   },
   {
+    "surface": "docker-compose-checker",
+    "folder": "scripts/docker-compose-checker",
+    "manifest": "scripts/docker-compose-checker/scripts.json",
+    "purpose": "Owns the guarded managed-development preview helper for /docker-compose-checker."
+  },
+  {
+    "surface": "self-hosted-app-resource-planner",
+    "folder": "scripts/self-hosted-app-resource-planner",
+    "manifest": "scripts/self-hosted-app-resource-planner/scripts.json",
+    "purpose": "Owns the guarded managed-development preview helper for /self-hosted-app-resource-planner."
+  },
+  {
     "surface": "home-assistant-energy-entity-checker",
     "folder": "scripts/home-assistant-energy-entity-checker",
     "manifest": "scripts/home-assistant-energy-entity-checker/scripts.json",

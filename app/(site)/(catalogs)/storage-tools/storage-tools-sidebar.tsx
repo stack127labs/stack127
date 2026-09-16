@@ -5,6 +5,7 @@ import {
   Database,
   GitBranch,
   HardDrive,
+  ShieldCheck,
   LayoutGrid,
   RefreshCw,
   Server,
@@ -21,6 +22,7 @@ import styles from "./storage-tools.module.css";
 
 type StorageToolId =
   | "hub"
+  | "backup-321"
   | "raid"
   | "zfs"
   | "zfs-padding"
@@ -41,6 +43,7 @@ type StorageToolsSidebarProps = {
 const iconProps = { size: 15, strokeWidth: 2.2 } as const;
 
 const availableStorageTools = [
+  { href: "/backup-321-calculator", icon: <ShieldCheck {...iconProps} />, id: "backup-321", label: "3-2-1 backup" },
   { href: "/raid-calculator", icon: <HardDrive {...iconProps} />, id: "raid", label: "RAID calculator" },
   { href: "/zfs-capacity-calculator", icon: <Database {...iconProps} />, id: "zfs", label: "ZFS calculator" },
   { href: "/zfs-padding-calculator", icon: <Columns3 {...iconProps} />, id: "zfs-padding", label: "ZFS padding" },

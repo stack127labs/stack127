@@ -29,15 +29,12 @@
 .license-page {
   display: grid;
   gap: var(--space-13);
-  margin: 0 auto;
-  max-width: var(--container-max);
-  padding: var(--space-12) var(--container-gutter) 72px;
-  width: 100%;
 }
 
 .license-page-header {
   max-width: 880px;
 }
+
 
 .license-narrative {
   max-width: var(--measure-prose);
@@ -222,7 +219,6 @@
 @media (max-width: 1024px) {
   .license-page {
     gap: var(--space-12);
-    padding: var(--space-10) 22px 54px;
   }
 
   .license-card-grid {

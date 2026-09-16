@@ -17,7 +17,8 @@
     "tests/pages/zigbee-devices/zigbee-devices.spec.ts",
     "tests/pages/hardware-directories/shared/amazon-affiliate.test.mjs",
     "tests/stack127/seo.spec.ts",
-    "tests/pages/hardware-directories/shared/publication.test.mjs"
+    "tests/pages/hardware-directories/shared/publication.test.mjs",
+    "tests/stack127/page-spacing.spec.ts"
   ],
   "scripts": [
     "scripts/zigbee-devices",

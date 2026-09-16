@@ -1,0 +1,18 @@
+{
+  "id": "linux-ssh-basics--ssh-key-path",
+  "page": "self-hosting-for-beginners/linux-ssh-basics",
+  "type": "steps",
+  "takeaway": "An SSH key lets your computer prove who it is to the server on future logins.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-10",
+  "seed": 119,
+  "width": 430,
+  "height": 152,
+  "data": {
+    "items": [
+      { "label": "make a key", "icon": "terminal" },
+      { "label": "copy public key", "icon": "document", "tone": "primary" },
+      { "label": "connect", "icon": "lock", "tone": "primary" }
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 import { getLesson } from "@/lib/self-hosting-for-beginners";
 import { MarkerArt } from "@/app/marker-art";
 import { Callout, LessonLink, LessonPage } from "../course";
+import { imageContainerCycleArt } from "./art/image-container-cycle";
 import { imageContainerPortArt } from "./art/image-container-port";
 import { CodeBlock } from "@/app/code-block";
 
@@ -27,8 +28,8 @@ export default function Page() {
         </p>
 
         <MarkerArt
-          caption="Docker runs an image as a container, and the container is reached through a port."
-          svg={imageContainerPortArt}
+          caption="An image is the packaged app; running it creates a disposable container."
+          svg={imageContainerCycleArt}
         />
 
         <p>
@@ -38,6 +39,11 @@ export default function Page() {
           app's image, you run it, and if it goes wrong you throw the container away and start
           fresh. That's the whole appeal.
         </p>
+
+        <MarkerArt
+          caption="A browser reaches a container through a host port mapped to the app's port inside it."
+          svg={imageContainerPortArt}
+        />
 
         <h2>Install it</h2>
         <p>

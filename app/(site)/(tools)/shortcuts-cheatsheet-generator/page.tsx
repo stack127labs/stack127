@@ -29,7 +29,7 @@ export default async function ShortcutsCheatSheetGeneratorPage({ searchParams }:
       sidebar={<KeyboardShortcutsSidebar activePage="generator" />}
       sidebarLabel="Shortcut pages"
     >
-      <PageCanvas wide>
+      <PageCanvas>
         <ToolPageHeader
           icon={<Keyboard strokeWidth={2.2} />}
           toolPage={toolPage}

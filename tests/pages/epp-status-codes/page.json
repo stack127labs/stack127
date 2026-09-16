@@ -5,7 +5,8 @@
     "content_docs/epp-status-codes"
   ],
   "tests": [
-    "tests/pages/domain-tools/shared/status-codes.test.mjs"
+    "tests/pages/domain-tools/shared/status-codes.test.mjs",
+    "tests/stack127/page-spacing.spec.ts"
   ],
   "scripts": [
     "scripts/domain-tools/refresh-datasets.mjs"

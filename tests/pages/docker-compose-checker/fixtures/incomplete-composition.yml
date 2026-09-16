@@ -1,0 +1,10 @@
+include:
+  - ./base.compose.yml
+services:
+  web:
+    image: nginx
+    extends:
+      file: ./common.yml
+      service: base
+    depends_on:
+      - external-db

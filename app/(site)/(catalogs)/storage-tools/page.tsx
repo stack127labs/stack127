@@ -5,6 +5,7 @@ import { PageCanvas } from "@/app/page-canvas";
 import { PageHeader } from "@/app/page-header";
 import { PageTitleIcon } from "@/app/page-title-icon";
 import { siteSpotStorageToolsArt } from "../../art/site--spot-storage-tools";
+import { backup321Art } from "../_components/art/backup-321";
 import { cephArt } from "../_components/art/ceph";
 import { driveReliabilityArt } from "../_components/art/drive-reliability";
 import { raidArt } from "../_components/art/raid";
@@ -21,6 +22,12 @@ import { ToolCatalog, type CatalogTool } from "../_components/tool-catalog";
 import { ToolCatalogSidebar } from "../_components/tool-catalog-sidebar";
 
 const tools: CatalogTool[] = [
+  {
+    href: "/backup-321-calculator",
+    name: "3-2-1 backup calculator",
+    description: "Size local and off-site targets from your backup plan.",
+    art: backup321Art,
+  },
   {
     href: "/raid-calculator",
     name: "RAID calculator",
@@ -103,7 +110,7 @@ export default function StorageToolsPage() {
       sidebar={<ToolCatalogSidebar active="storage-tools" />}
       sidebarLabel="Tool catalogs sidebar"
     >
-      <EntryHero art={siteSpotStorageToolsArt} wide>
+      <EntryHero art={siteSpotStorageToolsArt}>
         <PageHeader>
           <h1>
             <PageTitleIcon>

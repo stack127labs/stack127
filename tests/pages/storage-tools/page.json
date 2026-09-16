@@ -1,7 +1,9 @@
 {
   "route": "/storage-tools",
   "state": "published",
-  "docs": ["content_docs/storage-tools"],
+  "docs": [
+    "content_docs/storage-tools"
+  ],
   "tests": [
     "tests/stack127/entry-page-visual-system.test.mjs",
     "tests/stack127/catalog-layout.spec.ts",
@@ -9,9 +11,12 @@
     "tests/pages/storage-tools/hub.test.mjs",
     "tests/pages/storage-tools/shared/storage-engine.test.mjs",
     "tests/pages/storage-tools/shared/preview-local-pages.test.mjs",
-    "tests/pages/storage-tools/shared/storage-publication.test.mjs"
+    "tests/pages/storage-tools/shared/storage-publication.test.mjs",
+    "tests/stack127/page-spacing.spec.ts"
   ],
-  "scripts": ["scripts/storage-tools/preview-local-pages.mjs"],
+  "scripts": [
+    "scripts/storage-tools/preview-local-pages.mjs"
+  ],
   "skills": [
     "skills/stack127/test-driven-page",
     "skills/stack127/visual-first-content"

@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { CourseDefinition } from "@/lib/courses";
@@ -136,12 +137,12 @@ export async function CourseLessonPage({ children, course, currentSlug, entryHer
       sidebarLabel={`${course.title} sidebar`}
     >
       <JsonLd data={buildBreadcrumbStructuredData(crumbs)} />
-      {entryHeroArt ? <EntryHero align="start" art={entryHeroArt}>{headingBlock}</EntryHero> : null}
-      <article className={`lesson-page ${proseClassName} ${proseFlowClassName}`}>
+      {entryHeroArt ? <EntryHero art={entryHeroArt}>{headingBlock}</EntryHero> : null}
+      <PageCanvas as="article" flow reading className={`lesson-page ${proseClassName} ${proseFlowClassName}`}>
         {entryHeroArt ? null : headingBlock}
         {children}
         <LessonNavigation course={course} currentSlug={currentSlug} />
-      </article>
+      </PageCanvas>
     </AppShell>
   );
 }

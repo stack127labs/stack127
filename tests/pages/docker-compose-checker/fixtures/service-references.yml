@@ -1,0 +1,8 @@
+services:
+  web:
+    image: nginx
+    depends_on:
+      - db
+      - absent
+  db:
+    image: postgres:16

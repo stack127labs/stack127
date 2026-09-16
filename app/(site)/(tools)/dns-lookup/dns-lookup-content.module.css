@@ -1,6 +1,5 @@
 .guide {
   width: 100%;
-  max-width: var(--measure-prose);
   min-width: 0;
 }
 

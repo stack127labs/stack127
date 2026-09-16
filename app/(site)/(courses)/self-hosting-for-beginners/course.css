@@ -4,11 +4,6 @@
   gap: var(--space-8);
 }
 
-.lesson-page {
-  max-width: var(--measure-prose);
-  padding: var(--space-12) var(--container-gutter) 64px;
-}
-
 .lesson-byline {
   align-items: center;
   color: var(--color-text-muted);

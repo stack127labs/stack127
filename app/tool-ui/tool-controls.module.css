@@ -338,6 +338,7 @@
   display: inline-flex;
   height: 20px;
   justify-content: center;
+  pointer-events: none;
   width: 20px;
 }
 

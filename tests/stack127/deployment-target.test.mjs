@@ -86,7 +86,10 @@ test("deployment preflight reports a Cloudflare connection failure cleanly", asy
 test("the release workflow keeps quality, immutable images, and live SHA checks in one path", async () => {
   const workflow = await readFile(".github/workflows/stack127-release-e2e.yml", "utf8");
 
-  assert.match(workflow, /npm run quality/);
+  assert.match(workflow, /cancel-in-progress: true/);
+  assert.match(workflow, /npm run quality:release/);
+  assert.doesNotMatch(workflow, /npm run quality(?:\s|$)/m);
+  assert.equal(workflow.match(/npm run build/g)?.length, 1);
   assert.match(workflow, /stack127:deploy:preflight/);
   assert.match(workflow, /docker\/build-push-action@v6/);
   assert.match(workflow, /STACK127_BUILD_SHA=/);

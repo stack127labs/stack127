@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import "../../(catalogs)/dns-tools/dns-tools.css";
@@ -21,14 +22,14 @@ export default async function DnsChangeCheckerPage({ searchParams }: { searchPar
   const params = await searchParams;
   return (
     <AppShell mainLabel="DNS Change Checker" menuLabel="DNS tools" sidebar={<DnsToolsSidebar active="change" />} sidebarLabel="DNS tools sidebar">
-      <main className={styles.main}>
+      <PageCanvas as="main" className={styles.main}>
         <ToolPageHeader
           icon={<RefreshCw strokeWidth={2.2} />}
           toolPage={toolPage}
         />
         <DnsChangeChecker initialName={first(params.name)} initialRecordType={initialType(first(params.type))} />
         <ToolPageMarkdown toolPage={toolPage} />
-      </main>
+      </PageCanvas>
     </AppShell>
   );
 }

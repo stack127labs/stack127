@@ -3,6 +3,7 @@
 import { existsSync, lstatSync, readFileSync, readlinkSync, statSync } from "node:fs";
 import path from "node:path";
 import { docFolderForRoute, routeFromPageFile, walk } from "./route-utils.mjs";
+import { pageLayoutFailures } from "./page-layout-policy.mjs";
 
 const root = process.cwd();
 const failures = [];
@@ -297,6 +298,11 @@ checkGlobalCssOwnership();
 checkPackageScripts();
 checkSkillAdapters();
 checkPageCoverage(pageFiles);
+const appFiles = walk("app");
+for (const failure of pageLayoutFailures(
+  new Map(appFiles.filter(file => file.endsWith(".tsx")).map(file => [file, read(file)])),
+  new Map(appFiles.filter(file => file.endsWith(".css")).map(file => [file, read(file)])),
+)) fail(failure);
 
 if (failures.length > 0) {
   console.error("Stack127 static policy failed:");

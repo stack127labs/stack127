@@ -1,8 +1,6 @@
 .lab {
   display: grid;
   gap: var(--space-13);
-  min-width: 0;
-  padding: 30px clamp(var(--space-10), 2.5vw, 36px) 44px;
 }
 .directoryLinks {
   border-top: 1px solid var(--color-border);
@@ -181,7 +179,6 @@
   .labelColumns .facts > div { grid-template-columns: 80px minmax(0, 1fr); }
 }
 @container (max-width: 650px) { .grid { grid-template-columns: minmax(0, 1fr); } }
-@media (max-width: 900px) { .lab { padding: 24px 22px 36px; } }
 @media (max-width: 400px) {
   .card { padding: var(--space-7); }
   .sideIcon .card { padding-left: var(--space-7); }

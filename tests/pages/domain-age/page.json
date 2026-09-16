@@ -11,7 +11,8 @@
     "tests/pages/domain-age/interface.spec.ts",
     "tests/pages/domain-tools/shared/duration.test.mjs",
     "tests/pages/domain-tools/shared/normalize.test.mjs",
-    "tests/pages/domain-tools/shared/public-suffix.test.mjs"
+    "tests/pages/domain-tools/shared/public-suffix.test.mjs",
+    "tests/stack127/page-spacing.spec.ts"
   ],
   "scripts": [
     "scripts/domain-tools/refresh-datasets.mjs"

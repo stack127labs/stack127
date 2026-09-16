@@ -1,0 +1,6 @@
+{
+  "explicitEnvironment": "KNOWN=from-paste\nEMPTY=\n",
+  "serviceEnvironment": "KNOWN=from-service",
+  "serviceEnvFile": "KNOWN=from-env-file",
+  "shellUnavailable": true
+}

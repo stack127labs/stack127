@@ -3,7 +3,7 @@ import { expect, test } from "playwright/test";
 const catalogs = [
   { path: "/dns-tools", cards: 7 },
   { path: "/domain-tools", cards: 12 },
-  { path: "/storage-tools", cards: 12 },
+  { path: "/storage-tools", cards: 13 },
 ];
 
 test("catalog navigation works on desktop and mobile, then opens a tool", async ({ page }, testInfo) => {

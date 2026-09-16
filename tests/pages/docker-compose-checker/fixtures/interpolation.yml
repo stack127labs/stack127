@@ -1,0 +1,14 @@
+services:
+  web:
+    image: "repo:${TAG:-latest}"
+    environment:
+      - "KNOWN=$KNOWN"
+      - "EMPTY=${EMPTY-default}"
+      - "EMPTY_DEFAULT=${EMPTY:-default}"
+      - "REQUIRED=${REQUIRED:?required message}"
+      - "ALT=${KNOWN:+set}"
+      - "EMPTY_ALT=${EMPTY:+set}"
+      - "HOME=$$HOME"
+      - "NESTED=${OUTER:-${INNER:-fallback}}"
+      - "MISSING=$MISSING"
+    env_file: ./container.env

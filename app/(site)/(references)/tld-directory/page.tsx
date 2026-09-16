@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import "../../(catalogs)/domain-tools/domain-tools.css";
 import { Globe } from "lucide-react";
 import Link from "next/link";
@@ -20,7 +21,7 @@ export default function TldDirectoryPage() {
       sidebar={<DomainToolsSidebar active="tlds" />}
       sidebarLabel="Domain tools sidebar"
     >
-      <main className="domain-tool-main">
+      <PageCanvas as="main" className="domain-tool-main">
         <PageHeader>
           <h1>
             <PageTitleIcon>
@@ -179,7 +180,7 @@ export default function TldDirectoryPage() {
             </p>
           </section>
         </article>
-      </main>
+      </PageCanvas>
     </AppShell>
   );
 }

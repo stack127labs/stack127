@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import "../../(catalogs)/domain-tools/domain-tools.css";
@@ -15,7 +16,7 @@ export default async function MultiTldAvailabilityPage() {
       sidebar={<DomainToolsSidebar active="multi-tld" />}
       sidebarLabel="Domain tools sidebar"
     >
-      <main className="domain-tool-main">
+      <PageCanvas as="main" className="domain-tool-main">
         <ToolPageHeader
           icon={<Layers strokeWidth={2.2} />}
           toolPage={toolPage}
@@ -24,7 +25,7 @@ export default async function MultiTldAvailabilityPage() {
         <MultiTldTool />
 
         <ToolPageMarkdown toolPage={toolPage} />
-      </main>
+      </PageCanvas>
     </AppShell>
   );
 }

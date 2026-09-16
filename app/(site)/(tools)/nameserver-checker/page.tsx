@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import "../../(catalogs)/dns-tools/dns-tools.css";
@@ -15,14 +16,14 @@ export default async function NameserverCheckerPage({ searchParams }: { searchPa
   const params = await searchParams;
   return (
     <AppShell mainLabel="Nameserver Delegation Checker" menuLabel="DNS tools" sidebar={<DnsToolsSidebar active="nameserver" />} sidebarLabel="DNS tools sidebar">
-      <main className={styles.main}>
+      <PageCanvas as="main" className={styles.main}>
         <ToolPageHeader
           icon={<Server strokeWidth={2.2} />}
           toolPage={toolPage}
         />
         <NameserverChecker initialName={first(params.name)} />
         <ToolPageMarkdown toolPage={toolPage} />
-      </main>
+      </PageCanvas>
     </AppShell>
   );
 }

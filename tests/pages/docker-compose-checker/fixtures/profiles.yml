@@ -1,0 +1,9 @@
+services:
+  web:
+    image: nginx
+    profiles: [debug, debug, ""]
+    depends_on:
+      - metrics
+  metrics:
+    image: prom/prometheus
+    profiles: [observability]

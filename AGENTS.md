@@ -1,6 +1,6 @@
 # Stack127 Agent Guide
 
-Stack127 is a compact technical directory site. It should grow into multiple repo-owned pages for self-host apps, open-source tools, home automation, AI agents, calculators, reference pages, and related technical resources.
+stack127 is a tools and directories website for tech tinkerers and hustlers. It builds tools, directories, reference pages, courses, and software or digital products around subjects the founder explores. Homelab users are part of the tinkerer audience, not the boundary of the whole site. Read `stack127_docs/product-direction.md` for the agreed audience, business model, URL structure, and current implementation scope.
 
 ## Communication rules
 
@@ -13,7 +13,7 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - Keep pages fast, small, and consistent across the site.
 - Keep important page content server-rendered and easy for search crawlers and AI agents to read.
 - Prefer structured facts when they are clearer than prose, but do not break natural explanations into labels, fragments, or a card for every fact.
-- Use the shared shell, design tokens, typography, spacing, and component patterns before inventing new UI.
+- Use the shared shell, design tokens, typography, spacing, and component patterns before inventing new UI. Every outer page section uses `PageCanvas`, including the canvas inside `EntryHero`. All families share the self-host apps directory gutters. Use `reading` for text-led pages; keep directories, tool workbenches, and primary comparison tables wide. Explanatory tables follow the reading width of their surrounding text. Both widths share the same left edge. Do not add page-specific outer margins or padding.
 - Follow `stack127_docs/design-system.md`. Body text has exactly two sizes: `--text-body` for everything, `--text-small` only for card descriptions, metadata, captions, and sidebar items. The chartreuse accent is a fill for at most the h1 mark, one primary button, the active pagination page, focus, and the active tab underline; accent-colored text uses `--color-accent-text`. Muted text is only for annotations such as metadata, captions, and counts — reading copy uses `--color-text`.
 - Follow `stack127_docs/tool-interface.md` when designing or changing an interactive tool. Start from the user's task, keep one primary action, remove repeated explanations, preserve labels and recovery, and make the answer more prominent than settings or metadata.
 - Follow `stack127_docs/css-architecture.md`. Keep `app/globals.css` limited to tokens, reset, and document defaults; colocate page and component styles with their owner.
@@ -94,6 +94,7 @@ Stack127 is a compact technical directory site. It should grow into multiple rep
 - `.agents/skills` and `.claude/skills` are symlink adapters to `skills/`; do not replace them with copied folders.
 - Global Codex or Claude-facing skill installs should be copied or symlinked from the repo.
 - For self-host app work, use skills under `skills/self-host-apps/` before creating new ad hoc workflows.
+- For requests to check an existing tool's quality, test local tools, or decide whether tool work is fully done, use `skills/stack127/stack127-tool-audit/SKILL.md`. It covers correctness, tests, rendered UI, writing, data, and readiness, and keeps reviews read-only unless fixes are also authorized.
 - For Stack127 page work, read `skills/stack127/test-driven-page/SKILL.md` before changing routes, SEO behavior, or publication state.
 - For a new tool or substantial tool redesign, use `skills/stack127/stack127-tool-interface-plan/SKILL.md` before test design or implementation. The planner decides the visible information model; the builder must not invent extra controls or result regions.
 - For production release or deployment work, read `skills/stack127/stack127-release-e2e/SKILL.md` before touching the release workflow, Dokploy, Cloudflare Access, or production verification.

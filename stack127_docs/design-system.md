@@ -19,7 +19,7 @@ Use the semantic names for new UI:
 | Space | `--space-1` through `--space-14`, `--measure-prose` |
 | Radius | `--radius` (2px for every bounded UI shape) |
 | Effects | `--focus-ring`, `--motion-fast`, `--motion-base` |
-| Layout | `--container-max`, `--container-gutter`, `--top-bar-height`, `--sidebar-width` |
+| Layout | `--container-gutter`, `--page-padding-top`, `--page-padding-bottom`, `--top-bar-height`, `--sidebar-width` |
 
 The previous token scale (`--text-sm`, `--color-accent-soft`, `--shadow-card`, and similar) has been removed. All CSS uses the semantic tokens above; a token that is not in this table does not exist.
 
@@ -72,7 +72,7 @@ Every page h1 highlights one editorially chosen phrase with a `<mark>` styled as
 ## Rules
 
 - Dark is home: design on `#101010` first, then verify light mode. Anything that only works in one theme is wrong in both.
-- One container, one left edge: header text, hero, prose, and components align to the same `--container-max` container with `--container-gutter`. Only rules, full-bleed bands, and page-corner doodles may bleed full width.
+- Every page uses `PageCanvas` and the self-host apps directory spacing: `clamp(24px, 2.5vw, 36px)` horizontally, 30px above and 44px below. At viewport widths of 900px or less, use 22px horizontally, 24px above and 36px below. Text-led pages use the 760px reading canvas. Directories, tool workbenches, primary comparison tables, and card grids use the wide canvas. Explanatory tables follow the reading width. Both start at the same left edge. Full-width bands and rules may reach the main-column edges.
 - Top-level entry pages use the shared dotted `EntryHero`. This includes home, catalogs, directories, course entry pages, labs, and legal pages. Individual tools, lessons, records, and dense reference pages keep a plain task-first header.
 - Direct the eye by size, then weight, then accent — in that order. Color is the last resort.
 - Use borders before shadows; the site has no decorative shadows and no gradients.
@@ -101,7 +101,7 @@ App directory cards use the approved Fact rows variant in `app-fact-card.tsx`. S
 
 Hardware directories use `hardware-fact-card.tsx` with a 200px-tall contained product image, one vendor/model heading, and the same `AppCardFacts` rows. Use the product name when a grouped record has no real model identifier. Do not add subtitles, summary paragraphs, repeated identity lines, or a separate compatibility box. Compatibility stays a fact row alongside the practical fields. Preserve full values and the existing detail drawer. Missing or failed product images show an explicit placeholder rather than a generated illustration.
 
-Tools use one full-width workbench band. Its `--color-surface` background and `--color-border-strong` top and bottom rules span the entire main column beside the sidebar. The interactive content stays centered at the page's normal tool width. The band has no side borders or corner radius. The form leads and results render below a `--color-border` divider in the same band. Supporting prose returns to the normal reading width. Results read like an answer: a full sentence at `--text-body` first, the data table second, and timing or provider metadata last in `--text-small` mono muted text. Do not put nested cards around the whole tool or its major sections.
+Tools use one full-width workbench band. Its `--color-surface` background and `--color-border-strong` top and bottom rules span the entire main column beside the sidebar. The interactive content uses the shared page gutters and fills the available content width. The band has no side borders or corner radius. The form leads and results render below a `--color-border` divider in the same band. Supporting headings, paragraphs, lists, quotes, and explanatory tables stop at `--measure-prose`; primary result tables and code may use the wide canvas. Everything stays on the shared left edge. Results read like an answer: a full sentence at `--text-body` first, the data table second, and timing or provider metadata last in `--text-small` mono muted text. Do not put nested cards around the whole tool or its major sections.
 
 Sidebars that list things use `SidebarList` from `app/sidebar-list.tsx`: small rows, optional mono numbers and counts, and a `--color-surface-2` active fill with an accent-ink leading cell. Linear lists lead with mono numbers, non-linear lists lead with a meaningful monochrome icon, and lists with no sensible icon fall back to the quiet chevron. Do not hand-roll another sidebar link list.
 

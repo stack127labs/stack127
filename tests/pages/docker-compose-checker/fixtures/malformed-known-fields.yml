@@ -1,0 +1,7 @@
+services:
+  web:
+    image: 42
+    build: [context]
+    healthcheck: true
+    environment: true
+    networks: true

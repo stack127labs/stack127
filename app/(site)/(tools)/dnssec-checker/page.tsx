@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import "../../(catalogs)/dns-tools/dns-tools.css";
@@ -22,7 +23,7 @@ export default async function DnssecCheckerPage({ searchParams }: { searchParams
       sidebar={<DnsToolsSidebar active="dnssec" />}
       sidebarLabel="DNS tools sidebar"
     >
-      <main className={styles.main}>
+      <PageCanvas as="main" className={styles.main}>
         <ToolPageHeader
           icon={<ShieldCheck strokeWidth={2.2} />}
           toolPage={toolPage}
@@ -34,7 +35,7 @@ export default async function DnssecCheckerPage({ searchParams }: { searchParams
         />
 
         <ToolPageMarkdown toolPage={toolPage} />
-      </main>
+      </PageCanvas>
     </AppShell>
   );
 }

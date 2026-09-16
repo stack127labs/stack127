@@ -1,0 +1,30 @@
+{
+  "objectClassName": "ip network",
+  "handle": "1.1.1.0 - 1.1.1.255",
+  "startAddress": "1.1.1.0",
+  "endAddress": "1.1.1.255",
+  "ipVersion": "v4",
+  "name": "APNIC-LABS",
+  "type": "ASSIGNED PORTABLE",
+  "country": "AU",
+  "status": ["active"],
+  "parentHandle": "1.0.0.0 - 1.255.255.255",
+  "events": [
+    {"eventAction": "registration", "eventDate": "2010-02-04T00:00:00Z"},
+    {"eventAction": "last changed", "eventDate": "2024-03-07T00:00:00Z"}
+  ],
+  "entities": [
+    {
+      "handle": "APNIC",
+      "roles": ["registrant"],
+      "vcardArray": ["vcard", [["version", {}, "text", "4.0"], ["fn", {}, "text", "APNIC Research and Development"], ["org", {}, "text", ["APNIC Research and Development"]], ["adr", {"cc": "AU"}, "text", ["", "", "", "", "", "", "AU"]]]]
+    },
+    {
+      "handle": "ABUSE-APNIC",
+      "roles": ["abuse"],
+      "vcardArray": ["vcard", [["version", {}, "text", "4.0"], ["fn", {}, "text", "APNIC Abuse"], ["email", {}, "text", "helpdesk@apnic.net"]]]
+    }
+  ],
+  "remarks": [{"title": "Registration comments", "description": ["This is a deterministic test fixture."]}],
+  "notices": [{"title": "Terms of use", "description": ["Fixture notice."]}]
+}

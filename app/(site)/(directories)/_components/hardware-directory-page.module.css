@@ -53,8 +53,12 @@
   width: 100%;
 }
 
+.guide > :where(h2, h3, p, ul, ol) {
+  max-width: var(--measure-prose);
+}
+
 .tableWrap {
-  max-width: 100%;
+  max-width: var(--measure-prose);
   min-width: 0;
   overflow-x: auto;
   width: 100%;

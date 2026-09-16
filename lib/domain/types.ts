@@ -1,7 +1,7 @@
 import type { CoverageSource } from "./bootstrap.ts";
 
 /** Which server produced a fact. Never collapse these into one. */
-export type RdapSource = "registry" | "registrar";
+export type RdapSource = "registry" | "registrar" | "network-registry" | "network-routing";
 
 export type RdapFetchStatus =
   | "registered"

@@ -1,13 +1,16 @@
 {
   "route": "/dns-lookup",
   "state": "published",
-  "docs": ["content_docs/dns-lookup"],
+  "docs": [
+    "content_docs/dns-lookup"
+  ],
   "tests": [
     "tests/pages/tools/shared/tool-workbench.test.mjs",
     "tests/pages/tools/shared/tool-workbench.spec.ts",
     "tests/stack127/seo.spec.ts",
     "tests/pages/dns-lookup/dns-lookup.spec.ts",
-    "tests/pages/dns-lookup/dns-lookup.test.mjs"
+    "tests/pages/dns-lookup/dns-lookup.test.mjs",
+    "tests/stack127/page-spacing.spec.ts"
   ],
   "scripts": [],
   "skills": [

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { spawn } from "node:child_process";
-import { existsSync, readFileSync, rmSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, rmSync, symlinkSync } from "node:fs";
 import path from "node:path";
 
 function readEnvFile(file) {
@@ -33,8 +33,24 @@ const serverMode = process.env.STACK127_TEST_SERVER ?? "dev";
 const distDir = serverMode === "production" ? ".next" : ".next-playwright";
 const port = process.env.STACK127_TEST_PORT ?? process.env.PORT ?? "3334";
 
+function ensureProductionAssetLink(source, target) {
+  if (existsSync(target)) return;
+  rmSync(target, { recursive: true, force: true });
+  mkdirSync(path.dirname(target), { recursive: true });
+  symlinkSync(path.relative(path.dirname(target), source), target, "dir");
+}
+
 if (serverMode !== "production") {
   rmSync(path.join(process.cwd(), distDir), { recursive: true, force: true });
+} else {
+  ensureProductionAssetLink(
+    path.join(process.cwd(), ".next", "static"),
+    path.join(process.cwd(), ".next", "standalone", ".next", "static"),
+  );
+  ensureProductionAssetLink(
+    path.join(process.cwd(), "public"),
+    path.join(process.cwd(), ".next", "standalone", "public"),
+  );
 }
 
 const env = {
@@ -42,14 +58,16 @@ const env = {
   ...readEnvFile(path.join(process.cwd(), databaseEnvFile)),
   NODE_OPTIONS: process.env.STACK127_TEST_NODE_OPTIONS ?? process.env.NODE_OPTIONS ?? "--max-old-space-size=6144",
   STACK127_TEST_DIST_DIR: distDir,
+  HOSTNAME: serverMode === "production" ? "127.0.0.1" : process.env.HOSTNAME,
   PORT: port,
 };
 
 const nextBin = path.join(process.cwd(), "node_modules", "next", "dist", "bin", "next");
+const standaloneServer = path.join(process.cwd(), ".next", "standalone", "server.js");
 const bundler = process.env.STACK127_TEST_BUNDLER ?? "webpack";
 const bundlerFlag = bundler === "turbopack" ? "--turbopack" : "--webpack";
 const nextArgs = serverMode === "production"
-  ? [nextBin, "start", "-p", port]
+  ? [standaloneServer]
   : [nextBin, "dev", bundlerFlag, "-p", port];
 let child;
 let stopping = false;
@@ -65,6 +83,10 @@ function startChild() {
       if (signal) process.kill(process.pid, signal);
       process.exit(code ?? 0);
     }
+
+    console.error(
+      `[playwright-web-server] Next.js exited unexpectedly (code=${code ?? "none"}, signal=${signal ?? "none"}).`,
+    );
 
     // Next.js exits with 77 when its dev server reaches the memory safety
     // threshold. Keep the Playwright web-server process alive and replace the

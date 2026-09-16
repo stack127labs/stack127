@@ -1,0 +1,10 @@
+services:
+  web:
+    networks:
+      backend:
+        aliases:
+          - web
+      frontend: null
+networks:
+  backend: {}
+  frontend: {}

@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { siteSpotLocalSecurityCamerasArt } from "./art/site--spot-local-security-cameras";
 import { siteSpotNutCompatibleUpsArt } from "./art/site--spot-nut-compatible-ups";
 import { siteSpotZigbeeCoordinatorsArt } from "./art/site--spot-zigbee-coordinators";
@@ -234,35 +235,45 @@ function HomePageCard({
 function startHereItems(featureSlugs: Set<string>): { key: string; node: ReactNode }[] {
   const items: { key: string; node: ReactNode }[] = [];
 
+  if (featureSlugs.has("domain-tools")) {
+    items.push({
+      key: "domains",
+      node: (
+        <>
+          Working on a website? <Link href="/domain-tools">Check its domain</Link>.
+        </>
+      ),
+    });
+  }
+
+  if (featureSlugs.has("cli-apps")) {
+    items.push({
+      key: "apps",
+      node: (
+        <>
+          Looking for a terminal app? <Link href="/cli-apps">Browse CLI apps</Link>.
+        </>
+      ),
+    });
+  }
+
+  if (featureSlugs.has("keyboard-shortcuts")) {
+    items.push({
+      key: "shortcuts",
+      node: (
+        <>
+          Learning an app? <Link href="/keyboard-shortcuts">Find its shortcuts</Link>.
+        </>
+      ),
+    });
+  }
+
   if (featureSlugs.has("self-hosting-for-beginners")) {
     items.push({
       key: "course",
       node: (
         <>
-          New to self-hosting? <Link href="/self-hosting-for-beginners">Open the course</Link>.
-        </>
-      ),
-    });
-  }
-
-  if (featureSlugs.has("self-host-apps")) {
-    items.push({
-      key: "apps",
-      node: (
-        <>
-          Looking for an app? <Link href="/self-host-apps">Browse the directory</Link>.
-        </>
-      ),
-    });
-  }
-
-  if (featureSlugs.has("software-licenses-for-self-hosting")) {
-    items.push({
-      key: "licenses",
-      node: (
-        <>
-          Checking a license label?{" "}
-          <Link href="/software-licenses-for-self-hosting">Read the license notes</Link>.
+          Setting up a home server? <Link href="/self-hosting-for-beginners">Start the course</Link>.
         </>
       ),
     });
@@ -289,18 +300,18 @@ export default async function Home() {
       sidebar={<HomeSidebar pages={visibleMainPages} />}
       sidebarLabel="Home sidebar"
     >
-      <EntryHero art={siteHeroStack127Art} wide>
+      <EntryHero art={siteHeroStack127Art}>
         <header className="home-intro">
           <h1 id="home-title">
-            Practical tools for people who <mark>tinker</mark>
+            Tools and directories for tech <mark>tinkerers and hustlers</mark>
           </h1>
           <p className="home-lede">
-            Directories, tools, and guides for self-hosting, automation, AI agents, and way
-            more techy stuff.
+            Find a tool for your next project, compare software and hardware, and learn
+            with practical references and courses.
           </p>
         </header>
       </EntryHero>
-      <section className="home-main" aria-labelledby="home-title">
+      <PageCanvas as="section" flow className="home-main" aria-labelledby="home-title">
         <div className="home-page-grid">
           {featurePages.map((page, index) => (
             <HomePageCard
@@ -321,7 +332,7 @@ export default async function Home() {
             </ul>
           </section>
         ) : null}
-      </section>
+      </PageCanvas>
     </AppShell>
   );
 }

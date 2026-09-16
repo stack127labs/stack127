@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { Fragment } from "react";
 import { groupedBindings, keycapParts } from "@/lib/shortcuts/presentation";
 import Link from "next/link";
@@ -53,7 +54,7 @@ function ShortcutRow({ shortcut, platforms }: { shortcut: Shortcut; platforms: A
 
 export function KeyboardShortcutsReference({ app }: { app: AppShortcuts }) {
   return (
-    <div className={styles.page}>
+    <PageCanvas className={styles.page} flow>
       <PageHeader>
         <h1>
           <PageTitleIcon><Keyboard strokeWidth={2.2} /></PageTitleIcon>{" "}
@@ -100,6 +101,6 @@ export function KeyboardShortcutsReference({ app }: { app: AppShortcuts }) {
           </Link>
         </p>
       </section>
-    </div>
+    </PageCanvas>
   );
 }

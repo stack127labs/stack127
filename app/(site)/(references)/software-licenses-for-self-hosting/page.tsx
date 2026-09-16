@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { Scale } from "lucide-react";
 import Link from "next/link";
 import { getDirectoryLicenseCounts } from "@/lib/apps";
@@ -173,7 +174,7 @@ export default async function SoftwareLicensesPage() {
       sidebar={<LicensesSidebar label={registryPage.label} />}
       sidebarLabel="Software licenses sidebar"
     >
-      <div className="license-page">
+      <PageCanvas as="div" flow className="license-page">
         <PageHeader bordered className={proseClassName}>
           <h1>
             <PageTitleIcon>
@@ -499,7 +500,7 @@ export default async function SoftwareLicensesPage() {
             applies and you should treat it as all rights reserved.
           </p>
         </section>
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

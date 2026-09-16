@@ -42,11 +42,28 @@ The normal release path is the committed GitHub Actions workflow
 or from `workflow_dispatch` with an exact `origin/main` SHA:
 
 1. Install dependencies and apply pending Supabase migrations.
-2. Run `npm run quality` and the production target and Cloudflare DNS preflight.
-3. Build and push an immutable GHCR image tagged with the release SHA.
-4. Call Dokploy's API to point the application at that image and trigger the deployment.
-5. Poll Dokploy, then verify `/api/health?scope=deploy` reports the exact SHA and a configured runtime.
-6. Smoke-test `/`, `/robots.txt`, and `/sitemap.xml`.
+2. Build the site once, then run the unit, static, registry, full Chromium, and focused mobile release checks against that production build.
+3. Run the production target and Cloudflare DNS preflight.
+4. Build and push an immutable GHCR image tagged with the release SHA. The Docker build remains independent so the deployed image proves it can build from a clean context.
+5. Call Dokploy's API to point the application at that image and trigger the deployment.
+6. Poll Dokploy, then verify `/api/health?scope=deploy` reports the exact SHA and a configured runtime.
+7. Smoke-test `/`, `/robots.txt`, and `/sitemap.xml`.
+
+The release browser gate keeps full desktop coverage. Its mobile pass covers the
+shared shell, page widths, navigation, site direction, and representative
+directory and reference layouts. Run `npm run quality` locally when a change
+needs the complete mobile matrix.
+
+Page browser specs whose ownership manifest is not `published` stay out of the
+normal release gate because production must return 404 for those preview-only
+routes. Their unit and policy tests still run. Set
+`STACK127_INCLUDE_NONPUBLISHED_BROWSER_TESTS=1` only after adding any required
+temporary rows to the managed development registry for an explicit preview
+test.
+
+Only the newest `main` release should finish. A newer push cancels an older
+in-progress run in the `stack127-production` concurrency group, so stale queued
+releases do not consume another full quality and deployment cycle.
 
 The workflow is the source of truth for releases. Keep Dokploy's broad
 push-to-deploy webhook disabled, otherwise a Git push can start an unverified

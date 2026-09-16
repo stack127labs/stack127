@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import "../../(catalogs)/domain-tools/domain-tools.css";
@@ -26,7 +27,7 @@ export default async function DomainAgePage({
       sidebar={<DomainToolsSidebar active="age" />}
       sidebarLabel="Domain tools sidebar"
     >
-      <main className="domain-tool-main">
+      <PageCanvas as="main" className="domain-tool-main">
         <ToolPageHeader
           icon={<CalendarClock strokeWidth={2.2} />}
           toolPage={toolPage}
@@ -37,7 +38,7 @@ export default async function DomainAgePage({
         <div className={styles.guide}>
           <ToolPageMarkdown toolPage={toolPage} />
         </div>
-      </main>
+      </PageCanvas>
     </AppShell>
   );
 }

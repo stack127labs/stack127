@@ -1,7 +1,9 @@
 {
   "route": "/dnssec-checker",
   "state": "published",
-  "docs": ["content_docs/dnssec-checker"],
+  "docs": [
+    "content_docs/dnssec-checker"
+  ],
   "tests": [
     "tests/pages/tools/shared/tool-workbench.test.mjs",
     "tests/pages/tools/shared/tool-workbench.spec.ts",
@@ -9,7 +11,8 @@
     "tests/pages/dnssec-checker/page.spec.ts",
     "tests/pages/dnssec-checker/interface.spec.ts",
     "tests/pages/dns-tools/shared/dns-diagnostics.spec.ts",
-    "tests/pages/dns-tools/shared/dns-diagnostics.test.mjs"
+    "tests/pages/dns-tools/shared/dns-diagnostics.test.mjs",
+    "tests/stack127/page-spacing.spec.ts"
   ],
   "scripts": [],
   "skills": [

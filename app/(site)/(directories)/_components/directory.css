@@ -466,8 +466,6 @@
 
 .directory-results {
   container-type: inline-size;
-  min-width: 0;
-  padding: 30px clamp(var(--space-10), 2.5vw, 36px) 44px;
 }
 
 .directory-results > header {
@@ -1132,9 +1130,6 @@
 }
 
 @media (max-width: 900px) {
-  .directory-results {
-    padding: 24px 22px 36px;
-  }
 
   .filter-options {
     grid-template-columns: repeat(2, minmax(0, 1fr));

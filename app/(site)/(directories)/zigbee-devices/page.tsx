@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { RadioTower, Search } from "lucide-react";
 import Link from "next/link";
 import { AppShell, SidebarLabel } from "@/app/app-shell";
@@ -201,7 +202,7 @@ export default async function ZigbeeDevicesPage({
 
   return (
     <AppShell mainLabel="Zigbee devices directory" menuLabel="Filters" sidebar={sidebar} sidebarLabel="Zigbee device filters">
-      <div className="directory-results">
+      <PageCanvas as="div" flow className="directory-results">
         <PageHeader bordered>
           <h1>
             <PageTitleIcon><RadioTower strokeWidth={2.2} /></PageTitleIcon>{" "}
@@ -251,7 +252,7 @@ export default async function ZigbeeDevicesPage({
 
         <section className={`${proseClassName} ${proseFlowClassName} ${styles.guide}`}>
           <h2>What each support record proves</h2>
-          <div className={styles.tableWrap} tabIndex={0}>
+          <div className={styles.tableWrap} data-reading-table tabIndex={0}>
             <table className={styles.evidenceTable}>
               <thead>
                 <tr><th>Evidence</th><th>What it confirms</th><th>What it does not confirm</th></tr>
@@ -289,7 +290,7 @@ export default async function ZigbeeDevicesPage({
             Snapshot sources: Zigbee2MQTT converter package {meta.zigbee2mqtt.version}, Zigbee2MQTT website commit {meta.zigbee2mqtt.website_commit?.slice(0, 12) ?? "not recorded"}, and Blakadder commit {meta.blakadder.commit.slice(0, 12)}. Product images come from the matching pinned source records.
           </p>
         </section>
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

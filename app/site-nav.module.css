@@ -61,8 +61,7 @@
   }
 }
 
-/* On narrow screens the sidebar drawer covers navigation; the top bar keeps
-   only the flagship link so it never overflows the 320px minimum width. */
+/* On narrow screens the top bar keeps the general discovery link. */
 @media (max-width: 680px) {
   .secondaryLink {
     display: none;

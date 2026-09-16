@@ -1,7 +1,7 @@
 .header {
   display: grid;
   gap: var(--space-5);
-  max-width: 820px;
+  width: 100%;
   min-width: 0;
 }
 

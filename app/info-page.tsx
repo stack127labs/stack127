@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
@@ -22,17 +23,16 @@ type InfoPageProps = {
   intro: ReactNode;
   /** Generated marker art that explains the page's subject at a glance. */
   heroArt: string;
-  /** Lets a data-heavy info page use the full reading canvas. */
+  /** Keeps structured pages such as Labs wide. Text pages use the reading width. */
   wide?: boolean;
 };
 
 const links = [
+  { href: "/", label: "explore" },
   { href: "/about", label: "about" },
   { href: "/labs", label: "labs" },
   { href: "/privacy", label: "privacy" },
   { href: "/terms", label: "terms" },
-  { href: "/self-host-apps", label: "self-host apps" },
-  { href: "/software-licenses-for-self-hosting", label: "software licenses" },
 ];
 
 function InfoSidebar({ label }: { label: string }) {
@@ -65,17 +65,20 @@ export async function InfoPage({ children, slug, title, heading, intro, heroArt,
       sidebar={<InfoSidebar label={registryPage.label} />}
       sidebarLabel={`${title} sidebar`}
     >
-      <EntryHero art={heroArt} wide={wide}>
+      <EntryHero art={heroArt}>
         <PageHeader>
           <h1>{heading ?? title}</h1>
           {intro}
         </PageHeader>
       </EntryHero>
-      <article
-        className={`${styles.page} ${wide ? styles.widePage : ""} ${proseClassName} ${proseSectionFlowClassName}`}
+      <PageCanvas
+        as="article"
+        flow
+        reading={!wide}
+        className={`${styles.page} ${proseClassName} ${proseSectionFlowClassName}`}
       >
         {children}
-      </article>
+      </PageCanvas>
     </AppShell>
   );
 }

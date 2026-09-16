@@ -108,7 +108,7 @@ export default function DomainToolsPage() {
       sidebar={<ToolCatalogSidebar active="domain-tools" />}
       sidebarLabel="Tool catalogs sidebar"
     >
-      <EntryHero art={siteSpotDomainToolsArt} wide>
+      <EntryHero art={siteSpotDomainToolsArt}>
         <PageHeader>
             <h1>
               <PageTitleIcon>

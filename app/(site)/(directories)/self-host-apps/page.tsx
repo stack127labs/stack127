@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { HardDrive, Search } from "lucide-react";
 import Link from "next/link";
 import type { CSSProperties } from "react";
@@ -728,7 +729,7 @@ export default async function SelfHostAppsPage({
       sidebar={sidebar}
       sidebarLabel="Self-hosted app filters"
     >
-        <EntryHero art={siteSpotSelfHostAppsArt} wide>
+        <EntryHero art={siteSpotSelfHostAppsArt}>
           <PageHeader>
             <h1>
               <PageTitleIcon>
@@ -744,7 +745,7 @@ export default async function SelfHostAppsPage({
             </p>
           </PageHeader>
         </EntryHero>
-        <div className="directory-results">
+        <PageCanvas as="div" flow className="directory-results">
           <ActiveFilters
             categoryMap={categoryMap}
             licenseMap={licenseMap}
@@ -796,7 +797,7 @@ export default async function SelfHostAppsPage({
               <Link href="/self-host-apps">show all apps</Link>
             </div>
           )}
-        </div>
+        </PageCanvas>
     </AppShell>
   );
 }

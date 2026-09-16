@@ -1,0 +1,144 @@
+.tool,
+.form,
+.result,
+.formSection,
+.resultSection,
+.receipt {
+  display: grid;
+  min-width: 0;
+}
+
+.tool {
+  gap: var(--space-7);
+}
+
+.form,
+.result {
+  gap: var(--space-7);
+  min-width: 0;
+  padding: var(--space-7);
+}
+
+.form > *,
+.result > *,
+.controlGrid > *,
+.receipt > * {
+  min-width: 0;
+}
+
+.formSection,
+.resultSection {
+  gap: var(--space-4);
+}
+
+.formSection h2,
+.resultSection h3,
+.resultHeading {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.controlGrid {
+  align-items: start;
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.recoveryToggle {
+  min-width: 0;
+}
+
+.formActions > div {
+  justify-content: flex-start;
+}
+
+.result {
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.resultHeading {
+  outline: none;
+  scroll-margin-top: calc(var(--top-bar-height) + var(--space-4));
+}
+
+.resultHeading:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.resultSection {
+  gap: var(--space-3);
+}
+
+.resultActions > div {
+  justify-content: flex-start;
+}
+
+.receipt {
+  gap: var(--space-6);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.receipt h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  margin: 0 0 var(--space-3);
+}
+
+.receipt ul,
+.receipt ol {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding-inline-start: var(--space-6);
+}
+
+.receipt li,
+.receipt a,
+.receipt code {
+  overflow-wrap: anywhere;
+}
+
+.receipt a {
+  color: var(--color-link);
+}
+
+@media (max-width: 760px) {
+  .form,
+  .result {
+    padding: var(--space-5);
+  }
+
+  .controlGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .resultActions > div {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .formActions > div {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .resultActions button,
+  .formActions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .form,
+  .result {
+    padding-inline: var(--space-4);
+  }
+}

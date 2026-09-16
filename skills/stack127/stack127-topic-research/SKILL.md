@@ -1,11 +1,11 @@
 ---
 name: stack127-topic-research
-description: Find evidence-backed new Stack127 page, directory, calculator, reference, or tool ideas across self-hosting, homelab, home automation, local AI, developer tooling, and adjacent technical niches. Use when the user asks for new topic ideas, market gaps, SEO opportunities, underserved search problems, content/tool roadmaps, or "what should Stack127 build next" research.
+description: Find evidence-backed resource and product ideas for stack127's tech tinkerers and hustlers. Use for topic ideas, market gaps, underserved user tasks, and resource roadmaps across subjects the founder explores, including homelabs, developer tools, automation, and digital businesses.
 ---
 
-# Stack127 Topic Research
+# stack127 topic research
 
-Use this skill in `/Users/ravitejaknts/projects/Stack127` when researching new Stack127 content or tool surfaces. The goal is not generic brainstorming. The goal is to find problems people already search for where the current web answer is fragmented, weak, too vendor-specific, or missing a practical tool.
+Use this skill from the stack127 repository root when researching resources or products. Find concrete tasks where existing resources are fragmented, weak, too vendor-specific, or missing a useful tool.
 
 ## First Checks
 
@@ -18,7 +18,9 @@ Use this skill in `/Users/ravitejaknts/projects/Stack127` when researching new S
 
 ## Research Workflow
 
-1. Define the covered niches for the request. Default niches:
+Read `stack127_docs/product-direction.md` before choosing subjects or scoring audience fit. Homelabs are one subject, not a limit on the site. Use the user's current interests and practical experience to frame the research. KDP and other digital-business subjects can fit without an infrastructure connection. Ads, analytics, and paid offerings are allowed by the strategy; their implementation timing remains separate from topic research.
+
+1. Define the subjects and user tasks for the request. The user may choose a new subject beyond existing coverage. Current areas to consider when relevant include:
    - self-host apps and operations
    - self-hosting learning paths
    - homelab networking, storage, backup, monitoring, and deploys
@@ -26,6 +28,8 @@ Use this skill in `/Users/ravitejaknts/projects/Stack127` when researching new S
    - local AI, agents, and self-hosted model tooling
    - open-source developer/admin utilities
    - calculators, compatibility checkers, and reference pages
+
+   Treat this list as existing coverage, not an exhaustive scope. Propose tools, directories, references, courses, or software and digital products according to the job. Do not force every format into every subject or recommend unrelated articles just to expand a keyword list.
 
 2. Build a demand signal for each candidate:
    - Search web results for the exact problem phrasing.
@@ -49,7 +53,7 @@ Use this skill in `/Users/ravitejaknts/projects/Stack127` when researching new S
 5. Score and rank:
    - Demand: are people visibly asking or searching?
    - Gap: are current answers absent, scattered, outdated, or not tool-shaped?
-   - Stack127 fit: does it match the site promise and current audience?
+   - stack127 fit: does it help tech tinkerers or hustlers with a concrete task, and can the team build and maintain it credibly?
    - Feasibility: can we build a credible MVP with official sources?
    - Moat: can structured data, calculators, or repeated updates make it hard to copy?
 
@@ -61,22 +65,22 @@ Every validated gap must be assigned a surface shape before it is recommended. R
 
 1. Search shape test. Write the exact query a real user types. If the query names a specific app, device, or integration, for example `immich v3 breaking changes` or `jellyfin arm64`, the demand is entity-specific. Entity-specific demand is captured by indexable pages and directory facts, never by a standalone tool with a picker.
 2. Coverage test. Ask whether the idea is still useful at partial coverage. A reference page for one app is useful on its own. A curated tool covering 40 of 1,800 apps fails every user whose app is missing and reads as broken. If usefulness requires near-total coverage of a curated dataset, do not propose it as a tool.
-3. Automation test. A standalone tool is only justified when at least one of these holds:
-   - The answer is computed live from universal machine-readable sources, so it works for any input without a curated dataset, for example querying a public registry manifest.
-   - The answer is a genuine calculation over inputs only the user knows, for example summing requirements against the user's own hardware.
+3. Task test. A standalone tool should help the user complete a task through a calculation, lookup, check, conversion, generation, or other useful operation. Define the supported inputs, result quality, and limits. For an AI capability, identify how results will be evaluated and what each use costs. A tool does not need a live external data source.
 4. Trust test. Never propose automating labels that promise safety or correctness, such as "safe to update". Wrong reassurance costs more trust than the feature earns. Judgment-heavy classifications are editorial content with human review, not tool output.
 
 Default shapes that follow from the tests:
 
 - Entity-specific facts: a structured field in the owning directory, shown in existing UI, becoming a section of per-entity pages when those ship.
 - Big recurring events, such as a major breaking release: a hand-written reference page targeting the exact query.
-- Live universal lookups and calculators: standalone tool drops with one clean URL each.
+- Calculators, lookups, checkers, converters, and generators: standalone tools with one canonical URL each.
+- A learning task that needs a sequence: a course with connected lessons.
+- A larger workflow with persistent work or several connected tasks: consider a software or digital product with its own experience.
 
 ## Content Strategy Boundaries
 
 - Do not propose news, commentary, or coverage of weekly releases. News decays in days, earns few links from this audience, and shifts the domain's dominant content class toward commodity output while domain trust is still being earned. See `stack127_records/2026-07-site-review.md` sections 8 and 9.
 - Reference articles are allowed only when the page contains something not already answered identically elsewhere, visible on the page itself: assembled structured facts, original measurements, or version-anchored migration detail.
-- The fast-cadence channel is data reports and automated trend pages generated from Stack127's own databases, not articles.
+- Favor maintained tools, directories, references, and courses over a publishing quota. A data report or trend page is useful only when its evidence and reader task justify it.
 
 ## Output Shape
 
@@ -84,7 +88,7 @@ Lead with the best 3-6 ideas, not a long weak list. For each idea include:
 
 - The page/tool name.
 - The user problem and likely search phrases.
-- The surface shape (directory facet, reference page, per-entity page section, or standalone tool) and why it passes the surface decision rule.
+- The resource format, such as a directory improvement, reference, tool, course, or product, and why it fits the task.
 - Why the market gap appears real.
 - What evidence was checked.
 - Whether Stack127 can build it.

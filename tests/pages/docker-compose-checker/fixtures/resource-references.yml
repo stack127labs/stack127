@@ -1,0 +1,15 @@
+services:
+  web:
+    image: nginx
+    volumes:
+      - missing:/data
+      - ./local:/local
+    networks:
+      - missing-net
+    secrets:
+      - missing-secret
+    configs:
+      - missing-config
+volumes:
+  external_data:
+    external: true

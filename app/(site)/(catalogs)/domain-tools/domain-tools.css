@@ -10,28 +10,6 @@
 .domain-tool-main {
   display: grid;
   gap: var(--space-13);
-  margin: 0 auto;
-  max-width: 1080px;
-  padding: var(--space-13) clamp(24px, 5vw, 72px) 64px;
-  width: 100%;
-}
-
-.domain-hero-band {
-  padding: var(--space-13) var(--container-gutter) var(--space-12);
-}
-
-.domain-hero-band-inner {
-  margin: 0 auto;
-  max-width: 1080px;
-}
-
-.domain-hero-doodle {
-  bottom: 16px;
-  right: 52px;
-}
-
-.domain-hub-after-hero {
-  padding-top: var(--space-11);
 }
 
 .domain-hub-section,

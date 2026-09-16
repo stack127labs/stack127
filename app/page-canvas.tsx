@@ -1,19 +1,33 @@
 import type { HTMLAttributes, ReactNode } from "react";
 import styles from "./page-canvas.module.css";
 
-type PageCanvasProps = HTMLAttributes<HTMLDivElement> & {
+type PageCanvasProps = HTMLAttributes<HTMLElement> & {
+  as?: "div" | "main" | "article" | "section";
   children: ReactNode;
-  wide?: boolean;
+  flow?: boolean;
+  reading?: boolean;
 };
 
-export function PageCanvas({ children, className, wide = false, ...props }: PageCanvasProps) {
-  const classes = [styles.canvas, wide ? styles.wide : "", className ?? ""]
+export function PageCanvas({
+  as: Tag = "div",
+  children,
+  className,
+  flow = false,
+  reading = false,
+  ...props
+}: PageCanvasProps) {
+  const classes = [styles.frame, reading ? styles.reading : "", flow ? "" : styles.grid, className ?? ""]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <div className={classes} {...props}>
+    <Tag
+      className={classes}
+      data-page-canvas
+      data-page-width={reading ? "reading" : "wide"}
+      {...props}
+    >
       {children}
-    </div>
+    </Tag>
   );
 }

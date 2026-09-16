@@ -21,5 +21,9 @@ test-results/
 !.env.affiliate.example
 
 *.log
+*.orig
 tsconfig.tsbuildinfo
 .DS_Store
+
+/scripts/stack127/directory-quality/temp/
+/scripts/self-host-apps/batches/*-backup.json

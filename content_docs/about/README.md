@@ -2,8 +2,10 @@
 
 Route: `/about`
 
-Keep this page direct and low-hype. It should explain stack127 as a practical technical directory that starts with self-host apps and can expand into tools, references, AI agents, home automation, networking, SEO, and related technical pages.
+Explain stack127 as a tools and directories website for tech tinkerers and hustlers. Follow [the product direction](../../stack127_docs/product-direction.md) and the [page brief](brief.md).
 
-The route source belongs to `app/(site)/(legal)/about/`. The route group does not change `/about`.
+Preserve Teja's personal history and the name's origin. Connect localhost with building and testing on your own machine, state that most stack127 tools are open source, and link to the stack127labs GitHub organization. Describe how practical exploration leads to tools, directories, references, courses, and software products. Use existing linked examples and make future plans explicit.
 
-Use the shared `.prose` reading typography. Write section headings normally and do not add a decorative dot.
+Keep the `how-we-earn-money` section anchor, current affiliate disclosure, and Amazon Associate statement. Describe possible future ads, paid tools, and sponsorships as plans. Direct visitors to Labs for the named public projects.
+
+The route source belongs to `app/(site)/(legal)/about/`. Keep the existing InfoPage reading layout and generated artwork. Registry metadata must match the broader scope.

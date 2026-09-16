@@ -1,0 +1,242 @@
+{
+  "reviewed_at": "2026-09-09",
+  "scope": "Source-reviewed proposals for residual summary artifacts found by the post-write audit.",
+  "apps": [
+    {
+      "slug": "agate",
+      "summary": "Rust-based Gemini server for delivering static files to compatible clients.",
+      "source_url": "https://github.com/mbrubeck/agate"
+    },
+    {
+      "slug": "amongusdiscord",
+      "summary": "Discord bot that automatically mutes and unmutes Among Us players during matches.",
+      "source_url": "https://github.com/denverquane/amongusdiscord"
+    },
+    {
+      "slug": "arr-tools",
+      "summary": "Arr-tools combines Sonarr and Radarr quality management with media-library browsing and collection controls.",
+      "source_url": "https://github.com/l4stidi0t/arr-tools"
+    },
+    {
+      "slug": "bitwarden-lite",
+      "summary": "Single-container password manager for personal users, home labs, and lightweight sharing.",
+      "source_url": "https://bitwarden.com/help/install-and-deploy-lite/"
+    },
+    {
+      "slug": "caspar-av",
+      "summary": "Browser-based live-events media server for CasparCG with a show canvas, frame-accurate cues, media library, and graphics controls.",
+      "source_url": "https://github.com/stoatworks-labs/caspar-av"
+    },
+    {
+      "slug": "cookiecloud",
+      "summary": "Synchronizes browser cookies and same-domain local storage across devices through an encrypted server.",
+      "source_url": "https://github.com/easychen/cookiecloud"
+    },
+    {
+      "slug": "cosyvoice3-api",
+      "summary": "Text-to-speech API powered by CosyVoice 3 with OpenAI-compatible access, voice registration, streaming, and reference-audio cloning.",
+      "source_url": "https://github.com/hsiang-han/CosyVoice3-API"
+    },
+    {
+      "slug": "django-fmd",
+      "summary": "Server for registering Android devices, storing locations, viewing history, and delivering command notifications.",
+      "source_url": "https://gitlab.com/jedie/django-find-my-device"
+    },
+    {
+      "slug": "flock",
+      "summary": "Web dashboard that discovers BirdDog Play NDI/SRT decoders, groups them by tags, and applies settings across selected devices.",
+      "source_url": "https://github.com/stoatworks-labs/flock"
+    },
+    {
+      "slug": "gal-ne",
+      "summary": "Browser-based videoconferencing system for meetings, lectures, chat, screen sharing, and file sharing.",
+      "source_url": "https://galene.org"
+    },
+    {
+      "slug": "github-readme-stats-selfhosted",
+      "summary": "Service that generates GitHub profile statistics cards for use in profile pages and project documentation.",
+      "source_url": "https://github.com/GeorgesAlkhouri/github-readme-stats-selfhosted"
+    },
+    {
+      "slug": "graph-node",
+      "summary": "Indexes blockchain data for subgraphs and serves queries through a GraphQL API.",
+      "source_url": "https://github.com/graphprotocol/graph-node"
+    },
+    {
+      "slug": "ilias",
+      "summary": "Learning management system for creating, delivering, and managing web-based courses and training.",
+      "source_url": "https://github.com/ILIAS-eLearning/ILIAS"
+    },
+    {
+      "slug": "immich-redis",
+      "summary": "Redis-compatible Valkey service used by Immich for background task queues and WebSocket state routing.",
+      "source_url": "https://github.com/immich-app/immich"
+    },
+    {
+      "slug": "lucia-postgresql",
+      "summary": "PostgreSQL companion for Lucia that stores configuration, traces, and task data in separate databases.",
+      "source_url": "https://github.com/seiggy/lucia-dotnet/blob/master/infra/unraid/README.md"
+    },
+    {
+      "slug": "mattermost-push-proxy",
+      "summary": "Push notification proxy that forwards Mattermost mobile notifications to Apple Push Notification service and Firebase Cloud Messaging.",
+      "source_url": "https://github.com/mattermost/mattermost-push-proxy"
+    },
+    {
+      "slug": "mediaops",
+      "summary": "Discord companion that connects Emby or Jellyfin with Ombi or Seerr for media searches, requests, and watch parties.",
+      "source_url": "https://github.com/miakkia/mediaops"
+    },
+    {
+      "slug": "mmc-media-meta-cleaner",
+      "summary": "Web app that scans video files and removes selected embedded metadata without renaming, conversion, or re-encoding.",
+      "source_url": "https://github.com/phive-5/mmc-media-meta-cleaner"
+    },
+    {
+      "slug": "netprobe",
+      "summary": "Internet quality monitor that tracks latency, jitter, packet loss, DNS response time, and speed test results in a web dashboard.",
+      "source_url": "https://github.com/bmartino1/NetProbe_Python"
+    },
+    {
+      "slug": "nextcloud-cronjob",
+      "summary": "Docker companion that runs Nextcloud cron jobs on a schedule and executes optional shell tasks in the Nextcloud container.",
+      "source_url": "https://github.com/rcdailey/nextcloud-cronjob"
+    },
+    {
+      "slug": "noip",
+      "summary": "Dynamic DNS container that keeps configured No-IP hostnames updated when a home internet address changes.",
+      "source_url": "https://github.com/coppit/docker-no-ip"
+    },
+    {
+      "slug": "ocpp2mqtt",
+      "summary": "Gateway that translates OCPP 1.6 messages to MQTT and back, linking electric vehicle chargers with home automation systems.",
+      "source_url": "https://github.com/gyzod/ocpp2mqtt"
+    },
+    {
+      "slug": "parity-check-tuning",
+      "summary": "Unraid plugin that pauses and resumes parity checks and other long array operations during scheduled time windows.",
+      "source_url": "https://forums.unraid.net/topic/78394-plugin-parity-check-tuning/"
+    },
+    {
+      "slug": "playitgg",
+      "summary": "Game server proxy that lets you share a local game server without port forwarding or exposing your home IP address.",
+      "source_url": "https://playit.gg/"
+    },
+    {
+      "slug": "pokehaan-craft",
+      "summary": "Minecraft 1.12.2 modpack built around Pixelmon, PokéStops, technology mods, and player challenges.",
+      "source_url": "https://www.curseforge.com/minecraft/modpacks/pokehaan-craft"
+    },
+    {
+      "slug": "reactionlight",
+      "summary": "Discord bot that assigns or removes server roles when users add or remove configured message reactions.",
+      "source_url": "https://github.com/eibex/reaction-light"
+    },
+    {
+      "slug": "rmlint",
+      "summary": "Filesystem cleanup tool that finds duplicate files, broken symbolic links, empty files, and other filesystem problems.",
+      "source_url": "https://github.com/sahib/rmlint"
+    },
+    {
+      "slug": "rustic-waters-ii",
+      "summary": "Underwater Minecraft quest modpack with story, exploration, custom content, and multiplayer server support.",
+      "source_url": "https://www.curseforge.com/minecraft/modpacks/rustic-waters-ii"
+    },
+    {
+      "slug": "syncyomi",
+      "summary": "Synchronizes Tachiyomi manga libraries and reading progress across devices through a server.",
+      "source_url": "https://github.com/syncyomi/syncyomi"
+    },
+    {
+      "slug": "tahskr",
+      "summary": "To-do manager with a data server and browser or Windows desktop frontends.",
+      "source_url": "https://github.com/dullage/tahskr-server"
+    },
+    {
+      "slug": "tautulli-notification-digest",
+      "summary": "Combines Plex media-added events from Tautulli into scheduled summary notifications for Discord.",
+      "source_url": "https://github.com/foxxmd/tautulli-notification-digest"
+    },
+    {
+      "slug": "teedy-docs",
+      "summary": "Lightweight document management system for organizing, searching, and sharing documents for individuals and businesses.",
+      "source_url": "https://github.com/sismics/docs"
+    },
+    {
+      "slug": "umlautadaptarrex",
+      "summary": "Indexer proxy for Sonarr, Radarr, Lidarr, and Readarr that corrects umlauts and title variants.",
+      "source_url": "https://github.com/xpsony/UmlautAdaptarrEX/blob/main/README.en.md"
+    },
+    {
+      "slug": "vibe-kanban",
+      "summary": "Organizes coding work in kanban issues, runs coding agents in workspaces, and lets users review their changes.",
+      "source_url": "https://www.vibekanban.com/docs"
+    },
+    {
+      "slug": "web-portal",
+      "summary": "Customizable dashboard for organizing service links, searching, embedding websites, and adding plugin widgets.",
+      "source_url": "https://webportal.docs.enchantedcode.co.uk/"
+    },
+    {
+      "slug": "atem-overseer",
+      "summary": "Browser dashboard for monitoring and controlling multiple Blackmagic ATEM switchers with status, audio meters, live previews, and transport controls.",
+      "source_url": "https://github.com/stoatworks-labs/atem-overseer"
+    },
+    {
+      "slug": "crowdsec-mikrotik-bouncer",
+      "summary": "CrowdSec bouncer for MikroTik RouterOS that blocks malicious IP addresses from reaching protected services.",
+      "source_url": "https://github.com/funkolab/cs-mikrotik-bouncer"
+    },
+    {
+      "slug": "disk-talkers",
+      "summary": "Unraid plugin that identifies applications, containers, virtual machines, and services accessing files on the array.",
+      "source_url": "https://github.com/silkyclouds/unraid-disk-talkers"
+    },
+    {
+      "slug": "dynamix-file-recycle-bin",
+      "summary": "Unraid plugin that moves deleted files to a recycle bin with per-volume controls and recovery through the file manager.",
+      "source_url": "https://github.com/xo-ox-ai/dynamix.file.recycle"
+    },
+    {
+      "slug": "grafanamimir",
+      "summary": "Long-term metrics storage for Prometheus with scalable, highly available, multi-tenant operation.",
+      "source_url": "https://github.com/grafana/mimir"
+    },
+    {
+      "slug": "mbpfan",
+      "summary": "Linux daemon that controls fan speed on MacBooks and other Apple computers.",
+      "source_url": "https://github.com/linux-on-mac/mbpfan"
+    },
+    {
+      "slug": "plex-dbrepair",
+      "summary": "Maintenance tool that checks, repairs, backs up, and restores Plex database files.",
+      "source_url": "https://github.com/bmartino1/plex-dbrepair-docker"
+    },
+    {
+      "slug": "projectzomboidreporter-api",
+      "summary": "API service that exposes Project Zomboid server statistics from a SQL database to reporting tools.",
+      "source_url": "https://github.com/chrisashtear/zomboid-server-stats-reporter"
+    },
+    {
+      "slug": "pumpkinmc",
+      "summary": "Rust-based Minecraft server software supporting Java and Bedrock clients with configuration and plugin support.",
+      "source_url": "https://github.com/Pumpkin-MC/Pumpkin"
+    },
+    {
+      "slug": "rfutils",
+      "summary": "RF coordination server for scanning, frequency planning, and wireless monitoring across networked receivers.",
+      "source_url": "https://github.com/stoatworks-labs/rfutils"
+    },
+    {
+      "slug": "simple-rta",
+      "summary": "Browser-based real-time audio analyzer with spectrum, spectrograph, and level meter views.",
+      "source_url": "https://github.com/stoatworks-labs/simplerta"
+    },
+    {
+      "slug": "unifi-cam-proxy",
+      "summary": "Proxy that connects non-Ubiquiti RTSP cameras to UniFi Protect for live viewing, recording, and motion detection.",
+      "source_url": "https://github.com/keshavdv/unifi-cam-proxy"
+    }
+  ],
+  "blocked": []
+}

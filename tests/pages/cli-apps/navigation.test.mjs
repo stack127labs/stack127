@@ -17,10 +17,12 @@ test("the home page exposes a cli-apps card with an icon", async () => {
   assert.match(home, /SquareTerminal/);
 });
 
-test("the site navigation links to cli-apps", async () => {
+test("the site navigation leads to home, where Start here links to cli-apps", async () => {
   const nav = await read("app/site-nav.tsx");
-  assert.match(nav, /href="\/cli-apps"/);
-  assert.match(nav, /cli apps/);
+  const home = await read("app/(site)/page.tsx");
+  assert.match(nav, /href="\/"[^>]*>\s*explore/);
+  assert.match(home, /href="\/cli-apps"/);
+  assert.match(home, /Browse CLI apps/);
 });
 
 test("the cli-apps page exposes language and license filters", async () => {

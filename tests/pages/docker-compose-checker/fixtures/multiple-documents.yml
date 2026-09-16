@@ -1,0 +1,7 @@
+services:
+  web:
+    image: nginx
+---
+services:
+  db:
+    image: postgres

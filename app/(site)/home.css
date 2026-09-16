@@ -6,19 +6,12 @@
 .home-main {
   display: grid;
   gap: var(--space-12);
-  padding: var(--space-11) var(--container-gutter) 72px;
 }
 
 .home-intro {
   display: grid;
   gap: var(--space-5);
-  max-width: var(--measure-prose);
-}
-
-@media (min-width: 1100px) {
-  .home-intro {
-    max-width: min(var(--measure-prose), calc(100% - 154px));
-  }
+  width: 100%;
 }
 
 .home-intro h1 {
@@ -193,7 +186,6 @@
 @media (max-width: 960px) {
   .home-main {
     gap: var(--space-10);
-    padding: var(--space-10) 22px 54px;
   }
 
   .home-page-card {

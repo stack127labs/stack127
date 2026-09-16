@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import "../../(catalogs)/dns-tools/dns-tools.css";
@@ -20,7 +21,7 @@ export default async function CaaCheckerPage({ searchParams }: { searchParams: P
       sidebar={<DnsToolsSidebar active="caa" />}
       sidebarLabel="DNS tools sidebar"
     >
-      <main className={styles.main}>
+      <PageCanvas as="main" className={styles.main}>
         <ToolPageHeader
           icon={<FileKey strokeWidth={2.2} />}
           toolPage={toolPage}
@@ -29,7 +30,7 @@ export default async function CaaCheckerPage({ searchParams }: { searchParams: P
         <CaaChecker initialName={first(params.name)} />
 
         <ToolPageMarkdown toolPage={toolPage} />
-      </main>
+      </PageCanvas>
     </AppShell>
   );
 }

@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import Link from "next/link";
 import { Keyboard } from "lucide-react";
 import { appsInCategory, shortcutAppCatalog, shortcutCategories } from "@/lib/shortcuts";
@@ -17,7 +18,7 @@ export function KeyboardShortcutsDirectory() {
 
   return (
     <>
-      <EntryHero art={siteSpotKeyboardShortcutsArt} wide>
+      <EntryHero art={siteSpotKeyboardShortcutsArt}>
       <PageHeader>
         <h1>
           <PageTitleIcon><Keyboard strokeWidth={2.2} /></PageTitleIcon> <mark>Keyboard shortcuts</mark> for your daily tools
@@ -29,7 +30,7 @@ export function KeyboardShortcutsDirectory() {
       </PageHeader>
 
       </EntryHero>
-      <div className={styles.page}>
+      <PageCanvas className={styles.page} flow>
       {shortcutCategories.filter((category) => appsInCategory(category).length > 0).map((category) => {
         const apps = appsInCategory(category);
         return (
@@ -69,7 +70,7 @@ export function KeyboardShortcutsDirectory() {
         <h2 id="generator-title">Print the shortcuts you need</h2>
         <p><Link href="/shortcuts-cheatsheet-generator">Build a printable sheet from the reference</Link></p>
       </section>
-      </div>
+      </PageCanvas>
     </>
   );
 }

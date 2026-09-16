@@ -6,6 +6,7 @@ system changes. Do not preserve a diary inside them.
 Dated decisions, completed migrations, and implementation notes belong in `stack127_records/`.
 Those records explain how the repository arrived here, but current docs win if the two disagree.
 
+- [product-direction.md](product-direction.md): agreed audience, offerings, revenue model, URL structure, and future work for the broader tools and directories website.
 - `design-system.md`: visual tokens and UI rules.
 - `page-families.md`: the shared structure for catalogs, courses, tools, references, info pages, and legal pages.
 - `tool-pages.md`: tool-page tables, Markdown ownership, public dates, versions, and reviewed update commands.

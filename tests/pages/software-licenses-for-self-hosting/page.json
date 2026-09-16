@@ -1,11 +1,14 @@
 {
   "route": "/software-licenses-for-self-hosting",
   "state": "published",
-  "docs": ["content_docs/software-licenses-for-self-hosting"],
+  "docs": [
+    "content_docs/software-licenses-for-self-hosting"
+  ],
   "tests": [
     "tests/stack127/seo.spec.ts",
     "tests/pages/software-licenses-for-self-hosting/software-licenses.test.mjs",
-    "tests/pages/software-licenses-for-self-hosting/page.spec.ts"
+    "tests/pages/software-licenses-for-self-hosting/page.spec.ts",
+    "tests/stack127/page-spacing.spec.ts"
   ],
   "scripts": [],
   "skills": [],

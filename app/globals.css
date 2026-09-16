@@ -49,7 +49,9 @@
 
   /* layout */
   --container-max: 1160px;
-  --container-gutter: clamp(24px, 5vw, 72px);
+  --container-gutter: clamp(24px, 2.5vw, 36px);
+  --page-padding-top: 30px;
+  --page-padding-bottom: 44px;
   --radius: 2px;
   --space-1: 4px;
   --space-2: 6px;
@@ -186,4 +188,12 @@ kbd,
 pre,
 samp {
   font-family: var(--font-mono);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --container-gutter: 22px;
+    --page-padding-top: 24px;
+    --page-padding-bottom: 36px;
+  }
 }

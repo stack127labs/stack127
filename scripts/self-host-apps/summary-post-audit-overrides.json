@@ -1,0 +1,39 @@
+{
+  "reviewed_at": "2026-09-09",
+  "scope": "Final post-audit summary corrections for two legacy records.",
+  "apps": [
+    {
+      "slug": "juicepass2mqtt",
+      "review_scope": "partial",
+      "summary": "MQTT bridge that proxies JuiceBox EV charger UDP traffic and publishes Home Assistant discovery data.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "source_url": "https://github.com/JuiceRescue/juicepassproxy",
+      "data_source_urls": [
+        "https://github.com/JuiceRescue/juicepassproxy"
+      ],
+      "expected": {
+        "summary": "This tool will publish Juicebox data from a UDP proxy to MQTT discoverable by HomeAssistant, Hopefully we won't need this if EnelX fixes their API, It is.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high"
+      }
+    },
+    {
+      "slug": "planefence",
+      "review_scope": "partial",
+      "summary": "Aircraft tracking add-on that logs nearby flights from ADS-B feeders, displays them on a website, and exports daily CSV files.",
+      "summary_source": "curated",
+      "summary_confidence": "high",
+      "source_url": "https://github.com/kx1t/docker-planefence",
+      "data_source_urls": [
+        "https://github.com/kx1t/docker-planefence"
+      ],
+      "expected": {
+        "summary": "Planefence is an add-on to ultrafeeder, readsb, dump1090, or dump1090-fa, Planefence will create a log of aircraft heard by your Feeder Station that are.",
+        "summary_source": "catalog_or_repository",
+        "summary_confidence": "high"
+      }
+    }
+  ],
+  "blocked": []
+}

@@ -140,7 +140,7 @@
     background: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
     display: flex;
-    padding: var(--space-3) 22px;
+    padding: var(--space-3) var(--container-gutter);
     position: sticky;
     top: var(--top-bar-height);
     z-index: 20;
@@ -212,7 +212,7 @@
   }
 
   .footer {
-    padding: var(--space-4) 22px;
+    padding: var(--space-4) var(--container-gutter);
   }
 
   .footerTop {

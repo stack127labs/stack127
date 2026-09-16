@@ -1,7 +1,6 @@
 .panel {
   display: grid;
   gap: 12px;
-  padding: 34px clamp(24px, 3vw, 48px);
 }
 
 .panel p {

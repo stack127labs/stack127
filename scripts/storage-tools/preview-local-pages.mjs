@@ -12,6 +12,13 @@ const LEGACY_UNMANAGED_DATABASE_HOSTS = new Set(["127.0.0.1", "localhost", "::1"
 
 const PREVIEW_ROWS = [
   {
+    slug: "backup-321-calculator",
+    label: "3-2-1 backup calculator",
+    title: "3-2-1 backup capacity calculator | stack127",
+    description: "Estimate local and off-site backup capacity from protected data, growth, retention, and recovery goals.",
+    priority: 0.50,
+  },
+  {
     slug: "shr-calculator",
     label: "SHR capacity calculator",
     title: "Synology SHR capacity calculator for mixed drives",

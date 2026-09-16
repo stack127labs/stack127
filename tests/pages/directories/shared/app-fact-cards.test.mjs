@@ -8,6 +8,13 @@ const card = source("app/(site)/(directories)/self-host-apps/directory-app-card.
 const cli = source("app/(site)/(directories)/cli-apps/cli-app-browser.tsx");
 const sharedPath = "app/(site)/(directories)/_components/app-fact-card";
 
+test("app card and drawer dates use the same calendar day in every timezone", () => {
+  const drawer = source("app/(site)/(directories)/self-host-apps/directory-app-browser.tsx");
+  for (const code of [card, cli, drawer]) {
+    assert.match(code, /new Intl\.DateTimeFormat\("en",\s*\{\s*timeZone: "UTC"/);
+  }
+});
+
 test("both app directories use the approved shared fact-row card", () => {
   for (const code of [card, cli]) assert.ok(code.includes("<AppFactCardContent"));
   for (const label of ["Source", "Pricing", "RAM", "Storage", "Last update"]) {

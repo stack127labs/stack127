@@ -14,7 +14,8 @@
     "tests/pages/hardware-directories/shared/directory-contract.test.mjs",
     "tests/pages/hardware-directories/shared/filters.test.mjs",
     "tests/stack127/seo.spec.ts",
-    "tests/pages/hardware-directories/shared/publication.test.mjs"
+    "tests/pages/hardware-directories/shared/publication.test.mjs",
+    "tests/stack127/page-spacing.spec.ts"
   ],
   "scripts": [
     "scripts/matter-devices",

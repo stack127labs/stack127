@@ -92,13 +92,13 @@ test("the tool keeps exact comparison data in tables and avoids banned treatment
   }
 });
 
-test("the page owns a centered reading column with real outer gutters", () => {
-  const pageRule = canvasStyles.match(/\.canvas\s*\{([^}]*)\}/s)?.[1] ?? "";
+test("the page uses shared directory width and outer gutters", () => {
+  const pageRule = canvasStyles.match(/\.frame\s*\{([^}]*)\}/s)?.[1] ?? "";
   const toolRule = styles.match(/\.tool\s*\{([^}]*)\}/s)?.[1] ?? "";
 
-  assert.match(pageRule, /margin:\s*0 auto;/);
-  assert.match(pageRule, /max-width:\s*1120px;/);
-  assert.match(pageRule, /padding:\s*var\(--space-13\) var\(--container-gutter\) var\(--space-14\);/);
+  assert.match(pageRule, /margin:\s*0;/);
+  assert.match(pageRule, /max-width:\s*none;/);
+  assert.match(pageRule, /padding:\s*var\(--page-padding-top\) var\(--container-gutter\) var\(--page-padding-bottom\);/);
   assert.match(pageRule, /width:\s*100%;/);
   assert.match(workbenchStyles, /background:\s*var\(--color-surface\);/);
   assert.doesNotMatch(toolRule, /border:\s*1\.5px|border-radius:/);

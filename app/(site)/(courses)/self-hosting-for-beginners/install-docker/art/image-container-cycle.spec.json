@@ -1,0 +1,18 @@
+{
+  "id": "install-docker--image-container-cycle",
+  "page": "self-hosting-for-beginners/install-docker",
+  "type": "steps",
+  "takeaway": "An image is the packaged app; running it creates a disposable container.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-10",
+  "seed": 118,
+  "width": 430,
+  "height": 152,
+  "data": {
+    "items": [
+      { "label": "app image", "icon": "box" },
+      { "label": "run it", "icon": "terminal" },
+      { "label": "container", "icon": "server", "tone": "primary" }
+    ]
+  }
+}

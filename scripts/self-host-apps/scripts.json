@@ -61,6 +61,36 @@
     "purpose": "Collect possible technical facts and source URLs across the published catalogue without writing app facts or verification dates. Every record remains pending source review."
   },
   {
+    "name": "self-host-apps:research-summaries",
+    "command": "node scripts/self-host-apps/research-summaries.mjs --out report.json --file <candidates.json> --limit 500 --offset 0",
+    "purpose": "Collect official README, website, documentation, and catalog evidence for reviewed self-host app descriptions without mutating the database."
+  },
+  {
+    "name": "self-host-apps:prepare-summary-overrides",
+    "command": "node scripts/self-host-apps/prepare-summary-overrides.mjs --file reviewed.json --out prepared.json",
+    "purpose": "Validate source-reviewed summary corrections against the current production snapshot before the guarded QA applier runs."
+  },
+  {
+    "name": "self-host-apps:draft-summary-overrides",
+    "command": "node scripts/self-host-apps/draft-summary-overrides.mjs --file research.json --out draft.json",
+    "purpose": "Create non-publishable description drafts from a source packet for human review; this command never writes the database."
+  },
+  {
+    "name": "self-host-apps:refine-summary-overrides",
+    "command": "node scripts/self-host-apps/refine-summary-overrides.mjs --research research.json --draft draft.json --manual summary-manual-overrides.json --polish summary-polish-overrides.json --final summary-final-overrides.json --cleanup summary-cleanup-overrides.json --linguistic summary-linguistic-overrides.json --out reviewed.json",
+    "purpose": "Merge source-reviewed, manually refined, and final editorial summary corrections into an apply-ready review file without mutating the database."
+  },
+  {
+    "name": "self-host-apps:build-summary-broad-proposals",
+    "command": "node scripts/self-host-apps/build-summary-broad-proposals.mjs --research research.json --draft draft.json --out proposals.json",
+    "purpose": "Create source-linked proposals for remaining malformed or artifact-heavy summaries without mutating the database."
+  },
+  {
+    "name": "self-host-apps:merge-summary-broad-proposals",
+    "command": "node scripts/self-host-apps/merge-summary-broad-proposals.mjs --research research.json --generated proposals.json --draft draft.json --out reviewed.json",
+    "purpose": "Combine generated broad-cleanup proposals with reviewed editorial overrides before live guarded preparation."
+  },
+  {
     "name": "self-host-apps:refresh-install-options",
     "command": "npm run self-host-apps:refresh-install-options -- --limit 5000",
     "purpose": "Normalize Docker registry, Compose, and supported appliance-catalog destinations without treating Dockerfiles as install links."
@@ -149,6 +179,11 @@
     "name": "self-host-apps:audit-summaries",
     "command": "npm run self-host-apps:audit-summaries",
     "purpose": "Audit published self-host app summaries against Stack127 writing rules."
+  },
+  {
+    "name": "self-host-apps:audit-summary-quality",
+    "command": "npm run self-host-apps:audit-summary-quality",
+    "purpose": "Audit published self-host app summaries for imported markup, hidden characters, URLs, setup residue, malformed endings, and likely clause splices."
   },
   {
     "name": "self-host-apps:audit-links",

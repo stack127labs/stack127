@@ -9,6 +9,22 @@ test("imported markup blocks publication rather than being displayed or silently
   }
 });
 
+test("source artifacts and setup instructions stay out of public summaries", () => {
+  for (const text of [
+    "Read the locustfile.py examples here: https://example.org/docs.",
+    "Use [the setup guide](https://example.org/docs) before installing.",
+    "Configure the container in /mnt/locust/ before running it.",
+  ]) {
+    const errors = validateSummary(text).errors.join(" ");
+    assert.match(errors, /(?:markup|URL|instructions|artifacts)/i, text);
+  }
+});
+
+test("malformed imported grammar blocks publication", () => {
+  const result = validateSummary("This is a analytics dashboard for app stores.");
+  assert.ok(result.errors.some(e => /malformed article/.test(e)), result.errors.join("; "));
+});
+
 test("obvious unfinished descriptions block publication", () => {
   for (const text of ["Stores documents and is.", "Configure the gateway when.", "Upload tracks to build a catalogue, this is the."]) {
     assert.ok(validateSummary(text).errors.some(e => /unfinished/.test(e)), text);

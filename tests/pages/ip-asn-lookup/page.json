@@ -1,0 +1,34 @@
+{
+  "route": "/ip-asn-lookup",
+  "state": "unpublished",
+  "reason": "The tool is under technical, content, and source-provenance review. Publish it only after a separate registry decision.",
+  "docs": [
+    "content_docs/ip-asn-lookup"
+  ],
+  "tests": [
+    "tests/pages/ip-asn-lookup/page.test.mjs",
+    "tests/pages/ip-asn-lookup/ip-asn-lookup.test.mjs",
+    "tests/pages/ip-asn-lookup/routing.test.mjs",
+    "tests/pages/ip-asn-lookup/api.test.mjs",
+    "tests/pages/ip-asn-lookup/ip-asn-lookup.spec.ts",
+    "tests/pages/tools/shared/tool-workbench.test.mjs",
+    "tests/pages/tools/shared/tool-workbench.spec.ts",
+    "tests/stack127/seo.spec.ts"
+  ],
+  "scripts": [
+    "scripts/domain-tools/refresh-datasets.mjs"
+  ],
+  "skills": [
+    "skills/stack127/stack127-writing-voice/SKILL.md",
+    "skills/stack127/test-driven-page/SKILL.md",
+    "skills/stack127/stack127-tool-research",
+    "skills/stack127/stack127-tool-product-plan",
+    "skills/stack127/stack127-tool-interface-plan",
+    "skills/stack127/stack127-tool-test-design",
+    "skills/stack127/visual-first-content",
+    "skills/stack127/stack127-tool-build",
+    "skills/stack127/stack127-tool-orchestrator",
+    "skills/stack127/stack127-tool-writing"
+  ],
+  "repositories": []
+}

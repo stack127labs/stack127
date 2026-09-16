@@ -35,14 +35,6 @@
 .page {
   display: grid;
   gap: var(--space-12);
-  margin: 0 auto;
-  max-width: var(--measure-prose);
-  padding: var(--space-12) var(--container-gutter) 72px;
-  width: 100%;
-}
-
-.widePage {
-  max-width: var(--container-max);
 }
 
 .updated {

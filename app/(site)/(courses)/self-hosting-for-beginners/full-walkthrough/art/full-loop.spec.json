@@ -4,9 +4,9 @@
   "type": "roadmap",
   "takeaway": "The full self-hosting loop goes from machine to app, then data, backup, and remote access.",
   "source": "conceptual figure, no external data",
-  "dataAsOf": "2026-07-08",
+  "dataAsOf": "2026-09-10",
   "seed": 116,
-  "width": 480,
+  "width": 576,
   "height": 250,
   "data": {
     "groups": [
@@ -14,7 +14,8 @@
       { "label": "os + ssh", "icon": "terminal" },
       { "label": "app", "icon": "box", "tone": "primary" },
       { "label": "data", "icon": "disk" },
-      { "label": "backup", "icon": "shield", "tone": "primary" }
+      { "label": "backup", "icon": "shield", "tone": "good" },
+      { "label": "remote", "icon": "wifi", "tone": "primary" }
     ],
     "note": "remote access comes after the app is backed up"
   }

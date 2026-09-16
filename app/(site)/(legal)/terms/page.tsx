@@ -12,8 +12,8 @@ export default function TermsPage() {
       heroArt={siteHeroTermsArt}
       intro={
         <p>
-          stack127 is a directory and reference site, not a managed service, marketplace, security
-          auditor, or professional advice provider.
+          These terms cover the tools, directories, reference pages, and courses on stack127.
+          They explain how you can use the site and what to consider when relying on its information.
         </p>
       }
       slug="terms"
@@ -22,7 +22,10 @@ export default function TermsPage() {
         <section>
           <h2>Using the site</h2>
           <p>
-            You can read, search, and use stack127 for personal or professional research. The site can include directories, reference pages, calculators, technical explainers, setup notes, comparison tables, recommendations, and links to external resources.
+            You can read, search, and use stack127 tools, directories, reference pages, and courses
+            for personal projects or professional work. The site also links to software projects
+            and external resources. stack127 does not provide managed services, operate a marketplace,
+            conduct security audits for you, or provide professional advice.
           </p>
           <p>
             Please do not abuse the site, attack it, overload it, scrape it aggressively, bypass limits, or use it in a way that breaks the law. Normal browsing, reasonable research, and respectful crawling are fine. Trying to break the site is not.
@@ -77,7 +80,7 @@ export default function TermsPage() {
           <p>
             Questions can go to <a href="mailto:stack127@proton.me">stack127@proton.me</a>.
           </p>
-          <p className={infoUpdatedClassName}>Last updated: August 20, 2026.</p>
+          <p className={infoUpdatedClassName}>Last updated: September 15, 2026.</p>
         </section>
     </InfoPage>
   );

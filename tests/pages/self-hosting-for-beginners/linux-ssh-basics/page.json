@@ -2,7 +2,10 @@
   "route": "/self-hosting-for-beginners/linux-ssh-basics",
   "state": "published",
   "docs": ["content_docs/self-hosting-for-beginners"],
-  "tests": ["tests/stack127/seo.spec.ts"],
+  "tests": [
+    "tests/stack127/seo.spec.ts",
+    "tests/pages/self-hosting-for-beginners/shared/course-visuals.test.mjs"
+  ],
   "scripts": ["scripts/self-hosting-for-beginners"],
   "skills": [],
   "repositories": []

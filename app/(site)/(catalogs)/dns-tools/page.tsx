@@ -68,7 +68,7 @@ export default function DnsToolsPage() {
       sidebar={<ToolCatalogSidebar active="dns-tools" />}
       sidebarLabel="Tool catalogs sidebar"
     >
-      <EntryHero art={siteSpotDnsToolsArt} wide>
+      <EntryHero art={siteSpotDnsToolsArt}>
         <PageHeader>
           <h1>
             <PageTitleIcon>

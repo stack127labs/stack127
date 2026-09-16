@@ -1,14 +1,19 @@
 {
   "route": "/self-hosting-for-beginners",
   "state": "published",
-  "docs": ["content_docs/self-hosting-for-beginners"],
+  "docs": [
+    "content_docs/self-hosting-for-beginners"
+  ],
   "tests": [
     "tests/pages/self-hosting-for-beginners/header-layout.spec.ts",
     "tests/stack127/entry-page-visual-system.test.mjs",
     "tests/stack127/seo.spec.ts",
-    "tests/pages/self-hosting-for-beginners/shared/registry-bootstrap.test.mjs"
+    "tests/pages/self-hosting-for-beginners/shared/registry-bootstrap.test.mjs",
+    "tests/stack127/page-spacing.spec.ts"
   ],
-  "scripts": ["scripts/self-hosting-for-beginners"],
+  "scripts": [
+    "scripts/self-hosting-for-beginners"
+  ],
   "skills": [],
   "repositories": []
 }

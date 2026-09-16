@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import type { ReactNode } from "react";
 import { Search } from "lucide-react";
 import Link from "next/link";
@@ -107,7 +108,7 @@ export function HardwareDirectoryPage({ config, params, snapshot }: { config: Ha
 
   return (
     <AppShell mainLabel={config.title} menuLabel="Filters" sidebar={sidebar} sidebarLabel={`${config.sidebarLabel} filters`}>
-      <div className="directory-results">
+      <PageCanvas as="div" flow className="directory-results">
         <PageHeader bordered>
           <h1><PageTitleIcon>{config.icon}</PageTitleIcon>{" "}{config.heading} <mark>{config.highlightedHeading}</mark></h1>
           <p>{config.intro}</p>
@@ -138,11 +139,11 @@ export function HardwareDirectoryPage({ config, params, snapshot }: { config: Ha
 
         <section className={`${proseClassName} ${proseFlowClassName} ${styles.guide}`}>
           <h2>What each record proves</h2>
-          <div className={styles.tableWrap} tabIndex={0}><table className={styles.evidenceTable}><thead><tr><th>Evidence</th><th>What it confirms</th><th>What it does not confirm</th></tr></thead><tbody>{config.evidenceRows.map((row) => <tr key={row.evidence}><th>{row.evidence}</th><td>{row.proves}</td><td>{row.limit}</td></tr>)}</tbody></table></div>
+          <div className={styles.tableWrap} data-reading-table tabIndex={0}><table className={styles.evidenceTable}><thead><tr><th>Evidence</th><th>What it confirms</th><th>What it does not confirm</th></tr></thead><tbody>{config.evidenceRows.map((row) => <tr key={row.evidence}><th>{row.evidence}</th><td>{row.proves}</td><td>{row.limit}</td></tr>)}</tbody></table></div>
           <p>{config.sourceSentence}</p>
           <p className={styles.sourceLine}>Source snapshot: {snapshot.meta.source_label}, revision {snapshot.meta.source_revision}</p>
         </section>
-      </div>
+      </PageCanvas>
     </AppShell>
   );
 }

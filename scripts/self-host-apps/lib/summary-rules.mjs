@@ -1,6 +1,6 @@
 export const bannedSummaryPatterns = [
-  /\bopen[- ]source\b/i,
-  /\bself[- ]hosted\b/i,
+  /\bopen[- ]?source\b/i,
+  /\bself[- ]?hosted\b/i,
   /\bsolution\b/i,
   /\bplatform\b/i,
   /\bpowerful\b/i,
@@ -35,11 +35,29 @@ export function validateSummary(summary) {
   }
 
   const sentenceCount = (text.match(/[.!?](\s|$)/g) ?? []).length;
-  if (/\[\/?(?:br|b|i|u|url|img|span|color|size)(?:\]|[=\s])|<\/?[a-z][^>]*>/i.test(text)) {
+  if (/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F\u00A0\u200B-\u200F\u202A-\u202E]|`|\*\*|\[[^\]]+\]\([^)]*\)|\[\/?(?:br|b|i|u|url|img|span|color|size)(?:\]|[=\s])|<\/?[a-z][^>]*>/i.test(text)) {
     errors.push("summary contains imported markup; write a reviewed plain-text description");
   }
-  if (/\b(?:and|or|the|a|an|your|when)\s*[.!?]*$/i.test(text) || /\b(?:and|which|that|it|this)\s+(?:is|are)\s*[.!?]*$/i.test(text)) {
+  if (/&#(?:x[0-9a-f]+|[0-9]+);|&[a-z][a-z0-9]+;/i.test(text)) {
+    errors.push("summary contains an HTML entity; write a reviewed plain-text description");
+  }
+  if (/https?:\/\/|www\./i.test(text)) {
+    errors.push("summary contains a URL; keep links in the app's source fields");
+  }
+  if (/\b(?:see here|for examples|required in|click here|learn more|visit|how to run|quick setup|setup process|before installing|after installing|please)\b|\benvironment variables?\s*:/i.test(text)) {
+    errors.push("summary contains setup or reference instructions; write a direct app description");
+  }
+  if (/\b(?:dockerfile|docker[- ]compose\.(?:ya?ml)|locustfile(?:\.py)?|(?:the\s+)?readme|(?:this|the)\s+repo(?:sitory)?|note\s*:|demo credentials|docker pull)\b|\/(?:mnt|app|config|data)\//i.test(text)) {
+    errors.push("summary contains source or setup artifacts; write a reviewed app description");
+  }
+  if (/\b(?:and|or|the|a|an|your|when|which|that|it|this|is|are|has|have|can|will|requires|provides|supports)\s*[.!?]*$|(?:,|;)\s*(?:and|or|the|a|an|your|when|which|that|it|this|for|to|with|from|of|like|via|because|including|such as|is|are|has|have|can|will|requires|provides|supports)\s*[.!?]*$/i.test(text)) {
     errors.push("summary appears unfinished; review the complete sentence");
+  }
+  if (/\b(?:a|an)\s+(?:analytics|continuous|office|binary|application|mcp|captcha)\b|\ba,\s*[.!?]/i.test(text)) {
+    errors.push("summary contains a malformed article or phrase; review the complete sentence");
+  }
+  if (/;\s+/.test(text)) {
+    errors.push("summary should use a full stop instead of a semicolon");
   }
   const wordCount = text.split(/\s+/).filter(Boolean).length;
   if (sentenceCount > 1) errors.push("summary must be one sentence");

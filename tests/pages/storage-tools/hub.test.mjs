@@ -13,6 +13,11 @@ const migrationPath = new URL(
 
 const expectedStorageTools = [
   {
+    href: "/backup-321-calculator",
+    name: "3-2-1 backup calculator",
+    sidebarLabel: "3-2-1 backup",
+  },
+  {
     href: "/raid-calculator",
     name: "RAID calculator",
     sidebarLabel: "RAID calculator",
@@ -89,15 +94,15 @@ test("the published storage hub lists all completed calculators", () => {
   assert.deepEqual(
     hubHrefs,
     expectedStorageTools.map((tool) => tool.href),
-    "the hub should expose the twelve exact flat routes in order",
+    "the hub should expose the thirteen exact flat routes in order",
   );
   assert.deepEqual(
     sidebarHrefs,
     expectedStorageTools.map((tool) => tool.href),
-    "the sidebar should expose the same twelve exact flat routes in order",
+    "the sidebar should expose the same thirteen exact flat routes in order",
   );
-  assert.equal(new Set(hubHrefs).size, 12);
-  assert.equal(new Set(sidebarHrefs).size, 12);
+  assert.equal(new Set(hubHrefs).size, 13);
+  assert.equal(new Set(sidebarHrefs).size, 13);
 
   for (const tool of expectedStorageTools) {
     assert.match(page, new RegExp(`name: "${tool.name}"`));
@@ -118,7 +123,7 @@ test("the hub is registry published and exposes its tool count to the home card"
   )?.groups?.tools;
   assert.ok(availableToolsBlock, "the sidebar should declare availableStorageTools");
   const availableToolCount = [...availableToolsBlock.matchAll(/\{ href: "([^"]+)", icon:/g)].length;
-  assert.equal(availableToolCount, 12);
+  assert.equal(availableToolCount, 13);
   assert.equal(availableToolCount, expectedStorageTools.length);
 });
 
@@ -128,6 +133,7 @@ test("the hub route declares no page-local metadata", () => {
 
 test("every storage tool route marks its own sidebar item active", () => {
   const routeShells = [
+    ["app/(site)/(tools)/backup-321-calculator/page.tsx", "backup-321"],
     ["app/(site)/(tools)/raid-calculator/page.tsx", "raid"],
     ["app/(site)/(tools)/zfs-capacity-calculator/page.tsx", "zfs"],
     ["app/(site)/(tools)/zfs-padding-calculator/page.tsx", "zfs-padding"],

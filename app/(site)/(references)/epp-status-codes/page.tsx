@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import "../../(catalogs)/domain-tools/domain-tools.css";
 import { ListChecks } from "lucide-react";
 import Link from "next/link";
@@ -46,7 +47,7 @@ export default function EppStatusCodesPage() {
       sidebar={<DomainToolsSidebar active="status-codes" />}
       sidebarLabel="Domain tools sidebar"
     >
-      <main className="domain-tool-main">
+      <PageCanvas as="main" className="domain-tool-main">
         <PageHeader>
           <h1>
             <PageTitleIcon>
@@ -218,7 +219,7 @@ export default function EppStatusCodesPage() {
             </p>
           </section>
         </article>
-      </main>
+      </PageCanvas>
     </AppShell>
   );
 }

@@ -6,6 +6,7 @@ import test from "node:test";
 const root = process.cwd();
 const toolsRoot = path.join(root, "app/(site)/(tools)");
 const expectedToolSlugs = [
+  "backup-321-calculator",
   "caa-checker",
   "ceph-capacity-calculator",
   "dns-change-checker",
@@ -13,6 +14,8 @@ const expectedToolSlugs = [
   "dns-trace",
   "dnssec-checker",
   "dockerignore-tester",
+  "docker-compose-checker",
+  "self-hosted-app-resource-planner",
   "domain-age",
   "domain-availability",
   "domain-expiry",
@@ -22,6 +25,7 @@ const expectedToolSlugs = [
   "domain-report",
   "drive-reliability",
   "home-assistant-energy-entity-checker",
+  "ip-asn-lookup",
   "multi-tld-availability",
   "nameserver-checker",
   "nfs-firewall-rules",

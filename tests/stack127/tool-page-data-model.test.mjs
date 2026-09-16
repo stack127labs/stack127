@@ -41,6 +41,7 @@ const expectedToolSlugs = [
   "zfs-capacity-calculator",
   "zfs-padding-calculator",
 ].sort();
+const expectedRouteSlugs = [...expectedToolSlugs, "backup-321-calculator", "docker-compose-checker", "ip-asn-lookup", "self-hosted-app-resource-planner"].sort();
 
 function read(relativePath) {
   return readFileSync(path.join(root, relativePath), "utf8");
@@ -64,7 +65,7 @@ function toolPageMigration() {
 }
 
 test("the tools route group contains only interactive tools", () => {
-  assert.deepEqual(toolRouteSlugs(), expectedToolSlugs);
+  assert.deepEqual(toolRouteSlugs(), expectedRouteSlugs);
   assert.ok(existsSync(path.join(root, "app", "(site)", "(references)", "epp-status-codes", "page.tsx")));
   assert.ok(existsSync(path.join(root, "app", "(site)", "(references)", "tld-directory", "page.tsx")));
 });
@@ -123,7 +124,7 @@ test("stack127_tool_pages stores Markdown, versions, and stack127 repo state", (
 });
 
 test("every tool route loads its copy through the shared database content layer", () => {
-  for (const slug of expectedToolSlugs) {
+  for (const slug of expectedRouteSlugs) {
     const page = read(path.join("app", "(site)", "(tools)", slug, "page.tsx"));
     assert.match(page, /getRequiredToolPage\(/, `${slug} does not load its tool-page row`);
     assert.match(page, /<ToolPageHeader\b/, `${slug} does not use ToolPageHeader`);

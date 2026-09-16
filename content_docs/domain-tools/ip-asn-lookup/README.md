@@ -1,8 +1,8 @@
 # IP and ASN Registration Lookup
 
-Route: `/domain-tools/ip-asn-lookup`
+Canonical route: `/ip-asn-lookup`
 
-Publication state: controlled by the exact `domain-tools/ip-asn-lookup` row in `public.stack127_pages`.
+Publication state: controlled by the exact `ip-asn-lookup` row in `public.stack127_pages`.
 
 Status: plan.
 
@@ -33,7 +33,7 @@ For an address, lead with the allocation it falls inside, not the address itself
 records it as an assigned portable allocation.
 ```
 
-Verified against `1.1.1.1` on 28 July 2026: handle `1.1.1.0 - 1.1.1.255`, name `APNIC-LABS`, country `AU`, type `ASSIGNED PORTABLE`.
+The current result should show the handle, name, country, and allocation type returned by the responsible RIR. Do not hardcode a live record in page copy.
 
 Show:
 
@@ -104,8 +104,4 @@ They disagree routinely and legitimately. An ISP registered a block years ago an
 
 ## Placement note
 
-This is not a domain tool. Decide its permanent route before publishing a registry row rather than moving a published URL later.
-
-Two workable options. A top-level `/ip-tools` hub is the honest home, but a hub with one route is not worth a sidebar, so it needs a second tool committed at the same time; the obvious candidates are a reverse DNS tool and a subnet calculator, both of which reuse existing DNS work. Keeping it permanently under `/domain-tools` is acceptable if we accept the naming mismatch and never grow a third network tool.
-
-Decide this together with the TLD Directory placement, since moving one makes moving the other cheaper.
+This is not a domain tool. Its canonical URL is the flat `/ip-asn-lookup` route already recorded in `content_docs/domain-tools/README.md`. Do not create a one-tool `/ip-tools` hub or move the URL after publication. Collection links can be added where the route genuinely serves the reader, without changing ownership or the canonical path.

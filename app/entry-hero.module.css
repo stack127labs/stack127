@@ -1,31 +1,18 @@
-.hero {
-  padding: var(--space-12) var(--container-gutter) var(--space-11);
-}
-
 .inner {
-  margin: 0 auto;
-  max-width: var(--measure-prose);
-}
-
-.wide {
-  max-width: 1120px;
-}
-
-.start {
-  margin-inline: 0;
+  min-width: 0;
 }
 
 .art {
-  right: clamp(24px, 5vw, 64px);
-  top: 28px;
+  right: var(--container-gutter);
+  top: var(--page-padding-top);
 }
 
 .art svg {
   width: 130px;
 }
 
-@media (max-width: 760px) {
-  .hero {
-    padding-block: var(--space-9);
+@media (min-width: 1100px) {
+  .inner {
+    margin-inline-end: calc(130px + var(--space-7));
   }
 }

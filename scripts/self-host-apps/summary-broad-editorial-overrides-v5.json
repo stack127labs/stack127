@@ -1,0 +1,23 @@
+{
+  "americasarmy-pg": "Dedicated server for America's Army Proving Grounds, a multiplayer tactical shooter.",
+  "armareforger": "Dedicated server for the Arma Reforger multiplayer military sandbox game.",
+  "binhex-nzbhydra2": "NZBHydra2 aggregates searches across multiple Usenet indexers through a single web interface.",
+  "binhex-rider": "Web-accessible IDE for developing .NET, JavaScript, and desktop applications.",
+  "convert-commander": "Web service for converting files on a local server without sending them to external services.",
+  "docker-controller": "Web service for managing Docker containers on a remote host.",
+  "dupeguru": "Duplicate-file finder that scans filenames or file contents and uses fuzzy matching for similar names.",
+  "frirss": "FreshRSS frontend with desktop and mobile interfaces, full-text extraction, offline reading, themes, and language support.",
+  "grafanapromtail": "Log shipping agent that forwards local log files to Loki or Grafana Cloud for centralized querying and analysis.",
+  "immich-upload-optimizer": "Proxy that optimizes file uploads before forwarding them to an Immich server.",
+  "marquee": "Plex now-playing display that casts movie and show artwork to a Google Nest Hub.",
+  "monitorss-bot": "Discord bot that posts updates from configured RSS feeds and supports customizable feed settings.",
+  "multi-coin-paper-daytrader": "Paper-trading simulator for testing multi-coin cryptocurrency strategies with optional read-only market data.",
+  "openconnectserver": "SSL VPN server that provides secure remote access through the OpenConnect protocol.",
+  "openhop-repeater": "Browser-managed repeater for extending MeshCore-compatible LoRa networks over supported radio and network links.",
+  "rickroll": "Nginx server that serves a local Rickroll page to visitors.",
+  "servicecontrol-db": "RavenDB service that stores data for the Particular ServiceControl messaging management application.",
+  "teddycloud": "Local alternative cloud server for Toniebox devices that keeps their media service on your network.",
+  "tixati": "BitTorrent client for downloading and sharing files with a desktop interface.",
+  "vivaldi": "Web browser with tabs, privacy controls, email, and productivity features.",
+  "xware": "Download client for managing Xunlei transfers through a web interface."
+}

@@ -1,3 +1,4 @@
+import { PageCanvas } from "@/app/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import "../../(catalogs)/domain-tools/domain-tools.css";
@@ -24,7 +25,7 @@ export default async function TransferReadinessPage({ searchParams }: { searchPa
       sidebar={<DomainToolsSidebar active="transfer" />}
       sidebarLabel="Domain tools sidebar"
     >
-      <main className="domain-tool-main">
+      <PageCanvas as="main" className="domain-tool-main">
         <ToolPageHeader
           icon={<ArrowLeftRight strokeWidth={2.2} />}
           toolPage={toolPage}
@@ -33,7 +34,7 @@ export default async function TransferReadinessPage({ searchParams }: { searchPa
         <TransferReadinessTool initialName={first(params.name)} />
 
         <ToolPageMarkdown toolPage={toolPage} />
-      </main>
+      </PageCanvas>
     </AppShell>
   );
 }

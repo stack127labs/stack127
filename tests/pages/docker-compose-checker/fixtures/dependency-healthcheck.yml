@@ -1,0 +1,10 @@
+services:
+  web:
+    image: nginx
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres:16
+    healthcheck:
+      disable: true

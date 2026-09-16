@@ -1,0 +1,13 @@
+{
+  "objectClassName": "ip network",
+  "handle": "41.0.0.0 - 41.0.0.255",
+  "startAddress": "41.0.0.0",
+  "endAddress": "41.0.0.255",
+  "ipVersion": "v4",
+  "name": "AFRINIC-EXAMPLE",
+  "type": "ASSIGNED PA",
+  "country": "ZA",
+  "status": ["assigned"],
+  "events": [{"eventAction": "registration", "eventDate": "2020-01-01T00:00:00Z"}],
+  "entities": [{"handle": "AFRINIC-ORG", "roles": ["registrant"], "vcardArray": ["vcard", [["version", {}, "text", "4.0"], ["fn", {}, "text", "AFRINIC Example Organization"], ["org", {}, "text", ["AFRINIC Example Organization"]]]]}]
+}

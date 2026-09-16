@@ -1,6 +1,6 @@
-# Stack127 Topic Research Rubric
+# stack127 topic research rubric
 
-Use this rubric when ranking new Stack127 topic, directory, reference, calculator, or tool ideas.
+Use this rubric when ranking stack127 resource and product ideas.
 
 ## Score Columns
 
@@ -8,9 +8,11 @@ Score each candidate from 1 to 5:
 
 - Demand: visible search/community pain.
 - Gap: lack of a clear existing easy-reference answer.
-- Fit: match with Stack127's technical directory, self-hosting, homelab, home automation, local AI, and open-source utility focus.
+- Fit: practical value for tech tinkerers or hustlers, informed by the founder's interests and experience. Follow `stack127_docs/product-direction.md`; a subject does not need a homelab connection.
 - Feasibility: ability to build a credible MVP with official sources and repo-owned pages.
 - Moat: advantage from structured data, useful tooling, repeated updates, or source-backed depth.
+
+Before recommending a build, identify the maintenance work and recurring costs. Revenue assumptions remain hypotheses until there is evidence.
 
 Suggested interpretation:
 
@@ -36,7 +38,8 @@ Apply the surface decision rule from `SKILL.md` before scoring. Quick version:
 
 - Entity-specific searches (`<app> breaking changes`, `<app> arm64`) are captured by directory facts and indexable pages, not by picker tools.
 - A tool must stay useful at partial coverage. If it needs a curated dataset with near-total coverage to be credible, reshape it as a directory facet or reference page.
-- A standalone tool needs either live computation from universal sources or a genuine calculation over user-only inputs.
+- A standalone tool needs a useful operation, supported inputs, and results the team can test or evaluate. AI capabilities also need result-quality and usage-cost estimates.
+- Use a course for a connected learning sequence. Consider a product for a larger workflow that needs its own experience.
 - Safety and correctness labels are human-reviewed editorial content, never automated tool output.
 
 ## Good Candidate Patterns
@@ -54,7 +57,7 @@ Apply the surface decision rule from `SKILL.md` before scoring. Quick version:
 ## Rejection Patterns
 
 - Another broad directory with no sharper use case.
-- A beginner course where many polished versions already exist.
+- A course with no distinct learner task or improvement over existing resources.
 - A standalone tool whose usefulness depends on near-total coverage of a curated per-entity dataset.
 - Automated "safe to update" or similar safety/correctness labels.
 - News, release commentary, or anything that decays in days.
