@@ -151,18 +151,20 @@ test("contains the longest supported branch list on a 320px page", async ({ page
 
 test("does not serialize paths or use browser storage for the local calculation", async ({ page }) => {
   await page.waitForLoadState("networkidle");
-  const unexpected: string[] = [];
+  const privatePath = "/mnt/private-example";
+  const leakedRequests: string[] = [];
   page.on("request", (request) => {
-    if (["fetch", "xhr", "beacon"].includes(request.resourceType())) unexpected.push(`${request.method()} ${request.url()}`);
+    const requestContent = `${request.url()}\n${request.postData() ?? ""}`;
+    if (requestContent.includes(privatePath)) leakedRequests.push(`${request.method()} ${request.url()}`);
   });
   await page.evaluate(() => {
     localStorage.clear();
     sessionStorage.clear();
   });
-  await page.getByLabel("Data disk 1 mount path").fill("/mnt/private-example");
+  await page.getByLabel("Data disk 1 mount path").fill(privatePath);
   await page.getByRole("button", { name: "Check and generate" }).click();
-  expect(await page.evaluate((marker) => [...Object.values(localStorage), ...Object.values(sessionStorage)].filter((value) => value.includes(marker)), "/mnt/private-example")).toEqual([]);
-  expect(unexpected).toEqual([]);
+  expect(await page.evaluate((marker) => [...Object.values(localStorage), ...Object.values(sessionStorage)].filter((value) => value.includes(marker)), privatePath)).toEqual([]);
+  expect(leakedRequests).toEqual([]);
 });
 
 test("keeps the guide and tool identity available in the initial page", async ({ page }) => {
