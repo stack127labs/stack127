@@ -181,7 +181,7 @@ test("copies a stable report and preserves the result when copying fails", async
   await page.getByRole("button", { name: "Copy report" }).click();
   await expect(page.getByRole("button", { name: "Report copied" })).toBeVisible();
   const copied = await page.evaluate(() => (window as Window & { __composeCopied?: string }).__composeCopied ?? "");
-  expect(JSON.parse(copied)).toMatchObject({ schemaVersion: 1, engineVersion: "compose-checker-resolution-1" });
+  expect(JSON.parse(copied)).toMatchObject({ schemaVersion: 1, engineVersion: "compose-checker-resolution-2" });
 
   await page.evaluate(() => {
     Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("blocked"); } } });

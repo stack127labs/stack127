@@ -11,7 +11,7 @@ import type {
   Provenance,
 } from "./types";
 
-export const ENGINE_VERSION = "compose-checker-resolution-1" as const;
+export const ENGINE_VERSION = "compose-checker-resolution-2" as const;
 export const LIMITS = {
   composeBytes: 262_144,
   composeLines: 4_000,
@@ -27,8 +27,8 @@ const PARSER_VERSION = "2.8.1";
 const provenance: Provenance = {
   schemaVersion: 1,
   engineVersion: ENGINE_VERSION,
-  composeSpecSnapshotDate: "2026-09-10",
-  schemaSnapshotId: "compose-spec-2026-09-10-targeted",
+  composeSpecSnapshotDate: "2026-09-16",
+  schemaSnapshotId: "compose-spec-2026-09-16-targeted",
   parser: "yaml",
   parserVersion: PARSER_VERSION,
 };

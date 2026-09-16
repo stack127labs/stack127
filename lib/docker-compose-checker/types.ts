@@ -54,9 +54,9 @@ export type NormalizedSummary = {
 
 export type Provenance = {
   schemaVersion: 1;
-  engineVersion: "compose-checker-resolution-1";
-  composeSpecSnapshotDate: "2026-09-10";
-  schemaSnapshotId: "compose-spec-2026-09-10-targeted";
+  engineVersion: "compose-checker-resolution-2";
+  composeSpecSnapshotDate: "2026-09-16";
+  schemaSnapshotId: "compose-spec-2026-09-16-targeted";
   parser: "yaml";
   parserVersion: string;
 };

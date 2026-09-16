@@ -97,7 +97,7 @@ The input is one Compose document only. Multiple files, overrides, includes, and
 - `line` and `column` are 1-based. `line` and `column` are `null` only when a finding comes from a normalized relationship with no single source node.
 - A source excerpt contains the source line with leading and trailing whitespace trimmed, capped at 240 Unicode code points. The complete source remains selectable in the editor.
 - Diagnostic codes are stable uppercase identifiers prefixed by `COMPOSE-`, `YAML-`, or `INPUT-`. The result-copy schema is version `1`.
-- Engine contract version: `compose-checker-resolution-1`. The parser package version, Compose Specification snapshot date, and schema snapshot identifier are shown as small provenance text in the result.
+- Engine contract version: `compose-checker-resolution-2`. The parser package version, Compose Specification snapshot date, and schema snapshot identifier are shown as small provenance text in the result.
 - Tool behavior changes to parsing, normalization, interpolation, severity, supported keys, limits, result fields, or incomplete-model handling require an engine contract version increment and refreshed fixtures. Content-only changes do not.
 - No state is serialized in the URL, local storage, cookies, IndexedDB, or analytics. A clean route stays clean after hydration.
 
@@ -214,7 +214,7 @@ Check one Compose file for YAML, Compose structure, and static clues.
 | volumes 1 | networks 0 | secrets 0 | configs 0 | complete: no external files |
 |                                                                            |
 | [Copy report]                                                              |
-| Compose checker resolution v1 | Compose Specification snapshot 2026-09-10 |
+| Compose checker resolution v2 | Compose Specification snapshot 2026-09-16 |
 +----------------------------------------------------------------------------+
 ```
 

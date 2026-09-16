@@ -93,7 +93,7 @@ Every non-throwing submission returns:
     counts: { services, publishedPorts, namedVolumes, networks, secrets, configs, profiles, interpolationTokens, errors, warnings, advisories }
     findings: Diagnostic[]
     summary: { services, resources, profiles, publishedPortKeys, dependencyEdges, interpolationStates, completeness, incompleteReasons }
-    provenance: { schemaVersion: 1, engineVersion: compose-checker-resolution-1, composeSpecSnapshotDate, schemaSnapshotId, parserVersion }
+    provenance: { schemaVersion: 1, engineVersion: compose-checker-resolution-2, composeSpecSnapshotDate, schemaSnapshotId, parserVersion }
     completeness: { status: complete | incomplete, reasons: string[] }
 
 engine-error is a UI recovery state and has no model result. input-invalid and syntax-invalid have findings but no semantic summary; model-invalid has a Compose model finding but no normalized summary. parsed always has the three layer rows and a summary. severity is exactly Error, Warning, Advisory, or Info. layer is exactly Input, YAML syntax, Compose model, or Static advisories. Input findings identify `compose` or `environment` as their target. code begins with INPUT-, YAML-, or COMPOSE-. path is a Compose-style path or null. line and column are 1-based integers or null. excerpt is a trimmed source line capped at 240 Unicode code points or null. message explains the finding without claiming more than the checker knows. fix gives one repair direction and never edits input.
