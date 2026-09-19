@@ -336,7 +336,11 @@ test("long records and raw evidence stay inside a 320px page", async ({ page }) 
   await page.setViewportSize({ width: 320, height: 900 });
   await runCheck(page, fixture, longName);
   const tableScroll = page.getByRole("table", { name: "Effective CAA records" }).locator("..");
-  expect(await tableScroll.evaluate((node) => node.scrollWidth > node.clientWidth)).toBe(true);
+  expect(await tableScroll.evaluate((node) => node.scrollWidth)).toBe(
+    await tableScroll.evaluate((node) => node.clientWidth),
+  );
+  const recordValue = page.getByRole("table", { name: "Effective CAA records" }).getByText(longValue);
+  expect(await recordValue.evaluate((node) => node.scrollWidth <= node.clientWidth)).toBe(true);
   await page.getByRole("button", { name: "Raw CAA responses" }).click();
   const rawViewport = page.locator("pre").filter({ hasText: '"answer"' }).locator("..");
   expect(await rawViewport.evaluate((node) => node.scrollWidth > node.clientWidth)).toBe(true);

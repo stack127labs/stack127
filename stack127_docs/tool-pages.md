@@ -38,8 +38,9 @@ separate production verification confirms that no deployed code or operational s
 | `page_id` | Primary key and foreign key to `stack127_pages.id`. |
 | `title` | Visible tool-page heading. |
 | `intro_markdown` | Markdown rendered before the interactive tool. |
+| `usage_markdown` | Optional Markdown rendered after the interactive tool and before supporting content. Existing rows may remain `null` until reviewed. |
 | `content_markdown` | Markdown rendered after the interactive tool. |
-| `content_revision` | Internal revision number. Increment only when `title`, `intro_markdown`, or `content_markdown` changes. |
+| `content_revision` | Internal revision number. Increment only when `title`, `intro_markdown`, `usage_markdown`, or `content_markdown` changes. |
 | `tool_version` | Semantic version of the hosted tool behavior. Content-only edits do not change it. |
 | `tool_version_updated_at` | Time the hosted tool version last changed. |
 | `stack127_repo_url` | Optional URL for the stack127-owned repository that contains the related public tool. |
@@ -56,7 +57,9 @@ Store readable copy in Markdown. Raw HTML is not rendered. GitHub-flavored table
 
 Keep formulas, controls, results, exact interactive visuals, accessibility behavior, and operational states in code. Keep the introduction and supporting explanation in the database. Do not commit a second live copy of the Markdown under the route or `content_docs`.
 
-The shared server renderer is `app/tool-page-content.tsx`. Every tool route loads its row with `getRequiredToolPage`, renders `ToolPageHeader` before the interactive component, and renders `ToolPageMarkdown` after it.
+The shared server renderer is `app/tool-page-content.tsx`. Every tool route loads its row with `getRequiredToolPage`, renders `ToolPageHeader` before the interactive component, and renders `ToolPageMarkdown` after it. That article renders `usage_markdown` first when present, then `content_markdown`, so the guide remains one continuous server-rendered prose region.
+
+Markdown may reference an approved generated marker figure with an image such as `![How the pool is assembled](marker-art://catalog/zfs-capacity)`. The explicit registry in `app/marker-art-registry.ts` resolves only known generated modules through `MarkerArt`; unknown references and arbitrary paths are rejected.
 
 Supporting Markdown tables use the reading column's width and wrap explanations, links, and inline code. Keep the keyboard-focusable scroll region as a fallback for unusual content. This rule does not change interactive result tables or raw-output viewers, which retain their own overflow behavior.
 
@@ -78,7 +81,7 @@ When correcting a claim about the tool's coverage, data handling, accuracy, or l
      --content-file /tmp/dns-lookup-content.md
    ```
 
-3. Add `--title "DNS lookup"` only when the visible heading changes. Add `--apply` after reviewing the dry-run result.
+3. Add `--usage-file /tmp/dns-lookup-usage.md` when reviewed usage guidance is available. Omitting it preserves the existing value, including `null`. The file must contain meaningful nonempty Markdown. Add `--title "DNS lookup"` only when the visible heading changes. Add `--apply` after reviewing the dry-run result.
 4. Render and test the page from the development database.
 5. Apply the same reviewed files to production only as a separate authorized operation:
 

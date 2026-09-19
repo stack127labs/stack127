@@ -1,13 +1,16 @@
 # Writing and SEO plan: 3-2-1 backup calculator
 
 Status: ready
+Feasibility: feasible
+Content review: 2026-09-19
+Acceptance path: Main-agent review, then the retained Astra writing session; Luna integrates only accepted words.
 Tool: 3-2-1 backup calculator
 Route: `/backup-321-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `edge-cases-and-tests.md`, `brief.md`
 Input fingerprint: `competitive-report.md sha256:2f44815aab1fd369a2fc5ce558fbab61284f1f2752eb109509df8a46dae57d1e`
 Input fingerprint: `implementation-report.md sha256:b646b8db3031b022255c8b6288cb2024bff1b65c98d9889945ca9bda1b2f95fa`
-Input fingerprint: `interface-contract.md sha256:d4fa07f00bbd48e934316f423fe22fcad7378eb581276869b3bc260ce4111588`
-Input fingerprint: `edge-cases-and-tests.md sha256:bb5a740e24a3137bf1e3e777c1af8ecc63fbdf9ce6be5617d835d82dad56ac61`
+Input fingerprint: `interface-contract.md sha256:c10719347f5e39847ba931454aae2811c00c01938b009e655fed705a70da5703`
+Input fingerprint: `edge-cases-and-tests.md sha256:d2eaa128396c3acbee1f437f39415cd9f34547c10400906119ca549fb0ab1913`
 Input fingerprint: `brief.md sha256:a7b09add3ef2e573f30b86010e92f81b83788fe8b0d762e86b5bf878c72119a9`
 SERP checked: 2026-09-10
 Primary medium: Tool UI
@@ -65,6 +68,7 @@ Reading flow: the workbench asks for the assumptions that change capacity; the r
 | 6 | H2: What the recovery check says about RPO and RTO | What do the optional recovery statuses mean? | RPO compares backup interval with the target interval. RTO compares estimated transfer time for the projected full source with the target restore time. | Sentences | NIST SP 800-34 Rev. 1; implementation recovery equation; FF-007 | Explain equality and failure as decision signals. Keep durations labelled estimated and do not call them measured restore times. | COPY-02 |
 | 7 | H2: What this calculator cannot prove | Does the result establish a real 3-2-1 backup? | It maps source, local, and off-site positions as planned copies, but it cannot verify physical placement, two media types, isolation, encryption, or restore success. | Sentences | Implementation non-goals; EC-010; CISA ransomware guide | State no verified compliance. Do not repeat a generic warning after every result row. | COPY-03 |
 | 8 | H2: Verify the backup outside the calculator | What should happen after sizing? | Confirm the actual target placement and isolation, run a restore test, and check the real product's retention and overhead behavior. | Sentences | CISA ransomware guide; backups-before-serious-apps lesson; implementation link decision | Link to operational guidance. Do not write a restore runbook or claim the calculator performed the checks. | COPY-04 |
+| Usage | H2: Use the tool for your task | Which inputs should I bring, and what should I do with the outcome? | Use the closed Usage Markdown handoff below. | Sentences | Accepted technical artifacts and route behavior | Explain meaningful choices and next action; no button narration or duplicate live results. | COPY-05 |
 
 No marker art, screenshot, clean chart, or decorative numeric illustration is planned. The tool UI, exact capacity anatomy, labelled recovery rows, and formula receipt already show the useful relationships. A marker drawing would not improve the numerical answer, and the 3-2-1 relationship is simple enough for the existing labelled result sentence.
 
@@ -109,6 +113,7 @@ The title names the tool and its result without stacking variants such as "backu
 | COPY-02 | What the recovery check says about RPO and RTO | Make the optional recovery result useful without overstating it. | RPO is the allowed data-age target compared with backup interval. RTO is the allowed recovery-time target compared with modelled local and off-site full-restore seconds. Equality passes. The estimate uses the projected full source and nominal throughput plus efficiency. Use NIST SP 800-34 Rev. 1, implementation equation 10, and FF-007. | Define both terms, explain pass or miss as a prompt for the next decision, and name the excluded downtime factors. Stop before writing a restore procedure. | Do not call transfer seconds measured, guaranteed, or a complete recovery duration. Do not repeat the status rows or invent a score. |
 | COPY-03 | What this calculator cannot prove | Put the trust boundary beside the 3-2-1 copy relationship. | The source is copy 1, the local target is copy 2, and the off-site target is copy 3 as planned positions. The tool does not inspect whether targets are off-site, isolated, disconnected, encrypted, on different media, or successfully restored. Use implementation non-goals, EC-010, CISA backup options, and CISA ransomware guidance. | One concise paragraph that distinguishes a capacity map from operational verification. Stop after naming the concrete checks the tool cannot perform. | Never claim verified 3-2-1 compliance, protection, isolation, encryption, media independence, or restore success. Do not repeat a generic disclaimer after each result region. |
 | COPY-04 | Verify the backup outside the calculator | Tell the reader where the estimate ends and the real work begins, including browser-local privacy. | The calculation runs in the browser with no input-bearing request, analytics event, cookie, local storage, or session storage. Explicit Share creates a versioned URL containing normalized inputs only. The reader still must verify placement, isolation, product retention behavior, and a real restore. Link the backup course lesson and CISA ransomware guidance. | Two short connected paragraphs or one compact section. State the local handling, then give the operational next step and links. Stop before a product runbook or privacy policy. | Do not say data never leaves the device if the user explicitly shares a URL. Do not imply that local calculation proves privacy for external services, or that the page checked a restore. |
+| COPY-05 | Task-oriented usage | Explain input preparation, meaningful choices, states, and next verification. | Closed Usage Markdown handoff and accepted technical artifacts. | One concise connected guide; use steps only where order changes the outcome. | No live-result narration, unimplemented features, or duplicate supporting explanations. |
 
 ### Voice and accuracy constraints
 
@@ -147,3 +152,40 @@ The title names the tool and its result without stacking variants such as "backu
 ## Open questions and blockers
 
 - None for the content plan. The route remains unpublished until a separate central registry decision. Later copy review must preserve the browser-local privacy wording, the full-only versus full-plus-incremental boundary, compounded growth and exact rounding, the RPO/RTO interpretation, and the no-verified-compliance limitation.
+
+
+## Usage Markdown handoff
+
+Disposition: Closed and feasible for the retained Astra writing session after main acceptance.
+
+### Assignment and reading order
+
+COPY-05 owns `usage_markdown`: explain the real task, inputs worth preparing, meaningful mode choices, important state distinctions, and the next verification. The existing manual assignments own the introduction, supporting explanations, metadata, and identified interface review only. Where an older assignment discusses how to choose an input, move that instruction into this usage assignment and retain only its conceptual explanation below. Do not repeat it in both fields. Interface inventories are review-only; this plan does not authorize implementation or rewriting dynamic findings.
+
+### Technical facts and meaningful inputs
+
+Start with current protected logical data, not purchased disk capacity. GB/TB are decimal and GiB/TiB binary. Annual growth compounds through the horizon. Full-only allocates one projected full per retained point; full-plus-incremental allocates one projected full plus a changed-data allowance for each additional point. Headroom is added after repository sizing, independently to each of the two equal-policy targets. Recovery is optional and off by default; when enabled, use backup interval, target RPO/RTO, realistic sustained transfer rates, and efficiency. Restore timing uses the projected source, not the whole retained repository.
+
+### State interpretation and recovery
+
+Input edits clear the old calculation. Display-unit changes only reformat it. Disabled recovery must have no hidden recovery output. Invalid numbers need field recovery rather than a partial numeric answer. A failed recovery objective is a planning finding, not a failed backup test.
+
+### Limitations and next action
+
+No compression, deduplication, vendor retention chains, prices, physical placement, media independence, isolation, encryption, or restore-success verification.
+
+### Input handling boundary
+
+Calculations run locally. Explicit Share encodes normalized inputs in a versioned URL; anyone receiving that link can read them. Do not describe sharing as private or make a sitewide cookie/analytics claim. The implementation and accepted technical evidence support only these route-specific statements. Do not infer a general retention, logging, analytics, cookie, or anonymity policy.
+
+### Content, media, and list requirements
+
+Keep the interactive tool first. Preserve all outline tables and exact result media; their repeated fields belong in tables, not comparison paragraphs. Existing output values, counts, findings, formulas, and captions stay in the live result rather than a second narrative. No new screenshot, marker drawing, generated illustration, or chart is required. If an ordered list is used, it must represent dependent task steps; use an unordered list only for genuinely independent checks. Do not add a generic FAQ or a list-shaped summary of every control. Every retained table must ship with useful headers and its limitation, not merely a heading placeholder.
+
+### Source ledger and links
+
+Use the existing source ledger for attributable claims, with links at the point of explanation. The ready implementation, interface, edge-case, and brief artifacts govern what this tool actually does; official sources govern external rules. Local assumptions must be labeled rather than attributed to a standards body or platform. Preserve the ledger's checked dates; a content review is not a claim that every source was freshly reverified. Conditional internal destinations: /storage-growth-planner; /self-hosting-for-beginners/backups-before-serious-apps. Include them only when the exact route is published at integration; all new batch tools remain unpublished. If a destination is unavailable, omit the link rather than invent a URL or publish its target.
+
+### Feasibility and ownership
+
+The accepted implementation can support this plan without new controls, engines, media, data sources, or implementation work. Astra supplies words only after acceptance. Luna performs content integration later. Neither this plan nor its validator result changes database content, registry publication, tool version, or deployment.

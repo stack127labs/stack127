@@ -1,0 +1,594 @@
+{
+  "schemaVersion": 1,
+  "route": "/mqtt-discovery-checker",
+  "scope": {
+    "kind": "retrofit",
+    "owns": [
+      "interface",
+      "tests",
+      "engine",
+      "usage",
+      "content",
+      "media",
+      "integration"
+    ],
+    "excludes": [
+      "historical research and product planning",
+      "publication, production data writes, and deployment"
+    ]
+  },
+  "status": "accepted",
+  "authors": [
+    {
+      "stage": "interface",
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "session": "/root/interface_contracts_13"
+    },
+    {
+      "stage": "test-design",
+      "model": "gpt-5.6-luna",
+      "reasoning": "max",
+      "session": "/root/test_build_13"
+    },
+    {
+      "stage": "build",
+      "model": "gpt-5.6-luna",
+      "reasoning": "max",
+      "session": "/root/test_build_13"
+    },
+    {
+      "stage": "content-plan",
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "session": "/root/content_plan_writing_13"
+    },
+    {
+      "stage": "content",
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "session": "/root/content_plan_writing_13"
+    },
+    {
+      "stage": "integration",
+      "model": "gpt-5.6-luna",
+      "reasoning": "max",
+      "session": "/root/content_integration_13"
+    },
+    {
+      "stage": "audit",
+      "model": "gpt-5.6-sol",
+      "reasoning": "high",
+      "session": "/root/final_audit_13"
+    }
+  ],
+  "target": {
+    "commit": "3296c3250b57403cfd2966eab5dfae06c5a528aa",
+    "files": [
+      {
+        "path": "app/(site)/(tools)/mqtt-discovery-checker/mqtt-discovery-checker.module.css",
+        "sha256": "2d7e2fd3915b9d49cdb99beb1c0c3469066bcd451144c5120ab93e7855685854"
+      },
+      {
+        "path": "app/(site)/(tools)/mqtt-discovery-checker/mqtt-discovery-checker.tsx",
+        "sha256": "6eafc16e31ef61acce3b1d88700f5f03ce1e9799abaa140219d318b3fc733963"
+      },
+      {
+        "path": "app/(site)/(tools)/mqtt-discovery-checker/page.tsx",
+        "sha256": "135052b80cb3bb8946c1e25807d64156a8b3a67b27995cfa6b7e8aefab337b51"
+      },
+      {
+        "path": "app/tool-page-content.module.css",
+        "sha256": "a8084ceeef09f070602390d44832e56deaa54467b436af5477c691511f52ca1b"
+      },
+      {
+        "path": "app/tool-page-content.tsx",
+        "sha256": "57deb491829acc966937caaeeaf044f1187cec5e3643748c63c1f091b9c4dde0"
+      },
+      {
+        "path": "app/tool-ui/tool-controls.module.css",
+        "sha256": "faa62f67e039c177af23320cbb341b36dba6fc7138b639dbb31380917a723cb6"
+      },
+      {
+        "path": "app/tool-ui/tool-controls.tsx",
+        "sha256": "93e533c664ed8c3707e2da1b7b44906e1de6e481ba791b0ac0be3418a3a1a555"
+      },
+      {
+        "path": "lib/mqtt-discovery-checker/engine.ts",
+        "sha256": "0f2447918e251c61ca0e75cc697bd5d4e36717ce746714ae91152fd171e59936"
+      },
+      {
+        "path": "lib/tool-pages.ts",
+        "sha256": "a74ce8d37259a6c6d376d8c3c4b549a996027d9b6e314cf75bdc9ea8a541c114"
+      },
+      {
+        "path": "scripts/stack127/tool-pipeline/validate-acceptance.mjs",
+        "sha256": "1ad4af6304df6024321fb932b67d52bd7469e7b0c63f40aa19831bc1d1f6e6d4"
+      },
+      {
+        "path": "tests/pages/mqtt-discovery-checker/mqtt-discovery-checker.spec.ts",
+        "sha256": "d7c8ec405457948b2b138d9bd370da5c7475e5dfbe1c563850aec2053571a0fb"
+      },
+      {
+        "path": "tests/pages/mqtt-discovery-checker/mqtt-discovery-checker.test.mjs",
+        "sha256": "8f75458ab4d41d10f1713e967602b937d4ab6578673a144aadef8a150b5c646a"
+      },
+      {
+        "path": "tests/pages/mqtt-discovery-checker/page.json",
+        "sha256": "008345c0781e189da449e80967e5d3f47b3f05db38de1b76d6891b14b7414eba"
+      },
+      {
+        "path": "tests/pages/mqtt-discovery-checker/page.test.mjs",
+        "sha256": "e8fc8fb18a0d8edbbd1fa2cb42e25e3a893cf4795ecb7c4ffee0837df9362a92"
+      },
+      {
+        "path": "tests/stack127/tool-pipeline-acceptance.test.mjs",
+        "sha256": "a48da1ee03deb4bcae7edaec35d0fc1dad8547b7622d209410afe9a57f8abc2a"
+      }
+    ],
+    "inputs": [
+      {
+        "path": "content_docs/mqtt-discovery-checker/brief.md",
+        "sha256": "8876f3c879600fc752405ab365ce52064c732d7928e3b06d4a3fa9b49c1e9096",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/mqtt-discovery-checker/edge-cases-and-tests.md",
+        "sha256": "36260e2def18eb256dfd70c501172dbecabc7423ddb69fcef84bd54897b32921",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/mqtt-discovery-checker/implementation-report.md",
+        "sha256": "7ea8b887d249c8a38f83e5257683b9eaa6519b75a808207878bae11b17208d67",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/mqtt-discovery-checker/interface-contract.md",
+        "sha256": "ca7c4f9b6b602b6608585577cf17d96db2b6e0da14ad3f1f18fa40f1f6466371",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/mqtt-discovery-checker/writing-and-seo.md",
+        "sha256": "ff18d39cb5cae3a5d81feb1bef3134b1759d64e9a7ee66e84ebb9aea7a2e7fdc",
+        "validation": "current"
+      }
+    ],
+    "content": {
+      "environment": "development",
+      "revision": 2,
+      "toolVersion": "1.0.0",
+      "fields": {
+        "title": "71a17978844fbed093eacc069d9ae9e4d54aacfe89fac29e357938b20bec3bcf",
+        "intro_markdown": "57d06d2b0e860f16da679d603eb5bfb7477b5039c7aeb9b31910661b41178e7e",
+        "usage_markdown": "0b72d8f5aab94986c35b6a86895ea450c0aca9c91195da4de806622e5950a0c6",
+        "content_markdown": "0892bb34d77270738ac6a5e7c315fee2b8d750b497ddf2d1efd27bbe4ffc8426"
+      }
+    },
+    "digest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406"
+  },
+  "feasibility": [
+    {
+      "stage": "interface",
+      "status": "feasible",
+      "reason": "The current contract, shared controls, and four-view evidence agree.",
+      "evidenceIds": [
+        "ev-contracts",
+        "ev-browser-report"
+      ]
+    },
+    {
+      "stage": "tests",
+      "status": "feasible",
+      "reason": "Route-owned boundary tests and the repository suite pass.",
+      "evidenceIds": [
+        "ev-focused-tests",
+        "ev-repository-tests"
+      ]
+    },
+    {
+      "stage": "engine",
+      "status": "feasible",
+      "reason": "Formula and normalization behavior passed focused tests and independent review.",
+      "evidenceIds": [
+        "ev-focused-tests",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "stage": "usage",
+      "status": "feasible",
+      "reason": "The live development usage guide is nonempty and rendered in the approved order.",
+      "evidenceIds": [
+        "ev-database",
+        "ev-browser-report"
+      ]
+    },
+    {
+      "stage": "content",
+      "status": "feasible",
+      "reason": "The live copy matches the reviewed content artifacts and source limitations.",
+      "evidenceIds": [
+        "ev-database",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "stage": "media",
+      "status": "feasible",
+      "reason": "The tool UI and exact tables or interactive outputs are the appropriate media for this task.",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "stage": "integration",
+      "status": "feasible",
+      "reason": "The flat route, server loader, shared content renderer, and development row pass together.",
+      "evidenceIds": [
+        "ev-build",
+        "ev-browser-report",
+        "ev-database"
+      ]
+    }
+  ],
+  "mode": {
+    "decision": "disclosure",
+    "rationale": "The current interface contract keeps result-driving state visible and uses disclosure only for non-blocking evidence or detail.",
+    "contractPath": "content_docs/mqtt-discovery-checker/interface-contract.md"
+  },
+  "coverage": [
+    {
+      "id": "coverage-input",
+      "kind": "input",
+      "requirement": "Required, optional, boundary, invalid, and recovery behavior is protected.",
+      "disposition": "required",
+      "checkIds": [
+        "c-technical",
+        "c-interaction"
+      ]
+    },
+    {
+      "id": "coverage-output",
+      "kind": "output",
+      "requirement": "The representative result remains rendered with exact values and explicit unknowns or limits.",
+      "disposition": "required",
+      "checkIds": [
+        "c-technical",
+        "c-interaction"
+      ]
+    },
+    {
+      "id": "coverage-usage",
+      "kind": "usage",
+      "requirement": "The server-loaded usage guide explains operation, interpretation, and limits without duplicating the workbench.",
+      "disposition": "required",
+      "checkIds": [
+        "c-content",
+        "c-interaction"
+      ]
+    },
+    {
+      "id": "coverage-media",
+      "kind": "media",
+      "requirement": "The tool UI, interactive output, and table where applicable communicate the task in both themes and widths.",
+      "disposition": "required",
+      "checkIds": [
+        "c-media",
+        "c-rendered"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "c-contracts",
+      "kind": "contracts",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "evidenceIds": [
+        "ev-contracts"
+      ]
+    },
+    {
+      "id": "c-technical",
+      "kind": "technical",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "evidenceIds": [
+        "ev-focused-tests",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "id": "c-interaction",
+      "kind": "interaction",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "id": "c-content",
+      "kind": "content",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-content-match",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "id": "c-media",
+      "kind": "media",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "id": "c-rendered",
+      "kind": "rendered",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "evidenceIds": [
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "id": "c-database",
+      "kind": "database",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "evidenceIds": [
+        "ev-database"
+      ]
+    },
+    {
+      "id": "c-focused-tests",
+      "kind": "focused-tests",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "evidenceIds": [
+        "ev-focused-tests"
+      ]
+    },
+    {
+      "id": "c-build",
+      "kind": "build",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "evidenceIds": [
+        "ev-build"
+      ]
+    },
+    {
+      "id": "c-repository-quality",
+      "kind": "repository-quality",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "evidenceIds": [
+        "ev-repository-tests",
+        "ev-diff"
+      ]
+    },
+    {
+      "id": "c-independent-review",
+      "kind": "independent-review",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "evidenceIds": [
+        "ev-sol-review"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-contracts",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:18:59.152Z",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/contracts.log",
+      "sha256": "1ddafe2e18aa9e939df76bc9138ca5dcdd7ba960dcb8670a3cdc80d519acfe74",
+      "command": "13 interface-contract validators and 13 content-stage pipeline validators",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-focused-tests",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:25:58.781Z",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/focused-tests.log",
+      "sha256": "218d3a57ea9ab4dc8242b56db9ccc36cd2eca74647022d0242683e52577e17a7",
+      "command": "node --experimental-strip-types --test-concurrency=1 --test <13 route test sets and shared tool tests>",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-repository-tests",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:26:56.602Z",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/repository-tests.log",
+      "sha256": "741a3b418738dd00b843bd5fd23d9a186702773625b8800f69171ac75f83287d",
+      "command": "npm run test",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-build",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:29:07.068Z",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/build.log",
+      "sha256": "d1e5fe9f58d2a33a828f6f58e12d100640c51d2d0f8eb861a13ba67f24547a4a",
+      "command": "npm run build",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-diff",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:29:07.105Z",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/diff-check.log",
+      "sha256": "4bbbd6420a737faa426cb41526a4ede7743f52d302031630fe8a4b29e0be0977",
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-database",
+      "kind": "database",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:38:53.830Z",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/development-database-receipt.json",
+      "sha256": "94570c541dcba0e41351aab1249da4ec3375be13956c6cebee7b25f9ea4430c1"
+    },
+    {
+      "id": "ev-sol-review",
+      "kind": "review",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:25:12.000Z",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/sol-review.json",
+      "sha256": "007a9b66590b1be7074c37a54e285d02b349b4c81e7a2b948fc3e77379c512e5"
+    },
+    {
+      "id": "ev-content-match",
+      "kind": "review",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:26:00.000Z",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/content-artifact-match.json",
+      "sha256": "3c5c21f88fb38d6816a7f4f2b5a2037878609a27857ce2a59d419c6ff6327303"
+    },
+    {
+      "id": "ev-browser-report",
+      "kind": "review",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:33:41.766Z",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "path": "content_docs/mqtt-discovery-checker/pipeline-evidence/browser-inspection.json",
+      "sha256": "638904533a5d5e11f2125a7647a5caffd9e07c6f0e2bd90e17b538a5fc82ceab"
+    },
+    {
+      "id": "ev-browser-dark-1440",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:33:41.766Z",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "path": "content_docs/mqtt-discovery-checker/pipeline-evidence/browser-dark-1440.png",
+      "sha256": "be05e5da90a41e9e10fdf5516a435f801aff3a8b6712fc2886925eec6cdb48ec",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    },
+    {
+      "id": "ev-browser-dark-390",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:33:41.766Z",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "path": "content_docs/mqtt-discovery-checker/pipeline-evidence/browser-dark-390.png",
+      "sha256": "5f7379d3113a1171c4b4e456ad32e0c4498e2b70a585e5e708233766373c8d01",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "theme": "dark",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    },
+    {
+      "id": "ev-browser-light-1440",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:33:41.766Z",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "path": "content_docs/mqtt-discovery-checker/pipeline-evidence/browser-light-1440.png",
+      "sha256": "4f324fcd79e40b451cc2994b596092a1e6b9881b30319341bbaffa15e600e27c",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    },
+    {
+      "id": "ev-browser-light-390",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:33:41.766Z",
+      "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406",
+      "path": "content_docs/mqtt-discovery-checker/pipeline-evidence/browser-light-390.png",
+      "sha256": "a02c41cac80bd6abfb5893bcdfb0287a3d849fcbff735f70d9bd0963ecd1fb4a",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "theme": "light",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-AUDIT-CLI-ROOT",
+      "severity": "P2",
+      "status": "fixed",
+      "description": "The pipeline acceptance CLI resolved the repository root one directory too high and could not load real route records.",
+      "checkIds": [
+        "c-contracts",
+        "c-repository-quality",
+        "c-independent-review"
+      ],
+      "fix": {
+        "paths": [
+          "scripts/stack127/tool-pipeline/validate-acceptance.mjs",
+          "tests/stack127/tool-pipeline-acceptance.test.mjs"
+        ],
+        "description": "Resolve the repository root from three parent directories and protect the CLI path with a regression test.",
+        "targetDigest": "e6384eaca97b4bbc596d4a36963c74a773c6dd40fe9d780b0d977ed53c132406"
+      },
+      "recheckEvidenceIds": [
+        "ev-focused-tests",
+        "ev-sol-review"
+      ]
+    }
+  ]
+}

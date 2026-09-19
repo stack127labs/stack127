@@ -4,10 +4,10 @@ Status: ready
 Tool: Docker Compose checker
 Route: /docker-compose-checker
 Depends on: competitive-report.md, implementation-report.md, interface-contract.md, brief.md
-Input fingerprint: `competitive-report.md sha256:26d81ad5616befbfabba5dda2beed1c8ae8d8f8e6721eb57c9b29d6384118c1a`
-Input fingerprint: `implementation-report.md sha256:1c4ef6b5fc05c53b4c82dfb2ebef07201cc004724bb9ee85d31bdea0081ada97`
+Input fingerprint: `competitive-report.md sha256:bb8cce9a5c129e931e9df10005408b430af2e851b8d6fb0e9db8db957e32d3ae`
+Input fingerprint: `implementation-report.md sha256:9ae41963ca921518d6a2ed8e1c243e548f38d91b7d5efdcf43a0eb62592c2055`
 Input fingerprint: `brief.md sha256:cdddc1c8a8dea42aa26848b792fd2874159f87cb63c7bb996cd8be187aeeda92`
-Input fingerprint: `interface-contract.md sha256:15eed95d1a0d2e5c4418c60f9e0ef87c4f8354f2501f2be0d9f44b6a016e7417`
+Input fingerprint: `interface-contract.md sha256:6098cf4d0be201920481eb4a2226131368592f1a7aa4206dc79bef553cfd7b13`
 
 ## Risk model
 
@@ -82,6 +82,7 @@ The main hazard is a YAML-only green result that looks like a usable Compose con
 | Security and privacy | EC-003, EC-004, EC-008, EC-018 through EC-021, EC-028 through EC-030 |
 | SSR and SEO | EC-033, EC-038. Publication remains unpublished; no route-owned metadata, canonical, sitemap, or JSON-LD. |
 | Performance | EC-004, EC-031, EC-032 |
+| Control mode, switching, parity, and hidden-state recovery | EC-039. Single mode has no basic/advanced switch or hidden result-driving values; repeated submission of the same normalized YAML/environment snapshot is the parity oracle, and no hidden-setting recovery path is applicable. |
 
 ## Result contract
 
@@ -195,6 +196,7 @@ tests/pages/docker-compose-checker/fixtures/interpolation-precedence.json contai
 | EC-036 | P1 | Responsive/reflow | Long paths, codes, excerpts, service/image names, fixes at 320, 375, 760, 959, 1440px. | Rows stack below 760 with visible labels; no page overflow, clipping, overlap, hidden fix; controls stable. | Touch targets >=44px; source order preserved. | None. | Browser screenshot/style/scrollWidth test | R21, UI-008, UI-017 |
 | EC-037 | P1 | Themes/focus | Initial, syntax, semantic, advisory, copy failure, engine failure in dark/light with reduced motion. | Words, borders, code, excerpts, errors, focus, live status readable without color; reduced motion honored. | No focus occlusion or color-only status. | None. | Browser visual/accessibility test | UI-018 |
 | EC-038 | P2 | Static omissions | Inspect route source, module CSS, global CSS, rendered DOM. | Route selectors in docker-compose-checker.module.css; no graph/chart/score/badge/picker/formatter/art/nested cards/hidden validation. | Workbench remains shared full-width band. | Read-only. | Static page.test.mjs and Browser | UI-019, UI-020 |
+| EC-039 | P1 | Control mode and hidden-state recovery | Run `valid-current-compose.yml` with its explicit environment snapshot, submit it twice after Reset, then edit the Compose or environment editor and submit an invalid value. | The checker remains single mode with no Basic/Advanced switch. The same normalized snapshot produces the same summary, diagnostics, and provenance on both runs. All result-driving editors stay visible; no custom value can persist in a hidden mode, and an invalid editor remains available for correction with no semantic result. | The edited textarea keeps caret focus, the stale result clears, and the first invalid editor is associated with recovery. Any evidence disclosure is non-result-driving and cannot hide a blocking input or syntax issue. | No URL, storage, request, file read, or analytics side effect. | Pure determinism plus Browser state/accessibility test in `tests/pages/docker-compose-checker/docker-compose-checker.test.mjs` and `docker-compose-checker.spec.ts` | R1, R3, R12, UI-021 |
 
 ## Test plan
 

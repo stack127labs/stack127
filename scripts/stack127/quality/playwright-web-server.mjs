@@ -61,6 +61,12 @@ const env = {
   HOSTNAME: serverMode === "production" ? "127.0.0.1" : process.env.HOSTNAME,
   PORT: port,
 };
+if (process.env.STACK127_DISABLE_DATA_API === "1") {
+  delete env.SUPABASE_URL;
+  delete env.SUPABASE_PUBLISHABLE_KEY;
+  delete env.NEXT_PUBLIC_SUPABASE_URL;
+  delete env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+}
 
 const nextBin = path.join(process.cwd(), "node_modules", "next", "dist", "bin", "next");
 const standaloneServer = path.join(process.cwd(), ".next", "standalone", "server.js");

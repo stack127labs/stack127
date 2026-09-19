@@ -84,10 +84,13 @@ A screenshot is not enough. Check element bounds, scroll containers, focus order
 - Put only optional advanced or rare settings behind a specific disclosure.
 - Keep every required or defaulted result-driving input visible. Technical complexity is not a reason to conceal an active assumption.
 - Put errors at the narrowest useful scope and show each error once.
+- Keep client-side field validation inside the form. Focus the first invalid field; do not create an error result region or a `Fix input` button that only returns to a field already identified by the form.
 - Align actions with controls, not with labels or helper text.
 - Reserve explicit grid rows for labels, controls, and errors when an action sits beside a field. An appearing error must not push the adjacent action below the control.
 
-Reuse `app/tool-ui/tool-controls.tsx` when its behavior matches. Extend a shared component only when at least two tools need the same semantic behavior. Keep tool-specific presentation in the tool.
+Inspect `app/tool-ui`, `/tool-ui-lab`, and relevant sibling tools before implementing a control. Reuse a shared component when its behavior matches. If no suitable component exists, follow the ready interface contract and build the approved shared or route-specific stack127 component with complete states, accessibility, recovery, tokens, and responsive behavior. Extend or add a shared component when at least two tools need the same semantic behavior. Keep unique presentation in the tool.
+
+Do not expose an unstyled native control, generic browser upload box, generic dashboard pattern, or unrelated third-party component because the needed primitive is missing. Native elements may preserve semantics underneath the visible stack127 interaction. If a substantial change has no missing-component decision, return it to `$stack127-tool-interface-plan` instead of improvising.
 
 Shared controls may expose an outer placement class or slot so a page can position them in its layout. That hook must not become a way to restyle the control's internal typography, radius, states, or spacing contract.
 
@@ -133,6 +136,7 @@ Render and operate the finished tool at desktop and mobile widths in dark and li
 - every expandable region remains contained when open;
 - tables, charts, and repeated rows remain readable and reachable;
 - controls keep consistent height, type, radius, focus, hover, loading, disabled, and error behavior;
+- every nontrivial control matches its approved component provenance, with no generic fallback or page-local copy of a suitable shared primitive;
 - keyboard order and focus remain clear;
 - every supported state keeps the same hierarchy;
 - opening the clean canonical route leaves the URL unchanged through hydration;

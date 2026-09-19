@@ -168,12 +168,28 @@ export function inspectPipeline({ repositoryRoot, routeInput, expectation, runVa
       if (expectation === "handoff" && !manifest.skills?.includes("skills/stack127/stack127-tool-writing")) {
         errors.push("ownership manifest must list skills/stack127/stack127-tool-writing at handoff");
       }
+      if (expectation === "handoff" && !manifest.skills?.includes("skills/stack127/stack127-tool-content-integration")) {
+        errors.push("ownership manifest must list skills/stack127/stack127-tool-content-integration at handoff");
+      }
     }
 
     if (runValidators && expectation === "build") {
       const result = runValidator(repositoryRoot, docsDirectory, ["--tool-only"]);
       if (result.ok) checks.push("tool-only audit: passed");
       else errors.push(`tool-only audit failed:\n${result.output}`);
+    }
+
+    if (runValidators && expectation === "handoff") {
+      const acceptancePath = resolve(docsDirectory, "pipeline-acceptance.json");
+      if (existsSync(acceptancePath)) {
+        const acceptanceValidator = resolve(repositoryRoot, "scripts/stack127/tool-pipeline/validate-acceptance.mjs");
+        if (!existsSync(acceptanceValidator)) errors.push("pipeline acceptance validator is missing");
+        else {
+          const result = spawnSync(process.execPath, [acceptanceValidator, acceptancePath], { cwd: repositoryRoot, encoding: "utf8" });
+          if (result.status === 0) checks.push("pipeline acceptance: passed");
+          else errors.push(`pipeline acceptance failed:\n${`${result.stdout ?? ""}${result.stderr ?? ""}`.trim()}`);
+        }
+      } else errors.push("pipeline-acceptance.json is required at handoff");
     }
   }
 

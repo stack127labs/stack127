@@ -1,13 +1,16 @@
 # Writing and SEO plan: IP and ASN registration lookup
 
 Status: ready
+Feasibility: feasible
+Content review: 2026-09-19
+Acceptance path: Main-agent review, then the retained Astra writing session; Luna integrates only accepted words.
 Tool: IP and ASN registration lookup
 Route: `/ip-asn-lookup`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `edge-cases-and-tests.md`, `brief.md`
 Input fingerprint: `competitive-report.md sha256:daf132c7da35fd0d6b68059903dcda6b6e6c1232c70c5c01a0647244510992c4`
 Input fingerprint: `implementation-report.md sha256:ef5577306cf52712f610dcc77c9bab54af8bfda940e19eb855884bf678022063`
-Input fingerprint: `interface-contract.md sha256:994bbf11eb20c9a0defa7de3111b8034bbd8906ea86f7ff3fe6f1463efb4d60b`
-Input fingerprint: `edge-cases-and-tests.md sha256:11ff3cd6152a55ea89cb46946337db67488df5ad41a55dc15d221dfa8af53e72`
+Input fingerprint: `interface-contract.md sha256:82b687c21c3d5bb5576addcf2c81e79fee7e7102be894617e126bfdf588cb779`
+Input fingerprint: `edge-cases-and-tests.md sha256:47523a0b2c319889192f914afc7fdef5ca66f6571d1537a282fad8b5872bd0b0`
 Input fingerprint: `brief.md sha256:94d430dc139b637fef92f0a66ed08c87f2036c38f9a1e8433e458619b81e399a`
 SERP checked: 2026-09-10
 Primary medium: Tool UI
@@ -58,6 +61,7 @@ Reading flow: the visitor gets the source-labeled answer first, then reads what 
 | 5 | H2: What an abuse contact is for | What should I do with the contact? | Use the published abuse role for a network report, and include the address, time, observed protocol or URL, and relevant logs. The contact does not prove who used the address. | Sentences | `competitive-report.md`, normalized abuse contract, RIR source links | Do not invent a universal response promise or identify a subscriber. | COPY-04 |
 | 6 | H2: What this lookup does not identify | Is this a location, owner, reputation, or service inventory tool? | Registered country is not geolocation; a holder is not necessarily the current operator, subscriber, or person; no reputation, ports, or CIDR conclusions are provided. | Sentences | `competitive-report.md`, RFC 9082, `implementation-report.md` | Keep each boundary tied to the result question; no generic caveat block. | COPY-05 |
 | 7 | H2: How to verify a result | What should I check before acting on it? | Use the linked registry record and raw RDAP response, compare the route section separately, and use DNS or domain lookup when the investigation begins with a name. | Sentences | `implementation-report.md`, `tool-pages.md` | Do not restate source metadata or create a second results table. | COPY-06 |
+| Usage | H2: Use the tool for your task | Which inputs should I bring, and what should I do with the outcome? | Use the closed Usage Markdown handoff below. | Sentences | Accepted technical artifacts and route behavior | Explain meaningful choices and next action; no button narration or duplicate live results. | COPY-07 |
 
 ## Formula explanation
 
@@ -98,6 +102,7 @@ Reading flow: the visitor gets the source-labeled answer first, then reads what 
 | COPY-04 | What an abuse contact is for | Turn a published contact into a responsible next action | Abuse role fields, linked contact form or email, a report should include address, time, protocol or URL, and logs; source remains the RIR record | Give practical reporting context and say what the contact cannot establish. Stop before advice about a specific incident. | Do not promise a response, identify a subscriber, or invent a reporting policy. |
 | COPY-05 | What this lookup does not identify | Set the limits beside the claims most likely to be overread | Not geolocation, subscriber identity, person identity, reputation, malware verdict, port list, service inventory, or CIDR analysis; private and reserved inputs are rejected | Use connected sentences with concrete boundaries. Stop once the reader knows which next question needs another tool. | Do not add a map, score, threat label, or broad IP intelligence promise. |
 | COPY-06 | How to verify a result | Give the reader a short path from lookup to action | Registry record link, raw RDAP disclosure, source and fetched or cached time, separate BGP comparison, `/dns-lookup`, `/domain-lookup`, no clean-URL result restoration, bounded request and no analytics payload | Explain what to verify and which adjacent tool continues the job. Stop before a generic FAQ or troubleshooting catalog. | Do not repeat the source metadata, claim local-only processing, or serialize the query into the URL. |
+| COPY-07 | Task-oriented usage | Explain input preparation, meaningful choices, states, and next verification. | Closed Usage Markdown handoff and accepted technical artifacts. | One concise connected guide; use steps only where order changes the outcome. | No live-result narration, unimplemented features, or duplicate supporting explanations. |
 
 ### Voice and accuracy constraints
 
@@ -131,3 +136,40 @@ Reading flow: the visitor gets the source-labeled answer first, then reads what 
 ## Open questions and blockers
 
 - None. The content plan is ready for the manual prose pass. Publication remains a separate registry decision.
+
+
+## Usage Markdown handoff
+
+Disposition: Closed and feasible for the retained Astra writing session after main acceptance.
+
+### Assignment and reading order
+
+COPY-07 owns `usage_markdown`: explain the real task, inputs worth preparing, meaningful mode choices, important state distinctions, and the next verification. The existing manual assignments own the introduction, supporting explanations, metadata, and identified interface review only. Where an older assignment discusses how to choose an input, move that instruction into this usage assignment and retain only its conceptual explanation below. Do not repeat it in both fields. Interface inventories are review-only; this plan does not authorize implementation or rewriting dynamic findings.
+
+### Technical facts and meaningful inputs
+
+Start with one public IP address or ASN from the connection or log under investigation. Accept an ASN with or without AS; do not substitute a hostname, CIDR, private address, or reserved value. IANA bootstrap selects the RIR RDAP service. Registration records describe allocated resources; optional Team Cymru routing context for an IP is a separate observation. Missing fields mean Not published, not an empty organization or zero-valued fact.
+
+### State interpretation and recovery
+
+Distinguish registered, RDAP 404 not_registered, rate_limited, blocked, timeout, registry_error, and no_service. A routing lookup failure must not erase a successful registration record. Retry transient failures; correct invalid input before retrying. Do not interpret missing routing data as proof that an address is unrouted.
+
+### Limitations and next action
+
+No device location, household identity, reachability, ownership verification beyond registry data, reputation score, or guarantee that registration and observed routing organizations match.
+
+### Input handling boundary
+
+This is not a local-only tool: the query is sent to the site lookup service and upstream registration services, with optional routing-provider lookup. Do not promise anonymity, no logging, or no third-party processing. Do not serialize returned personal/contact records into sharing copy. The implementation and accepted technical evidence support only these route-specific statements. Do not infer a general retention, logging, analytics, cookie, or anonymity policy.
+
+### Content, media, and list requirements
+
+Keep the interactive tool first. Preserve all outline tables and exact result media; their repeated fields belong in tables, not comparison paragraphs. Existing output values, counts, findings, formulas, and captions stay in the live result rather than a second narrative. No new screenshot, marker drawing, generated illustration, or chart is required. If an ordered list is used, it must represent dependent task steps; use an unordered list only for genuinely independent checks. Do not add a generic FAQ or a list-shaped summary of every control. Every retained table must ship with useful headers and its limitation, not merely a heading placeholder.
+
+### Source ledger and links
+
+Use the existing source ledger for attributable claims, with links at the point of explanation. The ready implementation, interface, edge-case, and brief artifacts govern what this tool actually does; official sources govern external rules. Local assumptions must be labeled rather than attributed to a standards body or platform. Preserve the ledger's checked dates; a content review is not a claim that every source was freshly reverified. Conditional internal destinations: /dns-lookup; /whois-lookup. Include them only when the exact route is published at integration; all new batch tools remain unpublished. If a destination is unavailable, omit the link rather than invent a URL or publish its target.
+
+### Feasibility and ownership
+
+The accepted implementation can support this plan without new controls, engines, media, data sources, or implementation work. Astra supplies words only after acceptance. Luna performs content integration later. Neither this plan nor its validator result changes database content, registry publication, tool version, or deployment.

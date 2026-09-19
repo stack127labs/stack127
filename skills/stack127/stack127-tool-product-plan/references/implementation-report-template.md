@@ -6,17 +6,20 @@ Copy this structure to `content_docs/<route-without-leading-slash>/implementatio
 # Implementation report: [[tool name]]
 
 Status: draft
+Feasibility: [[feasible or blocked, with evidence and promise boundary]]
 Tool: [[tool name]]
 Route: `/[[route]]`
 Depends on: `competitive-report.md`
 Input fingerprint: `competitive-report.md sha256:[[64 lowercase hex characters]]`
 Contract type: [[formula or resolution]]
+Pipeline acceptance: `content_docs/<route-without-leading-slash>/pipeline-acceptance.json`
 
 ## Product decision
 
 - Primary user: [[one person in one situation]]
 - Job: [[answer or action they need]]
 - Product thesis: [[why this tool earns preference]]
+- Control-mode hypothesis: [[single, disclosure, or basic-advanced, with reason and any Basic assumptions]]
 - Evidence: [[competitive report sections]]
 
 ## Scope
@@ -96,6 +99,8 @@ flowchart TD
 
 | Claim or task | Medium | Position | Why this medium |
 | --- | --- | --- | --- |
+
+Required media trace: [[rendered selectors or artifact paths for tool UI, lists, tables, charts, diagrams, screenshots, and registered MarkerArt]]
 
 ## Technical plan
 

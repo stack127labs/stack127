@@ -1,0 +1,23 @@
+{
+  "route": "/kdp-page-count-estimator",
+  "state": "unpublished",
+  "reason": "The tool is under technical and content review. Publish it only after a separate registry decision.",
+  "docs": ["content_docs/kdp-page-count-estimator"],
+  "tests": [
+    "tests/pages/kdp-page-count-estimator/kdp-page-count-estimator.test.mjs",
+    "tests/pages/kdp-page-count-estimator/page.test.mjs",
+    "tests/pages/kdp-page-count-estimator/kdp-page-count-estimator.spec.ts"
+  ],
+  "scripts": ["scripts/kdp-tools/preview-local-pages.mjs"],
+  "skills": [
+    "skills/stack127/stack127-tool-orchestrator",
+    "skills/stack127/stack127-tool-research",
+    "skills/stack127/stack127-tool-product-plan",
+    "skills/stack127/stack127-tool-interface-plan",
+    "skills/stack127/stack127-tool-test-design",
+    "skills/stack127/stack127-tool-build",
+    "skills/stack127/stack127-tool-writing/SKILL.md",
+    "skills/stack127/stack127-writing-voice/SKILL.md"
+  ],
+  "repositories": []
+}

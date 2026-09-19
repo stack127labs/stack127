@@ -1,0 +1,614 @@
+{
+  "schemaVersion": 1,
+  "route": "/kdp-royalty-calculator",
+  "scope": {
+    "kind": "retrofit",
+    "owns": [
+      "interface",
+      "tests",
+      "engine",
+      "usage",
+      "content",
+      "media",
+      "integration"
+    ],
+    "excludes": [
+      "historical research and product planning",
+      "publication, production data writes, and deployment"
+    ]
+  },
+  "status": "accepted",
+  "authors": [
+    {
+      "stage": "interface",
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "session": "/root/interface_contracts_kdp"
+    },
+    {
+      "stage": "test-design",
+      "model": "gpt-5.6-luna",
+      "reasoning": "max",
+      "session": "/root/test_build_13"
+    },
+    {
+      "stage": "build",
+      "model": "gpt-5.6-luna",
+      "reasoning": "max",
+      "session": "/root/test_build_13"
+    },
+    {
+      "stage": "content-plan",
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "session": "/root/content_plan_writing_13"
+    },
+    {
+      "stage": "content",
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "session": "/root/content_plan_writing_13"
+    },
+    {
+      "stage": "integration",
+      "model": "gpt-5.6-luna",
+      "reasoning": "max",
+      "session": "/root/content_integration_13"
+    },
+    {
+      "stage": "audit",
+      "model": "gpt-5.6-sol",
+      "reasoning": "high",
+      "session": "/root/final_audit_13"
+    }
+  ],
+  "target": {
+    "commit": "3296c3250b57403cfd2966eab5dfae06c5a528aa",
+    "files": [
+      {
+        "path": "app/(site)/(tools)/kdp-royalty-calculator/kdp-royalty-calculator.tsx",
+        "sha256": "1387f07892a3b5338c70538ae48b3ffbd3f82cdbc01c6581fc084997ff944cc9"
+      },
+      {
+        "path": "app/(site)/(tools)/kdp-royalty-calculator/page.tsx",
+        "sha256": "8d7b4dca38ef6b0e71be864e18e55e963436a7794192f79f1453349b7be8f636"
+      },
+      {
+        "path": "app/tool-page-content.module.css",
+        "sha256": "a8084ceeef09f070602390d44832e56deaa54467b436af5477c691511f52ca1b"
+      },
+      {
+        "path": "app/tool-page-content.tsx",
+        "sha256": "57deb491829acc966937caaeeaf044f1187cec5e3643748c63c1f091b9c4dde0"
+      },
+      {
+        "path": "app/tool-ui/tool-controls.module.css",
+        "sha256": "faa62f67e039c177af23320cbb341b36dba6fc7138b639dbb31380917a723cb6"
+      },
+      {
+        "path": "app/tool-ui/tool-controls.tsx",
+        "sha256": "93e533c664ed8c3707e2da1b7b44906e1de6e481ba791b0ac0be3418a3a1a555"
+      },
+      {
+        "path": "lib/kdp/index.ts",
+        "sha256": "c60cbeff9f9764788d404a119a40feb61e25be85e148624ab5753196da085401"
+      },
+      {
+        "path": "lib/kdp/metadata.ts",
+        "sha256": "94d3d3d33216571d7f268537f63d7649f9fd7bfa98653d4fddb5f0a595ccddd9"
+      },
+      {
+        "path": "lib/kdp/page-count.ts",
+        "sha256": "840ba6a64c15459a95a3ae7d708364b96f33a2312e9dcb41b7cfa6db64b12b83"
+      },
+      {
+        "path": "lib/kdp/pdf-preflight.ts",
+        "sha256": "bc2e23c28b871ace6d21a8d7c4fbdfe90924b5f32cc2af3dcd3b14a0b9fe6af5"
+      },
+      {
+        "path": "lib/kdp/royalty.ts",
+        "sha256": "2e884cf8077b011ab6bc48496de7db59ea009ea2e951be760f461329546bb253"
+      },
+      {
+        "path": "lib/kdp/setup.ts",
+        "sha256": "dc0d29b4dc4c1cd8ab748c4273690aad47a04e111e71a7530b247b23ed0ee210"
+      },
+      {
+        "path": "lib/kdp/specs.ts",
+        "sha256": "a342baa4cc8ac06ab375e9b6dd78a52bc4a15d5a75d3245f5b474728eee40e7e"
+      },
+      {
+        "path": "lib/tool-pages.ts",
+        "sha256": "a74ce8d37259a6c6d376d8c3c4b549a996027d9b6e314cf75bdc9ea8a541c114"
+      },
+      {
+        "path": "scripts/stack127/tool-pipeline/validate-acceptance.mjs",
+        "sha256": "1ad4af6304df6024321fb932b67d52bd7469e7b0c63f40aa19831bc1d1f6e6d4"
+      },
+      {
+        "path": "tests/pages/kdp-royalty-calculator/kdp-royalty-calculator.spec.ts",
+        "sha256": "6df9eae75d6d74c49ca334151ba55abb9f0ab73257d6724c1d7299f23df36a44"
+      },
+      {
+        "path": "tests/pages/kdp-royalty-calculator/kdp-royalty-calculator.test.mjs",
+        "sha256": "a09c8c956724ac3349f62369ad2453dca6d4953da83a507e5623db955516381b"
+      },
+      {
+        "path": "tests/pages/kdp-royalty-calculator/page.json",
+        "sha256": "51bec1d28d152423ac5226f1a418f94dac6997551a552c51583239467e82d5b5"
+      },
+      {
+        "path": "tests/pages/kdp-royalty-calculator/page.test.mjs",
+        "sha256": "4b724fa14132f211db604cb4273ecbb9226336274874429d7b6841d01708422d"
+      },
+      {
+        "path": "tests/stack127/tool-pipeline-acceptance.test.mjs",
+        "sha256": "a48da1ee03deb4bcae7edaec35d0fc1dad8547b7622d209410afe9a57f8abc2a"
+      }
+    ],
+    "inputs": [
+      {
+        "path": "content_docs/kdp-royalty-calculator/brief.md",
+        "sha256": "e88c2b8c9b71e15a9a1729bc1c05af84fbaaf220b7fb6b4d6bac79f482e311c4",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/kdp-royalty-calculator/edge-cases-and-tests.md",
+        "sha256": "d40d8149f2d87812df39977fecdab6865e20f3b596b658ee822c368631416142",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/kdp-royalty-calculator/implementation-report.md",
+        "sha256": "c8ad4f6712d70ac4caa65de2a5172475e47f6a8ce02ae1a08d916256c02bf405",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/kdp-royalty-calculator/interface-contract.md",
+        "sha256": "084cc1fe46c7eb22b20b6af16bfa2fc0deb2d24bedcc9b783365cd06a991d717",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/kdp-royalty-calculator/writing-and-seo.md",
+        "sha256": "bbb80f031d7879f2c07675a019b58d46e27f04f35fb917c3e45c6640b93cfa0d",
+        "validation": "current"
+      }
+    ],
+    "content": {
+      "environment": "development",
+      "revision": 3,
+      "toolVersion": "1.1.0",
+      "fields": {
+        "title": "1a49568e215f5eeee4dde890bc363468947e44f427e04268165ebc44b32347ad",
+        "intro_markdown": "7f30e8e5fc24547d99d82bd3a5a4b1d8706f2ba9fb071de053ffd9ad0271822e",
+        "usage_markdown": "be37fafe1ed6821b2729855599b61c747deb578bca06d197a89c61efa577fc9f",
+        "content_markdown": "dd11cdca98efcc5c4eec80abbd3b051dd63c254df4adaa82db57794e3ec522a9"
+      }
+    },
+    "digest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085"
+  },
+  "feasibility": [
+    {
+      "stage": "interface",
+      "status": "feasible",
+      "reason": "The current contract, shared controls, and four-view evidence agree.",
+      "evidenceIds": [
+        "ev-contracts",
+        "ev-browser-report"
+      ]
+    },
+    {
+      "stage": "tests",
+      "status": "feasible",
+      "reason": "Route-owned boundary tests and the repository suite pass.",
+      "evidenceIds": [
+        "ev-focused-tests",
+        "ev-repository-tests"
+      ]
+    },
+    {
+      "stage": "engine",
+      "status": "feasible",
+      "reason": "Formula and normalization behavior passed focused tests and independent review.",
+      "evidenceIds": [
+        "ev-focused-tests",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "stage": "usage",
+      "status": "feasible",
+      "reason": "The live development usage guide is nonempty and rendered in the approved order.",
+      "evidenceIds": [
+        "ev-database",
+        "ev-browser-report"
+      ]
+    },
+    {
+      "stage": "content",
+      "status": "feasible",
+      "reason": "The live copy matches the reviewed content artifacts and source limitations.",
+      "evidenceIds": [
+        "ev-database",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "stage": "media",
+      "status": "feasible",
+      "reason": "The tool UI and exact tables or interactive outputs are the appropriate media for this task.",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "stage": "integration",
+      "status": "feasible",
+      "reason": "The flat route, server loader, shared content renderer, and development row pass together.",
+      "evidenceIds": [
+        "ev-build",
+        "ev-browser-report",
+        "ev-database"
+      ]
+    }
+  ],
+  "mode": {
+    "decision": "disclosure",
+    "rationale": "The current interface contract keeps result-driving state visible and uses disclosure only for non-blocking evidence or detail.",
+    "contractPath": "content_docs/kdp-royalty-calculator/interface-contract.md"
+  },
+  "coverage": [
+    {
+      "id": "coverage-input",
+      "kind": "input",
+      "requirement": "Required, optional, boundary, invalid, and recovery behavior is protected.",
+      "disposition": "required",
+      "checkIds": [
+        "c-technical",
+        "c-interaction"
+      ]
+    },
+    {
+      "id": "coverage-output",
+      "kind": "output",
+      "requirement": "The representative result remains rendered with exact values and explicit unknowns or limits.",
+      "disposition": "required",
+      "checkIds": [
+        "c-technical",
+        "c-interaction"
+      ]
+    },
+    {
+      "id": "coverage-usage",
+      "kind": "usage",
+      "requirement": "The server-loaded usage guide explains operation, interpretation, and limits without duplicating the workbench.",
+      "disposition": "required",
+      "checkIds": [
+        "c-content",
+        "c-interaction"
+      ]
+    },
+    {
+      "id": "coverage-media",
+      "kind": "media",
+      "requirement": "The tool UI, interactive output, and table where applicable communicate the task in both themes and widths.",
+      "disposition": "required",
+      "checkIds": [
+        "c-media",
+        "c-rendered"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "c-contracts",
+      "kind": "contracts",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "evidenceIds": [
+        "ev-contracts"
+      ]
+    },
+    {
+      "id": "c-technical",
+      "kind": "technical",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "evidenceIds": [
+        "ev-focused-tests",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "id": "c-interaction",
+      "kind": "interaction",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "id": "c-content",
+      "kind": "content",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-content-match",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "id": "c-media",
+      "kind": "media",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "id": "c-rendered",
+      "kind": "rendered",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "evidenceIds": [
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "id": "c-database",
+      "kind": "database",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "evidenceIds": [
+        "ev-database"
+      ]
+    },
+    {
+      "id": "c-focused-tests",
+      "kind": "focused-tests",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "evidenceIds": [
+        "ev-focused-tests"
+      ]
+    },
+    {
+      "id": "c-build",
+      "kind": "build",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "evidenceIds": [
+        "ev-build"
+      ]
+    },
+    {
+      "id": "c-repository-quality",
+      "kind": "repository-quality",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "evidenceIds": [
+        "ev-repository-tests",
+        "ev-diff"
+      ]
+    },
+    {
+      "id": "c-independent-review",
+      "kind": "independent-review",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "evidenceIds": [
+        "ev-sol-review"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-contracts",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:18:59.152Z",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/contracts.log",
+      "sha256": "1ddafe2e18aa9e939df76bc9138ca5dcdd7ba960dcb8670a3cdc80d519acfe74",
+      "command": "13 interface-contract validators and 13 content-stage pipeline validators",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-focused-tests",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:25:58.781Z",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/focused-tests.log",
+      "sha256": "218d3a57ea9ab4dc8242b56db9ccc36cd2eca74647022d0242683e52577e17a7",
+      "command": "node --experimental-strip-types --test-concurrency=1 --test <13 route test sets and shared tool tests>",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-repository-tests",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:26:56.602Z",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/repository-tests.log",
+      "sha256": "741a3b418738dd00b843bd5fd23d9a186702773625b8800f69171ac75f83287d",
+      "command": "npm run test",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-build",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:29:07.068Z",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/build.log",
+      "sha256": "d1e5fe9f58d2a33a828f6f58e12d100640c51d2d0f8eb861a13ba67f24547a4a",
+      "command": "npm run build",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-diff",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:29:07.105Z",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/diff-check.log",
+      "sha256": "4bbbd6420a737faa426cb41526a4ede7743f52d302031630fe8a4b29e0be0977",
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-database",
+      "kind": "database",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:38:53.830Z",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/development-database-receipt.json",
+      "sha256": "94570c541dcba0e41351aab1249da4ec3375be13956c6cebee7b25f9ea4430c1"
+    },
+    {
+      "id": "ev-sol-review",
+      "kind": "review",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:25:12.000Z",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/sol-review.json",
+      "sha256": "007a9b66590b1be7074c37a54e285d02b349b4c81e7a2b948fc3e77379c512e5"
+    },
+    {
+      "id": "ev-content-match",
+      "kind": "review",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:26:00.000Z",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/content-artifact-match.json",
+      "sha256": "3c5c21f88fb38d6816a7f4f2b5a2037878609a27857ce2a59d419c6ff6327303"
+    },
+    {
+      "id": "ev-browser-report",
+      "kind": "review",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:37:12.800Z",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "path": "content_docs/kdp-royalty-calculator/pipeline-evidence/browser-inspection.json",
+      "sha256": "00a49b7b788483a7b3f2fbc2bb0657609e0439095562846e97c4fc3247869f90"
+    },
+    {
+      "id": "ev-browser-dark-1440",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:37:12.800Z",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "path": "content_docs/kdp-royalty-calculator/pipeline-evidence/browser-dark-1440.png",
+      "sha256": "ec7814fb5cceedd4c2ea9afa02c39292ef25bc903bc9e2c504916e2c1095f4c7",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    },
+    {
+      "id": "ev-browser-dark-390",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:37:12.800Z",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "path": "content_docs/kdp-royalty-calculator/pipeline-evidence/browser-dark-390.png",
+      "sha256": "72c9315cbd5ce5a449f683af65c6d597f345f936c94baadb49d71396d5f1d0eb",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "theme": "dark",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    },
+    {
+      "id": "ev-browser-light-1440",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:37:12.800Z",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "path": "content_docs/kdp-royalty-calculator/pipeline-evidence/browser-light-1440.png",
+      "sha256": "68e4395fd48a139c35462260f3001b3f199a7946dc0d4f43ea675f27e4bd5924",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    },
+    {
+      "id": "ev-browser-light-390",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:37:12.800Z",
+      "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085",
+      "path": "content_docs/kdp-royalty-calculator/pipeline-evidence/browser-light-390.png",
+      "sha256": "f8ee0be0debd5723576348710a47e12bc12b340744fdc3ff5aa8a1b903f8284b",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "theme": "light",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-AUDIT-CLI-ROOT",
+      "severity": "P2",
+      "status": "fixed",
+      "description": "The pipeline acceptance CLI resolved the repository root one directory too high and could not load real route records.",
+      "checkIds": [
+        "c-contracts",
+        "c-repository-quality",
+        "c-independent-review"
+      ],
+      "fix": {
+        "paths": [
+          "scripts/stack127/tool-pipeline/validate-acceptance.mjs",
+          "tests/stack127/tool-pipeline-acceptance.test.mjs"
+        ],
+        "description": "Resolve the repository root from three parent directories and protect the CLI path with a regression test.",
+        "targetDigest": "432635b6f2df1dd8445cdb04a7218e9e05a7a2ca661a60cff8d4ab304db69085"
+      },
+      "recheckEvidenceIds": [
+        "ev-focused-tests",
+        "ev-sol-review"
+      ]
+    }
+  ]
+}

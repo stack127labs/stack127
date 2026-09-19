@@ -6,6 +6,7 @@ Copy this structure to `content_docs/<route-without-leading-slash>/edge-cases-an
 # Edge cases and tests: [[tool name]]
 
 Status: draft
+Feasibility: [[feasible or blocked, with evidence]]
 Tool: [[tool name]]
 Route: `/[[route]]`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `brief.md`
@@ -13,6 +14,7 @@ Input fingerprint: `competitive-report.md sha256:[[64 lowercase hex characters]]
 Input fingerprint: `implementation-report.md sha256:[[64 lowercase hex characters]]`
 Input fingerprint: `interface-contract.md sha256:[[64 lowercase hex characters]]`
 Input fingerprint: `brief.md sha256:[[64 lowercase hex characters]]`
+Pipeline acceptance: `content_docs/<route-without-leading-slash>/pipeline-acceptance.json`
 
 ## Risk model
 
@@ -42,6 +44,7 @@ Every row must point to one or more `EC-` cases or say `Not applicable:` followe
 | Submission and concurrency | [[EC IDs or reason]] |
 | Network and upstream | [[EC IDs or reason]] |
 | Persistence and sharing | [[EC IDs or reason]] |
+| Control mode, switching, parity, and hidden-state recovery | [[EC IDs or reason]] |
 | Accessibility | [[EC IDs or reason]] |
 | Responsive and themes | [[EC IDs or reason]] |
 | Security and privacy | [[EC IDs or reason]] |

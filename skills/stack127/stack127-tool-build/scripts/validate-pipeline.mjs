@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
 import { createHash } from "node:crypto";
-import { readdirSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
+import { spawnSync } from "node:child_process";
 import ts from "typescript";
 
 import { validateInterfaceContractText } from "../../stack127-tool-interface-plan/scripts/validate-interface-contract.mjs";
@@ -448,6 +449,7 @@ if (edgeCases !== null) {
     "Submission and concurrency",
     "Network and upstream",
     "Persistence and sharing",
+    "Control mode, switching, parity, and hidden-state recovery",
     "Accessibility",
     "Responsive and themes",
     "Security and privacy",
@@ -487,7 +489,7 @@ if (writingPlan !== null) {
   const outlineRows = markdownRows(sectionBody(writingPlan, "Heading and media outline") ?? "");
   if (outlineRows.length < 3) errors.push("writing-and-seo.md: heading and media outline needs at least three concrete rows");
   const media = outlineRows.map((row) => row[4]?.toLowerCase() ?? "");
-  const allowedMedia = new Set(["tool ui", "exact result visualization", "exact chart", "clean chart", "table", "topology/diagram", "diagram", "screenshot", "marker concept", "sentences"]);
+  const allowedMedia = new Set(["tool ui", "exact result visualization", "exact chart", "clean chart", "table", "topology/diagram", "diagram", "screenshot", "marker concept", "sentences", "ordered list", "unordered list", "definition list"]);
   for (const value of media) {
     if (!allowedMedia.has(value)) errors.push(`writing-and-seo.md: unrecognized medium \"${value}\"; use the controlled visual/prose vocabulary`);
   }
@@ -500,11 +502,11 @@ if (writingPlan !== null) {
     if (row.length < 6 || row.slice(0, 6).some((cell) => !cell.trim())) errors.push(`writing-and-seo.md: ${row[0]} needs facts, a depth/stopping point, and repetition guard`);
   }
   const outlineCopyIds = outlineRows
-    .filter((row) => (row[4] ?? "").toLowerCase() === "sentences")
+    .filter((row) => ["sentences", "ordered list", "unordered list", "definition list"].includes((row[4] ?? "").toLowerCase()))
     .map((row) => row[7] ?? "");
-  if (outlineCopyIds.some((copyId) => !/^COPY-\d{2,}$/.test(copyId))) errors.push("writing-and-seo.md: every sentence row needs one manual prose section ID");
-  if (new Set(outlineCopyIds).size !== outlineCopyIds.length) errors.push("writing-and-seo.md: sentence rows must use unique COPY IDs");
-  if (outlineCopyIds.length !== copyIds.length || copyIds.some((copyId) => !outlineCopyIds.includes(copyId))) errors.push("writing-and-seo.md: sentence rows and manual prose assignments must map one-to-one");
+  if (outlineCopyIds.some((copyId) => !/^COPY-\d{2,}$/.test(copyId))) errors.push("writing-and-seo.md: every prose or list row needs one manual prose section ID");
+  if (new Set(outlineCopyIds).size !== outlineCopyIds.length) errors.push("writing-and-seo.md: prose and list rows must use unique COPY IDs");
+  if (outlineCopyIds.length !== copyIds.length || copyIds.some((copyId) => !outlineCopyIds.includes(copyId))) errors.push("writing-and-seo.md: prose/list rows and manual prose assignments must map one-to-one");
   const metadata = sectionBody(writingPlan, "Metadata proposal") ?? "";
   for (const label of ["Registry label:", "Meta title:", "Meta description:", "Page type:", "Publication recommendation:"]) {
     if (!metadata.includes(label)) errors.push(`writing-and-seo.md: metadata proposal missing ${label}`);
@@ -512,6 +514,18 @@ if (writingPlan !== null) {
   if (markdownRows(sectionBody(writingPlan, "Formula explanation") ?? "").length < 2) errors.push("writing-and-seo.md: formula explanation needs at least two concept rows");
   if (markdownRows(sectionBody(writingPlan, "Internal links") ?? "").length < 2) errors.push("writing-and-seo.md: internal links need at least two reader-path rows");
   if ([...(sectionBody(writingPlan, "Source ledger") ?? "").matchAll(/https?:\/\//g)].length < 3) errors.push("writing-and-seo.md: source ledger needs at least three direct source URLs");
+}
+
+// The legacy report checks remain useful for stage work. When a scoped acceptance
+// record exists, run its stronger fingerprint and evidence gate as well.
+const acceptancePath = resolve(docsDirectory, "pipeline-acceptance.json");
+if (existsSync(acceptancePath)) {
+  const acceptanceValidator = resolve(docsDirectory, "../../scripts/stack127/tool-pipeline/validate-acceptance.mjs");
+  if (!existsSync(acceptanceValidator)) errors.push("pipeline-acceptance.json: acceptance validator is missing");
+  else {
+    const result = spawnSync(process.execPath, [acceptanceValidator, acceptancePath, "--integrity-only"], { cwd: resolve(docsDirectory, "../.."), encoding: "utf8" });
+    if (result.status !== 0) errors.push(`pipeline-acceptance.json: acceptance gate failed\n${`${result.stdout ?? ""}${result.stderr ?? ""}`.trim()}`);
+  }
 }
 
 if (toolOnly) {

@@ -1,9 +1,11 @@
 # Interface contract: IP and ASN registration lookup
 
 Status: ready
+Feasibility: feasible. The existing engine and shared controls support this interface contract within the approved product scope. This planning update does not certify runtime behavior, external services, or publication readiness.
 Tool: IP and ASN registration lookup
 Route: `/ip-asn-lookup`
 Mode: pipeline
+Review scope: current interface-contract refresh; no browser verification claimed
 Depends on: `brief.md`, `implementation-report.md`
 Input fingerprint: `brief.md sha256:94d430dc139b637fef92f0a66ed08c87f2036c38f9a1e8433e458619b81e399a`
 Input fingerprint: `implementation-report.md sha256:ef5577306cf52712f610dcc77c9bab54af8bfda940e19eb855884bf678022063`
@@ -79,18 +81,34 @@ Input fingerprint: `implementation-report.md sha256:ef5577306cf52712f610dcc77c9b
 | Reset or edit | User clicks reset or changes input | Cleared before next submit | Cleared before next submit | Return to clean state | Reset focuses input; editing clears stale result without a live message per keystroke. |
 | Explicit query prefill | Open `?query=1.1.1.1` | None until submit | None | Input prefilled, no automatic request | URL stays unchanged; no result announcement. |
 
+## Optional mode and state visibility
+
+- Control mode: disclosure
+- Reason: One query drives registration lookup. Lookup notes and raw RDAP are optional evidence after the answer; there is no separate advanced query mode.
+- Shared engine and normalized input mapping: The same lookup endpoint normalizes IPv4, IPv6, and ASN queries automatically. No second calculation path or alternate rules are introduced.
+- Active assumptions: Keep required and defaulted result-driving values in the input flow described above. Conditional fields appear beside the choice that activates them, before submission.
+- Retention and recovery: Evidence expansion never changes input or result state. Retain edited values until the existing Reset, example, or branch action explicitly replaces them. Reveal and focus any invalid active conditional field; no collapsed region may hide a blocking error.
+- URL, reload, and history restoration: Preserve the URL contract and existing explicit restoration behavior below. A clean canonical load must remain unchanged through hydration; this mode decision adds no query, storage, or history writes.
+- Equivalent-input parity: There is one input model and one engine. A basic/advanced parity fixture is not applicable; disclosure state must not alter normalized inputs or computed output.
+
 ## Component contract
 
-| Need | Chosen component | Why it fits | Rejected alternative |
-| --- | --- | --- | --- |
-| One text query with validation | `ToolTextField` | Preserves visible label, error association, and shared sizing | A type select would add a decision the parser can make. |
-| One explicit request | `ToolButton` primary | Matches the one-action tool contract and loading semantics | Live lookup on every keystroke would create uncontrolled registry requests. |
-| Lead answer | `ToolPrimaryResult` | Existing result component provides stable hierarchy and live announcement | A badge or health score would imply unsupported certainty. |
-| Repeated registry fields | `ToolDataTable` or `ToolKeyValueList` | Exact fields remain scannable and stable across RIR variations | Prose paragraphs would hide missing fields and repeat values. |
-| Source and partial state | `ToolStatus` | Gives semantic status without a colored left edge or decorative panel | A colored card or score would overstate the state. |
-| Raw evidence | `ToolDisclosure` plus `ToolRawOutput` | Keeps exact upstream data available but quiet | Always-open JSON would bury the lead and widen the page. |
-| Report export | `ToolDownloadAction` | Existing pattern provides a bounded, user-triggered export | Automatic downloads would be surprising and leak lookup data into files without consent. |
-| Relationship strip | Page-owned semantic list and CSS | The relationship needs labels, not a generic chart component | A chart, SVG illustration, or marker art would add false scale or unnecessary decoration. |
+- Generic or native-looking fallback allowed: no
+- Inspection: shared implementations in `app/tool-ui`, the source for `/tool-ui-lab`, this route, and sibling patterns in `/docker-compose-checker` and `/backup-321-calculator`. This is source inspection, not a new rendered-state verification receipt.
+- Native form, input, radio, table, and file semantics may remain underneath the approved stack127 presentation. Missing behavior must receive a complete shared or justified route-specific contract; it must not become a bare native control, generic upload box, or unrelated dashboard component.
+- All rows use `--text-body`, `--color-text`, `--color-border`, `--radius`, `--space-*`, and `--focus-ring` as applicable. Only metadata uses `--text-small`. Keep one accent primary action, semantic status text, both themes, and no colored left edges.
+- Route-specific choices retain the behavioral reason in their row and use the existing route stylesheet. They do not introduce new controls or public behavior. Shared components own their internal appearance; route styles own placement and any stated reflow.
+
+| Need | Existing component inspected | Disposition | Chosen component | States, accessibility, responsive behavior, and tokens | Why it fits; rejected alternative |
+| --- | --- | --- | --- | --- | --- |
+| One text query with validation | `ToolTextField` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolTextField` | Keep persistent labels, required semantics where applicable, exact entered values, field-associated errors, and first-error focus. Preserve native editing and numeric keyboard behavior; labels and errors wrap on narrow widths. Use shared control tokens. | Preserves visible label, error association, and shared sizing Rejected: A type select would add a decision the parser can make. |
+| One explicit request | `ToolButton` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolButton` primary | One submit is primary. Keyboard activation, disabled or busy state, and reset retain clear labels and visible focus. Keep input after failure and stack actions at narrow widths. Use shared button tokens. | Matches the one-action tool contract and loading semantics Rejected: Live lookup on every keystroke would create uncontrolled registry requests. |
+| Lead answer | `ToolPrimaryResult` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolPrimaryResult` | One lead precedes support; announce result changes and focus the documented result target after submit. Invalid inputs create field recovery, not a fabricated answer. Long values wrap. Use shared result and text tokens. | Existing result component provides stable hierarchy and live announcement Rejected: A badge or health score would imply unsupported certainty. |
+| Repeated registry fields | `ToolDataTable`, `ToolKeyValueList` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolDataTable` or `ToolKeyValueList` | Retain column and row headers, full exact values, explicit unknowns, and text states. The inner table viewport owns overflow and remains keyboard reachable; required reflow preserves labels. Use shared table tokens. | Exact fields remain scannable and stable across RIR variations Rejected: Prose paragraphs would hide missing fields and repeat values. |
+| Source and partial state | `ToolStatus` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolStatus` | Expose textual status and one concise live announcement. Keep recovery beside its input; no duplicate alert. Long messages wrap and status uses semantic text color only. | Gives semantic status without a colored left edge or decorative panel Rejected: A colored card or score would overstate the state. |
+| Raw evidence | `ToolDisclosure`, `ToolRawOutput` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolDisclosure` plus `ToolRawOutput` | Named evidence follows the answer. Enter or Space toggles disclosures with expanded state and retained focus. Escaped output remains selectable; a bounded inner viewport owns any code overflow. Use shared evidence and focus tokens. | Keeps exact upstream data available but quiet Rejected: Always-open JSON would bury the lead and widen the page. |
+| Report export | `ToolDownloadAction` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolDownloadAction` | Actions are explicit and keyboard accessible. Copy success follows a confirmed write; failure keeps text selectable. Downloads use the current report. Preserve focus, label actions, and wrap at narrow widths. Use secondary shared button tokens. | Existing pattern provides a bounded, user-triggered export Rejected: Automatic downloads would be surprising and leak lookup data into files without consent. |
+| Relationship strip | `ToolDataTable`, `ToolKeyValueList`, and `ToolDisclosure` in `app/tool-ui/tool-controls.tsx`; current route markup | route-specific | Page-owned semantic list and CSS | Preserve semantic headings, lists, or figures and the route-specific relationship described here. No interactive element loses its label or visible focus. Wrap long text, keep exact data accessible, and use site text, border, spacing, and focus tokens. | The relationship needs labels, not a generic chart component Rejected: A chart, SVG illustration, or marker art would add false scale or unnecessary decoration. |
 
 ## Responsive contract
 
@@ -197,6 +215,7 @@ The initial state is the same workbench without a result. The invalid state keep
 | UI-005 | url | Opening clean `/ip-asn-lookup` leaves the URL unchanged through hydration, and an explicit `?query=` only pre-fills without auto-submitting. | Browser URL and request-count assertions |
 | UI-006 | recovery | Invalid input focuses the field, upstream failure clears stale results, retry uses the same primary action, and reset returns focus to the input. | Playwright keyboard and error-state tests |
 | UI-007 | source | The result visibly labels RIR registration, optional BGP route, registry host, and fetched or cached time. | Browser result test and screenshot inspection |
+| UI-008 | component-consistency | Every visible nontrivial control and result uses the component and disposition above. Compare labels, focus, selected state, field errors, busy or disabled state where applicable, and narrow layout with the shared lab in both themes. No bare native or generic fallback may appear. | Source mapping plus required browser and keyboard review; this planning pass does not mark those runtime checks passed. |
 
 ## Open questions and blockers
 

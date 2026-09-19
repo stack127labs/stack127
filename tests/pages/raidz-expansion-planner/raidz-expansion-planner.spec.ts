@@ -307,7 +307,7 @@ for (const [width, height] of [[1280, 800], [760, 900], [375, 844], [320, 900]])
       expect(overflow.document).toBeLessThanOrEqual(1);
       expect(overflow.body).toBeLessThanOrEqual(1);
       await expect(page.getByText("Live reported capacity is not predicted by this model.", { exact: true })).toBeVisible();
-      await expect(page.getByRole("row", { name: /Disk 6 12/ })).toBeVisible();
+      await expect(page.getByRole("row", { name: /Disk 6 (?:Width )?12/ })).toBeVisible();
       for (const control of await page.getByRole("region", { name: "RAIDZ expansion planner" }).locator("button, input:not([type=radio]), [role=radio]").all()) {
         const box = await control.boundingBox();
         if (box) expect(box.height, await control.evaluate((element) => `${element.tagName}:${element.getAttribute("aria-label") ?? element.textContent}`)).toBeGreaterThanOrEqual(44);

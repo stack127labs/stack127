@@ -6,6 +6,7 @@ Copy this structure to `content_docs/<route-without-leading-slash>/writing-and-s
 # Writing and SEO plan: [[tool name]]
 
 Status: draft
+Feasibility: [[feasible or blocked, with evidence and promise boundary]]
 Tool: [[tool name]]
 Route: `/[[route]]`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `edge-cases-and-tests.md`, `brief.md`
@@ -17,6 +18,7 @@ Input fingerprint: `brief.md sha256:[[64 lowercase hex characters]]`
 SERP checked: [[YYYY-MM-DD]]
 Primary medium: Tool UI
 Content depth: [[what readers need to understand and where this page stops]]
+Pipeline acceptance: `content_docs/<route-without-leading-slash>/pipeline-acceptance.json`
 
 ## Search intent
 
@@ -70,9 +72,11 @@ Reading flow: [[how each part develops the explanation and leads to the next rea
 | Direction | Destination | Reader reason | Anchor intent | Placement |
 | --- | --- | --- | --- | --- |
 
-## Manual prose handoff
+## Usage Markdown handoff
 
-### Sections reserved for later manual writing
+This section is the closed planning input for the Astra writing stage. It contains the technical usage facts, approved state explanations, list and media requirements, and source links. Astra returns the actual public `usage_markdown`; Luna integrates it and records the rendered trace in the pipeline acceptance artifact.
+
+### Sections to generate in the writing stage
 
 | Section ID | Heading | Purpose | Required facts and sources | Useful depth and stopping point | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
@@ -88,7 +92,7 @@ Reading flow: [[how each part develops the explanation and leads to the next rea
 - Leave unresolved facts as explicit review notes, not plausible copy.
 
 ### Tool-build exclusion
-`$stack127-tool-build` must not draft or integrate these sections. The user supplies them in a later content pass.
+`$stack127-tool-build` must not draft or integrate these sections. Astra owns public wording; Luna owns integration through this handoff.
 
 ## Source ledger
 

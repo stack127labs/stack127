@@ -7,6 +7,10 @@ description: Create a plan-only interface contract for a new or existing stack12
 
 Decide what the tool should show before anyone writes UI code. Produce a contract that a builder can implement without inventing the information model.
 
+## Pipeline role and model routing
+
+In the full tool pipeline, the main orchestrator continues the same `gpt-6-astra` worker used for product planning, with `reasoning_effort: "low"`, shown as Light in Codex. The main agent must accept the product gate before this skill starts. This worker never starts another pipeline worker or implements, tests, or browser-reviews the tool. Read `stack127_docs/tool-pipeline.md` for the artifact and acceptance contract.
+
 ## Output and boundary
 
 Write only `content_docs/<route>/interface-contract.md` using [references/interface-contract-template.md](references/interface-contract-template.md). Do not edit route code, components, tests, public prose, database rows, or publication state.
@@ -25,13 +29,15 @@ Return any unresolved product behavior, formula, data-source, or scope decision 
 2. Read the page brief, route, styles, tests, engine, API or data types, and ownership manifest.
 3. In pipeline mode, require a ready `implementation-report.md`. Run the product-stage validator and stop if it fails.
 4. In retrofit mode, operate the current tool before planning. Exercise normal, invalid, loading, empty, partial, failure, long-value, and expanded states that exist.
-5. Inspect `app/tool-ui/tool-controls.tsx` and `/tool-ui-lab`, but do not start by selecting components.
+5. Inspect `app/tool-ui`, `/tool-ui-lab`, and at least two relevant sibling tools, but do not start by selecting components.
 
 Preserve technical behavior unless the request explicitly changes it. The current UI is evidence, not a design contract.
 
 Shared components are vocabulary, not a checklist. The template's rows and examples are structural prompts, not required content. Never carry a field, status, metric, timeline, table, or domain-specific concept into another tool simply because an example or sibling used it.
 
 ## Decide the information model
+
+Include a feasibility verdict for the proposed interface and media: `feasibility: feasible` or `feasibility: blocked`. Preserve the product promise and name unsupported states or evidence. Choose one optional-mode treatment where relevant: `single mode`, `disclosure`, or `basic/advanced`. Keep one engine underneath, give the default meaningful evidence, keep active custom settings visible, reveal invalid hidden settings, and label beginner and advanced choices plainly.
 
 Write the user's question as one sentence. Then inventory every available input, action, derived value, source fact, status, caveat, and raw record.
 
@@ -60,6 +66,10 @@ For each input or action, decide:
 - the native interaction it represents;
 - the stack127 component that preserves that interaction;
 - its order, grouping, validation, focus, keyboard behavior, and narrow layout.
+
+After the information model is stable, complete the component provenance table. For every nontrivial control and result, name the inspected existing component and choose one disposition: `reuse shared`, `new shared`, or `route-specific`. A new component contract defines anatomy, states, keyboard and screen-reader behavior, validation and recovery, responsive behavior, and token use. A route-specific choice needs a behavioral reason; page ownership alone is not a reason.
+
+Do not choose an unstyled native control, generic browser upload box, generic dashboard pattern, or unrelated third-party component because a stack127 primitive is missing. Native semantics may remain underneath a designed stack127 control. An upload contract, for example, covers browse and drag/drop behavior, file status, validation and rejection, remove and retry, real progress when available, focus, announcements, and narrow layout. If the required component cannot be designed and built within the approved scope, set `Status: blocked` instead of specifying a generic fallback.
 
 Keep one primary action. Do not expose an option merely because the engine accepts it. Do not hide a required decision behind a disclosure.
 
@@ -108,6 +118,8 @@ Set `Status: ready` only when:
 - duplicate facts and rejected UI are recorded;
 - every visual passes the truth test;
 - component choices follow the information model rather than define it;
+- every nontrivial control and result has component provenance, and every missing primitive has a complete stack127 component contract;
+- generic or native-looking fallback is rejected; an intentionally visible native element must still follow the stack127 visual and behavior contract and must not be used merely because a shared primitive is missing;
 - important states, mobile order, long values, and expanded content are specified;
 - the clean canonical route remains unchanged through hydration, with any later URL persistence tied to an explicit user action;
 - the builder can implement the wireframes without making a new product or information-design decision;
@@ -122,3 +134,5 @@ node skills/stack127/stack127-tool-interface-plan/scripts/validate-interface-con
 ```
 
 Stop after the contract and validation result.
+
+When used in a pipeline, record the actual Astra model, `low` reasoning, and session through the orchestrator. The interface feasibility verdict and optional-mode decision must appear in the accepted evidence.

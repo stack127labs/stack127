@@ -6,7 +6,7 @@ Route: `/backup-321-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `brief.md`
 Input fingerprint: `competitive-report.md sha256:2f44815aab1fd369a2fc5ce558fbab61284f1f2752eb109509df8a46dae57d1e`
 Input fingerprint: `implementation-report.md sha256:b646b8db3031b022255c8b6288cb2024bff1b65c98d9889945ca9bda1b2f95fa`
-Input fingerprint: `interface-contract.md sha256:d4fa07f00bbd48e934316f423fe22fcad7378eb581276869b3bc260ce4111588`
+Input fingerprint: `interface-contract.md sha256:c10719347f5e39847ba931454aae2811c00c01938b009e655fed705a70da5703`
 Input fingerprint: `brief.md sha256:a7b09add3ef2e573f30b86010e92f81b83788fe8b0d762e86b5bf878c72119a9`
 
 ## Risk model
@@ -74,6 +74,7 @@ Every required family maps to concrete cases below. The calculation has no upstr
 | Security and privacy | EC-023, EC-024, EC-026, EC-027, EC-031 |
 | SSR and SEO | EC-030, EC-031, EC-033 |
 | Performance | EC-032, EC-035 |
+| Control mode, switching, parity, and hidden-state recovery | EC-036. Disclosure mode has no basic/advanced switch; opening or closing the formula receipt preserves the normalized input and result, and conditional recovery fields become visible before validation so an invalid active field cannot remain hidden. |
 
 ## Input grammar and bounds
 
@@ -145,6 +146,7 @@ When recovery is disabled, the serialized input shape still carries valid defaul
 | EC-033 | P1 | Not-applicable service states | Attempt to identify any API, server action, resolver, provider, cache, retry, loading, no-data, timeout, offline, or rate-limit path in route and engine. | No such path exists. Static scan fails if fetch/XHR/WebSocket/server action/provider fallback or a fake loading state is introduced. | The page never implies that a provider was contacted or that a remote backup target was inspected. | None. | Static route/import test, `page.test.mjs` and `backup-321-calculator.test.mjs` | R19, UI-007 |
 | EC-034 | P2 | Long presentation and receipt | Use maximum valid scalar inputs, longest model/unit labels, worst recovery miss text, long source links, open formula receipt, and clipboard failure at 320 and 375 pixels. | Text wraps at authored boundaries, exact values remain selectable, links do not expand the page, controls do not overlap, and no page-level overflow appears. The allocation legend remains below/alongside its bar with an equivalent text reading. | A two-second scan still finds the lead answer and primary action. Long caveats stay in the receipt or supporting content rather than obscuring the result. | No calculation change. | Browser measurements plus manual screenshot review, `backup-321-calculator.spec.ts` | R17, UI-001, UI-002, UI-003, UI-004, UI-007 |
 | EC-035 | P1 | Final gate and scope | Run the focused engine/state/page/browser tests, `node ... validate-pipeline.mjs ... --tool-only`, `npm run test`, `npm run quality`, and inspect `git diff --check` and changed paths. | Target tests, typecheck, static policy, SEO policy, and production build pass. If a repository-wide command fails for a proven unrelated dirty path, the exact command and unrelated cause are recorded while target-focused gates still pass; no unrelated fix is made. | Handoff names every changed path and any residual external blocker. Route remains unpublished; no commit, push, PR, deploy, or publication occurs. | Test/build output only; no production publication. | Shell gates and final diff review | R24 |
+| EC-036 | P1 | Control mode and hidden-state recovery | Calculate the ordinary valid fixture with recovery checks off, open and close the formula receipt, then enable recovery, enter an invalid RPO value, submit, correct it, and recalculate. Repeat the valid calculation with the receipt open and closed. | This is disclosure mode, not basic/advanced mode: receipt state does not alter normalized inputs or any capacity output, and the same fixture has equivalent result values in both states. The recovery toggle reveals every active recovery field before submission; an invalid active field remains visible and blocks the whole result until corrected. | The disclosure trigger keeps focus when toggled. The first invalid recovery field receives focus and a recovery status; closing an evidence region never hides a blocking issue or clears a valid result. | No URL, history, storage, request, or analytics side effect. | Unit parity assertion and Browser disclosure/recovery test in `tests/pages/backup-321-calculator/backup-321-calculator.test.mjs` and `backup-321-calculator.spec.ts` | R9, R11, UI-007, UI-011 |
 
 ## Formula or resolution fixtures
 

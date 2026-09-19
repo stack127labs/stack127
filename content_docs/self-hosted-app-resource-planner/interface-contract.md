@@ -1,9 +1,11 @@
 # Interface contract: self-hosted app resource planner
 
 Status: ready
+Feasibility: feasible. The existing engine and shared controls support this interface contract within the approved product scope. This planning update does not certify runtime behavior, external services, or publication readiness.
 Tool: Self-hosted app resource planner
 Route: `/self-hosted-app-resource-planner`
 Mode: pipeline
+Review scope: current interface-contract refresh; no browser verification claimed
 Depends on: `brief.md`, `implementation-report.md`
 Input fingerprint: `brief.md sha256:891670c28e434711521196a48d7fe72ac355af8193e1fa7f64cd9d5d345339fc`
 Input fingerprint: `implementation-report.md sha256:42cf89821fa32e407542fc947b0b1db74527b62ef489423a0c59537efdd5523c`
@@ -90,19 +92,36 @@ Input fingerprint: `implementation-report.md sha256:42cf89821fa32e407542fc947b0b
 | Reset | User activates reset | Initial lead | Empty controls | Restore headroom 20% and remove result | Focus app chooser; announce reset. |
 | Restored URL | Not supported at launch | N/A | N/A | Clean canonical URL stays unchanged | No URL state or hydration announcement. |
 
+## Optional mode and state visibility
+
+- Control mode: single
+- Reason: Selected apps, quantities, custom ranges, host budgets, and headroom stay visible. Unknown ranges remain explicit; a simpler mode must not turn them into zero.
+- Shared engine and normalized input mapping: The existing resource planner receives the complete row list and budget assumptions. No second calculation path or alternate rules are introduced.
+- Active assumptions: Keep required and defaulted result-driving values in the input flow described above. Conditional fields appear beside the choice that activates them, before submission.
+- Retention and recovery: Evidence expansion never changes input or result state. Retain edited values until the existing Reset, example, or branch action explicitly replaces them. Reveal and focus any invalid active conditional field; no collapsed region may hide a blocking error.
+- URL, reload, and history restoration: Preserve the URL contract and existing explicit restoration behavior below. A clean canonical load must remain unchanged through hydration; this mode decision adds no query, storage, or history writes.
+- Equivalent-input parity: There is one input model and one engine. A basic/advanced parity fixture is not applicable; disclosure state must not alter normalized inputs or computed output.
+
 ## Component contract
 
-| Need | Chosen component | Why it fits | Rejected alternative |
-| --- | --- | --- | --- |
-| Filter a published app catalogue and choose custom | `ToolComboBox` | The app list is longer than a visible choice row and needs typing. | A large select would slow repeat use; a free text field would lose curated provenance. |
-| Edit bounded numeric quantities | `ToolNumberField` | Preserves keyboard-safe numeric semantics and validation. | Bare text inputs would duplicate number behavior. |
-| Edit value plus unit | `ToolQuantityInput` | Keeps number and unit as one decision. | Separate label and unit controls can drift visually. |
-| Repeat app rows | `ToolRepeatableList` behavior with page-owned row layout | Add, remove, focus, and stable row semantics belong together. | Independent ad hoc div rows risk unstable focus. |
-| Primary and recovery actions | `ToolActionRow` and `ToolButton` | Keeps one primary action and predictable loading width. | Icon-only controls would obscure `Calculate plan` and `Reset plan`. |
-| Lead answer and result status | `ToolResultLead` plus `ToolStatus` | Gives the decision a semantic heading and one announcement path. | A panel of equal metric cards would dilute the answer. |
-| Budget relationship | `ToolAllocationBar` | Exact denominator and two-part relationship are truthful here. | A chart would imply trends; color-only status would imply unsupported safety. |
-| Repeated contributions | `ToolDataTable` | Preserves headers, row comparison, and narrow scrolling. | Cards would repeat labels and make comparison harder. |
-| Source and unknown detail | Semantic list/table with native links | Evidence is structured and needs readable text. | Tooltip-only provenance hides the reason for the number. |
+- Generic or native-looking fallback allowed: no
+- Inspection: shared implementations in `app/tool-ui`, the source for `/tool-ui-lab`, this route, and sibling patterns in `/restic-retention-simulator`, `/rsync-filter-tester`, and `/lxc-idmap-checker`. This is source inspection, not a new rendered-state verification receipt.
+- Native form, input, radio, table, and file semantics may remain underneath the approved stack127 presentation. Missing behavior must receive a complete shared or justified route-specific contract; it must not become a bare native control, generic upload box, or unrelated dashboard component.
+- All rows use `--text-body`, `--color-text`, `--color-border`, `--radius`, `--space-*`, and `--focus-ring` as applicable. Only metadata uses `--text-small`. Keep one accent primary action, semantic status text, both themes, and no colored left edges.
+- Route-specific choices retain the behavioral reason in their row and use the existing route stylesheet. They do not introduce new controls or public behavior. Shared components own their internal appearance; route styles own placement and any stated reflow.
+
+| Need | Existing component inspected | Disposition | Chosen component | States, accessibility, responsive behavior, and tokens | Why it fits; rejected alternative |
+| --- | --- | --- | --- | --- | --- |
+| Custom app name | `ToolTextField` in `app/tool-ui/tool-controls.tsx` | reuse shared | ToolTextField | Persistent label, exact editable text, field error, and first-invalid focus; wrap label and error at narrow widths using shared control tokens. | A custom row needs an identifiable name before contribution comparisons. Reject an unlabeled free-text row. |
+| Filter a published app catalogue and choose custom | `ToolComboBox` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolComboBox` | Keep the active value visible, expose label and selection to assistive technology, preserve keyboard selection and focus, and associate validation with the control. Wrap choice rows and constrain popovers to the viewport. Use shared control tokens. | The app list is longer than a visible choice row and needs typing. Rejected: A large select would slow repeat use; a free text field would lose curated provenance. |
+| Edit bounded numeric quantities | `ToolNumberField` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolNumberField` | Keep persistent labels, required semantics where applicable, exact entered values, field-associated errors, and first-error focus. Preserve native editing and numeric keyboard behavior; labels and errors wrap on narrow widths. Use shared control tokens. | Preserves keyboard-safe numeric semantics and validation. Rejected: Bare text inputs would duplicate number behavior. |
+| Edit value plus unit | `ToolQuantityInput` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolQuantityInput` | Keep persistent labels, required semantics where applicable, exact entered values, field-associated errors, and first-error focus. Preserve native editing and numeric keyboard behavior; labels and errors wrap on narrow widths. Use shared control tokens. | Keeps number and unit as one decision. Rejected: Separate label and unit controls can drift visually. |
+| Repeat app rows | `ToolRepeatableList` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolRepeatableList` behavior with page-owned row layout | Stable row IDs preserve values; Add focuses the new row and Remove returns focus to a nearby action. Each removal names its app. Row errors remain attached and narrow layout keeps actions reachable. Use shared control tokens. | Add, remove, focus, and stable row semantics belong together. Rejected: Independent ad hoc div rows risk unstable focus. |
+| Primary and recovery actions | `ToolActionRow`, `ToolButton` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolActionRow` and `ToolButton` | One submit is primary. Keyboard activation, disabled or busy state, and reset retain clear labels and visible focus. Keep input after failure and stack actions at narrow widths. Use shared button tokens. | Keeps one primary action and predictable loading width. Rejected: Icon-only controls would obscure `Calculate plan` and `Reset plan`. |
+| Lead answer and result status | `ToolResultLead`, `ToolStatus` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolResultLead` plus `ToolStatus` | One lead precedes support; announce result changes and focus the documented result target after submit. Invalid inputs create field recovery, not a fabricated answer. Long values wrap. Use shared result and text tokens. | Gives the decision a semantic heading and one announcement path. Rejected: A panel of equal metric cards would dilute the answer. |
+| Budget relationship | `ToolAllocationBar` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolAllocationBar` | Use exact parts and denominator, preserve zero-value legend entries, and provide labels and exact values without relying on color. Wrap the legend within the workbench; shared data tokens encode the stated categories. | Exact denominator and two-part relationship are truthful here. Rejected: A chart would imply trends; color-only status would imply unsupported safety. |
+| Repeated contributions | `ToolDataTable` in `app/tool-ui/tool-controls.tsx` | reuse shared | `ToolDataTable` | Retain column and row headers, full exact values, explicit unknowns, and text states. The inner table viewport owns overflow and remains keyboard reachable; required reflow preserves labels. Use shared table tokens. | Preserves headers, row comparison, and narrow scrolling. Rejected: Cards would repeat labels and make comparison harder. |
+| Source and unknown detail | `ToolDataTable`, `ToolKeyValueList`, and `ToolDisclosure` in `app/tool-ui/tool-controls.tsx`; current route markup | route-specific | Semantic list/table with native links | Retain column and row headers, full exact values, explicit unknowns, and text states. The inner table viewport owns overflow and remains keyboard reachable; required reflow preserves labels. Use shared table tokens. | Evidence is structured and needs readable text. Rejected: Tooltip-only provenance hides the reason for the number. |
 
 ## Responsive contract
 
@@ -259,6 +278,7 @@ Expanded evidence:
 | UI-010 | accessibility | Result changes are announced in one live region, bars have text equivalents, and table headers remain associated on narrow screens. | DOM accessibility assertions |
 | UI-011 | url | Opening `/self-hosted-app-resource-planner` leaves the URL unchanged through server render and hydration. | Browser history and URL assertion |
 | UI-012 | omission | No provider recommendation, CPU total, Docker output, or decorative chart appears in the workbench. | Browser text and DOM assertions |
+| UI-013 | component-consistency | Every visible nontrivial control and result uses the component and disposition above. Compare labels, focus, selected state, field errors, busy or disabled state where applicable, and narrow layout with the shared lab in both themes. No bare native or generic fallback may appear. | Source mapping plus required browser and keyboard review; this planning pass does not mark those runtime checks passed. |
 
 ## Open questions and blockers
 

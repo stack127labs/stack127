@@ -7,6 +7,10 @@ description: Produce the exhaustive edge-case and test contract for one stack127
 
 Turn the product contract into an explicit risk model and test plan. Cover behavior, not implementation trivia.
 
+## Pipeline role and model routing
+
+In the full tool pipeline, the main orchestrator starts this worker as `gpt-5.6-luna` with `reasoning_effort: "max"` and retains the session for implementation after the main agent accepts this contract. This worker never starts another pipeline worker or implements tests or page code during this planning stage. Read `stack127_docs/tool-pipeline.md` for the artifact and acceptance contract.
+
 ## Required output
 
 Write `content_docs/<route-without-leading-slash>/edge-cases-and-tests.md` using `references/edge-cases-and-tests-template.md`.
@@ -38,6 +42,7 @@ Cover every applicable family:
 - formula invariants and hand-calculated or specification-derived oracles for formula contracts;
 - source precedence, response classification, provenance, freshness, conflict, and failure fixtures for resolution contracts;
 - submit by click and keyboard, rapid repeat clicks, double submit, edit during request, abort, retry, reset, back/forward, reload, restored state, malformed shared state, and stale results;
+- optional mode behavior, including the selected single mode, disclosure, or basic/advanced treatment, meaningful default evidence, visible custom settings, hidden-setting invalidation and reveal, and beginner or advanced labels;
 - loading, timeout, offline, rate limit, partial result, no data, upstream disagreement, corrupt payload, changed schema, and dependency failure;
 - copy, share, download, serialization, encoding, version compatibility, and privacy leakage;
 - focus order, labels, descriptions, error association, live regions, reduced motion, zoom, keyboard-only use, and screen-reader result order;
@@ -45,6 +50,7 @@ Cover every applicable family:
 - one lead answer, distinct result-region questions, duplicate formatted facts, removable regions, and the truth of any timeline, progress bar, chart, table, diagram, or large answer;
 - untrusted input/output, HTML injection, URL injection, SSRF, prototype keys, oversized payloads, abuse limits, and secrets in analytics or logs;
 - server rendering, hydration, no-JavaScript explanatory content, query noindex, canonical behavior, ownership manifest, and publication state;
+- clean URL stability, explicit sharing, reset, reload, history restoration, and state preservation across edits;
 - deterministic engine performance, client bundle restraint, request concurrency, cache behavior, and layout stability.
 
 If a family does not apply, record why instead of silently omitting it.
@@ -90,3 +96,5 @@ Set `Status: ready` only when:
 Otherwise set `Status: blocked` and return the missing decision to the correct upstream stage.
 
 Before reporting completion, run the pipeline validator with `--stage=test`. Fix the test contract if it fails and never weaken the validator.
+
+When used in a pipeline, record the actual Luna model, `max` reasoning, and session through the orchestrator. Test readiness does not imply that the built tool or rendered content passed acceptance.

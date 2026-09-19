@@ -7,6 +7,10 @@ description: Plan the explanation and visual format mix for any stack127 page, t
 
 Use this skill whenever the task involves page content: new copy, rewrites, side content for tools, directory descriptions, guides, anything a visitor reads.
 
+## Pipeline role and model routing
+
+In the full tool pipeline, the main orchestrator starts visual and content planning as `gpt-6-astra` with `reasoning_effort: "low"`, shown as Light in Codex. This worker never starts another pipeline worker or implements or integrates a page. Read `stack127_docs/tool-pipeline.md` for required media decisions and rendered traceability.
+
 ## The one behavior that matters most
 
 Before drafting, propose the format mix: what the working tool already answers, which comparisons need tables or charts, which concepts benefit from art, and which ideas need connected explanation. Challenge a format when it makes the subject harder to understand, including a request to replace useful prose with fragments. If the user has already approved the mix or asked to apply an approved direction, record it in the brief and proceed without asking again.
@@ -26,6 +30,8 @@ Visual-first is a choice of medium, not a quota. A tool stays first and primary 
    - real interfaces: screenshots through `MediaFigure`, dark theme, cropped to the subject
 6. Write the explanation around the chosen visuals using the shared voice skill. Do not reduce useful explanation to captions.
 7. Run the shared voice skill's review pass and the owning content skill's coverage checks before calling it done.
+
+Every proposal must include a feasibility verdict and a trace from each required medium to its rendered artifact. For lists, name whether the output is an ordered list, bullet list, or definition list. For marker art, name the registered `MarkerArt` spec and component use. Do not promise a visual that the page cannot render and verify.
 
 ## Hard rules
 

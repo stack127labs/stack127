@@ -1,0 +1,217 @@
+.visuallyHidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.figure {
+  display: grid;
+  gap: var(--space-6);
+  margin: 0;
+  min-width: 0;
+}
+
+.caption {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.caption strong {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+}
+
+.caption span {
+  color: var(--color-text);
+  max-width: var(--measure-prose);
+}
+
+.barChart {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.barChart li {
+  align-items: center;
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: minmax(130px, 0.3fr) minmax(140px, 1fr) minmax(72px, auto);
+  min-width: 0;
+}
+
+.barLabel {
+  overflow-wrap: anywhere;
+}
+
+.barTrack {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  height: 24px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.barTrack > span {
+  display: block;
+  height: 100%;
+  min-width: 2px;
+}
+
+.barTrack > span[data-series="0"] { background: var(--color-data-chartreuse); }
+.barTrack > span[data-series="1"] { background: var(--color-data-cyan); }
+.barTrack > span[data-series="2"] { background: var(--color-data-blue); }
+.barTrack > span[data-series="3"] { background: var(--color-data-yellow); }
+.barTrack > span[data-series="4"] { background: var(--color-data-red); }
+.barTrack > span[data-series="5"] { background: var(--color-data-violet); }
+.barTrack > span[data-series="6"] { background: var(--color-data-green); }
+
+.barChart li > strong {
+  font-family: var(--font-mono);
+  text-align: right;
+}
+
+.lineViewport {
+  border-bottom: 1px solid var(--color-border);
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.lineChart {
+  display: block;
+  min-width: 520px;
+  width: 100%;
+}
+
+.gridLine {
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.axisText,
+.pointValue {
+  fill: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.pointValue {
+  fill: var(--color-text);
+  font-weight: var(--weight-semibold);
+}
+
+.line {
+  fill: none;
+  stroke: var(--color-data-cyan);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+}
+
+.point {
+  fill: var(--color-bg);
+  stroke: var(--color-data-cyan);
+  stroke-width: 3;
+}
+
+.flow {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  list-style: none;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.flow li {
+  align-items: start;
+  border-top: 1px solid var(--color-border-strong);
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  min-width: 0;
+  padding-top: var(--space-5);
+}
+
+.flowMarker {
+  align-items: center;
+  color: var(--color-text-muted);
+  display: inline-flex;
+  height: 24px;
+  justify-content: center;
+  width: 24px;
+}
+
+.flow li[data-state="complete"] .flowMarker {
+  color: var(--color-success-text);
+}
+
+.flow li[aria-current="step"] {
+  border-top-color: var(--color-accent-text);
+}
+
+.flow li[aria-current="step"] .flowMarker,
+.flow li[aria-current="step"] strong {
+  color: var(--color-accent-text);
+}
+
+.flow li > div {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.flow li strong {
+  font-family: var(--font-display);
+}
+
+.flow li > div span {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  overflow-wrap: anywhere;
+}
+
+.flowConnector {
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+@media (max-width: 700px) {
+  .barChart li {
+    gap: var(--space-2) var(--space-4);
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .barTrack {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .flow {
+    grid-template-columns: 1fr;
+  }
+
+  .flow li {
+    border-left: 1px solid var(--color-border-strong);
+    border-top: 0;
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: 0 0 var(--space-5) var(--space-5);
+  }
+
+  .flow li[aria-current="step"] {
+    border-left-color: var(--color-accent-text);
+  }
+
+  .flowConnector {
+    display: none;
+  }
+}

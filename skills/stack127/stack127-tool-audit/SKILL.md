@@ -1,9 +1,13 @@
 ---
 name: stack127-tool-audit
-description: "Audit one or more existing stack127 tools for correctness, test coverage, rendered UI, accessibility, writing, data quality, and completion. Use when the user asks to check a tool, test local tools, review their quality, or say whether the work is fully done and what remains. Produces evidence and a readiness verdict; does not start implementation or deployment."
+description: "Audit one or more existing stack127 tools for correctness, test coverage, rendered UI, accessibility, writing, data quality, and completion. In an authorized complete-tool pipeline, preserve findings, fix confirmed defects, rerun affected tests and flows, and return production-ready evidence. Audit-only requests remain read-only. Never publish or deploy without separate authorization."
 ---
 
 # stack127 tool audit
+
+## Pipeline role and model routing
+
+In the full tool pipeline, the main orchestrator starts one audit worker as `gpt-5.6-sol` with `reasoning_effort: "high"`. That session checks the complete integrated page, preserves reproducible findings, fixes every confirmed issue within the authorized scope, and reruns the complete affected tests and flows. The main agent reviews the diff and evidence and returns any remaining issue to the same Sol session. No second audit or verification worker is part of the standard pipeline. The worker never starts another pipeline worker. An audit-only request remains read-only.
 
 Answer whether a person can use the tool, trust its answer, and understand its limits. A passing test suite and a polished screenshot are evidence, not a completion verdict. Apply this review to calculators, checkers, converters, lookups, generators, planners, and other interactive tools. Do not carry forward old findings or counts without checking the current implementation.
 
@@ -51,9 +55,11 @@ Operate the initial, successful, invalid, edited, and reset states. Include load
 
 - Inspect desktop, a layout breakpoint, and narrow mobile views in both actual site themes. Use the page contract's sizes; absent a contract, 1440, 760, 375, and 320 px are useful targets. Changing the browser's preferred color scheme does not prove a site with its own theme toggle changed theme.
 - Check result visibility after submission, not just whether a node received focus. The answer should be visible and clear of the sticky header. Check logical keyboard order, visible focus, accessible names, field-associated errors, and concise announcements.
+- For client-side validation, verify that errors stay with their fields and focus moves to the first invalid control. Flag any error result panel or `Fix input` action that only duplicates this recovery path.
 - Compare chart labels, scale, denominator, units, unknown states, and legends with the numeric answer. Geometry and labels must remain truthful when the requirement exceeds the budget or only part of the data is known.
 - Inspect clipping, wrapping, scroll containers, action targets, long names, and expanded evidence. No page overflow is not enough if a table or control is clipped internally.
 - Read the hierarchy at normal display size. Findings and the answer should not be buried under settings, count tiles, duplicated summaries, or implementation metadata.
+- Compare every nontrivial control and result with its interface-contract provenance and the shared tool UI. Treat an unplanned generic browser control, generic upload box, unrelated third-party component, or page-local copy of a suitable shared primitive as a defect. Native semantics may remain underneath a visibly stack127 control.
 
 Save useful screenshots at a readable scale. A very tall full-page image shrunk into a thumbnail is not adequate visual inspection. Inspect viewport captures or relevant sections too. Include concrete visual defects rather than personal preferences, and do not cap the report in a way that hides material problems.
 
@@ -80,7 +86,7 @@ Classify failures before assigning blame:
 
 Retry a failed check in isolation when it will distinguish these causes. Repeated timeouts remain unresolved until explained; they are neither automatic product bugs nor passes. Do not weaken a test or fabricate data to obtain a green result. Count individual tests separately from test files, and separate unrelated repository failures from findings about the selected tools.
 
-For each area, record passed, failed, or not verified, plus the supporting evidence. Do not claim a clean browser suite when a relevant case was skipped or failed. Keep implementation readiness, local integration readiness, and publication/release state separate. An intentionally unpublished tool can be implementation-ready; a development registry row is not a production release.
+For each area, record passed, failed, or not verified, plus the supporting evidence. Do not claim a clean browser suite when a relevant case was skipped or failed. For a pipeline handoff, record the audit feasibility verdict and run the acceptance validator against `content_docs/<slug>/pipeline-acceptance.json`. Keep blocked work separate from checks that were not verified. After authorized fixes, preserve the initial evidence, rerun the complete affected path, and add current recheck evidence from the same Sol session. Keep implementation readiness, local integration readiness, and publication/release state separate. An intentionally unpublished tool can be implementation-ready; a development registry row is not a production release.
 
 ## Deliver the same clear review style
 

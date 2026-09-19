@@ -7,6 +7,10 @@ description: Convert a ready competitive report for one stack127 calculator, che
 
 Turn research into one decisive build contract. Prefer a small, opinionated product over a feature inventory.
 
+## Pipeline role and model routing
+
+In the full tool pipeline, the main orchestrator starts this worker as `gpt-6-astra` with `reasoning_effort: "low"`, shown as Light in Codex, and retains the session for interface planning after the main agent accepts this contract. This worker never starts another pipeline worker or implements the tool. Read `stack127_docs/tool-pipeline.md` for the artifact and acceptance contract.
+
 ## Required outputs
 
 Write:
@@ -28,9 +32,13 @@ Stop after these documents. Do not write tests, final public prose, route code, 
 
 ## Decide the product
 
+Give the product a feasibility verdict: `feasibility: feasible` or `feasibility: blocked`. Explain the evidence and preserve every supported promised outcome. If a requested promise cannot be supported, record the gap and return it upstream instead of quietly narrowing the promise.
+
 State one primary user, one job, and one product thesis. Name the evidence-backed reason a user should prefer this tool. It must be a real advantage such as clearer topology, safer validation, better source transparency, faster repeat use, or an exact visualization. "More features" and "better design" are not theses.
 
 Define table stakes, launch differentiators, deferred ideas, and explicit non-goals. Reject options that do not change a meaningful answer or decision.
+
+Record a control-mode hypothesis: `single`, `disclosure`, or `basic-advanced`. Use `basic-advanced` only when the common task works with a small set of explicit assumptions and a distinct refinement need justifies more controls. Name those assumptions and their sources. The interface-planning stage owns the final visible contract, but it must not inherit an unexplained complexity decision.
 
 ## Specify technical truth
 
@@ -60,7 +68,7 @@ Set `Contract type: formula` or `Contract type: resolution` in the report header
 
 Make the tool itself the primary visual. Follow the stack127 rule: one full-width workbench band with form and result in the same surface, no boxed-in tool card or nested card dashboard.
 
-This stage owns product behavior and technical truth, not the final information composition. Its wireframes are product constraints. A fresh `$stack127-tool-interface-plan` worker will decide the final visible inventory, omissions, component fit, result-region questions, visual semantics, and responsive composition before test design. Do not preselect components or add output merely because the data contract exposes it.
+This stage owns product behavior and technical truth, not the final information composition. Its wireframes are product constraints. After the main agent accepts this stage, the same Astra session continues with `$stack127-tool-interface-plan` to decide the final visible inventory, omissions, component fit, result-region questions, visual semantics, and responsive composition before test design. Do not preselect components or add output merely because the data contract exposes it.
 
 Create ASCII wireframes for desktop and narrow mobile in these states when relevant:
 
@@ -104,3 +112,5 @@ Set `Status: ready` only when:
 Otherwise set `Status: blocked`, name the unresolved decision, and stop.
 
 Before reporting completion, run the pipeline validator with `--stage=product`. Fix the contract if it fails and never weaken the validator.
+
+When used in a pipeline, record the actual Astra model, `low` reasoning, and session through the orchestrator. The product feasibility verdict is evidence for acceptance, not acceptance itself.

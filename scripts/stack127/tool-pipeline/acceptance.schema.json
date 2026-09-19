@@ -1,0 +1,259 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stack127.com/schemas/tool-pipeline-acceptance-v1.json",
+  "title": "stack127 tool pipeline acceptance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "route",
+    "scope",
+    "status",
+    "authors",
+    "target",
+    "feasibility",
+    "mode",
+    "coverage",
+    "checks",
+    "evidence",
+    "findings"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "route": { "type": "string", "pattern": "^/[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "owns", "excludes"],
+      "properties": {
+        "kind": { "enum": ["new", "retrofit"] },
+        "owns": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["research", "product", "interface", "tests", "engine", "usage", "content", "media", "integration"]
+          }
+        },
+        "excludes": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "status": { "enum": ["draft", "blocked", "accepted"] },
+    "authors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["stage", "model", "reasoning", "session"],
+        "properties": {
+          "stage": {
+            "enum": ["research", "product", "interface", "test-design", "build", "content-plan", "content", "integration", "audit"]
+          },
+          "model": { "enum": ["gpt-5.6-luna", "gpt-6-astra", "gpt-5.6-sol"] },
+          "reasoning": { "enum": ["low", "high", "max"] },
+          "session": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["commit", "files", "inputs", "content", "digest"],
+      "properties": {
+        "commit": { "$ref": "#/$defs/sha40" },
+        "files": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/fileHash" }
+        },
+        "inputs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/inputHash" }
+        },
+        "content": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["environment", "revision", "toolVersion", "fields"],
+          "properties": {
+            "environment": { "enum": ["development", "production"] },
+            "revision": { "type": "integer", "minimum": 1 },
+            "toolVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+            "fields": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["title", "intro_markdown", "usage_markdown", "content_markdown"],
+              "properties": {
+                "title": { "$ref": "#/$defs/sha256" },
+                "intro_markdown": { "$ref": "#/$defs/sha256" },
+                "usage_markdown": { "$ref": "#/$defs/sha256" },
+                "content_markdown": { "$ref": "#/$defs/sha256" }
+              }
+            }
+          }
+        },
+        "digest": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "feasibility": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["stage", "status", "reason", "evidenceIds"],
+        "properties": {
+          "stage": { "enum": ["research", "product", "interface", "tests", "engine", "usage", "content", "media", "integration"] },
+          "status": { "enum": ["feasible", "blocked"] },
+          "reason": { "type": "string", "minLength": 1 },
+          "evidenceIds": { "$ref": "#/$defs/idList" },
+          "options": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 4,
+            "uniqueItems": true,
+            "items": { "type": "string", "minLength": 1 }
+          }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "status": { "const": "blocked" } }, "required": ["status"] },
+            "then": { "required": ["options"] },
+            "else": { "not": { "required": ["options"] } }
+          }
+        ]
+      }
+    },
+    "mode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision", "rationale", "contractPath"],
+      "properties": {
+        "decision": { "enum": ["single", "disclosure", "basic-advanced"] },
+        "rationale": { "type": "string", "minLength": 1 },
+        "contractPath": { "$ref": "#/$defs/path" }
+      }
+    },
+    "coverage": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "requirement", "disposition", "reason", "checkIds"],
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "kind": { "enum": ["input", "output", "media", "usage", "requirement"] },
+          "requirement": { "type": "string" },
+          "disposition": { "enum": ["required", "omitted"] },
+          "reason": { "type": "string" },
+          "checkIds": { "$ref": "#/$defs/idList" }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "required", "status", "targetDigest", "evidenceIds"],
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "kind": { "enum": ["contracts", "technical", "interaction", "content", "media", "rendered", "database", "focused-tests", "build", "repository-quality", "independent-review"] },
+          "required": { "type": "boolean" },
+          "status": { "enum": ["pending", "passed", "failed", "not-applicable"] },
+          "targetDigest": { "$ref": "#/$defs/sha256" },
+          "evidenceIds": { "$ref": "#/$defs/idList" },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "author", "recordedAt", "targetDigest", "path", "sha256"],
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "kind": { "enum": ["command", "browser", "review", "database"] },
+          "author": { "type": "string", "minLength": 1 },
+          "recordedAt": { "type": "string", "format": "date-time" },
+          "targetDigest": { "$ref": "#/$defs/sha256" },
+          "path": { "$ref": "#/$defs/path" },
+          "sha256": { "$ref": "#/$defs/sha256" },
+          "command": { "type": "string", "minLength": 1 },
+          "exitCode": { "type": "integer" },
+          "backend": { "type": "string", "minLength": 1 },
+          "viewport": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["width", "height"],
+            "properties": {
+              "width": { "type": "integer", "minimum": 1 },
+              "height": { "type": "integer", "minimum": 1 }
+            }
+          },
+          "theme": { "enum": ["dark", "light"] },
+          "scenario": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "severity", "status", "description", "checkIds", "fix", "recheckEvidenceIds"],
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "severity": { "enum": ["P0", "P1", "P2"] },
+          "status": { "enum": ["open", "fixed", "deferred"] },
+          "description": { "type": "string", "minLength": 1 },
+          "checkIds": { "$ref": "#/$defs/idList" },
+          "fix": {
+            "oneOf": [
+              { "type": "null" },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["paths", "description", "targetDigest"],
+                "properties": {
+                  "paths": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/path" } },
+                  "description": { "type": "string", "minLength": 1 },
+                  "targetDigest": { "$ref": "#/$defs/sha256" }
+                }
+              }
+            ]
+          },
+          "recheckEvidenceIds": { "$ref": "#/$defs/idList" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$" },
+    "idList": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+    "path": { "type": "string", "minLength": 1, "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$" },
+    "sha40": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "fileHash": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/path" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "inputHash": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "validation"],
+      "properties": {
+        "path": { "$ref": "#/$defs/path" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "validation": { "enum": ["current", "legacy-unverified"] }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+"use client";
+import {useState} from "react";
+import {ResticRetentionSimulator} from "/home/teja/projects/stack127/app/(site)/(tools)/restic-retention-simulator/restic-retention-simulator";
+import {RsyncFilterTester} from "/home/teja/projects/stack127/app/(site)/(tools)/rsync-filter-tester/rsync-filter-tester";
+import {MqttDiscoveryChecker} from "/home/teja/projects/stack127/app/(site)/(tools)/mqtt-discovery-checker/mqtt-discovery-checker";
+import {LxcIdmapChecker} from "/home/teja/projects/stack127/app/(site)/(tools)/lxc-idmap-checker/lxc-idmap-checker";
+import {ThemeToggle} from "/home/teja/projects/stack127/app/theme-toggle";
+import {PageCanvas} from "/home/teja/projects/stack127/app/page-canvas";
+const tools={"restic-retention-simulator":ResticRetentionSimulator,"rsync-filter-tester":RsyncFilterTester,"mqtt-discovery-checker":MqttDiscoveryChecker,"lxc-idmap-checker":LxcIdmapChecker};
+export default function Page(){const [selected,setSelected]=useState<keyof typeof tools>("restic-retention-simulator");const Tool=tools[selected];return <main><PageCanvas><div style={{gridColumn:"1 / -1"}}><p>Isolated audit fixture. Real components and CSS; no registry, page copy, sidebar, or sticky header.</p><ThemeToggle/><label>Audit tool<select aria-label="Audit tool" value={selected} onChange={e=>setSelected(e.target.value as keyof typeof tools)}>{Object.keys(tools).map(key=><option key={key} value={key}>{key}</option>)}</select></label><h1>{selected}</h1></div><Tool key={selected}/></PageCanvas></main>;}

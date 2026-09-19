@@ -45,9 +45,55 @@ test("the temporary lab stays development-only and renders the working component
     "ToolMetricGroup",
     "ToolTimeline",
     "ToolDataTable",
+    "ToolDatePicker",
+    "ToolLevelSlider",
+    "ToolFileDropzone",
+    "ToolFileList",
+    "ToolBarChart",
+    "ToolLineChart",
+    "ToolFlowChart",
   ]) {
     assert.match(lab, new RegExp(`<${component}\\b`), `${component} must have a working lab example`);
   }
+});
+
+test("uploads use accessible shared drop zones and file lists", async () => {
+  const [uploads, lab] = await Promise.all([
+    source("app/tool-ui/tool-uploads.tsx"),
+    source("app/(site)/tool-ui-lab/tool-ui-lab.tsx"),
+  ]);
+
+  assert.match(uploads, /DropZone/);
+  assert.match(uploads, /FileTrigger/);
+  assert.match(uploads, /acceptedFileTypes/);
+  assert.match(uploads, /maxSizeBytes/);
+  assert.match(uploads, /onReject/);
+  assert.match(uploads, /<progress\b/);
+  assert.match(uploads, /aria-label=\{`Remove/);
+  assert.match(lab, /acceptedFileTypes=\{\["application\/pdf"\]\}/);
+  assert.match(lab, /acceptedFileTypes=\{\["image\/png", "image\/jpeg", "image\/webp"\]\}/);
+});
+
+test("shared charts retain exact values and semantic fallbacks", async () => {
+  const visuals = await source("app/tool-ui/tool-visuals.tsx");
+
+  assert.match(visuals, /export function ToolBarChart/);
+  assert.match(visuals, /export function ToolLineChart/);
+  assert.match(visuals, /export function ToolFlowChart/);
+  assert.match(visuals, /<svg\b/);
+  assert.match(visuals, /<table\b/);
+  assert.match(visuals, /<ol\b/);
+  assert.doesNotMatch(visuals, /gradient/i);
+});
+
+test("date and level selectors use purpose-built accessible controls", async () => {
+  const controls = await source("app/tool-ui/tool-controls.tsx");
+
+  assert.match(controls, /export function ToolDatePicker/);
+  assert.match(controls, /<DateInput\b/);
+  assert.match(controls, /<CalendarGrid\b/);
+  assert.match(controls, /export function ToolLevelSlider/);
+  assert.match(controls, /aria-valuetext/);
 });
 
 test("shared selects are custom listboxes rather than native select elements", async () => {

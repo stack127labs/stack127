@@ -189,6 +189,7 @@ function InvalidResultView({ result }: { result: Extract<EngineResult, { status:
 }
 
 export function DockerComposeChecker() {
+  const [hydrated, setHydrated] = useState(false);
   const [compose, setCompose] = useState("");
   const [environment, setEnvironment] = useState("");
   const [result, setResult] = useState<EngineResult | null>(null);
@@ -201,6 +202,7 @@ export function DockerComposeChecker() {
   const failureRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    setHydrated(true);
     if (removeStateParameter()) setStatus("Shared inputs are not supported");
   }, []);
 
@@ -273,7 +275,7 @@ export function DockerComposeChecker() {
   }
 
   return (
-    <section aria-label="Docker Compose checker inputs and results" className={styles.tool} data-tool-workbench>
+    <section aria-label="Docker Compose checker inputs and results" className={styles.tool} data-hydrated={hydrated ? "true" : undefined} data-tool-workbench>
       <form className={styles.form} onSubmit={submit}>
         <ToolTextArea
           autoCapitalize="none"

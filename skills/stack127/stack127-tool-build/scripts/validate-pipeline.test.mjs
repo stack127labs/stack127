@@ -209,10 +209,11 @@ Input fingerprint: \`implementation-report.md sha256:${hash(implementation)}\`
 | Success | Input enabled | Current answer | Boundary visible | No error | Announce answer. |
 | Failure | Input enabled | Cleared | Absent | One retry action | Focus recovery. |
 ## Component contract
-| Need | Chosen component | Why it fits | Rejected alternative |
-| --- | --- | --- | --- |
-| Exact numeric input | ToolNumberInput | Preserves label and numeric keyboard. | Free text field lacks numeric controls. |
-| Dominant result | ToolLargeAnswer | Makes one conclusion primary. | Metric cards repeat equal-weight facts. |
+- Generic or native-looking fallback allowed: no
+| Need | Existing component inspected | Disposition | Chosen component | States, accessibility, responsive behavior, and tokens | Why it fits; rejected alternative |
+| --- | --- | --- | --- | --- | --- |
+| Exact numeric input | ToolNumberField in app/tool-ui/tool-controls.tsx | reuse shared | ToolNumberField | Label, error, focus, keyboard, and narrow width use shared tokens. | Preserves label and numeric keyboard; free text lacks numeric controls. |
+| Dominant result | ToolPrimaryResult in app/tool-ui/tool-controls.tsx | reuse shared | ToolPrimaryResult | Success and stale states remain readable at narrow width. | Makes one conclusion primary; metric cards repeat equal-weight facts. |
 ## Responsive contract
 | Width or condition | Layout and reading order | Longest realistic value | Overflow owner |
 | --- | --- | --- | --- |
@@ -243,8 +244,9 @@ The state table defines every applicable state; no empty, partial, or expanded s
 | UI-001 | lead | Success shows one dominant answer. | Browser inspection. |
 | UI-002 | deduplication | No formatted result value is repeated. | Browser test. |
 | UI-003 | visual-truth | The result uses no geometry without a real scale. | Browser inspection. |
-| UI-004 | responsive | The 320px page has no horizontal overflow. | Browser test. |
-| UI-005 | url | Opening the clean canonical route leaves the URL unchanged through hydration. | Browser test. |
+| UI-004 | component-consistency | The input and answer use their approved stack127 components. | Browser and source inspection. |
+| UI-005 | responsive | The 320px page has no horizontal overflow. | Browser test. |
+| UI-006 | url | Opening the clean canonical route leaves the URL unchanged through hydration. | Browser test. |
 ## Open questions and blockers
 - None. The product and information decisions are closed.
 `;
@@ -268,8 +270,9 @@ ${filler}
 | UI-001 | EC-001 verifies a single current answer. |
 | UI-002 | EC-004 verifies one recovery surface. |
 | UI-003 | EC-006 verifies the visual treatment. |
-| UI-004 | EC-007 verifies narrow layout. |
-| UI-005 | EC-009 verifies clean-route URL stability. |
+| UI-004 | EC-006 verifies the approved component treatment. |
+| UI-005 | EC-007 verifies narrow layout. |
+| UI-006 | EC-009 verifies clean-route URL stability. |
 ## Coverage checklist
 | Family | Cases or reason |
 | --- | --- |
@@ -280,6 +283,7 @@ ${filler}
 | Submission and concurrency | EC-004 |
 | Network and upstream | Not applicable: deterministic formula makes no upstream request |
 | Persistence and sharing | EC-005 |
+| Control mode, switching, parity, and hidden-state recovery | Not applicable: this fixture has one visible control mode |
 | Accessibility | EC-006 |
 | Responsive and themes | EC-007 |
 | Security and privacy | EC-008 |
@@ -293,10 +297,10 @@ ${filler}
 | EC-003 | P0 | Precision | repeating decimal | Preserve source precision | Rounded display names rule | URL keeps source value | tests/test.test.mjs | R1 |
 | EC-004 | P1 | Concurrency | rapid repeat submit | One deterministic result | No duplicate feedback | One URL update | tests/page.spec.mjs | R1, UI-002 |
 | EC-005 | P1 | Shared state | malformed query | Restore clean state | Explain recovery | Replace invalid URL | tests/page.spec.mjs | R1 |
-| EC-006 | P1 | Accessibility | keyboard submit | Calculate once | Result is announced without false geometry | URL may update | tests/page.spec.mjs | R1, UI-003 |
-| EC-007 | P1 | Responsive | long result on narrow screen | Exact value remains intact | No clipping | No side effect | tests/page.spec.mjs | R1, UI-004 |
+| EC-006 | P1 | Accessibility | keyboard submit | Calculate once | Result uses the approved controls and is announced without false geometry | URL may update | tests/page.spec.mjs | R1, UI-003, UI-004 |
+| EC-007 | P1 | Responsive | long result on narrow screen | Exact value remains intact | No clipping | No side effect | tests/page.spec.mjs | R1, UI-005 |
 | EC-008 | P0 | Security | HTML-like pasted input | Reject as invalid | Render as inert text | No logs or analytics | tests/test.test.mjs | R1 |
-| EC-009 | P0 | Clean route | Open the canonical route without query parameters | Keep initial defaults | No unexpected announcement | URL and history remain unchanged | tests/page.spec.mjs | UI-005 |
+| EC-009 | P0 | Clean route | Open the canonical route without query parameters | Keep initial defaults | No unexpected announcement | URL and history remain unchanged | tests/page.spec.mjs | UI-006 |
 ## Formula or resolution fixtures
 | ID | Input | Output | Oracle | Branch |
 | --- | --- | --- | --- | --- |

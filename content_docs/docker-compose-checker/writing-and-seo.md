@@ -1,13 +1,16 @@
 # Writing and SEO plan: Docker Compose checker
 
 Status: ready
+Feasibility: feasible
+Content review: 2026-09-19
+Acceptance path: Main-agent review, then the retained Astra writing session; Luna integrates only accepted words.
 Tool: Docker Compose checker
 Route: `/docker-compose-checker`
 Depends on: `competitive-report.md`, `implementation-report.md`, `brief.md`, `interface-contract.md`, `edge-cases-and-tests.md`
-Input fingerprint: `competitive-report.md sha256:26d81ad5616befbfabba5dda2beed1c8ae8d8f8e6721eb57c9b29d6384118c1a`
-Input fingerprint: `implementation-report.md sha256:1c4ef6b5fc05c53b4c82dfb2ebef07201cc004724bb9ee85d31bdea0081ada97`
-Input fingerprint: `interface-contract.md sha256:15eed95d1a0d2e5c4418c60f9e0ef87c4f8354f2501f2be0d9f44b6a016e7417`
-Input fingerprint: `edge-cases-and-tests.md sha256:a9a9dac7dc36579782b3121d13aa1b3ed2cfca4543cbda825f3a2a0a246ed005`
+Input fingerprint: `competitive-report.md sha256:bb8cce9a5c129e931e9df10005408b430af2e851b8d6fb0e9db8db957e32d3ae`
+Input fingerprint: `implementation-report.md sha256:9ae41963ca921518d6a2ed8e1c243e548f38d91b7d5efdcf43a0eb62592c2055`
+Input fingerprint: `interface-contract.md sha256:6098cf4d0be201920481eb4a2226131368592f1a7aa4206dc79bef553cfd7b13`
+Input fingerprint: `edge-cases-and-tests.md sha256:292a24c3ea2a9bdeefd8f3f33c55b444a44dccfa5c623a2cbec248e5f6516be4`
 Input fingerprint: `brief.md sha256:cdddc1c8a8dea42aa26848b792fd2874159f87cb63c7bb996cd8be187aeeda92`
 SERP checked: 2026-09-10
 Primary medium: Tool UI
@@ -102,6 +105,7 @@ The tool stays above all supporting content. No marker concept, clean chart, scr
 | 39 | Official link labels | Which primary documentation should support the technical claims? | Use concise anchors for the Compose Specification, interpolation reference, and `docker compose config` reference at the point where each boundary is explained. | Sentences | Docker and Compose Specification URLs in the source ledger | Do not use a link list as a substitute for explanation or add unrelated references. | COPY-24 |
 | 40 | Copy inventory note | Which existing public UI strings must stay auditable? | Preserve the exact input, action, result, accessibility, and recovery strings listed in the manual handoff. These are route-owned copy review assignments, not Markdown to paste into the database. | Sentences | Route implementation; interface contract; implementation result states | The content writer must not rewrite engine diagnostic messages or duplicate them below the tool. | COPY-25 |
 | 40a | Diagnostic messages and fixes | Which error wording belongs to the checker engine? | Preserve the engine's stable diagnostic code, severity, layer, path, source location, excerpt, message, and fix fields as one evidence record. | Sentences | Implementation diagnostic contract; interface UI-007; EC-022 and EC-028 | This is an ownership assignment, not a new prose section. Do not rewrite dynamic findings in database Markdown or turn them into a generic error glossary. | COPY-26 |
+| Usage | H2: Use the tool for your task | Which inputs should I bring, and what should I do with the outcome? | Use the closed Usage Markdown handoff below. | Sentences | Accepted technical artifacts and route behavior | Explain meaningful choices and next action; no button narration or duplicate live results. | COPY-40 |
 
 ## Formula explanation
 
@@ -190,6 +194,7 @@ The rows below reserve the exact public copy units for the later manual writing 
 | COPY-37 | Provenance and limitation labels | Keep implementation metadata and limits quiet. | Preserve `Engine`, `Spec snapshot`, `Schema`, `Parser`, `No merged files or Docker.`, and `No image, port, process, or proof.` Use implementation provenance and non-goals. | Review placement after the answer, findings, and summary. Stop before expanding metadata into a version essay. | No guarantee of future Compose behavior, host state, or runtime success. |
 | COPY-38 | Invalid-state headings and boundaries | Explain why semantic output is absent in an invalid state. | Preserve `Input findings`, `Compose model findings`, `Syntax findings`, `YAML syntax findings`, `No model output until input is fixed.`, `No normalized model until root is fixed.`, and `No model output after syntax errors.` Use input, syntax, and model-invalid contracts. | Review one boundary beside each invalid result. Stop before repeating the same sentence in the guide. | Do not classify input controls as YAML errors or show stale results. |
 | COPY-39 | Accessibility names and semantic labels | Keep the same meaning available without sight or color. | Preserve `Docker Compose checker inputs and results` and `Compose check counts`, visible severity words, semantic table headers, and field-error associations. Use the accessibility contract and EC-034 through EC-037. | Review the accessibility tree and labels in place. Stop before adding explanatory announcements. | No decorative text, color-only status, or hidden live validation. |
+| COPY-40 | Task-oriented usage | Explain input preparation, meaningful choices, states, and next verification. | Closed Usage Markdown handoff and accepted technical artifacts. | One concise connected guide; use steps only where order changes the outcome. | No live-result narration, unimplemented features, or duplicate supporting explanations. |
 
 ### Voice and accuracy constraints
 
@@ -207,7 +212,7 @@ The rows below reserve the exact public copy units for the later manual writing 
 
 ### Tool-build exclusion
 
-`$stack127-tool-build` must not draft or integrate these sections. The later `$stack127-tool-writing` stage owns the reviewed Markdown integration. Route-owned labels and engine diagnostics remain in code unless a separate interface or functional change is approved.
+`$stack127-tool-build` must not draft these sections. The later `$stack127-tool-writing` stage supplies reviewed words; the separate Luna content-integration stage applies accepted Markdown. Route-owned labels and engine diagnostics remain in code unless a separate interface or functional change is approved.
 
 ## Source ledger
 
@@ -235,3 +240,40 @@ The rows below reserve the exact public copy units for the later manual writing 
 - None for this content stage. All five required artifacts are ready, the test-stage pipeline validator passed before writing, and the fingerprints above match the files read on 2026-09-10.
 - Evidence limitation: SearXNG was not configured, the web connector did not identify individual engines, and the in-app Browser was unavailable. The current plan records the web connector and the separate Bing Playwright probe instead of describing the results as broad engine coverage.
 - Publication, database content integration, final rendered QA, and registry metadata remain later workflow steps. This file creates no route copy, DB row, publication state, or SEO code.
+
+
+## Usage Markdown handoff
+
+Disposition: Closed and feasible for the retained Astra writing session after main acceptance.
+
+### Assignment and reading order
+
+COPY-40 owns `usage_markdown`: explain the real task, inputs worth preparing, meaningful mode choices, important state distinctions, and the next verification. The existing manual assignments own the introduction, supporting explanations, metadata, and identified interface review only. Where an older assignment discusses how to choose an input, move that instruction into this usage assignment and retain only its conceptual explanation below. Do not repeat it in both fields. Interface inventories are review-only; this plan does not authorize implementation or rewriting dynamic findings.
+
+### Technical facts and meaningful inputs
+
+Use one Compose YAML document (256 KiB/4,000 lines maximum) and, optionally, only the representative KEY=VALUE assignments needed for interpolation (64 KiB/2,000 lines maximum). The tool does not read the shell, project .env, service env_file, include, or extends files. YAML parsing, targeted Compose-model checks, and static advisories are separate layers. A source anchor may identify a node rather than an exact offending token. Version is obsolete and does not select a legacy schema. Required missing interpolation values differ from unresolved optional values.
+
+### State interpretation and recovery
+
+Input and YAML syntax failures do not yield a normalized model. Parsed semantic findings can retain a summary. Incomplete composition is not a runtime verdict. Edits clear prior results; unexpected failures preserve inputs for retry. Copy exports diagnostic evidence, not a repaired Compose file.
+
+### Limitations and next action
+
+No Docker execution, file access, image inspection, host-port availability, external resource verification, active-profile inference, full Specification parity, runtime readiness, or security verdict. Run docker compose config -q with the real project; --environment can show its interpolation sources.
+
+### Input handling boundary
+
+Pasted checker inputs are processed locally without upload. This is a tool-input boundary, not a claim that the entire website makes no requests. The implementation and accepted technical evidence support only these route-specific statements. Do not infer a general retention, logging, analytics, cookie, or anonymity policy.
+
+### Content, media, and list requirements
+
+Keep the interactive tool first. Preserve all outline tables and exact result media; their repeated fields belong in tables, not comparison paragraphs. Existing output values, counts, findings, formulas, and captions stay in the live result rather than a second narrative. No new screenshot, marker drawing, generated illustration, or chart is required. If an ordered list is used, it must represent dependent task steps; use an unordered list only for genuinely independent checks. Do not add a generic FAQ or a list-shaped summary of every control. Every retained table must ship with useful headers and its limitation, not merely a heading placeholder.
+
+### Source ledger and links
+
+Use the existing source ledger for attributable claims, with links at the point of explanation. The ready implementation, interface, edge-case, and brief artifacts govern what this tool actually does; official sources govern external rules. Local assumptions must be labeled rather than attributed to a standards body or platform. Preserve the ledger's checked dates; a content review is not a claim that every source was freshly reverified. Conditional internal destinations: /dockerignore-tester; /self-hosting-for-beginners/install-docker. Include them only when the exact route is published at integration; all new batch tools remain unpublished. If a destination is unavailable, omit the link rather than invent a URL or publish its target.
+
+### Feasibility and ownership
+
+The accepted implementation can support this plan without new controls, engines, media, data sources, or implementation work. Astra supplies words only after acceptance. Luna performs content integration later. Neither this plan nor its validator result changes database content, registry publication, tool version, or deployment.

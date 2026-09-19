@@ -117,7 +117,11 @@ test("enforces unpublished build ownership", (context) => {
     `Status: ready\nTool: Synthetic Tool\nRoute: \`${route}\`\n`,
   );
   mkdirSync(join(fixtureRoot, "skills/stack127/stack127-tool-writing"), { recursive: true });
-  manifest.skills.push("skills/stack127/stack127-tool-writing");
+  mkdirSync(join(fixtureRoot, "skills/stack127/stack127-tool-content-integration"), { recursive: true });
+  manifest.skills.push(
+    "skills/stack127/stack127-tool-writing",
+    "skills/stack127/stack127-tool-content-integration",
+  );
   writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
   const handoff = inspectPipeline({
     repositoryRoot: fixtureRoot,
@@ -129,6 +133,18 @@ test("enforces unpublished build ownership", (context) => {
 
   manifest.skills.pop();
   writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+  const missingIntegration = inspectPipeline({
+    repositoryRoot: fixtureRoot,
+    routeInput: route,
+    expectation: "handoff",
+    runValidators: false,
+  });
+  assert.equal(missingIntegration.ok, false);
+  assert.match(missingIntegration.errors.join("\n"), /stack127-tool-content-integration at handoff/);
+
+  manifest.skills.push("skills/stack127/stack127-tool-content-integration");
+  manifest.skills = manifest.skills.filter((skill) => skill !== "skills/stack127/stack127-tool-writing");
+  writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
   const missingWriter = inspectPipeline({
     repositoryRoot: fixtureRoot,
     routeInput: route,
@@ -138,6 +154,7 @@ test("enforces unpublished build ownership", (context) => {
   assert.equal(missingWriter.ok, false);
   assert.match(missingWriter.errors.join("\n"), /stack127-tool-writing at handoff/);
 
+  manifest.skills.push("skills/stack127/stack127-tool-writing");
   manifest.state = "published";
   writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
   const published = inspectPipeline({

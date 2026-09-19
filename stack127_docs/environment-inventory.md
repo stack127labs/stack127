@@ -43,15 +43,19 @@ values must point to different managed projects:
 
 ```text
 DATABASE_URL
+DATABASE_POOLER_URL
 SUPABASE_URL
 SUPABASE_PUBLISHABLE_KEY
 SUPABASE_SECRET_KEY
 ```
 
-`DATABASE_URL` is required by current database-backed scripts and production
-runtime. `SUPABASE_URL` and `SUPABASE_SECRET_KEY` are required by media upload
-scripts. The publishable key is available for browser-safe API reads; none of
-the API keys replace `DATABASE_URL`.
+`DATABASE_URL` is required by database-backed scripts. `DATABASE_POOLER_URL` is
+optional and takes priority in the application runtime; use the Supabase
+session-pooler string on IPv4-only hosts. Published page and tool-content reads
+prefer the Supabase Data API during local development and fall back between the
+Data API and Postgres on connection errors. `SUPABASE_URL` and
+`SUPABASE_SECRET_KEY` are also required by media upload scripts. The
+publishable key is safe for the public reads allowed by existing RLS policies.
 
 ### Deployment And Infrastructure
 

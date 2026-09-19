@@ -15,5 +15,7 @@ test("idle connection errors are handled without logging credentials or queries"
 });
 
 test("the application pool installs the background error handler", () => {
-  assert.match(readFileSync("lib/db.ts", "utf8"), /observePoolErrors\(globalForPg\.homeLabHqPgPool\)/);
+  const source = readFileSync("lib/db.ts", "utf8");
+  assert.match(source, /observePoolErrors\(globalForPg\.homeLabHqPgPool\)/);
+  assert.match(source, /DATABASE_POOLER_URL\s*\|\|\s*process\.env\.DATABASE_URL/);
 });

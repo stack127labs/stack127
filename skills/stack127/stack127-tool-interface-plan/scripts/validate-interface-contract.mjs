@@ -138,7 +138,7 @@ export function validateInterfaceContractText(content) {
   const tableMinimums = [
     ["Visual semantics", 1, 4],
     ["State contract", 4, 6],
-    ["Component contract", 2, 4],
+    ["Component contract", 2, 6],
     ["Responsive contract", 3, 4],
   ];
   for (const [title, minimum, cells] of tableMinimums) {
@@ -155,6 +155,36 @@ export function validateInterfaceContractText(content) {
     }
   }
 
+  const componentContract = sectionBody(content, "Component contract") ?? "";
+  if (!/^- Generic or native-looking fallback allowed:\s*no\s*$/mi.test(componentContract)) {
+    errors.push("interface-contract.md: component contract must reject generic or native-looking fallback");
+  }
+  const componentDispositions = new Set(["reuse shared", "new shared", "route-specific"]);
+  for (const row of markdownRows(componentContract)) {
+    if (!componentDispositions.has((row[2] ?? "").toLowerCase())) {
+      errors.push(`interface-contract.md: invalid component disposition "${row[2] ?? ""}"`);
+    }
+  }
+
+  const optionalMode = sectionBody(content, "Optional mode and state visibility");
+  if (optionalMode !== null) {
+    const controlMode = optionalMode.match(/^- Control mode:\s*`?(single|disclosure|basic-advanced)`?\s*$/mi)?.[1];
+    if (!controlMode) errors.push("interface-contract.md: optional mode section must declare Control mode as single, disclosure, or basic-advanced");
+    if (controlMode === "basic-advanced") {
+      for (const phrase of [
+        "Shared engine and normalized input mapping:",
+        "Basic assumptions and sources:",
+        "Custom-value visibility in Basic:",
+        "Switch retention and reset:",
+        "Hidden invalid-value recovery:",
+        "URL, reload, and history restoration:",
+        "Equivalent-input parity evidence:",
+      ]) {
+        if (!optionalMode.includes(phrase)) errors.push(`interface-contract.md: basic-advanced mode is missing ${phrase}`);
+      }
+    }
+  }
+
   const wireframes = sectionBody(content, "Interface wireframes") ?? "";
   if ([...wireframes.matchAll(/```text/g)].length < 2) errors.push("interface-contract.md: interface wireframes need desktop and narrow mobile text diagrams");
 
@@ -167,7 +197,7 @@ export function validateInterfaceContractText(content) {
   if (new Set(acceptanceIds).size !== acceptanceIds.length) errors.push("interface-contract.md: duplicate UI acceptance ID");
   if (acceptanceRows.some((row) => row.length < 4 || row.some((cell) => !cell))) errors.push("interface-contract.md: every acceptance row needs four filled cells");
   const acceptanceCategories = new Set(acceptanceRows.map((row) => (row[1] ?? "").toLowerCase()));
-  for (const category of ["lead", "deduplication", "visual-truth", "responsive", "url"]) {
+  for (const category of ["lead", "deduplication", "visual-truth", "component-consistency", "responsive", "url"]) {
     if (!acceptanceCategories.has(category)) errors.push(`interface-contract.md: acceptance criteria need category ${category}`);
   }
 

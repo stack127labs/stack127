@@ -1,11 +1,15 @@
 ---
 name: stack127-tool-build
-description: Build and verify the interactive technical core of one stack127 calculator, checker, converter, lookup, generator, explorer, or utility from its ready competitive, product, interface, test, and brief artifacts. Use only when the user explicitly asks to implement the tool. Enforce tests first, implement the formula or resolution engine and contracted interface, verify it with the in-app Browser when available or standalone Playwright in homelab CLI mode, and run repository quality gates. Do not research, draft, request, integrate, or add explanatory page prose, SEO sections, FAQs, or article content.
+description: Build and verify the interactive technical core of one stack127 calculator, checker, converter, lookup, generator, explorer, or utility from its ready competitive, product, interface, test, and brief artifacts. Use only when the user explicitly asks to implement the tool. Enforce tests first, implement the formula or resolution engine and contracted interface, verify it with the in-app Browser when available or standalone Playwright in homelab CLI mode, and run repository quality gates. Do not research, draft, or add explanatory page prose, SEO sections, FAQs, or article content. Content generation and integration happen in the writing stage.
 ---
 
 # stack127 tool build
 
-Build exactly one working tool. Deliver the tool surface only; the user will add prose later.
+## Pipeline role and model routing
+
+In the full tool pipeline, the main orchestrator continues the same `gpt-5.6-luna` worker used for test design, with `reasoning_effort: "max"`. The main agent must accept the test-contract gate before this skill starts. This worker never starts another pipeline worker. Astra has no implementation, browser-QA, test, or database role.
+
+Build exactly one working tool. Deliver the tool surface only; the writing stage owns the supporting content.
 
 ## Prerequisites
 
@@ -43,7 +47,9 @@ Do not add:
 
 Do not edit `intro_markdown`, `content_markdown`, or `content_revision`. Those belong to the content-only workflow.
 
-If a planning artifact proposes explanatory prose, leave it for the user's later content pass. Preserve the underlying product behavior or structured result, but do not convert the prose into helper copy. Keep operational language short; shorten any static or interpolated public string that reaches eight words.
+Implement the approved media choice and leave rendered traceability for it. Trace structured content in the rendered page, including ordered lists, bullet lists, and definition lists. Marker art is allowed only when its spec is registered in the applicable MarkerArt registry and the rendered page uses that registered artifact.
+
+If a planning artifact proposes explanatory prose, leave it for the writing stage. Preserve the underlying product behavior or structured result, but do not convert the prose into helper copy. Keep operational language short; shorten any static or interpolated public string that reaches eight words.
 
 ## Required order
 
@@ -65,7 +71,13 @@ Return structured invalid, unknown, partial, and error states. Never show a plau
 
 ### 4. Build the interface
 
+For optional modes, keep one engine and one primary action. Use the approved `single`, `disclosure`, or `basic-advanced` pattern. Basic must show its active assumptions and their sources. Preserve custom Advanced values when switching, summarize them visibly in Basic, require an explicit reset before replacing them with defaults, and reveal and focus a hidden invalid setting. Test equivalent-input parity plus direct URL, reset, reload, back, and forward behavior.
+
 Implement `interface-contract.md` exactly. It owns the visible inputs, actions, result regions, component choices, omissions, reading order, and responsive behavior. Do not add a region because data exists or a component is available. Return a missing or contradictory interface decision to `$stack127-tool-interface-plan`.
+
+Inspect `app/tool-ui`, `/tool-ui-lab`, and the sibling pages named in the interface contract before styling. Follow the component provenance disposition for every nontrivial control and result. Reuse a suitable shared component. When the approved component is missing, build the contracted shared or route-specific component with its complete states, tokens, accessibility, recovery, and responsive behavior.
+
+Do not expose an unstyled native control, generic browser upload box, generic dashboard pattern, or unrelated third-party component as a silent fallback. Native elements may provide semantics underneath a stack127 interface; a file input can remain visually hidden and accessible behind an approved dropzone and browse action. If the contract lacks a missing-component decision or the component cannot be built within the approved scope, stop and return the issue to interface planning.
 
 Also preserve the product interaction contract:
 

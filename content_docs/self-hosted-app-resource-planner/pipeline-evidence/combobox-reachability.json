@@ -1,0 +1,24 @@
+{
+  "backend": "standalone Playwright CLI",
+  "preview": "http://127.0.0.1:3342",
+  "route": "/self-hosted-app-resource-planner",
+  "testedAt": "2026-09-19T14:15:48.309Z",
+  "cases": [
+    {
+      "width": 390,
+      "theme": "dark",
+      "checks": [
+        "combobox-enabled"
+      ],
+      "error": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('option', { name: 'Custom app', exact: true }) to be visible\u001b[22m\n; accessibility=\"- region \\\"self-hosted app resource planner workbench\\\":\\n  - heading \\\"App mix\\\" [level=2]\\n  - paragraph: Choose the services you want to compare.\\n  - text: App to add Open App to add\\n  - group:\\n    - combobox \\\"App to add\\\"\\n    - button \\\"Open App to add\\\"\\n  - region \\\"Selected app rows\\\":\\n    - button \\\"Add app\\\" [disabled]\\n  - heading \\\"Host budget\\\" [level=2]\\n  - paragraph: Reserve host headroom.\\n  - text: RAM budget\\n  - group:\\n    - button \\\"Decrease RAM budget\\\"\\n    - textbox \\\"RAM budget\\\"\\n    - text: GiB\\n    - button \\\"Increase RAM budget\\\"\\n  - text: App storage budget\\n  - group:\\n    - button \\\"Decrease App storage budget\\\"\\n    - textbox \\\"App storage budget\\\"\\n    - text: GB\\n    - button \\\"Increase App storage budget\\\"\\n  - text: Headroom reserve\\n  - group:\\n    - button \\\"Decrease Headroom reserve\\\"\\n    - textbox \\\"Headroom reserve\\\": \\\"20\\\"\\n    - text: \\\"%\\\"\\n    - button \\\"Increase Headroom reserve\\\"\\n  - button \\\"Calculate plan\\\"\\n  - button \\\"Reset plan\\\"\"; visibleButtons=[\"\",\"\",\"Add app\",\"\",\"\",\"\",\"\",\"\",\"\",\"Calculate plan\",\"Reset plan\",\"analytics settings\",\"No thanks\",\"Allow analytics\",\"\"]"
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "checks": [
+        "combobox-enabled"
+      ],
+      "error": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('option', { name: 'Custom app', exact: true }) to be visible\u001b[22m\n; accessibility=\"- region \\\"self-hosted app resource planner workbench\\\":\\n  - heading \\\"App mix\\\" [level=2]\\n  - paragraph: Choose the services you want to compare.\\n  - text: App to add Open App to add\\n  - group:\\n    - combobox \\\"App to add\\\"\\n    - button \\\"Open App to add\\\"\\n  - region \\\"Selected app rows\\\":\\n    - button \\\"Add app\\\" [disabled]\\n  - heading \\\"Host budget\\\" [level=2]\\n  - paragraph: Reserve host headroom.\\n  - text: RAM budget\\n  - group:\\n    - button \\\"Decrease RAM budget\\\"\\n    - textbox \\\"RAM budget\\\"\\n    - text: GiB\\n    - button \\\"Increase RAM budget\\\"\\n  - text: App storage budget\\n  - group:\\n    - button \\\"Decrease App storage budget\\\"\\n    - textbox \\\"App storage budget\\\"\\n    - text: GB\\n    - button \\\"Increase App storage budget\\\"\\n  - text: Headroom reserve\\n  - group:\\n    - button \\\"Decrease Headroom reserve\\\"\\n    - textbox \\\"Headroom reserve\\\": \\\"20\\\"\\n    - text: \\\"%\\\"\\n    - button \\\"Increase Headroom reserve\\\"\\n  - button \\\"Calculate plan\\\"\\n  - button \\\"Reset plan\\\"\"; visibleButtons=[\"\",\"\",\"Add app\",\"\",\"\",\"\",\"\",\"\",\"\",\"Calculate plan\",\"Reset plan\",\"analytics settings\",\"No thanks\",\"Allow analytics\",\"\"]"
+    }
+  ]
+}

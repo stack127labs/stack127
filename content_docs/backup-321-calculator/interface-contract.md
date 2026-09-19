@@ -1,9 +1,11 @@
 # Interface contract: 3-2-1 backup calculator
 
 Status: ready
+Feasibility: feasible. The existing engine and shared controls support this interface contract within the approved product scope. This planning update does not certify runtime behavior, external services, or publication readiness.
 Tool: 3-2-1 backup calculator
 Route: /backup-321-calculator
 Mode: pipeline
+Review scope: current interface-contract refresh; no browser verification claimed
 Depends on: brief.md, implementation-report.md
 Input fingerprint: `brief.md sha256:a7b09add3ef2e573f30b86010e92f81b83788fe8b0d762e86b5bf878c72119a9`
 Input fingerprint: `implementation-report.md sha256:b646b8db3031b022255c8b6288cb2024bff1b65c98d9889945ca9bda1b2f95fa`
@@ -105,21 +107,38 @@ The lead result is the per-target value. The combined total, anatomy, model, rec
 | Loading or upstream failure | Not applicable because the adapter is synchronous and local | Absent until submit | Absent | No spinner, request error, or provider fallback | No loading announcement. |
 | Expanded formula receipt | User opens the receipt | Remains | Remains | Version, source, and uncertainty rows appear | Disclosure trigger retains focus. |
 
+## Optional mode and state visibility
+
+- Control mode: disclosure
+- Reason: Capacity inputs stay visible. Recovery goals are opt-in, and enabling them reveals all recovery assumptions beside the checkbox. Only the formula receipt collapses.
+- Shared engine and normalized input mapping: The existing backup adapter receives the same capacity and recovery fields in every state. No second calculation path or alternate rules are introduced.
+- Active assumptions: Keep required and defaulted result-driving values in the input flow described above. Conditional fields appear beside the choice that activates them, before submission.
+- Retention and recovery: Evidence expansion never changes input or result state. Retain edited values until the existing Reset, example, or branch action explicitly replaces them. Reveal and focus any invalid active conditional field; no collapsed region may hide a blocking error.
+- URL, reload, and history restoration: Preserve the URL contract and existing explicit restoration behavior below. A clean canonical load must remain unchanged through hydration; this mode decision adds no query, storage, or history writes.
+- Equivalent-input parity: There is one input model and one engine. A basic/advanced parity fixture is not applicable; disclosure state must not alter normalized inputs or computed output.
+
 ## Component contract
 
-| Need | Chosen component | Why it fits | Rejected alternative |
-| --- | --- | --- | --- |
-| Protected data with a unit | ToolQuantityInput | Joins the raw decimal value and unit while preserving exact text for validation. | Separate unrelated input and select controls. |
-| Exact percentage and decimal-Mbps strings | ToolTextField | Preserves the documented decimal grammar instead of coercing values through floating-point state. | Native number input, which may normalize unsupported grammar. |
-| Bounded integer hours and points | ToolTextField with numeric input mode | Preserves exact strings so engine bounds and grammar errors remain visible instead of being clamped by a native number state. | ToolNumberField, which can replace an invalid value on blur before the engine sees it. |
-| Backup model and result unit choices | ToolChoiceGroup | Short, material choices should remain visible and keyboard navigable. | A hidden select that makes the storage model harder to see. |
-| Recovery opt-in | ToolCheckbox | Represents a boolean submitted with the form and keeps the off state explicit. | Immediate switch behavior for a setting that is applied on Calculate. |
-| Lead answer | ToolPrimaryResult | Gives one result the strongest hierarchy without creating equal metric cards. | ToolMetricGroup with several equally weighted values. |
-| Repository and headroom relationship | ToolAllocationBar | Its geometry has a truthful denominator and its legend keeps exact values available. | Progress bar, which would imply a goal or status. |
-| Supporting facts and statuses | ToolKeyValueList | Fits distinct labeled values and wraps cleanly on narrow screens. | Paragraphs that bury or repeat exact values. |
-| Formula and source evidence | ToolDisclosure | Keeps advanced verification available without competing with the answer. | An always-open methodology panel. |
-| Copy and share actions | ToolCopyAction and ToolButton in ToolActionRow | Reuses tested clipboard, feedback, and action semantics. | Automatic clipboard or URL writes during editing. |
-| Error and recovery feedback | ToolStatus plus field error props | Provides one polite live region and field-associated recovery. | Repeating the same error in several result regions. |
+- Generic or native-looking fallback allowed: no
+- Inspection: shared implementations in `app/tool-ui`, the source for `/tool-ui-lab`, this route, and sibling patterns in `/restic-retention-simulator`, `/rsync-filter-tester`, and `/lxc-idmap-checker`. This is source inspection, not a new rendered-state verification receipt.
+- Native form, input, radio, table, and file semantics may remain underneath the approved stack127 presentation. Missing behavior must receive a complete shared or justified route-specific contract; it must not become a bare native control, generic upload box, or unrelated dashboard component.
+- All rows use `--text-body`, `--color-text`, `--color-border`, `--radius`, `--space-*`, and `--focus-ring` as applicable. Only metadata uses `--text-small`. Keep one accent primary action, semantic status text, both themes, and no colored left edges.
+- Route-specific choices retain the behavioral reason in their row and use the existing route stylesheet. They do not introduce new controls or public behavior. Shared components own their internal appearance; route styles own placement and any stated reflow.
+
+| Need | Existing component inspected | Disposition | Chosen component | States, accessibility, responsive behavior, and tokens | Why it fits; rejected alternative |
+| --- | --- | --- | --- | --- | --- |
+| Calculate and reset | `ToolButton` and `ToolActionRow` in `app/tool-ui/tool-controls.tsx` | reuse shared | ToolButton in ToolActionRow | One primary submit, secondary Reset, keyboard activation, visible focus, and labeled hydration-disabled state. Stack actions on narrow screens with shared button tokens. | The explicit calculation is the commit point. Reject automatic calculation or a second primary action. |
+| Protected data with a unit | `ToolQuantityInput` in `app/tool-ui/tool-controls.tsx` | reuse shared | ToolQuantityInput | Keep persistent labels, required semantics where applicable, exact entered values, field-associated errors, and first-error focus. Preserve native editing and numeric keyboard behavior; labels and errors wrap on narrow widths. Use shared control tokens. | Joins the raw decimal value and unit while preserving exact text for validation. Rejected: Separate unrelated input and select controls. |
+| Exact percentage and decimal-Mbps strings | `ToolTextField` in `app/tool-ui/tool-controls.tsx` | reuse shared | ToolTextField | Keep persistent labels, required semantics where applicable, exact entered values, field-associated errors, and first-error focus. Preserve native editing and numeric keyboard behavior; labels and errors wrap on narrow widths. Use shared control tokens. | Preserves the documented decimal grammar instead of coercing values through floating-point state. Rejected: Native number input, which may normalize unsupported grammar. |
+| Bounded integer hours and points | `ToolTextField` in `app/tool-ui/tool-controls.tsx` | reuse shared | ToolTextField with numeric input mode | Keep persistent labels, required semantics where applicable, exact entered values, field-associated errors, and first-error focus. Preserve native editing and numeric keyboard behavior; labels and errors wrap on narrow widths. Use shared control tokens. | Preserves exact strings so engine bounds and grammar errors remain visible instead of being clamped by a native number state. Rejected: ToolNumberField, which can replace an invalid value on blur before the engine sees it. |
+| Backup model and result unit choices | `ToolChoiceGroup` in `app/tool-ui/tool-controls.tsx` | reuse shared | ToolChoiceGroup | Keep the active value visible, expose label and selection to assistive technology, preserve keyboard selection and focus, and associate validation with the control. Wrap choice rows and constrain popovers to the viewport. Use shared control tokens. | Short, material choices should remain visible and keyboard navigable. Rejected: A hidden select that makes the storage model harder to see. |
+| Recovery opt-in | `ToolCheckbox` in `app/tool-ui/tool-controls.tsx` | reuse shared | ToolCheckbox | Keep the active value visible, expose label and selection to assistive technology, preserve keyboard selection and focus, and associate validation with the control. Wrap choice rows and constrain popovers to the viewport. Use shared control tokens. | Represents a boolean submitted with the form and keeps the off state explicit. Rejected: Immediate switch behavior for a setting that is applied on Calculate. |
+| Lead answer | `ToolPrimaryResult` in `app/tool-ui/tool-controls.tsx` | reuse shared | ToolPrimaryResult | One lead precedes support; announce result changes and focus the documented result target after submit. Invalid inputs create field recovery, not a fabricated answer. Long values wrap. Use shared result and text tokens. | Gives one result the strongest hierarchy without creating equal metric cards. Rejected: ToolMetricGroup with several equally weighted values. |
+| Repository and headroom relationship | `ToolAllocationBar` in `app/tool-ui/tool-controls.tsx` | reuse shared | ToolAllocationBar | Use exact parts and denominator, preserve zero-value legend entries, and provide labels and exact values without relying on color. Wrap the legend within the workbench; shared data tokens encode the stated categories. | Its geometry has a truthful denominator and its legend keeps exact values available. Rejected: Progress bar, which would imply a goal or status. |
+| Supporting facts and statuses | `ToolKeyValueList` in `app/tool-ui/tool-controls.tsx` | reuse shared | ToolKeyValueList | Use semantic labels and exact values with explicit unknowns. Supporting facts follow the lead, retain source order, and stack at narrow widths. Use shared text and metadata tokens. | Fits distinct labeled values and wraps cleanly on narrow screens. Rejected: Paragraphs that bury or repeat exact values. |
+| Formula and source evidence | `ToolDisclosure` in `app/tool-ui/tool-controls.tsx` | reuse shared | ToolDisclosure | Named evidence follows the answer. Enter or Space toggles disclosures with expanded state and retained focus. Escaped output remains selectable; a bounded inner viewport owns any code overflow. Use shared evidence and focus tokens. | Keeps advanced verification available without competing with the answer. Rejected: An always-open methodology panel. |
+| Copy and share actions | `ToolCopyAction`, `ToolButton`, `ToolActionRow` in `app/tool-ui/tool-controls.tsx` | reuse shared | ToolCopyAction and ToolButton in ToolActionRow | Actions are explicit and keyboard accessible. Copy success follows a confirmed write; failure keeps text selectable. Downloads use the current report. Preserve focus, label actions, and wrap at narrow widths. Use secondary shared button tokens. | Reuses tested clipboard, feedback, and action semantics. Rejected: Automatic clipboard or URL writes during editing. |
+| Error and recovery feedback | `ToolStatus` in `app/tool-ui/tool-controls.tsx` | reuse shared | ToolStatus plus field error props | Expose textual status and one concise live announcement. Keep recovery beside its input; no duplicate alert. Long messages wrap and status uses semantic text color only. | Provides one polite live region and field-associated recovery. Rejected: Repeating the same error in several result regions. |
 
 ## Responsive contract
 
@@ -293,6 +312,7 @@ Formula, assumptions, sources, and uncertainty appear below the actions.
 | UI-008 | accessibility | The first invalid field and result heading receive focus as contracted, errors are associated with controls, the recovery group has checkbox semantics, and status announcements are polite and concise. | Playwright focus and live-region assertions plus manual keyboard check. |
 | UI-009 | narrow-actions | Primary, reset, copy, and share actions keep stable order and at least 44px targets at narrow widths. | Browser measurements and keyboard review. |
 | UI-010 | privacy | No input or derived capacity value is written to local or session storage, sent in a request, or included in analytics payloads; the share state contains normalized inputs only. | Request inspection, storage inspection, and static review. |
+| UI-011 | component-consistency | Every visible nontrivial control and result uses the component and disposition above. Compare labels, focus, selected state, field errors, busy or disabled state where applicable, and narrow layout with the shared lab in both themes. No bare native or generic fallback may appear. | Source mapping plus required browser and keyboard review; this planning pass does not mark those runtime checks passed. |
 
 ## Open questions and blockers
 

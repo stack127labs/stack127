@@ -147,8 +147,11 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
   const [calculated, setCalculated] = useState<Extract<ResourcePlannerResult, { status: "valid" }> | null>(null);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState("");
+  const [hydrated, setHydrated] = useState(false);
   const fieldRefs = useRef<Record<string, HTMLElement | null>>({});
   const focusResult = useRef(false);
+
+  useEffect(() => setHydrated(true), []);
 
   const appOptions = useMemo(() => [
     ...Object.values(catalogue).map((app) => toolOption(app.slug, app.name, app.ram && app.storage ? "RAM and storage ranges" : "Some requirements unknown")),
@@ -250,7 +253,7 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
   };
 
   return (
-    <div aria-label="self-hosted app resource planner workbench" className={styles.tool} data-tool-workbench role="region">
+    <div aria-label="self-hosted app resource planner workbench" className={styles.tool} data-hydrated={hydrated ? "true" : undefined} data-tool-workbench role="region">
       <form className={styles.form} noValidate onInputCapture={clearCalculatedOnEdit} onSubmit={submit}>
         <section className={styles.formSection}>
           <div className={styles.sectionHeading}>
@@ -302,7 +305,7 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
                     max={99}
                     onChange={(value) => updateRow(row.id, { quantity: Number.isNaN(value) ? "" : String(value) })}
                     required
-                    value={row.quantity === "" ? undefined : Number(row.quantity)}
+                    value={row.quantity === "" ? Number.NaN : Number(row.quantity)}
                   />
                   {row.kind === "custom" ? (
                     <div className={styles.customRanges}>
@@ -379,7 +382,7 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
               required
               step={0.25}
               suffix="GiB"
-              value={input.ramBudgetGiB === "" ? undefined : Number(input.ramBudgetGiB)}
+              value={input.ramBudgetGiB === "" ? Number.NaN : Number(input.ramBudgetGiB)}
             />
             <ToolNumberField
               dataFocusKey="storageBudgetGb"
@@ -392,7 +395,7 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
               required
               step={1}
               suffix="GB"
-              value={input.storageBudgetGb === "" ? undefined : Number(input.storageBudgetGb)}
+              value={input.storageBudgetGb === "" ? Number.NaN : Number(input.storageBudgetGb)}
             />
             <ToolNumberField
               dataFocusKey="headroomPercent"
@@ -405,7 +408,7 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
               required
               step={1}
               suffix="%"
-              value={input.headroomPercent === "" ? undefined : Number(input.headroomPercent)}
+              value={input.headroomPercent === "" ? Number.NaN : Number(input.headroomPercent)}
             />
           </div>
         </section>
@@ -461,7 +464,7 @@ function ResourcePlanResult({ calculation }: { calculation: Extract<ResourcePlan
     <section aria-label="Resource plan result" aria-live="polite" className={styles.result} data-testid="resource-plan-result">
       <h2 id="resource-plan-result-heading" tabIndex={-1}>Resource plan result</h2>
       <ToolPrimaryResult detail="Planning estimate." label="Plan status" tone={leadTone} value={lead} />
-      <ToolResultLead>{binding ? `${binding === "ram" ? "RAM" : "Storage"} uses the largest share of its available budget.` : "No complete resource comparison is available."}</ToolResultLead>
+      <ToolResultLead>{binding ? `${binding === "ram" ? "RAM" : "Storage"} has the least room left.` : "No complete resource comparison is available."}</ToolResultLead>
 
       <div className={styles.summaryGrid}>
         {summaryRows.map((row) => (

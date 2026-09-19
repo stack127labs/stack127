@@ -1,0 +1,1 @@
+module.exports={experimental:{externalDir:true},webpack(config){config.resolve.alias["@"]="/home/teja/projects/stack127";return config;}};

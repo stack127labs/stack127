@@ -6,11 +6,13 @@ Copy this structure to `content_docs/<route-without-leading-slash>/competitive-r
 # Competitive report: [[tool name]]
 
 Status: draft
+Feasibility: [[feasible or blocked, with evidence and the supported promise boundary]]
 Tool: [[tool name]]
 Route: `/[[route]]`
 Researched: [[YYYY-MM-DD]]
 Direct competitors reviewed: [[number]]
 Saturation exception: no
+Pipeline acceptance: `content_docs/<route-without-leading-slash>/pipeline-acceptance.json` (created and validated after the complete pipeline)
 
 ## Research scope
 
@@ -102,6 +104,14 @@ Saturation exception: no
 ## Open questions and blockers
 
 - [[Unknown that the implementation stage must resolve, or `None`.]]
+
+### Decision options for a blocked tool
+
+[[Delete this subsection when feasibility is feasible. For a blocked tool, provide two to four rows.]]
+
+| Option | Complete behavior delivered | Cost or maintenance | Approval needed |
+| --- | --- | --- | --- |
+| [[Approve, redirect, narrow, or keep blocked]] | [[honest finished outcome]] | [[ongoing work, account, service, or none]] | [[specific user decision]] |
 
 ## Sources
 

@@ -1,0 +1,78 @@
+[
+  {
+    "name": "parent first match",
+    "rules": [
+      "+ cache/",
+      "- cache/"
+    ],
+    "files": [
+      "cache/keep.txt"
+    ],
+    "exit_code": 0,
+    "stdout": "cache/\ncache/keep.txt\n",
+    "stderr": ""
+  },
+  {
+    "name": "directory only file",
+    "rules": [
+      "- cache/"
+    ],
+    "files": [
+      "cache"
+    ],
+    "exit_code": 0,
+    "stdout": "cache\n",
+    "stderr": ""
+  },
+  {
+    "name": "directory basename",
+    "rules": [
+      "- cache"
+    ],
+    "files": [
+      "cache/keep.txt"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "name": "normal include traversal",
+    "rules": [
+      "+ */",
+      "+ *.txt",
+      "- *"
+    ],
+    "files": [
+      "src/readme.txt"
+    ],
+    "exit_code": 0,
+    "stdout": "src/\nsrc/readme.txt\n",
+    "stderr": ""
+  },
+  {
+    "name": "negated character class",
+    "rules": [
+      "- [!a].txt"
+    ],
+    "files": [
+      "a.txt",
+      "b.txt"
+    ],
+    "exit_code": 0,
+    "stdout": "a.txt\n",
+    "stderr": ""
+  },
+  {
+    "name": "modifier",
+    "rules": [
+      "-p *.log"
+    ],
+    "files": [
+      "error.log"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

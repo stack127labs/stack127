@@ -1,20 +1,24 @@
 ---
 name: stack127-tool-writing
-description: Write and integrate complete, concise, server-rendered supporting content around one finished stack127 calculator, checker, converter, lookup, generator, explorer, or technical utility. Use after the technical tool and its tests are stable when the user asks to write, add, finish, simplify, expand, or improve a tool page. Keep the tool primary while covering what it does, meaningful use, result interpretation, confusing concepts, limitations, privacy, and the next verification step without publishing it.
+description: "Write complete, concise public content for one finished stack127 calculator, checker, converter, lookup, generator, explorer, or technical utility. Use after the technical tool and content plan are stable. Produce reviewed words only: title, introduction, usage guide, supporting content, interface wording, captions, and accessibility text. Do not integrate files, change code, use a browser, run tests, or write to the database."
 ---
 
 # stack127 tool writing
 
-Write the explanation someone needs around a finished tool. Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` for all public wording. This skill owns tool-specific coverage, integration, and verification, not a separate voice.
+## Pipeline role and model routing
+
+In the full tool pipeline, the main orchestrator continues the same `gpt-6-astra` content-planning session for public wording after accepting the plan; its `reasoning_effort` remains `low`, shown as Light in Codex. This worker returns reviewed public words only and never starts another pipeline worker. Luna integration belongs to the separate `$stack127-tool-content-integration` skill.
+
+Write the explanation someone needs around a finished tool. Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` for all public wording. This skill owns tool-specific coverage and wording, not implementation, integration, or a separate voice.
 
 ## Read first
 
 1. Read `AGENTS.md` and the route ownership manifest.
-2. Read `skills/stack127/test-driven-page/SKILL.md` and `skills/stack127/visual-first-content/SKILL.md` completely.
+2. Read `skills/stack127/visual-first-content/SKILL.md` completely.
 3. Read `stack127_docs/visual-first.md`, `writing-style.md`, `design-system.md`, and `css-architecture.md`.
-4. Read `stack127_docs/tool-pages.md` for the database Markdown boundary and content-only update command.
+4. Read `stack127_docs/tool-pages.md` for the content-field and safe-Markdown boundaries.
 5. Read the route's `brief.md`, ready research, implementation, interface, and test artifacts. Read `writing-and-seo.md` when it exists.
-6. Inspect the finished tool, its tests, and at least two established sibling tool pages. Preserve unrelated changes.
+6. Inspect the finished tool, its tests, and at least two established sibling tool pages as source material. Preserve unrelated changes.
 
 Do not write from the tool name alone. Use only facts already locked by the technical artifacts, engine fixtures, `interface-contract.md`, or authoritative sources they cite. Do not restate the lead answer, supporting values, evidence, or source metadata already assigned to the live interface.
 
@@ -22,9 +26,15 @@ Do not write from the tool name alone. Use only facts already locked by the tech
 
 Keep the interactive tool as the page's main visual and primary answer. Do not turn the page into an article with a calculator attached.
 
-Do not change formulas, controls, result semantics, route identity, publication state, metadata, canonical behavior, sitemap behavior, or JSON-LD. The reviewed content command may update `content_revision` and the public `updated_at` as documented. Do not edit other registry fields or change `tool_version`. Return a technical mismatch to the owning build or planning stage instead of explaining around it.
+Do not change formulas, controls, result semantics, route identity, publication state, metadata, canonical behavior, sitemap behavior, JSON-LD, code, tests, database rows, or version fields. Return a technical mismatch to the owning build or planning stage instead of explaining around it.
 
 Do not publish, commit, push, open a pull request, or deploy unless the user separately asks.
+
+Consume the `Usage Markdown handoff` in `writing-and-seo.md` and produce the public `usage_markdown` required by `stack127_docs/tool-pipeline.md`. Keep the planning contract and public guide distinct and traceable. Preserve planned ordered lists, bullet lists, definition lists, tables, and registered figure references in the reviewed output.
+
+## Required output
+
+Return reviewed temporary files for the title, introduction, `usage_markdown`, and `content_markdown`, plus any labels, result messages, captions, alt text, tables, and list wording assigned to Astra. Include a short source map from material claims to the ready artifacts or authoritative sources. Stop when the main agent can inspect the exact public words. Do not integrate them.
 
 ## Content completeness contract
 
@@ -76,38 +86,14 @@ The approved Domain Age revision 5 is a quality reference, not a template. See `
 - Prefer practical guidance such as which inputs to probe, which source is effective, or how to verify a real result. Do not waste prose narrating ordinary controls.
 - Let different tools use different headings. Test for required information and supported claims, not a universal heading formula.
 
-## Test-first integration
+## Editorial verification
 
-Verify the draft's meaningful claims against the tool and existing fixtures. Update tests only when a changed claim or behavior needs protection. Do not add tests that enforce wording, paragraph counts, or a heading template. Current prose is verified against the prepared Markdown or rendered database page, not a historical migration seed. Keep the existing route and calculation checks.
+Verify every meaningful claim against the ready artifacts, engine fixtures, or cited authoritative sources. Run the shared writing-voice review on the draft. Use `skills/stack127/writing-guidelines/SKILL.md` as a supplementary edit and unslop for final cleanup. Do not use a browser, run implementation tests, or change files outside the temporary writing output.
 
-Then use the dry-run-first content command in `stack127_docs/tool-pages.md`. It must increment `content_revision`, preserve `tool_version`, and keep the database as the only live copy. Also:
+Review in both directions: what can be removed without losing meaning, and what useful question is still unanswered? Do not accept a thin page merely because it is concise, or a long page merely because it covers more keywords.
 
-- keep the introduction and guide server-rendered through the shared Markdown layer;
-- keep explanatory prose out of the client calculator component;
-- do not create a route-owned guide component or duplicate Markdown file;
-- reuse the shared tool-page Markdown typography instead of creating a new typography system;
-- make tables keyboard-focusable and horizontally scrollable or reflow them cleanly at narrow widths;
-- preserve comfortable paragraph spacing without large empty gaps;
-- keep all existing tool behavior and formula fixtures unchanged.
-
-## Verification
-
-Run checks appropriate to the change:
-
-- the route content and tool tests;
-- related engine or regression fixtures;
-- `npm run typecheck`;
-- `npm run test:static`;
-- broader repository gates when code, rendering, or route behavior changed.
-
-Read `skills/stack127/references/homelab-browser-and-search.md`, then use the guarded local preview and the in-app Browser when available or standalone Playwright in homelab CLI mode. Inspect the complete page at a normal desktop width and at 390px or narrower, in both themes. Check the introduction, transition into the tool, transition into the guide, paragraph rhythm, table behavior, internal link, page-level overflow, and the calculated result. Do not judge the content layout with an empty or invalid tool state only.
-
-Run the shared writing-voice skill's review pass against the rendered content, then review coverage and facts. Use `skills/stack127/writing-guidelines/SKILL.md` as a supplementary edit and unslop for final cleanup. Passing layout tests does not establish editorial quality.
-
-Review in both directions: what can be removed without losing meaning, and what useful question is still unanswered? Do not accept a thin page merely because it is concise, or a long page merely because it covers more keywords. Verify the actual development content revision, not an older production or migration copy.
-
-When invoked inside `$stack127-tool-orchestrator`, report the clean local URL, selected visual backend, and Browser or Playwright evidence to the orchestrator, then stop. The main orchestrator agent owns the final visual handoff. When invoked directly, leave the verified clean page open in the in-app Browser when available; otherwise provide the reproducible Playwright evidence and state that no visible in-app tab was available.
+When invoked inside `$stack127-tool-orchestrator`, report the output paths, coverage, source map, unresolved factual conflicts, and exact files inspected, then stop. The integration worker owns rendering and Browser evidence.
 
 ## Completion rule
 
-Finish only when a new visitor can understand what the tool is, use it meaningfully, interpret the result, recognize its limits and data handling, and know the next verification step. The content must also be simple, factually bounded, server-rendered, visually consistent, covered by route tests, responsive around a real result, and unpublished. Report the content revision before and after, confirm the tool version did not change, list commands and results, visual states and backend checked, remaining P2 items, and the clean local URL.
+Finish only when the reviewed words let a new visitor understand what the tool is, use it meaningfully, interpret the result, recognize its limits and data handling, and know the next verification step. The draft must be concise, factually bounded, structurally complete, and ready for the separate integration skill. Report the output files, planned formats preserved, sources checked, and any unresolved mismatch. Do not claim that the content is integrated or rendered.

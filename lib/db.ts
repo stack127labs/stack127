@@ -5,11 +5,12 @@ import { observePoolErrors } from "./database-errors";
 dns.setDefaultResultOrder("ipv4first");
 
 function databaseUrl() {
-  if (!process.env.DATABASE_URL) {
-    throw new Error("DATABASE_URL is required. Use .env.local locally and production env values in deploy.");
+  const connectionString = process.env.DATABASE_POOLER_URL || process.env.DATABASE_URL;
+  if (!connectionString) {
+    throw new Error("DATABASE_POOLER_URL or DATABASE_URL is required. Use .env.local locally and production env values in deploy.");
   }
 
-  return process.env.DATABASE_URL;
+  return connectionString;
 }
 
 const globalForPg = globalThis as typeof globalThis & {

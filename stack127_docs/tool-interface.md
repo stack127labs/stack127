@@ -30,7 +30,7 @@ The interface contract must decide:
 - behavior for real states, long values, desktop, and narrow screens;
 - observable `UI-` acceptance criteria.
 
-Use a fresh planning agent in the full tool pipeline. The builder implements the reviewed contract and does not privately add controls, result regions, explanatory sentences, or visualizations. Test design traces both product `R` requirements and interface `UI-` requirements. Independent QA must judge the rendered result without relying on the builder's explanation.
+In the full tool pipeline, the Astra product-planning session continues into interface planning only after the main agent accepts the product gate. The builder implements the reviewed contract and does not privately add controls, result regions, explanatory sentences, or visualizations. Test design traces both product `R` requirements and interface `UI-` requirements. Independent QA must judge the rendered result without relying on the builder's explanation.
 
 ## Reading order
 
@@ -105,6 +105,7 @@ Do not give primary styling to reset, share, copy, download, or navigation actio
 - Search fields search or filter a collection. Do not call a single-value lookup field search merely because it has a magnifying-glass icon.
 - Put errors directly below the field and focus the first invalid field after submission.
 - Render a validation or request error once at the narrowest useful scope. Do not repeat the same message below a field, above the action, and in the result area.
+- Field validation does not create a result. Do not add an error result panel or a `Fix input` button when the interface can show the error beside the field and move focus there. Use a retry action only for a failed request or operation the person can repeat without changing the input.
 - When a field and action share a row, reserve separate label, control, and error rows. An appearing error must not move the action out of alignment with the control.
 
 ### Selects and visible choices
@@ -130,6 +131,16 @@ Do not give primary styling to reset, share, copy, download, or navigation actio
 - Never hide a defaulted input that changes the main answer. A prefilled value is an active assumption, not permission to conceal it.
 - A disclosure may contain optional refinement whose off state has no effect, optional evidence, or diagnostics. If enabling an option makes another field required, reveal that field in the main flow beside the enabling choice.
 - Change every result-driving input during testing and verify the answer changes as documented. If it does not, remove the control or document the non-result behavior it owns.
+
+### Optional Basic and Advanced modes
+
+Record one control-mode decision for every tool: `single`, `disclosure`, or `basic-advanced`. Use a single mode unless a complete common task can run with a small, explicit set of assumptions and a distinct group of refinements would otherwise overwhelm that task. A disclosure keeps one mode. It is appropriate for optional evidence or refinement, while active result-driving assumptions remain visible.
+
+Basic and Advanced use the same engine and normalized input contract. Basic shows every active assumption that affects the answer, including its source and an edit path. Advanced exposes the additional controls. A simpler screen must not mean a different calculation or a hidden default.
+
+When someone switches modes, retain their values. If customized Advanced values stay active in Basic, show a concise customized-assumptions summary with an edit action. Replacing them with Basic defaults requires an explicit reset. If a hidden value becomes invalid, reveal its control, move focus to it, and announce the error. Never leave the user with an error they cannot see or repair.
+
+The interface contract must define labels, mode explanation, input mapping, Basic assumptions and sources, value retention, reset, invalid-state recovery, focus and announcement, and URL, reload, back, and forward restoration. Tests must prove that equivalent normalized inputs return the same result in both modes and cover both switching directions with custom, invalid, and restored state. Do not add modes only to make a crowded form look shorter.
 
 ### Repeated rows and add actions
 
@@ -187,6 +198,14 @@ Prefer a small semantic component layer over tool-specific visual copies. Compon
 
 Shared fields may accept an outer placement class so an owning tool can put them into an explicit grid or subgrid. Page styles may position the component, but must not replace its internal control styling.
 
+### Missing components
+
+Planning must inspect `app/tool-ui`, `/tool-ui-lab`, and relevant sibling tools before naming a component. For every nontrivial control or result, record one disposition: reuse an existing shared component; add a new shared component; or use a route-specific component because its behavior is unique. State the component anatomy, all applicable states, keyboard and screen-reader behavior, error and recovery behavior, responsive behavior, and design tokens.
+
+Do not fall back to an unstyled native control, a generic browser upload box, a generic dashboard pattern, or an unrelated third-party component because the needed stack127 primitive does not exist. Keep native semantics underneath when they are useful or required. For example, a file upload may retain an accessible `input type="file"` while a stack127 dropzone, browse action, file status, rejection, remove, and retry interface provides the visible interaction.
+
+Create the approved component in the shared tool UI when its visual and behavioral contract can serve more than one tool. Keep it route-owned only when the interaction is truly specific to that tool. If the missing component cannot be built and verified within scope, block the interface or build and return the decision to the main agent. Never improvise a generic substitute.
+
 The intended primitives are:
 
 - `ToolTextField`
@@ -219,6 +238,8 @@ The intended primitives are:
 - `ToolCodeOutput`
 - `ToolCopyAction`
 - `ToolDownloadAction`
+- `ToolFileDropzone`
+- `ToolFileList`
 
 ### Allocation color
 
@@ -226,7 +247,7 @@ The intended primitives are:
 
 Do not assign red, yellow, or green by position when they would imply danger, warning, or success. Color is never the only label. Keep every segment name and exact value in the legend. A zero or tiny value keeps its legend entry but receives no invented minimum width in the bar.
 
-The canonical implementation lives in `app/tool-ui/tool-controls.tsx`, with its styles beside it. `/tool-ui-lab` is a development-only interaction page for reviewing these primitives; it must continue to return `404` in production.
+The canonical implementations live in `app/tool-ui/tool-controls.tsx` and focused shared modules such as `app/tool-ui/tool-uploads.tsx`, with styles beside them. `/tool-ui-lab` is a development-only interaction page for reviewing these primitives; it must continue to return `404` in production.
 
 Extract a primitive when two tools share its behavior and visual contract. Do not create a component that only renames one HTML element or makes an unusual tool harder to understand.
 

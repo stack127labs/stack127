@@ -40,11 +40,22 @@ test("the shared server renderer owns Markdown prose and table behavior", () => 
   assert.match(renderer, /data-tool-page-content/);
   assert.match(renderer, /proseClassName/);
   assert.match(renderer, /proseFlowClassName/);
+  assert.match(renderer, /usage_markdown/);
+  assert.match(renderer, /marker-art:\/\//);
+  assert.match(renderer, /<MarkerArt/);
   assert.match(renderer, /role="region"/);
   assert.match(renderer, /tabIndex=\{0\}/);
   assert.doesNotMatch(renderer, /rehypeRaw|dangerouslySetInnerHTML/);
-  assert.match(styles, /> :where\(h2, h3, h4, p, ul, ol, blockquote\)/);
+  assert.match(styles, /> :where\(h2, h3, h4, p, ul, ol, dl, blockquote\)/);
   assert.match(styles, /max-width: var\(--measure-prose\)/);
   assert.match(styles, /\.tableScroll[\s\S]*max-width: var\(--measure-prose\)/);
   assert.match(styles, /\.tableScroll[\s\S]*width: 100%/);
+});
+
+test("tool content infrastructure keeps usage before supporting content in one article", () => {
+  const renderer = readFileSync("app/tool-page-content.tsx", "utf8");
+  assert.match(renderer, /<article[\s\S]*usage_markdown[\s\S]*content_markdown/);
+  assert.match(readFileSync("lib/tool-pages.ts", "utf8"), /usage_markdown/);
+  assert.match(readFileSync("scripts/stack127/tool-pages/update-content.mjs", "utf8"), /usage-file/);
+  assert.match(readFileSync("scripts/stack127/tool-pages/update-content.mjs", "utf8"), /readRequiredText\(usageFile/);
 });

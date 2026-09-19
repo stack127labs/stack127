@@ -11,6 +11,8 @@ Use this structure in the final response. Omit empty subsections, but never omit
 - `interface-contract.md` status:
 - Publication state:
 - Primary job completed:
+- Feasibility verdict:
+- Selected main model and stage owners:
 
 ## Technical system
 
@@ -19,6 +21,7 @@ Use this structure in the final response. Omit empty subsections, but never omit
 - Engine or resolution boundary:
 - Result and exact visualizations:
 - State, sharing, recovery, and privacy behavior:
+- Current code, database, and version/revision evidence:
 
 ## Page content
 
@@ -27,6 +30,8 @@ Use this structure in the final response. Omit empty subsections, but never omit
 - Important limits and recommendation boundaries:
 - Internal links and next step:
 - `writing-and-seo.md` status:
+- `Usage Markdown handoff`, approved `usage_markdown`, and rendered guide output:
+- Rendered content trace: ordered lists, bullet lists, definition lists, registered `MarkerArt`:
 
 ## Verification
 
@@ -41,6 +46,12 @@ Use this structure in the final response. Omit empty subsections, but never omit
 - `npm run test`:
 - `npm run quality` and production build:
 - Preview and publication cleanup:
+- Pipeline acceptance validator and artifact: `scripts/stack127/tool-pipeline/validate-acceptance.mjs`, `content_docs/<slug>/pipeline-acceptance.json`:
+- Complete Sol audit, fixes, retesting, and main-agent acceptance:
+- Evidence artifacts and paths:
+- Blocked items:
+- Decision options for each blocked item, including delivered behavior, cost or maintenance, and approval needed:
+- Not verified items:
 
 ## Competitive check
 

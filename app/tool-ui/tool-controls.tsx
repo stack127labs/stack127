@@ -1,10 +1,20 @@
 "use client";
 
-import { Check, ChevronDown, ChevronRight, Copy, Download, Minus, Plus, Search, X } from "lucide-react";
+import { CalendarDays, Check, ChevronDown, ChevronLeft, ChevronRight, Copy, Download, Minus, Plus, Search, X } from "lucide-react";
 import {
   Button as RacButton,
+  Calendar as RacCalendar,
+  CalendarCell,
+  CalendarGrid,
+  CalendarGridBody,
+  CalendarGridHeader,
+  CalendarHeaderCell,
   Checkbox as RacCheckbox,
   ComboBox,
+  DateInput,
+  DatePicker,
+  DateSegment,
+  Dialog,
   Disclosure,
   DisclosurePanel,
   FieldError,
@@ -31,6 +41,7 @@ import {
   TextArea,
   TextField,
   type ButtonProps as RacButtonProps,
+  type DateValue,
   type Key,
 } from "react-aria-components";
 import {
@@ -205,6 +216,64 @@ export function ToolTextArea({ autoCapitalize, className = "", description, erro
   );
 }
 
+export type ToolDatePickerProps = FieldCopy & {
+  disabled?: boolean;
+  maxValue?: DateValue;
+  minValue?: DateValue;
+  onChange?: (value: DateValue | null) => void;
+  value?: DateValue | null;
+};
+
+export function ToolDatePicker({ description, disabled, error, label, maxValue, minValue, onChange, required, value }: ToolDatePickerProps) {
+  return (
+    <DatePicker
+      className={styles.field}
+      isDisabled={disabled}
+      isInvalid={Boolean(error)}
+      isRequired={required}
+      maxValue={maxValue}
+      minValue={minValue}
+      onChange={onChange}
+      validationBehavior="aria"
+      value={value ?? null}
+    >
+      <ToolLabel label={label} required={required} />
+      <Group className={styles.dateControl}>
+        <DateInput className={styles.dateInput}>
+          {(segment) => <DateSegment className={styles.dateSegment} segment={segment} />}
+        </DateInput>
+        <RacButton aria-label={`Open ${label} calendar`} className={styles.dateButton}>
+          <CalendarDays aria-hidden="true" size={18} />
+        </RacButton>
+      </Group>
+      <FieldMessages description={description} error={error} />
+      <Popover className={`${styles.popover} ${styles.calendarPopover}`} placement="bottom start">
+        <Dialog className={styles.calendarDialog}>
+          <RacCalendar className={styles.calendar}>
+            <header className={styles.calendarHeader}>
+              <RacButton aria-label="Previous month" className={styles.calendarButton} slot="previous">
+                <ChevronLeft aria-hidden="true" size={18} />
+              </RacButton>
+              <Heading className={styles.calendarHeading} />
+              <RacButton aria-label="Next month" className={styles.calendarButton} slot="next">
+                <ChevronRight aria-hidden="true" size={18} />
+              </RacButton>
+            </header>
+            <CalendarGrid className={styles.calendarGrid}>
+              <CalendarGridHeader>
+                {(day) => <CalendarHeaderCell className={styles.calendarHeaderCell}>{day}</CalendarHeaderCell>}
+              </CalendarGridHeader>
+              <CalendarGridBody>
+                {(date) => <CalendarCell className={styles.calendarCell} date={date} />}
+              </CalendarGridBody>
+            </CalendarGrid>
+          </RacCalendar>
+        </Dialog>
+      </Popover>
+    </DatePicker>
+  );
+}
+
 export type ToolSelectProps = FieldCopy & {
   ariaLabel?: string;
   dataFocusKey?: string;
@@ -258,12 +327,13 @@ export function ToolSelect({
         <ListBox className={styles.listbox} items={options}>
           {(option) => (
             <ListBoxItem
+              aria-label={option.label}
               className={styles.option}
               id={option.id}
               textValue={option.label}
             >
               <span>{option.label}</span>
-              {option.description ? <span className={styles.optionDescription}>{option.description}</span> : null}
+              {option.description ? <Text className={styles.optionDescription} slot="description">{option.description}</Text> : null}
             </ListBoxItem>
           )}
         </ListBox>
@@ -280,6 +350,8 @@ export type ToolComboBoxProps = FieldCopy & {
 };
 
 export function ToolComboBox({ description, error, label, onChange, options, placeholder, required, value }: ToolComboBoxProps) {
+  const triggerLabelId = useId();
+
   return (
     <ComboBox
       className={styles.field}
@@ -291,23 +363,25 @@ export function ToolComboBox({ description, error, label, onChange, options, pla
       value={value ?? null}
     >
       <ToolLabel label={label} required={required} />
+      <span className={styles.visuallyHidden} id={triggerLabelId}>Open {label}</span>
       <Group className={styles.comboControl}>
         <Input autoComplete="off" className={styles.comboInput} placeholder={placeholder} />
-        <RacButton aria-label={`Open ${label}`} className={styles.comboButton}>
+        <RacButton aria-labelledby={triggerLabelId} className={styles.comboButton}>
           <ChevronDown aria-hidden="true" size={18} />
         </RacButton>
       </Group>
       <FieldMessages description={description} error={error} />
-      <Popover className={styles.popover} placement="bottom start">
+      <Popover className={styles.popover} placement="bottom start" shouldFlip={false}>
         <ListBox className={styles.listbox}>
           {(option: ToolOption) => (
             <ListBoxItem
+              aria-label={option.label}
               className={styles.option}
               id={option.id}
               textValue={option.label}
             >
               <span>{option.label}</span>
-              {option.description ? <span className={styles.optionDescription}>{option.description}</span> : null}
+              {option.description ? <Text className={styles.optionDescription} slot="description">{option.description}</Text> : null}
             </ListBoxItem>
           )}
         </ListBox>
@@ -536,12 +610,13 @@ export function ToolQuantityInput({
 }
 
 export type ToolChoiceGroupProps = FieldCopy & {
+  dataFocusKey?: string;
   onChange?: (value: string) => void;
   options: ToolOption[];
   value?: string;
 };
 
-export function ToolChoiceGroup({ description, error, label, onChange, options, required, value }: ToolChoiceGroupProps) {
+export function ToolChoiceGroup({ dataFocusKey, description, error, label, onChange, options, required, value }: ToolChoiceGroupProps) {
   return (
     <RadioGroup
       className={styles.field}
@@ -554,7 +629,7 @@ export function ToolChoiceGroup({ description, error, label, onChange, options, 
       <ToolLabel label={label} required={required} />
       <div className={styles.choiceRow}>
         {options.map((option) => (
-          <Radio className={styles.choice} id={option.id} key={option.id} value={option.id}>
+          <Radio className={styles.choice} data-focus-key={option.id === options[0]?.id ? dataFocusKey : undefined} id={option.id} key={option.id} value={option.id}>
             {option.label}
           </Radio>
         ))}
@@ -623,8 +698,45 @@ export function ToolRangeSlider({ label, min = 0, max = 100, step = 1, value, on
   );
 }
 
+export type ToolLevel = Readonly<{
+  description?: string;
+  id: string;
+  label: string;
+}>;
+
+export function ToolLevelSlider({ label, levels, onChange, value }: { label: string; levels: readonly ToolLevel[]; onChange?: (value: string) => void; value: string }) {
+  const selectedIndex = Math.max(0, levels.findIndex((level) => level.id === value));
+  const selected = levels[selectedIndex];
+  if (!selected || levels.length < 2) return null;
+
+  return (
+    <Slider
+      className={`${styles.slider} ${styles.levelSlider}`}
+      maxValue={levels.length - 1}
+      minValue={0}
+      onChange={(next) => onChange?.(levels[Math.round(next)]?.id ?? levels[0].id)}
+      step={1}
+      value={selectedIndex}
+    >
+      <div className={styles.sliderHeader}>
+        <Label className={styles.label}>{label}</Label>
+        <SliderOutput className={styles.levelOutput}>{selected.label}</SliderOutput>
+      </div>
+      <SliderTrack className={styles.sliderTrack} data-tool-level-track>
+        <SliderFill className={styles.sliderFill} data-tool-level-fill />
+        <SliderThumb aria-label={label} aria-valuetext={selected.label} className={styles.sliderThumb} />
+      </SliderTrack>
+      <div aria-hidden="true" className={styles.levelMarks} style={{ gridTemplateColumns: `repeat(${levels.length}, minmax(0, 1fr))` }}>
+        {levels.map((level) => <span data-selected={level.id === selected.id || undefined} key={level.id}>{level.label}</span>)}
+      </div>
+      {selected.description ? <p className={styles.levelDescription}>{selected.description}</p> : null}
+    </Slider>
+  );
+}
+
 export type ToolButtonProps = Omit<RacButtonProps, "className"> & {
   className?: string;
+  ref?: Ref<HTMLButtonElement>;
   title?: string;
   variant?: "primary" | "secondary" | "ghost" | "icon";
 };
@@ -711,19 +823,21 @@ export function ToolResultLead({ children, inputRef }: { children: ReactNode; in
 
 export function ToolPrimaryResult({
   detail,
+  inputRef,
   label,
   tone = "neutral",
   unit,
   value,
 }: {
   detail?: ReactNode;
+  inputRef?: Ref<HTMLOutputElement>;
   label: string;
   tone?: "neutral" | "success" | "warning" | "danger";
   unit?: ReactNode;
   value: ReactNode;
 }) {
   return (
-    <output aria-label={label} className={styles.primaryResult} data-tone={tone}>
+    <output aria-label={label} className={styles.primaryResult} data-tone={tone} ref={inputRef} tabIndex={inputRef ? -1 : undefined}>
       <span className={styles.primaryResultLabel}>{label}</span>
       <span className={styles.primaryResultLine}>
         <strong className={styles.primaryResultValue}>{value}</strong>
@@ -949,12 +1063,14 @@ export function ToolCopyAction({
   successLabel = "Copied",
   value,
   variant = "secondary",
+  withManualFallback = false,
 }: {
   failureLabel?: string;
   label?: string;
   successLabel?: string;
   value: string;
   variant?: ToolButtonProps["variant"];
+  withManualFallback?: boolean;
 }) {
   const [copied, setCopied] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -963,7 +1079,6 @@ export function ToolCopyAction({
     const didCopy = await copyText(value);
     setFailed(!didCopy);
     if (!didCopy) {
-      window.setTimeout(() => setFailed(false), 1600);
       return;
     }
     setCopied(true);
@@ -971,10 +1086,18 @@ export function ToolCopyAction({
   }
 
   return (
-    <ToolButton aria-label={failed ? failureLabel : copied ? successLabel : label} onPress={copy} variant={variant}>
-      {copied ? <Check aria-hidden="true" size={17} /> : <Copy aria-hidden="true" size={17} />}
-      {failed ? failureLabel : copied ? successLabel : label}
-    </ToolButton>
+    <div className={styles.copyAction}>
+      <ToolButton aria-label={failed ? failureLabel : copied ? successLabel : label} onPress={copy} variant={variant}>
+        {copied ? <Check aria-hidden="true" size={17} /> : <Copy aria-hidden="true" size={17} />}
+        {failed ? failureLabel : copied ? successLabel : label}
+      </ToolButton>
+      {failed && withManualFallback ? (
+        <div className={styles.copyFallback}>
+          <label>Select and copy this text manually.</label>
+          <textarea onFocus={(event) => event.currentTarget.select()} readOnly rows={5} value={value} />
+        </div>
+      ) : null}
+    </div>
   );
 }
 
@@ -1088,8 +1211,8 @@ export function ToolDataTable({
           {rows.map((row) => (
             <tr key={row.id}>
               {columns.map((column, index) => index === 0
-                ? <th key={column.id} scope="row">{row.cells[column.id]}</th>
-                : <td key={column.id}>{row.cells[column.id]}</td>)}
+                ? <th data-label={column.label} key={column.id} scope="row">{row.cells[column.id]}</th>
+                : <td data-label={column.label} key={column.id}>{row.cells[column.id]}</td>)}
             </tr>
           ))}
         </tbody>

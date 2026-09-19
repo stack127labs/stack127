@@ -6,7 +6,7 @@ Route: `/ip-asn-lookup`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `brief.md`
 Input fingerprint: `competitive-report.md sha256:daf132c7da35fd0d6b68059903dcda6b6e6c1232c70c5c01a0647244510992c4`
 Input fingerprint: `implementation-report.md sha256:ef5577306cf52712f610dcc77c9bab54af8bfda940e19eb855884bf678022063`
-Input fingerprint: `interface-contract.md sha256:994bbf11eb20c9a0defa7de3111b8034bbd8906ea86f7ff3fe6f1463efb4d60b`
+Input fingerprint: `interface-contract.md sha256:82b687c21c3d5bb5576addcf2c81e79fee7e7102be894617e126bfdf588cb779`
 Input fingerprint: `brief.md sha256:94d430dc139b637fef92f0a66ed08c87f2036c38f9a1e8433e458619b81e399a`
 
 ## Risk model
@@ -58,6 +58,7 @@ Input fingerprint: `brief.md sha256:94d430dc139b637fef92f0a66ed08c87f2036c38f9a1
 | Security and privacy | EC-006, EC-007, EC-008, EC-009, EC-024, EC-025, EC-033 |
 | SSR and SEO | EC-028, EC-032, EC-033 |
 | Performance | EC-009, EC-015, EC-016, EC-023, EC-027, EC-033 |
+| Control mode, switching, parity, and hidden-state recovery | EC-034. Disclosure mode has no alternate query mode; opening or closing optional evidence preserves the normalized lookup and lead, while invalid query recovery remains visible and focusable rather than hidden. |
 
 ## Edge-case matrix
 
@@ -96,6 +97,7 @@ Input fingerprint: `brief.md sha256:94d430dc139b637fef92f0a66ed08c87f2036c38f9a1
 | EC-031 | P1 | Browser layout and theme | Long IPv6, long organization, long abuse email at 375 and 320 in dark and light | Values wrap inside their owners and controls remain stable | No clipping, overlap, or horizontal page scroll | No persistent state; screenshots only | Screenshot and DOM measurement | R12, UI-004 |
 | EC-032 | P0 | SSR and publication | Request route with no published page row and inspect page source | Route follows the repository's unpublished behavior and never claims public publication | No public indexed page or sitemap entry | No publication-row mutation | Database fixture and static policy | R1, R13 |
 | EC-033 | P1 | Static architecture | Inspect route files, manifest, content row, and metadata sources | No route-owned metadata, canonical, robots, JSON-LD, or analytics lookup payload | Ownership and content sources are inspectable | Development row may remain unpublished | Static policy and manifest test | R13 |
+| EC-034 | P1 | Control mode and hidden-state recovery | Submit `1.1.1.1` with a deterministic RDAP fixture, open and close the notes or raw-RDAP evidence disclosure, then edit the query to an invalid private value and submit. | This is disclosure mode, not basic/advanced mode. Evidence state does not change the normalized query or registered-holder result, and repeated lookup with the same fixture has equivalent output. Invalid query recovery stays in the visible input flow; no collapsed evidence region contains a result-driving setting or hides the first invalid control. | Disclosure focus returns to its trigger. Editing clears the old result, focuses the invalid query, and leaves the input available for correction; opening evidence never triggers a second lookup. | Only the explicitly submitted lookup request is allowed; no storage, URL, or analytics state is written. | Pure parity assertion plus Browser disclosure/recovery test in `tests/pages/ip-asn-lookup/ip-asn-lookup.test.mjs` and `ip-asn-lookup.spec.ts` | R1, R3, R11, UI-008 |
 
 ## Formula or resolution fixtures
 

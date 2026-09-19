@@ -62,6 +62,56 @@ test("the component lab exposes working controls without visible native selects"
   await expect(page.getByRole("table", { name: "Nameserver addresses" })).toBeVisible();
 });
 
+test("the combo trigger has one accessible name and opens by mouse and keyboard", async ({ page }) => {
+  test.skip(process.env.STACK127_TEST_SERVER === "production", "The component lab is development-only.");
+  await page.goto("/tool-ui-lab");
+
+  const input = page.getByRole("combobox", { name: "Record type search", exact: true });
+  const trigger = page.getByRole("button", { name: "Open Record type search", exact: true });
+  await expect(trigger).toHaveCount(1);
+  await expect(page.getByRole("button", { name: "Open Record type search Record type search", exact: true })).toHaveCount(0);
+
+  await trigger.click();
+  await expect(page.getByRole("option", { name: "MX", exact: true })).toBeVisible();
+  await page.keyboard.press("Escape");
+  await input.press("ArrowDown");
+  await expect(page.getByRole("option", { name: "MX", exact: true })).toBeVisible();
+  await page.getByRole("option", { name: "MX", exact: true }).click();
+  await expect(input).toHaveValue("MX");
+});
+
+test("upload, date, level, and chart examples are operable", async ({ page }) => {
+  test.skip(process.env.STACK127_TEST_SERVER === "production", "The component lab is development-only.");
+  await page.goto("/tool-ui-lab");
+
+  const pdfInput = page.locator('input[type="file"][accept="application/pdf"]');
+  await pdfInput.setInputFiles({ name: "interior.pdf", mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.7\n") });
+  await expect(page.getByRole("list", { name: "Selected PDF files" })).toContainText("interior.pdf");
+
+  const imageInput = page.locator('input[type="file"][accept="image/png,image/jpeg,image/webp"]');
+  await imageInput.setInputFiles({ name: "cover.png", mimeType: "image/png", buffer: Buffer.from("image") });
+  await expect(page.getByRole("list", { name: "Selected images" })).toContainText("cover.png");
+
+  await page.getByRole("button", { name: "Open Maintenance date calendar" }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await page.keyboard.press("Escape");
+
+  const level = page.getByRole("slider", { name: "Backup confidence" });
+  await level.press("End");
+  await expect(page.getByRole("group", { name: "Backup confidence" }).getByRole("status")).toHaveText("Production");
+
+  const levelTrack = page.locator("[data-tool-level-track]");
+  const levelTrackBox = await levelTrack.boundingBox();
+  expect(levelTrackBox?.height).toBeGreaterThanOrEqual(44);
+  expect(await page.locator("[data-tool-level-fill]").evaluate((fill) => fill.getBoundingClientRect().height)).toBeLessThanOrEqual(4);
+  await levelTrack.click({ position: { x: (levelTrackBox?.width ?? 0) * 0.68, y: 4 } });
+  await expect(page.getByRole("group", { name: "Backup confidence" }).getByRole("status")).toHaveText("Monitored");
+
+  await expect(page.getByRole("figure", { name: "Requests handled by service" })).toBeVisible();
+  await expect(page.getByRole("figure", { name: "Storage use over six months" })).toBeVisible();
+  await expect(page.getByRole("list", { name: "PDF processing flow" })).toBeVisible();
+});
+
 test("the lab preserves its control flow at a narrow viewport", async ({ page }) => {
   test.skip(process.env.STACK127_TEST_SERVER === "production", "The component lab is development-only.");
   await page.setViewportSize({ width: 390, height: 844 });
@@ -100,6 +150,9 @@ test("result components remain useful and contained", async ({ page }) => {
     scroll: document.documentElement.scrollWidth,
   }));
   expect(widths.scroll).toBe(widths.client);
+
+  await expect(page.getByRole("figure", { name: "Requests handled by service" })).toBeVisible();
+  await expect(page.getByRole("figure", { name: "Storage use over six months" })).toBeVisible();
 
   await page.getByRole("button", { name: "Copy summary" }).click();
   await expect(page.getByRole("button", { name: "Copied summary" })).toBeVisible();

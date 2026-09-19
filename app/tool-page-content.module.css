@@ -3,8 +3,32 @@
   width: 100%;
 }
 
-.content > :where(h2, h3, h4, p, ul, ol, blockquote) {
+.content > :where(h2, h3, h4, p, ul, ol, dl, blockquote) {
   max-width: var(--measure-prose);
+}
+
+.content dl {
+  display: grid;
+  gap: var(--space-2) var(--space-5);
+  grid-template-columns: minmax(8rem, max-content) minmax(0, 1fr);
+}
+
+.content dt {
+  font-weight: var(--weight-semibold);
+}
+
+.content dd {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .content dl {
+    grid-template-columns: 1fr;
+  }
+
+  .content dd + dt {
+    margin-top: var(--space-3);
+  }
 }
 
 .content pre {

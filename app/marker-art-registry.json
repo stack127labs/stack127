@@ -1,0 +1,17 @@
+{
+  "catalog/ceph": {
+    "asset": "ceph",
+    "specPath": "app/(site)/(catalogs)/_components/art/ceph.spec.json",
+    "artifactPath": "app/(site)/(catalogs)/_components/art/ceph.ts"
+  },
+  "catalog/raid": {
+    "asset": "raid",
+    "specPath": "app/(site)/(catalogs)/_components/art/raid.spec.json",
+    "artifactPath": "app/(site)/(catalogs)/_components/art/raid.ts"
+  },
+  "catalog/zfs-capacity": {
+    "asset": "zfs-capacity",
+    "specPath": "app/(site)/(catalogs)/_components/art/zfs-capacity.spec.json",
+    "artifactPath": "app/(site)/(catalogs)/_components/art/zfs-capacity.ts"
+  }
+}

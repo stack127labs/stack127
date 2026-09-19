@@ -5,8 +5,16 @@ import path from "node:path";
 const fixture = (name: string) => readFileSync(path.join(process.cwd(), "tests/pages/docker-compose-checker/fixtures", name), "utf8");
 
 async function waitForChecker(page: Page) {
-  await page.locator('[data-tool-workbench]').waitFor();
+  await page.locator('[data-tool-workbench][data-hydrated="true"]').waitFor();
   await expect(page.getByLabel("Compose file")).toBeVisible();
+}
+
+async function pasteTextarea(page: Page, label: string, value: string) {
+  await page.getByLabel(label).evaluate((element, nextValue) => {
+    const setter = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, "value")?.set;
+    setter?.call(element, nextValue);
+    element.dispatchEvent(new InputEvent("input", { bubbles: true, data: nextValue, inputType: "insertFromPaste" }));
+  }, value);
 }
 
 async function submit(page: Page, compose: string, environment = "") {
@@ -128,7 +136,8 @@ test("keeps input and model failures separate and accepts Compose-specific forms
 
 test("focuses the Compose editor for an input boundary error", async ({ page }) => {
   const oversized = `services:\n  web:\n    image: nginx\n${"# line\n".repeat(4_000)}`;
-  await submit(page, oversized);
+  await pasteTextarea(page, "Compose file", oversized);
+  await page.getByRole("button", { name: "Check Compose file" }).click();
   await expect(page.getByRole("heading", { name: "Input findings" })).toBeVisible();
   await expect(page.getByText("INPUT-COMPOSE-LINES", { exact: true })).toBeVisible();
   await expect(page.getByLabel("Compose file")).toBeFocused();

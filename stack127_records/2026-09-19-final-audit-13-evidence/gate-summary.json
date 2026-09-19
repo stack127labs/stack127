@@ -1,0 +1,32 @@
+{
+  "auditSession": "/root/final_audit_13",
+  "environment": "development",
+  "productionDatabaseUsed": false,
+  "recordedAt": "2026-09-19T16:29:07.105Z",
+  "results": [
+    {
+      "id": "focused-tests",
+      "command": "/usr/bin/node --experimental-strip-types --test-concurrency=1 --test tests/pages/backup-321-calculator/backup-321-calculator-state.test.mjs tests/pages/backup-321-calculator/backup-321-calculator.test.mjs tests/pages/backup-321-calculator/page.test.mjs tests/pages/docker-compose-checker/docker-compose-checker.test.mjs tests/pages/docker-compose-checker/page.test.mjs tests/pages/ip-asn-lookup/api.test.mjs tests/pages/ip-asn-lookup/ip-asn-lookup.test.mjs tests/pages/ip-asn-lookup/page.test.mjs tests/pages/ip-asn-lookup/routing.test.mjs tests/pages/self-hosted-app-resource-planner/page.test.mjs tests/pages/self-hosted-app-resource-planner/self-hosted-app-resource-planner.test.mjs tests/pages/restic-retention-simulator/page.test.mjs tests/pages/restic-retention-simulator/restic-retention-simulator.test.mjs tests/pages/rsync-filter-tester/page.test.mjs tests/pages/rsync-filter-tester/rsync-filter-tester.test.mjs tests/pages/mqtt-discovery-checker/mqtt-discovery-checker.test.mjs tests/pages/mqtt-discovery-checker/page.test.mjs tests/pages/lxc-idmap-checker/lxc-idmap-checker.test.mjs tests/pages/lxc-idmap-checker/page.test.mjs tests/pages/kdp-book-setup-calculator/kdp-book-setup-calculator.test.mjs tests/pages/kdp-book-setup-calculator/page.test.mjs tests/pages/kdp-metadata-checker/kdp-metadata-checker.test.mjs tests/pages/kdp-metadata-checker/page.test.mjs tests/pages/kdp-royalty-calculator/kdp-royalty-calculator.test.mjs tests/pages/kdp-royalty-calculator/page.test.mjs tests/pages/kdp-pdf-preflight-checker/kdp-pdf-preflight-checker.test.mjs tests/pages/kdp-pdf-preflight-checker/page.test.mjs tests/pages/kdp-page-count-estimator/kdp-page-count-estimator.test.mjs tests/pages/kdp-page-count-estimator/page.test.mjs tests/pages/tools/shared/tool-workbench.test.mjs tests/stack127/tool-page-content-seeds.test.mjs tests/stack127/tool-page-markdown-validation.test.mjs tests/stack127/tool-page-usage-infrastructure.test.mjs tests/stack127/tool-pipeline-acceptance.test.mjs tests/stack127/tool-pipeline-usage-audit.test.mjs",
+      "exitCode": 0,
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/focused-tests.log"
+    },
+    {
+      "id": "repository-tests",
+      "command": "npm run test",
+      "exitCode": 0,
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/repository-tests.log"
+    },
+    {
+      "id": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/build.log"
+    },
+    {
+      "id": "diff-check",
+      "command": "git diff --check",
+      "exitCode": 0,
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/diff-check.log"
+    }
+  ]
+}

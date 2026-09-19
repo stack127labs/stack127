@@ -329,8 +329,8 @@ test("nameserver enrichment uses a table for repeated address fields", async ({ 
       scrollWidth: element.scrollWidth,
     };
   });
-  expect(mobileScroll.scrollWidth).toBeGreaterThan(mobileScroll.clientWidth);
-  expect(mobileScroll.scrollLeft).toBeGreaterThan(0);
+  expect(mobileScroll.scrollWidth - mobileScroll.clientWidth).toBeLessThanOrEqual(1);
+  expect(mobileScroll.scrollLeft).toBe(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
 });
 

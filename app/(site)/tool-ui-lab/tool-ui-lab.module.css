@@ -91,12 +91,44 @@
   margin: 0;
 }
 
+.uploadColumns,
+.chartGrid {
+  align-items: start;
+  display: grid;
+  gap: var(--space-10);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.uploadExample,
+.flowExample {
+  align-content: start;
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.flowExample {
+  padding-top: var(--space-4);
+}
+
+.flowExample h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  margin: 0;
+}
+
 @media (max-width: 700px) {
   .main {
     padding-inline: var(--space-7);
   }
 
   .twoColumns {
+    grid-template-columns: 1fr;
+  }
+
+  .uploadColumns,
+  .chartGrid {
     grid-template-columns: 1fr;
   }
 

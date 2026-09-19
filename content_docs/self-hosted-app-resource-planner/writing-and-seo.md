@@ -1,13 +1,16 @@
 # Writing and SEO plan: self-hosted app resource planner
 
 Status: ready
+Feasibility: feasible
+Content review: 2026-09-19
+Acceptance path: Main-agent review, then the retained Astra writing session; Luna integrates only accepted words.
 Tool: Self-hosted app resource planner
 Route: `/self-hosted-app-resource-planner`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `edge-cases-and-tests.md`, `brief.md`
 Input fingerprint: `competitive-report.md sha256:e02d971f0055a8585daa4c8bd68f0ef3da388011d79571f0966e2c6bcddfa394`
 Input fingerprint: `implementation-report.md sha256:42cf89821fa32e407542fc947b0b1db74527b62ef489423a0c59537efdd5523c`
-Input fingerprint: `interface-contract.md sha256:a7fec7b4dca092af7772404a8e8dc68a25791e327ed2927a1c2c8166edbfd7aa`
-Input fingerprint: `edge-cases-and-tests.md sha256:33d63a013c5c7dbac7c85407148832452639383b6bb9ef137227b532297bdd80`
+Input fingerprint: `interface-contract.md sha256:3e2910010baceb8bfb5a27005141703dd9a2813f52b0de5384c56f2a4cfa20ce`
+Input fingerprint: `edge-cases-and-tests.md sha256:b1fbc5c968f480c891a81e8ad8dd98b5eb8c4e7bd60f73403e77838dee6b6088`
 Input fingerprint: `brief.md sha256:891670c28e434711521196a48d7fe72ac355af8193e1fa7f64cd9d5d345339fc`
 SERP checked: 2026-09-10
 Primary medium: Tool UI
@@ -58,6 +61,7 @@ Search and visual evidence: the search backend was the web connector, with searc
 | 5 | H2: Read the result as a planning envelope | What do within, tight, over, and unknown mean? | The result compares the known maximum with the budget left after headroom, identifies the closest complete budget, and keeps an incomplete dimension uncertain. | Sentences | `engine.ts`; `interface-contract.md`; `edge-cases-and-tests.md` | Do not repeat exact totals or claim that within means the app will run under every workload. | COPY-04 |
 | 6 | H2: Why a resource plan is not a runtime guarantee | Why can arithmetic and runtime behavior disagree? | Application spikes, media acceleration, databases, configuration, storage growth, and Docker enforcement settings are different from a planning range. | Sentences | Docker resource constraints; competitive report technical truth ledger | Do not turn this into a Compose tutorial; link to `/docker-compose-checker` for static configuration checks. | COPY-05 |
 | 7 | H2: Verify the host after planning | What should I measure next? | Compare the plan with observed container usage, app documentation, and the actual host before deployment or expansion. | Sentences | Docker container stats; self-host app directory | Link to `/self-host-apps` and Docker's stats documentation. Do not claim the planner monitors a host. | COPY-06 |
+| Usage | H2: Use the tool for your task | Which inputs should I bring, and what should I do with the outcome? | Use the closed Usage Markdown handoff below. | Sentences | Accepted technical artifacts and route behavior | Explain meaningful choices and next action; no button narration or duplicate live results. | COPY-07 |
 
 ## Formula explanation
 
@@ -67,7 +71,7 @@ Search and visual evidence: the search backend was the web connector, with searc
 | Available budget | `available = host budget × (1 - headroom / 100)` for RAM and storage. | Equation in Sentences | `implementation-report.md`; `engine.ts` | Explain that headroom is the reader's planning choice, not a universal constant. |
 | Fit state | Within means the known maximum fits; tight means the known range crosses the available budget; over means the known minimum is already above it; unknown means a selected row lacks a dimension. | Exact result visualization plus Sentences | `engine.ts`; `edge-cases-and-tests.md` | Keep unknown distinct from zero and keep within distinct from a runtime guarantee. |
 | Binding resource | Among complete dimensions, the largest known maximum-to-available ratio is the closest budget. | Result summary | `implementation-report.md`; `interface-contract.md` | If a dimension is incomplete, do not label it binding. |
-| Display and rounding | RAM is shown in GiB and storage in GB; visible ranges use one decimal place while calculation values retain more precision. | Table/result labels | `engine.ts`; `interface-contract.md` | Do not imply binary storage units or measurement precision not present in the contract. |
+| Display and rounding | RAM is shown in GiB and storage in GB; each displayed value below 10 uses one decimal place, while values at or above 10 use no decimal places. Calculation values retain more precision. | Table/result labels | `engine.ts`; `interface-contract.md` | Do not imply binary storage units or measurement precision not present in the contract. |
 
 ## Metadata proposal
 
@@ -98,6 +102,7 @@ Search and visual evidence: the search backend was the web connector, with searc
 | COPY-04 | Read the result as a planning envelope | Make the status vocabulary actionable without duplicating the live answer. | Fit boundaries, known subtotal, binding ratio, one-decimal display; `engine.ts`; `interface-contract.md`; `edge-cases-and-tests.md`. | Explain the difference between tight and over, and why unknown changes confidence. Stop before restating result values. | No `will run`, `safe`, `optimal`, or guaranteed compatibility claim. |
 | COPY-05 | Why a resource plan is not a runtime guarantee | Separate arithmetic planning from Docker enforcement and application behavior. | Docker hard and soft memory behavior, CPU shares, OOM risk, resource constraints; `https://docs.docker.com/engine/containers/resource_constraints/`; competitive report. | Explain the distinction in enough detail to prevent a misleading Compose configuration, then link to `/docker-compose-checker`. | No Compose syntax tutorial, security audit, runtime monitor claim, or universal Docker conclusion. |
 | COPY-06 | Verify the host after planning | Give the reader a concrete next step after the estimate. | `docker stats` fields and limits; `https://docs.docker.com/reference/cli/docker/container/stats/`; app documentation and `/self-host-apps`. | Tell the reader what to compare during a representative workload and when to revisit the plan. Stop before building a monitoring guide. | No claim that the planner collects telemetry or sees private host state. |
+| COPY-07 | Task-oriented usage | Explain input preparation, meaningful choices, states, and next verification. | Closed Usage Markdown handoff and accepted technical artifacts. | One concise connected guide; use steps only where order changes the outcome. | No live-result narration, unimplemented features, or duplicate supporting explanations. |
 
 ### Voice and accuracy constraints
 - Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
@@ -126,3 +131,40 @@ Search and visual evidence: the search backend was the web connector, with searc
 ## Open questions and blockers
 
 - None for the content plan. The page remains unpublished until the separate registry decision and final QA.
+
+
+## Usage Markdown handoff
+
+Disposition: Closed and feasible for the retained Astra writing session after main acceptance.
+
+### Assignment and reading order
+
+COPY-07 owns `usage_markdown`: explain the real task, inputs worth preparing, meaningful mode choices, important state distinctions, and the next verification. The existing manual assignments own the introduction, supporting explanations, metadata, and identified interface review only. Where an older assignment discusses how to choose an input, move that instruction into this usage assignment and retain only its conceptual explanation below. Do not repeat it in both fields. Interface inventories are review-only; this plan does not authorize implementation or rewriting dynamic findings.
+
+### Technical facts and meaningful inputs
+
+Choose catalog workloads with their displayed evidence or add a custom workload using plausible minimum/maximum RAM and storage estimates. Quantity multiplies both ends of each range. RAM is GiB and storage is decimal GB. Enter host budgets and a single headroom percentage applied once to both budgets. Missing estimates stay unknown; known subtotals remain useful but cannot settle the whole dimension. Within means maximum demand fits; tight means only the minimum fits; over means even the minimum exceeds budget. Equality fits.
+
+### State interpretation and recovery
+
+Separate no workloads, invalid custom ranges, complete fit, tight, over, and unknown dimensions. Unknown is not zero and must not receive a confident fit verdict. A binding dimension requires complete estimates. Present CPU notes as qualitative, never an invented summed CPU requirement.
+
+### Limitations and next action
+
+Planning ranges are not benchmarks, hardware recommendations, concurrency predictions, or guarantees. Actual database, media, indexing, cache, and user activity can dominate requirements. Measure the deployed workload and retain the evidence dates.
+
+### Input handling boundary
+
+Catalog evidence is loaded by the site; workload calculations after that use local form state. Do not turn that into a promise that catalog loading or the whole site makes no requests. The implementation and accepted technical evidence support only these route-specific statements. Do not infer a general retention, logging, analytics, cookie, or anonymity policy.
+
+### Content, media, and list requirements
+
+Keep the interactive tool first. Preserve all outline tables and exact result media; their repeated fields belong in tables, not comparison paragraphs. Existing output values, counts, findings, formulas, and captions stay in the live result rather than a second narrative. No new screenshot, marker drawing, generated illustration, or chart is required. If an ordered list is used, it must represent dependent task steps; use an unordered list only for genuinely independent checks. Do not add a generic FAQ or a list-shaped summary of every control. Every retained table must ship with useful headers and its limitation, not merely a heading placeholder.
+
+### Source ledger and links
+
+Use the existing source ledger for attributable claims, with links at the point of explanation. The ready implementation, interface, edge-case, and brief artifacts govern what this tool actually does; official sources govern external rules. Local assumptions must be labeled rather than attributed to a standards body or platform. Preserve the ledger's checked dates; a content review is not a claim that every source was freshly reverified. Conditional internal destinations: /self-host-apps; /storage-growth-planner. Include them only when the exact route is published at integration; all new batch tools remain unpublished. If a destination is unavailable, omit the link rather than invent a URL or publish its target.
+
+### Feasibility and ownership
+
+The accepted implementation can support this plan without new controls, engines, media, data sources, or implementation work. Astra supplies words only after acceptance. Luna performs content integration later. Neither this plan nor its validator result changes database content, registry publication, tool version, or deployment.

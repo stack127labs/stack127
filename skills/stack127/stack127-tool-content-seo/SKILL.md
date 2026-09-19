@@ -5,13 +5,17 @@ description: Plan complete, concise tool-page content, search intent, headings, 
 
 # stack127 tool content and SEO
 
+## Pipeline role and model routing
+
+In the full tool pipeline, the main orchestrator starts this worker as `gpt-6-astra` with `reasoning_effort: "low"`, shown as Light in Codex, and retains the session for public wording after the main agent accepts this plan. This worker never starts another pipeline worker or drafts final prose during this planning stage. Read `stack127_docs/tool-pipeline.md` for the artifact, usage-guide handoff, and acceptance contract.
+
 Plan useful, search-friendly supporting content around a working tool. Keep the tool first and primary while giving readers enough explanation to understand and use its answer. Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` when proposing public headings and metadata or setting the writer's direction. This skill owns search intent and coverage, not a separate voice.
 
 ## Required output
 
 Write `content_docs/<route-without-leading-slash>/writing-and-seo.md` using `references/writing-and-seo-template.md`.
 
-Stop after this document. Do not draft final paragraphs, call a writer, create metadata migrations, change the route, or pass prose into `$stack127-tool-build`. The user will provide prose later.
+Stop after this document. Do not draft final paragraphs, call a writer, create metadata migrations, change the route, or pass prose into `$stack127-tool-build`. Produce a `Usage Markdown handoff` section that closes the facts, input choices, output interpretation, limits, and required formats for the later public `usage_markdown` field. The retained Astra session uses `$stack127-tool-writing` to turn that contract into the actual guide; a separate Luna worker uses `$stack127-tool-content-integration` to apply and verify the approved words.
 
 ## Prerequisites
 

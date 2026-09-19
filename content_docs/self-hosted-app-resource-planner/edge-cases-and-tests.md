@@ -6,7 +6,7 @@ Route: `/self-hosted-app-resource-planner`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `brief.md`
 Input fingerprint: `competitive-report.md sha256:e02d971f0055a8585daa4c8bd68f0ef3da388011d79571f0966e2c6bcddfa394`
 Input fingerprint: `implementation-report.md sha256:42cf89821fa32e407542fc947b0b1db74527b62ef489423a0c59537efdd5523c`
-Input fingerprint: `interface-contract.md sha256:a7fec7b4dca092af7772404a8e8dc68a25791e327ed2927a1c2c8166edbfd7aa`
+Input fingerprint: `interface-contract.md sha256:3e2910010baceb8bfb5a27005141703dd9a2813f52b0de5384c56f2a4cfa20ce`
 Input fingerprint: `brief.md sha256:891670c28e434711521196a48d7fe72ac355af8193e1fa7f64cd9d5d345339fc`
 
 ## Risk model
@@ -67,6 +67,7 @@ Every row points to an executable case or gives a tool-specific reason.
 | Security and privacy | EC-020, EC-025, EC-026 |
 | SSR and SEO | EC-019, EC-024, EC-026 |
 | Performance | EC-022, EC-023 |
+| Control mode, switching, parity, and hidden-state recovery | EC-027. Single mode keeps app rows, quantities, host budget, and headroom visible; there is no mode switch, no hidden custom assumption, and no hidden-setting recovery path. Repeating the same normalized selection is the parity check. |
 
 ## Edge-case matrix
 
@@ -98,6 +99,7 @@ Every row points to an executable case or gives a tool-specific reason.
 | EC-024 | P0 | Publication boundary | Request exact route in the production-style test server while slug is absent from `public.stack127_pages`; inspect sitemap and route source. | HTTP 404; slug absent from sitemap; no route-owned metadata, canonical, robots, or JSON-LD is added. | Unpublished page is not discoverable. | No production database writes. | Static and SEO tests | R14, R15, UI-012 |
 | EC-025 | P0 | Input leakage | Enter a distinctive custom name, bounds, and budget; inspect request bodies, console logs, analytics calls, and storage. | No user planning value appears outside the in-memory client state; no analytics event is emitted. | User can plan privately in the browser. | Server catalogue fetch only. | Playwright network and console test | R2, R13 |
 | EC-026 | P0 | Provenance and schema trust | Server fixture includes a reviewed estimate with source URLs, a null range, an invalid negative range, and a future unknown field. | Valid reviewed data retains evidence metadata; null becomes unknown; invalid row is rejected or quarantined; unknown schema fields do not change arithmetic. | The result distinguishes reviewed estimate, user supplied, and unknown. | No automatic data repair or publication mutation. | Route fixture and engine test | R1, R8, R14 |
+| EC-027 | P1 | Control mode and hidden-state recovery | Select two catalogue apps with quantities and a custom host budget, calculate, Reset, then repeat the exact selection and submit again. Edit one quantity after a result and submit an invalid budget. | The planner remains single mode with no Basic/Advanced switch. The same normalized app rows, quantities, budget, and headroom produce equivalent output after Reset. All result-driving values stay visible; invalid budget recovery cannot be hidden behind a collapsed evidence area and no stale estimate remains. | Reset focuses the chooser. Editing keeps the changed control focused, clears the result, and associates the first invalid budget issue while preserving the other rows. | No catalogue mutation, URL state, storage, request, or analytics side effect beyond the documented catalogue load. | Engine determinism plus Browser state/accessibility test in `tests/pages/self-hosted-app-resource-planner/self-hosted-app-resource-planner.test.mjs` and `self-hosted-app-resource-planner.spec.ts` | R2, R8, R10, UI-013 |
 
 ## Formula or resolution fixtures
 

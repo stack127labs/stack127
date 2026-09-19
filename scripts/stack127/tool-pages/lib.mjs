@@ -60,7 +60,7 @@ function envFileValue(filePath, requestedKey) {
   return null;
 }
 
-function resolveDatabaseUrl(args) {
+export function resolveDatabaseUrl(args) {
   const environment = args.environment ?? "development";
   if (!["development", "production"].includes(environment)) {
     throw new Error("--environment must be development or production");
@@ -124,6 +124,7 @@ export async function lockToolPage(client, slug) {
         page.updated_at,
         tool.title,
         tool.intro_markdown,
+        tool.usage_markdown,
         tool.content_markdown,
         tool.content_revision,
         tool.tool_version,

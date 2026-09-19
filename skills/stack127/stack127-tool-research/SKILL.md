@@ -7,6 +7,10 @@ description: Research one proposed or existing stack127 tool page in depth befor
 
 Research one tool deeply enough that the next agent can make product decisions without repeating discovery.
 
+## Pipeline role and model routing
+
+In the full tool pipeline, the main orchestrator starts this worker as `gpt-5.6-luna` with `reasoning_effort: "max"`. This worker never starts another pipeline worker or begins a downstream stage. Read `stack127_docs/tool-pipeline.md` for the artifact and acceptance contract.
+
 ## Required output
 
 Write `content_docs/<route-without-leading-slash>/competitive-report.md` using `references/competitive-report-template.md`.
@@ -22,6 +26,8 @@ Stop after this report. Do not create an implementation report, tests, public co
 5. Read the complete installed Browser skill and `skills/stack127/references/homelab-browser-and-search.md`. Use the Codex in-app Browser when a runtime instance is available. In homelab or Codex CLI mode, use the documented standalone Playwright fallback when the in-app Browser is unavailable; do not silently downgrade to search snippets or static HTML.
 
 ## Research depth
+
+Start with competitor discovery and operation. Establish the real market shape, common inputs, action models, result formats, failure states, missing guidance, and repeated user friction before drawing product conclusions. Then continue in the same report with primary-source technical research that resolves formulas, standards, data contracts, assumptions, maintenance requirements, and feasibility. Competitor behavior suggests questions; it does not establish technical truth.
 
 Search at least four distinct query shapes:
 
@@ -83,6 +89,10 @@ Do not claim stack127 can be the best, first, or only result. State the evidence
 
 ## Readiness gate
 
+Include a feasibility verdict in the report: `feasibility: feasible` or `feasibility: blocked`. State the evidence, supported promise boundary, and any promise that cannot be supported. A known limitation can remain within a feasible contract only when the promised task still works. Do not silently shrink the requested promise. A tool whose core value requires a new paid API, account, live-data crawler, scheduled refresh, background worker, queue, storage service, review operation, maintained dataset, or other unapproved ongoing system is blocked. Do not propose a static snapshot as completion of a live promise.
+
+For a blocked verdict, include two to four decision options. State what each option would deliver, the cost or maintenance it introduces, and what approval is needed. Include approval of the dependency, a complete manual, static, or offline direction, a coherent scope reduction, or remaining blocked when applicable. Record the required visual medium and how a later implementation will trace it to the rendered page, including ordered lists, bullet lists, definition lists, and any registered `MarkerArt` figure.
+
 Set `Status: ready` only when:
 
 - the competitor minimum or documented saturation rule is satisfied;
@@ -93,7 +103,7 @@ Set `Status: ready` only when:
 - search and Browser backends, engines, viewport, and access limitations are recorded;
 - the next agent can decide scope without reopening the same pages.
 
-Otherwise set `Status: blocked`, list exactly what is missing, and stop.
+Otherwise set `Status: blocked`, list exactly what is missing, provide the decision options, and stop.
 
 Before reporting completion, run:
 
@@ -102,3 +112,5 @@ node skills/stack127/stack127-tool-build/scripts/validate-pipeline.mjs content_d
 ```
 
 If it fails, keep the report in draft or blocked state and fix the actual research gap. Do not weaken the validator.
+
+When used in a pipeline, record the actual Luna model, `max` reasoning, and session through the orchestrator. The research report does not substitute for the final acceptance artifact.

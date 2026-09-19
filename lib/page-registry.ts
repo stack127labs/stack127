@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { getPool } from "./db";
+import { readPublicData, selectPublicRows } from "./public-data-api";
 import { absoluteUrl, siteName, siteUrl } from "./seo";
 import { homePageSlugs } from "./page-registry-helpers";
 
@@ -105,6 +106,44 @@ const publishedPageSelect = `
   where is_published = true
 `;
 
+const publishedPageColumns = [
+  "id",
+  "slug",
+  "page_family",
+  "label",
+  "meta_title",
+  "meta_description",
+  "is_published",
+  "row_created_at",
+  "published_at",
+  "updated_at",
+  "row_updated_at",
+  "cover_image_url",
+  "page_type",
+  "sitemap_priority",
+].join(",");
+
+async function queryPublishedPage(slug: string) {
+  return readPublicData<Stack127Page | null>({
+    dataApiRead: async () => {
+      const rows = await selectPublicRows<Stack127Page>("stack127_pages", {
+        is_published: "eq.true",
+        limit: "1",
+        select: publishedPageColumns,
+        slug: `eq.${slug}`,
+      });
+      return rows[0] ?? null;
+    },
+    postgresRead: async () => {
+      const result = await getPool().query<Stack127Page>(
+        `${publishedPageSelect} and slug = $1 limit 1`,
+        [slug],
+      );
+      return result.rows[0] ?? null;
+    },
+  });
+}
+
 function cleanPathname(pathname: string) {
   const pathOnly = pathname.split("?")[0]?.split("#")[0] ?? "/";
   const withLeadingSlash = pathOnly.startsWith("/") ? pathOnly : `/${pathOnly}`;
@@ -132,22 +171,13 @@ function ancestorSlugs(slug: string) {
 }
 
 export const getPublishedPage = cache(async (slug: string) => {
-  const pool = getPool();
-  const result = await pool.query<Stack127Page>(
-    `${publishedPageSelect} and slug = $1 limit 1`,
-    [slug],
-  );
-
-  if (result.rows[0]) return result.rows[0];
+  const page = await queryPublishedPage(slug);
+  if (page) return page;
 
   const legacySlug = legacyToolSlugByFlatSlug.get(slug);
   if (!legacySlug) return null;
 
-  const legacyResult = await pool.query<Stack127Page>(
-    `${publishedPageSelect} and slug = $1 limit 1`,
-    [legacySlug],
-  );
-  const legacyPage = legacyResult.rows[0];
+  const legacyPage = await queryPublishedPage(legacySlug);
 
   return legacyPage ? { ...legacyPage, slug } : null;
 });
@@ -202,13 +232,23 @@ export const getPagePublicationState = cache(
 );
 
 export const getPublishedSitemapPages = cache(async () => {
-  const result = await getPool().query<Stack127Page>(
-    `${publishedPageSelect} order by slug asc`,
-  );
+  const rows = await readPublicData<Stack127Page[]>({
+    dataApiRead: () => selectPublicRows<Stack127Page>("stack127_pages", {
+      is_published: "eq.true",
+      order: "slug.asc",
+      select: publishedPageColumns,
+    }),
+    postgresRead: async () => {
+      const result = await getPool().query<Stack127Page>(
+        `${publishedPageSelect} order by slug asc`,
+      );
+      return result.rows;
+    },
+  });
 
   const pagesBySlug = new Map<string, Stack127Page>();
 
-  for (const page of result.rows) {
+  for (const page of rows) {
     const slug = flatToolSlugByLegacySlug.get(page.slug) ?? page.slug;
     const normalizedPage = { ...page, slug };
     const currentPage = pagesBySlug.get(slug);
@@ -229,16 +269,25 @@ export const getPublishedSitemapPages = cache(async () => {
  * navigation metadata because tool pages intentionally use flat routes.
  */
 export const getMainPublishedPages = cache(async () => {
-  const result = await getPool().query<Stack127Page>(
-    `
-      ${publishedPageSelect}
-        and slug = any($1::text[])
-      order by sitemap_priority desc, label asc
-    `,
-    [homePageSlugs],
-  );
-
-  return result.rows;
+  return readPublicData<Stack127Page[]>({
+    dataApiRead: () => selectPublicRows<Stack127Page>("stack127_pages", {
+      is_published: "eq.true",
+      order: "sitemap_priority.desc,label.asc",
+      select: publishedPageColumns,
+      slug: `in.(${homePageSlugs.join(",")})`,
+    }),
+    postgresRead: async () => {
+      const result = await getPool().query<Stack127Page>(
+        `
+          ${publishedPageSelect}
+            and slug = any($1::text[])
+          order by sitemap_priority desc, label asc
+        `,
+        [homePageSlugs],
+      );
+      return result.rows;
+    },
+  });
 });
 
 export function buildRegistryMetadata(state: PagePublicationState): Metadata {

@@ -41,7 +41,22 @@ const expectedToolSlugs = [
   "zfs-capacity-calculator",
   "zfs-padding-calculator",
 ].sort();
-const expectedRouteSlugs = [...expectedToolSlugs, "backup-321-calculator", "docker-compose-checker", "ip-asn-lookup", "self-hosted-app-resource-planner"].sort();
+const expectedRouteSlugs = [
+  ...expectedToolSlugs,
+  "backup-321-calculator",
+  "docker-compose-checker",
+  "ip-asn-lookup",
+  "self-hosted-app-resource-planner",
+  "restic-retention-simulator",
+  "rsync-filter-tester",
+  "mqtt-discovery-checker",
+  "lxc-idmap-checker",
+  "kdp-book-setup-calculator",
+  "kdp-metadata-checker",
+  "kdp-page-count-estimator",
+  "kdp-pdf-preflight-checker",
+  "kdp-royalty-calculator",
+].sort();
 
 function read(relativePath) {
   return readFileSync(path.join(root, relativePath), "utf8");
@@ -49,7 +64,7 @@ function read(relativePath) {
 
 function toolRouteSlugs() {
   return readdirSync(path.join(root, "app", "(site)", "(tools)"), { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
+    .filter((entry) => entry.isDirectory() && !entry.name.startsWith("_"))
     .map((entry) => entry.name)
     .sort();
 }

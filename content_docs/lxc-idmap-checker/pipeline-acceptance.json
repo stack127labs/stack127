@@ -1,0 +1,594 @@
+{
+  "schemaVersion": 1,
+  "route": "/lxc-idmap-checker",
+  "scope": {
+    "kind": "retrofit",
+    "owns": [
+      "interface",
+      "tests",
+      "engine",
+      "usage",
+      "content",
+      "media",
+      "integration"
+    ],
+    "excludes": [
+      "historical research and product planning",
+      "publication, production data writes, and deployment"
+    ]
+  },
+  "status": "accepted",
+  "authors": [
+    {
+      "stage": "interface",
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "session": "/root/interface_contracts_13"
+    },
+    {
+      "stage": "test-design",
+      "model": "gpt-5.6-luna",
+      "reasoning": "max",
+      "session": "/root/test_build_13"
+    },
+    {
+      "stage": "build",
+      "model": "gpt-5.6-luna",
+      "reasoning": "max",
+      "session": "/root/test_build_13"
+    },
+    {
+      "stage": "content-plan",
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "session": "/root/content_plan_writing_13"
+    },
+    {
+      "stage": "content",
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "session": "/root/content_plan_writing_13"
+    },
+    {
+      "stage": "integration",
+      "model": "gpt-5.6-luna",
+      "reasoning": "max",
+      "session": "/root/content_integration_13"
+    },
+    {
+      "stage": "audit",
+      "model": "gpt-5.6-sol",
+      "reasoning": "high",
+      "session": "/root/final_audit_13"
+    }
+  ],
+  "target": {
+    "commit": "3296c3250b57403cfd2966eab5dfae06c5a528aa",
+    "files": [
+      {
+        "path": "app/(site)/(tools)/lxc-idmap-checker/lxc-idmap-checker.module.css",
+        "sha256": "efe9da9bd5c433bb3317c7e3768ce0153846d7777743ac4c814286adc628696b"
+      },
+      {
+        "path": "app/(site)/(tools)/lxc-idmap-checker/lxc-idmap-checker.tsx",
+        "sha256": "500c94d68833f5007bdacc80797879f1b56af695d0f0e5a5b5d585c65803ae2d"
+      },
+      {
+        "path": "app/(site)/(tools)/lxc-idmap-checker/page.tsx",
+        "sha256": "143f9e13f5af98c55fa12a7ebb321a9948dcf8bbede4eb18335a886a5f706393"
+      },
+      {
+        "path": "app/tool-page-content.module.css",
+        "sha256": "a8084ceeef09f070602390d44832e56deaa54467b436af5477c691511f52ca1b"
+      },
+      {
+        "path": "app/tool-page-content.tsx",
+        "sha256": "57deb491829acc966937caaeeaf044f1187cec5e3643748c63c1f091b9c4dde0"
+      },
+      {
+        "path": "app/tool-ui/tool-controls.module.css",
+        "sha256": "faa62f67e039c177af23320cbb341b36dba6fc7138b639dbb31380917a723cb6"
+      },
+      {
+        "path": "app/tool-ui/tool-controls.tsx",
+        "sha256": "93e533c664ed8c3707e2da1b7b44906e1de6e481ba791b0ac0be3418a3a1a555"
+      },
+      {
+        "path": "lib/lxc-idmap-checker/engine.ts",
+        "sha256": "fa64d2a91557d0e335507f7f9de20511745409f1fa727fb4465bbd8e6c38e462"
+      },
+      {
+        "path": "lib/tool-pages.ts",
+        "sha256": "a74ce8d37259a6c6d376d8c3c4b549a996027d9b6e314cf75bdc9ea8a541c114"
+      },
+      {
+        "path": "scripts/stack127/tool-pipeline/validate-acceptance.mjs",
+        "sha256": "1ad4af6304df6024321fb932b67d52bd7469e7b0c63f40aa19831bc1d1f6e6d4"
+      },
+      {
+        "path": "tests/pages/lxc-idmap-checker/lxc-idmap-checker.spec.ts",
+        "sha256": "9f801e0c64c1244d4a9d647a5e18d6fc12621ea11c2a211abe7b1aa1cd385440"
+      },
+      {
+        "path": "tests/pages/lxc-idmap-checker/lxc-idmap-checker.test.mjs",
+        "sha256": "a2fe7eba33e8d0a9c6e4b64eb754d8cd6d2ffdb937160e2c40eec87cab6ce107"
+      },
+      {
+        "path": "tests/pages/lxc-idmap-checker/page.json",
+        "sha256": "fd49ea7202a1b36b70bc063bb0054f4ec610edc16f2105fa987ef0711b33a2ac"
+      },
+      {
+        "path": "tests/pages/lxc-idmap-checker/page.test.mjs",
+        "sha256": "36269491b6a405ff54deaef16720e17c325f8188445bee22946d31654590ee6c"
+      },
+      {
+        "path": "tests/stack127/tool-pipeline-acceptance.test.mjs",
+        "sha256": "a48da1ee03deb4bcae7edaec35d0fc1dad8547b7622d209410afe9a57f8abc2a"
+      }
+    ],
+    "inputs": [
+      {
+        "path": "content_docs/lxc-idmap-checker/brief.md",
+        "sha256": "6ae42360e0aa61bd06251d32c520c9e731fb6a139e29d3379c6b1bce89756737",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/lxc-idmap-checker/edge-cases-and-tests.md",
+        "sha256": "80bd69cd6221a97ab7afaf6fdcc26a594cc803b6eb2ccc560847b987efdf2dfc",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/lxc-idmap-checker/implementation-report.md",
+        "sha256": "287cb38dd27dee071aef8268b3ee9359035b95cd332fca3ac1fbfced0e6daf0c",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/lxc-idmap-checker/interface-contract.md",
+        "sha256": "84fcd154466599ef26286bdbef4e2b514c8403c79865801704a0355e35a986dd",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/lxc-idmap-checker/writing-and-seo.md",
+        "sha256": "d1fd7255717b89eb17fcccda0c12746dc21c904fef5471ae93d38259aff01051",
+        "validation": "current"
+      }
+    ],
+    "content": {
+      "environment": "development",
+      "revision": 2,
+      "toolVersion": "1.0.0",
+      "fields": {
+        "title": "565d13ef903e22ee2ccd4a118bcaf8c5ca3845acb72060b6f9c065fb2a6b23f6",
+        "intro_markdown": "70a32b98ea4d417f0b40916626e2e032777d13f142a72703bbb5f3c2137cc13c",
+        "usage_markdown": "858f61a28e040d185074ff48b972d62a2a22c1f0a2e5c1f5a5367688278745fd",
+        "content_markdown": "c4838011da92cd7b7d795a48b644a5a74da4aa314326c7a7a608ad164aec62d7"
+      }
+    },
+    "digest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce"
+  },
+  "feasibility": [
+    {
+      "stage": "interface",
+      "status": "feasible",
+      "reason": "The current contract, shared controls, and four-view evidence agree.",
+      "evidenceIds": [
+        "ev-contracts",
+        "ev-browser-report"
+      ]
+    },
+    {
+      "stage": "tests",
+      "status": "feasible",
+      "reason": "Route-owned boundary tests and the repository suite pass.",
+      "evidenceIds": [
+        "ev-focused-tests",
+        "ev-repository-tests"
+      ]
+    },
+    {
+      "stage": "engine",
+      "status": "feasible",
+      "reason": "Formula and normalization behavior passed focused tests and independent review.",
+      "evidenceIds": [
+        "ev-focused-tests",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "stage": "usage",
+      "status": "feasible",
+      "reason": "The live development usage guide is nonempty and rendered in the approved order.",
+      "evidenceIds": [
+        "ev-database",
+        "ev-browser-report"
+      ]
+    },
+    {
+      "stage": "content",
+      "status": "feasible",
+      "reason": "The live copy matches the reviewed content artifacts and source limitations.",
+      "evidenceIds": [
+        "ev-database",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "stage": "media",
+      "status": "feasible",
+      "reason": "The tool UI and exact tables or interactive outputs are the appropriate media for this task.",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "stage": "integration",
+      "status": "feasible",
+      "reason": "The flat route, server loader, shared content renderer, and development row pass together.",
+      "evidenceIds": [
+        "ev-build",
+        "ev-browser-report",
+        "ev-database"
+      ]
+    }
+  ],
+  "mode": {
+    "decision": "single",
+    "rationale": "The current interface contract keeps result-driving state visible and uses disclosure only for non-blocking evidence or detail.",
+    "contractPath": "content_docs/lxc-idmap-checker/interface-contract.md"
+  },
+  "coverage": [
+    {
+      "id": "coverage-input",
+      "kind": "input",
+      "requirement": "Required, optional, boundary, invalid, and recovery behavior is protected.",
+      "disposition": "required",
+      "checkIds": [
+        "c-technical",
+        "c-interaction"
+      ]
+    },
+    {
+      "id": "coverage-output",
+      "kind": "output",
+      "requirement": "The representative result remains rendered with exact values and explicit unknowns or limits.",
+      "disposition": "required",
+      "checkIds": [
+        "c-technical",
+        "c-interaction"
+      ]
+    },
+    {
+      "id": "coverage-usage",
+      "kind": "usage",
+      "requirement": "The server-loaded usage guide explains operation, interpretation, and limits without duplicating the workbench.",
+      "disposition": "required",
+      "checkIds": [
+        "c-content",
+        "c-interaction"
+      ]
+    },
+    {
+      "id": "coverage-media",
+      "kind": "media",
+      "requirement": "The tool UI, interactive output, and table where applicable communicate the task in both themes and widths.",
+      "disposition": "required",
+      "checkIds": [
+        "c-media",
+        "c-rendered"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "c-contracts",
+      "kind": "contracts",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "evidenceIds": [
+        "ev-contracts"
+      ]
+    },
+    {
+      "id": "c-technical",
+      "kind": "technical",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "evidenceIds": [
+        "ev-focused-tests",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "id": "c-interaction",
+      "kind": "interaction",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "id": "c-content",
+      "kind": "content",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-content-match",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "id": "c-media",
+      "kind": "media",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "id": "c-rendered",
+      "kind": "rendered",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "evidenceIds": [
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "id": "c-database",
+      "kind": "database",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "evidenceIds": [
+        "ev-database"
+      ]
+    },
+    {
+      "id": "c-focused-tests",
+      "kind": "focused-tests",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "evidenceIds": [
+        "ev-focused-tests"
+      ]
+    },
+    {
+      "id": "c-build",
+      "kind": "build",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "evidenceIds": [
+        "ev-build"
+      ]
+    },
+    {
+      "id": "c-repository-quality",
+      "kind": "repository-quality",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "evidenceIds": [
+        "ev-repository-tests",
+        "ev-diff"
+      ]
+    },
+    {
+      "id": "c-independent-review",
+      "kind": "independent-review",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "evidenceIds": [
+        "ev-sol-review"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-contracts",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:18:59.152Z",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/contracts.log",
+      "sha256": "1ddafe2e18aa9e939df76bc9138ca5dcdd7ba960dcb8670a3cdc80d519acfe74",
+      "command": "13 interface-contract validators and 13 content-stage pipeline validators",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-focused-tests",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:25:58.781Z",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/focused-tests.log",
+      "sha256": "218d3a57ea9ab4dc8242b56db9ccc36cd2eca74647022d0242683e52577e17a7",
+      "command": "node --experimental-strip-types --test-concurrency=1 --test <13 route test sets and shared tool tests>",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-repository-tests",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:26:56.602Z",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/repository-tests.log",
+      "sha256": "741a3b418738dd00b843bd5fd23d9a186702773625b8800f69171ac75f83287d",
+      "command": "npm run test",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-build",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:29:07.068Z",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/build.log",
+      "sha256": "d1e5fe9f58d2a33a828f6f58e12d100640c51d2d0f8eb861a13ba67f24547a4a",
+      "command": "npm run build",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-diff",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:29:07.105Z",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/diff-check.log",
+      "sha256": "4bbbd6420a737faa426cb41526a4ede7743f52d302031630fe8a4b29e0be0977",
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-database",
+      "kind": "database",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:38:53.830Z",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/development-database-receipt.json",
+      "sha256": "94570c541dcba0e41351aab1249da4ec3375be13956c6cebee7b25f9ea4430c1"
+    },
+    {
+      "id": "ev-sol-review",
+      "kind": "review",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:25:12.000Z",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/sol-review.json",
+      "sha256": "007a9b66590b1be7074c37a54e285d02b349b4c81e7a2b948fc3e77379c512e5"
+    },
+    {
+      "id": "ev-content-match",
+      "kind": "review",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:26:00.000Z",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/content-artifact-match.json",
+      "sha256": "3c5c21f88fb38d6816a7f4f2b5a2037878609a27857ce2a59d419c6ff6327303"
+    },
+    {
+      "id": "ev-browser-report",
+      "kind": "review",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:34:42.584Z",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "path": "content_docs/lxc-idmap-checker/pipeline-evidence/browser-inspection.json",
+      "sha256": "707893caf1e135ba53bc68c0b8412eeb0cad4ac5a0398a98bbcf6605a64d899c"
+    },
+    {
+      "id": "ev-browser-dark-1440",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:34:42.584Z",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "path": "content_docs/lxc-idmap-checker/pipeline-evidence/browser-dark-1440.png",
+      "sha256": "0db7ee2550e4c7be1ff45a313bf656329b777a7266af1acc6c07b52a0ea3edc9",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    },
+    {
+      "id": "ev-browser-dark-390",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:34:42.584Z",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "path": "content_docs/lxc-idmap-checker/pipeline-evidence/browser-dark-390.png",
+      "sha256": "a97310276fb2de37f69acf61c84d7784610f426985baaa68cf9405d5c650481c",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "theme": "dark",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    },
+    {
+      "id": "ev-browser-light-1440",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:34:42.584Z",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "path": "content_docs/lxc-idmap-checker/pipeline-evidence/browser-light-1440.png",
+      "sha256": "b2843fb69b626dca984b0a7530a8186520bb2e19cf9b9143c14a77ae5e47e40f",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    },
+    {
+      "id": "ev-browser-light-390",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:34:42.584Z",
+      "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce",
+      "path": "content_docs/lxc-idmap-checker/pipeline-evidence/browser-light-390.png",
+      "sha256": "43a6bd78ccabaddf348a4127d366e2d53b58403a36cbf4efc8eeeb1b77eb2e79",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "theme": "light",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-AUDIT-CLI-ROOT",
+      "severity": "P2",
+      "status": "fixed",
+      "description": "The pipeline acceptance CLI resolved the repository root one directory too high and could not load real route records.",
+      "checkIds": [
+        "c-contracts",
+        "c-repository-quality",
+        "c-independent-review"
+      ],
+      "fix": {
+        "paths": [
+          "scripts/stack127/tool-pipeline/validate-acceptance.mjs",
+          "tests/stack127/tool-pipeline-acceptance.test.mjs"
+        ],
+        "description": "Resolve the repository root from three parent directories and protect the CLI path with a regression test.",
+        "targetDigest": "e1211e7a077455f0ef9c6219d258a907494d4317277a28e23b713b31351560ce"
+      },
+      "recheckEvidenceIds": [
+        "ev-focused-tests",
+        "ev-sol-review"
+      ]
+    }
+  ]
+}

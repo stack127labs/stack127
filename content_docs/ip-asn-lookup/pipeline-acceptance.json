@@ -1,0 +1,674 @@
+{
+  "schemaVersion": 1,
+  "route": "/ip-asn-lookup",
+  "scope": {
+    "kind": "retrofit",
+    "owns": [
+      "interface",
+      "tests",
+      "engine",
+      "usage",
+      "content",
+      "media",
+      "integration"
+    ],
+    "excludes": [
+      "historical research and product planning",
+      "publication, production data writes, and deployment"
+    ]
+  },
+  "status": "accepted",
+  "authors": [
+    {
+      "stage": "interface",
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "session": "/root/interface_contracts_13"
+    },
+    {
+      "stage": "test-design",
+      "model": "gpt-5.6-luna",
+      "reasoning": "max",
+      "session": "/root/test_build_13"
+    },
+    {
+      "stage": "build",
+      "model": "gpt-5.6-luna",
+      "reasoning": "max",
+      "session": "/root/test_build_13"
+    },
+    {
+      "stage": "content-plan",
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "session": "/root/content_plan_writing_13"
+    },
+    {
+      "stage": "content",
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "session": "/root/content_plan_writing_13"
+    },
+    {
+      "stage": "integration",
+      "model": "gpt-5.6-luna",
+      "reasoning": "max",
+      "session": "/root/content_integration_13"
+    },
+    {
+      "stage": "audit",
+      "model": "gpt-5.6-sol",
+      "reasoning": "high",
+      "session": "/root/final_audit_13"
+    }
+  ],
+  "target": {
+    "commit": "3296c3250b57403cfd2966eab5dfae06c5a528aa",
+    "files": [
+      {
+        "path": "app/(site)/(tools)/ip-asn-lookup/ip-asn-lookup-sidebar.tsx",
+        "sha256": "6bd2e70fbff9c0e40206ae55521c71b7534f596bfea50c9d5eb11586c886eb96"
+      },
+      {
+        "path": "app/(site)/(tools)/ip-asn-lookup/ip-asn-lookup-tool.tsx",
+        "sha256": "741771ab2bf956ecd65beed3690495137a474038fff3aea2747ce49f1967a7f2"
+      },
+      {
+        "path": "app/(site)/(tools)/ip-asn-lookup/ip-asn-lookup.css",
+        "sha256": "2b46508aab6c3c27da4b6fcfc5c289324f815579db3d6d157deef27430288947"
+      },
+      {
+        "path": "app/(site)/(tools)/ip-asn-lookup/ip-asn-lookup.module.css",
+        "sha256": "4439a5b99fffd8d7974d20a35913274d59074c96b7e8cc621360531499a602c9"
+      },
+      {
+        "path": "app/(site)/(tools)/ip-asn-lookup/page.tsx",
+        "sha256": "3a034149c301d7c51d9677dfad9ff6f784efe02f165728bd9d905344b46f3c4e"
+      },
+      {
+        "path": "app/api/ip-asn-lookup/route.ts",
+        "sha256": "3de490a008541d73d7c5fb5af2e5c39024cd41103f5f549f5a3c2659854c184c"
+      },
+      {
+        "path": "app/tool-page-content.module.css",
+        "sha256": "a8084ceeef09f070602390d44832e56deaa54467b436af5477c691511f52ca1b"
+      },
+      {
+        "path": "app/tool-page-content.tsx",
+        "sha256": "57deb491829acc966937caaeeaf044f1187cec5e3643748c63c1f091b9c4dde0"
+      },
+      {
+        "path": "app/tool-ui/tool-controls.module.css",
+        "sha256": "faa62f67e039c177af23320cbb341b36dba6fc7138b639dbb31380917a723cb6"
+      },
+      {
+        "path": "app/tool-ui/tool-controls.tsx",
+        "sha256": "93e533c664ed8c3707e2da1b7b44906e1de6e481ba791b0ac0be3418a3a1a555"
+      },
+      {
+        "path": "lib/ip-asn/api.ts",
+        "sha256": "81fb9100843b8c7a01c8da624f122959aecb67e035ceb087015dbfb0c09e4732"
+      },
+      {
+        "path": "lib/ip-asn/bootstrap.ts",
+        "sha256": "7347ea7a21c9e506478b138864f3345fa55b995555f67ee7c0cb765b7e837672"
+      },
+      {
+        "path": "lib/ip-asn/input.ts",
+        "sha256": "3821f32288a6dee010582325aa2bf05b77defc69a4fc9bb26ba8ec6209c97380"
+      },
+      {
+        "path": "lib/ip-asn/normalize.ts",
+        "sha256": "9d75e6675ea6724c7e2581ccb5ffde593e8ff7f9e65b00d7a036e212fdc6dbb7"
+      },
+      {
+        "path": "lib/ip-asn/resolve.ts",
+        "sha256": "2fae2d4c5dc21e4da79936044a0704823d42a3fdc02955abf77ffa7c0047dc67"
+      },
+      {
+        "path": "lib/ip-asn/routing.ts",
+        "sha256": "661f07107362ffba2cded649be3fd33ab39fb8822cc5425babefc36d50d3a4f1"
+      },
+      {
+        "path": "lib/ip-asn/types.ts",
+        "sha256": "d6ebda2ea0e111600b5efb78c41d75e26953fbf6b1024be398a7f0a6c8e3adfe"
+      },
+      {
+        "path": "lib/tool-pages.ts",
+        "sha256": "a74ce8d37259a6c6d376d8c3c4b549a996027d9b6e314cf75bdc9ea8a541c114"
+      },
+      {
+        "path": "scripts/stack127/tool-pipeline/validate-acceptance.mjs",
+        "sha256": "1ad4af6304df6024321fb932b67d52bd7469e7b0c63f40aa19831bc1d1f6e6d4"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/api.test.mjs",
+        "sha256": "0e93e7c503926d7b82867f57631ecba9fb486396c1b4fead5117d515e0cffa65"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/fixtures/afrinic-ip.json",
+        "sha256": "784876cd641dbc305e8e8a6c4694a94611c2ff9e8f5df27895fa2f513de68980"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/fixtures/apnic-ip.json",
+        "sha256": "b22bd55a4b42e17ebad240f183e7dabe115ee483c4ce1d132f79963fc5932451"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/fixtures/arin-asn.json",
+        "sha256": "1efae07504261152be03be928d7164b61d21ecfbf87ed91920c000bce22d0c77"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/fixtures/arin-ip.json",
+        "sha256": "2b97749d79262d2a1c1c7b1834f36282473647f5d90ad6c74eb9fcae3e574694"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/fixtures/ipv6-ip.json",
+        "sha256": "33e6b78f8a16d665b3d38567f5a7c7e18cb6b23c5ea414f7be345f9d62f22553"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/fixtures/lacnic-ip.json",
+        "sha256": "5253e2d6075e8da2b16097aa08c07f4882ef1ebf449febcf026f1d0bf45690d2"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/fixtures/rdap-error.json",
+        "sha256": "939293b75ca2d5df1abbe949093d104c28c52306abf8a45d2fe124b14e12afba"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/fixtures/ripe-ip.json",
+        "sha256": "0088c25f9320f23e503fdb01ebe8c58cf9a63fce795c9cd9162508813e4362b4"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/fixtures/routing.json",
+        "sha256": "87271d850562e4fd483f8a6ac8309e61f695b25aedc3d02842d3f05daa257ff9"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/ip-asn-lookup.spec.ts",
+        "sha256": "8b2d652dd37c94f9f816bc2dc08f765b36c8c9868268e1c810e0dbfdb918317d"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/ip-asn-lookup.test.mjs",
+        "sha256": "64341b0dd468005512a18170a9e8c2870e86a95a5fe37eaf5e7f26184a68e7a3"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/page.json",
+        "sha256": "700d20f7fda60d7c3309836d307f41f2c82678d47c5afe2c8e715d8506641e88"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/page.test.mjs",
+        "sha256": "ac6a21a044e8d0759353b500e90ca7e588e6e9ec6427b973be914ed009b5af31"
+      },
+      {
+        "path": "tests/pages/ip-asn-lookup/routing.test.mjs",
+        "sha256": "717808ce98d1911a85e91678f52d5861a43144540e15dbe973f19ce7f61a4a55"
+      },
+      {
+        "path": "tests/stack127/tool-pipeline-acceptance.test.mjs",
+        "sha256": "a48da1ee03deb4bcae7edaec35d0fc1dad8547b7622d209410afe9a57f8abc2a"
+      }
+    ],
+    "inputs": [
+      {
+        "path": "content_docs/ip-asn-lookup/brief.md",
+        "sha256": "94d430dc139b637fef92f0a66ed08c87f2036c38f9a1e8433e458619b81e399a",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/ip-asn-lookup/edge-cases-and-tests.md",
+        "sha256": "47523a0b2c319889192f914afc7fdef5ca66f6571d1537a282fad8b5872bd0b0",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/ip-asn-lookup/implementation-report.md",
+        "sha256": "ef5577306cf52712f610dcc77c9bab54af8bfda940e19eb855884bf678022063",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/ip-asn-lookup/interface-contract.md",
+        "sha256": "82b687c21c3d5bb5576addcf2c81e79fee7e7102be894617e126bfdf588cb779",
+        "validation": "current"
+      },
+      {
+        "path": "content_docs/ip-asn-lookup/writing-and-seo.md",
+        "sha256": "9da32e3e999ae64817ae565d8cfe22062699ede7c4dd4da76948411d617bb8e6",
+        "validation": "current"
+      }
+    ],
+    "content": {
+      "environment": "development",
+      "revision": 4,
+      "toolVersion": "1.0.1",
+      "fields": {
+        "title": "93f3cc60a827294b19313d8217660a21b2f0a40c98710047992ce98f353a3b00",
+        "intro_markdown": "b7978e9d4737a5bb094991ccc02ee1bf520664b15badd6e2ddd2463b2c2edef6",
+        "usage_markdown": "0da76cc165f36f189c9dce66a86a295bbb7454901672205c040215080c052884",
+        "content_markdown": "11cf922d0bc02cf428c9da8cf6503328db91579cd91027064e16c798cdf97968"
+      }
+    },
+    "digest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4"
+  },
+  "feasibility": [
+    {
+      "stage": "interface",
+      "status": "feasible",
+      "reason": "The current contract, shared controls, and four-view evidence agree.",
+      "evidenceIds": [
+        "ev-contracts",
+        "ev-browser-report"
+      ]
+    },
+    {
+      "stage": "tests",
+      "status": "feasible",
+      "reason": "Route-owned boundary tests and the repository suite pass.",
+      "evidenceIds": [
+        "ev-focused-tests",
+        "ev-repository-tests"
+      ]
+    },
+    {
+      "stage": "engine",
+      "status": "feasible",
+      "reason": "Formula and normalization behavior passed focused tests and independent review.",
+      "evidenceIds": [
+        "ev-focused-tests",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "stage": "usage",
+      "status": "feasible",
+      "reason": "The live development usage guide is nonempty and rendered in the approved order.",
+      "evidenceIds": [
+        "ev-database",
+        "ev-browser-report"
+      ]
+    },
+    {
+      "stage": "content",
+      "status": "feasible",
+      "reason": "The live copy matches the reviewed content artifacts and source limitations.",
+      "evidenceIds": [
+        "ev-database",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "stage": "media",
+      "status": "feasible",
+      "reason": "The tool UI and exact tables or interactive outputs are the appropriate media for this task.",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "stage": "integration",
+      "status": "feasible",
+      "reason": "The flat route, server loader, shared content renderer, and development row pass together.",
+      "evidenceIds": [
+        "ev-build",
+        "ev-browser-report",
+        "ev-database"
+      ]
+    }
+  ],
+  "mode": {
+    "decision": "disclosure",
+    "rationale": "The current interface contract keeps result-driving state visible and uses disclosure only for non-blocking evidence or detail.",
+    "contractPath": "content_docs/ip-asn-lookup/interface-contract.md"
+  },
+  "coverage": [
+    {
+      "id": "coverage-input",
+      "kind": "input",
+      "requirement": "Required, optional, boundary, invalid, and recovery behavior is protected.",
+      "disposition": "required",
+      "checkIds": [
+        "c-technical",
+        "c-interaction"
+      ]
+    },
+    {
+      "id": "coverage-output",
+      "kind": "output",
+      "requirement": "The representative result remains rendered with exact values and explicit unknowns or limits.",
+      "disposition": "required",
+      "checkIds": [
+        "c-technical",
+        "c-interaction"
+      ]
+    },
+    {
+      "id": "coverage-usage",
+      "kind": "usage",
+      "requirement": "The server-loaded usage guide explains operation, interpretation, and limits without duplicating the workbench.",
+      "disposition": "required",
+      "checkIds": [
+        "c-content",
+        "c-interaction"
+      ]
+    },
+    {
+      "id": "coverage-media",
+      "kind": "media",
+      "requirement": "The tool UI, interactive output, and table where applicable communicate the task in both themes and widths.",
+      "disposition": "required",
+      "checkIds": [
+        "c-media",
+        "c-rendered"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "c-contracts",
+      "kind": "contracts",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "evidenceIds": [
+        "ev-contracts"
+      ]
+    },
+    {
+      "id": "c-technical",
+      "kind": "technical",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "evidenceIds": [
+        "ev-focused-tests",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "id": "c-interaction",
+      "kind": "interaction",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "id": "c-content",
+      "kind": "content",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-content-match",
+        "ev-sol-review"
+      ]
+    },
+    {
+      "id": "c-media",
+      "kind": "media",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "evidenceIds": [
+        "ev-browser-report",
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "id": "c-rendered",
+      "kind": "rendered",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "evidenceIds": [
+        "ev-browser-dark-1440",
+        "ev-browser-dark-390",
+        "ev-browser-light-1440",
+        "ev-browser-light-390"
+      ]
+    },
+    {
+      "id": "c-database",
+      "kind": "database",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "evidenceIds": [
+        "ev-database"
+      ]
+    },
+    {
+      "id": "c-focused-tests",
+      "kind": "focused-tests",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "evidenceIds": [
+        "ev-focused-tests"
+      ]
+    },
+    {
+      "id": "c-build",
+      "kind": "build",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "evidenceIds": [
+        "ev-build"
+      ]
+    },
+    {
+      "id": "c-repository-quality",
+      "kind": "repository-quality",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "evidenceIds": [
+        "ev-repository-tests",
+        "ev-diff"
+      ]
+    },
+    {
+      "id": "c-independent-review",
+      "kind": "independent-review",
+      "required": true,
+      "status": "passed",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "evidenceIds": [
+        "ev-sol-review"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-contracts",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:18:59.152Z",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/contracts.log",
+      "sha256": "1ddafe2e18aa9e939df76bc9138ca5dcdd7ba960dcb8670a3cdc80d519acfe74",
+      "command": "13 interface-contract validators and 13 content-stage pipeline validators",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-focused-tests",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:25:58.781Z",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/focused-tests.log",
+      "sha256": "218d3a57ea9ab4dc8242b56db9ccc36cd2eca74647022d0242683e52577e17a7",
+      "command": "node --experimental-strip-types --test-concurrency=1 --test <13 route test sets and shared tool tests>",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-repository-tests",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:26:56.602Z",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/repository-tests.log",
+      "sha256": "741a3b418738dd00b843bd5fd23d9a186702773625b8800f69171ac75f83287d",
+      "command": "npm run test",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-build",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:29:07.068Z",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/build.log",
+      "sha256": "d1e5fe9f58d2a33a828f6f58e12d100640c51d2d0f8eb861a13ba67f24547a4a",
+      "command": "npm run build",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-diff",
+      "kind": "command",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:29:07.105Z",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/diff-check.log",
+      "sha256": "4bbbd6420a737faa426cb41526a4ede7743f52d302031630fe8a4b29e0be0977",
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    {
+      "id": "ev-database",
+      "kind": "database",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:38:53.830Z",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/development-database-receipt.json",
+      "sha256": "94570c541dcba0e41351aab1249da4ec3375be13956c6cebee7b25f9ea4430c1"
+    },
+    {
+      "id": "ev-sol-review",
+      "kind": "review",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:25:12.000Z",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/sol-review.json",
+      "sha256": "007a9b66590b1be7074c37a54e285d02b349b4c81e7a2b948fc3e77379c512e5"
+    },
+    {
+      "id": "ev-content-match",
+      "kind": "review",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:26:00.000Z",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "path": "stack127_records/2026-09-19-final-audit-13-evidence/content-artifact-match.json",
+      "sha256": "3c5c21f88fb38d6816a7f4f2b5a2037878609a27857ce2a59d419c6ff6327303"
+    },
+    {
+      "id": "ev-browser-report",
+      "kind": "review",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:31:11.073Z",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "path": "content_docs/ip-asn-lookup/pipeline-evidence/browser-inspection.json",
+      "sha256": "f703d730755d667e24de46311715bf9fdeecc7954fee845bdf1e43ea6c8a3ad1"
+    },
+    {
+      "id": "ev-browser-dark-1440",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:31:11.073Z",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "path": "content_docs/ip-asn-lookup/pipeline-evidence/browser-dark-1440.png",
+      "sha256": "276bf02ac898534ed2ee071c5329c120d695003642826812b9dc519c3eceabf8",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    },
+    {
+      "id": "ev-browser-dark-390",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:31:11.073Z",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "path": "content_docs/ip-asn-lookup/pipeline-evidence/browser-dark-390.png",
+      "sha256": "f7f7897e9b1e0c586203add03fe53a4cf64e291be2c73a3debacf13003a75649",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "theme": "dark",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    },
+    {
+      "id": "ev-browser-light-1440",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:31:11.073Z",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "path": "content_docs/ip-asn-lookup/pipeline-evidence/browser-light-1440.png",
+      "sha256": "8682183f9bcbaa947adbab36e45da765ae24299883439575eab8bd2039ec8975",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    },
+    {
+      "id": "ev-browser-light-390",
+      "kind": "browser",
+      "author": "/root/final_audit_13",
+      "recordedAt": "2026-09-19T16:31:11.073Z",
+      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "path": "content_docs/ip-asn-lookup/pipeline-evidence/browser-light-390.png",
+      "sha256": "ecefbf3815e85952e946dda9ed8fc7a35c4b860500b6730b31348ec972019268",
+      "backend": "standalone Playwright CLI",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "theme": "light",
+      "scenario": "Representative successful result with current development content, route shell, focusability, and overflow checks."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-AUDIT-CLI-ROOT",
+      "severity": "P2",
+      "status": "fixed",
+      "description": "The pipeline acceptance CLI resolved the repository root one directory too high and could not load real route records.",
+      "checkIds": [
+        "c-contracts",
+        "c-repository-quality",
+        "c-independent-review"
+      ],
+      "fix": {
+        "paths": [
+          "scripts/stack127/tool-pipeline/validate-acceptance.mjs",
+          "tests/stack127/tool-pipeline-acceptance.test.mjs"
+        ],
+        "description": "Resolve the repository root from three parent directories and protect the CLI path with a regression test.",
+        "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4"
+      },
+      "recheckEvidenceIds": [
+        "ev-focused-tests",
+        "ev-sol-review"
+      ]
+    }
+  ]
+}
