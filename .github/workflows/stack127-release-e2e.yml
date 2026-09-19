@@ -108,7 +108,7 @@ jobs:
         run: |
           set -euo pipefail
           test -n "$DATABASE_URL" || { echo "Missing production database URL for migrations"; exit 1; }
-          supabase db push --db-url "$DATABASE_URL" --yes
+          supabase db push --db-url "$DATABASE_URL" --include-all --yes
 
       - name: Run the complete quality gate
         env:
