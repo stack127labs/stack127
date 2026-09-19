@@ -78,7 +78,7 @@ Ads should fit the existing performance and interface standards. They should not
 
 Track whether revenue supports the cost of running and maintaining each offering. Advertising income is a possible funding source, not an assumed guarantee that every directory pays for itself. Paid AI usage also needs to account for the cost of providing the result.
 
-The repository currently documents Umami. Google Analytics is allowed by this strategy, but whether it replaces or complements the existing setup remains undecided. Update the public privacy description and environment inventory alongside any actual change in data collection.
+stack127 uses self-hosted Umami for aggregate analytics and optional Google Analytics after visitor consent. Google Analytics complements Umami. The privacy policy and environment inventory must stay aligned with any change in data collection.
 
 ## Site structure and URLs
 
@@ -169,7 +169,7 @@ This pass covers:
 - Describe the existing offering accurately in the Terms introduction and scope.
 - Update agent guidance, topic-research criteria, page briefs, and relevant tests.
 
-Keep the existing page layouts, collection grid, generated artwork, specialist content, canonical resource URLs, and query-parameter pagination. Analytics is the next separate task. Advertising, paid tools, AI credits, new product listings, and broad topic landing pages are later work. This scope does not introduce those features or describe them as already available.
+Keep the existing page layouts, collection grid, generated artwork, specialist content, canonical resource URLs, and query-parameter pagination. Advertising, paid tools, AI credits, new product listings, and broad topic landing pages are later work. This scope does not introduce those features or describe them as already available.
 
 ## Future implementation work
 
@@ -180,7 +180,7 @@ The remaining work builds on the first pass. This document does not schedule or 
 | Navigation and discovery | Make resource types and subject indexes easy to find. Add broad topic landing pages when there is enough material to justify them. |
 | Page architecture | Document ownership for broad topic landing pages and any new child-page patterns. Preserve canonical URLs, central publication rules, and route coverage. |
 | Advertising | Select a provider and placements, define eligible free pages, and verify performance and the ad-free paid experience. |
-| Analytics | Decide whether to add or replace analytics, define useful events, and align runtime configuration and public descriptions with actual behavior. |
+| Analytics | Review page-view reports before adding events. Keep tool inputs and query strings out of analytics data. |
 | Paid tools and credits | Define pricing, accounts, payments, access, usage accounting, and failure handling for the first paid offering. |
 | Product discovery | Decide how subdomain products appear alongside relevant resources and how users recognize them as stack127 products. |
 | Growth and maintenance | Track use, revenue, running costs, and freshness by offering or subject. Use those results to choose what to improve and expand. |

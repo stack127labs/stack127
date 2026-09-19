@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter, Shantell_Sans, Space_Grotesk } from "next/font/google";
 import { getUmamiConfig } from "@/lib/analytics";
+import { getGoogleAnalyticsConfig } from "@/lib/google-analytics";
 import { absoluteUrl, defaultDescription, siteName, siteUrl } from "@/lib/seo";
+import { GoogleAnalyticsConsent } from "./google-analytics-consent";
 import { JsonLd } from "./json-ld";
 import { SiteNav } from "./site-nav";
 import "./globals.css";
@@ -108,6 +110,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const umami = getUmamiConfig();
+  const googleAnalytics = getGoogleAnalyticsConfig();
 
   return (
     <html
@@ -132,6 +135,9 @@ export default function RootLayout({
         <JsonLd data={siteStructuredData} />
         <SiteNav />
         {children}
+        {googleAnalytics ? (
+          <GoogleAnalyticsConsent measurementId={googleAnalytics.measurementId} />
+        ) : null}
       </body>
     </html>
   );

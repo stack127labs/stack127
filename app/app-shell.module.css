@@ -106,6 +106,7 @@
 }
 
 .footerTop a,
+.footerTop button,
 .footerTop p {
   color: var(--color-text-muted);
   font-family: var(--font-mono);
@@ -116,11 +117,18 @@
   white-space: nowrap;
 }
 
+.footerTop button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
 .footerTop p {
   white-space: normal;
 }
 
-.footerTop a:hover {
+.footerTop a:hover,
+.footerTop button:hover {
   color: var(--color-text);
 }
 
@@ -256,4 +264,9 @@
 .footer a[href]:hover,
 .footer a[href]:focus-visible {
   text-decoration: none;
+}
+
+.footer button:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 3px;
 }

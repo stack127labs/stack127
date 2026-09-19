@@ -34,6 +34,15 @@ export default function PrivacyPage() {
             We use a self-hosted Umami analytics setup to understand how pages are performing. Umami analytics data is anonymized and aggregate-focused. It can include page views, referrers, device type, browser, operating system, country-level location, and basic visit patterns. The goal is to understand which pages are useful, not to identify you, build an advertising profile, or track you across websites.
           </p>
           <p>
+            Google Analytics is optional. If you allow it, Google sets first-party cookies,
+            including <code>_ga</code>, and receives the page path, referrer path, browser and
+            device details, approximate location, and visit activity. stack127 removes query
+            strings and fragments before sending page URLs, so domain names, IP addresses,
+            searches, and saved tool state in those URLs are not sent as analytics page data.
+            Google processes an IP address during collection to derive location data, but says
+            Google Analytics 4 does not log or store individual IP addresses.
+          </p>
+          <p>
             If you email us at <a href="mailto:stack127@proton.me">stack127@proton.me</a>, we receive the email address, message, and any files or context you choose to send. Please do not send passwords, private keys, recovery codes, or anything you would not want sitting in an inbox.
           </p>
         </section>
@@ -50,6 +59,11 @@ export default function PrivacyPage() {
             We use Umami analytics to see which pages are worth improving, which search paths are useful, and where the site feels thin. For example, aggregate traffic patterns can tell us whether people care more about self-host apps, automation tools, calculators, reference pages, or something else we should build next.
           </p>
           <p>
+            If you allow Google Analytics, we use its reports for the same purpose and to
+            understand visits across pages. Advertising storage, Google Signals, and advertising
+            personalization stay disabled. We do not send custom events containing tool input.
+          </p>
+          <p>
             If you contact us, we use your message and email address to reply, follow up on the issue, and keep enough context to understand what happened.
           </p>
         </section>
@@ -61,6 +75,11 @@ export default function PrivacyPage() {
           </p>
           <p>
             A registry or registrar receives the domain name needed to answer a registration lookup, along with ordinary network request details from our server. Those operators have their own privacy practices and retention rules.
+          </p>
+          <p>
+            Google receives the optional analytics data described above only after you allow
+            Google Analytics. Google processes that data under its own terms and privacy
+            practices. Umami stays on infrastructure we manage.
           </p>
           <p>
             We may also share limited information if required by law, to respond to abuse, to protect the site, or to investigate security problems. We are not trying to turn stack127 into a data business.
@@ -83,6 +102,13 @@ export default function PrivacyPage() {
             You can use browser settings, content blockers, DNS tools, tracker blocking, private browsing, or similar tools to limit analytics and third-party requests. The site should still be useful without an account or login.
           </p>
           <p>
+            You can decline Google Analytics when the consent bar appears. To change the choice
+            later, open <strong>analytics settings</strong> in the site footer. Turning Google
+            Analytics off records the new choice, tells the tag that analytics storage is denied,
+            and deletes the Google Analytics first-party cookies that stack127 can access. The
+            self-hosted Umami tracker does not use cookies and remains active.
+          </p>
+          <p>
             You can also contact us if you have a privacy question or want us to delete an email conversation we have with you. We may keep limited records when needed for security, abuse prevention, or legal reasons, but we will keep the request practical.
           </p>
         </section>
@@ -95,7 +121,7 @@ export default function PrivacyPage() {
           <p>
             The current contact email is <a href="mailto:stack127@proton.me">stack127@proton.me</a>.
           </p>
-          <p className={infoUpdatedClassName}>Last updated: August 20, 2026.</p>
+          <p className={infoUpdatedClassName}>Last updated: September 19, 2026.</p>
         </section>
     </InfoPage>
   );

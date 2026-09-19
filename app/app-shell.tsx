@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { getGoogleAnalyticsConfig } from "@/lib/google-analytics";
+import { AnalyticsSettingsButton } from "./google-analytics-consent";
 import { AppSidebar } from "./app-sidebar";
 import { BrandWordmark } from "./brand-wordmark";
 import styles from "./app-shell.module.css";
@@ -25,6 +27,8 @@ export function AppShell({
   sidebarLabel = "Page sidebar",
   menuLabel = "Menu",
 }: AppShellProps) {
+  const googleAnalytics = getGoogleAnalyticsConfig();
+
   return (
     <main className={styles.shell}>
       <section className={styles.page}>
@@ -44,6 +48,7 @@ export function AppShell({
               </Link>
               <nav className={styles.footerLinks} aria-label="Legal pages">
                 <Link href="/privacy">privacy</Link>
+                {googleAnalytics ? <AnalyticsSettingsButton /> : null}
                 <Link href="/terms">terms</Link>
                 <Link href="/about">about</Link>
                 <Link href="/labs">labs</Link>

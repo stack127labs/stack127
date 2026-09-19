@@ -7,6 +7,8 @@
   "tests": [
     "tests/stack127/entry-page-visual-system.test.mjs",
     "tests/pages/privacy/privacy.test.mjs",
+    "tests/stack127/google-analytics.test.mjs",
+    "tests/stack127/google-analytics.spec.ts",
     "tests/stack127/seo.spec.ts",
     "tests/stack127/page-spacing.spec.ts"
   ],

@@ -90,14 +90,18 @@ release workflow, which uses the configured SSH identity and Dokploy API.
 `.env.analytics` contains:
 
 ```text
+GOOGLE_ANALYTICS_ID
 UMAMI_URL
 UMAMI_WEBSITE_ID
 UMAMI_USERNAME
 UMAMI_PASSWORD
 ```
 
-The public site runtime needs only the Umami URL and website ID. The username
-and password are administrative credentials and must not be passed to the app.
+The public site runtime uses `GOOGLE_ANALYTICS_ID` for the optional, consent-gated
+Google Analytics tag and needs only the Umami URL and website ID for self-hosted
+analytics. The Google measurement ID is public configuration, not a credential.
+The Umami username and password are administrative credentials and must not be
+passed to the app.
 On 20 August 2026, the existing Stack127 and BaseBuddy website records were
 renamed in place to track `stack127.com` and `basebuddy.stack127.com`. Their
 website IDs were preserved so analytics history remains continuous and no
@@ -209,6 +213,7 @@ The Stack127 application contains:
 ```text
 DATABASE_URL
 NEXT_PUBLIC_SITE_URL
+GOOGLE_ANALYTICS_ID
 UMAMI_URL
 UMAMI_WEBSITE_ID
 ```
