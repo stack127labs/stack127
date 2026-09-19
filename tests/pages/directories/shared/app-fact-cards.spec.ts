@@ -29,6 +29,7 @@ for (const route of ["self-host-apps", "cli-apps"]) {
     expect(response?.status()).toBe(200);
     const cards = page.locator(".directory-card");
     const first = cards.first();
+    const firstImage = cards.locator("img").first();
     await expect(first).toBeVisible();
     const name = await first.locator("h2").innerText();
     const labels = route === "self-host-apps"
@@ -53,10 +54,10 @@ for (const route of ["self-host-apps", "cli-apps"]) {
           expect(Math.max(...boxes) - Math.min(...boxes)).toBeLessThan(2);
         }
         if (width === 1255 || width === 390) {
-          await first.scrollIntoViewIfNeeded();
-          await expect.poll(() => first.locator("img").evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
-          await expect(first.locator("img")).toHaveAttribute("src", /^https:\/\//);
-          await expect(first.locator("img")).toHaveCSS("opacity", "1");
+          await firstImage.scrollIntoViewIfNeeded();
+          await expect.poll(() => firstImage.evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
+          await expect(firstImage).toHaveAttribute("src", /^https:\/\//);
+          await expect(firstImage).toHaveCSS("opacity", "1");
           for (const image of await cards.locator("img").all()) {
             if (await image.evaluate((node) => node.getBoundingClientRect().top < innerHeight)) {
               await expect.poll(() => image.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0)).toBe(true);

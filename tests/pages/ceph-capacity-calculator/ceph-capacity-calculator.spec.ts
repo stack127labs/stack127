@@ -2,6 +2,7 @@ import { expect, test } from "playwright/test";
 
 
 async function addBatch(page: import("playwright/test").Page, domain: string, count: string, capacity: string) {
+  await page.waitForLoadState("networkidle");
   await page.getByRole("button", { name: "Add OSD batch" }).click();
   const index = await page.getByTestId("osd-batch").count();
   const row = page.getByTestId("osd-batch").nth(index - 1);
