@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 
 test("accepts the example without an empty findings table", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1, name: "Home Assistant MQTT discovery checker" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Read the discovery result" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Check a topic with its payload" })).toBeVisible();
   await page.getByRole("button", { name: "Load example" }).click();
   await page.getByRole("button", { name: "Check discovery" }).click();
   await expect(page.getByLabel("MQTT discovery result")).toBeFocused();

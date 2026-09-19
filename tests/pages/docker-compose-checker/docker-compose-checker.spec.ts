@@ -54,7 +54,7 @@ test("focuses the empty field and leaves drafts editable after syntax failure", 
   await expect(page.locator("#compose-result")).toBeVisible();
   await submit(page, fixture("syntax-error.yml"));
   await expect(page.getByRole("heading", { name: "YAML syntax needs fixing" })).toBeVisible();
-  await expect(page.getByText("Compose model", { exact: true })).toHaveCount(0);
+  await expect(page.locator("#compose-result").getByText("Compose model", { exact: true })).toHaveCount(0);
   await expect(page.getByLabel("Compose file")).toBeFocused();
   await expect(page.getByLabel("Compose file")).toHaveValue(fixture("syntax-error.yml"));
 });
@@ -71,9 +71,9 @@ test("renders one answer, three layers, counts, findings, summary, and limitatio
   await expect(page.getByRole("heading", { name: "Check layers" })).toBeVisible();
   const resultOrder = await page.locator("#compose-result h3").allTextContents();
   expect(resultOrder.indexOf("Findings")).toBeLessThan(resultOrder.indexOf("Check layers"));
-  await expect(page.getByText("YAML syntax", { exact: true })).toHaveCount(1);
-  await expect(page.getByText("Compose model", { exact: true })).toHaveCount(1);
-  await expect(page.getByText("Static advisories", { exact: true })).toHaveCount(1);
+  await expect(page.locator("#compose-result").getByText("YAML syntax", { exact: true })).toHaveCount(1);
+  await expect(page.locator("#compose-result").getByText("Compose model", { exact: true })).toHaveCount(1);
+  await expect(page.locator("#compose-result").getByText("Static advisories", { exact: true })).toHaveCount(1);
   await expect(page.getByRole("heading", { name: "Normalized model" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Limitations" })).toBeVisible();
   await expect(page.getByText("No findings.", { exact: true })).toHaveCount(1);

@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 
 test("shows first-match and unvisited decisions", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1, name: "Rsync filter tester" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Read the path trace" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Test paths from the transfer root" })).toBeVisible();
   await page.getByRole("button", { name: "Load example" }).click();
   await page.getByRole("button", { name: "Test filters" }).click();
   await expect(page.getByLabel("Rsync filter result")).toBeFocused();

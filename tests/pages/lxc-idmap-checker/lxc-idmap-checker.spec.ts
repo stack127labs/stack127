@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 
 test("maps the example and checks the selected grant source", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1, name: "LXC ID mapping checker" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Read the mapping result" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Check the map and matching grant file" })).toBeVisible();
   await page.getByRole("button", { name: "Load example" }).click();
   await page.getByRole("button", { name: "Check mapping" }).click();
   await expect(page.getByLabel("LXC mapping result")).toBeFocused();

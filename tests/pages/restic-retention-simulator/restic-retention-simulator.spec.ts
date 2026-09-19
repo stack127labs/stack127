@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 
 test("renders decisions, timestamps, and clears stale output", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1, name: "Restic retention simulator" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Read the retention preview" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Choose snapshot groups and retention periods" })).toBeVisible();
   await page.getByRole("button", { name: "Preview retention" }).click();
   await expect(page.getByLabel("Retention result")).toBeFocused();
   await expect(page.getByText(/Kept \d+ of \d+ snapshots/)).toBeVisible();
