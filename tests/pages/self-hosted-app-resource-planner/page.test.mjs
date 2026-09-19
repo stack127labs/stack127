@@ -11,11 +11,11 @@ const enginePath = new URL("lib/self-hosted-app-resource-planner/engine.ts", roo
 const dataPath = new URL("lib/self-hosted-app-resource-planner/data.ts", root);
 const manifestPath = new URL("tests/pages/self-hosted-app-resource-planner/page.json", root);
 
-test("owns an unpublished flat route with complete local files", () => {
+test("owns a published flat route with complete local files", () => {
   for (const file of [pagePath, clientPath, stylesPath, enginePath, manifestPath]) assert.equal(existsSync(file), true, file.pathname);
   const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
   assert.equal(manifest.route, "/self-hosted-app-resource-planner");
-  assert.equal(manifest.state, "unpublished");
+  assert.equal(manifest.state, "published");
   assert.deepEqual(manifest.repositories, []);
   assert.ok(manifest.docs.includes("content_docs/self-hosted-app-resource-planner"));
   assert.ok(manifest.tests.includes("tests/pages/self-hosted-app-resource-planner/self-hosted-app-resource-planner.test.mjs"));

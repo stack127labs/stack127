@@ -1,7 +1,7 @@
 {
   "route": "/mqtt-discovery-checker",
-  "state": "unpublished",
-  "reason": "The tool is under technical and content review. Publish it only after a separate registry decision.",
+  "state": "published",
+  "reason": "The tool passed the complete production pipeline and was deliberately published with the thirteen-tool release.",
   "docs": ["content_docs/mqtt-discovery-checker"],
   "tests": [
     "tests/pages/mqtt-discovery-checker/page.test.mjs",

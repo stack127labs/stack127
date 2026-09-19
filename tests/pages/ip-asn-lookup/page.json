@@ -1,7 +1,7 @@
 {
   "route": "/ip-asn-lookup",
-  "state": "unpublished",
-  "reason": "The tool is under technical, content, and source-provenance review. Publish it only after a separate registry decision.",
+  "state": "published",
+  "reason": "The tool passed the complete production pipeline, including source-provenance review, and was deliberately published with the thirteen-tool release.",
   "docs": [
     "content_docs/ip-asn-lookup"
   ],

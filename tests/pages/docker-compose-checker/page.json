@@ -1,7 +1,7 @@
 {
   "route": "/docker-compose-checker",
-  "state": "unpublished",
-  "reason": "The checker is under technical and content review. Publish it only after a separate registry decision.",
+  "state": "published",
+  "reason": "The checker passed the complete production pipeline and was deliberately published with the thirteen-tool release.",
   "docs": ["content_docs/docker-compose-checker"],
   "tests": [
     "tests/pages/tools/shared/tool-workbench.test.mjs",

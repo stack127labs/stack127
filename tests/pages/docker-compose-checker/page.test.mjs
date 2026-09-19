@@ -7,9 +7,9 @@ const root = process.cwd();
 const routeRoot = path.join(root, "app/(site)/(tools)/docker-compose-checker");
 const manifest = JSON.parse(readFileSync(path.join(root, "tests/pages/docker-compose-checker/page.json"), "utf8"));
 
-test("owns an unpublished route with the required page artifacts", () => {
+test("owns a published route with the required page artifacts", () => {
   assert.equal(manifest.route, "/docker-compose-checker");
-  assert.equal(manifest.state, "unpublished");
+  assert.equal(manifest.state, "published");
   assert.ok(manifest.reason);
   assert.equal(manifest.repositories.length, 0);
   for (const file of [

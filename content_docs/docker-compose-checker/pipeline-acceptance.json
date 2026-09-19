@@ -195,11 +195,11 @@
       },
       {
         "path": "tests/pages/docker-compose-checker/page.json",
-        "sha256": "10dad28fea98733bf9e82f316a94450d75db55c6954a1840c813331c746c8b44"
+        "sha256": "2273fd2195cf01b25aef9560c07e80d257ef365c53613daee06a6847c6a1ac1d"
       },
       {
         "path": "tests/pages/docker-compose-checker/page.test.mjs",
-        "sha256": "1696820c2bda965dcc76910cc2f90571bdd725d47b15ad41dd1802d5f5fae5e6"
+        "sha256": "fd4b76030a3f5c66845f38ead0549ad68968e8629ddad5cc8d1d2eafbd6b9aa3"
       },
       {
         "path": "tests/stack127/tool-pipeline-acceptance.test.mjs",
@@ -244,7 +244,7 @@
         "content_markdown": "ba3a8ad416790289c469f225dcd5c073704abeb519450917c803becd2e5e182d"
       }
     },
-    "digest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a"
+    "digest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d"
   },
   "feasibility": [
     {
@@ -368,7 +368,7 @@
       "kind": "contracts",
       "required": true,
       "status": "passed",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "evidenceIds": [
         "ev-contracts"
       ]
@@ -378,7 +378,7 @@
       "kind": "technical",
       "required": true,
       "status": "passed",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "evidenceIds": [
         "ev-focused-tests",
         "ev-sol-review"
@@ -389,7 +389,7 @@
       "kind": "interaction",
       "required": true,
       "status": "passed",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "evidenceIds": [
         "ev-browser-report",
         "ev-browser-dark-1440",
@@ -403,7 +403,7 @@
       "kind": "content",
       "required": true,
       "status": "passed",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "evidenceIds": [
         "ev-browser-report",
         "ev-content-match",
@@ -415,7 +415,7 @@
       "kind": "media",
       "required": true,
       "status": "passed",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "evidenceIds": [
         "ev-browser-report",
         "ev-browser-dark-1440",
@@ -429,7 +429,7 @@
       "kind": "rendered",
       "required": true,
       "status": "passed",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "evidenceIds": [
         "ev-browser-dark-1440",
         "ev-browser-dark-390",
@@ -442,7 +442,7 @@
       "kind": "database",
       "required": true,
       "status": "passed",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "evidenceIds": [
         "ev-database"
       ]
@@ -452,7 +452,7 @@
       "kind": "focused-tests",
       "required": true,
       "status": "passed",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "evidenceIds": [
         "ev-focused-tests"
       ]
@@ -462,7 +462,7 @@
       "kind": "build",
       "required": true,
       "status": "passed",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "evidenceIds": [
         "ev-build"
       ]
@@ -472,7 +472,7 @@
       "kind": "repository-quality",
       "required": true,
       "status": "passed",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "evidenceIds": [
         "ev-repository-tests",
         "ev-diff"
@@ -483,7 +483,7 @@
       "kind": "independent-review",
       "required": true,
       "status": "passed",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "evidenceIds": [
         "ev-sol-review"
       ]
@@ -495,7 +495,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:18:59.152Z",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/contracts.log",
       "sha256": "1ddafe2e18aa9e939df76bc9138ca5dcdd7ba960dcb8670a3cdc80d519acfe74",
       "command": "13 interface-contract validators and 13 content-stage pipeline validators",
@@ -506,7 +506,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:25:58.781Z",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/focused-tests.log",
       "sha256": "218d3a57ea9ab4dc8242b56db9ccc36cd2eca74647022d0242683e52577e17a7",
       "command": "node --experimental-strip-types --test-concurrency=1 --test <13 route test sets and shared tool tests>",
@@ -517,7 +517,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:26:56.602Z",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/repository-tests.log",
       "sha256": "741a3b418738dd00b843bd5fd23d9a186702773625b8800f69171ac75f83287d",
       "command": "npm run test",
@@ -528,7 +528,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:29:07.068Z",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/build.log",
       "sha256": "d1e5fe9f58d2a33a828f6f58e12d100640c51d2d0f8eb861a13ba67f24547a4a",
       "command": "npm run build",
@@ -539,7 +539,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:29:07.105Z",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/diff-check.log",
       "sha256": "4bbbd6420a737faa426cb41526a4ede7743f52d302031630fe8a4b29e0be0977",
       "command": "git diff --check",
@@ -550,7 +550,7 @@
       "kind": "database",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:38:53.830Z",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/development-database-receipt.json",
       "sha256": "94570c541dcba0e41351aab1249da4ec3375be13956c6cebee7b25f9ea4430c1"
     },
@@ -559,7 +559,7 @@
       "kind": "review",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:25:12.000Z",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/sol-review.json",
       "sha256": "007a9b66590b1be7074c37a54e285d02b349b4c81e7a2b948fc3e77379c512e5"
     },
@@ -568,7 +568,7 @@
       "kind": "review",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:26:00.000Z",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/content-artifact-match.json",
       "sha256": "3c5c21f88fb38d6816a7f4f2b5a2037878609a27857ce2a59d419c6ff6327303"
     },
@@ -577,7 +577,7 @@
       "kind": "review",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:30:34.478Z",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "path": "content_docs/docker-compose-checker/pipeline-evidence/browser-inspection.json",
       "sha256": "b348e150114272a21c95f5e5c7053da2bfc02bafbcddf3c5cd73c8c9e64190f3"
     },
@@ -586,7 +586,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:30:34.478Z",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "path": "content_docs/docker-compose-checker/pipeline-evidence/browser-dark-1440.png",
       "sha256": "454bdfe52021ff96de5af8551ddc3c18085268c196a3ace6e00e8432f081aa17",
       "backend": "standalone Playwright CLI",
@@ -602,7 +602,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:30:34.478Z",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "path": "content_docs/docker-compose-checker/pipeline-evidence/browser-dark-390.png",
       "sha256": "a90ee1c51012ed97ffaa508090c452042152563a8885a8508382f5b0b86f5a75",
       "backend": "standalone Playwright CLI",
@@ -618,7 +618,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:30:34.478Z",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "path": "content_docs/docker-compose-checker/pipeline-evidence/browser-light-1440.png",
       "sha256": "5a5365dc101afd25d18c958617455dca1ad541a0e998b5042c36c05090963da6",
       "backend": "standalone Playwright CLI",
@@ -634,7 +634,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:30:34.478Z",
-      "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a",
+      "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d",
       "path": "content_docs/docker-compose-checker/pipeline-evidence/browser-light-390.png",
       "sha256": "082ef0550ce0fbb6908028791e59a8c0f366f979c0eaf4d016121c0c92bbc711",
       "backend": "standalone Playwright CLI",
@@ -663,7 +663,7 @@
           "tests/stack127/tool-pipeline-acceptance.test.mjs"
         ],
         "description": "Resolve the repository root from three parent directories and protect the CLI path with a regression test.",
-        "targetDigest": "c0f4bdba7cf76d81c8f72b016fbd5b132663c72802e5b2de56cc6a21714fb25a"
+        "targetDigest": "3187fd412ed9ef686cb871258ccabecad3a446e25d473eba7bf8c1fe5980cd6d"
       },
       "recheckEvidenceIds": [
         "ev-focused-tests",

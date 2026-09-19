@@ -135,11 +135,11 @@
       },
       {
         "path": "tests/pages/kdp-metadata-checker/page.json",
-        "sha256": "e2a4e04b4c71ff5c47fbe0ee6cacd97dadcdacdd85d09a0246fda281080c3169"
+        "sha256": "94496454ca979592dad6360a88438a1b429dc86d3bbfa2fe22d6696d4db2d697"
       },
       {
         "path": "tests/pages/kdp-metadata-checker/page.test.mjs",
-        "sha256": "2dda4c03acbffedbc8533d344671b9cf27b83eacc13c33cee8ee4f46b8bf6938"
+        "sha256": "7c6191913471f6ee4350d29c29bb9d053c0de0938491b9fc368cadb8831aa99a"
       },
       {
         "path": "tests/stack127/tool-pipeline-acceptance.test.mjs",
@@ -184,7 +184,7 @@
         "content_markdown": "c8ac2bf8f2cfe497663063d424e1cfbc3dafcd80fc0273591e1547747915f386"
       }
     },
-    "digest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335"
+    "digest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e"
   },
   "feasibility": [
     {
@@ -308,7 +308,7 @@
       "kind": "contracts",
       "required": true,
       "status": "passed",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "evidenceIds": [
         "ev-contracts"
       ]
@@ -318,7 +318,7 @@
       "kind": "technical",
       "required": true,
       "status": "passed",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "evidenceIds": [
         "ev-focused-tests",
         "ev-sol-review"
@@ -329,7 +329,7 @@
       "kind": "interaction",
       "required": true,
       "status": "passed",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "evidenceIds": [
         "ev-browser-report",
         "ev-browser-dark-1440",
@@ -343,7 +343,7 @@
       "kind": "content",
       "required": true,
       "status": "passed",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "evidenceIds": [
         "ev-browser-report",
         "ev-content-match",
@@ -355,7 +355,7 @@
       "kind": "media",
       "required": true,
       "status": "passed",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "evidenceIds": [
         "ev-browser-report",
         "ev-browser-dark-1440",
@@ -369,7 +369,7 @@
       "kind": "rendered",
       "required": true,
       "status": "passed",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "evidenceIds": [
         "ev-browser-dark-1440",
         "ev-browser-dark-390",
@@ -382,7 +382,7 @@
       "kind": "database",
       "required": true,
       "status": "passed",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "evidenceIds": [
         "ev-database"
       ]
@@ -392,7 +392,7 @@
       "kind": "focused-tests",
       "required": true,
       "status": "passed",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "evidenceIds": [
         "ev-focused-tests"
       ]
@@ -402,7 +402,7 @@
       "kind": "build",
       "required": true,
       "status": "passed",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "evidenceIds": [
         "ev-build"
       ]
@@ -412,7 +412,7 @@
       "kind": "repository-quality",
       "required": true,
       "status": "passed",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "evidenceIds": [
         "ev-repository-tests",
         "ev-diff"
@@ -423,7 +423,7 @@
       "kind": "independent-review",
       "required": true,
       "status": "passed",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "evidenceIds": [
         "ev-sol-review"
       ]
@@ -435,7 +435,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:18:59.152Z",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/contracts.log",
       "sha256": "1ddafe2e18aa9e939df76bc9138ca5dcdd7ba960dcb8670a3cdc80d519acfe74",
       "command": "13 interface-contract validators and 13 content-stage pipeline validators",
@@ -446,7 +446,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:25:58.781Z",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/focused-tests.log",
       "sha256": "218d3a57ea9ab4dc8242b56db9ccc36cd2eca74647022d0242683e52577e17a7",
       "command": "node --experimental-strip-types --test-concurrency=1 --test <13 route test sets and shared tool tests>",
@@ -457,7 +457,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:26:56.602Z",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/repository-tests.log",
       "sha256": "741a3b418738dd00b843bd5fd23d9a186702773625b8800f69171ac75f83287d",
       "command": "npm run test",
@@ -468,7 +468,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:29:07.068Z",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/build.log",
       "sha256": "d1e5fe9f58d2a33a828f6f58e12d100640c51d2d0f8eb861a13ba67f24547a4a",
       "command": "npm run build",
@@ -479,7 +479,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:29:07.105Z",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/diff-check.log",
       "sha256": "4bbbd6420a737faa426cb41526a4ede7743f52d302031630fe8a4b29e0be0977",
       "command": "git diff --check",
@@ -490,7 +490,7 @@
       "kind": "database",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:38:53.830Z",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/development-database-receipt.json",
       "sha256": "94570c541dcba0e41351aab1249da4ec3375be13956c6cebee7b25f9ea4430c1"
     },
@@ -499,7 +499,7 @@
       "kind": "review",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:25:12.000Z",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/sol-review.json",
       "sha256": "007a9b66590b1be7074c37a54e285d02b349b4c81e7a2b948fc3e77379c512e5"
     },
@@ -508,7 +508,7 @@
       "kind": "review",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:26:00.000Z",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/content-artifact-match.json",
       "sha256": "3c5c21f88fb38d6816a7f4f2b5a2037878609a27857ce2a59d419c6ff6327303"
     },
@@ -517,7 +517,7 @@
       "kind": "review",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:36:12.265Z",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "path": "content_docs/kdp-metadata-checker/pipeline-evidence/browser-inspection.json",
       "sha256": "563a8420a928e4a811e81a606d38147f0ec789d0a21b758b08ea0f9c3077c1e4"
     },
@@ -526,7 +526,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:36:12.265Z",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "path": "content_docs/kdp-metadata-checker/pipeline-evidence/browser-dark-1440.png",
       "sha256": "36a45fdc4311b752b5dd5880508e7fcd093c64a6cf9abde17175199c29afc503",
       "backend": "standalone Playwright CLI",
@@ -542,7 +542,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:36:12.265Z",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "path": "content_docs/kdp-metadata-checker/pipeline-evidence/browser-dark-390.png",
       "sha256": "36fd65808ebea244f2bc613f070c42eaf6126a960b204f8d235b372db96cfad0",
       "backend": "standalone Playwright CLI",
@@ -558,7 +558,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:36:12.265Z",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "path": "content_docs/kdp-metadata-checker/pipeline-evidence/browser-light-1440.png",
       "sha256": "83f0d916d31f302c49617eb80e5285bb8695b6c666edc932da1c85f162bf66d3",
       "backend": "standalone Playwright CLI",
@@ -574,7 +574,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:36:12.265Z",
-      "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335",
+      "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e",
       "path": "content_docs/kdp-metadata-checker/pipeline-evidence/browser-light-390.png",
       "sha256": "8c45c74459bc2a762279af6e2b25914578d8bf579ab021dfaeadec966b446180",
       "backend": "standalone Playwright CLI",
@@ -603,7 +603,7 @@
           "tests/stack127/tool-pipeline-acceptance.test.mjs"
         ],
         "description": "Resolve the repository root from three parent directories and protect the CLI path with a regression test.",
-        "targetDigest": "c7d79ad537e0c1d875c34a2436c82afeb1d398a17a67217fe9c9086ffa767335"
+        "targetDigest": "370c4af24e0177066cf318ea10c540f401cfdb25f26470b43d01fd0ce9a6692e"
       },
       "recheckEvidenceIds": [
         "ev-focused-tests",

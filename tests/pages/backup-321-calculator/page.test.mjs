@@ -13,11 +13,11 @@ const hubPath = new URL("app/(site)/(catalogs)/storage-tools/page.tsx", root);
 const sidebarPath = new URL("app/(site)/(catalogs)/storage-tools/storage-tools-sidebar.tsx", root);
 const migrationPath = new URL("supabase/migrations/20260902080436_add_stack127_tool_pages.sql", root);
 
-test("owns an unpublished flat route with complete local files and no repositories", () => {
+test("owns a published flat route with complete local files and no repositories", () => {
   for (const file of [pagePath, clientPath, stylesPath, enginePath]) assert.equal(existsSync(file), true, file.pathname);
   const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
   assert.equal(manifest.route, "/backup-321-calculator");
-  assert.equal(manifest.state, "unpublished");
+  assert.equal(manifest.state, "published");
   assert.deepEqual(manifest.repositories, []);
   assert.ok(manifest.docs.includes("content_docs/backup-321-calculator"));
   assert.ok(manifest.tests.includes("tests/pages/backup-321-calculator/backup-321-calculator.test.mjs"));

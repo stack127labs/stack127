@@ -1,7 +1,7 @@
 {
   "route": "/backup-321-calculator",
-  "state": "unpublished",
-  "reason": "The tool is under technical and content review. Publish it only after a separate registry decision.",
+  "state": "published",
+  "reason": "The tool passed the complete production pipeline and was deliberately published with the thirteen-tool release.",
   "docs": [
     "content_docs/backup-321-calculator"
   ],

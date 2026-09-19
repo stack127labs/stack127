@@ -191,11 +191,11 @@
       },
       {
         "path": "tests/pages/ip-asn-lookup/page.json",
-        "sha256": "700d20f7fda60d7c3309836d307f41f2c82678d47c5afe2c8e715d8506641e88"
+        "sha256": "fdb90484914fc0ddfe324dcebc0272df032b75d40c983b87fd9126ef81116a89"
       },
       {
         "path": "tests/pages/ip-asn-lookup/page.test.mjs",
-        "sha256": "ac6a21a044e8d0759353b500e90ca7e588e6e9ec6427b973be914ed009b5af31"
+        "sha256": "f074de884465178537b914b7f2516c800eb9c66287d3600005eb9b44e4011ce1"
       },
       {
         "path": "tests/pages/ip-asn-lookup/routing.test.mjs",
@@ -244,7 +244,7 @@
         "content_markdown": "11cf922d0bc02cf428c9da8cf6503328db91579cd91027064e16c798cdf97968"
       }
     },
-    "digest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4"
+    "digest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d"
   },
   "feasibility": [
     {
@@ -368,7 +368,7 @@
       "kind": "contracts",
       "required": true,
       "status": "passed",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "evidenceIds": [
         "ev-contracts"
       ]
@@ -378,7 +378,7 @@
       "kind": "technical",
       "required": true,
       "status": "passed",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "evidenceIds": [
         "ev-focused-tests",
         "ev-sol-review"
@@ -389,7 +389,7 @@
       "kind": "interaction",
       "required": true,
       "status": "passed",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "evidenceIds": [
         "ev-browser-report",
         "ev-browser-dark-1440",
@@ -403,7 +403,7 @@
       "kind": "content",
       "required": true,
       "status": "passed",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "evidenceIds": [
         "ev-browser-report",
         "ev-content-match",
@@ -415,7 +415,7 @@
       "kind": "media",
       "required": true,
       "status": "passed",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "evidenceIds": [
         "ev-browser-report",
         "ev-browser-dark-1440",
@@ -429,7 +429,7 @@
       "kind": "rendered",
       "required": true,
       "status": "passed",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "evidenceIds": [
         "ev-browser-dark-1440",
         "ev-browser-dark-390",
@@ -442,7 +442,7 @@
       "kind": "database",
       "required": true,
       "status": "passed",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "evidenceIds": [
         "ev-database"
       ]
@@ -452,7 +452,7 @@
       "kind": "focused-tests",
       "required": true,
       "status": "passed",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "evidenceIds": [
         "ev-focused-tests"
       ]
@@ -462,7 +462,7 @@
       "kind": "build",
       "required": true,
       "status": "passed",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "evidenceIds": [
         "ev-build"
       ]
@@ -472,7 +472,7 @@
       "kind": "repository-quality",
       "required": true,
       "status": "passed",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "evidenceIds": [
         "ev-repository-tests",
         "ev-diff"
@@ -483,7 +483,7 @@
       "kind": "independent-review",
       "required": true,
       "status": "passed",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "evidenceIds": [
         "ev-sol-review"
       ]
@@ -495,7 +495,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:18:59.152Z",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/contracts.log",
       "sha256": "1ddafe2e18aa9e939df76bc9138ca5dcdd7ba960dcb8670a3cdc80d519acfe74",
       "command": "13 interface-contract validators and 13 content-stage pipeline validators",
@@ -506,7 +506,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:25:58.781Z",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/focused-tests.log",
       "sha256": "218d3a57ea9ab4dc8242b56db9ccc36cd2eca74647022d0242683e52577e17a7",
       "command": "node --experimental-strip-types --test-concurrency=1 --test <13 route test sets and shared tool tests>",
@@ -517,7 +517,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:26:56.602Z",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/repository-tests.log",
       "sha256": "741a3b418738dd00b843bd5fd23d9a186702773625b8800f69171ac75f83287d",
       "command": "npm run test",
@@ -528,7 +528,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:29:07.068Z",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/build.log",
       "sha256": "d1e5fe9f58d2a33a828f6f58e12d100640c51d2d0f8eb861a13ba67f24547a4a",
       "command": "npm run build",
@@ -539,7 +539,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:29:07.105Z",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/diff-check.log",
       "sha256": "4bbbd6420a737faa426cb41526a4ede7743f52d302031630fe8a4b29e0be0977",
       "command": "git diff --check",
@@ -550,7 +550,7 @@
       "kind": "database",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:38:53.830Z",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/development-database-receipt.json",
       "sha256": "94570c541dcba0e41351aab1249da4ec3375be13956c6cebee7b25f9ea4430c1"
     },
@@ -559,7 +559,7 @@
       "kind": "review",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:25:12.000Z",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/sol-review.json",
       "sha256": "007a9b66590b1be7074c37a54e285d02b349b4c81e7a2b948fc3e77379c512e5"
     },
@@ -568,7 +568,7 @@
       "kind": "review",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:26:00.000Z",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/content-artifact-match.json",
       "sha256": "3c5c21f88fb38d6816a7f4f2b5a2037878609a27857ce2a59d419c6ff6327303"
     },
@@ -577,7 +577,7 @@
       "kind": "review",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:31:11.073Z",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "path": "content_docs/ip-asn-lookup/pipeline-evidence/browser-inspection.json",
       "sha256": "f703d730755d667e24de46311715bf9fdeecc7954fee845bdf1e43ea6c8a3ad1"
     },
@@ -586,7 +586,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:31:11.073Z",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "path": "content_docs/ip-asn-lookup/pipeline-evidence/browser-dark-1440.png",
       "sha256": "276bf02ac898534ed2ee071c5329c120d695003642826812b9dc519c3eceabf8",
       "backend": "standalone Playwright CLI",
@@ -602,7 +602,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:31:11.073Z",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "path": "content_docs/ip-asn-lookup/pipeline-evidence/browser-dark-390.png",
       "sha256": "f7f7897e9b1e0c586203add03fe53a4cf64e291be2c73a3debacf13003a75649",
       "backend": "standalone Playwright CLI",
@@ -618,7 +618,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:31:11.073Z",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "path": "content_docs/ip-asn-lookup/pipeline-evidence/browser-light-1440.png",
       "sha256": "8682183f9bcbaa947adbab36e45da765ae24299883439575eab8bd2039ec8975",
       "backend": "standalone Playwright CLI",
@@ -634,7 +634,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:31:11.073Z",
-      "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4",
+      "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d",
       "path": "content_docs/ip-asn-lookup/pipeline-evidence/browser-light-390.png",
       "sha256": "ecefbf3815e85952e946dda9ed8fc7a35c4b860500b6730b31348ec972019268",
       "backend": "standalone Playwright CLI",
@@ -663,7 +663,7 @@
           "tests/stack127/tool-pipeline-acceptance.test.mjs"
         ],
         "description": "Resolve the repository root from three parent directories and protect the CLI path with a regression test.",
-        "targetDigest": "9f730668284db55683079d98aa9e2023cc64630c9d26ad6baf682c0167161eb4"
+        "targetDigest": "f100f9303b166a37bb6b9d25467b910e44d52ca9166dd07bd86005cafd431e1d"
       },
       "recheckEvidenceIds": [
         "ev-focused-tests",

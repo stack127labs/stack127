@@ -5,11 +5,11 @@ import test from "node:test";
 const root = new URL("../../../", import.meta.url);
 const route = new URL("app/(site)/(tools)/mqtt-discovery-checker/", root);
 
-test("owns an unpublished flat route with local source and docs", () => {
+test("owns a published flat route with local source and docs", () => {
   for (const file of ["page.tsx", "mqtt-discovery-checker.tsx", "mqtt-discovery-checker.module.css"]) assert.equal(existsSync(new URL(file, route)), true, file);
   const manifest = JSON.parse(readFileSync(new URL("page.json", import.meta.url), "utf8"));
   assert.equal(manifest.route, "/mqtt-discovery-checker");
-  assert.equal(manifest.state, "unpublished");
+  assert.equal(manifest.state, "published");
   assert.deepEqual(manifest.repositories, []);
   assert.ok(manifest.docs.includes("content_docs/mqtt-discovery-checker"));
 });

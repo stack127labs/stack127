@@ -119,11 +119,11 @@
       },
       {
         "path": "tests/pages/backup-321-calculator/page.json",
-        "sha256": "a0cea8e62d69410bc7b482b8fec207d109dfa0fead5e4dc0e96d1b618b974c07"
+        "sha256": "7da93e05348d3b8ec7dbfcdb507560f641628e4dd94d31a6e29f50b416b13030"
       },
       {
         "path": "tests/pages/backup-321-calculator/page.test.mjs",
-        "sha256": "4f3887f48eb85b8d5d9f8151aaf8d4fdf8d81041f3073b4cf9be52afd61ddc84"
+        "sha256": "a85be46065631dabaf4ba738a95fccd6a73fc30160059c5e14628b039deadac4"
       },
       {
         "path": "tests/stack127/tool-pipeline-acceptance.test.mjs",
@@ -168,7 +168,7 @@
         "content_markdown": "ed315baa69725bfcddd02e9a8bdb4dcac9e9ba56304c68698f1d0e2ed1d70e65"
       }
     },
-    "digest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5"
+    "digest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477"
   },
   "feasibility": [
     {
@@ -292,7 +292,7 @@
       "kind": "contracts",
       "required": true,
       "status": "passed",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "evidenceIds": [
         "ev-contracts"
       ]
@@ -302,7 +302,7 @@
       "kind": "technical",
       "required": true,
       "status": "passed",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "evidenceIds": [
         "ev-focused-tests",
         "ev-sol-review"
@@ -313,7 +313,7 @@
       "kind": "interaction",
       "required": true,
       "status": "passed",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "evidenceIds": [
         "ev-browser-report",
         "ev-browser-dark-1440",
@@ -327,7 +327,7 @@
       "kind": "content",
       "required": true,
       "status": "passed",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "evidenceIds": [
         "ev-browser-report",
         "ev-content-match",
@@ -339,7 +339,7 @@
       "kind": "media",
       "required": true,
       "status": "passed",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "evidenceIds": [
         "ev-browser-report",
         "ev-browser-dark-1440",
@@ -353,7 +353,7 @@
       "kind": "rendered",
       "required": true,
       "status": "passed",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "evidenceIds": [
         "ev-browser-dark-1440",
         "ev-browser-dark-390",
@@ -366,7 +366,7 @@
       "kind": "database",
       "required": true,
       "status": "passed",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "evidenceIds": [
         "ev-database"
       ]
@@ -376,7 +376,7 @@
       "kind": "focused-tests",
       "required": true,
       "status": "passed",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "evidenceIds": [
         "ev-focused-tests"
       ]
@@ -386,7 +386,7 @@
       "kind": "build",
       "required": true,
       "status": "passed",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "evidenceIds": [
         "ev-build"
       ]
@@ -396,7 +396,7 @@
       "kind": "repository-quality",
       "required": true,
       "status": "passed",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "evidenceIds": [
         "ev-repository-tests",
         "ev-diff"
@@ -407,7 +407,7 @@
       "kind": "independent-review",
       "required": true,
       "status": "passed",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "evidenceIds": [
         "ev-sol-review"
       ]
@@ -419,7 +419,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:18:59.152Z",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/contracts.log",
       "sha256": "1ddafe2e18aa9e939df76bc9138ca5dcdd7ba960dcb8670a3cdc80d519acfe74",
       "command": "13 interface-contract validators and 13 content-stage pipeline validators",
@@ -430,7 +430,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:25:58.781Z",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/focused-tests.log",
       "sha256": "218d3a57ea9ab4dc8242b56db9ccc36cd2eca74647022d0242683e52577e17a7",
       "command": "node --experimental-strip-types --test-concurrency=1 --test <13 route test sets and shared tool tests>",
@@ -441,7 +441,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:26:56.602Z",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/repository-tests.log",
       "sha256": "741a3b418738dd00b843bd5fd23d9a186702773625b8800f69171ac75f83287d",
       "command": "npm run test",
@@ -452,7 +452,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:29:07.068Z",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/build.log",
       "sha256": "d1e5fe9f58d2a33a828f6f58e12d100640c51d2d0f8eb861a13ba67f24547a4a",
       "command": "npm run build",
@@ -463,7 +463,7 @@
       "kind": "command",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:29:07.105Z",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/diff-check.log",
       "sha256": "4bbbd6420a737faa426cb41526a4ede7743f52d302031630fe8a4b29e0be0977",
       "command": "git diff --check",
@@ -474,7 +474,7 @@
       "kind": "database",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:38:53.830Z",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/development-database-receipt.json",
       "sha256": "94570c541dcba0e41351aab1249da4ec3375be13956c6cebee7b25f9ea4430c1"
     },
@@ -483,7 +483,7 @@
       "kind": "review",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:25:12.000Z",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/sol-review.json",
       "sha256": "007a9b66590b1be7074c37a54e285d02b349b4c81e7a2b948fc3e77379c512e5"
     },
@@ -492,7 +492,7 @@
       "kind": "review",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:26:00.000Z",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "path": "stack127_records/2026-09-19-final-audit-13-evidence/content-artifact-match.json",
       "sha256": "3c5c21f88fb38d6816a7f4f2b5a2037878609a27857ce2a59d419c6ff6327303"
     },
@@ -501,7 +501,7 @@
       "kind": "review",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:29:55.783Z",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "path": "content_docs/backup-321-calculator/pipeline-evidence/browser-inspection.json",
       "sha256": "3bd89e0d15e4d8e9d409c8b272e1626846674d884b093430209c431177e56c02"
     },
@@ -510,7 +510,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:29:55.783Z",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "path": "content_docs/backup-321-calculator/pipeline-evidence/browser-dark-1440.png",
       "sha256": "94396d7336c8f3b286db9affe0a77715e74929f99fd37cb53a5c98f89da21cb5",
       "backend": "standalone Playwright CLI",
@@ -526,7 +526,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:29:55.783Z",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "path": "content_docs/backup-321-calculator/pipeline-evidence/browser-dark-390.png",
       "sha256": "88f62cad5a33e15cfba5c09cc2598a7be179c50078e87ab635260534f06d8b56",
       "backend": "standalone Playwright CLI",
@@ -542,7 +542,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:29:55.783Z",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "path": "content_docs/backup-321-calculator/pipeline-evidence/browser-light-1440.png",
       "sha256": "79446a6d4e2474e3ff693dec530eae79e8912398e748bee7df49c21ada2684e6",
       "backend": "standalone Playwright CLI",
@@ -558,7 +558,7 @@
       "kind": "browser",
       "author": "/root/final_audit_13",
       "recordedAt": "2026-09-19T16:29:55.783Z",
-      "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5",
+      "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477",
       "path": "content_docs/backup-321-calculator/pipeline-evidence/browser-light-390.png",
       "sha256": "36337fadd3e5386cfb4fac848e777c858f2acfecb7509f3be3a86c5f229c0a19",
       "backend": "standalone Playwright CLI",
@@ -587,7 +587,7 @@
           "tests/stack127/tool-pipeline-acceptance.test.mjs"
         ],
         "description": "Resolve the repository root from three parent directories and protect the CLI path with a regression test.",
-        "targetDigest": "57358912c929ae35580f4ce75be3bd45f2cbac175016b26e3e157136083815e5"
+        "targetDigest": "27eb488df365b231b4c7ea3528a6347dcd7d9112cd66945c321742d788db4477"
       },
       "recheckEvidenceIds": [
         "ev-focused-tests",

@@ -10,11 +10,11 @@ const stylesPath = new URL("ip-asn-lookup.module.css", route);
 const enginePath = new URL("lib/ip-asn/resolve.ts", root);
 const manifestPath = new URL("tests/pages/ip-asn-lookup/page.json", root);
 
-test("owns the flat unpublished route with complete local files", () => {
+test("owns the flat published route with complete local files", () => {
   for (const file of [pagePath, clientPath, stylesPath, enginePath, manifestPath]) assert.equal(existsSync(file), true, file.pathname);
   const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
   assert.equal(manifest.route, "/ip-asn-lookup");
-  assert.equal(manifest.state, "unpublished");
+  assert.equal(manifest.state, "published");
   assert.deepEqual(manifest.repositories, []);
   assert.ok(manifest.docs.includes("content_docs/ip-asn-lookup"));
   assert.ok(manifest.tests.includes("tests/pages/ip-asn-lookup/ip-asn-lookup.test.mjs"));
