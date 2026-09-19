@@ -3,11 +3,17 @@
 alter table public.stack127_tool_pages
   add column if not exists usage_markdown text;
 
-alter table public.stack127_tool_pages
-  add constraint stack127_tool_pages_usage_check check (
-    usage_markdown is null
-    or (usage_markdown = btrim(usage_markdown) and length(usage_markdown) > 0)
-  );
+do $$
+begin
+  alter table public.stack127_tool_pages
+    add constraint stack127_tool_pages_usage_check check (
+      usage_markdown is null
+      or (usage_markdown = btrim(usage_markdown) and length(usage_markdown) > 0)
+    );
+exception
+  when duplicate_object then null;
+end;
+$$;
 
 create or replace function public.prepare_stack127_tool_page_update()
 returns trigger
