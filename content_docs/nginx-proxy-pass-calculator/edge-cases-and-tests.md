@@ -4,9 +4,6 @@ Status: ready
 Tool: NGINX proxy_pass URI Calculator
 Route: `/nginx-proxy-pass-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:f78bf0883e6c127eccafe1488f0478b657149d12435c901690727dde2dd2b281`
-Input fingerprint: `implementation-report.md sha256:e1ec0f2ae6c975838c41c96583afad859e93748094407951ad7b951cc6f8e974`
-Input fingerprint: `brief.md sha256:4c4ec377863d3627db8c4dc7aa78088a9bf569f21833c85d70656599c6603be3`
 
 ## Risk model
 

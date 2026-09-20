@@ -4,7 +4,6 @@ Status: ready
 Tool: KDP page count estimator
 Route: `/kdp-page-count-estimator`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:7b3352e6a420605e555ac1b3662ec2ff4ac69327ccad8577f8181e485f3a9e6e`
 Contract type: formula
 
 ## Product decision

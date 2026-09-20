@@ -4,10 +4,6 @@ Status: ready
 Tool: 3-2-1 backup calculator
 Route: `/backup-321-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:2f44815aab1fd369a2fc5ce558fbab61284f1f2752eb109509df8a46dae57d1e`
-Input fingerprint: `implementation-report.md sha256:b646b8db3031b022255c8b6288cb2024bff1b65c98d9889945ca9bda1b2f95fa`
-Input fingerprint: `interface-contract.md sha256:c10719347f5e39847ba931454aae2811c00c01938b009e655fed705a70da5703`
-Input fingerprint: `brief.md sha256:a7b09add3ef2e573f30b86010e92f81b83788fe8b0d762e86b5bf878c72119a9`
 
 ## Risk model
 

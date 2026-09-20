@@ -7,11 +7,6 @@ Acceptance path: Main-agent review, then the retained Astra writing session; Lun
 Tool: Self-hosted app resource planner
 Route: `/self-hosted-app-resource-planner`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `edge-cases-and-tests.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:e02d971f0055a8585daa4c8bd68f0ef3da388011d79571f0966e2c6bcddfa394`
-Input fingerprint: `implementation-report.md sha256:42cf89821fa32e407542fc947b0b1db74527b62ef489423a0c59537efdd5523c`
-Input fingerprint: `interface-contract.md sha256:3e2910010baceb8bfb5a27005141703dd9a2813f52b0de5384c56f2a4cfa20ce`
-Input fingerprint: `edge-cases-and-tests.md sha256:b1fbc5c968f480c891a81e8ad8dd98b5eb8c4e7bd60f73403e77838dee6b6088`
-Input fingerprint: `brief.md sha256:891670c28e434711521196a48d7fe72ac355af8193e1fa7f64cd9d5d345339fc`
 SERP checked: 2026-09-10
 Primary medium: Tool UI
 Content depth: Give a self-hosting reader enough context to choose a useful app mix, understand reviewed ranges and unknowns, interpret the RAM and storage envelope, and verify a real host. Stop before hardware shopping, runtime monitoring, security review, or a universal compatibility claim.

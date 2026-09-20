@@ -5,7 +5,6 @@ Tool: Unraid Main Array calculator
 Route: `/unraid-calculator`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:5ae019a3f1be087af75a4fb8c6d0dd33ce4814081f23ce3066d75383e34f667e`
 
 ## User task
 

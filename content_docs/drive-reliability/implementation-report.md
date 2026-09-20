@@ -4,7 +4,6 @@ Status: ready
 Tool: Drive Reliability Explorer
 Route: `/drive-reliability`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:7175170108b3bd1afd11a7e376876b1bcf4ed811524405d07dd80da5e69bb954`
 Contract type: resolution
 
 ## Product decision

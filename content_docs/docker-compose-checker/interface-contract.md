@@ -7,8 +7,6 @@ Route: `/docker-compose-checker`
 Mode: pipeline
 Review scope: current interface-contract refresh; no browser verification claimed
 Depends on: `brief.md`, `implementation-report.md`
-Input fingerprint: `brief.md sha256:cdddc1c8a8dea42aa26848b792fd2874159f87cb63c7bb996cd8be187aeeda92`
-Input fingerprint: `implementation-report.md sha256:9ae41963ca921518d6a2ed8e1c243e548f38d91b7d5efdcf43a0eb62592c2055`
 
 ## User task
 

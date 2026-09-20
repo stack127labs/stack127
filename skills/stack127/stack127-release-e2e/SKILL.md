@@ -1,35 +1,27 @@
 ---
 name: stack127-release-e2e
-description: Release stack127 from a successful change-aware main-branch CI run through one tested immutable GHCR image, Dokploy, and exact live revision checks.
+description: Release stack127 to the OVH Dokploy production target and verify the exact live revision.
 ---
 
-# Stack127 release end to end
+# stack127 release
 
-Use this skill for release, deployment, publication verification, or release diagnosis. Read `AGENTS.md`, `stack127_docs/production-deployment.md`, and `scripts/stack127/deployment/targets.json` first.
+Read `AGENTS.md`, `stack127_docs/production-deployment.md`, and `scripts/stack127/deployment/targets.json`.
 
-The only production target is the OVH Dokploy application in the target manifest. Never use the removed Hostinger target.
+## Before release
 
-## Release sequence
+- Confirm the user authorized publication, commit, push, and deployment.
+- Confirm the intended changes are on `main` and preserve unrelated work.
+- Reuse passing core-test and production-build results for the same commit. If either is missing, run `npm run test:core` and `npm run build` once. Run `npm run stack127:deploy:preflight`.
+- Stop on a real build, target, DNS, credential, or live-site failure.
 
-1. Run `npm run quality` locally. Use `npm run quality:full` when shared routing, SEO, shell, registry, tool UI, package, or test infrastructure changed.
-2. Run `npm run stack127:deploy:preflight` before pushing when local production credentials are available.
-3. Keep the intended change on `main` and confirm `HEAD` equals `origin/main` after push.
-4. Wait for `Stack127 CI`. It runs fast checks and change-aware browser coverage. A successful production-relevant push starts the release workflow for that exact SHA.
-5. The release applies migrations and target preflight, builds one immutable image, starts that image, runs release smoke tests against it, then pushes the same image tags.
-6. The workflow deploys the SHA-tagged image through Dokploy.
-7. Treat `/api/health?scope=deploy` as release authority. It must report HTTP 200, `ok: true`, a production runtime, and the exact release SHA.
-8. Confirm `/`, `/robots.txt`, and `/sitemap.xml`.
-9. Record `local HEAD = origin/main = tested image SHA = live health SHA`.
+## Release
 
-Documentation-only pushes do not start CI or deployment. Use manual `workflow_dispatch` with the exact current `origin/main` SHA when a deliberate release is required without a production-relevant push.
+Push the intended main commit. The production workflow runs the minimum release gate, applies changed migrations, builds one image, deploys it through Dokploy, and checks the live revision, homepage, robots file, and sitemap.
 
-## Safety
+Do not repeat TypeScript, start a separate full test suite, or rebuild an image that the workflow already built. Documentation, skill, record, and test-only changes need a manual release only when the user deliberately wants one.
 
-- Never put Dokploy, GHCR, database, or Cloudflare secrets in logs, files, or commits.
-- Never bypass failed CI, preflight, image smoke tests, or live revision checks.
-- Never automate the Dokploy dashboard with user credentials.
-- A Cloudflare Access redirect is a hard failure.
-- Never change DNS merely because a deployment failed or landed on an unexpected revision.
-- Do not call a release complete until the live SHA and public smoke checks pass.
+## Complete
 
-If access is missing, report the exact secret, variable, or service-auth policy. Do not substitute another target or token.
+Report the commit, workflow result, live SHA, public smoke result, and elapsed time. Do not call the release complete unless `HEAD`, `origin/main`, the deployed image, and live health SHA match.
+
+Never deploy to the removed Hostinger target, expose secrets, bypass Cloudflare Access, automate dashboard credentials, or change DNS to hide a failed deployment.

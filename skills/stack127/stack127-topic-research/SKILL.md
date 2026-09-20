@@ -18,7 +18,7 @@ Use this skill from the stack127 repository root when researching resources or p
 - Check `stack127_docs/writing-style.md` when the result includes public-facing copy or page direction.
 - If writing a durable note, place it in `content_ideas/` unless the user asks for another location.
 - Treat route inventory, web search results, product docs, Reddit/community threads, and market demand as time-sensitive. Verify live.
-- Read `skills/stack127/references/homelab-browser-and-search.md` before live search or competitor inspection. Prefer the configured SearXNG endpoint with `bing,duckduckgo` for search discovery; record the actual search backend and engines used. Use standalone Playwright when the Codex in-app Browser is unavailable in homelab CLI mode, and record that backend in the research note.
+- Read `skills/stack127/references/homelab-browser-and-search.md` before live search or competitor inspection. Prefer the configured SearXNG endpoint with `bing,duckduckgo` for search discovery and use the available read-only Browser for operated pages.
 
 ## Research Workflow
 
@@ -37,7 +37,7 @@ Read `stack127_docs/product-direction.md` before choosing subjects or scoring au
 
 2. Build a demand signal for each candidate:
    - Search web results for the exact problem phrasing.
-   - When available, run `node skills/stack127/stack127-tool-research/scripts/searxng-search.mjs --engines bing,duckduckgo "<query>"` and preserve the query, engines, date, and result URLs in the evidence notes.
+   - When available, run `node skills/stack127/tools/stack127-tool-research/scripts/searxng-search.mjs --engines bing,duckduckgo "<query>"` and preserve the query, engines, date, and result URLs in the research notes.
    - Check Reddit, forums, GitHub issues/discussions, vendor docs, and community docs when accessible.
    - Prefer repeated pain patterns over one-off curiosity.
    - If Reddit is blocked, say so and use public search snippets, forum pages, official docs, and issue trackers instead.

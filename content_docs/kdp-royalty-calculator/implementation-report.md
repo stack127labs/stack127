@@ -4,7 +4,6 @@ Status: ready
 Tool: KDP royalty calculator
 Route: `/kdp-royalty-calculator`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:bc008b7941fc2ee44600eaf14773b2da888a63a7463ab63ea61c13c3e56e3825`
 Contract type: formula
 
 ## Product decision

@@ -53,7 +53,7 @@ The route rules are intentionally simple:
 
 ## Current Sitemap Routes
 
-The exact approved set is machine-checked in `scripts/stack127/quality/seo-registry-check.mjs` and indexed by the ownership manifests under `tests/pages/`. It currently includes:
+The exact approved set and its metadata come from `public.stack127_pages`. The shared SEO runtime reads that registry for indexing and sitemap decisions. It currently includes:
 
 - core, legal, and collection pages: `/`, `/about`, `/privacy`, `/terms`, `/self-host-apps`, `/dns-tools`, `/domain-tools`, and `/software-licenses-for-self-hosting`;
 - flat DNS tools: `/dns-lookup`, `/dns-trace`, `/dns-change-checker`, `/nameserver-checker`, `/dnssec-checker`, `/soa-checker`, and `/caa-checker`;

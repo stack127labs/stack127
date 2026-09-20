@@ -1,15 +1,9 @@
 Status: ready
 Feasibility: feasible. The accepted local engine and shared Markdown renderer support this closed guide without a new service, dataset, or runtime change. This accepts planning only; integration, rendered review, audit, and publication remain separate.
 SERP checked: 2026-09-19
-Pipeline acceptance: `content_docs/lxc-idmap-checker/pipeline-acceptance.json`
 Tool: LXC ID mapping checker
 Route: /lxc-idmap-checker
 Primary medium: Tool UI
-Input fingerprint: `competitive-report.md sha256:628bf1012858bc8e6d9d5db9232506398e54b2eff96c51209295bbc30b9a06d4`
-Input fingerprint: `implementation-report.md sha256:287cb38dd27dee071aef8268b3ee9359035b95cd332fca3ac1fbfced0e6daf0c`
-Input fingerprint: `interface-contract.md sha256:84fcd154466599ef26286bdbef4e2b514c8403c79865801704a0355e35a986dd`
-Input fingerprint: `edge-cases-and-tests.md sha256:80bd69cd6221a97ab7afaf6fdcc26a594cc803b6eb2ccc560847b987efdf2dfc`
-Input fingerprint: `brief.md sha256:6ae42360e0aa61bd06251d32c520c9e731fb6a139e29d3379c6b1bce89756737`
 
 ## Search intent
 

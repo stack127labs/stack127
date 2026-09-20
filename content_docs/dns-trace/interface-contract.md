@@ -5,7 +5,6 @@ Tool: DNS Trace Explorer
 Route: `/dns-trace`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:08943f018722049b9e5d389dad708f659e1c678f93101700d88aedb0e5752935`
 
 ## User task
 

@@ -4,8 +4,6 @@ Tool: Restic retention simulator
 Route: /restic-retention-simulator
 Mode: pipeline
 Review scope: current interface-contract refresh; no browser verification claimed
-Input fingerprint: `brief.md sha256:4870f3a1afd249cfcdfb24f2fcec6a20123344c92b2487ff15d8a6d2ed0e31ac`
-Input fingerprint: `implementation-report.md sha256:1c39fdadf7be794f034be1d6e4c6888e7928353184ae5e313b64523f2dec124b`
 
 ## User task
 

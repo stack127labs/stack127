@@ -4,10 +4,6 @@ Status: ready
 Tool: KDP metadata checker
 Route: `/kdp-metadata-checker`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:21ea246bc4296561bf01e86b92a55a3655d01964ebbc420f8749fde0c13b9847`
-Input fingerprint: `implementation-report.md sha256:4894315cdc6cdbaa3afa11159684a8f7d8a69def5ce268fadb91cea7afa9baf9`
-Input fingerprint: `interface-contract.md sha256:c1be878005637fce6375b2a1b3a8efd447eee99885081a0665e56839fe5aa17d`
-Input fingerprint: `brief.md sha256:fb73b58dd28f8a9ac090279d97b18159df37d78362176b6342953cd0eeeaf469`
 
 ## Risk model
 

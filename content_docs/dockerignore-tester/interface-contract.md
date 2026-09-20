@@ -5,7 +5,6 @@ Tool: `.dockerignore` Pattern Tester
 Route: `/dockerignore-tester`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:dd4654f407813c87fa93e5dbf8818cab3fcfe585d4a37611e40bfa4fc7384e49`
 
 ## User task
 

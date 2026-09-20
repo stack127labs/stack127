@@ -1,4 +1,4 @@
 interface:
-  display_name: "Stack127 Release E2E"
-  short_description: "Release through CI, Dokploy API, and live SHA checks"
-  default_prompt: "Use $stack127-release-e2e to run or verify a guarded Stack127 production release without dashboard access codes."
+  display_name: "stack127 release"
+  short_description: "Release one main commit and verify production"
+  default_prompt: "Use $stack127-release-e2e to release the authorized main commit through Dokploy and verify the exact live revision."

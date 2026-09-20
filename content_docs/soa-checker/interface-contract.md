@@ -5,7 +5,6 @@ Tool: SOA Consistency Checker
 Route: `/soa-checker`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:6635d4c44eb703f35f4321c3fe3ab8096f3b98489fa66a5bedef523f05b1d91c`
 
 ## User task
 

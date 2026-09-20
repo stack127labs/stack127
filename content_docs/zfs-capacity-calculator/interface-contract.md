@@ -5,7 +5,6 @@ Tool: ZFS pool capacity calculator
 Route: `/zfs-capacity-calculator`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:779cb4973c1af794e440d8c5da8da209bfae043f36bd6762299ed7093d037faa`
 
 ## User task
 

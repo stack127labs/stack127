@@ -5,7 +5,6 @@ Tool: RAID capacity calculator
 Route: `/raid-calculator`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:075613278753ae898cca4d9d939ef02056021ef334100d40746c15ce813877f5`
 
 ## User task
 

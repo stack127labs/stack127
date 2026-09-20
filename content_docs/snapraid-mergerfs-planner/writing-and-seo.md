@@ -4,10 +4,6 @@ Status: ready
 Tool: SnapRAID and mergerfs Config Planner
 Route: `/snapraid-mergerfs-planner`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:ebc4a669be6a6c45037818725eb87f42c6c2b2184ff846cece587fb594a9fd69`
-Input fingerprint: `implementation-report.md sha256:a4bd1fb3be1d86c3ebd533af9a4d8096fe8b90b7c37a9e65f5d861626c48ffa8`
-Input fingerprint: `edge-cases-and-tests.md sha256:873b7a1ff6901a3ef434a23170204604f9135847a2cd9842aeeb58b6445cc209`
-Input fingerprint: `brief.md sha256:bdd7d66e7d01a59c6d886c06da0480b4c274a3b7039138704698239e6880e226`
 SERP checked: 2026-08-23
 Primary medium: Tool UI
 Prose is the minority: yes

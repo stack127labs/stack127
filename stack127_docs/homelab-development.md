@@ -1,197 +1,47 @@
-# stack127 homelab development handoff
+# Homelab development
 
-Last updated: 26 August 2026
+The main stack127 workspace is `/home/teja/projects/stack127` on `teja-homelab`. Work here unless the user names another checkout.
 
-## Current operating model
+## Environment
 
-The primary stack127 development workspace is now the homelab checkout:
+- `.env.local`: managed development Supabase
+- `.env.database`: production database checks and approved production work
+- `.env.deploy`: OVH, Cloudflare, and Dokploy
+- `.env.analytics`: analytics
+- `.env.homelab`: homelab administration
+- `.env.repos`: repository automation
 
-```text
-/home/teja/projects/stack127
-```
+Do not start a local Supabase Docker stack. Do not print, copy, or commit secrets.
 
-The private source-of-truth repository is `stack127labs/stack127`, using the `main` branch. Normal work should start on the homelab, pull from GitHub before editing, and push reviewed commits back to GitHub. The Mac checkout is an inactive fallback at `/Users/ravitejaknts/projects/Stack127`; it should not receive independent edits because that would create two working copies that can diverge.
+## Development server
 
-stack127 repos use independent checkouts beside the private workspace. The BaseBuddy website checkout is at:
+`npm run dev` and `npm run start` bind to `0.0.0.0:3333`.
 
-```text
-/home/teja/projects/basebuddy-website
-```
+Treat the server as a background service:
 
-It tracks `stack127labs/basebuddy-website` on branch `self-host-dev`. Its files and Git history are separate from the private stack127 repository. BaseBuddy app, DNS Tools, and stack127 datasets are also separate checkouts when needed. See `stack127_docs/stack127-repos.md` for the complete registry and clone workflow.
+1. Start it once.
+2. Wait until `http://127.0.0.1:3333` responds.
+3. Reuse it for the task.
+4. Stop it when the task ends unless the user wants the preview left running.
 
-## Git and homelab setup
+Do not run a development server as a blocking test and wait for it to exit.
 
-- The complete private repository was pushed to GitHub and cloned on the homelab.
-- The homelab checkout tracks `origin/main` and had no tracked changes after synchronization.
-- GitHub CLI was already authenticated on the homelab. `gh auth setup-git` connected that existing authentication to Git operations, so non-interactive pulls work.
-- Cleanup commit `199ed8b` added the reproducible managed-development seed and the database-function security migration.
-- stack127 repos are not nested under the private checkout and do not appear in its Git status. Clone them separately under `/home/teja/projects/<repo-name>` only when working on them.
+## Remote link
 
-## Environment files
-
-The required ignored environment files are present on the homelab with owner-only permissions. Secrets are not committed.
+The user's Mac reaches the homelab through Tailscale. Run `tailscale status`, find the current IPv4 address for `teja-homelab`, and return:
 
 ```text
-.env.local       managed development Supabase
-.env.database    production Supabase
-.env.deploy      OVH, Cloudflare, and Dokploy deployment values
-.env.analytics   analytics values
-.env.homelab     homelab-specific values
-.env.repos       public-repository automation values
+http://<tailscale-ip>:3333/<route>
 ```
 
-Rules:
+Do not give the user `localhost` or `127.0.0.1`. Do not expose port 3333 to the public internet.
 
-- Use `.env.local` for development.
-- Use `.env.database` only for explicit production checks or approved production database work.
-- Do not replace production values with development values.
-- Do not start a local Supabase Docker stack on the homelab.
-- Never commit any environment file or secret.
+## Minimum local check
 
-## Remote local development over Tailscale
+Run a focused calculation or parser test when relevant. Check the real changed page at desktop and mobile width. For route, shared runtime, SEO, or production configuration changes, run `npm run test:core` and `npm run build` once; the build already checks TypeScript. Use `npm run quality` only when TypeScript changed and no build is needed.
 
-The homelab is the development host used by Codex Remote Control. When the
-Codex App is open on the Mac, a running Stack127 server must be opened through
-the homelab's Tailscale address rather than through the Mac's own loopback
-interface.
+Build output such as `.next`, `.next-*`, `test-results`, and temporary logs is disposable and must not be committed.
 
-The repository scripts bind Next.js to all host interfaces on port `3333`:
+## Other repositories
 
-```bash
-npm run dev
-```
-
-or, for a built app:
-
-```bash
-npm run start
-```
-
-Find the current homelab address with:
-
-```bash
-tailscale status
-```
-
-As of 26 August 2026, `teja-homelab` reported Tailscale IPv4
-`100.86.117.125`. The remote link for the keyboard-shortcuts hub was therefore:
-
-```text
-http://100.86.117.125:3333/keyboard-shortcuts
-```
-
-Tailscale addresses can change. Always use the current address from
-`tailscale status` when giving a link. `http://localhost:3333` and
-`http://127.0.0.1:3333` are valid only for a browser running on the homelab;
-do not send those URLs to a Mac user. Keep the server private to Tailscale and
-do not open port `3333` on the public WAN interface.
-
-## Managed Supabase
-
-Both environments use managed Supabase:
-
-```text
-Development project ref: phhrfvmncpqqmmgruktx
-Production project ref:  tulgfrqamtcshdtmhvpx
-```
-
-Development setup completed:
-
-- Database authentication was verified against PostgreSQL 17.6.
-- All committed migrations were applied.
-- The normal development seed was applied.
-- All 16 `/self-hosting-for-beginners` registry rows are now part of the ordered development seed in `supabase/seeds/20260817_self_hosting_for_beginners_pages.sql`.
-- `supabase/config.toml` loads that course seed after the existing open-project seed.
-- The seed is idempotent and is checked against `scripts/self-hosting-for-beginners/pages.json` by a page-family regression test.
-- Development has 52 published page rows, including all 16 course routes.
-- All public tables have RLS enabled.
-
-Database security cleanup completed:
-
-- Migration `20260817170257_secure_set_updated_at_search_path.sql` fixes `public.set_updated_at()` to use `search_path=pg_catalog`.
-- The migration was applied to development and production.
-- Production migration history was aligned for the three previously pending publication migrations before the security migration.
-- Production remained at 52 published pages.
-- The pinned Supabase database advisor reports no issues in either environment.
-
-## Dependencies and verification
-
-stack127 dependencies were installed with `npm ci`. The project-required Playwright Chromium revision was installed on the homelab. The complete quality gate passes on the synchronized repository:
-
-- TypeScript check passed.
-- 382 unit tests pass.
-- Static policy passes for all 53 route files.
-- The managed production SEO registry check passes with 53 published slugs.
-- The 342-case desktop/mobile Playwright matrix completes with 218 active checks, 124 repository-configured skips, and no failures.
-- The production Next.js build passed.
-
-The BaseBuddy website checkout was previously installed with pnpm 10.32.1. Each BaseBuddy repository owns its own dependencies, environment examples, tests, and quality gate; the private stack127 checkout does not depend on or contain those files.
-
-No local Supabase containers are required or running.
-
-## Codex Remote Control
-
-The homelab runs Linux Mint and has the ChatGPT/Codex desktop application and Codex CLI installed. The host-side Remote Control service is provided by Codex CLI's app-server daemon:
-
-```bash
-codex remote-control start --json
-```
-
-Verified host state:
-
-- Server name: `teja-homelab`
-- Codex CLI/app-server version: `0.147.0`
-- Daemon status: connected and already running
-- Remote Control: enabled
-- Daemon auto-update: enabled
-
-The short-lived manual pairing code was generated with:
-
-```bash
-codex remote-control pair
-```
-
-The code was entered in the Codex App on the Mac. Pairing codes must never be saved in this repository.
-
-Remote Control and SSH-host projects are different features. In this setup, Remote Control is the intended path:
-
-```text
-Codex App on Mac or another paired device
-  -> OpenAI Remote Control relay
-  -> Codex app-server daemon on teja-homelab
-  -> /home/teja/projects/stack127
-```
-
-Commands, files, dependencies, credentials, plugins, browser state, screenshots, and background work come from the homelab when a task is running on `teja-homelab`.
-
-An SSH alias named `stack127-homelab` also exists on the Mac and uses the existing Bitwarden-backed SSH access. It is useful for administration but is not the Remote Control transport.
-
-## Final Remote Control verification
-
-The server side is complete. One client-side check remains because the current Mac task was started before pairing and continued to report only the local host:
-
-1. Fully quit and reopen the Codex App on the Mac.
-2. Confirm `teja-homelab` appears as an available host under Remote or Connections.
-3. Select or add `/home/teja/projects/stack127` on that host.
-4. Start a small task and confirm its working directory is `/home/teja/projects/stack127`.
-5. Confirm `git rev-parse --short HEAD` matches `origin/main`.
-
-After this check passes, the Mac repository is no longer needed for day-to-day work. It may be kept as an inactive fallback or removed later after verifying there are no uncommitted or ignored files that exist only on the Mac.
-
-## Daily workflow
-
-1. Choose `teja-homelab` in the Codex App.
-2. Open `/home/teja/projects/stack127`.
-3. Run `git pull --ff-only origin main` before new work.
-4. Use `.env.local` for development and managed-dev database checks.
-5. Run the relevant tests, then `npm run quality` before a release.
-6. Commit and push only intended files. Never commit environment files.
-7. Run `npm run stack127:deploy:preflight` before any production deployment.
-
-If Remote Control needs to be restarted:
-
-```bash
-codex remote-control stop
-codex remote-control start --json
-```
+Independent stack127 repositories live in separate checkouts under `/home/teja/projects/`. They are not nested dependencies of this repository. Read `stack127_docs/stack127-repos.md` before editing one.

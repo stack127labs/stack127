@@ -1,0 +1,4 @@
+interface:
+  display_name: "stack127 Tool Research"
+  short_description: "Research one stack127 tool page deeply"
+  default_prompt: "Use $stack127-tool-research to operate relevant competitors, verify technical facts, and write the Research section of tool-spec.md."

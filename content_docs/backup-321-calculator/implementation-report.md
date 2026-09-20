@@ -4,7 +4,6 @@ Status: ready
 Tool: 3-2-1 backup calculator
 Route: /backup-321-calculator
 Depends on: competitive-report.md
-Input fingerprint: `competitive-report.md sha256:2f44815aab1fd369a2fc5ce558fbab61284f1f2752eb109509df8a46dae57d1e`
 Contract type: formula
 
 ## Product decision

@@ -4,7 +4,6 @@ Status: ready
 Tool: NGINX proxy_pass URI Calculator
 Route: `/nginx-proxy-pass-calculator`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:f78bf0883e6c127eccafe1488f0478b657149d12435c901690727dde2dd2b281`
 Contract type: formula
 
 ## Product decision

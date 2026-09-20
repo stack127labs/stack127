@@ -4,7 +4,6 @@ Status: ready
 Tool: KDP PDF preflight checker
 Route: `/kdp-pdf-preflight-checker`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:9f26cc1b612cb140c3fabbf771dafb938ad3763eac0a96a4907b0c6ecc2d7bf5`
 Contract type: resolution
 
 ## Product decision

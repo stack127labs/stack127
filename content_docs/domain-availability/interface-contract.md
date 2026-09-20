@@ -5,7 +5,6 @@ Tool: Domain Availability Checker
 Route: `/domain-availability`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:0f080ebd38640f3fc4f976571b32a2bbbeaccbe0b6b2150e1be3a98dc176ce6d`
 
 ## User task
 

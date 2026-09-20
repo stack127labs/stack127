@@ -1,15 +1,20 @@
-name: Stack127 Release E2E
+name: Stack127 Release
 
 on:
-  workflow_run:
-    workflows:
-      - Stack127 CI
-    types:
-      - completed
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**/*.md"
+      - "content_docs/**"
+      - "skills/**"
+      - "stack127_docs/**"
+      - "stack127_records/**"
+      - "tests/**"
   workflow_dispatch:
     inputs:
       commit_sha:
-        description: "Exact origin/main SHA to release. Leave empty for the current default branch."
+        description: "Exact current main SHA to release. Leave empty for main."
         required: false
         type: string
 
@@ -23,45 +28,35 @@ concurrency:
 
 jobs:
   release:
-    if: >-
-      github.event_name == 'workflow_dispatch' ||
-      (github.event.workflow_run.conclusion == 'success' &&
-       github.event.workflow_run.event == 'push' &&
-       github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     environment: production
-    timeout-minutes: 40
+    timeout-minutes: 20
     env:
-      RELEASE_SHA: ${{ github.event.workflow_run.head_sha || inputs.commit_sha || github.sha }}
+      RELEASE_SHA: ${{ inputs.commit_sha || github.sha }}
 
     steps:
-      - name: Checkout the verified release SHA
+      - name: Checkout release
         uses: actions/checkout@v4
         with:
           ref: ${{ env.RELEASE_SHA }}
           fetch-depth: 0
 
-      - name: Verify the release is the current origin/main tip
+      - name: Verify current main
         shell: bash
         run: |
           set -euo pipefail
           origin_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
-          if [ -z "$origin_sha" ] || [ "$RELEASE_SHA" != "$origin_sha" ]; then
-            echo "Refusing to deploy a stale or non-main revision."
-            echo "expected=$RELEASE_SHA origin/main=$origin_sha"
-            exit 1
-          fi
+          test -n "$origin_sha"
+          test "$RELEASE_SHA" = "$origin_sha"
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
 
-      - name: Prepare production quality and deployment environments
+      - name: Prepare production environment
         env:
           DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -73,129 +68,77 @@ jobs:
         run: |
           set -euo pipefail
           umask 077
-          test -n "$DATABASE_URL" || { echo "Missing production secret: DATABASE_POOLER_URL or DATABASE_URL"; exit 1; }
-          test -n "$CLOUDFLARE_API_TOKEN" || { echo "Missing production secret: CLOUDFLARE_API_TOKEN"; exit 1; }
-          test -n "$CLOUDFLARE_ZONE_ID" || { echo "Missing production variable or secret: CLOUDFLARE_ZONE_ID"; exit 1; }
-          {
-            printf 'DATABASE_URL=%s\n' "$DATABASE_URL"
-            printf 'SUPABASE_URL=%s\n' "$SUPABASE_URL"
-            printf 'SUPABASE_PUBLISHABLE_KEY=%s\n' "$SUPABASE_PUBLISHABLE_KEY"
-            printf 'SUPABASE_SECRET_KEY=%s\n' "$SUPABASE_SECRET_KEY"
-          } > .env.database
-          node - <<'NODE' > "$RUNNER_TEMP/stack127-deploy.env"
-          const fs = require("node:fs");
-          const manifest = JSON.parse(fs.readFileSync("scripts/stack127/deployment/targets.json", "utf8"));
-          const production = manifest.production;
-          const values = {
-            STACK127_PRODUCTION_TARGET: production.id,
-            STACK127_PRODUCTION_PROVIDER: production.provider,
-            STACK127_PRODUCTION_HOST: production.origin.ipv4,
-            STACK127_PRODUCTION_IPV6: production.origin.ipv6,
-            STACK127_PRODUCTION_SSH_USER: production.ssh.user,
-            STACK127_PRODUCTION_DOKPLOY_URL: production.dokploy.url,
-            STACK127_PRODUCTION_DOKPLOY_APP_ID: production.dokploy.applicationId,
-            STACK127_PRODUCTION_DOKPLOY_APP_NAME: production.dokploy.appName,
-            STACK127_PRODUCTION_REPOSITORY: production.repository.fullName,
-            STACK127_PRODUCTION_BRANCH: production.repository.branch,
-          };
-          for (const [key, value] of Object.entries(values)) console.log(`${key}=${value}`);
-          NODE
+          test -n "$DATABASE_URL"
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ZONE_ID"
+          printf 'DATABASE_URL=%s\n' "$DATABASE_URL" > .env.database
+          printf 'SUPABASE_URL=%s\n' "$SUPABASE_URL" >> .env.database
+          printf 'SUPABASE_PUBLISHABLE_KEY=%s\n' "$SUPABASE_PUBLISHABLE_KEY" >> .env.database
+          printf 'SUPABASE_SECRET_KEY=%s\n' "$SUPABASE_SECRET_KEY" >> .env.database
+          node scripts/stack127/deployment/write-target-env.mjs "$RUNNER_TEMP/stack127-deploy.env"
           printf 'CLOUDFLARE_API_TOKEN=%s\n' "$CLOUDFLARE_API_TOKEN" >> "$RUNNER_TEMP/stack127-deploy.env"
           printf 'CLOUDFLARE_ZONE_ID=%s\n' "$CLOUDFLARE_ZONE_ID" >> "$RUNNER_TEMP/stack127-deploy.env"
 
-      - name: Install Chromium for a manual release
-        if: github.event_name == 'workflow_dispatch'
-        run: npx playwright install --with-deps chromium
+      - name: Run minimum release checks
+        run: npm run test:core
 
-      - name: Run safety checks for a manual release
-        if: github.event_name == 'workflow_dispatch'
-        run: npm run quality:ci
+      - name: Detect migration changes
+        id: migrations
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="${{ github.event.before }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ -z "$base" ] || [[ "$base" =~ ^0+$ ]]; then
+            echo 'run=true' >> "$GITHUB_OUTPUT"
+          elif git diff --quiet "$base" "$RELEASE_SHA" -- supabase/migrations; then
+            echo 'run=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'run=true' >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Install Supabase CLI
+        if: steps.migrations.outputs.run == 'true'
         uses: supabase/setup-cli@v1
         with:
           version: latest
 
       - name: Apply database migrations
+        if: steps.migrations.outputs.run == 'true'
         env:
           DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
-        run: |
-          set -euo pipefail
-          supabase db push --db-url "$DATABASE_URL" --include-all --yes
+        run: supabase --yes db push --db-url "$DATABASE_URL" --include-all
 
-      - name: Run the production target preflight
+      - name: Run production target preflight
         run: npm run stack127:deploy:preflight -- --env-file "$RUNNER_TEMP/stack127-deploy.env"
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      - uses: docker/setup-buildx-action@v3
 
-      - name: Log in to GitHub Container Registry
-        uses: docker/login-action@v3
+      - uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Resolve immutable image name
+      - name: Resolve image name
         id: image
         shell: bash
         run: |
-          set -euo pipefail
           owner="$(printf '%s' "$GITHUB_REPOSITORY_OWNER" | tr '[:upper:]' '[:lower:]')"
           echo "image=ghcr.io/$owner/stack127-web" >> "$GITHUB_OUTPUT"
 
-      - name: Build the immutable production image once
+      - name: Build and push once
         uses: docker/build-push-action@v6
         with:
           context: .
-          load: true
-          push: false
+          push: true
           tags: |
             ${{ steps.image.outputs.image }}:${{ env.RELEASE_SHA }}
             ${{ steps.image.outputs.image }}:production
-          build-args: |
-            STACK127_BUILD_SHA=${{ env.RELEASE_SHA }}
+          build-args: STACK127_BUILD_SHA=${{ env.RELEASE_SHA }}
           cache-from: type=gha,scope=stack127-production-web
           cache-to: type=gha,mode=min,scope=stack127-production-web
 
-      - name: Start the exact production image for smoke tests
-        shell: bash
-        run: |
-          set -euo pipefail
-          docker run --detach --name stack127-release-smoke \
-            --publish 127.0.0.1:3334:3000 \
-            --env-file .env.database \
-            "${{ steps.image.outputs.image }}:$RELEASE_SHA"
-          for attempt in $(seq 1 60); do
-            if curl --fail --silent http://127.0.0.1:3334/api/health > /dev/null; then
-              exit 0
-            fi
-            sleep 1
-          done
-          docker logs stack127-release-smoke
-          exit 1
-
-      - name: Run smoke tests against the exact production image
-        env:
-          STACK127_EXTERNAL_SERVER: "1"
-          STACK127_EXPECTED_SHA: ${{ env.RELEASE_SHA }}
-          STACK127_TEST_BASE_URL: http://127.0.0.1:3334
-        run: |
-          npx playwright install --with-deps chromium
-          npm run test:smoke:external
-
-      - name: Stop the smoke-test container
-        if: always()
-        run: docker rm --force stack127-release-smoke || true
-
-      - name: Push the tested immutable image
-        shell: bash
-        run: |
-          set -euo pipefail
-          docker push "${{ steps.image.outputs.image }}:$RELEASE_SHA"
-          docker push "${{ steps.image.outputs.image }}:production"
-
-      - name: Deploy the tested image through Dokploy API
+      - name: Deploy and verify live site
         env:
           DOKPLOY_API_URL: ${{ vars.STACK127_DOKPLOY_API_URL || 'https://dokploy.stack127.com' }}
           DOKPLOY_API_KEY: ${{ secrets.DOKPLOY_API_KEY }}

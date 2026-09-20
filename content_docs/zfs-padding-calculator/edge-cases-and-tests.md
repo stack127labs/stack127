@@ -4,9 +4,6 @@ Status: ready
 Tool: ZFS Block Size and Padding Calculator
 Route: `/zfs-padding-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:0845f0afe056f88a87cbbe4ea96ecbe389c3d37f15b2bfd1233a48b04fd99de2`
-Input fingerprint: `implementation-report.md sha256:5e1e0d913bf26dabb70caf957b8e3429bfb7a61e6a34d8458db28154f982be1c`
-Input fingerprint: `brief.md sha256:07b75182316d859648124d48ed0fb83f68956585fce9572723999979e96e1191`
 
 ## Risk model
 

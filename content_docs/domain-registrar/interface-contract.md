@@ -5,7 +5,6 @@ Tool: Registrar Lookup
 Route: `/domain-registrar`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:b820d7a462183e107c82a6232ef60c2efc9c9ba01d3f13ed0a2190bdc7c1aeba`
 
 ## User task
 

@@ -4,7 +4,6 @@ Status: ready
 Tool: Docker Compose checker
 Route: `/docker-compose-checker`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:bb8cce9a5c129e931e9df10005408b430af2e851b8d6fb0e9db8db957e32d3ae`
 Contract type: resolution
 
 ## Product decision

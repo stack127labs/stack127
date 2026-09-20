@@ -7,8 +7,6 @@ Route: `/kdp-metadata-checker`
 Mode: pipeline
 Review scope: Contract refresh within the unfinished new-tool pipeline, using its ready research and product inputs. This refresh reviews planning and source evidence only. Runtime state operation, rendered component consistency, and final tool acceptance remain separate required checks.
 Depends on: `brief.md`, `implementation-report.md`
-Input fingerprint: `brief.md sha256:fb73b58dd28f8a9ac090279d97b18159df37d78362176b6342953cd0eeeaf469`
-Input fingerprint: `implementation-report.md sha256:4894315cdc6cdbaa3afa11159684a8f7d8a69def5ce268fadb91cea7afa9baf9`
 
 ## User task
 

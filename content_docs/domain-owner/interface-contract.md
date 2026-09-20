@@ -5,7 +5,6 @@ Tool: Domain Registrant Lookup
 Route: `/domain-owner`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:25e345512c88cd73ebfd8b7222e1f045b5a996106808ff060aa0bfd4b2a50c20`
 
 ## User task
 

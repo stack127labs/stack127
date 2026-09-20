@@ -5,7 +5,6 @@ Tool: Domain Expiry Checker
 Route: `/domain-expiry`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:034b9142bbb1c8a089cd17c178a45e06dd01f35b689e3dd7ac0c0c2f4e1e692c`
 
 ## User task
 

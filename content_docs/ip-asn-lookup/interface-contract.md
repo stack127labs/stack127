@@ -7,8 +7,6 @@ Route: `/ip-asn-lookup`
 Mode: pipeline
 Review scope: current interface-contract refresh; no browser verification claimed
 Depends on: `brief.md`, `implementation-report.md`
-Input fingerprint: `brief.md sha256:94d430dc139b637fef92f0a66ed08c87f2036c38f9a1e8433e458619b81e399a`
-Input fingerprint: `implementation-report.md sha256:ef5577306cf52712f610dcc77c9bab54af8bfda940e19eb855884bf678022063`
 
 ## User task
 

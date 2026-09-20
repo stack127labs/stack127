@@ -5,7 +5,6 @@ Tool: Rebuild window and read-error exposure calculator
 Route: `/rebuild-calculator`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:e7a2c7292aaee8a59be4fc3fbd7819803a9d359c1c75d416e41d6cf3eb7a73fe`
 
 ## User task
 

@@ -4,7 +4,6 @@ Status: ready
 Tool: NFS Firewall Rules Planner
 Route: `/nfs-firewall-rules`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:9878c81c26a6ec7a191d7566807f012202b0b088f6a5c5b9d2b2406acf883377`
 Contract type: formula
 Formula version: `nfs-firewall-plan-v1`
 

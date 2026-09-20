@@ -5,7 +5,6 @@ Tool: RAIDZ Expansion Planner
 Route: `/raidz-expansion-planner`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:4c4da6853fcedb9b94cc05d432c83a14cf4fd96c722db5c4e20c482cf33d884f`
 
 ## User task
 

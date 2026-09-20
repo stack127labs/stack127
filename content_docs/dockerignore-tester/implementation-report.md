@@ -4,7 +4,6 @@ Status: ready
 Tool: `.dockerignore` Pattern Tester
 Route: `/dockerignore-tester`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:8e457dfd22e04d7be0079a4bec4a16caf5dd248fe686f292e939083bcd9d92e4`
 Contract type: formula
 
 ## Product decision

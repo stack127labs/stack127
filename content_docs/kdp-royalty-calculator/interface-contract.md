@@ -7,8 +7,6 @@ Route: `/kdp-royalty-calculator`
 Mode: pipeline
 Review scope: Contract refresh within the unfinished new-tool pipeline, using its ready research and product inputs. This refresh reviews planning and source evidence only. Runtime state operation, rendered component consistency, and final tool acceptance remain separate required checks.
 Depends on: `brief.md`, `implementation-report.md`
-Input fingerprint: `brief.md sha256:e88c2b8c9b71e15a9a1729bc1c05af84fbaaf220b7fb6b4d6bac79f482e311c4`
-Input fingerprint: `implementation-report.md sha256:c8ad4f6712d70ac4caa65de2a5172475e47f6a8ce02ae1a08d916256c02bf405`
 
 ## User task
 

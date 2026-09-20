@@ -5,7 +5,6 @@ Tool: ZFS padding calculator
 Route: `/zfs-padding-calculator`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:85b9fa919ca901c93ffb9cf12b9f8a992ad774425cbdf709a8ccf7106399ce8a`
 
 ## User task
 

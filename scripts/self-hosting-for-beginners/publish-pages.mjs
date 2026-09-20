@@ -10,9 +10,8 @@
  *   node scripts/self-hosting-for-beginners/publish-pages.mjs --unpublish     # set is_published=false
  *   node scripts/self-hosting-for-beginners/publish-pages.mjs --database-url <url>
  *
- * Production note: scripts/stack127/quality/seo-registry-check.mjs is the
- * expected-slug gate for published SEO pages. Keep that list aligned with this
- * file before publishing or unpublishing course pages.
+ * Production note: after an authorized publication change, verify the exact
+ * live route and sitemap entry.
  */
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
@@ -100,8 +99,7 @@ try {
   }
   console.log(
     `\n${pages.length} rows ${unpublish ? "unpublished" : "upserted"}.` +
-      "\nReminder: production publication must stay aligned with" +
-      "\nscripts/stack127/quality/seo-registry-check.mjs.",
+      "\nReminder: verify each authorized production route and sitemap entry.",
   );
 } finally {
   await pool.end();

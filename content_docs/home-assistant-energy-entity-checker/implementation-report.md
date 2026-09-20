@@ -4,7 +4,6 @@ Status: ready
 Tool: Home Assistant Energy Entity Eligibility Checker
 Route: `/home-assistant-energy-entity-checker`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:d2a2d93cc0b54c03db997f41b8b2db7804c0b33f282e047eefaac875a29829d4`
 Contract type: formula
 
 ## Product decision

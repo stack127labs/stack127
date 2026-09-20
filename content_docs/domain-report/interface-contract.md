@@ -5,7 +5,6 @@ Tool: Domain Registration Report
 Route: `/domain-report`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:22ec1f4bb48539fd29d76d38d50e1a032bd907d811935ca901a057597b2a2d0d`
 
 ## User task
 

@@ -5,7 +5,6 @@ Tool: Storage growth and TCO planner
 Route: `/storage-growth-planner`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:95a749c7272903423f23784097c7c7fbda4d29712e4799146a8a188af8106789`
 
 ## User task
 

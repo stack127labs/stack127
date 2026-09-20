@@ -4,7 +4,6 @@ Status: ready
 Tool: Storage Growth and TCO Planner
 Route: `/storage-growth-planner`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:65f2d1849a7824b74053e706e6d6651fc586101ef05fab65df41dc3735f21e66`
 Contract type: formula
 
 ## Product decision

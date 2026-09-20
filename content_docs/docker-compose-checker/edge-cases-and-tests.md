@@ -4,10 +4,6 @@ Status: ready
 Tool: Docker Compose checker
 Route: /docker-compose-checker
 Depends on: competitive-report.md, implementation-report.md, interface-contract.md, brief.md
-Input fingerprint: `competitive-report.md sha256:bb8cce9a5c129e931e9df10005408b430af2e851b8d6fb0e9db8db957e32d3ae`
-Input fingerprint: `implementation-report.md sha256:9ae41963ca921518d6a2ed8e1c243e548f38d91b7d5efdcf43a0eb62592c2055`
-Input fingerprint: `brief.md sha256:cdddc1c8a8dea42aa26848b792fd2874159f87cb63c7bb996cd8be187aeeda92`
-Input fingerprint: `interface-contract.md sha256:6098cf4d0be201920481eb4a2226131368592f1a7aa4206dc79bef553cfd7b13`
 
 ## Risk model
 

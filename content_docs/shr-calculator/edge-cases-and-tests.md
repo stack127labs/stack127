@@ -4,9 +4,6 @@ Status: ready
 Tool: Synology SHR Capacity Calculator
 Route: `/shr-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:eb79c88e17c13ad0555a93e882eca78d156ab5dedffa2bb446b87f6e7efab77b`
-Input fingerprint: `implementation-report.md sha256:c5a75a39bf7540743712fbdfc004c3c7a9955d9d5ec37d038d516ac6ee7790be`
-Input fingerprint: `brief.md sha256:e5a1cd584fe965f0a2ea1f352031b5428b5589fa98615d7f7d041ff3a5068642`
 
 ## Risk model
 

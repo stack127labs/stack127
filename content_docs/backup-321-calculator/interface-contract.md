@@ -7,8 +7,6 @@ Route: /backup-321-calculator
 Mode: pipeline
 Review scope: current interface-contract refresh; no browser verification claimed
 Depends on: brief.md, implementation-report.md
-Input fingerprint: `brief.md sha256:a7b09add3ef2e573f30b86010e92f81b83788fe8b0d762e86b5bf878c72119a9`
-Input fingerprint: `implementation-report.md sha256:b646b8db3031b022255c8b6288cb2024bff1b65c98d9889945ca9bda1b2f95fa`
 
 ## User task
 

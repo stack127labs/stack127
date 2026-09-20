@@ -1,15 +1,9 @@
 Status: ready
 Feasibility: feasible. The accepted local engine and shared Markdown renderer support this closed guide without a new service, dataset, or runtime change. This accepts planning only; integration, rendered review, audit, and publication remain separate.
 SERP checked: 2026-09-19
-Pipeline acceptance: `content_docs/mqtt-discovery-checker/pipeline-acceptance.json`
 Tool: Home Assistant MQTT discovery checker
 Route: /mqtt-discovery-checker
 Primary medium: Tool UI
-Input fingerprint: `competitive-report.md sha256:bc5315672de2d9b070ef29c6cec1bb0eaefc9223bae7dcbb7fe267812fbeb516`
-Input fingerprint: `implementation-report.md sha256:7ea8b887d249c8a38f83e5257683b9eaa6519b75a808207878bae11b17208d67`
-Input fingerprint: `interface-contract.md sha256:ca7c4f9b6b602b6608585577cf17d96db2b6e0da14ad3f1f18fa40f1f6466371`
-Input fingerprint: `edge-cases-and-tests.md sha256:36260e2def18eb256dfd70c501172dbecabc7423ddb69fcef84bd54897b32921`
-Input fingerprint: `brief.md sha256:8876f3c879600fc752405ab365ce52064c732d7928e3b06d4a3fa9b49c1e9096`
 
 ## Search intent
 

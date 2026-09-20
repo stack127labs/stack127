@@ -18,7 +18,7 @@ The interface should follow that order. Do not give introductory copy, secondary
 
 ## Plan before implementation
 
-Every new tool and every substantial redesign needs `content_docs/<tool-slug>/interface-contract.md` before UI code changes. Create it with `skills/stack127/stack127-tool-interface-plan/SKILL.md`. A small correction may proceed without a new contract only when it does not change the visible input set, result regions, hierarchy, visual format, or responsive order.
+Every new tool and every substantial redesign needs a ready Interface section in `content_docs/<tool-slug>/tool-spec.md` before UI code changes. Create it with `skills/stack127/tools/stack127-tool-interface-plan/SKILL.md`. A small correction may proceed without revising the section only when it does not change the visible input set, result regions, hierarchy, visual format, or responsive order.
 
 The interface contract must decide:
 

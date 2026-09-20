@@ -7,11 +7,6 @@ Acceptance path: Main-agent review, then the retained Astra writing session; Lun
 Tool: KDP PDF preflight checker
 Route: `/kdp-pdf-preflight-checker`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `edge-cases-and-tests.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:9f26cc1b612cb140c3fabbf771dafb938ad3763eac0a96a4907b0c6ecc2d7bf5`
-Input fingerprint: `implementation-report.md sha256:a1275b12d752c5d4836c302f9d8efd458c9e05090bb9c2b3dcd0222529c074ed`
-Input fingerprint: `interface-contract.md sha256:e871b8f03ed37d21bf0ebbab81d9526140670738ccdd0bf17ca002b7ea0f0dc5`
-Input fingerprint: `edge-cases-and-tests.md sha256:c6c021f89c2c5d570cc079c60c995caa25a70c61a4160fbcd2bd68117927a760`
-Input fingerprint: `brief.md sha256:e64182e5bed956814f1727c8c65f044ab1609a6d3709d6a430154e73cfed093c`
 SERP checked: 2026-09-16
 Search backend: web connector
 Search engines: not individually available

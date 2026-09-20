@@ -4,10 +4,6 @@ Status: ready
 Tool: KDP book setup calculator
 Route: `/kdp-book-setup-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:39b41e517516ee03bf27e73acdfbe52af6231188e671674c6fae3310f8df8932`
-Input fingerprint: `implementation-report.md sha256:0b080658916703aad2442f87770690fb000f3935582fd9810b81b6f7d4ccf007`
-Input fingerprint: `interface-contract.md sha256:bc465c6a3cccb64045ba159c8b34e3946cce9af3978663e3f9f9bef39cf1e5b3`
-Input fingerprint: `brief.md sha256:da924e6f8c97ae526f97856a1792a30c93309a635a7b6b4529eed7f036da0f2c`
 
 ## Risk model
 

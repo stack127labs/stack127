@@ -4,9 +4,6 @@ Status: ready
 Tool: ZFS Pool Capacity Calculator
 Route: `/zfs-capacity-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:5aea243ef7f795bfd1c9975fdda8b70e211b8608eddf80cadaa6fe30504c38b5`
-Input fingerprint: `implementation-report.md sha256:8afd5c78297b2496fe45b11a8f0619d7ccf15d3d2fe90e6424435ae3c876fe95`
-Input fingerprint: `brief.md sha256:4115c7494df593ab311307563e25bcb8c331884f9d4f90a6baf58f91d1031529`
 
 ## Risk model
 

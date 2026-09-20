@@ -6,7 +6,6 @@ import { pathToFileURL } from "node:url";
 const root = path.resolve(import.meta.dirname, "../..");
 const appRoot = path.join(root, "lib/shortcuts/apps");
 const routeRoot = path.join(root, "app/(site)/(references)/keyboard-shortcuts");
-const manifestRoot = path.join(root, "tests/pages/keyboard-shortcuts");
 const checkOnly = process.argv.includes("--check");
 const changed = [];
 
@@ -28,42 +27,6 @@ export default function KeyboardShortcutsPage() {
   return <KeyboardShortcutsAppPage app={app} />;
 }
 `;
-}
-
-function generatedManifest(slug, current) {
-  const state = current?.state ?? "noindex";
-  const manifest = {
-    route: `/keyboard-shortcuts/${slug}`,
-    state,
-    ...(state === "published"
-      ? {}
-      : {
-          reason:
-            current?.reason ??
-            "The shortcut record has verified official-source data, but this route remains noindex until its publication review is complete.",
-        }),
-    docs: current?.docs ?? ["content_docs/keyboard-shortcuts"],
-    tests: [
-      ...new Set([
-        ...(current?.tests ?? [
-          "tests/stack127/seo.spec.ts",
-          "tests/pages/keyboard-shortcuts/page.test.mjs",
-          "tests/pages/keyboard-shortcuts/shared/data.test.mjs",
-          "tests/pages/keyboard-shortcuts/keyboard-shortcuts.spec.ts",
-        ]),
-        "tests/pages/keyboard-shortcuts/shared/generation.test.mjs",
-        "tests/pages/keyboard-shortcuts/shared/publication.test.mjs",
-      ]),
-    ],
-    scripts: [...new Set([...(current?.scripts ?? []), "scripts/keyboard-shortcuts"])],
-    skills: current?.skills ?? [
-      "skills/stack127/test-driven-page",
-      "skills/stack127/visual-first-content",
-    ],
-    repositories: current?.repositories ?? [],
-  };
-
-  return `${JSON.stringify(manifest, null, 2)}\n`;
 }
 
 const slugs = readdirSync(appRoot)
@@ -136,17 +99,11 @@ writeGenerated(path.join(root, "lib/shortcuts/loaders.generated.ts"), loadersSou
 
 for (const slug of slugs) {
   const routeDirectory = path.join(routeRoot, slug);
-  const manifestDirectory = path.join(manifestRoot, slug);
   if (!checkOnly) {
     await mkdir(routeDirectory, { recursive: true });
-    await mkdir(manifestDirectory, { recursive: true });
   }
 
   writeGenerated(path.join(routeDirectory, "page.tsx"), generatedRoute(slug));
-
-  const manifestFile = path.join(manifestDirectory, "page.json");
-  const current = existsSync(manifestFile) ? JSON.parse(read(manifestFile)) : undefined;
-  writeGenerated(manifestFile, generatedManifest(slug, current));
 }
 
 if (changed.length > 0) {

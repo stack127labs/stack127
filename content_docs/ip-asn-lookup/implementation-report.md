@@ -4,7 +4,6 @@ Status: ready
 Tool: IP and ASN registration lookup
 Route: `/ip-asn-lookup`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:daf132c7da35fd0d6b68059903dcda6b6e6c1232c70c5c01a0647244510992c4`
 Contract type: resolution
 
 ## Product decision

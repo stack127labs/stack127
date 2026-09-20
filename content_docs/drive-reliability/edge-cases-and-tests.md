@@ -5,9 +5,6 @@ Tool: Drive Reliability Explorer
 Route: /drive-reliability
 Contract type: resolution
 Researched: 2026-08-23
-Input fingerprint: `competitive-report.md sha256:7175170108b3bd1afd11a7e376876b1bcf4ed811524405d07dd80da5e69bb954`
-Input fingerprint: `implementation-report.md sha256:b44a2bb4e76319610e60c5524205189ae7b10dd1d99dfce6685a6fb1dd24d4b3`
-Input fingerprint: `brief.md sha256:411c8ceaffbc5ee5440a3a8abec8d06931a7a4b20df2d09c6b879cb3555e45e1`
 
 ## Risk model
 

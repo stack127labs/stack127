@@ -2,7 +2,6 @@ Status: ready
 Tool: Rsync filter tester
 Route: /rsync-filter-tester
 Contract type: resolution
-Input fingerprint: `competitive-report.md sha256:4f4a859b5fb12f2ebf860ee66b4922d754ba9988db66de07de0c5b3ceafba64d`
 
 ## Product decision
 

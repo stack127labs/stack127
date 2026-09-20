@@ -4,9 +4,6 @@ Status: ready
 Tool: Rebuild Window and Read-Error Exposure Calculator
 Route: `/rebuild-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:9c0712973b389965bcc4e2fb5e003012cb929750a6ecf4ed1196ebfcea144be8`
-Input fingerprint: `implementation-report.md sha256:28ae2ce7cece0f90d1ad070d7c656c96478693451a8535596a4c377e66e59a7a`
-Input fingerprint: `brief.md sha256:5ae282ce418fe895f8e8a108ac473d40be985d48180d294b42352f5e9b119810`
 
 ## Risk model
 

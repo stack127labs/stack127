@@ -7,8 +7,6 @@ Route: `/self-hosted-app-resource-planner`
 Mode: pipeline
 Review scope: current interface-contract refresh; no browser verification claimed
 Depends on: `brief.md`, `implementation-report.md`
-Input fingerprint: `brief.md sha256:891670c28e434711521196a48d7fe72ac355af8193e1fa7f64cd9d5d345339fc`
-Input fingerprint: `implementation-report.md sha256:42cf89821fa32e407542fc947b0b1db74527b62ef489423a0c59537efdd5523c`
 
 ## User task
 

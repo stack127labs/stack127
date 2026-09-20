@@ -5,7 +5,6 @@ Tool: CAA Policy Checker
 Route: `/caa-checker`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:801624e7c5b18d3378ea0f5911eafb51b2548aca2b7abea73abc540999dabdf3`
 
 ## User task
 

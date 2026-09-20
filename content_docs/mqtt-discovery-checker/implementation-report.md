@@ -2,7 +2,6 @@ Status: ready
 Tool: Home Assistant MQTT discovery checker
 Route: /mqtt-discovery-checker
 Contract type: resolution
-Input fingerprint: `competitive-report.md sha256:bc5315672de2d9b070ef29c6cec1bb0eaefc9223bae7dcbb7fe267812fbeb516`
 
 ## Product decision
 

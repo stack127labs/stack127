@@ -4,7 +4,6 @@ Status: ready
 Tool: KDP book setup calculator
 Route: `/kdp-book-setup-calculator`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:39b41e517516ee03bf27e73acdfbe52af6231188e671674c6fae3310f8df8932`
 Contract type: formula
 
 ## Product decision

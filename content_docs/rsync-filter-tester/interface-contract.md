@@ -4,8 +4,6 @@ Tool: Rsync filter tester
 Route: /rsync-filter-tester
 Mode: pipeline
 Review scope: current interface-contract refresh; no browser verification claimed
-Input fingerprint: `brief.md sha256:4862daa5307032aae6601ef7efbf459d08c5922d0561cd0b06c158ea060ce430`
-Input fingerprint: `implementation-report.md sha256:f50c6527199e0b037df82fa71b8b2c8efd1debc7af1b5b368bbeb846b9460ac6`
 
 ## User task
 

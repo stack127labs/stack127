@@ -1,10 +1,6 @@
 Status: ready
 Tool: LXC ID mapping checker
 Route: /lxc-idmap-checker
-Input fingerprint: `competitive-report.md sha256:628bf1012858bc8e6d9d5db9232506398e54b2eff96c51209295bbc30b9a06d4`
-Input fingerprint: `implementation-report.md sha256:287cb38dd27dee071aef8268b3ee9359035b95cd332fca3ac1fbfced0e6daf0c`
-Input fingerprint: `interface-contract.md sha256:84fcd154466599ef26286bdbef4e2b514c8403c79865801704a0355e35a986dd`
-Input fingerprint: `brief.md sha256:6ae42360e0aa61bd06251d32c520c9e731fb6a139e29d3379c6b1bce89756737`
 
 ## Risk model
 

@@ -56,7 +56,7 @@ Do not decorate callouts, findings, status messages, or information boxes with a
 
 ## Guardrail
 
-`npm run test:static` fails when a class or ID selector is added to `app/globals.css`. If that happens, move the selector to its owner instead of weakening the check.
+Keep `app/globals.css` limited to tokens, reset, and document defaults. Put component and page selectors in their owning CSS module.
 
 When changing a shared component, verify representative pages that use it. When changing a family stylesheet, verify only that family plus any shared component it imports.
 
@@ -68,4 +68,4 @@ When changing a shared component, verify representative pages that use it. When 
 
 `EntryHero` wraps its header in a wide canvas and reserves space for its drawing. `PageHeader` limits its title and introduction while keeping the shared left edge. Do not add another canvas around it or a page-specific drawing offset. Text-led legal pages and course lessons use `PageCanvas reading`. Directories, tool interfaces, card grids, and primary comparison tables stay wide. Tool supporting text and explanatory tables use the reading measure inside the wide canvas.
 
-`npm run test:static` rejects native outer wrappers directly inside `AppShell`, nested canvases, obsolete width variants, and custom canvas geometry. `tests/stack127/page-spacing.spec.ts` measures header and canvas alignment across page families, seven viewport widths, and both themes. Keep these checks when adding a new family or changing shared layout.
+When adding a page family or changing shared layout, inspect representative pages at desktop and mobile width. Check header alignment, canvas gutters, reading width, and page-level overflow.

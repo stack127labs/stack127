@@ -2,7 +2,6 @@ Status: ready
 Tool: Restic retention simulator
 Route: /restic-retention-simulator
 Contract type: resolution
-Input fingerprint: `competitive-report.md sha256:3300635f26fc4ecc46abe7eac69205fc6d40c90b6d968aac4491d0470177cdf3`
 
 ## Product decision
 

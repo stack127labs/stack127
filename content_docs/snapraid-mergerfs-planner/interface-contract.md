@@ -5,7 +5,6 @@ Tool: SnapRAID and mergerfs config planner
 Route: `/snapraid-mergerfs-planner`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:bdd7d66e7d01a59c6d886c06da0480b4c274a3b7039138704698239e6880e226`
 
 ## User task
 

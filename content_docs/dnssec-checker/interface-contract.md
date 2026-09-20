@@ -5,7 +5,6 @@ Tool: DNSSEC Chain Checker
 Route: `/dnssec-checker`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:01faeb4a0206cee0eb6457c32a538f3b4e50eaffdbc8e320f741cebf61a2d35a`
 
 ## User task
 

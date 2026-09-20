@@ -1,15 +1,9 @@
 Status: ready
 Feasibility: feasible. The accepted local engine and shared Markdown renderer support this closed guide without a new service, dataset, or runtime change. This accepts planning only; integration, rendered review, audit, and publication remain separate.
 SERP checked: 2026-09-19
-Pipeline acceptance: `content_docs/rsync-filter-tester/pipeline-acceptance.json`
 Tool: Rsync filter tester
 Route: /rsync-filter-tester
 Primary medium: Tool UI
-Input fingerprint: `competitive-report.md sha256:4f4a859b5fb12f2ebf860ee66b4922d754ba9988db66de07de0c5b3ceafba64d`
-Input fingerprint: `implementation-report.md sha256:f50c6527199e0b037df82fa71b8b2c8efd1debc7af1b5b368bbeb846b9460ac6`
-Input fingerprint: `interface-contract.md sha256:3fcd700d72f56bcbff56534eb24385376ca626207e212819d5b4b70047b1efb1`
-Input fingerprint: `edge-cases-and-tests.md sha256:fc84873711108cc90a64992bd4aad710e15e6906d7308b49d2ae2491f563a790`
-Input fingerprint: `brief.md sha256:4862daa5307032aae6601ef7efbf459d08c5922d0561cd0b06c158ea060ce430`
 
 ## Search intent
 

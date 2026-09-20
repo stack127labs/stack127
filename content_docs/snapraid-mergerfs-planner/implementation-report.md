@@ -4,7 +4,6 @@ Status: ready
 Tool: SnapRAID and mergerfs Config Planner
 Route: `/snapraid-mergerfs-planner`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:ebc4a669be6a6c45037818725eb87f42c6c2b2184ff846cece587fb594a9fd69`
 Contract type: formula
 
 ## Product decision

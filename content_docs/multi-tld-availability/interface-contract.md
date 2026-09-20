@@ -5,7 +5,6 @@ Tool: Multi-TLD Availability
 Route: `/multi-tld-availability`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:de115245c5a1a2f1e16cb915a82a2204c618d276ba3fc7163ba2ea402970ffb3`
 
 ## User task
 

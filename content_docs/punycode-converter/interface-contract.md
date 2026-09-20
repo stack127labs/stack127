@@ -5,7 +5,6 @@ Tool: Punycode and IDN Converter
 Route: `/punycode-converter`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:324d32079d7c6f94890c2c917ae5410500cf77a7ec5ad355ee89e7cbb153b61e`
 
 ## User task
 

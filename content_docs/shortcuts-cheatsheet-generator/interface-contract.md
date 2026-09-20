@@ -5,7 +5,6 @@ Tool: Shortcut Cheat Sheet Generator
 Route: `/shortcuts-cheatsheet-generator`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:d696957ed195d0cf703f4ae533317e0aec5a7e7f6917daf13cc563c2bd6c053e`
 
 ## User task
 

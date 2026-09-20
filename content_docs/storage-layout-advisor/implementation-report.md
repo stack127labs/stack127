@@ -4,7 +4,6 @@ Status: ready
 Tool: Storage Layout Advisor
 Route: `/storage-layout-advisor`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:13670c65262a5103590b065cbdf921b0322549cfda360870a9c3b252450b71b0`
 Contract type: formula
 
 ## Product decision

@@ -5,7 +5,6 @@ Tool: Synology SHR capacity calculator
 Route: `/shr-calculator`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:7c4b0c3d48652afb116607eeefbedb6dff3ab3074c80d573367e5c24a653a2d3`
 
 ## User task
 

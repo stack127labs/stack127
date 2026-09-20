@@ -4,10 +4,6 @@ Status: ready
 Tool: KDP page count estimator
 Route: `/kdp-page-count-estimator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:7b3352e6a420605e555ac1b3662ec2ff4ac69327ccad8577f8181e485f3a9e6e`
-Input fingerprint: `implementation-report.md sha256:4b867e63bf474f840519c36115df7f21361d79fc939c424097aeb0eb159db56b`
-Input fingerprint: `interface-contract.md sha256:2c825381b66c39291367fded437bec171dcaee997741994edacb947a7c3f2b18`
-Input fingerprint: `brief.md sha256:99e8c882b855a0964a9f3cdd935937bd5c3c1c27090f1f75ca97bdfe5ee2f627`
 
 ## Risk model
 

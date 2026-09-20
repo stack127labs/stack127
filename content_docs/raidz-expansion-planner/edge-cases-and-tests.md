@@ -4,9 +4,6 @@ Status: ready
 Tool: RAIDZ Expansion Planner
 Route: `/raidz-expansion-planner`
 Depends on: `competitive-report.md`, `implementation-report.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:fb4e7085ef6e43a6ce5653fb787c7c6bf04a39bfe3fa14431362aef69897f110`
-Input fingerprint: `implementation-report.md sha256:9203004d372fc6086f2156e5d2208d17f15cc2887a2029bd699ac57e4fb322fb`
-Input fingerprint: `brief.md sha256:8292f875e1d0e505a44a2595b2f086b065a78fcf077b8245092c01be29868630`
 
 ## Risk model
 

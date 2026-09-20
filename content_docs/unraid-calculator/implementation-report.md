@@ -4,7 +4,6 @@ Status: ready
 Tool: Unraid Main Array Calculator
 Route: `/unraid-calculator`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:7acb0fd6b1bf4a28e3b58c5dd9c353475f5d483267d159c4f4d661fe3be0dc9a`
 Contract type: formula
 
 ## Interface retrofit

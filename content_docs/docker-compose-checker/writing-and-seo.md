@@ -7,11 +7,6 @@ Acceptance path: Main-agent review, then the retained Astra writing session; Lun
 Tool: Docker Compose checker
 Route: `/docker-compose-checker`
 Depends on: `competitive-report.md`, `implementation-report.md`, `brief.md`, `interface-contract.md`, `edge-cases-and-tests.md`
-Input fingerprint: `competitive-report.md sha256:bb8cce9a5c129e931e9df10005408b430af2e851b8d6fb0e9db8db957e32d3ae`
-Input fingerprint: `implementation-report.md sha256:9ae41963ca921518d6a2ed8e1c243e548f38d91b7d5efdcf43a0eb62592c2055`
-Input fingerprint: `interface-contract.md sha256:6098cf4d0be201920481eb4a2226131368592f1a7aa4206dc79bef553cfd7b13`
-Input fingerprint: `edge-cases-and-tests.md sha256:292a24c3ea2a9bdeefd8f3f33c55b444a44dccfa5c623a2cbec248e5f6516be4`
-Input fingerprint: `brief.md sha256:cdddc1c8a8dea42aa26848b792fd2874159f87cb63c7bb996cd8be187aeeda92`
 SERP checked: 2026-09-10
 Primary medium: Tool UI
 Content depth: The tool answers the pasted-file question first. Supporting Markdown explains how to read the three result layers, choose an interpolation environment, understand Compose references and ports, handle the version and multi-file boundary, and run the real project-level `docker compose config` check. It stops before Docker installation, runtime troubleshooting, security auditing, image inspection, or a full Compose Specification reference.

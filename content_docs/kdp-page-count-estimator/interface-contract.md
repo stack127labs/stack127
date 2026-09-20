@@ -7,8 +7,6 @@ Route: `/kdp-page-count-estimator`
 Mode: pipeline
 Review scope: Contract refresh within the unfinished new-tool pipeline, using its ready research and product inputs. This refresh reviews planning and source evidence only. Runtime state operation, rendered component consistency, and final tool acceptance remain separate required checks.
 Depends on: `brief.md`, `implementation-report.md`
-Input fingerprint: `brief.md sha256:99e8c882b855a0964a9f3cdd935937bd5c3c1c27090f1f75ca97bdfe5ee2f627`
-Input fingerprint: `implementation-report.md sha256:4b867e63bf474f840519c36115df7f21361d79fc939c424097aeb0eb159db56b`
 
 ## User task
 

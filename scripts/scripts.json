@@ -21,13 +21,13 @@
     "surface": "keyboard-shortcuts",
     "folder": "scripts/keyboard-shortcuts",
     "manifest": "scripts/keyboard-shortcuts/scripts.json",
-    "purpose": "Keeps compact app metadata, lazy loaders, route wrappers, and ownership manifests aligned with verified keyboard shortcut records."
+    "purpose": "Keeps compact app metadata, lazy loaders, and route wrappers aligned with verified keyboard shortcut records."
   },
   {
     "surface": "stack127",
     "folder": "scripts/stack127",
     "manifest": null,
-    "purpose": "Sitewide durable scripts, including managed media, reviewed tool-page content and version updates, stack127 repo synchronization, change-aware quality checks, tool-pipeline acceptance validation, and usage-guide inventory."
+    "purpose": "Sitewide durable scripts for managed media, reviewed tool-page content, version updates, repository synchronization, minimum quality checks, and production deployment."
   },
   {
     "surface": "dockerignore-tester",
@@ -64,6 +64,12 @@
     "folder": "scripts/nfs-firewall-rules",
     "manifest": "scripts/nfs-firewall-rules/scripts.json",
     "purpose": "Owns the guarded local preview helper for /nfs-firewall-rules."
+  },
+  {
+    "surface": "chmod-calculator",
+    "folder": "scripts/chmod-calculator",
+    "manifest": "scripts/chmod-calculator/scripts.json",
+    "purpose": "Owns the guarded managed-development preview helper for /chmod-calculator."
   },
   {
     "surface": "storage-tools",

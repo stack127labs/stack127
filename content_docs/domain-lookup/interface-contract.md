@@ -5,7 +5,6 @@ Tool: Domain Registration Lookup
 Route: `/domain-lookup`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:5b34e5569bb4fc6cde3b491aee98d70fe188e5e0af3b74616a9c8b6e99f4a7ac`
 
 ## User task
 

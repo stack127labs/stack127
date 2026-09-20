@@ -4,8 +4,6 @@ Tool: Home Assistant MQTT discovery checker
 Route: /mqtt-discovery-checker
 Mode: pipeline
 Review scope: current interface-contract refresh; no browser verification claimed
-Input fingerprint: `brief.md sha256:8876f3c879600fc752405ab365ce52064c732d7928e3b06d4a3fa9b49c1e9096`
-Input fingerprint: `implementation-report.md sha256:7ea8b887d249c8a38f83e5257683b9eaa6519b75a808207878bae11b17208d67`
 
 ## User task
 

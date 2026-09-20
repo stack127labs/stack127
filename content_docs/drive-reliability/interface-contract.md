@@ -5,7 +5,6 @@ Tool: Drive Reliability Explorer
 Route: `/drive-reliability`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:411c8ceaffbc5ee5440a3a8abec8d06931a7a4b20df2d09c6b879cb3555e45e1`
 
 ## User task
 

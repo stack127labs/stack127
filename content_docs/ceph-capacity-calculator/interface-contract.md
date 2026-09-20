@@ -5,7 +5,6 @@ Tool: Ceph capacity and failure-domain planner
 Route: `/ceph-capacity-calculator`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:c94075f9d0b641b014ae6cf6dc3b8a6ed54e61e76252694337088f8a652dfb96`
 
 ## User task
 

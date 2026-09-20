@@ -7,11 +7,6 @@ Acceptance path: Main-agent review, then the retained Astra writing session; Lun
 Tool: IP and ASN registration lookup
 Route: `/ip-asn-lookup`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `edge-cases-and-tests.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:daf132c7da35fd0d6b68059903dcda6b6e6c1232c70c5c01a0647244510992c4`
-Input fingerprint: `implementation-report.md sha256:ef5577306cf52712f610dcc77c9bab54af8bfda940e19eb855884bf678022063`
-Input fingerprint: `interface-contract.md sha256:82b687c21c3d5bb5576addcf2c81e79fee7e7102be894617e126bfdf588cb779`
-Input fingerprint: `edge-cases-and-tests.md sha256:47523a0b2c319889192f914afc7fdef5ca66f6571d1537a282fad8b5872bd0b0`
-Input fingerprint: `brief.md sha256:94d430dc139b637fef92f0a66ed08c87f2036c38f9a1e8433e458619b81e399a`
 SERP checked: 2026-09-10
 Primary medium: Tool UI
 Content depth: Explain how to read the registered allocation or ASN record, why current BGP data is separate, what the country and abuse fields do and do not mean, and what to verify next. Stop before geolocation, reputation, subscriber identity, CIDR analysis, or broad IP intelligence.

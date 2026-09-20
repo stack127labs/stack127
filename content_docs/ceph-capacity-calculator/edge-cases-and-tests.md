@@ -4,9 +4,6 @@ Status: ready
 Tool: Ceph Capacity and Failure-Domain Planner
 Route: `/ceph-capacity-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:125ace091ab223b95f8be3c74afd57cdded386759afa5d770b32e0bc17ff534d`
-Input fingerprint: `implementation-report.md sha256:296cd83194dd05e5ac9d4b9f3deac53cc5b1983e1671c15b6725002387d04983`
-Input fingerprint: `brief.md sha256:c94075f9d0b641b014ae6cf6dc3b8a6ed54e61e76252694337088f8a652dfb96`
 
 ## Risk model
 

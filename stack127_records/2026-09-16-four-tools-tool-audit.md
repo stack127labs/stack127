@@ -16,10 +16,10 @@ All four lack development page/content records. Their real routes return 404 wit
 - Commit reviewed: `827bdad494216dea94415f494e6cf7161b4b705b`.
 - The four route, engine, documentation, and test directories were untracked working-tree additions. The shared tool inventory and data-model test had uncommitted changes. Existing Docker Compose and resource-planner changes were preserved.
 - Node `v22.23.1`, Next.js `16.2.9`, repository Playwright Chromium, Linux. The audit used `.env.local`; a secret-free target check confirmed the managed development project and excluded production.
-- Data access was a read-only transaction. It returned no `stack127_pages` rows for the four slugs, so no associated tool title, introduction, or supporting content could be reviewed. [Database evidence](2026-09-16-four-tool-audit-evidence/development-records.json).
+- Data access was a read-only transaction. It returned no `stack127_pages` rows for the four slugs, so no associated tool title, introduction, or supporting content could be reviewed. Database evidence.
 - The in-app Browser runtime returned no available browsers. The repository Playwright installation was used instead.
 - Browser evidence comes from an isolated Next.js fixture importing the unchanged real components, engines, shared controls, `PageCanvas`, global styles, actual site fonts, and `ThemeToggle`. The fixture has no registry, supporting article, sidebar, or sticky site header. It is component evidence, not full-page integration QA.
-- Local HTTP checks against the production build with managed development data returned four 404 responses and no tool workbenches. [Route evidence](2026-09-16-four-tool-audit-evidence/routes.json).
+- Local HTTP checks against the production build with managed development data returned four 404 responses and no tool workbenches. Route evidence.
 
 ## Confirmed findings, ordered by impact
 
@@ -29,7 +29,7 @@ High impact. [Engine](../lib/restic-retention-simulator/engine.ts:116), [normali
 
 Use two snapshots with different `hostname` values, different times, host grouping, and only `keepLast: 1`. Both should survive as separate host groups. The engine reads `host`, groups both under `(none)`, and marks the older snapshot pruned. Native restic snapshot JSON uses `hostname`. The interface contract explicitly invites pasted restic output. [Restic snapshot JSON specification](https://restic.readthedocs.io/en/stable/075_scripting.html#snapshots).
 
-Accept and validate the native field, define any legacy alias deliberately, and test actual exported snapshot fixtures. The product contract itself needs this correction. Confirmed by the `native hostname` probe in [Restic evidence](2026-09-16-four-tool-audit-evidence/restic-retention-simulator-probes.jsonl).
+Accept and validate the native field, define any legacy alias deliberately, and test actual exported snapshot fixtures. The product contract itself needs this correction. Confirmed by the `native hostname` probe in Restic evidence.
 
 ### 2. Restic omits the oldest-snapshot fallback
 
@@ -45,7 +45,7 @@ High impact. [Ancestor evaluation](../lib/rsync-filter-tester/engine.ts:160).
 
 With `+ cache/` followed by `- cache/`, both `cache/` and `cache/keep.txt` should be visited and included. The tool includes the directory but labels the child unvisited because it searches for any matching exclusion. The usual sequence `+ */`, `+ *.txt`, `- *` also incorrectly makes `src/readme.txt` unvisited.
 
-Evaluate every ancestor through the same first-match resolver as each supplied path. Apply the unmatched policy consistently: with default exclude and only `+ src/readme.txt`, the tool currently excludes `src/` but includes its child. Confirmed in the engine and rendered component. Real `rsync -rni` includes the child in both include-first examples. [CLI evidence](2026-09-16-four-tool-audit-evidence/rsync-cli.json), [rsync filtering rules](https://rsync.samba.org/ftp/rsync/rsync.1#FILTER_RULES).
+Evaluate every ancestor through the same first-match resolver as each supplied path. Apply the unmatched policy consistently: with default exclude and only `+ src/readme.txt`, the tool currently excludes `src/` but includes its child. Confirmed in the engine and rendered component. Real `rsync -rni` includes the child in both include-first examples. CLI evidence, [rsync filtering rules](https://rsync.samba.org/ftp/rsync/rsync.1#FILTER_RULES).
 
 ### 4. Rsync confuses directory-only and ordinary name patterns
 
@@ -53,7 +53,7 @@ High impact. [Pattern compiler and matcher](../lib/rsync-filter-tester/engine.ts
 
 `- cache/` must leave a regular file named `cache` included. The tool excludes it by appending a slash during matching. Conversely, `- cache` must exclude a directory named `cache` and stop traversal into it. The tool includes `cache/` and its child.
 
-The parser records whether each path is a directory, but the matcher does not use that fact. Match directory names without their display slash and enforce directory-only patterns explicitly. Both discrepancies were confirmed against `rsync --dry-run`; the fixtures only used temporary local files. [Engine probes](2026-09-16-four-tool-audit-evidence/rsync-filter-tester-probes.jsonl).
+The parser records whether each path is a directory, but the matcher does not use that fact. Match directory names without their display slash and enforce directory-only patterns explicitly. Both discrepancies were confirmed against `rsync --dry-run`; the fixtures only used temporary local files. Engine probes.
 
 ### 5. MQTT reports invalid discovery messages as valid
 
@@ -61,7 +61,7 @@ High impact. [Payload checks](../lib/mqtt-discovery-checker/engine.ts:64), [rend
 
 On a sensor discovery topic, `{"name":"Temperature"}` produces “Valid sensor discovery”, zero errors, and zero warnings. The required `state_topic` is absent. The common checks also accept clearly bad values such as `qos: 99`. The implementation contract promises warnings for component-specific omissions, but no such check exists. [MQTT sensor configuration](https://www.home-assistant.io/integrations/sensor.mqtt/#configuration-variables).
 
-This does not require implementing every Home Assistant schema. Add the promised checks for supported components, and describe unvalidated components as incomplete checks rather than usable discovery messages. Confirmed in engine output and the rendered component. [MQTT probes](2026-09-16-four-tool-audit-evidence/mqtt-discovery-checker-probes.jsonl), [browser reproductions](2026-09-16-four-tool-audit-evidence/browser-extra.json).
+This does not require implementing every Home Assistant schema. Add the promised checks for supported components, and describe unvalidated components as incomplete checks rather than usable discovery messages. Confirmed in engine output and the rendered component. MQTT probes, browser reproductions.
 
 ### 6. LXC accepts overlapping host ranges and impossible IDs
 
@@ -69,7 +69,7 @@ High impact. [Overlap validation](../lib/lxc-idmap-checker/engine.ts:140), [inte
 
 `u 0 100000 10` followed by `u 10 100005 10` overlaps host IDs 100005 through 100009. The checker reports valid with no findings because it compares only container intervals. It also accepts host ID `4294967295`, the reserved unmapped value, and can produce an endpoint beyond its own 64-bit input ceiling.
 
-Check both container and host intervals independently. Validate starts, lengths, and resulting endpoints against Linux UID/GID bounds while keeping exact arithmetic. [Linux mapping constraints](https://man7.org/linux/man-pages/man7/user_namespaces.7.html). Confirmed by the `host overlap`, `reserved id`, and `overflow range` probes in [LXC evidence](2026-09-16-four-tool-audit-evidence/lxc-idmap-checker-probes.jsonl).
+Check both container and host intervals independently. Validate starts, lengths, and resulting endpoints against Linux UID/GID bounds while keeping exact arithmetic. [Linux mapping constraints](https://man7.org/linux/man-pages/man7/user_namespaces.7.html). Confirmed by the `host overlap`, `reserved id`, and `overflow range` probes in LXC evidence.
 
 ### 7. LXC grant coverage only checks the queried number
 
@@ -107,7 +107,7 @@ The stated initial subset can remain small. Reject unsupported modifiers and cha
 
 ### 11. Rsync's promised input size blocks synchronous work
 
-Medium impact. The edge-case contract promises 1000 paths and rules in under one second. The resolver repeatedly constructs regular expressions for each candidate and ancestor, with no input cap. The first probe took about 13.5 seconds; isolated repeats after the build took 10.8 and 10.3 seconds, preserved in [isolated performance evidence](2026-09-16-four-tool-audit-evidence/rsync-performance-isolated.jsonl).
+Medium impact. The edge-case contract promises 1000 paths and rules in under one second. The resolver repeatedly constructs regular expressions for each candidate and ancestor, with no input cap. The first probe took about 13.5 seconds; isolated repeats after the build took 10.8 and 10.3 seconds, preserved in isolated performance evidence.
 
 Compile patterns once, reuse a first-match resolver and ancestor results, and enforce a supported input limit. Because submission calls the resolver synchronously, this work occupies the browser's main thread. The timing is a Node measurement on this audit host, not a measured browser freeze duration.
 
@@ -117,7 +117,7 @@ Medium impact across all four. Source locations include [rsync recovery](../app/
 
 Submit an absolute rsync path, malformed MQTT JSON, or a nonnumeric LXC query ID. Each tool says “Fix the highlighted input”, but no field receives `aria-invalid` or an associated error. Focus stays on Submit. “Fix input” moves to Filter rules, Discovery topic, or UID map respectively, rather than the failing field. Restic's semantic date error also leaves focus on Submit. Each alert section contains another alert, risking repeated announcements.
 
-Pass structured errors to the shared fields, focus the first failing control, and use one concise alert. These are rendered reproductions, not assumptions from source. [Browser state log](2026-09-16-four-tool-audit-evidence/browser.json).
+Pass structured errors to the shared fields, focus the first failing control, and use one concise alert. These are rendered reproductions, not assumptions from source. Browser state log.
 
 ### 13. Restic's trace omits dates; MQTT JSON can change values
 
@@ -135,7 +135,7 @@ All four were exercised at 1440, 760, 375, and 320 pixels in both actual site th
 
 Results repeat the same answer in status text, a result heading, and a separate primary-value block. On narrow screens this pushes the useful trace down. MQTT shows a header-only findings table when there are no findings. Remove duplicated result regions and omit that empty table. The phrase “Errors block the shape” is unclear; explain the checked scope and the practical meaning of a finding. Fix incorrect certainty before polishing prose.
 
-Representative inspected captures: [Restic mobile](2026-09-16-four-tool-audit-evidence/restic-retention-simulator-375-dark.png), [rsync narrow](2026-09-16-four-tool-audit-evidence/rsync-filter-tester-320-light.png), [MQTT desktop](2026-09-16-four-tool-audit-evidence/mqtt-discovery-checker-1440-dark.png), [LXC breakpoint](2026-09-16-four-tool-audit-evidence/lxc-idmap-checker-760-light.png). The evidence directory contains all 32 viewport/theme result captures plus invalid and expanded states.
+Representative captures covered Restic mobile, rsync narrow, MQTT desktop, and the LXC breakpoint. The disposable capture files were removed during the 2026-09-20 repository cleanup; this record keeps the findings.
 
 The actual server-rendered titles, introductions, supporting guides, contextual source links, and related links are not verified. Writing plans exist, but are not live content. The MQTT plan's proposed home-automation link to `/domain-tools` also does not follow the reader's task. No second copy of supporting Markdown was created.
 
@@ -143,16 +143,16 @@ The actual server-rendered titles, introductions, supporting guides, contextual 
 
 | Area | Result | Evidence |
 |---|---|---|
-| Existing focused tests | Passed, 33 individual tests: 21 engine and 12 page-structure tests | Per-tool `*-unit-tests.log` and `*-page-tests.log` in the evidence directory |
-| Shared inventory/data-model checks | Passed, both selected test files | [Shared log](2026-09-16-four-tool-audit-evidence/shared-tests.log) |
-| TypeScript | Passed, exit 0 | [Typecheck log](2026-09-16-four-tool-audit-evidence/typecheck.log) |
-| Static policy | Passed, 298 route files | [Static log](2026-09-16-four-tool-audit-evidence/static.log) |
-| Pipeline/tool-only checks | Passed for all four | [Pipeline log](2026-09-16-four-tool-audit-evidence/pipeline.log) |
-| Production build | Passed on retry, exit 0 | [Build log](2026-09-16-four-tool-audit-evidence/build-retry.log) |
+| Existing focused tests | Passed, 33 individual tests: 21 engine and 12 page-structure tests | Historical result; disposable logs removed on 2026-09-20 |
+| Shared inventory/data-model checks | Passed, both selected test files | Shared log |
+| TypeScript | Passed, exit 0 | Typecheck log |
+| Static policy | Passed, 298 route files | Static log |
+| Pipeline/tool-only checks | Passed for all four | Pipeline log |
+| Production build | Passed on retry, exit 0 | Build log |
 | Independent correctness probes | Failed expectations recorded across all four; 26 targeted probes | Four `*-probes.jsonl` files |
-| Actual rsync comparisons | Six mismatches confirmed; all six reference dry runs exited 0 | [CLI log](2026-09-16-four-tool-audit-evidence/rsync-cli.json) |
-| Rendered components | Basic flows passed; recovery and correctness defects confirmed | [68 state observations](2026-09-16-four-tool-audit-evidence/browser.json), [additional cases](2026-09-16-four-tool-audit-evidence/browser-extra.json) |
-| Route/publication gate | Passed for intentionally unpublished routes: four 404 responses | [HTTP log](2026-09-16-four-tool-audit-evidence/routes.json) |
+| Actual rsync comparisons | Six mismatches confirmed; all six reference dry runs exited 0 | CLI log |
+| Rendered components | Basic flows passed; recovery and correctness defects confirmed | 68 state observations, additional cases |
+| Route/publication gate | Passed for intentionally unpublished routes: four 404 responses | HTTP log |
 | Full-page browser, copy, navigation, SSR content, live SEO | Not verified for a usable published page | No development registry/content records; fixture cannot establish these |
 | Sticky-header clearance, screen-reader announcements, non-Chromium browsers | Not verified | Outside isolated fixture coverage |
 

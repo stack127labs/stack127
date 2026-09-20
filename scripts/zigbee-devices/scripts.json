@@ -10,9 +10,5 @@
   {
     "file": "preview-local-page.mjs",
     "purpose": "Adds or removes one temporary managed-development publication row for local visual review of /zigbee-devices."
-  },
-  {
-    "file": "qa-local-page.mjs",
-    "purpose": "Operates the temporary local preview across required widths and themes and records screenshots and overflow measurements."
   }
 ]

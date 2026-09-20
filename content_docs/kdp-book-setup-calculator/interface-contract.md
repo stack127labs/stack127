@@ -7,8 +7,6 @@ Route: `/kdp-book-setup-calculator`
 Mode: pipeline
 Review scope: Contract refresh within the unfinished new-tool pipeline, using its ready research and product inputs. This refresh reviews planning and source evidence only. Runtime state operation, rendered component consistency, and final tool acceptance remain separate required checks.
 Depends on: `brief.md`, `implementation-report.md`
-Input fingerprint: `brief.md sha256:da924e6f8c97ae526f97856a1792a30c93309a635a7b6b4529eed7f036da0f2c`
-Input fingerprint: `implementation-report.md sha256:0b080658916703aad2442f87770690fb000f3935582fd9810b81b6f7d4ccf007`
 
 ## User task
 

@@ -4,7 +4,6 @@ Status: ready
 Tool: KDP metadata checker
 Route: `/kdp-metadata-checker`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:21ea246bc4296561bf01e86b92a55a3655d01964ebbc420f8749fde0c13b9847`
 Contract type: resolution
 
 ## Product decision

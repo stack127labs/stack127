@@ -1,10 +1,6 @@
 Status: ready
 Tool: Rsync filter tester
 Route: /rsync-filter-tester
-Input fingerprint: `competitive-report.md sha256:4f4a859b5fb12f2ebf860ee66b4922d754ba9988db66de07de0c5b3ceafba64d`
-Input fingerprint: `implementation-report.md sha256:f50c6527199e0b037df82fa71b8b2c8efd1debc7af1b5b368bbeb846b9460ac6`
-Input fingerprint: `interface-contract.md sha256:3fcd700d72f56bcbff56534eb24385376ca626207e212819d5b4b70047b1efb1`
-Input fingerprint: `brief.md sha256:4862daa5307032aae6601ef7efbf459d08c5922d0561cd0b06c158ea060ce430`
 
 ## Risk model
 

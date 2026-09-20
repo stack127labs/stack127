@@ -39,11 +39,11 @@ A result can lead with a number or a short conclusion. Do not turn structured da
 
 Headings should identify the real question or consequence. `Does domain age reset after renewal, transfer, or expiry?` is useful for that page; `More information` is not. The domain-specific wording is an example, not a heading to reproduce on unrelated tools.
 
-Domain Age content revision 5 is the approved tool-writing reference. See [its content decisions](../content_docs/domain-age/writing-and-seo.md). Transfer the balance of connected explanation, useful detail, search-focused headings, evidence, and restraint, not its topics, six-section shape, or comparison table. Other page families should use the same voice at the depth and tone their job needs.
+The current Domain Age page is the approved tool-writing reference. Transfer its balance of connected explanation, useful detail, search-focused headings, evidence, and restraint, not its topics, section count, or table. Other page families should use the same voice at the depth and tone their job needs.
 
 ## Page and publication workflow
 
-Read or write `content_docs/<page-slug>/brief.md` before page content work. Plan the format mix using `stack127_docs/visual-first.md`; an already approved direction does not need another confirmation. Preserve useful coverage when rewriting.
+For a tool, use the Product and Content sections of `content_docs/<page-slug>/tool-spec.md` before content work. Other pages use `brief.md`. Plan the format mix with `stack127_docs/visual-first.md`; an approved direction does not need another confirmation. Preserve useful coverage when rewriting.
 
 Titles and publication metadata belong to the central `stack127_pages` registry, not route-owned metadata. Tool introductions and supporting Markdown use the reviewed database workflow in `stack127_docs/tool-pages.md`. A request to change writing does not authorize a production publish or a tool behavior change.
 

@@ -66,7 +66,7 @@ Each real route was enabled alone in managed development, opened once after a re
 - no document or body horizontal overflow;
 - correct theme state.
 
-The resource planner also passed a 320 × 900 check proving that its combobox is enabled and that the custom-app option is visible and selectable after reset. There are 52 final screenshots and 13 route reports under each page's `pipeline-evidence` directory.
+The resource planner also passed a 320 × 900 check proving that its combobox is enabled and that the custom-app option is visible and selectable after reset. The audit originally produced 52 screenshots and 13 route reports. Those disposable artifacts were removed during the 2026-09-20 repository cleanup; this record keeps the result.
 
 The screenshot review found no clipping, unreadable control, lost result, table escape, or theme contrast failure in the audited routes. The sitewide analytics-consent panel appears in some captures and remains dismissible with named actions; it did not block the tested tool interaction.
 
@@ -84,7 +84,7 @@ The final read-only cleanup receipt records:
 - production connection opened: no;
 - production write: no.
 
-See [development-database-receipt.json](2026-09-19-final-audit-13-evidence/development-database-receipt.json) and [content-artifact-match.json](2026-09-19-final-audit-13-evidence/content-artifact-match.json).
+The original disposable receipts were removed during the 2026-09-20 repository cleanup. This record keeps their final result.
 
 ## Semantic-version judgment
 
@@ -118,7 +118,7 @@ The CLI now resolves three parent directories. `tests/stack127/tool-pipeline-acc
 | Live database cleanup | Passed: 13 rows, 0 published, 0 public dates, exact restoration. |
 | Acceptance records | 13 current target-fingerprint records pass integrity and live development validation. |
 
-Command logs, the Sol review, database receipt, and acceptance receipts live in [2026-09-19-final-audit-13-evidence](2026-09-19-final-audit-13-evidence/). Each page also owns its four screenshots, browser report, and `pipeline-acceptance.json`.
+The command logs, screenshots, browser reports, and acceptance receipts were removed during the 2026-09-20 repository cleanup. They are no longer part of the current workflow.
 
 ## Environment and test failures kept separate from product findings
 

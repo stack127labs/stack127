@@ -6,9 +6,6 @@ Status: ready
 Tool: Unraid Main Array Calculator
 Route: `/unraid-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:7acb0fd6b1bf4a28e3b58c5dd9c353475f5d483267d159c4f4d661fe3be0dc9a`
-Input fingerprint: `implementation-report.md sha256:19c37ea0b4acdb4b40abb9b9f3fc6b9d1d705cb22a33428f80f041263257be30`
-Input fingerprint: `brief.md sha256:5218038e908f800df5a8feaaa0c775cec630c8693694e91e0a95a60be60f1bdc`
 
 ## Risk model
 

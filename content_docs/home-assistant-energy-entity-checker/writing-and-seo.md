@@ -4,10 +4,6 @@ Status: ready
 Tool: Home Assistant Energy Entity Eligibility Checker
 Route: `/home-assistant-energy-entity-checker`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:d2a2d93cc0b54c03db997f41b8b2db7804c0b33f282e047eefaac875a29829d4`
-Input fingerprint: `implementation-report.md sha256:6577e618adfdcef489bcc050c3ecea0d06e9c212e90a3081c2d59ba427695991`
-Input fingerprint: `edge-cases-and-tests.md sha256:4248041fa35ac3fdeeb975323eb2f6e4a9590eefed5c1fcff062c2e5d141be5a`
-Input fingerprint: `brief.md sha256:1eaa3fd5444c83e5a4ac22414fe535672fcf72c6526a6dc1dbbd2d52cabec632`
 SERP checked: 2026-08-09
 Primary medium: Tool UI
 Prose is the minority: yes

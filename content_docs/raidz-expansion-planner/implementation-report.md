@@ -4,7 +4,6 @@ Status: ready
 Tool: RAIDZ Expansion Planner
 Route: `/raidz-expansion-planner`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:fb4e7085ef6e43a6ce5653fb787c7c6bf04a39bfe3fa14431362aef69897f110`
 Contract type: formula
 
 ## Product decision

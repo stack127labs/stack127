@@ -6,7 +6,6 @@ import test from "node:test";
 const root = new URL("../../../../", import.meta.url);
 const appRoot = new URL("lib/shortcuts/apps/", root);
 const routeRoot = new URL("app/(site)/(references)/keyboard-shortcuts/", root);
-const manifestRoot = new URL("tests/pages/keyboard-shortcuts/", root);
 
 function appSlugs() {
   return readdirSync(appRoot)
@@ -14,8 +13,6 @@ function appSlugs() {
     .map((name) => name.slice(0, -3))
     .sort();
 }
-
-const publishedSlugs = new Set(appSlugs());
 
 test("every shortcut app module has a default export", async () => {
   for (const slug of appSlugs()) {
@@ -56,7 +53,7 @@ test("the generated lazy registry loads one app without an eager full-app array"
   assert.equal(await loadShortcutApp("missing"), undefined);
 });
 
-test("the sync script owns generated routes and preserves publication state", () => {
+test("the sync script keeps generated routes aligned with app records", () => {
   const result = spawnSync(process.execPath, ["scripts/keyboard-shortcuts/sync-pages.mjs", "--check"], {
     cwd: root,
     encoding: "utf8",
@@ -66,17 +63,5 @@ test("the sync script owns generated routes and preserves publication state", ()
   for (const slug of appSlugs()) {
     const route = readFileSync(new URL(`${slug}/page.tsx`, routeRoot), "utf8");
     assert.match(route, new RegExp(`@/lib/shortcuts/apps/${slug}`));
-
-    const manifest = JSON.parse(readFileSync(new URL(`${slug}/page.json`, manifestRoot), "utf8"));
-    assert.equal(manifest.route, `/keyboard-shortcuts/${slug}`);
-    assert.ok(["published", "noindex"].includes(manifest.state));
-    assert.ok(manifest.scripts.includes("scripts/keyboard-shortcuts"));
-    assert.ok(manifest.tests.includes("tests/pages/keyboard-shortcuts/shared/publication.test.mjs"));
   }
-
-  const published = appSlugs().filter((slug) => {
-    const manifest = JSON.parse(readFileSync(new URL(`${slug}/page.json`, manifestRoot), "utf8"));
-    return manifest.state === "published";
-  });
-  assert.deepEqual(new Set(published), publishedSlugs);
 });

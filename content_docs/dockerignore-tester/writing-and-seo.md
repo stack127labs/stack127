@@ -4,10 +4,6 @@ Status: ready
 Tool: `.dockerignore` Pattern Tester
 Route: `/dockerignore-tester`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:8e457dfd22e04d7be0079a4bec4a16caf5dd248fe686f292e939083bcd9d92e4`
-Input fingerprint: `implementation-report.md sha256:364a13ce32afed51c1f016262142ba25a3d1fe3a3d110c00575ff02be34aab25`
-Input fingerprint: `edge-cases-and-tests.md sha256:58f47af75752deee47e54e886f8af29839b5ca710451793e8164c47a0d4be319`
-Input fingerprint: `brief.md sha256:1475f403816a26bdcb516f5b8dbaf7b7db52a016c8e23424c1910557775209a9`
 SERP checked: 2026-08-07
 Primary medium: Tool UI
 Prose is the minority: yes

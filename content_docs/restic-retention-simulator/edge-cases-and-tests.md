@@ -1,10 +1,6 @@
 Status: ready
 Tool: Restic retention simulator
 Route: /restic-retention-simulator
-Input fingerprint: `competitive-report.md sha256:3300635f26fc4ecc46abe7eac69205fc6d40c90b6d968aac4491d0470177cdf3`
-Input fingerprint: `implementation-report.md sha256:1c39fdadf7be794f034be1d6e4c6888e7928353184ae5e313b64523f2dec124b`
-Input fingerprint: `interface-contract.md sha256:5d41c1b3940268ddbaf56313a06eb78a8b76444989956452ce37f85b74727d1d`
-Input fingerprint: `brief.md sha256:4870f3a1afd249cfcdfb24f2fcec6a20123344c92b2487ff15d8a6d2ed0e31ac`
 
 ## Risk model
 

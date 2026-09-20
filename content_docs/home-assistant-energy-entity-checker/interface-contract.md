@@ -5,7 +5,6 @@ Tool: Home Assistant Energy Entity Eligibility Checker
 Route: `/home-assistant-energy-entity-checker`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:1eaa3fd5444c83e5a4ac22414fe535672fcf72c6526a6dc1dbbd2d52cabec632`
 
 ## User task
 

@@ -21,7 +21,7 @@ Visual-first is a choice of medium, not a quota. A tool stays first and primary 
 
 1. Read `stack127_docs/visual-first.md` and read and apply `skills/stack127/stack127-writing-voice/SKILL.md`. This skill owns the format mix; the shared voice skill owns how the wording reads.
 2. For tool-page copy, also read `stack127_docs/tool-pages.md`. Prepare reviewed Markdown, then use the content-only command; do not put live prose back into TSX or bump the tool version.
-3. Read or write `content_docs/<page-slug>/brief.md`: who is here, the job, show vs say. No brief, no content.
+3. For a tool, read or update the Product and Content sections of `content_docs/<page-slug>/tool-spec.md`. For another page, read or write `brief.md` with the reader, job, and show-versus-say decisions.
 4. Identify the reader's questions, preserve useful existing coverage, and choose the clearest medium for each. Plan how the explanation connects, not only which facts appear.
 5. Produce visuals through the pipelines:
    - concepts: marker art specs (`stack127_docs/marker-art.md`, `npm run stack127:marker-art`)

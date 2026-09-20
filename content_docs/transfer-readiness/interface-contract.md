@@ -5,7 +5,6 @@ Tool: Domain Transfer Readiness
 Route: `/transfer-readiness`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:84e017da178486039fc3382da338d5cff7c0863b9dbf9e3627dcfa6792ff3731`
 
 ## User task
 

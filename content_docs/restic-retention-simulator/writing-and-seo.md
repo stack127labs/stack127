@@ -1,15 +1,9 @@
 Status: ready
 Feasibility: feasible. The accepted local engine and shared Markdown renderer support this closed guide without a new service, dataset, or runtime change. This accepts planning only; integration, rendered review, audit, and publication remain separate.
 SERP checked: 2026-09-19
-Pipeline acceptance: `content_docs/restic-retention-simulator/pipeline-acceptance.json`
 Tool: Restic retention simulator
 Route: /restic-retention-simulator
 Primary medium: Tool UI
-Input fingerprint: `competitive-report.md sha256:3300635f26fc4ecc46abe7eac69205fc6d40c90b6d968aac4491d0470177cdf3`
-Input fingerprint: `implementation-report.md sha256:1c39fdadf7be794f034be1d6e4c6888e7928353184ae5e313b64523f2dec124b`
-Input fingerprint: `interface-contract.md sha256:5d41c1b3940268ddbaf56313a06eb78a8b76444989956452ce37f85b74727d1d`
-Input fingerprint: `edge-cases-and-tests.md sha256:120c5634069363c5ac4eccc1d0a69ac97efbcf40af981cab8085dbde72457347`
-Input fingerprint: `brief.md sha256:4870f3a1afd249cfcdfb24f2fcec6a20123344c92b2487ff15d8a6d2ed0e31ac`
 
 ## Search intent
 

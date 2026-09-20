@@ -5,7 +5,6 @@ Tool: NFS Firewall Rules Planner
 Route: `/nfs-firewall-rules`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:fb8dbc3675becd4405a6dbf09948e5ca8051320639f87764a93c6ceb7726e7bb`
 
 ## User task
 

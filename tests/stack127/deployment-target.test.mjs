@@ -83,19 +83,20 @@ test("deployment preflight reports a Cloudflare connection failure cleanly", asy
   assert.deepEqual(errors, ["Cloudflare DNS check failed: connection timed out"]);
 });
 
-test("the release workflow deploys the CI-approved immutable image after exact-image smoke checks", async () => {
+test("the release workflow runs the small gate, builds once, and verifies the live revision", async () => {
   const workflow = await readFile(".github/workflows/stack127-release-e2e.yml", "utf8");
 
   assert.match(workflow, /cancel-in-progress: true/);
-  assert.match(workflow, /workflow_run:/);
-  assert.match(workflow, /github\.event\.workflow_run\.conclusion == 'success'/);
-  assert.doesNotMatch(workflow, /npm run quality:release/);
+  assert.match(workflow, /push:/);
+  assert.doesNotMatch(workflow, /workflow_run:/);
+  assert.match(workflow, /npm run test:core/);
+  assert.doesNotMatch(workflow, /npm run quality/);
+  assert.doesNotMatch(workflow, /quality:release|test:seo:registry/);
   assert.doesNotMatch(workflow, /\n\s+npm run build\s*\n/);
   assert.match(workflow, /stack127:deploy:preflight/);
   assert.match(workflow, /docker\/build-push-action@v6/);
-  assert.match(workflow, /load: true/);
-  assert.match(workflow, /push: false/);
-  assert.match(workflow, /test:smoke:external/);
+  assert.match(workflow, /push: true/);
+  assert.doesNotMatch(workflow, /playwright|test:smoke/u);
   assert.match(workflow, /STACK127_BUILD_SHA=/);
   assert.match(workflow, /dokploy-release\.mjs release/);
   assert.doesNotMatch(workflow, /OVH_DOKPLOY_PASSWORD|DOKPLOY_PUBLIC_URL|VPS_HOST/);

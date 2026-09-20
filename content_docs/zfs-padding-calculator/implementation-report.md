@@ -4,7 +4,6 @@ Status: ready
 Tool: ZFS Block Size and Padding Calculator
 Route: `/zfs-padding-calculator`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:0845f0afe056f88a87cbbe4ea96ecbe389c3d37f15b2bfd1233a48b04fd99de2`
 Contract type: formula
 
 ## Product decision

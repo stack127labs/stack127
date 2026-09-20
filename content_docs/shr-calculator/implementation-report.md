@@ -4,7 +4,6 @@ Status: ready
 Tool: Synology SHR Capacity Calculator
 Route: `/shr-calculator`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:eb79c88e17c13ad0555a93e882eca78d156ab5dedffa2bb446b87f6e7efab77b`
 Contract type: formula
 
 ## Product decision

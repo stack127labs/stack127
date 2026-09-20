@@ -4,10 +4,6 @@ Status: ready
 Tool: NFS Firewall Rules Planner
 Route: `/nfs-firewall-rules`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:9878c81c26a6ec7a191d7566807f012202b0b088f6a5c5b9d2b2406acf883377`
-Input fingerprint: `implementation-report.md sha256:c4ae3e11bd1a78b7eabd8c847899adb056b5ebcdf1ef265ca0f57668b3d1176d`
-Input fingerprint: `edge-cases-and-tests.md sha256:a5e4139b7b758e608c2586b6c2503282fca076f4390a316d5e3b81b3add718a7`
-Input fingerprint: `brief.md sha256:fb8dbc3675becd4405a6dbf09948e5ca8051320639f87764a93c6ceb7726e7bb`
 SERP checked: 2026-08-09
 Primary medium: Tool UI
 Prose is the minority: yes

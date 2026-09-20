@@ -4,7 +4,6 @@ Status: ready
 Tool: Self-hosted app resource planner
 Route: `/self-hosted-app-resource-planner`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:e02d971f0055a8585daa4c8bd68f0ef3da388011d79571f0966e2c6bcddfa394`
 Contract type: formula
 
 ## Product decision

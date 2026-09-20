@@ -5,7 +5,6 @@ Tool: NGINX `proxy_pass` URI Calculator
 Route: `/nginx-proxy-pass-calculator`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:4c4ec377863d3627db8c4dc7aa78088a9bf569f21833c85d70656599c6603be3`
 
 ## User task
 

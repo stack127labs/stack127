@@ -4,8 +4,6 @@ Tool: LXC ID mapping checker
 Route: /lxc-idmap-checker
 Mode: pipeline
 Review scope: current interface-contract refresh; no browser verification claimed
-Input fingerprint: `brief.md sha256:6ae42360e0aa61bd06251d32c520c9e731fb6a139e29d3379c6b1bce89756737`
-Input fingerprint: `implementation-report.md sha256:287cb38dd27dee071aef8268b3ee9359035b95cd332fca3ac1fbfced0e6daf0c`
 
 ## User task
 

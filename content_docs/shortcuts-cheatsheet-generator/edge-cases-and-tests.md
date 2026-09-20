@@ -4,9 +4,6 @@ Status: ready
 Tool: Shortcut cheat sheet generator
 Route: /shortcuts-cheatsheet-generator
 Contract type: resolution
-Input fingerprint: `competitive-report.md sha256:676fa9955fe3d39ad936069881af8225df978e8a2575f96141e6d9552bb2c2c3`
-Input fingerprint: `implementation-report.md sha256:475575eafd60caaa497dddd320c4084e484ec316972601c795cf356c2c4aa984`
-Input fingerprint: `brief.md sha256:d4c1115657d9302ec721595b4184f8e8db6fb8bf4bc14c010fe64c18cb594992`
 
 ## Risk model
 

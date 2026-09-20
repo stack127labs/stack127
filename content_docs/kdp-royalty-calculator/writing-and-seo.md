@@ -7,11 +7,6 @@ Acceptance path: Main-agent review, then the retained Astra writing session; Lun
 Tool: KDP royalty calculator
 Route: `/kdp-royalty-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `edge-cases-and-tests.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:bc008b7941fc2ee44600eaf14773b2da888a63a7463ab63ea61c13c3e56e3825`
-Input fingerprint: `implementation-report.md sha256:c8ad4f6712d70ac4caa65de2a5172475e47f6a8ce02ae1a08d916256c02bf405`
-Input fingerprint: `interface-contract.md sha256:084cc1fe46c7eb22b20b6af16bfa2fc0deb2d24bedcc9b783365cd06a991d717`
-Input fingerprint: `edge-cases-and-tests.md sha256:d40d8149f2d87812df39977fecdab6865e20f3b596b658ee822c368631416142`
-Input fingerprint: `brief.md sha256:e88c2b8c9b71e15a9a1729bc1c05af84fbaaf220b7fb6b4d6bac79f482e311c4`
 SERP checked: 2026-09-16
 Primary medium: Tool UI
 Content depth: The tool answers the selected-price economics first. Supporting copy explains the formula branches, how to read the price floor and derived values, the local estimate boundary, and what to verify in KDP. It stops before demand forecasting, tax accounting, publishing guidance, or KDP submission advice.

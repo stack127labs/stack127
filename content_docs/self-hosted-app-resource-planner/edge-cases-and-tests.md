@@ -4,10 +4,6 @@ Status: ready
 Tool: Self-hosted app resource planner
 Route: `/self-hosted-app-resource-planner`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:e02d971f0055a8585daa4c8bd68f0ef3da388011d79571f0966e2c6bcddfa394`
-Input fingerprint: `implementation-report.md sha256:42cf89821fa32e407542fc947b0b1db74527b62ef489423a0c59537efdd5523c`
-Input fingerprint: `interface-contract.md sha256:3e2910010baceb8bfb5a27005141703dd9a2813f52b0de5384c56f2a4cfa20ce`
-Input fingerprint: `brief.md sha256:891670c28e434711521196a48d7fe72ac355af8193e1fa7f64cd9d5d345339fc`
 
 ## Risk model
 

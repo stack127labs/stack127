@@ -1,4 +1,0 @@
-{"name":"restic","n":1000,"elapsedMs":617,"status":"valid"}
-{"name":"rsync","n":1000,"elapsedMs":13490,"status":"valid"}
-{"name":"mqtt","n":1000,"elapsedMs":34,"status":"valid"}
-{"name":"lxc","n":1000,"elapsedMs":10,"status":"valid"}

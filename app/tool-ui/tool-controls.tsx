@@ -194,16 +194,18 @@ export type ToolTextAreaProps = FieldCopy & {
   name?: string;
   onChange?: (value: string) => void;
   placeholder?: string;
+  readOnly?: boolean;
   rows?: number;
   spellCheck?: boolean;
   value?: string;
 };
 
-export function ToolTextArea({ autoCapitalize, className = "", description, error, inputRef, label, name, onChange, placeholder, required, rows = 4, spellCheck, value }: ToolTextAreaProps) {
+export function ToolTextArea({ autoCapitalize, className = "", description, error, inputRef, label, name, onChange, placeholder, readOnly, required, rows = 4, spellCheck, value }: ToolTextAreaProps) {
   return (
     <TextField
       className={`${styles.field} ${className}`}
       isInvalid={Boolean(error)}
+      isReadOnly={readOnly}
       isRequired={required}
       onChange={onChange}
       validationBehavior="aria"

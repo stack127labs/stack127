@@ -2,7 +2,6 @@ Status: ready
 Tool: LXC ID mapping checker
 Route: /lxc-idmap-checker
 Contract type: resolution
-Input fingerprint: `competitive-report.md sha256:628bf1012858bc8e6d9d5db9232506398e54b2eff96c51209295bbc30b9a06d4`
 
 ## Product decision
 

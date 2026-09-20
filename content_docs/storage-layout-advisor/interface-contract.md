@@ -5,7 +5,6 @@ Tool: Storage layout advisor
 Route: `/storage-layout-advisor`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:24f576ee0a3fd88be13c2af9afa1c854d3b8030b3b60b1148bf3fe64b5dda6b9`
 
 ## User task
 

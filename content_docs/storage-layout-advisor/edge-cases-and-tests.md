@@ -4,9 +4,6 @@ Status: ready
 Tool: Storage Layout Advisor
 Route: `/storage-layout-advisor`
 Depends on: `competitive-report.md`, `implementation-report.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:13670c65262a5103590b065cbdf921b0322549cfda360870a9c3b252450b71b0`
-Input fingerprint: `implementation-report.md sha256:3314e14ce0fa81c0a1624e5e406ae101983312e2205ec18d98b84fd57f251d3c`
-Input fingerprint: `brief.md sha256:694ab3a3f44d47ec6e047c59962be38abd70dd32cca7189d8d6a4bb9c3fc0843`
 
 ## Risk model
 

@@ -1,0 +1,222 @@
+.tool,
+.form,
+.result,
+.permissionGroups,
+.permissionGroup,
+.specialGroup,
+.tableRegion,
+.commandRegion,
+.context {
+  display: grid;
+  min-width: 0;
+}
+
+.tool {
+  padding-block: var(--space-8);
+}
+
+.form,
+.result {
+  gap: var(--space-7);
+  padding-inline: var(--space-7);
+}
+
+.form > *,
+.result > *,
+.permissionGroup > *,
+.specialGroup > *,
+.tableRegion > *,
+.commandRegion > * {
+  min-width: 0;
+}
+
+.examples {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  min-width: 0;
+}
+
+.examplesLabel,
+.permissionGroup legend,
+.specialGroup legend {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+}
+
+.exampleButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.permissionGroups {
+  gap: var(--space-6);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.permissionGroup,
+.specialGroup {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.permissionGroup legend,
+.specialGroup legend {
+  margin-bottom: var(--space-3);
+  padding: 0;
+}
+
+.checkboxList,
+.specialBits {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.checkboxList > *,
+.specialBits > * {
+  min-height: 44px;
+}
+
+.specialBits {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.result {
+  border-top: 1px solid var(--color-border-strong);
+  margin-top: var(--space-8);
+  padding-top: var(--space-8);
+}
+
+.leadRow {
+  align-items: start;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: minmax(0, 1fr) auto;
+  min-width: 0;
+}
+
+.leadRow code {
+  font-family: var(--font-mono);
+  font-size: inherit;
+  overflow-wrap: anywhere;
+}
+
+.copyControl {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: end;
+  min-width: 0;
+}
+
+.copyControl > button {
+  width: fit-content;
+}
+
+.copyStatus {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  min-height: 1.35em;
+  text-align: right;
+}
+
+.copyControl :global([data-tool-text-area]) {
+  min-width: min(100%, 28rem);
+}
+
+.tableRegion {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.context {
+  gap: var(--space-2);
+  max-width: var(--measure-prose);
+}
+
+.context p,
+.note {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.note {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  max-width: var(--measure-prose);
+}
+
+.visuallyHidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (max-width: 680px) {
+  .tool + :global([data-tool-page-content]) table {
+    min-width: 42rem;
+  }
+
+  .permissionGroups {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .specialBits {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .tool {
+    padding-block: var(--space-7);
+  }
+
+  .form,
+  .result {
+    gap: var(--space-6);
+    padding-inline: var(--space-5);
+  }
+
+  .leadRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .copyControl {
+    justify-items: start;
+  }
+
+  .copyStatus {
+    text-align: left;
+  }
+
+  .copyControl :global([data-tool-text-area]) {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .form,
+  .result {
+    padding-inline: var(--space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool *,
+  .tool *::before,
+  .tool *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

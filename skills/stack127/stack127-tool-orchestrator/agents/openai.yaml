@@ -1,4 +1,0 @@
-interface:
-  display_name: "stack127 Tool Orchestrator"
-  short_description: "Build a complete tool page end to end"
-  default_prompt: "Use $stack127-tool-orchestrator to research, plan, build, test, write, and verify this complete unpublished tool page with the available Browser backend."

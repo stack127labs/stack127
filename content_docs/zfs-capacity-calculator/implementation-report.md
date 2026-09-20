@@ -5,7 +5,6 @@ Tool: ZFS Pool Capacity Calculator
 Route: `/zfs-capacity-calculator`
 Build status: local implementation and automated checks ready; OpenZFS 2.3 and 2.4 receipt evidence pending
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:5aea243ef7f795bfd1c9975fdda8b70e211b8608eddf80cadaa6fe30504c38b5`
 Contract type: formula
 
 ## Product decision

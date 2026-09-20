@@ -74,8 +74,9 @@ node scripts/stack127/amazon-affiliate/compact-cache.mjs
 node scripts/stack127/amazon-affiliate/finalize.mjs
 node scripts/stack127/amazon-affiliate/report.mjs
 node scripts/stack127/amazon-affiliate/audit.mjs
-node scripts/stack127/amazon-affiliate/qa-rendered.mjs --base-url=http://127.0.0.1:3333
 ```
+
+Open the affected directory on the homelab at desktop and mobile width. Confirm that reviewed Amazon links render only for exact confirmed matches and that disclosure text remains visible.
 
 The scripts resume from their JSONL caches. Failed requests remain retryable.
 Use `--allow-pending` while exact Amazon review is incomplete. A directory may

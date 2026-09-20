@@ -7,8 +7,6 @@ Route: `/kdp-pdf-preflight-checker`
 Mode: pipeline
 Review scope: Contract refresh within the unfinished new-tool pipeline, using its ready research and product inputs. This refresh reviews planning and source evidence only. Runtime state operation, rendered component consistency, and final tool acceptance remain separate required checks.
 Depends on: `brief.md`, `implementation-report.md`, `competitive-report.md`, and the supplied KDP tool planning
-Input fingerprint: `brief.md sha256:e64182e5bed956814f1727c8c65f044ab1609a6d3709d6a430154e73cfed093c`
-Input fingerprint: `implementation-report.md sha256:a1275b12d752c5d4836c302f9d8efd458c9e05090bb9c2b3dcd0222529c074ed`
 
 ## User task
 

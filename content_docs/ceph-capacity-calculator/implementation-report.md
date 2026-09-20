@@ -4,7 +4,6 @@ Status: ready
 Tool: Ceph Capacity and Failure-Domain Planner
 Route: `/ceph-capacity-calculator`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:125ace091ab223b95f8be3c74afd57cdded386759afa5d770b32e0bc17ff534d`
 Contract type: formula
 
 ## Product decision

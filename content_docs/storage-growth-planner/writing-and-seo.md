@@ -4,10 +4,6 @@ Status: ready
 Tool: Storage Growth and TCO Planner
 Route: `/storage-growth-planner`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:65f2d1849a7824b74053e706e6d6651fc586101ef05fab65df41dc3735f21e66`
-Input fingerprint: `implementation-report.md sha256:1342b7b8e1bb78ab5a6dddf0cdada2f34c62985668f7ffb2cd0555d51f8be4be`
-Input fingerprint: `edge-cases-and-tests.md sha256:27101a47efa14d5d3eff5636469b79000340a9e9888146aa549ccc838f57335c`
-Input fingerprint: `brief.md sha256:4318dd6e79ed9e8f174cea094327452791ba5caa8201ea1abd961d21a5ba3891`
 SERP checked: 2026-08-23
 Search verification: Web connector for query discovery; engines were not individually exposed. Standalone Playwright with pinned Chromium 1223 verified the current competitor result shapes at 1280 x 720 and 390 x 844. The in-app Browser and SearXNG were unavailable.
 Primary medium: Tool UI

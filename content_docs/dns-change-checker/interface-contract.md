@@ -5,7 +5,6 @@ Tool: DNS change checker
 Route: `/dns-change-checker`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:c36e397143d7385f1f2f7da6c23f768a290b5ebfe5e0f190bc29ffa1abfe9f71`
 
 ## Inspection evidence
 

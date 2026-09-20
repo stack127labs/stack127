@@ -8,13 +8,9 @@ Route: `/zfs-capacity-calculator`
 
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
 
-Input fingerprint: `competitive-report.md sha256:5aea243ef7f795bfd1c9975fdda8b70e211b8608eddf80cadaa6fe30504c38b5`
 
-Input fingerprint: `implementation-report.md sha256:8afd5c78297b2496fe45b11a8f0619d7ccf15d3d2fe90e6424435ae3c876fe95`
 
-Input fingerprint: `edge-cases-and-tests.md sha256:e84705131e3281172322d3c401fcf951fb01de3376333f772c3d46b27071ce95`
 
-Input fingerprint: `brief.md sha256:4115c7494df593ab311307563e25bcb8c331884f9d4f90a6baf58f91d1031529`
 
 SERP checked: 2026-08-04
 

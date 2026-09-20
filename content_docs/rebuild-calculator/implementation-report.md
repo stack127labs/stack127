@@ -4,7 +4,6 @@ Status: ready
 Tool: Rebuild Window and Read-Error Exposure Calculator
 Route: `/rebuild-calculator`
 Depends on: `competitive-report.md`
-Input fingerprint: `competitive-report.md sha256:9c0712973b389965bcc4e2fb5e003012cb929750a6ecf4ed1196ebfcea144be8`
 Contract type: formula
 
 ## Product decision

@@ -7,11 +7,6 @@ Acceptance path: Main-agent review, then the retained Astra writing session; Lun
 Tool: KDP page count estimator
 Route: `/kdp-page-count-estimator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `interface-contract.md`, `edge-cases-and-tests.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:7b3352e6a420605e555ac1b3662ec2ff4ac69327ccad8577f8181e485f3a9e6e`
-Input fingerprint: `implementation-report.md sha256:4b867e63bf474f840519c36115df7f21361d79fc939c424097aeb0eb159db56b`
-Input fingerprint: `interface-contract.md sha256:2c825381b66c39291367fded437bec171dcaee997741994edacb947a7c3f2b18`
-Input fingerprint: `edge-cases-and-tests.md sha256:e880b9a984748487d8853791a12e97ca796c3284e1ad2284d526c56ad2775c5d`
-Input fingerprint: `brief.md sha256:99e8c882b855a0964a9f3cdd935937bd5c3c1c27090f1f75ca97bdfe5ee2f627`
 SERP checked: 2026-09-16 (official KDP source review and competitive research)
 Primary medium: Tool UI
 Content depth: Explain the planning model, typography and margin effects, additions, even-page rounding, and why a typeset PDF determines the final count.

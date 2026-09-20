@@ -5,7 +5,6 @@ Tool: Nameserver Delegation Checker
 Route: `/nameserver-checker`
 Mode: retrofit
 Depends on: `brief.md`
-Input fingerprint: `brief.md sha256:fa7af65f3213be514cf0ed361126dc91a193fd7ba5979e14fe43790a45574079`
 
 ## User task
 

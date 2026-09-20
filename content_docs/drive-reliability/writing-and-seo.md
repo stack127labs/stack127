@@ -4,10 +4,6 @@ Status: ready
 Tool: Drive Reliability Explorer
 Route: `/drive-reliability`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
-Input fingerprint: `competitive-report.md sha256:7175170108b3bd1afd11a7e376876b1bcf4ed811524405d07dd80da5e69bb954`
-Input fingerprint: `implementation-report.md sha256:b44a2bb4e76319610e60c5524205189ae7b10dd1d99dfce6685a6fb1dd24d4b3`
-Input fingerprint: `edge-cases-and-tests.md sha256:c8981f8e73323a161d574cc49a8bbacd00b4c30c1126c0fcd3539509ec00f4b7`
-Input fingerprint: `brief.md sha256:411c8ceaffbc5ee5440a3a8abec8d06931a7a4b20df2d09c6b879cb3555e45e1`
 SERP checked: 2026-08-23
 Primary medium: Tool UI
 Prose is the minority: yes
