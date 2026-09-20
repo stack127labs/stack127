@@ -12,4 +12,6 @@ The manifest is the first place to look when changing a page. It records:
 
 Tests that only protect one page belong beside that page manifest. Tests for a real shared system stay in `tests/stack127` or a route-family `shared` folder and are referenced by every page that depends on them.
 
+The change-aware quality gate reads these manifests to select browser specifications for published routes. A shared or unmapped runtime change expands to the complete release browser gate.
+
 Do not add a second hand-maintained route coverage registry. The quality checks discover these manifests directly.

@@ -65,7 +65,9 @@ test("renders one lead answer, exact composition, and one nearby-size table", as
   const comparison = page.getByRole("table", { name: "Nearby block sizes" });
   await expect(comparison.getByRole("columnheader")).toHaveText(["Block size", "Physical allocation", "Efficiency"]);
   await expect(comparison.getByRole("row")).toHaveCount(6);
-  await expect(comparison.getByRole("row", { name: /128 KiB Current 192 KiB 66\.66%/ })).toHaveCount(1);
+  const currentRow = comparison.locator("tbody tr").filter({ hasText: "128 KiB Current" });
+  await expect(currentRow.locator('td[data-label="Physical allocation"]')).toHaveText("192 KiB");
+  await expect(currentRow.locator('td[data-label="Efficiency"]')).toHaveText("66.66%");
   await expect(page.getByText(/selected/i)).toHaveCount(0);
   await expect(page.getByText(/winner|optimum|recommended/i)).toHaveCount(0);
 });

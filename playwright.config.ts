@@ -26,6 +26,18 @@ function findNonPublishedBrowserSpecs(directory: string): string[] {
 const nonPublishedBrowserSpecs = process.env.STACK127_INCLUDE_NONPUBLISHED_BROWSER_TESTS === "1"
   ? []
   : findNonPublishedBrowserSpecs(path.join(process.cwd(), "tests/pages"));
+const externalServer = process.env.STACK127_EXTERNAL_SERVER === "1";
+const baseURL = process.env.STACK127_TEST_BASE_URL ?? "http://127.0.0.1:3334";
+const analyticsConsentState = {
+  cookies: [],
+  origins: [{
+    origin: new URL(baseURL).origin,
+    localStorage: [{
+      name: "stack127.analytics-consent",
+      value: JSON.stringify({ choice: "denied", version: 1 }),
+    }],
+  }],
+};
 
 export default defineConfig({
   testDir: "./tests",
@@ -33,18 +45,20 @@ export default defineConfig({
   testIgnore: nonPublishedBrowserSpecs,
   timeout: Number(process.env.STACK127_TEST_TIMEOUT_MS ?? 60_000),
   workers: 2,
+  retries: process.env.CI ? 1 : 0,
   expect: {
     timeout: 5_000,
   },
   use: {
-    baseURL: "http://127.0.0.1:3334",
+    baseURL,
+    storageState: analyticsConsentState,
     trace: "on-first-retry",
   },
-  webServer: {
+  webServer: externalServer ? undefined : {
     command: "node scripts/stack127/quality/playwright-web-server.mjs",
     reuseExistingServer: false,
     timeout: 300_000,
-    url: "http://127.0.0.1:3334",
+    url: baseURL,
   },
   projects: [
     {

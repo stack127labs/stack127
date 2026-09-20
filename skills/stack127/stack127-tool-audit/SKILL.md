@@ -1,106 +1,31 @@
 ---
 name: stack127-tool-audit
-description: "Audit one or more existing stack127 tools for correctness, test coverage, rendered UI, accessibility, writing, data quality, and completion. In an authorized complete-tool pipeline, preserve findings, fix confirmed defects, rerun affected tests and flows, and return production-ready evidence. Audit-only requests remain read-only. Never publish or deploy without separate authorization."
+description: Independently audit one or more stack127 tools for correctness, focused tests, rendered behavior, accessibility, writing, data truth, and readiness. Use the complete audit for high-risk tools or when the user explicitly requests a deep review. Audit-only work remains read-only.
 ---
 
 # stack127 tool audit
 
-## Pipeline role and model routing
+Answer whether a person can use the tool, trust its answer, recover from mistakes, and understand its limits. Read `AGENTS.md`, the tool specification or historical contracts, ownership manifest, engine, route, tests, current database content, interface rules, design system, and shared writing voice.
 
-In the full tool pipeline, the main orchestrator starts one audit worker as `gpt-5.6-sol` with `reasoning_effort: "high"`. That session checks the complete integrated page, preserves reproducible findings, fixes every confirmed issue within the authorized scope, and reruns the complete affected tests and flows. The main agent reviews the diff and evidence and returns any remaining issue to the same Sol session. No second audit or verification worker is part of the standard pipeline. The worker never starts another pipeline worker. An audit-only request remains read-only.
+## Choose the audit depth
 
-Answer whether a person can use the tool, trust its answer, and understand its limits. A passing test suite and a polished screenshot are evidence, not a completion verdict. Apply this review to calculators, checkers, converters, lookups, generators, planners, and other interactive tools. Do not carry forward old findings or counts without checking the current implementation.
+- Simple and standard pipeline review: independently probe the main result, one boundary, invalid recovery, keyboard and focus behavior, content accuracy, one desktop viewport, and one narrow mobile viewport.
+- High-risk or explicitly requested complete audit: also cover upstream failures, partial data, abuse and privacy, maintained-data freshness, schema drift, security boundaries, restored state, relevant themes and breakpoints, and all consequential branches.
 
-## Scope and working boundaries
+Do not expand a routine review into a broad competitor survey or repeat checks already established by shared site tests.
 
-- Review the selected tool or tools. If unnamed local builds are clearly identifiable from Git changes, routes, and manifests, state the inferred list and proceed. Ask only when the target remains ambiguous.
-- For a general quality or completion request, cover all review areas below. Respect a narrower request such as checking only writing or a particular bug. Missing source or browser access limits the verdict; it does not prevent useful checks elsewhere.
-- Keep product code, public copy, database records, publication, versions, and Git history unchanged unless the user has also authorized fixes. Running tests, starting a development server, creating isolated probes, and saving audit evidence are part of the review. Preserve existing work and clean up only resources created for this audit.
-- If fixes are authorized, keep the initial evidence, use the relevant implementation workflow, and distinguish the original findings from the verified final state. This skill does not add an approval step to already authorized work.
-- Do not start the full tool-building pipeline, a competitor survey, or production deployment just to perform a review. Research primary sources when needed to establish correct behavior or verify a public claim.
+## Review
 
-## Establish what should work
+Derive independent expected values or fixtures rather than copying the engine. Trace representative input through normalization, calculation or resolution, formatting, visualization, and export. Distinguish product defects, data gaps, environment failures, and unverified concerns.
 
-Read `AGENTS.md`, then use each route's `tests/pages/<slug>/page.json` to locate its source, engine, tests, docs, and scripts. Read the page brief, implementation report, interface contract, edge-case contract, and writing plan where they exist. Treat their readiness labels as planning claims, not proof of completed QA.
+Operate the actual page. Check answer visibility, stale results, field errors, focus order, accessible names, announcements, long values, clipping, table or chart truth, copy or export fidelity, and clean URL behavior. Read the server-rendered introduction, usage guide, supporting content, labels, results, errors, captions, limitations, and source context.
 
-Read `stack127_docs/tool-interface.md`, `stack127_docs/design-system.md`, and the shared writing skill at `skills/stack127/stack127-writing-voice/SKILL.md`. Use its writing-style companion and `skills/stack127/unslop/SKILL.md`. Consult CSS, page-family, and tool-content ownership docs where the implementation depends on them. Reuse instructions already read during this task.
+For authorized fixes, preserve the initial finding, make the smallest correction, add a regression when useful, and rerun affected checks. Do not run the complete repository browser suite unless shared-risk code changed.
 
-For each tool, identify the user question, required inputs, primary action, lead answer, limitations, and promised recovery behavior. Check the promises against both source code and the rendered page. Missing planning artifacts are a maintenance gap, not automatic proof that the tool is broken.
+## Verdict
 
-Record the current commit, relevant uncommitted changes, environment, route, and data source. Inspect the test server command and environment loader before running them. Stack127 test tooling can default to `.env.database`, which is production. For local review, use the managed development environment explicitly and verify its target without printing secrets. Check preview helpers for writes before using them. Do not publish a route or silently replace database content to get a screenshot.
+Use ready, close with minor fixes, needs fixes, or unable to verify. Every material finding needs the affected route, exact input or action, expected and observed behavior, impact, correction, and confirmation state. P0 and P1 findings block readiness. Safe P2 work can remain explicit.
 
-## Test independently of the implementation
+For the risk-based pipeline, supply the short independent review summary used by `npm run stack127:tool:verify`. Do not maintain model, session, screenshot, or shared-file hash evidence. Historical schema-version-1 acceptance records remain frozen.
 
-Start with focused tests and inspect what they actually assert. Derive a few additional cases from the tool's promises, formulas, or primary specifications rather than copying expected values from its own engine. Choose probes relevant to the tool:
-
-| Tool behavior | Useful independent probes |
-| --- | --- |
-| Numeric calculation | Unit conversions, exact boundaries, rounding near a verdict, fractional and large values, zero versus unknown, and equivalent inputs producing equivalent results. |
-| Parser or validator | Valid alternative syntax, malformed structure, false errors, missed errors, normalization that preserves meaning, and supported versus explicitly unsupported features. |
-| Lookup or asynchronous work | Missing fields, partial responses, upstream failures, repeated submit, editing during a pending request, late responses, and reset or retry. |
-| Data-backed planner | Server loading and normalization, catalogue coverage, missing joins, evidence eligibility, per-row units, known subtotals, and the difference between absent data and a zero requirement. |
-| Generator or export | Output validity, escaping, required fields, copy/download fidelity, share-state restoration, and whether exported content matches the visible result. |
-
-Trace representative values through the full path: input, normalization, calculation or API, result formatting, chart, and exported output. Engine tests can pass while a loader discards a value or a chart labels it incorrectly. Verify derived identities, roles, and holder names against the source rather than accepting a plausible fallback.
-
-Read enough current primary documentation to resolve disputed behavior. A product contract can itself contain a mistaken rule. Cite the precise source when reporting that conflict. Do not invent a feature requirement for an intentionally limited tool.
-
-Use temporary probes to demonstrate defects during a read-only review. Do not commit regression tests or change expectations unless fixes are in scope. Avoid sending real secrets to tools or external providers.
-
-## Inspect the actual interface
-
-Use the available Browser skill before browser work and follow its supported setup and recovery. If that browser is unavailable, use the permitted repository Playwright setup when possible. A browser failure is a verification limitation, not a reason to claim visual QA from source alone.
-
-Operate the initial, successful, invalid, edited, and reset states. Include loading, partial, empty, overflow, copy failure, and restored states when the tool supports them. Use real development data for an integration check; use controlled fixtures for deterministic failures and races. Label which evidence came from each.
-
-- Inspect desktop, a layout breakpoint, and narrow mobile views in both actual site themes. Use the page contract's sizes; absent a contract, 1440, 760, 375, and 320 px are useful targets. Changing the browser's preferred color scheme does not prove a site with its own theme toggle changed theme.
-- Check result visibility after submission, not just whether a node received focus. The answer should be visible and clear of the sticky header. Check logical keyboard order, visible focus, accessible names, field-associated errors, and concise announcements.
-- For client-side validation, verify that errors stay with their fields and focus moves to the first invalid control. Flag any error result panel or `Fix input` action that only duplicates this recovery path.
-- Compare chart labels, scale, denominator, units, unknown states, and legends with the numeric answer. Geometry and labels must remain truthful when the requirement exceeds the budget or only part of the data is known.
-- Inspect clipping, wrapping, scroll containers, action targets, long names, and expanded evidence. No page overflow is not enough if a table or control is clipped internally.
-- Read the hierarchy at normal display size. Findings and the answer should not be buried under settings, count tiles, duplicated summaries, or implementation metadata.
-- Compare every nontrivial control and result with its interface-contract provenance and the shared tool UI. Treat an unplanned generic browser control, generic upload box, unrelated third-party component, or page-local copy of a suitable shared primitive as a defect. Native semantics may remain underneath a visibly stack127 control.
-
-Save useful screenshots at a readable scale. A very tall full-page image shrunk into a thumbnail is not adequate visual inspection. Inspect viewport captures or relevant sections too. Include concrete visual defects rather than personal preferences, and do not cap the report in a way that hides material problems.
-
-## Review writing and evidence in context
-
-Read the actual server-rendered title, introduction, supporting content, labels, results, errors, captions, and evidence disclosures. Tool prose normally lives in `public.stack127_tool_pages`; a Markdown plan or TSX shell is not the published copy. Use the existing read-only content access path and applicable Supabase instructions when required.
-
-Check whether the words explain how to use the result and recover from mistakes. Look for repeated field lists, repeated limitations, unexplained jargon, sentence fragments, unsupported certainty, misleading privacy claims, and missing source context. Keep useful depth; word counts are observations, not quality scores. Apply the shared voice instead of inventing another writing rubric.
-
-Verify relevant internal links and primary-source claims. Distinguish measured, estimated, user-supplied, and missing values. Inspect whether evidence notes and dates survive the server-to-UI path. A fixture with a source URL is not proof of reviewed catalogue data, and development coverage does not establish production coverage.
-
-## Complete verification without confusing causes
-
-For a full readiness review, run focused unit and browser suites, type checking, static policy, and a production build where available. Check relevant route ownership, server-rendered content, navigation, and SEO behavior using the existing page-quality workflow. Broaden to shared or sitewide tests when affected dependencies or release claims justify it. Report any required check that could not be completed.
-
-Batch independent reads and light checks. Serialize heavyweight builds and browser runs when they compete for resources or write the same generated files. Preserve logs and collect actual exit codes. A success-looking log followed by a termination code is not a clean pass.
-
-Classify failures before assigning blame:
-
-- **Product defect:** observed behavior violates a justified expectation.
-- **Data or fixture gap:** required records or test setup are absent or inconsistent.
-- **Environment or test-run failure:** browser access, sandbox restrictions, server readiness, shared state, timeouts, or machine load prevent a reliable check.
-- **Unverified concern:** source suggests a problem, but it has not been reproduced or established conclusively.
-
-Retry a failed check in isolation when it will distinguish these causes. Repeated timeouts remain unresolved until explained; they are neither automatic product bugs nor passes. Do not weaken a test or fabricate data to obtain a green result. Count individual tests separately from test files, and separate unrelated repository failures from findings about the selected tools.
-
-For each area, record passed, failed, or not verified, plus the supporting evidence. Do not claim a clean browser suite when a relevant case was skipped or failed. For a pipeline handoff, record the audit feasibility verdict and run the acceptance validator against `content_docs/<slug>/pipeline-acceptance.json`. Keep blocked work separate from checks that were not verified. After authorized fixes, preserve the initial evidence, rerun the complete affected path, and add current recheck evidence from the same Sol session. Keep implementation readiness, local integration readiness, and publication/release state separate. An intentionally unpublished tool can be implementation-ready; a development registry row is not a production release.
-
-## Deliver the same clear review style
-
-Lead with the answer to whether the work is fully done. For multiple tools, use a compact table with tool, verdict, and main remaining work. Useful verdicts are ready within the reviewed scope, close with minor fixes, needs fixes, or unable to verify. Avoid arbitrary percentage-complete scores.
-
-Order findings by user impact. Each material finding needs:
-
-- The affected tool and a verified source location or rendered section.
-- A concrete input or action, expected behavior, and observed behavior.
-- Why it matters, the smallest useful correction, and its confirmation status.
-- A log, screenshot, or primary-source link when it helps establish the claim.
-
-Include a brief UI/writing assessment, exact verification results, missing evidence, and the practical fix order. Name what works as well as what remains unfinished. Mark deferred features separately from defects and required acceptance gaps.
-
-Keep the chat summary short and self-contained. For a substantial audit, save a detailed report with reproduction steps and evidence links in the task's artifact directory or a dated `stack127_records/YYYY-MM-DD-<scope>-tool-audit.md` record. Store useful evidence alongside the report or in its page-owned artifact location rather than relying only on disposable `/tmp` files. Follow page-specific script ownership for probe files. Do not create a second live copy of the tool's supporting Markdown.
-
-End by stating whether fixes or publication changes were made. Never call the work fully finished while confirmed defects or required verification gaps remain.
+State whether fixes, data, publication, or deployment changed. Never call the tool finished while a confirmed blocker remains.

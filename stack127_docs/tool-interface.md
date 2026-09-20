@@ -18,9 +18,9 @@ The interface should follow that order. Do not give introductory copy, secondary
 
 ## Plan before implementation
 
-Every new tool and every substantial redesign needs `content_docs/<tool-slug>/interface-contract.md` before UI code changes. Create it with `skills/stack127/stack127-tool-interface-plan/SKILL.md`. A small correction may proceed without a new contract only when it does not change the visible input set, result regions, hierarchy, visual format, or responsive order.
+Every new tool and every substantial redesign needs completed interface sections in `content_docs/<tool-slug>/tool-spec.md` before UI code changes. Create them with `skills/stack127/stack127-tool-interface-plan/SKILL.md`. Historical tools may keep an existing `interface-contract.md`. A small correction may proceed without a new plan only when it does not change the visible input set, result regions, hierarchy, visual format, or responsive order.
 
-The interface contract must decide:
+The interface section must decide:
 
 - the one user question and one lead answer;
 - which available facts are inputs, supporting context, evidence, or omitted;
@@ -30,7 +30,7 @@ The interface contract must decide:
 - behavior for real states, long values, desktop, and narrow screens;
 - observable `UI-` acceptance criteria.
 
-In the full tool pipeline, the Astra product-planning session continues into interface planning only after the main agent accepts the product gate. The builder implements the reviewed contract and does not privately add controls, result regions, explanatory sentences, or visualizations. Test design traces both product `R` requirements and interface `UI-` requirements. Independent QA must judge the rendered result without relying on the builder's explanation.
+The builder follows the reviewed specification and does not privately add controls, result regions, explanatory sentences, or visualizations. Focused tests protect the observable product and interface requirements. Independent review judges the rendered result without relying on the builder's explanation.
 
 ## Reading order
 

@@ -1,0 +1,71 @@
+name: Stack127 CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**/*.md"
+      - "content_docs/**"
+      - "skills/**"
+      - "stack127_docs/**"
+      - "stack127_records/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: stack127-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      STACK127_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare read-only production registry environment
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          test -n "$DATABASE_URL" || { echo "Missing repository secret: DATABASE_POOLER_URL or DATABASE_URL"; exit 1; }
+          {
+            printf 'DATABASE_URL=%s\n' "$DATABASE_URL"
+            printf 'SUPABASE_URL=%s\n' "$SUPABASE_URL"
+            printf 'SUPABASE_PUBLISHABLE_KEY=%s\n' "$SUPABASE_PUBLISHABLE_KEY"
+            printf 'SUPABASE_SECRET_KEY=%s\n' "$SUPABASE_SECRET_KEY"
+          } > .env.database
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run fast and change-aware checks
+        run: npm run quality:ci
+
+      - name: Build pull requests before merge
+        if: github.event_name == 'pull_request'
+        run: npm run build
+

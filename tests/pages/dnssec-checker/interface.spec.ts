@@ -243,6 +243,7 @@ for (const theme of ["dark", "light"] as const) {
       await page.getByLabel("Domain or hostname").fill(longName);
       await chooseRecordType(page, "TXT");
       await page.getByRole("button", { name: "Validate DNSSEC" }).click();
+      await expect(page.locator("[data-dnssec-verdict]")).toBeVisible({ timeout: 20_000 });
       await page.getByRole("button", { name: "Raw requested answer" }).click();
       await page.getByRole("button", { name: "DS and DNSKEY evidence by zone" }).click();
 

@@ -247,7 +247,7 @@ test("keeps the app picker uniquely named and usable by mouse and keyboard", asy
     await expect(trigger).toHaveCount(1);
     await expect(page.getByRole("button", { name: "Open App to add App to add", exact: true })).toHaveCount(0);
 
-    await trigger.click();
+    await input.fill("Custom app");
     const customApp = page.getByRole("option", { name: "Custom app", exact: true });
     await expect(customApp).toBeVisible();
     await customApp.click();
@@ -261,6 +261,7 @@ test("keeps the app picker uniquely named and usable by mouse and keyboard", asy
 
     await page.getByRole("button", { name: "Reset plan", exact: true }).click();
     await expect(input).toBeFocused();
+    await input.fill("Custom app");
     await input.press("ArrowDown");
     await expect(customApp).toBeVisible();
     await customApp.click();

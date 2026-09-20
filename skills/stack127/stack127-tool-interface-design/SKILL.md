@@ -7,14 +7,14 @@ description: Design or refine a stack127 interactive tool by reasoning from its 
 
 Design the tool as an instrument, not a decorated form. The interface should make the next action and the answer clear before it explains anything.
 
-Use this skill for implementation-level refinement and small corrections. Before a new tool or substantial redesign, use `$stack127-tool-interface-plan` to create a ready `interface-contract.md`, then apply this skill against that contract. Do not let the same implementation pass privately redefine what the tool shows.
+Use this skill for implementation-level refinement and small corrections. Before a new tool or substantial redesign, use `$stack127-tool-interface-plan` to complete the interface sections of `tool-spec.md`, then apply this skill against that plan. Historical routes may keep an existing `interface-contract.md`. Do not let the implementation pass privately redefine what the tool shows.
 
 ## Read before designing
 
 1. Read `AGENTS.md`.
    Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` when writing or reviewing labels, actions, results, errors, or accessibility text. Use its interface tone; it does not authorize extra helper copy or changes to supporting page content.
 2. Read `stack127_docs/design-system.md`, `stack127_docs/css-architecture.md`, and `stack127_docs/tool-interface.md`.
-3. Read the route, its styles, ownership manifest, tests, and page docs. When `interface-contract.md` exists, treat its visible inventory, omissions, result regions, visual semantics, and responsive order as binding.
+3. Read the route, its styles, ownership manifest, tests, and page docs. Treat the current `tool-spec.md` or historical `interface-contract.md` as binding for visible inventory, omissions, result regions, visual semantics, and responsive order.
 4. Read `skills/stack127/test-driven-page/SKILL.md` before changing a route.
 5. Inspect the rendered tool and operate every reachable state.
 

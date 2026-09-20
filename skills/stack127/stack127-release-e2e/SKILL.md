@@ -1,65 +1,35 @@
 ---
 name: stack127-release-e2e
-description: Release Stack127 from verified main through GitHub Actions, an immutable GHCR image, Dokploy API, and live revision checks.
+description: Release stack127 from a successful change-aware main-branch CI run through one tested immutable GHCR image, Dokploy, and exact live revision checks.
 ---
 
-# Stack127 Release E2E
+# Stack127 release end to end
 
-Use this skill for any request to release, deploy, publish, push to production,
-verify a production deployment, or diagnose a Stack127 release. The
-canonical workflow is `.github/workflows/stack127-release-e2e.yml`.
+Use this skill for release, deployment, publication verification, or release diagnosis. Read `AGENTS.md`, `stack127_docs/production-deployment.md`, and `scripts/stack127/deployment/targets.json` first.
 
-## Read first
-
-1. Read `AGENTS.md`.
-2. Read `stack127_docs/production-deployment.md`.
-3. Read `scripts/stack127/deployment/targets.json`.
-
-The only production target is the OVH Dokploy application in that manifest.
-Never deploy to the removed Hostinger Dokploy target, a generic VPS variable,
-or a nested checkout of a stack127 repo.
+The only production target is the OVH Dokploy application in the target manifest. Never use the removed Hostinger target.
 
 ## Release sequence
 
-1. Keep the intended change on `main` and ensure the release SHA is the current
-   `origin/main` tip.
-2. Run `npm run quality` and `npm run stack127:deploy:preflight`.
-3. Let the GitHub Actions workflow build and push
-   `ghcr.io/<owner>/stack127-web:<sha>`.
-4. Let the workflow call Dokploy's API with `x-api-key` and, when required,
-   Cloudflare Access service-token headers. It updates the application to the
-   immutable image, triggers `application.deploy`, and polls `deployment.all`.
-5. Treat `/api/health?scope=deploy` as the release authority. It must return
-   HTTP 200, `ok: true`, a configured production runtime, and the exact release SHA.
-6. Confirm `/`, `/robots.txt`, and `/sitemap.xml` return expected public output.
-7. Record the final invariant:
+1. Run `npm run quality` locally. Use `npm run quality:full` when shared routing, SEO, shell, registry, tool UI, package, or test infrastructure changed.
+2. Run `npm run stack127:deploy:preflight` before pushing when local production credentials are available.
+3. Keep the intended change on `main` and confirm `HEAD` equals `origin/main` after push.
+4. Wait for `Stack127 CI`. It runs fast checks and change-aware browser coverage. A successful production-relevant push starts the release workflow for that exact SHA.
+5. The release applies migrations and target preflight, builds one immutable image, starts that image, runs release smoke tests against it, then pushes the same image tags.
+6. The workflow deploys the SHA-tagged image through Dokploy.
+7. Treat `/api/health?scope=deploy` as release authority. It must report HTTP 200, `ok: true`, a production runtime, and the exact release SHA.
+8. Confirm `/`, `/robots.txt`, and `/sitemap.xml`.
+9. Record `local HEAD = origin/main = tested image SHA = live health SHA`.
 
-   `local HEAD = origin/main = Dokploy image SHA = live health SHA`
+Documentation-only pushes do not start CI or deployment. Use manual `workflow_dispatch` with the exact current `origin/main` SHA when a deliberate release is required without a production-relevant push.
 
-## Safety rules
+## Safety
 
-- Never put Dokploy API keys, GHCR tokens, database URLs, or Cloudflare Access
-  secrets in workflow files, docs, logs, or commits.
-- Never automate Dokploy with email/password credentials or Claude access codes.
-- Do not bypass a failed quality gate or preflight. Fix the mismatch first.
-- Do not use the Dokploy dashboard to deploy during a normal release; it is an
-  incident-diagnosis fallback.
-- A Cloudflare Access redirect (3xx) is a hard failure, not a reason to follow
-  a login flow from CI. Configure a narrowly scoped service-auth policy instead.
-- Do not claim a release is complete until the live health SHA and public smoke
-  checks pass.
+- Never put Dokploy, GHCR, database, or Cloudflare secrets in logs, files, or commits.
+- Never bypass failed CI, preflight, image smoke tests, or live revision checks.
+- Never automate the Dokploy dashboard with user credentials.
+- A Cloudflare Access redirect is a hard failure.
+- Never change DNS merely because a deployment failed or landed on an unexpected revision.
+- Do not call a release complete until the live SHA and public smoke checks pass.
 
-## Missing access or secrets
-
-If the workflow cannot run, report the exact missing GitHub Environment secret,
-variable, or Cloudflare Access policy. Do not invent a token, use a local
-password, or fall back to the legacy target. Once access is configured, rerun
-the same SHA through `workflow_dispatch`.
-
-## Local verification
-
-The reusable Dokploy client is
-`scripts/stack127/deployment/dokploy-release.mjs`. It supports `release`,
-`configure-image`, `trigger`, `wait`, and `health` commands. Use the complete
-`release` command only with the production Environment secrets and the exact
-SHA that passed preflight; otherwise use pure unit tests and read-only checks.
+If access is missing, report the exact secret, variable, or service-auth policy. Do not substitute another target or token.

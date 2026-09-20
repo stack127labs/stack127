@@ -1,59 +1,65 @@
-# Stack127 Quality Workflow
+# Stack127 quality workflow
 
-Every public page change should keep Stack127 fast, consistent, and easy for crawlers to understand. Use this workflow before any production deploy or public-facing repo export.
+Quality checks are proportional to the change. Route work runs focused browser coverage. Shared runtime work runs the complete release browser gate. The full desktop and mobile matrix runs nightly and on demand.
 
-## Source Of Truth
+## Sources of truth
 
-- `public.stack127_pages` is the source of truth for public SEO publication state.
-- Production publication checks must use `.env.database`, not the local database.
-- Page routes must not own metadata, canonicals, robots rules, sitemap inclusion, or JSON-LD. Keep that in the shared registry/layout system.
-- In-development routes stay unpublished until their exact slug is approved in `stack127_pages`.
-- Unknown values should stay empty or `null`; do not add fake precision or broad fallback copy to hide missing data.
+- `public.stack127_pages` controls public SEO publication.
+- Production registry checks use `.env.database`.
+- Route files do not own metadata, canonicals, robots, sitemap inclusion, or JSON-LD.
+- Every route has one ownership manifest under `tests/pages/`.
+- The change classifier at `scripts/stack127/quality/change-plan.mjs` maps changed route files to tests from those manifests.
 
-## Page Workflow
+## While editing
 
-1. Read `AGENTS.md` and the relevant `content_docs/<page-slug>/` folder.
-2. Create or update `tests/pages/<route>/page.json` with the route state and its docs, tests, scripts, and skills before or alongside the page. Keep the required `repositories` array empty for stack127 repos; track those relationships in `stack127_docs/stack127-repos.md`. Use `tests/pages/home/page.json` for `/`.
-3. Add or update route tests before considering the page done.
-4. Add or update the route under `app/` using the shared shell, typography, spacing, and components.
-5. Keep important page content server-rendered.
-6. Add any production SEO publication row through a Supabase migration.
-7. Run `npm run quality`.
-8. Fix failures at the real source instead of weakening the gate.
+Run the smallest relevant unit or browser test. Use the fast repository gate when a change crosses several files:
 
-## Required Gates
+```bash
+npm run test:fast
+```
 
-Run the full gate:
+This runs type checking, all deterministic Node tests, and static policy. These checks are fast enough to remain global.
+
+## Before handoff
+
+Run:
 
 ```bash
 npm run quality
 ```
 
-That command runs:
+`quality` runs the fast gate, production registry check, change-aware browser tests, and a production build. `test:changed` selects route-owned browser specifications and the release smoke test. It expands to the complete release browser gate when shared routing, SEO, shell, tool UI, registry, quality infrastructure, package configuration, or an unmapped runtime file changed.
 
-- `npm run typecheck`
-- `npm run test:unit`
-- `npm run test:static`
-- `npm run test:seo:registry`
-- `npm run test:seo`
-- `npm run build`
+Run the complete local matrix when the change is shared or when diagnosing broad regressions:
 
-`test:unit` uses the Node test runner for deterministic helper tests under `tests/stack127/*.test.mjs`.
+```bash
+npm run quality:full
+```
 
-`test:static` fails when a site route has no `content_docs` folder, no route coverage manifest entry, no referenced test file, or an invalid publication state.
+## Commands
 
-`test:seo:registry` reads the production database through `.env.database` and fails if the public slug list does not match the approved set.
+- `npm run test:fast`: type checking, unit tests, and static policy.
+- `npm run test:changed`: route-owned browser tests selected from Git changes.
+- `npm run test:smoke`: health, homepage, robots, and sitemap.
+- `npm run quality:ci`: fast checks, registry, and changed browser coverage without a duplicate host build.
+- `npm run quality`: change-aware handoff gate plus production build.
+- `npm run quality:full`: one production build followed by the complete desktop and mobile browser matrix against that artifact.
+- `npm run quality:nightly`: scheduled alias for the full matrix.
 
-`test:seo` starts the site on port `3334` with `.env.database` loaded, then checks indexability, canonicals, JSON-LD presence, query noindex behavior, sitemap output, and unpublished route blocking on desktop and mobile. It does not reuse an existing dev server.
+Playwright uses two workers and retries one failed test in CI. The retry captures a trace. A second failure remains a hard failure.
 
-## Agent Rules
+## CI and release
 
-- Do not publish a new route just because the file exists.
-- Do not add a route without its page-scoped ownership manifest under `tests/pages/`.
-- Do not add page-specific SEO logic inside route files.
-- Do not add hidden fallbacks that make broken data look valid.
-- Do not use local database state to decide public SEO or GitHub dataset output.
-- Do not push public stack127 repos or public-facing content without explicit approval.
-- Write public-facing copy for readers, not as internal development notes.
-- Keep `.agents/skills` and `.claude/skills` as symlinks to the canonical `skills/` folder.
-- Use the Stack127 cover image intake skill for generated page images; final JPGs should remove junk metadata and keep clean SEO-friendly metadata where tooling supports it.
+`Stack127 CI` runs for pull requests and production-relevant pushes to `main`. Documentation-only changes do not start CI or a deployment. Pull requests also run a production build. A successful `main` CI run starts `Stack127 Release E2E` for the same SHA.
+
+The release workflow builds one immutable Docker image, starts that exact image locally, runs smoke tests against it, pushes the same tags, deploys through Dokploy, and verifies the live SHA. It does not rerun every route's browser suite.
+
+`Stack127 Full Regression` runs the complete desktop and mobile matrix every night and on demand. Shared-risk changes also run the complete release browser gate in CI before deployment.
+
+## Failure behavior
+
+- Fix failures at their source. Do not weaken expectations to obtain a pass.
+- A focused test failure blocks the change.
+- A retry that passes remains visible in the CI log and trace history.
+- An unknown runtime path selects the full browser gate rather than silently skipping coverage.
+- Publication, deployment, and implementation readiness remain separate outcomes.

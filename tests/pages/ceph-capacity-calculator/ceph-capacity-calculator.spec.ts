@@ -3,9 +3,15 @@ import { expect, test } from "playwright/test";
 
 async function addBatch(page: import("playwright/test").Page, domain: string, count: string, capacity: string) {
   await page.waitForLoadState("networkidle");
-  await page.getByRole("button", { name: "Add OSD batch" }).click();
-  const index = await page.getByTestId("osd-batch").count();
-  const row = page.getByTestId("osd-batch").nth(index - 1);
+  const batches = page.getByTestId("osd-batch");
+  const index = await batches.count();
+  await expect(async () => {
+    if (await batches.count() === index) {
+      await page.getByRole("button", { name: "Add OSD batch" }).click();
+    }
+    await expect(batches).toHaveCount(index + 1);
+  }).toPass({ timeout: 10_000 });
+  const row = batches.nth(index);
   await row.getByLabel("Failure-domain label").fill(domain);
   await row.getByRole("textbox", { name: "OSD count", exact: true }).fill(count);
   await row.getByRole("textbox", { name: "OSD capacity", exact: true }).fill(capacity);

@@ -1,4 +1,4 @@
 interface:
   display_name: "stack127 Tool Interface Plan"
   short_description: "Decide a tool's interface before code"
-  default_prompt: "Use $stack127-tool-interface-plan to create a clean, implementation-ready interface contract for this tool, then stop before code."
+  default_prompt: "Use $stack127-tool-interface-plan to complete the implementation-ready interface sections of this tool's concise specification, then stop before code."

@@ -1,13 +1,15 @@
 name: Stack127 Release E2E
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows:
+      - Stack127 CI
+    types:
+      - completed
   workflow_dispatch:
     inputs:
       commit_sha:
-        description: "Exact origin/main SHA to release (leave empty for the current default branch)."
+        description: "Exact origin/main SHA to release. Leave empty for the current default branch."
         required: false
         type: string
 
@@ -21,30 +23,34 @@ concurrency:
 
 jobs:
   release:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.event == 'push' &&
+       github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     environment: production
-    timeout-minutes: 60
+    timeout-minutes: 40
+    env:
+      RELEASE_SHA: ${{ github.event.workflow_run.head_sha || inputs.commit_sha || github.sha }}
 
     steps:
-      - name: Checkout the requested release SHA
+      - name: Checkout the verified release SHA
         uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.commit_sha || github.sha }}
+          ref: ${{ env.RELEASE_SHA }}
           fetch-depth: 0
 
       - name: Verify the release is the current origin/main tip
-        id: release
         shell: bash
         run: |
           set -euo pipefail
-          expected_sha="${{ inputs.commit_sha || github.sha }}"
           origin_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
-          if [ -z "$origin_sha" ] || [ "$expected_sha" != "$origin_sha" ]; then
+          if [ -z "$origin_sha" ] || [ "$RELEASE_SHA" != "$origin_sha" ]; then
             echo "Refusing to deploy a stale or non-main revision."
-            echo "expected=$expected_sha origin/main=$origin_sha"
+            echo "expected=$RELEASE_SHA origin/main=$origin_sha"
             exit 1
           fi
-          echo "sha=$expected_sha" >> "$GITHUB_OUTPUT"
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -67,9 +73,9 @@ jobs:
         run: |
           set -euo pipefail
           umask 077
-          test -n "$DATABASE_URL" || { echo "Missing production GitHub Environment secret: DATABASE_POOLER_URL or DATABASE_URL"; exit 1; }
-          test -n "$CLOUDFLARE_API_TOKEN" || { echo "Missing production GitHub Environment secret: CLOUDFLARE_API_TOKEN"; exit 1; }
-          test -n "$CLOUDFLARE_ZONE_ID" || { echo "Missing production GitHub Environment variable/secret: CLOUDFLARE_ZONE_ID"; exit 1; }
+          test -n "$DATABASE_URL" || { echo "Missing production secret: DATABASE_POOLER_URL or DATABASE_URL"; exit 1; }
+          test -n "$CLOUDFLARE_API_TOKEN" || { echo "Missing production secret: CLOUDFLARE_API_TOKEN"; exit 1; }
+          test -n "$CLOUDFLARE_ZONE_ID" || { echo "Missing production variable or secret: CLOUDFLARE_ZONE_ID"; exit 1; }
           {
             printf 'DATABASE_URL=%s\n' "$DATABASE_URL"
             printf 'SUPABASE_URL=%s\n' "$SUPABASE_URL"
@@ -97,29 +103,25 @@ jobs:
           printf 'CLOUDFLARE_API_TOKEN=%s\n' "$CLOUDFLARE_API_TOKEN" >> "$RUNNER_TEMP/stack127-deploy.env"
           printf 'CLOUDFLARE_ZONE_ID=%s\n' "$CLOUDFLARE_ZONE_ID" >> "$RUNNER_TEMP/stack127-deploy.env"
 
+      - name: Install Chromium for a manual release
+        if: github.event_name == 'workflow_dispatch'
+        run: npx playwright install --with-deps chromium
+
+      - name: Run safety checks for a manual release
+        if: github.event_name == 'workflow_dispatch'
+        run: npm run quality:ci
+
       - name: Install Supabase CLI
         uses: supabase/setup-cli@v1
         with:
           version: latest
 
-      - name: Apply database migrations before the quality gate
+      - name: Apply database migrations
         env:
           DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
         run: |
           set -euo pipefail
-          test -n "$DATABASE_URL" || { echo "Missing production database URL for migrations"; exit 1; }
           supabase db push --db-url "$DATABASE_URL" --include-all --yes
-
-      - name: Run the complete quality gate
-        env:
-          # Exercise the same standalone server that the image will run. The
-          # dev server can recycle itself after many route checks; production
-          # mode keeps the release gate stable and representative.
-          STACK127_TEST_SERVER: production
-        run: |
-          npx playwright install --with-deps chromium
-          npm run build
-          npm run quality:release
 
       - name: Run the production target preflight
         run: npm run stack127:deploy:preflight -- --env-file "$RUNNER_TEMP/stack127-deploy.env"
@@ -142,29 +144,67 @@ jobs:
           owner="$(printf '%s' "$GITHUB_REPOSITORY_OWNER" | tr '[:upper:]' '[:lower:]')"
           echo "image=ghcr.io/$owner/stack127-web" >> "$GITHUB_OUTPUT"
 
-      - name: Build and push the immutable production image
+      - name: Build the immutable production image once
         uses: docker/build-push-action@v6
         with:
           context: .
-          push: true
+          load: true
+          push: false
           tags: |
-            ${{ steps.image.outputs.image }}:${{ steps.release.outputs.sha }}
+            ${{ steps.image.outputs.image }}:${{ env.RELEASE_SHA }}
             ${{ steps.image.outputs.image }}:production
           build-args: |
-            STACK127_BUILD_SHA=${{ steps.release.outputs.sha }}
+            STACK127_BUILD_SHA=${{ env.RELEASE_SHA }}
           cache-from: type=gha,scope=stack127-production-web
           cache-to: type=gha,mode=min,scope=stack127-production-web
 
-      - name: Deploy the immutable image through Dokploy API
+      - name: Start the exact production image for smoke tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker run --detach --name stack127-release-smoke \
+            --publish 127.0.0.1:3334:3000 \
+            --env-file .env.database \
+            "${{ steps.image.outputs.image }}:$RELEASE_SHA"
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent http://127.0.0.1:3334/api/health > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          docker logs stack127-release-smoke
+          exit 1
+
+      - name: Run smoke tests against the exact production image
+        env:
+          STACK127_EXTERNAL_SERVER: "1"
+          STACK127_EXPECTED_SHA: ${{ env.RELEASE_SHA }}
+          STACK127_TEST_BASE_URL: http://127.0.0.1:3334
+        run: |
+          npx playwright install --with-deps chromium
+          npm run test:smoke:external
+
+      - name: Stop the smoke-test container
+        if: always()
+        run: docker rm --force stack127-release-smoke || true
+
+      - name: Push the tested immutable image
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker push "${{ steps.image.outputs.image }}:$RELEASE_SHA"
+          docker push "${{ steps.image.outputs.image }}:production"
+
+      - name: Deploy the tested image through Dokploy API
         env:
           DOKPLOY_API_URL: ${{ vars.STACK127_DOKPLOY_API_URL || 'https://dokploy.stack127.com' }}
           DOKPLOY_API_KEY: ${{ secrets.DOKPLOY_API_KEY }}
           DOKPLOY_APPLICATION_ID: ${{ vars.STACK127_DOKPLOY_APPLICATION_ID || '_oKhy4YdVBc513i_qjVHC' }}
-          DOKPLOY_DOCKER_IMAGE: ${{ steps.image.outputs.image }}:${{ steps.release.outputs.sha }}
+          DOKPLOY_DOCKER_IMAGE: ${{ steps.image.outputs.image }}:${{ env.RELEASE_SHA }}
           GHCR_DOKPLOY_USERNAME: ${{ vars.GHCR_DOKPLOY_USERNAME || github.repository_owner }}
           GHCR_DOKPLOY_TOKEN: ${{ secrets.GHCR_DOKPLOY_TOKEN }}
           STACK127_SITE_URL: ${{ vars.STACK127_SITE_URL || 'https://stack127.com' }}
-          STACK127_RELEASE_SHA: ${{ steps.release.outputs.sha }}
+          STACK127_RELEASE_SHA: ${{ env.RELEASE_SHA }}
           CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
           CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: node scripts/stack127/deployment/dokploy-release.mjs release

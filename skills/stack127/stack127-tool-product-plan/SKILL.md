@@ -1,116 +1,29 @@
 ---
 name: stack127-tool-product-plan
-description: Convert a ready competitive report for one stack127 calculator, checker, converter, lookup, generator, explorer, or technical utility into a compact product and implementation contract. Use after stack127-tool-research when the user asks to plan what the page should build, choose a formula or data contract, define the interface and visual result, or create an implementation report, wireframes, and complete user flow. This is a plan-only stage and must not implement the page.
+description: Define the user job, technical contract, scope, states, and acceptance outcomes for one stack127 tool without implementing it. Use when product decisions are unresolved or the user asks for a plan.
 ---
 
 # stack127 tool product plan
 
-Turn research into one decisive build contract. Prefer a small, opinionated product over a feature inventory.
+Turn known evidence into one buildable product decision. Read `AGENTS.md`, `stack127_docs/tool-pipeline.md`, the current tool specification or historical reports, related routes, and shared tool patterns.
 
-## Pipeline role and model routing
+## Output
 
-In the full tool pipeline, the main orchestrator starts this worker as `gpt-6-astra` with `reasoning_effort: "low"`, shown as Light in Codex, and retains the session for interface planning after the main agent accepts this contract. This worker never starts another pipeline worker or implements the tool. Read `stack127_docs/tool-pipeline.md` for the artifact and acceptance contract.
+In the current tool workflow, update `content_docs/<slug>/tool-spec.md`. Do not create `implementation-report.md` or a separate brief for new tool work. For a standalone planning request on a historical tool, preserve its existing artifact layout unless the user asks to migrate it.
 
-## Required outputs
+## Decide
 
-Write:
+- One primary user question and one lead answer.
+- Risk level and publication state.
+- Formula, parser, lookup, or data contract, including units, rounding, freshness, unknowns, and invalid states.
+- Required and optional inputs, one primary action, result hierarchy, recovery, state restoration, and meaningful limits.
+- Explicit non-goals and deferred ideas.
+- File ownership, focused checks, and observable completion criteria.
 
-- `content_docs/<route-without-leading-slash>/implementation-report.md` from `references/implementation-report-template.md`;
-- `content_docs/<route-without-leading-slash>/brief.md` using the exact brief format in `stack127_docs/visual-first.md`.
+Prefer a small complete job over a feature inventory. Do not expose an option merely because the engine could support it. Unknown is better than fake precision. Never show a plausible result beside an error that invalidates it.
 
-Stop after these documents. Do not write tests, final public prose, route code, or components.
+For external services, record timeouts, caching, rate limits, provenance, partial data, privacy, abuse controls, and maintenance. Block work that needs an unapproved paid service, account, crawler, queue, scheduled job, storage system, or recurring editorial operation.
 
-## Prerequisites
+Use a table, exact chart, diagram, screenshot, marker concept, or prose only when that medium clarifies a real relationship. Keep the tool and answer first.
 
-1. Read `AGENTS.md`.
-2. Read the complete `competitive-report.md`. Require `Status: ready`. If it is missing, blocked, stale for a time-sensitive tool, or lacks evidence for a core formula or data source, stop and return to `$stack127-tool-research`.
-3. Run the pipeline validator with `--stage=research`. Stop if it fails.
-4. Record the SHA-256 fingerprint of `competitive-report.md` in the implementation report before making downstream decisions.
-5. Inspect the current route family, shared components, libraries, tests, manifests, scripts, and relevant `content_docs/` files.
-6. Read `stack127_docs/visual-first.md`, `writing-style.md`, `design-system.md`, `css-architecture.md`, `seo.md`, and `quality-workflow.md`.
-7. Read `skills/stack127/visual-first-content/SKILL.md` and `skills/stack127/test-driven-page/SKILL.md`.
-
-## Decide the product
-
-Give the product a feasibility verdict: `feasibility: feasible` or `feasibility: blocked`. Explain the evidence and preserve every supported promised outcome. If a requested promise cannot be supported, record the gap and return it upstream instead of quietly narrowing the promise.
-
-State one primary user, one job, and one product thesis. Name the evidence-backed reason a user should prefer this tool. It must be a real advantage such as clearer topology, safer validation, better source transparency, faster repeat use, or an exact visualization. "More features" and "better design" are not theses.
-
-Define table stakes, launch differentiators, deferred ideas, and explicit non-goals. Reject options that do not change a meaningful answer or decision.
-
-Record a control-mode hypothesis: `single`, `disclosure`, or `basic-advanced`. Use `basic-advanced` only when the common task works with a small set of explicit assumptions and a distinct refinement need justifies more controls. Name those assumptions and their sources. The interface-planning stage owns the final visible contract, but it must not inherit an unexplained complexity decision.
-
-## Specify technical truth
-
-For a calculator or converter, define a versioned formula contract:
-
-- accepted inputs, types, units, normalization, bounds, and defaults;
-- exact equations or ordered derivation steps;
-- rounding and display rules without changing source values;
-- invalid configurations and why no result may be shown;
-- assumptions, uncertainty, and excluded effects;
-- primary sources and the date checked;
-- formula and serialized-input versioning when shared URLs can outlive implementation changes.
-
-For a lookup or checker, define the equivalent resolution contract:
-
-- authoritative sources and precedence;
-- request normalization and fixed upstream boundaries;
-- timeouts, caching, rate limits, freshness, partial data, and provenance;
-- unknown, absent, negative, conflicting, and failed-result semantics;
-- privacy, abuse, SSRF, and untrusted-output handling.
-
-Unknown is better than fake precision. A result must never coexist with an error that invalidates it.
-
-Set `Contract type: formula` or `Contract type: resolution` in the report header. Generators and explorers use the type that matches their technical truth: deterministic input transformation is a formula contract; external-source interpretation is a resolution contract.
-
-## Design the interaction visually
-
-Make the tool itself the primary visual. Follow the stack127 rule: one full-width workbench band with form and result in the same surface, no boxed-in tool card or nested card dashboard.
-
-This stage owns product behavior and technical truth, not the final information composition. Its wireframes are product constraints. After the main agent accepts this stage, the same Astra session continues with `$stack127-tool-interface-plan` to decide the final visible inventory, omissions, component fit, result-region questions, visual semantics, and responsive composition before test design. Do not preselect components or add output merely because the data contract exposes it.
-
-Create ASCII wireframes for desktop and narrow mobile in these states when relevant:
-
-- clean or empty;
-- valid result;
-- invalid input or invalid configuration;
-- loading or calculating;
-- partial/no-data/upstream failure;
-- restored or shared state.
-
-Use a Mermaid flow only when the state transitions are clearer as a diagram. Define focus movement, keyboard behavior, live-region behavior, repeat submission, reset, stale-result handling, URL state, copy/export, and recovery. Decide whether results update live or through one explicit action and explain why.
-
-Assign every claim to a medium: tool UI, exact chart, table, topology/diagram, screenshot, or sentence. Use marker art only for a conceptual mental model and never for exact results. Do not plan decorative visuals.
-
-## Plan the build
-
-Assign stable IDs such as `R1`, `R2`, and `R3` to every acceptance criterion so the next stage can trace each edge case and test back to a product requirement.
-
-Specify:
-
-- server-rendered page content versus the smallest client-side island;
-- pure engine boundaries and why formula/data logic stays outside React;
-- route, component, CSS, library, test, script, doc, and manifest ownership;
-- dependency policy, performance budget, accessibility semantics, privacy, analytics exclusions, and publication state;
-- acceptance criteria written as observable outcomes.
-
-Do not put metadata, canonical, robots, sitemap, or JSON-LD in the route file. Keep the page unpublished unless the user separately approves publication.
-
-## Readiness gate
-
-Set `Status: ready` only when:
-
-- the primary job and winning thesis are singular and evidence-backed;
-- all P0 formula, source, data, privacy, and product decisions are resolved;
-- every visible state and transition has an expected experience;
-- wireframes are concrete enough for interface planning without inventing product behavior;
-- the result hierarchy is visual and answer-first;
-- scope, non-goals, file ownership, and acceptance criteria are explicit;
-- `brief.md` matches the report and does not introduce extra prose.
-
-Otherwise set `Status: blocked`, name the unresolved decision, and stop.
-
-Before reporting completion, run the pipeline validator with `--stage=product`. Fix the contract if it fails and never weaken the validator.
-
-When used in a pipeline, record the actual Astra model, `low` reasoning, and session through the orchestrator. The product feasibility verdict is evidence for acceptance, not acceptance itself.
+Mark the specification ready only when the builder can implement without making a new product or technical decision.

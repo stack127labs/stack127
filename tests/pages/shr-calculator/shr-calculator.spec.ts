@@ -50,7 +50,10 @@ test.describe("SHR capacity calculator", () => {
     await expect(page.getByTestId("primary-capacity")).toContainText(/7\.96/);
     await expect(page.getByLabel("Capacity allocation")).toContainText(/Protection\s*8 TB/);
     await expect(page.getByLabel("Capacity allocation")).toContainText(/Unused\s*8 TB/);
-    await expect(page.getByRole("row", { name: /Unused/ })).toBeVisible();
+    const unusedTier = page.getByRole("table", { name: "SHR capacity bands" }).locator("tbody tr").filter({
+      has: page.locator('td[data-label="Unused"]', { hasText: "8 TB" }),
+    });
+    await expect(unusedTier).toBeVisible();
   });
 
   test("clears stale results and recovers from invalid SHR-2 input", async ({ page }) => {

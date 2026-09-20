@@ -37,22 +37,30 @@ Do not work around a failed preflight. Correct the source-of-truth mismatch firs
 
 ## Release Flow
 
-The normal release path is the committed GitHub Actions workflow
-`.github/workflows/stack127-release-e2e.yml`. It runs after a push to `main`
-or from `workflow_dispatch` with an exact `origin/main` SHA:
+The normal path uses two committed GitHub Actions workflows. `Stack127 CI` runs
+fast and change-aware checks for a production-relevant push to `main`.
+`Stack127 Release E2E` starts only after that CI run succeeds for the same SHA,
+or from `workflow_dispatch` with the exact current `origin/main` SHA:
 
-1. Install dependencies and apply pending Supabase migrations.
-2. Build the site once, then run the unit, static, registry, full Chromium, and focused mobile release checks against that production build.
-3. Run the production target and Cloudflare DNS preflight.
-4. Build and push an immutable GHCR image tagged with the release SHA. The Docker build remains independent so the deployed image proves it can build from a clean context.
-5. Call Dokploy's API to point the application at that image and trigger the deployment.
-6. Poll Dokploy, then verify `/api/health?scope=deploy` reports the exact SHA and a configured runtime.
-7. Smoke-test `/`, `/robots.txt`, and `/sitemap.xml`.
+1. CI runs type checking, deterministic tests, static policy, the production
+   registry check, and browser tests selected from the changed routes. Shared
+   or unmapped runtime changes expand to the complete release browser gate.
+2. The release applies pending Supabase migrations and runs the production
+   target and Cloudflare DNS preflight.
+3. Build one immutable GHCR image tagged with the release SHA and load it on the
+   runner without pushing it.
+4. Start that exact image and run health, homepage, robots, and sitemap smoke
+   tests against it.
+5. Push the same tested SHA and production tags to GHCR without rebuilding.
+6. Call Dokploy's API to point the application at the SHA-tagged image and
+   trigger deployment.
+7. Poll Dokploy, then verify `/api/health?scope=deploy` reports the exact SHA and
+   a configured runtime. Repeat the public smoke checks against production.
 
-The release browser gate keeps full desktop coverage. Its mobile pass covers the
-shared shell, page widths, navigation, site direction, and representative
-directory and reference layouts. Run `npm run quality` locally when a change
-needs the complete mobile matrix.
+Documentation-only pushes do not start CI or deploy. The nightly `Stack127 Full
+Regression` workflow runs the complete desktop and mobile Playwright matrix.
+Use `npm run quality:full` locally for shared routing, SEO, shell, registry,
+tool UI, package, or test-infrastructure changes.
 
 Page browser specs whose ownership manifest is not `published` stay out of the
 normal release gate because production must return 404 for those preview-only
@@ -61,9 +69,8 @@ routes. Their unit and policy tests still run. Set
 temporary rows to the managed development registry for an explicit preview
 test.
 
-Only the newest `main` release should finish. A newer push cancels an older
-in-progress run in the `stack127-production` concurrency group, so stale queued
-releases do not consume another full quality and deployment cycle.
+Only the newest `main` CI and release should finish. A newer push cancels older
+work in the CI and production concurrency groups.
 
 The workflow is the source of truth for releases. Keep Dokploy's broad
 push-to-deploy webhook disabled, otherwise a Git push can start an unverified
@@ -118,7 +125,8 @@ token and fails the release.
 
 For a manual release, use the Actions **Stack127 Release E2E** workflow and
 enter a full SHA that is already the current `origin/main` tip. The workflow
-refuses stale or non-main commits.
+refuses stale or non-main commits. Manual release is the path for a deliberate
+deployment after a documentation-only push.
 
 Never trigger Stack127 through the legacy Hostinger Dokploy webhook or application.
 

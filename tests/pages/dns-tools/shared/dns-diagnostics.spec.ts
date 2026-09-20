@@ -183,10 +183,14 @@ test("SOA results stay readable and preserve skipped IPv6 evidence in the report
   await page.getByRole("button", { name: "Compare SOA records" }).click();
 
   await expect(page.getByText(/All addresses this checker could query for example\.com/)).toBeVisible();
-  const skipped = page.getByRole("row").filter({ hasText: "2001:db8::53" });
-  await expect(skipped.getByRole("cell", { name: "Skipped by checker No IPv6 route", exact: true })).toBeVisible();
-  await expect(page.getByRole("rowheader", { name: "a-very-long-nameserver-hostname.example.net", exact: true })).toHaveCount(2);
-  await expect(page.getByRole("cell", { name: "2,407,160,699", exact: true })).toBeVisible();
+  const resultsTable = page.getByRole("table", { name: /SOA values for example\.com/ });
+  const skipped = resultsTable.locator("tbody tr").filter({ hasText: "2001:db8::53" });
+  await expect(skipped).toContainText(/Skipped by checker\s*No IPv6 route/);
+  await expect(resultsTable.locator('tbody th[data-label="Source"] code')).toHaveText([
+    "a-very-long-nameserver-hostname.example.net",
+    "a-very-long-nameserver-hostname.example.net",
+  ]);
+  await expect(resultsTable.locator('td[data-label="Serial"]', { hasText: "2,407,160,699" })).toBeVisible();
   await expect(page.getByText(/ENETUNREACH/)).toHaveCount(0);
   const width = await page.evaluate(() => ({ client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth }));
   expect(width.scroll).toBeLessThanOrEqual(width.client);

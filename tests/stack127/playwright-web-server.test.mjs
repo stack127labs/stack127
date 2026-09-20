@@ -39,23 +39,40 @@ test("the SEO command gives each Playwright project a fresh web-server lifetime"
   );
 });
 
-test("the release browser gate keeps full desktop coverage and a focused mobile suite", () => {
+test("the full matrix runs against one completed production build", () => {
   assert.deepEqual(
-    packageJson.scripts["test:seo:release"].split("&&").map((command) => command.trim()),
+    packageJson.scripts["test:seo:production"].split("&&").map((command) => command.trim()),
     [
       "STACK127_TEST_SERVER=production playwright test --project=chromium",
-      "STACK127_TEST_SERVER=production playwright test tests/stack127/site-direction.spec.ts tests/stack127/shell-layout.spec.ts tests/pages/self-host-apps/layout.spec.ts tests/pages/keyboard-shortcuts/clean-layout.spec.ts --project=mobile",
+      "STACK127_TEST_SERVER=production playwright test --project=mobile",
     ],
   );
+  assert.match(packageJson.scripts["quality:full"], /npm run build && npm run test:seo:production$/);
+});
 
-  assert.equal(
-    packageJson.scripts["quality:release"],
-    "npm run test && npm run test:seo:registry && npm run test:seo:release",
+test("the shared-change browser gate keeps full desktop coverage and focused mobile coverage", () => {
+  assert.deepEqual(
+    packageJson.scripts["test:seo:shared"].split("&&").map((command) => command.trim()),
+    [
+      "playwright test --project=chromium",
+      "playwright test tests/stack127/site-direction.spec.ts tests/stack127/shell-layout.spec.ts tests/pages/self-host-apps/layout.spec.ts tests/pages/keyboard-shortcuts/clean-layout.spec.ts --project=mobile",
+    ],
   );
+  assert.equal(packageJson.scripts["quality:release"], undefined);
 });
 
 test("browser gates exclude non-published page specs unless preview testing is explicit", () => {
   assert.match(configSource, /manifest\.state !== "published"/);
   assert.match(configSource, /STACK127_INCLUDE_NONPUBLISHED_BROWSER_TESTS/);
   assert.match(configSource, /testIgnore: nonPublishedBrowserSpecs/);
+});
+
+test("ordinary browser checks hide consent without bypassing the dedicated analytics test", () => {
+  assert.match(configSource, /stack127\.analytics-consent/);
+  assert.match(configSource, /choice: "denied"/);
+  const analyticsSpec = readFileSync(
+    new URL("../stack127/google-analytics.spec.ts", import.meta.url),
+    "utf8",
+  );
+  assert.match(analyticsSpec, /localStorage\.removeItem\("stack127\.analytics-consent"\)/);
 });

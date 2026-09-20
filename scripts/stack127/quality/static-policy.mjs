@@ -181,7 +181,24 @@ function checkGlobalCssOwnership() {
 
 function checkPackageScripts() {
   const pkg = JSON.parse(read("package.json"));
-  const required = ["prebuild", "typecheck", "test:unit", "test:static", "test:seo", "test:seo:registry", "quality"];
+  const required = [
+    "prebuild",
+    "typecheck",
+    "test:unit",
+    "test:static",
+    "test:fast",
+    "test:changed",
+    "test:smoke",
+    "test:seo",
+    "test:seo:production",
+    "test:seo:shared",
+    "test:seo:registry",
+    "quality",
+    "quality:ci",
+    "quality:full",
+    "quality:nightly",
+    "stack127:tool:verify",
+  ];
   for (const script of required) {
     if (!pkg.scripts?.[script]) {
       fail(`package.json is missing required script "${script}".`);

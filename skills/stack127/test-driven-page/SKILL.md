@@ -10,7 +10,7 @@ Use this skill before changing any route under `app/(site)` or any SEO-visible p
 ## Required Order
 
 1. Read `AGENTS.md`.
-2. Read the relevant `content_docs/<page-slug>/` folder. If the page carries content, its `brief.md` (who is reading, the job, show vs say) must exist there before implementation. If it does not, write it first: the format is in `stack127_docs/visual-first.md`.
+2. Read the relevant `content_docs/<page-slug>/` folder. Current tool work uses `tool-spec.md`. Other content pages use `brief.md` with the reader, job, and show-versus-say decision. If the required planning file does not exist, write it before implementation.
 3. Before writing copy, read `stack127_docs/visual-first.md` and read and apply `skills/stack127/stack127-writing-voice/SKILL.md`. Propose the clearest mix of explanation and visuals, or apply an already approved direction. Challenge a format when it obscures the subject, not simply because it contains substantial prose.
 4. Read `stack127_docs/css-architecture.md` before adding or moving page styles.
 5. For an interactive tool, read `stack127_docs/tool-pages.md`. Keep its route and behavior in code, its readable copy in `stack127_tool_pages`, and its content and functional revisions separate.
@@ -47,16 +47,16 @@ Put page-owned tests beside the page manifest. Keep genuinely sitewide tests in 
 Run fast local gates while iterating:
 
 ```bash
-npm run test
+npm run test:fast
 ```
 
-Run the complete gate before handing off:
+Run the change-aware gate before handing off:
 
 ```bash
 npm run quality
 ```
 
-`npm run quality` includes typecheck, unit tests, static policy, production registry verification, Playwright SEO checks, and production build.
+`npm run quality` includes type checking, unit tests, static policy, production registry verification, browser tests selected from changed route ownership, and a production build. It fails safe to the complete release browser gate when shared or unmapped runtime code changed. Use `npm run quality:full` for shared routing, SEO, shell, registry, layout, or test-infrastructure changes. The nightly workflow also runs the full desktop and mobile matrix.
 
 ## Hard Rules
 

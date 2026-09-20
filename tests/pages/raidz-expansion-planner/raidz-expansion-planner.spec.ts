@@ -44,7 +44,9 @@ test("plans, clears stale output, shares, restores, and resets", async ({ page, 
   await page.getByLabel("Final width").fill("8");
   await expect(page.getByRole("status", { name: "Modeled capacity gained" })).toHaveCount(0);
   await page.getByLabel("Final width").press("Enter");
-  await expect(page.getByRole("row", { name: /Disk 2 8/ })).toBeVisible();
+  const expansionSteps = page.getByRole("table", { name: "Expansion steps" });
+  const secondStep = expansionSteps.locator("tbody tr").filter({ hasText: "Disk 2" });
+  await expect(secondStep.locator('td[data-label="Width"]')).toHaveText("8");
   await page.getByRole("button", { name: "Share plan" }).click();
   await expect(page).toHaveURL(/\?state=/);
   const shared = page.url();
@@ -59,7 +61,8 @@ test("plans, clears stale output, shares, restores, and resets", async ({ page, 
   await expect(page.locator('button[data-tool-label="Current physical allocation unit"]')).toContainText("GB");
   await page.getByLabel("Final width").fill("9");
   await page.getByRole("button", { name: "Plan expansion" }).click();
-  await expect(page.getByRole("row", { name: /Disk 3 9/ })).toBeVisible();
+  const thirdStep = expansionSteps.locator("tbody tr").filter({ hasText: "Disk 3" });
+  await expect(thirdStep.locator('td[data-label="Width"]')).toHaveText("9");
   await page.getByRole("button", { name: "Reset" }).click();
   await expect(page).toHaveURL(/raidz-expansion-planner$/);
   await expect(page.getByRole("radio", { name: "RAIDZ1" })).toBeFocused();

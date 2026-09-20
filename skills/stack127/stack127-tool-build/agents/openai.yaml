@@ -1,4 +1,4 @@
 interface:
   display_name: "stack127 Tool Build"
   short_description: "Build and verify one stack127 tool UI"
-  default_prompt: "Use $stack127-tool-build to implement and verify only the interactive tool from its approved reports, without adding page prose."
+  default_prompt: "Use $stack127-tool-build to implement the tool from its concise specification, integrate its concise content, and verify it with focused tests."

@@ -7,7 +7,7 @@ description: Find evidence-backed resource and product ideas for stack127's tech
 
 ## Pipeline role and model routing
 
-When topic research feeds the full tool pipeline, the main orchestrator starts it as `gpt-5.6-luna` with `reasoning_effort: "max"`. This worker never starts another pipeline worker or silently turns a topic idea into implementation. Read `stack127_docs/tool-pipeline.md` when proposing a tool so its feasibility verdict and promise boundary are explicit.
+When topic research feeds tool work, classify the idea as simple, standard, or high-risk and record the promise boundary. Do not require a particular model or silently turn a topic idea into implementation.
 
 Use this skill from the stack127 repository root when researching resources or products. Find concrete tasks where existing resources are fragmented, weak, too vendor-specific, or missing a useful tool.
 
