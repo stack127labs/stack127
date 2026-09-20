@@ -7,9 +7,9 @@ description: Plan the explanation and visual format mix for any stack127 page, t
 
 Use this skill whenever the task involves page content: new copy, rewrites, side content for tools, directory descriptions, guides, anything a visitor reads.
 
-## Pipeline use
+## Pipeline role and model routing
 
-For current tool work, record format decisions in `content_docs/<slug>/tool-spec.md`. Use a separate brief for non-tool content pages or preserve an existing historical brief. This skill does not require a particular model, worker, or session record.
+In the full tool pipeline, the main orchestrator starts visual and content planning as `gpt-6-astra` with `reasoning_effort: "low"`, shown as Light in Codex. This worker never starts another pipeline worker or implements or integrates a page. Read `stack127_docs/tool-pipeline.md` for required media decisions and rendered traceability.
 
 ## The one behavior that matters most
 
@@ -21,7 +21,7 @@ Visual-first is a choice of medium, not a quota. A tool stays first and primary 
 
 1. Read `stack127_docs/visual-first.md` and read and apply `skills/stack127/stack127-writing-voice/SKILL.md`. This skill owns the format mix; the shared voice skill owns how the wording reads.
 2. For tool-page copy, also read `stack127_docs/tool-pages.md`. Prepare reviewed Markdown, then use the content-only command; do not put live prose back into TSX or bump the tool version.
-3. Read or write the page's planning artifact. Tool pages use `tool-spec.md`; other content pages use `brief.md`. Record who is here, the job, and what the page should show versus explain.
+3. Read or write `content_docs/<page-slug>/brief.md`: who is here, the job, show vs say. No brief, no content.
 4. Identify the reader's questions, preserve useful existing coverage, and choose the clearest medium for each. Plan how the explanation connects, not only which facts appear.
 5. Produce visuals through the pipelines:
    - concepts: marker art specs (`stack127_docs/marker-art.md`, `npm run stack127:marker-art`)
@@ -31,7 +31,7 @@ Visual-first is a choice of medium, not a quota. A tool stays first and primary 
 6. Write the explanation around the chosen visuals using the shared voice skill. Do not reduce useful explanation to captions.
 7. Run the shared voice skill's review pass and the owning content skill's coverage checks before calling it done.
 
-Every proposal must include a feasibility verdict. Record enough detail to implement each required medium. For marker art, name the registered `MarkerArt` spec and component use. Do not promise a visual that the page cannot render and verify.
+Every proposal must include a feasibility verdict and a trace from each required medium to its rendered artifact. For lists, name whether the output is an ordered list, bullet list, or definition list. For marker art, name the registered `MarkerArt` spec and component use. Do not promise a visual that the page cannot render and verify.
 
 ## Hard rules
 

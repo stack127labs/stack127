@@ -10,7 +10,7 @@ Use this skill before changing any route under `app/(site)` or any SEO-visible p
 ## Required Order
 
 1. Read `AGENTS.md`.
-2. Read the relevant `content_docs/<page-slug>/` folder. Current tool work uses `tool-spec.md`. Other content pages use `brief.md` with the reader, job, and show-versus-say decision. If the required planning file does not exist, write it before implementation.
+2. Read the relevant `content_docs/<page-slug>/` folder. If the page carries content, its `brief.md` (who is reading, the job, show vs say) must exist there before implementation. If it does not, write it first: the format is in `stack127_docs/visual-first.md`.
 3. Before writing copy, read `stack127_docs/visual-first.md` and read and apply `skills/stack127/stack127-writing-voice/SKILL.md`. Propose the clearest mix of explanation and visuals, or apply an already approved direction. Challenge a format when it obscures the subject, not simply because it contains substantial prose.
 4. Read `stack127_docs/css-architecture.md` before adding or moving page styles.
 5. For an interactive tool, read `stack127_docs/tool-pages.md`. Keep its route and behavior in code, its readable copy in `stack127_tool_pages`, and its content and functional revisions separate.

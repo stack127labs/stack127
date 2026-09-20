@@ -48,15 +48,3 @@ test("nightly workflow owns the complete browser matrix", async () => {
   assert.match(workflow, /schedule:/);
   assert.match(workflow, /npm run quality:nightly/);
 });
-
-test("current tool instructions use risk and a generated receipt instead of fixed model sessions", async () => {
-  const pipeline = await text("stack127_docs/tool-pipeline.md");
-  const orchestrator = await text("skills/stack127/stack127-tool-orchestrator/SKILL.md");
-  for (const content of [pipeline, orchestrator]) {
-    assert.match(content, /simple/);
-    assert.match(content, /standard/);
-    assert.match(content, /high/);
-    assert.match(content, /verification-receipt\.json/);
-    assert.doesNotMatch(content, /gpt-5\.6|gpt-6-astra/);
-  }
-});

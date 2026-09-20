@@ -197,7 +197,6 @@ function checkPackageScripts() {
     "quality:ci",
     "quality:full",
     "quality:nightly",
-    "stack127:tool:verify",
   ];
   for (const script of required) {
     if (!pkg.scripts?.[script]) {

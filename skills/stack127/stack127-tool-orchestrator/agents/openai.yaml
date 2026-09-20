@@ -1,4 +1,4 @@
 interface:
   display_name: "stack127 Tool Orchestrator"
   short_description: "Build a complete tool page end to end"
-  default_prompt: "Use $stack127-tool-orchestrator to classify the risk, write one concise specification, build with focused tests, run one independent review, and generate the verification receipt for this unpublished tool."
+  default_prompt: "Use $stack127-tool-orchestrator to research, plan, build, test, write, and verify this complete unpublished tool page with the available Browser backend."

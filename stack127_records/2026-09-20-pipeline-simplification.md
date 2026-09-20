@@ -1,42 +1,38 @@
-# Pipeline simplification
+# Test and release pipeline simplification
 
-This checklist tracks the move from the original all-tools, all-checks workflow to a risk-based tool workflow and a change-aware release process. Checkmarks require implementation and verification, not a documentation-only change.
+This checklist covers test selection, CI, and production deployment. The existing tool-creation workflow remains unchanged and will be reviewed separately, one step at a time.
 
-## Tool creation
+## Scope
 
-- [x] Define simple, standard, and high-risk tool work.
-- [x] Replace the fixed 13-stage workflow with risk-based stages.
-- [x] Replace the required collection of planning documents with one concise `tool-spec.md` for new work.
-- [x] Replace hand-authored acceptance evidence with a generated verification receipt.
-- [x] Stop tying current acceptance to shared-file hashes and fixed model or session records.
-- [x] Reduce route-specific visual checks to one desktop and one mobile run while retaining shared theme and layout coverage.
-- [x] Reduce routine agent updates to start, blocker, and completion messages.
+- [x] Restore and validate the original tool-creation instructions, skills, templates, and acceptance validator.
+- [x] Keep the tool implementations, publication data, and production database unchanged.
 
 ## Tests and CI
 
 - [x] Add fast, changed, smoke, full, and nightly test commands.
-- [x] Add a change classifier that selects route-owned browser tests and expands to the full suite for shared-risk changes.
-- [x] Add one CI browser retry with trace capture so a transient failure does not require a complete manual rerun.
+- [x] Add a change classifier that selects route-owned browser tests and expands coverage for shared-risk changes.
+- [x] Build once and test the production artifact for shared-risk changes.
+- [x] Add one CI browser retry with trace capture.
 - [x] Separate change-aware CI from production deployment.
-- [x] Keep full browser coverage for nightly runs and shared-risk changes.
+- [x] Keep the full desktop and mobile matrix in the nightly workflow.
+- [x] Prevent documentation-only pushes from starting CI or deployment.
 
 ## Release
 
-- [x] Stop production deployment for documentation-only pushes.
-- [x] Build the immutable production image once.
+- [x] Build one immutable production image.
 - [x] Run release smoke tests against that exact image.
 - [x] Push and deploy the tested image without rebuilding it.
-- [x] Retain migrations, target preflight, immutable SHA checks, live health, homepage, robots, and sitemap verification.
+- [x] Keep migrations, target preflight, immutable SHA checks, live health, homepage, robots, and sitemap verification.
 
-## Project alignment
+## Completion
 
-- [x] Update `AGENTS.md`, current operating docs, relevant skills, package scripts, Playwright configuration, and GitHub workflows.
-- [x] Add automated tests for the change classifier and generated receipt.
-- [x] Validate changed skills with the skill validator.
-- [ ] Run focused tests, the change-aware gate, a production image smoke test, and the full quality gate when justified by the shared workflow changes.
-- [ ] Commit and push the verified changes to `main`.
-- [ ] Verify the production release and record `HEAD = origin/main = live SHA`.
+- [x] Run focused tests and validate the restored skills.
+- [x] Run the corrected change-aware gate against the production artifact.
+- [ ] Commit and push the verified scope to `main`.
+- [ ] Confirm GitHub CI passes.
+- [ ] Confirm the exact-image smoke test and production release pass.
+- [ ] Record `HEAD = origin/main = tested image SHA = live SHA`.
 
 ## Result
 
-Implementation is complete. Local verification passed 1,153 deterministic tests, static policy across 303 route files, the production registry check, the production build, the full desktop and mobile browser matrix, focused reruns for corrected responsive assertions, workflow parsing, and validation of all changed skills. The first hosted CI run exposed that broad coverage on the development server exceeded its 40-minute limit. Shared-risk CI now builds once and tests the production artifact; focused route work keeps the faster development-server path. The production image smoke test, final push, deployment, and live SHA check remain pending.
+Local verification passed. The restored skills, their focused validator tests, the change classifier, workflow policy tests, production build, 902 desktop browser checks, and 8 focused mobile checks passed. The previous production revision remains live and healthy until the verified commit completes CI and release.
