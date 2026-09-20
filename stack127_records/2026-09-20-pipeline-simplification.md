@@ -39,4 +39,4 @@ This checklist tracks the move from the original all-tools, all-checks workflow 
 
 ## Result
 
-Implementation is complete. Local verification passed 1,153 deterministic tests, static policy across 303 route files, the production registry check, the production build, the full desktop and mobile browser matrix, focused reruns for corrected responsive assertions, workflow parsing, and validation of all changed skills. The production image smoke test, push, deployment, and final live SHA check remain pending.
+Implementation is complete. Local verification passed 1,153 deterministic tests, static policy across 303 route files, the production registry check, the production build, the full desktop and mobile browser matrix, focused reruns for corrected responsive assertions, workflow parsing, and validation of all changed skills. The first hosted CI run exposed that broad coverage on the development server exceeded its 40-minute limit. Shared-risk CI now builds once and tests the production artifact; focused route work keeps the faster development-server path. The production image smoke test, final push, deployment, and live SHA check remain pending.

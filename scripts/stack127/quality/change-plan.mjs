@@ -185,8 +185,13 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     const plan = planChanges(resolveChangedFiles());
     console.log(JSON.stringify(plan, null, 2));
     if (!process.argv.includes("--run") || plan.mode === "none") process.exitCode = 0;
-    else if (plan.mode === "full") process.exitCode = run("npm", ["run", "test:seo:shared"]);
-    else process.exitCode = run("npx", ["playwright", "test", ...plan.specs, "--project=chromium"]);
+    else if (plan.mode === "full") {
+      const buildStatus = run("npm", ["run", "build"]);
+      process.exitCode = buildStatus === 0 ? run("npm", ["run", "test:seo:shared"]) : buildStatus;
+    } else {
+      const browserStatus = run("npx", ["playwright", "test", ...plan.specs, "--project=chromium"]);
+      process.exitCode = browserStatus === 0 ? run("npm", ["run", "build"]) : browserStatus;
+    }
   } catch (error) {
     console.error(error instanceof Error ? error.message : String(error));
     process.exitCode = 1;

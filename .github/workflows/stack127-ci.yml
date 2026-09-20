@@ -64,8 +64,3 @@ jobs:
 
       - name: Run fast and change-aware checks
         run: npm run quality:ci
-
-      - name: Build pull requests before merge
-        if: github.event_name == 'pull_request'
-        run: npm run build
-

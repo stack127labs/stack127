@@ -28,7 +28,7 @@ Run:
 npm run quality
 ```
 
-`quality` runs the fast gate, production registry check, change-aware browser tests, and a production build. `test:changed` selects route-owned browser specifications and the release smoke test. It expands to the complete release browser gate when shared routing, SEO, shell, tool UI, registry, quality infrastructure, package configuration, or an unmapped runtime file changed.
+`quality` runs the fast gate, production registry check, change-aware browser tests, and one production build for runtime changes. `test:changed` selects route-owned browser specifications and the release smoke test. Focused changes run those tests on the development server and build once afterward. Shared changes build first, then run the broad browser gate against that production artifact so hundreds of routes are not compiled on demand.
 
 Run the complete local matrix when the change is shared or when diagnosing broad regressions:
 
@@ -39,7 +39,7 @@ npm run quality:full
 ## Commands
 
 - `npm run test:fast`: type checking, unit tests, and static policy.
-- `npm run test:changed`: route-owned browser tests selected from Git changes.
+- `npm run test:changed`: route-owned browser tests selected from Git changes, plus one production build for runtime changes.
 - `npm run test:smoke`: health, homepage, robots, and sitemap.
 - `npm run quality:ci`: fast checks, registry, and changed browser coverage without a duplicate host build.
 - `npm run quality`: change-aware handoff gate plus production build.
@@ -50,7 +50,7 @@ Playwright uses two workers and retries one failed test in CI. The retry capture
 
 ## CI and release
 
-`Stack127 CI` runs for pull requests and production-relevant pushes to `main`. Documentation-only changes do not start CI or a deployment. Pull requests also run a production build. A successful `main` CI run starts `Stack127 Release E2E` for the same SHA.
+`Stack127 CI` runs for pull requests and production-relevant pushes to `main`. Documentation-only changes do not start CI or a deployment. The change-aware gate owns the single production build, so pull requests do not repeat it. A successful `main` CI run starts `Stack127 Release E2E` for the same SHA.
 
 The release workflow builds one immutable Docker image, starts that exact image locally, runs smoke tests against it, pushes the same tags, deploys through Dokploy, and verifies the live SHA. It does not rerun every route's browser suite.
 

@@ -12,6 +12,7 @@ test("package scripts expose fast, changed, smoke, full, and nightly gates", asy
     assert.equal(typeof pkg.scripts[name], "string", name);
   }
   assert.equal(pkg.scripts.quality, "npm run quality:changed");
+  assert.equal(pkg.scripts["quality:changed"], "npm run quality:ci");
   assert.match(pkg.scripts["quality:full"], /build && npm run test:seo:production/);
 });
 
@@ -21,6 +22,7 @@ test("main CI is change-aware and documentation-only pushes do not deploy", asyn
   assert.match(workflow, /stack127_docs\/\*\*/);
   assert.match(workflow, /npm run quality:ci/);
   assert.match(workflow, /STACK127_BASE_SHA/);
+  assert.doesNotMatch(workflow, /Build pull requests before merge/);
 });
 
 test("release waits for CI and tests one image before pushing it", async () => {

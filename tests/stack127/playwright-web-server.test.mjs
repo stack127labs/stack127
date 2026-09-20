@@ -54,10 +54,11 @@ test("the shared-change browser gate keeps full desktop coverage and focused mob
   assert.deepEqual(
     packageJson.scripts["test:seo:shared"].split("&&").map((command) => command.trim()),
     [
-      "playwright test --project=chromium",
-      "playwright test tests/stack127/site-direction.spec.ts tests/stack127/shell-layout.spec.ts tests/pages/self-host-apps/layout.spec.ts tests/pages/keyboard-shortcuts/clean-layout.spec.ts --project=mobile",
+      "STACK127_TEST_SERVER=production playwright test --project=chromium",
+      "STACK127_TEST_SERVER=production playwright test tests/stack127/site-direction.spec.ts tests/stack127/shell-layout.spec.ts tests/pages/self-host-apps/layout.spec.ts tests/pages/keyboard-shortcuts/clean-layout.spec.ts --project=mobile",
     ],
   );
+  assert.equal(packageJson.scripts["quality:changed"], "npm run quality:ci");
   assert.equal(packageJson.scripts["quality:release"], undefined);
 });
 
