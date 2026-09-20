@@ -28,11 +28,11 @@ This checklist covers test selection, CI, and production deployment. The existin
 
 - [x] Run focused tests and validate the restored skills.
 - [x] Run the corrected change-aware gate against the production artifact.
-- [ ] Commit and push the verified scope to `main`.
-- [ ] Confirm GitHub CI passes.
-- [ ] Confirm the exact-image smoke test and production release pass.
-- [ ] Record `HEAD = origin/main = tested image SHA = live SHA`.
+- [x] Commit and push the verified scope to `main`.
+- [x] Confirm GitHub CI passes.
+- [x] Confirm the exact-image smoke test and production release pass.
+- [x] Record `HEAD = origin/main = tested image SHA = live SHA`.
 
 ## Result
 
-Local verification passed. The restored skills, their focused validator tests, the change classifier, workflow policy tests, production build, 902 desktop browser checks, and 8 focused mobile checks passed. The previous production revision remains live and healthy until the verified commit completes CI and release.
+The original tool-creation workflow is restored. Local verification passed for the restored skills, focused validators, change classifier, workflow policy, production build, 902 desktop browser checks, and 8 focused mobile checks. GitHub CI and the exact-image release passed. Production health and database checks passed, and the homepage, robots file, sitemap, and the four named tool routes returned successfully. The final documentation commit was released separately so `HEAD`, `origin/main`, the tested image, Dokploy, and live production report the same revision.
