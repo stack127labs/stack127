@@ -1,6 +1,6 @@
 ---
 name: stack127-topic-research
-description: Find evidence-backed resource and product ideas for stack127's tech tinkerers and hustlers. Use for topic ideas, market gaps, underserved user tasks, and resource roadmaps across subjects the founder explores, including homelabs, developer tools, automation, and digital businesses.
+description: Find evidence-backed resource and product ideas for stack127's solo builders, indie hackers, content creators, and tech tinkerers. Use for topic ideas, market gaps, underserved user tasks, and resource roadmaps across subjects the founder explores, including homelabs, developer tools, automation, and digital businesses.
 ---
 
 # stack127 topic research
@@ -57,7 +57,7 @@ Read `stack127_docs/product-direction.md` before choosing subjects or scoring au
 5. Score and rank:
    - Demand: are people visibly asking or searching?
    - Gap: are current answers absent, scattered, outdated, or not tool-shaped?
-   - stack127 fit: does it help tech tinkerers or hustlers with a concrete task, and can the team build and maintain it credibly?
+   - stack127 fit: does it help solo builders, indie hackers, content creators, or tech tinkerers with a concrete task, and can the team build and maintain it credibly?
    - Feasibility: can we build a credible MVP with official sources?
    - Moat: can structured data, calculators, or repeated updates make it hard to copy?
 

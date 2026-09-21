@@ -303,7 +303,7 @@ export default async function Home() {
       <EntryHero art={siteHeroStack127Art}>
         <header className="home-intro">
           <h1 id="home-title">
-            Tools and directories for tech <mark>tinkerers and hustlers</mark>
+            A toolbox and reference hub for <mark>solo builders and tinkerers creating things online.</mark>
           </h1>
           <p className="home-lede">
             Find a tool for your next project, compare software and hardware, and learn

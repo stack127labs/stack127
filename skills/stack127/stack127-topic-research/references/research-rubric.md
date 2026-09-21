@@ -8,7 +8,7 @@ Score each candidate from 1 to 5:
 
 - Demand: visible search/community pain.
 - Gap: lack of a clear existing easy-reference answer.
-- Fit: practical value for tech tinkerers or hustlers, informed by the founder's interests and experience. Follow `stack127_docs/product-direction.md`; a subject does not need a homelab connection.
+- Fit: practical value for solo builders, indie hackers, content creators, or tech tinkerers, informed by the founder's interests and experience. Follow `stack127_docs/product-direction.md`; a subject does not need a homelab connection.
 - Feasibility: ability to build a credible MVP with official sources and repo-owned pages.
 - Moat: advantage from structured data, useful tooling, repeated updates, or source-backed depth.
 

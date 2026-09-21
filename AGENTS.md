@@ -1,6 +1,6 @@
 # stack127 agent guide
 
-stack127 publishes tools, directories, references, courses, and useful content for tech tinkerers and hustlers. Read `stack127_docs/product-direction.md` for product scope.
+stack127 publishes tools, directories, references, courses, and useful content for solo builders, indie hackers, content creators, and tech tinkerers. Read `stack127_docs/product-direction.md` for product scope.
 
 ## Work clearly
 

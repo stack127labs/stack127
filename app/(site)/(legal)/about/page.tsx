@@ -13,8 +13,8 @@ export default function AboutPage() {
       heroArt={siteHeroAboutArt}
       intro={
         <p>
-          stack127 is a tools and directories website for tech tinkerers and hustlers,
-          built by Ravi Teja KNTS.
+          stack127 is a toolbox and reference hub for solo builders, indie hackers, content
+          creators, and tinkerers creating things online, built by Ravi Teja KNTS.
         </p>
       }
       slug="about"

@@ -6,7 +6,7 @@ A reader wants to know who is behind stack127, why the site exists, and whether 
 
 ## The job
 
-They should leave knowing who Teja is, why stack127 serves tech tinkerers and hustlers, what is available, what is planned, why the name fits, and how to follow or contact the project. Homelab users are part of the audience; the whole site is broader.
+They should leave knowing who Teja is, why stack127 serves solo builders, indie hackers, content creators, and tinkerers, what is available, what is planned, why the name fits, and how to follow or contact the project. Homelab users are part of the audience; the whole site is broader.
 
 ## Show vs say
 

@@ -8,13 +8,13 @@ The current implementation rules remain in the linked operating docs until the r
 
 ## Positioning and audience
 
-stack127 is a tools and directories website for tech tinkerers and hustlers.
+stack127 is a toolbox and reference hub for solo builders, indie hackers, content creators, and tinkerers creating things online.
 
 The agreed byline is:
 
-> Tools and directories for tech tinkerers and hustlers.
+> A toolbox and reference hub for solo builders and tinkerers creating things online.
 
-The audience includes people who explore technology, solve practical problems, build their own systems, automate work, and experiment with ways to earn money. Earning money is one motivation, not a requirement for using the site.
+The audience includes solo builders, indie hackers, content creators, and tinkerers who explore technology, solve practical problems, build their own systems, automate work, and experiment with ways to earn money. Earning money is one motivation, not a requirement for using the site.
 
 Homelab users belong within the tinkerer audience. They remain welcome and their resources remain part of stack127, but they no longer define the whole website's audience or business choices.
 
@@ -28,7 +28,7 @@ Earlier, stack127 held back from Google Analytics and advertising because of exp
 
 That audience assumption no longer sets sitewide policy. Google Analytics and advertising are acceptable options for the broader website. Future work should not reject either merely because some homelab users may dislike them.
 
-The working business assumption is that useful tools can earn repeat use while carrying reasonable advertising and analytics. This is a direction to implement and measure, not a claim that every tinkerer or hustler shares the same preferences.
+The working business assumption is that useful tools can earn repeat use while carrying reasonable advertising and analytics. This is a direction to implement and measure, not a claim that every solo builder, indie hacker, content creator, or tinkerer shares the same preferences.
 
 Sponsorship remains available when it fits a resource or subject. It is one revenue option, not a prerequisite for building or sustaining a section.
 

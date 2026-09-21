@@ -4,7 +4,7 @@ Route: `/`
 
 ## Purpose
 
-Home helps tech tinkerers and hustlers find the resources already available on stack127. Follow [the product direction](../../stack127_docs/product-direction.md) and the [page brief](brief.md).
+Home helps solo builders, indie hackers, content creators, and tech tinkerers find the resources already available on stack127. Follow [the product direction](../../stack127_docs/product-direction.md) and the [page brief](brief.md).
 
 ## Sidebar and cards
 
@@ -17,7 +17,7 @@ Home helps tech tinkerers and hustlers find the resources already available on s
 
 ## Opening and recommendations
 
-Use the agreed byline, "Tools and directories for tech tinkerers and hustlers." Explain the available tools, software and hardware directories, references, and courses in one short introduction.
+Use the positioning line, "A toolbox and reference hub for solo builders and tinkerers creating things online." Explain the available tools, software and hardware directories, references, and courses in one short introduction.
 
 Start here links to existing domain tools, CLI apps, keyboard shortcuts, and the self-hosting course. Include each recommendation only when its destination belongs to the published feature set.
 
