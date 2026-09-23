@@ -1,5 +1,7 @@
 # Writing and SEO plan: KDP book setup calculator
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Feasibility: feasible
 Content review: 2026-09-19
@@ -97,14 +99,9 @@ Reading flow: The author starts with the form and the full cover answer. The res
 | COPY-04 | What the local check does not prove | Separate useful local checks from KDP's acceptance process and close the reader's workflow. | The tool compares the effective count and selected tuple with the checked KDP US table, calculates dimensions synchronously in the browser, and does not inspect PDFs or send or persist setup values under the launch contract. Source date and formula version are visible. Use `implementation-report.md` assumptions and non-goals, `edge-cases-and-tests.md` EC-022 and EC-029 through EC-031, and KDP's current cover calculator and submission guidelines. | One short limitations section with the source boundary, privacy behavior, what to verify next, and the external KDP link. Stop after final confirmation. | Do not claim privacy beyond the stated no-send and no-storage behavior, freshness beyond the checked date, KDP acceptance, PDF correctness, or support for non-US rules. Do not repeat the hardcover caveat or page-range values. |
 | COPY-05 | Task-oriented usage | Explain input preparation, meaningful choices, states, and next verification. | Closed Usage Markdown handoff and accepted technical artifacts. | One concise connected guide; use steps only where order changes the outcome. | No live-result narration, unimplemented features, or duplicate supporting explanations. |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Apply `skills/stack127/stack127-writing-voice/SKILL.md` and the unslop pass to every later public sentence. This plan owns coverage and evidence, not final prose.
-- Write `stack127`, lowercase.
-- Use sentence case headings and no em dash or en dash punctuation.
 - Keep technical terms such as trim size, effective page count, spine coefficient, bleed, wrap, hinge, and DPI when they affect the reader's decision.
-- Do not invent facts, numbers, benefits, privacy claims, acceptance claims, or implementation behavior.
 - Keep the distinction explicit between a local calculation or source-table check and KDP's acceptance of an uploaded file.
 - Do not repeat a lead value in prose when the result, diagram, or table already shows it.
 - Leave any changed KDP source rule as a review note and update the upstream reports and fingerprints before revising this plan.
@@ -127,7 +124,6 @@ Reading flow: The author starts with the form and the full cover answer. The res
 ## Open questions and blockers
 
 - The shared coefficient correction is accepted and reconciled. No content blocker remains. The route remains unpublished.
-
 
 ## Usage Markdown handoff
 

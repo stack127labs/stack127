@@ -1,10 +1,10 @@
-import { PageCanvas } from "@/app/page-canvas";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { Fragment } from "react";
 import { groupedBindings, keycapParts } from "@/lib/shortcuts/presentation";
 import Link from "next/link";
 import { Keyboard } from "lucide-react";
-import { PageHeader } from "@/app/page-header";
-import { PageTitleIcon } from "@/app/page-title-icon";
+import { PageHeader } from "@/app/ui/site/page-header";
+import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
 import { platformLabels, shortcutCount, type AppShortcuts, type Shortcut } from "@/lib/shortcuts/types";
 import styles from "./keyboard-shortcuts.module.css";
 

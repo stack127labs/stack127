@@ -607,10 +607,6 @@
   padding-left: var(--space-6);
 }
 
-.tableScroll {
-  overflow-x: auto;
-}
-
 .comparisonTable {
   border: 1.5px solid var(--color-border-strong);
   border-collapse: collapse;

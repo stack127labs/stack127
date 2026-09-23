@@ -2,13 +2,14 @@
 
 import { RotateCcw } from "lucide-react";
 import { useRef, useState, type FormEvent } from "react";
-import { ToolActionRow, ToolButton, ToolCheckbox, ToolChoiceGroup, ToolCopyAction, ToolKeyValueList, ToolStatus, ToolTextField, toolOption } from "@/app/tool-ui/tool-controls";
+import { UiButton, UiCheckbox, UiChoiceGroup, UiCopyAction, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiKeyValueList, UiStatus } from "@/app/ui/display";
 import { NGINX_FIXTURE_VERSION, NGINX_PROXY_PASS_FORMULA_VERSION, type LocationType, type ProxyPassInput, type ProxyPassResult, type RewriteState, calculateProxyPassUri } from "@/lib/nginx/proxy-pass-uri";
 import styles from "./nginx-proxy-pass-calculator.module.css";
 
 const defaults: ProxyPassInput = { locationType: "prefix", location: "/api/", requestTarget: "/api/users?id=42", proxyPass: "http://backend/", rewriteState: "none", compareSlash: true };
-const locationOptions = [toolOption("prefix", "Prefix"), toolOption("exact", "Exact ="), toolOption("regex", "Regex"), toolOption("named", "Named")];
-const rewriteOptions = [toolOption("none", "None"), toolOption("break", "break"), toolOption("last", "last"), toolOption("other", "Other")];
+const locationOptions = [uiOption("prefix", "Prefix"), uiOption("exact", "Exact ="), uiOption("regex", "Regex"), uiOption("named", "Named")];
+const rewriteOptions = [uiOption("none", "None"), uiOption("break", "break"), uiOption("last", "last"), uiOption("other", "Other")];
 const unknownText: Record<Extract<ProxyPassResult, { status: "unknown" }>["reason"], string> = {
   "regex-location": "Regex locations do not define a literal prefix that proxy_pass can replace.",
   "named-location": "Named locations need runtime location processing.", variables: "Variables need runtime values.",
@@ -48,26 +49,26 @@ export function NginxProxyPassCalculator() {
 
   return <section className={styles.tool} data-tool-workbench aria-label="proxy_pass calculator inputs and results">
     <form ref={form} className={styles.form} onSubmit={submit} noValidate>
-      <ToolChoiceGroup label="Location type" onChange={(value) => update("locationType", value as LocationType)} options={locationOptions} value={input.locationType} />
+      <UiChoiceGroup label="Location type" onChange={(value) => update("locationType", value as LocationType)} options={locationOptions} value={input.locationType} />
       <div className={styles.fields}>
-        <ToolTextField error={errors.location} inputRef={locationInput} label="Matched location" onChange={(value) => update("location", value)} required spellCheck={false} value={input.location} />
-        <ToolTextField error={errors.requestTarget} label="Request target" onChange={(value) => update("requestTarget", value)} required spellCheck={false} value={input.requestTarget} />
-        <ToolTextField error={errors.proxyPass} label="proxy_pass URL" onChange={(value) => update("proxyPass", value)} required spellCheck={false} value={input.proxyPass} />
+        <UiTextField error={errors.location} inputRef={locationInput} label="Matched location" onChange={(value) => update("location", value)} required spellCheck={false} value={input.location} />
+        <UiTextField error={errors.requestTarget} label="Request target" onChange={(value) => update("requestTarget", value)} required spellCheck={false} value={input.requestTarget} />
+        <UiTextField error={errors.proxyPass} label="proxy_pass URL" onChange={(value) => update("proxyPass", value)} required spellCheck={false} value={input.proxyPass} />
       </div>
-      <ToolChoiceGroup label="Rewrite before proxy_pass" onChange={(value) => update("rewriteState", value as RewriteState)} options={rewriteOptions} value={input.rewriteState} />
-      <ToolCheckbox isSelected={input.compareSlash} onChange={toggleSlashComparison}>Compare the final slash</ToolCheckbox>
-      {result?.status === "invalid" ? <ToolStatus tone="danger">Fix the marked inputs. No upstream URL was calculated.</ToolStatus> : null}
-      <ToolActionRow><ToolButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={18} /> Reset</ToolButton><ToolButton type="submit" variant="primary">Calculate upstream URL</ToolButton></ToolActionRow>
+      <UiChoiceGroup label="Rewrite before proxy_pass" onChange={(value) => update("rewriteState", value as RewriteState)} options={rewriteOptions} value={input.rewriteState} />
+      <UiCheckbox isSelected={input.compareSlash} onChange={toggleSlashComparison}>Compare the final slash</UiCheckbox>
+      {result?.status === "invalid" ? <UiStatus tone="danger">Fix the marked inputs. No upstream URL was calculated.</UiStatus> : null}
+      <UiActionRow><UiButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={18} /> Reset</UiButton><UiButton type="submit" variant="primary">Calculate upstream URL</UiButton></UiActionRow>
       <p aria-live="polite" className={styles.visuallyHidden}>{announcement}</p>
     </form>
 
-    {failed ? <section aria-label="Calculator failure" className={styles.failure} ref={failureRegion} tabIndex={-1}><ToolStatus tone="danger">The calculator could not finish. Your inputs are still here.</ToolStatus><ToolButton onPress={() => submit()} type="button">Try again</ToolButton></section> : null}
+    {failed ? <section aria-label="Calculator failure" className={styles.failure} ref={failureRegion} tabIndex={-1}><UiStatus tone="danger">The calculator could not finish. Your inputs are still here.</UiStatus><UiButton onPress={() => submit()} type="button">Try again</UiButton></section> : null}
     {result?.status === "success" ? <section aria-label="Calculated upstream URL" aria-live="polite" className={styles.result} data-result-kind="success" ref={resultRegion} tabIndex={-1}>
       <div className={result.comparison ? styles.answerBand : styles.answerBandSingle}>
-        <div className={styles.answer}><span>Final upstream URL</span><code>{result.finalUrl}</code><ToolCopyAction label="Copy URL" successLabel="URL copied" value={result.finalUrl} /></div>
+        <div className={styles.answer}><span>Final upstream URL</span><code>{result.finalUrl}</code><UiCopyAction label="Copy URL" successLabel="URL copied" value={result.finalUrl} /></div>
         {result.comparison ? <div className={styles.alternative}><span>With proxy_pass <code>{result.comparison.proxyPass}</code></span><code>{result.comparison.finalUrl}</code></div> : null}
       </div>
-      <ToolKeyValueList rows={[
+      <UiKeyValueList rows={[
         { label: "Request path", value: <code>{result.trace.requestPath}</code> },
         { label: "Matched location", value: <code>{result.trace.matchedLocation}</code> },
         { label: "Proxy URI", value: <code>{result.trace.proxyUriPresence === "absent" ? "Absent" : `Present: ${result.trace.replacementUri}`}</code> },
@@ -78,6 +79,6 @@ export function NginxProxyPassCalculator() {
       ]} />
       <p className={styles.provenance}>{NGINX_PROXY_PASS_FORMULA_VERSION} · NGINX fixture {NGINX_FIXTURE_VERSION}</p>
     </section> : null}
-    {result?.status === "unknown" ? <section aria-label="Needs live NGINX" className={styles.failure} data-result-kind="unknown" ref={resultRegion} tabIndex={-1}><ToolStatus tone="warning"><strong>Needs live NGINX.</strong> {unknownText[result.reason]} Verify with <code>nginx -T</code> and upstream logs.</ToolStatus></section> : null}
+    {result?.status === "unknown" ? <section aria-label="Needs live NGINX" className={styles.failure} data-result-kind="unknown" ref={resultRegion} tabIndex={-1}><UiStatus tone="warning"><strong>Needs live NGINX.</strong> {unknownText[result.reason]} Verify with <code>nginx -T</code> and upstream logs.</UiStatus></section> : null}
   </section>;
 }

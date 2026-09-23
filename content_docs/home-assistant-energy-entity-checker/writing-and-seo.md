@@ -1,13 +1,13 @@
 # Writing and SEO plan: Home Assistant Energy Entity Eligibility Checker
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Tool: Home Assistant Energy Entity Eligibility Checker
 Route: `/home-assistant-energy-entity-checker`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
 SERP checked: 2026-08-09
 Primary medium: Tool UI
-Prose is the minority: yes
-Static prose budget: 4 sections, 480 words maximum
 
 ## Search intent
 
@@ -101,24 +101,18 @@ No existing stack127 guide directly continues this missing-entity task. Do not a
 
 ### Sections reserved for later manual writing
 
-| Section ID | Heading | Purpose | Required facts and sources | Word limit and shape | Banned claims or repetition |
+| Section ID | Heading | Purpose | Required facts and sources | Planned format | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
-| COPY-01 | H1 introduction | Define the user, intended-field check, two bounded answers, local evaluation, and main live-instance limit | `brief.md`; implementation product decision, R3, and R11 | 65 words maximum in one paragraph | No best, only, guarantee, ranking, setup lesson, role list, or claim that ordinary page requests are local-only |
-| COPY-02 | `Choose the Energy field before judging the sensor` | Explain why accumulated energy and optional power require different metadata | Home Assistant Energy overview and FAQ; implementation role matrix | 100 words maximum in two short paragraphs | No button instructions, generated YAML, Riemann-sum tutorial, or repetition of the role table |
-| COPY-03 | `Energy and statistics answer different questions` | Explain the independent decision boundaries with one exact power/measurement/W example | Core 2026.8.1 Energy validator and sensor recorder; implementation step 7; FF-017 | 125 words maximum in two short paragraphs | No combined verdict, recorder guarantee, unit-history claim, or narration of every trace row |
-| COPY-04 | `A matching result still needs Home Assistant` | Give the shortest honest verification path after local attributes match | Energy FAQ missing-entity workflow; implementation non-goals and instance checks | 100 words maximum in one paragraph plus at most three concise next checks | No repair instructions, database edits, YAML generation, picker guarantee, or repetition of the instance-boundary table |
+| COPY-01 | H1 introduction | Define the user, intended-field check, two bounded answers, local evaluation, and main live-instance limit | `brief.md`; implementation product decision, R3, and R11 | Prose. | No best, only, guarantee, ranking, setup lesson, role list, or claim that ordinary page requests are local-only |
+| COPY-02 | `Choose the Energy field before judging the sensor` | Explain why accumulated energy and optional power require different metadata | Home Assistant Energy overview and FAQ; implementation role matrix | Prose. | No button instructions, generated YAML, Riemann-sum tutorial, or repetition of the role table |
+| COPY-03 | `Energy and statistics answer different questions` | Explain the independent decision boundaries with one exact power/measurement/W example | Core 2026.8.1 Energy validator and sensor recorder; implementation step 7; FF-017 | Prose. | No combined verdict, recorder guarantee, unit-history claim, or narration of every trace row |
+| COPY-04 | `A matching result still needs Home Assistant` | Give the shortest honest verification path after local attributes match | Energy FAQ missing-entity workflow; implementation non-goals and instance checks | Prose with the next checks. | No repair instructions, database edits, YAML generation, picker guarantee, or repetition of the instance-boundary table |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
-- Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
-- Do not repeat a result, table, trace, heading, or prior section.
 - Call a local pass an attribute match, never proof that the entity will appear.
 - Keep Energy and statistics conclusions independent in every sentence.
 - Do not turn the page into an installation guide, repair guide, generic state-class reference, FAQ, or methodology article.
-- Leave unresolved facts as explicit review notes, not plausible copy.
 
 ### Tool-build exclusion
 

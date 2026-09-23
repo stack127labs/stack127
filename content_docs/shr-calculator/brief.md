@@ -4,7 +4,7 @@
 
 Approved September 6, 2026. Explain mixed-drive capacity bands through a verified hypothetical inventory, compare SHR-1 and SHR-2, then separate fresh-pool capacity, system reserve, filesystem space, and existing-pool expansion.
 
-The working tool stays first. Use connected explanation at the depth the task needs, with no word, section, sentence, or visual-ratio quota. This direction supersedes earlier supporting-prose budgets in this page's planning artifacts; it does not change the engine or input contract. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
+The working tool stays first. Follow `stack127_docs/writing-style.md` for writing and visual choices. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
 
 ## Who is here
 

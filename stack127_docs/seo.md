@@ -1,5 +1,7 @@
 # Stack127 SEO
 
+Use [writing-style.md](writing-style.md) when writing titles, descriptions, and other public words. This document covers metadata storage and publication behavior.
+
 ## Base URL
 
 The production URL is `https://stack127.com`.
@@ -19,7 +21,7 @@ Fields:
 | `id` | Internal page identity and primary key |
 | `slug` | URL path without leading slash, for example `self-host-apps` or `self-hosting-for-beginners/linux-ssh-basics` |
 | `page_family` | Page ownership family: `tool`, `catalog`, `course`, `info`, or `legal` |
-| `label` | Compact UI label for sidebars, home cards, and other chrome. Keep short and lowercase unless a proper noun needs different casing |
+| `label` | Compact UI label for sidebars, home cards, and other chrome |
 | `meta_title` | Full browser/search title |
 | `meta_description` | Search description |
 | `is_published` | Whether the exact slug is a public SEO page |

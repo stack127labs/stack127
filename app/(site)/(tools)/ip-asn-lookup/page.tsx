@@ -1,8 +1,8 @@
-import { PageCanvas } from "@/app/page-canvas";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { Network } from "lucide-react";
-import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { AppShell } from "../../../app-shell";
+import { AppShell } from "../../../ui/site/app-shell";
 import { IpAsnLookupSidebar } from "./ip-asn-lookup-sidebar";
 import { IpAsnLookupTool } from "./ip-asn-lookup-tool";
 import "./ip-asn-lookup.css";

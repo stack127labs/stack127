@@ -2,30 +2,18 @@
 
 import { FileSearch, RotateCcw } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolCopyAction,
-  ToolDataTable,
-  ToolDownloadAction,
-  ToolKeyValueList,
-  ToolNumberField,
-  ToolResultLead,
-  ToolSelect,
-  ToolStatus,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
-import { ToolFileDropzone, ToolFileList, type ToolFileItem, type ToolFileRejection, type ToolFileStatus } from "@/app/tool-ui/tool-uploads";
+import { UiButton, UiChoiceGroup, UiCopyAction, UiDownloadAction, UiNumberField, UiSelect, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiKeyValueList, UiResultLead, UiStatus } from "@/app/ui/display";
+import { UiFileDropzone, UiFileList, type UiFileItem, type UiFileRejection, type UiFileStatus } from "@/app/ui/uploads";
 import { KDP_PDF_PREFLIGHT_VERSION, analyzeKdpPdf, formatKdpPdfReport, type KdpPdfExpected, type KdpPdfResult } from "@/lib/kdp/pdf-preflight.ts";
 import { calculateKdpSetup, getKdpSetupDefaults, type KdpSetupInput } from "@/lib/kdp/setup.ts";
 import { KDP_MAX_FILE_MB, getKdpInteriorOptions, getKdpPageLimit, getKdpPaperOptions, getKdpTrimOptions, interiorLabel, paperLabel, type KdpBinding, type KdpInterior } from "@/lib/kdp/specs.ts";
-import styles from "../_components/kdp-tool.module.css";
+import styles from "../../../ui/tools/kdp-tool.module.css";
 
 type FileKind = "interior" | "cover";
 
-const kindOptions = [toolOption("interior", "Interior PDF"), toolOption("cover", "Paperback cover")];
-const bindingOptions = [toolOption("paperback", "Paperback"), toolOption("hardcover", "Hardcover")];
+const kindOptions = [uiOption("interior", "Interior PDF"), uiOption("cover", "Paperback cover")];
+const bindingOptions = [uiOption("paperback", "Paperback"), uiOption("hardcover", "Hardcover")];
 
 function defaultInput(): KdpSetupInput {
   return { ...getKdpSetupDefaults(), bleed: false };
@@ -44,7 +32,7 @@ export function KdpPdfPreflightChecker() {
   const [input, setInput] = useState<KdpSetupInput>(defaultInput);
   const [kind, setKind] = useState<FileKind>("interior");
   const [file, setFile] = useState<File | null>(null);
-  const [fileState, setFileState] = useState<ToolFileStatus>("ready");
+  const [fileState, setFileState] = useState<UiFileStatus>("ready");
   const [result, setResult] = useState<KdpPdfResult | null>(null);
   const [expected, setExpected] = useState<KdpPdfExpected | null>(null);
   const [status, setStatus] = useState("");
@@ -93,7 +81,7 @@ export function KdpPdfPreflightChecker() {
     setStatus("");
   }
 
-  function rejectFile(rejections: ToolFileRejection[]) {
+  function rejectFile(rejections: UiFileRejection[]) {
     const reason = rejections[0]?.reason;
     setStatus(reason === "file-size"
       ? `PDF limit: ${KDP_MAX_FILE_MB} MB.`
@@ -180,7 +168,7 @@ export function KdpPdfPreflightChecker() {
   const interiorOptions = getKdpInteriorOptions(activeBinding);
   const paperOptions = getKdpPaperOptions(activeBinding, input.interior);
   const report = result ? formatKdpPdfReport(result) : "";
-  const selectedFiles: ToolFileItem[] = file ? [{
+  const selectedFiles: UiFileItem[] = file ? [{
     id: "selected-pdf",
     message: fileState === "error" ? "Choose another PDF or retry this file." : undefined,
     name: file.name,
@@ -192,7 +180,7 @@ export function KdpPdfPreflightChecker() {
   return (
     <section aria-label="PDF preflight inputs and results" className={styles.tool} data-tool-workbench>
       <form className={styles.form} onSubmit={submit}>
-        <ToolFileDropzone
+        <UiFileDropzone
           acceptedFileTypes={["application/pdf", ".pdf"]}
           browseButtonRef={fileButtonRef}
           browseLabel="Choose PDF"
@@ -205,45 +193,45 @@ export function KdpPdfPreflightChecker() {
           onFiles={selectFile}
           onReject={rejectFile}
         />
-        <ToolFileList
+        <UiFileList
           ariaLabel="Selected PDF"
           files={selectedFiles}
           onRemove={busy ? undefined : removeFile}
           onRetry={busy ? undefined : () => { void submit(); }}
         />
         <div className={styles.grid}>
-          <ToolChoiceGroup label="Check scope" onChange={(value) => changeKind(value as FileKind)} options={kindOptions} value={kind} />
-          {kind === "interior" ? <ToolChoiceGroup label="Binding" onChange={(value) => changeBinding(value as KdpBinding)} options={bindingOptions} value={input.binding} /> : <p className={styles.notice}>Binding: Paperback</p>}
-          <ToolSelect label="Trim size" onChange={(value) => update({ trimId: value })} options={trimOptions.map((trim) => toolOption(trim.id, trim.label))} value={input.trimId} />
-          <ToolSelect label="Interior" onChange={(value) => changeInterior(value as KdpInterior)} options={interiorOptions.map((interior) => toolOption(interior, interiorLabel(interior)))} value={input.interior} />
-          <ToolSelect label="Paper" onChange={(value) => update({ paper: value as KdpSetupInput["paper"] })} options={paperOptions.map((paper) => toolOption(paper, paperLabel(paper)))} value={input.paper} />
-          {kind === "cover" ? <ToolNumberField label="Book page count" min={1} onChange={(value) => update({ pageCount: value })} value={input.pageCount} /> : <ToolChoiceGroup label="Interior bleed" onChange={(value) => update({ bleed: value === "yes" })} options={[toolOption("no", "Without bleed"), toolOption("yes", "With bleed")]} value={input.bleed ? "yes" : "no"} />}
+          <UiChoiceGroup label="Check scope" onChange={(value) => changeKind(value as FileKind)} options={kindOptions} value={kind} />
+          {kind === "interior" ? <UiChoiceGroup label="Binding" onChange={(value) => changeBinding(value as KdpBinding)} options={bindingOptions} value={input.binding} /> : <p className={styles.notice}>Binding: Paperback</p>}
+          <UiSelect label="Trim size" onChange={(value) => update({ trimId: value })} options={trimOptions.map((trim) => uiOption(trim.id, trim.label))} value={input.trimId} />
+          <UiSelect label="Interior" onChange={(value) => changeInterior(value as KdpInterior)} options={interiorOptions.map((interior) => uiOption(interior, interiorLabel(interior)))} value={input.interior} />
+          <UiSelect label="Paper" onChange={(value) => update({ paper: value as KdpSetupInput["paper"] })} options={paperOptions.map((paper) => uiOption(paper, paperLabel(paper)))} value={input.paper} />
+          {kind === "cover" ? <UiNumberField label="Book page count" min={1} onChange={(value) => update({ pageCount: value })} value={input.pageCount} /> : <UiChoiceGroup label="Interior bleed" onChange={(value) => update({ bleed: value === "yes" })} options={[uiOption("no", "Without bleed"), uiOption("yes", "With bleed")]} value={input.bleed ? "yes" : "no"} />}
         </div>
-        <ToolActionRow>
+        <UiActionRow>
           <div className={styles.actions}>
-            <ToolButton isDisabled={busy} onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</ToolButton>
-            <ToolButton isDisabled={busy} type="submit" variant="primary"><FileSearch aria-hidden="true" size={17} /> {busy ? "Checking PDF..." : "Check PDF"}</ToolButton>
+            <UiButton isDisabled={busy} onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</UiButton>
+            <UiButton isDisabled={busy} type="submit" variant="primary"><FileSearch aria-hidden="true" size={17} /> {busy ? "Checking PDF..." : "Check PDF"}</UiButton>
           </div>
-        </ToolActionRow>
-        {status ? <ToolStatus tone={result?.status === "invalid" ? "danger" : result?.findings.length ? "warning" : "neutral"}>{status}</ToolStatus> : null}
+        </UiActionRow>
+        {status ? <UiStatus tone={result?.status === "invalid" ? "danger" : result?.findings.length ? "warning" : "neutral"}>{status}</UiStatus> : null}
         {result?.status === "invalid" ? <ul className={styles.issueList}>{result.findings.map((item) => <li data-severity={item.severity} key={item.code}>{item.message}</li>)}</ul> : null}
       </form>
 
       {result?.status === "valid" && expected ? (
         <section aria-label="PDF preflight result" className={styles.result}>
-          <ToolResultLead inputRef={resultRef}>{result.findings.length ? `${result.findings.length} possible issue${result.findings.length === 1 ? "" : "s"} need review.` : "No measurable issues found."}</ToolResultLead>
+          <UiResultLead inputRef={resultRef}>{result.findings.length ? `${result.findings.length} possible issue${result.findings.length === 1 ? "" : "s"} need review.` : "No measurable issues found."}</UiResultLead>
           <div className={styles.actions}>
-            <ToolCopyAction label="Copy report" successLabel="Report copied" value={report} withManualFallback />
-            <ToolDownloadAction contents={report} filename={`${result.fileName.replace(/\.pdf$/i, "")}-preflight.txt`} label="Download report" />
+            <UiCopyAction label="Copy report" successLabel="Report copied" value={report} withManualFallback />
+            <UiDownloadAction contents={report} filename={`${result.fileName.replace(/\.pdf$/i, "")}-preflight.txt`} label="Download report" />
           </div>
           {result.findings.length ? <ol className={styles.issueList}>{result.findings.map((item, index) => <li data-severity={item.severity} key={`${item.code}-${item.pageNumber ?? "file"}-${index}`}>{item.message}</li>)}</ol> : null}
-          <ToolDataTable
+          <UiDataTable
             ariaLabel="PDF page geometry"
             columns={[{ id: "page", label: "Page" }, { id: "actual", label: "Actual MediaBox" }, { id: "expected", label: "Expected" }, { id: "difference", label: "Difference" }, { id: "status", label: "Status" }]}
             rows={result.pages.map((page) => ({ id: String(page.pageNumber), cells: { page: page.pageNumber, actual: pageBoxLabel(page), expected: `${expected.widthInches} × ${expected.heightInches} in`, difference: differenceLabel(page, expected), status: page.widthInches !== null && Math.abs(page.widthInches - expected.widthInches) <= 0.02 && Math.abs((page.heightInches ?? 0) - expected.heightInches) <= 0.02 ? "Measured match" : "Possible issue" } }))}
           />
           <h3 className={styles.sectionTitle}>PDF diagnostics</h3>
-          <ToolKeyValueList rows={[
+          <UiKeyValueList rows={[
             { label: "Page count", value: result.pageCount },
             { label: "Font embedding", value: `${result.fonts.embedded} embedded · ${result.fonts.unembedded} not embedded · ${result.fonts.unknown} unknown` },
             { label: "Image DPI", value: result.images.total ? `${result.images.measurable} of ${result.images.total} measured${result.images.minimumDpi === null ? "" : ` · minimum ${result.images.minimumDpi} DPI`}` : "No placed images found" },

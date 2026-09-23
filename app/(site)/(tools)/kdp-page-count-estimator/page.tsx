@@ -1,8 +1,8 @@
 import { BookOpen } from "lucide-react";
-import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { AppShell } from "../../../app-shell";
-import { PageCanvas } from "../../../page-canvas";
+import { AppShell } from "../../../ui/site/app-shell";
+import { PageCanvas } from "../../../ui/site/page-canvas";
 import { KdpPageCountEstimator } from "./kdp-page-count-estimator";
 
 export default async function KdpPageCountEstimatorPage() {

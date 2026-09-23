@@ -2,17 +2,8 @@
 
 import { RotateCcw } from "lucide-react";
 import { Fragment, useEffect, useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolCopyAction,
-  ToolDisclosure,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextArea,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiCopyAction, UiDisclosure, UiTextArea, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiResultLead, UiStatus } from "@/app/ui/display";
 import {
   buildDockerignoreCopySummary,
   evaluateDockerignore,
@@ -128,13 +119,13 @@ export function DockerignoreTester() {
     <section aria-label=".dockerignore tester inputs and results" className={styles.tool} data-tool-workbench>
       <form className={styles.form} onSubmit={submit}>
         <div className={styles.sourceFieldset}>
-          <ToolChoiceGroup
+          <UiChoiceGroup
             label="Effective file"
             onChange={(next) => {
               setSourceMode(next as DockerignoreSourceMode);
               clearResult();
             }}
-            options={[toolOption("root", "Root .dockerignore"), toolOption("dockerfile-specific", "Dockerfile-specific")]}
+            options={[uiOption("root", "Root .dockerignore"), uiOption("dockerfile-specific", "Dockerfile-specific")]}
             value={sourceMode}
           />
           <p className={styles.sourceNote}>
@@ -143,7 +134,7 @@ export function DockerignoreTester() {
         </div>
 
         <div className={styles.editors}>
-          <ToolTextArea
+          <UiTextArea
               className={styles.editor}
               error={errors.rules}
               autoCapitalize="none"
@@ -159,7 +150,7 @@ export function DockerignoreTester() {
               spellCheck={false}
               value={rules}
           />
-          <ToolTextArea
+          <UiTextArea
               className={styles.editor}
               error={errors.paths}
               autoCapitalize="none"
@@ -180,28 +171,28 @@ export function DockerignoreTester() {
 
         <p className={styles.privacy}>Rules and paths stay in your browser.</p>
         <p className={styles.verdictNote}>Final rules decide Included or Excluded.</p>
-        {notice ? <ToolStatus>{notice}</ToolStatus> : null}
-        <ToolActionRow>
-          <ToolButton onPress={loadExample} type="button">Load example</ToolButton>
-          <ToolButton onPress={reset} type="button">
+        {notice ? <UiStatus>{notice}</UiStatus> : null}
+        <UiActionRow>
+          <UiButton onPress={loadExample} type="button">Load example</UiButton>
+          <UiButton onPress={reset} type="button">
             <RotateCcw aria-hidden="true" size={18} /> Reset
-          </ToolButton>
-          <ToolButton type="submit" variant="primary">Test patterns</ToolButton>
-        </ToolActionRow>
+          </UiButton>
+          <UiButton type="submit" variant="primary">Test patterns</UiButton>
+        </UiActionRow>
       </form>
 
       {failed ? (
         <section className={styles.failure} ref={failureRef} role="alert" tabIndex={-1}>
-          <ToolStatus tone="danger">The matcher could not finish. Your inputs are still here.</ToolStatus>
-          <ToolButton onPress={() => submit()} type="button">Try again</ToolButton>
+          <UiStatus tone="danger">The matcher could not finish. Your inputs are still here.</UiStatus>
+          <UiButton onPress={() => submit()} type="button">Try again</UiButton>
         </section>
       ) : null}
 
       {result ? (
         <section className={styles.result} ref={answerRef} tabIndex={-1}>
           <header className={styles.resultHeader}>
-            <ToolResultLead>{answerFor(result)}</ToolResultLead>
-            <ToolCopyAction label="Copy results" successLabel="Results copied" value={buildDockerignoreCopySummary(result)} />
+            <UiResultLead>{answerFor(result)}</UiResultLead>
+            <UiCopyAction label="Copy results" successLabel="Results copied" value={buildDockerignoreCopySummary(result)} />
           </header>
 
           <table className={styles.resultTable}>
@@ -224,7 +215,7 @@ export function DockerignoreTester() {
                   </tr>
                   <tr className={styles.traceRow}>
                     <td colSpan={3} data-label="Details">
-                    {row.trace.length ? <div className={styles.trace}><ToolDisclosure label={`Show trace for ${row.rawPath}`}>
+                    {row.trace.length ? <div className={styles.trace}><UiDisclosure label={`Show trace for ${row.rawPath}`}>
                       <table>
                         <thead><tr><th>Line</th><th>Rule</th><th>Match</th><th>State</th></tr></thead>
                         <tbody>
@@ -238,7 +229,7 @@ export function DockerignoreTester() {
                           ))}
                         </tbody>
                       </table>
-                    </ToolDisclosure></div> : null}
+                    </UiDisclosure></div> : null}
                     </td>
                   </tr>
                 </Fragment>
@@ -246,7 +237,7 @@ export function DockerignoreTester() {
             </tbody>
           </table>
 
-          <div className={styles.diagnostics}><ToolDisclosure label="Rule diagnostics">
+          <div className={styles.diagnostics}><UiDisclosure label="Rule diagnostics">
             <table>
               <thead><tr><th>Line</th><th>Source</th><th>Normalized</th><th>Status</th></tr></thead>
               <tbody>
@@ -260,7 +251,7 @@ export function DockerignoreTester() {
                 ))}
               </tbody>
             </table>
-          </ToolDisclosure></div>
+          </UiDisclosure></div>
           <p className={styles.provenance}>Moby {result.version} · Linux slash · {result.commit}</p>
         </section>
       ) : null}

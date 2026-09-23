@@ -58,7 +58,7 @@ The trace observes the path from the Stack127 server. It does not describe the v
 
 ## Content flow
 
-Keep the working tool first. Below it, use the same simple, human writing style as DNS Lookup:
+Follow `stack127_docs/writing-style.md`. Keep the working tool first, then:
 
 1. explain the root-to-answer journey in a small visual;
 2. explain what the visible trace steps mean;
@@ -66,4 +66,4 @@ Keep the working tool first. Below it, use the same simple, human writing style 
 4. distinguish a trace from a normal recursive lookup;
 5. close with a short privacy and scope sentence.
 
-Avoid eyebrows, glossary-like fragments, health scores, propagation claims, and a large technical-details section.
+Do not add health scores, propagation claims, or a large technical-details section.

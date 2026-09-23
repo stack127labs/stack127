@@ -1,8 +1,8 @@
-import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { ShieldCheck } from "lucide-react";
-import { AppShell } from "../../../app-shell";
-import { PageCanvas } from "../../../page-canvas";
+import { AppShell } from "../../../ui/site/app-shell";
+import { PageCanvas } from "../../../ui/site/page-canvas";
 import { StorageToolsSidebar } from "../../(catalogs)/storage-tools/storage-tools-sidebar";
 import { Backup321Calculator } from "./backup-321-calculator";
 

@@ -1,5 +1,8 @@
 "use client";
 
+import { DetailDialog, DetailDialogClose } from "@/app/ui/detail-dialog";
+
+
 import {
   Activity,
   ArrowRight,
@@ -18,7 +21,7 @@ import {
   Terminal,
   type LucideIcon,
 } from "lucide-react";
-import { useEffect, useMemo, useRef, useState, type MouseEvent, type PointerEvent } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FaGithub } from "react-icons/fa6";
 import type { TerminalApp } from "@/lib/terminal-apps";
 import {
@@ -26,8 +29,8 @@ import {
   terminalAppCategoryBySlug,
   terminalAppTypeLabels,
 } from "@/lib/terminal-app-taxonomy";
-import { CategoryIcon } from "@/app/category-icon";
-import { AppFactCardContent, appFactCardClassName } from "../_components/app-fact-card";
+import { CategoryIcon } from "@/app/ui/site/category-icon";
+import { AppFactCardContent, appFactCardClassName } from "../../../ui/directories/app-fact-card";
 
 const generatedIconColors = [
   "#2563eb",
@@ -180,35 +183,16 @@ function AppDetailsPanel({ app, onClose }: { app: TerminalApp; onClose: () => vo
     ["verified", formatDate(app.last_verified_at), Scale],
   ];
 
-  const handleClose = (event: MouseEvent | PointerEvent) => {
-    event.stopPropagation();
-    onClose();
-  };
+
 
   return (
-    <div className="app-detail-overlay" onClick={onClose} onPointerDown={onClose}>
-      <aside
-        aria-label={`${app.name} details`}
-        aria-modal="true"
-        className="app-detail-panel app-detail-panel-overlay"
-        onClick={(event) => event.stopPropagation()}
-        onPointerDown={(event) => event.stopPropagation()}
-        role="dialog"
-      >
+    <DetailDialog ariaLabel={`${app.name} details`} onClose={onClose}>
         <div className="app-detail-heading">
           <AppIcon app={app} detail />
           <div>
             <h2>{app.name}</h2>
           </div>
-          <button
-            aria-label="Close app details"
-            className="app-detail-close"
-            onClick={handleClose}
-            onPointerDown={handleClose}
-            type="button"
-          >
-            ×
-          </button>
+          <DetailDialogClose ariaLabel="Close app details" onClose={onClose} />
         </div>
 
         <div className="app-detail-categories">
@@ -259,8 +243,7 @@ function AppDetailsPanel({ app, onClose }: { app: TerminalApp; onClose: () => vo
             </a>
           </div>
         ) : null}
-      </aside>
-    </div>
+      </DetailDialog>
   );
 }
 
@@ -304,25 +287,7 @@ export function CliAppBrowser({ apps }: { apps: TerminalApp[] }) {
     [apps, selectedSlug],
   );
 
-  useEffect(() => {
-    if (!selectedApp) {
-      return undefined;
-    }
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setSelectedSlug(null);
-      }
-    };
-
-    document.body.classList.add("app-detail-open");
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.classList.remove("app-detail-open");
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [selectedApp]);
 
   return (
     <>

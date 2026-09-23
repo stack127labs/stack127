@@ -17,11 +17,7 @@ The tool may query `_dmarc.example.com` as TXT, but it must state that returning
 
 ## Reader flow
 
-Keep the lookup form before the reference content. Do not turn the page into a glossary or a stack of labeled helper blocks. The page should feel composed by someone who understands which parts of a DNS answer will confuse the reader.
-
-Use complete, natural sentences. Let typography, spacing, tables, and visual relationships create hierarchy instead of eyebrows, decorative labels, colored sentence fragments, or oversized warning panels.
-
-Write every table row for someone seeing the term for the first time. Explain what it shows and when they would care in plain language instead of replacing one DNS term with another undefined DNS term.
+Follow `stack127_docs/writing-style.md`. Keep the lookup form before the reference content. The record-type and response tables need to work for someone encountering DNS terms for the first time.
 
 The current content plan is in `brief.md`; its source checks and QA evidence are in `writing-and-seo.md`. Follow the reader from choosing the exact name to interpreting its records, investigating different answers, and checking email or verification names. Use two wrapping tables for record types and response meanings. Explain TTL, DNSSEC, scope, and privacy in connected prose, with unfamiliar terms defined when they matter. Do not require a second alias figure, duplicate troubleshooting table, or a fixed section count.
 

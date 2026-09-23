@@ -1,11 +1,11 @@
-import { PageCanvas } from "@/app/page-canvas";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
 import Link from "next/link";
 import { Keyboard } from "lucide-react";
 import { appsInCategory, shortcutAppCatalog, shortcutCategories } from "@/lib/shortcuts";
 import { platformLabels } from "@/lib/shortcuts/types";
-import { PageTitleIcon } from "@/app/page-title-icon";
-import { PageHeader } from "@/app/page-header";
-import { EntryHero } from "@/app/entry-hero";
+import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { PageHeader } from "@/app/ui/site/page-header";
+import { EntryHero } from "@/app/ui/site/entry-hero";
 import { siteSpotKeyboardShortcutsArt } from "../../art/site--spot-keyboard-shortcuts";
 import styles from "./keyboard-shortcuts.module.css";
 

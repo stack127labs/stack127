@@ -2,17 +2,8 @@
 
 import Link from "next/link";
 import { useRef, useState, type FormEvent, type ReactNode } from "react";
-import {
-  ToolButton,
-  ToolChoiceGroup,
-  ToolCopyAction,
-  ToolDataTable,
-  ToolKeyValueList,
-  ToolRawOutput,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiCopyAction, UiRawOutput, UiTextField } from "@/app/ui/controls";
+import { UiDataTable, UiKeyValueList, UiResultLead, UiStatus } from "@/app/ui/display";
 import { formatAuthoritativeTtl } from "@/lib/dns/format-record.ts";
 import {
   TRACE_RECORD_TYPES,
@@ -114,7 +105,7 @@ function RecordTable({
   return (
     <section className={styles.evidenceGroup}>
       <h4>{heading}</h4>
-      <ToolDataTable
+      <UiDataTable
         ariaLabel={ariaLabel}
         columns={[
           { id: "type", label: "Type" },
@@ -133,7 +124,7 @@ function RecordTable({
         }))}
       />
       {hasMore ? (
-        <ToolButton
+        <UiButton
           aria-expanded={expanded}
           className={styles.expandButton}
           onClick={() => setExpanded((current) => !current)}
@@ -141,7 +132,7 @@ function RecordTable({
           variant="ghost"
         >
           {expanded ? `Show fewer ${collapseLabel}` : `Show all ${records.length} ${collapseLabel}`}
-        </ToolButton>
+        </UiButton>
       ) : null}
     </section>
   );
@@ -156,7 +147,7 @@ function ExpandableValues({ label, values }: { label: string; values: ReactNode[
     <div className={styles.valueList}>
       <div>{visibleValues.map((value, index) => <span key={index}>{value}</span>)}</div>
       {hasMore ? (
-        <ToolButton
+        <UiButton
           aria-expanded={expanded}
           className={styles.expandButton}
           onClick={() => setExpanded((current) => !current)}
@@ -164,7 +155,7 @@ function ExpandableValues({ label, values }: { label: string; values: ReactNode[
           variant="ghost"
         >
           {expanded ? `Show fewer ${label}` : `Show all ${values.length} ${label}`}
-        </ToolButton>
+        </UiButton>
       ) : null}
     </div>
   );
@@ -190,7 +181,7 @@ function TraceStep({ step }: { step: DnsTraceStep }) {
           <p>{step.message}</p>
         </header>
 
-        <ToolKeyValueList
+        <UiKeyValueList
           rows={[
             ...(step.server ? [{
               label: "Server",
@@ -230,7 +221,7 @@ function TraceStep({ step }: { step: DnsTraceStep }) {
         {step.attempts.length ? (
           <section className={styles.evidenceGroup}>
             <h4>Earlier server attempts</h4>
-            <ToolDataTable
+            <UiDataTable
               ariaLabel={`Earlier server attempts from step ${step.sequence}`}
               columns={[
                 { id: "server", label: "Server" },
@@ -251,7 +242,7 @@ function TraceStep({ step }: { step: DnsTraceStep }) {
           </section>
         ) : null}
 
-        <ToolRawOutput
+        <UiRawOutput
           label="Raw response from this step"
           value={step.rawResponse ?? { attempts: step.attempts }}
         />
@@ -267,8 +258,8 @@ function TraceResults({ result }: { result: DnsTraceResponse }) {
   return (
     <section aria-label="DNS trace result" aria-live="polite" className={styles.results} data-dns-trace-result>
       <div className={styles.resultLead}>
-        <ToolResultLead>{outcomeSentence(result)}</ToolResultLead>
-        <ToolCopyAction
+        <UiResultLead>{outcomeSentence(result)}</UiResultLead>
+        <UiCopyAction
           failureLabel="Copy failed"
           label="Copy trace"
           successLabel="Trace copied"
@@ -281,7 +272,7 @@ function TraceResults({ result }: { result: DnsTraceResponse }) {
       </ol>
 
       {remainingWarnings.length ? (
-        <ToolStatus tone="warning">{remainingWarnings.join(" ")}</ToolStatus>
+        <UiStatus tone="warning">{remainingWarnings.join(" ")}</UiStatus>
       ) : null}
 
       {result.outcome === "error" ? (
@@ -358,7 +349,7 @@ export function DnsTraceTool({
   return (
     <section aria-label="DNS trace explorer" className={styles.workbench} data-tool-workbench>
       <form aria-busy={loading} className={styles.form} onSubmit={submit}>
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           autoComplete="off"
           error={fieldError}
@@ -376,7 +367,7 @@ export function DnsTraceTool({
           type="text"
           value={name}
         />
-        <ToolChoiceGroup
+        <UiChoiceGroup
           label="Record type"
           onChange={(value) => {
             setRecordType(value as DnsTraceRecordType);
@@ -385,7 +376,7 @@ export function DnsTraceTool({
           options={TRACE_RECORD_TYPES.map((type) => ({ id: type, label: type }))}
           value={recordType}
         />
-        <ToolButton
+        <UiButton
           aria-busy={loading}
           className={styles.submit}
           isDisabled={loading}
@@ -393,9 +384,9 @@ export function DnsTraceTool({
           variant="primary"
         >
           {loading ? "Tracing DNS..." : "Trace DNS"}
-        </ToolButton>
-        {loading ? <ToolStatus>Tracing DNS...</ToolStatus> : null}
-        {requestError ? <ToolStatus tone="danger">{requestError}</ToolStatus> : null}
+        </UiButton>
+        {loading ? <UiStatus>Tracing DNS...</UiStatus> : null}
+        {requestError ? <UiStatus tone="danger">{requestError}</UiStatus> : null}
       </form>
 
       {result ? <TraceResults result={result} /> : null}

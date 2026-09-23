@@ -7,7 +7,7 @@ description: Define the controls, result hierarchy, states, shared components, a
 
 Edit only the Interface section of `content_docs/<slug>/tool-spec.md`.
 
-Read the ready Research and Product sections, `stack127_docs/tool-interface.md`, the shared tool UI, and relevant sibling tools.
+Read the ready Research and Product sections, `stack127_docs/tool-interface.md`, `stack127_docs/shared-ui.md`, the `/components-ui` gallery in development, and relevant sibling tools.
 
 Decide:
 
@@ -18,4 +18,4 @@ Decide:
 - initial, valid, invalid, loading, empty, partial, failure, retry, reset, restored, and long-value states that apply;
 - desktop and mobile order, containment, table behavior, keyboard flow, focus, and announcements.
 
-Use labels and short interface wording that follow the shared writing voice. Do not implement, add tests, or create a separate interface contract.
+Use `stack127_docs/writing-style.md` for interface wording. Do not implement, add tests, or create a separate interface contract.

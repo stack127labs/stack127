@@ -105,23 +105,23 @@ Use the shared full-width workbench band with a measured inner column. Place the
 
 ### Controls and component decisions
 
-Reuse the inspected primitives from `app/tool-ui/tool-controls.tsx`, as demonstrated in `/tool-ui-lab` and the KDP royalty calculator. Keep the sibling's workbench spacing and form/result division, but show validation only beside the affected field.
+Reuse the inspected primitives from `app/ui/controls.tsx`, as demonstrated in `/components-ui` and the KDP royalty calculator. Keep the sibling's workbench spacing and form/result division, but show validation only beside the affected field.
 
 | Control | Component and behavior |
 | --- | --- |
-| `Reported earnings month` | Reuse `ToolTextField`, required, empty initially, placeholder `2026-01`. Use text input because the current shared field does not support a month picker. Visible helper: `Use YYYY-MM for the month shown in your KDP royalty report.` Disable autocomplete, capitalization, and spellcheck. Keep a normal text keyboard so the hyphen is reachable. This is the engine's month string directly. |
-| `Distribution` | Reuse required `ToolChoiceGroup` with visible `Standard` and `Expanded Distribution` options. Default Standard. Helper: `Choose Expanded Distribution only for royalties reported through that program.` Preserve shared radio semantics and arrow-key navigation. |
-| Action | Reuse `ToolActionRow` and primary `ToolButton` for `Estimate payment month`. Enter submits the form. Keep it enabled with incomplete input so submission can identify the missing field. |
-| Reset | Reuse a secondary `ToolButton` labeled `Reset` after the primary action. Clear month, result, errors, and operation failure; restore Standard and focus the month field. |
+| `Reported earnings month` | Reuse `UiTextField`, required, empty initially, placeholder `2026-01`. Use text input because the current shared field does not support a month picker. Visible helper: `Use YYYY-MM for the month shown in your KDP royalty report.` Disable autocomplete, capitalization, and spellcheck. Keep a normal text keyboard so the hyphen is reachable. This is the engine's month string directly. |
+| `Distribution` | Reuse required `UiChoiceGroup` with visible `Standard` and `Expanded Distribution` options. Default Standard. Helper: `Choose Expanded Distribution only for royalties reported through that program.` Preserve shared radio semantics and arrow-key navigation. |
+| Action | Reuse `UiActionRow` and primary `UiButton` for `Estimate payment month`. Enter submits the form. Keep it enabled with incomplete input so submission can identify the missing field. |
+| Reset | Reuse a secondary `UiButton` labeled `Reset` after the primary action. Clear month, result, errors, and operation failure; restore Standard and focus the month field. |
 
 No new shared component is required. Route-owned code arranges these controls and manages state. Reuse existing control typography, color tokens, `--radius`, and focus styles. Do not replace internal component styling. Required marks and programmatic required state come from the shared fields.
 
 ### Result order and wording
 
-1. Reuse neutral `ToolPrimaryResult`, labeled `Approximate payment month`, with one large month/year value. Its detail says `Usually toward the end of the month. This estimates when Amazon issues payment.` Do not use success green, a precise day, or a claim that the payment is confirmed.
+1. Reuse neutral `UiPrimaryResult`, labeled `Approximate payment month`, with one large month/year value. Its detail says `Usually toward the end of the month. This estimates when Amazon issues payment.` Do not use success green, a precise day, or a claim that the payment is confirmed.
 2. Immediately below, show one visible eligibility paragraph: `Direct deposit has no KDP payment threshold. Check and wire payments depend on the threshold for each marketplace. A balance below its threshold carries forward, so payment can be later.` Follow with `This tool cannot confirm your payment eligibility or status.` Link the threshold phrase to the official threshold page in Research. This qualification stays outside disclosures and uses readable body text.
 3. Show the calculation basis once in a compact sentence containing the submitted earnings month and chosen distribution type. State that the planning estimate uses two calendar months for Standard or three for Expanded Distribution, based on KDP's approximate 60/90-day rule. Do not repeat the output month in this sentence or add another summary of the same inputs.
-4. Under `After Amazon issues payment`, reuse `ToolDataTable` for the reference below. Introduce it with `Arrival takes extra time. These are delivery estimates, not guaranteed receipt dates.` The table is guidance, not another calculated output.
+4. Under `After Amazon issues payment`, reuse `UiDataTable` for the reference below. Introduce it with `Arrival takes extra time. These are delivery estimates, not guaranteed receipt dates.` The table is guidance, not another calculated output.
 5. End with quiet source and verification links: `KDP payment timing` to the official timing page, `KDP Payment Report` to its official help page, and `Rules checked 23 September 2026`. State `Use your KDP Payment Report to check an actual payment.` Links reuse the exact official URLs in Research. Do not suggest that opening a help page accesses the user's account.
 
 | Payment method | Typical delivery after issue |
@@ -139,7 +139,7 @@ The month estimate, eligibility, calculation basis, delivery reference, and veri
 - Valid: replace the empty prompt with the result and all its qualifications. Move focus to the primary output after rendering. Use that focused output to announce the estimate; avoid an additional visible success message repeating it.
 - Changed input: clear the prior result and return to the empty prompt. Clear that field's validation error and any operation failure. Keep focus in the edited control. A polite, visually hidden status may announce `Inputs changed. Estimate again.` once when removing a result, rather than on every keystroke.
 - Invalid: show only the field error and focus its control. Missing month uses `Enter a reported earnings month.` Malformed month uses `Use YYYY-MM, with a month from 01 to 12.` Unsupported year uses `Use a year from 2007 to 2100.` Unknown distribution uses `Choose Standard or Expanded Distribution.` Do not render a second error list, error result, or date. The focused field exposes its linked error to assistive technology.
-- Unexpected failure: retain entered values, remove the result, and use `ToolStatus` with danger tone once: `The estimate could not be calculated. Try again.` The primary action retries; do not add a competing retry button.
+- Unexpected failure: retain entered values, remove the result, and use `UiStatus` with danger tone once: `The estimate could not be calculated. Try again.` The primary action retries; do not add a competing retry button.
 - Loading, no match, partial result, and disabled states do not apply to the synchronous month calculation. Unknown account eligibility is explained in every valid result rather than presented as a partial calculation.
 - Restored state: there is no application persistence or query-string restoration. Reload starts from the initial values. Do not rewrite the canonical URL on hydration or edits. If the browser preserves a page in its back/forward cache, keep its form and result together; any subsequent edit clears that result.
 
@@ -215,4 +215,4 @@ Use the exact official URLs already recorded in Research. The timing help contro
 
 Research and the three primary result links were checked on 23 September 2026. Present that as a rules-check date, not evidence of a live account lookup. Recheck official guidance when revising schedule or delivery claims. Competitor pages inform layout choices only.
 
-Keep internal linking limited to the relevant `/kdp-royalty-calculator` task. Do not invent a KDP topic hub or additional related pages. Final title, introduction, usage, and supporting prose still await the user's manual writing handoff.
+Keep internal linking limited to the relevant `/kdp-royalty-calculator` task. Do not invent a KDP topic hub or additional related pages. The tool-writing stage drafts the final title, introduction, usage, and supporting prose from this spec and the finished tool.

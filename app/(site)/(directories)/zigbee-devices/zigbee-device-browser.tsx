@@ -1,12 +1,15 @@
 "use client";
 
+import { DetailDialog, DetailDialogClose } from "@/app/ui/detail-dialog";
+
+
 import { ExternalLink, RadioTower } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useMemo, useRef, useState, type MouseEvent, type PointerEvent } from "react";
+import { useMemo, useState } from "react";
 import type { ZigbeeDevice } from "@/lib/zigbee-devices";
 import { zigbeeCategoryLabels } from "@/lib/zigbee-devices";
 import styles from "./zigbee-devices.module.css";
-import { HardwareFactCardContent, hardwareFactCardClassName, hardwareCardName } from "../_components/hardware-fact-card";
+import { HardwareFactCardContent, hardwareFactCardClassName, hardwareCardName } from "../../../ui/directories/hardware-fact-card";
 
 function formatList(values: string[]) {
   return values.length > 0 ? values.join(", ") : "Not published in source";
@@ -29,40 +32,10 @@ function cardFacts(device: ZigbeeDevice) {
 }
 
 function DeviceDetails({ device, onClose }: { device: ZigbeeDevice; onClose: () => void }) {
-  const panelRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    const panel = panelRef.current;
-    const focusable = panel?.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
-    focusable?.[0]?.focus();
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onClose();
-        return;
-      }
-      if (event.key !== "Tab" || !focusable || focusable.length === 0) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-    document.body.classList.add("app-detail-open");
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.body.classList.remove("app-detail-open");
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [onClose]);
 
-  const handleClose = (event: MouseEvent | PointerEvent) => {
-    event.stopPropagation();
-    onClose();
-  };
+
+
   const support = compatibility(device);
   const sections = device.detail_sections ?? [
     { heading: "Exact device", facts: [{ label: "Manufacturer", value: device.vendor }, { label: "Retail model", value: device.model }, { label: "Category", value: categoryLabel(device.category) }] },
@@ -71,20 +44,11 @@ function DeviceDetails({ device, onClose }: { device: ZigbeeDevice; onClose: () 
   ];
 
   return (
-    <div className="app-detail-overlay" onClick={onClose} onPointerDown={onClose}>
-      <aside
-        aria-label={`${device.vendor} ${device.model} support details`}
-        aria-modal="true"
-        className="app-detail-panel app-detail-panel-overlay"
-        onClick={(event) => event.stopPropagation()}
-        onPointerDown={(event) => event.stopPropagation()}
-        ref={panelRef}
-        role="dialog"
-      >
+    <DetailDialog ariaLabel={`${device.vendor} ${device.model} support details`} onClose={onClose}>
         <div className="app-detail-heading">
           <span aria-hidden="true" className="app-detail-icon"><RadioTower /></span>
           <div><h2>{device.name}</h2><p className={styles.detailModel}>{device.vendor} · {device.model}</p></div>
-          <button aria-label="Close device details" className="app-detail-close" onClick={handleClose} onPointerDown={handleClose} type="button">×</button>
+          <DetailDialogClose ariaLabel="Close device details" onClose={onClose} />
         </div>
 
         <div className={styles.detailImageFrame}>
@@ -122,15 +86,14 @@ function DeviceDetails({ device, onClose }: { device: ZigbeeDevice; onClose: () 
           {device.blakadder_url ? <a href={device.blakadder_url} rel="noreferrer" target="_blank"><span>Community compatibility record</span><ExternalLink aria-hidden="true" size={14} /></a> : null}
           <a href={device.image_source_url} rel="noreferrer" target="_blank"><span>Image source</span><ExternalLink aria-hidden="true" size={14} /></a>
         </div>
-      </aside>
-    </div>
+      </DetailDialog>
   );
 }
 
-function DeviceCard({ device, onSelect }: { device: ZigbeeDevice; onSelect: (trigger: HTMLButtonElement) => void }) {
+function DeviceCard({ device, onSelect }: { device: ZigbeeDevice; onSelect: () => void }) {
   const support = compatibility(device);
   return (
-    <button aria-label={`View details for ${device.vendor} ${device.model}`} aria-haspopup="dialog" className={`directory-card ${hardwareFactCardClassName}`} onClick={(event) => onSelect(event.currentTarget)} type="button">
+    <button aria-label={`View details for ${device.vendor} ${device.model}`} aria-haspopup="dialog" className={`directory-card ${hardwareFactCardClassName}`} onClick={onSelect} type="button">
       <HardwareFactCardContent name={hardwareCardName(device.name, device.vendor, device.model)} image={device.image_path}
         facts={[{ label: support.label, value: support.value }, ...cardFacts(device)]} />
     </button>
@@ -139,16 +102,12 @@ function DeviceCard({ device, onSelect }: { device: ZigbeeDevice; onSelect: (tri
 
 export function ZigbeeDeviceBrowser({ devices }: { devices: ZigbeeDevice[] }) {
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const openerRef = useRef<HTMLButtonElement | null>(null);
   const selectedDevice = useMemo(() => devices.find((device) => device.slug === selectedSlug), [devices, selectedSlug]);
-  const close = () => {
-    setSelectedSlug(null);
-    requestAnimationFrame(() => openerRef.current?.focus());
-  };
+  const close = () => setSelectedSlug(null);
   return (
     <>
       <div className="directory-card-grid">
-        {devices.map((device) => <DeviceCard device={device} key={device.slug} onSelect={(trigger) => { openerRef.current = trigger; setSelectedSlug(device.slug); }} />)}
+        {devices.map((device) => <DeviceCard device={device} key={device.slug} onSelect={() => setSelectedSlug(device.slug)} />)}
       </div>
       {selectedDevice ? <DeviceDetails device={selectedDevice} onClose={close} /> : null}
     </>

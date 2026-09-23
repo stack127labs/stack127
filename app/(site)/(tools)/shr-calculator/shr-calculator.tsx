@@ -1,20 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {
-  ToolActionRow,
-  ToolAllocationBar,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolDataTable,
-  ToolKeyValueList,
-  ToolPrimaryResult,
-  ToolQuantityInput,
-  ToolRepeatableList,
-  ToolStatus,
-  ToolTextField,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiQuantityInput, UiRepeatableList, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiAllocationBar, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import {
   MAX_SHR_DRIVES,
   calculateShrCapacity,
@@ -56,12 +44,12 @@ type CompileResult = {
 };
 
 const inputUnits: readonly InputUnit[] = ["TB", "GB", "TiB", "GiB"];
-const inputUnitOptions = inputUnits.map((unit) => toolOption(unit, unit));
+const inputUnitOptions = inputUnits.map((unit) => uiOption(unit, unit));
 const modeOptions = [
-  toolOption("shr1", "SHR-1 · 1-drive protection"),
-  toolOption("shr2", "SHR-2 · 2-drive protection"),
+  uiOption("shr1", "SHR-1 · 1-drive protection"),
+  uiOption("shr2", "SHR-2 · 2-drive protection"),
 ];
-const outputUnitOptions = [toolOption("TB", "TB"), toolOption("TiB", "TiB")];
+const outputUnitOptions = [uiOption("TB", "TB"), uiOption("TiB", "TiB")];
 
 function emptyEditor(): EditorState {
   return { mode: "shr1", drives: [] };
@@ -172,19 +160,20 @@ function DriveRows({
   onRemove: (id: string) => void;
 }) {
   return (
-    <ToolRepeatableList
+    <UiRepeatableList
       addDisabled={rows.length >= MAX_SHR_DRIVES}
       addLabel="Add drive"
       ariaLabel="Drive inventory"
       items={rows}
       onAdd={onAdd}
       onRemove={onRemove}
+      removeLabel={(_, index) => `Remove drive ${index + 1}`}
       renderItem={(drive, index) => {
         const label = `Drive ${index + 1}`;
         return (
           <div className={styles.driveEditor} data-testid={`drive-row-${drive.id}`}>
             <span aria-hidden="true" className={styles.driveNumber}>{String(index + 1).padStart(2, "0")}</span>
-            <ToolQuantityInput
+            <UiQuantityInput
               ariaLabel={`${label} capacity`}
               dataFocusKey={`capacity-${drive.id}`}
               error={errors[`capacity-${drive.id}`]}
@@ -235,7 +224,7 @@ function CapacityResult({
   return (
     <section className={styles.result} data-testid="capacity-result" aria-live="polite">
       <div className={styles.resultUnit}>
-        <ToolChoiceGroup
+        <UiChoiceGroup
           label="Result unit"
           onChange={(unit) => onOutputUnitChange(unit as OutputUnit)}
           options={outputUnitOptions}
@@ -245,21 +234,21 @@ function CapacityResult({
 
       <h2 className={styles.resultHeading} tabIndex={-1}>{values.mode === "shr1" ? "SHR-1" : "SHR-2"} capacity</h2>
       <div data-testid="primary-capacity">
-        <ToolPrimaryResult
+        <UiPrimaryResult
           detail={`${values.driveCount} drives · after modeled system reserve`}
           label="Estimated pool capacity"
           value={displayValue(values.estimatedPoolCapacityBytes, outputUnit)}
         />
       </div>
 
-      <ToolKeyValueList rows={[{
+      <UiKeyValueList rows={[{
         label: "Fault tolerance",
         value: `${values.parityDrives} drive${values.parityDrives === 1 ? "" : "s"}`,
       }]} />
 
       <section className={styles.resultSection}>
         <h2>Capacity allocation</h2>
-        <ToolAllocationBar
+        <UiAllocationBar
           ariaLabel="Capacity allocation"
           formatValue={(value) => displayValue(value as bigint, outputUnit)}
           palette="categorical"
@@ -270,7 +259,7 @@ function CapacityResult({
 
       <section className={styles.resultSection}>
         <h2>Capacity bands</h2>
-        <ToolDataTable
+        <UiDataTable
           ariaLabel="SHR capacity bands"
           columns={[
             { id: "band", label: "Band" },
@@ -296,12 +285,12 @@ function CapacityResult({
 
       {values.warnings.map((warning) => <p className={styles.warning} key={warning}>{warning}</p>)}
 
-      <ToolActionRow>
-        <ToolButton onPress={onCopy}>Copy result</ToolButton>
-        <ToolButton onPress={onShare}>Share configuration</ToolButton>
-      </ToolActionRow>
+      <UiActionRow>
+        <UiButton onPress={onCopy}>Copy result</UiButton>
+        <UiButton onPress={onShare}>Share configuration</UiButton>
+      </UiActionRow>
       {shareUrl ? (
-        <ToolTextField label="Shared configuration URL" readOnly value={shareUrl} />
+        <UiTextField label="Shared configuration URL" readOnly value={shareUrl} />
       ) : null}
     </section>
   );
@@ -412,7 +401,7 @@ export function ShrCalculator({ initialState }: { initialState: string }) {
       await navigator.clipboard.writeText(resultSummary(calculated, outputUnit));
       setStatus("Result copied");
     } catch {
-      setStatus("Copy failed. Select the result text manually.");
+      setStatus("Copy failed. UiSelect the result text manually.");
     }
   }
 
@@ -452,7 +441,7 @@ export function ShrCalculator({ initialState }: { initialState: string }) {
   return (
     <div className={styles.tool} data-tool-workbench>
       <form aria-label="SHR capacity calculator" className={styles.form} onSubmit={calculate}>
-        <ToolChoiceGroup
+        <UiChoiceGroup
           label="Protection mode"
           onChange={(mode) => updateMode(mode as ShrMode)}
           options={modeOptions}
@@ -469,11 +458,11 @@ export function ShrCalculator({ initialState }: { initialState: string }) {
           {errors.inventory ? <p className={styles.formError}>{errors.inventory}</p> : null}
         </section>
 
-        <ToolActionRow>
-          <ToolButton isDisabled={calculateDisabled} type="submit" variant="primary">Calculate capacity</ToolButton>
-          <ToolButton onPress={resetCalculator}>Reset</ToolButton>
-        </ToolActionRow>
-        {status ? <ToolStatus tone={Object.keys(errors).length ? "danger" : "neutral"}>{status}</ToolStatus> : null}
+        <UiActionRow>
+          <UiButton isDisabled={calculateDisabled} type="submit" variant="primary">Calculate capacity</UiButton>
+          <UiButton onPress={resetCalculator}>Reset</UiButton>
+        </UiActionRow>
+        {status ? <UiStatus tone={Object.keys(errors).length ? "danger" : "neutral"}>{status}</UiStatus> : null}
       </form>
 
       {calculated ? (

@@ -12,7 +12,7 @@ Scripts move data. Codex makes editorial and factual decisions. Never generate s
 ## Run
 
 1. Read `content_docs/self-host-apps/data-workflow.md`, `content-rules.md`, and `schema.md`.
-   Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` for app summaries and other public wording. Use its directory-entry tone while preserving the verified-fact and structured-field rules below.
+   Read `stack127_docs/writing-style.md` for app summaries and other public wording.
 2. Claim up to 100 candidates:
    `npm run self-host-apps:select-candidate-batch -- --limit 100 --out <batch.json>`
 3. For GitHub candidates, collect API evidence:
@@ -34,7 +34,7 @@ Scripts move data. Codex makes editorial and factual decisions. Never generate s
 
 ## Accuracy
 
-- Use one direct summary sentence. Do not repeat `open source` or `self-hosted` unless essential to meaning.
+- Follow the summary field contract in `content_docs/self-host-apps/content-rules.md`.
 - Keep `open_source`, `source_available`, and `closed_source` distinct. A repository without a verified license is not proof of either open model. A closed-source app requires an official self-hosted build, website, and publisher identity rather than a repository.
 - Assign one to three controlled categories by purpose.
 - Use `null` or `unknown` when official evidence is absent.

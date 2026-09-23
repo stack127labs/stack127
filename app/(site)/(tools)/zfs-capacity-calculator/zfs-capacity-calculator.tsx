@@ -10,22 +10,8 @@ import {
   Trash2,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import {
-  ToolAllocationBar,
-  ToolButton,
-  ToolCheckbox,
-  ToolChoiceGroup,
-  ToolCodeOutput,
-  ToolCopyAction,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolKeyValueList,
-  ToolNumberField,
-  ToolPrimaryResult,
-  ToolQuantityInput,
-  ToolSelect,
-  ToolStatus,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiCheckbox, UiChoiceGroup, UiCopyAction, UiDisclosure, UiNumberField, UiQuantityInput, UiSelect } from "@/app/ui/controls";
+import { UiAllocationBar, UiCodeOutput, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import {
   ZFS_CALCULATION_VERSION,
   ZFS_INPUT_VERSION,
@@ -304,7 +290,7 @@ function DriveRows({
         return (
           <div className={styles.driveRow} data-testid={drive.id} key={drive.id}>
             <span className={styles.driveNumber}>{String(index + 1).padStart(2, "0")}</span>
-            <ToolQuantityInput
+            <UiQuantityInput
               ariaLabel={`${name} capacity`}
               dataFocusKey={`capacity-${drive.id}`}
               error={error}
@@ -318,14 +304,14 @@ function DriveRows({
               units={inputUnitOptions}
               value={drive.size}
             />
-            <ToolButton
+            <UiButton
               aria-label={`Remove ${name.toLowerCase()}`}
               className={styles.iconButton}
               onPress={() => onRemove(drive.id)}
               variant="icon"
             >
               <Trash2 aria-hidden="true" size={17} />
-            </ToolButton>
+            </UiButton>
           </div>
         );
       })}
@@ -369,7 +355,7 @@ function QuickDriveSetup({
   return (
     <div className={styles.quickSetupPanel}>
       <div className={styles.quickSetup}>
-        <ToolNumberField
+        <UiNumberField
           ariaLabel={`${groupLabel} drive count`}
           label="Drives"
           max={maximum}
@@ -377,7 +363,7 @@ function QuickDriveSetup({
           onChange={setCount}
           value={count}
         />
-        <ToolQuantityInput
+        <UiQuantityInput
           ariaLabel={`${groupLabel} shared capacity`}
           label="Same capacity"
           onChange={setSize}
@@ -388,7 +374,7 @@ function QuickDriveSetup({
           units={inputUnitOptions}
           value={size}
         />
-        <ToolButton
+        <UiButton
           aria-label={`Set all drives for ${groupLabel.toLowerCase()}`}
           className={styles.secondaryButton}
           isDisabled={!canApply}
@@ -396,7 +382,7 @@ function QuickDriveSetup({
           variant="secondary"
         >
           Set all drives
-        </ToolButton>
+        </UiButton>
       </div>
     </div>
   );
@@ -448,7 +434,7 @@ function Result({
   return (
     <div className={styles.result}>
       <div className={styles.resultHeader}>
-        <ToolChoiceGroup
+        <UiChoiceGroup
           label="Result unit"
           onChange={(unit) => onOutputUnitChange(unit as OutputUnit)}
           options={[{ id: "TiB", label: "TiB" }, { id: "TB", label: "TB" }]}
@@ -457,19 +443,19 @@ function Result({
       </div>
       <div className={styles.answer}>
         <h2 className={styles.visuallyHidden} ref={resultHeadingRef} tabIndex={-1}>Estimated writable</h2>
-        <ToolPrimaryResult
+        <UiPrimaryResult
           detail="After allocation losses and OpenZFS slop"
           label="Estimated writable"
           value={display(values.estimatedWritableBytes.value)}
         />
         <div data-testid={values.conditionalLogicalBytes ? "conditional-logical" : undefined}>
-          <ToolKeyValueList rows={summaryRows} />
+          <UiKeyValueList rows={summaryRows} />
         </div>
       </div>
 
       <section className={styles.resultSection}>
         <h2>Vdev boundaries</h2>
-        <ToolDataTable
+        <UiDataTable
           ariaLabel="Vdev boundaries"
           columns={[
             { id: "vdev", label: "Vdev" },
@@ -498,7 +484,7 @@ function Result({
           <h2>Capacity allocation</h2>
           <span>Entered: {display(raw)}</span>
         </div>
-        <ToolAllocationBar
+        <UiAllocationBar
           ariaLabel="Capacity allocation"
           formatValue={(value) => display(value as bigint)}
           palette="categorical"
@@ -510,7 +496,7 @@ function Result({
       {values.roleInventory.length > 0 ? (
         <section className={styles.resultSection}>
           <h2>Auxiliary inventory</h2>
-          <ToolDataTable
+          <UiDataTable
             ariaLabel="Auxiliary inventory"
             columns={[
               { id: "role", label: "Role" },
@@ -535,14 +521,14 @@ function Result({
         </section>
       ) : null}
 
-      <ToolCodeOutput
-        actions={<ToolCopyAction label="Copy command" value={values.command} />}
+      <UiCodeOutput
+        actions={<UiCopyAction label="Copy command" value={values.command} />}
         code={values.command}
         label="Dry-run command"
       />
 
-      <ToolDisclosure label="Formula details">
-        <ToolKeyValueList rows={[
+      <UiDisclosure label="Formula details">
+        <UiKeyValueList rows={[
           { label: "Calculation version", value: ZFS_CALCULATION_VERSION },
           { label: "Input version", value: ZFS_INPUT_VERSION },
           { label: "Workload", value: values.workload === "filesystem" ? "Filesystem" : "Zvol" },
@@ -557,15 +543,15 @@ function Result({
             <li key={source.url}><a href={source.url}>{source.title}</a></li>
           ))}
         </ul>
-      </ToolDisclosure>
+      </UiDisclosure>
 
       <div className={styles.resultActions}>
-        <ToolButton className={styles.secondaryButton} onPress={onCopySummary} variant="secondary">
+        <UiButton className={styles.secondaryButton} onPress={onCopySummary} variant="secondary">
           <Copy aria-hidden="true" size={17} /> Copy summary
-        </ToolButton>
-        <ToolButton className={styles.secondaryButton} onPress={onShare} variant="secondary">
+        </UiButton>
+        <UiButton className={styles.secondaryButton} onPress={onShare} variant="secondary">
           <Share2 aria-hidden="true" size={17} /> Share configuration
-        </ToolButton>
+        </UiButton>
       </div>
     </div>
   );
@@ -890,28 +876,28 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
     <section aria-label="ZFS pool capacity calculator" className={styles.tool} data-tool-workbench>
       <div className={styles.form}>
         <div className={styles.settingsGrid}>
-          <ToolChoiceGroup
+          <UiChoiceGroup
             label="Workload"
             onChange={(value) => changeWorkload(value as ZfsWorkload)}
             options={[{ id: "filesystem", label: "Filesystem" }, { id: "zvol", label: "Zvol" }]}
             required
             value={editor.workload}
           />
-          <ToolSelect
+          <UiSelect
             label={blockLabel}
             onChange={(value) => mutate((current) => ({ ...current, blockSizeBytes: value }))}
             options={blockOptions.map((size) => ({ id: String(size * 1_024), label: size >= 1_024 ? `${size / 1_024} MiB` : `${size} KiB` }))}
             required
             value={editor.blockSizeBytes}
           />
-          <ToolSelect
+          <UiSelect
             label="ashift"
             onChange={(value) => mutate((current) => ({ ...current, ashift: value as EditorState["ashift"] }))}
             options={[9, 12, 13, 14].map((value) => ({ id: String(value), label: String(value) }))}
             required
             value={editor.ashift}
           />
-          <ToolNumberField
+          <UiNumberField
             dataFocusKey="slop"
             error={errors.slop}
             label="Slop shift"
@@ -921,7 +907,7 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
             required
             value={Number(editor.slopShift)}
           />
-          <ToolNumberField
+          <UiNumberField
             dataFocusKey="headroom"
             error={errors.headroom}
             label="Planning headroom"
@@ -936,16 +922,16 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
         </div>
 
         <div className={styles.advanced}>
-          <ToolDisclosure label={`Logical capacity scenario, ${editor.compressionEnabled ? `${editor.compressionRatio}x` : "off"}`}>
+          <UiDisclosure label={`Logical capacity scenario, ${editor.compressionEnabled ? `${editor.compressionRatio}x` : "off"}`}>
           <div className={styles.optionalGrid}>
-            <ToolCheckbox
+            <UiCheckbox
               isSelected={editor.compressionEnabled}
               onChange={(compressionEnabled) => mutate((current) => ({ ...current, compressionEnabled }))}
             >
               Compression scenario
-            </ToolCheckbox>
+            </UiCheckbox>
             {editor.compressionEnabled ? (
-              <ToolNumberField
+              <UiNumberField
                 dataFocusKey="compression"
                 error={errors.compression}
                 label="Compression ratio"
@@ -958,13 +944,13 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
               />
             ) : null}
           </div>
-          </ToolDisclosure>
+          </UiDisclosure>
         </div>
 
         <section className={styles.editorSection} aria-labelledby="data-vdevs-heading">
           <div className={styles.editorHeading}>
             <div><h2 id="data-vdevs-heading">Data vdevs</h2><span>{editor.dataVdevs.length} configured</span></div>
-            <ToolButton
+            <UiButton
               className={styles.secondaryButton}
               data-focus-key="add-data"
               isDisabled={editor.dataVdevs.length >= 64}
@@ -972,7 +958,7 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
               variant="secondary"
             >
               <Plus aria-hidden="true" size={17} /> Add data vdev
-            </ToolButton>
+            </UiButton>
           </div>
           {editor.dataVdevs.length === 0 ? <p className={styles.emptyState}>No data vdevs yet.</p> : null}
           <div className={styles.vdevList}>
@@ -985,7 +971,7 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
                     <h3 data-focus-key={`heading-${vdev.id}`} tabIndex={-1}>{label}</h3>
                     <div className={styles.vdevControls}>
                       <div className={styles.vdevTypeField}>
-                        <ToolSelect
+                        <UiSelect
                           ariaLabel={`${label} type`}
                           dataFocusKey={`type-${vdev.id}`}
                           hideLabel
@@ -995,10 +981,10 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
                           value={vdev.type}
                         />
                       </div>
-                      <ToolButton aria-label={`Duplicate ${label.toLowerCase()}`} className={styles.iconButton} onPress={() => duplicateVdev(vdev.id)} title="Duplicate vdev" variant="icon"><Copy aria-hidden="true" size={16} /></ToolButton>
-                      <ToolButton aria-label={`Move ${label.toLowerCase()} up`} className={styles.iconButton} isDisabled={index === 0} onPress={() => moveVdev(vdev.id, -1)} title="Move vdev up" variant="icon"><ChevronUp aria-hidden="true" size={17} /></ToolButton>
-                      <ToolButton aria-label={`Move ${label.toLowerCase()} down`} className={styles.iconButton} isDisabled={index === editor.dataVdevs.length - 1} onPress={() => moveVdev(vdev.id, 1)} title="Move vdev down" variant="icon"><ChevronDown aria-hidden="true" size={17} /></ToolButton>
-                      <ToolButton aria-label={`Remove ${label.toLowerCase()}`} className={styles.iconButton} onPress={() => removeVdev(vdev.id)} title="Remove vdev" variant="icon"><Trash2 aria-hidden="true" size={17} /></ToolButton>
+                      <UiButton aria-label={`Duplicate ${label.toLowerCase()}`} className={styles.iconButton} onPress={() => duplicateVdev(vdev.id)} title="Duplicate vdev" variant="icon"><Copy aria-hidden="true" size={16} /></UiButton>
+                      <UiButton aria-label={`Move ${label.toLowerCase()} up`} className={styles.iconButton} isDisabled={index === 0} onPress={() => moveVdev(vdev.id, -1)} title="Move vdev up" variant="icon"><ChevronUp aria-hidden="true" size={17} /></UiButton>
+                      <UiButton aria-label={`Move ${label.toLowerCase()} down`} className={styles.iconButton} isDisabled={index === editor.dataVdevs.length - 1} onPress={() => moveVdev(vdev.id, 1)} title="Move vdev down" variant="icon"><ChevronDown aria-hidden="true" size={17} /></UiButton>
+                      <UiButton aria-label={`Remove ${label.toLowerCase()}`} className={styles.iconButton} onPress={() => removeVdev(vdev.id)} title="Remove vdev" variant="icon"><Trash2 aria-hidden="true" size={17} /></UiButton>
                     </div>
                   </div>
                   {groupError ? <p className={styles.groupError}>{groupError}</p> : null}
@@ -1018,9 +1004,9 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
                       rows={vdev.drives}
                     />
                   ) : <p className={styles.emptyGroup}>No drives</p>}
-                  <ToolButton className={styles.addDriveButton} isDisabled={vdev.drives.length >= 64 || totalDriveCount(editor) >= MAX_UI_DRIVES} onPress={() => addDataDrive(vdev.id)} variant="secondary">
+                  <UiButton className={styles.addDriveButton} isDisabled={vdev.drives.length >= 64 || totalDriveCount(editor) >= MAX_UI_DRIVES} onPress={() => addDataDrive(vdev.id)} variant="secondary">
                     <Plus aria-hidden="true" size={16} /> Add drive to {label.toLowerCase()}
-                  </ToolButton>
+                  </UiButton>
                 </section>
               );
             })}
@@ -1028,19 +1014,19 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
         </section>
 
         <div className={styles.advanced}>
-          <ToolDisclosure label={`Optional devices, ${editor.auxiliaryGroups.length} ${editor.auxiliaryGroups.length === 1 ? "group" : "groups"}`}>
+          <UiDisclosure label={`Optional devices, ${editor.auxiliaryGroups.length} ${editor.auxiliaryGroups.length === 1 ? "group" : "groups"}`}>
           <section className={styles.optionalSection} aria-label="Optional devices">
           <div className={styles.auxiliaryAdd}>
-            <ToolSelect
+            <UiSelect
               ariaLabel="Optional device role"
               label="Auxiliary role"
               onChange={(value) => setEditor((current) => ({ ...current, auxiliaryChoice: value as ZfsAuxiliaryRole }))}
               options={auxiliaryRoles.map((role) => ({ id: role, label: roleLabel(role) }))}
               value={editor.auxiliaryChoice}
             />
-            <ToolButton className={styles.secondaryButton} isDisabled={editor.auxiliaryGroups.length >= 64} onPress={addAuxiliary} variant="secondary">
+            <UiButton className={styles.secondaryButton} isDisabled={editor.auxiliaryGroups.length >= 64} onPress={addAuxiliary} variant="secondary">
               <Plus aria-hidden="true" size={17} /> Add auxiliary role
-            </ToolButton>
+            </UiButton>
           </div>
           <div className={styles.vdevList}>
             {editor.auxiliaryGroups.map((group) => {
@@ -1053,7 +1039,7 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
                     <h3 data-focus-key={`heading-${group.id}`} tabIndex={-1}>{label}</h3>
                     <div className={styles.vdevControls}>
                       {group.role === "slog" ? (
-                        <ToolSelect
+                        <UiSelect
                           ariaLabel={`${label} layout`}
                           hideLabel
                           label={`${label} layout`}
@@ -1062,7 +1048,7 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
                           value={group.layout}
                         />
                       ) : null}
-                      <ToolButton aria-label={`Remove ${label.toLowerCase()}`} className={styles.iconButton} onPress={() => removeAuxiliary(group.id)} variant="icon"><Trash2 aria-hidden="true" size={17} /></ToolButton>
+                      <UiButton aria-label={`Remove ${label.toLowerCase()}`} className={styles.iconButton} onPress={() => removeAuxiliary(group.id)} variant="icon"><Trash2 aria-hidden="true" size={17} /></UiButton>
                     </div>
                   </div>
                   {group.role === "special" ? <p className={styles.specialWarning}>Special vdev loss can lose pools.</p> : null}
@@ -1075,26 +1061,26 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
                     rows={group.drives}
                   />
                   {(group.role === "slog" || group.role === "special") ? (
-                    <ToolButton className={styles.addDriveButton} onPress={() => addAuxiliaryDrive(group.id)} variant="secondary">
+                    <UiButton className={styles.addDriveButton} onPress={() => addAuxiliaryDrive(group.id)} variant="secondary">
                       <Plus aria-hidden="true" size={16} /> Add drive to {label.toLowerCase()}
-                    </ToolButton>
+                    </UiButton>
                   ) : null}
                 </section>
               );
             })}
           </div>
           </section>
-          </ToolDisclosure>
+          </UiDisclosure>
         </div>
 
         {errors._form ? <p className={styles.formError} role="alert">{errors._form}</p> : null}
         <div className={styles.actionRow}>
-          <ToolButton aria-label="Reset calculator" className={styles.resetButton} onPress={resetCalculator} variant="secondary">
+          <UiButton aria-label="Reset calculator" className={styles.resetButton} onPress={resetCalculator} variant="secondary">
             <RotateCcw aria-hidden="true" size={17} /> Reset
-          </ToolButton>
-          <ToolButton className={styles.primaryButton} isDisabled={editor.dataVdevs.length === 0} onPress={calculatePool} variant="primary">
+          </UiButton>
+          <UiButton className={styles.primaryButton} isDisabled={editor.dataVdevs.length === 0} onPress={calculatePool} variant="primary">
             Calculate pool
-          </ToolButton>
+          </UiButton>
         </div>
       </div>
 
@@ -1110,7 +1096,7 @@ export function ZfsCapacityCalculator({ initialState }: { initialState: string }
       ) : null}
 
       <div className={styles.statusArea}>
-        {status ? <ToolStatus tone={status.includes("blocked") || status.includes("failed") ? "danger" : "neutral"}>{status}</ToolStatus> : null}
+        {status ? <UiStatus tone={status.includes("blocked") || status.includes("failed") ? "danger" : "neutral"}>{status}</UiStatus> : null}
         {shareUrl ? <input aria-label="Shared URL" className={styles.shareUrl} readOnly value={shareUrl} /> : null}
       </div>
     </section>

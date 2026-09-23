@@ -5,7 +5,7 @@ stack127 publishes tools, directories, references, courses, and useful content f
 ## Work clearly
 
 - Use simple English and short status updates.
-- Apply `skills/stack127/unslop/SKILL.md` to chat, public copy, and durable documentation.
+- Read `stack127_docs/writing-style.md` before writing or reviewing website copy. It is the only writing style guide, including visual choices, SEO wording, and editing. Use its plain language for chat and documentation too.
 - State what is done, what remains, and what is blocked.
 - Preserve unrelated worktree changes.
 - Do not create process files, evidence, hashes, receipts, or tests unless they protect a real user-visible failure.
@@ -13,12 +13,10 @@ stack127 publishes tools, directories, references, courses, and useful content f
 ## Product quality
 
 - Keep pages fast, server-rendered where useful, easy to read, and easy for search engines to understand.
-- Follow `stack127_docs/design-system.md`, `stack127_docs/css-architecture.md`, `stack127_docs/page-families.md`, and `stack127_docs/visual-first.md`.
+- Follow `stack127_docs/design-system.md`, `stack127_docs/css-architecture.md`, and `stack127_docs/page-families.md`.
 - Use the shared shell, `PageCanvas`, tokens, components, typography, spacing, and route-family patterns.
+- Read `stack127_docs/shared-ui.md` before creating controls, tables, charts, callouts, pagination, or dialogs. Use the Components UI gallery at `/components-ui` in development for examples.
 - Read `stack127_docs/tool-interface.md` for interactive tools.
-- Read `skills/stack127/stack127-writing-voice/SKILL.md` before writing public words.
-- Keep `stack127` lowercase in public copy.
-- Use marker art for concepts, clean charts for exact data, tables for repeated facts, and screenshots to prove real interfaces.
 - Keep dark mode as the default feel. Unknown is better than fake precision.
 
 ## Routes and publication
@@ -40,7 +38,6 @@ stack127 publishes tools, directories, references, courses, and useful content f
 - Page docs live in `content_docs/<slug>/`.
 - Content pages use `brief.md`. Tools use one `tool-spec.md`.
 - Sitewide operating docs live in `stack127_docs/`.
-- Completed decisions live in `stack127_records/`.
 - Page scripts live in `scripts/<slug>/`. Shared scripts live in `scripts/stack127/`.
 - Never commit secrets, generated `.next` output, test output, or temporary logs.
 
@@ -51,6 +48,7 @@ Read `stack127_docs/quality-workflow.md`.
 - Run `npm run quality` for TypeScript and the small core suite.
 - Run a focused test for calculations, parsing, data transforms, and important recovery behavior.
 - Check the real changed page at desktop and mobile width.
+- Codex CLI on the homelab may not have the Mac app's in-app browser. Use a local headless browser for page and interaction checks when that happens. Do not stop to ask for in-app browser access. See `skills/stack127/references/homelab-browser-and-search.md`.
 - For a tool, run one correct example and one invalid-input example.
 - Run `npm run build` once for route, shared runtime, SEO, or production configuration changes.
 - Do not run a full-site browser suite for ordinary page work.
@@ -64,7 +62,7 @@ Read `stack127_docs/quality-workflow.md`.
 - Production release: `skills/stack127/stack127-release-e2e/SKILL.md`.
 - Self-host app work: skills under `skills/self-host-apps/`.
 - Generated cover images: `skills/stack127/cover-image-intake/SKILL.md`.
-- `.agents/skills` and `.claude/skills` are symlink adapters to `skills/`.
+- `.agents/skills` is a symlink adapter to the canonical `skills/` folder.
 
 ## Homelab
 

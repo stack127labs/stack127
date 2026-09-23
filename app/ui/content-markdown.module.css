@@ -1,0 +1,53 @@
+.tableScroll {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  max-width: var(--measure-prose);
+  min-width: 0;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.tableScroll table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tableScroll th,
+.tableScroll td {
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+  overflow-wrap: break-word;
+  padding: var(--space-4) var(--space-5);
+  text-align: left;
+  vertical-align: top;
+  white-space: normal;
+}
+
+.tableScroll th {
+  background: var(--color-surface-2);
+  font-weight: var(--weight-semibold);
+}
+
+.tableScroll tr:last-child > * {
+  border-bottom: 0;
+}
+
+.tableScroll code {
+  overflow-wrap: break-word;
+  white-space: normal;
+  word-break: normal;
+}
+
+@media (max-width: 640px) {
+  .tableScroll th,
+  .tableScroll td {
+    padding: var(--space-3);
+  }
+}
+
+@media print {
+  .tableScroll { overflow-x: visible; }
+  .tableScroll table { width: 100%; }
+}

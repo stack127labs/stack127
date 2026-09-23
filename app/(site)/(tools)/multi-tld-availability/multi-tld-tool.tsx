@@ -2,15 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import {
-  ToolButton,
-  ToolCheckbox,
-  ToolDataTable,
-  ToolPrimaryResult,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiCheckbox, UiTextField } from "@/app/ui/controls";
+import { UiDataTable, UiPrimaryResult, UiResultLead, UiStatus } from "@/app/ui/display";
 import { DEFAULT_TLDS, MAX_TLDS, type MultiTldResult, type MultiTldRow } from "@/lib/domain/multi-tld-shared.ts";
 import {
   multiTldSummary,
@@ -115,9 +108,9 @@ function ResultCell({ retryingTld, row, onRetry }: { retryingTld: string | null;
       <RegisteredDetails row={row} />
       {row.state === "cannot_check" ? <Link href="/tld-directory">Open TLD directory</Link> : null}
       {row.state === "check_failed" ? (
-        <ToolButton isDisabled={Boolean(retryingTld)} onPress={() => onRetry(row)} variant="secondary">
+        <UiButton isDisabled={Boolean(retryingTld)} onPress={() => onRetry(row)} variant="secondary">
           {retryingTld === row.tld ? `Retrying .${row.tld}...` : `Retry .${row.tld}`}
-        </ToolButton>
+        </UiButton>
       ) : null}
     </span>
   );
@@ -136,7 +129,7 @@ function SourceCell({ row }: { row: MultiTldDisplayRow }) {
 
 function ResultTable({ retryingTld, rows, onRetry }: { retryingTld: string | null; rows: MultiTldDisplayRow[]; onRetry: (row: MultiTldRow) => void }) {
   return (
-    <ToolDataTable
+    <UiDataTable
       ariaLabel="Domain registry results"
       columns={[
         { id: "domain", label: "Domain" },
@@ -268,7 +261,7 @@ export function MultiTldTool() {
   return (
     <section aria-label="Multi-TLD availability" className={`domain-tool ${styles.workbench}`} data-hydrated={hydrated ? "true" : undefined} data-tool-workbench>
       <form aria-busy={loading} className={styles.form} onSubmit={submit}>
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           autoComplete="off"
           error={nameError}
@@ -291,24 +284,24 @@ export function MultiTldTool() {
             {ALL_TLDS.map((tld) => {
               const checked = selected.includes(tld);
               return (
-                <ToolCheckbox
+                <UiCheckbox
                   isDisabled={loading || (!checked && selected.length >= MAX_TLDS)}
                   isSelected={checked}
                   key={tld}
                   onChange={() => toggle(tld)}
                 >
                   <span className={styles.choiceLabel}>.{tld}{NO_RDAP_SERVICE.has(tld) ? <small>No RDAP service</small> : null}</span>
-                </ToolCheckbox>
+                </UiCheckbox>
               );
             })}
           </div>
           {selectionError ? <p className={styles.error} id="multi-tld-selection-error" role="alert">{selectionError}</p> : null}
         </fieldset>
 
-        <ToolButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">
+        <UiButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">
           {loading ? `Checking ${settled.length} of ${selected.length}...` : `Check ${selected.length} ending${selected.length === 1 ? "" : "s"}`}
-        </ToolButton>
-        {requestError ? <ToolStatus tone="danger">{requestError}</ToolStatus> : null}
+        </UiButton>
+        {requestError ? <UiStatus tone="danger">{requestError}</UiStatus> : null}
       </form>
 
       {rows.length ? (
@@ -316,12 +309,12 @@ export function MultiTldTool() {
           {summary ? (
             <>
               <div aria-atomic="true" aria-live="polite">
-                <ToolPrimaryResult detail={summary.detail} label="Set result" unit="without a registry record" value={summary.value} />
+                <UiPrimaryResult detail={summary.detail} label="Set result" unit="without a registry record" value={summary.value} />
               </div>
-              {summary.noRegistration ? <ToolResultLead>No registration record does not rule out a reserved, blocked, or premium-priced name.</ToolResultLead> : null}
+              {summary.noRegistration ? <UiResultLead>No registration record does not rule out a reserved, blocked, or premium-priced name.</UiResultLead> : null}
             </>
           ) : (
-            <ToolStatus>Checked {settled.length} of {rows.length} endings...</ToolStatus>
+            <UiStatus>Checked {settled.length} of {rows.length} endings...</UiStatus>
           )}
           <ResultTable onRetry={retry} retryingTld={retryingTld} rows={rows} />
         </section>

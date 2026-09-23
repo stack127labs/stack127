@@ -1,18 +1,8 @@
 "use client";
 
 import { useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolDataTable,
-  ToolDownloadAction,
-  ToolRawOutput,
-  ToolResultLead,
-  ToolSelect,
-  ToolStatus,
-  ToolTextField,
-  type ToolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiDownloadAction, UiRawOutput, UiSelect, UiTextField, type UiOption } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";
 import { CHANGE_RECORD_TYPES, type ChangeRecordType, type DnsSourceAnswer } from "@/lib/dns/diagnostic-types.ts";
 import { groupDnsSources } from "@/lib/dns/diagnostic-presentation.ts";
 import { diagnosticReportJson } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
@@ -36,7 +26,7 @@ type Result = {
   };
 };
 
-const recordTypeOptions: ToolOption[] = CHANGE_RECORD_TYPES.map((type) => ({ id: type, label: type }));
+const recordTypeOptions: UiOption[] = CHANGE_RECORD_TYPES.map((type) => ({ id: type, label: type }));
 
 function normalizedRecordSet(source: DnsSourceAnswer) {
   return source.records
@@ -184,7 +174,7 @@ function AnswerGroups({ authoritative, recordType, referenceKey, sectionName, so
         <section className={styles.answerGroup} data-answer-group key={group.key}>
           <AnswerValues group={group} recordType={recordType} />
           <div className={styles.tableRegion}>
-            <ToolDataTable
+            <UiDataTable
               ariaLabel={`${sectionName} sources for answer ${index + 1}`}
               columns={columns}
               rows={sourceRows(group.sources, authoritative, referenceKey)}
@@ -193,7 +183,7 @@ function AnswerGroups({ authoritative, recordType, referenceKey, sectionName, so
           <div className={styles.rawList}>
             {group.sources.map((source) => (
               <div data-dns-change-raw key={source.id}>
-                <ToolRawOutput
+                <UiRawOutput
                   label={`Raw response from ${source.label}`}
                   value={{ source: source.label, server: source.server, response: source.rawResponse, error: source.error }}
                 />
@@ -211,7 +201,7 @@ function PreviousResultStatus({ error, loading, stale }: { error: string | null;
   if (loading) children = "Previous result. A new check is running.";
   else if (error) children = "Previous result. The latest check failed.";
   else if (stale) children = "Previous result. Inputs changed since this check.";
-  return children ? <ToolStatus tone={error ? "warning" : "neutral"}>{children}</ToolStatus> : null;
+  return children ? <UiStatus tone={error ? "warning" : "neutral"}>{children}</UiStatus> : null;
 }
 
 export function DnsChangeChecker({ initialName = "", initialRecordType = "A" }: {
@@ -264,7 +254,7 @@ export function DnsChangeChecker({ initialName = "", initialRecordType = "A" }: 
   return (
     <section aria-label="DNS change checker" className={styles.workbench} data-tool-workbench>
       <form className={styles.form} onSubmit={submit}>
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           autoComplete="off"
           error={validationError}
@@ -280,7 +270,7 @@ export function DnsChangeChecker({ initialName = "", initialRecordType = "A" }: 
           spellCheck={false}
           value={name}
         />
-        <ToolSelect
+        <UiSelect
           label="Record type"
           onChange={(value) => {
             setRecordType(value as ChangeRecordType);
@@ -290,7 +280,7 @@ export function DnsChangeChecker({ initialName = "", initialRecordType = "A" }: 
           required
           value={recordType}
         />
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           autoComplete="off"
           label="Expected answer (optional)"
@@ -302,13 +292,13 @@ export function DnsChangeChecker({ initialName = "", initialRecordType = "A" }: 
           spellCheck={false}
           value={expectedAnswer}
         />
-        <ToolActionRow>
-          <ToolButton className={styles.submit} isDisabled={loading} type="submit" variant="primary">
+        <UiActionRow>
+          <UiButton className={styles.submit} isDisabled={loading} type="submit" variant="primary">
             {loading ? "Checking DNS..." : "Check DNS change"}
-          </ToolButton>
-        </ToolActionRow>
-        {loading ? <ToolStatus>Checking authoritative sources and public resolver caches.</ToolStatus> : null}
-        {requestError ? <ToolStatus tone="danger">{requestError}</ToolStatus> : null}
+          </UiButton>
+        </UiActionRow>
+        {loading ? <UiStatus>Checking authoritative sources and public resolver caches.</UiStatus> : null}
+        {requestError ? <UiStatus tone="danger">{requestError}</UiStatus> : null}
       </form>
 
       {result ? (
@@ -317,7 +307,7 @@ export function DnsChangeChecker({ initialName = "", initialRecordType = "A" }: 
           <header className={styles.resultHeader}>
             <h2>{result.query.name} <span>{result.query.recordType}</span></h2>
             <div data-dns-change-lead>
-              <ToolResultLead>{leadSentence(result)}</ToolResultLead>
+              <UiResultLead>{leadSentence(result)}</UiResultLead>
             </div>
             {result.ipv6Connectivity === false ? (
               <p className={styles.ipv6Note}>IPv6 authoritative checks were skipped because this checker does not have IPv6 connectivity.</p>
@@ -340,7 +330,7 @@ export function DnsChangeChecker({ initialName = "", initialRecordType = "A" }: 
 
           <footer className={styles.resultFooter}>
             <p>Checked {new Date(result.checkedAt).toLocaleString()} in {result.durationMs.toLocaleString("en-US")} ms.</p>
-            <ToolDownloadAction contents={report} filename={`${result.query.name}-${result.query.recordType}-dns-change-report.json`} label="Download report" mimeType="application/json;charset=utf-8" />
+            <UiDownloadAction contents={report} filename={`${result.query.name}-${result.query.recordType}-dns-change-report.json`} label="Download report" mimeType="application/json;charset=utf-8" />
           </footer>
         </section>
       ) : null}

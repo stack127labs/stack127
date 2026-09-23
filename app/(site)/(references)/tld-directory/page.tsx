@@ -1,14 +1,14 @@
-import { PageCanvas } from "@/app/page-canvas";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
 import "../../(catalogs)/domain-tools/domain-tools.css";
 import { Globe } from "lucide-react";
 import Link from "next/link";
-import { AppShell } from "../../../app-shell";
+import { AppShell } from "../../../ui/site/app-shell";
 import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
 import { TldTable, type TldRow } from "./tld-table";
 import directory from "@/lib/domain/data/tld-directory.json" with { type: "json" };
-import { PageTitleIcon } from "../../../page-title-icon";
-import { PageHeader } from "../../../page-header";
-import { proseSectionFlowClassName } from "../../../prose";
+import { PageTitleIcon } from "../../../ui/site/page-title-icon";
+import { PageHeader } from "../../../ui/site/page-header";
+import { proseSectionFlowClassName } from "../../../ui/site/prose";
 
 export default function TldDirectoryPage() {
   const rows = directory.rows as TldRow[];

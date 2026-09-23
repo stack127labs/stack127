@@ -2,17 +2,8 @@
 
 import { Check, Copy } from "lucide-react";
 import { useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolCheckbox,
-  ToolCodeOutput,
-  ToolDataTable,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextArea,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiCheckbox, UiTextArea, UiTextField } from "@/app/ui/controls";
+import { UiActionRow, UiCodeOutput, UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";
 import {
   DEFAULT_CHMOD_BITS,
   bitsFromMode,
@@ -44,7 +35,7 @@ const SPECIAL_BITS = [
   ["sticky", "Sticky"],
 ] as const;
 
-const COPY_FAILURE = "Copy failed. Select the text to copy it.";
+const COPY_FAILURE = "Copy failed. UiSelect the text to copy it.";
 
 async function copyText(value: string) {
   try {
@@ -73,7 +64,7 @@ async function copyText(value: string) {
   }
 }
 
-function CopyAction({ kind, label, value }: { kind: CopyKind; label: string; value: string }) {
+function UiCopyAction({ kind, label, value }: { kind: CopyKind; label: string; value: string }) {
   const [state, setState] = useState<"ready" | "copied" | "failed">("ready");
   const fallbackLabel = `Copy this ${kind}`;
   const status = state === "copied" ? "Copied" : state === "failed" ? COPY_FAILURE : "";
@@ -86,12 +77,12 @@ function CopyAction({ kind, label, value }: { kind: CopyKind; label: string; val
 
   return (
     <div className={styles.copyControl}>
-      <ToolButton aria-label={state === "failed" ? `Retry copy ${kind}` : state === "copied" ? "Copied" : label} onPress={copy} variant="ghost">
+      <UiButton aria-label={state === "failed" ? `Retry copy ${kind}` : state === "copied" ? "Copied" : label} onPress={copy} variant="ghost">
         {state === "copied" ? <Check aria-hidden="true" size={17} /> : <Copy aria-hidden="true" size={17} />}
         {state === "failed" ? `Retry copy ${kind}` : state === "copied" ? "Copied" : label}
-      </ToolButton>
+      </UiButton>
       <span aria-live="polite" className={styles.copyStatus}>{status}</span>
-      {state === "failed" ? <ToolTextArea label={fallbackLabel} readOnly rows={3} value={value} /> : null}
+      {state === "failed" ? <UiTextArea label={fallbackLabel} readOnly rows={3} value={value} /> : null}
     </div>
   );
 }
@@ -191,7 +182,7 @@ export function ChmodCalculator() {
   return (
     <section aria-label="chmod calculator inputs and results" className={styles.tool} data-tool-workbench>
       <form className={styles.form} noValidate onSubmit={calculate}>
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           description={gridUnavailable && !fieldError ? "Enter a valid octal mode or choose an example to edit the permission boxes." : undefined}
           error={fieldError}
@@ -208,7 +199,7 @@ export function ChmodCalculator() {
           <span className={styles.examplesLabel}>Examples</span>
           <div className={styles.exampleButtons}>
             {PRESETS.map((preset) => (
-              <ToolButton
+              <UiButton
                 aria-label={`Load mode ${preset}`}
                 key={preset}
                 onPress={() => loadPreset(preset)}
@@ -216,7 +207,7 @@ export function ChmodCalculator() {
                 variant="ghost"
               >
                 {preset}
-              </ToolButton>
+              </UiButton>
             ))}
           </div>
         </div>
@@ -227,14 +218,14 @@ export function ChmodCalculator() {
               <legend>{group.label}</legend>
               <div className={styles.checkboxList}>
                 {(["Read", "Write", "Execute"] as const).map((label, index) => (
-                  <ToolCheckbox
+                  <UiCheckbox
                     isDisabled={gridUnavailable}
                     isSelected={bits[group.keys[index]]}
                     key={label}
                     onChange={(selected) => updateBit(group.keys[index], selected)}
                   >
                     {permissionLabel(group.label, label)}
-                  </ToolCheckbox>
+                  </UiCheckbox>
                 ))}
               </div>
             </fieldset>
@@ -245,30 +236,30 @@ export function ChmodCalculator() {
           <legend>Special bits</legend>
           <div className={styles.specialBits}>
             {SPECIAL_BITS.map(([key, label]) => (
-              <ToolCheckbox isDisabled={gridUnavailable} isSelected={bits[key]} key={key} onChange={(selected) => updateBit(key, selected)}>
+              <UiCheckbox isDisabled={gridUnavailable} isSelected={bits[key]} key={key} onChange={(selected) => updateBit(key, selected)}>
                 {label}
-              </ToolCheckbox>
+              </UiCheckbox>
             ))}
           </div>
         </fieldset>
 
-        <ToolActionRow>
-          <ToolButton type="submit" variant="primary">Calculate permissions</ToolButton>
-          <ToolButton onPress={reset} type="button" variant="ghost">Reset</ToolButton>
-        </ToolActionRow>
-        {unexpectedError ? <ToolStatus tone="danger">{unexpectedError}</ToolStatus> : null}
+        <UiActionRow>
+          <UiButton type="submit" variant="primary">Calculate permissions</UiButton>
+          <UiButton onPress={reset} type="button" variant="ghost">Reset</UiButton>
+        </UiActionRow>
+        {unexpectedError ? <UiStatus tone="danger">{unexpectedError}</UiStatus> : null}
         <p aria-live="polite" className={styles.visuallyHidden}>{announcement}</p>
       </form>
 
       {result ? (
         <section aria-label="Permissions result" className={styles.result} data-chmod-result>
           <div className={styles.leadRow}>
-            <ToolResultLead inputRef={resultRef}>Mode <code>{result.octal}</code> is <code>{result.symbolic}</code>.</ToolResultLead>
-            <CopyAction kind="mode" label="Copy mode" value={result.octal} />
+            <UiResultLead inputRef={resultRef}>Mode <code>{result.octal}</code> is <code>{result.symbolic}</code>.</UiResultLead>
+            <UiCopyAction kind="mode" label="Copy mode" value={result.octal} />
           </div>
 
           <div className={styles.tableRegion} data-chmod-breakdown>
-            <ToolDataTable
+            <UiDataTable
               ariaLabel="Permission digit breakdown"
               columns={[{ id: "class", label: "Class" }, { id: "digit", label: "Digit" }, { id: "calculation", label: "Calculation" }]}
               rows={result.classRows.map((row) => ({ id: row.id, cells: { class: row.label, digit: row.digit, calculation: row.calculation } }))}
@@ -282,7 +273,7 @@ export function ChmodCalculator() {
           ) : null}
 
           <div className={styles.commandRegion} data-chmod-command>
-            <ToolCodeOutput actions={<CopyAction kind="command" label="Copy command" value={result.command} />} code={result.command} label="Command example" />
+            <UiCodeOutput actions={<UiCopyAction kind="command" label="Copy command" value={result.command} />} code={result.command} label="Command example" />
             <p className={styles.note}>Replace the example path with your file&apos;s path. Filesystem effects are not verified by this calculator.</p>
           </div>
         </section>

@@ -28,11 +28,10 @@ the same responsive gutters. Text-led pages use its 760px reading width. Directo
 workbenches, tables, and card grids stay wide. Both widths start at the same left edge. `EntryHero`
 uses the canvas internally, so entry headers and body sections align. Do not nest canvases. Visible
 titles and introductions use `PageHeader`. Reading content uses the classes exported by
-`app/prose.ts` so heading and paragraph rhythm comes from one place.
+`app/ui/site/prose.ts` so heading and paragraph rhythm comes from one place.
 
-Do not add eyebrows, kickers, overlines, decorative labels, repeated summaries, or implementation
-notes to the public interface. Labels are useful only when they help someone operate a control,
-read metadata, or understand a table.
+Use [writing-style.md](writing-style.md) for all public wording and visual choices.
+Use [shared-ui.md](shared-ui.md) for common controls, tables, charts, callouts, pagination, dialogs, and Markdown content. Keep family-specific data and unusual interactions in their own route.
 
 ## Catalogs
 
@@ -53,7 +52,7 @@ terminal apps, cameras, coordinators, UPS models, and smart-home devices belong 
 
 Directory routes and their shared controls live under `app/(site)/(directories)/`.
 
-- Use the shared directory header, controls, spacing, and filter components.
+- Use the shared directory header, controls, spacing, filter components, `Pagination`, `DetailDialog`, and `StatePanel` where they fit.
 - Use cards when each result has several facts and an identity of its own.
 - Use a table when people compare the same compact fields across many rows.
 - Keep filters in the sidebar on wide screens and in the existing drawer on small screens.
@@ -62,7 +61,7 @@ Directory routes and their shared controls live under `app/(site)/(directories)/
 ## Courses
 
 Courses teach a path in a fixed order. Course definitions use `lib/courses.ts`; the visible lesson
-shell lives in `app/(site)/(courses)/_components/course-shell.tsx`. A course owns its title, base
+shell lives in `app/ui/courses/course-shell.tsx`. A course owns its title, base
 path, author, lesson list, and navigation label. Individual lesson files own only their lesson
 content and earned visuals.
 

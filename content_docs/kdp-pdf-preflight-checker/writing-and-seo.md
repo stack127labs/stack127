@@ -1,5 +1,7 @@
 # Writing and SEO plan: KDP PDF preflight checker
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Feasibility: feasible
 Content review: 2026-09-19
@@ -112,16 +114,9 @@ No internal stack127 link is proposed for v1. The supplied source inventory does
 | COPY-05 | What to verify in KDP next | Give the reader a practical handoff after a local check. | Recheck the final file after corrections; use current KDP Print Previewer and submission guidance; verify current rules because the report carries a 2026-09-16 ruleset date. Sources: KDP Fix Formatting Issues; KDP Paperback Submission Guidelines; result provenance contract. | One short next-step section. It should point to official guidance and stop, without becoming a general publishing tutorial. | Do not imply that a clean local report is approval, that the ruleset never changes, or that stack127 can make the submission decision. |
 | COPY-06 | Task-oriented usage | Explain input preparation, meaningful choices, states, and next verification. | Closed Usage Markdown handoff and accepted technical artifacts. | One concise connected guide; use steps only where order changes the outcome. | No live-result narration, unimplemented features, or duplicate supporting explanations. |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` for public wording. This plan owns search intent and useful coverage, not a separate voice.
-- Apply `skills/stack127/unslop/SKILL.md` before the later prose pass. Keep headings in sentence case and use direct, specific language.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
-- Do not invent facts, numbers, benefits, privacy claims, source freshness, or parser behavior.
 - Keep local checks and calculations separate from KDP acceptance, Print Previewer, and manual review.
-- Do not repeat a result, table, formula strip, heading, or prior section. Leave unresolved facts as explicit `unknown`, `not measured`, or review notes.
 
 ### Tool-build exclusion
 
@@ -144,7 +139,6 @@ No internal stack127 link is proposed for v1. The supplied source inventory does
 ## Open questions and blockers
 
 - The shared coefficient correction is accepted and reconciled. No content blocker remains. The route remains unpublished.
-
 
 ## Usage Markdown handoff
 

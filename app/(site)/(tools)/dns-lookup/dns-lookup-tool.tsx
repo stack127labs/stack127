@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
-import { ToolButton, ToolDataTable, ToolSelect, ToolTextField } from "@/app/tool-ui/tool-controls";
+import { UiButton, UiSelect, UiTextField } from "@/app/ui/controls";
+import { UiDataTable } from "@/app/ui/display";
 import { dnsRecordsCsv } from "@/lib/dns/export.ts";
 import { websiteFaviconUrl } from "@/lib/dns/favicon.ts";
 import { formatAuthoritativeTtl, formatResolverTtl, recordFields } from "@/lib/dns/format-record.ts";
@@ -151,7 +152,7 @@ function RecordRow({
           {recordMeta}
         </div>
         <div className="dns-nameserver-addresses">
-          <ToolDataTable
+          <UiDataTable
             ariaLabel={`Addresses for ${record.value.replace(/\.$/, "")}`}
             columns={[
               { id: "address", label: "Address" },
@@ -568,7 +569,7 @@ export function DnsLookupTool({
     <section aria-busy={loading} className="dns-tool dns-lookup-tool" data-tool-workbench id="lookup" aria-label="DNS lookup form">
       <form className="dns-lookup-form" noValidate onSubmit={submit}>
         <div className="dns-name-field">
-          <ToolTextField
+          <UiTextField
             autoCapitalize="none"
             autoComplete="off"
             error={nameError}
@@ -627,7 +628,7 @@ export function DnsLookupTool({
           </details>
         </fieldset>
         <div className="dns-form-options">
-          <ToolSelect
+          <UiSelect
             label="Resolver"
             onChange={(value) => {
               setResolver(value as DnsResolver);
@@ -637,9 +638,9 @@ export function DnsLookupTool({
             required
             value={resolver}
           />
-          <ToolButton className="dns-submit" isDisabled={loading} type="submit" variant="primary">
+          <UiButton className="dns-submit" isDisabled={loading} type="submit" variant="primary">
             {loading ? "Looking up…" : "Look up DNS"}
-          </ToolButton>
+          </UiButton>
         </div>
         {requestError ? <p className="dns-form-error dns-request-error" role="alert">{requestError}</p> : null}
       </form>

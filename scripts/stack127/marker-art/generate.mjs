@@ -2,7 +2,7 @@
  * Marker art generator. Turns *.spec.json files into final SVGs at build time.
  *
  * Usage:
- *   node scripts/stack127/marker-art/generate.mjs               # all specs in app/ and dev-space/
+ *   node scripts/stack127/marker-art/generate.mjs               # all specs in app/
  *   node scripts/stack127/marker-art/generate.mjs <path...>     # specific spec files or dirs
  *   node scripts/stack127/marker-art/generate.mjs --index <dir> # also write a showcase index.html
  *
@@ -14,7 +14,7 @@
  * Style guide: stack127_docs/marker-art.md
  */
 import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
-import { join, dirname, basename, relative } from "node:path";
+import { join, dirname, basename, relative, resolve } from "node:path";
 import { Art } from "./svg.mjs";
 import { FIGURES } from "./figures.mjs";
 import { validateSpec, lintRender } from "./lint.mjs";
@@ -77,10 +77,10 @@ function main() {
   const paths = args.filter((a) => a !== "--index");
   let specFiles = [];
   if (paths.length === 0) {
-    specFiles = [...findSpecs(join(ROOT, "app")), ...findSpecs(join(ROOT, "dev-space"))];
+    specFiles = findSpecs(join(ROOT, "app"));
   } else {
     for (const p of paths) {
-      const full = join(ROOT, p);
+      const full = resolve(ROOT, p);
       specFiles.push(...(statSync(full).isDirectory() ? findSpecs(full) : [full]));
     }
   }
@@ -136,7 +136,7 @@ function main() {
 
   if (wantIndex) {
     for (const [dir, figs] of Object.entries(byDir)) {
-      // never write showcase files inside app/; showcases belong in dev-space
+      // Keep draft showcases outside app/ so they cannot become site routes.
       if (relative(ROOT, dir).startsWith("app")) continue;
       writeFileSync(join(dir, "index.html"), indexHtml(figs));
       console.log(`✓ showcase: ${relative(ROOT, join(dir, "index.html"))}`);

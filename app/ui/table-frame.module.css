@@ -1,0 +1,10 @@
+.frame {
+  min-width: 0;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.frame:focus-visible {
+  box-shadow: var(--focus-ring);
+  outline: none;
+}

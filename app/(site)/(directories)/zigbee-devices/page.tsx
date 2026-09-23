@@ -1,17 +1,20 @@
-import { PageCanvas } from "@/app/page-canvas";
+import { StatePanel } from "@/app/ui/state-panel";
+import { TableFrame } from "@/app/ui/table-frame";
+import { Pagination } from "@/app/ui/pagination";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { RadioTower, Search } from "lucide-react";
 import Link from "next/link";
-import { AppShell, SidebarLabel } from "@/app/app-shell";
-import { PageHeader } from "@/app/page-header";
-import { PageTitleIcon } from "@/app/page-title-icon";
+import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
+import { PageHeader } from "@/app/ui/site/page-header";
+import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
 import {
   proseClassName,
   proseFlowClassName,
-} from "@/app/prose";
+} from "@/app/ui/site/prose";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
-} from "@/app/sidebar-panel";
+} from "@/app/ui/site/sidebar-panel";
 import {
   featuredZigbeeCapabilities,
   getZigbeeDeviceSnapshotMeta,
@@ -23,9 +26,9 @@ import {
   DirectoryRadioGroup as RadioGroup,
   DirectoryTagSelectGroup as TagSelectGroup,
   type DirectoryFilterOption as FilterOption,
-} from "../_components/directory-filters";
-import { DirectoryFilterController } from "../_components/directory-filter-controller";
-import { SortDropdown } from "../_components/directory-sort-dropdown";
+} from "../../../ui/directories/directory-filters";
+import { DirectoryFilterController } from "../../../ui/directories/directory-filter-controller";
+import { SortDropdown } from "../../../ui/directories/directory-sort-dropdown";
 import {
   filterDevices,
   getPage,
@@ -33,12 +36,11 @@ import {
   getString,
   getValues,
   pageHref,
-  paginationPages,
   sortDevices,
   type ZigbeeSearchParams,
 } from "./filters";
 import { ZigbeeDeviceBrowser } from "./zigbee-device-browser";
-import { DirectoryAffiliateDisclosure } from "../_components/directory-affiliate-disclosure";
+import { DirectoryAffiliateDisclosure } from "../../../ui/directories/directory-affiliate-disclosure";
 import styles from "./zigbee-devices.module.css";
 
 const pageSize = 30;
@@ -229,48 +231,36 @@ export default async function ZigbeeDevicesPage({
             <ZigbeeDeviceBrowser devices={pageDevices} />
             {pageDevices.some((record) => Boolean(record.amazon)) ? <DirectoryAffiliateDisclosure /> : null}
             {totalPages > 1 ? (
-              <nav aria-label="Zigbee device pages" className="directory-pagination">
-                <Link aria-disabled={currentPage === 1} aria-label="Previous page" href={pageHref(params, Math.max(1, currentPage - 1))}>‹</Link>
-                {paginationPages(currentPage, totalPages).map((page, index) => page === null ? (
-                  <span className="directory-pagination-gap" key={`gap-${index}`}>…</span>
-                ) : page === currentPage ? (
-                  <span aria-current="page" key={page}>{page}</span>
-                ) : (
-                  <Link href={pageHref(params, page)} key={page}>{page}</Link>
-                ))}
-                <Link aria-disabled={currentPage === totalPages} aria-label="Next page" href={pageHref(params, Math.min(totalPages, currentPage + 1))}>›</Link>
-              </nav>
+              <Pagination ariaLabel="Zigbee device pages" currentPage={currentPage} hrefForPage={(page) => pageHref(params, page)} totalPages={totalPages} />
             ) : null}
           </>
         ) : (
-          <div className="directory-empty">
-            <h2>No exact models match those filters</h2>
+          <StatePanel action={<Link href="/zigbee-devices">show all devices</Link>} title="No exact models match those filters">
             <p>Try the retail model without punctuation, or clear one filter.</p>
-            <Link href="/zigbee-devices">show all devices</Link>
-          </div>
+          </StatePanel>
         )}
 
         <section className={`${proseClassName} ${proseFlowClassName} ${styles.guide}`}>
           <h2>What each support record proves</h2>
-          <div className={styles.tableWrap} data-reading-table tabIndex={0}>
+          <TableFrame ariaLabel="Zigbee support evidence" className={styles.tableWrap}>
             <table className={styles.evidenceTable}>
               <thead>
                 <tr><th>Evidence</th><th>What it confirms</th><th>What it does not confirm</th></tr>
               </thead>
               <tbody>
                 <tr>
-                  <th>Zigbee2MQTT converter</th>
+                  <th scope="row">Zigbee2MQTT converter</th>
                   <td>The exact model has a converter definition and a documented set of exposed fields.</td>
                   <td>Every firmware revision or white-label version behaves the same.</td>
                 </tr>
                 <tr>
-                  <th>ZHA community record</th>
+                  <th scope="row">ZHA community record</th>
                   <td>A community member reported the exact retail model working with ZHA.</td>
                   <td>Every feature is exposed, or that Home Assistant maintains an official model list.</td>
                 </tr>
               </tbody>
             </table>
-          </div>
+          </TableFrame>
 
           <h2>The exact model matters more than the product name</h2>
           <p>

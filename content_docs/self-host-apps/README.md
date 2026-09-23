@@ -7,19 +7,18 @@ This page is a structured directory of self-hostable apps. It should stay minima
 ## Docs
 
 - `schema.md` documents the page-owned self-host app model.
-- `content-rules.md` documents row shape and copy rules.
+- `content-rules.md` documents verified facts and summary fields. Writing follows `stack127_docs/writing-style.md`.
 - `data-workflow.md` documents discovery, validation, enrichment, refresh, and audit flow.
 
 ## Scripts
 
 Durable scripts live in `scripts/self-host-apps/`.
 
-Temporary one-off scripts for this page belong in `scripts/self-host-apps/temp/` and should be deleted when the work is done.
+Keep temporary one-off scripts and generated review files under `/tmp/stack127/` and delete them when the work is done.
 
 ## Rules
 
-- Keep summaries one sentence and original.
-- Avoid generic filler like `open source`, `self-hosted`, `solution`, `platform`, `powerful`, `ultimate`, and `all-in-one`.
+- Follow the summary field contract in `content-rules.md`.
 - Prefer official websites, docs, repositories, and container links.
 - Use `unknown` or `null` for unverified facts.
 - Keep source URLs and compact technical status on the app row; do not add a provenance table.

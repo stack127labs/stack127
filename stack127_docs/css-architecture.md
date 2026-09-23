@@ -12,14 +12,16 @@ Stack127 keeps global CSS deliberately small. A new page should be able to devel
 
 It must not contain class or ID selectors. A class means a component or page owns that style somewhere else.
 
-Shared React components keep their styles beside the component in a CSS Module. Examples include `app/app-shell.module.css`, `app/site-nav.module.css`, `app/prose.module.css`, and `app/sidebar-panel.module.css`.
+Shared React components keep their styles beside the component in a CSS Module. Examples include `app/ui/site/app-shell.module.css`, `app/ui/site/site-nav.module.css`, `app/ui/site/prose.module.css`, and `app/ui/site/sidebar-panel.module.css`.
 
-Sidebar titles use the shared `SidebarLabel` component from `app/app-shell.tsx`. It renders a semantic `<p>` and applies the heading-like title style owned by `app/sidebar-panel.module.css`. Do not use an `h1` to `h6` for this repeated sidebar label, and do not recreate the styled paragraph inside individual routes.
+Sitewide controls, displays, content blocks, charts, pagination, and dialogs live in `app/ui/` with their CSS Modules. Read [shared-ui.md](shared-ui.md) before adding a route-owned copy. Interactive controls and dialogs keep their client boundary; static content components remain server-renderable.
+
+Sidebar titles use the shared `SidebarLabel` component from `app/ui/site/app-shell.tsx`. It renders a semantic `<p>` and applies the heading-like title style owned by `app/ui/site/sidebar-panel.module.css`. Do not use an `h1` to `h6` for this repeated sidebar label, and do not recreate the styled paragraph inside individual routes.
 
 A route family with several cooperating components may use one colocated family stylesheet imported by that family's layout. Current examples are:
 
 - `app/(site)/(catalogs)/dns-tools/dns-tools.css`;
-- `app/(site)/(directories)/_components/directory.css`;
+- `app/ui/directories/directory.css`;
 - `app/(site)/(courses)/self-hosting-for-beginners/course.css`;
 - `app/(site)/(references)/software-licenses-for-self-hosting/software-licenses.css`.
 
@@ -40,7 +42,7 @@ Flat tool pages live under `app/(site)/(tools)/`. The `(tools)` segment never ap
 
 Reading and operating are different jobs.
 
-Long explanations use `proseClassName` from `app/prose.ts`. It provides calm line height, and consistent headings, lists, links, inline code, and keyboard keys. Add `proseFlowClassName` to a flat reading container so vertical rhythm comes from the shared prose primitive instead of a route stylesheet. Add `proseSectionFlowClassName` to a structural wrapper whose direct `<section>` children each contain prose. `proseLedeClassName` is available for the opening paragraph.
+Long explanations use `proseClassName` from `app/ui/site/prose.ts`. It provides calm line height, and consistent headings, lists, links, inline code, and keyboard keys. Add `proseFlowClassName` to a flat reading container so vertical rhythm comes from the shared prose primitive instead of a route stylesheet. Add `proseSectionFlowClassName` to a structural wrapper whose direct `<section>` children each contain prose. `proseLedeClassName` is available for the opening paragraph.
 
 Shared prose flow controls spacing between reading elements and the stronger break before later headings. Route and component styles continue to own structural gaps between areas such as forms, results, cards, navigation, and separate article sections.
 
@@ -62,7 +64,7 @@ When changing a shared component, verify representative pages that use it. When 
 
 ## Shared page geometry
 
-`app/page-canvas.module.css` owns outer page width and padding. Every family follows the self-host apps directory gutters. The responsive gutter and vertical padding tokens live in `app/globals.css`. Change those tokens to adjust spacing across the site.
+`app/ui/site/page-canvas.module.css` owns outer page width and padding. Every family follows the self-host apps directory gutters. The responsive gutter and vertical padding tokens live in `app/globals.css`. Change those tokens to adjust spacing across the site.
 
 `PageCanvas` defaults to a wide grid with shared section gaps. Add `reading` to cap a text-led page at `--measure-prose` after padding. Use `flow` when prose, a directory, or another family already owns its internal layout. Use `as="article"`, `as="main"`, or `as="section"` when those semantics fit. A custom class may set internal display, columns, and gaps, but must not override the canvas margins or padding.
 

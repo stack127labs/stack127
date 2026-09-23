@@ -1,8 +1,8 @@
 /**
- * Clean chart generator. Walks app/ and dev-space/ for *.chart.json specs and
+ * Clean chart generator. Walks app/ for *.chart.json specs and
  * writes <name>.svg next to each spec, plus <name>.ts (the SVG exported as a
  * string for bundling) for specs under app/. Same architecture as the
- * marker-art generator; see stack127_docs/visual-first.md.
+ * marker-art generator; see stack127_docs/design-system.md.
  *
  * Run with: npm run stack127:clean-charts
  * Or with explicit spec paths as arguments.
@@ -40,15 +40,7 @@ const camel = (name) =>
 
 const specs = process.argv.length > 2
   ? process.argv.slice(2)
-  : [...walk(join(root, "app")), ...(safeDir(join(root, "dev-space")) ? [...walk(join(root, "dev-space"))] : [])];
-
-function safeDir(dir) {
-  try {
-    return statSync(dir).isDirectory();
-  } catch {
-    return false;
-  }
-}
+  : [...walk(join(root, "app"))];
 
 let failed = false;
 

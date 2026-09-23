@@ -1,5 +1,7 @@
 # Writing and SEO plan: 3-2-1 backup calculator
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Feasibility: feasible
 Content review: 2026-09-19
@@ -110,17 +112,9 @@ The title names the tool and its result without stacking variants such as "backu
 | COPY-04 | Verify the backup outside the calculator | Tell the reader where the estimate ends and the real work begins, including browser-local privacy. | The calculation runs in the browser with no input-bearing request, analytics event, cookie, local storage, or session storage. Explicit Share creates a versioned URL containing normalized inputs only. The reader still must verify placement, isolation, product retention behavior, and a real restore. Link the backup course lesson and CISA ransomware guidance. | Two short connected paragraphs or one compact section. State the local handling, then give the operational next step and links. Stop before a product runbook or privacy policy. | Do not say data never leaves the device if the user explicitly shares a URL. Do not imply that local calculation proves privacy for external services, or that the page checked a restore. |
 | COPY-05 | Task-oriented usage | Explain input preparation, meaningful choices, states, and next verification. | Closed Usage Markdown handoff and accepted technical artifacts. | One concise connected guide; use steps only where order changes the outcome. | No live-result narration, unimplemented features, or duplicate supporting explanations. |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` for public wording. This plan owns search intent and useful coverage, not a separate voice.
-- Apply `skills/stack127/unslop/SKILL.md` to every later public sentence.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
 - Use exact terms such as RPO, RTO, full-only, full-plus-incremental, estimated, and modelled where they carry technical meaning.
-- Do not invent facts, numbers, benefits, privacy claims, source behavior, or implementation behavior.
-- Do not repeat a result, table, chart, receipt, heading, or prior section.
-- Leave unresolved facts as explicit review notes, not plausible copy.
 
 ### Tool-build exclusion
 
@@ -147,7 +141,6 @@ The title names the tool and its result without stacking variants such as "backu
 ## Open questions and blockers
 
 - None for the content plan. The route remains unpublished until a separate central registry decision. Later copy review must preserve the browser-local privacy wording, the full-only versus full-plus-incremental boundary, compounded growth and exact rounding, the RPO/RTO interpretation, and the no-verified-compliance limitation.
-
 
 ## Usage Markdown handoff
 

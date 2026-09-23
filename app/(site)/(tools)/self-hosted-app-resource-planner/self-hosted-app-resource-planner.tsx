@@ -1,22 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolAllocationBar,
-  ToolButton,
-  ToolComboBox,
-  ToolDataTable,
-  ToolKeyValueList,
-  ToolNumberField,
-  ToolPrimaryResult,
-  ToolQuantityInput,
-  ToolRepeatableList,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextField,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiComboBox, UiNumberField, UiQuantityInput, UiRepeatableList, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiAllocationBar, UiDataTable, UiKeyValueList, UiPrimaryResult, UiResultLead, UiStatus } from "@/app/ui/display";
 import {
   DEFAULT_RESOURCE_PLANNER_INPUT,
   calculateSelfHostedResourcePlan,
@@ -35,8 +21,8 @@ import styles from "./self-hosted-app-resource-planner.module.css";
 type Props = { catalogue: ResourcePlannerCatalogue };
 type FieldErrors = Record<string, string>;
 
-const ramUnitOptions = [toolOption("GiB", "GiB")];
-const storageUnitOptions = [toolOption("GB", "GB")];
+const ramUnitOptions = [uiOption("GiB", "GiB")];
+const storageUnitOptions = [uiOption("GB", "GB")];
 
 function emptyRow(id: string, kind: "curated" | "custom", appSlug = ""): ResourcePlannerRowInput {
   return {
@@ -124,7 +110,7 @@ function ResourceBar({
   return (
     <section className={styles.resourceBar}>
       <h3>{label}</h3>
-      <ToolAllocationBar
+      <UiAllocationBar
         ariaLabel={`${label} known maximum against available budget`}
         formatValue={(value) => formatResourcePlannerDisplayValue(Number(value), dimension)}
         palette="neutral"
@@ -154,8 +140,8 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
   useEffect(() => setHydrated(true), []);
 
   const appOptions = useMemo(() => [
-    ...Object.values(catalogue).map((app) => toolOption(app.slug, app.name, app.ram && app.storage ? "RAM and storage ranges" : "Some requirements unknown")),
-    toolOption("custom", "Custom app", "Range optional"),
+    ...Object.values(catalogue).map((app) => uiOption(app.slug, app.name, app.ram && app.storage ? "RAM and storage ranges" : "Some requirements unknown")),
+    uiOption("custom", "Custom app", "Range optional"),
   ], [catalogue]);
 
   useEffect(() => {
@@ -260,14 +246,14 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
             <h2>App mix</h2>
             <p>Choose the services you want to compare.</p>
           </div>
-          <ToolComboBox
+          <UiComboBox
             label="App to add"
             onChange={setSelectedApp}
             options={appOptions}
             placeholder="Choose a published app or custom row"
             value={selectedApp}
           />
-          <ToolRepeatableList
+          <UiRepeatableList
             addDisabled={!selectedApp}
             addLabel="Add app"
             ariaLabel="Selected app rows"
@@ -281,7 +267,7 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
               return (
                 <div className={styles.appRow}>
                   {row.kind === "custom" ? (
-                    <ToolTextField
+                    <UiTextField
                       dataFocusKey={`${row.id}.name`}
                       error={rowError(errors, row.id, "name")}
                       inputRef={(node) => { fieldRefs.current[`${row.id}.name`] = node; }}
@@ -296,7 +282,7 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
                       <span>{app?.ram && app?.storage ? "Reviewed RAM and storage ranges" : "Some requirements unknown"}</span>
                     </div>
                   )}
-                  <ToolNumberField
+                  <UiNumberField
                     dataFocusKey={`${row.id}.quantity`}
                     error={rowError(errors, row.id, "quantity")}
                     inputRef={(node) => { fieldRefs.current[`${row.id}.quantity`] = node; }}
@@ -309,7 +295,7 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
                   />
                   {row.kind === "custom" ? (
                     <div className={styles.customRanges}>
-                      <ToolQuantityInput
+                      <UiQuantityInput
                         dataFocusKey={`${row.id}.ramMinGiB`}
                         error={rowError(errors, row.id, "ramMinGiB")}
                         label="RAM lower bound"
@@ -318,7 +304,7 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
                         units={ramUnitOptions}
                         value={row.ramMinGiB}
                       />
-                      <ToolQuantityInput
+                      <UiQuantityInput
                         dataFocusKey={`${row.id}.ramMaxGiB`}
                         error={rowError(errors, row.id, "ramMaxGiB")}
                         label="RAM upper bound"
@@ -327,7 +313,7 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
                         units={ramUnitOptions}
                         value={row.ramMaxGiB}
                       />
-                      <ToolQuantityInput
+                      <UiQuantityInput
                         dataFocusKey={`${row.id}.storageMinGb`}
                         error={rowError(errors, row.id, "storageMinGb")}
                         label="Storage lower bound"
@@ -336,7 +322,7 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
                         units={storageUnitOptions}
                         value={row.storageMinGb}
                       />
-                      <ToolQuantityInput
+                      <UiQuantityInput
                         dataFocusKey={`${row.id}.storageMaxGb`}
                         error={rowError(errors, row.id, "storageMaxGb")}
                         label="Storage upper bound"
@@ -371,7 +357,7 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
             <p>Reserve host headroom.</p>
           </div>
           <div className={styles.budgetGrid}>
-            <ToolNumberField
+            <UiNumberField
               dataFocusKey="ramBudgetGiB"
               error={errors.ramBudgetGiB}
               inputRef={(node) => { fieldRefs.current.ramBudgetGiB = node; }}
@@ -384,7 +370,7 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
               suffix="GiB"
               value={input.ramBudgetGiB === "" ? Number.NaN : Number(input.ramBudgetGiB)}
             />
-            <ToolNumberField
+            <UiNumberField
               dataFocusKey="storageBudgetGb"
               error={errors.storageBudgetGb}
               inputRef={(node) => { fieldRefs.current.storageBudgetGb = node; }}
@@ -397,7 +383,7 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
               suffix="GB"
               value={input.storageBudgetGb === "" ? Number.NaN : Number(input.storageBudgetGb)}
             />
-            <ToolNumberField
+            <UiNumberField
               dataFocusKey="headroomPercent"
               error={errors.headroomPercent}
               inputRef={(node) => { fieldRefs.current.headroomPercent = node; }}
@@ -413,11 +399,11 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
           </div>
         </section>
 
-        <ToolActionRow>
-          <ToolButton type="submit" variant="primary">Calculate plan</ToolButton>
-          <ToolButton onPress={reset} type="button">Reset plan</ToolButton>
-        </ToolActionRow>
-        {status ? <ToolStatus tone={status === "Check the marked inputs." ? "danger" : "neutral"}>{status}</ToolStatus> : null}
+        <UiActionRow>
+          <UiButton type="submit" variant="primary">Calculate plan</UiButton>
+          <UiButton onPress={reset} type="button">Reset plan</UiButton>
+        </UiActionRow>
+        {status ? <UiStatus tone={status === "Check the marked inputs." ? "danger" : "neutral"}>{status}</UiStatus> : null}
       </form>
 
       {calculated ? <ResourcePlanResult calculation={calculated} /> : null}
@@ -463,8 +449,8 @@ function ResourcePlanResult({ calculation }: { calculation: Extract<ResourcePlan
   return (
     <section aria-label="Resource plan result" aria-live="polite" className={styles.result} data-testid="resource-plan-result">
       <h2 id="resource-plan-result-heading" tabIndex={-1}>Resource plan result</h2>
-      <ToolPrimaryResult detail="Planning estimate." label="Plan status" tone={leadTone} value={lead} />
-      <ToolResultLead>{binding ? `${binding === "ram" ? "RAM" : "Storage"} has the least room left.` : "No complete resource comparison is available."}</ToolResultLead>
+      <UiPrimaryResult detail="Planning estimate." label="Plan status" tone={leadTone} value={lead} />
+      <UiResultLead>{binding ? `${binding === "ram" ? "RAM" : "Storage"} has the least room left.` : "No complete resource comparison is available."}</UiResultLead>
 
       <div className={styles.summaryGrid}>
         {summaryRows.map((row) => (
@@ -494,7 +480,7 @@ function ResourcePlanResult({ calculation }: { calculation: Extract<ResourcePlan
       <section className={styles.resultSection}>
         <h3>Per-app contribution</h3>
         <div aria-label="Per-app contribution table" className={styles.tableViewport} tabIndex={0}>
-          <ToolDataTable
+          <UiDataTable
             ariaLabel="Per-app resource contribution"
             columns={[{ id: "app", label: "App" }, { id: "quantity", label: "Qty" }, { id: "ram", label: "RAM range" }, { id: "storage", label: "Storage range" }, { id: "evidence", label: "Evidence" }]}
             rows={tableRows}
@@ -502,7 +488,7 @@ function ResourcePlanResult({ calculation }: { calculation: Extract<ResourcePlan
         </div>
       </section>
 
-      <ToolKeyValueList rows={[
+      <UiKeyValueList rows={[
         { label: "Headroom reserve", value: `${values.headroomPercent}%` },
         { label: "Formula", value: `Version ${values.formulaVersion}` },
       ]} />

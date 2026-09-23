@@ -1,13 +1,13 @@
 # Writing and SEO plan: `.dockerignore` Pattern Tester
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Tool: `.dockerignore` Pattern Tester
 Route: `/dockerignore-tester`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
 SERP checked: 2026-08-07
 Primary medium: Tool UI
-Prose is the minority: yes
-Static prose budget: 5 sections, 650 words maximum
 
 ## Search intent
 
@@ -85,22 +85,18 @@ Publication does not require adding the tool to home, navigation, or a collectio
 
 ## Manual prose handoff
 
-| Section ID | Heading | Purpose | Required facts and sources | Word limit and shape | Banned claims or repetition |
+| Section ID | Heading | Purpose | Required facts and sources | Planned format | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
-| COPY-01 | H1 introduction | Define the tool, inputs, answer, local handling, and main boundary | `brief.md`; implementation R6 and R16 | 65 words maximum in one paragraph | No syntax lesson, best claim, security claim, or build parity claim |
-| COPY-02 | `Start with the file Docker will actually use` | Explain effective-file precedence and meaningful probe selection | Docker docs; implementation R11 and input contract | 120 words maximum in two short paragraphs | No click instructions, presets, or repeated result narration |
-| COPY-03 | `The deciding rule is the answer; the trace explains it` | Explain verdict state, Direct, Parent, and one exact exception example | FF-002, FF-003, and FF-012 | 130 words maximum in two short paragraphs | No third verdict or parent-blocking claim |
-| COPY-04 | `When a result surprises you, check these four things` | Give the shortest useful troubleshooting sequence | Implementation R6, R11, and R18 | 100 words maximum as four ordered items | No generic methodology or duplicated syntax table |
-| COPY-05 | `Confirm the final context with Docker` | Send the reader to real-build verification and primary guidance | Docker build-context docs and stack127 Docker installation guide | 85 words maximum in one paragraph | No claim that browser matching proves COPY, ADD, safety, or current-Docker parity |
+| COPY-01 | H1 introduction | Define the tool, inputs, answer, local handling, and main boundary | `brief.md`; implementation R6 and R16 | Prose. | No syntax lesson, best claim, security claim, or build parity claim |
+| COPY-02 | `Start with the file Docker will actually use` | Explain effective-file precedence and meaningful probe selection | Docker docs; implementation R11 and input contract | Prose. | No click instructions, presets, or repeated result narration |
+| COPY-03 | `The deciding rule is the answer; the trace explains it` | Explain verdict state, Direct, Parent, and one exact exception example | FF-002, FF-003, and FF-012 | Prose. | No third verdict or parent-blocking claim |
+| COPY-04 | `When a result surprises you, check these four things` | Give the shortest useful troubleshooting sequence | Implementation R6, R11, and R18 | Four ordered items. | No generic methodology or duplicated syntax table |
+| COPY-05 | `Confirm the final context with Docker` | Send the reader to real-build verification and primary guidance | Docker build-context docs and stack127 Docker installation guide | Prose. | No claim that browser matching proves COPY, ADD, safety, or current-Docker parity |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
-- Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
 - Keep the tool primary and do not repeat a result, table, trace, heading, or prior section.
-- Use no FAQ, methodology section, generator advice, or keyword filler.
+- Keep generator advice outside this checker's scope.
 
 ### Tool-build exclusion
 

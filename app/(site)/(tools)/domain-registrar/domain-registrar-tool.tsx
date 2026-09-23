@@ -2,17 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import {
-  ToolButton,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolDownloadAction,
-  ToolKeyValueList,
-  ToolPrimaryResult,
-  ToolRawOutput,
-  ToolStatus,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiDisclosure, UiDownloadAction, UiRawOutput, UiTextField } from "@/app/ui/controls";
+import { UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import type { DomainRegistration, RdapFetch } from "@/lib/domain/types.ts";
 import {
   formatRegistrarDate,
@@ -51,7 +42,7 @@ function RegistrarDetails({ result }: { result: DomainRegistration }) {
   return (
     <section className={styles.section}>
       <h3>Registrar contacts and identifiers</h3>
-      <ToolKeyValueList rows={[...groups].map(([label, rows]) => ({
+      <UiKeyValueList rows={[...groups].map(([label, rows]) => ({
         label,
         value: <span className={styles.detailValues}>{rows.map((row) => <DetailValue key={`${row.label}-${row.source}-${row.value}`} kind={row.kind} source={row.source} value={row.value} />)}</span>,
       }))} />
@@ -80,7 +71,7 @@ function RegistrarDates({ result }: { result: DomainRegistration }) {
   return (
     <section className={styles.section}>
       <h3>Registrar dates</h3>
-      <ToolDataTable
+      <UiDataTable
         ariaLabel="Registrar transfer and record-change dates"
         columns={[{ id: "event", label: "Event" }, { id: "date", label: "Published date" }, { id: "source", label: "Source" }, { id: "meaning", label: "What it tells you" }]}
         rows={registrarDateRows(result).map((row) => ({ id: row.id, cells: row }))}
@@ -121,7 +112,7 @@ function RawEvidence({ result }: { result: DomainRegistration }) {
   const responses = [{ fetch: result.registryFetch, label: "Registry response" }, { fetch: result.registrarFetch, label: "Registrar response" }]
     .filter((entry): entry is { fetch: RdapFetch; label: string } => Boolean(entry.fetch));
   if (!responses.length) return null;
-  return <div className={styles.evidence}>{responses.map(({ fetch, label }) => <ToolRawOutput key={label} label={`${label}${registrarSourceHost(fetch.url) ? ` from ${registrarSourceHost(fetch.url)}` : ""}`} value={fetch.body ?? { error: fetch.error }} />)}</div>;
+  return <div className={styles.evidence}>{responses.map(({ fetch, label }) => <UiRawOutput key={label} label={`${label}${registrarSourceHost(fetch.url) ? ` from ${registrarSourceHost(fetch.url)}` : ""}`} value={fetch.body ?? { error: fetch.error }} />)}</div>;
 }
 
 function RegistrarResult({ result }: { result: DomainRegistration }) {
@@ -132,18 +123,18 @@ function RegistrarResult({ result }: { result: DomainRegistration }) {
   const report = JSON.stringify({ tool: "Registrar Lookup", reportVersion: 1, ...result }, null, 2);
   return (
     <section aria-label="Registrar result" className={styles.results} data-registrar-result>
-      <div aria-atomic="true" aria-live="polite"><ToolPrimaryResult detail={identity.detail} label="Registrar" value={identity.value} /></div>
+      <div aria-atomic="true" aria-live="polite"><UiPrimaryResult detail={identity.detail} label="Registrar" value={identity.value} /></div>
       <CheckedNameNotice result={result} />
       {registered ? <RegistrarDetails result={result} /> : null}
       {registered ? <RoleChain result={result} /> : null}
       {registered ? <RegistrarDates result={result} /> : null}
       {registered && !identity.conflict ? <NextSteps result={result} /> : null}
-      {registrarHopFailed ? <ToolStatus tone="warning">{result.registrarFetch ? "The registrar response failed." : "The registry did not advertise a registrar response."} Website, alternate-name, and additional abuse details may be missing.</ToolStatus> : null}
+      {registrarHopFailed ? <UiStatus tone="warning">{result.registrarFetch ? "The registrar response failed." : "The registry did not advertise a registrar response."} Website, alternate-name, and additional abuse details may be missing.</UiStatus> : null}
       {result.status === "no_service" ? <p className={styles.recovery}>See RDAP coverage in the <Link href="/tld-directory">TLD directory</Link>.</p> : null}
       {registered && !identity.name && !identity.id ? <p className={styles.recovery}>Check the wider <Link href={`/domain-lookup?name=${encodeURIComponent(result.query.unicode)}`}>domain registration record</Link>.</p> : null}
       <Freshness result={result} />
-      <div className={styles.download}><ToolDownloadAction contents={report} filename={`${result.query.domain}-registrar.json`} label="Download report" mimeType="application/json;charset=utf-8" /></div>
-      {notes.length ? <ToolDisclosure label="Lookup notes"><ul className={styles.notes}>{notes.map((note) => <li key={note}>{note}</li>)}</ul></ToolDisclosure> : null}
+      <div className={styles.download}><UiDownloadAction contents={report} filename={`${result.query.domain}-registrar.json`} label="Download report" mimeType="application/json;charset=utf-8" /></div>
+      {notes.length ? <UiDisclosure label="Lookup notes"><ul className={styles.notes}>{notes.map((note) => <li key={note}>{note}</li>)}</ul></UiDisclosure> : null}
       <RawEvidence result={result} />
     </section>
   );
@@ -199,11 +190,11 @@ export function DomainRegistrarTool({ initialName = "" }: { initialName?: string
   return (
     <section aria-label="Registrar lookup" className={`domain-tool ${styles.workbench}`} data-hydrated={hydrated ? "true" : undefined} data-tool-workbench>
       <form aria-busy={loading} className={styles.form} onSubmit={submit}>
-        <ToolTextField autoCapitalize="none" autoComplete="off" className={styles.queryField} error={fieldError} inputMode="url" inputRef={inputRef} label="Domain name" name="name" onChange={(value) => { setName(value); if (fieldError) setFieldError(null); if (requestError) setRequestError(null); }} placeholder="example.com" required spellCheck={false} type="text" value={name} />
-        <ToolButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">{loading ? "Finding the registrar..." : "Find the registrar"}</ToolButton>
-        {loading ? <div className={styles.formStatus}><ToolStatus>Finding the registrar...</ToolStatus></div> : null}
+        <UiTextField autoCapitalize="none" autoComplete="off" className={styles.queryField} error={fieldError} inputMode="url" inputRef={inputRef} label="Domain name" name="name" onChange={(value) => { setName(value); if (fieldError) setFieldError(null); if (requestError) setRequestError(null); }} placeholder="example.com" required spellCheck={false} type="text" value={name} />
+        <UiButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">{loading ? "Finding the registrar..." : "Find the registrar"}</UiButton>
+        {loading ? <div className={styles.formStatus}><UiStatus>Finding the registrar...</UiStatus></div> : null}
       </form>
-      {result ? <RegistrarResult result={result} /> : requestError ? <section aria-label="Registrar result" className={styles.results} data-registrar-result><div><ToolPrimaryResult detail={`${name.trim()} could not be checked.`} label="Registrar" value="Cannot determine" /></div><ToolStatus tone="danger">{requestError}</ToolStatus></section> : null}
+      {result ? <RegistrarResult result={result} /> : requestError ? <section aria-label="Registrar result" className={styles.results} data-registrar-result><div><UiPrimaryResult detail={`${name.trim()} could not be checked.`} label="Registrar" value="Cannot determine" /></div><UiStatus tone="danger">{requestError}</UiStatus></section> : null}
     </section>
   );
 }

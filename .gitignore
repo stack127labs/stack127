@@ -25,5 +25,5 @@ test-results/
 tsconfig.tsbuildinfo
 .DS_Store
 
-/scripts/stack127/directory-quality/temp/
+/scripts/**/temp/
 /scripts/self-host-apps/batches/*-backup.json

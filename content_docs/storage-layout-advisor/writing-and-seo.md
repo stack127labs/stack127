@@ -1,5 +1,7 @@
 # Writing and SEO plan: Storage Layout Advisor
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Tool: Storage Layout Advisor
 Route: `/storage-layout-advisor`
@@ -7,8 +9,6 @@ Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and
 SERP checked: 2026-08-23
 SERP backend: web connector; direct result pages and competitor surfaces rechecked with repository-local Playwright CLI because no in-app Browser instance or individually selectable search engine was available.
 Primary medium: Tool UI
-Prose is the minority: yes
-Static prose budget: 4 sections, 620 words maximum
 
 ## Search intent
 
@@ -83,21 +83,12 @@ Compare the layouts that can be formed from the drives you have, filter them by 
 
 ### Sections reserved for later manual writing
 
-| Section ID | Heading | Purpose | Required facts and sources | Word limit and shape | Banned claims or repetition |
+| Section ID | Heading | Purpose | Required facts and sources | Planned format | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
-| COPY-01 | Purpose and boundary | Tell a homelab builder who the advisor serves, what it compares, and why the result is theoretical. | Real drive inventory, platform/workload/protection inputs, ranked layouts, exact accounting, and the model boundary from `implementation-report.md`. | 55 words maximum; one paragraph below the h1. | Do not promise a universal best layout, live capacity, or platform detection. |
-| COPY-02 | Choose inputs that represent the array | Explain meaningful inventory selection, exact units, entered order, and protection/workload choices for the real planning decision. | `implementation-report.md` normalization; FF-001 and FF-003; OpenZFS Bits or Bytes source. | 135 words maximum; two short paragraphs. | Do not narrate button clicks, repeat all control labels, or imply automatic drive reordering. |
-| COPY-03 | Read the answer as a bounded layout model | Define the accounting terms, fit rubric, topology condition, and major exclusions without duplicating the live table. | `implementation-report.md` equations, scoring, assumptions, non-goals; Linux MD and OpenZFS RAIDZ/VDEVs sources. | 220 words maximum; two or three short paragraphs. | Do not call the fit safest, fastest, optimal, or a backup; do not invent filesystem or performance numbers. |
-| COPY-04 | Verify the platform before building | Give the next real-system checks, local input-handling boundary, and the two most useful adjacent tools. | OpenZFS changing-layout source, Linux MD source, explicit-share contract, and internal links in this plan. | 160 words maximum; two short paragraphs plus the planned links. | Do not claim a live probe, expansion support, privacy beyond this tool, or publication. |
-
-### Voice and accuracy constraints
-
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
-- Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
-- Do not repeat a result, table, chart, wireframe, heading, or prior section.
-- Leave unresolved facts as explicit review notes, not plausible copy.
+| COPY-01 | Purpose and boundary | Tell a homelab builder who the advisor serves, what it compares, and why the result is theoretical. | Real drive inventory, platform/workload/protection inputs, ranked layouts, exact accounting, and the model boundary from `implementation-report.md`. | Prose below the h1. | Do not promise a universal best layout, live capacity, or platform detection. |
+| COPY-02 | Choose inputs that represent the array | Explain meaningful inventory selection, exact units, entered order, and protection/workload choices for the real planning decision. | `implementation-report.md` normalization; FF-001 and FF-003; OpenZFS Bits or Bytes source. | Prose. | Do not narrate button clicks, repeat all control labels, or imply automatic drive reordering. |
+| COPY-03 | Read the answer as a bounded layout model | Define the accounting terms, fit rubric, topology condition, and major exclusions without duplicating the live table. | `implementation-report.md` equations, scoring, assumptions, non-goals; Linux MD and OpenZFS RAIDZ/VDEVs sources. | Prose. | Do not call the fit safest, fastest, optimal, or a backup; do not invent filesystem or performance numbers. |
+| COPY-04 | Verify the platform before building | Give the next real-system checks, local input-handling boundary, and the two most useful adjacent tools. | OpenZFS changing-layout source, Linux MD source, explicit-share contract, and internal links in this plan. | Prose with the planned links. | Do not claim a live probe, expansion support, privacy beyond this tool, or publication. |
 
 ### Tool-build exclusion
 

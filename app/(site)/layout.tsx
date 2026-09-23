@@ -6,9 +6,9 @@ import {
   buildRegistryPageStructuredData,
   getPagePublicationState,
 } from "@/lib/page-registry";
-import { JsonLd } from "../json-ld";
+import { JsonLd } from "../ui/site/json-ld";
 
-const DEVELOPMENT_ONLY_PATHS = new Set(["/tool-ui-lab", "/app-card-lab"]);
+const DEVELOPMENT_ONLY_PATHS = new Set(["/components-ui"]);
 
 async function requestPublicationState() {
   const requestHeaders = await headers();
@@ -28,9 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
   if (!state) {
     return {
       robots: { follow: false, index: false },
-      title: (await headers()).get("x-stack127-pathname") === "/app-card-lab"
-        ? "App cards"
-        : "Tool components",
+      title: "Components UI",
     };
   }
 

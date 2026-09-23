@@ -1,9 +1,9 @@
 import { getLesson } from "@/lib/self-hosting-for-beginners";
-import { MarkerArt } from "@/app/marker-art";
+import { MarkerArt } from "@/app/ui/site/marker-art";
 import { Faq, LessonLink, LessonPage } from "../course";
 import { backupRestoreProofArt } from "./art/backup-restore-proof";
 import { threeTwoOneBackupsArt } from "./art/three-two-one-backups";
-import { CodeBlock } from "@/app/code-block";
+import { CodeBlock } from "@/app/ui/site/code-block";
 
 const lesson = getLesson("backups-before-serious-apps");
 

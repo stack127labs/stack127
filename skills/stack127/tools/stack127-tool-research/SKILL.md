@@ -9,7 +9,7 @@ Edit only the Research section of `content_docs/<slug>/tool-spec.md`.
 
 1. Confirm the user job, flat route, and whether an existing tool already covers it.
 2. Search the exact tool, the user job, specialist terms, and common problems.
-3. Operate enough direct competitors to understand the common inputs, outputs, failures, and gaps. Stop when new examples repeat known patterns.
+3. Operate enough direct competitors to understand the common inputs, outputs, failures, and gaps. Use `skills/stack127/references/homelab-browser-and-search.md` for the local headless fallback when the in-app browser is unavailable. Stop when new examples repeat known patterns.
 4. Verify formulas, standards, limits, units, and security facts with official documentation or source code.
 5. Record useful competitor observations, user problems, primary sources, technical rules, and a clear opportunity for stack127.
 6. Mark unsupported facts as unknown. Flag paid APIs, maintained datasets, background jobs, accounts, or other work that needs approval.

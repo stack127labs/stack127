@@ -19,21 +19,7 @@ Use these rules when reviewing apps for `/self-host-apps`.
 
 ## Summaries
 
-Write one original sentence that says what the app helps users do. Keep it specific enough to identify the app without repeating that it is open source or self-hosted.
-
-Good:
-
-```text
-Photo and video backup app for building a private Google Photos-style library.
-```
-
-Bad:
-
-```text
-Powerful open-source self-hosted photo management solution.
-```
-
-Avoid filler such as `solution`, `powerful`, `ultimate`, `seamless`, and `all-in-one`.
+The summary field holds one original sentence about the app's purpose. Follow `stack127_docs/writing-style.md`. Source model and self-hosting status have their own fields.
 
 Do not generate public summaries from imported descriptions or topics, or truncate them to a character limit and append punctuation. Imported markup and unfinished sentences block publication until the text is reviewed. A passing automated check does not establish factual accuracy. Review the complete sentence against the official project evidence.
 

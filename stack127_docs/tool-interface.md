@@ -1,5 +1,7 @@
 # Tool interface system
 
+Use [writing-style.md](writing-style.md) for all interface wording and visual choices.
+
 stack127 tools should feel like focused instruments. A person should see what to enter, what to press, and what the answer means without reading a manual first.
 
 This document is the source of truth for tool layout, control hierarchy, and shared interaction patterns. `stack127_docs/design-system.md` still owns sitewide color, type, radius, spacing, and theme rules.
@@ -99,8 +101,8 @@ Do not give primary styling to reset, share, copy, download, or navigation actio
 - Use a persistent label and a realistic example when an example helps.
 - Mark every required field with a visible `*`; keep the required state programmatic as well.
 - Choose the correct input type, input mode, autocomplete behavior, capitalization, and spellcheck.
-- Use `ToolNumberField` when whole or decimal values benefit from keyboard-safe increment and decrement buttons.
-- Join a value and its unit into `ToolQuantityField` or `ToolQuantityInput`. They are one decision, so they should not float as unrelated controls.
+- Use `UiNumberField` when whole or decimal values benefit from keyboard-safe increment and decrement buttons.
+- Join a value and its unit into `UiQuantityField` or `UiQuantityInput`. They are one decision, so they should not float as unrelated controls.
 - Units belong in the adjoining unit selector or a fixed suffix, not in helper paragraphs.
 - Search fields search or filter a collection. Do not call a single-value lookup field search merely because it has a magnifying-glass icon.
 - Put errors directly below the field and focus the first invalid field after submission.
@@ -110,8 +112,8 @@ Do not give primary styling to reset, share, copy, download, or navigation actio
 
 ### Selects and visible choices
 
-- Use `ToolSelect` for bounded choices. It renders the stack127 trigger and listbox while retaining a visually hidden native select for mobile and form accessibility.
-- Use `ToolComboBox` only when the person benefits from filtering a longer option set by typing.
+- Use `UiSelect` for bounded choices. It renders the stack127 trigger and listbox while retaining a visually hidden native select for mobile and form accessibility.
+- Use `UiComboBox` only when the person benefits from filtering a longer option set by typing.
 - Use a compact radio or segmented row when seeing all common options helps the decision.
 - Keep the real radio semantics and one shared hit target for each label and control.
 - A selected option uses stronger contrast and the permitted accent treatment. Unselected options remain quiet.
@@ -200,56 +202,56 @@ Shared fields may accept an outer placement class so an owning tool can put them
 
 ### Missing components
 
-Planning must inspect `app/tool-ui`, `/tool-ui-lab`, and relevant sibling tools before naming a component. For every nontrivial control or result, record one disposition: reuse an existing shared component; add a new shared component; or use a route-specific component because its behavior is unique. State the component anatomy, all applicable states, keyboard and screen-reader behavior, error and recovery behavior, responsive behavior, and design tokens.
+Planning must inspect `app/ui`, `/components-ui`, and relevant sibling tools before naming a component. For every nontrivial control or result, record one disposition: reuse an existing shared component; add a new shared component; or use a route-specific component because its behavior is unique. State the component anatomy, all applicable states, keyboard and screen-reader behavior, error and recovery behavior, responsive behavior, and design tokens.
 
 Do not fall back to an unstyled native control, a generic browser upload box, a generic dashboard pattern, or an unrelated third-party component because the needed stack127 primitive does not exist. Keep native semantics underneath when they are useful or required. For example, a file upload may retain an accessible `input type="file"` while a stack127 dropzone, browse action, file status, rejection, remove, and retry interface provides the visible interaction.
 
-Create the approved component in the shared tool UI when its visual and behavioral contract can serve more than one tool. Keep it route-owned only when the interaction is truly specific to that tool. If the missing component cannot be built and verified within scope, block the interface or build and return the decision to the main agent. Never improvise a generic substitute.
+Create the approved component in the shared UI when its visual and behavioral contract can serve more than one page. Keep it route-owned when the interaction is specific to that tool. If the missing component cannot be built and verified within scope, return the decision to the main agent.
 
 The intended primitives are:
 
-- `ToolTextField`
-- `ToolSearchField`
-- `ToolTextArea`
-- `ToolSelect`
-- `ToolComboBox`
-- `ToolNumberField`
-- `ToolQuantityField`
-- `ToolQuantityInput`
-- `ToolSlider`
-- `ToolRangeSlider`
-- `ToolChoiceGroup`
-- `ToolCheckbox`
-- `ToolSwitch`
-- `ToolButton`
-- `ToolActionRow`
-- `ToolDisclosure`
-- `ToolRepeatableList`
-- `ToolStatus`
-- `ToolResultLead`
-- `ToolPrimaryResult`
-- `ToolProgressBar`
-- `ToolAllocationBar`
-- `ToolMetricGroup`
-- `ToolTimeline`
-- `ToolKeyValueList`
-- `ToolDataTable`
-- `ToolRawOutput`
-- `ToolCodeOutput`
-- `ToolCopyAction`
-- `ToolDownloadAction`
-- `ToolFileDropzone`
-- `ToolFileList`
+- `UiTextField`
+- `UiSearchField`
+- `UiTextArea`
+- `UiSelect`
+- `UiComboBox`
+- `UiNumberField`
+- `UiQuantityField`
+- `UiQuantityInput`
+- `UiSlider`
+- `UiRangeSlider`
+- `UiChoiceGroup`
+- `UiCheckbox`
+- `UiSwitch`
+- `UiButton`
+- `UiActionRow`
+- `UiDisclosure`
+- `UiRepeatableList`
+- `UiStatus`
+- `UiResultLead`
+- `UiPrimaryResult`
+- `UiProgressBar`
+- `UiAllocationBar`
+- `UiMetricGroup`
+- `UiTimeline`
+- `UiKeyValueList`
+- `UiDataTable`
+- `UiRawOutput`
+- `UiCodeOutput`
+- `UiCopyAction`
+- `UiDownloadAction`
+- `UiFileDropzone`
+- `UiFileList`
 
 ### Allocation color
 
-`ToolAllocationBar` has three palettes. Use `neutral` for a plain two-part split, `accent` when one part needs focus against a neutral remainder, and `categorical` when three or more named parts must stay distinct. Set explicit segment tones when a category must keep the same color across related views.
+`UiAllocationBar` has three palettes. Use `neutral` for a plain two-part split, `accent` when one part needs focus against a neutral remainder, and `categorical` when three or more named parts must stay distinct. Set explicit segment tones when a category must keep the same color across related views.
 
 Do not assign red, yellow, or green by position when they would imply danger, warning, or success. Color is never the only label. Keep every segment name and exact value in the legend. A zero or tiny value keeps its legend entry but receives no invented minimum width in the bar.
 
-The canonical implementations live in `app/tool-ui/tool-controls.tsx` and focused shared modules such as `app/tool-ui/tool-uploads.tsx`, with styles beside them. `/tool-ui-lab` is a development-only interaction page for reviewing these primitives; it must continue to return `404` in production.
+The canonical implementations live in `app/ui/controls.tsx`, `app/ui/display.tsx`, and focused modules such as `app/ui/uploads.tsx`, with styles beside them. Read [shared-ui.md](shared-ui.md) for cross-page use and Markdown syntax. `/components-ui` is the development-only gallery and returns `404` in production.
 
-Extract a primitive when two tools share its behavior and visual contract. Do not create a component that only renames one HTML element or makes an unusual tool harder to understand.
+Extract a primitive when pages share its behavior and visual contract. Do not create a component that only renames one HTML element or makes an unusual tool harder to understand.
 
 ## Visual review
 

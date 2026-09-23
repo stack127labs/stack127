@@ -92,4 +92,4 @@ The supporting explanation covers what the age can establish and what it cannot.
 4. One wrapping comparison table for renewal, transfer, expiry, and deletion followed by registration.
 5. One glossary list defining remaining unfamiliar terms used in the result.
 
-The page brief records the September 6 expansion requested after reviewing the older-page PDF. Keep useful detail and conversational explanations with descriptive search headings, but omit repeated field lists, sample results, and duplicate FAQs. Live copy belongs only in `stack127_tool_pages`; use the reviewed content command and leave `tool_version` unchanged for copy edits. Sitewide skills remain unchanged pending review.
+The page brief records the September 6 expansion requested after reviewing the older-page PDF. Follow `stack127_docs/writing-style.md` and preserve the brief's coverage. Live copy belongs only in `stack127_tool_pages`; use the reviewed content command and leave `tool_version` unchanged for copy edits.

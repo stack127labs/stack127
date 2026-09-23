@@ -1,16 +1,8 @@
 "use client";
 
 import { useRef, useState, type FormEvent, type ReactNode } from "react";
-import {
-  ToolButton,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolDownloadAction,
-  ToolRawOutput,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiDisclosure, UiDownloadAction, UiRawOutput, UiTextField } from "@/app/ui/controls";
+import { UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";
 import { groupSoaObservations, negativeCacheTtlSeconds } from "@/lib/dns/diagnostic-presentation.ts";
 import { diagnosticReportJson } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
 import {
@@ -82,7 +74,7 @@ function RawObservation({ observation }: { observation: SoaObservation }) {
             <strong>{transport.toUpperCase()}</strong>: No response captured{observation.error ? `. ${observation.error}` : "."}
           </p>
         ) : (
-          <ToolRawOutput
+          <UiRawOutput
             key={transport}
             label={`${transport.toUpperCase()} response from ${source}`}
             value={response}
@@ -149,8 +141,8 @@ function SoaResults({ result }: { result: SoaCheckerResult }) {
   return (
     <section aria-label="SOA comparison result" className={styles.results} data-soa-result data-state={comparison.state}>
       <div aria-atomic="true" aria-live="polite" className={styles.resultLead}>
-        <ToolResultLead>{comparison.lead}</ToolResultLead>
-        <ToolDownloadAction
+        <UiResultLead>{comparison.lead}</UiResultLead>
+        <UiDownloadAction
           contents={report}
           filename={`${result.query.zone}-soa-report.json`}
           label="Download report"
@@ -161,7 +153,7 @@ function SoaResults({ result }: { result: SoaCheckerResult }) {
       {comparison.showTable ? (
         <section className={styles.comparison}>
           <h3>SOA values by authoritative source</h3>
-          <ToolDataTable
+          <UiDataTable
             ariaLabel={`SOA values for ${result.query.zone} by authoritative source`}
             columns={[
               { id: "source", label: "Source" },
@@ -185,13 +177,13 @@ function SoaResults({ result }: { result: SoaCheckerResult }) {
       ) : null}
 
       {result.observations.length ? (
-        <ToolDisclosure label="Raw SOA responses">
+        <UiDisclosure label="Raw SOA responses">
           <div className={styles.rawSources}>
             {result.observations.map((observation, index) => (
               <RawObservation key={`${observation.server.hostname}-${observation.server.address}-${index}`} observation={observation} />
             ))}
           </div>
-        </ToolDisclosure>
+        </UiDisclosure>
       ) : null}
 
       <dl className={styles.metadata}>
@@ -256,7 +248,7 @@ export function SoaChecker({ initialName = "" }: { initialName?: string }) {
   return (
     <section aria-label="SOA consistency checker" className={styles.workbench} data-tool-workbench>
       <form aria-busy={loading} className={styles.form} onSubmit={submit}>
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           autoComplete="off"
           error={fieldError}
@@ -274,11 +266,11 @@ export function SoaChecker({ initialName = "" }: { initialName?: string }) {
           type="text"
           value={name}
         />
-        <ToolButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">
+        <UiButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">
           {loading ? "Comparing SOA records..." : "Compare SOA records"}
-        </ToolButton>
-        {loading ? <ToolStatus>Comparing SOA records...</ToolStatus> : null}
-        {requestError ? <ToolStatus tone="danger">{requestError}</ToolStatus> : null}
+        </UiButton>
+        {loading ? <UiStatus>Comparing SOA records...</UiStatus> : null}
+        {requestError ? <UiStatus tone="danger">{requestError}</UiStatus> : null}
       </form>
       {result ? <SoaResults result={result} /> : null}
     </section>

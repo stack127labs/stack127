@@ -100,7 +100,7 @@ The route keeps entered values in React memory and calls its local pure engine. 
 
 Use the primary technical URLs in the source ledger for behavior, and the accepted local implementation for the tool's narrower profile. Community and competitor sources explain user needs only. Reuse the internal-link plan with a publication check before integration; unpublished sibling tools are conditional and must not become public dead links.
 
-Apply the shared writing-voice and unslop skills. Keep necessary technical terms. Do not invent facts, numbers, privacy promises, guaranteed compatibility, or live checks. Do not narrate values already visible in the result. No generic FAQ or fixed word quota is required.
+Follow `stack127_docs/writing-style.md`. The source ledger and implemented profile define which behavior the page can claim.
 
 ### Reconciliation with older artifacts
 

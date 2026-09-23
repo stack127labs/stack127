@@ -2,20 +2,8 @@
 
 import { Ruler, RotateCcw } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolCheckbox,
-  ToolChoiceGroup,
-  ToolCopyAction,
-  ToolDataTable,
-  ToolKeyValueList,
-  ToolNumberField,
-  ToolPrimaryResult,
-  ToolSelect,
-  ToolStatus,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiCheckbox, UiChoiceGroup, UiCopyAction, UiNumberField, UiSelect, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import {
   KDP_SETUP_VERSION,
   calculateKdpSetup,
@@ -32,11 +20,11 @@ import {
   type KdpBinding,
   type KdpInterior,
 } from "@/lib/kdp/specs.ts";
-import styles from "../_components/kdp-tool.module.css";
+import styles from "../../../ui/tools/kdp-tool.module.css";
 
-const bindingOptions = [toolOption("paperback", "Paperback"), toolOption("hardcover", "Hardcover")];
-const directionOptions = [toolOption("ltr", "Left to right"), toolOption("rtl", "Right to left")];
-const unitOptions = [toolOption("in", "Inches"), toolOption("mm", "Millimeters")];
+const bindingOptions = [uiOption("paperback", "Paperback"), uiOption("hardcover", "Hardcover")];
+const directionOptions = [uiOption("ltr", "Left to right"), uiOption("rtl", "Right to left")];
+const unitOptions = [uiOption("in", "Inches"), uiOption("mm", "Millimeters")];
 
 function errorFor(result: KdpSetupResult | null, field: string) {
   return result?.issues.find((issue) => issue.field === field && issue.severity === "error")?.message ?? null;
@@ -158,22 +146,22 @@ export function KdpBookSetupCalculator() {
     <section aria-label="Book setup inputs and results" className={styles.tool} data-tool-workbench>
       <form className={styles.form} noValidate onSubmit={submit} ref={formRef}>
         <div className={styles.grid}>
-          <ToolChoiceGroup dataFocusKey="binding" error={errorFor(result, "binding")} label="Binding" onChange={(value) => changeBinding(value as KdpBinding)} options={bindingOptions} value={input.binding} />
-          <ToolSelect dataFocusKey="trimId" error={errorFor(result, "trimId")} label="Trim size" onChange={(value) => change({ trimId: value })} options={trims.map((trim) => toolOption(trim.id, trim.label))} value={input.trimId} />
-          <ToolNumberField dataFocusKey="pageCount" error={errorFor(result, "pageCount")} inputRef={pageCountInputRef} label="Page count" min={1} onChange={(value) => change({ pageCount: value })} value={input.pageCount} />
-          <ToolSelect dataFocusKey="interior" error={errorFor(result, "interior")} label="Interior" onChange={(value) => changeInterior(value as KdpInterior)} options={interiors.map((interior) => toolOption(interior, interiorLabel(interior)))} value={input.interior} />
-          <ToolSelect dataFocusKey="paper" error={errorFor(result, "paper")} label="Paper" onChange={(value) => change({ paper: value as KdpSetupInput["paper"] })} options={papers.map((paper) => toolOption(paper, paperLabel(paper)))} value={input.paper} />
-          <ToolNumberField dataFocusKey="dpi" description="Pixel output only" error={errorFor(result, "dpi")} inputRef={dpiInputRef} label="DPI" max={600} min={72} onChange={(value) => change({ dpi: value })} value={input.dpi ?? 300} />
-          <ToolChoiceGroup dataFocusKey="direction" error={errorFor(result, "direction")} label="Reading direction" onChange={(value) => change({ direction: value as KdpSetupInput["direction"] })} options={directionOptions} value={input.direction} />
-          <ToolChoiceGroup dataFocusKey="units" error={errorFor(result, "units")} label="Display unit" onChange={(value) => change({ units: value as KdpSetupInput["units"] })} options={unitOptions} value={input.units} />
+          <UiChoiceGroup dataFocusKey="binding" error={errorFor(result, "binding")} label="Binding" onChange={(value) => changeBinding(value as KdpBinding)} options={bindingOptions} value={input.binding} />
+          <UiSelect dataFocusKey="trimId" error={errorFor(result, "trimId")} label="Trim size" onChange={(value) => change({ trimId: value })} options={trims.map((trim) => uiOption(trim.id, trim.label))} value={input.trimId} />
+          <UiNumberField dataFocusKey="pageCount" error={errorFor(result, "pageCount")} inputRef={pageCountInputRef} label="Page count" min={1} onChange={(value) => change({ pageCount: value })} value={input.pageCount} />
+          <UiSelect dataFocusKey="interior" error={errorFor(result, "interior")} label="Interior" onChange={(value) => changeInterior(value as KdpInterior)} options={interiors.map((interior) => uiOption(interior, interiorLabel(interior)))} value={input.interior} />
+          <UiSelect dataFocusKey="paper" error={errorFor(result, "paper")} label="Paper" onChange={(value) => change({ paper: value as KdpSetupInput["paper"] })} options={papers.map((paper) => uiOption(paper, paperLabel(paper)))} value={input.paper} />
+          <UiNumberField dataFocusKey="dpi" description="Pixel output only" error={errorFor(result, "dpi")} inputRef={dpiInputRef} label="DPI" max={600} min={72} onChange={(value) => change({ dpi: value })} value={input.dpi ?? 300} />
+          <UiChoiceGroup dataFocusKey="direction" error={errorFor(result, "direction")} label="Reading direction" onChange={(value) => change({ direction: value as KdpSetupInput["direction"] })} options={directionOptions} value={input.direction} />
+          <UiChoiceGroup dataFocusKey="units" error={errorFor(result, "units")} label="Display unit" onChange={(value) => change({ units: value as KdpSetupInput["units"] })} options={unitOptions} value={input.units} />
           <div className={styles.wide}>
-            <ToolCheckbox isSelected={input.bleed} onChange={(selected) => change({ bleed: selected })}>Interior has bleed</ToolCheckbox>
+            <UiCheckbox isSelected={input.bleed} onChange={(selected) => change({ bleed: selected })}>Interior has bleed</UiCheckbox>
           </div>
         </div>
-        <ToolActionRow>
+        <UiActionRow>
           <div className={styles.actions}>
-            <ToolButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</ToolButton>
-            <ToolButton
+            <UiButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</UiButton>
+            <UiButton
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
@@ -186,20 +174,20 @@ export function KdpBookSetupCalculator() {
               }}
               type="button"
               variant="primary"
-            ><Ruler aria-hidden="true" size={17} /> Calculate setup</ToolButton>
+            ><Ruler aria-hidden="true" size={17} /> Calculate setup</UiButton>
           </div>
-        </ToolActionRow>
-        {status ? <ToolStatus tone={result?.status === "invalid" ? "danger" : result?.issues.length ? "warning" : "neutral"}>{status}</ToolStatus> : null}
+        </UiActionRow>
+        {status ? <UiStatus tone={result?.status === "invalid" ? "danger" : result?.issues.length ? "warning" : "neutral"}>{status}</UiStatus> : null}
         {result?.status === "invalid" ? <ul className={styles.issueList}>{result.issues.map((issue) => <li data-severity={issue.severity} key={`${issue.code}-${issue.field}`}>{issue.message}</li>)}</ul> : null}
       </form>
 
       {values ? (
         <section aria-label="Book setup result" className={styles.result}>
-          <ToolPrimaryResult detail={values.cover.isEstimate ? "Estimate; confirm with KDP's cover calculator" : "Exact paperback cover dimensions"} inputRef={resultRef} label={values.cover.isEstimate ? "Estimated hardcover cover file" : "Paperback cover file"} value={selectedDimension(values.cover, values.units)} />
+          <UiPrimaryResult detail={values.cover.isEstimate ? "Estimate; confirm with KDP's cover calculator" : "Exact paperback cover dimensions"} inputRef={resultRef} label={values.cover.isEstimate ? "Estimated hardcover cover file" : "Paperback cover file"} value={selectedDimension(values.cover, values.units)} />
           <div className={styles.actions}>
-            <ToolCopyAction label="Copy setup receipt" successLabel="Setup copied" value={pageSummary(values, result?.issues ?? [])} withManualFallback />
+            <UiCopyAction label="Copy setup receipt" successLabel="Setup copied" value={pageSummary(values, result?.issues ?? [])} withManualFallback />
           </div>
-          <ToolKeyValueList rows={[
+          <UiKeyValueList rows={[
             { label: "Interior page", value: selectedDimension(values.page, values.units) },
             { label: "Pages", value: `${values.pageCount} entered · ${values.effectivePageCount} effective` },
             { label: "Inside margin", value: inches(values.margins.insideInches) },
@@ -214,7 +202,7 @@ export function KdpBookSetupCalculator() {
             </div>
             <figcaption>{values.segments.map((segment) => `${segment.label} ${inches(segment.widthInches)}`).join(" · ")}</figcaption>
           </figure>
-          <ToolDataTable
+          <UiDataTable
             ariaLabel="Book setup dimensions"
             columns={[{ id: "part", label: "Part" }, { id: "inches", label: "Inches" }, { id: "millimeters", label: "Millimeters" }, { id: "pixels", label: `Pixels at ${values.dpi} DPI` }]}
             rows={[

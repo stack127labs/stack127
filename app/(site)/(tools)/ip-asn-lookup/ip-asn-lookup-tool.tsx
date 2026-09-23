@@ -3,18 +3,8 @@
 import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { RotateCcw } from "lucide-react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolDownloadAction,
-  ToolKeyValueList,
-  ToolPrimaryResult,
-  ToolRawOutput,
-  ToolStatus,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiDisclosure, UiDownloadAction, UiRawOutput, UiTextField } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import type { NetworkLookupResult } from "@/lib/ip-asn/types";
 import styles from "./ip-asn-lookup.module.css";
 
@@ -83,9 +73,9 @@ function Allocation({ result }: { result: NetworkLookupResult }) {
   return (
     <section className={styles.section}>
       <h2>{result.query.kind === "ip" ? "Allocation" : "ASN record"}</h2>
-      <ToolKeyValueList rows={rows} />
+      <UiKeyValueList rows={rows} />
       {result.events.length ? (
-        <ToolDataTable
+        <UiDataTable
           ariaLabel="RIR registration dates"
           columns={[{ id: "event", label: "Event" }, { id: "date", label: "Published date" }]}
           rows={eventRows(result)}
@@ -118,7 +108,7 @@ function Routing({ result }: { result: NetworkLookupResult }) {
       <h2>Current BGP route</h2>
       {result.routing ? (
         <>
-          <ToolKeyValueList rows={[
+          <UiKeyValueList rows={[
             { label: "Origin ASN", value: valueOrUnknown(result.routing.asn ? `AS${result.routing.asn}` : null) },
             { label: "Announced prefix", value: valueOrUnknown(result.routing.prefix) },
             { label: "Network", value: valueOrUnknown(result.routing.networkName) },
@@ -127,7 +117,7 @@ function Routing({ result }: { result: NetworkLookupResult }) {
           ]} />
           <p className={styles.primaryText}>Routing context, not registration.</p>
         </>
-      ) : <ToolStatus tone="warning">Current route unavailable.</ToolStatus>}
+      ) : <UiStatus tone="warning">Current route unavailable.</UiStatus>}
     </section>
   );
 }
@@ -149,7 +139,7 @@ function Notes({ result }: { result: NetworkLookupResult }) {
     ...result.notices.flatMap((notice) => notice.description),
   ].filter(Boolean);
   if (!items.length) return null;
-  return <ToolDisclosure label="Lookup notes"><ul className={styles.notes}>{items.map((item, index) => <li key={`${item}-${index}`}>{item}</li>)}</ul></ToolDisclosure>;
+  return <UiDisclosure label="Lookup notes"><ul className={styles.notes}>{items.map((item, index) => <li key={`${item}-${index}`}>{item}</li>)}</ul></UiDisclosure>;
 }
 
 function Result({ result, onReset }: { result: NetworkLookupResult; onReset: () => void }) {
@@ -160,7 +150,7 @@ function Result({ result, onReset }: { result: NetworkLookupResult; onReset: () 
   return (
     <section aria-label="IP and ASN registration result" className={styles.result} data-ip-asn-result ref={resultRef} tabIndex={-1}>
       <div aria-atomic="true" aria-live="polite" className={styles.primary}>
-        <ToolPrimaryResult detail={registered ? undefined : statusMessage(result)} label="RIR registration" value={leadText(result)} />
+        <UiPrimaryResult detail={registered ? undefined : statusMessage(result)} label="RIR registration" value={leadText(result)} />
       </div>
       {registered ? <>
         <Allocation result={result} />
@@ -168,14 +158,14 @@ function Result({ result, onReset }: { result: NetworkLookupResult; onReset: () 
         <Routing result={result} />
         <SourceMetadata result={result} />
         <Notes result={result} />
-        <ToolRawOutput label={`Raw RDAP response${result.registry?.name ? ` from ${result.registry.name}` : ""}`} value={result.raw ?? { status: result.status }} />
-        <ToolActionRow>
-          <ToolDownloadAction contents={report} filename={`${result.query.normalized.toLowerCase()}-rdap.json`} label="Download report" mimeType="application/json;charset=utf-8" />
-          <ToolButton aria-label="Reset lookup" onPress={onReset} variant="secondary"><RotateCcw aria-hidden="true" size={17} />Reset lookup</ToolButton>
-        </ToolActionRow>
-      </> : <ToolActionRow>
-        <ToolButton aria-label="Reset lookup" onPress={onReset} variant="secondary"><RotateCcw aria-hidden="true" size={17} />Reset lookup</ToolButton>
-      </ToolActionRow>}
+        <UiRawOutput label={`Raw RDAP response${result.registry?.name ? ` from ${result.registry.name}` : ""}`} value={result.raw ?? { status: result.status }} />
+        <UiActionRow>
+          <UiDownloadAction contents={report} filename={`${result.query.normalized.toLowerCase()}-rdap.json`} label="Download report" mimeType="application/json;charset=utf-8" />
+          <UiButton aria-label="Reset lookup" onPress={onReset} variant="secondary"><RotateCcw aria-hidden="true" size={17} />Reset lookup</UiButton>
+        </UiActionRow>
+      </> : <UiActionRow>
+        <UiButton aria-label="Reset lookup" onPress={onReset} variant="secondary"><RotateCcw aria-hidden="true" size={17} />Reset lookup</UiButton>
+      </UiActionRow>}
     </section>
   );
 }
@@ -276,15 +266,15 @@ export function IpAsnLookupTool({ initialQuery = "" }: Props) {
   return (
     <section aria-label="IP and ASN registration lookup workbench" className={styles.tool} data-client-ready={clientReady ? "true" : undefined} data-tool-workbench>
       <form aria-busy={loading} className={styles.form} noValidate onInputCapture={handleInputCapture} onSubmit={submit}>
-        <ToolTextField autoCapitalize="none" autoComplete="off" className={styles.queryField} error={fieldError} inputMode="text" inputRef={inputRef} label="IP address or ASN" name="query" onChange={(value) => { setQuery(value); if (fieldError) setFieldError(null); }} placeholder="1.1.1.1 or AS13335" required spellCheck={false} type="text" value={query} />
-        <ToolButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">{loading ? "Looking up registration..." : "Look up registration"}</ToolButton>
-        {loading ? <div className={styles.formStatus}><ToolStatus>Looking up registration...</ToolStatus></div> : null}
+        <UiTextField autoCapitalize="none" autoComplete="off" className={styles.queryField} error={fieldError} inputMode="text" inputRef={inputRef} label="IP address or ASN" name="query" onChange={(value) => { setQuery(value); if (fieldError) setFieldError(null); }} placeholder="1.1.1.1 or AS13335" required spellCheck={false} type="text" value={query} />
+        <UiButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">{loading ? "Looking up registration..." : "Look up registration"}</UiButton>
+        {loading ? <div className={styles.formStatus}><UiStatus>Looking up registration...</UiStatus></div> : null}
       </form>
       {result ? <Result onReset={reset} result={result} /> : requestError ? (
         <section aria-label="IP and ASN registration result" className={styles.requestFailure} data-ip-asn-result tabIndex={-1}>
-          <ToolPrimaryResult detail={requestError} label="RIR registration" value="Cannot determine" />
-          <ToolStatus tone="danger">{requestError}</ToolStatus>
-          <ToolButton aria-label="Reset lookup" onPress={reset} variant="secondary"><RotateCcw aria-hidden="true" size={17} />Reset lookup</ToolButton>
+          <UiPrimaryResult detail={requestError} label="RIR registration" value="Cannot determine" />
+          <UiStatus tone="danger">{requestError}</UiStatus>
+          <UiButton aria-label="Reset lookup" onPress={reset} variant="secondary"><RotateCcw aria-hidden="true" size={17} />Reset lookup</UiButton>
         </section>
       ) : null}
     </section>

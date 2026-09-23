@@ -1,19 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {
-  ToolActionRow,
-  ToolAllocationBar,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolDataTable,
-  ToolPrimaryResult,
-  ToolQuantityInput,
-  ToolRepeatableList,
-  ToolStatus,
-  ToolTextField,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiQuantityInput, UiRepeatableList, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiAllocationBar, UiDataTable, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import { formatBytes } from "../../../../lib/storage/index.ts";
 import {
   MAX_ADVISOR_DRIVES,
@@ -59,11 +48,11 @@ const workloadLabels: Record<AdvisorWorkload, string> = {
   bulk: "Bulk files",
   "vm-db": "VMs and databases",
 };
-const inputUnitOptions = advisorInputUnits.map((unit) => toolOption(unit, unit));
-const platformOptions = advisorPlatforms.map((platform) => toolOption(platform, platformLabels[platform]));
-const workloadOptions = advisorWorkloads.map((workload) => toolOption(workload, workloadLabels[workload]));
-const protectionOptions = [0, 1, 2, 3].map((count) => toolOption(String(count), String(count)));
-const displayUnitOptions = advisorDisplayUnits.map((unit) => toolOption(unit, unit));
+const inputUnitOptions = advisorInputUnits.map((unit) => uiOption(unit, unit));
+const platformOptions = advisorPlatforms.map((platform) => uiOption(platform, platformLabels[platform]));
+const workloadOptions = advisorWorkloads.map((workload) => uiOption(workload, workloadLabels[workload]));
+const protectionOptions = [0, 1, 2, 3].map((count) => uiOption(String(count), String(count)));
+const displayUnitOptions = advisorDisplayUnits.map((unit) => uiOption(unit, unit));
 
 function parseInitialState(encoded: string) {
   if (!encoded) return { state: DEFAULT_STATE, submitted: false, message: "" };
@@ -94,7 +83,7 @@ function Result({ values, sharedUrl, status, onShare }: {
   return (
     <section aria-live="polite" className={styles.result} data-testid="layout-result">
       <h2 className={styles.resultHeading} id="best-fit-title" tabIndex={-1}>Layout recommendation</h2>
-      <ToolPrimaryResult
+      <UiPrimaryResult
         detail={`${displayBytes(best.usableBytes, values.displayUnit)} usable · ${failureLabel} · ${best.efficiencyBasisPoints / 100}% efficient · ${best.fitReason}`}
         label="Best fit"
         value={best.label}
@@ -102,7 +91,7 @@ function Result({ values, sharedUrl, status, onShare }: {
 
       <section className={styles.resultSection} data-testid="capacity-accounting">
         <h2>Capacity allocation</h2>
-        <ToolAllocationBar
+        <UiAllocationBar
           ariaLabel="Capacity allocation"
           formatValue={(value) => displayBytes(value as bigint, values.displayUnit)}
           palette="categorical"
@@ -121,7 +110,7 @@ function Result({ values, sharedUrl, status, onShare }: {
           <span>{alternatives.length}</span>
         </div>
         {alternatives.length ? (
-          <ToolDataTable
+          <UiDataTable
             ariaLabel="Eligible layout alternatives"
             columns={[
               { id: "layout", label: "Layout" },
@@ -166,11 +155,11 @@ function Result({ values, sharedUrl, status, onShare }: {
         </div>
       </section>
 
-      <ToolActionRow>
-        <ToolButton onPress={onShare}>Share layout</ToolButton>
-      </ToolActionRow>
-      {sharedUrl ? <ToolTextField label="Shared URL" readOnly value={sharedUrl} /> : null}
-      {status ? <ToolStatus>{status}</ToolStatus> : null}
+      <UiActionRow>
+        <UiButton onPress={onShare}>Share layout</UiButton>
+      </UiActionRow>
+      {sharedUrl ? <UiTextField label="Shared URL" readOnly value={sharedUrl} /> : null}
+      {status ? <UiStatus>{status}</UiStatus> : null}
       <p className={styles.boundary}>Theoretical capacity. Verify the platform layout, grouping, and expansion rules.</p>
     </section>
   );
@@ -297,20 +286,21 @@ export function StorageLayoutAdvisor({ initialState }: { initialState: string })
             <h2>Drives</h2>
             <span>{state.drives.length} / {MAX_ADVISOR_DRIVES}</span>
           </div>
-          <ToolRepeatableList
+          <UiRepeatableList
             addDisabled={state.drives.length >= MAX_ADVISOR_DRIVES}
             addLabel="Add drive"
             ariaLabel="Drive inventory"
             items={[...state.drives]}
             onAdd={addDrive}
             onRemove={removeDrive}
+            removeLabel={(_, index) => `Remove drive ${index + 1}`}
             renderItem={(drive, index) => {
               const sizeError = fieldIssue(invalidIssues, `drives[${index}].size`);
               const unitError = fieldIssue(invalidIssues, `drives[${index}].unit`);
               return (
                 <div className={styles.driveEditor}>
                   <span aria-hidden="true" className={styles.driveNumber}>{String(index + 1).padStart(2, "0")}</span>
-                  <ToolQuantityInput
+                  <UiQuantityInput
                     ariaLabel={`Drive ${index + 1} capacity`}
                     dataFocusKey={`drive-${index + 1}-capacity`}
                     error={sizeError || unitError}
@@ -331,17 +321,17 @@ export function StorageLayoutAdvisor({ initialState }: { initialState: string })
         </section>
 
         <div className={styles.goalGrid}>
-          <ToolChoiceGroup label="Platform" onChange={(platform) => handleChange((current) => ({ ...current, platform: platform as AdvisorPlatform }))} options={platformOptions} required value={state.platform} />
-          <ToolChoiceGroup label="Workload" onChange={(workload) => handleChange((current) => ({ ...current, workload: workload as AdvisorWorkload }))} options={workloadOptions} required value={state.workload} />
-          <ToolChoiceGroup label="Protected failures" onChange={(count) => handleChange((current) => ({ ...current, protectedFailures: Number(count) as AdvisorProtectionTarget }))} options={protectionOptions} required value={String(state.protectedFailures)} />
-          <ToolChoiceGroup label="Display unit" onChange={(unit) => handleChange((current) => ({ ...current, displayUnit: unit as AdvisorDisplayUnit }))} options={displayUnitOptions} required value={state.displayUnit} />
+          <UiChoiceGroup label="Platform" onChange={(platform) => handleChange((current) => ({ ...current, platform: platform as AdvisorPlatform }))} options={platformOptions} required value={state.platform} />
+          <UiChoiceGroup label="Workload" onChange={(workload) => handleChange((current) => ({ ...current, workload: workload as AdvisorWorkload }))} options={workloadOptions} required value={state.workload} />
+          <UiChoiceGroup label="Protected failures" onChange={(count) => handleChange((current) => ({ ...current, protectedFailures: Number(count) as AdvisorProtectionTarget }))} options={protectionOptions} required value={String(state.protectedFailures)} />
+          <UiChoiceGroup label="Display unit" onChange={(unit) => handleChange((current) => ({ ...current, displayUnit: unit as AdvisorDisplayUnit }))} options={displayUnitOptions} required value={state.displayUnit} />
         </div>
 
-        <ToolActionRow>
-          <ToolButton type="submit" variant="primary">Compare layouts</ToolButton>
-          <ToolButton onPress={resetLayout}>Reset</ToolButton>
-        </ToolActionRow>
-        {statusMessage && !showResult ? <ToolStatus tone={showNoEligible || calculation.status === "invalid" ? "danger" : "neutral"}>{statusMessage}</ToolStatus> : null}
+        <UiActionRow>
+          <UiButton type="submit" variant="primary">Compare layouts</UiButton>
+          <UiButton onPress={resetLayout}>Reset</UiButton>
+        </UiActionRow>
+        {statusMessage && !showResult ? <UiStatus tone={showNoEligible || calculation.status === "invalid" ? "danger" : "neutral"}>{statusMessage}</UiStatus> : null}
       </form>
 
       {showNoEligible ? (

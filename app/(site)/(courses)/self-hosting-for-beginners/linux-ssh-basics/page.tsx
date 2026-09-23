@@ -1,10 +1,10 @@
 import { getLesson } from "@/lib/self-hosting-for-beginners";
-import { MediaFigure } from "@/app/media-figure";
-import { MarkerArt } from "@/app/marker-art";
+import { MediaFigure } from "@/app/ui/site/media-figure";
+import { MarkerArt } from "@/app/ui/site/marker-art";
 import { Callout, LessonLink, LessonPage } from "../course";
 import { sshKeyPathArt } from "./art/ssh-key-path";
 import { sshRunsThereArt } from "./art/ssh-runs-there";
-import { CodeBlock } from "@/app/code-block";
+import { CodeBlock } from "@/app/ui/site/code-block";
 
 const lesson = getLesson("linux-ssh-basics");
 

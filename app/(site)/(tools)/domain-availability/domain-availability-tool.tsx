@@ -2,15 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import {
-  ToolButton,
-  ToolDisclosure,
-  ToolKeyValueList,
-  ToolPrimaryResult,
-  ToolRawOutput,
-  ToolStatus,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiDisclosure, UiRawOutput, UiTextField } from "@/app/ui/controls";
+import { UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import type { DomainRegistration, RdapFetch } from "@/lib/domain/types.ts";
 import {
   availabilityVerdict,
@@ -37,7 +30,7 @@ function RegistrationFacts({ result }: { result: DomainRegistration }) {
   return (
     <section className={styles.facts}>
       <h3>Registration facts</h3>
-      {facts.length ? <ToolKeyValueList rows={facts} /> : null}
+      {facts.length ? <UiKeyValueList rows={facts} /> : null}
       {hasExpiryFollowUp(result) ? (
         <Link href={`/domain-expiry?name=${encodeURIComponent(result.query.unicode)}`}>
           Check the domain expiry and lifecycle
@@ -88,7 +81,7 @@ function RawEvidence({ result }: { result: DomainRegistration }) {
   return (
     <div className={styles.evidence}>
       {responses.map(({ fetch, label }) => (
-        <ToolRawOutput
+        <UiRawOutput
           key={label}
           label={rawLabel(label, fetch)}
           value={fetch.body ?? { error: fetch.error }}
@@ -101,7 +94,7 @@ function RawEvidence({ result }: { result: DomainRegistration }) {
 function AvailabilityLead({ detail, value }: { detail: string; value: string }) {
   return (
     <div aria-atomic="true" aria-live="polite">
-      <ToolPrimaryResult detail={detail} label="Registry result" value={value} />
+      <UiPrimaryResult detail={detail} label="Registry result" value={value} />
     </div>
   );
 }
@@ -125,9 +118,9 @@ function AvailabilityResult({ result }: { result: DomainRegistration }) {
       <SourceMetadata result={result} />
 
       {notes.length ? (
-        <ToolDisclosure label="Lookup notes">
+        <UiDisclosure label="Lookup notes">
           <ul className={styles.notes}>{notes.map((note) => <li key={note}>{note}</li>)}</ul>
-        </ToolDisclosure>
+        </UiDisclosure>
       ) : null}
 
       <RawEvidence result={result} />
@@ -197,7 +190,7 @@ export function DomainAvailabilityTool({ initialName = "" }: { initialName?: str
   return (
     <section aria-label="Domain availability checker" className={`domain-tool ${styles.workbench}`} data-hydrated={hydrated ? "true" : undefined} data-tool-workbench>
       <form aria-busy={loading} className={styles.form} onSubmit={submit}>
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           autoComplete="off"
           className={styles.queryField}
@@ -213,10 +206,10 @@ export function DomainAvailabilityTool({ initialName = "" }: { initialName?: str
           type="text"
           value={name}
         />
-        <ToolButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">
+        <UiButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">
           {loading ? "Checking domain availability..." : "Check domain availability"}
-        </ToolButton>
-        {loading ? <div className={styles.status}><ToolStatus>Checking domain availability...</ToolStatus></div> : null}
+        </UiButton>
+        {loading ? <div className={styles.status}><UiStatus>Checking domain availability...</UiStatus></div> : null}
       </form>
 
       {result ? (

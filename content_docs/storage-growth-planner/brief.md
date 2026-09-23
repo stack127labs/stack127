@@ -4,7 +4,7 @@
 
 Approved September 6, 2026. Start from measured retained data, explain compounded growth and reserve crossing, then cost assumptions and a power example. Distinguish a budget reserve from a failure forecast or a real backup.
 
-The working tool stays first. Use connected explanation at the depth the task needs, with no word, section, sentence, or visual-ratio quota. This direction supersedes earlier supporting-prose budgets in this page's planning artifacts; it does not change the engine or input contract. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
+The working tool stays first. Follow `stack127_docs/writing-style.md` for writing and visual choices. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
 
 ## Who is here
 

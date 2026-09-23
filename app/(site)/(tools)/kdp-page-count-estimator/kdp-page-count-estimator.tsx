@@ -2,25 +2,14 @@
 
 import { BookOpen, RotateCcw } from "lucide-react";
 import { useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolKeyValueList,
-  ToolNumberField,
-  ToolPrimaryResult,
-  ToolSelect,
-  ToolStatus,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiDisclosure, UiNumberField, UiSelect, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import { estimateKdpPageCount, formatKdpPageRange, getKdpPageCountDefaults, type KdpPageCountInput, type KdpPageCountResult } from "@/lib/kdp/page-count.ts";
 import { getKdpTrimOptions } from "@/lib/kdp/specs.ts";
-import styles from "../_components/kdp-tool.module.css";
+import styles from "../../../ui/tools/kdp-tool.module.css";
 
-const fontOptions = [toolOption("serif", "Serif"), toolOption("sans", "Sans"), toolOption("mono", "Monospaced")];
-const trimOptions = getKdpTrimOptions("paperback").map((trim) => toolOption(trim.id, trim.label));
+const fontOptions = [uiOption("serif", "Serif"), uiOption("sans", "Sans"), uiOption("mono", "Monospaced")];
+const trimOptions = getKdpTrimOptions("paperback").map((trim) => uiOption(trim.id, trim.label));
 
 function errorFor(result: KdpPageCountResult | null, field: string) {
   return result?.issues.find((issue) => issue.field === field)?.message ?? null;
@@ -62,39 +51,39 @@ export function KdpPageCountEstimator() {
     <section aria-label="Page count inputs and results" className={styles.tool} data-tool-workbench>
       <form className={styles.form} onSubmit={submit} ref={formRef}>
         <div className={styles.grid}>
-          <ToolNumberField dataFocusKey="words" error={errorFor(result, "words")} label="Word count" min={0} onChange={(value) => update({ words: value })} value={input.words} />
-          <ToolSelect dataFocusKey="trimId" error={errorFor(result, "trimId")} label="Trim size" onChange={(value) => update({ trimId: value })} options={trimOptions} value={input.trimId} />
-          <ToolChoiceGroup dataFocusKey="font" error={errorFor(result, "font")} label="Font" onChange={(value) => update({ font: value as KdpPageCountInput["font"] })} options={fontOptions} value={input.font} />
-          <ToolNumberField dataFocusKey="fontSize" error={errorFor(result, "fontSize")} label="Font size" max={24} min={8} onChange={(value) => update({ fontSize: value })} step={0.5} suffix="pt" value={input.fontSize} />
-          <ToolNumberField dataFocusKey="lineSpacing" error={errorFor(result, "lineSpacing")} label="Line spacing" max={2.5} min={1} onChange={(value) => update({ lineSpacing: value })} step={0.05} value={input.lineSpacing} />
-          <ToolNumberField dataFocusKey="insideMargin" error={errorFor(result, "insideMargin")} label="Inside margin" max={2} min={0.1} onChange={(value) => update({ insideMargin: value })} step={0.025} suffix="in" value={input.insideMargin} />
-          <ToolNumberField dataFocusKey="outsideMargin" error={errorFor(result, "outsideMargin")} label="Outside margin" max={2} min={0.1} onChange={(value) => update({ outsideMargin: value })} step={0.025} suffix="in" value={input.outsideMargin} />
-          <ToolNumberField dataFocusKey="topBottomMargin" error={errorFor(result, "topBottomMargin")} label="Top and bottom" max={2} min={0.1} onChange={(value) => update({ topBottomMargin: value })} step={0.025} suffix="in" value={input.topBottomMargin} />
-          <ToolNumberField dataFocusKey="chapterCount" error={errorFor(result, "chapterCount")} label="Chapter starts" max={2000} min={0} onChange={(value) => update({ chapterCount: value })} value={input.chapterCount} />
-          <ToolNumberField dataFocusKey="imagePages" error={errorFor(result, "imagePages")} label="Image pages" max={2000} min={0} onChange={(value) => update({ imagePages: value })} value={input.imagePages} />
-          <ToolNumberField dataFocusKey="frontMatterPages" error={errorFor(result, "frontMatterPages")} label="Front matter" max={2000} min={0} onChange={(value) => update({ frontMatterPages: value })} value={input.frontMatterPages} />
-          <ToolNumberField dataFocusKey="backMatterPages" error={errorFor(result, "backMatterPages")} label="Back matter" max={2000} min={0} onChange={(value) => update({ backMatterPages: value })} value={input.backMatterPages} />
+          <UiNumberField dataFocusKey="words" error={errorFor(result, "words")} label="Word count" min={0} onChange={(value) => update({ words: value })} value={input.words} />
+          <UiSelect dataFocusKey="trimId" error={errorFor(result, "trimId")} label="Trim size" onChange={(value) => update({ trimId: value })} options={trimOptions} value={input.trimId} />
+          <UiChoiceGroup dataFocusKey="font" error={errorFor(result, "font")} label="Font" onChange={(value) => update({ font: value as KdpPageCountInput["font"] })} options={fontOptions} value={input.font} />
+          <UiNumberField dataFocusKey="fontSize" error={errorFor(result, "fontSize")} label="Font size" max={24} min={8} onChange={(value) => update({ fontSize: value })} step={0.5} suffix="pt" value={input.fontSize} />
+          <UiNumberField dataFocusKey="lineSpacing" error={errorFor(result, "lineSpacing")} label="Line spacing" max={2.5} min={1} onChange={(value) => update({ lineSpacing: value })} step={0.05} value={input.lineSpacing} />
+          <UiNumberField dataFocusKey="insideMargin" error={errorFor(result, "insideMargin")} label="Inside margin" max={2} min={0.1} onChange={(value) => update({ insideMargin: value })} step={0.025} suffix="in" value={input.insideMargin} />
+          <UiNumberField dataFocusKey="outsideMargin" error={errorFor(result, "outsideMargin")} label="Outside margin" max={2} min={0.1} onChange={(value) => update({ outsideMargin: value })} step={0.025} suffix="in" value={input.outsideMargin} />
+          <UiNumberField dataFocusKey="topBottomMargin" error={errorFor(result, "topBottomMargin")} label="Top and bottom" max={2} min={0.1} onChange={(value) => update({ topBottomMargin: value })} step={0.025} suffix="in" value={input.topBottomMargin} />
+          <UiNumberField dataFocusKey="chapterCount" error={errorFor(result, "chapterCount")} label="Chapter starts" max={2000} min={0} onChange={(value) => update({ chapterCount: value })} value={input.chapterCount} />
+          <UiNumberField dataFocusKey="imagePages" error={errorFor(result, "imagePages")} label="Image pages" max={2000} min={0} onChange={(value) => update({ imagePages: value })} value={input.imagePages} />
+          <UiNumberField dataFocusKey="frontMatterPages" error={errorFor(result, "frontMatterPages")} label="Front matter" max={2000} min={0} onChange={(value) => update({ frontMatterPages: value })} value={input.frontMatterPages} />
+          <UiNumberField dataFocusKey="backMatterPages" error={errorFor(result, "backMatterPages")} label="Back matter" max={2000} min={0} onChange={(value) => update({ backMatterPages: value })} value={input.backMatterPages} />
         </div>
-        <ToolActionRow>
+        <UiActionRow>
           <div className={styles.actions}>
-            <ToolButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</ToolButton>
-            <ToolButton type="submit" variant="primary"><BookOpen aria-hidden="true" size={17} /> Estimate pages</ToolButton>
+            <UiButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</UiButton>
+            <UiButton type="submit" variant="primary"><BookOpen aria-hidden="true" size={17} /> Estimate pages</UiButton>
           </div>
-        </ToolActionRow>
-        {status ? <ToolStatus tone={result?.status === "invalid" ? "danger" : "neutral"}>{status}</ToolStatus> : null}
+        </UiActionRow>
+        {status ? <UiStatus tone={result?.status === "invalid" ? "danger" : "neutral"}>{status}</UiStatus> : null}
         {result?.status === "invalid" ? <ul className={styles.issueList}>{result.issues.map((issue) => <li key={issue.field}>{issue.message}</li>)}</ul> : null}
       </form>
 
       {values ? (
         <section aria-label="Page count result" className={styles.result}>
-          <ToolPrimaryResult detail={`Range midpoint: ${values.rangeMidpoint} pages`} inputRef={resultRef} label="Estimated print pages" value={formatKdpPageRange(values.totalPages)} />
-          <ToolKeyValueList rows={[
+          <UiPrimaryResult detail={`Range midpoint: ${values.rangeMidpoint} pages`} inputRef={resultRef} label="Estimated print pages" value={formatKdpPageRange(values.totalPages)} />
+          <UiKeyValueList rows={[
             { label: "Body text", value: formatKdpPageRange(values.textPages) },
             { label: "Added pages", value: values.addedPages.total },
             { label: "Trim size", value: values.trim.label },
             { label: "Raw total", value: formatKdpPageRange(values.rawPages) },
           ]} />
-          <ToolDataTable
+          <UiDataTable
             ariaLabel="Page count additions"
             columns={[{ id: "part", label: "Part" }, { id: "pages", label: "Pages" }]}
             rows={[
@@ -105,7 +94,7 @@ export function KdpPageCountEstimator() {
             ]}
           />
           <h3 className={styles.sectionTitle}>Typography model</h3>
-          <ToolKeyValueList rows={[
+          <UiKeyValueList rows={[
             { label: "Words per page", value: `${values.wordsPerPage.low} to ${values.wordsPerPage.high}` },
             { label: "Text block", value: `${values.textBlockInches.width} × ${values.textBlockInches.height} in` },
             { label: "Characters per line", value: values.capacity.charactersPerLine },
@@ -114,17 +103,17 @@ export function KdpPageCountEstimator() {
           ]} />
           <h3 className={styles.sectionTitle}>KDP guidance</h3>
           {result?.issues.length ? <ul className={styles.issueList}>{result.issues.map((issue) => <li data-severity={issue.severity} key={issue.code}>{issue.message}</li>)}</ul> : null}
-          {values.gutterBands.length ? <ToolDataTable
+          {values.gutterBands.length ? <UiDataTable
             ariaLabel="KDP inside margin bands"
             columns={[{ id: "pages", label: "Estimated pages" }, { id: "margin", label: "Minimum inside margin" }]}
             rows={values.gutterBands.map((band) => ({ id: `${band.minPages}-${band.maxPages}`, cells: { pages: `${band.minPages} to ${band.maxPages}`, margin: `${band.insideMarginInches} in` } }))}
           /> : null}
           <p className={styles.notice}>Final file rules apply. Even-page estimate.</p>
-          <ToolDisclosure label="Calculation details">
+          <UiDisclosure label="Calculation details">
             <p className={styles.notice}>{values.modelStatement}</p>
             <p className={styles.notice}>Model: 5 chars/word; 80%-120%; chapters.</p>
             <p className={styles.notice}>{values.calculationVersion} · {values.inputVersion} · KDP rules checked 2026-09-16.</p>
-          </ToolDisclosure>
+          </UiDisclosure>
         </section>
       ) : null}
     </section>

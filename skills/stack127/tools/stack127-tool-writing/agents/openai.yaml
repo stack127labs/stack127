@@ -1,4 +1,4 @@
 interface:
   display_name: "stack127 Tool Writing"
-  short_description: "Write complete, concise content for finished tools"
-  default_prompt: "Use $stack127-tool-writing with $stack127-writing-voice to write useful supporting content for this tool from its approved facts, search intent, and reader needs."
+  short_description: "Write tool copy using the shared writing guide"
+  default_prompt: "Use $stack127-tool-writing to draft this finished tool's page copy and SEO text from its ready spec and stack127_docs/writing-style.md."

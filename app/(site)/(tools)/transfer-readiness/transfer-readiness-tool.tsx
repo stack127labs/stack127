@@ -2,14 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import {
-  ToolButton,
-  ToolKeyValueList,
-  ToolRawOutput,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiRawOutput, UiTextField } from "@/app/ui/controls";
+import { UiKeyValueList, UiResultLead, UiStatus } from "@/app/ui/display";
 import type { RdapFetch } from "@/lib/domain/types.ts";
 import type { TransferFinding, TransferReadiness } from "@/lib/domain/transfer-readiness.ts";
 import {
@@ -82,7 +76,7 @@ function PolicyUsed({ result }: { result: TransferReadiness }) {
   return (
     <section className={styles.section}>
       <h2>Policy used</h2>
-      <ToolKeyValueList rows={rows} />
+      <UiKeyValueList rows={rows} />
     </section>
   );
 }
@@ -124,7 +118,7 @@ function RawEvidence({ result }: { result: TransferReadiness }) {
   return (
     <div className={styles.rawEvidence}>
       {responses.map(({ fetch, label }) => (
-        <ToolRawOutput key={label} label={rawLabel(label, fetch)} value={fetch.body ?? { error: fetch.error }} />
+        <UiRawOutput key={label} label={rawLabel(label, fetch)} value={fetch.body ?? { error: fetch.error }} />
       ))}
     </div>
   );
@@ -136,7 +130,7 @@ function TransferResult({ result }: { result: TransferReadiness }) {
   return (
     <section aria-label="Domain transfer readiness result" className={styles.results}>
       <div aria-atomic="true" aria-live={hasPublicBlocker ? "assertive" : "polite"} role={hasPublicBlocker ? "alert" : "status"}>
-        <ToolResultLead>{transferConclusion(result)}</ToolResultLead>
+        <UiResultLead>{transferConclusion(result)}</UiResultLead>
       </div>
       <CheckedName result={result} />
       {registeredInScope ? (
@@ -213,7 +207,7 @@ export function TransferReadinessTool({ initialName = "" }: { initialName?: stri
   return (
     <section aria-label="Domain transfer readiness" className={`domain-tool ${styles.workbench}`} data-hydrated={hydrated ? "true" : undefined} data-tool-workbench>
       <form aria-busy={loading} className={styles.form} onSubmit={submit}>
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           autoComplete="off"
           className={styles.queryField}
@@ -228,11 +222,11 @@ export function TransferReadinessTool({ initialName = "" }: { initialName?: stri
           spellCheck={false}
           value={name}
         />
-        <ToolButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">
+        <UiButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">
           {loading ? "Checking transfer readiness..." : "Check transfer readiness"}
-        </ToolButton>
-        {loading ? <ToolStatus>Checking public transfer data...</ToolStatus> : null}
-        {requestError ? <ToolStatus tone="danger">{requestError}</ToolStatus> : null}
+        </UiButton>
+        {loading ? <UiStatus>Checking public transfer data...</UiStatus> : null}
+        {requestError ? <UiStatus tone="danger">{requestError}</UiStatus> : null}
       </form>
       {result ? <TransferResult result={result} /> : null}
     </section>

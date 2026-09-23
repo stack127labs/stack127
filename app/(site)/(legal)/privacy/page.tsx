@@ -1,4 +1,4 @@
-import { InfoPage, infoUpdatedClassName } from "@/app/info-page";
+import { InfoPage, infoUpdatedClassName } from "@/app/ui/site/info-page";
 import { siteHeroPrivacyArt } from "../../art/site--hero-privacy";
 
 export default function PrivacyPage() {

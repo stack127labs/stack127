@@ -2,18 +2,8 @@
 
 import { RotateCcw } from "lucide-react";
 import { useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolCopyAction,
-  ToolDataTable,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextArea,
-  ToolTextField,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiCopyAction, UiTextArea, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";
 import {
   checkLxcIdmap,
   DEFAULT_LXC_INPUT,
@@ -113,7 +103,7 @@ export function LxcIdmapChecker() {
     <section aria-label="LXC mapping inputs and results" className={styles.tool} data-tool-workbench>
       <form className={styles.form} onSubmit={submit}>
         <div className={styles.inputs}>
-          <ToolTextArea
+          <UiTextArea
             autoCapitalize="none"
             className={styles.editor}
             error={errors.uidMap}
@@ -126,7 +116,7 @@ export function LxcIdmapChecker() {
             spellCheck={false}
             value={uidMap}
           />
-          <ToolTextArea
+          <UiTextArea
             autoCapitalize="none"
             className={styles.editor}
             error={errors.gidMap}
@@ -139,7 +129,7 @@ export function LxcIdmapChecker() {
             spellCheck={false}
             value={gidMap}
           />
-          <ToolTextField
+          <UiTextField
             autoCapitalize="none"
             error={errors.grantOwner}
             inputRef={ownerRef}
@@ -148,7 +138,7 @@ export function LxcIdmapChecker() {
             placeholder="root"
             value={grantOwner}
           />
-          <ToolTextArea
+          <UiTextArea
             autoCapitalize="none"
             className={styles.editor}
             error={errors.uidGrants}
@@ -160,7 +150,7 @@ export function LxcIdmapChecker() {
             spellCheck={false}
             value={uidGrants}
           />
-          <ToolTextArea
+          <UiTextArea
             autoCapitalize="none"
             className={styles.editor}
             error={errors.gidGrants}
@@ -173,13 +163,13 @@ export function LxcIdmapChecker() {
             value={gidGrants}
           />
           <div className={styles.query}>
-            <ToolChoiceGroup
+            <UiChoiceGroup
               label="Query type"
               onChange={(value) => { setQueryType(value as LxcQueryType); clearResult(); }}
-              options={[toolOption("uid", "UID"), toolOption("gid", "GID")]}
+              options={[uiOption("uid", "UID"), uiOption("gid", "GID")]}
               value={queryType}
             />
-            <ToolTextField
+            <UiTextField
               error={errors.queryId}
               inputRef={queryRef}
               inputMode="numeric"
@@ -191,29 +181,29 @@ export function LxcIdmapChecker() {
             />
           </div>
         </div>
-        <ToolActionRow>
-          <ToolButton onPress={loadExample} type="button">Load example</ToolButton>
-          <ToolButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</ToolButton>
-          <ToolButton type="submit" variant="primary">Check mapping</ToolButton>
-        </ToolActionRow>
-        {status ? <ToolStatus>{status}</ToolStatus> : null}
+        <UiActionRow>
+          <UiButton onPress={loadExample} type="button">Load example</UiButton>
+          <UiButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</UiButton>
+          <UiButton type="submit" variant="primary">Check mapping</UiButton>
+        </UiActionRow>
+        {status ? <UiStatus>{status}</UiStatus> : null}
       </form>
 
       {result?.status === "valid" && result.values ? (
         <section aria-label="LXC mapping result" className={styles.result} ref={resultRef} tabIndex={-1}>
           <div className={styles.resultHeader}>
             <div>
-              <ToolResultLead>{result.values.query.hostId ? `${result.values.query.type.toUpperCase()} ${result.values.query.id} maps to host ${result.values.query.hostId}.` : `${result.values.query.type.toUpperCase()} ${result.values.query.id} is unmapped.`}</ToolResultLead>
+              <UiResultLead>{result.values.query.hostId ? `${result.values.query.type.toUpperCase()} ${result.values.query.id} maps to host ${result.values.query.hostId}.` : `${result.values.query.type.toUpperCase()} ${result.values.query.id} is unmapped.`}</UiResultLead>
               <p className={styles.meta}>{`Grant status: ${result.values.query.grantStatus}`}</p>
             </div>
-            <ToolCopyAction label="Copy diagnosis" successLabel="Diagnosis copied" value={formatLxcReport(result)} />
+            <UiCopyAction label="Copy diagnosis" successLabel="Diagnosis copied" value={formatLxcReport(result)} />
           </div>
-          <ToolDataTable
+          <UiDataTable
             ariaLabel="LXC mapping ranges"
             columns={[{ id: "type", label: "Type" }, { id: "container", label: "Container range" }, { id: "host", label: "Host range" }, { id: "length", label: "Length" }]}
             rows={result.values.ranges.map((range) => ({ id: `${range.type}-${range.line}`, cells: { type: range.type.toUpperCase(), container: <code>{range.containerStart} to {range.containerEnd}</code>, host: <code>{range.hostStart} to {range.hostEnd}</code>, length: range.length } }))}
           />
-          {result.values.findings.length ? <ToolStatus>{result.values.findings.map((issue) => issue.message).join(" ")}</ToolStatus> : null}
+          {result.values.findings.length ? <UiStatus>{result.values.findings.map((issue) => issue.message).join(" ")}</UiStatus> : null}
         </section>
       ) : null}
     </section>

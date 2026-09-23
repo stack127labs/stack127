@@ -1,7 +1,7 @@
 import { FileSearch, Globe2, Network } from "lucide-react";
-import { SidebarLabel } from "@/app/app-shell";
-import { SidebarList } from "@/app/sidebar-list";
-import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/sidebar-panel";
+import { SidebarLabel } from "@/app/ui/site/app-shell";
+import { SidebarList } from "@/app/ui/site/sidebar-list";
+import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/ui/site/sidebar-panel";
 
 const iconProps = { size: 15, strokeWidth: 2.2 } as const;
 

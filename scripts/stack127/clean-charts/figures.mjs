@@ -4,7 +4,7 @@
  * bar length or an axis position. New chart types get added here once and
  * become available everywhere.
  *
- * Specs are documented in stack127_docs/visual-first.md.
+ * Rendering workflow: stack127_docs/design-system.md.
  */
 import { CHART } from "./config.mjs";
 import { formatValue, measureText, niceCeil } from "./svg.mjs";

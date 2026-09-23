@@ -170,19 +170,3 @@ export function compareBySort(a: TerminalApp, b: TerminalApp, sort: string) {
 export function sortApps(apps: TerminalApp[], sort: string) {
   return [...apps].sort((a, b) => compareBySort(a, b, sort));
 }
-
-/** Page numbers to render: first, last, and a window around the current page. */
-export function paginationPages(currentPage: number, totalPages: number): (number | null)[] {
-  const wanted = new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
-  const pages: (number | null)[] = [];
-
-  for (let page = 1; page <= totalPages; page += 1) {
-    if (wanted.has(page)) {
-      pages.push(page);
-    } else if (pages[pages.length - 1] !== null) {
-      pages.push(null);
-    }
-  }
-
-  return pages;
-}

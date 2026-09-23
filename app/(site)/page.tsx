@@ -1,4 +1,4 @@
-import { PageCanvas } from "@/app/page-canvas";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { siteSpotLocalSecurityCamerasArt } from "./art/site--spot-local-security-cameras";
 import { siteSpotNutCompatibleUpsArt } from "./art/site--spot-nut-compatible-ups";
 import { siteSpotZigbeeCoordinatorsArt } from "./art/site--spot-zigbee-coordinators";
@@ -55,17 +55,17 @@ import {
 } from "@/lib/page-registry";
 import { lessons } from "@/lib/self-hosting-for-beginners";
 import { licenses } from "@/lib/software-licenses";
-import { AppShell, SidebarLabel } from "../app-shell";
-import { Doodle } from "../doodle";
-import { EntryHero } from "../entry-hero";
-import { SidebarList } from "../sidebar-list";
+import { AppShell, SidebarLabel } from "../ui/site/app-shell";
+import { Doodle } from "../ui/site/doodle";
+import { EntryHero } from "../ui/site/entry-hero";
+import { SidebarList } from "../ui/site/sidebar-list";
 import { dnsToolCount } from "./(catalogs)/dns-tools/dns-tools-sidebar";
 import { domainToolCount, domainReferenceCount } from "./(catalogs)/domain-tools/domain-tools-sidebar";
 import { storageToolCount } from "./(catalogs)/storage-tools/storage-tools-sidebar";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
-} from "../sidebar-panel";
+} from "../ui/site/sidebar-panel";
 import { siteHeroStack127Art } from "./art/site--hero-stack127";
 
 export const dynamic = "force-dynamic";
@@ -303,7 +303,7 @@ export default async function Home() {
       <EntryHero art={siteHeroStack127Art}>
         <header className="home-intro">
           <h1 id="home-title">
-            A toolbox and reference hub for <mark>solo builders and tinkerers creating things online.</mark>
+            A toolbox and reference hub for <mark>solo builders</mark> and <mark>tinkerers</mark> creating things online.
           </h1>
           <p className="home-lede">
             Find a tool for your next project, compare software and hardware, and learn

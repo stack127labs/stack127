@@ -12,12 +12,12 @@ import {
   ServerCog,
   TrendingUp,
 } from "lucide-react";
-import { SidebarLabel } from "@/app/app-shell";
-import { SidebarList } from "@/app/sidebar-list";
+import { SidebarLabel } from "@/app/ui/site/app-shell";
+import { SidebarList } from "@/app/ui/site/sidebar-list";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
-} from "@/app/sidebar-panel";
+} from "@/app/ui/site/sidebar-panel";
 import styles from "./storage-tools.module.css";
 
 type StorageToolId =

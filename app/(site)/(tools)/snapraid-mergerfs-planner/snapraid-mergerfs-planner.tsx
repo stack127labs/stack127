@@ -2,19 +2,8 @@
 
 import { Plus, RotateCcw, Trash2 } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent, type Ref } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolCheckbox,
-  ToolChoiceGroup,
-  ToolCodeOutput,
-  ToolCopyAction,
-  ToolKeyValueList,
-  ToolQuantityInput,
-  ToolStatus,
-  ToolTextField,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiCheckbox, UiChoiceGroup, UiCopyAction, UiQuantityInput, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiCodeOutput, UiKeyValueList, UiStatus } from "@/app/ui/display";
 import {
   buildSnapraidMergerfsPlan,
   formatPlanBytes,
@@ -27,9 +16,9 @@ import {
 } from "./snapraid-merfs-engine";
 import styles from "./snapraid-mergerfs-planner.module.css";
 
-const capacityUnits = [toolOption("TB", "TB"), toolOption("TiB", "TiB")];
-const policyOptions = [toolOption("balanced", "Balanced"), toolOption("most-free", "Most free")];
-const blocksizeOptions = [toolOption("256", "256 KiB"), toolOption("512", "512 KiB"), toolOption("1024", "1024 KiB")];
+const capacityUnits = [uiOption("TB", "TB"), uiOption("TiB", "TiB")];
+const policyOptions = [uiOption("balanced", "Balanced"), uiOption("most-free", "Most free")];
+const blocksizeOptions = [uiOption("256", "256 KiB"), uiOption("512", "512 KiB"), uiOption("1024", "1024 KiB")];
 
 const defaultInput: SnapraidMergerfsInput = {
   data: [
@@ -65,10 +54,10 @@ function fieldError(result: SnapraidMergerfsResult | null, field: string): strin
 
 function RemoveButton({ disabled, label, onPress }: { disabled: boolean; label: string; onPress: () => void }) {
   return (
-    <ToolButton aria-label={`Remove ${label}`} className={styles.removeButton} isDisabled={disabled} onPress={onPress} variant="ghost">
+    <UiButton aria-label={`Remove ${label}`} className={styles.removeButton} isDisabled={disabled} onPress={onPress} variant="ghost">
       <Trash2 aria-hidden="true" size={17} />
       Remove
-    </ToolButton>
+    </UiButton>
   );
 }
 
@@ -95,7 +84,7 @@ function DiskInputRow({
   return (
     <div className={styles.diskRow}>
       <code className={styles.rowCode}>{code}</code>
-      <ToolTextField
+      <UiTextField
         autoCapitalize="none"
         className={styles.pathField}
         dataFocusKey={`${focusPrefix}-path`}
@@ -107,7 +96,7 @@ function DiskInputRow({
         spellCheck={false}
         value={row.path}
       />
-      <ToolQuantityInput
+      <UiQuantityInput
         ariaLabel={`${label} capacity`}
         dataFocusKey={`${focusPrefix}-capacity`}
         error={error("capacity")}
@@ -136,7 +125,7 @@ function Result({ result }: { result: SnapraidMergerfsReady }) {
   return (
     <section aria-label="Configuration result" aria-live="polite" className={styles.result}>
       <h2 ref={headingRef} tabIndex={-1}>Configuration ready for review</h2>
-      <ToolKeyValueList rows={[
+      <UiKeyValueList rows={[
         {
           label: "Data",
           value: `${result.normalized.data.length} ${result.normalized.data.length === 1 ? "disk" : "disks"} · ${formatPlanBytes(result.dataTotalBytes, displayUnit)}`,
@@ -150,13 +139,13 @@ function Result({ result }: { result: SnapraidMergerfsReady }) {
           value: `${result.normalized.content.length} ${result.normalized.content.length === 1 ? "copy" : "copies"}`,
         },
       ]} />
-      <ToolCodeOutput
-        actions={<ToolCopyAction label="Copy snapraid.conf" successLabel="snapraid.conf copied" value={result.snapraidConfig} />}
+      <UiCodeOutput
+        actions={<UiCopyAction label="Copy snapraid.conf" successLabel="snapraid.conf copied" value={result.snapraidConfig} />}
         code={result.snapraidConfig}
         label="/etc/snapraid.conf"
       />
-      <ToolCodeOutput
-        actions={<ToolCopyAction label="Copy fstab line" successLabel="fstab line copied" value={result.fstabLine} />}
+      <UiCodeOutput
+        actions={<UiCopyAction label="Copy fstab line" successLabel="fstab line copied" value={result.fstabLine} />}
         code={result.fstabLine}
         label="/etc/fstab mergerfs line"
       />
@@ -281,7 +270,7 @@ export function SnapraidMergerfsPlanner() {
             ))}
           </div>
           {fieldError(result, "data") ? <p className={styles.groupError} role="alert">{fieldError(result, "data")}</p> : null}
-          <ToolButton
+          <UiButton
             isDisabled={input.data.length >= 42}
             onPress={() => {
               const next = cloneInput(input);
@@ -290,7 +279,7 @@ export function SnapraidMergerfsPlanner() {
             }}
           >
             <Plus aria-hidden="true" size={17} /> Add data disk
-          </ToolButton>
+          </UiButton>
         </section>
 
         <section aria-labelledby="parity-disks-heading" className={styles.inputGroup}>
@@ -313,7 +302,7 @@ export function SnapraidMergerfsPlanner() {
             ))}
           </div>
           {fieldError(result, "parity") ? <p className={styles.groupError} role="alert">{fieldError(result, "parity")}</p> : null}
-          <ToolButton
+          <UiButton
             isDisabled={input.parity.length >= 3}
             onPress={() => {
               const next = cloneInput(input);
@@ -322,7 +311,7 @@ export function SnapraidMergerfsPlanner() {
             }}
           >
             <Plus aria-hidden="true" size={17} /> Add parity disk
-          </ToolButton>
+          </UiButton>
         </section>
 
         <section aria-labelledby="content-files-heading" className={styles.inputGroup}>
@@ -333,7 +322,7 @@ export function SnapraidMergerfsPlanner() {
           <div className={styles.contentRows}>
             {input.content.map((path, index) => (
               <div className={styles.contentRow} key={`content-${index}`}>
-                <ToolTextField
+                <UiTextField
                   autoCapitalize="none"
                   dataFocusKey={`content-${index + 1}`}
                   error={fieldError(result, `content.${index}`)}
@@ -352,7 +341,7 @@ export function SnapraidMergerfsPlanner() {
             ))}
           </div>
           {fieldError(result, "content") ? <p className={styles.groupError} data-error-field="content" role="alert">{fieldError(result, "content")}</p> : null}
-          <ToolButton
+          <UiButton
             isDisabled={input.content.length >= 12}
             onPress={() => {
               const next = cloneInput(input);
@@ -362,13 +351,13 @@ export function SnapraidMergerfsPlanner() {
             }}
           >
             <Plus aria-hidden="true" size={17} /> Add content file
-          </ToolButton>
+          </UiButton>
         </section>
 
         <section aria-labelledby="output-settings-heading" className={styles.inputGroup}>
           <div className={styles.groupHeading}><h2 id="output-settings-heading">Output settings</h2></div>
           <div className={styles.settingsGrid}>
-            <ToolTextField
+            <UiTextField
               autoCapitalize="none"
               dataFocusKey="pool-path"
               error={fieldError(result, "poolPath")}
@@ -378,7 +367,7 @@ export function SnapraidMergerfsPlanner() {
               spellCheck={false}
               value={input.poolPath}
             />
-            <ToolChoiceGroup
+            <UiChoiceGroup
               error={fieldError(result, "policy")}
               label="Mergerfs policy"
               onChange={(policy) => update({ ...input, policy: policy as SnapraidMergerfsInput["policy"] })}
@@ -386,7 +375,7 @@ export function SnapraidMergerfsPlanner() {
               required
               value={input.policy}
             />
-            <ToolChoiceGroup
+            <UiChoiceGroup
               error={fieldError(result, "blocksize")}
               label="SnapRAID blocksize"
               onChange={(blocksize) => update({ ...input, blocksize: Number(blocksize) as SnapraidBlocksize })}
@@ -394,18 +383,18 @@ export function SnapraidMergerfsPlanner() {
               required
               value={String(input.blocksize)}
             />
-            <ToolCheckbox isSelected={input.standardExcludes} onChange={(standardExcludes) => update({ ...input, standardExcludes })}>
+            <UiCheckbox isSelected={input.standardExcludes} onChange={(standardExcludes) => update({ ...input, standardExcludes })}>
               Include standard excludes
-            </ToolCheckbox>
+            </UiCheckbox>
           </div>
         </section>
 
-        {invalid && invalidGroups.size > 1 ? <ToolStatus tone="danger">Fix the marked inputs before generating files.</ToolStatus> : null}
-        {unexpectedError ? <ToolStatus tone="danger">{unexpectedError}</ToolStatus> : null}
-        <ToolActionRow>
-          <ToolButton type="submit" variant="primary">Check and generate</ToolButton>
-          <ToolButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</ToolButton>
-        </ToolActionRow>
+        {invalid && invalidGroups.size > 1 ? <UiStatus tone="danger">Fix the marked inputs before generating files.</UiStatus> : null}
+        {unexpectedError ? <UiStatus tone="danger">{unexpectedError}</UiStatus> : null}
+        <UiActionRow>
+          <UiButton type="submit" variant="primary">Check and generate</UiButton>
+          <UiButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</UiButton>
+        </UiActionRow>
       </form>
       {result?.status === "ready" ? <Result result={result} /> : null}
     </section>

@@ -1,9 +1,0 @@
-{
-  "records": [
-    {
-      "candidate_id": "b2a0a941-f9c0-4737-9e77-a3ae87bb97da",
-      "decision": "needs_review",
-      "reason": "OpenAlternative still points to Infinite-Labs-AI/infinite-os, but the official GitHub repository currently returns 404 and cannot be verified."
-    }
-  ]
-}

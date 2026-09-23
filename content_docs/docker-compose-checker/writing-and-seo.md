@@ -1,5 +1,7 @@
 # Writing and SEO plan: Docker Compose checker
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Feasibility: feasible
 Content review: 2026-09-19
@@ -60,7 +62,7 @@ The tool stays above all supporting content. No marker concept, clean chart, scr
 | 1 | Registry label: `docker compose checker` | What compact label belongs in navigation and cards? | Use a lowercase label that names the job without adding a keyword list. | Sentences | `stack127_docs/seo.md`; central registry conventions | Do not use `Docker Compose Validator`, `YAML linter`, or a claim such as `best`. | COPY-01 |
 | 2 | Meta title: `Docker Compose checker: find YAML and Compose issues` | What should the search title promise? | Name the tool and the two main static questions without implying runtime proof. | Sentences | Search intent; implementation scope | Do not add `online`, `free`, `secure`, `production-ready`, or repeated variants. | COPY-02 |
 | 3 | Meta description: `Check one pasted Docker Compose file for YAML, model, port, dependency, interpolation, and static advisory findings. No upload or Docker runtime check.` | What result and boundary should the snippet state? | Say what the checker returns and that the browser does not upload or run Docker. | Sentences | `brief.md`; implementation non-goals; EC-030 | Keep the description truthful to targeted checks. Do not promise full Specification coverage or security scanning. | COPY-03 |
-| 4 | H1: `Docker Compose checker: find YAML and Compose issues before you run it` | What does this page do? | Name the pasted-file preflight and the repair-oriented result. | Sentences | Primary query; product decision | Keep the H1 natural and sentence case. Do not call the file valid, safe, or ready without qualification. | COPY-04 |
+| 4 | H1: `Docker Compose checker: find YAML and Compose issues before you run it` | What does this page do? | Name the pasted-file preflight and the repair-oriented result. | Sentences | Primary query; product decision | Do not call the file valid, safe, or ready without qualification. | COPY-04 |
 | 5 | H1 introduction | Why would a homelab operator or developer use this? | Introduce one pasted Compose file, optional interpolation values, source-anchored findings, and the no-upload, no-execution boundary in one connected passage. | Sentences | `brief.md`; implementation product decision and non-goals | Stop before syntax teaching and button narration. Do not repeat the H1 or promise Docker parity. | COPY-05 |
 | 6 | Interactive checker | What should I provide? | Present one required Compose editor, one optional interpolation environment editor, one explicit check action, example, reset, and local-handling line. | Tool UI | Interface UI-001 through UI-003; implementation input contract | Keep the two inputs visibly separate. Do not add a file picker, hidden live validation, or service `env_file` input. | n/a |
 | 7 | Existing input labels and descriptions | What does each editor mean? | Preserve the exact labels and descriptions, including that the optional environment is for interpolation and is not service `env_file`. | Sentences | Route implementation; interface contract | This is a copy audit of existing UI text. Do not move the explanation into a second paragraph below the tool. | COPY-27 |
@@ -191,13 +193,8 @@ The rows below reserve the exact public copy units for the later manual writing 
 | COPY-39 | Accessibility names and semantic labels | Keep the same meaning available without sight or color. | Preserve `Docker Compose checker inputs and results` and `Compose check counts`, visible severity words, semantic table headers, and field-error associations. Use the accessibility contract and EC-034 through EC-037. | Review the accessibility tree and labels in place. Stop before adding explanatory announcements. | No decorative text, color-only status, or hidden live validation. |
 | COPY-40 | Task-oriented usage | Explain input preparation, meaningful choices, states, and next verification. | Closed Usage Markdown handoff and accepted technical artifacts. | One concise connected guide; use steps only where order changes the outcome. | No live-result narration, unimplemented features, or duplicate supporting explanations. |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` for every later public sentence. This plan owns search intent, coverage, and evidence, not a separate voice.
-- Apply `skills/stack127/unslop/SKILL.md` after the voice pass. Cut filler, generic conclusions, keyword padding, vague attribution, title-case headings, and repeated caveats.
-- Write `stack127`, lowercase, in user-facing copy.
-- Use sentence case headings, straight quotes, and no em dash or en dash punctuation.
 - Keep `Compose Specification`, `docker compose config`, `env_file`, `environment`, `include`, `extends`, `profiles`, `depends_on`, `healthcheck`, and port range terminology exact where it changes meaning.
 - Do not invent facts, numbers, supported keys, parser behavior, privacy claims, runtime behavior, security results, rankings, or performance claims.
 - Keep the browser-local boundary explicit: no upload, no code execution, no Docker daemon, no registry request, no host-file read, and no automatic include or extends fetch.
@@ -235,7 +232,6 @@ The rows below reserve the exact public copy units for the later manual writing 
 - None for this content stage. All five required artifacts are ready, the test-stage pipeline validator passed before writing, and the fingerprints above match the files read on 2026-09-10.
 - Evidence limitation: SearXNG was not configured, the web connector did not identify individual engines, and the in-app Browser was unavailable. The current plan records the web connector and the separate Bing Playwright probe instead of describing the results as broad engine coverage.
 - Publication, database content integration, final rendered QA, and registry metadata remain later workflow steps. This file creates no route copy, DB row, publication state, or SEO code.
-
 
 ## Usage Markdown handoff
 

@@ -2,17 +2,8 @@
 
 import { RotateCcw } from "lucide-react";
 import { useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolCopyAction,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextArea,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiCopyAction, UiDisclosure, UiTextArea, UiTextField } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";
 import {
   checkMqttDiscovery,
   DEFAULT_MQTT_INPUT,
@@ -89,7 +80,7 @@ export function MqttDiscoveryChecker() {
     <section aria-label="MQTT discovery inputs and results" className={styles.tool} data-tool-workbench>
       <form className={styles.form} onSubmit={submit}>
         <div className={styles.inputs}>
-          <ToolTextField
+          <UiTextField
             autoCapitalize="none"
             error={errors.topic}
             inputRef={topicRef}
@@ -99,7 +90,7 @@ export function MqttDiscoveryChecker() {
             required
             value={topic}
           />
-          <ToolTextField
+          <UiTextField
             autoCapitalize="none"
             error={errors.prefix}
             inputRef={prefixRef}
@@ -107,7 +98,7 @@ export function MqttDiscoveryChecker() {
             onChange={(value) => { setPrefix(value); clearResult(); }}
             value={prefix}
           />
-          <ToolTextArea
+          <UiTextArea
             autoCapitalize="none"
             className={styles.editor}
             error={errors.payload}
@@ -121,33 +112,33 @@ export function MqttDiscoveryChecker() {
             value={payload}
           />
         </div>
-        <ToolActionRow>
-          <ToolButton onPress={loadExample} type="button">Load example</ToolButton>
-          <ToolButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</ToolButton>
-          <ToolButton type="submit" variant="primary">Check discovery</ToolButton>
-        </ToolActionRow>
-        {status ? <ToolStatus>{status}</ToolStatus> : null}
+        <UiActionRow>
+          <UiButton onPress={loadExample} type="button">Load example</UiButton>
+          <UiButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</UiButton>
+          <UiButton type="submit" variant="primary">Check discovery</UiButton>
+        </UiActionRow>
+        {status ? <UiStatus>{status}</UiStatus> : null}
       </form>
 
       {result?.status !== "invalid" && result?.values ? (
         <section aria-label="MQTT discovery result" className={styles.result} ref={resultRef} tabIndex={-1}>
           <div className={styles.resultHeader}>
             <div>
-              <ToolResultLead>{`${result.status === "valid" ? "Valid" : "Partial"} ${result.values.component} discovery.`}</ToolResultLead>
+              <UiResultLead>{`${result.status === "valid" ? "Valid" : "Partial"} ${result.values.component} discovery.`}</UiResultLead>
               <p className={styles.meta}>{`${result.values.errorCount} errors; ${result.values.warningCount} warnings`}</p>
             </div>
-            <ToolCopyAction label="Copy report" successLabel="Report copied" value={formatMqttReport(result)} />
+            <UiCopyAction label="Copy report" successLabel="Report copied" value={formatMqttReport(result)} />
           </div>
           {result.values.findings.length ? (
-            <ToolDataTable
+            <UiDataTable
               ariaLabel="MQTT discovery findings"
               columns={[{ id: "severity", label: "Severity" }, { id: "path", label: "Path" }, { id: "message", label: "Finding" }]}
               rows={result.values.findings.map((issue) => ({ id: `${issue.code}-${issue.path}`, cells: { severity: <strong className={issue.severity === "error" ? styles.error : styles.warning}>{issue.severity}</strong>, path: <code>{issue.path}</code>, message: issue.message } }))}
             />
           ) : null}
-          <ToolDisclosure label="Normalized JSON">
+          <UiDisclosure label="Normalized JSON">
             <pre className={styles.code} tabIndex={0}><code>{result.values.normalizedPayload}</code></pre>
-          </ToolDisclosure>
+          </UiDisclosure>
         </section>
       ) : null}
     </section>

@@ -1,13 +1,13 @@
 # Writing and SEO plan: RAIDZ Expansion Planner
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Tool: RAIDZ Expansion Planner
 Route: `/raidz-expansion-planner`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
 SERP checked: 2026-08-13
 Primary medium: Tool UI
-Prose is the minority: yes
-Static prose budget: 5 sections, 600 words maximum
 
 ## Search intent
 
@@ -93,23 +93,17 @@ Plan each one-disk widening of one previously unexpanded RAIDZ vdev and compare 
 
 ### Sections reserved for later manual writing
 
-| Section ID | Heading | Purpose | Required facts and sources | Word limit and shape | Banned claims or repetition |
+| Section ID | Heading | Purpose | Required facts and sources | Planned format | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
-| COPY-01 | Intro below H1 | State the answer and boundary before the tool. | One previously unexpanded RAIDZ vdev; sequential one-disk steps; current, immediate, fresh, and gap; reported capacity unknown. Sources: implementation product decision and OpenZFS attach docs. | 80 words maximum, one or two short paragraphs. | No generic importance claim, OpenZFS history, input tutorial, or result restatement. |
-| COPY-02 | Why immediate capacity can be lower than a fresh vdev | Connect old block geometry to the visible result and its terminology. | Reflow does not logically rewrite old blocks; old blocks retain old ratio; future writes use wider ratio; rewrite can change physical geometry; reporting may remain pessimistic. Sources: `zpool-attach(8)`, RAIDZ docs, `vdev_raidz.c`. | 150 words maximum, two or three paragraphs around the table. | Do not call the gap lost or guaranteed temporary. No numeric worked example or repeated table definitions. |
-| COPY-03 | Check the pool before you widen the vdev | Frame the preflight table without granting a safety verdict. | OpenZFS 2.3 or supported platform release; feature enabled; healthy vdev; current backup; new disk at least smallest member; parity unchanged; one disk per attach. Sources: release, feature, attach, layout docs. | 110 words maximum, one opening paragraph and one sentence after the table. | No safe-to-expand verdict, device IDs, force flag, duration promise, or command walkthrough. |
-| COPY-04 | What this model does not know | Keep the estimate from being mistaken for live pool truth. | Unexpanded-current-vdev assumption; no allocation changes between steps; representative block size; excludes prior generations, metadata, slop, fragmentation, compression, snapshots, live reporting, performance, duration, and failure risk. Sources: implementation assumptions and R19. | 150 words maximum, two compact paragraphs. | Do not repeat every trace assumption or create an oversized caveat panel. |
-| COPY-05 | Privacy and next tools | Explain local handling and direct adjacent jobs to the right tool. | Local synchronous calculation; no tool network requests or storage; Share puts normalized configuration in the URL and copies it; links to ZFS capacity and padding calculators. Sources: R15, R21, implementation privacy contract. | 90 words maximum, one compact paragraph. | Do not promise anonymity, zero infrastructure logs, encrypted URLs, or repeat calculation results. |
+| COPY-01 | Intro below H1 | State the answer and boundary before the tool. | One previously unexpanded RAIDZ vdev; sequential one-disk steps; current, immediate, fresh, and gap; reported capacity unknown. Sources: implementation product decision and OpenZFS attach docs. | Prose. | No generic importance claim, OpenZFS history, input tutorial, or result restatement. |
+| COPY-02 | Why immediate capacity can be lower than a fresh vdev | Connect old block geometry to the visible result and its terminology. | Reflow does not logically rewrite old blocks; old blocks retain old ratio; future writes use wider ratio; rewrite can change physical geometry; reporting may remain pessimistic. Sources: `zpool-attach(8)`, RAIDZ docs, `vdev_raidz.c`. | Prose around the table. | Do not call the gap lost or guaranteed temporary. No numeric worked example or repeated table definitions. |
+| COPY-03 | Check the pool before you widen the vdev | Frame the preflight table without granting a safety verdict. | OpenZFS 2.3 or supported platform release; feature enabled; healthy vdev; current backup; new disk at least smallest member; parity unchanged; one disk per attach. Sources: release, feature, attach, layout docs. | Prose around the table. | No safe-to-expand verdict, device IDs, force flag, duration promise, or command walkthrough. |
+| COPY-04 | What this model does not know | Keep the estimate from being mistaken for live pool truth. | Unexpanded-current-vdev assumption; no allocation changes between steps; representative block size; excludes prior generations, metadata, slop, fragmentation, compression, snapshots, live reporting, performance, duration, and failure risk. Sources: implementation assumptions and R19. | Prose. | Do not repeat every trace assumption or create an oversized caveat panel. |
+| COPY-05 | Privacy and next tools | Explain local handling and direct adjacent jobs to the right tool. | Local synchronous calculation; no tool network requests or storage; Share puts normalized configuration in the URL and copies it; links to ZFS capacity and padding calculators. Sources: R15, R21, implementation privacy contract. | Prose. | Do not promise anonymity, zero infrastructure logs, encrypted URLs, or repeat calculation results. |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
 - Keep the terms RAIDZ, vdev, recordsize, volblocksize, ashift, reflow, and rewrite where they are technically necessary.
-- Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
-- Do not repeat a result, table, chart, wireframe, heading, or prior section.
-- Leave unresolved facts as explicit review notes, not plausible copy.
 
 ### Tool-build exclusion
 

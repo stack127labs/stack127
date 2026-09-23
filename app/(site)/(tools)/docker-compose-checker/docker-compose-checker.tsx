@@ -2,14 +2,8 @@
 
 import { RotateCcw } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolCopyAction,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextArea,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiCopyAction, UiTextArea } from "@/app/ui/controls";
+import { UiActionRow, UiResultLead, UiStatus } from "@/app/ui/display";
 import {
   buildCopyReport,
   checkCompose,
@@ -150,7 +144,7 @@ function ParsedResultView({ result }: { result: ParsedResult }) {
       </section>
       <ModelSummary result={result} />
       <div className={styles.resultActions}>
-        <ToolCopyAction label="Copy report" successLabel="Report copied" failureLabel="Copy failed" value={buildCopyReport(result)} />
+        <UiCopyAction label="Copy report" successLabel="Report copied" failureLabel="Copy failed" value={buildCopyReport(result)} />
       </div>
       <dl className={styles.provenance}>
         <div><dt>Engine</dt><dd>{result.provenance.engineVersion}</dd></div>
@@ -277,7 +271,7 @@ export function DockerComposeChecker() {
   return (
     <section aria-label="Docker Compose checker inputs and results" className={styles.tool} data-hydrated={hydrated ? "true" : undefined} data-tool-workbench>
       <form className={styles.form} onSubmit={submit}>
-        <ToolTextArea
+        <UiTextArea
           autoCapitalize="none"
           className={styles.editor}
           description="Paste one Compose YAML document."
@@ -291,7 +285,7 @@ export function DockerComposeChecker() {
           spellCheck={false}
           value={compose}
         />
-        <ToolTextArea
+        <UiTextArea
           autoCapitalize="none"
           className={styles.editor}
           description="Optional KEY=VALUE interpolation lines. Not service env_file."
@@ -305,18 +299,18 @@ export function DockerComposeChecker() {
           value={environment}
         />
         <p className={styles.privacy}>Your text stays in this browser.</p>
-        {status ? <ToolStatus>{status}</ToolStatus> : null}
-        <ToolActionRow>
-          <ToolButton onPress={loadExample} type="button">Load example</ToolButton>
-          <ToolButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={18} /> Reset</ToolButton>
-          <ToolButton type="submit" variant="primary">Check Compose file</ToolButton>
-        </ToolActionRow>
+        {status ? <UiStatus>{status}</UiStatus> : null}
+        <UiActionRow>
+          <UiButton onPress={loadExample} type="button">Load example</UiButton>
+          <UiButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={18} /> Reset</UiButton>
+          <UiButton type="submit" variant="primary">Check Compose file</UiButton>
+        </UiActionRow>
       </form>
 
       {failed ? (
         <section className={styles.failure} ref={failureRef} role="alert" tabIndex={-1}>
-          <ToolStatus tone="danger">Inputs remain. Try again.</ToolStatus>
-          <ToolButton onPress={() => submit()} type="button">Try again</ToolButton>
+          <UiStatus tone="danger">Inputs remain. Try again.</UiStatus>
+          <UiButton onPress={() => submit()} type="button">Try again</UiButton>
         </section>
       ) : null}
 
@@ -324,7 +318,7 @@ export function DockerComposeChecker() {
         <section aria-labelledby="compose-result-heading" className={styles.result} id="compose-result" ref={resultRef} tabIndex={-1}>
           <header className={styles.resultHeader}>
             <h2 id="compose-result-heading">{result.lead}</h2>
-            {resultIsParsed(result) ? <ToolResultLead>{result.completeness.status === "incomplete" ? "Checked without referenced files." : "Checked this pasted file."}</ToolResultLead> : null}
+            {resultIsParsed(result) ? <UiResultLead>{result.completeness.status === "incomplete" ? "Checked without referenced files." : "Checked this pasted file."}</UiResultLead> : null}
           </header>
           {resultIsParsed(result) ? <ParsedResultView result={result} /> : <InvalidResultView result={result} />}
         </section>

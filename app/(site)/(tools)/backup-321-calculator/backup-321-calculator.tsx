@@ -7,20 +7,8 @@ import {
   Share2,
 } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolAllocationBar,
-  ToolButton,
-  ToolCheckbox,
-  ToolChoiceGroup,
-  ToolDisclosure,
-  ToolKeyValueList,
-  ToolPrimaryResult,
-  ToolQuantityInput,
-  ToolStatus,
-  ToolTextField,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiCheckbox, UiChoiceGroup, UiDisclosure, UiQuantityInput, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiAllocationBar, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import {
   BACKUP_321_DISPLAY_UNITS,
   BACKUP_321_MODELS,
@@ -48,9 +36,9 @@ type Calculated = Readonly<{
 type FieldErrors = Record<string, string>;
 type InputKey = keyof Backup321Input;
 
-const sourceUnits = BACKUP_321_SOURCE_UNITS.map((unit) => toolOption(unit, unit));
-const displayUnits = BACKUP_321_DISPLAY_UNITS.map((unit) => toolOption(unit, unit));
-const models = BACKUP_321_MODELS.map((model) => toolOption(
+const sourceUnits = BACKUP_321_SOURCE_UNITS.map((unit) => uiOption(unit, unit));
+const displayUnits = BACKUP_321_DISPLAY_UNITS.map((unit) => uiOption(unit, unit));
+const models = BACKUP_321_MODELS.map((model) => uiOption(
   model,
   model === "full-only" ? "Full-only" : "Full plus incremental",
 ));
@@ -150,14 +138,14 @@ function Result({
   return (
     <section aria-label="Backup plan result" className={styles.result} data-testid="backup-321-result">
       <h2 className={styles.resultHeading} id="backup-321-result-heading" tabIndex={-1}>Backup plan result</h2>
-      <ToolPrimaryResult
+      <UiPrimaryResult
         label="One backup target capacity"
         value={display(values.targetBytes.value)}
       />
 
       <section aria-labelledby="target-summary-heading" className={styles.resultSection}>
         <h3 id="target-summary-heading">Target summary</h3>
-        <ToolKeyValueList rows={[
+        <UiKeyValueList rows={[
           { label: "Local target", value: "Copy 2, equal to one target" },
           { label: "Off-site target", value: "Copy 3, equal to one target" },
           { label: "Both targets", value: display(values.totalTargetBytes.value) },
@@ -166,7 +154,7 @@ function Result({
 
       <section aria-labelledby="capacity-breakdown-heading" className={styles.resultSection}>
         <h3 id="capacity-breakdown-heading">Capacity breakdown</h3>
-        <ToolAllocationBar
+        <UiAllocationBar
           ariaLabel="Repository and headroom allocation"
           formatValue={(value) => display(value as bigint)}
           palette="categorical"
@@ -180,7 +168,7 @@ function Result({
 
       <section aria-labelledby="model-summary-heading" className={styles.resultSection}>
         <h3 id="model-summary-heading">Model and source</h3>
-        <ToolKeyValueList rows={[
+        <UiKeyValueList rows={[
           { label: "Backup model", value: modelLabel(values.backupModel) },
           { label: "Retained points", value: `${values.retainedPoints} restore points` },
           { label: "Projected source", value: display(values.projectedSourceBytes.value) },
@@ -191,7 +179,7 @@ function Result({
       {recovery ? (
         <section aria-labelledby="recovery-heading" className={styles.resultSection}>
           <h3 id="recovery-heading">Recovery goals</h3>
-          <ToolKeyValueList rows={[
+          <UiKeyValueList rows={[
             { label: "RPO", value: statusText(recovery.rpoPasses, `${input.backupIntervalHours}h interval / ${input.targetRpoHours}h target`) },
             { label: "Local full restore", value: statusText(recovery.localRtoPasses, `Estimated ${formatBackup321Seconds(recovery.localRestoreSeconds.value)} / ${input.targetRtoHours}h target`) },
             { label: "Off-site full restore", value: statusText(recovery.offsiteRtoPasses, `Estimated ${formatBackup321Seconds(recovery.offsiteRestoreSeconds.value)} / ${input.targetRtoHours}h target`) },
@@ -201,7 +189,7 @@ function Result({
 
       <section aria-labelledby="copy-relationship-heading" className={styles.resultSection}>
         <h3 id="copy-relationship-heading">Copy relationship</h3>
-        <ToolKeyValueList rows={[
+        <UiKeyValueList rows={[
           { label: "Copy 1", value: "Source" },
           { label: "Copy 2", value: "Local" },
           { label: "Copy 3", value: "Off-site" },
@@ -210,25 +198,25 @@ function Result({
       </section>
 
       <div className={styles.resultActions} data-result-actions>
-        <ToolActionRow>
-          <ToolButton aria-label={copyState === "copied" ? "Copied" : "Copy summary"} onPress={onCopy}>
+        <UiActionRow>
+          <UiButton aria-label={copyState === "copied" ? "Copied" : "Copy summary"} onPress={onCopy}>
             {copyState === "copied" ? <Check aria-hidden="true" size={17} /> : <Copy aria-hidden="true" size={17} />}
             {copyState === "copied" ? "Copied" : "Copy summary"}
-          </ToolButton>
-          <ToolButton aria-label="Share plan" onPress={onShare}>
+          </UiButton>
+          <UiButton aria-label="Share plan" onPress={onShare}>
             <Share2 aria-hidden="true" size={17} />
             Share plan
-          </ToolButton>
-        </ToolActionRow>
+          </UiButton>
+        </UiActionRow>
       </div>
       {copyState === "failed" ? (
-        <ToolTextField label="Copy summary" readOnly value={summary.replaceAll("\n", " | ")} />
+        <UiTextField label="Copy summary" readOnly value={summary.replaceAll("\n", " | ")} />
       ) : null}
-      {shareUrl ? <ToolTextField label="Share URL" readOnly value={shareUrl} /> : null}
+      {shareUrl ? <UiTextField label="Share URL" readOnly value={shareUrl} /> : null}
 
-      <ToolDisclosure label="Formula receipt">
+      <UiDisclosure label="Formula receipt">
         <div className={styles.receipt}>
-          <ToolKeyValueList rows={[
+          <UiKeyValueList rows={[
             { label: "Versions", value: `Formula ${values.calculationVersion}; input ${values.inputVersion}; engine ${values.engineVersion}` },
             { label: "Classification", value: "Estimated" },
             { label: "Uncertainty", value: uncertainty.statement },
@@ -266,7 +254,7 @@ function Result({
             </ul>
           </div>
         </div>
-      </ToolDisclosure>
+      </UiDisclosure>
     </section>
   );
 }
@@ -392,7 +380,7 @@ export function Backup321Calculator({ initialState }: { initialState: string }) 
     if (!calculated) return;
     const didCopy = await copyText(copySummary(calculated.input, calculated.values));
     setCopyState(didCopy ? "copied" : "failed");
-    setStatus(didCopy ? "Summary copied." : "Copy failed. Select summary.");
+    setStatus(didCopy ? "Summary copied." : "Copy failed. UiSelect summary.");
     if (didCopy) window.setTimeout(() => setCopyState("idle"), 1600);
   }
 
@@ -412,7 +400,7 @@ export function Backup321Calculator({ initialState }: { initialState: string }) 
   }
 
   const textField = (key: InputKey, label: string, inputMode: "decimal" | "numeric" = "decimal") => (
-    <ToolTextField
+    <UiTextField
       dataFocusKey={key}
       error={errors[key]}
       inputMode={inputMode}
@@ -424,7 +412,7 @@ export function Backup321Calculator({ initialState }: { initialState: string }) 
   );
 
   const numberField = (key: InputKey, label: string) => (
-    <ToolTextField
+    <UiTextField
       dataFocusKey={key}
       error={errors[key]}
       inputMode="numeric"
@@ -441,7 +429,7 @@ export function Backup321Calculator({ initialState }: { initialState: string }) 
         <section className={styles.formSection}>
           <h2>Protected data and planning</h2>
           <div className={styles.controlGrid}>
-            <ToolQuantityInput
+            <UiQuantityInput
               ariaLabel="Protected data"
               dataFocusKey="sourceData"
               error={errors.sourceData}
@@ -461,7 +449,7 @@ export function Backup321Calculator({ initialState }: { initialState: string }) 
 
         <section className={styles.formSection}>
           <h2>Backup policy</h2>
-          <ToolChoiceGroup
+          <UiChoiceGroup
             error={errors.backupModel}
             label="Backup model"
             onChange={(value) => update("backupModel", value as Backup321Model)}
@@ -477,12 +465,12 @@ export function Backup321Calculator({ initialState }: { initialState: string }) 
         </section>
 
         <div className={styles.recoveryToggle}>
-          <ToolCheckbox
+          <UiCheckbox
             isSelected={input.recoveryChecksEnabled}
             onChange={(selected) => update("recoveryChecksEnabled", selected)}
           >
             Check recovery goals
-          </ToolCheckbox>
+          </UiCheckbox>
         </div>
 
         {input.recoveryChecksEnabled ? (
@@ -499,7 +487,7 @@ export function Backup321Calculator({ initialState }: { initialState: string }) 
           </section>
         ) : null}
 
-        <ToolChoiceGroup
+        <UiChoiceGroup
           label="Show capacities in"
           onChange={(value) => updateDisplayUnit(value as Backup321DisplayUnit)}
           options={displayUnits}
@@ -508,17 +496,17 @@ export function Backup321Calculator({ initialState }: { initialState: string }) 
         />
 
         <div className={styles.formActions}>
-          <ToolActionRow>
-            <ToolButton isDisabled={!isHydrated} type="submit" variant="primary">
+          <UiActionRow>
+            <UiButton isDisabled={!isHydrated} type="submit" variant="primary">
               Calculate backup plan
-            </ToolButton>
-            <ToolButton onPress={reset} type="button">
+            </UiButton>
+            <UiButton onPress={reset} type="button">
               <RotateCcw aria-hidden="true" size={17} />
               Reset
-            </ToolButton>
-          </ToolActionRow>
+            </UiButton>
+          </UiActionRow>
         </div>
-        {status ? <ToolStatus tone={status.includes("failed") || status.includes("could not") ? "danger" : "neutral"}>{status}</ToolStatus> : null}
+        {status ? <UiStatus tone={status.includes("failed") || status.includes("could not") ? "danger" : "neutral"}>{status}</UiStatus> : null}
       </form>
 
       {calculated ? (

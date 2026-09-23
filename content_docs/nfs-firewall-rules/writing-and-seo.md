@@ -1,13 +1,13 @@
 # Writing and SEO plan: NFS Firewall Rules Planner
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Tool: NFS Firewall Rules Planner
 Route: `/nfs-firewall-rules`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
 SERP checked: 2026-08-09
 Primary medium: Tool UI
-Prose is the minority: yes
-Static prose budget: 4 sections, 520 words maximum
 
 ## Search intent
 
@@ -53,16 +53,16 @@ Choose the NFS version, protected Linux host, peer CIDR, and firewall to produce
 
 | Order | Level and proposed heading | User question | Takeaway, not draft prose | Medium | Evidence | Limit/repetition guard | Writer section ID |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | H1: `NFS Firewall Rules Planner` plus short introduction | What does this page produce? | Name server-or-client host scope, result table and firewall fragments, local calculation, and no-live-inspection boundary | Sentences | `brief.md`; implementation R1 and R20 | 70 words maximum, one paragraph | COPY-01 |
+| 1 | H1: `NFS Firewall Rules Planner` plus short introduction | What does this page produce? | Name server-or-client host scope, result table and firewall fragments, local calculation, and no-live-inspection boundary | Sentences | `brief.md`; implementation R1 and R20 | Prose. | COPY-01 |
 | 2 | Interactive planner | Which facts change the plan? | Collect version, protected host, firewall family, address family, peer CIDR, transport, and branch-specific verified ports | Tool UI | Implementation input contract | Tool stays before supporting content; no click instructions | n/a |
 | 3 | Dynamic listener plan | Which inbound listeners fit this scenario? | Return invalid, incomplete, ready, or no-additional-rule; show endpoint, source, protocol, port, and provenance without guessing | Exact result visualization | Implementation and test contract | Do not restate rows below the tool | n/a |
 | 4 | H2: `What changes between NFSv3 and NFSv4` | Why is the port set different? | Compare protected host, version, fixed listener, verified listener, and callback boundary in repeated rows | Table | RFC 7530, RFC 8881, RHEL 9 NFS docs | Four compact rows; no commands or helper-port examples | n/a |
 | 5 | Incomplete NFSv3 state | What happens before every helper port is known? | Show protocol-fixed rows and exact missing facts, with no translation or copy | Exact result visualization | Implementation R10; FF-010 | Keep recovery beside the missing fields | n/a |
-| 6 | H2: `Verify NFSv3 helper ports on the protected host` | Where do mountd, statd, and lockd values come from? | Use local configuration and active listener evidence; dynamic examples are not defaults; incomplete plans intentionally withhold syntax | Sentences | RHEL 9; `nfs.conf(5)`; competitive evidence | 120 words maximum in two paragraphs | COPY-02 |
+| 6 | H2: `Verify NFSv3 helper ports on the protected host` | Where do mountd, statd, and lockd values come from? | Use local configuration and active listener evidence; dynamic examples are not defaults; incomplete plans intentionally withhold syntax | Sentences | RHEL 9; `nfs.conf(5)`; competitive evidence | Prose. | COPY-02 |
 | 7 | Firewall translation | What syntax can be reviewed after the neutral plan is complete? | Show source-scoped commands or expressions under the selected firewalld, UFW, or nftables boundary | Exact result visualization | Implementation R12 to R14 | No apply button or universal context | n/a |
-| 8 | H2: `Treat the output as a review plan` | What do fixed, user verified, and firewall translation mean? | Explain the neutral table first, source scope, firewalld zone context, UFW IPv6 boundary, and existing-chain nftables fragment | Sentences | Firewalld, UFW, Netfilter docs; implementation R12 to R15 | 140 words maximum; do not narrate visible rows | COPY-03 |
+| 8 | H2: `Treat the output as a review plan` | What do fixed, user verified, and firewall translation mean? | Explain the neutral table first, source scope, firewalld zone context, UFW IPv6 boundary, and existing-chain nftables fragment | Sentences | Firewalld, UFW, Netfilter docs; implementation R12 to R15 | Do not narrate visible rows. | COPY-03 |
 | 9 | Verification list and formula provenance | What should be checked next and which contract produced the result? | Keep version-pinned mount, listener, firewall, and negotiated-option checks with formula version and source date | Exact result visualization | Implementation R15 and R20 | Do not repeat the sequence in prose | n/a |
-| 10 | H2: `What the planner cannot verify` | What still needs checking on real hosts? | State no live inspection, application, routing, export, permissions, SELinux, identity, or reachability proof; calculation stays in current browser; use rendered verification steps | Sentences | Product non-goals, privacy tests, RHEL verification path | 130 words maximum in two short paragraphs | COPY-04 |
+| 10 | H2: `What the planner cannot verify` | What still needs checking on real hosts? | State no live inspection, application, routing, export, permissions, SELinux, identity, or reachability proof; calculation stays in current browser; use rendered verification steps | Sentences | Product non-goals, privacy tests, RHEL verification path | Prose. | COPY-04 |
 
 No marker art, screenshot, chart, FAQ, methodology section, universal port list, or full NFS tutorial is justified. The exact listener table, version comparison table, command block, and verification list carry the technical relationships.
 
@@ -100,24 +100,18 @@ No existing stack127 page directly continues this host-firewall planning job. Do
 
 ### Sections reserved for later manual writing
 
-| Section ID | Heading | Purpose | Required facts and sources | Word limit and shape | Banned claims or repetition |
+| Section ID | Heading | Purpose | Required facts and sources | Planned format | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
-| COPY-01 | H1 introduction | Define the scenario, output, local handling, and live-system boundary | `brief.md`; implementation R1 and R20 | 70 words maximum in one paragraph | No best, secure, correct, complete-network, scan, or apply claim |
-| COPY-02 | `Verify NFSv3 helper ports on the protected host` | Explain why helper ports cannot be universal defaults and where to verify them | RHEL 9 server/client docs; `nfs.conf(5)`; implementation step 5 | 120 words maximum in two short paragraphs | No example port values, distro setup tutorial, or button narration |
-| COPY-03 | `Treat the output as a review plan` | Explain the table-first model and the selected syntax boundary | Firewalld rich language, UFW manual, Netfilter sets/families; R12 to R15 | 140 words maximum in two paragraphs | No command repetition, application claim, or recommendation of a firewall family |
-| COPY-04 | `What the planner cannot verify` | State the real-system and topology exclusions, privacy boundary, and next check | Product non-goals/exclusions; privacy tests; rendered verification contract | 130 words maximum in two short paragraphs | No guarantee, security audit claim, broad legal/privacy promise, or duplicated verification steps |
+| COPY-01 | H1 introduction | Define the scenario, output, local handling, and live-system boundary | `brief.md`; implementation R1 and R20 | Prose. | No best, secure, correct, complete-network, scan, or apply claim |
+| COPY-02 | `Verify NFSv3 helper ports on the protected host` | Explain why helper ports cannot be universal defaults and where to verify them | RHEL 9 server/client docs; `nfs.conf(5)`; implementation step 5 | Prose. | No example port values, distro setup tutorial, or button narration |
+| COPY-03 | `Treat the output as a review plan` | Explain the table-first model and the selected syntax boundary | Firewalld rich language, UFW manual, Netfilter sets/families; R12 to R15 | Prose. | No command repetition, application claim, or recommendation of a firewall family |
+| COPY-04 | `What the planner cannot verify` | State the real-system and topology exclusions, privacy boundary, and next check | Product non-goals/exclusions; privacy tests; rendered verification contract | Prose. | No guarantee, security audit claim, broad legal/privacy promise, or duplicated verification steps |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
-- Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
-- Do not repeat a result, table, command block, heading, or prior section.
 - Call the output a plan or review fragment, never an applied, secure, reachable, or working firewall configuration.
 - Keep NFSv4.0 and NFSv4.1-or-later callback behavior distinct.
 - Call every NFSv3 helper port user verified or locally assigned. Never present sample values as defaults.
-- Leave unresolved facts as explicit review notes, not plausible copy.
 
 ### Tool-build exclusion
 

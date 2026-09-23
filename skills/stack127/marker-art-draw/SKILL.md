@@ -11,8 +11,8 @@ Use this skill in the current stack127 workspace to turn approved marker art pro
 
 - Read `stack127_docs/marker-art.md` in full. Semantic color, data accuracy, the one takeaway rule, and the no overlap rule all bind here.
 - Identify the role first: spot, hero, explainer, or doodle. Each role has a different composition and rendered-size test in `stack127_docs/marker-art.md`.
-- Look at an existing spec that matches the role. Use `app/(site)/(courses)/self-hosting-for-beginners/basic-setup/art/five-pieces.spec.json` for a flow and `app/(site)/(catalogs)/_components/art/` for tool spots. Use `dev-space/marker-art-samples/` only to understand generator syntax, not as the visual quality bar.
-- Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` for figure labels, captions, and alt text. Keep labels brief and meaningful within the approved composition. House punctuation rules also apply inside SVG text.
+- Look at an existing spec that matches the role. Use `app/(site)/(courses)/self-hosting-for-beginners/basic-setup/art/five-pieces.spec.json` for a flow and `app/(site)/(catalogs)/_components/art/` for tool spots.
+- Read `stack127_docs/writing-style.md` for figure labels, captions, and alt text.
 
 ## Workflow
 
@@ -21,8 +21,8 @@ Use this skill in the current stack127 workspace to turn approved marker art pro
 3. Keep marker art conceptual. Real claims need an honest source, but exact comparisons and quotable values use the clean-chart pipeline. Never fake or eyeball a value.
 4. Remove detail that does not help recognition or the takeaway. Spot art has no visible words and at most one supporting object. Avoid repeated tiny symbols, filler marks, crossing connectors, and color used for variety.
 5. Run `npm run stack127:marker-art` (or pass the specific folder to `node scripts/stack127/marker-art/generate.mjs`). Fix every lint error; treat warnings as things to check visually.
-6. Embed in the page: import the generated `.ts` export and render `<MarkerArt svg={...} caption="..." />` (component at `app/marker-art.tsx`). The caption usually restates the takeaway. Doodles use the documented `Doodle` path instead.
-7. Verify for real: `npx tsc --noEmit`, then load the page in the browser preview. Check the figure at its actual rendered size and as a thumbnail, in dark and light themes, beside its real surrounding content. Also check desktop and mobile when the art remains visible on both.
+6. Embed in the page: import the generated `.ts` export and render `<MarkerArt svg={...} caption="..." />` (component at `app/ui/site/marker-art.tsx`). For stored Markdown, register the approved figure and use the `marker-art://` reference documented in `stack127_docs/shared-ui.md`. The caption usually restates the takeaway. Doodles use the documented `Doodle` path instead.
+7. Verify for real: `npx tsc --noEmit`, then load the page in a browser. Use `skills/stack127/references/homelab-browser-and-search.md` for headless Chrome when the in-app browser is unavailable. Check the figure at its actual rendered size and as a thumbnail, in dark and light themes, beside its real surrounding content. Also check desktop and mobile when the art remains visible on both.
 8. Reject a figure when the subject becomes an anonymous knot of strokes, the art competes with the h1 or tool, the reading direction is unclear, or understanding depends on a caption explaining the drawing. Simplify or split it and regenerate. Never edit a generated `.svg` or `.ts` by hand.
 
 ## When the Generator Falls Short

@@ -7,6 +7,8 @@ description: Use when the user provides a generated cover image for Stack127 and
 
 Use this skill after the user provides a generated cover image.
 
+Use `stack127_docs/writing-style.md` for alt text, descriptions, and other public wording.
+
 ## Required Output Asset
 
 Prepare a site-ready image:

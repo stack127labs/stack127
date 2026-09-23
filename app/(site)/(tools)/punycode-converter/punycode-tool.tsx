@@ -2,14 +2,8 @@
 
 import Link from "next/link";
 import { useRef, useState, type FormEvent } from "react";
-import {
-  ToolButton,
-  ToolCopyAction,
-  ToolDataTable,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiCopyAction, UiTextField } from "@/app/ui/controls";
+import { UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";
 import {
   characterRows,
   inspectInput,
@@ -36,7 +30,7 @@ function ConvertedForms({ outcome }: { outcome: PunycodeOutcome }) {
           <div key={row.label}>
             <dt>{row.label}</dt>
             <dd><code>{row.value}</code></dd>
-            <ToolCopyAction label={row.copy} successLabel={row.success} value={row.value} />
+            <UiCopyAction label={row.copy} successLabel={row.success} value={row.value} />
           </div>
         ))}
       </dl>
@@ -47,10 +41,10 @@ function ConvertedForms({ outcome }: { outcome: PunycodeOutcome }) {
 
 function LabelTable({ outcome }: { outcome: PunycodeOutcome }) {
   return (
-    <ToolDataTable
+    <UiDataTable
       ariaLabel="Hostname label breakdown"
       columns={[
-        { id: "label", label: "Label" },
+        { id: "label", label: "UiLabel" },
         { id: "unicode", label: "Unicode" },
         { id: "ascii", label: "ASCII for DNS" },
         { id: "scripts", label: "Scripts" },
@@ -76,10 +70,10 @@ function CharacterTable({ outcome }: { outcome: PunycodeOutcome }) {
   return (
     <section className={styles.section}>
       <h2>Characters in non-ASCII labels</h2>
-      <ToolDataTable
+      <UiDataTable
         ariaLabel="Characters in non-ASCII labels"
         columns={[
-          { id: "position", label: "Label and position" },
+          { id: "position", label: "UiLabel and position" },
           { id: "character", label: "Character" },
           { id: "codePoint", label: "Code point" },
           { id: "name", label: "Unicode name" },
@@ -112,14 +106,14 @@ function Results({ outcome }: { outcome: PunycodeOutcome }) {
         </section>
       ) : null}
 
-      <ToolResultLead>{scriptAssessment(outcome.labels)}</ToolResultLead>
+      <UiResultLead>{scriptAssessment(outcome.labels)}</UiResultLead>
 
       <p className={outcome.hostnameOctets > 253 ? styles.danger : styles.length}>
         ASCII hostname length: <strong>{outcome.hostnameOctets} of 253 bytes</strong>
       </p>
 
       <section className={styles.section}>
-        <h2>Label breakdown</h2>
+        <h2>UiLabel breakdown</h2>
         <LabelTable outcome={outcome} />
       </section>
 
@@ -209,7 +203,7 @@ export function PunycodeTool() {
   return (
     <section aria-label="Punycode and IDN converter" className={`domain-tool ${styles.workbench}`} data-tool-workbench>
       <form aria-busy={busy} className={styles.form} onSubmit={submit}>
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           autoComplete="off"
           className={styles.queryField}
@@ -225,11 +219,11 @@ export function PunycodeTool() {
           spellCheck={false}
           value={value}
         />
-        <ToolButton aria-busy={busy} className={styles.submit} isDisabled={busy} type="submit" variant="primary">
+        <UiButton aria-busy={busy} className={styles.submit} isDisabled={busy} type="submit" variant="primary">
           {busy ? "Converting..." : "Convert domain"}
-        </ToolButton>
-        {busy ? <ToolStatus>Loading Unicode data and converting...</ToolStatus> : null}
-        {failure ? <ToolStatus tone="danger">{failure}</ToolStatus> : null}
+        </UiButton>
+        {busy ? <UiStatus>Loading Unicode data and converting...</UiStatus> : null}
+        {failure ? <UiStatus tone="danger">{failure}</UiStatus> : null}
       </form>
       {outcome ? <Results outcome={outcome} /> : null}
     </section>

@@ -10,7 +10,8 @@ Use this skill in `/Users/ravitejaknts/projects/Stack127` for strict, evidence-b
 ## First Checks
 
 - Read `AGENTS.md`.
-- Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` and its house-conventions companion, `stack127_docs/writing-style.md`.
+- Read `stack127_docs/writing-style.md` for all writing guidance.
+- Read `stack127_docs/shared-ui.md` when assessing tables, charts, callouts, formulas, or Markdown presentation.
 - If the target belongs to a page family with docs, read `content_docs/<page-slug>/` before judging the page.
 - Inspect the route/source under `app/`, the shared shell/components it uses, and any page-specific docs or manifest files that define scope.
 - If the user says "check", "evaluate", "audit", or "tell me", stay read-only unless they explicitly ask for edits.
@@ -61,10 +62,7 @@ Do not drift into a full product, directory, database, performance, SEO, or desi
    - For a list of pages or a course, check the learner path from first page to last: setup assumptions, introduced concepts, repeated claims, skipped prerequisites, and handoffs.
    - Identify exact places where a new reader will likely pause, branch out, or get lost.
 
-6. Judge voice and trust.
-   - Apply the shared writing-voice skill at the tone appropriate to the page. Page-family docs may define facts and format, not a competing voice.
-   - Check for generic filler, AI-tell phrasing, overconfident safety claims, weak caveats, repeated facts, unsupported "easy/simple" claims, and tone mismatch.
-   - Prefer concrete, lived-in examples over broad category lists.
+6. Review the writing against `stack127_docs/writing-style.md` and verify that claims match the sources and implemented behavior.
 
 7. Produce a strict verdict.
    - Lead with the actual answer: launch-ready, needs minor fixes, needs major revision, or do not launch.
@@ -75,16 +73,7 @@ Do not drift into a full product, directory, database, performance, SEO, or desi
 
 ## Quality Bar
 
-A strong Stack127 written page should:
-
-- answer the real search/user intent quickly
-- make a clear recommendation when the reader needs one
-- name exact tools, settings, examples, caveats, and verification steps when they matter
-- explain terms only when they first matter
-- use internal links to preserve the path instead of re-explaining everything
-- link official or primary sources for tools, install steps, policy, specs, and factual claims
-- leave a beginner less confused and a technical reader more trusting
-- avoid being a shallow wrapper around competitor docs
+The page must give its intended reader enough verified information to complete the task. Use the shared writing guide to judge how clearly it communicates, and the coverage and competitor checks above to identify missing substance.
 
 A course or page sequence must also:
 

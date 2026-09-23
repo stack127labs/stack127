@@ -1,23 +1,15 @@
 "use client";
 
 import { useMemo, useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolDataTable,
-  ToolDownloadAction,
-  ToolRawOutput,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiDownloadAction, UiRawOutput, UiTextField } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";
 import type { CaaRecord } from "@/lib/dns/diagnostic-types.ts";
 import { diagnosticReportJson } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
 import styles from "./caa-checker.module.css";
 
 type SearchReason = "requested" | "alias" | "parent";
 
-type Level = {
+type UiLevel = {
   name: string;
   searchReason: SearchReason;
   responseCode: string | null;
@@ -39,7 +31,7 @@ type Result = {
   query: { inputName: string };
   status: "undetermined" | "policy_found" | "no_policy";
   effectiveName: string | null;
-  levels: Level[];
+  levels: UiLevel[];
   records: CaaRecord[];
   normal: Policy;
   wildcard: Policy;
@@ -68,7 +60,7 @@ function reasonLabel(reason: SearchReason) {
   return "Parent name";
 }
 
-function levelOutcome(level: Level) {
+function levelOutcome(level: UiLevel) {
   if (level.error) return "Lookup failed";
   if (level.records.length) {
     return `Policy found, ${level.records.length.toLocaleString("en-US")} ${level.records.length === 1 ? "record" : "records"}`;
@@ -76,7 +68,7 @@ function levelOutcome(level: Level) {
   return "No CAA here";
 }
 
-function rawEvidence(levels: Level[]) {
+function rawEvidence(levels: UiLevel[]) {
   return levels.map((level) => ({
     name: level.name,
     searchReason: level.searchReason,
@@ -121,7 +113,7 @@ function PolicyLead({ result }: { result: Result }) {
       className={styles.lead}
       role={undetermined ? "alert" : "region"}
     >
-      <ToolResultLead>Effective CAA policy</ToolResultLead>
+      <UiResultLead>Effective CAA policy</UiResultLead>
 
       {undetermined ? (
         <div className={styles.undetermined}>
@@ -161,7 +153,7 @@ function PolicyLead({ result }: { result: Result }) {
   );
 }
 
-function LookupPath({ levels }: { levels: Level[] }) {
+function LookupPath({ levels }: { levels: UiLevel[] }) {
   return (
     <section aria-labelledby="caa-path-heading" className={styles.evidenceSection}>
       <h3 id="caa-path-heading">Where the policy came from</h3>
@@ -235,7 +227,7 @@ export function CaaChecker({ initialName = "" }: { initialName?: string }) {
   return (
     <section aria-label="CAA policy checker" className={styles.workbench} data-tool-workbench>
       <form aria-busy={loading} className={styles.form} onSubmit={submit}>
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           autoComplete="off"
           className={styles.queryField}
@@ -254,7 +246,7 @@ export function CaaChecker({ initialName = "" }: { initialName?: string }) {
           type="text"
           value={name}
         />
-        <ToolButton
+        <UiButton
           aria-busy={loading}
           className={styles.submit}
           isDisabled={loading}
@@ -262,10 +254,10 @@ export function CaaChecker({ initialName = "" }: { initialName?: string }) {
           variant="primary"
         >
           {loading ? "Checking CAA policy..." : "Check CAA policy"}
-        </ToolButton>
+        </UiButton>
         {loading ? (
           <div className={styles.loadingStatus}>
-            <ToolStatus>Checking CAA policy...</ToolStatus>
+            <UiStatus>Checking CAA policy...</UiStatus>
           </div>
         ) : null}
       </form>
@@ -276,14 +268,14 @@ export function CaaChecker({ initialName = "" }: { initialName?: string }) {
 
           {qualifications.length ? (
             <div aria-label="Policy qualifications" className={styles.qualifications}>
-              <ToolStatus tone="warning">{qualifications.join(" ")}</ToolStatus>
+              <UiStatus tone="warning">{qualifications.join(" ")}</UiStatus>
             </div>
           ) : null}
 
           {result.status !== "undetermined" && result.records.length ? (
             <section aria-labelledby="caa-records-heading" className={styles.evidenceSection}>
               <h3 id="caa-records-heading">The records that create this policy</h3>
-              <ToolDataTable
+              <UiDataTable
                 ariaLabel="Effective CAA records"
                 columns={[
                   { id: "flag", label: "Flag" },
@@ -312,16 +304,16 @@ export function CaaChecker({ initialName = "" }: { initialName?: string }) {
             Checked {new Date(result.checkedAt).toLocaleString()} in {result.durationMs.toLocaleString("en-US")} ms.
           </p>
 
-          <ToolActionRow>
-            <ToolDownloadAction
+          <UiActionRow>
+            <UiDownloadAction
               contents={report}
               filename={`${result.query.inputName}-caa-report.json`}
               label="Download report"
               mimeType="application/json;charset=utf-8"
             />
-          </ToolActionRow>
+          </UiActionRow>
 
-          <ToolRawOutput label="Raw CAA responses" value={rawEvidence(result.levels)} />
+          <UiRawOutput label="Raw CAA responses" value={rawEvidence(result.levels)} />
         </section>
       ) : null}
     </section>

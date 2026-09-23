@@ -1,20 +1,7 @@
 "use client";
 
-import {
-  ToolActionRow,
-  ToolAllocationBar,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolCopyAction,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolKeyValueList,
-  ToolPrimaryResult,
-  ToolQuantityInput,
-  ToolSelect,
-  ToolTextField,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiCopyAction, UiDisclosure, UiQuantityInput, UiSelect, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiAllocationBar, UiDataTable, UiKeyValueList, UiPrimaryResult } from "@/app/ui/display";
 import {
   ZFS_PADDING_CALCULATION_VERSION,
   ZFS_PADDING_INPUT_VERSION,
@@ -56,15 +43,15 @@ type Calculated = {
 const KiB = 1_024;
 const MiB = 1_048_576;
 const allBlockSizes = Array.from({ length: 16 }, (_, index) => 512 * 2 ** index);
-const levelOptions = ["raidz1", "raidz2", "raidz3"].map((level) => toolOption(level, level.toUpperCase()));
-const workloadOptions = [toolOption("filesystem", "Filesystem"), toolOption("zvol", "Zvol")];
+const levelOptions = ["raidz1", "raidz2", "raidz3"].map((level) => uiOption(level, level.toUpperCase()));
+const workloadOptions = [uiOption("filesystem", "Filesystem"), uiOption("zvol", "Zvol")];
 const ashiftOptions = [
-  toolOption("9", "9, 512 B"),
-  toolOption("12", "12, 4 KiB"),
-  toolOption("13", "13, 8 KiB"),
-  toolOption("14", "14, 16 KiB"),
+  uiOption("9", "9, 512 B"),
+  uiOption("12", "12, 4 KiB"),
+  uiOption("13", "13, 8 KiB"),
+  uiOption("14", "14, 16 KiB"),
 ];
-const sizeUnits = ["B", "KiB", "MiB"].map((unit) => toolOption(unit, unit));
+const sizeUnits = ["B", "KiB", "MiB"].map((unit) => uiOption(unit, unit));
 
 function defaultEditor(): EditorState {
   return {
@@ -257,8 +244,8 @@ export function ZfsPaddingCalculator({ initialState }: { initialState: string })
     : [...allowedPresets, Number(editor.blockSize)].sort((a, b) => a - b);
   const blockProperty = editor.workload === "filesystem" ? "recordsize" : "volblocksize";
   const blockOptions = availablePresets
-    .map((bytes) => toolOption(String(bytes), presetLabel(bytes)))
-    .concat(toolOption("custom", "Custom"));
+    .map((bytes) => uiOption(String(bytes), presetLabel(bytes)))
+    .concat(uiOption("custom", "Custom"));
   const values = calculated?.result.values ?? null;
   const allocationSegments = values ? [
     { id: "logical-data", label: "Logical data", tone: "chartreuse" as const, value: values.blockSizeBytes },
@@ -295,14 +282,14 @@ export function ZfsPaddingCalculator({ initialState }: { initialState: string })
         <section aria-labelledby="geometry-heading" className={styles.inputGroup}>
           <h2 id="geometry-heading">Geometry</h2>
           <div className={styles.geometryGrid}>
-            <ToolChoiceGroup
+            <UiChoiceGroup
               label="RAIDZ level"
               onChange={(level) => updateEditor({ ...editor, level: level as ZfsPaddingLevel }, true)}
               options={levelOptions}
               required
               value={editor.level}
             />
-            <ToolTextField
+            <UiTextField
               dataFocusKey="width"
               error={errors.width}
               inputMode="numeric"
@@ -318,7 +305,7 @@ export function ZfsPaddingCalculator({ initialState }: { initialState: string })
         <section aria-labelledby="block-model-heading" className={styles.inputGroup}>
           <h2 id="block-model-heading">Block model</h2>
           <div className={styles.blockGrid}>
-            <ToolChoiceGroup
+            <UiChoiceGroup
               label="Workload"
               onChange={(workload) => updateEditor({ ...editor, workload: workload as ZfsPaddingWorkload }, true)}
               options={workloadOptions}
@@ -326,7 +313,7 @@ export function ZfsPaddingCalculator({ initialState }: { initialState: string })
               value={editor.workload}
             />
             <div className={styles.blockSizeColumn}>
-              <ToolSelect
+              <UiSelect
                 dataFocusKey="block-size"
                 error={editor.custom ? null : errors.blockSizeBytes}
                 label={blockProperty}
@@ -340,7 +327,7 @@ export function ZfsPaddingCalculator({ initialState }: { initialState: string })
                 value={editor.custom ? "custom" : editor.blockSize}
               />
               {editor.custom ? (
-                <ToolQuantityInput
+                <UiQuantityInput
                   dataFocusKey="custom-block"
                   error={errors.blockSizeBytes}
                   label="Custom block size"
@@ -355,7 +342,7 @@ export function ZfsPaddingCalculator({ initialState }: { initialState: string })
               ) : null}
             </div>
             <div className={styles.ashiftField}>
-              <ToolChoiceGroup
+              <UiChoiceGroup
                 label="ashift"
                 onChange={(ashift) => updateEditor({ ...editor, ashift: ashift as EditorState["ashift"] })}
                 options={ashiftOptions}
@@ -367,10 +354,10 @@ export function ZfsPaddingCalculator({ initialState }: { initialState: string })
         </section>
 
         <div className={styles.formActions}>
-          <ToolActionRow>
-            <ToolButton type="submit" variant="primary">Calculate allocation</ToolButton>
-            <ToolButton onPress={reset} type="button" variant="ghost"><RotateCcw aria-hidden="true" size={18} />Reset</ToolButton>
-          </ToolActionRow>
+          <UiActionRow>
+            <UiButton type="submit" variant="primary">Calculate allocation</UiButton>
+            <UiButton onPress={reset} type="button" variant="ghost"><RotateCcw aria-hidden="true" size={18} />Reset</UiButton>
+          </UiActionRow>
         </div>
         {restoreStatus ? <p className={styles.metadata}>{restoreStatus}</p> : null}
         {feedback.startsWith("Calculation failed") ? <p className={styles.error} ref={failureRef} role="alert" tabIndex={-1}>{feedback}</p> : null}
@@ -379,7 +366,7 @@ export function ZfsPaddingCalculator({ initialState }: { initialState: string })
       {values && calculated ? (
         <div className={styles.result}>
           <div className={styles.resultLead} data-testid="result-lead" ref={resultRef} tabIndex={-1}>
-            <ToolPrimaryResult
+            <UiPrimaryResult
               detail={`For one ${formatZfsPaddingBytes(calculated.input.blockSizeBytes)} logical block at ${formatZfsPaddingPercentage(values.efficiencyBasisPoints)} efficiency.`}
               label="Physical allocation"
               value={<span data-testid="physical-bytes">{formatZfsPaddingBytes(values.physicalBytes)}</span>}
@@ -388,7 +375,7 @@ export function ZfsPaddingCalculator({ initialState }: { initialState: string })
 
           <section aria-labelledby="allocation-heading" className={styles.resultSection}>
             <h2 id="allocation-heading">Allocation composition</h2>
-            <ToolAllocationBar
+            <UiAllocationBar
               ariaLabel="Physical allocation composition"
               formatValue={(value) => formatZfsPaddingBytes(value as bigint)}
               palette="categorical"
@@ -399,7 +386,7 @@ export function ZfsPaddingCalculator({ initialState }: { initialState: string })
 
           <section aria-labelledby="comparison-heading" className={styles.resultSection}>
             <h2 id="comparison-heading">Nearby block sizes</h2>
-            <ToolDataTable
+            <UiDataTable
               ariaLabel="Nearby block sizes"
               columns={[
                 { id: "blockSize", label: "Block size" },
@@ -411,9 +398,9 @@ export function ZfsPaddingCalculator({ initialState }: { initialState: string })
           </section>
 
           <div className={styles.calculationDetails}>
-            <ToolDisclosure label="Calculation details">
+            <UiDisclosure label="Calculation details">
               <div className={styles.calculationFlow}>
-                <ToolDataTable
+                <UiDataTable
                   ariaLabel="Calculation steps"
                   columns={[
                     { id: "step", label: "Step" },
@@ -422,7 +409,7 @@ export function ZfsPaddingCalculator({ initialState }: { initialState: string })
                   ]}
                   rows={calculationRows}
                 />
-                <ToolKeyValueList rows={[
+                <UiKeyValueList rows={[
                   { label: "Formula version", value: `v${ZFS_PADDING_CALCULATION_VERSION}` },
                   { label: "Assumption", value: "Uncompressed block" },
                   { label: "Excluded", value: "Pool effects excluded" },
@@ -436,14 +423,14 @@ export function ZfsPaddingCalculator({ initialState }: { initialState: string })
                   ))}
                 </ul>
               </div>
-            </ToolDisclosure>
+            </UiDisclosure>
           </div>
 
           <div className={styles.resultActions}>
-            <ToolActionRow>
-              <ToolCopyAction label="Copy summary" value={buildZfsPaddingCopySummary(calculated.input, values)} />
-              <ToolButton onPress={share} type="button" variant="secondary"><Share2 aria-hidden="true" size={18} />Share configuration</ToolButton>
-            </ToolActionRow>
+            <UiActionRow>
+              <UiCopyAction label="Copy summary" value={buildZfsPaddingCopySummary(calculated.input, values)} />
+              <UiButton onPress={share} type="button" variant="secondary"><Share2 aria-hidden="true" size={18} />Share configuration</UiButton>
+            </UiActionRow>
           </div>
           {feedback && !feedback.startsWith("Fix") && !feedback.startsWith("Calculation failed") ? <p className={styles.metadata}>{feedback}</p> : null}
         </div>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { InfoPage } from "@/app/info-page";
+import { InfoPage } from "@/app/ui/site/info-page";
 import { siteHeroAboutArt } from "../../art/site--hero-about";
 
 export default function AboutPage() {

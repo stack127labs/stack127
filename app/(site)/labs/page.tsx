@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { labProjects as projects } from "./projects";
 import { FaGithub } from "react-icons/fa6";
-import { InfoPage } from "../../info-page";
+import { InfoPage } from "../../ui/site/info-page";
 import { siteSpotLabsArt } from "../art/site--spot-labs";
 import styles from "./labs.module.css";
 

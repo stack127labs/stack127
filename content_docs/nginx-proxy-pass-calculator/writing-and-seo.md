@@ -1,13 +1,13 @@
 # Writing and SEO plan: NGINX proxy_pass URI Calculator
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Tool: NGINX proxy_pass URI Calculator
 Route: `/nginx-proxy-pass-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
 SERP checked: 2026-08-09
 Primary medium: Tool UI
-Prose is the minority: yes
-Static prose budget: 4 sections, 520 words maximum
 
 ## Search intent
 
@@ -52,15 +52,15 @@ Enter the matched static location, incoming request target, and `proxy_pass` URL
 
 | Order | Level and proposed heading | User question | Takeaway, not draft prose | Medium | Evidence | Limit/repetition guard | Writer section ID |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | H1: `NGINX proxy_pass URI Calculator: see the upstream URL` | What answer will I get? | Name the three inputs, final URL and trace, browser-local calculation, and live-instance boundary | Sentences | `brief.md`; implementation R8 and R14 | 65 words maximum; no formula lesson | COPY-01 |
+| 1 | H1: `NGINX proxy_pass URI Calculator: see the upstream URL` | What answer will I get? | Name the three inputs, final URL and trace, browser-local calculation, and live-instance boundary | Sentences | `brief.md`; implementation R8 and R14 | No formula lesson. | COPY-01 |
 | 2 | Interactive calculator and dynamic result | What does this configuration do? | Calculate only after submit; show answer, trace, comparison, or no-guess recovery | Tool UI | Implementation and test contract | Keep the tool primary | n/a |
-| 3 | H2: `Use the location NGINX actually matched` | Which values should I enter? | Use the selected literal prefix or exact location, raw request target, and directive URL | Sentences | NGINX location and proxy docs | 90 words; no full location-selection tutorial | COPY-02 |
+| 3 | H2: `Use the location NGINX actually matched` | Which values should I enter? | Use the selected literal prefix or exact location, raw request target, and directive URL | Sentences | NGINX location and proxy docs | No full location-selection tutorial. | COPY-02 |
 | 4 | H3: `Common static cases` | How do omitted URI and slash forms differ? | Compare four exact configurations and final paths | Table | Real NGINX FF-001 to FF-005 | No recommendation column | n/a |
 | 5 | Slash comparison | What does only the target's final slash change? | Show the current and toggled full URL without labeling either one correct | Exact result visualization | Implementation R9; FF-001 to FF-004 | Keep the primary URL unchanged | n/a |
-| 6 | H2: `Read the result as one replacement chain` | How was the path constructed? | Explain retained suffix, replacement URI, literal concatenation, and unchanged arguments | Sentences | Formula steps 7 to 11 | 105 words; do not narrate table cells | COPY-03 |
+| 6 | H2: `Read the result as one replacement chain` | How was the path constructed? | Explain retained suffix, replacement URI, literal concatenation, and unchanged arguments | Sentences | Formula steps 7 to 11 | Do not narrate table cells. | COPY-03 |
 | 7 | H2: `When the answer needs live NGINX` | Why did the tool refuse to calculate? | Map regex, named, rewrites, variables, target queries, and normalized paths to the missing state | Table | Official proxy and rewrite docs; unknown fixtures | Keep no-URL boundary explicit | n/a |
 | 8 | Result provenance | Which implementation and NGINX receipt produced this answer? | Show formula v1 and NGINX 1.30.4 quietly with the success result | Exact result visualization | Fixture receipt and implementation R17 | No timeless compatibility claim | n/a |
-| 9 | H2: `Verify the target in the running configuration` | What should I check next? | Inspect effective configuration and observe the upstream request URI | Sentences | NGINX docs; implementation verification boundary | 95 words; no safety guarantee | COPY-04 |
+| 9 | H2: `Verify the target in the running configuration` | What should I check next? | Inspect effective configuration and observe the upstream request URI | Sentences | NGINX docs; implementation verification boundary | No safety guarantee. | COPY-04 |
 
 No marker art, screenshot, clean chart, FAQ, methodology section, or general reverse-proxy tutorial is justified. The live transformation trace, slash comparison, exact configuration table, and limits table are the useful visuals.
 
@@ -96,23 +96,17 @@ No existing stack127 page directly continues this URI-construction task. Do not 
 
 ### Sections reserved for later manual writing
 
-| Section ID | Heading | Purpose | Required facts and sources | Word limit and shape | Banned claims or repetition |
+| Section ID | Heading | Purpose | Required facts and sources | Planned format | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
-| COPY-01 | H1 introduction | Define the inputs, answer shape, local handling, and verification boundary | `brief.md`; implementation R8 and R14 | 65 words maximum in one paragraph | No best, only, guarantee, full-parser, or security-review claim |
-| COPY-02 | `Use the location NGINX actually matched` | Explain where the three values come from and the supported literal scope | NGINX location docs; implementation assumptions | 90 words maximum in two short paragraphs | No button instructions or location-selection algorithm |
-| COPY-03 | `Read the result as one replacement chain` | Explain suffix retention and literal replacement without repeating the trace | Formula steps 7 to 11; FF-003 and FF-004 | 105 words maximum in two paragraphs | No normalization claim or universal slash advice |
-| COPY-04 | `Verify the target in the running configuration` | Give the shortest honest next step for success or unknown | Official proxy and rewrite docs; implementation exclusions | 95 words maximum in one paragraph plus two concise checks | No deployment, reload, safety, or backend-correctness guarantee |
+| COPY-01 | H1 introduction | Define the inputs, answer shape, local handling, and verification boundary | `brief.md`; implementation R8 and R14 | Prose. | No best, only, guarantee, full-parser, or security-review claim |
+| COPY-02 | `Use the location NGINX actually matched` | Explain where the three values come from and the supported literal scope | NGINX location docs; implementation assumptions | Prose. | No button instructions or location-selection algorithm |
+| COPY-03 | `Read the result as one replacement chain` | Explain suffix retention and literal replacement without repeating the trace | Formula steps 7 to 11; FF-003 and FF-004 | Prose. | No normalization claim or universal slash advice |
+| COPY-04 | `Verify the target in the running configuration` | Give the shortest honest next step for success or unknown | Official proxy and rewrite docs; implementation exclusions | Prose with two concise checks. | No deployment, reload, safety, or backend-correctness guarantee |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
-- Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
-- Do not repeat a result, table, trace, heading, or prior section.
 - Call the output a calculated URL, never proof that NGINX selected the supplied location or reached the intended backend.
 - Keep the omitted-URI and `/` URI forms distinct in every example.
-- Leave unresolved facts as explicit review notes, not plausible copy.
 
 ### Tool-build exclusion
 

@@ -1,9 +1,9 @@
-import { PageCanvas } from "@/app/page-canvas";
-import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import "../../(catalogs)/domain-tools/domain-tools.css";
 import { BadgeCheck } from "lucide-react";
-import { AppShell } from "../../../app-shell";
+import { AppShell } from "../../../ui/site/app-shell";
 import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
 import { DomainAvailabilityTool } from "./domain-availability-tool";
 

@@ -8,7 +8,7 @@ Domain registration tools send the queried name to the registry and registrar re
 
 Umami should be described as anonymized, aggregate-focused analytics used to understand page performance and usefulness, not user tracking or advertising profiles.
 
-Google Analytics loads only after the visitor allows it. Explain its first-party cookies, the data sent to Google, the path-only page-view handling, the disabled advertising settings, and how the visitor can decline or change the choice. Keep the disclosure aligned with `app/google-analytics-consent.tsx` and `lib/google-analytics.ts`.
+Google Analytics loads only after the visitor allows it. Explain its first-party cookies, the data sent to Google, the path-only page-view handling, the disabled advertising settings, and how the visitor can decline or change the choice. Keep the disclosure aligned with `app/ui/site/google-analytics-consent.tsx` and `lib/google-analytics.ts`.
 
 Use the shared `.prose` reading typography. Write section headings normally and do not add a decorative dot.
 

@@ -145,11 +145,10 @@ Move fast and update fast while keeping the existing standards:
 
 - Keep pages fast, small, responsive, accessible, and consistent with the shared design system. Dark mode remains the default feel.
 - Keep important page content server-rendered and readable by search crawlers and AI agents.
-- Use the format that explains the subject best. Tables compare repeated facts, precise charts show measured quantities, and marker art explains concepts.
 - Preserve clear labels, useful results, recovery from errors, and the shared tool interface patterns.
 - Use verified sources for directory facts and reference material. Keep uncertainty explicit; an unknown value is better than invented precision.
 - Test calculations and behavior, inspect rendered interfaces, and apply the existing quality gates before publication.
-- Keep the shared writing voice. Explain what people need to know without filler, keyword repetition, or a word-count target.
+- Follow [writing-style.md](writing-style.md) for all writing and visual choices.
 - Maintain existing resources as the site expands. Free and paid offerings share the same accuracy standard.
 
 AI should help with research, drafting, implementation, checks, and maintenance. Generated output still needs source verification, meaningful tests, and review appropriate to the work. AI makes the process faster; it does not establish correctness by itself.
@@ -158,7 +157,7 @@ The five commercial offering types do not replace the repository's page-family t
 
 ## Current implementation scope
 
-The first pass updates the existing website code and development metadata for this direction. Production release is a separate step. Verification and release status are recorded in [the first-pass record](../stack127_records/2026-09-15-product-direction-first-pass.md).
+The first pass updates the existing website code and development metadata for this direction. Production release is a separate step.
 
 This pass covers:
 
@@ -191,7 +190,7 @@ Specific providers, prices, launch order, paid entitlements, credit rules, layou
 
 - [Page families](page-families.md) describes current page ownership and shared structure.
 - [Design system](design-system.md) and [tool interface](tool-interface.md) govern appearance and interaction.
-- [Writing style](writing-style.md) and [visual-first planning](visual-first.md) govern explanation and format choices.
+- [Writing style](writing-style.md) governs writing, visual choices, SEO wording, and editing.
 - [SEO](seo.md) and [tool pages](tool-pages.md) govern publication, metadata, and content ownership.
 - [Environment inventory](environment-inventory.md) records the current runtime configuration.
 - [Repository structure](repo-structure.md) and [stack127 repos](stack127-repos.md) govern file and repository ownership.

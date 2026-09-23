@@ -12,16 +12,7 @@ Catalog of software license terms that matter when someone runs or publishes a s
 - Put the comparison table directly after the page title so visitors can answer their question first.
 - Stay factual and conservative. This is not legal advice.
 
-## Voice
-
-Use normal Stack127 reference voice from `stack127_docs/writing-style.md`, with a self-host angle for both operators and app authors.
-
-- Full sentences with clear flow. Not stitched fragments.
-- Say the useful thing first, then context, then the caveat.
-- Plain words. Avoid abstract business jargon.
-- Summaries under the license name must be understandable on their own.
-- No em or en dashes.
-- Not first-person course storytelling, and not corporate license-speak.
+Writing follows `stack127_docs/writing-style.md`. Each license summary must make sense on its own for both operators and app authors.
 
 ## Content source
 

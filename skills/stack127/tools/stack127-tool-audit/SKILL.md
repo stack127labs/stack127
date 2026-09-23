@@ -7,9 +7,9 @@ description: Independently check one complete stack127 tool for correct answers,
 
 Audit-only requests are read-only. In an authorized build pipeline, fix confirmed defects within the tool's scope.
 
-1. Read the tool spec, engine, route, focused tests, styles, scripts, and development content.
+1. Read the tool spec, engine, route, focused tests, styles, scripts, and development content. Use `stack127_docs/writing-style.md` when reviewing copy and `stack127_docs/shared-ui.md` when checking components.
 2. Check several independent normal, boundary, and invalid examples against primary sources or hand calculations.
-3. Use the real development page at desktop and mobile width. Check the primary action, answer, recovery, keyboard use, focus, overflow, tables, links, and content order.
+3. Use the real development page at desktop and mobile width. Follow `skills/stack127/references/homelab-browser-and-search.md` for a local headless browser when needed. Check the primary action, answer, recovery, keyboard use, focus, overflow, shared tables, charts, callouts, links, and content order where present.
 4. Check basic privacy, escaping, untrusted output, timeouts, unknown versus zero, units, and rounding where they apply.
 5. Confirm development publication and version state. Never write production data without authorization.
 6. Fix wrong answers, broken common flows, accessibility failures, and responsive failures. Rerun only the affected focused test or interaction.

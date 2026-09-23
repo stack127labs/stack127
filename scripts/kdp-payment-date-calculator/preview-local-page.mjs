@@ -10,8 +10,8 @@ const PREVIEW = {
   slug: "kdp-payment-date-calculator",
   title: "KDP payment date calculator",
   description: "Development preview placeholder for a KDP payment month estimate.",
-  intro: "[Development preview placeholder. Final introduction awaits the writing handoff.]",
-  content: "## Development preview placeholder\nReplace this content during the writing handoff.",
+  intro: "[Development preview placeholder. Final introduction awaits the writing stage.]",
+  content: "## Development preview placeholder\nReplace this content during the writing stage.",
 };
 
 function fail(message) {

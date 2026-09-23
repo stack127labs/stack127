@@ -2,17 +2,8 @@
 
 import Link from "next/link";
 import { useRef, useState, type FormEvent, type ReactNode } from "react";
-import {
-  ToolButton,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolDownloadAction,
-  ToolKeyValueList,
-  ToolPrimaryResult,
-  ToolRawOutput,
-  ToolStatus,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiDisclosure, UiDownloadAction, UiRawOutput, UiTextField } from "@/app/ui/controls";
+import { UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import { parseRedactions } from "@/lib/domain/redaction.ts";
 import { lookupStatus } from "@/lib/domain/status-codes.ts";
 import type { DomainEntity, DomainRegistration, RdapFetch } from "@/lib/domain/types.ts";
@@ -83,7 +74,7 @@ function Dates({ result }: { result: DomainRegistration }) {
   return (
     <section className={styles.group}>
       <h3>Dates</h3>
-      <ToolDataTable
+      <UiDataTable
         ariaLabel="Registration dates and sources"
         columns={[{ id: "date", label: "Date" }, { id: "value", label: "Published value" }, { id: "source", label: "Source" }]}
         rows={dateRows(result).map((row) => ({ id: row.id, cells: { date: row.label, value: row.value, source: row.source } }))}
@@ -108,7 +99,7 @@ function RegistrarFacts({ result }: { result: DomainRegistration }) {
   if (result.registrar.url) rows.push({ label: "Website", value: sourced(<a href={result.registrar.url}>{result.registrar.url}</a>, registrarSource) });
   if (result.registrar.rdapUrl) rows.push({ label: "Registrar RDAP", value: sourced(<a href={result.registrar.rdapUrl}>{lookupSourceHost(result.registrar.rdapUrl) ?? result.registrar.rdapUrl}</a>, "Registrar") });
   if (!rows.length) return null;
-  return <section className={styles.group}><h3>Registrar</h3><ToolKeyValueList rows={rows} /></section>;
+  return <section className={styles.group}><h3>Registrar</h3><UiKeyValueList rows={rows} /></section>;
 }
 
 function actor(status: string) {
@@ -125,7 +116,7 @@ function Statuses({ result }: { result: DomainRegistration }) {
   return (
     <section className={styles.group}>
       <h3>Status codes</h3>
-      <ToolDataTable ariaLabel="Registration status codes" columns={[{ id: "status", label: "Status" }, { id: "actor", label: "Set by" }, { id: "meaning", label: "Meaning and action" }, { id: "source", label: "Source" }]} rows={result.statuses.map((status) => {
+      <UiDataTable ariaLabel="Registration status codes" columns={[{ id: "status", label: "Status" }, { id: "actor", label: "Set by" }, { id: "meaning", label: "Meaning and action" }, { id: "source", label: "Source" }]} rows={result.statuses.map((status) => {
         const known = lookupStatus(status.rdap);
         return { id: status.rdap, cells: {
           status: <span className={styles.statusCode}><code>{status.epp ?? status.rdap}</code>{status.epp ? <small>{status.rdap}</small> : null}</span>,
@@ -145,14 +136,14 @@ function Nameservers({ result }: { result: DomainRegistration }) {
     addresses: nameserver.addresses.length ? nameserver.addresses.map((address) => <code className={styles.address} key={address}>{address}</code>) : "Not published",
     source,
   } })) : [{ id: "none", cells: { hostname: "None published", addresses: "Not published", source } }];
-  return <section className={styles.group}><h3>Nameservers</h3><ToolDataTable ariaLabel="Nameservers on record" columns={[{ id: "hostname", label: "Nameserver" }, { id: "addresses", label: "Glue addresses" }, { id: "source", label: "Source" }]} rows={rows} /><Link href={`/nameserver-checker?name=${encodeURIComponent(result.query.unicode)}`}>Check the live delegation</Link></section>;
+  return <section className={styles.group}><h3>Nameservers</h3><UiDataTable ariaLabel="Nameservers on record" columns={[{ id: "hostname", label: "Nameserver" }, { id: "addresses", label: "Glue addresses" }, { id: "source", label: "Source" }]} rows={rows} /><Link href={`/nameserver-checker?name=${encodeURIComponent(result.query.unicode)}`}>Check the live delegation</Link></section>;
 }
 
 function Dnssec({ result }: { result: DomainRegistration }) {
   const delegation = result.dnssecSigned === null ? "Not reported" : result.dnssecSigned ? "DS record published" : "No DS record published";
   const rows = [{ label: "Delegation", value: sourced(delegation, sourceForRecordGroup(result, "dnssec")) }];
   if (result.dsRecordCount !== null) rows.push({ label: "DS records", value: sourced(result.dsRecordCount.toLocaleString("en-US"), sourceForRecordGroup(result, "dnssec")) });
-  return <section className={styles.group}><h3>DNSSEC delegation</h3><ToolKeyValueList rows={rows} /><Link href={`/dnssec-checker?name=${encodeURIComponent(result.query.unicode)}`}>Validate the DNSSEC chain</Link></section>;
+  return <section className={styles.group}><h3>DNSSEC delegation</h3><UiKeyValueList rows={rows} /><Link href={`/dnssec-checker?name=${encodeURIComponent(result.query.unicode)}`}>Validate the DNSSEC chain</Link></section>;
 }
 
 function contactRows(entities: DomainEntity[]) {
@@ -174,8 +165,8 @@ function Contacts({ result }: { result: DomainRegistration }) {
   return (
     <section className={styles.group}>
       <h3>Contacts and redaction</h3>
-      {contacts.length ? <ToolDataTable ariaLabel="Published domain contacts" columns={[{ id: "role", label: "Role" }, { id: "field", label: "Field" }, { id: "value", label: "Value" }, { id: "source", label: "Source" }]} rows={contacts} /> : null}
-      {redactions.length ? <ToolDataTable ariaLabel="Declared contact redactions" columns={[{ id: "field", label: "Field" }, { id: "treatment", label: "Treatment" }, { id: "source", label: "Source" }]} rows={redactions} /> : null}
+      {contacts.length ? <UiDataTable ariaLabel="Published domain contacts" columns={[{ id: "role", label: "Role" }, { id: "field", label: "Field" }, { id: "value", label: "Value" }, { id: "source", label: "Source" }]} rows={contacts} /> : null}
+      {redactions.length ? <UiDataTable ariaLabel="Declared contact redactions" columns={[{ id: "field", label: "Field" }, { id: "treatment", label: "Treatment" }, { id: "source", label: "Source" }]} rows={redactions} /> : null}
       {!contacts.length && !redactions.length ? <p className={styles.unknownContacts}>{result.redactionDeclared ? "The provider declared redaction without naming fields." : "No public contacts or redaction declaration were published."}</p> : null}
       <Link href={`/domain-owner?name=${encodeURIComponent(result.query.unicode)}`}>Check ways to contact the domain owner</Link>
     </section>
@@ -189,7 +180,7 @@ function Freshness({ result }: { result: DomainRegistration }) {
 }
 
 function RawEvidence({ result }: { result: DomainRegistration }) {
-  return <div className={styles.evidence}>{[{ fetch: result.registryFetch, label: "Registry response" }, { fetch: result.registrarFetch, label: "Registrar response" }].filter((entry): entry is { fetch: RdapFetch; label: string } => Boolean(entry.fetch)).map(({ fetch, label }) => <ToolRawOutput key={label} label={`${label}${lookupSourceHost(fetch.url) ? ` from ${lookupSourceHost(fetch.url)}` : ""}`} value={fetch.body ?? { error: fetch.error }} />)}</div>;
+  return <div className={styles.evidence}>{[{ fetch: result.registryFetch, label: "Registry response" }, { fetch: result.registrarFetch, label: "Registrar response" }].filter((entry): entry is { fetch: RdapFetch; label: string } => Boolean(entry.fetch)).map(({ fetch, label }) => <UiRawOutput key={label} label={`${label}${lookupSourceHost(fetch.url) ? ` from ${lookupSourceHost(fetch.url)}` : ""}`} value={fetch.body ?? { error: fetch.error }} />)}</div>;
 }
 
 function LookupResult({ result }: { result: DomainRegistration }) {
@@ -202,18 +193,18 @@ function LookupResult({ result }: { result: DomainRegistration }) {
     <RegistrationLead detail={verdict.detail} value={verdict.value} />
     <NormalizationNote result={result} />
     <SourceMap result={result} />
-    {registrarFailure ? <ToolStatus tone="warning">The registrar response was incomplete. Registry facts remain available.</ToolStatus> : null}
+    {registrarFailure ? <UiStatus tone="warning">The registrar response was incomplete. Registry facts remain available.</UiStatus> : null}
     {registered ? <><Dates result={result} /><RegistrarFacts result={result} /><Statuses result={result} /><Nameservers result={result} /><Dnssec result={result} /><Contacts result={result} /></> : null}
     {result.status === "no_service" ? <p className={styles.recovery}>See RDAP coverage in the <Link href="/tld-directory">TLD directory</Link>.</p> : null}
     <Freshness result={result} />
-    <div className={styles.download}><ToolDownloadAction contents={report} filename={`${result.query.domain}-registration.json`} label="Download report" mimeType="application/json;charset=utf-8" /></div>
-    {notes.length ? <ToolDisclosure label="Lookup notes"><ul className={styles.notes}>{notes.map((note) => <li key={note}>{note}</li>)}</ul></ToolDisclosure> : null}
+    <div className={styles.download}><UiDownloadAction contents={report} filename={`${result.query.domain}-registration.json`} label="Download report" mimeType="application/json;charset=utf-8" /></div>
+    {notes.length ? <UiDisclosure label="Lookup notes"><ul className={styles.notes}>{notes.map((note) => <li key={note}>{note}</li>)}</ul></UiDisclosure> : null}
     <RawEvidence result={result} />
   </section>;
 }
 
 function RegistrationLead({ announce = true, detail, value }: { announce?: boolean; detail: string; value: string }) {
-  return <div aria-atomic={announce ? "true" : undefined} aria-live={announce ? "polite" : undefined}><ToolPrimaryResult detail={detail} label="Registration record" value={value} /></div>;
+  return <div aria-atomic={announce ? "true" : undefined} aria-live={announce ? "polite" : undefined}><UiPrimaryResult detail={detail} label="Registration record" value={value} /></div>;
 }
 
 export function DomainLookupTool({ initialName = "" }: { initialName?: string }) {
@@ -245,14 +236,14 @@ export function DomainLookupTool({ initialName = "" }: { initialName?: string })
 
   return <section aria-label="Domain registration lookup" className={`domain-tool ${styles.workbench}`} data-tool-workbench>
     <form aria-busy={loading} className={styles.form} onSubmit={submit}>
-      <ToolTextField autoCapitalize="none" autoComplete="off" className={styles.queryField} error={fieldError} inputMode="url" inputRef={inputRef} label="Domain name" name="name" onChange={(value) => { setName(value); if (fieldError) setFieldError(null); if (requestError) setRequestError(null); }} placeholder="example.com" required spellCheck={false} type="text" value={name} />
-      <ToolButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">{loading ? "Looking up registration..." : "Look up registration"}</ToolButton>
-      {loading ? <div className={styles.formStatus}><ToolStatus>Looking up registration...</ToolStatus></div> : null}
+      <UiTextField autoCapitalize="none" autoComplete="off" className={styles.queryField} error={fieldError} inputMode="url" inputRef={inputRef} label="Domain name" name="name" onChange={(value) => { setName(value); if (fieldError) setFieldError(null); if (requestError) setRequestError(null); }} placeholder="example.com" required spellCheck={false} type="text" value={name} />
+      <UiButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">{loading ? "Looking up registration..." : "Look up registration"}</UiButton>
+      {loading ? <div className={styles.formStatus}><UiStatus>Looking up registration...</UiStatus></div> : null}
     </form>
     {result ? <LookupResult result={result} /> : requestError ? (
       <section aria-label="Domain registration result" className={styles.results} data-domain-lookup-result>
         <RegistrationLead announce={false} detail={`${name.trim()} could not be checked.`} value="Cannot determine" />
-        <ToolStatus tone="danger">{requestError}</ToolStatus>
+        <UiStatus tone="danger">{requestError}</UiStatus>
       </section>
     ) : null}
   </section>;

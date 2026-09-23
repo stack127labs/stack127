@@ -11,9 +11,9 @@ Use this skill in the current stack127 workspace to propose marker art placement
 
 - Read `stack127_docs/marker-art.md`. It is the law for style, semantic color, data accuracy, and figure choice.
 - Read the target page(s) under `app/` in full, including any existing `art/*.spec.json` next to them, so you never propose a duplicate of an existing figure.
-- Inspect the real rendered placement when possible. A catalog spot, hero, explainer, and doodle solve different problems and cannot share one composition by resizing it.
-- Check `dev-space/marker-art-samples/` only when you need to understand generator syntax. Live figures matching the intended role are the visual reference.
-- Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` when proposing figure labels, captions, or alt text. Use its caption and accessibility guidance; keep composition decisions in this skill.
+- Inspect the real rendered placement when possible. Use the local headless fallback in `skills/stack127/references/homelab-browser-and-search.md` if the in-app browser is unavailable. A catalog spot, hero, explainer, and doodle solve different problems and cannot share one composition by resizing it.
+- Use live figures matching the intended role as the visual reference. Their `*.spec.json` files also show the generator syntax.
+- Read `stack127_docs/writing-style.md` when proposing figure labels, captions, or alt text.
 
 ## Decide Whether Art Earns the Space
 
@@ -61,5 +61,5 @@ A proposal is one paragraph plus a small block, per placement:
 ## Output
 
 - Present proposals in the conversation, ordered by impact, and say which you would build first and why.
-- Only when the user explicitly asks for a showcase: write draft specs into `dev-space/marker-art-drafts/<page-slug>/`, run `node scripts/stack127/marker-art/generate.mjs --index dev-space/marker-art-drafts/<page-slug>`, and tell the user to open the generated `index.html`. Never write showcase files into `app/`.
+- Only when the user explicitly asks for a showcase: write draft specs under `/tmp/stack127/marker-art-drafts/<page-slug>/`, run `node scripts/stack127/marker-art/generate.mjs --index /tmp/stack127/marker-art-drafts/<page-slug>`, and tell the user to open its `index.html`. Keep draft showcases outside `app/`.
 - Do not touch live pages in this skill. Building happens in `marker-art-draw` after approval.

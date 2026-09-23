@@ -37,6 +37,7 @@ The common useful core is an octal field, permission grid, synchronized result, 
 
 - [GNU chmod](https://man7.org/linux/man-pages/man1/chmod.1.html) accepts one to four octal digits. The leading digit represents setuid, setgid, and sticky. The remaining digits use read 4, write 2, and execute 1.
 - [Linux chmod](https://man7.org/linux/man-pages/man2/chmod.2.html) defines the permission bits and explains directory execute as search.
+- [Linux inode](https://man7.org/linux/man-pages/man7/inode.7.html) explains setgid behavior on directories and executable files and sticky-bit behavior on directories.
 - [Linux umask](https://man7.org/linux/man-pages/man2/umask.2.html) applies to creation modes and can be affected by default ACLs. It is not a retroactive chmod calculation.
 - [Linux ACL](https://man7.org/linux/man-pages/man5/acl.5.html) explains why mode bits alone do not prove effective access.
 - [GNU coreutils](https://raw.githubusercontent.com/coreutils/coreutils/master/doc/coreutils.texi) documents the `s`, `S`, `t`, and `T` display forms.
@@ -116,23 +117,68 @@ Permission groups can share a row on wide screens and stack below the available 
 
 ## Content
 
-### Search intent and promise
+### Search intent and metadata direction
 
 Primary query: `chmod calculator`. Supporting intent includes `chmod 755 meaning`, octal to rwx conversion, building a numeric mode, and understanding special letters.
 
-Title: `Chmod calculator`
+Title direction: `Chmod calculator`.
 
-Metadata direction: convert octal modes or permission checkboxes into rwx notation and a chmod command example without changing files.
+Description direction: convert octal modes or permission checkboxes into `rwx` notation and a `chmod` command example without changing files.
 
-### Useful guidance
+### Page promise
 
-- Explain the two input methods and that symbolic expressions are not accepted.
-- Use one configuration-file task to explain choosing bits, calculating, reading the answer, and checking the real target with `ls -ld`.
-- Explain canonical four-digit modes, owner/group/others order, and 4/2/1 arithmetic.
-- Use a table for read, write, and execute meaning on regular files and directories.
-- Use a table for setuid, setgid, sticky, and lowercase versus uppercase display letters.
-- Explain that ownership, ACLs, mount options, privileges, and object type can change effective access.
-- Explain that umask affects creation rather than retroactively changing a file.
-- Link to `/self-hosting-for-beginners` and `/self-host-apps` only when they provide a useful next step.
+After using the page, the reader can translate a numeric mode or selected bits into the other form, understand the owner/group/others and special-bit parts, and adapt an example command to a real path. The page makes clear that this calculator only explains a mode; it does not inspect or change a file.
 
-Keep the live calculator more prominent than the article. Do not add a common-modes table, recursive repair guide, symbolic parser tutorial, or FAQ by default.
+### Content completeness map
+
+| Reader question | Where answered | What the writing must add |
+| --- | --- | --- |
+| What does `755` mean? | Lead result and supporting content | Owner `7`, group `5`, others `5`; `7 = 4 + 2 + 1`, `5 = 4 + 1`. Explain the leading zero in `0755`. |
+| How do I choose or convert a mode? | Tool controls and short usage guide | Enter one to four octal digits or select the twelve bits, calculate, and read the result. Symbolic expressions such as `u+x` are outside this input. |
+| What do read, write, and execute mean? | Supporting content | Separate regular-file meanings from directory meanings; directory execute allows search/access through the directory. |
+| What do `s`, `S`, `t`, and `T` mean? | Special-bit result and supporting content | Connect each letter to setuid, setgid, or sticky; explain the relevant file or directory behavior and lowercase versus uppercase when execute is present or absent. |
+| Did this change my files? | Introduction and usage guide | No. The calculation is local; the generated command is only an example with a placeholder path. |
+| Why might actual access differ? | Limits and next step | Mode bits alone do not resolve ownership, ACLs, privileges, mount behavior, or target type. Check the real target. |
+| Is this the same as umask? | Supporting content | No. Umask affects creation modes; this tool explains a mode and does not calculate umask. |
+
+### Recommended outline and formats
+
+Keep the calculator and its result above the supporting explanation. Draft the introduction and usage guide as short task guidance, then use these sections only if they add to what the live result shows:
+
+1. **How to use the chmod calculator:** one configuration-file example, input choices, result reading, and adapting the example command.
+2. **How chmod numbers work:** owner/group/others order, `4/2/1` arithmetic, and the optional leading special-bit digit.
+3. **What permissions mean for files and directories:** a compact table comparing read, write, and execute.
+4. **What the special letters mean:** a compact table for setuid, setgid, sticky, and lowercase/uppercase forms.
+5. **Chmod, umask, and actual access:** the key distinction, limits, and next check.
+
+No decorative figure is needed for the arithmetic already shown in the result. Do not add a common-modes table, recursive repair guide, symbolic parser tutorial, glossary, or FAQ by default.
+
+### Concepts and result interpretation
+
+- **Mode arithmetic:** `7 = 4` read `+ 2` write `+ 1` execute. In `755`, owner gets `7`; group and others get `5` (`4 + 1`). The displayed `0755` adds the zero special-bit digit; it does not change the ordinary permissions. Use GNU and Linux chmod sources in Research.
+- **Directory execute:** it means search/access through a directory, not execution of that directory as a regular file. Read and write also have different directory effects; make the file/directory table precise. Use Linux chmod in Research.
+- **Special-bit display:** `s` or `t` appears where the corresponding execute bit is present; `S` or `T` appears when it is absent. The `4640` example becomes `rwSr-----` because setuid is on while owner execute is off. The letter is a compact display of two facts, not a new permission class. Use GNU coreutils in Research.
+- **Special-bit behavior:** on an executable file, setuid and setgid can affect the effective user or group ID during execution. On a directory, setgid makes newly created entries inherit the directory's group, while sticky restricts who can rename or delete entries. The tool cannot determine whether or how these effects apply to a particular path. Use Linux chmod and Linux inode in Research.
+- **Canonical mode:** the normalized four-digit octal result, including the leading special-bit digit, even when the input had fewer digits. It is a representation of the selected bits, not a reading from disk.
+- **Symbolic permissions:** the nine-character `rwx`-style result for owner, group, and others, with special-bit letters when relevant. It omits the file-type character that appears at the start of an `ls -l` listing.
+- **Class arithmetic and special-bit notes:** explain the selected bit values and active special bits. Their presence describes the chosen mode, not whether a particular user can access a particular file.
+- **Command example:** `chmod <mode> ./path/to/file` uses a fixed placeholder path. It is neither executed nor a recommendation for every file or directory; the reader must inspect the real target and adapt the path and mode.
+
+### Usage, limits, and next step
+
+Use a configuration-file task to connect the steps: choose the desired owner/group/others bits or enter the intended octal mode, calculate, compare the four-digit mode and nine-character display, then review the example command. If the octal input contains `8`, another non-octal character, or too many digits, explain the correction; the tool clears the stale result until the input is valid.
+
+Do not claim the tool checks effective access, ownership, ACLs, mount options, privileges, or the current mode of a path. Do not imply that a preset is a security recommendation, that one mode fits a mixed directory tree, or that the example command should be run without checking its target. Do not suggest recursive repairs. Explain that umask concerns file creation, rather than a retroactive conversion of an existing mode.
+
+Next step: check the actual target with `ls -ld <path>`, account for ownership or ACLs if access still differs, and replace the example path only after choosing the intended target and mode. Link to `/self-hosting-for-beginners` or `/self-host-apps` only when it helps the reader's next task.
+
+### Source roles and links
+
+- GNU chmod in Research controls octal syntax and the command example.
+- Linux chmod controls permission-bit and directory-search semantics.
+- Linux inode controls setgid behavior on directories and sticky-directory behavior.
+- GNU coreutils controls the `s`, `S`, `t`, and `T` display explanation.
+- Linux umask controls the file-creation distinction.
+- Linux ACL controls the claim that mode bits alone do not prove effective access.
+
+Use the verified URLs in Research as the external links; recheck them if the command semantics or cited behavior changes. The competitor review is dated 20 September 2026 and informs layout and scope, not technical permission claims.

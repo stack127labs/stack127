@@ -1,8 +1,8 @@
-import { PageCanvas } from "@/app/page-canvas";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
 import Link from "next/link";
 import { siteDoodleSparkArt } from "./(site)/art/site--doodle-spark";
-import { AppShell } from "./app-shell";
-import { Doodle } from "./doodle";
+import { AppShell } from "./ui/site/app-shell";
+import { Doodle } from "./ui/site/doodle";
 import styles from "./not-found.module.css";
 
 export default function NotFound() {

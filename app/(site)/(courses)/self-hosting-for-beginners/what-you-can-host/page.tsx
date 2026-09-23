@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { MediaFigure } from "@/app/media-figure";
+import { MediaFigure } from "@/app/ui/site/media-figure";
 import { getLesson } from "@/lib/self-hosting-for-beginners";
-import { MarkerArt } from "@/app/marker-art";
+import { MarkerArt } from "@/app/ui/site/marker-art";
 import { LessonLink, LessonPage } from "../course";
 import { startLowStakesArt } from "./art/start-low-stakes";
 

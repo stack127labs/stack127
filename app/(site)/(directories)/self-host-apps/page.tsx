@@ -1,4 +1,6 @@
-import { PageCanvas } from "@/app/page-canvas";
+import { StatePanel } from "@/app/ui/state-panel";
+import { Pagination } from "@/app/ui/pagination";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { HardDrive, Search } from "lucide-react";
 import Link from "next/link";
 import type { CSSProperties } from "react";
@@ -9,31 +11,31 @@ import {
   findDirectoryLicenseId,
   licenses,
 } from "@/lib/software-licenses";
-import { AppShell, SidebarLabel } from "@/app/app-shell";
+import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
 import {
   DirectoryCheckboxGroup as CheckboxGroup,
   DirectoryRadioGroup as RadioGroup,
   DirectoryTagSelectGroup as TagSelectGroup,
   type DirectoryFilterOption as FilterOption,
-} from "../_components/directory-filters";
-import { Doodle } from "@/app/doodle";
+} from "../../../ui/directories/directory-filters";
+import { Doodle } from "@/app/ui/site/doodle";
 import { siteDoodleSparkArt } from "../../art/site--doodle-spark";
 import {
   sidebarPanelClassName,
   sidebarPanelGithubLinkClassName,
   sidebarPanelHeadingClassName,
-} from "@/app/sidebar-panel";
+} from "@/app/ui/site/sidebar-panel";
 import {
   getRamTier,
   getStorageTier,
   hasMobileApp,
-} from "./directory-app-card";
+} from "@/app/ui/directories/directory-app-card";
 import { DirectoryAppBrowser } from "./directory-app-browser";
-import { DirectoryFilterController } from "../_components/directory-filter-controller";
-import { SortDropdown } from "../_components/directory-sort-dropdown";
-import { PageTitleIcon } from "@/app/page-title-icon";
-import { PageHeader } from "@/app/page-header";
-import { EntryHero } from "@/app/entry-hero";
+import { DirectoryFilterController } from "../../../ui/directories/directory-filter-controller";
+import { SortDropdown } from "../../../ui/directories/directory-sort-dropdown";
+import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { PageHeader } from "@/app/ui/site/page-header";
+import { EntryHero } from "@/app/ui/site/entry-hero";
 import { siteSpotSelfHostAppsArt } from "../../art/site--spot-self-host-apps";
 
 export const dynamic = "force-dynamic";
@@ -369,25 +371,6 @@ function removeFilterHref(params: SearchParams, key: string, value?: string) {
   }
 
   return buildHref(next);
-}
-
-/**
- * Page numbers to render: first, last, and a window around the current page,
- * with null marking an ellipsis gap.
- */
-function paginationPages(currentPage: number, totalPages: number): (number | null)[] {
-  const wanted = new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
-  const pages: (number | null)[] = [];
-
-  for (let page = 1; page <= totalPages; page += 1) {
-    if (wanted.has(page)) {
-      pages.push(page);
-    } else if (pages[pages.length - 1] !== null) {
-      pages.push(null);
-    }
-  }
-
-  return pages;
 }
 
 function pageHref(params: SearchParams, page: number) {
@@ -756,46 +739,13 @@ export default async function SelfHostAppsPage({
             <>
               <DirectoryAppBrowser apps={paginatedApps} />
               {totalPages > 1 ? (
-                <nav className="directory-pagination" aria-label="Self-hosted app pages">
-                  <Link
-                    aria-disabled={currentPage === 1}
-                    aria-label="Previous page"
-                    href={pageHref(params, Math.max(1, currentPage - 1))}
-                  >
-                    ‹
-                  </Link>
-                  {paginationPages(currentPage, totalPages).map((page, index) =>
-                    page === null ? (
-                      <span className="directory-pagination-gap" key={`gap-${index}`}>
-                        …
-                      </span>
-                    ) : page === currentPage ? (
-                      <span aria-current="page" key={page}>
-                        {page}
-                      </span>
-                    ) : (
-                      <Link href={pageHref(params, page)} key={page}>
-                        {page}
-                      </Link>
-                    ),
-                  )}
-                  <Link
-                    aria-disabled={currentPage === totalPages}
-                    aria-label="Next page"
-                    href={pageHref(params, Math.min(totalPages, currentPage + 1))}
-                  >
-                    ›
-                  </Link>
-                </nav>
+                <Pagination ariaLabel="Self-hosted app pages" currentPage={currentPage} hrefForPage={(page) => pageHref(params, page)} totalPages={totalPages} />
               ) : null}
             </>
           ) : (
-            <div className="directory-empty">
-              <Doodle svg={siteDoodleSparkArt} />
-              <h2>No apps match those filters</h2>
+            <StatePanel action={<Link href="/self-host-apps">show all apps</Link>} title="No apps match those filters" visual={<Doodle svg={siteDoodleSparkArt} />}>
               <p>Try clearing one filter first.</p>
-              <Link href="/self-host-apps">show all apps</Link>
-            </div>
+            </StatePanel>
           )}
         </PageCanvas>
     </AppShell>

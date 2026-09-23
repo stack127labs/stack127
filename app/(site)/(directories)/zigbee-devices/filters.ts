@@ -96,21 +96,7 @@ export function sortDevices(devices: ZigbeeDevice[], sort: ZigbeeSort | string) 
   });
 }
 
-export function paginationPages(current: number, total: number) {
-  if (total <= 5) return Array.from({ length: total }, (_, index) => index + 1);
 
-  const pages = new Set([1, total, current - 1, current, current + 1]);
-  const sorted = [...pages].filter((page) => page >= 1 && page <= total).sort((a, b) => a - b);
-  const result: Array<number | null> = [];
-
-  for (const page of sorted) {
-    const previous = result.at(-1);
-    if (typeof previous === "number" && page - previous > 1) result.push(null);
-    result.push(page);
-  }
-
-  return result;
-}
 
 export function pageHref(params: ZigbeeSearchParams, page: number) {
   const next = new URLSearchParams();

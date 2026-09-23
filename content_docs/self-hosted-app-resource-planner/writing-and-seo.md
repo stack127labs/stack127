@@ -1,5 +1,7 @@
 # Writing and SEO plan: self-hosted app resource planner
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Feasibility: feasible
 Content review: 2026-09-19
@@ -99,15 +101,6 @@ Search and visual evidence: the search backend was the web connector, with searc
 | COPY-06 | Verify the host after planning | Give the reader a concrete next step after the estimate. | `docker stats` fields and limits; `https://docs.docker.com/reference/cli/docker/container/stats/`; app documentation and `/self-host-apps`. | Tell the reader what to compare during a representative workload and when to revisit the plan. Stop before building a monitoring guide. | No claim that the planner collects telemetry or sees private host state. |
 | COPY-07 | Task-oriented usage | Explain input preparation, meaningful choices, states, and next verification. | Closed Usage Markdown handoff and accepted technical artifacts. | One concise connected guide; use steps only where order changes the outcome. | No live-result narration, unimplemented features, or duplicate supporting explanations. |
 
-### Voice and accuracy constraints
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` for public wording. This plan owns search intent and useful coverage, not a separate voice.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
-- Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
-- Do not repeat a result, table, chart, wireframe, heading, or prior section.
-- Leave unresolved facts as explicit review notes, not plausible copy.
-
 ### Tool-build exclusion
 `$stack127-tool-build` must not draft or integrate these sections. The user supplies them in a later content pass.
 
@@ -126,7 +119,6 @@ Search and visual evidence: the search backend was the web connector, with searc
 ## Open questions and blockers
 
 - None for the content plan. The page remains unpublished until the separate registry decision and final QA.
-
 
 ## Usage Markdown handoff
 

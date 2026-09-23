@@ -1,5 +1,7 @@
 # Writing and SEO plan: KDP metadata checker
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Feasibility: feasible
 Content review: 2026-09-19
@@ -108,12 +110,8 @@ The title names the job and the fields it covers. The description promises findi
 | COPY-06 | `Your metadata stays in this browser check` | Explain the narrow privacy and source-preservation behavior. | Title, subtitle, description, and keywords are not sent to a server, stored in browser storage, serialized into the URL, scraped, or passed to an AI writer. `Copy source` requires an explicit user action and copies the unchanged description. Source: implementation report Accessibility, privacy, security, and performance; R13 and R15. | One short paragraph. Link to `/privacy` only after the tool-specific statement. Stop before making a sitewide or KDP privacy claim. | Do not claim that the page is a submission gateway, that KDP receives nothing during the user's later workflow, or that all stack127 pages process data the same way. |
 | COPY-07 | Task-oriented usage | Explain input preparation, meaningful choices, states, and next verification. | Closed Usage Markdown handoff and accepted technical artifacts. | One concise connected guide; use steps only where order changes the outcome. | No live-result narration, unimplemented features, or duplicate supporting explanations. |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Apply `skills/stack127/stack127-writing-voice/SKILL.md` and `skills/stack127/unslop/SKILL.md` to every later public sentence, heading, label, caption, and metadata field.
-- Write `stack127` in lowercase and use sentence case headings.
-- Use no em dash or en dash as punctuation. Use straight quotes and plain, direct wording.
 - Keep local counts, local parser findings, and heuristic prompts distinct from KDP's acceptance decision.
 - Do not invent rules, keyword limits, review outcomes, privacy behavior, source freshness, or implementation features.
 - Do not repeat the result lead, counts, findings, preview, or source disclosure in supporting prose.
@@ -142,7 +140,6 @@ The title names the job and the fields it covers. The description promises findi
 - None blocks this handoff. The route remains unpublished until a separate publication decision.
 - Before any later content or build release, recheck the five official KDP sources. A changed allowlist, limit, or policy interpretation requires a new rule-set review and refreshed upstream fingerprints.
 - The official sources still do not establish a universal numeric keyword limit or KDP's internal Unicode counter. Keep both boundaries local and qualified.
-
 
 ## Usage Markdown handoff
 

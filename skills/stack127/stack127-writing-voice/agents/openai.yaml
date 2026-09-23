@@ -1,4 +1,0 @@
-interface:
-  display_name: "stack127 Writing Voice"
-  short_description: "Apply the shared voice across all website copy"
-  default_prompt: "Use $stack127-writing-voice to write or review this stack127 copy in the shared voice, adapting the tone to its purpose while preserving the facts."

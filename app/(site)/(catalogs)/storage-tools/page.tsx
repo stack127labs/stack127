@@ -1,9 +1,9 @@
 import { Layers3 } from "lucide-react";
-import { AppShell } from "@/app/app-shell";
-import { EntryHero } from "@/app/entry-hero";
-import { PageCanvas } from "@/app/page-canvas";
-import { PageHeader } from "@/app/page-header";
-import { PageTitleIcon } from "@/app/page-title-icon";
+import { AppShell } from "@/app/ui/site/app-shell";
+import { EntryHero } from "@/app/ui/site/entry-hero";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
+import { PageHeader } from "@/app/ui/site/page-header";
+import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
 import { siteSpotStorageToolsArt } from "../../art/site--spot-storage-tools";
 import { backup321Art } from "../_components/art/backup-321";
 import { cephArt } from "../_components/art/ceph";
@@ -18,8 +18,8 @@ import { storageLayoutArt } from "../_components/art/storage-layout";
 import { unraidArt } from "../_components/art/unraid";
 import { zfsCapacityArt } from "../_components/art/zfs-capacity";
 import { zfsPaddingArt } from "../_components/art/zfs-padding";
-import { ToolCatalog, type CatalogTool } from "../_components/tool-catalog";
-import { ToolCatalogSidebar } from "../_components/tool-catalog-sidebar";
+import { ToolCatalog, type CatalogTool } from "../../../ui/catalogs/tool-catalog";
+import { ToolCatalogSidebar } from "../../../ui/catalogs/tool-catalog-sidebar";
 
 const tools: CatalogTool[] = [
   {

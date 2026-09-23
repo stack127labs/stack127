@@ -10,7 +10,7 @@ The rewrite preserves useful coverage from revision 1 rather than treating brevi
 
 Search-facing headings name actual tasks and follow-up questions. The title and centrally owned SEO metadata are unchanged. Copy stays server-rendered through `ToolPageHeader` and `ToolPageMarkdown`; PostgreSQL remains the only live Markdown source.
 
-The shared writing-voice and tool-writing skills governed the rewrite. Visual-first planning selected two wrapping reference tables without additional artwork. The writing-guidelines handbook was a supplementary review, with stack127's voice and conventions taking precedence. Unslop cleanup preserved useful technical detail and the connections between paragraphs.
+The rewrite selected two wrapping reference tables without additional artwork. Future writing follows `stack127_docs/writing-style.md`.
 
 ## Facts and sources
 

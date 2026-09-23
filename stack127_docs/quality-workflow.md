@@ -22,6 +22,8 @@ Do not add tests for documentation, skill wording, file hashes, acceptance recei
 
 ## Page check
 
+Use a local headless browser when the Codex in-app browser is unavailable over SSH. Follow `skills/stack127/references/homelab-browser-and-search.md`. A successful HTTP response or source review does not verify the rendered layout or an interaction. Continue the check without requesting in-app browser access.
+
 Before handoff:
 
 1. Open the real page from the homelab server.

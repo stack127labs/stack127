@@ -3,7 +3,7 @@
 Created: 2026-07-07
 Last updated: 2026-07-08
 
-Revision note (2026-07-08): reviewed against the surface decision rule now recorded in `skills/stack127/stack127-topic-research/SKILL.md`. Idea 1 fails the tool tests (searches are app plus version specific, a picker tool needs near-total curated coverage, and safety labels cannot be automated responsibly), so it is reshaped as a directory facet plus editorial upgrade reference pages. Idea 3 splits into a directory facet plus a live lookup tool. Idea 2 was already planned in `stack127_records/2026-07-site-review.md` section 5.5 and stays a calculator. The demand and competition evidence below remains valid; the surface shapes have been corrected in place.
+Revision note (2026-07-08): reviewed against the surface decision rule now recorded in `skills/stack127/stack127-topic-research/SKILL.md`. Idea 1 fails the tool tests (searches are app plus version specific, a picker tool needs near-total curated coverage, and safety labels cannot be automated responsibly), so it is reshaped as a directory facet plus editorial upgrade reference pages. Idea 3 splits into a directory facet plus a live lookup tool. Idea 2 stays a calculator. The demand and competition evidence below remains valid; the surface shapes have been corrected in place.
 
 Goal: find the next Stack127 surface that is not "another directory" or "another course". Requirements from research brief: real search demand, no existing easy-reference page or tool on the internet, preferably a tool, and something we can actually build with our current stack and data pipeline.
 
@@ -34,7 +34,7 @@ Why not a tool (surface decision rule):
 What we build:
 
 - Directory facet: latest release, release date, and a reviewed update-caution note where relevant, on the app record, shown in the existing drawer. Raw release facts (versions, dates, links) can be ingested automatically from the GitHub Releases API through the existing refresh pipeline.
-- Editorial reference pages for the few big upgrade events per year (Immich v3, Home Assistant yearly releases, Nextcloud majors): what actually breaks, required actions, links to official notes. These are hand-written, Phase 0 compatible under `stack127_records/2026-07-site-review.md` section 9.4, and target the exact queries people type.
+- Editorial reference pages for the few big upgrade events per year (Immich v3, Home Assistant yearly releases, Nextcloud majors): what actually breaks, required actions, links to official notes. These target the exact queries people type.
 - Later: when per-app pages ship under the phased rollout, release history and breaking notes become a server-rendered section of each app page.
 
 Risks:
@@ -50,7 +50,7 @@ Proposed URL: `/ram-planner`
 
 Type: interactive calculator backed by a per-app memory dataset.
 
-Note: this idea was already planned in `stack127_records/2026-07-site-review.md` section 5.5, so it is confirmation, not a new find. It passes the surface decision rule as a tool because "does my stack fit my box" is a genuine calculation over inputs only the user knows, and it can run on the structured RAM data the directory already holds for all apps, with measured numbers improving precision over time rather than gating coverage.
+Note: this idea confirms an earlier plan rather than introducing a new one. It passes the surface decision rule as a tool because "does my stack fit my box" is a genuine calculation over inputs only the user knows, and it can run on the structured RAM data the directory already holds for all apps, with measured numbers improving precision over time rather than gating coverage.
 
 The user problem: "What can I run on 8GB?" and "how much RAM does Immich/Nextcloud/Jellyfin need?" are permanent questions. People buy an N100 mini PC or Pi and have no way to know whether their planned stack fits. Official minimums are per-app, inconsistent, and usually describe the app alone, not a stack.
 

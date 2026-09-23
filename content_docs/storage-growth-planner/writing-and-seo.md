@@ -1,5 +1,7 @@
 # Writing and SEO plan: Storage Growth and TCO Planner
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Tool: Storage Growth and TCO Planner
 Route: `/storage-growth-planner`
@@ -7,8 +9,6 @@ Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and
 SERP checked: 2026-08-23
 Search verification: Web connector for query discovery; engines were not individually exposed. Standalone Playwright with pinned Chromium 1223 verified the current competitor result shapes at 1280 x 720 and 390 x 844. The in-app Browser and SearXNG were unavailable.
 Primary medium: Tool UI
-Prose is the minority: yes
-Static prose budget: 3 sections, 420 words maximum
 
 ## Search intent
 
@@ -83,20 +83,11 @@ Plan a local storage purchase against your growth horizon and cost assumptions, 
 
 ### Sections reserved for later manual writing
 
-| Section ID | Heading | Purpose | Required facts and sources | Word limit and shape | Banned claims or repetition |
+| Section ID | Heading | Purpose | Required facts and sources | Planned format | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
-| COPY-01 | Choose inputs that match your homelab | Help a new visitor choose representative growth, reserve, power, and cost assumptions. | Use measured whole-system watts; growth compounds once yearly; reserve is user policy; equal-drive layouts are generic. Source: implementation report and SNIA TCO model. | 160 words; two short paragraphs. | Do not repeat field labels, chart values, or call the inputs recommendations. |
-| COPY-02 | Know what this model leaves out | Set the trust boundary around capacity, cost, backup, and technology-specific behavior. | Not installed free space; not reliability, rebuild, performance, restore proof, financial advice, or a live price catalog. RAID redundancy is not a backup. Sources: implementation report, OpenZFS VDEVs, CISA backup guidance. | 150 words; one short paragraph plus a compact list if needed. | Do not claim exact real-world capacity, best layout, guaranteed savings, or site-wide privacy. |
-| COPY-03 | Verify the plan before buying | Give one practical next action and two relevant Stack127 continuations. | Compare exact ZFS geometry in the linked tools; verify a real backup copy and restore; user prices and rates remain assumptions. Sources: OpenZFS VDEVs, CISA backup guidance. | 110 words; one short paragraph and two links. | Do not add generic related reading, purchase links, or a second calculator. |
-
-### Voice and accuracy constraints
-
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
-- Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
-- Do not repeat a result, table, chart, wireframe, heading, or prior section.
-- Leave unresolved facts as explicit review notes, not plausible copy.
+| COPY-01 | Choose inputs that match your homelab | Help a new visitor choose representative growth, reserve, power, and cost assumptions. | Use measured whole-system watts; growth compounds once yearly; reserve is user policy; equal-drive layouts are generic. Source: implementation report and SNIA TCO model. | Prose. | Do not repeat field labels, chart values, or call the inputs recommendations. |
+| COPY-02 | Know what this model leaves out | Set the trust boundary around capacity, cost, backup, and technology-specific behavior. | Not installed free space; not reliability, rebuild, performance, restore proof, financial advice, or a live price catalog. RAID redundancy is not a backup. Sources: implementation report, OpenZFS VDEVs, CISA backup guidance. | Prose with a compact list if needed. | Do not claim exact real-world capacity, best layout, guaranteed savings, or site-wide privacy. |
+| COPY-03 | Verify the plan before buying | Give one practical next action and two relevant Stack127 continuations. | Compare exact ZFS geometry in the linked tools; verify a real backup copy and restore; user prices and rates remain assumptions. Sources: OpenZFS VDEVs, CISA backup guidance. | Prose and two links. | Do not add generic related reading, purchase links, or a second calculator. |
 
 ### Tool-build exclusion
 

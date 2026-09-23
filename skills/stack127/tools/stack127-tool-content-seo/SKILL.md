@@ -5,8 +5,10 @@ description: Plan useful search-focused content for a finished stack127 tool in 
 
 # stack127 tool content plan
 
-Edit only the Content section of `content_docs/<slug>/tool-spec.md`.
+Read `stack127_docs/writing-style.md` for writing, visual choices, and SEO wording. Read `stack127_docs/shared-ui.md` for available content components and Markdown syntax. Edit only the Content section of `content_docs/<slug>/tool-spec.md`.
 
-Operate the finished tool once. Define the search intent, reader state, page promise, title direction, description direction, usage guidance, supporting questions, suitable formats, internal links, and primary sources.
+Read the Page structure section of `skills/stack127/tools/stack127-tool-writing/SKILL.md`. Record how its title and introduction guidance applies to this tool, including whether a formula belongs in the introduction or supporting content. The writing worker drafts from this plan after it is ready.
 
-Keep the tool dominant. Plan only content that helps someone choose inputs, understand the answer, recover from a problem, know the limits, or take the next step. Do not add an FAQ or methodology section by default. Do not draft public prose, create copy IDs, validators, or evidence files.
+Operate the finished tool once. Use the Product and Interface sections, the observed result, and the verified Research sources to fill the Content sections in the tool-spec template. Map the reader's important questions to the UI or planned prose. Give the writing worker a proposed outline, useful examples, result terms, boundaries, next step, source roles, title and description direction, and links.
+
+Refer to technical facts elsewhere in the spec instead of duplicating them. For planned visuals, name a supported component or generator so the writer knows what the page can render. Do not draft public prose, create copy IDs, validators, or evidence files.

@@ -1,9 +1,9 @@
 import { Network } from "lucide-react";
-import { AppShell } from "@/app/app-shell";
-import { EntryHero } from "@/app/entry-hero";
-import { PageCanvas } from "@/app/page-canvas";
-import { PageHeader } from "@/app/page-header";
-import { PageTitleIcon } from "@/app/page-title-icon";
+import { AppShell } from "@/app/ui/site/app-shell";
+import { EntryHero } from "@/app/ui/site/entry-hero";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
+import { PageHeader } from "@/app/ui/site/page-header";
+import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
 import { siteSpotDnsToolsArt } from "../../art/site--spot-dns-tools";
 import { caaArt } from "../_components/art/caa";
 import { dnsChangeArt } from "../_components/art/dns-change";
@@ -12,8 +12,8 @@ import { dnsTraceArt } from "../_components/art/dns-trace";
 import { dnssecArt } from "../_components/art/dnssec";
 import { nameserverArt } from "../_components/art/nameserver";
 import { soaArt } from "../_components/art/soa";
-import { ToolCatalog, type CatalogTool } from "../_components/tool-catalog";
-import { ToolCatalogSidebar } from "../_components/tool-catalog-sidebar";
+import { ToolCatalog, type CatalogTool } from "../../../ui/catalogs/tool-catalog";
+import { ToolCatalogSidebar } from "../../../ui/catalogs/tool-catalog-sidebar";
 
 const tools: CatalogTool[] = [
   {

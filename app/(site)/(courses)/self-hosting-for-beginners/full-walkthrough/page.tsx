@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { getLesson } from "@/lib/self-hosting-for-beginners";
-import { MarkerArt } from "@/app/marker-art";
+import { MarkerArt } from "@/app/ui/site/marker-art";
 import { Callout, LessonLink, LessonPage } from "../course";
 import { fullLoopArt } from "./art/full-loop";
-import { CodeBlock } from "@/app/code-block";
+import { CodeBlock } from "@/app/ui/site/code-block";
 
 const lesson = getLesson("full-walkthrough");
 

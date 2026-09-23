@@ -22,8 +22,8 @@ app/(site)/(references)/  # stable facts, codes, and comparisons
 app/(site)/(tools)/       # calculators, lookups, and generators
 ```
 
-Shared components for one family live in that group's `_components/` folder. Components used by
-the whole site stay directly under `app/`.
+Shared components live in `app/ui/`, grouped by use. Page data and one-off interactions stay with
+their route. Generated page art stays beside its page.
 
 Catalogs contain links to stack127-owned pages. Directories contain third-party software and
 hardware records. References contain stable facts, codes, and comparisons. Do not place
@@ -41,11 +41,13 @@ Examples:
 
 ```text
 content_docs/self-host-apps/
-content_docs/status-codes/
-content_docs/seo-tools/
+content_docs/kdp-payment-date-calculator/
+content_docs/self-hosting-for-beginners/
 ```
 
 The folder name should match the page slug so related docs are easy to find.
+Older tool folders may still contain research and handoff plans from before the single
+`tool-spec.md` workflow. Use the current source and [shared-ui.md](shared-ui.md) for component paths.
 
 ## Sitewide Docs
 
@@ -57,13 +59,7 @@ stack127_docs/
 
 Use this folder for design, structure, brand, SEO rules, environment notes, deployment notes, and other global decisions. Keep launch SEO rules in `stack127_docs/seo.md`.
 
-Keep dated decisions and completed migration notes in:
-
-```text
-stack127_records/YYYY-MM-DD-<topic>.md
-```
-
-Records explain past changes. Current docs remain authoritative.
+Update the relevant operating doc when a decision changes. Git history holds past versions.
 
 The live Cloudflare, DNS, caching, and origin-safety setup is recorded in `stack127_docs/cloudflare.md`.
 
@@ -75,11 +71,8 @@ Page scripts live at:
 scripts/<page-slug>/
 ```
 
-Temporary page scripts live at:
-
-```text
-scripts/<page-slug>/temp/
-```
+Put throwaway scripts and generated review files under `/tmp/stack127/`. Keep only durable scripts
+and reviewed source data in the repository.
 
 Sitewide scripts live at:
 
@@ -103,18 +96,18 @@ self-host-apps:audit-summaries
 
 ## Skills
 
-Repo-owned Codex skills live beside the page they support:
+Repo-owned Codex skills live in `skills/`:
 
 ```text
-skills/<page-slug>/<skill-name>/
+skills/self-host-apps/<skill-name>/
+skills/stack127/tools/<skill-name>/
 ```
 
 Examples:
 
 ```text
 skills/self-host-apps/enrichment/
-skills/home-automation/research/
-skills/ai-agents/tool-directory/
+skills/stack127/tools/stack127-tool-build/
 ```
 
 Sitewide skills live at:

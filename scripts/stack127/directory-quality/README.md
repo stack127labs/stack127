@@ -3,7 +3,7 @@
 Capture an audit baseline without modifying either database:
 
 ```bash
-node scripts/stack127/directory-quality/inventory.mjs --env .env.database --out scripts/stack127/directory-quality/temp/YYYY-MM-DD-production-inventory.json
+node scripts/stack127/directory-quality/inventory.mjs --env .env.database --out /tmp/stack127-production-inventory.json
 ```
 
 The command uses one repeatable-read, read-only transaction. Each published self-host and CLI record receives a fingerprint and `pending` status. Flags prioritize inspection; they do not decide source models, categories, eligibility, or final copy. Records without flags still need review.

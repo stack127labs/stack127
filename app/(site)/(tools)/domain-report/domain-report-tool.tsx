@@ -2,14 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import {
-  ToolButton,
-  ToolDataTable,
-  ToolDownloadAction,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiDownloadAction, UiTextField } from "@/app/ui/controls";
+import { UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";
 import type { DomainReport, ReportFinding } from "@/lib/domain/report.ts";
 import {
   coverageRows,
@@ -83,16 +77,16 @@ function ReportResult({ result, fallback }: { result: DomainReport; fallback: st
   const noChecks = result.ranChecks.length === 0;
   return (
     <section aria-label="Domain registration report result" className={styles.results} data-domain-report-result>
-      <div aria-atomic="true" aria-live="polite"><ToolResultLead>{reportLead(result, fallback)}</ToolResultLead></div>
+      <div aria-atomic="true" aria-live="polite"><UiResultLead>{reportLead(result, fallback)}</UiResultLead></div>
       <section className={styles.section}>
         <h3>Checks in this report</h3>
-        <ToolDataTable ariaLabel="Registration and nameserver check coverage" columns={[{ id: "check", label: "Check" }, { id: "state", label: "State" }, { id: "source", label: "Source" }, { id: "note", label: "Note" }]} rows={coverageRows(result).map((row) => ({ id: row.id, cells: row }))} />
+        <UiDataTable ariaLabel="Registration and nameserver check coverage" columns={[{ id: "check", label: "Check" }, { id: "state", label: "State" }, { id: "source", label: "Source" }, { id: "note", label: "Note" }]} rows={coverageRows(result).map((row) => ({ id: row.id, cells: row }))} />
       </section>
       <NameserverSources result={result} />
       <FindingGroups result={result} />
       <Sources result={result} />
-      {noChecks ? <ToolStatus tone="warning">Try the report again.</ToolStatus> : null}
-      <div className={styles.download}><ToolDownloadAction contents={report} filename={`${domain}-report.json`} label="Download report" mimeType="application/json;charset=utf-8" /></div>
+      {noChecks ? <UiStatus tone="warning">Try the report again.</UiStatus> : null}
+      <div className={styles.download}><UiDownloadAction contents={report} filename={`${domain}-report.json`} label="Download report" mimeType="application/json;charset=utf-8" /></div>
     </section>
   );
 }
@@ -147,10 +141,10 @@ export function DomainReportTool({ initialName = "" }: { initialName?: string })
   return (
     <section aria-label="Domain registration report" className={`domain-tool ${styles.workbench}`} data-hydrated={hydrated ? "true" : undefined} data-tool-workbench>
       <form aria-busy={loading} className={styles.form} onSubmit={submit}>
-        <ToolTextField autoCapitalize="none" autoComplete="off" className={styles.queryField} error={fieldError} inputMode="url" inputRef={inputRef} label="Domain name" name="name" onChange={(value) => { setName(value); if (fieldError) setFieldError(null); if (requestError) setRequestError(null); }} placeholder="example.com" required spellCheck={false} type="text" value={name} />
-        <ToolButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">{loading ? "Running registration and DNS checks..." : "Run the report"}</ToolButton>
-        {loading ? <div className={styles.formStatus}><ToolStatus>Running registration and DNS checks...</ToolStatus></div> : null}
-        {requestError ? <div className={styles.formStatus}><ToolStatus tone="danger">{requestError}</ToolStatus></div> : null}
+        <UiTextField autoCapitalize="none" autoComplete="off" className={styles.queryField} error={fieldError} inputMode="url" inputRef={inputRef} label="Domain name" name="name" onChange={(value) => { setName(value); if (fieldError) setFieldError(null); if (requestError) setRequestError(null); }} placeholder="example.com" required spellCheck={false} type="text" value={name} />
+        <UiButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">{loading ? "Running registration and DNS checks..." : "Run the report"}</UiButton>
+        {loading ? <div className={styles.formStatus}><UiStatus>Running registration and DNS checks...</UiStatus></div> : null}
+        {requestError ? <div className={styles.formStatus}><UiStatus tone="danger">{requestError}</UiStatus></div> : null}
       </form>
       {result ? <ReportResult fallback={name.trim()} result={result} /> : null}
     </section>

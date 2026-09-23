@@ -1,5 +1,7 @@
 # Writing and SEO plan: IP and ASN registration lookup
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Feasibility: feasible
 Content review: 2026-09-19
@@ -99,16 +101,6 @@ Reading flow: the visitor gets the source-labeled answer first, then reads what 
 | COPY-06 | How to verify a result | Give the reader a short path from lookup to action | Registry record link, raw RDAP disclosure, source and fetched or cached time, separate BGP comparison, `/dns-lookup`, `/domain-lookup`, no clean-URL result restoration, bounded request and no analytics payload | Explain what to verify and which adjacent tool continues the job. Stop before a generic FAQ or troubleshooting catalog. | Do not repeat the source metadata, claim local-only processing, or serialize the query into the URL. |
 | COPY-07 | Task-oriented usage | Explain input preparation, meaningful choices, states, and next verification. | Closed Usage Markdown handoff and accepted technical artifacts. | One concise connected guide; use steps only where order changes the outcome. | No live-result narration, unimplemented features, or duplicate supporting explanations. |
 
-### Voice and accuracy constraints
-
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` for public wording. This plan owns search intent and useful coverage, not a separate voice.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
-- Do not invent facts, numbers, benefits, privacy claims, freshness guarantees, or response behavior.
-- Do not repeat a result, table, relationship strip, heading, or prior section.
-- Leave unresolved facts as explicit review notes, not plausible copy.
-
 ### Tool-build exclusion
 
 `$stack127-tool-build` must not draft or integrate these sections. The writer supplies them in the later content pass.
@@ -131,7 +123,6 @@ Reading flow: the visitor gets the source-labeled answer first, then reads what 
 ## Open questions and blockers
 
 - None. The content plan is ready for the manual prose pass. Publication remains a separate registry decision.
-
 
 ## Usage Markdown handoff
 

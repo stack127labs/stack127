@@ -1,4 +1,4 @@
-import { InfoPage, infoUpdatedClassName } from "@/app/info-page";
+import { InfoPage, infoUpdatedClassName } from "@/app/ui/site/info-page";
 import { siteHeroTermsArt } from "../../art/site--hero-terms";
 
 export default function TermsPage() {

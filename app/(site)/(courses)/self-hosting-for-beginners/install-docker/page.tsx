@@ -1,9 +1,9 @@
 import { getLesson } from "@/lib/self-hosting-for-beginners";
-import { MarkerArt } from "@/app/marker-art";
+import { MarkerArt } from "@/app/ui/site/marker-art";
 import { Callout, LessonLink, LessonPage } from "../course";
 import { imageContainerCycleArt } from "./art/image-container-cycle";
 import { imageContainerPortArt } from "./art/image-container-port";
-import { CodeBlock } from "@/app/code-block";
+import { CodeBlock } from "@/app/ui/site/code-block";
 
 const lesson = getLesson("install-docker");
 

@@ -1,21 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolAllocationBar,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolDataTable,
-  ToolKeyValueList,
-  ToolNumberField,
-  ToolPrimaryResult,
-  ToolQuantityInput,
-  ToolRepeatableList,
-  ToolStatus,
-  ToolTextField,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiNumberField, UiQuantityInput, UiRepeatableList, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiAllocationBar, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import {
   CAPACITY_UNITS,
   MAX_OSDS,
@@ -57,11 +44,11 @@ type CalculatedState = { input: CephCalculatorInput; values: CephCalculationValu
 type FieldErrors = Record<string, string>;
 
 const inputUnits: readonly CapacityUnit[] = ["TB", "GB", "TiB", "GiB"];
-const unitOptions = inputUnits.map((unit) => toolOption(unit, unit));
-const modeOptions = [toolOption("replicated", "Replicated"), toolOption("erasure", "Erasure coding")];
-const replicaOptions = [2, 3, 4, 5].map((size) => toolOption(String(size), `${size} copies`));
+const unitOptions = inputUnits.map((unit) => uiOption(unit, unit));
+const modeOptions = [uiOption("replicated", "Replicated"), uiOption("erasure", "Erasure coding")];
+const replicaOptions = [2, 3, 4, 5].map((size) => uiOption(String(size), `${size} copies`));
 const domainOptions = (["osd", "host", "rack", "datacenter"] as const).map((domain) =>
-  toolOption(domain, domain === "osd" ? "OSD" : `${domain[0].toUpperCase()}${domain.slice(1)}`),
+  uiOption(domain, domain === "osd" ? "OSD" : `${domain[0].toUpperCase()}${domain.slice(1)}`),
 );
 
 function emptyEditor(): EditorState {
@@ -183,7 +170,7 @@ function Result({ calculated, shareUrl, status, onShare }: { calculated: Calcula
   return (
     <section aria-live="polite" className={styles.result} data-testid="ceph-result">
       <h2 className={styles.resultHeading} id="ceph-result-heading" tabIndex={-1}>Ceph capacity plan</h2>
-      <ToolPrimaryResult
+      <UiPrimaryResult
         detail={`${formatBytes(values.targetBytes, "TiB")} · ${profileLabel(input)} · ${input.reserveBasisPoints / 100}% reserve`}
         label="Planning target"
         value={displayCapacity(values.targetBytes)}
@@ -191,7 +178,7 @@ function Result({ calculated, shareUrl, status, onShare }: { calculated: Calcula
 
       <section className={styles.resultSection} data-testid="capacity-accounting">
         <h2>Capacity allocation</h2>
-        <ToolAllocationBar
+        <UiAllocationBar
           ariaLabel="Capacity allocation"
           formatValue={(value) => displayCapacity(value as bigint)}
           palette="categorical"
@@ -206,10 +193,10 @@ function Result({ calculated, shareUrl, status, onShare }: { calculated: Calcula
 
       <section className={styles.resultSection}>
         <h2>Placement</h2>
-        <ToolStatus tone={values.placementStatus === "extra-domain-headroom" ? "success" : "neutral"}>
+        <UiStatus tone={values.placementStatus === "extra-domain-headroom" ? "success" : "neutral"}>
           {placementLabel(values.placementStatus)}
-        </ToolStatus>
-        <ToolKeyValueList rows={[
+        </UiStatus>
+        <UiKeyValueList rows={[
           { label: "Required domains", value: values.requiredDomains },
           { label: "Entered domains", value: values.distinctDomains },
           { label: "Extra domains", value: Math.max(0, extraDomains) },
@@ -221,7 +208,7 @@ function Result({ calculated, shareUrl, status, onShare }: { calculated: Calcula
         <p className={styles.lossSummary}>
           Losing {afterLoss.domainLabel} leaves {afterLoss.remainingDomains} domains. {placementLabel(afterLoss.placementStatus)}.
         </p>
-        <ToolKeyValueList rows={[
+        <UiKeyValueList rows={[
           { label: "Raw capacity lost", value: displayCapacity(afterLoss.lostRawBytes) },
           { label: "Raw capacity remaining", value: displayCapacity(afterLoss.survivingRawBytes) },
         ]} />
@@ -229,7 +216,7 @@ function Result({ calculated, shareUrl, status, onShare }: { calculated: Calcula
 
       <section className={styles.resultSection} data-testid="domain-table">
         <h2>Domain inventory</h2>
-        <ToolDataTable
+        <UiDataTable
           ariaLabel="Ceph failure-domain inventory"
           columns={[
             { id: "domain", label: "Domain" },
@@ -249,11 +236,11 @@ function Result({ calculated, shareUrl, status, onShare }: { calculated: Calcula
         />
       </section>
 
-      <ToolActionRow>
-        <ToolButton onPress={onShare}>Share plan</ToolButton>
-      </ToolActionRow>
-      {shareUrl ? <ToolTextField label="Share URL" readOnly value={shareUrl} /> : null}
-      {status ? <ToolStatus>{status}</ToolStatus> : null}
+      <UiActionRow>
+        <UiButton onPress={onShare}>Share plan</UiButton>
+      </UiActionRow>
+      {shareUrl ? <UiTextField label="Share URL" readOnly value={shareUrl} /> : null}
+      {status ? <UiStatus>{status}</UiStatus> : null}
       <p className={styles.boundary}>Verify the inventory, CRUSH hierarchy, and pool profile on the live cluster.</p>
     </section>
   );
@@ -394,17 +381,17 @@ export function CephCapacityCalculator({ initialState }: { initialState: string 
     <div className={styles.tool} data-tool-workbench>
       <form aria-label="Ceph capacity planner" className={styles.form} noValidate onSubmit={submit}>
         <div className={styles.profileGrid}>
-          <ToolChoiceGroup label="Protection mode" onChange={(mode) => mutate((current) => ({ ...current, mode: mode as ProtectionMode }))} options={modeOptions} required value={editor.mode} />
+          <UiChoiceGroup label="Protection mode" onChange={(mode) => mutate((current) => ({ ...current, mode: mode as ProtectionMode }))} options={modeOptions} required value={editor.mode} />
           {editor.mode === "replicated" ? (
-            <ToolChoiceGroup error={errors.replicaSize} label="Replica size" onChange={(replicaSize) => mutate((current) => ({ ...current, replicaSize }))} options={replicaOptions} required value={editor.replicaSize} />
+            <UiChoiceGroup error={errors.replicaSize} label="Replica size" onChange={(replicaSize) => mutate((current) => ({ ...current, replicaSize }))} options={replicaOptions} required value={editor.replicaSize} />
           ) : (
             <div className={styles.chunkGrid}>
-              <ToolNumberField dataFocusKey="k" error={errors.k} label="Data chunks k" max={12} min={2} onChange={(value) => mutate((current) => ({ ...current, k: Number.isNaN(value) ? "" : String(value) }))} required value={Number(editor.k)} />
-              <ToolNumberField dataFocusKey="m" error={errors.m} label="Coding chunks m" max={8} min={1} onChange={(value) => mutate((current) => ({ ...current, m: Number.isNaN(value) ? "" : String(value) }))} required value={Number(editor.m)} />
+              <UiNumberField dataFocusKey="k" error={errors.k} label="Data chunks k" max={12} min={2} onChange={(value) => mutate((current) => ({ ...current, k: Number.isNaN(value) ? "" : String(value) }))} required value={Number(editor.k)} />
+              <UiNumberField dataFocusKey="m" error={errors.m} label="Coding chunks m" max={8} min={1} onChange={(value) => mutate((current) => ({ ...current, m: Number.isNaN(value) ? "" : String(value) }))} required value={Number(editor.m)} />
             </div>
           )}
-          <ToolChoiceGroup error={errors.failureDomain} label="Failure domain" onChange={(failureDomain) => mutate((current) => ({ ...current, failureDomain: failureDomain as FailureDomain }))} options={domainOptions} required value={editor.failureDomain} />
-          <ToolNumberField dataFocusKey="reserve" error={errors.reserve} label="Planning reserve" max={50} min={0} onChange={(value) => mutate((current) => ({ ...current, reserve: Number.isNaN(value) ? "" : String(value) }))} required step={1} suffix="%" value={Number(editor.reserve)} />
+          <UiChoiceGroup error={errors.failureDomain} label="Failure domain" onChange={(failureDomain) => mutate((current) => ({ ...current, failureDomain: failureDomain as FailureDomain }))} options={domainOptions} required value={editor.failureDomain} />
+          <UiNumberField dataFocusKey="reserve" error={errors.reserve} label="Planning reserve" max={50} min={0} onChange={(value) => mutate((current) => ({ ...current, reserve: Number.isNaN(value) ? "" : String(value) }))} required step={1} suffix="%" value={Number(editor.reserve)} />
         </div>
 
         <section className={styles.inventorySection}>
@@ -412,7 +399,7 @@ export function CephCapacityCalculator({ initialState }: { initialState: string 
             <h2>OSD batches</h2>
             <span>{editor.batches.length} / {MAX_ROWS} batches · {osdCount} / {MAX_OSDS} OSDs</span>
           </div>
-          <ToolRepeatableList
+          <UiRepeatableList
             addDisabled={editor.batches.length >= MAX_ROWS}
             addLabel="Add OSD batch"
             ariaLabel="OSD batches"
@@ -423,7 +410,7 @@ export function CephCapacityCalculator({ initialState }: { initialState: string 
             renderItem={(batch, index) => (
               <div className={styles.batchEditor} data-testid="osd-batch">
                 <span aria-hidden="true" className={styles.batchNumber}>{String(index + 1).padStart(2, "0")}</span>
-                <ToolTextField
+                <UiTextField
                   dataFocusKey={`batch-${batch.id}-domain`}
                   error={errors[`batch-${batch.id}-domain`]}
                   label="Failure-domain label"
@@ -432,7 +419,7 @@ export function CephCapacityCalculator({ initialState }: { initialState: string 
                   required
                   value={batch.domain}
                 />
-                <ToolNumberField
+                <UiNumberField
                   dataFocusKey={`batch-${batch.id}-count`}
                   error={errors[`batch-${batch.id}-count`]}
                   label="OSD count"
@@ -442,7 +429,7 @@ export function CephCapacityCalculator({ initialState }: { initialState: string 
                   required
                   value={Number(batch.osdCount)}
                 />
-                <ToolQuantityInput
+                <UiQuantityInput
                   ariaLabel="OSD capacity"
                   dataFocusKey={`batch-${batch.id}-capacity`}
                   error={errors[`batch-${batch.id}-capacity`]}
@@ -464,11 +451,11 @@ export function CephCapacityCalculator({ initialState }: { initialState: string 
           ) : null}
         </section>
 
-        <ToolActionRow>
-          <ToolButton type="submit" variant="primary">Plan capacity</ToolButton>
-          <ToolButton onPress={reset}>Reset</ToolButton>
-        </ToolActionRow>
-        {status && !calculated ? <ToolStatus tone={Object.keys(errors).length ? "danger" : "neutral"}>{status}</ToolStatus> : null}
+        <UiActionRow>
+          <UiButton type="submit" variant="primary">Plan capacity</UiButton>
+          <UiButton onPress={reset}>Reset</UiButton>
+        </UiActionRow>
+        {status && !calculated ? <UiStatus tone={Object.keys(errors).length ? "danger" : "neutral"}>{status}</UiStatus> : null}
       </form>
 
       {calculated ? <Result calculated={calculated} onShare={share} shareUrl={shareUrl} status={status} /> : null}

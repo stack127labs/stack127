@@ -2,16 +2,8 @@
 
 import { CalendarClock, RotateCcw } from "lucide-react";
 import { useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolDataTable,
-  ToolPrimaryResult,
-  ToolStatus,
-  ToolTextField,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import {
   calculateKdpPaymentDate,
   formatKdpPaymentMonth,
@@ -21,8 +13,8 @@ import {
 import styles from "./kdp-payment-date-calculator.module.css";
 
 const distributionOptions = [
-  toolOption("standard", "Standard"),
-  toolOption("expanded", "Expanded Distribution"),
+  uiOption("standard", "Standard"),
+  uiOption("expanded", "Expanded Distribution"),
 ];
 
 const paymentTimingUrl = "https://kdp.amazon.com/en_US/help/topic/GK2MKZUL6U3SFBPZ";
@@ -97,12 +89,12 @@ export function KdpPaymentDateCalculator() {
   return (
     <section aria-label="KDP payment timing inputs and results" className={styles.tool} data-tool-workbench>
       <form className={styles.form} noValidate onSubmit={submit} ref={formRef}>
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           autoComplete="off"
           className={styles.monthField}
           dataFocusKey="reportedMonth"
-          description="Use YYYY-MM for the month shown in your KDP royalty report."
+          description="Enter the month from your KDP royalty report as YYYY-MM."
           error={issuesFor(result, "reportedMonth")}
           inputRef={monthRef}
           label="Reported earnings month"
@@ -115,7 +107,7 @@ export function KdpPaymentDateCalculator() {
           spellCheck={false}
           value={reportedMonth}
         />
-        <ToolChoiceGroup
+        <UiChoiceGroup
           dataFocusKey="distribution"
           description="Choose Expanded Distribution only for royalties reported through that program."
           error={issuesFor(result, "distribution")}
@@ -128,36 +120,36 @@ export function KdpPaymentDateCalculator() {
           required
           value={distribution}
         />
-        <ToolActionRow>
+        <UiActionRow>
           <div className={styles.actions}>
-            <ToolButton type="submit" variant="primary"><CalendarClock aria-hidden="true" size={17} /> Estimate payment month</ToolButton>
-            <ToolButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</ToolButton>
+            <UiButton type="submit" variant="primary"><CalendarClock aria-hidden="true" size={17} /> Estimate payment month</UiButton>
+            <UiButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</UiButton>
           </div>
-        </ToolActionRow>
-        {failure ? <ToolStatus tone="danger">{failure}</ToolStatus> : null}
-        {resetNotice ? <ToolStatus>{resetNotice}</ToolStatus> : null}
+        </UiActionRow>
+        {failure ? <UiStatus tone="danger">{failure}</UiStatus> : null}
+        {resetNotice ? <UiStatus>{resetNotice}</UiStatus> : null}
         <p aria-live="polite" className={styles.visuallyHidden}>{announcement}</p>
       </form>
 
       <section aria-label="Estimated payment schedule" className={styles.result}>
         {values ? (
           <div className={styles.resultContent}>
-            <ToolPrimaryResult
-              detail="Usually toward the end of the month. This estimates when Amazon issues payment."
+            <UiPrimaryResult
+              detail="Amazon usually issues payment toward the end of this month. Allow extra time for delivery."
               inputRef={resultRef}
               label="Approximate payment month"
               value={formatKdpPaymentMonth(values.paymentMonth)}
             />
             <p>
-              Direct deposit has no KDP payment threshold. Check and wire payments depend on the <a href={paymentThresholdsUrl}>threshold for each marketplace</a>. A balance below its threshold carries forward, so payment can be later. This tool cannot confirm your payment eligibility or status.
+              Direct deposit has no KDP payment threshold. Check and wire payments must meet the <a href={paymentThresholdsUrl}>threshold for each marketplace</a>. Balances below the threshold carry forward and can be paid later. This calculator can't confirm your payment eligibility or status.
             </p>
             <p>
-              For {formatKdpPaymentMonth(values.reportedMonth)}, {distributionLabel(values.distribution)} estimates a payment month {values.monthOffset} calendar months later, based on KDP's approximate {values.monthOffset === 2 ? "60" : "90"}-day payment schedule.
+              For {formatKdpPaymentMonth(values.reportedMonth)}, the {distributionLabel(values.distribution)} estimate adds {values.monthOffset === 2 ? "two" : "three"} calendar months, based on KDP's approximate {values.monthOffset === 2 ? "60" : "90"}-day schedule.
             </p>
             <section aria-labelledby="kdp-payment-delivery-heading" className={styles.delivery}>
               <h2 className={styles.sectionTitle} id="kdp-payment-delivery-heading">After Amazon issues payment</h2>
-              <p>Arrival takes extra time. These are delivery estimates, not guaranteed receipt dates.</p>
-              <ToolDataTable
+              <p>Allow the following time from the actual payment date. These are delivery estimates.</p>
+              <UiDataTable
                 ariaLabel="Typical payment delivery estimates"
                 columns={[
                   { id: "method", label: "Payment method" },
@@ -171,11 +163,11 @@ export function KdpPaymentDateCalculator() {
                 ]}
               />
             </section>
-            <p>Use your <a href={paymentReportUrl}>KDP Payment Report</a> to check an actual payment.</p>
-            <p className={styles.sourceNote}>Schedule source: <a href={paymentTimingUrl}>KDP payment timing</a>. Rules checked 23 September 2026.</p>
+            <p>Check your KDP Payment Report for an actual payment's date and status. <a href={paymentReportUrl}>Understand your Payment Report</a>.</p>
+            <p className={styles.sourceNote}>Based on <a href={paymentTimingUrl}>KDP payment timing</a>. Rules checked 23 September 2026.</p>
           </div>
         ) : emptyPrompt ? (
-          <p className={styles.emptyPrompt}>Enter a reported month to estimate payment timing.</p>
+          <p className={styles.emptyPrompt}>Enter a reported earnings month to see the payment estimate.</p>
         ) : null}
       </section>
     </section>

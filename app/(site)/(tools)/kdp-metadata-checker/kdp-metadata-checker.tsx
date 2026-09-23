@@ -2,16 +2,8 @@
 
 import { RotateCcw, Tags } from "lucide-react";
 import { createElement, Fragment, useRef, useState, type FormEvent, type ReactNode } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolCopyAction,
-  ToolKeyValueList,
-  ToolPrimaryResult,
-  ToolStatus,
-  ToolTextArea,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiCopyAction, UiTextArea, UiTextField } from "@/app/ui/controls";
+import { UiActionRow, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import {
   checkKdpMetadata,
   tokenizeKdpDescription,
@@ -19,7 +11,7 @@ import {
   type KdpMetadataInput,
   type KdpMetadataResult,
 } from "@/lib/kdp/metadata.ts";
-import styles from "../_components/kdp-tool.module.css";
+import styles from "../../../ui/tools/kdp-tool.module.css";
 
 type PreviewNode = { type: "tag"; name: string; children: Array<PreviewNode | string> } | { type: "root"; children: Array<PreviewNode | string> };
 
@@ -115,33 +107,33 @@ export function KdpMetadataChecker() {
     <section aria-label="Metadata inputs and results" className={styles.tool} data-tool-workbench>
       <form className={styles.form} onSubmit={submit} ref={formRef}>
         <div className={styles.grid}>
-          <ToolTextField autoCapitalize="sentences" dataFocusKey="title" error={errorFor(result, "title")} label="Title" onChange={(value) => update({ title: value })} required value={input.title} />
-          <ToolTextField autoCapitalize="sentences" dataFocusKey="subtitle" error={errorFor(result, "subtitle")} label="Subtitle" onChange={(value) => update({ subtitle: value })} value={input.subtitle} />
-          <ToolTextArea autoCapitalize="sentences" className={styles.wide} error={errorFor(result, "description")} label="Description" onChange={(value) => update({ description: value })} required rows={9} value={input.description} />
+          <UiTextField autoCapitalize="sentences" dataFocusKey="title" error={errorFor(result, "title")} label="Title" onChange={(value) => update({ title: value })} required value={input.title} />
+          <UiTextField autoCapitalize="sentences" dataFocusKey="subtitle" error={errorFor(result, "subtitle")} label="Subtitle" onChange={(value) => update({ subtitle: value })} value={input.subtitle} />
+          <UiTextArea autoCapitalize="sentences" className={styles.wide} error={errorFor(result, "description")} label="Description" onChange={(value) => update({ description: value })} required rows={9} value={input.description} />
           <div className={styles.wide}>
             <div className={styles.grid}>
               {input.keywords.map((keyword, index) => (
-                <ToolTextField autoCapitalize="none" dataFocusKey={`keyword-${index + 1}`} error={errorFor(result, `keyword-${index + 1}`)} key={`keyword-${index + 1}`} label={`Keyword ${index + 1}`} onChange={(value) => updateKeyword(index, value)} value={keyword} />
+                <UiTextField autoCapitalize="none" dataFocusKey={`keyword-${index + 1}`} error={errorFor(result, `keyword-${index + 1}`)} key={`keyword-${index + 1}`} label={`Keyword ${index + 1}`} onChange={(value) => updateKeyword(index, value)} value={keyword} />
               ))}
             </div>
           </div>
         </div>
-        <ToolActionRow>
+        <UiActionRow>
           <div className={styles.actions}>
-            <ToolButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</ToolButton>
-            <ToolButton type="submit" variant="primary"><Tags aria-hidden="true" size={17} /> Check metadata</ToolButton>
+            <UiButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</UiButton>
+            <UiButton type="submit" variant="primary"><Tags aria-hidden="true" size={17} /> Check metadata</UiButton>
           </div>
-        </ToolActionRow>
-        {status ? <ToolStatus tone={stale || result?.findings.length ? "warning" : "neutral"}>{status}</ToolStatus> : null}
+        </UiActionRow>
+        {status ? <UiStatus tone={stale || result?.findings.length ? "warning" : "neutral"}>{status}</UiStatus> : null}
       </form>
 
       {result?.values && snapshot ? (
         <section aria-label="Metadata result" className={styles.result} data-stale={stale || undefined}>
-          <ToolPrimaryResult detail={stale ? "Last checked snapshot. Check again." : "Local documented checks and review prompts"} inputRef={resultRef} label="Metadata check" tone={result.findings.length ? "warning" : "success"} value={result.findings.length === 0 ? "No possible issues" : `${result.findings.length} possible issue${result.findings.length === 1 ? "" : "s"}`} />
+          <UiPrimaryResult detail={stale ? "Last checked snapshot. Check again." : "Local documented checks and review prompts"} inputRef={resultRef} label="Metadata check" tone={result.findings.length ? "warning" : "success"} value={result.findings.length === 0 ? "No possible issues" : `${result.findings.length} possible issue${result.findings.length === 1 ? "" : "s"}`} />
           <div className={styles.actions}>
-            <ToolCopyAction label="Copy description source" successLabel="Description source copied" value={snapshot.description} withManualFallback />
+            <UiCopyAction label="Copy description source" successLabel="Description source copied" value={snapshot.description} withManualFallback />
           </div>
-          <ToolKeyValueList rows={[
+          <UiKeyValueList rows={[
             { label: "Description characters", value: `${result.values.descriptionCharacters} / 4000` },
             { label: "Title and subtitle", value: `${result.values.titleWithSubtitleCharacters} / 200` },
             { label: "Keywords", value: `${result.values.keywordCount} of 7` },

@@ -1,5 +1,7 @@
 # Writing and SEO plan: Rebuild Window and Read-Error Exposure Calculator
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Tool: Rebuild Window and Read-Error Exposure Calculator
 Route: `/rebuild-calculator`
@@ -8,8 +10,6 @@ SERP checked: 2026-08-23
 Search backend: web connector; individual Bing and DuckDuckGo engines unavailable
 Visual verification backend: standalone Playwright CLI with Chromium 1.60.0; route preview unavailable without `.env.local`
 Primary medium: Tool UI
-Prose is the minority: yes
-Static prose budget: 5 sections, 560 words maximum
 
 ## Search intent
 
@@ -86,22 +86,13 @@ Estimate one simplified rebuild's degraded window, source bytes read, and modele
 
 ### Sections reserved for later manual writing
 
-| Section ID | Heading | Purpose | Required facts and sources | Word limit and shape | Banned claims or repetition |
+| Section ID | Heading | Purpose | Required facts and sources | Planned format | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
-| COPY-01 | Intro below the title | Identify the user and the two-part answer. | Rebuild window, source bytes, modeled URE exposure, local formula; product report and brief. | 70 words maximum; one short paragraph. | Do not repeat h1, defaults, or a data-loss promise. |
-| COPY-02 | Choose inputs that match the rebuild | Explain effective speed, decimal capacity, URE specification, and read scope. | Inputs and normalization; Seagate and WD datasheets; full-member default. | 120 words maximum; two short paragraphs. | No universal speed, vendor ranking, or controller-specific claim. |
-| COPY-03 | Read the result as exposure, not a verdict | Explain copy time, degraded window, source bytes, probability, and tolerance. | Formula contract, FF-001 through FF-006, Intel RAID guide. | 130 words maximum; two short paragraphs. | Never call output data-loss probability, rebuild-success probability, or a recommendation. |
-| COPY-04 | What this model leaves out | Set the model boundary beside the result. | No second failure, AFR, MTTDL, fleet correlation, filesystem behavior, or controller guarantee; product non-goals. | 110 words maximum; one compact paragraph and one short list if needed. | Do not repeat the formula or create an oversized warning box. |
-| COPY-05 | Verify the live rebuild next | Give a concrete next action and scoped privacy statement. | Compare effective throughput and actual rebuild scope with controller or filesystem status; local transient inputs. | 130 words maximum; two short paragraphs with two internal links. | Do not imply the page observed the user's array or sent input to a server. |
-
-### Voice and accuracy constraints
-
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
-- Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
-- Do not repeat a result, table, visual, heading, or prior section.
-- Leave unresolved facts as explicit review notes, not plausible copy.
+| COPY-01 | Intro below the title | Identify the user and the two-part answer. | Rebuild window, source bytes, modeled URE exposure, local formula; product report and brief. | Prose. | Do not repeat h1, defaults, or a data-loss promise. |
+| COPY-02 | Choose inputs that match the rebuild | Explain effective speed, decimal capacity, URE specification, and read scope. | Inputs and normalization; Seagate and WD datasheets; full-member default. | Prose. | No universal speed, vendor ranking, or controller-specific claim. |
+| COPY-03 | Read the result as exposure, not a verdict | Explain copy time, degraded window, source bytes, probability, and tolerance. | Formula contract, FF-001 through FF-006, Intel RAID guide. | Prose. | Never call output data-loss probability, rebuild-success probability, or a recommendation. |
+| COPY-04 | What this model leaves out | Set the model boundary beside the result. | No second failure, AFR, MTTDL, fleet correlation, filesystem behavior, or controller guarantee; product non-goals. | Prose and one short list if needed. | Do not repeat the formula or create an oversized warning box. |
+| COPY-05 | Verify the live rebuild next | Give a concrete next action and scoped privacy statement. | Compare effective throughput and actual rebuild scope with controller or filesystem status; local transient inputs. | Prose with two internal links. | Do not imply the page observed the user's array or sent input to a server. |
 
 ### Tool-build exclusion
 

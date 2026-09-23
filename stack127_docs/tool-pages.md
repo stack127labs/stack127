@@ -2,6 +2,8 @@
 
 Tool routes and tool copy have separate owners. The Next.js route owns the interactive tool, while PostgreSQL owns its title, introduction, supporting Markdown, public dates, and version records.
 
+Use [writing-style.md](writing-style.md) for writing guidance. This document covers content storage, rendering, and updates.
+
 This split applies only to interactive tools. References and directories such as `/epp-status-codes` and `/tld-directory` are catalogs. They do not get rows in `stack127_tool_pages`.
 
 ## Tables
@@ -53,15 +55,17 @@ The `stack127_repo_*` fields describe repositories owned by stack127. They are u
 
 ## Markdown boundary
 
-Store readable copy in Markdown. Raw HTML is not rendered. GitHub-flavored tables, lists, links, inline code, fenced code, headings, and blockquotes are supported.
+Store readable copy in Markdown. Raw HTML is not rendered. GitHub-flavored tables, lists, links, inline code, fenced code, headings, and blockquotes are supported. The shared content components and copyable examples are documented in [shared-ui.md](shared-ui.md).
 
-Keep formulas, controls, results, exact interactive visuals, accessibility behavior, and operational states in code. Keep the introduction and supporting explanation in the database. Do not commit a second live copy of the Markdown under the route or `content_docs`.
+Keep controls, live results, accessibility behavior, and operational states in code. Write explanatory formulas, worked examples, callouts, and exact static charts in the content Markdown when they help the reader. Keep the introduction and supporting explanation in the database. Do not commit a second live copy of the Markdown under the route or `content_docs`.
 
-The shared server renderer is `app/tool-page-content.tsx`. Every tool route loads its row with `getRequiredToolPage`, renders `ToolPageHeader` before the interactive component, and renders `ToolPageMarkdown` after it. That article renders `usage_markdown` first when present, then `content_markdown`, so the guide remains one continuous server-rendered prose region.
+The tool-page server renderer is `app/ui/site/tool-page-content.tsx`; it uses the sitewide `ContentMarkdown` from `app/ui/content-markdown.tsx`. Every tool route loads its row with `getRequiredToolPage`, renders `ToolPageHeader` before the interactive component, and renders `ToolPageMarkdown` after it. That article renders `usage_markdown` first when present, then `content_markdown`, so the guide remains one continuous server-rendered prose region.
 
 Markdown may reference an approved generated marker figure with an image such as `![How the pool is assembled](marker-art://catalog/zfs-capacity)`. The explicit registry in `app/marker-art-registry.ts` resolves only known generated modules through `MarkerArt`; unknown references and arbitrary paths are rejected.
 
 Supporting Markdown tables use the reading column's width and wrap explanations, links, and inline code. Keep the keyboard-focusable scroll region as a fallback for unusual content. This rule does not change interactive result tables or raw-output viewers, which retain their own overflow behavior.
+
+Use `> [!NOTE]`, `> [!WARNING]`, `> [!FORMULA]`, or `> [!EXAMPLE]` for shared content blocks. A short title may follow the marker on the same line. Use `chart-bar`, `chart-line`, or `chart-donut` fenced JSON for an exact data chart. The renderer validates chart data and shows a readable error for invalid input. Ordinary headings, lists, and contextual links need no special syntax.
 
 Preserve readable words and code identifiers. Wide comparison tables may scroll inside their own region on narrow screens; do not force every column to fit by splitting identifiers into fragments. Check computed styles as well as page width, since general prose rules can override table-specific wrapping.
 
@@ -69,7 +73,7 @@ Preserve readable words and code identifiers. Wide comparison tables may scroll 
 
 A content-only change modifies the visible title, introduction, or supporting Markdown without changing the tool's inputs, calculations, data sources, results, or behavior.
 
-When correcting a claim about the tool's coverage, data handling, accuracy, or limits, check the search title and description too. A corrected guide must not leave the old promise in a search snippet. Metadata stays in `stack127_pages` and follows `stack127_docs/seo.md`; changing it does not require changing publication flags or route-level SEO code.
+When correcting a claim about the tool's coverage, data handling, accuracy, or limits, check the search title and description too. A corrected guide must not leave the old promise in a search snippet. Metadata stays in `stack127_pages` and follows `stack127_docs/seo.md`; changing it does not require changing publication flags or route-level SEO code. The tool-writing stage supplies the search title and description. Integration applies them to the development registry and checks the rendered metadata. Production metadata changes wait for the authorized publication workflow.
 
 1. Prepare reviewed introduction and content Markdown in temporary files outside the live route. Planning and evidence may stay under `content_docs/<slug>/`, but the database remains the live copy.
 2. Run a dry run against the development database:

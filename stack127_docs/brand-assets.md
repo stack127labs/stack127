@@ -1,6 +1,6 @@
 # stack127 brand assets
 
-The approved wordmark uses a clear double-storey a, geometric 127 numerals, and a chartreuse dot. The header and footer share `app/brand-wordmark.tsx`.
+The approved wordmark uses a clear double-storey a, geometric 127 numerals, and a chartreuse dot. The header and footer share `app/ui/site/brand-wordmark.tsx`.
 
 ## Sources
 
@@ -18,4 +18,4 @@ The transparent mark variants and solid square mark variants under `public/logos
 
 Run `npm run stack127:brand:build`. The builder extracts the foreground from the approved dark source, normalizes the ink and accent colors, trims the margins, and produces the theme variants and icon sizes. The mark crop starts at the empty column between k and 1, at x=1207 in the 1983-pixel-wide approved source. Update this crop if the source changes.
 
-The wordmark files are 1451 by 282 pixels. Keep the intrinsic dimensions in `app/brand-wordmark.tsx` aligned when replacing the source.
+The wordmark files are 1451 by 282 pixels. Keep the intrinsic dimensions in `app/ui/site/brand-wordmark.tsx` aligned when replacing the source.

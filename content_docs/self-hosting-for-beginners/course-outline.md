@@ -1,6 +1,6 @@
 # Self-Hosting Course Outline
 
-The ordered page plan for `/self-hosting-for-beginners`. This file is the source of truth for **what order the lessons go in and what each one covers**. Voice, page anatomy, and build conventions live in `README.md`.
+The ordered page plan for `/self-hosting-for-beginners`. This file defines lesson order and coverage. Writing follows `stack127_docs/writing-style.md`. Page anatomy and build conventions live in `README.md`.
 
 ## The narrative
 

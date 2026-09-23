@@ -66,7 +66,7 @@ A Last Update Checker was planned and then cut for exactly this reason. It read 
 - The registry expiry date and the registrar expiry date are two separately registered RDAP fields. Never merge them.
 - Treat every RDAP event as optional, including `transfer` and `reregistration`. Absence is unknown, never a default.
 - Do not claim to be the only, first, or best tool of its kind. Similar tools exist and the claim is not defensible. See the positioning section of `stack127_docs/rdap.md`.
-- Do not use em dashes or en dashes anywhere in page copy.
+- Follow `stack127_docs/writing-style.md` for all public wording.
 
 ## What Every Tool Page Must Tell The Reader
 

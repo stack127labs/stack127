@@ -1,4 +1,6 @@
-import { PageCanvas } from "@/app/page-canvas";
+import { StatePanel } from "@/app/ui/state-panel";
+import { Pagination } from "@/app/ui/pagination";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { Search, SquareTerminal } from "lucide-react";
 import Link from "next/link";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
@@ -8,33 +10,32 @@ import {
   type TerminalApp,
 } from "@/lib/terminal-apps";
 import { getTerminalApps } from "@/lib/terminal-apps";
-import { AppShell, SidebarLabel } from "@/app/app-shell";
+import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
 import {
   DirectoryCheckboxGroup as CheckboxGroup,
   DirectoryRadioGroup as RadioGroup,
   DirectoryTagSelectGroup as TagSelectGroup,
   type DirectoryFilterOption as FilterOption,
-} from "../_components/directory-filters";
-import { Doodle } from "@/app/doodle";
+} from "../../../ui/directories/directory-filters";
+import { Doodle } from "@/app/ui/site/doodle";
 import { siteDoodleStarArt } from "../../art/site--doodle-star";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
-} from "@/app/sidebar-panel";
-import { PageTitleIcon } from "@/app/page-title-icon";
-import { PageHeader } from "@/app/page-header";
-import { EntryHero } from "@/app/entry-hero";
+} from "@/app/ui/site/sidebar-panel";
+import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { PageHeader } from "@/app/ui/site/page-header";
+import { EntryHero } from "@/app/ui/site/entry-hero";
 import { siteSpotCliAppsArt } from "../../art/site--spot-cli-apps";
-import { SortDropdown } from "../_components/directory-sort-dropdown";
+import { SortDropdown } from "../../../ui/directories/directory-sort-dropdown";
 import { CliAppBrowser } from "./cli-app-browser";
-import { DirectoryFilterController } from "../_components/directory-filter-controller";
+import { DirectoryFilterController } from "../../../ui/directories/directory-filter-controller";
 import {
   filterApps,
   getKnownValue,
   getPage,
   getString,
   getValues,
-  paginationPages,
   sortApps,
   sortOptions,
   sortValues,
@@ -435,46 +436,13 @@ export default async function CliAppsPage({
           <>
             <CliAppBrowser apps={paginatedApps} />
             {totalPages > 1 ? (
-              <nav aria-label="Terminal app pages" className="directory-pagination">
-                <Link
-                  aria-disabled={currentPage === 1}
-                  aria-label="Previous page"
-                  href={pageHref(params, Math.max(1, currentPage - 1))}
-                >
-                  ‹
-                </Link>
-                {paginationPages(currentPage, totalPages).map((page, index) =>
-                  page === null ? (
-                    <span className="directory-pagination-gap" key={`gap-${index}`}>
-                      …
-                    </span>
-                  ) : page === currentPage ? (
-                    <span aria-current="page" key={page}>
-                      {page}
-                    </span>
-                  ) : (
-                    <Link href={pageHref(params, page)} key={page}>
-                      {page}
-                    </Link>
-                  ),
-                )}
-                <Link
-                  aria-disabled={currentPage === totalPages}
-                  aria-label="Next page"
-                  href={pageHref(params, Math.min(totalPages, currentPage + 1))}
-                >
-                  ›
-                </Link>
-              </nav>
+              <Pagination ariaLabel="Terminal app pages" currentPage={currentPage} hrefForPage={(page) => pageHref(params, page)} totalPages={totalPages} />
             ) : null}
           </>
         ) : (
-          <div className="directory-empty">
-            <Doodle svg={siteDoodleStarArt} />
-            <h2>No terminal apps match those filters</h2>
+          <StatePanel action={<Link href="/cli-apps">show all apps</Link>} title="No terminal apps match those filters" visual={<Doodle svg={siteDoodleStarArt} />}>
             <p>Try clearing one filter first.</p>
-            <Link href="/cli-apps">show all apps</Link>
-          </div>
+          </StatePanel>
         )}
       </PageCanvas>
     </AppShell>

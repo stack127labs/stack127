@@ -2,7 +2,7 @@
 
 Marker art is the stack127 illustration style: bold hand-drawn strokes, restrained zigzag fills, and a handwritten font, in the spirit of a thick marker on a dark board. It is used for conceptual diagrams, meaningful spot art, hero art, and quiet doodles. Exact data belongs in clean charts. This doc is the single source of truth for how marker art works and how agents produce it.
 
-The chosen style came out of `dev-space/art-style-lab.html` (the "bold marker" candidate). The two skills that operate this system are `skills/stack127/marker-art-suggest` and `skills/stack127/marker-art-draw`.
+The two skills that operate this system are `skills/stack127/marker-art-suggest` and `skills/stack127/marker-art-draw`.
 
 ## How it works
 
@@ -11,7 +11,7 @@ Marker art is never drawn at runtime. Figures are generated at build time and sh
 - Every figure is defined by a `*.spec.json` file: figure type, the actual data, labels, icons, a seed.
 - The generator (`scripts/stack127/marker-art/generate.mjs`) turns specs into SVGs using rough.js (the library Excalidraw is built on). Run it with `npm run stack127:marker-art`.
 - It emits two artifacts next to each spec: `<name>.svg` (the canonical, reviewable file) and `<name>.ts` (the same SVG exported as a string, for bundling).
-- Pages embed figures with the `MarkerArt` component (`app/marker-art.tsx`), passing the imported svg string and a caption. `MarkerArt` delegates to the site-wide `MediaFigure` diagram variant.
+- Pages embed figures with the `MarkerArt` component (`app/ui/site/marker-art.tsx`), passing the imported svg string and a caption. `MarkerArt` delegates to the site-wide `MediaFigure` diagram variant.
 - Seeds make output deterministic: the same spec always renders the same strokes.
 
 To change the data in a figure, edit its spec and rerun the generator. To evolve the style itself, edit `scripts/stack127/marker-art/config.mjs` and regenerate everything.
@@ -20,7 +20,7 @@ To change the data in a figure, edit its spec and rerun the generator. To evolve
 
 - Specs and generated art live next to the page they belong to: `app/<page-path>/art/<figure>.spec.json`.
 - Figure ids are `<page-slug>--<figure-slug>`, for example `basic-setup--five-pieces`.
-- Throwaway explorations and showcases live in `dev-space/`, never in `app/`.
+- Throwaway explorations and showcases belong under `/tmp/stack127/`, outside `app/`.
 - Generated `.svg` and `.ts` files are committed. They are build artifacts, but committing them keeps deploys simple and diffs reviewable.
 - New icons go into `scripts/stack127/marker-art/icons.mjs`. Never draw an ad hoc shape for a concept that deserves a reusable icon.
 - New figure types go into `scripts/stack127/marker-art/figures.mjs` once, then every page can use them.
@@ -45,9 +45,9 @@ The payoff of semantic color is instant reading: in a bar chart where heavy apps
 ## Writing inside figures
 
 - Icon and shape first, text second. If an icon exists for the concept, use it; the label supports the icon.
-- Keep words minimal. Labels are lowercase, short, and in the marker font. Numbers use the mono font.
+- Labels use the marker font. Numbers use the mono font.
 - Never place text on a filled shape. Boxes that need labels get a colored stroke and no fill.
-- Figure text is site copy: no em or en dashes, no hype words, and ranges written as "10 to 15W". The site writing rules apply inside SVGs too.
+- Use [writing-style.md](writing-style.md) for figure labels, captions, and alt text.
 - Every figure has exactly one takeaway, stated in the spec's `takeaway` field. That sentence becomes the SVG `<title>` (for crawlers and screen readers) and usually the visible figcaption. If you cannot state the takeaway in one sentence, it is two figures.
 
 ## Four roles, four compositions
@@ -129,7 +129,7 @@ Pick whatever shows the idea fastest. There is no fixed menu; if a better form e
 
 ## Decorative doodles
 
-The `doodle` figure type is the one exception to "every figure has data": it decorates hero corners, margins, and empty states. Doodles use muted `sub` strokes plus at most one `primary` stroke so they whisper instead of compete. Sitewide doodle specs live in `app/(site)/art/` and render through the `Doodle` component (`app/doodle.tsx`), which is aria-hidden, unframed, and hides corner placements below 1100px. At most two doodles should be visible per viewport.
+The `doodle` figure type is the one exception to "every figure has data": it decorates hero corners, margins, and empty states. Doodles use muted `sub` strokes plus at most one `primary` stroke so they whisper instead of compete. Sitewide doodle specs live in `app/(site)/art/` and render through the `Doodle` component (`app/ui/site/doodle.tsx`), which is aria-hidden, unframed, and hides corner placements below 1100px. At most two doodles should be visible per viewport.
 
 Density is a judgment call, not a quota. Show the data the point needs, and stop when a two second squint no longer gets the idea. If a figure stops scanning, split it or simplify it.
 
@@ -182,7 +182,7 @@ Common fields for every spec:
 }
 ```
 
-See `dev-space/marker-art-samples/` for working samples, `app/(site)/(courses)/self-hosting-for-beginners/basic-setup/art/five-pieces.spec.json` for a live flow figure, and `app/(site)/(catalogs)/_components/art/` for live tool spots. Generate a browsable showcase of any folder with `node scripts/stack127/marker-art/generate.mjs --index <dir>`.
+See `app/(site)/(courses)/self-hosting-for-beginners/basic-setup/art/five-pieces.spec.json` for a live flow figure and `app/(site)/(catalogs)/_components/art/` for live tool spots. Generate a browsable showcase of a draft folder with `node scripts/stack127/marker-art/generate.mjs --index <dir>`.
 
 ## Workflow
 

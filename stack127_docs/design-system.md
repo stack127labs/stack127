@@ -1,5 +1,7 @@
 # Stack127 Design System
 
+Use [writing-style.md](writing-style.md) for public wording and visual choices. This document covers the rendered design and its components.
+
 Stack127 is simple, minimal, and playful: warm near-black by default, one loud chartreuse accent used sparingly, Space Grotesk headings over Inter body text, exactly two body text sizes, monochrome icons, and hand-drawn marker art. Playfulness lives in the type, the art, and the one accent — never in extra boxes, tints, or decoration.
 
 ## Tokens
@@ -66,7 +68,6 @@ Every page h1 highlights one editorially chosen phrase with a `<mark>` styled as
 - Keep section spacing calm: enough air to scan, not enough to feel editorial or blog-like.
 - Reading elements use a 16px gap. In one prose flow, later `h2` headings sit 32px after the preceding element and later `h3` or `h4` headings sit 24px after it. Separate prose sections use one 40px break. These are total gaps, so page layouts must not add another gap on top.
 - Keep gaps between forms, results, cards, navigation, and other structural regions in their owning page or component styles.
-- Write headings normally in the source text, for example `Privacy`, `What we collect`, and `External links`.
 - Links use `--color-link` at rest, with no underline. Hover and keyboard focus add an underline in the same color. Apply this across page content and tables. Sidebar, top-bar, and footer links are exceptions, keeping their previous neutral text and navigation states without hover underlines. Linked cards color their destination title. Filled action buttons keep contrasting text, and disabled navigation stays muted. Component styles must preserve this shared link treatment.
 
 ## Rules
@@ -79,23 +80,20 @@ Every page h1 highlights one editorially chosen phrase with a `<mark>` styled as
 - Cards, panels, controls, tags, title marks, tables, and media frames use `--radius`. True circles may use `50%` when the shape carries meaning, such as a timeline node or numbered step. Avoid nested cards.
 - Use the 4px/8px spacing rhythm through `--space-*`.
 - Use `--font-mono` for facts, slugs, versions, stats, and metadata. Never uppercase with positive letter spacing.
-- Structure without eyebrows: sections start with a display heading and, when useful, one lede sentence. No kickers, no "Overview" headings, no label-and-value walls — facts live in sentences or tables.
+- Sections start with a display heading and an optional lede.
 - Use `--focus-ring` for focus states.
-- User-facing headings should not end with a decorative dot.
-- Keep user-facing headings in normal sentence case unless a proper noun or acronym needs different casing.
-- Prefer structured facts over prose when they are clearer, but do not break natural explanations into fragments.
 - Unknown is better than fake precision.
 - When unsure, remove. If a page feels flat, add a doodle or a better sentence, not another component.
 
 ## Component Direction
 
-Interactive tool controls and result hierarchy follow `stack127_docs/tool-interface.md`. This document owns their visual tokens; the tool-interface document owns their task flow, component roles, and states.
+Use [shared-ui.md](shared-ui.md) for components across all page types and the Components UI gallery at `/components-ui` in development for examples. Interactive tool flow and result hierarchy follow [tool-interface.md](tool-interface.md). This document owns their visual tokens.
 
 Buttons: primary is an accent fill with `--color-accent-contrast` text, one per view; secondary is surface plus `--color-border-strong` border; ghost is plain text that gains a `--color-surface-2` background on hover.
 
 Cards: `--color-surface` on a 1px `--color-border`, `--radius`, a dashed `--color-border` divider above the mono metadata row, and a hover state that turns the border to `--color-accent`. Titles use `--font-display`; descriptions use `--text-small` with `--color-text`. Tool catalogs use the shared three-column `ToolCatalog` grid, falling to two and then one column. Each card has one simple tool name, one sentence, and one semantic marker spot.
 
-Tables: 1.5px `--color-border-strong` outer border, `--font-display` bold header row over a strong rule, `--color-border` row dividers, mono for data values.
+Tables: `--color-border` outer border and row dividers, a `--color-surface-2` header row, and mono for data values. Use `UiDataTable` for structured results and the shared Markdown table renderer for prose.
 
 App directory cards use the approved Fact rows variant in `app-fact-card.tsx`. Show the actual app image beside its name and primary category, with +N for additional categories. Follow the summary with labeled fact rows, each with a small semantic icon and a mono value. Use neutral solid row dividers and a stronger neutral hover border. Keep full values, estimates, and unknowns visible. The whole card opens the existing app details drawer. The desktop grid has three columns, falling to two and one as the main column narrows.
 
@@ -103,13 +101,13 @@ Hardware directories use `hardware-fact-card.tsx` with a 200px-tall contained pr
 
 Tools use one full-width workbench band. Its `--color-surface` background and `--color-border-strong` top and bottom rules span the entire main column beside the sidebar. The interactive content uses the shared page gutters and fills the available content width. The band has no side borders or corner radius. The form leads and results render below a `--color-border` divider in the same band. Supporting headings, paragraphs, lists, quotes, and explanatory tables stop at `--measure-prose`; primary result tables and code may use the wide canvas. Everything stays on the shared left edge. Results read like an answer: a full sentence at `--text-body` first, the data table second, and timing or provider metadata last in `--text-small` mono muted text. Do not put nested cards around the whole tool or its major sections.
 
-Sidebars that list things use `SidebarList` from `app/sidebar-list.tsx`: small rows, optional mono numbers and counts, and a `--color-surface-2` active fill with an accent-ink leading cell. Linear lists lead with mono numbers, non-linear lists lead with a meaningful monochrome icon, and lists with no sensible icon fall back to the quiet chevron. Do not hand-roll another sidebar link list.
+Sidebars that list things use `SidebarList` from `app/ui/site/sidebar-list.tsx`: small rows, optional mono numbers and counts, and a `--color-surface-2` active fill with an accent-ink leading cell. Linear lists lead with mono numbers, non-linear lists lead with a meaningful monochrome icon, and lists with no sensible icon fall back to the quiet chevron. Do not hand-roll another sidebar link list.
 
 Tool catalog sidebars link between published tool catalogs and mark the current catalog. Individual tools belong in the catalog's main cards, not a duplicate sidebar list. Individual tool pages keep their family tool navigation.
 
 The homepage lists published top-level directories, tool catalogs, and references, plus the course and Labs collection. It does not list individual tools or individual reference sheets. Each card shows a meaningful count from its destination's data. New top-level collections need a home entry, identity icon, metric, and coverage test.
 
-Each feature page has one identity icon, used in three places: its sidebar row, its home card title, and through `PageTitleIcon` (`app/page-title-icon.tsx`) beside its h1. The h1 treatment is an unboxed, em-sized icon in `--color-accent-text`, aligned optically with the title. Feature pages also carry one marker spot doodle on their home card; the spot says what the page is in one drawing.
+Each feature page has one identity icon, used in three places: its sidebar row, its home card title, and through `PageTitleIcon` (`app/ui/site/page-title-icon.tsx`) beside its h1. The h1 treatment is an unboxed, em-sized icon in `--color-accent-text`, aligned optically with the title. Feature pages also carry one marker spot doodle on their home card; the spot says what the page is in one drawing.
 
 Callouts distinguish by a neutral `--color-border` full border and spacing alone. If the message is a warning, the key phrase uses `--color-warning-text` inside; the box itself stays neutral. Never a colored left edge.
 
@@ -123,9 +121,11 @@ Filters share input height, radius, font size, and focus styles. Selected filter
 
 Short, important choices in a tool should stay visible instead of hiding inside a dropdown. Use a compact radio row with one clear accent-colored selection when people benefit from seeing every available option at once. Keep the real radio inputs for keyboard and screen-reader behavior, and let the row wrap cleanly on small screens.
 
-Media figures should use `MediaFigure` from `app/media-figure.tsx`. Screenshots and photos use the `image` kind; generated visual explainers use the `diagram` kind. Captions are one sentence in `--text-small`.
+Media figures should use `MediaFigure` from `app/ui/site/media-figure.tsx`. Screenshots and photos use the `image` kind; generated visual explainers use the `diagram` kind. Captions use `--text-small`. Capture screenshots in the dark theme and crop to the relevant interface.
 
-Code snippets should use `CodeBlock` from `app/code-block.tsx`. Code surfaces stay dark in both themes, and accent color highlights only the lines the prose is talking about. Pass the exact text as string children. Do not hand-roll bare `<pre className="lesson-code">` on new pages.
+Clean charts use `*.chart.json` specs beside the page, generated with `npm run stack127:clean-charts` and rendered with `Chart` from `app/ui/site/chart.tsx`. The generator and figure types live in `scripts/stack127/clean-charts/`. Check the rendered chart or figure in its actual page placement.
+
+Code snippets should use `CodeBlock` from `app/ui/site/code-block.tsx`. Code surfaces stay dark in both themes, and accent color highlights only the lines the prose is talking about. Pass the exact text as string children. Do not hand-roll bare `<pre className="lesson-code">` on new pages.
 
 Marker art has three jobs: explain (diagrams and charts with full semantic tones), greet (one spot piece per hero), and breathe (small doodles in corners, margins, and empty states — muted ink with at most one accent stroke, at most two visible per viewport, hidden below 1100px). See `stack127_docs/marker-art.md`.
 

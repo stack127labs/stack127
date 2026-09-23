@@ -1,13 +1,13 @@
 # Writing and SEO plan: Drive Reliability Explorer
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Tool: Drive Reliability Explorer
 Route: `/drive-reliability`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
 SERP checked: 2026-08-23
 Primary medium: Tool UI
-Prose is the minority: yes
-Static prose budget: 4 sections, 600 words maximum
 
 ## Search intent
 
@@ -82,20 +82,15 @@ No marker art, clean chart, or screenshot is justified. The live result visualiz
 
 ### Sections reserved for later manual writing
 
-| Section ID | Heading | Purpose | Required facts and sources | Word limit and shape | Banned claims or repetition |
+| Section ID | Heading | Purpose | Required facts and sources | Planned format | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
-| COPY-01 | H1 introduction | Define the model lookup, answer fields, and main boundary before the tool. | `brief.md`; implementation R5, R13, and non-goals. | 65 words maximum, one short paragraph. | No formula, ranking, or “best drive” claim. |
-| COPY-02 | `Choose a period that matches the question` | Explain period-safe comparison, representative model selection, and source qualification. | Backblaze Q1 2026 report; implementation R3, R4, R8; EC-008 and EC-012. | 135 words maximum, two short paragraphs. | No button instructions, no repeated cohort table, no universal recommendation. |
-| COPY-03 | `AFR uses drive days, not drive count` | Explain the equation, approximate interval, exposure, and zero-failure boundary. | Backblaze Q1 2026 report; SNIA formula presentation; implementation interval contract; RF-001 and RF-005. | 170 words maximum, two short paragraphs plus one inline equation. | No personal probability, no guarantee, no repeated raw result values. |
-| COPY-04 | `Treat fleet evidence as one input, then verify your own drive` | State data-center scope, local handling, exclusions, next checks, and adjacent planning links. | Backblaze Drive Stats dataset page/report; implementation R13; competitive non-goals. | 180 words maximum, two short paragraphs and one closing link sentence. | No claim that the tool predicts a home drive, inspects SMART, replaces backups, or supplies vendor/warranty facts. |
+| COPY-01 | H1 introduction | Define the model lookup, answer fields, and main boundary before the tool. | `brief.md`; implementation R5, R13, and non-goals. | Prose. | No formula, ranking, or “best drive” claim. |
+| COPY-02 | `Choose a period that matches the question` | Explain period-safe comparison, representative model selection, and source qualification. | Backblaze Q1 2026 report; implementation R3, R4, R8; EC-008 and EC-012. | Prose. | No button instructions, no repeated cohort table, no universal recommendation. |
+| COPY-03 | `AFR uses drive days, not drive count` | Explain the equation, approximate interval, exposure, and zero-failure boundary. | Backblaze Q1 2026 report; SNIA formula presentation; implementation interval contract; RF-001 and RF-005. | Prose with an inline equation. | No personal probability, no guarantee, no repeated raw result values. |
+| COPY-04 | `Treat fleet evidence as one input, then verify your own drive` | State data-center scope, local handling, exclusions, next checks, and adjacent planning links. | Backblaze Drive Stats dataset page/report; implementation R13; competitive non-goals. | Prose and links to the next checks. | No claim that the tool predicts a home drive, inspects SMART, replaces backups, or supplies vendor/warranty facts. |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
-- Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
-- Do not repeat a result, table, chart, source label, heading, or prior section.
 - Keep the tool primary and do not add an FAQ or a methodology essay.
 
 ### Tool-build exclusion

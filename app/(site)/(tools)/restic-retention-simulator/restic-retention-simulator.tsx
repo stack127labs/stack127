@@ -2,20 +2,8 @@
 
 import { RotateCcw } from "lucide-react";
 import { useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolCopyAction,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolNumberField,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextArea,
-  ToolTextField,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiCopyAction, UiDisclosure, UiNumberField, UiTextArea, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";
 import {
   DEFAULT_RESTIC_INPUT,
   formatResticResult,
@@ -26,7 +14,7 @@ import {
 } from "@/lib/restic-retention-simulator/engine";
 import styles from "./restic-retention-simulator.module.css";
 
-const groupOptions = [toolOption("host", "Host"), toolOption("paths", "Paths"), toolOption("tags", "Tags")];
+const groupOptions = [uiOption("host", "Host"), uiOption("paths", "Paths"), uiOption("tags", "Tags")];
 const policyKeys = ["keepLast", "keepDaily", "keepWeekly", "keepMonthly", "keepYearly"] as const;
 type PolicyKey = (typeof policyKeys)[number];
 type FieldErrors = Partial<Record<"snapshots" | "timezone" | PolicyKey, string>>;
@@ -132,7 +120,7 @@ export function ResticRetentionSimulator() {
     <section aria-label="Restic retention inputs and results" className={styles.tool} data-tool-workbench>
       <form className={styles.form} onSubmit={submit}>
         <div className={styles.inputs}>
-          <ToolTextArea
+          <UiTextArea
             autoCapitalize="none"
             className={styles.editor}
             inputRef={snapshotsRef}
@@ -146,7 +134,7 @@ export function ResticRetentionSimulator() {
             value={snapshots}
           />
           <div className={styles.settings}>
-            <ToolChoiceGroup
+            <UiChoiceGroup
               label="Group snapshots by"
               onChange={(value) => { setGroupBy(value as ResticGroupBy); clearResult(); }}
               options={groupOptions}
@@ -154,7 +142,7 @@ export function ResticRetentionSimulator() {
             />
             <div className={styles.policyGrid}>
               {policyKeys.map((key) => (
-                <ToolNumberField
+                <UiNumberField
                   key={key}
                   error={errors[key]}
                   inputRef={(node) => { policyRefs.current[key] = node; }}
@@ -166,7 +154,7 @@ export function ResticRetentionSimulator() {
                 />
               ))}
             </div>
-            <ToolTextField
+            <UiTextField
               error={errors.timezone}
               inputRef={timezoneRef}
               label="Timezone"
@@ -175,24 +163,24 @@ export function ResticRetentionSimulator() {
             />
           </div>
         </div>
-        <ToolActionRow>
-          <ToolButton onPress={loadExample} type="button">Load example</ToolButton>
-          <ToolButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</ToolButton>
-          <ToolButton type="submit" variant="primary">Preview retention</ToolButton>
-        </ToolActionRow>
-        {status ? <ToolStatus>{status}</ToolStatus> : null}
+        <UiActionRow>
+          <UiButton onPress={loadExample} type="button">Load example</UiButton>
+          <UiButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</UiButton>
+          <UiButton type="submit" variant="primary">Preview retention</UiButton>
+        </UiActionRow>
+        {status ? <UiStatus>{status}</UiStatus> : null}
       </form>
 
       {result?.status === "valid" && result.values ? (
         <section aria-label="Retention result" className={styles.result} ref={resultRef} tabIndex={-1}>
           <div className={styles.resultHeader}>
             <div>
-              <ToolResultLead>{`Kept ${result.values.keptCount} of ${result.values.rows.length} snapshots.`}</ToolResultLead>
+              <UiResultLead>{`Kept ${result.values.keptCount} of ${result.values.rows.length} snapshots.`}</UiResultLead>
               <p className={styles.meta}>{`${result.values.groups} group${result.values.groups === 1 ? "" : "s"}; ${result.values.timezone}${result.values.timezoneWarning ? `; ${result.values.timezoneWarning}` : ""}`}</p>
             </div>
-            <ToolCopyAction label="Copy trace" successLabel="Trace copied" value={formatResticResult(result)} />
+            <UiCopyAction label="Copy trace" successLabel="Trace copied" value={formatResticResult(result)} />
           </div>
-          <ToolDataTable
+          <UiDataTable
             ariaLabel="Snapshot retention decisions"
             columns={[{ id: "id", label: "Snapshot" }, { id: "time", label: "Time" }, { id: "state", label: "State" }, { id: "group", label: "Group" }, { id: "reason", label: "Reasons" }]}
             rows={result.values.rows.map((row) => ({
@@ -200,10 +188,10 @@ export function ResticRetentionSimulator() {
               cells: { id: <code>{row.id}</code>, time: <time dateTime={row.time}>{displayTime(row.time, result.values?.timezone ?? "UTC")}</time>, state: <strong className={row.state === "kept" ? styles.kept : styles.pruned}>{row.state}</strong>, group: row.group, reason: row.reasons.join(", ") },
             }))}
           />
-          <ToolDisclosure label="Assumptions">
+          <UiDisclosure label="Assumptions">
             <p className={styles.note}>Supplied metadata; selected timezone.</p>
             <p className={styles.note}>No repository access or changes.</p>
-          </ToolDisclosure>
+          </UiDisclosure>
         </section>
       ) : null}
     </section>

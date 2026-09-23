@@ -1,10 +1,10 @@
-import { ToolPageHeader, ToolPageMarkdown } from "@/app/tool-page-content";
+import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { AppShell } from "../../../app-shell";
-import { PageCanvas } from "../../../page-canvas";
+import { AppShell } from "../../../ui/site/app-shell";
+import { PageCanvas } from "../../../ui/site/page-canvas";
 import { Keyboard } from "lucide-react";
 import { loadShortcutApps } from "@/lib/shortcuts";
-import { KeyboardShortcutsSidebar } from "../../(references)/_components/keyboard-shortcuts-sidebar";
+import { KeyboardShortcutsSidebar } from "../../../ui/references/keyboard-shortcuts-sidebar";
 import { ShortcutsCheatSheetGenerator } from "./shortcuts-cheatsheet-generator";
 
 type SearchParams = Record<string, string | string[] | undefined>;

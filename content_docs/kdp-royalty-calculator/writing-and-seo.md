@@ -1,5 +1,7 @@
 # Writing and SEO plan: KDP royalty calculator
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Feasibility: feasible
 Content review: 2026-09-19
@@ -120,16 +122,10 @@ The official KDP links in the source ledger are outbound evidence links, not int
 | COPY-05 | What to verify in KDP before you price or publish | Tell the reader to use the dated official sources and the actual KDP workflow for final confirmation. | Use the five official KDP source pages in the ledger, the version string and source date, and the implementation publication boundary. | Give the next verification step and explain that rules can change. Stop before giving submission instructions or claiming that the tool submits or checks a book. | Do not say KDP accepted a price, title, file, or order. Do not claim live scraping, an API check, or current account-specific behavior. |
 | COPY-06 | Task-oriented usage | Explain input preparation, meaningful choices, states, and next verification. | Closed Usage Markdown handoff and accepted technical artifacts. | One concise connected guide; use steps only where order changes the outcome. | No live-result narration, unimplemented features, or duplicate supporting explanations. |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Read and apply `skills/stack127/stack127-writing-voice/SKILL.md` for public wording. This plan owns search intent and useful coverage, not a separate voice.
-- Apply `skills/stack127/unslop/SKILL.md` before any later prose pass.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
 - Keep the words estimate, local calculation, source date, and KDP acceptance distinct. A source-rule match is not a submission or acceptance result.
-- Do not invent facts, numbers, benefits, privacy claims, freshness beyond the recorded source date, or implementation behavior.
-- Do not repeat a result, table, heading, or prior section. The tool UI owns exact economics and repeated price comparisons.
+- The tool UI owns exact economics and repeated price comparisons.
 - Leave unresolved future routes and publication decisions as review notes, not public copy.
 
 ### Tool-build exclusion
@@ -150,7 +146,6 @@ The official KDP links in the source ledger are outbound evidence links, not int
 ## Open questions and blockers
 
 - No content blocker remains. The page is ready for the later manual prose pass, but the tool and route remain unpublished until separately approved through the central publication workflow.
-
 
 ## Usage Markdown handoff
 

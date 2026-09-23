@@ -7,12 +7,12 @@ import {
   Server,
   ShieldCheck,
 } from "lucide-react";
-import { SidebarLabel } from "@/app/app-shell";
-import { SidebarList } from "@/app/sidebar-list";
+import { SidebarLabel } from "@/app/ui/site/app-shell";
+import { SidebarList } from "@/app/ui/site/sidebar-list";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
-} from "@/app/sidebar-panel";
+} from "@/app/ui/site/sidebar-panel";
 
 type DnsToolsSidebarProps = {
   active: "hub" | "lookup" | "trace" | "change" | "nameserver" | "dnssec" | "soa" | "caa";

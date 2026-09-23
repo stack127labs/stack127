@@ -4,7 +4,7 @@
 
 Approved September 6, 2026. Explain input grouping and protection requirements before ranking. Use a failure-placement comparison to show why equal capacity does not mean equivalent protection. Explain limits and platform verification without claiming universal optimality.
 
-The working tool stays first. Use connected explanation at the depth the task needs, with no word, section, sentence, or visual-ratio quota. This direction supersedes earlier supporting-prose budgets in this page's planning artifacts; it does not change the engine or input contract. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
+The working tool stays first. Follow `stack127_docs/writing-style.md` for writing and visual choices. Store live copy only in the development tool-page row through the reviewed content command. Publication remains a separate operation.
 
 ## Who is here
 

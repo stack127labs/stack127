@@ -2,7 +2,8 @@
 
 import { RotateCcw } from "lucide-react";
 import { useRef, useState, type FormEvent } from "react";
-import { ToolActionRow, ToolButton, ToolCheckbox, ToolChoiceGroup, ToolCodeOutput, ToolCopyAction, ToolResultLead, ToolStatus, ToolTextField, toolOption } from "@/app/tool-ui/tool-controls";
+import { UiButton, UiCheckbox, UiChoiceGroup, UiCopyAction, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiCodeOutput, UiResultLead, UiStatus } from "@/app/ui/display";
 import { NFS_FIREWALL_FORMULA_VERSION, NFS_FIREWALL_SOURCE_DATE, type AddressFamily, type FirewallFamily, type NfsFirewallInput, type NfsFirewallResult, type NfsListenerRow, type NfsTransport, type NfsVersion, type ProtectedHost, buildNfsFirewallPlan } from "@/lib/nfs-firewall/plan";
 import styles from "./nfs-firewall-rules.module.css";
 
@@ -10,11 +11,11 @@ const defaults: NfsFirewallInput = {
   nfsVersion: "v4_1_plus", protectedHost: "server", firewallFamily: "firewalld", addressFamily: "ipv4", peerCidr: "192.0.2.0/24", transport: "tcp", firewalldZone: "", mountdPort: "", statdPort: "", lockdTcpPort: "", lockdUdpPort: "", includeRquotad: false, rquotadPort: "", v4CallbackPort: "",
 };
 const options = {
-  nfsVersion: [toolOption("v3", "NFSv3"), toolOption("v4_0", "NFSv4.0"), toolOption("v4_1_plus", "NFSv4.1+")],
-  protectedHost: [toolOption("server", "NFS server"), toolOption("client", "NFS client")],
-  firewallFamily: [toolOption("firewalld", "firewalld"), toolOption("ufw", "UFW"), toolOption("nftables", "nftables")],
-  addressFamily: [toolOption("ipv4", "IPv4"), toolOption("ipv6", "IPv6")],
-  transport: [toolOption("tcp", "TCP only"), toolOption("tcp_udp", "TCP + legacy UDP")],
+  nfsVersion: [uiOption("v3", "NFSv3"), uiOption("v4_0", "NFSv4.0"), uiOption("v4_1_plus", "NFSv4.1+")],
+  protectedHost: [uiOption("server", "NFS server"), uiOption("client", "NFS client")],
+  firewallFamily: [uiOption("firewalld", "firewalld"), uiOption("ufw", "UFW"), uiOption("nftables", "nftables")],
+  addressFamily: [uiOption("ipv4", "IPv4"), uiOption("ipv6", "IPv6")],
+  transport: [uiOption("tcp", "TCP only"), uiOption("tcp_udp", "TCP + legacy UDP")],
 };
 const missingIds: Partial<Record<keyof NfsFirewallInput, string>> = { mountdPort: "nfs-mountd-port", statdPort: "nfs-statd-port", lockdTcpPort: "nfs-lockd-tcp-port", lockdUdpPort: "nfs-lockd-udp-port", rquotadPort: "nfs-rquotad-port", v4CallbackPort: "nfs-v4-callback-port" };
 const missingLabels: Partial<Record<keyof NfsFirewallInput, string>> = { mountdPort: "mountd port", statdPort: "statd port", lockdTcpPort: "lockd TCP port", lockdUdpPort: "lockd UDP port", rquotadPort: "rquotad port", v4CallbackPort: "NFSv4.0 callback TCP port" };
@@ -70,36 +71,36 @@ export function NfsFirewallRulesPlanner() {
   const isV3 = input.nfsVersion === "v3";
   const serverV3 = isV3 && input.protectedHost === "server";
   const clientV40 = input.nfsVersion === "v4_0" && input.protectedHost === "client";
-  const portField = (key: "mountdPort" | "statdPort" | "lockdTcpPort" | "lockdUdpPort" | "rquotadPort" | "v4CallbackPort") => <ToolTextField dataFocusKey={missingIds[key]} error={errors[key]} inputMode="numeric" label={missingLabels[key] ?? key} onChange={(value) => update(key, value)} required spellCheck={false} value={input[key]} />;
+  const portField = (key: "mountdPort" | "statdPort" | "lockdTcpPort" | "lockdUdpPort" | "rquotadPort" | "v4CallbackPort") => <UiTextField dataFocusKey={missingIds[key]} error={errors[key]} inputMode="numeric" label={missingLabels[key] ?? key} onChange={(value) => update(key, value)} required spellCheck={false} value={input[key]} />;
 
   return <section className={styles.tool} data-tool-workbench aria-label="NFS firewall rule inputs and result">
     <form ref={formRef} className={styles.form} onSubmit={submit} noValidate>
       <div className={styles.groupGrid}>
-        <ToolChoiceGroup label="NFS version" onChange={(value) => changeVersion(value as NfsVersion)} options={options.nfsVersion} value={input.nfsVersion} />
-        <ToolChoiceGroup label="Protected host" onChange={(value) => changeProtectedHost(value as ProtectedHost)} options={options.protectedHost} value={input.protectedHost} />
-        <ToolChoiceGroup label="Firewall" onChange={(value) => changeFirewall(value as FirewallFamily)} options={options.firewallFamily} value={input.firewallFamily} />
-        <ToolChoiceGroup label="Address family" onChange={(value) => changeAddressFamily(value as AddressFamily)} options={options.addressFamily} value={input.addressFamily} />
+        <UiChoiceGroup label="NFS version" onChange={(value) => changeVersion(value as NfsVersion)} options={options.nfsVersion} value={input.nfsVersion} />
+        <UiChoiceGroup label="Protected host" onChange={(value) => changeProtectedHost(value as ProtectedHost)} options={options.protectedHost} value={input.protectedHost} />
+        <UiChoiceGroup label="Firewall" onChange={(value) => changeFirewall(value as FirewallFamily)} options={options.firewallFamily} value={input.firewallFamily} />
+        <UiChoiceGroup label="Address family" onChange={(value) => changeAddressFamily(value as AddressFamily)} options={options.addressFamily} value={input.addressFamily} />
       </div>
       <div className={styles.fields}>
-        <ToolTextField error={errors.peerCidr} label={`Allowed ${input.protectedHost === "server" ? "client" : "server"} CIDR`} onChange={(value) => update("peerCidr", value)} required spellCheck={false} value={input.peerCidr} />
-        {input.firewallFamily === "firewalld" ? <ToolTextField dataFocusKey="nfs-firewalld-zone" error={errors.firewalldZone} label="Active firewalld zone" onChange={(value) => update("firewalldZone", value)} spellCheck={false} value={input.firewalldZone} /> : null}
+        <UiTextField error={errors.peerCidr} label={`Allowed ${input.protectedHost === "server" ? "client" : "server"} CIDR`} onChange={(value) => update("peerCidr", value)} required spellCheck={false} value={input.peerCidr} />
+        {input.firewallFamily === "firewalld" ? <UiTextField dataFocusKey="nfs-firewalld-zone" error={errors.firewalldZone} label="Active firewalld zone" onChange={(value) => update("firewalldZone", value)} spellCheck={false} value={input.firewalldZone} /> : null}
       </div>
-      {isV3 ? <ToolChoiceGroup label="NFSv3 transport" onChange={(value) => changeTransport(value as NfsTransport)} options={options.transport} value={input.transport} /> : null}
-      {isV3 || clientV40 ? <section className={styles.conditional} aria-labelledby="verified-ports"><h2 id="verified-ports">Verified listener ports</h2><div className={styles.portGrid}>{serverV3 ? portField("mountdPort") : null}{isV3 ? portField("statdPort") : null}{isV3 ? portField("lockdTcpPort") : null}{isV3 && input.transport === "tcp_udp" ? portField("lockdUdpPort") : null}{clientV40 ? portField("v4CallbackPort") : null}</div>{serverV3 ? <ToolCheckbox isSelected={input.includeRquotad} onChange={(selected) => replace({ ...input, includeRquotad: selected, rquotadPort: "" })}>Include remote quota listener</ToolCheckbox> : null}{serverV3 && input.includeRquotad ? portField("rquotadPort") : null}</section> : null}
-      {errors.ports ? <ToolStatus tone="danger">{errors.ports}</ToolStatus> : null}
-      <ToolActionRow><ToolButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={18} /> Reset</ToolButton><ToolButton type="submit" variant="primary">Plan firewall rules</ToolButton></ToolActionRow>
-      {resetMessage ? <ToolStatus>{resetMessage}</ToolStatus> : null}
+      {isV3 ? <UiChoiceGroup label="NFSv3 transport" onChange={(value) => changeTransport(value as NfsTransport)} options={options.transport} value={input.transport} /> : null}
+      {isV3 || clientV40 ? <section className={styles.conditional} aria-labelledby="verified-ports"><h2 id="verified-ports">Verified listener ports</h2><div className={styles.portGrid}>{serverV3 ? portField("mountdPort") : null}{isV3 ? portField("statdPort") : null}{isV3 ? portField("lockdTcpPort") : null}{isV3 && input.transport === "tcp_udp" ? portField("lockdUdpPort") : null}{clientV40 ? portField("v4CallbackPort") : null}</div>{serverV3 ? <UiCheckbox isSelected={input.includeRquotad} onChange={(selected) => replace({ ...input, includeRquotad: selected, rquotadPort: "" })}>Include remote quota listener</UiCheckbox> : null}{serverV3 && input.includeRquotad ? portField("rquotadPort") : null}</section> : null}
+      {errors.ports ? <UiStatus tone="danger">{errors.ports}</UiStatus> : null}
+      <UiActionRow><UiButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={18} /> Reset</UiButton><UiButton type="submit" variant="primary">Plan firewall rules</UiButton></UiActionRow>
+      {resetMessage ? <UiStatus>{resetMessage}</UiStatus> : null}
     </form>
 
-    {failed ? <section className={styles.failure} ref={failureRef} role="alert" tabIndex={-1}><ToolStatus tone="danger">The planner could not finish. Your inputs are still here.</ToolStatus><ToolButton onPress={() => submit()} type="button">Try again</ToolButton></section> : null}
-    {result?.status === "invalid" ? <section className={styles.result}><ToolStatus tone="danger">Fix the marked inputs. No plan was created.</ToolStatus></section> : null}
+    {failed ? <section className={styles.failure} ref={failureRef} role="alert" tabIndex={-1}><UiStatus tone="danger">The planner could not finish. Your inputs are still here.</UiStatus><UiButton onPress={() => submit()} type="button">Try again</UiButton></section> : null}
+    {result?.status === "invalid" ? <section className={styles.result}><UiStatus tone="danger">Fix the marked inputs. No plan was created.</UiStatus></section> : null}
     {result && result.status !== "invalid" ? <section className={styles.result} ref={resultRef} tabIndex={-1}>
-      <div className={styles.resultHeader}><ToolResultLead>{result.answer}</ToolResultLead>{result.status === "ready" && result.translation.status === "ready" && result.copyText ? <ToolCopyAction label="Copy plan" successLabel="Plan copied" value={result.copyText} /> : null}</div>
-      {result.warnings.map((warning) => <ToolStatus key={warning} tone="warning">{warning}</ToolStatus>)}
+      <div className={styles.resultHeader}><UiResultLead>{result.answer}</UiResultLead>{result.status === "ready" && result.translation.status === "ready" && result.copyText ? <UiCopyAction label="Copy plan" successLabel="Plan copied" value={result.copyText} /> : null}</div>
+      {result.warnings.map((warning) => <UiStatus key={warning} tone="warning">{warning}</UiStatus>)}
       {result.status === "ready" ? result.boundaries.map((boundary) => <p key={boundary}>{boundary}</p>) : null}
       {result.status === "incomplete" ? <section className={styles.missing}><h3>Missing facts</h3><ul>{result.missing.map((field) => <li key={field}>{missingLabels[field] ?? field}</li>)}</ul></section> : null}
       {result.status !== "no_additional_rule" ? <ListenerTable rows={result.rows} /> : null}
-      {result.status === "ready" ? <>{result.translation.status === "ready" ? <><ToolCodeOutput code={result.translation.commands.join("\n")} label={result.translation.label} /><p>{result.translation.note}</p></> : <ToolStatus tone="warning">{result.translation.note}</ToolStatus>}<Verification host="hosts" steps={result.verification} /></> : null}
+      {result.status === "ready" ? <>{result.translation.status === "ready" ? <><UiCodeOutput code={result.translation.commands.join("\n")} label={result.translation.label} /><p>{result.translation.note}</p></> : <UiStatus tone="warning">{result.translation.note}</UiStatus>}<Verification host="hosts" steps={result.verification} /></> : null}
       {result.status === "no_additional_rule" ? <Verification host="client" steps={result.verification} /> : null}
       {result.status !== "incomplete" ? <p className={styles.provenance}>{NFS_FIREWALL_FORMULA_VERSION} · sources checked {NFS_FIREWALL_SOURCE_DATE}</p> : null}
     </section> : null}

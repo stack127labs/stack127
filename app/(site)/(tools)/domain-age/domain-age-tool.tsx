@@ -1,18 +1,8 @@
 "use client";
 
 import { useMemo, useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolDisclosure,
-  ToolDownloadAction,
-  ToolPrimaryResult,
-  ToolRawOutput,
-  ToolStatus,
-  ToolTextField,
-  ToolTimeline,
-  type ToolTimelineEvent,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiDisclosure, UiDownloadAction, UiRawOutput, UiTextField } from "@/app/ui/controls";
+import { UiActionRow, UiPrimaryResult, UiStatus, UiTimeline, type UiTimelineEvent } from "@/app/ui/display";
 import type { DomainRegistration, RdapFetch } from "@/lib/domain/types.ts";
 import {
   daysBetween,
@@ -43,11 +33,11 @@ function timelineDate(value: string) {
   });
 }
 
-function timelineEvents(result: DomainRegistration): ToolTimelineEvent[] {
+function timelineEvents(result: DomainRegistration): UiTimelineEvent[] {
   const now = new Date();
-  const events: Array<ToolTimelineEvent & { timestamp: number }> = [];
+  const events: Array<UiTimelineEvent & { timestamp: number }> = [];
 
-  function add(id: string, label: string, value: string | null, state?: ToolTimelineEvent["state"]) {
+  function add(id: string, label: string, value: string | null, state?: UiTimelineEvent["state"]) {
     if (!value) return;
     const timestamp = new Date(value).getTime();
     if (Number.isNaN(timestamp)) return;
@@ -74,7 +64,7 @@ function timelineEvents(result: DomainRegistration): ToolTimelineEvent[] {
 function unavailableResult(result: DomainRegistration) {
   if (result.status === "not_registered") {
     return (
-      <ToolPrimaryResult
+      <UiPrimaryResult
         detail={`${result.query.unicode} has no current registration age.`}
         label="Domain age"
         value="Not registered"
@@ -84,7 +74,7 @@ function unavailableResult(result: DomainRegistration) {
 
   if (result.status === "no_service") {
     return (
-      <ToolPrimaryResult
+      <UiPrimaryResult
         detail={`No RDAP registration service is published for .${result.query.tld}.`}
         label="Domain age"
         tone="warning"
@@ -95,7 +85,7 @@ function unavailableResult(result: DomainRegistration) {
 
   if (result.status === "rate_limited" || result.status === "blocked") {
     return (
-      <ToolPrimaryResult
+      <UiPrimaryResult
         detail="The registry limited this request. Try again in a few minutes."
         label="Domain age"
         tone="warning"
@@ -106,7 +96,7 @@ function unavailableResult(result: DomainRegistration) {
 
   if (result.status === "timeout" || result.status === "registry_error") {
     return (
-      <ToolPrimaryResult
+      <UiPrimaryResult
         detail="The registry did not answer properly. Try again shortly."
         label="Domain age"
         tone="warning"
@@ -149,7 +139,7 @@ function RawEvidence({ result }: { result: DomainRegistration }) {
   ].filter((entry): entry is { fetch: RdapFetch; label: string } => Boolean(entry.fetch));
 
   return responses.map(({ fetch, label }) => (
-    <ToolRawOutput
+    <UiRawOutput
       key={label}
       label={label}
       value={fetch.body ?? { error: fetch.error }}
@@ -181,7 +171,7 @@ export function DomainAgeTool({ initialName = "" }: { initialName?: string }) {
   return (
     <section aria-label="Domain age checker" className={`domain-tool ${styles.workbench}`} data-tool-workbench>
       <form aria-busy={loading} className={styles.form} onSubmit={submit}>
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           autoComplete="off"
           className={styles.queryField}
@@ -198,7 +188,7 @@ export function DomainAgeTool({ initialName = "" }: { initialName?: string }) {
           spellCheck={false}
           value={name}
         />
-        <ToolButton
+        <UiButton
           aria-busy={loading}
           className={styles.submit}
           isDisabled={loading}
@@ -206,10 +196,10 @@ export function DomainAgeTool({ initialName = "" }: { initialName?: string }) {
           variant="primary"
         >
           {loading ? "Checking domain age..." : "Check domain age"}
-        </ToolButton>
+        </UiButton>
         {error ? (
           <div className={styles.requestError}>
-            <ToolStatus tone="danger">{error}</ToolStatus>
+            <UiStatus tone="danger">{error}</UiStatus>
           </div>
         ) : null}
       </form>
@@ -218,21 +208,21 @@ export function DomainAgeTool({ initialName = "" }: { initialName?: string }) {
         <section aria-label="Domain age result" aria-live="polite" className={styles.results} role="region">
           {result.status === "registered" ? (
             ageDays === null ? (
-              <ToolPrimaryResult
+              <UiPrimaryResult
                 detail={`The registry for .${result.query.tld} does not publish a registration date.`}
                 label="Current registration age"
                 value="Unknown"
               />
             ) : (
               <>
-                <ToolPrimaryResult
+                <UiPrimaryResult
                   detail={`${result.query.unicode}, since ${formatDate(start)}.`}
                   label="Current registration age"
                   value={humanDuration(ageDays)}
                 />
 
                 <div className={styles.timeline}>
-                  <ToolTimeline ariaLabel="Registration timeline" events={timelineEvents(result)} />
+                  <UiTimeline ariaLabel="Registration timeline" events={timelineEvents(result)} />
                 </div>
 
                 {result.reregistrationDate ? (
@@ -253,21 +243,21 @@ export function DomainAgeTool({ initialName = "" }: { initialName?: string }) {
           <SourceMetadata result={result} />
 
           {result.notes.length ? (
-            <ToolDisclosure label="Lookup notes">
+            <UiDisclosure label="Lookup notes">
               <ul className={styles.notes}>
                 {result.notes.map((note) => <li key={note}>{note}</li>)}
               </ul>
-            </ToolDisclosure>
+            </UiDisclosure>
           ) : null}
 
-          <ToolActionRow>
-            <ToolDownloadAction
+          <UiActionRow>
+            <UiDownloadAction
               contents={report}
               filename={`${result.query.domain}-age.json`}
               label="Download report"
               mimeType="application/json;charset=utf-8"
             />
-          </ToolActionRow>
+          </UiActionRow>
 
           <RawEvidence result={result} />
         </section>

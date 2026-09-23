@@ -1,50 +1,54 @@
 # Writing on stack127
 
-The shared voice lives in [stack127-writing-voice](../skills/stack127/stack127-writing-voice/SKILL.md). Agents writing or reviewing any website copy must read and apply that skill. It defines the original, Verge-inspired voice and how it adapts to guides, tools, directories, interface text, captions, and legal pages.
+Write as though you are explaining something to the person reading the page. Use familiar words and full, clear sentences. Vary the rhythm, and give an idea enough room to make sense. Keep the same clean, communicative tone across the website.
 
-This is the companion for house conventions, examples, and workflow ownership. Maintain voice principles in the skill rather than copying them into each page-family workflow. Page-specific requirements can constrain facts, format, and space without creating another voice.
+## Make it easy to follow
 
-## House conventions
+Start with what the reader wants to understand or do. Give them the answer or context they need, then explain what follows. Keep related thoughts together so each paragraph develops an idea.
 
-- Write the brand `stack127`, even at the start of a sentence.
-- Use sentence case for editorial headings. Preserve the official spelling of product names and technical identifiers.
-- Use straight quotes. Do not use em or en dashes as punctuation. Use commas, periods, or a colon where it belongs; write ranges with `to`.
-- Keep exact units, names, versions, and limits when they affect meaning. Do not replace useful technical terms with vague substitutes.
-- Do not use decorative eyebrows, hype, keyword piles, or repeated labels to create hierarchy.
-- Form controls and tables still need clear labels. Accessibility text must preserve function and meaning.
-- Link primary sources for technical claims and official destinations for installation or operational instructions. Related links should continue the reader's task rather than pad a quota.
+- Name what something does, how it works, and why a choice matters.
+- Keep useful technical terms and explain them where they first matter.
+- Use examples and supported recommendations to help the reader decide.
+- Speak directly to the reader and use contractions naturally.
 
-The [unslop skill](../skills/stack127/unslop/SKILL.md) owns the detailed cleanup checklist. Apply it after the voice pass without chopping connected explanations into fragments.
+You can use "I", "I'm", "I am", or "we" when it makes the explanation feel personal and natural. Use this natually where it makes sense, no need for forced personalization.
 
-## Responsibility boundaries
+## Choose the clearest format
 
-| Decision | Owner |
+Use short headings to help people find what they need. Choose the format that makes the information easiest to understand.
+
+| Format | When it helps |
 | --- | --- |
-| How the words sound and connect | Shared writing-voice skill |
-| What the page needs to explain | Page brief and relevant content skill |
-| Query research, headings' search intent, and metadata proposals | SEO workflow and `stack127_docs/seo.md` |
-| What belongs in controls, results, tables, charts, or art | Interface skills and `stack127_docs/visual-first.md` |
-| Spelling, punctuation, and editorial examples | This companion |
-| Repetition, filler, and AI-shaped phrasing | Unslop cleanup pass |
+| Paragraphs | Explain an idea, its causes, or its consequences. |
+| Numbered steps | Guide a task where the order matters. Keep sentences short and simple, with enough detail for the reader to follow each step. |
+| Bullets | Present related points or options that have no required order. |
+| Table | Show data, comparisons, or other information that is easier to understand in rows and columns. Use a table when the information fits that format. |
+| Clean chart | Show exact data or a measurable relationship. Prefer this over marker art when values need to be precise. |
+| Marker art | Show a broader flow, concept, or rough visual relationship. Use the marker art skills to plan and draw it. |
+| Screenshot | Show a real interface, setting, or result. |
 
-The voice skill does not require an article structure, extra help text, a table, or a glossary. It does not change an input contract, legal obligation, data source, or publication authority. External writing handbooks are supplementary; their organization-specific rules do not replace this shared voice.
+Connect the ideas around a visual without repeating its values. Captions explain the takeaway; alt text describes what the image communicates. Use visuals when they help, without a quota or a requirement to make prose a minority.
 
-## Examples of judgment, not templates
+## Keep the facts honest
 
-For an explanation, replace a vague preamble with a concrete decision. Instead of "There are many factors to consider before choosing an AI agent framework," start with the runtime and explain how running locally or using a hosted backend changes cost, privacy, or supervision. Use only the distinctions supported by the page's research.
+Use verified sources and the product's actual behavior. Link primary sources for technical claims and official instructions for installation or operation. Put a meaningful limitation beside the claim it qualifies. Say when something is unknown.
 
-For a button, `Check domain age` is sufficient. For a missing input, `Enter a domain name.` tells the reader what to do. Neither benefits from the personality a guide can carry.
+Never invent experience, testing, quotes, numbers, or certainty. Preserve exact units, technical distinctions, and legal meaning.
 
-A result can lead with a number or a short conclusion. Do not turn structured data into paragraphs just to sound conversational. Put a meaningful limitation beside the answer when it could otherwise mislead, and leave background explanation in the guide.
+## Write useful titles and links
 
-Headings should identify the real question or consequence. `Does domain age reset after renewal, transfer, or expiry?` is useful for that page; `More information` is not. The domain-specific wording is an example, not a heading to reproduce on unrelated tools.
+Titles and headings should name the subject or question using words people naturally search for. An SEO title identifies the page and its purpose. Its description explains what someone can do or learn there. Keep both accurate and specific, without clickbait, keyword repetition, or padding to reach a character target.
 
-The current Domain Age page is the approved tool-writing reference. Transfer its balance of connected explanation, useful detail, search-focused headings, evidence, and restraint, not its topics, section count, or table. Other page families should use the same voice at the depth and tone their job needs.
+Add links when they help the reader verify a claim or take the next step.
 
-## Page and publication workflow
+## Keep the wording clean
 
-For a tool, use the Product and Content sections of `content_docs/<page-slug>/tool-spec.md` before content work. Other pages use `brief.md`. Plan the format mix with `stack127_docs/visual-first.md`; an approved direction does not need another confirmation. Preserve useful coverage when rewriting.
+- Write `stack127` in lowercase and headings in sentence case. Preserve product names.
+- Use straight quotes, commas, and periods. Avoid em and en dashes; write ranges with `to`.
+- Skip decorative labels, emojis, and unnecessary bold text.
+- Name actions directly. A button can simply say `Check domain age`.
+- Prefer `use` to `utilize` or `leverage`. Name who does what when that makes the sentence clearer.
+- Remove filler, hype, vague attribution, forced jokes, canned transitions, and generic conclusions.
+- State the point directly instead of building a "not just X, but Y" sentence around it.
 
-Titles and publication metadata belong to the central `stack127_pages` registry, not route-owned metadata. Tool introductions and supporting Markdown use the reviewed database workflow in `stack127_docs/tool-pages.md`. A request to change writing does not authorize a production publish or a tool behavior change.
-
-Use the voice skill's review pass, the owning content skill's coverage checks, and the relevant rendered-page tests. Check both for wasted words and for missing explanation. Passing one check does not substitute for the others.
+Read the whole passage before finishing. Keep useful detail and remove repetition. Include implementation details only when they help the reader make a decision. Let useful coverage determine the length and structure, and add a FAQ or glossary only when it helps. The reader should be able to follow the thought without rereading it.

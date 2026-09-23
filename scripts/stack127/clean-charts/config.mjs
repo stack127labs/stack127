@@ -2,7 +2,7 @@
  * Clean chart style tokens. Marker art explains concepts vaguely on purpose;
  * clean charts state data precisely. Straight lines, exact geometry, real
  * axes, tabular numerals. The style guide lives in
- * stack127_docs/visual-first.md.
+ * stack127_docs/design-system.md.
  *
  * Colors are emitted as CSS variables (var(--ma-<tone>, <fallback>)) so charts
  * share the same semantic tone system as marker art and theme with the site.

@@ -262,13 +262,10 @@
 
 .tableWrap {
   max-width: var(--measure-prose);
-  min-width: 0;
-  overflow-x: auto;
-  width: 100%;
 }
 
 .evidenceTable {
-  border: 1.5px solid var(--color-border-strong);
+  border: 1px solid var(--color-border);
   border-collapse: collapse;
   min-width: 620px;
   width: 100%;
@@ -283,7 +280,8 @@
 }
 
 .evidenceTable thead th {
-  border-bottom: 1.5px solid var(--color-border-strong);
+  background: var(--color-surface-2);
+  border-bottom: 1px solid var(--color-border);
   font-family: var(--font-display);
 }
 

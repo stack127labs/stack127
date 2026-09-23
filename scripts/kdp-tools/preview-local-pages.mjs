@@ -39,6 +39,13 @@ const PREVIEWS = [
     content: "Choose the expected interior or cover setup and select a PDF. The first pass checks page dimensions, mixed sizes, page count, box names, fonts, images, and encryption without uploading the file. Findings are possible issues, not an acceptance decision.",
   },
   {
+    slug: "kdp-image-dpi-checker",
+    title: "KDP image DPI checker",
+    description: "Check a JPEG or PNG image's effective resolution at its planned print size.",
+    intro: "Development preview placeholder. Check an image's pixels against its planned print size in this browser.",
+    content: "Development preview content placeholder. This checker reads one JPEG or PNG locally, reports its oriented pixel dimensions and stored density, and calculates effective DPI from the print size you enter. Final page copy will replace this placeholder before production publication.",
+  },
+  {
     slug: "kdp-page-count-estimator",
     title: "KDP page count estimator",
     description: "Estimate a likely KDP page range from words and layout choices.",
@@ -48,10 +55,15 @@ const PREVIEWS = [
 ];
 
 const remove = process.argv.includes("--remove");
+const requestedSlugIndex = process.argv.indexOf("--slug");
+const requestedSlug = requestedSlugIndex >= 0 ? process.argv[requestedSlugIndex + 1] : null;
+const selectedPreviews = requestedSlug ? PREVIEWS.filter((preview) => preview.slug === requestedSlug) : PREVIEWS;
 
 function fail(message) {
   throw new Error(`KDP preview: ${message}`);
 }
+
+if (requestedSlug && selectedPreviews.length === 0) fail(`unknown preview slug: ${requestedSlug}`);
 
 function databaseUrl() {
   if (!process.env.DATABASE_URL) fail("DATABASE_URL is required. Run with --env-file=.env.local.");
@@ -82,7 +94,7 @@ function matchesPage(row, preview) {
 const pool = new pg.Pool({ connectionString: databaseUrl(), connectionTimeoutMillis: 15_000, idleTimeoutMillis: 10_000, max: 1, query_timeout: 15_000 });
 try {
   await pool.query("begin");
-  for (const preview of PREVIEWS) {
+  for (const preview of selectedPreviews) {
     const existing = await pool.query(
       `select page.id, page.slug, page.label, page.meta_title, page.meta_description, page.is_published, page.page_type,
               tool.title as tool_title, tool.intro_markdown, tool.content_markdown, tool.tool_version
@@ -97,7 +109,10 @@ try {
       if (!matchesPage(row, preview)) fail(`the ${preview.slug} preview row does not match the guarded contract.`);
       await pool.query("delete from public.stack127_pages where id = $1", [row.id]);
     } else {
-      if (existing.rows.length) fail(`a registry row already exists for ${preview.slug}; refusing to overwrite it.`);
+      if (existing.rows.length) {
+        if (matchesPage(existing.rows[0], preview)) continue;
+        fail(`a registry row already exists for ${preview.slug} and does not match this preview; refusing to overwrite it.`);
+      }
       const page = await pool.query(
         `insert into public.stack127_pages (
           slug, label, meta_title, meta_description, is_published, published_at, updated_at, cover_image_url, page_type, sitemap_priority, page_family

@@ -46,7 +46,7 @@ State the user question, minimum inputs, primary action, lead answer, and suppor
 
 ### Components and states
 
-List reused or new controls and the initial, valid, invalid, loading, empty, partial, failure, retry, reset, restored, and long-value states that apply.
+List reused or new controls from `stack127_docs/shared-ui.md` and the initial, valid, invalid, loading, empty, partial, failure, retry, reset, restored, and long-value states that apply.
 
 ### Responsive and accessible behavior
 
@@ -54,10 +54,36 @@ Describe desktop and mobile order, containment, table or chart behavior, keyboar
 
 ## Content
 
-### Search intent and promise
+Follow `stack127_docs/writing-style.md` for writing, visual choices, and SEO wording.
 
-State the query intent, reader state, title direction, and description direction.
+Use the Page structure section of `skills/stack127/tools/stack127-tool-writing/SKILL.md` to prepare the writing directions below.
 
-### Useful guidance
+### Search intent and metadata direction
 
-Plan only the usage, interpretation, limits, recovery, supporting questions, formats, links, and sources that help the user complete the task.
+State the query intent, reader state, page-title direction using the tool title pattern, and SEO title and description direction.
+
+### Page promise
+
+State what the reader should understand or accomplish after using the page. Keep this about the reader's outcome; Product already defines the tool's contract.
+
+### Content completeness map
+
+Map the important user questions to the tool result, introduction, usage guide, or supporting content. For each question, say what the writer must explain and what the UI already answers. Keep the map short enough to guide the page without repeating the Interface section.
+
+### Recommended outline and formats
+
+Propose headings and each section's purpose, not finished copy. Name useful callouts, formulas, examples, tables, charts, and marker art with the syntax in `stack127_docs/shared-ui.md` so the writer knows what the page can render.
+
+Describe the introduction's reader situation, basic solution, and connection to the tool. Specify whether it includes a simple formula or introduces a principle whose calculation and worked example follow usage.
+
+### Concepts and result interpretation
+
+For each concept that needs explanation, give one accurate example, its caveat, and the source. Define result terms that a reader could misunderstand, including what an unknown or example value does and does not mean. Omit this section when the tool's result needs no extra explanation.
+
+### Usage, limits, and next step
+
+Plan one real task, meaningful input choices, result reading, invalid-input recovery, and the next useful action. Name claims the writer must avoid, especially claims that exceed the tool's actual behavior. Do not narrate routine button clicks or repeat live result values.
+
+### Source roles and links
+
+Point to the verified Research sources and say which claims each controls. Include useful internal and external links and any source date or freshness limit. Avoid copying the full source list when the same links are already in Research.

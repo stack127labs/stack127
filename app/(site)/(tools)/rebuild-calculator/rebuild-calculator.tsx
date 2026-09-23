@@ -2,21 +2,8 @@
 
 import { useRef, useState } from "react";
 import type { FormEvent, RefObject } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolKeyValueList,
-  ToolNumberField,
-  ToolPrimaryResult,
-  ToolProgressBar,
-  ToolQuantityField,
-  ToolSelect,
-  ToolStatus,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiDisclosure, UiNumberField, UiQuantityField, UiSelect, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiKeyValueList, UiPrimaryResult, UiProgressBar, UiStatus } from "@/app/ui/display";
 import {
   CAPACITY_UNITS,
   calculateRebuildExposure,
@@ -40,9 +27,9 @@ const RAID_LABELS = {
   raid10: "RAID 10",
 } as const;
 
-const raidOptions = RAID_LEVELS.map((level) => toolOption(level, RAID_LABELS[level]));
-const capacityUnitOptions = CAPACITY_UNITS.map((unit) => toolOption(unit, unit));
-const ureOptions = URE_EXPONENTS.map((exponent) => toolOption(String(exponent), `1 error per 10^${exponent} bits`));
+const raidOptions = RAID_LEVELS.map((level) => uiOption(level, RAID_LABELS[level]));
+const capacityUnitOptions = CAPACITY_UNITS.map((unit) => uiOption(unit, unit));
+const ureOptions = URE_EXPONENTS.map((exponent) => uiOption(String(exponent), `1 error per 10^${exponent} bits`));
 
 function formatNumber(value: number, maximumFractionDigits = 2) {
   return new Intl.NumberFormat("en-US", {
@@ -105,24 +92,24 @@ function Result({ result, resultRef }: { result: SuccessResult; resultRef: RefOb
   return (
     <section aria-labelledby="rebuild-result-title" aria-live="polite" className={styles.result}>
       <h2 className={styles.resultHeading} id="rebuild-result-title" ref={resultRef} tabIndex={-1}>Rebuild result</h2>
-      <ToolPrimaryResult label="Total degraded window" value={formatDuration(result.degradedSeconds)} />
+      <UiPrimaryResult label="Total degraded window" value={formatDuration(result.degradedSeconds)} />
 
-      <ToolKeyValueList rows={[
+      <UiKeyValueList rows={[
         { label: "Rebuild copy time", value: formatDuration(result.copySeconds) },
         { label: "Replacement delay", value: formatDuration(result.replacementDelaySeconds) },
         { label: "Source media read", value: formatBytes(result.readBytes) },
         { label: "Additional errors tolerated", value: result.readErrorTolerance },
       ]} />
 
-      <ToolProgressBar
+      <UiProgressBar
         label="Modeled read-error exposure"
         value={exposurePercentage}
         valueText={formatPercentage(result.readErrorProbability)}
       />
 
-      <ToolDisclosure label="Model details">
+      <UiDisclosure label="Model details">
         <div className={styles.details}>
-          <ToolDataTable
+          <UiDataTable
             ariaLabel="Rebuild model details"
             columns={[
               { id: "item", label: "Input" },
@@ -137,7 +124,7 @@ function Result({ result, resultRef }: { result: SuccessResult; resultRef: RefOb
             <p>Modeled exposure is the chance of at least one specified read error. It is not a data-loss probability.</p>
           </div>
         </div>
-      </ToolDisclosure>
+      </UiDisclosure>
     </section>
   );
 }
@@ -227,7 +214,7 @@ export function RebuildCalculator() {
     <section aria-label="rebuild exposure calculator" className={styles.tool} data-tool-workbench>
       <form className={styles.form} noValidate onInputCapture={captureNumericInput} onSubmit={calculate} ref={formRef}>
         <div ref={raidGroupRef}>
-          <ToolChoiceGroup
+          <UiChoiceGroup
             error={errors.raidLevel}
             label="RAID level"
             onChange={(value) => updateField("raidLevel", value)}
@@ -238,7 +225,7 @@ export function RebuildCalculator() {
         </div>
 
         <div className={styles.fields}>
-          <ToolNumberField
+          <UiNumberField
             dataFocusKey="driveCount"
             error={errors.driveCount}
             label="Drive count"
@@ -248,7 +235,7 @@ export function RebuildCalculator() {
             suffix="drives"
             value={numericValue(input.driveCount)}
           />
-          <ToolQuantityField
+          <UiQuantityField
             error={errors.driveCapacity ?? errors.capacityUnit}
             label="Drive capacity"
             onChange={(value) => updateField("driveCapacity", Number.isNaN(value) ? "" : String(value))}
@@ -259,7 +246,7 @@ export function RebuildCalculator() {
             units={capacityUnitOptions}
             value={numericValue(input.driveCapacity)}
           />
-          <ToolNumberField
+          <UiNumberField
             dataFocusKey="rebuildThroughput"
             error={errors.rebuildThroughput}
             label="Rebuild throughput"
@@ -269,7 +256,7 @@ export function RebuildCalculator() {
             suffix="MB/s"
             value={numericValue(input.rebuildThroughput)}
           />
-          <ToolNumberField
+          <UiNumberField
             dataFocusKey="memberReadScope"
             error={errors.memberReadScope}
             label="Member read scope"
@@ -279,7 +266,7 @@ export function RebuildCalculator() {
             suffix="%"
             value={numericValue(input.memberReadScope)}
           />
-          <ToolSelect
+          <UiSelect
             dataFocusKey="ureExponent"
             error={errors.ureExponent}
             label="URE specification"
@@ -288,7 +275,7 @@ export function RebuildCalculator() {
             required
             value={input.ureExponent}
           />
-          <ToolNumberField
+          <UiNumberField
             dataFocusKey="replacementDelay"
             error={errors.replacementDelay}
             label="Replacement delay"
@@ -301,12 +288,12 @@ export function RebuildCalculator() {
         </div>
 
         <div className={styles.formActions}>
-          <ToolActionRow>
-            <ToolButton type="submit" variant="primary">Calculate</ToolButton>
-            <ToolButton onPress={reset} type="button">Reset</ToolButton>
-          </ToolActionRow>
+          <UiActionRow>
+            <UiButton type="submit" variant="primary">Calculate</UiButton>
+            <UiButton onPress={reset} type="button">Reset</UiButton>
+          </UiActionRow>
         </div>
-        {unexpectedError ? <ToolStatus tone="danger">{unexpectedError}</ToolStatus> : null}
+        {unexpectedError ? <UiStatus tone="danger">{unexpectedError}</UiStatus> : null}
         <p aria-live="polite" className={styles.visuallyHidden}>{announcement}</p>
       </form>
 

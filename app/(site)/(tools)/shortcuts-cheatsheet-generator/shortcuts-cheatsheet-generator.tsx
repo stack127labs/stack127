@@ -2,7 +2,8 @@
 
 import { Printer } from "lucide-react";
 import { useState } from "react";
-import { ToolButton, ToolCheckbox, ToolChoiceGroup, ToolSearchField, ToolStatus, toolOption } from "@/app/tool-ui/tool-controls";
+import { UiButton, UiCheckbox, UiChoiceGroup, UiSearchField, uiOption } from "@/app/ui/controls";
+import { UiStatus } from "@/app/ui/display";
 import { buildCheatSheet, type CheatSheetAppSelection, type CheatSheetAppSection } from "@/lib/shortcuts/cheatsheet";
 import { platformLabels, type AppShortcuts, type PlatformId } from "@/lib/shortcuts/types";
 import styles from "./shortcuts-cheatsheet-generator.module.css";
@@ -53,24 +54,24 @@ export function ShortcutsCheatSheetGenerator({ apps, initialSlugs }: Props) {
   return <section className={styles.tool} data-tool-workbench aria-label="Cheat sheet options and preview">
     <div className={styles.controls}>
       <h2>Choose apps</h2>
-      <ToolSearchField label="Filter apps" onChange={setFilter} placeholder="Search apps" value={filter} />
+      <UiSearchField label="Filter apps" onChange={setFilter} placeholder="Search apps" value={filter} />
       <div className={styles.appChoices} aria-label="Apps" role="group">
-        {visibleApps.map((app) => <ToolCheckbox isSelected={selected.has(app.slug)} key={app.slug} onChange={(checked) => toggleApp(app.slug, checked)}>{app.name}</ToolCheckbox>)}
+        {visibleApps.map((app) => <UiCheckbox isSelected={selected.has(app.slug)} key={app.slug} onChange={(checked) => toggleApp(app.slug, checked)}>{app.name}</UiCheckbox>)}
         {!visibleApps.length ? <p>No apps match this filter.</p> : null}
       </div>
       <div className={styles.selectedOptions}>
         {selectedApps.map((app) => { const hasNoGroups = app.groups.every((group) => (excludedGroups[app.slug] ?? new Set()).has(group.id)); const groupErrorId = `groups-${app.slug}-error`; return <section className={styles.appOptions} key={app.slug} aria-labelledby={`options-${app.slug}`}>
           <h3 id={`options-${app.slug}`}>{app.name}</h3>
-          {app.platforms.length > 1 ? <ToolChoiceGroup label="Platform" onChange={(choice) => setPlatformChoice((current) => ({ ...current, [app.slug]: choice as "all" | PlatformId }))} options={[toolOption("all", "All platforms"), ...app.platforms.map((platform) => toolOption(platform, platformLabels[platform]))]} value={platformChoice[app.slug] ?? "all"} /> : null}
-          <fieldset aria-describedby={hasNoGroups ? groupErrorId : undefined} aria-invalid={hasNoGroups || undefined} className={styles.groups}><legend>Groups</legend>{app.groups.map((group) => <ToolCheckbox isSelected={!(excludedGroups[app.slug] ?? new Set()).has(group.id)} key={group.id} onChange={(checked) => toggleGroup(app.slug, group.id, checked)}>{group.title}</ToolCheckbox>)}{hasNoGroups ? <p className={styles.groupError} id={groupErrorId}>Select at least one group for {app.name}.</p> : null}</fieldset>
+          {app.platforms.length > 1 ? <UiChoiceGroup label="Platform" onChange={(choice) => setPlatformChoice((current) => ({ ...current, [app.slug]: choice as "all" | PlatformId }))} options={[uiOption("all", "All platforms"), ...app.platforms.map((platform) => uiOption(platform, platformLabels[platform]))]} value={platformChoice[app.slug] ?? "all"} /> : null}
+          <fieldset aria-describedby={hasNoGroups ? groupErrorId : undefined} aria-invalid={hasNoGroups || undefined} className={styles.groups}><legend>Groups</legend>{app.groups.map((group) => <UiCheckbox isSelected={!(excludedGroups[app.slug] ?? new Set()).has(group.id)} key={group.id} onChange={(checked) => toggleGroup(app.slug, group.id, checked)}>{group.title}</UiCheckbox>)}{hasNoGroups ? <p className={styles.groupError} id={groupErrorId}>UiSelect at least one group for {app.name}.</p> : null}</fieldset>
         </section>; })}
       </div>
     </div>
 
     <div className={styles.preview}>
       <div className={styles.previewHeading}>
-        {result.ok ? <ToolStatus>{result.doc.apps.length} {result.doc.apps.length === 1 ? "app" : "apps"}, {result.doc.shortcutCount} shortcuts</ToolStatus> : <ToolStatus tone={failed ? "danger" : "neutral"}>{selectedApps.length ? result.reason : "Choose an app to see the sheet."}</ToolStatus>}
-        <ToolButton isDisabled={!result.ok} onPress={() => window.print()} variant="primary"><Printer aria-hidden="true" size={18} /> Print sheet</ToolButton>
+        {result.ok ? <UiStatus>{result.doc.apps.length} {result.doc.apps.length === 1 ? "app" : "apps"}, {result.doc.shortcutCount} shortcuts</UiStatus> : <UiStatus tone={failed ? "danger" : "neutral"}>{selectedApps.length ? result.reason : "Choose an app to see the sheet."}</UiStatus>}
+        <UiButton isDisabled={!result.ok} onPress={() => window.print()} variant="primary"><Printer aria-hidden="true" size={18} /> Print sheet</UiButton>
       </div>
       {result.ok ? <div className={styles.sheetFrame} aria-label="Printable sheet preview" role="region" tabIndex={0}>
         <article className={styles.sheet} data-print-root>

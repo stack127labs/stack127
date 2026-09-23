@@ -43,50 +43,6 @@
   line-height: var(--line-body);
 }
 
-/* Callouts distinguish by border and spacing alone; only the title text may
-   carry semantic color. Never a tinted background or a colored edge. */
-.lesson-callout {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  display: grid;
-  gap: var(--space-3);
-  padding: var(--space-7) var(--space-8);
-}
-
-.lesson-callout-recommend .lesson-callout-title {
-  color: var(--color-success-text) !important;
-}
-
-.lesson-callout-warning .lesson-callout-title {
-  color: var(--color-warning-text) !important;
-}
-
-.lesson-callout-title {
-  color: var(--color-text) !important;
-  font-size: var(--text-small) !important;
-  font-weight: var(--weight-semibold);
-  margin: 0;
-}
-
-.lesson-callout-body {
-  display: grid;
-  gap: var(--space-3);
-}
-
-.lesson-callout-body p {
-  font-size: var(--text-small) !important;
-}
-
-.lesson-faq {
-  display: grid;
-  gap: var(--space-6);
-}
-
-.lesson-faq-item {
-  display: grid;
-  gap: var(--space-2);
-}
-
 .lesson-nav {
   border-top: 1px solid var(--color-border);
   display: grid;

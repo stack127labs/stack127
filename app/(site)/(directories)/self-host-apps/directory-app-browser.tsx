@@ -1,12 +1,9 @@
 "use client";
 
-import {
-  useEffect,
-  useMemo,
-  useState,
-  type MouseEvent,
-  type PointerEvent as ReactPointerEvent,
-} from "react";
+import { DetailDialog, DetailDialogClose } from "@/app/ui/detail-dialog";
+
+
+import { useMemo, useState } from "react";
 import {
   Activity,
   ArrowRight,
@@ -26,13 +23,13 @@ import {
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import type { DirectoryApp } from "@/lib/apps";
-import { CategoryIcon } from "@/app/category-icon";
+import { CategoryIcon } from "@/app/ui/site/category-icon";
 import {
   DirectoryAppCard,
   DirectoryAppIcon,
   formatDatabaseRequirement,
   sourceModelLabel,
-} from "./directory-app-card";
+} from "@/app/ui/directories/directory-app-card";
 
 type AppFact = [label: string, value: string, Icon: LucideIcon];
 
@@ -193,35 +190,16 @@ function AppDetailsOverlay({
   ];
   const installOptions = app.install_options ?? [];
 
-  const handleClose = (event: MouseEvent | ReactPointerEvent) => {
-    event.stopPropagation();
-    onClose();
-  };
+
 
   return (
-    <div className="app-detail-overlay" onClick={onClose} onPointerDown={onClose}>
-      <aside
-        aria-label={`${app.name} details`}
-        aria-modal="true"
-        className="app-detail-panel app-detail-panel-overlay"
-        onClick={(event) => event.stopPropagation()}
-        onPointerDown={(event) => event.stopPropagation()}
-        role="dialog"
-      >
+    <DetailDialog ariaLabel={`${app.name} details`} onClose={onClose}>
         <div className="app-detail-heading">
           <DirectoryAppIcon app={app} className="app-detail-icon" />
           <div>
             <h2>{app.name}</h2>
           </div>
-          <button
-            aria-label="Close app details"
-            className="app-detail-close"
-            onClick={handleClose}
-            onPointerDown={handleClose}
-            type="button"
-          >
-            ×
-          </button>
+          <DetailDialogClose ariaLabel="Close app details" onClose={onClose} />
         </div>
 
         <div className="app-detail-categories">
@@ -301,8 +279,7 @@ function AppDetailsOverlay({
             </a>
           </div>
         ) : null}
-      </aside>
-    </div>
+      </DetailDialog>
   );
 }
 
@@ -313,39 +290,7 @@ export function DirectoryAppBrowser({ apps }: { apps: DirectoryApp[] }) {
     [apps, selectedSlug],
   );
 
-  useEffect(() => {
-    if (!selectedApp) {
-      return undefined;
-    }
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setSelectedSlug(null);
-      }
-    };
-
-    const handlePointerDown = (event: PointerEvent) => {
-      const target = event.target;
-
-      if (!(target instanceof Element)) {
-        return;
-      }
-
-      if (target.closest(".app-detail-close") || target.classList.contains("app-detail-overlay")) {
-        setSelectedSlug(null);
-      }
-    };
-
-    document.body.classList.add("app-detail-open");
-    document.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("pointerdown", handlePointerDown, true);
-
-    return () => {
-      document.body.classList.remove("app-detail-open");
-      document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("pointerdown", handlePointerDown, true);
-    };
-  }, [selectedApp]);
 
   return (
     <>

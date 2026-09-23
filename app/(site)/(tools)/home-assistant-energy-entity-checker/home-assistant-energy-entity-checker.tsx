@@ -2,18 +2,8 @@
 
 import { RotateCcw } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolDisclosure,
-  ToolResultLead,
-  ToolSelect,
-  ToolStatus,
-  ToolTextArea,
-  ToolTextField,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiDisclosure, UiSelect, UiTextArea, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiResultLead, UiStatus } from "@/app/ui/display";
 import {
   HOME_ASSISTANT_CORE_VERSION,
   HOME_ASSISTANT_ENERGY_FORMULA_VERSION,
@@ -41,8 +31,8 @@ const defaults = Object.freeze({
 
 const FIELD_LABELS = { domain: "Domain", state: "Current state", device_class: "Device class", state_class: "State class", unit: "Unit" };
 const SCOPE_LABELS = { both: "Both", energy: "Energy", statistics: "Statistics" };
-const STATE_OPTIONS = [toolOption("numeric", "Numeric"), toolOption("non_numeric", "Non-numeric"), toolOption("unknown", "Unknown"), toolOption("unavailable", "Unavailable")];
-const COUNTER_OPTIONS = [toolOption("never_resets", "Never resets"), toolOption("resets_to_zero", "Resets to zero"), toolOption("can_decrease", "Can decrease"), toolOption("unknown", "Unknown")];
+const STATE_OPTIONS = [uiOption("numeric", "Numeric"), uiOption("non_numeric", "Non-numeric"), uiOption("unknown", "Unknown"), uiOption("unavailable", "Unavailable")];
+const COUNTER_OPTIONS = [uiOption("never_resets", "Never resets"), uiOption("resets_to_zero", "Resets to zero"), uiOption("can_decrease", "Can decrease"), uiOption("unknown", "Unknown")];
 
 function removeStateParameter() {
   const url = new URL(window.location.href);
@@ -61,7 +51,7 @@ function ConclusionBand({ result, resultRef }: { result: ValidEnergyEntityResult
   return (
     <section aria-label="Eligibility conclusions" className={styles.conclusions}>
       <div>
-        <ToolResultLead inputRef={resultRef}>{energyAnswer(result)}</ToolResultLead>
+        <UiResultLead inputRef={resultRef}>{energyAnswer(result)}</UiResultLead>
         <p>Live Energy validation was not inspected.</p>
       </div>
       <div>
@@ -96,7 +86,7 @@ function Result({ result, resultRef }: { result: ValidEnergyEntityResult; result
     <section className={styles.result}>
       <ConclusionBand result={result} resultRef={resultRef} />
       {result.counter.status !== "not_applicable" ? (
-        <ToolStatus tone={counterTone(result.counter)}>Counter: {result.counter.status === "pass" ? "Fits" : result.counter.status === "fail" ? "Does not fit" : "Needs verification"}. {result.counter.reason}</ToolStatus>
+        <UiStatus tone={counterTone(result.counter)}>Counter: {result.counter.status === "pass" ? "Fits" : result.counter.status === "fail" ? "Does not fit" : "Needs verification"}. {result.counter.reason}</UiStatus>
       ) : null}
       <RuleTrace result={result} />
       <p className={styles.provenance}>Core {HOME_ASSISTANT_CORE_VERSION} · Frontend {HOME_ASSISTANT_FRONTEND_VERSION} · Formula v{HOME_ASSISTANT_ENERGY_FORMULA_VERSION} · Checked {HOME_ASSISTANT_ENERGY_SOURCE_DATE}</p>
@@ -203,34 +193,34 @@ export function HomeAssistantEnergyEntityChecker() {
     <section aria-label="Energy entity checker inputs and results" className={styles.tool} data-tool-workbench>
       <form className={styles.form} onSubmit={submit}>
         <div ref={roleGroupRef}>
-          <ToolChoiceGroup label="Intended Energy field" onChange={(next) => change(setRole, next as EnergyEntityRole)} options={Object.entries(ENERGY_ROLE_LABELS).map(([id, label]) => toolOption(id, label))} value={role} />
+          <UiChoiceGroup label="Intended Energy field" onChange={(next) => change(setRole, next as EnergyEntityRole)} options={Object.entries(ENERGY_ROLE_LABELS).map(([id, label]) => uiOption(id, label))} value={role} />
         </div>
 
-        <ToolDisclosure label="Paste attributes">
+        <UiDisclosure label="Paste attributes">
           <div className={styles.pasteArea}>
-            <ToolTextArea autoCapitalize="none" error={pasteError} inputRef={pasteRef} label="Pasted attributes" onChange={(next) => { setPasted(next); setPasteError(null); clearResult(); }} placeholder={"entity_id: sensor.grid_import\ndevice_class: energy\nstate_class: total\nunit_of_measurement: kWh"} rows={7} spellCheck={false} value={pasted} />
-            <ToolButton onPress={importAttributes} type="button">Import attributes</ToolButton>
+            <UiTextArea autoCapitalize="none" error={pasteError} inputRef={pasteRef} label="Pasted attributes" onChange={(next) => { setPasted(next); setPasteError(null); clearResult(); }} placeholder={"entity_id: sensor.grid_import\ndevice_class: energy\nstate_class: total\nunit_of_measurement: kWh"} rows={7} spellCheck={false} value={pasted} />
+            <UiButton onPress={importAttributes} type="button">Import attributes</UiButton>
           </div>
-        </ToolDisclosure>
+        </UiDisclosure>
 
         <div className={styles.fields}>
-          <ToolTextField error={errors.entityId} inputRef={entityRef} label="Entity ID" onChange={(next) => { setErrors((current) => ({ ...current, entityId: undefined })); change(setEntityId, next); }} spellCheck={false} value={entityId} />
-          <ToolSelect label="Current state" onChange={(next) => change(setStateKind, next as EnergyEntityStateKind)} options={STATE_OPTIONS} value={stateKind} />
-          <ToolTextField error={errors.deviceClass} inputRef={deviceRef} label="Device class" onChange={(next) => { setErrors((current) => ({ ...current, deviceClass: undefined })); change(setDeviceClass, next); }} spellCheck={false} value={deviceClass} />
-          <ToolTextField error={errors.stateClass} inputRef={stateClassRef} label="State class" onChange={(next) => { setErrors((current) => ({ ...current, stateClass: undefined })); change(setStateClass, next); }} spellCheck={false} value={stateClass} />
-          <ToolTextField error={errors.unit} inputRef={unitRef} label="Unit" onChange={(next) => { setErrors((current) => ({ ...current, unit: undefined })); change(setUnit, next); }} spellCheck={false} value={unit} />
-          {role === "power" ? null : <ToolSelect label="Counter behavior" onChange={(next) => change(setCounterBehavior, next as EnergyCounterBehavior)} options={COUNTER_OPTIONS} value={counterBehavior} />}
+          <UiTextField error={errors.entityId} inputRef={entityRef} label="Entity ID" onChange={(next) => { setErrors((current) => ({ ...current, entityId: undefined })); change(setEntityId, next); }} spellCheck={false} value={entityId} />
+          <UiSelect label="Current state" onChange={(next) => change(setStateKind, next as EnergyEntityStateKind)} options={STATE_OPTIONS} value={stateKind} />
+          <UiTextField error={errors.deviceClass} inputRef={deviceRef} label="Device class" onChange={(next) => { setErrors((current) => ({ ...current, deviceClass: undefined })); change(setDeviceClass, next); }} spellCheck={false} value={deviceClass} />
+          <UiTextField error={errors.stateClass} inputRef={stateClassRef} label="State class" onChange={(next) => { setErrors((current) => ({ ...current, stateClass: undefined })); change(setStateClass, next); }} spellCheck={false} value={stateClass} />
+          <UiTextField error={errors.unit} inputRef={unitRef} label="Unit" onChange={(next) => { setErrors((current) => ({ ...current, unit: undefined })); change(setUnit, next); }} spellCheck={false} value={unit} />
+          {role === "power" ? null : <UiSelect label="Counter behavior" onChange={(next) => change(setCounterBehavior, next as EnergyCounterBehavior)} options={COUNTER_OPTIONS} value={counterBehavior} />}
         </div>
 
         <p className={styles.privacy}>Inputs stay in this browser.</p>
-        {notice ? <ToolStatus>{notice}</ToolStatus> : null}
-        <ToolActionRow>
-          <ToolButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={18} /> Reset</ToolButton>
-          <ToolButton type="submit" variant="primary">Check entity</ToolButton>
-        </ToolActionRow>
+        {notice ? <UiStatus>{notice}</UiStatus> : null}
+        <UiActionRow>
+          <UiButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={18} /> Reset</UiButton>
+          <UiButton type="submit" variant="primary">Check entity</UiButton>
+        </UiActionRow>
       </form>
 
-      {failed ? <section className={styles.failure} ref={failureRef} role="alert" tabIndex={-1}><ToolStatus tone="danger">The check could not run. Your inputs are still here.</ToolStatus><ToolButton onPress={() => submit()} type="button">Try again</ToolButton></section> : null}
+      {failed ? <section className={styles.failure} ref={failureRef} role="alert" tabIndex={-1}><UiStatus tone="danger">The check could not run. Your inputs are still here.</UiStatus><UiButton onPress={() => submit()} type="button">Try again</UiButton></section> : null}
       {result ? <Result result={result} resultRef={resultRef} /> : null}
     </section>
   );

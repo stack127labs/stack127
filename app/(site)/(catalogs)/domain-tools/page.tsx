@@ -1,14 +1,14 @@
 import { Globe } from "lucide-react";
 import Link from "next/link";
-import { AppShell } from "@/app/app-shell";
-import { EntryHero } from "@/app/entry-hero";
-import { PageCanvas } from "@/app/page-canvas";
+import { AppShell } from "@/app/ui/site/app-shell";
+import { EntryHero } from "@/app/ui/site/entry-hero";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { siteSpotDomainToolsArt } from "../../art/site--spot-domain-tools";
-import { ToolCatalogSidebar } from "../_components/tool-catalog-sidebar";
+import { ToolCatalogSidebar } from "../../../ui/catalogs/tool-catalog-sidebar";
 import { coverageSummary } from "@/lib/domain/bootstrap.ts";
-import { PageTitleIcon } from "@/app/page-title-icon";
-import { PageHeader } from "@/app/page-header";
-import { proseSectionFlowClassName } from "@/app/prose";
+import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { PageHeader } from "@/app/ui/site/page-header";
+import { proseSectionFlowClassName } from "@/app/ui/site/prose";
 import { domainAgeArt } from "../_components/art/domain-age";
 import { domainAvailabilityArt } from "../_components/art/domain-availability";
 import { domainExpiryArt } from "../_components/art/domain-expiry";
@@ -21,7 +21,7 @@ import { multiTldArt } from "../_components/art/multi-tld";
 import { punycodeArt } from "../_components/art/punycode";
 import { tldDirectoryArt } from "../_components/art/tld-directory";
 import { transferReadinessArt } from "../_components/art/transfer-readiness";
-import { ToolCatalog, type CatalogTool } from "../_components/tool-catalog";
+import { ToolCatalog, type CatalogTool } from "../../../ui/catalogs/tool-catalog";
 
 const tools: CatalogTool[] = [
   {

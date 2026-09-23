@@ -2,7 +2,7 @@
 
 ## September 6 content maintenance
 
-Preserve the approved voice, depth, and section order. Clarify the implemented registered-response cache lifetime in the fetched-time definition. The database remains the only live prose source. Keep the current tool behavior and publication state unchanged.
+Follow `stack127_docs/writing-style.md` and preserve the approved depth and section order. Clarify the implemented registered-response cache lifetime in the fetched-time definition. The database remains the only live prose source. Keep the current tool behavior and publication state unchanged.
 
 ## Who is here
 
@@ -33,7 +33,7 @@ Answer the question in plain language, then help the reader interpret the result
 7. Explain missing or conflicting ages and link to the full registration lookup.
 8. Define remaining unfamiliar result terms in one glossary.
 
-The September 6 direction restores useful depth from the user's older-page PDF while keeping the conversational voice. There is no section or word-count quota. Headings should answer real search questions without repeating keywords mechanically. Do not add a sample result, a duplicate FAQ, or a list of fields already visible in the tool. This is a page-specific trial; sitewide skills are unchanged.
+The September 6 direction restores useful depth from the user's older-page PDF. Do not add a sample result, a duplicate FAQ, or a list of fields already visible in the tool. Writing follows the shared guide.
 
 ## Content coverage
 
@@ -55,6 +55,6 @@ The page must never imply that an old domain is trustworthy or that a new domain
 
 ## Editorial sequence
 
-Use the Verge-inspired voice from the site writing guide. Start with the difference between a polished website and a verifiable registration date. Below the tool, explain what the date measures, then follow one hypothetical domain purchase into the limits of website age and trust. Explain which registration events preserve that date before discussing SEO research. Finish with incomplete records and unfamiliar terms. Each section should follow the reader's next question rather than list unrelated facts.
+Start with the difference between a polished website and a verifiable registration date. Below the tool, explain what the date measures, then follow one hypothetical domain purchase into the limits of website age and trust. Explain which registration events preserve that date before discussing SEO research. Finish with incomplete records and unfamiliar terms.
 
 The 20-year-old domain is a hypothetical example, not a measured result or a required example for other tools. Review how the paragraphs connect, not only whether each topic appears.

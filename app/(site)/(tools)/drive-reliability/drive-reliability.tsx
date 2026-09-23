@@ -9,20 +9,8 @@ import {
   useRef,
   useState,
 } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolCheckbox,
-  ToolChoiceGroup,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolNumberField,
-  ToolPrimaryResult,
-  ToolResultLead,
-  ToolSearchField,
-  ToolSelect,
-  ToolStatus,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiCheckbox, UiChoiceGroup, UiDisclosure, UiNumberField, UiSearchField, UiSelect } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiPrimaryResult, UiResultLead, UiStatus } from "@/app/ui/display";
 import {
   DEFAULT_DRIVE_RELIABILITY_INPUT,
   DRIVE_RELIABILITY_INTERVAL_VERSION,
@@ -152,10 +140,10 @@ function ShareAction({ input, onNotice }: { input: DriveReliabilityInput; onNoti
   }
 
   return (
-    <ToolButton onPress={share} variant="secondary">
+    <UiButton onPress={share} variant="secondary">
       <Share2 aria-hidden="true" size={17} />
       Share selection
-    </ToolButton>
+    </UiButton>
   );
 }
 
@@ -259,7 +247,7 @@ export function DriveReliabilityExplorer({ initialState, snapshot }: Props) {
       return;
     }
     if (input.selectedModelIds.length >= 3) {
-      setNotice("Select up to three cohorts.");
+      setNotice("UiSelect up to three cohorts.");
       return;
     }
     updateInput({ selectedModelIds: [...input.selectedModelIds, row.id] });
@@ -311,9 +299,9 @@ export function DriveReliabilityExplorer({ initialState, snapshot }: Props) {
     id: row.id,
     cells: {
       action: (
-        <ToolButton aria-label={`Remove ${row.model}`} onPress={() => toggleSelected(row)} variant="ghost">
+        <UiButton aria-label={`Remove ${row.model}`} onPress={() => toggleSelected(row)} variant="ghost">
           Remove
-        </ToolButton>
+        </UiButton>
       ),
       age: formatAge(row.averageAgeMonths),
       afr: row.displayAfrPercent,
@@ -334,22 +322,22 @@ export function DriveReliabilityExplorer({ initialState, snapshot }: Props) {
         <div className={styles.toolHeading}>
           <h2 id="drive-reliability-tool-title">Explore Backblaze evidence</h2>
           {resolution.status !== "invalid" ? (
-            <ToolButton onPress={reset} variant="ghost">
+            <UiButton onPress={reset} variant="ghost">
               <RotateCcw aria-hidden="true" size={17} />
               Reset
-            </ToolButton>
+            </UiButton>
           ) : null}
         </div>
 
-        <ToolChoiceGroup
+        <UiChoiceGroup
           label="Period"
-          onChange={(periodId) => updateInput({ periodId, selectedModelIds: [] }, "Period changed. Select a cohort.")}
+          onChange={(periodId) => updateInput({ periodId, selectedModelIds: [] }, "Period changed. UiSelect a cohort.")}
           options={snapshot.periods.map((period) => ({ id: period.id, label: period.label }))}
           value={input.periodId}
         />
 
         <div onKeyDown={handleSearchKeyDown}>
-          <ToolSearchField
+          <UiSearchField
             label="Model or manufacturer"
             onChange={(search) => updateInput({ search })}
             placeholder="WUH722222ALE6L4"
@@ -357,10 +345,10 @@ export function DriveReliabilityExplorer({ initialState, snapshot }: Props) {
           />
         </div>
 
-        <ToolDisclosure label={filterSummary(input, minimumCapacity, maximumCapacity)}>
+        <UiDisclosure label={filterSummary(input, minimumCapacity, maximumCapacity)}>
           <div className={styles.filterGrid} data-advanced-filters>
             <div>
-              <ToolSelect
+              <UiSelect
                 label="Manufacturer"
                 onChange={(manufacturer) => updateInput({ manufacturer })}
                 options={[
@@ -371,7 +359,7 @@ export function DriveReliabilityExplorer({ initialState, snapshot }: Props) {
               />
             </div>
             <div className={styles.capacityGroup} data-capacity-fields>
-              <ToolNumberField
+              <UiNumberField
                 ariaLabel="Minimum capacity"
                 error={visibleCapacityErrors.minimum}
                 inputRef={minimumRef}
@@ -384,7 +372,7 @@ export function DriveReliabilityExplorer({ initialState, snapshot }: Props) {
                 suffix="TB"
                 value={minimumCapacity}
               />
-              <ToolNumberField
+              <UiNumberField
                 ariaLabel="Maximum capacity"
                 error={visibleCapacityErrors.maximum}
                 inputRef={maximumRef}
@@ -402,29 +390,29 @@ export function DriveReliabilityExplorer({ initialState, snapshot }: Props) {
               ) : null}
             </div>
             {hasBelowThresholdRows ? (
-              <ToolCheckbox
+              <UiCheckbox
                 isSelected={input.showSmallCohorts}
                 onChange={(showSmallCohorts) => updateInput({ showSmallCohorts })}
               >
                 Show cohorts below the Backblaze source threshold
-              </ToolCheckbox>
+              </UiCheckbox>
             ) : null}
           </div>
-        </ToolDisclosure>
+        </UiDisclosure>
 
-        {notice ? <ToolStatus tone={notice.startsWith("Select up") ? "warning" : "neutral"}>{notice}</ToolStatus> : null}
+        {notice ? <UiStatus tone={notice.startsWith("UiSelect up") ? "warning" : "neutral"}>{notice}</UiStatus> : null}
         {manualShareLink ? <input aria-label="Share link" className={styles.manualLink} readOnly value={manualShareLink} /> : null}
       </div>
 
       <div className={styles.result} data-drive-reliability-result>
         {resolution.status === "invalid" ? (
           <div className={styles.failureState}>
-            <ToolStatus tone="danger">Drive data is unavailable.</ToolStatus>
+            <UiStatus tone="danger">Drive data is unavailable.</UiStatus>
             <p>Check the Backblaze sources for the current data.</p>
-            <ToolActionRow>
+            <UiActionRow>
               <a href={datasetUrl} rel="noreferrer" target="_blank">Dataset</a>
               <a href={reportUrl} rel="noreferrer" target="_blank">Source report</a>
-            </ToolActionRow>
+            </UiActionRow>
           </div>
         ) : hasCapacityError && validationAttempted ? null : (
           <>
@@ -439,7 +427,7 @@ export function DriveReliabilityExplorer({ initialState, snapshot }: Props) {
                   <p>{input.periodId === "annual-2025" && input.search.trim()
                     ? "Annual 2025 has a fleet summary but no matching model rows in this snapshot."
                     : "No cohorts match these filters."}</p>
-                  <ToolButton onPress={reset} variant="secondary">Reset filters</ToolButton>
+                  <UiButton onPress={reset} variant="secondary">Reset filters</UiButton>
                 </div>
               ) : (
                 <div className={styles.locatorViewport}>
@@ -463,14 +451,14 @@ export function DriveReliabilityExplorer({ initialState, snapshot }: Props) {
                             <td data-label="Capacity">{formatCapacity(row.capacityTb)}</td>
                             <td data-label="Evidence">{row.evidenceLabel}</td>
                             <td data-label="Action">
-                              <ToolButton
-                                aria-label={`${selected ? "Remove" : "Select"} ${row.model}`}
+                              <UiButton
+                                aria-label={`${selected ? "Remove" : "UiSelect"} ${row.model}`}
                                 aria-pressed={selected}
                                 onPress={() => toggleSelected(row)}
                                 variant="secondary"
                               >
-                                {selected ? "Remove" : "Select"}
-                              </ToolButton>
+                                {selected ? "Remove" : "UiSelect"}
+                              </UiButton>
                             </td>
                           </tr>
                         );
@@ -483,19 +471,19 @@ export function DriveReliabilityExplorer({ initialState, snapshot }: Props) {
 
             <div className={styles.answerRegion}>
               {selectedRows.length === 0 ? (
-                <p className={styles.selectionPrompt}>Select one to three cohorts to inspect their observed result.</p>
+                <p className={styles.selectionPrompt}>UiSelect one to three cohorts to inspect their observed result.</p>
               ) : (
                 <>
                   {selectedRows.length === 1 ? (
-                    <ToolPrimaryResult
+                    <UiPrimaryResult
                       detail={<>{selectedRows[0].model} in {selectedRows[0].period.label}. Approximate 95% evidence range {selectedRows[0].displayEvidenceRange}.</>}
                       label="Observed AFR"
                       value={selectedRows[0].displayAfrPercent}
                     />
                   ) : (
-                    <ToolResultLead>
+                    <UiResultLead>
                       The selected {activePeriod.label} cohorts span {displayedSpan} observed AFR.
-                    </ToolResultLead>
+                    </UiResultLead>
                   )}
 
                   {selectionWarning ? (
@@ -542,7 +530,7 @@ export function DriveReliabilityExplorer({ initialState, snapshot }: Props) {
                     <h3 id="drive-reliability-evidence-title">Selected cohort evidence</h3>
                     <p className={styles.scrollHint}>Scroll for all evidence</p>
                     <div className={styles.evidenceViewport} data-evidence-scroll>
-                      <ToolDataTable
+                      <UiDataTable
                         ariaLabel="Selected drive cohort evidence"
                         columns={[
                           { id: "model", label: "Model" },
@@ -572,11 +560,11 @@ export function DriveReliabilityExplorer({ initialState, snapshot }: Props) {
                       <div><dt>Range method</dt><dd>{DRIVE_RELIABILITY_INTERVAL_VERSION}</dd></div>
                       <div><dt>Checked</dt><dd>{formatDate(snapshot.sourceCheckedAt)}</dd></div>
                     </dl>
-                    <ToolActionRow>
+                    <UiActionRow>
                       <a href={datasetUrl} rel="noreferrer" target="_blank">Dataset</a>
                       <a href={reportUrl} rel="noreferrer" target="_blank">Source report</a>
                       <ShareAction input={input} onNotice={setShareNotice} />
-                    </ToolActionRow>
+                    </UiActionRow>
                   </section>
                 </>
               )}

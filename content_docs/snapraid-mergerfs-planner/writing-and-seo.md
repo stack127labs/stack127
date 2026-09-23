@@ -1,13 +1,13 @@
 # Writing and SEO plan: SnapRAID and mergerfs Config Planner
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Tool: SnapRAID and mergerfs Config Planner
 Route: `/snapraid-mergerfs-planner`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
 SERP checked: 2026-08-23
 Primary medium: Tool UI
-Prose is the minority: yes
-Static prose budget: 3 sections, 500 words maximum
 
 ## Search intent
 
@@ -88,19 +88,14 @@ Enter an explicit mixed-disk layout and receive structurally checked `snapraid.c
 
 ### Sections reserved for later manual writing
 
-| Section ID | Heading | Purpose | Required facts and sources | Word limit and shape | Banned claims or repetition |
+| Section ID | Heading | Purpose | Required facts and sources | Planned format | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
-| COPY-01 | Keep parity outside the pool | Explain the two-layer relationship and why branch output is data-only. | SnapRAID manual, Debian `snapraid(1)`, mergerfs QuickStart, and the approved role table. | 90 words maximum; one short paragraph beside the table. | Do not repeat every input label or paste config text. |
-| COPY-02 | Choose paths the host can verify | Explain meaningful path selection, result limits, and next host checks. | Implementation non-goals, EC-003/004/006/022, SnapRAID manual, mergerfs QuickStart. | 220 words maximum; two short paragraphs and a three-item list. | No backup guarantee, live mount claim, recovery promise, or generic setup tutorial. |
-| COPY-03 | What happens to entered paths? | State local-browser handling for this tool action. | Engine has no fetch, storage, URL-state, or host-access path; `/privacy` for site context. | 60 words maximum; one short paragraph. | Do not promise site-wide anonymity or omit the broader privacy link. |
+| COPY-01 | Keep parity outside the pool | Explain the two-layer relationship and why branch output is data-only. | SnapRAID manual, Debian `snapraid(1)`, mergerfs QuickStart, and the approved role table. | Prose beside the table. | Do not repeat every input label or paste config text. |
+| COPY-02 | Choose paths the host can verify | Explain meaningful path selection, result limits, and next host checks. | Implementation non-goals, EC-003/004/006/022, SnapRAID manual, mergerfs QuickStart. | Prose and a three-item list. | No backup guarantee, live mount claim, recovery promise, or generic setup tutorial. |
+| COPY-03 | What happens to entered paths? | State local-browser handling for this tool action. | Engine has no fetch, storage, URL-state, or host-access path; `/privacy` for site context. | Prose. | Do not promise site-wide anonymity or omit the broader privacy link. |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
-- Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
-- Do not repeat a result, table, code block, heading, or prior section.
 - Leave unresolved host facts as explicit verification notes.
 
 ### Tool-build exclusion

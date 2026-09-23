@@ -1,8 +1,8 @@
 import { getLesson } from "@/lib/self-hosting-for-beginners";
-import { MarkerArt } from "@/app/marker-art";
+import { MarkerArt } from "@/app/ui/site/marker-art";
 import { Callout, LessonLink, LessonPage } from "../course";
 import { composePartsArt } from "./art/compose-parts";
-import { CodeBlock } from "@/app/code-block";
+import { CodeBlock } from "@/app/ui/site/code-block";
 
 const lesson = getLesson("understand-docker-compose");
 

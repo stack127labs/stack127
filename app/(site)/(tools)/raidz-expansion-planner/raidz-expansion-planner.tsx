@@ -1,20 +1,7 @@
 "use client";
 
-import {
-  ToolActionRow,
-  ToolAllocationBar,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolKeyValueList,
-  ToolPrimaryResult,
-  ToolQuantityInput,
-  ToolSelect,
-  ToolStatus,
-  ToolTextField,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiDisclosure, UiQuantityInput, UiSelect, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiAllocationBar, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import {
   RAIDZ_EXPANSION_CALCULATION_VERSION,
   RAIDZ_EXPANSION_INPUT_VERSION,
@@ -64,10 +51,10 @@ type Calculated = {
 };
 
 const blockSizes = Array.from({ length: 16 }, (_, index) => 512 * 2 ** index);
-const capacityUnits = ["GB", "TB", "GiB", "TiB"].map((unit) => toolOption(unit, unit));
-const blockUnits = ["B", "KiB", "MiB"].map((unit) => toolOption(unit, unit));
-const displayUnits = ["TB", "TiB"].map((unit) => toolOption(unit, unit));
-const ashiftOptions = [9, 12, 13, 14].map((ashift) => toolOption(String(ashift), `${ashift} (${1 << ashift} B)`));
+const capacityUnits = ["GB", "TB", "GiB", "TiB"].map((unit) => uiOption(unit, unit));
+const blockUnits = ["B", "KiB", "MiB"].map((unit) => uiOption(unit, unit));
+const displayUnits = ["TB", "TiB"].map((unit) => uiOption(unit, unit));
+const ashiftOptions = [9, 12, 13, 14].map((ashift) => uiOption(String(ashift), `${ashift} (${1 << ashift} B)`));
 
 function defaults(): Editor {
   return {
@@ -334,8 +321,8 @@ export function RaidzExpansionPlanner({ initialState }: { initialState: string }
   const modelProperty = editor.workload === "filesystem" ? "recordsize" : "volblocksize";
   const blockOptions = blockSizes
     .filter((bytes) => editor.workload === "filesystem" || bytes <= 131_072)
-    .map((bytes) => toolOption(String(bytes), blockLabel(bytes)))
-    .concat(toolOption("custom", "Custom"));
+    .map((bytes) => uiOption(String(bytes), blockLabel(bytes)))
+    .concat(uiOption("custom", "Custom"));
   const stepRows = values ? values.steps.map((step, index) => ({
     id: String(step.width),
     cells: {
@@ -351,57 +338,57 @@ export function RaidzExpansionPlanner({ initialState }: { initialState: string }
   return (
     <section aria-label="RAIDZ expansion planner" className={styles.tool} data-tool-workbench>
       <form className={styles.form} noValidate onSubmit={(event) => { event.preventDefault(); plan(); }} ref={formRef}>
-        <ToolChoiceGroup
+        <UiChoiceGroup
           label="RAIDZ level"
           onChange={(level) => update({ ...editor, level: level as RaidzExpansionLevel }, true)}
-          options={[toolOption("raidz1", "RAIDZ1"), toolOption("raidz2", "RAIDZ2"), toolOption("raidz3", "RAIDZ3")]}
+          options={[uiOption("raidz1", "RAIDZ1"), uiOption("raidz2", "RAIDZ2"), uiOption("raidz3", "RAIDZ3")]}
           required
           value={editor.level}
         />
 
         <div className={styles.widthFields}>
-          <ToolTextField autoCapitalize="none" dataFocusKey="current-width" error={errors.currentWidth} inputMode="numeric" label="Current width" onChange={(currentWidth) => update({ ...editor, currentWidth })} required spellCheck={false} value={editor.currentWidth} />
-          <ToolTextField autoCapitalize="none" dataFocusKey="final-width" error={errors.finalWidth} inputMode="numeric" label="Final width" onChange={(finalWidth) => update({ ...editor, finalWidth })} required spellCheck={false} value={editor.finalWidth} />
+          <UiTextField autoCapitalize="none" dataFocusKey="current-width" error={errors.currentWidth} inputMode="numeric" label="Current width" onChange={(currentWidth) => update({ ...editor, currentWidth })} required spellCheck={false} value={editor.currentWidth} />
+          <UiTextField autoCapitalize="none" dataFocusKey="final-width" error={errors.finalWidth} inputMode="numeric" label="Final width" onChange={(finalWidth) => update({ ...editor, finalWidth })} required spellCheck={false} value={editor.finalWidth} />
         </div>
 
         <div className={styles.capacityFields}>
-          <ToolQuantityInput dataFocusKey="member-bytes" error={errors.memberBytes} label="Smallest existing member" onChange={(memberValue) => update({ ...editor, memberValue })} onUnitChange={(memberUnit) => changeCapacityUnit("member", memberUnit as RaidzExpansionCapacityUnit)} required unit={editor.memberUnit} unitAriaLabel="Smallest member unit" units={capacityUnits} value={editor.memberValue} />
-          <ToolQuantityInput dataFocusKey="added-bytes" error={errors.addedDiskBytes} label="Each added disk" onChange={(addedValue) => update({ ...editor, addedValue })} onUnitChange={(addedUnit) => changeCapacityUnit("added", addedUnit as RaidzExpansionCapacityUnit)} required unit={editor.addedUnit} unitAriaLabel="Each added disk unit" units={capacityUnits} value={editor.addedValue} />
-          <ToolQuantityInput dataFocusKey="allocated-bytes" description="Use this vdev's ALLOC value from zpool list -vp." error={errors.allocatedBytes} label="Current physical allocation" onChange={(allocatedValue) => update({ ...editor, allocatedValue })} onUnitChange={(allocatedUnit) => changeCapacityUnit("allocated", allocatedUnit as RaidzExpansionCapacityUnit)} required unit={editor.allocatedUnit} unitAriaLabel="Current physical allocation unit" units={capacityUnits} value={editor.allocatedValue} />
+          <UiQuantityInput dataFocusKey="member-bytes" error={errors.memberBytes} label="Smallest existing member" onChange={(memberValue) => update({ ...editor, memberValue })} onUnitChange={(memberUnit) => changeCapacityUnit("member", memberUnit as RaidzExpansionCapacityUnit)} required unit={editor.memberUnit} unitAriaLabel="Smallest member unit" units={capacityUnits} value={editor.memberValue} />
+          <UiQuantityInput dataFocusKey="added-bytes" error={errors.addedDiskBytes} label="Each added disk" onChange={(addedValue) => update({ ...editor, addedValue })} onUnitChange={(addedUnit) => changeCapacityUnit("added", addedUnit as RaidzExpansionCapacityUnit)} required unit={editor.addedUnit} unitAriaLabel="Each added disk unit" units={capacityUnits} value={editor.addedValue} />
+          <UiQuantityInput dataFocusKey="allocated-bytes" description="Use this vdev's ALLOC value from zpool list -vp." error={errors.allocatedBytes} label="Current physical allocation" onChange={(allocatedValue) => update({ ...editor, allocatedValue })} onUnitChange={(allocatedUnit) => changeCapacityUnit("allocated", allocatedUnit as RaidzExpansionCapacityUnit)} required unit={editor.allocatedUnit} unitAriaLabel="Current physical allocation unit" units={capacityUnits} value={editor.allocatedValue} />
         </div>
 
         <div className={styles.modelFields}>
-          <ToolChoiceGroup label="Workload" onChange={(workload) => changeWorkload(workload as RaidzExpansionWorkload)} options={[toolOption("filesystem", "Filesystem"), toolOption("zvol", "Zvol")]} required value={editor.workload} />
+          <UiChoiceGroup label="Workload" onChange={(workload) => changeWorkload(workload as RaidzExpansionWorkload)} options={[uiOption("filesystem", "Filesystem"), uiOption("zvol", "Zvol")]} required value={editor.workload} />
           <div className={styles.blockFields}>
-            <ToolSelect dataFocusKey="block-size" error={!editor.customBlock ? errors.blockSizeBytes : undefined} label={modelProperty} onChange={(value) => update({ ...editor, customBlock: value === "custom", blockSizeBytes: value === "custom" ? editor.blockSizeBytes : value }, true)} options={blockOptions} required value={editor.customBlock ? "custom" : editor.blockSizeBytes} />
-            {editor.customBlock ? <ToolQuantityInput dataFocusKey="custom-block" error={errors.blockSizeBytes} label="Custom block size" onChange={(customBlockValue) => update({ ...editor, customBlockValue })} onUnitChange={(customBlockUnit) => update({ ...editor, customBlockUnit: customBlockUnit as ZfsPaddingUnit }, true)} required unit={editor.customBlockUnit} unitAriaLabel="Custom block unit" units={blockUnits} value={editor.customBlockValue} /> : null}
+            <UiSelect dataFocusKey="block-size" error={!editor.customBlock ? errors.blockSizeBytes : undefined} label={modelProperty} onChange={(value) => update({ ...editor, customBlock: value === "custom", blockSizeBytes: value === "custom" ? editor.blockSizeBytes : value }, true)} options={blockOptions} required value={editor.customBlock ? "custom" : editor.blockSizeBytes} />
+            {editor.customBlock ? <UiQuantityInput dataFocusKey="custom-block" error={errors.blockSizeBytes} label="Custom block size" onChange={(customBlockValue) => update({ ...editor, customBlockValue })} onUnitChange={(customBlockUnit) => update({ ...editor, customBlockUnit: customBlockUnit as ZfsPaddingUnit }, true)} required unit={editor.customBlockUnit} unitAriaLabel="Custom block unit" units={blockUnits} value={editor.customBlockValue} /> : null}
           </div>
-          <ToolSelect label="ashift" onChange={(ashift) => update({ ...editor, ashift: ashift as Editor["ashift"] }, true)} options={ashiftOptions} required value={editor.ashift} />
+          <UiSelect label="ashift" onChange={(ashift) => update({ ...editor, ashift: ashift as Editor["ashift"] }, true)} options={ashiftOptions} required value={editor.ashift} />
         </div>
 
         <div className={styles.formActions}>
-          <ToolActionRow>
-            <ToolButton className={styles.actionButton} type="submit" variant="primary">Plan expansion</ToolButton>
-            <ToolButton className={styles.actionButton} onPress={reset} type="button" variant="ghost"><RotateCcw aria-hidden="true" size={18} />Reset</ToolButton>
-          </ToolActionRow>
+          <UiActionRow>
+            <UiButton className={styles.actionButton} type="submit" variant="primary">Plan expansion</UiButton>
+            <UiButton className={styles.actionButton} onPress={reset} type="button" variant="ghost"><RotateCcw aria-hidden="true" size={18} />Reset</UiButton>
+          </UiActionRow>
         </div>
       </form>
 
       {values && calculated ? (
         <div className={styles.result}>
           <div className={styles.answerHeader} data-result-lead ref={resultRef} tabIndex={-1}>
-            <ToolPrimaryResult
+            <UiPrimaryResult
               detail={<>Modeled logical capacity rises from {formatRaidzExpansionBytes(values.current.immediateLogicalBytes, displayUnit)} to {formatRaidzExpansionBytes(values.final.immediateLogicalBytes, displayUnit)} at {values.finalWidth} members. {values.level.toUpperCase()} stays {values.level.toUpperCase()}.</>}
               label="Modeled capacity gained"
               value={formatRaidzExpansionBytes(values.final.immediateGainBytes, displayUnit)}
             />
-            <div className={styles.displayUnit}><ToolSelect ariaLabel="Display unit" hideLabel label="Display unit" onChange={(unit) => setDisplayUnit(unit as "TB" | "TiB")} options={displayUnits} value={displayUnit} /></div>
+            <div className={styles.displayUnit}><UiSelect ariaLabel="Display unit" hideLabel label="Display unit" onChange={(unit) => setDisplayUnit(unit as "TB" | "TiB")} options={displayUnits} value={displayUnit} /></div>
           </div>
           <p className={styles.reportingBoundary}>Live reported capacity is not predicted by this model.</p>
 
           <section aria-labelledby="composition-title" className={styles.composition}>
             <h3 id="composition-title">Fresh {values.finalWidth}-member logical envelope: {formatRaidzExpansionBytes(values.final.nativeLogicalBytes, displayUnit)}</h3>
-            <ToolAllocationBar
+            <UiAllocationBar
               ariaLabel={`Fresh ${values.finalWidth}-member logical envelope`}
               formatValue={(value) => formatRaidzExpansionBytes(value as bigint, displayUnit)}
               palette="categorical"
@@ -417,13 +404,13 @@ export function RaidzExpansionPlanner({ initialState }: { initialState: string }
 
           <section className={styles.steps} aria-labelledby="steps-title">
             <h3 id="steps-title">Expansion steps</h3>
-            <ToolDataTable ariaLabel="Expansion steps" columns={[{ id: "attach", label: "After attach" }, { id: "width", label: "Width" }, { id: "gain", label: "Gain from current" }, { id: "modeled", label: "Modeled capacity" }, { id: "fresh", label: "Fresh comparator" }, { id: "gap", label: "Gap" }]} rows={stepRows} />
+            <UiDataTable ariaLabel="Expansion steps" columns={[{ id: "attach", label: "After attach" }, { id: "width", label: "Width" }, { id: "gain", label: "Gain from current" }, { id: "modeled", label: "Modeled capacity" }, { id: "fresh", label: "Fresh comparator" }, { id: "gap", label: "Gap" }]} rows={stepRows} />
           </section>
 
-          <ToolDisclosure label="Calculation details">
+          <UiDisclosure label="Calculation details">
             <div className={styles.details}>
               <h3>Scenario and model</h3>
-              <ToolKeyValueList rows={[
+              <UiKeyValueList rows={[
                 { label: "RAIDZ level", value: values.level.toUpperCase() },
                 { label: "Widths", value: `${values.currentWidth} to ${values.finalWidth} members` },
                 { label: "Smallest member", value: `${calculated.input.memberBytes} B` },
@@ -456,19 +443,19 @@ export function RaidzExpansionPlanner({ initialState }: { initialState: string }
               <h3>Sources</h3>
               <ul>{calculated.result.sources.map((source) => <li key={source.url}><a href={source.url} rel="noreferrer" target="_blank">{source.title}</a>, checked {source.checkedAt}</li>)}</ul>
             </div>
-          </ToolDisclosure>
+          </UiDisclosure>
 
           <div className={styles.resultActions}>
-            <ToolActionRow>
-              <ToolButton className={styles.actionButton} onPress={copy} type="button" variant="secondary"><Copy aria-hidden="true" size={18} />Copy summary</ToolButton>
-              <ToolButton className={styles.actionButton} onPress={share} type="button" variant="secondary"><Share2 aria-hidden="true" size={18} />Share plan</ToolButton>
-            </ToolActionRow>
+            <UiActionRow>
+              <UiButton className={styles.actionButton} onPress={copy} type="button" variant="secondary"><Copy aria-hidden="true" size={18} />Copy summary</UiButton>
+              <UiButton className={styles.actionButton} onPress={share} type="button" variant="secondary"><Share2 aria-hidden="true" size={18} />Share plan</UiButton>
+            </UiActionRow>
           </div>
-          {shareUrl && feedback === "Link ready. Copy failed." ? <ToolTextField label="Share link" onChange={() => {}} readOnly value={shareUrl} /> : null}
+          {shareUrl && feedback === "Link ready. Copy failed." ? <UiTextField label="Share link" onChange={() => {}} readOnly value={shareUrl} /> : null}
         </div>
       ) : null}
 
-      {feedback ? <ToolStatus tone={feedbackTone}>{feedback}</ToolStatus> : null}
+      {feedback ? <UiStatus tone={feedbackTone}>{feedback}</UiStatus> : null}
       {values ? <p aria-live="polite" className={styles.srOnly}>{buildRaidzExpansionLiveSummary(values, displayUnit)}</p> : null}
     </section>
   );

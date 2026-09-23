@@ -2,20 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import type { WalkStep } from "@namefi/dnssec-audit";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolDownloadAction,
-  ToolKeyValueList,
-  ToolRawOutput,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextField,
-  type ToolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiDisclosure, UiDownloadAction, UiRawOutput, UiTextField, type UiOption } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiKeyValueList, UiResultLead, UiStatus } from "@/app/ui/display";
 import { DNSSEC_RECORD_TYPES, type DnssecRecordType, type DnssecSignature, type DnssecVerdict } from "@/lib/dns/dnssec-types.ts";
 import type { NormalizedDnsRecord } from "@/lib/dns/types.ts";
 import { diagnosticReportJson } from "../../(catalogs)/dns-tools/diagnostic-result-ui";
@@ -44,7 +32,7 @@ type Result = {
   verdict: DnssecVerdict;
 };
 
-const recordTypeOptions: ToolOption[] = DNSSEC_RECORD_TYPES.map((type) => ({ id: type, label: type }));
+const recordTypeOptions: UiOption[] = DNSSEC_RECORD_TYPES.map((type) => ({ id: type, label: type }));
 const verdictLabels: Record<DnssecVerdict, string> = {
   bogus: "Bogus",
   indeterminate: "Indeterminate",
@@ -138,14 +126,14 @@ function EvidenceBlock({ evidence, recordType, zone }: {
   return (
     <section className={styles.evidenceBlock}>
       <h5>{recordType}</h5>
-      <ToolKeyValueList rows={[
+      <UiKeyValueList rows={[
         { label: "Response code", value: evidence.responseCode ?? "Not reported" },
         { label: "Resolver AD", value: authenticatedDataLabel(evidence.authenticatedData) },
       ]} />
       {evidence.error ? (
         <p className={styles.evidenceMessage}>{evidence.error}</p>
       ) : evidence.records.length > 0 ? (
-        <ToolDataTable
+        <UiDataTable
           ariaLabel={`${recordType} records for ${zone}`}
           columns={recordColumns}
           rows={recordRows(evidence.records)}
@@ -239,7 +227,7 @@ export function DnssecChecker({ initialName = "", initialRecordType = "A" }: {
       data-tool-workbench
     >
       <form aria-busy={loading || undefined} className={styles.form} onSubmit={submit}>
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           autoComplete="off"
           error={nameError}
@@ -259,7 +247,7 @@ export function DnssecChecker({ initialName = "", initialRecordType = "A" }: {
           value={name}
         />
         <div ref={recordTypeRef}>
-          <ToolChoiceGroup
+          <UiChoiceGroup
             error={recordTypeError}
             label="Record type"
             onChange={(value) => {
@@ -274,27 +262,27 @@ export function DnssecChecker({ initialName = "", initialRecordType = "A" }: {
             value={recordType}
           />
         </div>
-        <ToolActionRow>
-          <ToolButton className={styles.submit} isDisabled={loading} type="submit" variant="primary">
+        <UiActionRow>
+          <UiButton className={styles.submit} isDisabled={loading} type="submit" variant="primary">
             {loading ? "Validating DNSSEC..." : "Validate DNSSEC"}
-          </ToolButton>
-        </ToolActionRow>
-        {loading ? <ToolStatus>Validating DNSSEC...</ToolStatus> : null}
-        {requestError ? <ToolStatus tone="danger">{requestError}</ToolStatus> : null}
+          </UiButton>
+        </UiActionRow>
+        {loading ? <UiStatus>Validating DNSSEC...</UiStatus> : null}
+        {requestError ? <UiStatus tone="danger">{requestError}</UiStatus> : null}
       </form>
 
       {result ? (
         <section aria-live="polite" className={styles.results} data-dnssec-results>
           <div className={styles.resultLeadRow}>
             <div data-dnssec-verdict>
-              <ToolResultLead>
+              <UiResultLead>
                 <span className={styles.verdictWord} data-tone={verdictTone(result.verdict)} data-verdict-word>
                   {verdictLabels[result.verdict]}.
                 </span>{" "}
                 {verdictDetail(result)}
-              </ToolResultLead>
+              </UiResultLead>
             </div>
-            <ToolDownloadAction
+            <UiDownloadAction
               contents={report}
               filename={`${result.query.name}-${result.query.recordType}-dnssec-report.json`}
               label="Download report"
@@ -323,12 +311,12 @@ export function DnssecChecker({ initialName = "", initialRecordType = "A" }: {
 
           <section className={styles.resultSection}>
             <h3>Requested answer</h3>
-            <ToolKeyValueList rows={[
+            <UiKeyValueList rows={[
               { label: "Response code", value: result.answer.responseCode ?? "Not reported" },
               { label: "Resolver AD", value: authenticatedDataLabel(result.answer.authenticatedData, true) },
             ]} />
             {result.answer.records.length > 0 ? (
-              <ToolDataTable
+              <UiDataTable
                 ariaLabel="Requested answer records"
                 columns={recordColumns}
                 rows={recordRows(result.answer.records)}
@@ -337,14 +325,14 @@ export function DnssecChecker({ initialName = "", initialRecordType = "A" }: {
               <p className={styles.evidenceMessage}>{requestedAnswerMessage(result)}</p>
             )}
             <div className={styles.requestedRaw} data-requested-raw>
-              <ToolRawOutput label="Raw requested answer" value={result.answer} />
+              <UiRawOutput label="Raw requested answer" value={result.answer} />
             </div>
           </section>
 
           {signatures.length > 0 ? (
             <section className={styles.resultSection}>
               <h3>Signature validity</h3>
-              <ToolDataTable
+              <UiDataTable
                 ariaLabel="DNSSEC signatures"
                 columns={[
                   { id: "recordSet", label: "Record set" },
@@ -371,7 +359,7 @@ export function DnssecChecker({ initialName = "", initialRecordType = "A" }: {
             </section>
           ) : null}
 
-          <ToolDisclosure label="DS and DNSKEY evidence by zone">
+          <UiDisclosure label="DS and DNSKEY evidence by zone">
             <div className={styles.zoneEvidence} data-zone-evidence>
               {result.chain.map((zone) => (
                 <section className={styles.zone} key={zone.zone}>
@@ -381,7 +369,7 @@ export function DnssecChecker({ initialName = "", initialRecordType = "A" }: {
                 </section>
               ))}
             </div>
-          </ToolDisclosure>
+          </UiDisclosure>
 
           <dl className={styles.metadata}>
             <div><dt>Checked</dt><dd>{new Date(result.checkedAt).toLocaleString()}</dd></div>

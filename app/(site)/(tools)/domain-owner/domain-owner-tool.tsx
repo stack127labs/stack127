@@ -2,17 +2,8 @@
 
 import Link from "next/link";
 import { useRef, useState, type FormEvent, type ReactNode } from "react";
-import {
-  ToolButton,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolDownloadAction,
-  ToolKeyValueList,
-  ToolPrimaryResult,
-  ToolRawOutput,
-  ToolStatus,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiDisclosure, UiDownloadAction, UiRawOutput, UiTextField } from "@/app/ui/controls";
+import { UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import { declaresRedaction } from "@/lib/domain/redaction.ts";
 import type { DomainRegistration, RdapFetch, RdapSource } from "@/lib/domain/types.ts";
 import {
@@ -109,7 +100,7 @@ function ContactRoutes({ result, verdict }: { result: DomainRegistration; verdic
     label: "Nonpublic gTLD request",
     value: <span className={styles.routeValue}><a href="https://www.icann.org/rdrs-en" rel="noreferrer" target="_blank">Request nonpublic gTLD data through ICANN</a><small>This submits a documented-interest request. It does not guarantee disclosure.</small></span>,
   });
-  return <section className={styles.group}><h3>How to make contact</h3><ToolKeyValueList rows={rows} /></section>;
+  return <section className={styles.group}><h3>How to make contact</h3><UiKeyValueList rows={rows} /></section>;
 }
 
 function PublishedFields({ result }: { result: DomainRegistration }) {
@@ -118,7 +109,7 @@ function PublishedFields({ result }: { result: DomainRegistration }) {
     <section className={styles.group}>
       <h3>What is published</h3>
       {rows.length ? (
-        <ToolDataTable
+        <UiDataTable
           ariaLabel="Published domain contact fields"
           columns={[{ id: "role", label: "Role" }, { id: "field", label: "Field" }, { id: "value", label: "Published value" }, { id: "source", label: "Source" }]}
           rows={rows.map((row, index) => ({ id: `${index}-${row.role}-${row.field}-${row.value}`, cells: { role: row.role, field: row.field, value: row.value, source: row.source } }))}
@@ -136,7 +127,7 @@ function Redactions({ result }: { result: DomainRegistration }) {
     <section className={styles.group}>
       <h3>What was withheld</h3>
       {rows.length ? (
-        <ToolDataTable
+        <UiDataTable
           ariaLabel="Declared domain contact redactions"
           columns={[{ id: "field", label: "Field" }, { id: "method", label: "Method" }, { id: "meaning", label: "What it means" }, { id: "source", label: "Source" }]}
           rows={rows.map((row, index) => ({ id: `${row.source}-${index}-${row.field}`, cells: { field: row.field, method: <code className={styles.method}>{row.method}</code>, meaning: row.explanation, source: row.source } }))}
@@ -173,11 +164,11 @@ function RawEvidence({ result }: { result: DomainRegistration }) {
     { fetch: result.registryFetch, label: "Registry response" },
     { fetch: result.registrarFetch, label: "Registrar response" },
   ].filter((item): item is { fetch: RdapFetch; label: string } => Boolean(item.fetch));
-  return <div className={styles.evidence}>{responses.map(({ fetch, label }) => <ToolRawOutput key={label} label={`${label}${sourceHost(fetch) ? ` from ${sourceHost(fetch)}` : ""}`} value={fetch.body ?? { error: fetch.error }} />)}</div>;
+  return <div className={styles.evidence}>{responses.map(({ fetch, label }) => <UiRawOutput key={label} label={`${label}${sourceHost(fetch) ? ` from ${sourceHost(fetch)}` : ""}`} value={fetch.body ?? { error: fetch.error }} />)}</div>;
 }
 
-function ResultLead({ announce = true, detail, value }: { announce?: boolean; detail: string; value: string }) {
-  return <div aria-atomic={announce ? "true" : undefined} aria-live={announce ? "polite" : undefined}><ToolPrimaryResult detail={detail} label="Public registrant information" value={value} /></div>;
+function UiResultLead({ announce = true, detail, value }: { announce?: boolean; detail: string; value: string }) {
+  return <div aria-atomic={announce ? "true" : undefined} aria-live={announce ? "polite" : undefined}><UiPrimaryResult detail={detail} label="Public registrant information" value={value} /></div>;
 }
 
 function OwnerResult({ result }: { result: DomainRegistration }) {
@@ -188,15 +179,15 @@ function OwnerResult({ result }: { result: DomainRegistration }) {
   const report = JSON.stringify({ tool: "Domain Registrant Lookup", reportVersion: 1, ...result }, null, 2);
   return (
     <section aria-label="Domain registrant result" className={styles.results} data-domain-owner-result>
-      <ResultLead detail={verdict.detail} value={verdict.value} />
+      <UiResultLead detail={verdict.detail} value={verdict.value} />
       <CheckedNameNotice result={result} />
       <SourceMap result={result} />
-      {registrarFailure ? <ToolStatus tone="warning">{result.registrarFetch ? "The registrar response failed." : "The registry did not advertise a registrar response."} Retry the lookup before treating missing contact data as unpublished.</ToolStatus> : null}
+      {registrarFailure ? <UiStatus tone="warning">{result.registrarFetch ? "The registrar response failed." : "The registry did not advertise a registrar response."} Retry the lookup before treating missing contact data as unpublished.</UiStatus> : null}
       {registered ? <><ContactRoutes result={result} verdict={verdict} /><PublishedFields result={result} /><Redactions result={result} /><p className={styles.broader}><Link href={`/domain-lookup?name=${encodeURIComponent(result.query.unicode)}`}>See the full registration record</Link> for dates, status, nameservers, and DNSSEC.</p></> : null}
       {result.status === "no_service" ? <p className={styles.recovery}>See RDAP coverage in the <Link href="/tld-directory">TLD directory</Link>.</p> : null}
       <Freshness result={result} />
-      {notes.length ? <ToolDisclosure label="Lookup notes"><ul className={styles.notes}>{notes.map((note) => <li key={note}>{note}</li>)}</ul></ToolDisclosure> : null}
-      <div className={styles.download}><ToolDownloadAction contents={report} filename={`${result.query.domain}-registrant.json`} label="Download report" mimeType="application/json;charset=utf-8" /></div>
+      {notes.length ? <UiDisclosure label="Lookup notes"><ul className={styles.notes}>{notes.map((note) => <li key={note}>{note}</li>)}</ul></UiDisclosure> : null}
+      <div className={styles.download}><UiDownloadAction contents={report} filename={`${result.query.domain}-registrant.json`} label="Download report" mimeType="application/json;charset=utf-8" /></div>
       <RawEvidence result={result} />
     </section>
   );
@@ -255,11 +246,11 @@ export function DomainOwnerTool({ initialName = "" }: { initialName?: string }) 
   return (
     <section aria-label="Domain registrant lookup" className={`domain-tool ${styles.workbench}`} data-tool-workbench>
       <form aria-busy={loading} className={styles.form} onSubmit={submit}>
-        <ToolTextField autoCapitalize="none" autoComplete="off" className={styles.queryField} error={fieldError} inputMode="url" inputRef={inputRef} label="Domain name" name="name" onChange={changeName} placeholder="example.com" required spellCheck={false} type="text" value={name} />
-        <ToolButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">{loading ? "Looking up the registrant..." : "Look up the registrant"}</ToolButton>
-        {loading ? <div className={styles.formStatus}><ToolStatus>Looking up the registrant...</ToolStatus></div> : null}
+        <UiTextField autoCapitalize="none" autoComplete="off" className={styles.queryField} error={fieldError} inputMode="url" inputRef={inputRef} label="Domain name" name="name" onChange={changeName} placeholder="example.com" required spellCheck={false} type="text" value={name} />
+        <UiButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">{loading ? "Looking up the registrant..." : "Look up the registrant"}</UiButton>
+        {loading ? <div className={styles.formStatus}><UiStatus>Looking up the registrant...</UiStatus></div> : null}
       </form>
-      {result ? <OwnerResult result={result} /> : requestError ? <section aria-label="Domain registrant result" className={styles.results} data-domain-owner-result><ResultLead announce={false} detail={`${name.trim()} could not be checked.`} value="Cannot determine" /><ToolStatus tone="danger">{requestError}</ToolStatus></section> : null}
+      {result ? <OwnerResult result={result} /> : requestError ? <section aria-label="Domain registrant result" className={styles.results} data-domain-owner-result><UiResultLead announce={false} detail={`${name.trim()} could not be checked.`} value="Cannot determine" /><UiStatus tone="danger">{requestError}</UiStatus></section> : null}
     </section>
   );
 }

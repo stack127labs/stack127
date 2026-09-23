@@ -1,18 +1,8 @@
 "use client";
 
 import { useMemo, useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolDownloadAction,
-  ToolMetricGroup,
-  ToolPrimaryResult,
-  ToolRawOutput,
-  ToolStatus,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiDisclosure, UiDownloadAction, UiRawOutput, UiTextField } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiMetricGroup, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import { lookupStatus } from "@/lib/domain/status-codes.ts";
 import type { DomainRegistration, RdapFetch } from "@/lib/domain/types.ts";
 import {
@@ -86,7 +76,7 @@ function registeredAnswer(result: DomainRegistration, stage: StageId) {
 
   if (stage === "pending delete") {
     return (
-      <ToolPrimaryResult
+      <UiPrimaryResult
         detail={`${result.query.unicode}. Not restorable and not yet released.`}
         label="Expiry state"
         tone="danger"
@@ -97,7 +87,7 @@ function registeredAnswer(result: DomainRegistration, stage: StageId) {
 
   if (stage === "redemption period") {
     return (
-      <ToolPrimaryResult
+      <UiPrimaryResult
         detail={`${result.query.unicode}. Not available to register. The previous registrant may still restore it.`}
         label="Expiry state"
         tone="danger"
@@ -108,7 +98,7 @@ function registeredAnswer(result: DomainRegistration, stage: StageId) {
 
   if (stage === "auto renew period") {
     return (
-      <ToolPrimaryResult
+      <UiPrimaryResult
         detail={`${result.query.unicode}. The registrar now decides whether to renew or delete it.`}
         label="Expiry state"
         tone="warning"
@@ -119,7 +109,7 @@ function registeredAnswer(result: DomainRegistration, stage: StageId) {
 
   if (days === null) {
     return (
-      <ToolPrimaryResult
+      <UiPrimaryResult
         detail={`The registry for .${result.query.tld} does not publish an expiry date.`}
         label="Registry expiry"
         value="Unknown"
@@ -129,7 +119,7 @@ function registeredAnswer(result: DomainRegistration, stage: StageId) {
 
   if (days < 0) {
     return (
-      <ToolPrimaryResult
+      <UiPrimaryResult
         detail={`${result.query.unicode}, registry expiry was ${formatDate(result.registryExpiryDate)}.`}
         label="Time since registry expiry"
         tone="warning"
@@ -139,7 +129,7 @@ function registeredAnswer(result: DomainRegistration, stage: StageId) {
   }
 
   return (
-    <ToolPrimaryResult
+    <UiPrimaryResult
       detail={`${result.query.unicode}, expires ${formatDate(result.registryExpiryDate)}.`}
       label="Time until registry expiry"
       tone={days <= 30 ? "warning" : "neutral"}
@@ -150,16 +140,16 @@ function registeredAnswer(result: DomainRegistration, stage: StageId) {
 
 function unavailableAnswer(result: DomainRegistration) {
   if (result.status === "not_registered") {
-    return <ToolPrimaryResult detail={`${result.query.unicode} has no current expiry date.`} label="Domain expiry" value="Not registered" />;
+    return <UiPrimaryResult detail={`${result.query.unicode} has no current expiry date.`} label="Domain expiry" value="Not registered" />;
   }
   if (result.status === "no_service") {
-    return <ToolPrimaryResult detail={`No RDAP registration service is published for .${result.query.tld}.`} label="Domain expiry" tone="warning" value="Unavailable" />;
+    return <UiPrimaryResult detail={`No RDAP registration service is published for .${result.query.tld}.`} label="Domain expiry" tone="warning" value="Unavailable" />;
   }
   if (result.status === "rate_limited" || result.status === "blocked") {
-    return <ToolPrimaryResult detail="The registry limited this request. Try again in a few minutes." label="Domain expiry" tone="warning" value="Could not check" />;
+    return <UiPrimaryResult detail="The registry limited this request. Try again in a few minutes." label="Domain expiry" tone="warning" value="Could not check" />;
   }
   if (result.status === "timeout" || result.status === "registry_error") {
-    return <ToolPrimaryResult detail="The registry did not answer properly. Try again shortly." label="Domain expiry" tone="warning" value="Could not check" />;
+    return <UiPrimaryResult detail="The registry did not answer properly. Try again shortly." label="Domain expiry" tone="warning" value="Could not check" />;
   }
   return null;
 }
@@ -185,7 +175,7 @@ function RawEvidence({ result }: { result: DomainRegistration }) {
   ].filter((entry): entry is { fetch: RdapFetch; label: string } => Boolean(entry.fetch));
 
   return responses.map(({ fetch, label }) => (
-    <ToolRawOutput key={label} label={label} value={fetch.body ?? { error: fetch.error }} />
+    <UiRawOutput key={label} label={label} value={fetch.body ?? { error: fetch.error }} />
   ));
 }
 
@@ -220,7 +210,7 @@ export function DomainExpiryTool({ initialName = "" }: { initialName?: string })
   return (
     <section aria-label="Domain expiry checker" className={`domain-tool ${styles.workbench}`} data-tool-workbench>
       <form aria-busy={loading} className={styles.form} onSubmit={submit}>
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           autoComplete="off"
           className={styles.queryField}
@@ -237,10 +227,10 @@ export function DomainExpiryTool({ initialName = "" }: { initialName?: string })
           spellCheck={false}
           value={name}
         />
-        <ToolButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">
+        <UiButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">
           {loading ? "Checking domain expiry..." : "Check domain expiry"}
-        </ToolButton>
-        {error ? <div className={styles.requestError}><ToolStatus tone="danger">{error}</ToolStatus></div> : null}
+        </UiButton>
+        {error ? <div className={styles.requestError}><UiStatus tone="danger">{error}</UiStatus></div> : null}
       </form>
 
       {result ? (
@@ -249,7 +239,7 @@ export function DomainExpiryTool({ initialName = "" }: { initialName?: string })
 
           {datesDiffer ? (
             <div className={styles.dateDifference}>
-              <ToolMetricGroup
+              <UiMetricGroup
                 ariaLabel="Published expiry dates"
                 items={[
                   { id: "registry", label: "Registry expiry", value: formatDate(result.registryExpiryDate) },
@@ -267,7 +257,7 @@ export function DomainExpiryTool({ initialName = "" }: { initialName?: string })
           {expiryStatuses.length ? (
             <section aria-label="Expiry status codes" className={styles.statuses}>
               <h2>Expiry status evidence</h2>
-              <ToolDataTable
+              <UiDataTable
                 ariaLabel="Expiry status evidence"
                 columns={[{ id: "status", label: "EPP status" }, { id: "meaning", label: "Meaning" }]}
                 rows={expiryStatuses.map((status) => {
@@ -287,14 +277,14 @@ export function DomainExpiryTool({ initialName = "" }: { initialName?: string })
           <SourceMetadata result={result} />
 
           {result.notes.length ? (
-            <ToolDisclosure label="Lookup notes">
+            <UiDisclosure label="Lookup notes">
               <ul className={styles.notes}>{result.notes.map((note) => <li key={note}>{note}</li>)}</ul>
-            </ToolDisclosure>
+            </UiDisclosure>
           ) : null}
 
-          <ToolActionRow>
-            <ToolDownloadAction contents={report} filename={`${result.query.domain}-expiry.json`} label="Download report" mimeType="application/json;charset=utf-8" />
-          </ToolActionRow>
+          <UiActionRow>
+            <UiDownloadAction contents={report} filename={`${result.query.domain}-expiry.json`} label="Download report" mimeType="application/json;charset=utf-8" />
+          </UiActionRow>
 
           <RawEvidence result={result} />
         </section>

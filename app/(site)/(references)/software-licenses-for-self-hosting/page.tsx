@@ -1,18 +1,18 @@
-import { PageCanvas } from "@/app/page-canvas";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { Scale } from "lucide-react";
 import Link from "next/link";
 import { getDirectoryLicenseCounts } from "@/lib/apps";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
-import { AppShell, SidebarLabel } from "@/app/app-shell";
-import { MarkerArt } from "@/app/marker-art";
-import { PageTitleIcon } from "@/app/page-title-icon";
-import { PageHeader } from "@/app/page-header";
-import { proseClassName, proseFlowClassName, proseLedeClassName } from "@/app/prose";
-import { SidebarList } from "@/app/sidebar-list";
+import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
+import { MarkerArt } from "@/app/ui/site/marker-art";
+import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
+import { PageHeader } from "@/app/ui/site/page-header";
+import { proseClassName, proseFlowClassName, proseLedeClassName } from "@/app/ui/site/prose";
+import { SidebarList } from "@/app/ui/site/sidebar-list";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
-} from "@/app/sidebar-panel";
+} from "@/app/ui/site/sidebar-panel";
 import {
   findDirectoryLicenseId,
   licenseGroups,

@@ -1,20 +1,7 @@
 "use client";
 
-import {
-  ToolActionRow,
-  ToolAllocationBar,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolKeyValueList,
-  ToolNumberField,
-  ToolPrimaryResult,
-  ToolQuantityInput,
-  ToolRepeatableList,
-  ToolStatus,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiDisclosure, UiNumberField, UiQuantityInput, UiRepeatableList, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiAllocationBar, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import {
   bytesFromUnit,
   createDriveInventory,
@@ -49,9 +36,9 @@ type Calculated = { input: RaidCalculatorInput; result: StorageCalculationResult
 
 const DEFAULT_STATE: UiState = Object.freeze({ level: "raid5", groupSize: null, drives: Object.freeze([]) });
 const EMPTY_ERRORS: EditorErrors = { driveErrors: {}, groupSizeError: "", inventoryError: "" };
-const inputUnits = ["TB", "GB", "TiB", "GiB"].map((unit) => toolOption(unit, unit));
-const outputUnits = ["TiB", "TB"].map((unit) => toolOption(unit, unit));
-const levelOptions = raidLevels.map((level) => toolOption(level, raidLevelDetails[level].label));
+const inputUnits = ["TB", "GB", "TiB", "GiB"].map((unit) => uiOption(unit, unit));
+const outputUnits = ["TiB", "TB"].map((unit) => uiOption(unit, unit));
+const levelOptions = raidLevels.map((level) => uiOption(level, raidLevelDetails[level].label));
 const nestedLevels = new Set<RaidLevel>(["raid10", "raid50", "raid60"]);
 const MAX_UI_DRIVES = 64;
 
@@ -199,13 +186,13 @@ function Result({ calculated, outputUnit, onOutputUnitChange }: {
   return (
     <div className={styles.result}>
       <div className={styles.answerHeader}>
-        <ToolPrimaryResult
+        <UiPrimaryResult
           detail={`${values.levelLabel} across ${values.driveCount} drive${values.driveCount === 1 ? "" : "s"}.`}
           label="Theoretical usable capacity"
           value={display(values.usableCapacityBytes.value)}
         />
         <div className={styles.outputUnit}>
-          <ToolChoiceGroup
+          <UiChoiceGroup
             label="Output unit"
             onChange={(unit) => onOutputUnitChange(unit as OutputUnit)}
             options={outputUnits}
@@ -219,7 +206,7 @@ function Result({ calculated, outputUnit, onOutputUnitChange }: {
           <h3 id="raw-allocation-title">Raw capacity allocation</h3>
           <span>{display(values.rawCapacityBytes.value)} raw</span>
         </div>
-        <ToolAllocationBar
+        <UiAllocationBar
           ariaLabel="Raw capacity allocation"
           formatValue={(value) => display(value as bigint)}
           palette="categorical"
@@ -236,7 +223,7 @@ function Result({ calculated, outputUnit, onOutputUnitChange }: {
         <section aria-labelledby="nested-groups-title" className={styles.resultRegion}>
           <h3 id="nested-groups-title">Nested drive groups</h3>
           <div className={styles.groupTable}>
-            <ToolDataTable
+            <UiDataTable
               ariaLabel="Nested drive groups"
               columns={[
                 { id: "group", label: "Group" }, { id: "members", label: "Members" },
@@ -260,15 +247,15 @@ function Result({ calculated, outputUnit, onOutputUnitChange }: {
 
       <section aria-labelledby="array-behavior-title" className={styles.resultRegion}>
         <h3 id="array-behavior-title">Array behavior</h3>
-        <ToolKeyValueList rows={[
+        <UiKeyValueList rows={[
           { label: "Failure tolerance", value: values.failureTolerance.statement },
           { label: "Small random write", value: formatOperationCount(values) },
         ]} />
       </section>
 
-      <ToolDisclosure label="Calculation details">
+      <UiDisclosure label="Calculation details">
         <div className={styles.details} data-testid="calculation-details">
-          <ToolKeyValueList rows={[
+          <UiKeyValueList rows={[
             { label: "Scenario", value: `${values.levelLabel}, ${values.driveCount} drives` },
             { label: "Formula version", value: String(RAID_CALCULATION_VERSION) },
             ...groupDetailRows,
@@ -284,7 +271,7 @@ function Result({ calculated, outputUnit, onOutputUnitChange }: {
             ))}.
           </p>
         </div>
-      </ToolDisclosure>
+      </UiDisclosure>
     </div>
   );
 }
@@ -406,7 +393,7 @@ export function RaidCalculator({ initialState }: { initialState: string }) {
   return (
     <section aria-label="RAID capacity calculator" className={styles.tool} data-tool-workbench>
       <form className={styles.form} noValidate onSubmit={(event) => { event.preventDefault(); submit(); }} ref={formRef}>
-        <ToolChoiceGroup
+        <UiChoiceGroup
           label="RAID level"
           onChange={(level) => changeLevel(level as RaidLevel)}
           options={levelOptions}
@@ -416,7 +403,7 @@ export function RaidCalculator({ initialState }: { initialState: string }) {
 
         {(state.level === "raid50" || state.level === "raid60") ? (
           <div className={styles.groupSize}>
-            <ToolNumberField
+            <UiNumberField
               dataFocusKey="group-size"
               error={errors.groupSizeError}
               label={`Drives per ${state.level === "raid50" ? "RAID 5" : "RAID 6"} group`}
@@ -437,17 +424,18 @@ export function RaidCalculator({ initialState }: { initialState: string }) {
           </div>
 
           {state.drives.length ? (
-            <ToolRepeatableList
+            <UiRepeatableList
               addDisabled={state.drives.length >= MAX_UI_DRIVES}
               addLabel="Add drive"
               ariaLabel="Drive inventory"
               items={[...state.drives]}
               onAdd={addDrive}
               onRemove={removeDrive}
+              removeLabel={(_, index) => `Remove drive ${index + 1}`}
               renderItem={(drive, index) => (
                 <div className={styles.driveEditor}>
                   <span className={styles.driveNumber}>Drive {String(index + 1).padStart(2, "0")}</span>
-                  <ToolQuantityInput
+                  <UiQuantityInput
                     ariaLabel={`Drive ${index + 1} capacity`}
                     dataFocusKey={drive.id}
                     error={errors.driveErrors[drive.id]}
@@ -467,25 +455,25 @@ export function RaidCalculator({ initialState }: { initialState: string }) {
           ) : (
             <div className={styles.emptyInventory}>
               <p>No drives added.</p>
-              <span data-add-drive><ToolButton onPress={addDrive} variant="secondary">Add drive</ToolButton></span>
+              <span data-add-drive><UiButton onPress={addDrive} variant="secondary">Add drive</UiButton></span>
             </div>
           )}
 
-          {state.drives.length >= MAX_UI_DRIVES ? <ToolStatus>Maximum 64 drives.</ToolStatus> : null}
+          {state.drives.length >= MAX_UI_DRIVES ? <UiStatus>Maximum 64 drives.</UiStatus> : null}
           {errors.inventoryError ? <p className={styles.inventoryError} role="alert">{errors.inventoryError}</p> : null}
         </section>
 
         <div className={styles.formActions}>
-          <ToolActionRow>
-            <ToolButton type="submit" variant="primary">Calculate capacity</ToolButton>
+          <UiActionRow>
+            <UiButton type="submit" variant="primary">Calculate capacity</UiButton>
             {state.drives.length || state.level !== DEFAULT_STATE.level ? (
-              <ToolButton onPress={reset} type="button" variant="ghost">
+              <UiButton onPress={reset} type="button" variant="ghost">
                 <RotateCcw aria-hidden="true" size={17} /> Reset
-              </ToolButton>
+              </UiButton>
             ) : null}
-          </ToolActionRow>
+          </UiActionRow>
         </div>
-        {status ? <ToolStatus tone={status.includes("could not") ? "danger" : "neutral"}>{status}</ToolStatus> : null}
+        {status ? <UiStatus tone={status.includes("could not") ? "danger" : "neutral"}>{status}</UiStatus> : null}
       </form>
 
       {calculated ? (

@@ -2,17 +2,8 @@
 
 import { RotateCcw } from "lucide-react";
 import { useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolCopyAction,
-  ToolDataTable,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextArea,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiCopyAction, UiTextArea, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";
 import {
   DEFAULT_RSYNC_INPUT,
   formatRsyncResult,
@@ -85,7 +76,7 @@ export function RsyncFilterTester() {
     <section aria-label="Rsync filter inputs and results" className={styles.tool} data-tool-workbench>
       <form className={styles.form} onSubmit={submit}>
         <div className={styles.inputs}>
-          <ToolTextArea
+          <UiTextArea
             autoCapitalize="none"
             className={styles.editor}
             inputRef={rulesRef}
@@ -98,7 +89,7 @@ export function RsyncFilterTester() {
             spellCheck={false}
             value={rules}
           />
-          <ToolTextArea
+          <UiTextArea
             autoCapitalize="none"
             className={styles.editor}
             error={errors.paths}
@@ -112,30 +103,30 @@ export function RsyncFilterTester() {
             value={paths}
           />
         </div>
-        <ToolChoiceGroup
+        <UiChoiceGroup
           label="Unmatched paths"
           onChange={(value) => { setUnmatched(value as RsyncDefault); clearResult(); }}
-          options={[toolOption("include", "Include"), toolOption("exclude", "Exclude")]}
+          options={[uiOption("include", "Include"), uiOption("exclude", "Exclude")]}
           value={unmatched}
         />
-        <ToolActionRow>
-          <ToolButton onPress={loadExample} type="button">Load example</ToolButton>
-          <ToolButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</ToolButton>
-          <ToolButton type="submit" variant="primary">Test filters</ToolButton>
-        </ToolActionRow>
-        {status ? <ToolStatus>{status}</ToolStatus> : null}
+        <UiActionRow>
+          <UiButton onPress={loadExample} type="button">Load example</UiButton>
+          <UiButton onPress={reset} type="button"><RotateCcw aria-hidden="true" size={17} /> Reset</UiButton>
+          <UiButton type="submit" variant="primary">Test filters</UiButton>
+        </UiActionRow>
+        {status ? <UiStatus>{status}</UiStatus> : null}
       </form>
 
       {result?.status === "valid" && result.values ? (
         <section aria-label="Rsync filter result" className={styles.result} ref={resultRef} tabIndex={-1}>
           <div className={styles.resultHeader}>
             <div>
-              <ToolResultLead>{`Included ${result.values.includedCount}, excluded ${result.values.excludedCount}, unvisited ${result.values.unvisitedCount}.`}</ToolResultLead>
+              <UiResultLead>{`Included ${result.values.includedCount}, excluded ${result.values.excludedCount}, unvisited ${result.values.unvisitedCount}.`}</UiResultLead>
               <p className={styles.meta}>First matching rule decides.</p>
             </div>
-            <ToolCopyAction label="Copy report" successLabel="Report copied" value={formatRsyncResult(result)} />
+            <UiCopyAction label="Copy report" successLabel="Report copied" value={formatRsyncResult(result)} />
           </div>
-          <ToolDataTable
+          <UiDataTable
             ariaLabel="Rsync path decisions"
             columns={[{ id: "path", label: "Path" }, { id: "state", label: "State" }, { id: "rule", label: "Winning rule" }, { id: "note", label: "Note" }]}
             rows={result.values.rows.map((row) => ({

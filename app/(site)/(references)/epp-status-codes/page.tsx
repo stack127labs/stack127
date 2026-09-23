@@ -1,14 +1,14 @@
-import { PageCanvas } from "@/app/page-canvas";
+import { PageCanvas } from "@/app/ui/site/page-canvas";
 import "../../(catalogs)/domain-tools/domain-tools.css";
 import { ListChecks } from "lucide-react";
 import Link from "next/link";
-import { AppShell } from "../../../app-shell";
+import { AppShell } from "../../../ui/site/app-shell";
 import { DomainToolsSidebar } from "../../(catalogs)/domain-tools/domain-tools-sidebar";
 import { STATUS_CODES, STATUS_GROUP_TITLES, type StatusGroup } from "@/lib/domain/status-codes.ts";
 import { StatePill } from "../../(catalogs)/domain-tools/domain-lookup-client";
-import { PageTitleIcon } from "../../../page-title-icon";
-import { PageHeader } from "../../../page-header";
-import { proseSectionFlowClassName } from "../../../prose";
+import { PageTitleIcon } from "../../../ui/site/page-title-icon";
+import { PageHeader } from "../../../ui/site/page-header";
+import { proseSectionFlowClassName } from "../../../ui/site/prose";
 
 /** Who set it decides what you can do, so that is what the tone encodes. */
 const GROUP_TONE: Record<StatusGroup, "good" | "warn" | "bad" | "quiet"> = {

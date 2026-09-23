@@ -36,6 +36,10 @@ http://<tailscale-ip>:3333/<route>
 
 Do not give the user `localhost` or `127.0.0.1`. Do not expose port 3333 to the public internet.
 
+## Browser checks over SSH
+
+Codex CLI runs on the homelab while the Codex app may run on the user's Mac. The app's in-app browser may not be available to the CLI. Use a local headless browser for the actual page check instead of waiting for browser access. This homelab has Google Chrome at `/usr/bin/google-chrome`; `skills/stack127/references/homelab-browser-and-search.md` gives the browser workflow. Use `http://127.0.0.1:3333/<route>` inside the homelab browser, then give the user the Tailscale link above.
+
 ## Minimum local check
 
 Run a focused calculation or parser test when relevant. Check the real changed page at desktop and mobile width. For route, shared runtime, SEO, or production configuration changes, run `npm run test:core` and `npm run build` once; the build already checks TypeScript. Use `npm run quality` only when TypeScript changed and no build is needed.

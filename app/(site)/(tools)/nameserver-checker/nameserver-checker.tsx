@@ -1,16 +1,8 @@
 "use client";
 
 import { useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
-import {
-  ToolButton,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolDownloadAction,
-  ToolRawOutput,
-  ToolResultLead,
-  ToolStatus,
-  ToolTextField,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiDisclosure, UiDownloadAction, UiRawOutput, UiTextField } from "@/app/ui/controls";
+import { UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";
 import type {
   DelegationCheck,
   DelegationObservation,
@@ -64,7 +56,7 @@ function DelegationTable({ result }: { result: DelegationCheck }) {
   return (
     <section className={styles.resultSection}>
       <h3>Delegation, glue, and addresses</h3>
-      <ToolDataTable
+      <UiDataTable
         ariaLabel="Nameserver delegation, glue, and address comparison"
         columns={[
           { id: "nameserver", label: "Nameserver" },
@@ -106,7 +98,7 @@ function AddressTable({ result }: { result: DelegationCheck }) {
   return (
     <section className={styles.resultSection}>
       <h3>Nameserver address checks</h3>
-      <ToolDataTable
+      <UiDataTable
         ariaLabel="UDP, TCP, and authoritative SOA checks by nameserver address"
         columns={[
           { id: "server", label: "Server and address" },
@@ -139,7 +131,7 @@ function MissingRaw({ detail }: { detail: string }) {
 function ObservationRaw({ kind, observation }: { kind: string; observation: DelegationObservation }) {
   const source = `${observation.server.hostname} at ${observation.server.address}`;
   return observation.rawResponse
-    ? <ToolRawOutput label={`${kind} response from ${source}`} value={observation.rawResponse} />
+    ? <UiRawOutput label={`${kind} response from ${source}`} value={observation.rawResponse} />
     : <MissingRaw detail={`${kind} response from ${source}: ${observation.error ?? "No response captured"}.`} />;
 }
 
@@ -149,7 +141,7 @@ function AddressObservationRaw({ observation }: { observation: NameserverAddress
     <section className={styles.rawGroup}>
       <h4>{source}</h4>
       {(["A", "AAAA"] as const).map((type) => observation.rawResponses[type]
-        ? <ToolRawOutput key={type} label={`${type} response`} value={observation.rawResponses[type]} />
+        ? <UiRawOutput key={type} label={`${type} response`} value={observation.rawResponses[type]} />
         : <MissingRaw key={type} detail={`${type}: ${observation.error ?? "No response captured"}.`} />)}
     </section>
   );
@@ -159,13 +151,13 @@ function DelegationEvidence({ result }: { result: DelegationCheck }) {
   const hasEvidence = result.parentObservations.length || result.childObservations.length || result.authoritativeAddressObservations.length;
   if (!hasEvidence) return null;
   return (
-    <ToolDisclosure label="Parent, child, and address responses">
+    <UiDisclosure label="Parent, child, and address responses">
       <div className={styles.rawEvidence}>
         {result.parentObservations.map((item, index) => <ObservationRaw kind="Parent" key={`parent-${index}-${item.server.address}`} observation={item} />)}
         {result.childObservations.map((item, index) => <ObservationRaw kind="Child" key={`child-${index}-${item.server.address}`} observation={item} />)}
         {result.authoritativeAddressObservations.map((item, index) => <AddressObservationRaw key={`address-${index}-${item.server.address}`} observation={item} />)}
       </div>
-    </ToolDisclosure>
+    </UiDisclosure>
   );
 }
 
@@ -175,7 +167,7 @@ function ReachabilityRaw({ check }: { check: NameserverReachability }) {
     <section className={styles.rawGroup}>
       <h4>{source}</h4>
       {(["udp", "tcp"] as const).map((transport) => check.rawResponses[transport]
-        ? <ToolRawOutput key={transport} label={`${transport.toUpperCase()} response`} value={check.rawResponses[transport]} />
+        ? <UiRawOutput key={transport} label={`${transport.toUpperCase()} response`} value={check.rawResponses[transport]} />
         : <MissingRaw key={transport} detail={`${transport.toUpperCase()}: ${check.skippedReason ? "Not run by this checker" : check[transport].error ?? "No response captured"}.`} />)}
     </section>
   );
@@ -184,9 +176,9 @@ function ReachabilityRaw({ check }: { check: NameserverReachability }) {
 function ReachabilityEvidence({ result }: { result: DelegationCheck }) {
   if (!result.reachability.length) return null;
   return (
-    <ToolDisclosure label="UDP and TCP responses">
+    <UiDisclosure label="UDP and TCP responses">
       <div className={styles.rawEvidence}>{result.reachability.map((check) => <ReachabilityRaw check={check} key={`${check.server.hostname}-${check.server.address}`} />)}</div>
-    </ToolDisclosure>
+    </UiDisclosure>
   );
 }
 
@@ -207,8 +199,8 @@ function NameserverResult({ result }: { result: DelegationCheck }) {
   return (
     <section aria-label="Nameserver delegation result" className={styles.results} data-nameserver-result>
       <div className={styles.resultLead} data-tone={diagnosis.tone}>
-        <div aria-atomic="true" aria-live="polite"><ToolResultLead>{diagnosis.text}</ToolResultLead></div>
-        <ToolDownloadAction contents={report} filename={`${result.zone}-nameserver-report.json`} label="Download report" mimeType="application/json;charset=utf-8" />
+        <div aria-atomic="true" aria-live="polite"><UiResultLead>{diagnosis.text}</UiResultLead></div>
+        <UiDownloadAction contents={report} filename={`${result.zone}-nameserver-report.json`} label="Download report" mimeType="application/json;charset=utf-8" />
       </div>
       <DelegationChain result={result} />
       <ResultLists context={context} issues={issues} />
@@ -270,7 +262,7 @@ export function NameserverChecker({ initialName = "" }: { initialName?: string }
   return (
     <section aria-label="Nameserver delegation checker" className={styles.workbench} data-tool-workbench>
       <form aria-busy={loading} className={styles.form} onSubmit={submit}>
-        <ToolTextField
+        <UiTextField
           autoCapitalize="none"
           autoComplete="off"
           error={fieldError}
@@ -289,11 +281,11 @@ export function NameserverChecker({ initialName = "" }: { initialName?: string }
           type="text"
           value={name}
         />
-        <ToolButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">
+        <UiButton aria-busy={loading} className={styles.submit} isDisabled={loading} type="submit" variant="primary">
           {loading ? "Checking nameservers..." : "Check nameservers"}
-        </ToolButton>
-        {loading ? <div className={styles.formStatus}><ToolStatus>Checking nameservers...</ToolStatus></div> : null}
-        {requestError ? <div className={styles.formStatus}><ToolStatus tone="danger">{requestError}</ToolStatus></div> : null}
+        </UiButton>
+        {loading ? <div className={styles.formStatus}><UiStatus>Checking nameservers...</UiStatus></div> : null}
+        {requestError ? <div className={styles.formStatus}><UiStatus tone="danger">{requestError}</UiStatus></div> : null}
       </form>
       {result ? <NameserverResult result={result} /> : null}
     </section>

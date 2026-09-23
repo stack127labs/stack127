@@ -1,5 +1,7 @@
 # Writing and SEO plan: KDP page count estimator
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Feasibility: feasible
 Content review: 2026-09-19
@@ -87,11 +89,8 @@ Reading flow: inputs first; range and body-text result; additions table; model s
 | COPY-01 | Why the final PDF wins | Explain when to replace the planning range with actual pagination. | Model statement from the engine; KDP paperback submission guidance; link to PDF preflight checker. | One compact paragraph and two next-step links. Stop before layout-software instructions. | Do not claim exact pages, automatic manuscript understanding, or KDP approval. Do not repeat the additions table. |
 | COPY-02 | Task-oriented usage | Explain input preparation, meaningful choices, states, and next verification. | Closed Usage Markdown handoff and accepted technical artifacts. | One concise connected guide; use steps only where order changes the outcome. | No live-result narration, unimplemented features, or duplicate supporting explanations. |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Read and apply `skills/stack127/stack127-writing-voice/SKILL.md`.
-- Write `stack127`, lowercase, with no em dash or en dash.
 - Do not invent typography densities, file behavior, or page guarantees.
 - Do not repeat the range or additions table in prose.
 
@@ -109,7 +108,6 @@ Reading flow: inputs first; range and body-text result; additions table; model s
 ## Open questions and blockers
 
 - None for the content plan. The result is intentionally a planning range, not a final pagination engine.
-
 
 ## Usage Markdown handoff
 

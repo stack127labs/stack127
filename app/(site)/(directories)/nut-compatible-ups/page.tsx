@@ -1,6 +1,6 @@
 import { BatteryCharging } from "lucide-react";
-import { HardwareDirectoryPage } from "../_components/hardware-directory-page";
-import type { HardwareDirectorySearchParams } from "../_components/hardware-directory-filters";
+import { HardwareDirectoryPage } from "../../../ui/directories/hardware-directory-page";
+import type { HardwareDirectorySearchParams } from "../../../ui/directories/hardware-directory-filters";
 import { getHardwareDirectorySnapshot } from "@/lib/hardware-directories";
 
 export default async function NutCompatibleUpsPage({ searchParams }: { searchParams: Promise<HardwareDirectorySearchParams> }) {

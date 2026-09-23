@@ -1,13 +1,13 @@
 # Writing and SEO plan: Unraid Main Array Calculator
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Tool: Unraid Main Array Calculator
 Route: `/unraid-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
 SERP checked: 2026-08-23
 Primary medium: Tool UI
-Prose is the minority: yes
-Static prose budget: 5 sections, 435 words maximum
 
 ## Search intent
 
@@ -102,22 +102,13 @@ External next-step links belong beside the proposed-drive result: [Unraid adding
 
 ### Sections reserved for later manual writing
 
-| Section ID | Heading | Purpose | Required facts and sources | Word limit and shape | Banned claims or repetition |
+| Section ID | Heading | Purpose | Required facts and sources | Planned format | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
-| COPY-01 | Plan a Main Array from explicit roles | Identify the homelab builder's job and set the array-level promise above the tool. | `brief.md`; `implementation-report.md`, Product decision and Scope. Mention explicit parity and data roles and the capacity boundary. | 75 words maximum, two short sentences above the tool. | Do not call the result filesystem free space, describe ordinary controls, or add a generic Unraid history. |
-| COPY-02 | Read the headline as array-level data capacity, not filesystem free space | Interpret the primary result without duplicating the exact accounting visual. | `implementation-report.md`, Assumptions and exclusions; `edge-cases-and-tests.md`, EC-017 and EC-024. Explain the envelope and unit boundary. | 85 words maximum, one compact paragraph after the first result. | Do not repeat values from the bar or table, invent a filesystem deduction, or use a worked example. |
-| COPY-03 | Verify a planned disk change in the official Unraid docs | Give the next verification step when a proposed drive exceeds the current parity ceiling. | `implementation-report.md`, Primary sources; official adding and replacing disk documentation. State that this page does not perform a parity swap or rebuild. | 95 words maximum, two sentences and two official links. | Do not provide migration steps, duration, risk, downtime, or a safe-to-proceed guarantee. |
-| COPY-04 | The model leaves filesystem and operational space unknown | Keep the result honest about exclusions and the difference between redundancy and backup. | `implementation-report.md`, Assumptions and exclusions; official array overview; EC-017 and EC-037. Mention filesystem metadata, reservations, cache pools, free-space policies, performance, and backup limits only as exclusions. | 115 words maximum, one compact paragraph. | Do not add a fixed overhead percentage, license limit, performance estimate, failure probability, or backup recommendation. |
-| COPY-05 | Your drive list stays in the browser | Explain local handling and the disclosure created by explicit sharing. | `implementation-report.md`, privacy and security plan; `edge-cases-and-tests.md`, EC-027 and EC-036. State local synchronous calculation, no request or browser storage path, and that a share URL contains capacities and roles. | 65 words maximum, two sentences. | Do not claim absolute privacy or anonymity, imply that a copied share URL is secret, or mention unsupported telemetry behavior. |
-
-### Voice and accuracy constraints
-
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
-- Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
-- Do not repeat a result, table, chart, wireframe, heading, or prior section.
-- Leave unresolved facts as explicit review notes, not plausible copy.
+| COPY-01 | Plan a Main Array from explicit roles | Identify the homelab builder's job and set the array-level promise above the tool. | `brief.md`; `implementation-report.md`, Product decision and Scope. Mention explicit parity and data roles and the capacity boundary. | Prose above the tool. | Do not call the result filesystem free space, describe ordinary controls, or add a generic Unraid history. |
+| COPY-02 | Read the headline as array-level data capacity, not filesystem free space | Interpret the primary result without duplicating the exact accounting visual. | `implementation-report.md`, Assumptions and exclusions; `edge-cases-and-tests.md`, EC-017 and EC-024. Explain the envelope and unit boundary. | Prose after the first result. | Do not repeat values from the bar or table, invent a filesystem deduction, or use a worked example. |
+| COPY-03 | Verify a planned disk change in the official Unraid docs | Give the next verification step when a proposed drive exceeds the current parity ceiling. | `implementation-report.md`, Primary sources; official adding and replacing disk documentation. State that this page does not perform a parity swap or rebuild. | Prose and two official links. | Do not provide migration steps, duration, risk, downtime, or a safe-to-proceed guarantee. |
+| COPY-04 | The model leaves filesystem and operational space unknown | Keep the result honest about exclusions and the difference between redundancy and backup. | `implementation-report.md`, Assumptions and exclusions; official array overview; EC-017 and EC-037. Mention filesystem metadata, reservations, cache pools, free-space policies, performance, and backup limits only as exclusions. | Prose. | Do not add a fixed overhead percentage, license limit, performance estimate, failure probability, or backup recommendation. |
+| COPY-05 | Your drive list stays in the browser | Explain local handling and the disclosure created by explicit sharing. | `implementation-report.md`, privacy and security plan; `edge-cases-and-tests.md`, EC-027 and EC-036. State local synchronous calculation, no request or browser storage path, and that a share URL contains capacities and roles. | Prose. | Do not claim absolute privacy or anonymity, imply that a copied share URL is secret, or mention unsupported telemetry behavior. |
 
 ### Tool-build exclusion
 

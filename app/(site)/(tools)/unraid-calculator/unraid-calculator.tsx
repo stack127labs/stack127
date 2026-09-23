@@ -1,20 +1,7 @@
 "use client";
 
-import {
-  ToolActionRow,
-  ToolAllocationBar,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolKeyValueList,
-  ToolPrimaryResult,
-  ToolQuantityInput,
-  ToolRepeatableList,
-  ToolStatus,
-  ToolTextField,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiDisclosure, UiQuantityInput, UiRepeatableList, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiAllocationBar, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import { RotateCcw } from "lucide-react";
 import { type FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import {
@@ -46,12 +33,12 @@ type InitialView = {
 };
 
 const inputUnits: readonly UnraidInputUnit[] = ["TB", "GB", "TiB", "GiB"];
-const inputUnitOptions = inputUnits.map((unit) => toolOption(unit, unit));
-const outputUnitOptions = [toolOption("TiB", "TiB"), toolOption("TB", "TB")];
+const inputUnitOptions = inputUnits.map((unit) => uiOption(unit, unit));
+const outputUnitOptions = [uiOption("TiB", "TiB"), uiOption("TB", "TB")];
 const parityOptions = [
-  toolOption("none", "None"),
-  toolOption("single", "Single parity"),
-  toolOption("dual", "Dual parity"),
+  uiOption("none", "None"),
+  uiOption("single", "Single parity"),
+  uiOption("dual", "Dual parity"),
 ];
 const TB_BYTES = 1_000_000_000_000n;
 const TIB_BYTES = 1_099_511_627_776n;
@@ -345,7 +332,7 @@ export function UnraidCalculator({ initialState }: { initialState: string }) {
   return (
     <section aria-label="Unraid Main Array calculator inputs and results" className={styles.tool} data-tool-workbench>
       <form className={styles.form} noValidate onSubmit={submit} ref={formRef}>
-        <ToolChoiceGroup
+        <UiChoiceGroup
           label="Parity protection"
           onChange={(value) => changeParityMode(value as UnraidParityMode)}
           options={parityOptions}
@@ -365,7 +352,7 @@ export function UnraidCalculator({ initialState }: { initialState: string }) {
                 return (
                   <div className={styles.driveEditor} key={role.id}>
                     <span aria-hidden="true" className={styles.driveNumber}>{String(index + 1).padStart(2, "0")}</span>
-                    <ToolQuantityInput
+                    <UiQuantityInput
                       ariaLabel={`${label} capacity`}
                       dataFocusKey={role.id}
                       error={errors[role.id]}
@@ -393,19 +380,20 @@ export function UnraidCalculator({ initialState }: { initialState: string }) {
             <span>{displayCount(draft.data.length, "drive")}</span>
           </div>
           <div data-add-data>
-            <ToolRepeatableList
+            <UiRepeatableList
               addDisabled={draft.parity.length + draft.data.length >= 64}
               addLabel="Add data drive"
               ariaLabel="Data drives"
               items={draft.data}
               onAdd={addDataDrive}
               onRemove={removeDataDrive}
+              removeLabel={(_, index) => `Remove data drive ${index + 1}`}
               renderItem={(role, index) => {
                 const label = `Data ${index + 1}`;
                 return (
                   <div className={styles.driveEditor}>
                     <span aria-hidden="true" className={styles.driveNumber}>{String(index + 1).padStart(2, "0")}</span>
-                    <ToolQuantityInput
+                    <UiQuantityInput
                       ariaLabel={`${label} capacity`}
                       dataFocusKey={role.id}
                       error={errors[role.id]}
@@ -428,9 +416,9 @@ export function UnraidCalculator({ initialState }: { initialState: string }) {
           {errors.data ? <p className={styles.fieldError} role="alert">{errors.data}</p> : null}
         </section>
 
-        <ToolDisclosure label="Plan a future data drive">
+        <UiDisclosure label="Plan a future data drive">
           <div className={styles.futureField}>
-            <ToolQuantityInput
+            <UiQuantityInput
               ariaLabel="Future data drive capacity"
               dataFocusKey={draft.proposed.id}
               error={errors[draft.proposed.id]}
@@ -444,18 +432,18 @@ export function UnraidCalculator({ initialState }: { initialState: string }) {
               value={draft.proposed.size}
             />
           </div>
-        </ToolDisclosure>
+        </UiDisclosure>
 
         {errors.form ? <p className={styles.fieldError} role="alert">{errors.form}</p> : null}
-        <ToolActionRow>
-          <ToolButton type="submit" variant="primary">Calculate capacity</ToolButton>
-          <ToolButton onPress={reset} type="button" variant="secondary">
+        <UiActionRow>
+          <UiButton type="submit" variant="primary">Calculate capacity</UiButton>
+          <UiButton onPress={reset} type="button" variant="secondary">
             <RotateCcw aria-hidden="true" size={17} /> Reset
-          </ToolButton>
-        </ToolActionRow>
+          </UiButton>
+        </UiActionRow>
         {status ? (
           <div data-testid={initialState && !initial.restored ? "state-notice" : undefined}>
-            <ToolStatus tone={status.includes("failed") || status.includes("could not") ? "danger" : "neutral"}>{status}</ToolStatus>
+            <UiStatus tone={status.includes("failed") || status.includes("could not") ? "danger" : "neutral"}>{status}</UiStatus>
           </div>
         ) : null}
       </form>
@@ -463,7 +451,7 @@ export function UnraidCalculator({ initialState }: { initialState: string }) {
       {values ? (
         <div aria-label="Unraid capacity result" className={styles.result} ref={resultRef} tabIndex={-1}>
           <div className={styles.resultUnit}>
-            <ToolChoiceGroup
+            <UiChoiceGroup
               label="Result unit"
               onChange={(unit) => setOutputUnit(unit as "TB" | "TiB")}
               options={outputUnitOptions}
@@ -471,21 +459,21 @@ export function UnraidCalculator({ initialState }: { initialState: string }) {
             />
           </div>
           <div data-testid="primary-capacity">
-            <ToolPrimaryResult
+            <UiPrimaryResult
               detail={`${displayCount(draft.data.length, "data drive")} · ${displayCount(draft.parity.length, "parity drive")}`}
               label="Current data capacity"
               value={display(values.dataCapacityBytes.value)}
             />
           </div>
 
-          <ToolKeyValueList rows={[
+          <UiKeyValueList rows={[
             { label: "Protection", value: protectionLabel(values.protection.mode, values.protection.guaranteedFailures) },
             { label: "Parity ceiling", value: values.parityFloorBytes === null ? "None" : display(values.parityFloorBytes) },
           ]} />
 
           <section aria-labelledby="capacity-accounting-title" className={styles.resultSection} data-testid="capacity-accounting">
             <h3 id="capacity-accounting-title">Installed allocation</h3>
-            <ToolAllocationBar
+            <UiAllocationBar
               ariaLabel="Installed capacity allocation"
               formatValue={(value) => display(value as bigint)}
               palette="accent"
@@ -502,15 +490,15 @@ export function UnraidCalculator({ initialState }: { initialState: string }) {
               <h3>Future drive</h3>
               {growth.status === "eligible" ? (
                 <>
-                  <ToolStatus tone="success">Fits the current parity ceiling</ToolStatus>
-                  <ToolKeyValueList rows={[
+                  <UiStatus tone="success">Fits the current parity ceiling</UiStatus>
+                  <UiKeyValueList rows={[
                     { label: "Capacity gain", value: display(growth.capacityGainBytes) },
                     { label: "Projected data capacity", value: display(growth.projectedDataCapacityBytes) },
                   ]} />
                 </>
               ) : (
                 <>
-                  <ToolStatus tone="warning">Parity upgrade required</ToolStatus>
+                  <UiStatus tone="warning">Parity upgrade required</UiStatus>
                   <ol className={styles.dependencyList}>
                     {growth.dependencies.map((dependency) => (
                       <li key={dependency}>Upgrade {dependencyLabel(dependency)} to at least {display(growth.proposedCapacityBytes)}</li>
@@ -522,8 +510,8 @@ export function UnraidCalculator({ initialState }: { initialState: string }) {
             </section>
           ) : null}
 
-          <ToolDisclosure label="Assigned drives">
-            <ToolDataTable
+          <UiDisclosure label="Assigned drives">
+            <UiDataTable
               ariaLabel="Assigned drives"
               columns={[
                 { id: "role", label: "Role" },
@@ -543,9 +531,9 @@ export function UnraidCalculator({ initialState }: { initialState: string }) {
                 };
               })}
             />
-          </ToolDisclosure>
+          </UiDisclosure>
 
-          <ToolDisclosure label="Formula and sources">
+          <UiDisclosure label="Formula and sources">
             <div className={styles.method}>
               <p>Data capacity = sum of current data drives.</p>
               <p>Parity ceiling = the smallest assigned parity drive.</p>
@@ -556,13 +544,13 @@ export function UnraidCalculator({ initialState }: { initialState: string }) {
                 <a href="https://docs.unraid.net/unraid-os/using-unraid-to/manage-storage/array/adding-disks-to-array/">Adding disks</a>
               </p>
             </div>
-          </ToolDisclosure>
+          </UiDisclosure>
 
-          <ToolActionRow>
-            <ToolButton onPress={copySummary}>Copy summary</ToolButton>
-            <ToolButton onPress={shareConfiguration}>Share configuration</ToolButton>
-          </ToolActionRow>
-          {shareUrl ? <ToolTextField label="Shared configuration URL" readOnly value={shareUrl} /> : null}
+          <UiActionRow>
+            <UiButton onPress={copySummary}>Copy summary</UiButton>
+            <UiButton onPress={shareConfiguration}>Share configuration</UiButton>
+          </UiActionRow>
+          {shareUrl ? <UiTextField label="Shared configuration URL" readOnly value={shareUrl} /> : null}
         </div>
       ) : null}
     </section>

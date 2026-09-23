@@ -7,7 +7,7 @@ description: Find evidence-backed resource and product ideas for stack127's solo
 
 ## Pipeline role and model routing
 
-When topic research feeds the full tool pipeline, the main orchestrator starts it as `gpt-5.6-luna` with `reasoning_effort: "max"`. This worker never starts another pipeline worker or silently turns a topic idea into implementation. Read `stack127_docs/tool-pipeline.md` when proposing a tool so its feasibility verdict and promise boundary are explicit.
+When topic research feeds the full tool pipeline, the main orchestrator starts it as `gpt-6-luna` with `reasoning_effort: "max"`. This worker never starts another pipeline worker or silently turns a topic idea into implementation. Read `stack127_docs/tool-pipeline.md` when proposing a tool so its feasibility verdict and promise boundary are explicit.
 
 Use this skill from the stack127 repository root when researching resources or products. Find concrete tasks where existing resources are fragmented, weak, too vendor-specific, or missing a useful tool.
 
@@ -18,7 +18,7 @@ Use this skill from the stack127 repository root when researching resources or p
 - Check `stack127_docs/writing-style.md` when the result includes public-facing copy or page direction.
 - If writing a durable note, place it in `content_ideas/` unless the user asks for another location.
 - Treat route inventory, web search results, product docs, Reddit/community threads, and market demand as time-sensitive. Verify live.
-- Read `skills/stack127/references/homelab-browser-and-search.md` before live search or competitor inspection. Prefer the configured SearXNG endpoint with `bing,duckduckgo` for search discovery and use the available read-only Browser for operated pages.
+- Read `skills/stack127/references/homelab-browser-and-search.md` before live search or competitor inspection. Prefer the configured SearXNG endpoint with `bing,duckduckgo` for search discovery and use its headless browser fallback when the in-app browser is unavailable.
 
 ## Research Workflow
 
@@ -82,7 +82,7 @@ Default shapes that follow from the tests:
 
 ## Content Strategy Boundaries
 
-- Do not propose news, commentary, or coverage of weekly releases. News decays in days, earns few links from this audience, and shifts the domain's dominant content class toward commodity output while domain trust is still being earned. See `stack127_records/2026-07-site-review.md` sections 8 and 9.
+- Do not propose news, commentary, or coverage of weekly releases. News decays quickly and would shift the site's focus away from maintained tools, directories, references, and courses.
 - Reference articles are allowed only when the page contains something not already answered identically elsewhere, visible on the page itself: assembled structured facts, original measurements, or version-anchored migration detail.
 - Favor maintained tools, directories, references, and courses over a publishing quota. A data report or trend page is useful only when its evidence and reader task justify it.
 

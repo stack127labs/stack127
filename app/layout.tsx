@@ -3,9 +3,9 @@ import { IBM_Plex_Mono, Inter, Shantell_Sans, Space_Grotesk } from "next/font/go
 import { getUmamiConfig } from "@/lib/analytics";
 import { getGoogleAnalyticsConfig } from "@/lib/google-analytics";
 import { absoluteUrl, defaultDescription, siteName, siteUrl } from "@/lib/seo";
-import { GoogleAnalyticsConsent } from "./google-analytics-consent";
-import { JsonLd } from "./json-ld";
-import { SiteNav } from "./site-nav";
+import { GoogleAnalyticsConsent } from "./ui/site/google-analytics-consent";
+import { JsonLd } from "./ui/site/json-ld";
+import { SiteNav } from "./ui/site/site-nav";
 import "./globals.css";
 
 export const dynamic = "force-dynamic";

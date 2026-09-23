@@ -1,21 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import {
-  ToolActionRow,
-  ToolButton,
-  ToolChoiceGroup,
-  ToolCopyAction,
-  ToolDataTable,
-  ToolDisclosure,
-  ToolKeyValueList,
-  ToolNumberField,
-  ToolPrimaryResult,
-  ToolSelect,
-  ToolStatus,
-  ToolTextField,
-  toolOption,
-} from "@/app/tool-ui/tool-controls";
+import { UiButton, UiChoiceGroup, UiCopyAction, UiDisclosure, UiNumberField, UiSelect, UiTextField, uiOption } from "@/app/ui/controls";
+import { UiActionRow, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import {
   DEFAULT_STORAGE_GROWTH_INPUT,
   buildStorageGrowthCopySummary,
@@ -44,12 +31,12 @@ const errorOrder: FieldKey[] = [
   "replacementReserve", "backupAnnualBudget", "currency", "displayUnit",
 ];
 const layoutOptions = [
-  toolOption("mirror", "Mirror"),
-  toolOption("single-parity", "Single parity"),
-  toolOption("dual-parity", "Dual parity"),
+  uiOption("mirror", "Mirror"),
+  uiOption("single-parity", "Single parity"),
+  uiOption("dual-parity", "Dual parity"),
 ];
-const currencyOptions = ["USD", "EUR", "GBP", "INR"].map((currency) => toolOption(currency, currency));
-const displayUnitOptions = [toolOption("TB", "TB"), toolOption("TiB", "TiB")];
+const currencyOptions = ["USD", "EUR", "GBP", "INR"].map((currency) => uiOption(currency, currency));
+const displayUnitOptions = [uiOption("TB", "TB"), uiOption("TiB", "TiB")];
 
 function defaults(): StorageGrowthInput {
   return { ...DEFAULT_STORAGE_GROWTH_INPUT };
@@ -134,7 +121,7 @@ function Result({ values, input, shareUrl, status, onShare }: {
   return (
     <section aria-live="polite" className={styles.result} data-testid="growth-result">
       <h2 className={styles.resultHeading} id="storage-growth-result-heading" tabIndex={-1}>Storage runway</h2>
-      <ToolPrimaryResult
+      <UiPrimaryResult
         detail={`Year ${horizon} demand ${formatCapacity(horizonDemand, unit)} · Capacity after reserve ${formatCapacity(values.planningCapacityBytes, unit)}`}
         label="Storage runway"
         tone={tone}
@@ -148,7 +135,7 @@ function Result({ values, input, shareUrl, status, onShare }: {
 
       <section className={styles.resultSection}>
         <h2>Year-by-year plan</h2>
-        <ToolDataTable
+        <UiDataTable
           ariaLabel="Storage growth by year"
           columns={[
             { id: "year", label: "Year" },
@@ -173,7 +160,7 @@ function Result({ values, input, shareUrl, status, onShare }: {
 
       <section className={styles.resultSection}>
         <h2>Cost breakdown</h2>
-        <ToolDataTable
+        <UiDataTable
           ariaLabel={`Cost breakdown in ${input.currency}`}
           columns={[{ id: "category", label: "Category" }, { id: "cost", label: `Cost (${input.currency})` }]}
           rows={[
@@ -186,22 +173,22 @@ function Result({ values, input, shareUrl, status, onShare }: {
         />
       </section>
 
-      <ToolActionRow>
-        <ToolCopyAction label="Copy summary" value={buildStorageGrowthCopySummary(input, values)} />
-        <ToolButton onPress={onShare}>Share plan</ToolButton>
-      </ToolActionRow>
-      {shareUrl ? <ToolTextField label="Share URL" readOnly value={shareUrl} /> : null}
-      {status ? <ToolStatus>{status}</ToolStatus> : null}
+      <UiActionRow>
+        <UiCopyAction label="Copy summary" value={buildStorageGrowthCopySummary(input, values)} />
+        <UiButton onPress={onShare}>Share plan</UiButton>
+      </UiActionRow>
+      {shareUrl ? <UiTextField label="Share URL" readOnly value={shareUrl} /> : null}
+      {status ? <UiStatus>{status}</UiStatus> : null}
 
-      <ToolDisclosure label="Formula receipt">
-        <ToolKeyValueList rows={[
+      <UiDisclosure label="Formula receipt">
+        <UiKeyValueList rows={[
           { label: "Layout", value: `${input.layout}; ${values.dataMembers} data members` },
           { label: "Capacity model", value: `${formatCapacity(values.modeledUsableBytes, unit)} usable; ${formatCapacity(values.reserveBytes, unit)} reserve` },
           { label: "Growth", value: `${input.annualGrowth}% compounded yearly` },
           { label: "Cost categories", value: "Drive, enclosure, power, replacement, backup" },
           { label: "Version", value: `Formula ${values.metadata.calculationVersion}; input ${values.metadata.inputVersion}` },
         ]} />
-      </ToolDisclosure>
+      </UiDisclosure>
     </section>
   );
 }
@@ -317,7 +304,7 @@ export function StorageGrowthPlanner({ initialState }: { initialState: string })
   }
 
   const numberField = (field: FieldKey, label: string, suffix?: string, options?: { min?: number; max?: number; step?: number }) => (
-    <ToolNumberField
+    <UiNumberField
       dataFocusKey={field}
       error={errors[field]}
       inputRef={(node) => { fieldRefs.current[field] = node; }}
@@ -347,7 +334,7 @@ export function StorageGrowthPlanner({ initialState }: { initialState: string })
 
         <section className={styles.formSection}>
           <h2>Local plan</h2>
-          <ToolChoiceGroup error={errors.layout} label="Layout" onChange={(layout) => update("layout", layout)} options={layoutOptions} required value={input.layout} />
+          <UiChoiceGroup error={errors.layout} label="Layout" onChange={(layout) => update("layout", layout)} options={layoutOptions} required value={input.layout} />
           <div className={styles.controlGrid}>
             {numberField("driveCount", "Drive count", undefined, { min: 2, max: 24 })}
             {numberField("driveSize", "Drive size", "TB", { min: 0.1, max: 100, step: 0.1 })}
@@ -357,7 +344,7 @@ export function StorageGrowthPlanner({ initialState }: { initialState: string })
         <section className={styles.formSection}>
           <h2>Costs</h2>
           <div className={styles.controlGrid}>
-            <ToolSelect error={errors.currency} label="Currency" onChange={(currency) => update("currency", currency)} options={currencyOptions} required value={input.currency} />
+            <UiSelect error={errors.currency} label="Currency" onChange={(currency) => update("currency", currency)} options={currencyOptions} required value={input.currency} />
             {numberField("drivePrice", "Drive price", input.currency, { min: 0, max: 100000, step: 0.01 })}
             {numberField("enclosureCost", "Enclosure cost", input.currency, { min: 0, max: 100000, step: 0.01 })}
             {numberField("averagePowerWatts", "Average draw", "W", { min: 0, max: 2000 })}
@@ -368,13 +355,13 @@ export function StorageGrowthPlanner({ initialState }: { initialState: string })
           </div>
         </section>
 
-        <ToolChoiceGroup label="Result unit" onChange={(unit) => changeDisplayUnit(unit as StorageGrowthDisplayUnit)} options={displayUnitOptions} required value={input.displayUnit} />
+        <UiChoiceGroup label="Result unit" onChange={(unit) => changeDisplayUnit(unit as StorageGrowthDisplayUnit)} options={displayUnitOptions} required value={input.displayUnit} />
 
-        <ToolActionRow>
-          <ToolButton type="submit" variant="primary">Calculate plan</ToolButton>
-          <ToolButton onPress={reset}>Reset</ToolButton>
-        </ToolActionRow>
-        {status && !calculated ? <ToolStatus tone={Object.keys(errors).length ? "danger" : "neutral"}>{status}</ToolStatus> : null}
+        <UiActionRow>
+          <UiButton type="submit" variant="primary">Calculate plan</UiButton>
+          <UiButton onPress={reset}>Reset</UiButton>
+        </UiActionRow>
+        {status && !calculated ? <UiStatus tone={Object.keys(errors).length ? "danger" : "neutral"}>{status}</UiStatus> : null}
       </form>
 
       {calculated ? <Result input={input} onShare={share} shareUrl={shareUrl} status={status} values={calculated.values} /> : null}

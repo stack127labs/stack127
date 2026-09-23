@@ -1,13 +1,13 @@
 # Writing and SEO plan: Ceph Capacity and Failure-Domain Planner
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Tool: Ceph Capacity and Failure-Domain Planner
 Route: `/ceph-capacity-calculator`
 Depends on: `competitive-report.md`, `implementation-report.md`, `edge-cases-and-tests.md`, `brief.md`
 SERP checked: 2026-08-23
 Primary medium: Tool UI
-Prose is the minority: yes
-Static prose budget: 3 sections, 450 words maximum
 
 ## Search intent
 
@@ -51,9 +51,9 @@ Model Ceph raw, usable, reserve, and failure-domain loss capacity from a local i
 | 2 | H2: Read the capacity answer | What do raw, modeled, overhead, reserve, and target mean? | The bar separates raw bytes from modeled protected capacity; the table exposes grouped domain contribution and largest loss. | Exact result visualization | Formula fixtures and implementation acceptance R1, R5, R6 | Do not repeat values or describe every card in prose. | n/a |
 | 3 | H2: Replication and erasure coding use different ratios | Which profile choice changes the answer? | Replication uses one data copy over the replica size; EC uses `k/(k+m)` and requires `k+m` distinct placement domains. | Table | `https://docs.ceph.com/en/latest/rados/operations/erasure-code/` and `https://docs.ceph.com/en/latest/rados/operations/erasure-code-profile/` | Keep exact repeated facts in the table; no worked paragraph. | n/a |
 | 4 | H2: Group capacity by the failure domain | Why do repeated batches and mixed OSD sizes matter? | The same named domain can have multiple batches; the grouped row makes the largest-domain scenario traceable. | Table | CRUSH map documentation and FF-003 | Explain aggregation only; do not restate the live table. | n/a |
-| 5 | H2: What this model leaves out | Is this a live Ceph capacity or durability guarantee? | The model does not inspect CRUSH rules, pools, PGs, min_size, object overhead, recovery, or exact `ceph df` output. | Sentences | Implementation non-goals and `https://docs.ceph.com/en/latest/rados/configuration/pool-pg-config-ref/` | One compact boundary section, maximum 170 words. | COPY-01 |
+| 5 | H2: What this model leaves out | Is this a live Ceph capacity or durability guarantee? | The model does not inspect CRUSH rules, pools, PGs, min_size, object overhead, recovery, or exact `ceph df` output. | Sentences | Implementation non-goals and `https://docs.ceph.com/en/latest/rados/configuration/pool-pg-config-ref/` | Explain the model boundary. | COPY-01 |
 | 6 | H2: Verify the plan against a real cluster | What should I check next? | Compare inventory and domain assumptions with OSD tree, pool rules, EC profile, and capacity commands. | Sentences | `https://docs.ceph.com/en/latest/rados/operations/crush-map/` and `https://docs.ceph.com/en/latest/rados/operations/erasure-code-profile/` | Give the next verification path once; do not promise a command generator. | COPY-02 |
-| 7 | H2: Sharing keeps the calculation explicit | Does the page send my inventory away? | Calculation is local; Share puts normalized inputs in a versioned URL, so the user controls disclosure. | Sentences | Implementation privacy contract | Maximum 90 words; do not claim zero telemetry beyond the implemented boundary. | COPY-03 |
+| 7 | H2: Sharing keeps the calculation explicit | Does the page send my inventory away? | Calculation is local; Share puts normalized inputs in a versioned URL, so the user controls disclosure. | Sentences | Implementation privacy contract | Do not claim zero telemetry beyond the implemented boundary. | COPY-03 |
 
 ## Formula explanation
 
@@ -85,20 +85,11 @@ Model Ceph raw, usable, reserve, and failure-domain loss capacity from a local i
 
 ### Sections reserved for later manual writing
 
-| Section ID | Heading | Purpose | Required facts and sources | Word limit and shape | Banned claims or repetition |
+| Section ID | Heading | Purpose | Required facts and sources | Planned format | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
-| COPY-01 | What this model leaves out | Establish the model boundary and prevent false confidence. | Mention no live CRUSH, PG, pool, `min_size`, object-overhead, recovery, performance, or exact `ceph df` inspection. Cite the implementation contract and the official Ceph pool reference. | 170 words; two short paragraphs. | Do not repeat the result metrics, protection table, or claim durability. |
-| COPY-02 | Verify the plan against a real cluster | Give a concrete next verification path. | Point readers to the OSD tree, CRUSH hierarchy, pool rule, EC profile, and capacity commands. Link official CRUSH and EC profile docs. | 190 words; one paragraph plus a short command list if reviewed. | Do not invent command output, recommend a profile, or imply the calculator reads the cluster. |
-| COPY-03 | Sharing keeps the calculation explicit | Explain local computation and deliberate URL sharing. | State that calculation has no API request, and Share places normalized entered inventory in a versioned URL. Explain that shared URLs disclose those inputs. | 90 words; one compact paragraph. | Do not claim anonymity, no telemetry, or encrypted secrecy beyond the route contract. |
-
-### Voice and accuracy constraints
-
-- Follow `stack127_docs/writing-style.md` and `stack127_docs/visual-first.md`.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
-- Do not invent facts, numbers, benefits, privacy claims, or implementation behavior.
-- Do not repeat a result, table, chart, wireframe, heading, or prior section.
-- Leave unresolved facts as explicit review notes, not plausible copy.
+| COPY-01 | What this model leaves out | Establish the model boundary and prevent false confidence. | Mention no live CRUSH, PG, pool, `min_size`, object-overhead, recovery, performance, or exact `ceph df` inspection. Cite the implementation contract and the official Ceph pool reference. | Prose. | Do not repeat the result metrics, protection table, or claim durability. |
+| COPY-02 | Verify the plan against a real cluster | Give a concrete next verification path. | Point readers to the OSD tree, CRUSH hierarchy, pool rule, EC profile, and capacity commands. Link official CRUSH and EC profile docs. | Prose with a short command list if reviewed. | Do not invent command output, recommend a profile, or imply the calculator reads the cluster. |
+| COPY-03 | Sharing keeps the calculation explicit | Explain local computation and deliberate URL sharing. | State that calculation has no API request, and Share places normalized entered inventory in a versioned URL. Explain that shared URLs disclose those inputs. | Prose. | Do not claim anonymity, no telemetry, or encrypted secrecy beyond the route contract. |
 
 ### Tool-build exclusion
 

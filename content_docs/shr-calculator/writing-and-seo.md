@@ -1,5 +1,7 @@
 # Writing and SEO plan: Synology SHR Capacity Calculator
 
+Follow `stack127_docs/writing-style.md` for all writing, visual choices, and SEO wording.
+
 Status: ready
 Tool: Synology SHR Capacity Calculator
 Route: `/shr-calculator`
@@ -9,8 +11,6 @@ Search backend: web connector; SearXNG was not configured and engines were not i
 Primary visual backend: standalone Playwright CLI; no in-app Browser runtime was available
 SERP viewport: 1440 x 900, dark color scheme for the recent competitor snapshot
 Primary medium: Tool UI
-Prose is the minority: yes
-Static prose budget: 5 sections, 520 words maximum
 
 ## Search intent
 
@@ -52,14 +52,14 @@ Enter the exact drives for a planned fresh Synology pool and get an estimated SH
 | Order | Level and proposed heading | User question | Takeaway, not draft prose | Medium | Evidence | Limit/repetition guard | Writer section ID |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | H1: Synology SHR capacity calculator for mixed drives | Is this the tool for my planned NAS? | Enter individual drive sizes and compare SHR-1 or SHR-2 capacity. | Tool UI | Brief and implementation contract | The h1 is already implemented; do not add a second promise heading. | N/A |
-| 2 | Opening lede below h1 | What answer will this produce, and where does it stop? | It estimates a fresh-pool result from the entered drives and keeps protection, reserve, and unused space separate. | Sentences | COPY-01 facts | 55 words maximum; no formula or exclusion list. | COPY-01 |
+| 2 | Opening lede below h1 | What answer will this produce, and where does it stop? | It estimates a fresh-pool result from the entered drives and keeps protection, reserve, and unused space separate. | Sentences | COPY-01 facts | No formula or exclusion list. | COPY-01 |
 | 3 | Tool region: build the drive inventory | What should I enter? | Select protection mode, add every intended drive, and name decimal or binary units explicitly. | Tool UI | Implementation R1-R4 | The UI owns ordinary use instructions; prose should not narrate clicks. | N/A |
 | 4 | Result region: estimated pool capacity | What is the number I should plan around? | Estimated pool capacity is primary; protection, unused high tiers, system reserve, and unit choice remain visible. | Exact result visualization | Implementation R5-R8 | Never repeat the rendered numbers in static copy. | N/A |
 | 5 | Result region: capacity allocation and capacity bands | Why does mixed SHR capacity change by drive size? | Each threshold shows how many drives reach it and whether the band becomes data, protection, or unused space. | Table | Implementation formula, FF-003, FF-004 | Keep exact comparisons in the table and bar. | N/A |
-| 6 | H2: Read the capacity bands | How do I interpret the result? | The data-bearing tiers add to the pre-reserve pool estimate, protection is the modeled parity share, unused is high-tier space that cannot form a valid protected group, and reserve is separate. | Sentences | COPY-02 and engine contract | 105 words maximum; do not repeat table values or formula code. | COPY-02 |
+| 6 | H2: Read the capacity bands | How do I interpret the result? | The data-bearing tiers add to the pre-reserve pool estimate, protection is the modeled parity share, unused is high-tier space that cannot form a valid protected group, and reserve is separate. | Sentences | COPY-02 and engine contract | Do not repeat table values or formula code. | COPY-02 |
 | 7 | Result table: the unused high tier | Why is extra space not always data? | The exact table shows a high band with too few drives for the selected parity width as unused, rather than available pool data. | Table | FF-004, official result categories | Keep the explanation in the table labels and the single interpretation section; no second worked example. | N/A |
-| 8 | H2: Treat this as a fresh-pool estimate | Why may the installed result be lower? | The engine does not model filesystem overhead, snapshots, quotas, fragmentation, expansion history, rebuild state, or application-visible free space. | Sentences | COPY-04, implementation non-goals | 120 words maximum; one paragraph, no warning essay. | COPY-04 |
-| 9 | H2: Verify the layout before you build | What should I check next? | Compare the result with the target NAS and DSM guidance, then use the conventional RAID calculator when the question is not SHR. Inputs stay local until explicit Share creates a URL state. | Sentences | COPY-05, Synology expansion guidance, privacy tests | 105 words maximum; do not recommend a model or imply an external verification has happened. | COPY-05 |
+| 8 | H2: Treat this as a fresh-pool estimate | Why may the installed result be lower? | The engine does not model filesystem overhead, snapshots, quotas, fragmentation, expansion history, rebuild state, or application-visible free space. | Sentences | COPY-04, implementation non-goals | Prose. | COPY-04 |
+| 9 | H2: Verify the layout before you build | What should I check next? | Compare the result with the target NAS and DSM guidance, then use the conventional RAID calculator when the question is not SHR. Inputs stay local until explicit Share creates a URL state. | Sentences | COPY-05, Synology expansion guidance, privacy tests | Do not recommend a model or imply an external verification has happened. | COPY-05 |
 
 No FAQ, screenshot, marker art, or generic RAID comparison is planned. The live result already supplies the precise diagram and table needed to explain the surprising cases.
 
@@ -101,18 +101,15 @@ No links to planned expansion or filesystem routes should be rendered until thos
 
 ### Sections reserved for later manual writing
 
-| Section ID | Heading | Purpose | Required facts and sources | Word limit and shape | Banned claims or repetition |
+| Section ID | Heading | Purpose | Required facts and sources | Planned format | Banned claims or repetition |
 | --- | --- | --- | --- | --- | --- |
-| COPY-01 | Opening lede below h1 | Identify the user, inputs, result, and fresh-pool boundary | Individual drive capacities, SHR-1/SHR-2, mixed sizes, estimated result, browser-local calculation. Use the brief, implementation report, and [Synology's SHR guidance](https://kb.synology.com/en-uk/DSM/tutorial/What_RAID_type_is_best_for_my_storage). | 55 words maximum, one short paragraph | No formula, FAQ, model recommendation, or long exclusion list. |
-| COPY-02 | Read the capacity bands | Help a reader interpret estimated, protection, unused, and reserve fields | Use the rendered result vocabulary and implementation formula. Explain that exact values belong to the table, not prose. | 105 words maximum, one paragraph | Do not repeat rendered numbers or call estimated pool capacity installed free space. |
-| COPY-04 | Treat this as a fresh-pool estimate | Set the honest technical limit | Fresh pool only; no expansion history, filesystem metadata, snapshots, quotas, fragmentation, rebuild state, or application-visible free space. Use implementation non-goals and the official calculator's reserve distinction. | 120 words maximum, one paragraph | Do not say exact, guaranteed, real usable, or predict installed free space. |
-| COPY-05 | Verify the layout before you build | Give the reader a practical next check and privacy boundary | Verify the proposed drive set and mode against the target NAS and current Synology guidance. Link to `/storage-tools`, `/raid-calculator`, and optionally `/zfs-capacity-calculator`. State that no share state is created until Share is chosen and the URL contains configuration, not a secret. | 105 words maximum, one or two short paragraphs | No compatibility recommendation, no claim that Stack127 validated the NAS, no generic browse CTA, and no promise that a URL is private. |
+| COPY-01 | Opening lede below h1 | Identify the user, inputs, result, and fresh-pool boundary | Individual drive capacities, SHR-1/SHR-2, mixed sizes, estimated result, browser-local calculation. Use the brief, implementation report, and [Synology's SHR guidance](https://kb.synology.com/en-uk/DSM/tutorial/What_RAID_type_is_best_for_my_storage). | Prose. | No formula, FAQ, model recommendation, or long exclusion list. |
+| COPY-02 | Read the capacity bands | Help a reader interpret estimated, protection, unused, and reserve fields | Use the rendered result vocabulary and implementation formula. Explain that exact values belong to the table, not prose. | Prose. | Do not repeat rendered numbers or call estimated pool capacity installed free space. |
+| COPY-04 | Treat this as a fresh-pool estimate | Set the honest technical limit | Fresh pool only; no expansion history, filesystem metadata, snapshots, quotas, fragmentation, rebuild state, or application-visible free space. Use implementation non-goals and the official calculator's reserve distinction. | Prose. | Do not say exact, guaranteed, real usable, or predict installed free space. |
+| COPY-05 | Verify the layout before you build | Give the reader a practical next check and privacy boundary | Verify the proposed drive set and mode against the target NAS and current Synology guidance. Link to `/storage-tools`, `/raid-calculator`, and optionally `/zfs-capacity-calculator`. State that no share state is created until Share is chosen and the URL contains configuration, not a secret. | Prose. | No compatibility recommendation, no claim that Stack127 validated the NAS, no generic browse CTA, and no promise that a URL is private. |
 
-### Voice and accuracy constraints
+### Page constraints
 
-- Follow `stack127_docs/writing-style.md`, `stack127_docs/visual-first.md`, and the visual-first rule that the tool and exact result come before prose.
-- Write `stack127`, lowercase.
-- Use no em dash or en dash.
 - Prefer `estimated pool capacity` and `fresh-pool estimate` to `usable capacity` when the scope matters.
 - Treat the tier equation as a route-local model inferred from official result categories and the research evidence, not as an official Synology-published formula.
 - Do not invent precision for filesystem, snapshot, expansion, rebuild, compatibility, pricing, or model recommendations.

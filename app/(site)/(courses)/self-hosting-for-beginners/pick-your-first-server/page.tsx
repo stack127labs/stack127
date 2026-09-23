@@ -1,5 +1,5 @@
 import { getLesson } from "@/lib/self-hosting-for-beginners";
-import { MarkerArt } from "@/app/marker-art";
+import { MarkerArt } from "@/app/ui/site/marker-art";
 import { Faq, LessonLink, LessonPage } from "../course";
 import { firstServerChoiceArt } from "./art/first-server-choice";
 
