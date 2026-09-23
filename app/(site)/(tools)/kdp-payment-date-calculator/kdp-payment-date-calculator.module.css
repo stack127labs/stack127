@@ -1,0 +1,103 @@
+.tool,
+.form,
+.result,
+.resultContent,
+.delivery {
+  display: grid;
+  min-width: 0;
+}
+
+.tool {
+  padding-block: var(--space-8);
+}
+
+.form,
+.result {
+  gap: var(--space-7);
+  padding-inline: var(--space-7);
+}
+
+.form > *,
+.result > *,
+.resultContent > *,
+.delivery > * {
+  min-width: 0;
+}
+
+.monthField {
+  max-width: 28rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.result {
+  border-top: 1px solid var(--color-border-strong);
+  margin-top: var(--space-8);
+  padding-top: var(--space-8);
+}
+
+.resultContent,
+.delivery {
+  gap: var(--space-5);
+  max-width: var(--measure-prose);
+}
+
+.resultContent p,
+.delivery p,
+.emptyPrompt {
+  margin: 0;
+  max-width: var(--measure-prose);
+  overflow-wrap: anywhere;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.sourceNote {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+}
+
+.visuallyHidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (max-width: 760px) {
+  .form,
+  .result {
+    gap: var(--space-6);
+    padding-inline: var(--space-5);
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .form,
+  .result {
+    padding-inline: var(--space-4);
+  }
+}
