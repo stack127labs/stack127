@@ -18,7 +18,7 @@ export default function TldDirectoryPage() {
     <AppShell
       mainLabel="TLD Directory"
       menuLabel="Domain tools"
-      sidebar={<DomainToolsSidebar active="tlds" />}
+      sidebar={<DomainToolsSidebar />}
       sidebarLabel="Domain tools sidebar"
     >
       <PageCanvas as="main" className="domain-tool-main">

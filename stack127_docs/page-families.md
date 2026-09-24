@@ -79,6 +79,9 @@ introduction, and supporting Markdown live in `public.stack127_tool_pages` and r
 shared server content layer. Read `stack127_docs/tool-pages.md` before changing tool content or a
 tool version.
 
+DNS, domain, and storage tools sit under route groups inside `(tools)`. Each group layout owns its
+sidebar and shell, so navigation between tools in that family replaces only the page content.
+
 Use neutral borders, calm background changes, and useful diagrams. Do not scatter inputs or results
 across unrelated cards. Do not show runtime, fixture, crawler, draft, registry, or deployment terms
 unless the tool itself is explicitly about those concepts.

@@ -27,7 +27,7 @@ stack127 publishes tools, directories, references, courses, and useful content f
 - Directory source lives in `app/(site)/(directories)/`.
 - Reference source lives in `app/(site)/(references)/`.
 - Course source lives in `app/(site)/(courses)/`.
-- Tool source lives in `app/(site)/(tools)/<slug>/`.
+- Tool source lives in `app/(site)/(tools)/`. DNS, domain, and storage tools use a shared route-group layout before `<slug>/`.
 - `public.stack127_pages` is the only publication registry.
 - Exact published slugs are indexable and enter the sitemap. Unpublished routes return 404.
 - Do not add route-owned metadata, robots, canonicals, sitemap dates, or JSON-LD to page files.

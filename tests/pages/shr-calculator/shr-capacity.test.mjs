@@ -8,7 +8,7 @@ import {
   encodeShrState,
   calculateShrCapacity,
   parseCapacity,
-} from "../../../app/(site)/(tools)/shr-calculator/shr-capacity.ts";
+} from "../../../app/(site)/(tools)/(storage)/shr-calculator/shr-capacity.ts";
 
 const GB = 1_000_000_000n;
 const TB = 1_000_000_000_000n;

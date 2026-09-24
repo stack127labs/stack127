@@ -5,7 +5,7 @@ import path from "node:path";
 import process from "node:process";
 
 const root = process.cwd();
-const target = path.join(root, "app/(site)/(tools)/drive-reliability/data/drive-reliability-snapshot.json");
+const target = path.join(root, "app/(site)/(tools)/(storage)/drive-reliability/data/drive-reliability-snapshot.json");
 const allowedSource = "https://www.backblaze.com/";
 
 function fail(message) {

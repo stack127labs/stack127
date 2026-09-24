@@ -44,7 +44,7 @@ export default function EppStatusCodesPage() {
     <AppShell
       mainLabel="Domain status codes"
       menuLabel="Domain tools"
-      sidebar={<DomainToolsSidebar active="status-codes" />}
+      sidebar={<DomainToolsSidebar />}
       sidebarLabel="Domain tools sidebar"
     >
       <PageCanvas as="main" className="domain-tool-main">

@@ -13,23 +13,8 @@ import {
   UserSearch,
 } from "lucide-react";
 import { SidebarLabel } from "@/app/ui/site/app-shell";
-import { SidebarList } from "@/app/ui/site/sidebar-list";
+import { PathnameSidebarList } from "@/app/ui/site/pathname-sidebar-list";
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/ui/site/sidebar-panel";
-
-export type DomainToolId =
-  | "hub"
-  | "lookup"
-  | "age"
-  | "expiry"
-  | "availability"
-  | "owner"
-  | "registrar"
-  | "status-codes"
-  | "transfer"
-  | "report"
-  | "punycode"
-  | "tlds"
-  | "multi-tld";
 
 const iconProps = { size: 15, strokeWidth: 2.2 } as const;
 
@@ -53,16 +38,15 @@ const tools = [
 export const domainReferenceCount = tools.filter((tool) => tool.id === "status-codes" || tool.id === "tlds").length;
 export const domainToolCount = tools.length - domainReferenceCount;
 
-export function DomainToolsSidebar({ active }: { active: DomainToolId }) {
+export function DomainToolsSidebar() {
   return (
     <div className={sidebarPanelClassName}>
       <div className={sidebarPanelHeadingClassName}>
         <SidebarLabel>Domain tools</SidebarLabel>
       </div>
       <nav aria-label="Domain tools">
-        <SidebarList
+        <PathnameSidebarList
           items={tools.map((tool) => ({
-            active: active === tool.id,
             href: tool.href,
             icon: tool.icon,
             label: tool.label,

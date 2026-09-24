@@ -8,15 +8,11 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { SidebarLabel } from "@/app/ui/site/app-shell";
-import { SidebarList } from "@/app/ui/site/sidebar-list";
+import { PathnameSidebarList } from "@/app/ui/site/pathname-sidebar-list";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
 } from "@/app/ui/site/sidebar-panel";
-
-type DnsToolsSidebarProps = {
-  active: "hub" | "lookup" | "trace" | "change" | "nameserver" | "dnssec" | "soa" | "caa";
-};
 
 const iconProps = { size: 15, strokeWidth: 2.2 } as const;
 
@@ -33,16 +29,15 @@ const availableDnsTools = [
 /** How many DNS tools exist now; the home page card shows this count. */
 export const dnsToolCount = availableDnsTools.length;
 
-export function DnsToolsSidebar({ active }: DnsToolsSidebarProps) {
+export function DnsToolsSidebar() {
   return (
     <div className={`${sidebarPanelClassName} dns-tools-sidebar-panel`}>
       <div className={sidebarPanelHeadingClassName}>
         <SidebarLabel>DNS tools</SidebarLabel>
       </div>
       <nav aria-label="DNS tools">
-        <SidebarList
+        <PathnameSidebarList
           items={availableDnsTools.map((tool) => ({
-            active: active === tool.id,
             href: tool.href,
             icon: tool.icon,
             label: tool.label,

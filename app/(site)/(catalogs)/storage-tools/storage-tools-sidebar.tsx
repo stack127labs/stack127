@@ -13,32 +13,12 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { SidebarLabel } from "@/app/ui/site/app-shell";
-import { SidebarList } from "@/app/ui/site/sidebar-list";
+import { PathnameSidebarList } from "@/app/ui/site/pathname-sidebar-list";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
 } from "@/app/ui/site/sidebar-panel";
 import styles from "./storage-tools.module.css";
-
-type StorageToolId =
-  | "hub"
-  | "backup-321"
-  | "raid"
-  | "zfs"
-  | "zfs-padding"
-  | "raidz-expansion"
-  | "shr"
-  | "unraid"
-  | "snapraid-mergerfs"
-  | "drive-reliability"
-  | "rebuild"
-  | "ceph"
-  | "storage-growth"
-  | "layout-advisor";
-
-type StorageToolsSidebarProps = {
-  active: StorageToolId;
-};
 
 const iconProps = { size: 15, strokeWidth: 2.2 } as const;
 
@@ -61,16 +41,15 @@ const availableStorageTools = [
 /** How many storage tools exist now; the home page card shows this count. */
 export const storageToolCount = availableStorageTools.length;
 
-export function StorageToolsSidebar({ active }: StorageToolsSidebarProps) {
+export function StorageToolsSidebar() {
   return (
     <div className={`${sidebarPanelClassName} ${styles.sidebarPanel}`}>
       <div className={sidebarPanelHeadingClassName}>
         <SidebarLabel>Storage tools</SidebarLabel>
       </div>
       <nav aria-label="Storage tools">
-        <SidebarList
+        <PathnameSidebarList
           items={availableStorageTools.map((tool) => ({
-            active: active === tool.id,
             href: tool.href,
             icon: tool.icon,
             label: tool.label,

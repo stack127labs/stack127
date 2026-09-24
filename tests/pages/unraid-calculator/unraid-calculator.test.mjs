@@ -11,7 +11,7 @@ import {
   encodeUnraidState,
   parseUnraidCapacity,
   validateUnraidCalculatorInput,
-} from "../../../app/(site)/(tools)/unraid-calculator/unraid-calculator-engine.ts";
+} from "../../../app/(site)/(tools)/(storage)/unraid-calculator/unraid-calculator-engine.ts";
 
 const GB = 1_000_000_000n;
 const TB = 1_000_000_000_000n;
