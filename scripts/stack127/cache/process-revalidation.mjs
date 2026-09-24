@@ -43,7 +43,7 @@ async function purgeCloudflare(tags) {
 
 async function processEvents() {
   const result = await pool.query(`
-    select id, entity_type, slug, created_at
+    select id, entity_type, slug, created_at::text as created_at
     from public.stack127_revalidation_events
     order by created_at, id
     limit 50
@@ -54,7 +54,7 @@ async function processEvents() {
   let targetEvents = events;
   if (appCount.rows[0].count > 100) {
     const appEvents = await pool.query(`
-      select id, entity_type, slug, created_at
+      select id, entity_type, slug, created_at::text as created_at
       from public.stack127_revalidation_events
       where entity_type = 'self_host_app'
     `);
@@ -105,7 +105,7 @@ async function processEvents() {
 
 async function warmPages() {
   const result = await pool.query(`
-    select path, created_at from public.stack127_cache_warm_events
+    select path, created_at::text as created_at from public.stack127_cache_warm_events
     order by created_at limit 20
   `);
   const pending = result.rows;
