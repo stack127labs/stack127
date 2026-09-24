@@ -20,7 +20,7 @@ export type ResourcePlannerAppSummary = {
   hasStorage: boolean;
 };
 
-async function loadSelfHostedAppResourcePlannerIndex(): Promise<ResourcePlannerAppSummary[]> {
+async function loadSelfHostedAppResourcePlannerIndex(query: string): Promise<ResourcePlannerAppSummary[]> {
   const result = await getPool().query<{
     slug: string;
     name: string;
@@ -33,8 +33,10 @@ async function loadSelfHostedAppResourcePlannerIndex(): Promise<ResourcePlannerA
     from public.self_host_apps app
     left join public.self_host_app_resource_estimates resource on resource.app_id = app.id
     where app.published = true and app.self_hosting_status = 'self_hostable'
+      and (position($1 in lower(app.name)) > 0 or position($1 in lower(app.slug)) > 0)
     order by app.name asc, app.slug asc
-  `);
+    limit 50
+  `, [query]);
   return result.rows.map((row) => ({
     slug: row.slug, name: row.name, hasRam: row.has_ram, hasStorage: row.has_storage,
   }));

@@ -73,7 +73,7 @@ Its Web Server settings record `dokploy.stack127.com` as the host with HTTPS ena
 
 Public documents use a 10-minute browser TTL and a one-day edge TTL. Successful HTML without `Set-Cookie` is cached at the edge. Next.js navigation responses (`text/x-component` with an `_rsc` query key) use separate cache rules and keep their full query string, so clicks can reuse the matching response. Cookies, authorization, error responses, and private API routes bypass these rules. Unpublished and missing pages remain uncacheable 404s.
 
-The application adds `Cache-Tag` headers for public paths. Release deployment purges the `stack127-public` tag and warms primary routes. Database triggers coalesce publication, tool-content, app, category, and CLI changes in `public.stack127_revalidation_events`. The scheduled `Stack127 Cache Maintenance` workflow runs every five minutes, invalidates the Next.js data cache, purges affected Cloudflare tags, and warms changed paths from `public.stack127_cache_warm_events`. The queue is safe to retry; check its pending count and workflow logs if published edits do not appear after a few minutes. Browser cache copies cannot be purged and can remain for up to 10 minutes after a change.
+The application adds `Cache-Tag` headers for public paths. Release deployment purges the `stack127-public` tag and warms primary routes. Database triggers coalesce publication, tool-content, app, category, and CLI changes in `public.stack127_revalidation_events`. The scheduled `Stack127 Cache Maintenance` workflow runs every five minutes, invalidates the Next.js data cache, purges affected Cloudflare tags, and warms changed paths from `public.stack127_cache_warm_events`. A signing key generated in `public.stack127_cache_credentials` authenticates the revalidation call without copying a credential into the app runtime. The queue is safe to retry; check its pending count and workflow logs if published edits do not appear after a few minutes. Browser cache copies cannot be purged and can remain for up to 10 minutes after a change.
 
 Public detail APIs under `/api/shortcuts/`, `/api/hardware-directory/`, `/api/resource-planner-app/`, and `/api/self-host-apps/`, plus `/api/resource-planner-index`, opt into edge caching. Static detail responses use one hour in browsers and one day at the edge. Database-backed details and the planner index use 10 minutes in browsers and one day at the edge. Failed or unpublished responses use `no-store`. Health and private API endpoints remain dynamic.
 
@@ -136,10 +136,12 @@ other edge settings maintained from this repository. The existing token was
 renamed and expanded in place on 20 August 2026; its secret value did not
 change.
 
-The GitHub production Environment deliberately uses a different, narrower
-token. Release preflight needs only DNS Read and Zone Read for `stack127.com`.
-Do not grant CI the broader local administration token. Do not use Cloudflare
-User API tokens for either purpose, commit token values, or print them in logs.
+The GitHub production Environment uses a separate token. Release preflight
+needs DNS Read and Zone Read, while release cache purge needs Cache Purge for
+`stack127.com`. On 24 September 2026 the owner expanded this CI token to more
+permissions and three zones. Narrowing it to those three required permissions
+on `stack127.com` would reduce its access. Do not replace it with the local
+administration token, commit token values, or print them in logs.
 
 The complete secret-free key list and rotation procedure are in
 `stack127_docs/environment-inventory.md`.

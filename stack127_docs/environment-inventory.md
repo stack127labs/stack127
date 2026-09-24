@@ -170,6 +170,7 @@ CF_ACCESS_CLIENT_SECRET
 CLOUDFLARE_API_TOKEN
 DOKPLOY_API_KEY
 GHCR_DOKPLOY_TOKEN
+SUPABASE_SECRET_KEY
 ```
 
 It contains these non-secret variables:
@@ -201,7 +202,7 @@ SUPABASE_PUBLISHABLE_KEY
 SUPABASE_SECRET_KEY
 ```
 
-They were not configured at the time of the audit. GitHub discovery falls back
+These optional repository-level secrets were not configured at the time of the audit; `SUPABASE_SECRET_KEY` was added to the protected `production` environment on 24 September 2026. GitHub discovery falls back
 to the workflow's automatic `GITHUB_TOKEN`; GitLab and Codeberg enrichment can
 run without provider tokens at lower anonymous rate limits. Supabase API keys
 are required only for workflows that upload managed media. The release quality
@@ -274,11 +275,13 @@ There are two intentional Cloudflare credentials:
    `stack127.com`, `version127.com`, and `basebuddycms.com` zones and the account
    permissions needed for DNS, redirects, Access, Tunnel, cache, WAF, TLS, and
    related maintenance.
-2. GitHub's `production` environment uses a separate narrow token for release
-   preflight. It needs only Zone Read and DNS Read for `stack127.com`.
+2. GitHub's `production` environment uses a separate token for release
+   preflight and cache purge. It needs Zone Read, DNS Read, and Cache Purge for
+   `stack127.com`. The owner expanded its permissions across three zones on
+   24 September 2026; it currently has broader access than the release needs.
 
-Do not replace the narrow CI token with the broad administration token. Do not
-use Cloudflare User API tokens for either purpose.
+Do not replace the CI token with the local administration token. Narrow the CI
+token when practical. Do not use Cloudflare User API tokens for either purpose.
 
 ## Amazon Associates
 

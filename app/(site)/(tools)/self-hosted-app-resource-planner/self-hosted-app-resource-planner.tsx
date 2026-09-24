@@ -129,6 +129,7 @@ function ResourceBar({
 
 export function SelfHostedAppResourcePlanner() {
   const [appIndex, setAppIndex] = useState<ResourcePlannerAppSummary[]>([]);
+  const [appQuery, setAppQuery] = useState("");
   const [loadingIndex, setLoadingIndex] = useState(false);
   const [indexError, setIndexError] = useState(false);
   const [input, setInput] = useState<ResourcePlannerInput>(inputDefaults);
@@ -149,20 +150,35 @@ export function SelfHostedAppResourcePlanner() {
     uiOption("custom", "Custom app", "Range optional"),
   ], [appIndex]);
 
-  async function loadAppIndex() {
-    if (appIndex.length || loadingIndex) return;
+  useEffect(() => {
+    const query = appQuery.trim().toLowerCase();
+    if (query.length < 2) {
+      setAppIndex([]);
+      setLoadingIndex(false);
+      setIndexError(false);
+      return;
+    }
+
+    const controller = new AbortController();
+    let active = true;
+    setAppIndex([]);
     setLoadingIndex(true);
     setIndexError(false);
-    try {
-      const response = await fetch("/api/resource-planner-index");
-      if (!response.ok) throw new Error("App list unavailable");
-      setAppIndex(await response.json() as ResourcePlannerAppSummary[]);
-    } catch {
-      setIndexError(true);
-    } finally {
-      setLoadingIndex(false);
-    }
-  }
+    const timer = window.setTimeout(async () => {
+      try {
+        const response = await fetch(`/api/resource-planner-index?q=${encodeURIComponent(query)}`, { signal: controller.signal });
+        if (!response.ok) throw new Error("App search unavailable");
+        const matches = await response.json() as ResourcePlannerAppSummary[];
+        if (active) setAppIndex(matches);
+      } catch {
+        if (active) setIndexError(true);
+      } finally {
+        if (active) setLoadingIndex(false);
+      }
+    }, 200);
+
+    return () => { active = false; controller.abort(); window.clearTimeout(timer); };
+  }, [appQuery]);
 
   useEffect(() => {
     if (!focusResult.current || !calculated) return;
@@ -209,6 +225,7 @@ export function SelfHostedAppResourcePlanner() {
       rows: [...current.rows, emptyRow(`row-${Date.now()}-${current.rows.length}`, kind, kind === "curated" ? selectedApp : "")],
     }));
     setSelectedApp(null);
+    setAppQuery("");
   }
 
   function removeRow(id: string) {
@@ -258,6 +275,7 @@ export function SelfHostedAppResourcePlanner() {
   function reset() {
     setInput(inputDefaults());
     setSelectedApp(null);
+    setAppQuery("");
     setCalculated(null);
     setErrors({});
     setStatus("Plan reset.");
@@ -283,12 +301,12 @@ export function SelfHostedAppResourcePlanner() {
             <p>Choose the services you want to compare.</p>
           </div>
           <UiComboBox
-            description={indexError ? "App list unavailable. Open the menu to retry, or add a custom app." : loadingIndex ? "Loading published apps…" : undefined}
+            description={indexError ? "App search unavailable. Try typing again, or add a custom app." : loadingIndex ? "Searching published apps…" : appQuery.trim().length < 2 ? "Type at least two letters to search, or choose Custom app." : appIndex.length === 0 ? "No matching published apps. You can add a custom app." : appIndex.length === 50 ? "Showing 50 matches. Type more letters to narrow the list." : undefined}
             label="App to add"
             onChange={setSelectedApp}
-            onOpenChange={(open) => { if (open) void loadAppIndex(); }}
+            onInputChange={setAppQuery}
             options={appOptions}
-            placeholder="Choose a published app or custom row"
+            placeholder="Search published apps or choose custom"
             value={selectedApp}
           />
           <UiRepeatableList

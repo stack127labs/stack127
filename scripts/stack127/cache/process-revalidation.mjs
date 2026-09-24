@@ -2,9 +2,9 @@ import { createHmac } from "node:crypto";
 import pg from "pg";
 import { targetsForEvents } from "./targets.mjs";
 
-const { DATABASE_URL, CLOUDFLARE_API_TOKEN, CLOUDFLARE_ZONE_ID, SUPABASE_SECRET_KEY } = process.env;
+const { DATABASE_URL, CLOUDFLARE_API_TOKEN, CLOUDFLARE_ZONE_ID } = process.env;
 const siteUrl = (process.env.STACK127_SITE_URL || "https://stack127.com").replace(/\/$/, "");
-if (!DATABASE_URL || !CLOUDFLARE_API_TOKEN || !CLOUDFLARE_ZONE_ID || !SUPABASE_SECRET_KEY) {
+if (!DATABASE_URL || !CLOUDFLARE_API_TOKEN || !CLOUDFLARE_ZONE_ID) {
   throw new Error("Database, Cloudflare, and revalidation credentials are required.");
 }
 
@@ -17,7 +17,10 @@ async function request(url, options = {}) {
 }
 
 async function invalidateNext(targets) {
-  const token = createHmac("sha256", SUPABASE_SECRET_KEY).update("stack127-cache-revalidation-v1").digest("hex");
+  const result = await pool.query("select signing_key from public.stack127_cache_credentials where id = true");
+  const signingKey = result.rows[0]?.signing_key;
+  if (!signingKey) throw new Error("Cache signing key is missing from the database.");
+  const token = createHmac("sha256", signingKey).update("stack127-cache-revalidation-v1").digest("hex");
   await request(`${siteUrl}/api/cache/revalidate`, {
     method: "POST",
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
@@ -34,7 +37,7 @@ async function purgeCloudflare(tags) {
       body: JSON.stringify({ tags: batch }),
     });
     const result = await response.json();
-    if (!result.success) throw new Error("Cloudflare rejected a tag purge.");
+    if (!result.success) throw new Error(`Cloudflare rejected a tag purge: ${JSON.stringify(result.errors ?? [])}`);
   }
 }
 
@@ -125,7 +128,9 @@ try {
   const processed = await processEvents();
   const warmed = await warmPages();
   const pending = await pool.query("select count(*)::int as count from public.stack127_revalidation_events");
-  console.log(JSON.stringify({ processed, warmed, pending: pending.rows[0].count }));
+  if (processed || warmed || pending.rows[0].count) {
+    console.log(JSON.stringify({ processed, warmed, pending: pending.rows[0].count }));
+  }
 } finally {
   await pool.end();
 }

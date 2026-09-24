@@ -9,7 +9,9 @@ const response = await fetch(`https://api.cloudflare.com/client/v4/zones/${zone}
   signal: AbortSignal.timeout(20000),
 });
 const result = await response.json();
-if (!response.ok || !result.success) throw new Error("Release cache purge failed.");
+if (!response.ok || !result.success) {
+  throw new Error(`Release cache purge failed: HTTP ${response.status} ${JSON.stringify(result.errors ?? [])}`);
+}
 
 for (const path of ["/", "/dns-tools", "/self-host-apps", "/self-hosted-app-resource-planner"]) {
   const warm = await fetch(`https://stack127.com${path}`, { signal: AbortSignal.timeout(20000) });
