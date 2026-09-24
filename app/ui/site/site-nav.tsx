@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { BrandWordmark } from "./brand-wordmark";
-import { LinkPending } from "./link-pending";
+import { NavigationFeedback } from "./navigation-feedback";
 import { ThemeToggle } from "./theme-toggle";
 import styles from "./site-nav.module.css";
 
@@ -12,34 +13,35 @@ export function SiteNav() {
           <BrandWordmark />
         </Link>
         <div className={styles.links}>
-          <Link href="/">explore<LinkPending /></Link>
+          <Link href="/">explore</Link>
           <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
             ·
           </span>
-          <Link className={styles.secondaryLink} href="/dns-tools">dns tools<LinkPending /></Link>
+          <Link className={styles.secondaryLink} href="/dns-tools">dns tools</Link>
           <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
             ·
           </span>
           <Link className={styles.secondaryLink} href="/domain-tools">
-            domain tools<LinkPending />
+            domain tools
           </Link>
           <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
             ·
           </span>
           <Link className={styles.secondaryLink} href="/storage-tools">
-            storage tools<LinkPending />
+            storage tools
           </Link>
           <span aria-hidden="true" className={`${styles.dot} ${styles.secondaryLink}`}>
             ·
           </span>
           <Link className={styles.secondaryLink} href="/labs">
-            labs<LinkPending />
+            labs
           </Link>
         </div>
         <div className={styles.actions}>
           <ThemeToggle />
         </div>
       </nav>
+      <Suspense fallback={null}><NavigationFeedback /></Suspense>
     </header>
   );
 }

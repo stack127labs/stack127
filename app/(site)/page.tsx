@@ -22,7 +22,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
-import { LinkPending } from "@/app/ui/site/link-pending";
 import type { ReactNode } from "react";
 import "./home.css";
 import { siteSpotCliAppsArt } from "./art/site--spot-cli-apps";
@@ -182,7 +181,6 @@ function HomePageCard({
 
   return (
     <Link className="home-page-card" href={pathFromSlug(page.slug)} prefetch={false}>
-      <LinkPending />
       <span className={art ? "home-page-card-art" : "home-page-card-art home-page-card-art-icon"} aria-hidden="true">
         {art ? <Doodle svg={art} /> : Icon ? <Icon size={64} strokeWidth={1.4} /> : null}
       </span>

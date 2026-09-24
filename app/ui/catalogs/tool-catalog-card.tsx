@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Doodle } from "@/app/ui/site/doodle";
-import { LinkPending } from "@/app/ui/site/link-pending";
 import { toolCatalogArt } from "@/lib/tool-catalog-art";
 import { toolCatalogIcon } from "@/lib/tool-catalog-icons";
 import type { ToolCatalogSummary } from "@/lib/tool-catalogs";
@@ -13,7 +12,6 @@ export function ToolCatalogCard({ catalog }: { catalog: ToolCatalogSummary }) {
 
   return (
     <Link className={styles.card} href={`/${page.slug}`} prefetch={false}>
-      <LinkPending />
       <span className={styles.art} aria-hidden="true">
         {art ? <Doodle svg={art} /> : <Icon size={64} strokeWidth={1.4} />}
       </span>
