@@ -106,11 +106,15 @@ export type DirectoryAppIndex = Pick<
   | "slug"
   | "name"
   | "summary"
+  | "icon_url"
   | "license"
   | "license_spdx_id"
   | "source_model"
+  | "pricing_model"
   | "publisher_name"
   | "maintenance_status"
+  | "release_published_at"
+  | "github_last_commit_at"
   | "docker_support"
   | "compose_support"
   | "requires_database"
@@ -450,11 +454,15 @@ async function loadDirectoryAppIndexBatch(
         app.slug,
         app.name,
         app.summary,
+        app.icon_url,
         app.license,
         app.license_spdx_id,
         app.source_model,
+        app.pricing_model,
         app.publisher_name,
         app.maintenance_status,
+        app.release_published_at,
+        coalesce(github_project.last_commit_at, app.source_last_commit_at, app.github_last_commit_at) as github_last_commit_at,
         app.docker_support,
         app.compose_support,
         app.requires_database,
@@ -486,6 +494,7 @@ async function loadDirectoryAppIndexBatch(
         ) as install_methods,
         coalesce(category_set.categories, '[]'::jsonb) as categories
       from public.self_host_apps app
+      left join public.github_projects github_project on github_project.id = app.github_project_id
       left join public.self_host_app_resource_estimates resource_estimate on resource_estimate.app_id = app.id
       left join public.self_host_app_install_options install_option on install_option.app_id = app.id
       left join lateral (

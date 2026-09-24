@@ -1,4 +1,4 @@
-import type { DirectoryApp } from "./apps";
+import type { DirectoryApp, DirectoryAppIndex } from "./apps";
 
 export type DirectoryAppCardData = Pick<DirectoryApp,
   "slug" | "name" | "summary" | "icon_url" | "categories" | "maintenance_status" |
@@ -13,9 +13,9 @@ export type DirectoryAppCardData = Pick<DirectoryApp,
   storage_estimated: boolean;
 };
 
-export function directoryAppCard(app: DirectoryApp): DirectoryAppCardData {
-  const ram = app.resource_estimates?.ram;
-  const storage = app.resource_estimates?.storage;
+export function directoryAppCard(app: DirectoryAppIndex): DirectoryAppCardData {
+  const ram = app.ram_estimate_min_mb;
+  const storage = app.storage_estimate_min_gb;
   return {
     slug: app.slug,
     name: app.name,
@@ -36,9 +36,9 @@ export function directoryAppCard(app: DirectoryApp): DirectoryAppCardData {
     storage_researched: app.storage_researched,
     release_published_at: app.release_published_at,
     github_last_commit_at: app.github_last_commit_at,
-    ram_estimate_min_mb: ram ? ram.estimate_min * (ram.unit === "gb" ? 1024 : 1) : null,
-    storage_estimate_min_gb: storage?.estimate_min ?? null,
-    ram_estimated: app.ram_min_mb === null && app.ram_recommended_mb === null && app.ram_default_limit_mb === null && Boolean(ram),
-    storage_estimated: app.storage_min_gb === null && Boolean(storage),
+    ram_estimate_min_mb: ram,
+    storage_estimate_min_gb: storage,
+    ram_estimated: app.ram_min_mb === null && app.ram_recommended_mb === null && app.ram_default_limit_mb === null && ram !== null,
+    storage_estimated: app.storage_min_gb === null && storage !== null,
   };
 }

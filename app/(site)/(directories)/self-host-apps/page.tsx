@@ -5,7 +5,7 @@ import { HardDrive, Search } from "lucide-react";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { FaGithub } from "react-icons/fa6";
-import { getDirectoryAppIndex, getDirectoryAppsBySlugs, type DirectoryAppIndex } from "@/lib/apps";
+import { getDirectoryAppIndex, type DirectoryAppIndex } from "@/lib/apps";
 import { directoryAppCard } from "@/lib/apps-card";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import {
@@ -558,7 +558,6 @@ export default async function SelfHostAppsPage({
   const currentPage = Math.min(getPage(params), totalPages);
   const startIndex = (currentPage - 1) * pageSize;
   const paginatedIndexApps = filteredApps.slice(startIndex, startIndex + pageSize);
-  const paginatedApps = await getDirectoryAppsBySlugs(paginatedIndexApps.map((app) => app.slug));
   const categoryOptions = [...new Map(
     indexApps
       .flatMap((app) => app.categories)
@@ -736,9 +735,9 @@ export default async function SelfHostAppsPage({
             params={params}
           />
 
-          {paginatedApps.length > 0 ? (
+          {paginatedIndexApps.length > 0 ? (
             <>
-              <DirectoryAppBrowser apps={paginatedApps.map(directoryAppCard)} />
+              <DirectoryAppBrowser apps={paginatedIndexApps.map(directoryAppCard)} />
               {totalPages > 1 ? (
                 <Pagination ariaLabel="Self-hosted app pages" currentPage={currentPage} hrefForPage={(page) => pageHref(params, page)} totalPages={totalPages} />
               ) : null}
