@@ -65,7 +65,19 @@ async function processEvents() {
       { entity_type: "self_host_catalog", slug: "all" },
     ];
   }
-  const targets = targetsForEvents(targetEvents);
+  // Catalog sidebars appear on every catalog page. Purge those pages whenever
+  // a registry page changes so additions, removals, and card edits are visible.
+  let catalogSlugs = [];
+  if (targetEvents.some((event) => event.entity_type === "page")) {
+    const catalogs = await pool.query(`
+      select page.slug
+      from public.stack127_pages page
+      join public.stack127_tool_catalogs catalog on catalog.page_id = page.id
+      where page.is_published
+    `);
+    catalogSlugs = catalogs.rows.map((row) => row.slug);
+  }
+  const targets = targetsForEvents(targetEvents, catalogSlugs);
   try {
     await invalidateNext(targets);
     await purgeCloudflare(targets.edgeTags);

@@ -1,7 +1,7 @@
 const clean = (value) => String(value ?? "").replace(/^\/+|\/+$/g, "").toLowerCase();
 const pageTag = (path) => `page:${clean(path).replaceAll("/", ":") || "home"}`;
 
-export function targetsForEvents(events) {
+export function targetsForEvents(events, catalogSlugs = []) {
   const paths = new Set();
   const nextTags = new Set();
   const edgeTags = new Set();
@@ -18,6 +18,8 @@ export function targetsForEvents(events) {
       addPage(slug ? `/${slug}` : "/");
       nextTags.add(`stack127-page:${slug || "home"}`);
       nextTags.add(`stack127-tool-page:${slug}`);
+      nextTags.add(`stack127-tool-catalog:${slug}`);
+      nextTags.add("stack127-tool-catalogs");
       nextTags.add("stack127-home-pages");
       nextTags.add("stack127-sitemap-pages");
       addPage("/");
@@ -44,6 +46,13 @@ export function targetsForEvents(events) {
       addPage("/");
     } else {
       throw new Error(`Unknown cache event type: ${event.entity_type}`);
+    }
+  }
+  if (events.some((event) => event.entity_type === "page")) {
+    for (const slug of catalogSlugs) {
+      const catalogSlug = clean(slug);
+      addPage(`/${catalogSlug}`);
+      nextTags.add(`stack127-tool-catalog:${catalogSlug}`);
     }
   }
   return { paths: [...paths], nextTags: [...nextTags], edgeTags: [...edgeTags], warmPaths: [...warmPaths] };

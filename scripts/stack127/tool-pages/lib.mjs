@@ -61,6 +61,9 @@ function envFileValue(filePath, requestedKey) {
 }
 
 export function resolveDatabaseUrl(args) {
+  if (args.apply !== undefined && args.apply !== true) {
+    throw new Error("--apply is a flag and does not accept a value");
+  }
   const environment = args.environment ?? "development";
   if (!["development", "production"].includes(environment)) {
     throw new Error("--environment must be development or production");
@@ -75,14 +78,19 @@ export function resolveDatabaseUrl(args) {
   }
 
   const envFile = environment === "production" ? ".env.database" : ".env.local";
-  const databaseUrl = envFileValue(envFile, "DATABASE_URL");
+  const databaseUrl = envFileValue(envFile, "DATABASE_POOLER_URL")
+    || envFileValue(envFile, "DATABASE_URL");
   if (!databaseUrl) {
-    throw new Error(`DATABASE_URL is required in ${envFile}`);
+    throw new Error(`DATABASE_POOLER_URL or DATABASE_URL is required in ${envFile}`);
   }
 
   if (environment === "development") {
-    const productionUrl = envFileValue(".env.database", "DATABASE_URL");
-    if (productionUrl && databaseUrl === productionUrl) {
+    const productionUrl = envFileValue(".env.database", "DATABASE_POOLER_URL")
+      || envFileValue(".env.database", "DATABASE_URL");
+    const developmentProject = envFileValue(".env.local", "SUPABASE_URL");
+    const productionProject = envFileValue(".env.database", "SUPABASE_URL");
+    if ((productionUrl && databaseUrl === productionUrl)
+      || (developmentProject && productionProject && developmentProject === productionProject)) {
       throw new Error("Refusing development mode because .env.local points to production");
     }
   }

@@ -2,8 +2,6 @@
 export const homePageSlugs = [
   "about",
   "cli-apps",
-  "dns-tools",
-  "domain-tools",
   "epp-status-codes",
   "keyboard-shortcuts",
   "labs",
@@ -14,7 +12,6 @@ export const homePageSlugs = [
   "self-host-apps",
   "self-hosting-for-beginners",
   "software-licenses-for-self-hosting",
-  "storage-tools",
   "terms",
   "tld-directory",
   "z-wave-devices",

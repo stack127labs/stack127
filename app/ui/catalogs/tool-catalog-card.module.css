@@ -1,0 +1,89 @@
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-text);
+  display: grid;
+  gap: var(--space-7);
+  grid-template-rows: auto 1fr auto;
+  padding: var(--space-9);
+  text-decoration: none;
+  transition: border-color var(--motion-base);
+}
+
+.card:hover {
+  border-color: var(--color-accent);
+}
+
+.card:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.art {
+  align-items: center;
+  color: var(--color-accent-text);
+  display: flex;
+  justify-content: center;
+  min-height: 130px;
+  padding: var(--space-4) 0 0;
+}
+
+.art svg {
+  height: auto;
+  width: 148px;
+}
+
+.art > svg:not([data-marker-art]) {
+  height: 64px;
+  width: 64px;
+}
+
+.copy {
+  align-content: start;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.title {
+  align-items: center;
+  color: var(--color-link);
+  display: flex;
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  gap: var(--space-4);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-heading);
+  margin: 0;
+  text-transform: lowercase;
+}
+
+.title svg {
+  color: var(--color-text-muted);
+  flex: 0 0 auto;
+}
+
+.description {
+  font-size: var(--text-small);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.count {
+  border-top: 1px dashed var(--color-border);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  padding-top: var(--space-4);
+}
+
+.card:hover .title svg {
+  color: var(--color-accent-text);
+}
+
+.card:hover .title,
+.card:focus-visible .title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

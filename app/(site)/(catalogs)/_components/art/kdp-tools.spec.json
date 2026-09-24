@@ -1,0 +1,13 @@
+{
+  "id": "catalog--kdp-tools",
+  "type": "toolSpot",
+  "takeaway": "An open book stands for checking a KDP book before publication.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-24",
+  "width": 140,
+  "height": 110,
+  "seed": 253,
+  "data": {
+    "icon": "openBook"
+  }
+}

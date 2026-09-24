@@ -50,8 +50,17 @@ separate production verification confirms that no deployed code or operational s
 | `stack127_repo_commit_sha` | Exact verified commit in that stack127 repo. |
 | `stack127_repo_synced_at` | Time the hosted and repository implementations were actually compared or synchronized. |
 | `row_updated_at` | Automatic internal time for any tool-row write. Do not set it manually. |
+| `card_name` | Short name shown on tool catalog cards and tool family sidebars. |
+| `card_description` | Short task-focused description shared by every catalog card for this tool. |
+| `card_icon_key` | Approved icon key for tool navigation. |
+| `card_art_key` | Approved marker-art key for catalog cards. |
 
 The `stack127_repo_*` fields describe repositories owned by stack127. They are unrelated to `public.github_projects`, which stores third-party repository facts used by directories.
+
+Tool catalog content and memberships are documented in [tool-catalogs.md](tool-catalogs.md). A tool may appear in several catalogs; its rank-1 membership is the primary one. Card edits touch every linked catalog's public update date and queue those pages for revalidation.
+Card edits also touch the tool's public update date because its name appears in tool navigation. They do not change `content_revision`, which tracks the tool page heading and Markdown.
+
+The tool integration stage updates the shared card fields and complete ordered catalog list with `npm run stack127:tool-page:catalogs:update`. It is dry-run by default, uses `.env.local` for development, and needs `--apply` to write. The first catalog has rank 1. Omitted display orders append new tools and preserve the position of existing memberships. See [tool-catalogs.md](tool-catalogs.md) for the command and checks.
 
 ## Markdown boundary
 

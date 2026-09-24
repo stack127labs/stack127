@@ -16,5 +16,6 @@ Define:
 - one primary action and the important state changes;
 - a few independently calculated examples that the builder can use for correctness checks;
 - route, engine, component, style, script, and content ownership.
+- one primary catalog and any secondary catalogs, with a short reason for each; flag a missing catalog for the main agent to create through the catalog page workflow.
 
 Keep the contract specific enough to build without reopening research. Do not create requirement IDs, fingerprints, validators, receipts, code, or tests.

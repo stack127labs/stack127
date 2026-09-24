@@ -38,6 +38,10 @@ Add a small set of independently calculated normal, boundary, and invalid exampl
 
 List the route, engine, component, styles, focused test, script, and content row.
 
+### Catalog placement
+
+Name the primary tool catalog and any secondary catalogs in rank order. Explain the reader task that makes each placement useful. If no suitable catalog exists, flag the new catalog for the main agent to plan before integration. Do not substitute a loosely related catalog just to fill this field.
+
 ## Interface
 
 ### Flow

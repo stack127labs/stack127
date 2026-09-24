@@ -56,6 +56,12 @@
   width: 100%;
 }
 
+.icon svg {
+  color: var(--color-accent-text);
+  width: 64px;
+  height: 64px;
+}
+
 .copy {
   align-content: start;
   display: grid;

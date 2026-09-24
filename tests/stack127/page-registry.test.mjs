@@ -31,7 +31,7 @@ test("isMainPageSlug accepts only published root pages", () => {
   assert.equal(isMainPageSlug("home-assistant-energy-entity-checker"), false);
   assert.equal(isMainPageSlug("nginx-proxy-pass-calculator"), false);
   assert.equal(isMainPageSlug("nfs-firewall-rules"), false);
-  assert.equal(isHomePageSlug("storage-tools"), true);
+  assert.equal(isHomePageSlug("storage-tools"), false);
 });
 
 test("isHomeFeaturePage excludes legal and about utility pages", () => {

@@ -224,6 +224,27 @@ export const ICONS = {
     A.line(cx - 0.22 * s, cy - 0.08 * s, cx + 0.2 * s, cy - 0.08 * s, { stroke: tone });
     A.line(cx - 0.22 * s, cy + 0.14 * s, cx + 0.24 * s, cy + 0.14 * s, { stroke: tone });
   },
+  openBook(A, cx, cy, s, tone = "@ink") {
+    A.polygon([
+      [cx, cy - 0.34 * s],
+      [cx - 0.22 * s, cy - 0.43 * s],
+      [cx - 0.75 * s, cy - 0.37 * s],
+      [cx - 0.75 * s, cy + 0.38 * s],
+      [cx - 0.22 * s, cy + 0.34 * s],
+      [cx, cy + 0.45 * s],
+    ], { stroke: tone });
+    A.polygon([
+      [cx, cy - 0.34 * s],
+      [cx + 0.22 * s, cy - 0.43 * s],
+      [cx + 0.75 * s, cy - 0.37 * s],
+      [cx + 0.75 * s, cy + 0.38 * s],
+      [cx + 0.22 * s, cy + 0.34 * s],
+      [cx, cy + 0.45 * s],
+    ], { stroke: tone });
+    A.line(cx, cy - 0.34 * s, cx, cy + 0.45 * s, { stroke: "@primary" });
+    A.line(cx - 0.75 * s, cy + 0.45 * s, cx - 0.22 * s, cy + 0.41 * s, { stroke: "@sub" });
+    A.line(cx + 0.22 * s, cy + 0.41 * s, cx + 0.75 * s, cy + 0.45 * s, { stroke: "@sub" });
+  },
   tag(A, cx, cy, s, tone = "@ink") {
     A.polygon([
       [cx - 0.5 * s, cy - 0.18 * s],

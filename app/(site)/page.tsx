@@ -13,8 +13,6 @@ import {
   HardDrive,
   Keyboard,
   FlaskConical,
-  Layers3,
-  Network,
   Radio,
   RadioTower,
   ListChecks,
@@ -29,8 +27,6 @@ import type { ReactNode } from "react";
 import "./home.css";
 import { siteSpotCliAppsArt } from "./art/site--spot-cli-apps";
 import { siteSpotCourseArt } from "./art/site--spot-course";
-import { siteSpotDnsToolsArt } from "./art/site--spot-dns-tools";
-import { siteSpotDomainToolsArt } from "./art/site--spot-domain-tools";
 import { siteSpotLicensesArt } from "./art/site--spot-licenses";
 import { siteSpotLabsArt } from "./art/site--spot-labs";
 import { siteSpotKeyboardShortcutsArt } from "./art/site--spot-keyboard-shortcuts";
@@ -44,7 +40,9 @@ import { shortcutAppCatalog } from "@/lib/shortcuts/catalog.generated";
 import { STATUS_CODES } from "@/lib/domain/status-codes";
 import tldDirectory from "@/lib/domain/data/tld-directory.json";
 import { labProjects } from "./labs/projects";
-import { siteSpotStorageToolsArt } from "./art/site--spot-storage-tools";
+import { getPublishedToolCatalogs, type ToolCatalogSummary } from "@/lib/tool-catalogs";
+import { toolCatalogIcon } from "@/lib/tool-catalog-icons";
+import { ToolCatalogCard } from "@/app/ui/catalogs/tool-catalog-card";
 import { getSelfHostAppsStats } from "@/lib/apps";
 import {
   getMainPublishedPages,
@@ -60,9 +58,6 @@ import { AppShell, SidebarLabel } from "../ui/site/app-shell";
 import { Doodle } from "../ui/site/doodle";
 import { EntryHero } from "../ui/site/entry-hero";
 import { SidebarList } from "../ui/site/sidebar-list";
-import { dnsToolCount } from "./(catalogs)/dns-tools/dns-tools-sidebar";
-import { domainToolCount, domainReferenceCount } from "./(catalogs)/domain-tools/domain-tools-sidebar";
-import { storageToolCount } from "./(catalogs)/storage-tools/storage-tools-sidebar";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
@@ -81,8 +76,6 @@ const legalSlugs = new Set(["about", "privacy", "terms"]);
 /** Monochrome icon per feature page; unknown slugs fall back to the chevron. */
 const pageIcons: Record<string, LucideIcon> = {
   "cli-apps": SquareTerminal,
-  "dns-tools": Network,
-  "domain-tools": Globe,
   "epp-status-codes": ListChecks,
   "labs": FlaskConical,
   "local-security-cameras": Camera,
@@ -92,7 +85,6 @@ const pageIcons: Record<string, LucideIcon> = {
   "keyboard-shortcuts": Keyboard,
   "self-hosting-for-beginners": BookOpen,
   "software-licenses-for-self-hosting": Scale,
-  "storage-tools": Layers3,
   "tld-directory": Globe,
   "z-wave-devices": Radio,
   "zigbee-coordinators": RadioTower,
@@ -108,19 +100,16 @@ const pageArt: Record<string, string> = {
   "matter-devices": siteSpotMatterDevicesArt,
   "z-wave-devices": siteSpotZWaveDevicesArt,
   "cli-apps": siteSpotCliAppsArt,
-  "dns-tools": siteSpotDnsToolsArt,
-  "domain-tools": siteSpotDomainToolsArt,
   "epp-status-codes": eppStatusArt,
   "keyboard-shortcuts": siteSpotKeyboardShortcutsArt,
   "labs": siteSpotLabsArt,
   "self-host-apps": siteSpotSelfHostAppsArt,
   "self-hosting-for-beginners": siteSpotCourseArt,
   "software-licenses-for-self-hosting": siteSpotLicensesArt,
-  "storage-tools": siteSpotStorageToolsArt,
   "tld-directory": tldDirectoryArt,
 };
 
-function HomeSidebar({ pages }: { pages: Stack127Page[] }) {
+function HomeSidebar({ pages, catalogs }: { pages: Stack127Page[]; catalogs: Map<string, ToolCatalogSummary> }) {
   return (
     <div className={`${sidebarPanelClassName} home-sidebar-panel`}>
       <div className={sidebarPanelHeadingClassName}>
@@ -131,7 +120,8 @@ function HomeSidebar({ pages }: { pages: Stack127Page[] }) {
           items={pages
             .filter((page) => !legalSlugs.has(page.slug))
             .map((page) => {
-              const Icon = pageIcons[page.slug];
+              const catalog = catalogs.get(page.slug);
+              const Icon = catalog ? toolCatalogIcon(catalog.icon_key) : pageIcons[page.slug];
 
               return {
                 href: pathFromSlug(page.slug),
@@ -176,18 +166,6 @@ async function buildCardStats(
     return [{ label: "licenses", value: licenses.length.toLocaleString("en-US") }];
   }
 
-  if (page.slug === "dns-tools") {
-    return [{ label: "tools", value: dnsToolCount.toLocaleString("en-US") }];
-  }
-
-  if (page.slug === "domain-tools") {
-    return [metric("tools", domainToolCount), metric("references", domainReferenceCount)];
-  }
-
-  if (page.slug === "storage-tools") {
-    return [{ label: "tools", value: storageToolCount.toLocaleString("en-US") }];
-  }
-
   throw new Error(`Home card metric is missing for ${page.slug}`);
 }
 
@@ -205,8 +183,8 @@ function HomePageCard({
   return (
     <Link className="home-page-card" href={pathFromSlug(page.slug)} prefetch={false}>
       <LinkPending />
-      <span className="home-page-card-art" aria-hidden="true">
-        <Doodle svg={art} />
+      <span className={art ? "home-page-card-art" : "home-page-card-art home-page-card-art-icon"} aria-hidden="true">
+        {art ? <Doodle svg={art} /> : Icon ? <Icon size={64} strokeWidth={1.4} /> : null}
       </span>
       <div className="home-page-card-copy">
         <h2>
@@ -284,21 +262,26 @@ function startHereItems(featureSlugs: Set<string>): { key: string; node: ReactNo
 }
 
 export default async function Home() {
-  const [homePage, mainPages, appStats] = await Promise.all([
+  const [homePage, mainPages, appStats, toolCatalogs] = await Promise.all([
     getRequiredPublishedPage(""),
     getMainPublishedPages(),
     getSelfHostAppsStats(),
+    getPublishedToolCatalogs(),
   ]);
-  const visibleMainPages = mainPages.filter(isHomeVisiblePage);
-  const featurePages = visibleMainPages.filter(isHomeFeaturePage);
+  const catalogBySlug = new Map(toolCatalogs.map((catalog) => [catalog.page.slug, catalog]));
+  const visibleMainPages = [
+    ...mainPages.filter(isHomeVisiblePage),
+    ...toolCatalogs.map((catalog) => catalog.page),
+  ].sort((left, right) => Number(right.sitemap_priority) - Number(left.sitemap_priority) || left.label.localeCompare(right.label));
+  const featurePages = mainPages.filter((page) => isHomeVisiblePage(page) && isHomeFeaturePage(page));
   const cardStats = await Promise.all(featurePages.map((page) => buildCardStats(page, appStats)));
-  const startItems = startHereItems(new Set(featurePages.map((page) => page.slug)));
+  const startItems = startHereItems(new Set([...featurePages.map((page) => page.slug), ...toolCatalogs.map((catalog) => catalog.page.slug)]));
 
   return (
     <AppShell
       mainLabel="Home"
       menuLabel="Pages"
-      sidebar={<HomeSidebar pages={visibleMainPages} />}
+      sidebar={<HomeSidebar pages={visibleMainPages} catalogs={catalogBySlug} />}
       sidebarLabel="Home sidebar"
     >
       <EntryHero art={siteHeroStack127Art}>
@@ -313,15 +296,25 @@ export default async function Home() {
         </header>
       </EntryHero>
       <PageCanvas as="section" flow className="home-main" aria-labelledby="home-title">
-        <div className="home-page-grid">
-          {featurePages.map((page, index) => (
-            <HomePageCard
-              key={page.slug}
-              page={page}
-              stats={cardStats[index]}
-            />
-          ))}
-        </div>
+        {toolCatalogs.length > 0 ? (
+          <section className="home-catalogs" aria-labelledby="home-catalogs-title">
+            <h2 id="home-catalogs-title">Tool catalogs</h2>
+            <div className="home-page-grid">
+              {toolCatalogs.map((catalog) => <ToolCatalogCard key={catalog.page.slug} catalog={catalog} />)}
+            </div>
+          </section>
+        ) : null}
+
+        {featurePages.length > 0 ? (
+          <section className="home-resources" aria-labelledby="home-resources-title">
+            <h2 id="home-resources-title">More to explore</h2>
+            <div className="home-page-grid">
+              {featurePages.map((page, index) => (
+                <HomePageCard key={page.slug} page={page} stats={cardStats[index]} />
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         {startItems.length > 0 ? (
           <section className="home-start" aria-labelledby="home-start-title">
