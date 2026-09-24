@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Inter, Shantell_Sans, Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 import { getUmamiConfig } from "@/lib/analytics";
 import { getGoogleAnalyticsConfig } from "@/lib/google-analytics";
 import { absoluteUrl, defaultDescription, siteName, siteUrl } from "@/lib/seo";
@@ -11,35 +11,39 @@ import "./globals.css";
 export const dynamic = "force-dynamic";
 
 // handwritten font used only inside marker art figures
-const markerFont = Shantell_Sans({
+const markerFont = localFont({
+  src: "./fonts/shantell.woff2",
   display: "swap",
-  subsets: ["latin"],
+  preload: false,
   variable: "--font-marker",
-  weight: ["500", "700"],
+  weight: "500 700",
 });
 
 // display font for headings and titles
-const displayFont = Space_Grotesk({
+const displayFont = localFont({
+  src: "./fonts/space.woff2",
   display: "swap",
-  subsets: ["latin"],
   variable: "--font-space-grotesk",
-  weight: ["500", "700"],
+  weight: "500 700",
 });
 
 // body font for everything else
-const bodyFont = Inter({
+const bodyFont = localFont({
+  src: "./fonts/inter.woff2",
   display: "swap",
-  subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["400", "600"],
+  weight: "400 600",
 });
 
 // mono font for data, metadata, and code
-const monoFont = IBM_Plex_Mono({
+const monoFont = localFont({
+  src: [
+    { path: "./fonts/plex-400.woff2", weight: "400" },
+    { path: "./fonts/plex-600.woff2", weight: "600" },
+  ],
   display: "swap",
-  subsets: ["latin"],
+  preload: false,
   variable: "--font-ibm-plex-mono",
-  weight: ["400", "600"],
 });
 
 const fontVariables = [

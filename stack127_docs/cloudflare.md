@@ -71,9 +71,11 @@ Its Web Server settings record `dokploy.stack127.com` as the host with HTTPS ena
 
 ## Caching
 
-HTML is not cached at the edge. Dynamic pages keep the application's private or no-store response headers.
+Public document requests on `stack127.com` are cached for 60 seconds at the edge and 30 seconds in browsers. A Cache Rule opts in extensionless GET document paths, and a Cache Response Rule changes only successful `text/html` responses without `Set-Cookie` to `public, max-age=30, s-maxage=60`. Both rules exclude cookies, authorization, Next.js RSC requests and prefetches, API routes, and `/_next/`. Cloudflare keeps the full query string in its cache key. Unpublished and missing pages remain uncacheable 404s. Purge the hostname after a release or an urgent publication change; browser copies expire within 30 seconds.
 
-A cache rule covers only mutable static site assets under `/app-icons/`, `/logos/`, and the favicon and app-icon files:
+Only the public detail APIs under `/api/shortcuts/`, `/api/hardware-directory/`, `/api/resource-planner-app/`, and `/api/self-host-apps/` opt into edge caching. Successful static detail responses use five minutes in the browser and one hour at the edge; database-backed app details use one minute in the browser and five minutes at the edge. Their application headers determine TTL, and failed or unpublished responses use `no-store`. Navigation RSC responses and health endpoints stay dynamic.
+
+A cache rule covers mutable static site assets under `/app-icons/`, `/logos/`, and the favicon and app-icon files:
 
 - Edge TTL: 30 days for successful responses.
 - Browser TTL: 1 day.
@@ -156,7 +158,8 @@ curl -I 'https://dokploy.stack127.com/'
 Expected results:
 
 - `www` returns one `301` to the same path and query on the apex HTTPS host.
-- Public HTML returns `200` and `cf-cache-status: DYNAMIC`.
+- Repeated public HTML requests return `200`, `cache-control: max-age=30, s-maxage=60, public`, and eventually `cf-cache-status: HIT`.
+- RSC requests, requests with cookies or authorization, health checks, and 404s do not use the HTML cache.
 - A repeated static-asset request becomes a Cloudflare cache `HIT`.
 - Robots and sitemap remain public.
 - An unauthenticated Dokploy request returns a Cloudflare Access `302`, never the dashboard HTML.

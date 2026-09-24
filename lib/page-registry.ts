@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import { unstable_cache } from "next/cache";
 import { getPool } from "./db";
 import { readPublicData, selectPublicRows } from "./public-data-api";
 import { absoluteUrl, siteName, siteUrl } from "./seo";
@@ -144,6 +145,11 @@ async function queryPublishedPage(slug: string) {
   });
 }
 
+const cachedPublishedPage = unstable_cache(queryPublishedPage, ["stack127-published-page"], {
+  revalidate: 30,
+  tags: ["stack127-pages"],
+});
+
 function cleanPathname(pathname: string) {
   const pathOnly = pathname.split("?")[0]?.split("#")[0] ?? "/";
   const withLeadingSlash = pathOnly.startsWith("/") ? pathOnly : `/${pathOnly}`;
@@ -171,13 +177,13 @@ function ancestorSlugs(slug: string) {
 }
 
 export const getPublishedPage = cache(async (slug: string) => {
-  const page = await queryPublishedPage(slug);
+  const page = await cachedPublishedPage(slug);
   if (page) return page;
 
   const legacySlug = legacyToolSlugByFlatSlug.get(slug);
   if (!legacySlug) return null;
 
-  const legacyPage = await queryPublishedPage(legacySlug);
+  const legacyPage = await cachedPublishedPage(legacySlug);
 
   return legacyPage ? { ...legacyPage, slug } : null;
 });
@@ -231,7 +237,7 @@ export const getPagePublicationState = cache(
   },
 );
 
-export const getPublishedSitemapPages = cache(async () => {
+export const getPublishedSitemapPages = cache(unstable_cache(async () => {
   const rows = await readPublicData<Stack127Page[]>({
     dataApiRead: () => selectPublicRows<Stack127Page>("stack127_pages", {
       is_published: "eq.true",
@@ -262,13 +268,13 @@ export const getPublishedSitemapPages = cache(async () => {
   return [...pagesBySlug.values()].sort((left, right) =>
     left.slug.localeCompare(right.slug),
   );
-});
+}, ["stack127-sitemap-pages"], { revalidate: 60, tags: ["stack127-pages"] }));
 
 /**
  * Curated published pages for site-wide home navigation. URL depth is not
  * navigation metadata because tool pages intentionally use flat routes.
  */
-export const getMainPublishedPages = cache(async () => {
+export const getMainPublishedPages = cache(unstable_cache(async () => {
   return readPublicData<Stack127Page[]>({
     dataApiRead: () => selectPublicRows<Stack127Page>("stack127_pages", {
       is_published: "eq.true",
@@ -288,7 +294,7 @@ export const getMainPublishedPages = cache(async () => {
       return result.rows;
     },
   });
-});
+}, ["stack127-home-pages"], { revalidate: 30, tags: ["stack127-pages"] }));
 
 export function buildRegistryMetadata(state: PagePublicationState): Metadata {
   if (state.kind === "missing") {

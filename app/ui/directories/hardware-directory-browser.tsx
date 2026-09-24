@@ -5,37 +5,18 @@ import { DetailDialog, DetailDialogClose } from "@/app/ui/detail-dialog";
 
 import { Check, ExternalLink, ImageOff, PackageSearch } from "lucide-react";
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import type { HardwareDirectoryRecord } from "@/lib/hardware-directories";
+import { hardwareDirectoryCard, type HardwareDirectoryCardRecord } from "@/lib/hardware-directories/card";
 import styles from "./hardware-directory.module.css";
 import { HardwareFactCardContent, hardwareFactCardClassName, hardwareCardName } from "./hardware-fact-card";
-
-const unresolvedValue = /^(unknown|not recorded|no or unknown|not published)$/i;
 
 function MissingProductImage() {
   return <div className={styles.missingImage}><ImageOff aria-hidden="true" /><span>Product image not published</span></div>;
 }
 
-function getCardContent(record: HardwareDirectoryRecord) {
-  const compatibility = record.card?.compatibility ?? {
-    label: record.evidence[0]?.label ?? "Compatibility",
-    status: "reported" as const,
-    value: record.evidence[0]?.value ?? "Source record",
-  };
-  const preferred = record.card?.facts ?? record.stats;
-  const cardFacts = preferred.filter((fact) => fact.value && !unresolvedValue.test(fact.value)).slice(0, 2);
-  if (cardFacts.length < 2) {
-    for (const fact of record.facts) {
-      if (!fact.value || unresolvedValue.test(fact.value) || cardFacts.some((item) => item.label === fact.label)) continue;
-      cardFacts.push(fact);
-      if (cardFacts.length === 2) break;
-    }
-  }
-  return { cardFacts, compatibility };
-}
-
 function HardwareDetails({ record, onClose }: { record: HardwareDirectoryRecord; onClose: () => void }) {
-  const { compatibility } = getCardContent(record);
+  const { compatibility } = hardwareDirectoryCard(record);
   const detailSections = record.detail_sections?.length
     ? record.detail_sections
     : [{ facts: record.facts, heading: "Recorded details" }];
@@ -62,7 +43,7 @@ function HardwareDetails({ record, onClose }: { record: HardwareDirectoryRecord;
 
         <div className={styles.detailImageFrame}>
           {record.image_path
-            ? <Image alt={`${record.vendor} ${record.model}`} className={styles.detailImage} height={480} src={record.image_path} unoptimized width={480} />
+            ? <Image alt={`${record.vendor} ${record.model}`} className={styles.detailImage} height={480} src={record.image_path} sizes="480px" width={480} />
             : <MissingProductImage />}
         </div>
 
@@ -125,8 +106,8 @@ function HardwareDetails({ record, onClose }: { record: HardwareDirectoryRecord;
   );
 }
 
-function HardwareCard({ record, onSelect }: { record: HardwareDirectoryRecord; onSelect: () => void }) {
-  const { cardFacts, compatibility } = getCardContent(record);
+function HardwareCard({ record, onSelect }: { record: HardwareDirectoryCardRecord; onSelect: () => void }) {
+  const { cardFacts, compatibility } = record;
   return (
     <button aria-label={`View details for ${record.vendor} ${record.model}`} aria-haspopup="dialog" className={`directory-card ${hardwareFactCardClassName}`} onClick={onSelect} type="button">
       <HardwareFactCardContent name={hardwareCardName(record.name, record.vendor, record.model)} image={record.image_path}
@@ -135,11 +116,27 @@ function HardwareCard({ record, onSelect }: { record: HardwareDirectoryRecord; o
   );
 }
 
-export function HardwareDirectoryBrowser({ records }: { records: HardwareDirectoryRecord[] }) {
+export function HardwareDirectoryBrowser({ directory, records }: { directory: string; records: HardwareDirectoryCardRecord[] }) {
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const selected = useMemo(() => records.find((record) => record.slug === selectedSlug), [records, selectedSlug]);
+  const [detailsBySlug, setDetailsBySlug] = useState<Record<string, HardwareDirectoryRecord>>({});
+  const [loadError, setLoadError] = useState(false);
+  const selected = selectedSlug ? detailsBySlug[selectedSlug] : undefined;
 
-  const close = () => setSelectedSlug(null);
+  useEffect(() => {
+    if (!selectedSlug || detailsBySlug[selectedSlug]) return;
+    const controller = new AbortController();
+    setLoadError(false);
+    fetch(`/api/hardware-directory/${encodeURIComponent(directory)}/${encodeURIComponent(selectedSlug)}`, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error("Device details could not be loaded.");
+        return response.json() as Promise<HardwareDirectoryRecord>;
+      })
+      .then((record) => setDetailsBySlug((current) => ({ ...current, [record.slug]: record })))
+      .catch(() => { if (!controller.signal.aborted) setLoadError(true); });
+    return () => controller.abort();
+  }, [detailsBySlug, directory, selectedSlug]);
+
+  const close = () => { setSelectedSlug(null); setLoadError(false); };
 
   return (
     <>
@@ -147,6 +144,10 @@ export function HardwareDirectoryBrowser({ records }: { records: HardwareDirecto
         {records.map((record) => <HardwareCard key={record.slug} onSelect={() => setSelectedSlug(record.slug)} record={record} />)}
       </div>
       {selected ? <HardwareDetails onClose={close} record={selected} /> : null}
+      {selectedSlug && !selected ? <DetailDialog ariaLabel="Device details" onClose={close}>
+        <div className="app-detail-heading"><h2>Device details</h2><DetailDialogClose ariaLabel="Close device details" onClose={close} /></div>
+        <p role={loadError ? "alert" : "status"}>{loadError ? "Device details could not be loaded. Close this panel and try again." : "Loading device details…"}</p>
+      </DetailDialog> : null}
     </>
   );
 }

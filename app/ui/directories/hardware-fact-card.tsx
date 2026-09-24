@@ -38,7 +38,7 @@ export function HardwareFactCardContent({ name, image, facts }: {
     <>
       <div className={styles.image} data-hardware-image>
         {image && failedImage !== image ? (
-          <Image alt={name} src={image} width={600} height={400} unoptimized loading="lazy"
+          <Image alt={name} src={image} width={600} height={400} loading="lazy"
             sizes="(max-width: 650px) calc(100vw - 44px), (max-width: 960px) 50vw, 33vw"
             onError={() => setFailedImage(image)} />
         ) : <span className={styles.missing}><ImageOff aria-hidden="true" size={28} />No image available</span>}

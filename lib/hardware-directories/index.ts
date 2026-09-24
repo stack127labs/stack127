@@ -110,18 +110,31 @@ const snapshotFiles = {
   "zigbee-coordinators": "zigbee-coordinators.json",
 };
 
-async function readHardwareDirectorySnapshot(slug: keyof typeof snapshotFiles) {
-  const file = path.join(process.cwd(), "lib/hardware-directories/data", snapshotFiles[slug]);
-  return JSON.parse(await readFile(file, "utf8")) as HardwareDirectorySnapshot;
+export type HardwareDirectorySlug = keyof typeof snapshotFiles;
+
+export function isHardwareDirectorySlug(slug: string): slug is HardwareDirectorySlug {
+  return Object.hasOwn(snapshotFiles, slug);
+}
+
+const snapshotPromises = new Map<HardwareDirectorySlug, Promise<HardwareDirectorySnapshot>>();
+
+function readHardwareDirectorySnapshot(slug: HardwareDirectorySlug) {
+  let snapshot = snapshotPromises.get(slug);
+  if (!snapshot) {
+    const file = path.join(process.cwd(), "lib/hardware-directories/data", snapshotFiles[slug]);
+    snapshot = readFile(file, "utf8").then((text) => JSON.parse(text) as HardwareDirectorySnapshot);
+    snapshotPromises.set(slug, snapshot);
+    snapshot.catch(() => snapshotPromises.delete(slug));
+  }
+  return snapshot;
 }
 
 /** Home needs the directory's actual entry count, without affiliate enrichment. */
-export async function getHardwareDirectoryCount(slug: keyof typeof snapshotFiles) {
+export async function getHardwareDirectoryCount(slug: HardwareDirectorySlug) {
   return (await readHardwareDirectorySnapshot(slug)).records.length;
 }
 
-export async function getHardwareDirectorySnapshot(slug: keyof typeof snapshotFiles) {
+export async function getHardwareDirectorySnapshot(slug: HardwareDirectorySlug) {
   const snapshot = await readHardwareDirectorySnapshot(slug);
-  snapshot.records = await addAmazonMatches(slug, snapshot.records);
-  return snapshot;
+  return { ...snapshot, records: await addAmazonMatches(slug, snapshot.records) };
 }

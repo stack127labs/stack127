@@ -25,6 +25,7 @@ const nextConfig: NextConfig = {
   },
   output: "standalone",
   outputFileTracingIncludes: {
+    "/api/hardware-directory/[directory]/[record]": ["./lib/hardware-directories/data/*.json"],
     "/local-security-cameras": ["./lib/hardware-directories/data/local-security-cameras.json"],
     "/matter-devices": ["./lib/hardware-directories/data/matter-devices.json"],
     "/nut-compatible-ups": ["./lib/hardware-directories/data/nut-compatible-ups.json"],

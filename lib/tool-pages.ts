@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import { unstable_cache } from "next/cache";
 import { getPool } from "./db";
 import { getPublishedPage } from "./page-registry";
 import { readPublicData, selectPublicRows } from "./public-data-api";
@@ -39,7 +40,7 @@ const toolContentColumns = [
   "stack127_repo_synced_at",
 ].join(",");
 
-export const getPublishedToolPage = cache(async (slug: string) => {
+export const getPublishedToolPage = cache(unstable_cache(async (slug: string) => {
   return readPublicData<Stack127ToolPage | null>({
     dataApiRead: async () => {
       const page = await getPublishedPage(slug);
@@ -88,7 +89,7 @@ export const getPublishedToolPage = cache(async (slug: string) => {
       return result.rows[0] ?? null;
     },
   });
-});
+}, ["stack127-tool-page"], { revalidate: 30, tags: ["stack127-tool-pages"] }));
 
 export const getRequiredToolPage = cache(async (slug: string) => {
   const page = await getPublishedToolPage(slug);

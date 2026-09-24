@@ -16,9 +16,10 @@ import {
   type ResourcePlannerRowInput,
   type ResourceDimension,
 } from "@/lib/self-hosted-app-resource-planner/engine";
+import type { ResourcePlannerAppSummary } from "@/lib/self-hosted-app-resource-planner/data";
 import styles from "./self-hosted-app-resource-planner.module.css";
 
-type Props = { catalogue: ResourcePlannerCatalogue };
+type Props = { appIndex: ResourcePlannerAppSummary[] };
 type FieldErrors = Record<string, string>;
 
 const ramUnitOptions = [uiOption("GiB", "GiB")];
@@ -127,9 +128,11 @@ function ResourceBar({
   );
 }
 
-export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
+export function SelfHostedAppResourcePlanner({ appIndex }: Props) {
   const [input, setInput] = useState<ResourcePlannerInput>(inputDefaults);
+  const [catalogue, setCatalogue] = useState<ResourcePlannerCatalogue>({});
   const [selectedApp, setSelectedApp] = useState<string | null>(null);
+  const [loadingApp, setLoadingApp] = useState(false);
   const [calculated, setCalculated] = useState<Extract<ResourcePlannerResult, { status: "valid" }> | null>(null);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState("");
@@ -140,9 +143,9 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
   useEffect(() => setHydrated(true), []);
 
   const appOptions = useMemo(() => [
-    ...Object.values(catalogue).map((app) => uiOption(app.slug, app.name, app.ram && app.storage ? "RAM and storage ranges" : "Some requirements unknown")),
+    ...appIndex.map((app) => uiOption(app.slug, app.name, app.hasRam && app.hasStorage ? "RAM and storage ranges" : "Some requirements unknown")),
     uiOption("custom", "Custom app", "Range optional"),
-  ], [catalogue]);
+  ], [appIndex]);
 
   useEffect(() => {
     if (!focusResult.current || !calculated) return;
@@ -161,13 +164,29 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
     setStatus("Changes not calculated.");
   }
 
-  function addSelectedApp() {
+  async function addSelectedApp() {
     if (!selectedApp) {
       setStatus("Choose an app to add.");
       window.setTimeout(() => document.querySelector<HTMLInputElement>('input[role="combobox"]')?.focus(), 0);
       return;
     }
     const kind = selectedApp === "custom" ? "custom" : "curated";
+    if (kind === "curated" && !catalogue[selectedApp]) {
+      setLoadingApp(true);
+      setStatus("Loading app requirements…");
+      try {
+        const response = await fetch(`/api/resource-planner-app/${encodeURIComponent(selectedApp)}`);
+        if (!response.ok) throw new Error("App requirements could not be loaded.");
+        const app = await response.json() as ResourcePlannerCatalogue[string];
+        if (app.slug !== selectedApp) throw new Error("App requirements could not be loaded.");
+        setCatalogue((current) => ({ ...current, [app.slug]: app }));
+      } catch {
+        setStatus("App requirements could not be loaded. Try adding the app again.");
+        setLoadingApp(false);
+        return;
+      }
+      setLoadingApp(false);
+    }
     updateInput((current) => ({
       ...current,
       rows: [...current.rows, emptyRow(`row-${Date.now()}-${current.rows.length}`, kind, kind === "curated" ? selectedApp : "")],
@@ -254,11 +273,11 @@ export function SelfHostedAppResourcePlanner({ catalogue }: Props) {
             value={selectedApp}
           />
           <UiRepeatableList
-            addDisabled={!selectedApp}
+            addDisabled={!selectedApp || loadingApp}
             addLabel="Add app"
             ariaLabel="Selected app rows"
             items={input.rows}
-            onAdd={addSelectedApp}
+            onAdd={() => { void addSelectedApp(); }}
             onRemove={removeRow}
             removeLabel={(row) => `Remove ${row.name || "custom app"}`}
             renderItem={(row) => {

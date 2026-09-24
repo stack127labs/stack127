@@ -14,7 +14,9 @@ export function BrandWordmark({ className }: BrandWordmarkProps) {
         alt=""
         className={`${styles.image} ${styles.onDark}`}
         decoding="async"
+        fetchPriority="high"
         height="282"
+        loading="eager"
         src="/logos/stack127-wordmark-on-dark.png"
         width="1451"
       />
@@ -23,6 +25,7 @@ export function BrandWordmark({ className }: BrandWordmarkProps) {
         className={`${styles.image} ${styles.onLight}`}
         decoding="async"
         height="282"
+        loading="lazy"
         src="/logos/stack127-wordmark-on-light.png"
         width="1451"
       />

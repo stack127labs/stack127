@@ -11,6 +11,7 @@ import { PageTitleIcon } from "@/app/ui/site/page-title-icon";
 import { proseClassName, proseFlowClassName } from "@/app/ui/site/prose";
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/ui/site/sidebar-panel";
 import type { HardwareDirectorySnapshot } from "@/lib/hardware-directories";
+import { hardwareDirectoryCard } from "@/lib/hardware-directories/card";
 import { DirectoryTagSelectGroup as TagSelectGroup, type DirectoryFilterOption as FilterOption } from "./directory-filters";
 import { DirectoryFilterController } from "./directory-filter-controller";
 import { SortDropdown } from "./directory-sort-dropdown";
@@ -129,7 +130,7 @@ export function HardwareDirectoryPage({ config, params, snapshot }: { config: Ha
 
         {pageRecords.length > 0 ? (
           <>
-            <HardwareDirectoryBrowser records={pageRecords} />
+            <HardwareDirectoryBrowser directory={config.route.slice(1)} records={pageRecords.map(hardwareDirectoryCard)} />
             {pageRecords.some((record) => Boolean(record.amazon)) ? <DirectoryAffiliateDisclosure /> : null}
             {totalPages > 1 ? <Pagination ariaLabel={`${config.title} pages`} currentPage={currentPage} hrefForPage={(page) => hardwareDirectoryPageHref(config.route, params, page)} totalPages={totalPages} /> : null}
           </>

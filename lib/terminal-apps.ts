@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache";
 import { getPool } from "./db";
 import {
   isValidTerminalCategory,
@@ -44,7 +45,7 @@ export type TerminalApp = {
   last_verified_at: Date | null;
 };
 
-export async function getTerminalApps(): Promise<TerminalApp[]> {
+async function loadTerminalApps(): Promise<TerminalApp[]> {
   const result = await getPool().query<TerminalApp>(
     `
       select
@@ -81,3 +82,8 @@ export async function getTerminalApps(): Promise<TerminalApp[]> {
 
   return result.rows;
 }
+
+export const getTerminalApps = unstable_cache(loadTerminalApps, ["stack127-terminal-apps"], {
+  revalidate: 60,
+  tags: ["stack127-terminal-apps"],
+});

@@ -3,7 +3,7 @@
 import { DetailDialog, DetailDialogClose } from "@/app/ui/detail-dialog";
 
 
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Activity,
   ArrowRight,
@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import type { DirectoryApp } from "@/lib/apps";
+import type { DirectoryAppCardData } from "@/lib/apps-card";
 import { CategoryIcon } from "@/app/ui/site/category-icon";
 import {
   DirectoryAppCard,
@@ -283,12 +284,27 @@ function AppDetailsOverlay({
   );
 }
 
-export function DirectoryAppBrowser({ apps }: { apps: DirectoryApp[] }) {
+export function DirectoryAppBrowser({ apps }: { apps: DirectoryAppCardData[] }) {
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const selectedApp = useMemo(
-    () => apps.find((app) => app.slug === selectedSlug),
-    [apps, selectedSlug],
-  );
+  const [detailsBySlug, setDetailsBySlug] = useState<Record<string, DirectoryApp>>({});
+  const [loadError, setLoadError] = useState(false);
+  const selectedApp = selectedSlug ? detailsBySlug[selectedSlug] : undefined;
+
+  useEffect(() => {
+    if (!selectedSlug || detailsBySlug[selectedSlug]) return;
+    const controller = new AbortController();
+    setLoadError(false);
+    fetch(`/api/self-host-apps/${encodeURIComponent(selectedSlug)}`, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error("App details could not be loaded.");
+        return response.json() as Promise<DirectoryApp>;
+      })
+      .then((app) => setDetailsBySlug((current) => ({ ...current, [app.slug]: app })))
+      .catch(() => { if (!controller.signal.aborted) setLoadError(true); });
+    return () => controller.abort();
+  }, [detailsBySlug, selectedSlug]);
+
+  const close = () => { setSelectedSlug(null); setLoadError(false); };
 
 
 
@@ -304,7 +320,11 @@ export function DirectoryAppBrowser({ apps }: { apps: DirectoryApp[] }) {
           />
         ))}
       </div>
-      <AppDetailsOverlay app={selectedApp} onClose={() => setSelectedSlug(null)} />
+      <AppDetailsOverlay app={selectedApp} onClose={close} />
+      {selectedSlug && !selectedApp ? <DetailDialog ariaLabel="App details" onClose={close}>
+        <div className="app-detail-heading"><h2>App details</h2><DetailDialogClose ariaLabel="Close app details" onClose={close} /></div>
+        <p role={loadError ? "alert" : "status"}>{loadError ? "App details could not be loaded. Close this panel and try again." : "Loading app details…"}</p>
+      </DetailDialog> : null}
     </>
   );
 }

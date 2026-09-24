@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { CalendarDays, Code2, HardDrive, MemoryStick, WalletCards } from "lucide-react";
 import type { DirectoryApp, DirectoryAppIndex } from "@/lib/apps";
+import type { DirectoryAppCardData } from "@/lib/apps-card";
 import { findDirectoryLicenseId } from "@/lib/software-licenses";
 import { AppFactCardContent, appFactCardClassName } from "./app-fact-card";
 
-export function getRamTier(app: DirectoryApp | DirectoryAppIndex) {
+export function getRamTier(app: DirectoryApp | DirectoryAppIndex | DirectoryAppCardData) {
   const estimate = "ram_estimate_min_mb" in app ? app.ram_estimate_min_mb : app.resource_estimates?.ram;
   const estimatedRam = typeof estimate === "number" ? estimate : estimate
     ? estimate.unit === "gb" ? estimate.estimate_min * 1024 : estimate.estimate_min
@@ -30,7 +31,7 @@ export function getRamTier(app: DirectoryApp | DirectoryAppIndex) {
   return "4gb+";
 }
 
-export function getStorageTier(app: DirectoryApp | DirectoryAppIndex) {
+export function getStorageTier(app: DirectoryApp | DirectoryAppIndex | DirectoryAppCardData) {
   const estimate = "storage_estimate_min_gb" in app ? app.storage_estimate_min_gb : app.resource_estimates?.storage?.estimate_min;
   const storage = app.storage_min_gb ?? estimate ?? null;
   if (storage === null) {
@@ -43,14 +44,16 @@ export function getStorageTier(app: DirectoryApp | DirectoryAppIndex) {
   return "high";
 }
 
-export function hasRamEstimate(app: DirectoryApp) {
+export function hasRamEstimate(app: DirectoryApp | DirectoryAppCardData) {
+  if ("ram_estimated" in app) return app.ram_estimated;
   return app.ram_min_mb === null &&
     app.ram_recommended_mb === null &&
     app.ram_default_limit_mb === null &&
     Boolean(app.resource_estimates?.ram);
 }
 
-export function hasStorageEstimate(app: DirectoryApp) {
+export function hasStorageEstimate(app: DirectoryApp | DirectoryAppCardData) {
+  if ("storage_estimated" in app) return app.storage_estimated;
   return app.storage_min_gb === null && Boolean(app.resource_estimates?.storage);
 }
 
@@ -69,7 +72,7 @@ export function formatStars(value: number | null) {
   }).format(value);
 }
 
-export function sourceModelLabel(app: DirectoryApp) {
+export function sourceModelLabel(app: Pick<DirectoryApp, "source_model">) {
   const labels: Record<DirectoryApp["source_model"], string> = {
     closed_source: "closed source",
     open_source: "open source",
@@ -80,7 +83,7 @@ export function sourceModelLabel(app: DirectoryApp) {
   return labels[app.source_model];
 }
 
-function priceLabel(app: DirectoryApp) {
+function priceLabel(app: Pick<DirectoryApp, "pricing_model">) {
   if (app.pricing_model === "free") return "free to self-host";
   if (app.pricing_model === "unknown") return "pricing under review";
   return app.pricing_model.replaceAll("_", " ");
@@ -111,7 +114,7 @@ export function formatDatabaseRequirement(app: DirectoryApp) {
   return app.requires_database ? "yes" : "no";
 }
 
-function maintenanceLabel(app: DirectoryApp) {
+function maintenanceLabel(app: Pick<DirectoryApp, "maintenance_status">) {
   if (app.maintenance_status === "unknown") return "not verified";
   return app.maintenance_status.replaceAll("_", " ");
 }
@@ -140,7 +143,7 @@ function iconLabel(name: string) {
   return label.toUpperCase();
 }
 
-function generatedIconUrl(app: DirectoryApp) {
+function generatedIconUrl(app: Pick<DirectoryApp, "slug" | "name">) {
   const color = generatedIconColors[hashText(app.slug) % generatedIconColors.length];
   const label = iconLabel(app.name);
   const svg = `
@@ -153,7 +156,7 @@ function generatedIconUrl(app: DirectoryApp) {
   return `data:image/svg+xml,${encodeURIComponent(svg)}`;
 }
 
-export function getDirectoryAppIconUrl(app: DirectoryApp) {
+export function getDirectoryAppIconUrl(app: Pick<DirectoryApp, "slug" | "name" | "icon_url">) {
   return app.icon_url ?? generatedIconUrl(app);
 }
 
@@ -161,7 +164,7 @@ export function DirectoryAppIcon({
   app,
   className,
 }: {
-  app: DirectoryApp;
+  app: Pick<DirectoryApp, "slug" | "name" | "icon_url">;
   className: string;
 }) {
   const iconUrl = getDirectoryAppIconUrl(app);
@@ -212,7 +215,7 @@ export function DirectoryAppCard({
   onSelect,
   selected = false,
 }: {
-  app: DirectoryApp;
+  app: DirectoryAppCardData;
   href?: string;
   onSelect?: (slug: string) => void;
   selected?: boolean;

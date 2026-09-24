@@ -6,9 +6,10 @@ import { UiButton, UiCheckbox, UiChoiceGroup, UiSearchField, uiOption } from "@/
 import { UiStatus } from "@/app/ui/display";
 import { buildCheatSheet, type CheatSheetAppSelection, type CheatSheetAppSection } from "@/lib/shortcuts/cheatsheet";
 import { platformLabels, type AppShortcuts, type PlatformId } from "@/lib/shortcuts/types";
+import type { ShortcutAppSummary } from "@/lib/shortcuts";
 import styles from "./shortcuts-cheatsheet-generator.module.css";
 
-type Props = { apps: AppShortcuts[]; initialSlugs: string[] };
+type Props = { catalog: readonly ShortcutAppSummary[]; initialApps: AppShortcuts[] };
 
 function SheetTable({ entry }: { entry: CheatSheetAppSection }) {
   return <table className={styles.sheetTable}>
@@ -27,14 +28,21 @@ function SheetSource({ app }: { app: AppShortcuts }) {
   return <p className={styles.sheetSource}>Source: <a href={app.sourceUrl}>{app.sourceLabel}</a> · <span>{app.sourceUrl}</span> · Verified <time dateTime={app.lastVerified}>{app.lastVerified}</time></p>;
 }
 
-export function ShortcutsCheatSheetGenerator({ apps, initialSlugs }: Props) {
-  const knownInitial = initialSlugs.filter((slug) => apps.some((app) => app.slug === slug));
-  const [selected, setSelected] = useState<Set<string>>(() => new Set(knownInitial));
+export function ShortcutsCheatSheetGenerator({ catalog, initialApps }: Props) {
+  const [loadedApps, setLoadedApps] = useState<Record<string, AppShortcuts>>(() =>
+    Object.fromEntries(initialApps.map((app) => [app.slug, app])),
+  );
+  const [selected, setSelected] = useState<Set<string>>(() => new Set(initialApps.map((app) => app.slug)));
+  const [loadingSlugs, setLoadingSlugs] = useState<Set<string>>(() => new Set());
+  const [loadError, setLoadError] = useState<string | null>(null);
   const [filter, setFilter] = useState("");
   const [platformChoice, setPlatformChoice] = useState<Record<string, "all" | PlatformId>>({});
   const [excludedGroups, setExcludedGroups] = useState<Record<string, Set<string>>>({});
-  const selectedApps = apps.filter((app) => selected.has(app.slug));
-  const visibleApps = apps.filter((app) => app.name.toLocaleLowerCase().includes(filter.trim().toLocaleLowerCase()));
+  const selectedApps = catalog.flatMap((summary) => {
+    const app = loadedApps[summary.slug];
+    return selected.has(summary.slug) && app ? [app] : [];
+  });
+  const visibleApps = catalog.filter((app) => app.name.toLocaleLowerCase().includes(filter.trim().toLocaleLowerCase()));
   const selections: CheatSheetAppSelection[] = selectedApps.map((app) => {
     const choice = platformChoice[app.slug] ?? "all";
     const platforms = choice === "all" ? app.platforms : [choice];
@@ -44,9 +52,29 @@ export function ShortcutsCheatSheetGenerator({ apps, initialSlugs }: Props) {
   });
   let result;
   let failed = false;
-  try { result = buildCheatSheet(apps, selections); } catch { failed = true; result = { ok: false as const, reason: "The sheet could not be built. Your choices are still here." }; }
+  try { result = buildCheatSheet(selectedApps, selections); } catch { failed = true; result = { ok: false as const, reason: "The sheet could not be built. Your choices are still here." }; }
 
-  function toggleApp(slug: string, isSelected: boolean) { setSelected((current) => { const next = new Set(current); if (isSelected) next.add(slug); else next.delete(slug); return next; }); }
+  async function toggleApp(slug: string, isSelected: boolean) {
+    setLoadError(null);
+    if (!isSelected || loadedApps[slug]) {
+      setSelected((current) => { const next = new Set(current); if (isSelected) next.add(slug); else next.delete(slug); return next; });
+      return;
+    }
+
+    setLoadingSlugs((current) => new Set(current).add(slug));
+    try {
+      const response = await fetch(`/api/shortcuts/${encodeURIComponent(slug)}`);
+      if (!response.ok) throw new Error("App shortcuts could not be loaded.");
+      const app = await response.json() as AppShortcuts;
+      if (app.slug !== slug) throw new Error("App shortcuts could not be loaded.");
+      setLoadedApps((current) => ({ ...current, [slug]: app }));
+      setSelected((current) => new Set(current).add(slug));
+    } catch {
+      setLoadError("The app shortcuts could not be loaded. Try selecting the app again.");
+    } finally {
+      setLoadingSlugs((current) => { const next = new Set(current); next.delete(slug); return next; });
+    }
+  }
   function toggleGroup(slug: string, groupId: string, isSelected: boolean) {
     setExcludedGroups((current) => { const next = { ...current }; const groups = new Set(next[slug] ?? []); if (isSelected) groups.delete(groupId); else groups.add(groupId); next[slug] = groups; return next; });
   }
@@ -56,9 +84,11 @@ export function ShortcutsCheatSheetGenerator({ apps, initialSlugs }: Props) {
       <h2>Choose apps</h2>
       <UiSearchField label="Filter apps" onChange={setFilter} placeholder="Search apps" value={filter} />
       <div className={styles.appChoices} aria-label="Apps" role="group">
-        {visibleApps.map((app) => <UiCheckbox isSelected={selected.has(app.slug)} key={app.slug} onChange={(checked) => toggleApp(app.slug, checked)}>{app.name}</UiCheckbox>)}
+        {visibleApps.map((app) => <UiCheckbox isDisabled={loadingSlugs.has(app.slug)} isSelected={selected.has(app.slug)} key={app.slug} onChange={(checked) => { void toggleApp(app.slug, checked); }}>{app.name}</UiCheckbox>)}
         {!visibleApps.length ? <p>No apps match this filter.</p> : null}
       </div>
+      {loadingSlugs.size > 0 ? <p role="status">Loading selected app shortcuts…</p> : null}
+      {loadError ? <p role="alert">{loadError}</p> : null}
       <div className={styles.selectedOptions}>
         {selectedApps.map((app) => { const hasNoGroups = app.groups.every((group) => (excludedGroups[app.slug] ?? new Set()).has(group.id)); const groupErrorId = `groups-${app.slug}-error`; return <section className={styles.appOptions} key={app.slug} aria-labelledby={`options-${app.slug}`}>
           <h3 id={`options-${app.slug}`}>{app.name}</h3>

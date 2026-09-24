@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache";
 import { getPool } from "./db";
 
 export type AppCategory = {
@@ -302,7 +303,7 @@ function normalizeStringArray(value: unknown): string[] {
   );
 }
 
-export async function getSelfHostAppsStats(): Promise<SelfHostAppsStats> {
+async function loadSelfHostAppsStats(): Promise<SelfHostAppsStats> {
   const result = await getPool().query<{
     active_count: number | string;
     app_count: number | string;
@@ -350,6 +351,11 @@ export async function getSelfHostAppsStats(): Promise<SelfHostAppsStats> {
     dockerCount: Number(row?.docker_count ?? 0),
   };
 }
+
+export const getSelfHostAppsStats = unstable_cache(loadSelfHostAppsStats, ["stack127-self-host-app-stats"], {
+  revalidate: 60,
+  tags: ["stack127-self-host-apps"],
+});
 
 export async function getSelfHostAppsModifiedAt(): Promise<Date | null> {
   const result = await getPool().query<{ modified_at: Date | string | null }>(

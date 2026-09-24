@@ -6,6 +6,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { FaGithub } from "react-icons/fa6";
 import { getDirectoryAppIndex, getDirectoryAppsBySlugs, type DirectoryAppIndex } from "@/lib/apps";
+import { directoryAppCard } from "@/lib/apps-card";
 import { getRequiredPublishedPage } from "@/lib/page-registry";
 import {
   findDirectoryLicenseId,
@@ -737,7 +738,7 @@ export default async function SelfHostAppsPage({
 
           {paginatedApps.length > 0 ? (
             <>
-              <DirectoryAppBrowser apps={paginatedApps} />
+              <DirectoryAppBrowser apps={paginatedApps.map(directoryAppCard)} />
               {totalPages > 1 ? (
                 <Pagination ariaLabel="Self-hosted app pages" currentPage={currentPage} hrefForPage={(page) => pageHref(params, page)} totalPages={totalPages} />
               ) : null}
