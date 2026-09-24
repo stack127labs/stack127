@@ -14,6 +14,7 @@
     "keyboard-shortcuts:sync": "node --experimental-strip-types scripts/keyboard-shortcuts/sync-pages.mjs",
     "keyboard-shortcuts:check": "node --experimental-strip-types scripts/keyboard-shortcuts/sync-pages.mjs --check",
     "quality": "npm run typecheck && npm run test:core",
+    "stack127:cache:process": "node scripts/stack127/cache/process-revalidation.mjs",
     "self-host-apps:discover-awesome-selfhosted": "node scripts/self-host-apps/discover-awesome-selfhosted.mjs",
     "self-host-apps:discover-selfhst": "node scripts/self-host-apps/discover-selfhst.mjs",
     "self-host-apps:discover-github-topic": "node scripts/self-host-apps/discover-github-topic.mjs",

@@ -24,6 +24,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
+import { LinkPending } from "@/app/ui/site/link-pending";
 import type { ReactNode } from "react";
 import "./home.css";
 import { siteSpotCliAppsArt } from "./art/site--spot-cli-apps";
@@ -68,7 +69,6 @@ import {
 } from "../ui/site/sidebar-panel";
 import { siteHeroStack127Art } from "./art/site--hero-stack127";
 
-export const dynamic = "force-dynamic";
 
 type HomeStat = {
   label: string;
@@ -203,7 +203,8 @@ function HomePageCard({
   if (!art) throw new Error(`Home card marker art is missing for ${page.slug}`);
 
   return (
-    <Link className="home-page-card" href={pathFromSlug(page.slug)}>
+    <Link className="home-page-card" href={pathFromSlug(page.slug)} prefetch={false}>
+      <LinkPending />
       <span className="home-page-card-art" aria-hidden="true">
         <Doodle svg={art} />
       </span>

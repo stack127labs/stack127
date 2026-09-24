@@ -9,5 +9,5 @@ export async function GET(_request: Request, { params }: { params: Promise<{ slu
   const { slug } = await params;
   const app = await getSelfHostedAppResourcePlannerEntry(slug);
   if (!app) return NextResponse.json({ error: "App not found." }, { status: 404, headers: { "Cache-Control": "no-store" } });
-  return NextResponse.json(app, { headers: { "Cache-Control": "public, max-age=60, s-maxage=300" } });
+  return NextResponse.json(app, { headers: { "Cache-Control": "public, max-age=600, s-maxage=86400" } });
 }

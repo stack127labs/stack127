@@ -8,8 +8,6 @@ import { JsonLd } from "./ui/site/json-ld";
 import { SiteNav } from "./ui/site/site-nav";
 import "./globals.css";
 
-export const dynamic = "force-dynamic";
-
 // handwritten font used only inside marker art figures
 const markerFont = localFont({
   src: "./fonts/shantell.woff2",

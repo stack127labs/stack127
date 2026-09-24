@@ -71,9 +71,11 @@ Its Web Server settings record `dokploy.stack127.com` as the host with HTTPS ena
 
 ## Caching
 
-Public document requests on `stack127.com` are cached for 60 seconds at the edge and 30 seconds in browsers. A Cache Rule opts in extensionless GET document paths, and a Cache Response Rule changes only successful `text/html` responses without `Set-Cookie` to `public, max-age=30, s-maxage=60`. Both rules exclude cookies, authorization, Next.js RSC requests and prefetches, API routes, and `/_next/`. Cloudflare keeps the full query string in its cache key. Unpublished and missing pages remain uncacheable 404s. Purge the hostname after a release or an urgent publication change; browser copies expire within 30 seconds.
+Public documents use a 10-minute browser TTL and a one-day edge TTL. Successful HTML without `Set-Cookie` is cached at the edge. Next.js navigation responses (`text/x-component` with an `_rsc` query key) use separate cache rules and keep their full query string, so clicks can reuse the matching response. Cookies, authorization, error responses, and private API routes bypass these rules. Unpublished and missing pages remain uncacheable 404s.
 
-Only the public detail APIs under `/api/shortcuts/`, `/api/hardware-directory/`, `/api/resource-planner-app/`, and `/api/self-host-apps/` opt into edge caching. Successful static detail responses use five minutes in the browser and one hour at the edge; database-backed app details use one minute in the browser and five minutes at the edge. Their application headers determine TTL, and failed or unpublished responses use `no-store`. Navigation RSC responses and health endpoints stay dynamic.
+The application adds `Cache-Tag` headers for public paths. Release deployment purges the `stack127-public` tag and warms primary routes. Database triggers coalesce publication, tool-content, app, category, and CLI changes in `public.stack127_revalidation_events`. The scheduled `Stack127 Cache Maintenance` workflow runs every five minutes, invalidates the Next.js data cache, purges affected Cloudflare tags, and warms changed paths from `public.stack127_cache_warm_events`. The queue is safe to retry; check its pending count and workflow logs if published edits do not appear after a few minutes. Browser cache copies cannot be purged and can remain for up to 10 minutes after a change.
+
+Public detail APIs under `/api/shortcuts/`, `/api/hardware-directory/`, `/api/resource-planner-app/`, and `/api/self-host-apps/`, plus `/api/resource-planner-index`, opt into edge caching. Static detail responses use one hour in browsers and one day at the edge. Database-backed details and the planner index use 10 minutes in browsers and one day at the edge. Failed or unpublished responses use `no-store`. Health and private API endpoints remain dynamic.
 
 A cache rule covers mutable static site assets under `/app-icons/`, `/logos/`, and the favicon and app-icon files:
 
@@ -158,8 +160,8 @@ curl -I 'https://dokploy.stack127.com/'
 Expected results:
 
 - `www` returns one `301` to the same path and query on the apex HTTPS host.
-- Repeated public HTML requests return `200`, `cache-control: max-age=30, s-maxage=60, public`, and eventually `cf-cache-status: HIT`.
-- RSC requests, requests with cookies or authorization, health checks, and 404s do not use the HTML cache.
+- Repeated public HTML requests return `200`, `cache-control: max-age=600, s-maxage=86400, public`, and eventually `cf-cache-status: HIT`.
+- Repeated RSC navigation requests with the same `_rsc` query key can become cache `HIT`. Requests with cookies or authorization, health checks, and 404s do not use the public cache.
 - A repeated static-asset request becomes a Cloudflare cache `HIT`.
 - Robots and sitemap remain public.
 - An unauthenticated Dokploy request returns a Cloudflare Access `302`, never the dashboard HTML.

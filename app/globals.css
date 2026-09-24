@@ -190,6 +190,20 @@ samp {
   font-family: var(--font-mono);
 }
 
+.site-link-pending {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  padding: 8px 12px;
+  position: fixed;
+  right: 16px;
+  top: calc(var(--top-bar-height) + 12px);
+  z-index: 200;
+}
+
 @media (max-width: 900px) {
   :root {
     --container-gutter: 22px;

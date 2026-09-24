@@ -39,7 +39,6 @@ import { PageHeader } from "@/app/ui/site/page-header";
 import { EntryHero } from "@/app/ui/site/entry-hero";
 import { siteSpotSelfHostAppsArt } from "../../art/site--spot-self-host-apps";
 
-export const dynamic = "force-dynamic";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 

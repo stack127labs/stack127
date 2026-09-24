@@ -41,7 +41,7 @@ async function loadSelfHostedAppResourcePlannerIndex(): Promise<ResourcePlannerA
 }
 
 export const getSelfHostedAppResourcePlannerIndex = unstable_cache(loadSelfHostedAppResourcePlannerIndex, ["stack127-resource-planner-index"], {
-  revalidate: 60,
+  revalidate: 604800,
   tags: ["stack127-self-host-apps"],
 });
 

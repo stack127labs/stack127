@@ -14,6 +14,6 @@ export async function GET(_request: Request, { params }: { params: Promise<{ slu
   }
 
   return NextResponse.json(app, {
-    headers: { "Cache-Control": "public, max-age=300, s-maxage=3600" },
+    headers: { "Cache-Control": "public, max-age=3600, s-maxage=86400" },
   });
 }

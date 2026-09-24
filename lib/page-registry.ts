@@ -145,10 +145,12 @@ async function queryPublishedPage(slug: string) {
   });
 }
 
-const cachedPublishedPage = unstable_cache(queryPublishedPage, ["stack127-published-page"], {
-  revalidate: 30,
-  tags: ["stack127-pages"],
-});
+function cachedPublishedPage(slug: string) {
+  return unstable_cache(() => queryPublishedPage(slug), ["stack127-published-page", slug], {
+    revalidate: 604800,
+    tags: [`stack127-page:${slug || "home"}`],
+  })();
+}
 
 function cleanPathname(pathname: string) {
   const pathOnly = pathname.split("?")[0]?.split("#")[0] ?? "/";
@@ -268,7 +270,7 @@ export const getPublishedSitemapPages = cache(unstable_cache(async () => {
   return [...pagesBySlug.values()].sort((left, right) =>
     left.slug.localeCompare(right.slug),
   );
-}, ["stack127-sitemap-pages"], { revalidate: 60, tags: ["stack127-pages"] }));
+}, ["stack127-sitemap-pages"], { revalidate: 604800, tags: ["stack127-sitemap-pages"] }));
 
 /**
  * Curated published pages for site-wide home navigation. URL depth is not
@@ -294,7 +296,7 @@ export const getMainPublishedPages = cache(unstable_cache(async () => {
       return result.rows;
     },
   });
-}, ["stack127-home-pages"], { revalidate: 30, tags: ["stack127-pages"] }));
+}, ["stack127-home-pages"], { revalidate: 604800, tags: ["stack127-home-pages"] }));
 
 export function buildRegistryMetadata(state: PagePublicationState): Metadata {
   if (state.kind === "missing") {

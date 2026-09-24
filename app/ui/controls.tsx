@@ -346,21 +346,23 @@ export function UiSelect({
 
 export type UiComboBoxProps = FieldCopy & {
   onChange?: (value: string | null) => void;
+  onOpenChange?: (isOpen: boolean) => void;
   options: UiOption[];
   placeholder?: string;
   value?: string | null;
 };
 
-export function UiComboBox({ description, error, label, onChange, options, placeholder, required, value }: UiComboBoxProps) {
+export function UiComboBox({ description, error, label, onChange, onOpenChange, options, placeholder, required, value }: UiComboBoxProps) {
   const triggerLabelId = useId();
 
   return (
     <ComboBox
       className={styles.field}
-      defaultItems={options}
+      items={options}
       isInvalid={Boolean(error)}
       isRequired={required}
       onChange={(key) => onChange?.(key === null ? null : String(key))}
+      onOpenChange={onOpenChange}
       validationBehavior="aria"
       value={value ?? null}
     >

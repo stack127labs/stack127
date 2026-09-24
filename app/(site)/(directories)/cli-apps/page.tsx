@@ -42,7 +42,6 @@ import {
   type SearchParams,
 } from "./filters";
 
-export const dynamic = "force-dynamic";
 
 const platformOptions: FilterOption[] = [
   { label: "Linux", value: "linux" },

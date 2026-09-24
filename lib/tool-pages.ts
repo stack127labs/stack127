@@ -40,7 +40,7 @@ const toolContentColumns = [
   "stack127_repo_synced_at",
 ].join(",");
 
-export const getPublishedToolPage = cache(unstable_cache(async (slug: string) => {
+export const getPublishedToolPage = cache(async (slug: string) => unstable_cache(async () => {
   return readPublicData<Stack127ToolPage | null>({
     dataApiRead: async () => {
       const page = await getPublishedPage(slug);
@@ -89,7 +89,7 @@ export const getPublishedToolPage = cache(unstable_cache(async (slug: string) =>
       return result.rows[0] ?? null;
     },
   });
-}, ["stack127-tool-page"], { revalidate: 30, tags: ["stack127-tool-pages"] }));
+}, ["stack127-tool-page", slug], { revalidate: 604800, tags: [`stack127-tool-page:${slug}`] })());
 
 export const getRequiredToolPage = cache(async (slug: string) => {
   const page = await getPublishedToolPage(slug);

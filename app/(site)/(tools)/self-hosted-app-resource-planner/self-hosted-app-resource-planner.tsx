@@ -19,7 +19,6 @@ import {
 import type { ResourcePlannerAppSummary } from "@/lib/self-hosted-app-resource-planner/data";
 import styles from "./self-hosted-app-resource-planner.module.css";
 
-type Props = { appIndex: ResourcePlannerAppSummary[] };
 type FieldErrors = Record<string, string>;
 
 const ramUnitOptions = [uiOption("GiB", "GiB")];
@@ -128,7 +127,10 @@ function ResourceBar({
   );
 }
 
-export function SelfHostedAppResourcePlanner({ appIndex }: Props) {
+export function SelfHostedAppResourcePlanner() {
+  const [appIndex, setAppIndex] = useState<ResourcePlannerAppSummary[]>([]);
+  const [loadingIndex, setLoadingIndex] = useState(false);
+  const [indexError, setIndexError] = useState(false);
   const [input, setInput] = useState<ResourcePlannerInput>(inputDefaults);
   const [catalogue, setCatalogue] = useState<ResourcePlannerCatalogue>({});
   const [selectedApp, setSelectedApp] = useState<string | null>(null);
@@ -146,6 +148,21 @@ export function SelfHostedAppResourcePlanner({ appIndex }: Props) {
     ...appIndex.map((app) => uiOption(app.slug, app.name, app.hasRam && app.hasStorage ? "RAM and storage ranges" : "Some requirements unknown")),
     uiOption("custom", "Custom app", "Range optional"),
   ], [appIndex]);
+
+  async function loadAppIndex() {
+    if (appIndex.length || loadingIndex) return;
+    setLoadingIndex(true);
+    setIndexError(false);
+    try {
+      const response = await fetch("/api/resource-planner-index");
+      if (!response.ok) throw new Error("App list unavailable");
+      setAppIndex(await response.json() as ResourcePlannerAppSummary[]);
+    } catch {
+      setIndexError(true);
+    } finally {
+      setLoadingIndex(false);
+    }
+  }
 
   useEffect(() => {
     if (!focusResult.current || !calculated) return;
@@ -266,8 +283,10 @@ export function SelfHostedAppResourcePlanner({ appIndex }: Props) {
             <p>Choose the services you want to compare.</p>
           </div>
           <UiComboBox
+            description={indexError ? "App list unavailable. Open the menu to retry, or add a custom app." : loadingIndex ? "Loading published apps…" : undefined}
             label="App to add"
             onChange={setSelectedApp}
+            onOpenChange={(open) => { if (open) void loadAppIndex(); }}
             options={appOptions}
             placeholder="Choose a published app or custom row"
             value={selectedApp}

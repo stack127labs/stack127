@@ -357,7 +357,7 @@ async function loadSelfHostAppsStats(): Promise<SelfHostAppsStats> {
 }
 
 export const getSelfHostAppsStats = unstable_cache(loadSelfHostAppsStats, ["stack127-self-host-app-stats"], {
-  revalidate: 60,
+  revalidate: 604800,
   tags: ["stack127-self-host-apps"],
 });
 
@@ -434,20 +434,14 @@ export async function getSelfHostAppsModifiedAt(): Promise<Date | null> {
   return date.getUTCFullYear() === 1970 ? null : date;
 }
 
-const DIRECTORY_APP_INDEX_CACHE_TTL_MS = 60_000;
-const DIRECTORY_APP_INDEX_BATCH_SIZE = 750;
-let directoryAppIndexCache: { value: DirectoryAppIndex[]; expiresAt: number } | null = null;
-let directoryAppIndexRequest: Promise<DirectoryAppIndex[]> | null = null;
-
 type DirectoryAppIndexRow = Omit<DirectoryAppIndex, "categories" | "install_methods"> & {
   categories: unknown;
   install_methods: unknown;
 };
 
-async function loadDirectoryAppIndexBatch(
-  limit: number,
-  offset: number,
-): Promise<DirectoryAppIndex[]> {
+const DIRECTORY_APP_INDEX_BATCH_SIZE = 750;
+
+async function loadDirectoryAppIndexBatch(offset: number): Promise<DirectoryAppIndex[]> {
   const result = await getPool().query<DirectoryAppIndexRow>(
     `
       select
@@ -516,10 +510,9 @@ async function loadDirectoryAppIndexBatch(
       where app.published = true
         and app.self_hosting_status = 'self_hostable'
       order by app.name asc, app.slug asc
-      limit $1
-      offset $2
+      limit $1 offset $2
     `,
-    [limit, offset],
+    [DIRECTORY_APP_INDEX_BATCH_SIZE, offset],
   );
 
   return result.rows.map((app) => ({
@@ -529,50 +522,30 @@ async function loadDirectoryAppIndexBatch(
   }));
 }
 
-async function loadDirectoryAppIndex(): Promise<DirectoryAppIndex[]> {
-  const countResult = await getPool().query<{ app_count: number | string }>(
-    `
-      select count(*) as app_count
-      from public.self_host_apps app
-      where app.published = true
-        and app.self_hosting_status = 'self_hostable'
-    `,
-  );
-  const appCount = Number(countResult.rows[0]?.app_count ?? 0);
-  const batchCount = Math.ceil(appCount / DIRECTORY_APP_INDEX_BATCH_SIZE);
-  const batches = await Promise.all(
-    Array.from({ length: batchCount }, (_, batchIndex) =>
-      loadDirectoryAppIndexBatch(
-        DIRECTORY_APP_INDEX_BATCH_SIZE,
-        batchIndex * DIRECTORY_APP_INDEX_BATCH_SIZE,
-      ),
-    ),
-  );
+const getDirectoryAppIndexBatch = unstable_cache(loadDirectoryAppIndexBatch, ["stack127-directory-app-index-batch"], {
+  revalidate: 604800,
+  tags: ["stack127-self-host-apps"],
+});
 
-  return batches.flat();
-}
+const getDirectoryAppIndexCount = unstable_cache(async () => {
+  const result = await getPool().query<{ app_count: number | string }>(`
+    select count(*) as app_count
+    from public.self_host_apps app
+    where app.published = true and app.self_hosting_status = 'self_hostable'
+  `);
+  return Number(result.rows[0]?.app_count ?? 0);
+}, ["stack127-directory-app-index-count"], {
+  revalidate: 604800,
+  tags: ["stack127-self-host-apps"],
+});
 
 export async function getDirectoryAppIndex(): Promise<DirectoryAppIndex[]> {
-  const now = Date.now();
-  if (directoryAppIndexCache && directoryAppIndexCache.expiresAt > now) {
-    return directoryAppIndexCache.value;
-  }
-
-  if (!directoryAppIndexRequest) {
-    directoryAppIndexRequest = loadDirectoryAppIndex()
-      .then((value) => {
-        directoryAppIndexCache = {
-          value,
-          expiresAt: Date.now() + DIRECTORY_APP_INDEX_CACHE_TTL_MS,
-        };
-        return value;
-      })
-      .finally(() => {
-        directoryAppIndexRequest = null;
-      });
-  }
-
-  return directoryAppIndexRequest;
+  const count = await getDirectoryAppIndexCount();
+  const batches = await Promise.all(
+    Array.from({ length: Math.ceil(count / DIRECTORY_APP_INDEX_BATCH_SIZE) }, (_, batch) =>
+      getDirectoryAppIndexBatch(batch * DIRECTORY_APP_INDEX_BATCH_SIZE)),
+  );
+  return batches.flat();
 }
 
 async function loadDirectoryAppsBySlugs(slugs: string[]): Promise<DirectoryApp[]> {
