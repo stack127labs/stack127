@@ -1,0 +1,14 @@
+{
+  "id": "catalog--pixels-to-print-size",
+  "type": "toolSpot",
+  "takeaway": "A pixel grid expands into a larger print area.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-25",
+  "width": 140,
+  "height": 110,
+  "seed": 287,
+  "data": {
+    "icon": "grid",
+    "motif": "expand"
+  }
+}

@@ -1,0 +1,145 @@
+.tool {
+  min-width: 0;
+  width: 100%;
+}
+
+.form,
+.results {
+  box-sizing: border-box;
+  display: grid;
+  gap: var(--space-6);
+  margin-inline: auto;
+  max-width: 58rem;
+  min-width: 0;
+  padding-inline: var(--space-7);
+  width: 100%;
+}
+
+.form > *,
+.results > *,
+.resultContent > * {
+  min-width: 0;
+}
+
+.form {
+  padding-block: var(--space-10);
+}
+
+.pixelFields {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.field,
+.resolutionField {
+  min-width: 0;
+}
+
+.resolutionField {
+  max-width: calc((100% - var(--space-5)) / 2);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.calculateButton {
+  min-width: 12rem;
+}
+
+.results {
+  border-top: 1px solid var(--color-border-strong);
+  padding-block: var(--space-10);
+}
+
+.resultContent {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.dimensionPair,
+.unitPair {
+  align-items: baseline;
+  display: inline-flex;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.dimensionPair {
+  column-gap: var(--space-2);
+  row-gap: var(--space-1);
+}
+
+.widthAxis,
+.heightAxis,
+.unit {
+  white-space: nowrap;
+}
+
+.unitPair {
+  column-gap: var(--space-2);
+  row-gap: var(--space-1);
+}
+
+.unit {
+  color: var(--color-text-muted);
+}
+
+.resultNote {
+  line-height: var(--line-body);
+  margin: 0;
+  max-width: var(--measure-prose);
+}
+
+.visuallyHidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (max-width: 760px) {
+  .form,
+  .results {
+    padding-inline: var(--space-5);
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+  .calculateButton {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .pixelFields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .resolutionField {
+    max-width: none;
+  }
+}
+
+@media (max-width: 390px) {
+  .form,
+  .results {
+    padding-inline: var(--space-4);
+  }
+}

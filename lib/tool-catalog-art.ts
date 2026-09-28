@@ -29,6 +29,7 @@ import { lxcIdmapCheckerArt } from "@/app/(site)/(catalogs)/_components/art/lxc-
 import { mqttDiscoveryCheckerArt } from "@/app/(site)/(catalogs)/_components/art/mqtt-discovery-checker";
 import { multiTldArt } from "@/app/(site)/(catalogs)/_components/art/multi-tld";
 import { nameserverArt } from "@/app/(site)/(catalogs)/_components/art/nameserver";
+import { pixelsToPrintSizeArt } from "@/app/(site)/(catalogs)/_components/art/pixels-to-print-size";
 import { punycodeArt } from "@/app/(site)/(catalogs)/_components/art/punycode";
 import { raidArt } from "@/app/(site)/(catalogs)/_components/art/raid";
 import { raidzExpansionArt } from "@/app/(site)/(catalogs)/_components/art/raidz-expansion";
@@ -91,6 +92,7 @@ const art: Record<string, string> = {
   "mqtt-discovery-checker": mqttDiscoveryCheckerArt,
   "multi-tld": multiTldArt,
   "nameserver": nameserverArt,
+  "pixels-to-print-size": pixelsToPrintSizeArt,
   "punycode": punycodeArt,
   "raid": raidArt,
   "raidz-expansion": raidzExpansionArt,
