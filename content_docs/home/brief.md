@@ -6,7 +6,7 @@ A solo builder, indie hacker, content creator, or tech tinkerer has landed witho
 
 ## The job
 
-They should identify a useful resource for their current task and reach it in one click. The opening uses the positioning line, "A toolbox and reference hub for solo builders and tinkerers creating things online." Start here offers existing paths into domain tools, CLI apps, keyboard shortcuts, and the self-hosting course.
+They should identify a useful resource for their current task and reach it in one click. The opening uses the line, "A toolbox and reference hub for indie hackers," followed by a short description of the site's free tools, calculators, directories, and reference data. Start here offers existing paths into domain tools, CLI apps, keyboard shortcuts, and the self-hosting course.
 
 ## Show vs say
 
