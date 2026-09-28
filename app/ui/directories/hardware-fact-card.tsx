@@ -4,15 +4,10 @@ import Image from "next/image";
 import { useState } from "react";
 import { BadgeCheck, Cable, List, Code, Cpu, ImageOff, Layers3, Network, Radio, ScanLine, Tag, Zap } from "lucide-react";
 import { AppCardFacts } from "./app-fact-card";
+import { hardwareCardName } from "@/lib/hardware-directories/card-name";
 import styles from "./hardware-fact-card.module.css";
 
 export const hardwareFactCardClassName = styles.card;
-
-export function hardwareCardName(name: string, vendor: string, model: string) {
-  // Grouped certification rows do not always have a real model identifier.
-  if (!model || /certified variants|^\(various\)$|not published|unknown/i.test(model)) return name;
-  return model.toLowerCase().startsWith(vendor.toLowerCase()) ? model : `${vendor} ${model}`;
-}
 
 function factIcon(label: string) {
   if (/certif|support/i.test(label)) return BadgeCheck;
@@ -36,12 +31,12 @@ export function HardwareFactCardContent({ name, image, facts }: {
   const [failedImage, setFailedImage] = useState<string | null>(null);
   return (
     <>
-      <div className={styles.image} data-hardware-image>
+      <div className={styles.image} data-hardware-image data-missing={image && failedImage !== image ? "false" : "true"}>
         {image && failedImage !== image ? (
           <Image alt={name} src={image} width={600} height={400} loading="lazy"
             sizes="(max-width: 650px) calc(100vw - 44px), (max-width: 960px) 50vw, 33vw"
             onError={() => setFailedImage(image)} />
-        ) : <span className={styles.missing}><ImageOff aria-hidden="true" size={28} />No image available</span>}
+        ) : <span className={styles.missing}><ImageOff aria-hidden="true" size={22} />No product image</span>}
       </div>
       <h2>{name}</h2>
       <AppCardFacts facts={facts.map((fact) => ({ ...fact, icon: factIcon(fact.label) }))} />

@@ -14,6 +14,8 @@
   text-align: left;
   overflow-wrap: anywhere;
 }
+.card.card[data-missing-image="true"] { grid-template-rows: 64px auto 1fr; }
+.card.card:has(.image[data-missing="true"]) { grid-template-rows: 64px auto 1fr; }
 .card.card:hover { border-color: var(--color-border-strong); }
 .card.card:focus-visible { outline: 2px solid transparent; box-shadow: var(--focus-ring); }
 .card h2 {
@@ -30,14 +32,15 @@
   height: 200px;
   min-width: 0;
 }
+.image[data-missing="true"] { height: 64px; }
 .image img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 .missing {
-  display: grid;
-  justify-items: center;
+  display: flex;
+  align-items: center;
   gap: var(--space-3);
   color: var(--color-text-muted);
   font-size: var(--text-small);

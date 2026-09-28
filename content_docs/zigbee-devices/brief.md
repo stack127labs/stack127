@@ -18,14 +18,13 @@ The catalog universe is the union of current Zigbee2MQTT device definitions and 
 
 ## Show vs say
 
-Cards use the shared hardware fact-card variant of the app design: a large contained product image, one vendor/model heading, and icon-led fact rows. Grouped records without a real model use their product name. Keep compatibility and practical facts in the same plain list, with no subtitle, summary paragraph, or separate compatibility box. Full product names, source evidence, and other details remain in the drawer. Missing or failed images have an explicit placeholder.
+Cards use the shared hardware fact-card variant of the app design: a large contained product image, one vendor/model heading, and icon-led fact rows. Grouped records without a real model use their product name. Keep compatibility and practical facts in the same plain list, with no subtitle, summary paragraph, or separate compatibility box. Keep device identifiers and useful capabilities in the detail view; link to the matching compatibility pages. Missing images use a compact placeholder.
 
 - A clear product image leads every card so people can recognize the physical device before reading the model and support facts.
 - Filters expose category, vendor, capability, OTA support, and battery reporting without turning the page into a form-heavy tool.
 - A larger product image and structured detail view separate identity, compatibility, capabilities, and provenance.
 - The card shows the exact model, one compatibility result, and two practical facts. It does not show raw source bookkeeping or unknown values.
-- A compact coverage block reports how many source records, details, and images are present in the current snapshot.
-- A compact evidence table explains what each support label proves and what it does not prove.
+- Internal import totals and source revisions stay off the public page.
 - Sentences explain why an exact model matters, why ZHA has no complete official device list, and why firmware or white-label variants can still behave differently.
 - No chart is useful because the page does not compare a measured quantity.
 - No marker art is useful because the main problem is exact model evidence, not a vague concept.

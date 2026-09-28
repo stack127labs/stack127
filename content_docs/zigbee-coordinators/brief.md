@@ -18,13 +18,12 @@ The catalog universe is every current coordinator record in the declared Blakadd
 
 ## Show vs say
 
-Cards use the shared hardware fact-card variant of the app design: a large contained product image, one vendor/model heading, and icon-led fact rows. Grouped records without a real model use their product name. Keep compatibility and practical facts in the same plain list, with no subtitle, summary paragraph, or separate compatibility box. Full product names, source evidence, and other details remain in the drawer. Missing or failed images have an explicit placeholder.
+Cards use the shared hardware fact-card variant of the app design: a large contained product image, one vendor/model heading, and icon-led fact rows. Grouped records without a real model use their product name. Keep compatibility and practical facts in the same plain list, with no subtitle, summary paragraph, or separate compatibility box. The detail view keeps useful adapter facts and links to compatibility reports. Missing images use a compact placeholder.
 
 - A clear product image leads every card.
 - Filters expose vendor, connection, radio family, and documented integration support.
 - The card shows the exact model, connection, radio family, and documented integration support.
 - The detail view separates identity, radio and firmware, integration evidence, and provenance.
-- A compact coverage block reports source, detail, and image completeness.
-- A compact evidence table explains what ZHA, Zigbee2MQTT, and community records prove.
+- Internal import totals and source revisions stay off the public page.
 - Sentences cover the migration and firmware caveats that cannot fit in a field.
 - No chart or marker drawing is needed because the page compares exact hardware facts.

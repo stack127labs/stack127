@@ -1,5 +1,4 @@
 import { StatePanel } from "@/app/ui/state-panel";
-import { TableFrame } from "@/app/ui/table-frame";
 import { Pagination } from "@/app/ui/pagination";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { RadioTower, Search } from "lucide-react";
@@ -47,8 +46,8 @@ const pageSize = 30;
 const sortOptions = [
   { label: "Device name", value: "name" },
   { label: "Vendor", value: "vendor" },
-  { label: "Most exposed fields", value: "capabilities" },
-  { label: "Recently added", value: "newest" },
+  { label: "Most Zigbee2MQTT features", value: "capabilities" },
+  { label: "Recently added to a support list", value: "newest" },
 ];
 
 const yesOptions: FilterOption[] = [
@@ -211,8 +210,7 @@ export default async function ZigbeeDevicesPage({
             Zigbee compatible devices for <mark>Zigbee2MQTT and ZHA</mark>
           </h1>
           <p>
-            Search the complete Zigbee2MQTT supported-device list alongside model-specific ZHA community records.
-            Each card states which platform has evidence, then shows the device type and useful exposed features.
+            Check whether a device is listed for Zigbee2MQTT, has a community report for ZHA, or both. Each card shows its device type and main features.
           </p>
         </PageHeader>
 
@@ -221,8 +219,7 @@ export default async function ZigbeeDevicesPage({
         <header className={styles.resultHeader}>
           <p className={styles.resultCount}>{filtered.length.toLocaleString("en-US")} matching devices</p>
           <p className={styles.snapshotNote}>
-            {meta.coverage ? `${meta.coverage.zigbee2mqtt_marketed_total.toLocaleString("en-US")} Zigbee2MQTT marketed devices · ` : ""}
-            snapshot {snapshotDate}
+            Updated {snapshotDate}
           </p>
         </header>
 
@@ -241,43 +238,21 @@ export default async function ZigbeeDevicesPage({
         )}
 
         <section className={`${proseClassName} ${proseFlowClassName} ${styles.guide}`}>
-          <h2>What each support record proves</h2>
-          <TableFrame ariaLabel="Zigbee support evidence" className={styles.tableWrap}>
-            <table className={styles.evidenceTable}>
-              <thead>
-                <tr><th>Evidence</th><th>What it confirms</th><th>What it does not confirm</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Zigbee2MQTT converter</th>
-                  <td>The exact model has a converter definition and a documented set of exposed fields.</td>
-                  <td>Every firmware revision or white-label version behaves the same.</td>
-                </tr>
-                <tr>
-                  <th scope="row">ZHA community record</th>
-                  <td>A community member reported the exact retail model working with ZHA.</td>
-                  <td>Every feature is exposed, or that Home Assistant maintains an official model list.</td>
-                </tr>
-              </tbody>
-            </table>
-          </TableFrame>
+          <h2>Before you buy</h2>
+          <p>A device listed for Zigbee2MQTT is not automatically confirmed for ZHA. Support can also differ between hardware revisions.</p>
 
           <h2>The exact model matters more than the product name</h2>
           <p>
             Manufacturers sometimes reuse a product name across different hardware. Tuya devices can also
             share generic Zigbee identifiers such as <code>TS0601</code> while using different manufacturer
             fingerprints and data points. This directory shares evidence only when the marketed model matches
-            exactly. A source record that cannot be merged remains visible as its own card instead of being discarded.
+            exactly. For Tuya devices, check the manufacturer and model fingerprint as well as the product name.
           </p>
 
-          <h2>Check the source again before you buy</h2>
+          <h2>Check for support updates</h2>
           <p>
             Support changes with converter releases, Home Assistant updates, device firmware, and hardware
-            revisions. Open both source links in the device details and check recent notes for your exact model.
-            Search and filter values stay in the stack127 URL and are not sent to either upstream directory.
-          </p>
-          <p className={styles.sourceLine}>
-            Snapshot sources: Zigbee2MQTT converter package {meta.zigbee2mqtt.version}, Zigbee2MQTT website commit {meta.zigbee2mqtt.website_commit?.slice(0, 12) ?? "not recorded"}, and Blakadder commit {meta.blakadder.commit.slice(0, 12)}. Product images come from the matching pinned source records.
+            revisions. Open the compatibility links in the device details and check the notes for your exact model.
           </p>
         </section>
       </PageCanvas>

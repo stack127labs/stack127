@@ -1,4 +1,5 @@
 import type { ZigbeeDevice } from "@/lib/zigbee-devices";
+import { hardwareCardName } from "@/lib/hardware-directories/card-name";
 
 export type ZigbeeSearchParams = Record<string, string | string[] | undefined>;
 
@@ -81,16 +82,16 @@ export function sortDevices(devices: ZigbeeDevice[], sort: ZigbeeSort | string) 
 
     if (sort === "capabilities") {
       return right.zigbee2mqtt_capabilities.length - left.zigbee2mqtt_capabilities.length
-        || left.name.localeCompare(right.name)
+        || hardwareCardName(left.name, left.vendor, left.model).localeCompare(hardwareCardName(right.name, right.vendor, right.model))
         || left.model.localeCompare(right.model);
     }
 
     if (sort === "newest") {
       return String(right.date_added ?? "").localeCompare(String(left.date_added ?? ""))
-        || left.name.localeCompare(right.name);
+        || hardwareCardName(left.name, left.vendor, left.model).localeCompare(hardwareCardName(right.name, right.vendor, right.model));
     }
 
-    return left.name.localeCompare(right.name)
+    return hardwareCardName(left.name, left.vendor, left.model).localeCompare(hardwareCardName(right.name, right.vendor, right.model))
       || left.vendor.localeCompare(right.vendor)
       || left.model.localeCompare(right.model);
   });

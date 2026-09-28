@@ -1,7 +1,8 @@
 import type { HardwareDirectoryRecord } from "@/lib/hardware-directories";
+import { hardwareCardName } from "@/lib/hardware-directories/card-name";
 
 export type HardwareDirectorySearchParams = Record<string, string | string[] | undefined>;
-export type HardwareDirectorySort = "name" | "vendor" | "features" | "newest";
+export type HardwareDirectorySort = "name" | "vendor";
 
 export function getDirectoryValues(params: HardwareDirectorySearchParams, key: string) {
   const value = params[key];
@@ -16,7 +17,7 @@ export function getDirectoryString(params: HardwareDirectorySearchParams, key: s
 
 export function getDirectorySort(params: HardwareDirectorySearchParams): HardwareDirectorySort {
   const value = getDirectoryString(params, "sort");
-  return value === "vendor" || value === "features" || value === "newest" ? value : "name";
+  return value === "vendor" ? value : "name";
 }
 
 export function getDirectoryPage(params: HardwareDirectorySearchParams) {
@@ -51,13 +52,8 @@ export function sortHardwareRecords(records: HardwareDirectoryRecord[], sort: Ha
     if (sort === "vendor") {
       return left.vendor.localeCompare(right.vendor) || left.model.localeCompare(right.model);
     }
-    if (sort === "features") {
-      return right.features.length - left.features.length || left.name.localeCompare(right.name);
-    }
-    if (sort === "newest") {
-      return (right.added ?? "").localeCompare(left.added ?? "") || left.name.localeCompare(right.name);
-    }
-    return left.name.localeCompare(right.name) || left.model.localeCompare(right.model);
+    return hardwareCardName(left.name, left.vendor, left.model).localeCompare(hardwareCardName(right.name, right.vendor, right.model))
+      || left.model.localeCompare(right.model);
   });
 }
 

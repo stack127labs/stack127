@@ -111,6 +111,18 @@
   text-align: right;
 }
 
+.longFact summary {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 3px;
+}
+
+.longFact p {
+  margin: var(--space-2) 0 0;
+  text-align: left;
+}
+
 .detailImageFrame {
   height: 240px;
 }
@@ -258,48 +270,6 @@
 
 .guide > :where(h2, h3, p, ul, ol) {
   max-width: var(--measure-prose);
-}
-
-.tableWrap {
-  max-width: var(--measure-prose);
-}
-
-.evidenceTable {
-  border: 1px solid var(--color-border);
-  border-collapse: collapse;
-  min-width: 620px;
-  width: 100%;
-}
-
-.evidenceTable th,
-.evidenceTable td {
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--space-4);
-  text-align: left;
-  vertical-align: top;
-}
-
-.evidenceTable thead th {
-  background: var(--color-surface-2);
-  border-bottom: 1px solid var(--color-border);
-  font-family: var(--font-display);
-}
-
-.evidenceTable tbody th,
-.evidenceTable tbody td {
-  font-family: var(--font-sans);
-  font-size: var(--text-body);
-  font-weight: var(--weight-regular);
-}
-
-.evidenceTable tbody th {
-  font-family: var(--font-mono);
-}
-
-.sourceLine {
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
 }
 
 @media (max-width: 560px) {

@@ -8,11 +8,23 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import type { ZigbeeDevice } from "@/lib/zigbee-devices";
 import { zigbeeCategoryLabels } from "@/lib/zigbee-devices";
+import { hardwareCardName } from "@/lib/hardware-directories/card-name";
 import styles from "./zigbee-devices.module.css";
-import { HardwareFactCardContent, hardwareFactCardClassName, hardwareCardName } from "../../../ui/directories/hardware-fact-card";
+import { HardwareFactCardContent, hardwareFactCardClassName } from "../../../ui/directories/hardware-fact-card";
 
 function formatList(values: string[]) {
-  return values.length > 0 ? values.join(", ") : "Not published in source";
+  return values.length > 0 ? values.join(", ") : "Not listed";
+}
+
+function FactValue({ value }: { value: string }) {
+  return value.length > 220
+    ? <details className={styles.longFact}><summary>Show list</summary><p>{value}</p></details>
+    : value;
+}
+
+function readerFactValue(value: string) {
+  if (/^(support|community) record available$/i.test(value)) return "Listed";
+  return value;
 }
 
 function categoryLabel(value: string) {
@@ -42,6 +54,21 @@ function DeviceDetails({ device, onClose }: { device: ZigbeeDevice; onClose: () 
     { heading: "Platform compatibility", facts: [{ label: "Zigbee2MQTT", value: device.zigbee2mqtt_url ? "Support record available" : "Not listed" }, { label: "ZHA", value: device.blakadder_url ? "Community record available" : "Not listed" }] },
     { heading: "Exposed features", facts: [{ label: "Zigbee2MQTT fields", value: formatList(device.zigbee2mqtt_capabilities) }, { label: "ZHA reported features", value: formatList(device.zha_reported_capabilities) }] },
   ];
+  const visibleSections = sections
+    .map((section) => ({
+      ...section,
+      facts: section.facts.filter((fact) =>
+        !/^controller listings$/i.test(fact.label)
+        && !/^zigbee model ids$/i.test(fact.label)
+        && !(fact.label === "Description" && fact.value === device.name)
+        && !/\bnot published\b|^date not published$/i.test(fact.value.trim()),
+      ),
+    }))
+    .filter((section) => section.facts.length > 0);
+  const identifierFacts = [
+    ...(device.zigbee_models.length > 0 ? [{ label: "Zigbee model", value: formatList(device.zigbee_models) }] : []),
+    ...(device.fingerprints.length > 0 ? [{ label: "Fingerprint", value: device.fingerprints.map((item) => [item.manufacturer_name, item.model_id].filter(Boolean).join(" / ")).join(", ") }] : []),
+  ];
 
   return (
     <DetailDialog ariaLabel={`${device.vendor} ${device.model} support details`} onClose={onClose}>
@@ -60,31 +87,28 @@ function DeviceDetails({ device, onClose }: { device: ZigbeeDevice; onClose: () 
           <strong>{support.value}</strong>
         </div>
 
-        {sections.map((section) => (
+        {visibleSections.map((section) => (
           <section className={styles.factSection} key={section.heading}>
             <h3>{section.heading}</h3>
             <dl>
               {section.facts.map((fact, index) => (
-                <div key={`${fact.label}-${index}`}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>
+                <div key={`${fact.label}-${index}`}><dt>{fact.label}</dt><dd><FactValue value={readerFactValue(fact.value)} /></dd></div>
               ))}
             </dl>
           </section>
         ))}
 
-        <section className={styles.factSection}>
-          <h3>Identifiers</h3>
-          <dl>
-            <div><dt>Zigbee model</dt><dd>{formatList(device.zigbee_models)}</dd></div>
-            <div><dt>Fingerprint</dt><dd>{device.fingerprints.length > 0 ? device.fingerprints.map((item) => [item.manufacturer_name, item.model_id].filter(Boolean).join(" / ")).join(", ") : "Not published in source"}</dd></div>
-            <div><dt>Added</dt><dd>{device.date_added ?? "Date not published"}</dd></div>
-          </dl>
-        </section>
+        {identifierFacts.length > 0 ? <section className={styles.factSection}>
+          <h3>Device identifiers</h3>
+          <dl>{identifierFacts.map((fact) => <div key={fact.label}><dt>{fact.label}</dt><dd><FactValue value={fact.value} /></dd></div>)}</dl>
+        </section> : null}
+
+        {device.image_source_url ? <p className={styles.imageCredit}><a href={device.image_source_url} rel="noreferrer" target="_blank">Image credit</a></p> : null}
 
         <div className="app-detail-primary-links">
           {device.amazon ? <a className="primary" href={device.amazon.url} rel="sponsored noreferrer" target="_blank"><span>Check price on Amazon</span><ExternalLink aria-hidden="true" size={14} /></a> : null}
-          {device.zigbee2mqtt_url ? <a className={device.amazon ? undefined : "primary"} href={device.zigbee2mqtt_url} rel="noreferrer" target="_blank"><span>Zigbee2MQTT record</span><ExternalLink aria-hidden="true" size={14} /></a> : null}
-          {device.blakadder_url ? <a href={device.blakadder_url} rel="noreferrer" target="_blank"><span>Community compatibility record</span><ExternalLink aria-hidden="true" size={14} /></a> : null}
-          <a href={device.image_source_url} rel="noreferrer" target="_blank"><span>Image source</span><ExternalLink aria-hidden="true" size={14} /></a>
+          {device.zigbee2mqtt_url ? <a className={device.amazon ? undefined : "primary"} href={device.zigbee2mqtt_url} rel="noreferrer" target="_blank"><span>Zigbee2MQTT support</span><ExternalLink aria-hidden="true" size={14} /></a> : null}
+          {device.blakadder_url ? <a href={device.blakadder_url} rel="noreferrer" target="_blank"><span>ZHA community report</span><ExternalLink aria-hidden="true" size={14} /></a> : null}
         </div>
       </DetailDialog>
   );

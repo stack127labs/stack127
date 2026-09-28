@@ -18,13 +18,13 @@ The catalog universe is every UPS row in the pinned NUT hardware compatibility l
 
 ## Show vs say
 
-Cards use the shared hardware fact-card variant of the app design: a large contained product image, one vendor/model heading, and icon-led fact rows. Grouped records without a real model use their product name. Keep compatibility and practical facts in the same plain list, with no subtitle, summary paragraph, or separate compatibility box. Full product names, source evidence, and other details remain in the drawer. Missing or failed images have an explicit placeholder.
+Cards use the shared hardware fact-card variant of the app design: a large contained product image, one vendor/model heading, and icon-led fact rows. Grouped records without a real model use their product name. Keep compatibility and practical facts in the same plain list, with no subtitle, summary paragraph, or separate compatibility box. Mark family-level listings clearly. The detail view keeps driver facts and links to the NUT entry. Missing images use a compact placeholder.
 
 - An exact product image leads the card when one is published; otherwise the card says so plainly.
 - Filters expose device type, manufacturer, connection, driver, and support level.
 - The card shows exact model wording, driver, connection, and support level.
 - The detail view separates NUT evidence, manufacturer specifications, exact-model cautions, and provenance.
-- A compact coverage block reports HCL, detail, and image completeness.
+- Internal import totals and source revisions stay off the public page.
 - A five-row table explains the NUT support-level scale.
 - Sentences warn that a family-level record does not prove every regional suffix.
 - No chart or marker drawing is needed.

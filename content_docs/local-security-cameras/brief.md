@@ -18,13 +18,12 @@ The catalog universe is every current camera record in the declared CC0 source t
 
 ## Show vs say
 
-Cards use the shared hardware fact-card variant of the app design: a large contained product image, one vendor/model heading, and icon-led fact rows. Grouped records without a real model use their product name. Keep compatibility and practical facts in the same plain list, with no subtitle, summary paragraph, or separate compatibility box. Full product names, source evidence, and other details remain in the drawer. Missing or failed images have an explicit placeholder.
+Cards use the shared hardware fact-card variant of the app design: a large contained product image, one vendor/model heading, and icon-led fact rows. Grouped records without a real model use their product name. Keep compatibility and practical facts in the same plain list, with no subtitle, summary paragraph, or separate compatibility box. The detail view keeps useful setup facts, stream options, and links to the original sources. Missing images use a compact placeholder.
 
 - An exact product image leads the card when one is published; otherwise the card says so plainly.
 - Filters expose brand, body type, connection, protocol, PoE, and verified Frigate configuration.
 - The card shows exact model, RTSP or ONVIF status, resolution, and power or connection.
 - The detail view separates local streams, video and audio, physical installation, Frigate evidence, caveats, and provenance.
-- A compact coverage block reports eligible, verified, detailed, and imaged totals.
-- A compact evidence table separates manufacturer specifications, ONVIF claims, and tested Frigate configuration.
+- Internal import totals and source revisions stay off the public page.
 - Sentences explain that firmware can change local protocol behavior.
 - No chart or marker drawing is needed.

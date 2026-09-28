@@ -5,11 +5,7 @@ import { getHardwareDirectorySnapshot } from "@/lib/hardware-directories";
 
 export default async function ZWaveDevicesPage({ searchParams }: { searchParams: Promise<HardwareDirectorySearchParams> }) {
   return <HardwareDirectoryPage config={{
-    evidenceRows: [
-      { evidence: "Z-Wave JS config", proves: "The exact manufacturer, product type, and product ID have a configuration record.", limit: "A retail listing uses the same regional radio or firmware." },
-      { evidence: "Alliance certification", proves: "A specific product variant passed the Z-Wave certification process.", limit: "Home Assistant exposes every optional function." },
-      { evidence: "Product image", proves: "When published, the enclosure matches the cited certification or manufacturer page.", limit: "Internal hardware is unchanged across visually identical revisions." },
-    ],
+    detailFilterLabel: "Region or software support",
     heading: "Z-Wave devices with",
     highlightedHeading: "exact product IDs",
     icon: <Waves strokeWidth={2.2} />,
@@ -17,7 +13,7 @@ export default async function ZWaveDevicesPage({ searchParams }: { searchParams:
     route: "/z-wave-devices",
     searchPlaceholder: "ZW100, ZEN77, FGMS-001...",
     sidebarLabel: "Z-Wave devices",
-    sourceSentence: "A Z-Wave JS configuration is strong software evidence. The Alliance record adds certification and region details, but neither replaces checking the identifiers reported by the device.",
+    buyingNote: "Check the product ID, radio region, and firmware against your device before buying or pairing it.",
     title: "Z-Wave devices directory",
   }} params={await searchParams} snapshot={await getHardwareDirectorySnapshot("z-wave-devices")} />;
 }

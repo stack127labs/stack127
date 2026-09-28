@@ -18,13 +18,12 @@ The catalog universe is every Matter certification record exposed by the declare
 
 ## Show vs say
 
-Cards use the shared hardware fact-card variant of the app design: a large contained product image, one vendor/model heading, and icon-led fact rows. Grouped records without a real model use their product name. Keep compatibility and practical facts in the same plain list, with no subtitle, summary paragraph, or separate compatibility box. Full product names, source evidence, and other details remain in the drawer. Missing or failed images have an explicit placeholder.
+Cards use the shared hardware fact-card variant of the app design: a large contained product image, one vendor/model heading, and icon-led fact rows. Grouped records without a real model use their product name. Keep compatibility and practical facts in the same plain list, with no subtitle, summary paragraph, or separate compatibility box. The detail view keeps useful product facts and links to the original certification. Missing images use a compact placeholder.
 
 - An exact product image leads the card when one is published; otherwise the card says so plainly.
 - Filters expose category, manufacturer, Thread, Wi-Fi, and Bluetooth commissioning support.
 - The card shows the exact certified name, certificate ID, device type, and transport.
 - The detail view separates certification, identity, transport and commissioning, retail enrichment, and provenance.
-- A compact coverage block reports certification, enrichment, detail, and image completeness.
-- A compact evidence table distinguishes certification from observed Home Assistant features.
+- Internal import totals and source revisions stay off the public page.
 - Sentences explain that Matter certification does not promise every optional feature or ecosystem behavior.
 - No chart or marker drawing is needed.

@@ -1,5 +1,4 @@
 import { StatePanel } from "@/app/ui/state-panel";
-import { TableFrame } from "@/app/ui/table-frame";
 import { Pagination } from "@/app/ui/pagination";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import type { ReactNode } from "react";
@@ -30,7 +29,7 @@ import {
 import styles from "./hardware-directory-page.module.css";
 
 export type HardwareDirectoryConfig = {
-  evidenceRows: Array<{ evidence: string; proves: string; limit: string }>;
+  detailFilterLabel: string;
   heading: string;
   highlightedHeading: string;
   icon: ReactNode;
@@ -38,7 +37,7 @@ export type HardwareDirectoryConfig = {
   route: string;
   searchPlaceholder: string;
   sidebarLabel: string;
-  sourceSentence: string;
+  buyingNote: string;
   title: string;
 };
 
@@ -46,8 +45,6 @@ const pageSize = 30;
 const sortOptions = [
   { label: "Device name", value: "name" },
   { label: "Vendor", value: "vendor" },
-  { label: "Most recorded features", value: "features" },
-  { label: "Recently added", value: "newest" },
 ];
 
 function removeFilterHref(route: string, params: HardwareDirectorySearchParams, key: string, value?: string) {
@@ -86,7 +83,7 @@ export function HardwareDirectoryPage({ config, params, snapshot }: { config: Ha
   const chips: Array<{ key: string; label: string; href: string }> = [];
   const query = getDirectoryString(params, "q").trim();
   if (query) chips.push({ href: removeFilterHref(config.route, params, "q"), key: "q", label: `Search: ${query}` });
-  for (const [key, label] of [["category", "Category"], ["vendor", "Vendor"], ["feature", "Feature"]] as const) {
+  for (const [key, label] of [["category", "Category"], ["vendor", "Vendor"], ["feature", config.detailFilterLabel]] as const) {
     for (const value of getDirectoryValues(params, key)) chips.push({ href: removeFilterHref(config.route, params, key, value), key, label: `${label}: ${value}` });
   }
 
@@ -100,15 +97,13 @@ export function HardwareDirectoryPage({ config, params, snapshot }: { config: Ha
       <SortDropdown name="sort" options={sortOptions} value={sort} />
       <TagSelectGroup name="category" options={categoryOptions} selected={getDirectoryValues(params, "category")} title="Category" />
       <TagSelectGroup name="vendor" options={vendorOptions} selected={getDirectoryValues(params, "vendor")} title="Vendor" />
-      <TagSelectGroup name="feature" options={featureOptions} selected={getDirectoryValues(params, "feature")} title="Feature" />
+      <TagSelectGroup name="feature" options={featureOptions} selected={getDirectoryValues(params, "feature")} title={config.detailFilterLabel} />
       <div className="filter-actions"><Link href={config.route}>reset</Link></div>
       <DirectoryFilterController />
     </form>
   );
 
   const snapshotDate = new Intl.DateTimeFormat("en", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(snapshot.meta.generated_at));
-  const coverage = snapshot.meta.coverage;
-
   return (
     <AppShell mainLabel={config.title} menuLabel="Filters" sidebar={sidebar} sidebarLabel={`${config.sidebarLabel} filters`}>
       <PageCanvas as="div" flow className="directory-results">
@@ -119,14 +114,7 @@ export function HardwareDirectoryPage({ config, params, snapshot }: { config: Ha
 
         {chips.length > 0 ? <div aria-label="Active filters" className="active-filter-row">{chips.map((chip) => <Link href={chip.href} key={`${chip.key}-${chip.label}`}>{chip.label}<span>×</span></Link>)}<Link className="clear-filters" href={config.route}>clear all</Link></div> : null}
 
-        <header className={styles.resultHeader}><p className={styles.resultCount}>{filtered.length.toLocaleString("en-US")} matching devices</p><p className={styles.snapshotNote}>snapshot {snapshotDate}</p></header>
-
-        {coverage ? <section aria-label="Directory coverage" className={styles.coverageLedger}>
-          <div><strong>{coverage.source_total.toLocaleString("en-US")}</strong><span>Source records</span></div>
-          <div><strong>{coverage.record_total.toLocaleString("en-US")}</strong><span>Directory records</span></div>
-          <div><strong>{coverage.detail_total.toLocaleString("en-US")}</strong><span>Detailed records</span></div>
-          <div><strong>{coverage.image_total.toLocaleString("en-US")}</strong><span>Product images</span></div>
-        </section> : null}
+        <header className={styles.resultHeader}><p className={styles.resultCount}>{filtered.length.toLocaleString("en-US")} matching devices</p><p className={styles.snapshotNote}>Updated {snapshotDate}</p></header>
 
         {pageRecords.length > 0 ? (
           <>
@@ -137,10 +125,8 @@ export function HardwareDirectoryPage({ config, params, snapshot }: { config: Ha
         ) : <StatePanel action={<Link href={config.route}>show all devices</Link>} title="No exact models match those filters"><p>Try the retail model without punctuation, or clear one filter.</p></StatePanel>}
 
         <section className={`${proseClassName} ${proseFlowClassName} ${styles.guide}`}>
-          <h2>What each record proves</h2>
-          <TableFrame ariaLabel="Directory evidence" className={styles.tableWrap}><table className={styles.evidenceTable}><thead><tr><th>Evidence</th><th>What it confirms</th><th>What it does not confirm</th></tr></thead><tbody>{config.evidenceRows.map((row) => <tr key={row.evidence}><th scope="row">{row.evidence}</th><td>{row.proves}</td><td>{row.limit}</td></tr>)}</tbody></table></TableFrame>
-          <p>{config.sourceSentence}</p>
-          <p className={styles.sourceLine}>Source snapshot: {snapshot.meta.source_label}, revision {snapshot.meta.source_revision}</p>
+          <h2>Before you buy</h2>
+          <p>{config.buyingNote}</p>
         </section>
       </PageCanvas>
     </AppShell>
