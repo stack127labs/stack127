@@ -1,0 +1,11 @@
+{
+  "id": "catalog--self-hosted-app-resource-planner",
+  "type": "toolSpot",
+  "takeaway": "An app fits into a host's available memory and storage.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-28",
+  "width": 140,
+  "height": 110,
+  "seed": 314,
+  "data": { "icon": "resourceFit" }
+}

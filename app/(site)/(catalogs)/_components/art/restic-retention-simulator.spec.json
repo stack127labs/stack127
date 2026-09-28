@@ -1,0 +1,11 @@
+{
+  "id": "catalog--restic-retention-simulator",
+  "type": "toolSpot",
+  "takeaway": "A retention boundary separates kept snapshots from those due to pruning.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-28",
+  "width": 140,
+  "height": 110,
+  "seed": 316,
+  "data": { "icon": "resticRetention" }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "catalog--kdp-metadata-checker",
+  "type": "toolSpot",
+  "takeaway": "A tagged book page stands for checking the details attached to a KDP listing.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-28",
+  "width": 140,
+  "height": 110,
+  "seed": 306,
+  "data": { "icon": "metadataBook" }
+}

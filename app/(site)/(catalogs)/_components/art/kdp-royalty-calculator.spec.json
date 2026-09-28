@@ -1,0 +1,11 @@
+{
+  "id": "catalog--kdp-royalty-calculator",
+  "type": "toolSpot",
+  "takeaway": "A book and coins stand for estimating the royalty from each sale.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-28",
+  "width": 140,
+  "height": 110,
+  "seed": 310,
+  "data": { "icon": "royaltyBook" }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "catalog--lxc-idmap-checker",
+  "type": "toolSpot",
+  "takeaway": "Paired ranges show how container identities map to host identities.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-28",
+  "width": 140,
+  "height": 110,
+  "seed": 311,
+  "data": { "icon": "idMap" }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "catalog--shortcuts-cheatsheet-generator",
+  "type": "toolSpot",
+  "takeaway": "Keyboard shortcuts flow onto a selected printable reference sheet.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-28",
+  "width": 140,
+  "height": 110,
+  "seed": 315,
+  "data": { "icon": "shortcutSheet" }
+}

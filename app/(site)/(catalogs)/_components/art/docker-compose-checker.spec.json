@@ -1,0 +1,11 @@
+{
+  "id": "catalog--docker-compose-checker",
+  "type": "toolSpot",
+  "takeaway": "Connected service blocks form one Compose application.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-28",
+  "width": 140,
+  "height": 110,
+  "seed": 302,
+  "data": { "icon": "composeServices" }
+}

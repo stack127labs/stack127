@@ -1,0 +1,11 @@
+{
+  "id": "catalog--kdp-payment-date-calculator",
+  "type": "toolSpot",
+  "takeaway": "A calendar and clock mark the estimated KDP payment month.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-28",
+  "width": 140,
+  "height": 110,
+  "seed": 308,
+  "data": { "icon": "paymentCalendar" }
+}

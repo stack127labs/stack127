@@ -1,0 +1,11 @@
+{
+  "id": "catalog--chmod-calculator",
+  "type": "toolSpot",
+  "takeaway": "Three permission groups show how a chmod mode divides file access.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-28",
+  "width": 140,
+  "height": 110,
+  "seed": 301,
+  "data": { "icon": "permissionFile" }
+}

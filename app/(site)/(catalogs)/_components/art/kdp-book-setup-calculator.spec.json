@@ -1,0 +1,11 @@
+{
+  "id": "catalog--kdp-book-setup-calculator",
+  "type": "toolSpot",
+  "takeaway": "A print spread and ruler show the dimensions needed to set up a KDP book.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-28",
+  "width": 140,
+  "height": 110,
+  "seed": 304,
+  "data": { "icon": "bookRuler" }
+}

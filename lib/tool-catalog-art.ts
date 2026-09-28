@@ -1,10 +1,12 @@
 import { backup321Art } from "@/app/(site)/(catalogs)/_components/art/backup-321";
 import { caaArt } from "@/app/(site)/(catalogs)/_components/art/caa";
 import { cephArt } from "@/app/(site)/(catalogs)/_components/art/ceph";
+import { chmodCalculatorArt } from "@/app/(site)/(catalogs)/_components/art/chmod-calculator";
 import { dnsChangeArt } from "@/app/(site)/(catalogs)/_components/art/dns-change";
 import { dnsLookupArt } from "@/app/(site)/(catalogs)/_components/art/dns-lookup";
 import { dnsTraceArt } from "@/app/(site)/(catalogs)/_components/art/dns-trace";
 import { dnssecArt } from "@/app/(site)/(catalogs)/_components/art/dnssec";
+import { dockerComposeCheckerArt } from "@/app/(site)/(catalogs)/_components/art/docker-compose-checker";
 import { domainAgeArt } from "@/app/(site)/(catalogs)/_components/art/domain-age";
 import { domainAvailabilityArt } from "@/app/(site)/(catalogs)/_components/art/domain-availability";
 import { domainExpiryArt } from "@/app/(site)/(catalogs)/_components/art/domain-expiry";
@@ -14,13 +16,27 @@ import { domainRegistrarArt } from "@/app/(site)/(catalogs)/_components/art/doma
 import { domainReportArt } from "@/app/(site)/(catalogs)/_components/art/domain-report";
 import { driveReliabilityArt } from "@/app/(site)/(catalogs)/_components/art/drive-reliability";
 import { eppStatusArt } from "@/app/(site)/(catalogs)/_components/art/epp-status";
+import { ipAsnLookupArt } from "@/app/(site)/(catalogs)/_components/art/ip-asn-lookup";
+import { kdpBookSetupCalculatorArt } from "@/app/(site)/(catalogs)/_components/art/kdp-book-setup-calculator";
+import { kdpImageDpiCheckerArt } from "@/app/(site)/(catalogs)/_components/art/kdp-image-dpi-checker";
+import { kdpMetadataCheckerArt } from "@/app/(site)/(catalogs)/_components/art/kdp-metadata-checker";
+import { kdpPageCountEstimatorArt } from "@/app/(site)/(catalogs)/_components/art/kdp-page-count-estimator";
+import { kdpPaymentDateCalculatorArt } from "@/app/(site)/(catalogs)/_components/art/kdp-payment-date-calculator";
+import { kdpPdfPreflightCheckerArt } from "@/app/(site)/(catalogs)/_components/art/kdp-pdf-preflight-checker";
+import { kdpRoyaltyCalculatorArt } from "@/app/(site)/(catalogs)/_components/art/kdp-royalty-calculator";
 import { kdpToolsArt } from "@/app/(site)/(catalogs)/_components/art/kdp-tools";
+import { lxcIdmapCheckerArt } from "@/app/(site)/(catalogs)/_components/art/lxc-idmap-checker";
+import { mqttDiscoveryCheckerArt } from "@/app/(site)/(catalogs)/_components/art/mqtt-discovery-checker";
 import { multiTldArt } from "@/app/(site)/(catalogs)/_components/art/multi-tld";
 import { nameserverArt } from "@/app/(site)/(catalogs)/_components/art/nameserver";
 import { punycodeArt } from "@/app/(site)/(catalogs)/_components/art/punycode";
 import { raidArt } from "@/app/(site)/(catalogs)/_components/art/raid";
 import { raidzExpansionArt } from "@/app/(site)/(catalogs)/_components/art/raidz-expansion";
 import { rebuildArt } from "@/app/(site)/(catalogs)/_components/art/rebuild";
+import { resticRetentionSimulatorArt } from "@/app/(site)/(catalogs)/_components/art/restic-retention-simulator";
+import { rsyncFilterTesterArt } from "@/app/(site)/(catalogs)/_components/art/rsync-filter-tester";
+import { selfHostedAppResourcePlannerArt } from "@/app/(site)/(catalogs)/_components/art/self-hosted-app-resource-planner";
+import { shortcutsCheatsheetGeneratorArt } from "@/app/(site)/(catalogs)/_components/art/shortcuts-cheatsheet-generator";
 import { shrArt } from "@/app/(site)/(catalogs)/_components/art/shr";
 import { snapraidMergerfsArt } from "@/app/(site)/(catalogs)/_components/art/snapraid-mergerfs";
 import { soaArt } from "@/app/(site)/(catalogs)/_components/art/soa";
@@ -47,10 +63,12 @@ const art: Record<string, string> = {
   "backup-321": backup321Art,
   "caa": caaArt,
   "ceph": cephArt,
+  "chmod-calculator": chmodCalculatorArt,
   "dns-change": dnsChangeArt,
   "dns-lookup": dnsLookupArt,
   "dns-trace": dnsTraceArt,
   "dnssec": dnssecArt,
+  "docker-compose-checker": dockerComposeCheckerArt,
   "domain-age": domainAgeArt,
   "domain-availability": domainAvailabilityArt,
   "domain-expiry": domainExpiryArt,
@@ -60,13 +78,27 @@ const art: Record<string, string> = {
   "domain-report": domainReportArt,
   "drive-reliability": driveReliabilityArt,
   "epp-status": eppStatusArt,
+  "ip-asn-lookup": ipAsnLookupArt,
+  "kdp-book-setup-calculator": kdpBookSetupCalculatorArt,
+  "kdp-image-dpi-checker": kdpImageDpiCheckerArt,
+  "kdp-metadata-checker": kdpMetadataCheckerArt,
+  "kdp-page-count-estimator": kdpPageCountEstimatorArt,
+  "kdp-payment-date-calculator": kdpPaymentDateCalculatorArt,
+  "kdp-pdf-preflight-checker": kdpPdfPreflightCheckerArt,
+  "kdp-royalty-calculator": kdpRoyaltyCalculatorArt,
   "kdp-tools": kdpToolsArt,
+  "lxc-idmap-checker": lxcIdmapCheckerArt,
+  "mqtt-discovery-checker": mqttDiscoveryCheckerArt,
   "multi-tld": multiTldArt,
   "nameserver": nameserverArt,
   "punycode": punycodeArt,
   "raid": raidArt,
   "raidz-expansion": raidzExpansionArt,
   "rebuild": rebuildArt,
+  "restic-retention-simulator": resticRetentionSimulatorArt,
+  "rsync-filter-tester": rsyncFilterTesterArt,
+  "self-hosted-app-resource-planner": selfHostedAppResourcePlannerArt,
+  "shortcuts-cheatsheet-generator": shortcutsCheatsheetGeneratorArt,
   "shr": shrArt,
   "snapraid-mergerfs": snapraidMergerfsArt,
   "soa": soaArt,

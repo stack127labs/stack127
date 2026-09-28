@@ -1,0 +1,11 @@
+{
+  "id": "catalog--kdp-pdf-preflight-checker",
+  "type": "toolSpot",
+  "takeaway": "Trim marks and a check show a local PDF preflight before upload.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-28",
+  "width": 140,
+  "height": 110,
+  "seed": 309,
+  "data": { "icon": "pdfPreflight" }
+}
