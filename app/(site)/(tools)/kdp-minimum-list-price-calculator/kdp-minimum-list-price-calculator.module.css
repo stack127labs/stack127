@@ -1,0 +1,157 @@
+.tool {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+  padding-block: var(--space-8);
+}
+
+.scope,
+.form,
+.result,
+.failure {
+  min-width: 0;
+  padding-inline: var(--space-7);
+}
+
+.scope,
+.notice,
+.pageNote,
+.resultDetail {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+}
+
+.scope {
+  font-family: var(--font-mono);
+}
+
+.form,
+.result,
+.failure {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.fieldGrid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.fieldGrid > * {
+  min-width: 0;
+}
+
+.format,
+.goalField {
+  grid-column: 1 / -1;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.result {
+  border-top: 1px solid var(--color-border-strong);
+  margin-top: var(--space-2);
+  padding-top: var(--space-7);
+}
+
+.resultLeadDetail,
+.calculationNote {
+  margin: 0;
+  max-width: var(--measure-prose);
+  overflow-wrap: anywhere;
+}
+
+.resultLeadDetail {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+}
+
+.calculationNote {
+  line-height: var(--line-body);
+}
+
+.pageNote {
+  max-width: var(--measure-prose);
+}
+
+.details {
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--measure-prose);
+  min-width: 0;
+}
+
+.details p,
+.details ul {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.details ul {
+  display: grid;
+  gap: var(--space-2);
+  padding-inline-start: var(--space-6);
+}
+
+.failure {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-6);
+}
+
+.visuallyHidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (max-width: 600px) {
+  .fieldGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .format,
+  .goalField {
+    grid-column: auto;
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .scope,
+  .form,
+  .result,
+  .failure {
+    padding-inline: var(--space-5);
+  }
+}
+
+@media (max-width: 390px) {
+  .scope,
+  .form,
+  .result,
+  .failure {
+    padding-inline: var(--space-4);
+  }
+}

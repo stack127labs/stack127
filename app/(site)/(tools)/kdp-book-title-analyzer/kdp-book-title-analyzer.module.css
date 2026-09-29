@@ -1,0 +1,71 @@
+.titleFields {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.termGroup,
+.resultGroup {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.termGroup h4 {
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  margin: 0;
+}
+
+.resultGroup > h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.termGrid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.phraseList {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  list-style: none;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.phraseList li {
+  align-items: baseline;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  justify-content: space-between;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding-block: var(--space-3);
+}
+
+.phraseList li > span:last-child {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+.guidance {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  margin: 0;
+  padding: var(--space-4);
+}
+
+@media (max-width: 760px) {
+  .termGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

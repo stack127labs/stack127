@@ -1,11 +1,10 @@
-export const KDP_DESCRIPTION_LIMIT = 4_000;
+import { isKdpDescriptionTag, isKdpDescriptionVoidTag, KDP_DESCRIPTION_LIMIT } from "./description-rules.ts";
+
+export { KDP_DESCRIPTION_LIMIT } from "./description-rules.ts";
 export const KDP_TITLE_SUBTITLE_LIMIT = 200;
 export const KDP_KEYWORD_LIMIT = 7;
 export const KDP_KEYWORD_LOCAL_LIMIT = 50;
 export const KDP_LOCAL_INPUT_BYTES = 64 * 1024;
-
-const SUPPORTED_TAGS = new Set(["br", "p", "b", "em", "i", "u", "h4", "h5", "h6", "ol", "ul", "li"]);
-const VOID_TAGS = new Set(["br"]);
 
 export type KdpMetadataInput = Readonly<{
   title: string;
@@ -86,7 +85,7 @@ export function tokenizeKdpDescription(value: string): KdpDescriptionToken[] {
       type: "tag",
       name: match[1].toLowerCase(),
       closing: raw.startsWith("</"),
-      selfClosing: /\/\s*>$/.test(raw) || VOID_TAGS.has(match[1].toLowerCase()),
+      selfClosing: /\/\s*>$/.test(raw) || isKdpDescriptionVoidTag(match[1].toLowerCase()),
     });
     cursor = index + raw.length;
   }
@@ -104,8 +103,8 @@ function checkDescription(value: string, findings: KdpMetadataFinding[]) {
     const name = match[1].toLowerCase();
     const tail = (match[2] ?? "").replace(/\/\s*$/, "").trim();
     const closing = raw.startsWith("</");
-    const selfClosing = /\/\s*>$/.test(raw) || VOID_TAGS.has(name);
-    if (!SUPPORTED_TAGS.has(name)) {
+    const selfClosing = /\/\s*>$/.test(raw) || isKdpDescriptionVoidTag(name);
+    if (!isKdpDescriptionTag(name)) {
       findings.push(finding("description-unsupported-tag", "description", `Unsupported HTML tag <${name}>.`, "error", index));
     } else {
       supportedTagCount += 1;

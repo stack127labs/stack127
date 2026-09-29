@@ -18,12 +18,19 @@ import { driveReliabilityArt } from "@/app/(site)/(catalogs)/_components/art/dri
 import { eppStatusArt } from "@/app/(site)/(catalogs)/_components/art/epp-status";
 import { ipAsnLookupArt } from "@/app/(site)/(catalogs)/_components/art/ip-asn-lookup";
 import { kdpBookSetupCalculatorArt } from "@/app/(site)/(catalogs)/_components/art/kdp-book-setup-calculator";
+import { kdpBackendKeywordsBuilderArt } from "@/app/(site)/(catalogs)/_components/art/kdp-backend-keywords-builder";
+import { kdpBookDescriptionFormatterArt } from "@/app/(site)/(catalogs)/_components/art/kdp-book-description-formatter";
+import { kdpBookTitleAnalyzerArt } from "@/app/(site)/(catalogs)/_components/art/kdp-book-title-analyzer";
+import { kdpBreakEvenAcosCalculatorArt } from "@/app/(site)/(catalogs)/_components/art/kdp-break-even-acos-calculator";
 import { kdpImageDpiCheckerArt } from "@/app/(site)/(catalogs)/_components/art/kdp-image-dpi-checker";
+import { kdpMinimumListPriceCalculatorArt } from "@/app/(site)/(catalogs)/_components/art/kdp-minimum-list-price-calculator";
 import { kdpMetadataCheckerArt } from "@/app/(site)/(catalogs)/_components/art/kdp-metadata-checker";
 import { kdpPageCountEstimatorArt } from "@/app/(site)/(catalogs)/_components/art/kdp-page-count-estimator";
 import { kdpPaymentDateCalculatorArt } from "@/app/(site)/(catalogs)/_components/art/kdp-payment-date-calculator";
 import { kdpPdfPreflightCheckerArt } from "@/app/(site)/(catalogs)/_components/art/kdp-pdf-preflight-checker";
+import { kdpPriceProfitCalculatorArt } from "@/app/(site)/(catalogs)/_components/art/kdp-price-profit-calculator";
 import { kdpRoyaltyCalculatorArt } from "@/app/(site)/(catalogs)/_components/art/kdp-royalty-calculator";
+import { kindleUnlimitedKenpEarningsCalculatorArt } from "@/app/(site)/(catalogs)/_components/art/kindle-unlimited-kenp-earnings-calculator";
 import { kdpToolsArt } from "@/app/(site)/(catalogs)/_components/art/kdp-tools";
 import { lxcIdmapCheckerArt } from "@/app/(site)/(catalogs)/_components/art/lxc-idmap-checker";
 import { mqttDiscoveryCheckerArt } from "@/app/(site)/(catalogs)/_components/art/mqtt-discovery-checker";
@@ -81,12 +88,19 @@ const art: Record<string, string> = {
   "epp-status": eppStatusArt,
   "ip-asn-lookup": ipAsnLookupArt,
   "kdp-book-setup-calculator": kdpBookSetupCalculatorArt,
+  "kdp-backend-keywords-builder": kdpBackendKeywordsBuilderArt,
+  "kdp-book-description-formatter": kdpBookDescriptionFormatterArt,
+  "kdp-book-title-analyzer": kdpBookTitleAnalyzerArt,
+  "kdp-break-even-acos-calculator": kdpBreakEvenAcosCalculatorArt,
   "kdp-image-dpi-checker": kdpImageDpiCheckerArt,
+  "kdp-minimum-list-price-calculator": kdpMinimumListPriceCalculatorArt,
   "kdp-metadata-checker": kdpMetadataCheckerArt,
   "kdp-page-count-estimator": kdpPageCountEstimatorArt,
   "kdp-payment-date-calculator": kdpPaymentDateCalculatorArt,
   "kdp-pdf-preflight-checker": kdpPdfPreflightCheckerArt,
+  "kdp-price-profit-calculator": kdpPriceProfitCalculatorArt,
   "kdp-royalty-calculator": kdpRoyaltyCalculatorArt,
+  "kindle-unlimited-kenp-earnings-calculator": kindleUnlimitedKenpEarningsCalculatorArt,
   "kdp-tools": kdpToolsArt,
   "lxc-idmap-checker": lxcIdmapCheckerArt,
   "mqtt-discovery-checker": mqttDiscoveryCheckerArt,

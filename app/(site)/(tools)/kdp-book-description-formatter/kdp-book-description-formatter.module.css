@@ -1,0 +1,28 @@
+.resultGroup,
+.previewSection {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.resultGroup h3,
+.previewSection h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.previewSection > div:first-child {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.limitNotice {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-warning-text);
+  margin: 0;
+  padding: var(--space-4);
+}

@@ -1,0 +1,11 @@
+{
+  "id": "catalog--kdp-book-title-analyzer",
+  "type": "toolSpot",
+  "takeaway": "A blank book cover under a magnifier stands for a close review of title wording.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-29",
+  "width": 140,
+  "height": 110,
+  "seed": 349,
+  "data": { "icon": "bookCoverSearch" }
+}

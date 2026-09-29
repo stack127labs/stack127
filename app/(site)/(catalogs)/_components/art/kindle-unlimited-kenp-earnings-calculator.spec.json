@@ -1,0 +1,11 @@
+{
+  "id": "catalog--kindle-unlimited-kenp-earnings-calculator",
+  "type": "toolSpot",
+  "takeaway": "An eBook's read pages feed an estimated royalty.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-29",
+  "width": 140,
+  "height": 110,
+  "seed": 507,
+  "data": { "icon": "openBook", "motif": "kenpEarnings" }
+}

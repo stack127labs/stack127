@@ -1,0 +1,11 @@
+{
+  "id": "catalog--kdp-break-even-acos-calculator",
+  "type": "toolSpot",
+  "takeaway": "A bid pointer stops at the CPC ceiling allowed by an assumed purchase rate.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-29",
+  "width": 140,
+  "height": 110,
+  "seed": 347,
+  "data": { "icon": "bidDial", "motif": "bidThreshold" }
+}

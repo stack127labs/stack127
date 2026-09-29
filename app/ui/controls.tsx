@@ -104,6 +104,7 @@ export type UiTextFieldProps = FieldCopy & {
   placeholder?: string;
   readOnly?: boolean;
   spellCheck?: boolean;
+  suffix?: string;
   type?: "text" | "email" | "url" | "password" | "tel";
   value?: string;
   className?: string;
@@ -126,6 +127,7 @@ export function UiTextField({
   readOnly,
   required,
   spellCheck,
+  suffix,
   type = "text",
   value,
 }: UiTextFieldProps) {
@@ -143,31 +145,49 @@ export function UiTextField({
       value={value}
     >
       <UiLabel label={label} required={required} />
-      <Input
-        autoComplete={autoComplete}
-        autoCapitalize={autoCapitalize}
-        className={styles.input}
-        data-focus-key={dataFocusKey}
-        inputMode={inputMode}
-        placeholder={placeholder}
-        ref={inputRef}
-        spellCheck={spellCheck}
-      />
+      {suffix ? (
+        <Group className={styles.numberControl}>
+          <Input
+            autoComplete={autoComplete}
+            autoCapitalize={autoCapitalize}
+            className={styles.numberInput}
+            data-focus-key={dataFocusKey}
+            inputMode={inputMode}
+            placeholder={placeholder}
+            ref={inputRef}
+            spellCheck={spellCheck}
+          />
+          <span aria-hidden="true" className={styles.numberSuffix}>{suffix}</span>
+        </Group>
+      ) : (
+        <Input
+          autoComplete={autoComplete}
+          autoCapitalize={autoCapitalize}
+          className={styles.input}
+          data-focus-key={dataFocusKey}
+          inputMode={inputMode}
+          placeholder={placeholder}
+          ref={inputRef}
+          spellCheck={spellCheck}
+        />
+      )}
       <FieldMessages description={description} error={error} />
     </TextField>
   );
 }
 
 export type UiSearchFieldProps = FieldCopy & {
+  name?: string;
   onChange?: (value: string) => void;
   placeholder?: string;
   value?: string;
 };
 
-export function UiSearchField({ description, error, label, onChange, placeholder, required, value }: UiSearchFieldProps) {
+export function UiSearchField({ description, error, label, name, onChange, placeholder, required, value }: UiSearchFieldProps) {
   return (
     <SearchField
       className={styles.field}
+      name={name}
       isInvalid={Boolean(error)}
       isRequired={required}
       onChange={onChange}
@@ -617,17 +637,19 @@ export function UiQuantityInput({
 
 export type UiChoiceGroupProps = FieldCopy & {
   dataFocusKey?: string;
+  name?: string;
   onChange?: (value: string) => void;
   options: UiOption[];
   value?: string;
 };
 
-export function UiChoiceGroup({ dataFocusKey, description, error, label, onChange, options, required, value }: UiChoiceGroupProps) {
+export function UiChoiceGroup({ dataFocusKey, description, error, label, name, onChange, options, required, value }: UiChoiceGroupProps) {
   return (
     <RadioGroup
       className={styles.field}
       isInvalid={Boolean(error)}
       isRequired={required}
+      name={name}
       onChange={onChange}
       validationBehavior="aria"
       value={value}
@@ -892,6 +914,9 @@ export function UiCopyAction({
         {copied ? <Check aria-hidden="true" size={17} /> : <Copy aria-hidden="true" size={17} />}
         {failed ? failureLabel : copied ? successLabel : label}
       </UiButton>
+      <span aria-live="polite" className={styles.visuallyHidden} role="status">
+        {failed ? `${failureLabel}. Select the text manually.` : copied ? successLabel : ""}
+      </span>
       {failed && withManualFallback ? (
         <div className={styles.copyFallback}>
           <label>Select and copy this text manually.</label>

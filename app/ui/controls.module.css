@@ -791,6 +791,29 @@
   color: var(--color-danger-text);
 }
 
+.statusWord {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  white-space: nowrap;
+}
+
+.statusWord[data-tone="success"] {
+  color: var(--color-success-text);
+}
+
+.statusWord[data-tone="warning"] {
+  color: var(--color-warning-text);
+}
+
+.statusWord[data-tone="danger"] {
+  color: var(--color-danger-text);
+}
+
+.statusWord[data-tone="neutral"] {
+  color: var(--color-text-muted);
+}
+
 .resultLead {
   color: var(--color-text);
   font-family: var(--font-display);

@@ -1,0 +1,11 @@
+{
+  "id": "catalog--kdp-price-profit-calculator",
+  "type": "toolSpot",
+  "takeaway": "Two print editions share one price while their production choices shape the royalty.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-28",
+  "width": 140,
+  "height": 110,
+  "seed": 332,
+  "data": { "icon": "pairedBooks", "motif": "sharedPrice" }
+}

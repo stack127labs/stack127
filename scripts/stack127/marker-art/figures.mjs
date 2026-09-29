@@ -1012,7 +1012,17 @@ function toolSpot(spec, A) {
   const d = spec.data;
   const cx = A.w / 2;
   const cy = A.h / 2;
-  drawIcon(A, d.icon, cx, cy, Math.min(A.w, A.h) * 0.48, "@ink");
+  if (d.motif === "bidThreshold") {
+    drawIcon(A, d.icon, cx, cy, Math.min(A.w, A.h) * 0.48, "@ink");
+  } else if (d.motif === "kenpEarnings") {
+    drawIcon(A, d.icon, cx - 22, cy, Math.min(A.w, A.h) * 0.42, "@ink");
+    A.line(cx + 15, cy - 6, cx + 34, cy - 6, { stroke: "@sub" });
+    A.line(cx + 17, cy, cx + 34, cy, { stroke: "@sub" });
+    A.line(cx + 15, cy + 6, cx + 34, cy + 6, { stroke: "@sub" });
+    drawIcon(A, "coin", cx + 47, cy, 19, "@primary");
+  } else {
+    drawIcon(A, d.icon, cx, cy, Math.min(A.w, A.h) * 0.48, "@ink");
+  }
 
   if (d.motif === "check") {
     drawCheck(A, A.w - 25, 25, "@primary");
@@ -1040,6 +1050,10 @@ function toolSpot(spec, A) {
     A.line(18, A.h - 18, A.w - 18, A.h - 18, { stroke: "@primary" });
     A.dot(24, 22, 2.2, "@sub");
     A.dot(A.w - 24, 22, 2.2, "@primary");
+  } else if (d.motif === "floor") {
+    A.line(22, A.h - 25, A.w - 22, A.h - 25, { stroke: "@sub" });
+  } else if (d.motif === "sharedPrice") {
+    A.line(18, A.h - 16, A.w - 18, A.h - 16, { stroke: "@primary" });
   }
 }
 

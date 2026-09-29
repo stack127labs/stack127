@@ -100,6 +100,25 @@ export const ICONS = {
     A.line(cx + 0.475 * s, cy - 0.32 * s, cx + 0.475 * s, cy + 0.3 * s, { stroke: tone });
     A.arc(cx, cy + 0.3 * s, 0.95 * s, 0.38 * s, 0, Math.PI, false, { stroke: tone });
   },
+  bidDial(A, cx, cy, s, tone = "@ink") {
+    const baseY = cy + 0.38 * s;
+    A.arc(cx, baseY, 1.9 * s, 1.5 * s, Math.PI, Math.PI * 2, false, { stroke: tone });
+    A.line(cx - 0.95 * s, baseY, cx + 0.95 * s, baseY, { stroke: tone });
+
+    const pivotY = cy + 0.34 * s;
+    const needleAngle = 4.82;
+    const needleTipX = cx + Math.cos(needleAngle) * 0.7 * s;
+    const needleTipY = pivotY + Math.sin(needleAngle) * 0.7 * s;
+    A.line(cx, pivotY, needleTipX, needleTipY, { stroke: "@primary" });
+    A.dot(cx, pivotY, 0.18 * s, "@primary");
+
+    const thresholdAngle = 5.15;
+    const outerX = cx + Math.cos(thresholdAngle) * 0.95 * s;
+    const outerY = baseY + Math.sin(thresholdAngle) * 0.75 * s;
+    const innerX = cx + Math.cos(thresholdAngle) * 0.76 * s;
+    const innerY = baseY + Math.sin(thresholdAngle) * 0.59 * s;
+    A.line(outerX, outerY, innerX, innerY, { stroke: "@warn" });
+  },
   cloud(A, cx, cy, s, tone = "@ink") {
     const f = s / 30;
     const d =
@@ -244,6 +263,10 @@ export const ICONS = {
     A.line(cx, cy - 0.34 * s, cx, cy + 0.45 * s, { stroke: "@primary" });
     A.line(cx - 0.75 * s, cy + 0.45 * s, cx - 0.22 * s, cy + 0.41 * s, { stroke: "@sub" });
     A.line(cx + 0.22 * s, cy + 0.41 * s, cx + 0.75 * s, cy + 0.45 * s, { stroke: "@sub" });
+  },
+  coin(A, cx, cy, s, tone = "@ink") {
+    A.ellipse(cx, cy, 0.95 * s, 0.95 * s, { stroke: tone });
+    A.ellipse(cx, cy, 0.67 * s, 0.67 * s, { stroke: "@primary" });
   },
   tag(A, cx, cy, s, tone = "@ink") {
     A.polygon([
@@ -441,6 +464,25 @@ export const ICONS = {
     A.arc(cx + 0.49 * s, cy - 0.48 * s, 0.11 * s, 0.11 * s, 0, Math.PI, false, { stroke: "@primary" });
     A.arc(cx + 0.68 * s, cy - 0.22 * s, 0.11 * s, 0.11 * s, 0, Math.PI, false, { stroke: "@primary" });
   },
+  pairedBooks(A, cx, cy, s, tone = "@ink") {
+    const left = cx - 0.35 * s;
+    const right = cx + 0.35 * s;
+    A.polygon([
+      [left - 0.26 * s, cy - 0.42 * s],
+      [left + 0.24 * s, cy - 0.42 * s],
+      [left + 0.24 * s, cy + 0.42 * s],
+      [left - 0.26 * s, cy + 0.42 * s],
+    ], { stroke: tone });
+    A.line(left - 0.12 * s, cy - 0.42 * s, left - 0.12 * s, cy + 0.42 * s, { stroke: "@sub" });
+    A.polygon([
+      [right - 0.24 * s, cy - 0.58 * s],
+      [right + 0.22 * s, cy - 0.58 * s],
+      [right + 0.27 * s, cy - 0.51 * s],
+      [right + 0.27 * s, cy + 0.42 * s],
+      [right - 0.24 * s, cy + 0.42 * s],
+    ], { stroke: tone });
+    A.line(right - 0.1 * s, cy - 0.58 * s, right - 0.1 * s, cy + 0.42 * s, { stroke: "@sub" });
+  },
   idMap(A, cx, cy, s, tone = "@ink") {
     A.rect(cx - 0.58 * s, cy - 0.49 * s, 0.72 * s, 0.3 * s, { stroke: tone });
     A.rect(cx - 0.42 * s, cy + 0.17 * s, 1.0 * s, 0.3 * s, { stroke: "@sub" });
@@ -512,6 +554,32 @@ export const ICONS = {
       A.line(cx + (x + 0.2) * s, top, cx + (x + 0.2) * s, cy + 0.16 * s, { stroke });
       A.arc(cx + x * s, cy + 0.16 * s, 0.4 * s, 0.15 * s, 0, Math.PI, false, { stroke });
     }
+  },
+  keywordSlots(A, cx, cy, s, tone = "@ink") {
+    const left = cx - 0.24 * s;
+    const width = 0.86 * s;
+    for (let index = 0; index < 7; index += 1) {
+      const y = cy - 0.72 * s + index * 0.24 * s;
+      A.line(left, y, left + width, y, { stroke: tone });
+      A.line(left, y - 0.06 * s, left, y + 0.06 * s, { stroke: tone });
+      A.line(left + width, y - 0.06 * s, left + width, y + 0.06 * s, { stroke: tone });
+    }
+    A.rect(cx - 0.97 * s, cy - 0.07 * s, 0.25 * s, 0.14 * s, { stroke: "@primary" });
+    A.arrow(cx - 0.65 * s, cy, cx - 0.28 * s, cy, { tone: "@primary" });
+  },
+  bookCoverSearch(A, cx, cy, s, tone = "@ink") {
+    A.rect(cx - 0.56 * s, cy - 0.64 * s, 0.88 * s, 1.28 * s, { stroke: tone });
+    A.line(cx - 0.32 * s, cy - 0.62 * s, cx - 0.32 * s, cy + 0.62 * s, { stroke: "@sub" });
+    A.line(cx - 0.14 * s, cy - 0.2 * s, cx + 0.08 * s, cy - 0.2 * s, { stroke: "@sub" });
+    A.circle(cx + 0.4 * s, cy - 0.28 * s, 0.28 * s, { stroke: "@primary" });
+    A.line(cx + 0.58 * s, cy - 0.07 * s, cx + 0.84 * s, cy + 0.21 * s, { stroke: "@primary" });
+  },
+  descriptionBlocks(A, cx, cy, s, tone = "@ink") {
+    A.rect(cx - 0.48 * s, cy - 0.67 * s, 0.96 * s, 1.34 * s, { stroke: tone });
+    A.line(cx - 0.26 * s, cy - 0.35 * s, cx + 0.25 * s, cy - 0.35 * s, { stroke: "@primary" });
+    A.line(cx - 0.26 * s, cy - 0.15 * s, cx + 0.12 * s, cy - 0.15 * s, { stroke: "@sub" });
+    A.line(cx - 0.26 * s, cy + 0.16 * s, cx + 0.25 * s, cy + 0.16 * s, { stroke: "@primary" });
+    A.line(cx - 0.26 * s, cy + 0.36 * s, cx + 0.04 * s, cy + 0.36 * s, { stroke: "@sub" });
   },
 };
 

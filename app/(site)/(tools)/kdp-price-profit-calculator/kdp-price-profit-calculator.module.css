@@ -1,0 +1,199 @@
+.tool {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+  padding-block: var(--space-8);
+}
+
+.scope,
+.form,
+.result {
+  min-width: 0;
+  padding-inline: var(--space-7);
+}
+
+.scope,
+.resultNote,
+.costHelp,
+.estimateNote {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+}
+
+.scope {
+  font-family: var(--font-mono);
+}
+
+.form,
+.options,
+.costMode,
+.costs,
+.costOption,
+.result,
+.details {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.priceRow {
+  max-width: 24rem;
+  min-width: 0;
+}
+
+.options h2,
+.costOption h3 {
+  font-size: var(--text-body);
+  font-weight: 650;
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.option {
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  min-width: 0;
+  padding: 0 0 var(--space-5);
+}
+
+.optionLegend {
+  font-size: var(--text-body);
+  font-weight: 650;
+  padding: 0;
+}
+
+.optionLegend:focus-visible {
+  border-radius: var(--radius-sm);
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.optionGrid,
+.costGrid {
+  display: grid;
+  gap: var(--space-5) var(--space-6);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.optionGrid > *,
+.costGrid > * {
+  min-width: 0;
+}
+
+.remove {
+  justify-self: start;
+}
+
+.costs {
+  gap: var(--space-4);
+  padding-top: var(--space-2);
+}
+
+.costHelp {
+  margin-bottom: calc(var(--space-1) * -1);
+}
+
+.costOption {
+  gap: var(--space-3);
+  padding-top: var(--space-3);
+}
+
+.result {
+  border-top: 1px solid var(--color-border-strong);
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+  padding-top: var(--space-7);
+}
+
+.resultNote,
+.estimateNote,
+.pageNotes,
+.details {
+  max-width: var(--measure-prose);
+  overflow-wrap: anywhere;
+}
+
+.pageNotes {
+  color: var(--color-text-muted);
+  display: grid;
+  font-size: var(--text-small);
+  gap: var(--space-2);
+  line-height: var(--line-body);
+  margin: 0;
+  padding-inline-start: var(--space-5);
+}
+
+.optionSummary {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 12rem;
+}
+
+.optionSummary span,
+.unavailableValue {
+  overflow-wrap: anywhere;
+}
+
+.unavailableValue {
+  display: inline-block;
+  max-width: 13rem;
+}
+
+.details {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.details p,
+.details ul {
+  margin: 0;
+}
+
+.details ul {
+  display: grid;
+  gap: var(--space-2);
+  padding-inline-start: var(--space-6);
+}
+
+.submit {
+  flex-shrink: 0;
+}
+
+@media (max-width: 760px) {
+  .scope,
+  .form,
+  .result {
+    padding-inline: var(--space-5);
+  }
+}
+
+@media (max-width: 640px) {
+  .optionGrid,
+  .costGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .form :global([class*="actionRow"]) {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .form :global([class*="actionRow"]) button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .scope,
+  .form,
+  .result {
+    padding-inline: var(--space-4);
+  }
+}

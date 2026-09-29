@@ -1,0 +1,137 @@
+.tool {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+  padding-block: var(--space-8);
+}
+
+.form,
+.result,
+.initialPrompt {
+  min-width: 0;
+  padding-inline: var(--space-7);
+}
+
+.form,
+.contextGrid,
+.result,
+.acosSection {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.contextGrid {
+  column-gap: var(--space-6);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contextGrid > *,
+.result > *,
+.acosSection > * {
+  min-width: 0;
+}
+
+.salesField {
+  grid-column: 1 / -1;
+}
+
+.royaltyField {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.royaltyLink {
+  color: var(--color-accent-text);
+  font-size: var(--text-small);
+  justify-self: start;
+  text-underline-offset: 0.16em;
+}
+
+.submit {
+  flex-shrink: 0;
+}
+
+.result {
+  border-top: 1px solid var(--color-border-strong);
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+  padding-top: var(--space-7);
+}
+
+.result > :global([class*="status"]) {
+  margin: 0;
+}
+
+.verdict,
+.initialPrompt {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+  max-width: var(--measure-prose);
+  overflow-wrap: anywhere;
+}
+
+.acosSection {
+  border-top: 1px solid var(--color-border);
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+  padding-top: var(--space-5);
+}
+
+.acosSection h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-ui);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.visuallyHidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (max-width: 760px) {
+  .form,
+  .result,
+  .initialPrompt {
+    padding-inline: var(--space-5);
+  }
+}
+
+@media (max-width: 600px) {
+  .contextGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .salesField {
+    grid-column: auto;
+  }
+
+  .form :global([class*="actionRow"]) {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .form :global([class*="actionRow"]) button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .form,
+  .result,
+  .initialPrompt {
+    padding-inline: var(--space-4);
+  }
+}

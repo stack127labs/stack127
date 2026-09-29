@@ -11,6 +11,10 @@ export function UiStatus({ children, tone = "neutral" }: { children: ReactNode; 
   return <p aria-live="polite" className={styles.status} data-tone={tone} role={tone === "danger" ? "alert" : "status"}>{children}</p>;
 }
 
+export function UiStatusWord({ children, tone = "neutral" }: { children: ReactNode; tone?: "neutral" | "success" | "warning" | "danger" }) {
+  return <span className={styles.statusWord} data-tone={tone}>{children}</span>;
+}
+
 export function UiResultLead({ children, inputRef }: { children: ReactNode; inputRef?: Ref<HTMLParagraphElement> }) {
   return <p className={styles.resultLead} ref={inputRef} tabIndex={inputRef ? -1 : undefined}>{children}</p>;
 }

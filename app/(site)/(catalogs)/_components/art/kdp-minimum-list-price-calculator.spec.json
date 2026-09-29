@@ -1,0 +1,11 @@
+{
+  "id": "catalog--kdp-minimum-list-price-calculator",
+  "type": "toolSpot",
+  "takeaway": "A price tag meets one low boundary line to show the lowest list price that clears the floor.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-28",
+  "width": 140,
+  "height": 110,
+  "seed": 318,
+  "data": { "icon": "tag", "motif": "floor" }
+}

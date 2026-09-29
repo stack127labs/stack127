@@ -1,0 +1,99 @@
+.capNote {
+  align-self: end;
+  padding-block: var(--space-3);
+}
+
+.optional {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-5);
+  margin: 0;
+  min-width: 0;
+  padding: var(--space-5) 0 0;
+}
+
+.optional legend {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
+  padding: 0 var(--space-2) 0 0;
+}
+
+.stateLabel {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  margin: calc(-1 * var(--space-4)) 0 0;
+}
+
+.fieldList {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  list-style: none;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.keywordField {
+  border-bottom: 1px solid var(--color-border);
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+  padding-block: var(--space-5);
+}
+
+.fieldHeading {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  justify-content: space-between;
+}
+
+.fieldHeading h3,
+.findings h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.fieldHeading span {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+.phraseText {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  margin: 0;
+  min-height: 48px;
+  overflow-wrap: anywhere;
+  padding: var(--space-4);
+  user-select: text;
+  white-space: pre-wrap;
+}
+
+.emptyField {
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+}
+
+.findings {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .capNote {
+    padding-top: 0;
+  }
+}
