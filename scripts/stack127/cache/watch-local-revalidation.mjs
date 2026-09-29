@@ -31,16 +31,25 @@ async function revalidatePending() {
   if (!events.length) return;
 
   let catalogSlugs = [];
+  let toolSlugs = [];
   if (events.some((event) => event.entity_type === "page")) {
     const catalogs = await pool.query(`
-      select page.slug
-      from public.stack127_tool_catalogs catalog
-      join public.stack127_pages page on page.id = catalog.page_id
-      where page.is_published
+      select page.slug, page.is_published, catalog.page_id is not null as has_catalog_content
+      from public.stack127_pages page
+      left join public.stack127_tool_catalogs catalog on catalog.page_id = page.id
+      where page.page_family = 'catalog'
     `);
-    catalogSlugs = catalogs.rows.map((row) => row.slug);
+    catalogSlugs = catalogs.rows.filter((row) => row.is_published && row.has_catalog_content).map((row) => row.slug);
+    const catalogNames = new Set(catalogs.rows.map((row) => row.slug));
+    if (events.some((event) => event.entity_type === "page" && catalogNames.has(event.slug))) {
+      const tools = await pool.query(`
+        select slug from public.stack127_pages
+        where page_family = 'tool' and is_published
+      `);
+      toolSlugs = tools.rows.map((row) => row.slug);
+    }
   }
-  const targets = targetsForEvents(events, catalogSlugs);
+  const targets = targetsForEvents(events, catalogSlugs, toolSlugs);
   const credential = await pool.query(
     "select signing_key from public.stack127_cache_credentials where id = true",
   );
@@ -49,16 +58,16 @@ async function revalidatePending() {
   const token = createHmac("sha256", signingKey)
     .update("stack127-cache-revalidation-v1")
     .digest("hex");
-  const response = await fetch("http://127.0.0.1:3333/api/cache/revalidate", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      paths: targets.paths.filter((path) => !path.endsWith(".xml")),
-      tags: targets.nextTags,
-    }),
-    signal: AbortSignal.timeout(20000),
-  });
-  if (!response.ok) throw new Error(`Local cache endpoint returned HTTP ${response.status}.`);
+  const paths = targets.paths.filter((path) => !path.endsWith(".xml"));
+  for (let index = 0; index < Math.max(paths.length, 1); index += 200) {
+    const response = await fetch("http://127.0.0.1:3333/api/cache/revalidate", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ paths: paths.slice(index, index + 200), tags: index === 0 ? targets.nextTags : [] }),
+      signal: AbortSignal.timeout(20000),
+    });
+    if (!response.ok) throw new Error(`Local cache endpoint returned HTTP ${response.status}.`);
+  }
 
   const client = await pool.connect();
   try {

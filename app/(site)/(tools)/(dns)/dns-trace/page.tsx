@@ -1,3 +1,4 @@
+import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
@@ -23,18 +24,20 @@ export default async function DnsTracePage({ searchParams }: { searchParams: Pro
   const toolPage = await getRequiredToolPage("dns-trace");
   const params = await searchParams;
   return (
-    <PageCanvas as="main" className={styles.main}>
-      <ToolPageHeader
-        icon={<Route strokeWidth={2.2} />}
-        toolPage={toolPage}
-      />
+    <ToolPageShell toolPage={toolPage}>
+      <PageCanvas as="main" className={styles.main}>
+        <ToolPageHeader
+          icon={<Route strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
 
-      <DnsTraceTool
-        initialName={firstValue(params.name)}
-        initialRecordType={initialRecordType(firstValue(params.type))}
-      />
+        <DnsTraceTool
+          initialName={firstValue(params.name)}
+          initialRecordType={initialRecordType(firstValue(params.type))}
+        />
 
-      <ToolPageMarkdown toolPage={toolPage} />
-    </PageCanvas>
+        <ToolPageMarkdown toolPage={toolPage} />
+      </PageCanvas>
+    </ToolPageShell>
   );
 }

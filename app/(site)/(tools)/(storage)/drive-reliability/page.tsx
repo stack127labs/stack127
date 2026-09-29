@@ -1,3 +1,4 @@
+import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { HardDrive } from "lucide-react";
@@ -20,16 +21,18 @@ export default async function DriveReliabilityPage({
   const toolPage = await getRequiredToolPage("drive-reliability");
   const params = await searchParams;
   return (
-    <PageCanvas>
-      <ToolPageHeader
-        icon={<HardDrive strokeWidth={2.2} />}
-        toolPage={toolPage}
-      />
-      <DriveReliabilityExplorer
-        initialState={firstValue(params.state)}
-        snapshot={snapshotData as DriveReliabilitySnapshot}
-      />
-      <ToolPageMarkdown toolPage={toolPage} />
-    </PageCanvas>
+    <ToolPageShell toolPage={toolPage}>
+      <PageCanvas>
+        <ToolPageHeader
+          icon={<HardDrive strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
+        <DriveReliabilityExplorer
+          initialState={firstValue(params.state)}
+          snapshot={snapshotData as DriveReliabilitySnapshot}
+        />
+        <ToolPageMarkdown toolPage={toolPage} />
+      </PageCanvas>
+    </ToolPageShell>
   );
 }

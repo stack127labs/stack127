@@ -21,11 +21,14 @@ async function invalidateNext(targets) {
   const signingKey = result.rows[0]?.signing_key;
   if (!signingKey) throw new Error("Cache signing key is missing from the database.");
   const token = createHmac("sha256", signingKey).update("stack127-cache-revalidation-v1").digest("hex");
-  await request(`${siteUrl}/api/cache/revalidate`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ paths: targets.paths.filter((path) => !path.endsWith(".xml")), tags: targets.nextTags }),
-  });
+  const paths = targets.paths.filter((path) => !path.endsWith(".xml"));
+  for (let index = 0; index < Math.max(paths.length, 1); index += 200) {
+    await request(`${siteUrl}/api/cache/revalidate`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ paths: paths.slice(index, index + 200), tags: index === 0 ? targets.nextTags : [] }),
+    });
+  }
 }
 
 async function purgeCloudflare(tags) {
@@ -65,19 +68,28 @@ async function processEvents() {
       { entity_type: "self_host_catalog", slug: "all" },
     ];
   }
-  // Catalog sidebars appear on every catalog page. Purge those pages whenever
-  // a registry page changes so additions, removals, and card edits are visible.
+  // Catalog sidebars appear on every catalog page. A catalog page event also
+  // changes tool sidebars, so purge tool pages when a catalog is touched.
   let catalogSlugs = [];
+  let toolSlugs = [];
   if (targetEvents.some((event) => event.entity_type === "page")) {
     const catalogs = await pool.query(`
-      select page.slug
+      select page.slug, page.is_published, catalog.page_id is not null as has_catalog_content
       from public.stack127_pages page
-      join public.stack127_tool_catalogs catalog on catalog.page_id = page.id
-      where page.is_published
+      left join public.stack127_tool_catalogs catalog on catalog.page_id = page.id
+      where page.page_family = 'catalog'
     `);
-    catalogSlugs = catalogs.rows.map((row) => row.slug);
+    catalogSlugs = catalogs.rows.filter((row) => row.is_published && row.has_catalog_content).map((row) => row.slug);
+    const catalogNames = new Set(catalogs.rows.map((row) => row.slug));
+    if (targetEvents.some((event) => event.entity_type === "page" && catalogNames.has(event.slug))) {
+      const tools = await pool.query(`
+        select slug from public.stack127_pages
+        where page_family = 'tool' and is_published
+      `);
+      toolSlugs = tools.rows.map((row) => row.slug);
+    }
   }
-  const targets = targetsForEvents(targetEvents, catalogSlugs);
+  const targets = targetsForEvents(targetEvents, catalogSlugs, toolSlugs);
   try {
     await invalidateNext(targets);
     await purgeCloudflare(targets.edgeTags);

@@ -11,6 +11,10 @@ Tool catalogs are server-rendered at `/<slug>` by one route. Notion is a plannin
 
 Only published tool rows render as cards. An unpublished tool may have memberships ready for launch. Publishing it in `stack127_pages` makes its card visible in all assigned catalogs. Keep published catalogs populated with at least one published tool.
 
+## Navigation
+
+Catalog sidebars list every published catalog in navigation order and highlight the current catalog with the shared active row style and `aria-current="page"`. Every tool page resolves its `catalog_rank = 1` membership and lists all published tools in that catalog, using the same `display_order` as the catalog cards. The current tool uses the same active row style. Secondary memberships add cards to those catalogs but do not change the tool page's sidebar. A published tool should have one primary membership before launch; a tool without one falls back to the catalog list.
+
 ## Editing
 
 1. Create the `stack127_pages` row first. Use a flat unique slug, `page_family = 'catalog'`, a short `label`, reviewed `meta_title` and `meta_description`, appropriate `page_type` such as `CollectionPage`, and public dates when publishing. Do not put SEO metadata in route files.
@@ -38,6 +42,8 @@ The domain catalog has a separate explanatory reference article. EPP status code
 ## Freshness
 
 Catalog content edits, membership changes, tool card edits, and tool publication changes touch the catalog's public `updated_at`. The existing database revalidation queue receives the catalog slug as a page event. The cache worker invalidates the catalog page, catalog data tags, homepage, and sitemap. A new catalog needs no route or homepage code change.
+
+Catalog page events also invalidate the primary-catalog lookup and every published tool page, because changing one catalog can change many tool sidebars. The tool pages are invalidated without warming them all at once. The revalidation endpoint receives paths in batches of at most 200.
 
 The development project can lag the repo's migration history. Apply the catalog migration only to the intended managed project, and verify the tool count, primary membership count, visible catalog cards, homepage cards, and cache events before sharing a preview. Production migration and deployment are separate release work.
 

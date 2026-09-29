@@ -1,3 +1,4 @@
+import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
@@ -12,13 +13,15 @@ export default async function NameserverCheckerPage({ searchParams }: { searchPa
   const toolPage = await getRequiredToolPage("nameserver-checker");
   const params = await searchParams;
   return (
-    <PageCanvas as="main" className={styles.main}>
-      <ToolPageHeader
-        icon={<Server strokeWidth={2.2} />}
-        toolPage={toolPage}
-      />
-      <NameserverChecker initialName={first(params.name)} />
-      <ToolPageMarkdown toolPage={toolPage} />
-    </PageCanvas>
+    <ToolPageShell toolPage={toolPage}>
+      <PageCanvas as="main" className={styles.main}>
+        <ToolPageHeader
+          icon={<Server strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
+        <NameserverChecker initialName={first(params.name)} />
+        <ToolPageMarkdown toolPage={toolPage} />
+      </PageCanvas>
+    </ToolPageShell>
   );
 }

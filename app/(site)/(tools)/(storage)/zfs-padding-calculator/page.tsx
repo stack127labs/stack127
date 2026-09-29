@@ -1,3 +1,4 @@
+import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { Columns3 } from "lucide-react";
@@ -18,13 +19,15 @@ export default async function ZfsPaddingCalculatorPage({
   const toolPage = await getRequiredToolPage("zfs-padding-calculator");
   const params = await searchParams;
   return (
-    <PageCanvas>
-      <ToolPageHeader
-        icon={<Columns3 strokeWidth={2.2} />}
-        toolPage={toolPage}
-      />
-      <ZfsPaddingCalculator initialState={firstValue(params.state)} />
-      <ToolPageMarkdown toolPage={toolPage} />
-    </PageCanvas>
+    <ToolPageShell toolPage={toolPage}>
+      <PageCanvas>
+        <ToolPageHeader
+          icon={<Columns3 strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
+        <ZfsPaddingCalculator initialState={firstValue(params.state)} />
+        <ToolPageMarkdown toolPage={toolPage} />
+      </PageCanvas>
+    </ToolPageShell>
   );
 }

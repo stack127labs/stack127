@@ -1,7 +1,3 @@
-.sidebarPanel {
-  min-width: 0;
-}
-
 .hubSection {
   display: grid;
   gap: var(--space-5);

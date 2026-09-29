@@ -1,3 +1,4 @@
+import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { Calculator } from "lucide-react";
@@ -18,13 +19,15 @@ export default async function StorageGrowthPlannerPage({
   const toolPage = await getRequiredToolPage("storage-growth-planner");
   const params = await searchParams;
   return (
-    <PageCanvas>
-      <ToolPageHeader
-        icon={<Calculator strokeWidth={2.2} />}
-        toolPage={toolPage}
-      />
-      <StorageGrowthPlanner initialState={firstValue(params.state)} />
-      <ToolPageMarkdown toolPage={toolPage} />
-    </PageCanvas>
+    <ToolPageShell toolPage={toolPage}>
+      <PageCanvas>
+        <ToolPageHeader
+          icon={<Calculator strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
+        <StorageGrowthPlanner initialState={firstValue(params.state)} />
+        <ToolPageMarkdown toolPage={toolPage} />
+      </PageCanvas>
+    </ToolPageShell>
   );
 }

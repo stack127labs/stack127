@@ -1,7 +1,7 @@
 const clean = (value) => String(value ?? "").replace(/^\/+|\/+$/g, "").toLowerCase();
 const pageTag = (path) => `page:${clean(path).replaceAll("/", ":") || "home"}`;
 
-export function targetsForEvents(events, catalogSlugs = []) {
+export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
   const paths = new Set();
   const nextTags = new Set();
   const edgeTags = new Set();
@@ -20,6 +20,7 @@ export function targetsForEvents(events, catalogSlugs = []) {
       nextTags.add(`stack127-tool-page:${slug}`);
       nextTags.add(`stack127-tool-catalog:${slug}`);
       nextTags.add("stack127-tool-catalogs");
+      nextTags.add("stack127-tool-primary-catalogs");
       nextTags.add("stack127-home-pages");
       nextTags.add("stack127-sitemap-pages");
       addPage("/");
@@ -54,6 +55,9 @@ export function targetsForEvents(events, catalogSlugs = []) {
       addPage(`/${catalogSlug}`);
       nextTags.add(`stack127-tool-catalog:${catalogSlug}`);
     }
+    // Catalog membership, order, and card changes alter tool-page sidebars.
+    // Invalidate without warming every tool page at once.
+    for (const slug of toolSlugs) addPage(`/${clean(slug)}`, false);
   }
   return { paths: [...paths], nextTags: [...nextTags], edgeTags: [...edgeTags], warmPaths: [...warmPaths] };
 }

@@ -1,10 +1,9 @@
+import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { AppShell } from "../../../ui/site/app-shell";
 import { PageCanvas } from "../../../ui/site/page-canvas";
 import { Keyboard } from "lucide-react";
 import { loadShortcutApp, shortcutAppCatalog } from "@/lib/shortcuts";
-import { KeyboardShortcutsSidebar } from "../../../ui/references/keyboard-shortcuts-sidebar";
 import { ShortcutsCheatSheetGenerator } from "./shortcuts-cheatsheet-generator";
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -25,12 +24,7 @@ export default async function ShortcutsCheatSheetGeneratorPage({ searchParams }:
   const initialApps = (await Promise.all(selectedSlugs.map(loadShortcutApp))).filter((app) => app !== undefined);
 
   return (
-    <AppShell
-      mainLabel="Shortcut cheat sheet generator"
-      menuLabel="Shortcuts"
-      sidebar={<KeyboardShortcutsSidebar activePage="generator" />}
-      sidebarLabel="Shortcut pages"
-    >
+    <ToolPageShell toolPage={toolPage}>
       <PageCanvas>
         <ToolPageHeader
           icon={<Keyboard strokeWidth={2.2} />}
@@ -39,6 +33,6 @@ export default async function ShortcutsCheatSheetGeneratorPage({ searchParams }:
         <ShortcutsCheatSheetGenerator catalog={shortcutAppCatalog} initialApps={initialApps} />
         <ToolPageMarkdown toolPage={toolPage} />
       </PageCanvas>
-    </AppShell>
+    </ToolPageShell>
   );
 }

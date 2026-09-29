@@ -25,8 +25,13 @@ test("a catalog change refreshes navigation on every catalog page", () => {
   const targets = targetsForEvents(
     [{ entity_type: "page", slug: "kdp-tools" }],
     ["dns-tools", "kdp-tools", "storage-tools"],
+    ["kdp-royalty-calculator", "dns-lookup"],
   );
   assert.ok(targets.paths.includes("/dns-tools"));
   assert.ok(targets.paths.includes("/storage-tools"));
+  assert.ok(targets.paths.includes("/kdp-royalty-calculator"));
+  assert.ok(targets.paths.includes("/dns-lookup"));
   assert.ok(targets.nextTags.includes("stack127-tool-catalog:storage-tools"));
+  assert.ok(targets.nextTags.includes("stack127-tool-primary-catalogs"));
+  assert.ok(!targets.warmPaths.includes("/kdp-royalty-calculator"));
 });

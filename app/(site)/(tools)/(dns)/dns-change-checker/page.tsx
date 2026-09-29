@@ -1,3 +1,4 @@
+import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
@@ -18,13 +19,15 @@ export default async function DnsChangeCheckerPage({ searchParams }: { searchPar
   const toolPage = await getRequiredToolPage("dns-change-checker");
   const params = await searchParams;
   return (
-    <PageCanvas as="main" className={styles.main}>
-      <ToolPageHeader
-        icon={<RefreshCw strokeWidth={2.2} />}
-        toolPage={toolPage}
-      />
-      <DnsChangeChecker initialName={first(params.name)} initialRecordType={initialType(first(params.type))} />
-      <ToolPageMarkdown toolPage={toolPage} />
-    </PageCanvas>
+    <ToolPageShell toolPage={toolPage}>
+      <PageCanvas as="main" className={styles.main}>
+        <ToolPageHeader
+          icon={<RefreshCw strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
+        <DnsChangeChecker initialName={first(params.name)} initialRecordType={initialType(first(params.type))} />
+        <ToolPageMarkdown toolPage={toolPage} />
+      </PageCanvas>
+    </ToolPageShell>
   );
 }

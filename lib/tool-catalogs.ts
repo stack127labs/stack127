@@ -154,3 +154,36 @@ export const getPublishedToolCatalog = cache(async (slug: string) => unstable_ca
   revalidate: 604800,
   tags: [`stack127-tool-catalog:${slug}`],
 })());
+
+/** Resolve a tool's rank-one catalog. A tool may also appear in other catalogs. */
+export const getPrimaryToolCatalog = cache(async (toolPageId: number | string) => {
+  const catalogPageId = await unstable_cache(async (): Promise<number | string | null> => {
+    return readPublicData({
+      dataApiRead: async () => {
+        const rows = await selectPublicRows<Membership>("stack127_tool_catalog_memberships", {
+          tool_page_id: `eq.${toolPageId}`,
+          catalog_rank: "eq.1",
+          limit: "1",
+          select: membershipColumns,
+        });
+        return rows[0]?.catalog_page_id ?? null;
+      },
+      postgresRead: async () => {
+        const result = await getPool().query<Pick<Membership, "catalog_page_id">>(`
+          select catalog_page_id
+          from public.stack127_tool_catalog_memberships
+          where tool_page_id = $1 and catalog_rank = 1
+          limit 1
+        `, [toolPageId]);
+        return result.rows[0]?.catalog_page_id ?? null;
+      },
+    });
+  }, ["stack127-tool-primary-catalog", String(toolPageId)], {
+    revalidate: 604800,
+    tags: ["stack127-tool-primary-catalogs"],
+  })();
+
+  if (catalogPageId === null) return null;
+  const catalog = (await getPublishedToolCatalogs()).find((item) => String(item.page_id) === String(catalogPageId));
+  return catalog ? getPublishedToolCatalog(catalog.page.slug) : null;
+});

@@ -1,3 +1,4 @@
+import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
@@ -12,14 +13,16 @@ export default async function DomainAvailabilityPage({ searchParams }: { searchP
   const params = await searchParams;
 
   return (
-    <PageCanvas as="main" className="domain-tool-main">
-      <ToolPageHeader
-        icon={<BadgeCheck strokeWidth={2.2} />}
-        toolPage={toolPage}
-      />
+    <ToolPageShell toolPage={toolPage}>
+      <PageCanvas as="main" className="domain-tool-main">
+        <ToolPageHeader
+          icon={<BadgeCheck strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
 
-      <DomainAvailabilityTool initialName={first(params.name)} />
-      <ToolPageMarkdown toolPage={toolPage} />
-    </PageCanvas>
+        <DomainAvailabilityTool initialName={first(params.name)} />
+        <ToolPageMarkdown toolPage={toolPage} />
+      </PageCanvas>
+    </ToolPageShell>
   );
 }

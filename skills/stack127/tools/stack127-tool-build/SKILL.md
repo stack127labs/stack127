@@ -9,7 +9,7 @@ Read `AGENTS.md`, the complete tool spec, `stack127_docs/tool-pages.md`, `stack1
 
 1. Build parsing, validation, formulas, lookup logic, and serialization outside React.
 2. Implement the contracted interface with shared components from `app/ui/`, one primary action, and one lead answer. Check `/components-ui` in development before adding a local control or result pattern.
-3. Keep the client island small, use the shared shell and tokens, and colocate styles.
+3. Keep the client island small, use `ToolPageShell` from `app/ui/catalogs/tool-page-shell.tsx` with the fetched `toolPage`, and colocate styles. It resolves the primary catalog and sidebar from database memberships. Do not add a route-owned tool sidebar.
 4. Add one focused unit test file for independently known normal, boundary, and invalid examples. Add more only for a real high-risk calculation or recovery path.
 5. Run that focused test.
 6. For a new route that needs a database row to render, create a development-only preview row with the required title and plainly marked placeholder intro and content. Guard the development database and preserve any existing row. The placeholder is preview scaffolding, not the page copy.

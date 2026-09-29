@@ -10,7 +10,7 @@ export async function ToolCatalogSidebar({ active }: { active: string }) {
     <div className={sidebarPanelClassName}>
       <div className={sidebarPanelHeadingClassName}><SidebarLabel>Tool catalogs</SidebarLabel></div>
       <nav aria-label="Tool catalogs">
-        <SidebarList items={catalogs.filter((catalog) => catalog.tool_count > 0).map((catalog) => {
+        <SidebarList items={catalogs.map((catalog) => {
           const Icon = toolCatalogIcon(catalog.icon_key);
           return {
             href: `/${catalog.page.slug}`,

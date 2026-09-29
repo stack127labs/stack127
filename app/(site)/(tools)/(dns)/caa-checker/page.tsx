@@ -1,3 +1,4 @@
+import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
@@ -12,15 +13,17 @@ export default async function CaaCheckerPage({ searchParams }: { searchParams: P
   const toolPage = await getRequiredToolPage("caa-checker");
   const params = await searchParams;
   return (
-    <PageCanvas as="main" className={styles.main}>
-      <ToolPageHeader
-        icon={<FileKey strokeWidth={2.2} />}
-        toolPage={toolPage}
-      />
+    <ToolPageShell toolPage={toolPage}>
+      <PageCanvas as="main" className={styles.main}>
+        <ToolPageHeader
+          icon={<FileKey strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
 
-      <CaaChecker initialName={first(params.name)} />
+        <CaaChecker initialName={first(params.name)} />
 
-      <ToolPageMarkdown toolPage={toolPage} />
-    </PageCanvas>
+        <ToolPageMarkdown toolPage={toolPage} />
+      </PageCanvas>
+    </ToolPageShell>
   );
 }

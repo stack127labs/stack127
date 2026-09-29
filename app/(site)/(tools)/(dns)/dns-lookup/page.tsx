@@ -1,3 +1,4 @@
+import { ToolPageShell } from "@/app/ui/catalogs/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageHeader, ToolPageMarkdown } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
@@ -26,21 +27,23 @@ export default async function DnsLookupPage({ searchParams }: { searchParams: Pr
   const resolver: DnsResolver = isDnsResolver(resolverValue) ? resolverValue : "cloudflare";
 
   return (
-    <PageCanvas as="main" className="dns-lookup-main">
-      <ToolPageHeader
-        icon={<Search strokeWidth={2.2} />}
-        toolPage={toolPage}
-      />
+    <ToolPageShell toolPage={toolPage}>
+      <PageCanvas as="main" className="dns-lookup-main">
+        <ToolPageHeader
+          icon={<Search strokeWidth={2.2} />}
+          toolPage={toolPage}
+        />
 
-      <DnsLookupTool
-        initialName={firstValue(params.name)}
-        initialResolver={resolver}
-        initialSelection={initialSelection(firstValue(params.type))}
-      />
+        <DnsLookupTool
+          initialName={firstValue(params.name)}
+          initialResolver={resolver}
+          initialSelection={initialSelection(firstValue(params.type))}
+        />
 
-      <div className={styles.guide}>
-        <ToolPageMarkdown toolPage={toolPage} />
-      </div>
-    </PageCanvas>
+        <div className={styles.guide}>
+          <ToolPageMarkdown toolPage={toolPage} />
+        </div>
+      </PageCanvas>
+    </ToolPageShell>
   );
 }
