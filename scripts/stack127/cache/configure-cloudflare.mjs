@@ -1,7 +1,7 @@
 import pg from "pg";
 const longer = process.argv.includes("--long-ttl");
 if (longer) {
-  const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL, connectionTimeoutMillis: 15000 });
+  const pool = new pg.Pool({ connectionString: process.env.DATABASE_POOLER_URL || process.env.DATABASE_URL, connectionTimeoutMillis: 15000 });
   try {
     const { rows } = await pool.query(`select healthy_since, last_check_at, last_reconcile_at,
       healthy_since <= now() - interval '7 days' and last_check_at >= now() - interval '2 minutes'
@@ -139,7 +139,7 @@ if (assets) {
   }, "Mutable site icons");
 }
 if (longer && apply) {
-  const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
+  const pool = new pg.Pool({ connectionString: process.env.DATABASE_POOLER_URL || process.env.DATABASE_URL });
   try { await pool.query("update public.stack127_cache_observation set long_ttl_enabled_at = now() where id"); }
   finally { await pool.end(); }
 }

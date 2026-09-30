@@ -3,7 +3,8 @@ import pg from "pg";
 import { targetsForEvents } from "./targets.mjs";
 import { refreshTargets, cacheBodyDigest } from "./refresh.mjs";
 
-const { DATABASE_URL, CLOUDFLARE_API_TOKEN, CLOUDFLARE_ZONE_ID } = process.env;
+const { CLOUDFLARE_API_TOKEN, CLOUDFLARE_ZONE_ID } = process.env;
+const DATABASE_URL = process.env.DATABASE_POOLER_URL || process.env.DATABASE_URL;
 if (!DATABASE_URL || !CLOUDFLARE_API_TOKEN || !CLOUDFLARE_ZONE_ID) throw new Error("Database and Cloudflare credentials are required.");
 const site = (process.env.STACK127_SITE_URL || "https://stack127.com").replace(/\/$/, "");
 const pool = new pg.Pool({ connectionString: DATABASE_URL, max: 2, connectionTimeoutMillis: 15000, statement_timeout: 15000 });

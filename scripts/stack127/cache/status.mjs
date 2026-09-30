@@ -1,6 +1,6 @@
 import pg from "pg";
 import { appendFile } from "node:fs/promises";
-const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL, connectionTimeoutMillis: 15000 });
+const pool = new pg.Pool({ connectionString: process.env.DATABASE_POOLER_URL || process.env.DATABASE_URL, connectionTimeoutMillis: 15000 });
 try {
   const result = await pool.query(`select wake.function_url is not null as enabled,
     state.last_run_at,state.last_success_at,state.last_error,
