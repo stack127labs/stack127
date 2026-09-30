@@ -90,7 +90,8 @@ jobs:
           base="${{ github.event.before }}"
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ -z "$base" ] || [[ "$base" =~ ^0+$ ]]; then
             echo 'run=true' >> "$GITHUB_OUTPUT"
-          elif git diff --quiet "$base" "$RELEASE_SHA" -- supabase/migrations; then
+          # Removing a historical migration file does not change production schema.
+          elif git diff --quiet "$base" "$RELEASE_SHA" --diff-filter=AM -- supabase/migrations; then
             echo 'run=false' >> "$GITHUB_OUTPUT"
           else
             echo 'run=true' >> "$GITHUB_OUTPUT"
