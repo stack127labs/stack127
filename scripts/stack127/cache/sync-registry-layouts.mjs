@@ -1,12 +1,14 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 const site = path.resolve("app/(site)");
+const staticPaths = [];
 async function walk(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
     if (entry.isDirectory()) await walk(path.join(directory, entry.name));
     else if (entry.name === "page.tsx") {
       const source = await readFile(path.join(directory, entry.name), "utf8");
       const route = "/" + path.relative(site, directory).split(path.sep).filter(part => !part.startsWith("(")).join("/");
+      if (!route.includes("[")) staticPaths.push(route);
       const target = path.join(directory, "layout.tsx");
       let previous = "";
       try { previous = await readFile(target, "utf8"); } catch(error) { if(error.code !== "ENOENT") throw error; }
@@ -18,3 +20,8 @@ async function walk(directory) {
   }
 }
 await walk(site);
+const routeIndex = path.resolve("lib/registered-site-pages.json");
+const routes = JSON.stringify(staticPaths.sort(), null, 2) + "\n";
+let previousRoutes = "";
+try { previousRoutes = await readFile(routeIndex, "utf8"); } catch (error) { if (error.code !== "ENOENT") throw error; }
+if (previousRoutes !== routes) await writeFile(routeIndex, routes);

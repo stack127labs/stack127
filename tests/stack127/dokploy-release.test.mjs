@@ -3,12 +3,21 @@ import assert from "node:assert/strict";
 
 import {
   assertLiveSmokeResponse,
+  assertUncachedNotFound,
   deploymentId,
   deploymentState,
   extractDeploymentRecords,
   isFailureState,
   isSuccessState,
 } from "../../scripts/stack127/deployment/dokploy-release.mjs";
+
+test("release checks reject missing pages cached by either cache layer", () => {
+  const safe = { status: 404, cacheControl: "private, no-store, max-age=0", edgeCache: "BYPASS", nextCache: null };
+  assert.doesNotThrow(() => assertUncachedNotFound(safe));
+  for (const change of [{ edgeCache: "HIT" }, { nextCache: "HIT" }, { cacheControl: "public, s-maxage=604800" }, { status: 200 }]) {
+    assert.throws(() => assertUncachedNotFound({ ...safe, ...change }), /uncached 404/);
+  }
+});
 
 test("Dokploy deployment responses are normalized across common wrappers", () => {
   const records = extractDeploymentRecords({ data: { deployments: [{ id: "new", status: "running" }] } });

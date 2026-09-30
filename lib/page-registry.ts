@@ -178,14 +178,16 @@ function ancestorSlugs(slug: string) {
   return ancestors;
 }
 
+export const getExactPublishedPage = cache(cachedPublishedPage);
+
 export const getPublishedPage = cache(async (slug: string) => {
-  const page = await cachedPublishedPage(slug);
+  const page = await getExactPublishedPage(slug);
   if (page) return page;
 
   const legacySlug = legacyToolSlugByFlatSlug.get(slug);
   if (!legacySlug) return null;
 
-  const legacyPage = await cachedPublishedPage(legacySlug);
+  const legacyPage = await getExactPublishedPage(legacySlug);
 
   return legacyPage ? { ...legacyPage, slug } : null;
 });

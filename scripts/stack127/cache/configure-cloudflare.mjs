@@ -56,6 +56,8 @@ async function save(setId, rules, definition, key) {
 const htmlParameters = structuredClone(htmlResponse.action_parameters);
 htmlParameters["max-age"].value = 0;
 htmlParameters["must-revalidate"].operation = "set";
+htmlParameters["stale-while-revalidate"] = { operation: "remove" };
+htmlParameters["stale-if-error"] = { operation: "remove" };
 htmlParameters["s-maxage"].value = longer ? 604800 : 86400;
 responseRules = await save(responseSet.id, responseRules, {
   action: htmlResponse.action,
@@ -138,6 +140,15 @@ if (assets) {
     description: "Mutable site icons: edge 30 days, browser revalidates", action_parameters: parameters,
   }, "Mutable site icons");
 }
+// ISR can give generated 404s a content TTL. Errors must override that policy.
+const errorParameters = Object.fromEntries(Object.keys(htmlParameters).map(key => [key, { operation: key === "no-store" ? "set" : "remove" }]));
+errorParameters["no-store"] = { operation: "set" };
+await save(responseSet.id, responseRules, {
+  action: "set_cache_control",
+  expression: '(http.host eq "stack127.com" and http.response.code ge 400)',
+  description: "Public errors: no store",
+  action_parameters: errorParameters,
+}, "Public errors");
 if (longer && apply) {
   const pool = new pg.Pool({ connectionString: process.env.DATABASE_POOLER_URL || process.env.DATABASE_URL });
   try { await pool.query("update public.stack127_cache_observation set long_ttl_enabled_at = now() where id"); }

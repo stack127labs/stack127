@@ -275,6 +275,13 @@ export function assertLiveSmokeResponse({ pathname, status, body, requiredAll = 
   }
 }
 
+export function assertUncachedNotFound({ status, cacheControl, edgeCache, nextCache }) {
+  if (status !== 404 || !/(?:^|,)\s*no-store(?:\s*,|\s*$)/i.test(cacheControl ?? "") ||
+    edgeCache === "HIT" || nextCache === "HIT") {
+    throw new Error("Missing pages must return an uncached 404.");
+  }
+}
+
 async function verifyLiveSite(config) {
   const deadline = Date.now() + config.deployTimeoutSeconds * 1_000;
   let lastHealthError = "live health has not responded";
@@ -321,6 +328,14 @@ async function verifyLiveSite(config) {
     assertLiveSmokeResponse({ pathname, status: result.response.status, body: result.body, requiredAll, requiredAny });
     console.log(`Live smoke passed: ${pathname}.`);
   }
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const missing = await siteRequest(`${config.siteUrl}/stack127-release-missing-${config.releaseSha.slice(0, 12)}`);
+    assertUncachedNotFound({ status: missing.response.status,
+      cacheControl: missing.response.headers.get("cache-control"),
+      edgeCache: missing.response.headers.get("cf-cache-status"),
+      nextCache: missing.response.headers.get("x-nextjs-cache") });
+  }
+  console.log("Live smoke passed: repeated missing pages are not cached.");
 }
 
 async function main() {

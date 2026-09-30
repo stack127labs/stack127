@@ -4,6 +4,7 @@ import { cacheAuthorized } from "@/lib/cache-auth";
 import { loadDirectoryAppsBySlugs } from "@/lib/apps";
 import { loadSelfHostedAppResourcePlannerEntry } from "@/lib/self-hosted-app-resource-planner/data";
 import { getPool } from "@/lib/db";
+import { sitePageAvailable } from "@/lib/page-source";
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 const noStore = { "Cache-Control": "no-store" };
@@ -52,10 +53,13 @@ export async function POST(request: Request) {
           if (!response.ok || !html.includes("<urlset")) throw new Error("Invalid origin sitemap");
         } else {
           const slug = path.replace(/^\//, "");
-          const { rows } = await getPool().query<{ is_published: boolean; row_updated_at: Date }>(
-            "select is_published,row_updated_at from public.stack127_pages where slug=$1", [slug],
+          const { rows } = await getPool().query<{ is_published: boolean; row_updated_at: Date; page_family: string; has_tool_content: boolean; has_catalog_content: boolean }>(
+            `select is_published,row_updated_at,page_family,
+              exists(select 1 from public.stack127_tool_pages content where content.page_id=page.id) as has_tool_content,
+              exists(select 1 from public.stack127_tool_catalogs content where content.page_id=page.id) as has_catalog_content
+              from public.stack127_pages page where slug=$1`, [slug],
           );
-          const published = rows[0]?.is_published ?? false;
+          const published = sitePageAvailable(path, rows[0]);
           if (!published) {
             if (response.status !== 404) throw new Error(`${path}: removed page is still served`);
           } else {

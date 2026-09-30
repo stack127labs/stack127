@@ -84,7 +84,7 @@ Public documents use `max-age=0, must-revalidate`: browsers check their saved co
 
 Query pages keep their canonical base URL and `noindex, follow`. `_rsc` alone is navigation data and does not make a page a filtered search. Navigation cache keys retain the complete query string. The domain registry (RDAP) cache stays at 24 hours for registered domains and 1 hour for unregistered domains.
 
-The app supplies `Cache-Tag` headers for public pages and mutable local assets. Releases purge `stack127-public` and `stack127-assets`, purge changed public file URLs, and warm primary routes. Registry-owned SEO and publication checks live in `lib/registry-layout.tsx`. Thin route layouts supply the public path, so pages without request-specific data can use the Next.js full-page cache. `scripts/stack127/cache/sync-registry-layouts.mjs` runs before development and builds to register new routes. Directory queries use shared tagged data and at most 500 recently used filter results per directory. Normal numbered pages share the complete default index.
+The app supplies `Cache-Tag` headers for public pages and mutable local assets. Releases purge `stack127-public` and `stack127-assets`, purge changed public file URLs, and warm primary routes. Registry-owned SEO lives in `lib/registry-layout.tsx`. The proxy checks the existing tagged publication cache before serving a page; a missing or unpublished exact slug uses the shared dynamic 404 page, which neither cache layer stores. Thin route layouts supply the public path, so pages without request-specific data can use the Next.js full-page cache. `scripts/stack127/cache/sync-registry-layouts.mjs` runs before development and builds to register new routes. Directory queries use shared tagged data and at most 500 recently used filter results per directory. Normal numbered pages share the complete default index.
 
 Run one app instance. Its Next.js cache and bounded query cache are local to that instance; more instances need a shared cache and coordinated invalidation first.
 
@@ -109,7 +109,7 @@ Worker settings:
 
 The worker runs only where `public.stack127_cache_worker_wake.function_url` is set. Development leaves it empty and uses `npm run stack127:cache:watch:local`. Function secrets include `SUPABASE_DB_URL`, `STACK127_SITE_URL`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ZONE_ID`, and `GITHUB_ALERT_TOKEN`. `CACHE_WORKER_DRY_RUN=1` skips refreshes and leaves events queued. The release deploys the function after the new app is live when the function or its shared cache scripts change.
 
-`public.stack127_cache_observation` records consecutive reliable operation. Errors, missed updates, updates waiting more than two minutes, and gaps in checks reset the clock. Run the status command with the production database environment:
+`public.stack127_cache_observation` records consecutive reliable operation. Errors, missed updates, updates waiting more than two minutes, and gaps in checks reset the clock. Content response rules remove inherited stale allowances, so the listed TTLs remain the safety limit. Run the status command with the production database environment:
 
 ```bash
 node --env-file=.env.database scripts/stack127/cache/status.mjs
