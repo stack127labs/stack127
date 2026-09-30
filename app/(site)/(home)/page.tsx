@@ -1,10 +1,10 @@
 import { PageCanvas } from "@/app/ui/site/page-canvas";
-import { siteSpotLocalSecurityCamerasArt } from "./art/site--spot-local-security-cameras";
-import { siteSpotNutCompatibleUpsArt } from "./art/site--spot-nut-compatible-ups";
-import { siteSpotZigbeeCoordinatorsArt } from "./art/site--spot-zigbee-coordinators";
-import { siteSpotZigbeeDevicesArt } from "./art/site--spot-zigbee-devices";
-import { siteSpotMatterDevicesArt } from "./art/site--spot-matter-devices";
-import { siteSpotZWaveDevicesArt } from "./art/site--spot-z-wave-devices";
+import { siteSpotLocalSecurityCamerasArt } from "../art/site--spot-local-security-cameras";
+import { siteSpotNutCompatibleUpsArt } from "../art/site--spot-nut-compatible-ups";
+import { siteSpotZigbeeCoordinatorsArt } from "../art/site--spot-zigbee-coordinators";
+import { siteSpotZigbeeDevicesArt } from "../art/site--spot-zigbee-devices";
+import { siteSpotMatterDevicesArt } from "../art/site--spot-matter-devices";
+import { siteSpotZWaveDevicesArt } from "../art/site--spot-z-wave-devices";
 import {
   BookOpen,
   BatteryCharging,
@@ -23,22 +23,22 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import "./home.css";
-import { siteSpotCliAppsArt } from "./art/site--spot-cli-apps";
-import { siteSpotCourseArt } from "./art/site--spot-course";
-import { siteSpotLicensesArt } from "./art/site--spot-licenses";
-import { siteSpotLabsArt } from "./art/site--spot-labs";
-import { siteSpotKeyboardShortcutsArt } from "./art/site--spot-keyboard-shortcuts";
-import { siteSpotSelfHostAppsArt } from "./art/site--spot-self-host-apps";
-import { eppStatusArt } from "./(catalogs)/_components/art/epp-status";
-import { tldDirectoryArt } from "./(catalogs)/_components/art/tld-directory";
+import "../home.css";
+import { siteSpotCliAppsArt } from "../art/site--spot-cli-apps";
+import { siteSpotCourseArt } from "../art/site--spot-course";
+import { siteSpotLicensesArt } from "../art/site--spot-licenses";
+import { siteSpotLabsArt } from "../art/site--spot-labs";
+import { siteSpotKeyboardShortcutsArt } from "../art/site--spot-keyboard-shortcuts";
+import { siteSpotSelfHostAppsArt } from "../art/site--spot-self-host-apps";
+import { eppStatusArt } from "../(catalogs)/_components/art/epp-status";
+import { tldDirectoryArt } from "../(catalogs)/_components/art/tld-directory";
 import { getTerminalApps } from "@/lib/terminal-apps";
 import { getHardwareDirectoryCount } from "@/lib/hardware-directories";
 import { getZigbeeDevices } from "@/lib/zigbee-devices";
 import { shortcutAppCatalog } from "@/lib/shortcuts/catalog.generated";
 import { STATUS_CODES } from "@/lib/domain/status-codes";
 import tldDirectory from "@/lib/domain/data/tld-directory.json";
-import { labProjects } from "./labs/projects";
+import { labProjects } from "../labs/projects";
 import { getPublishedToolCatalogs, type ToolCatalogSummary } from "@/lib/tool-catalogs";
 import { toolCatalogIcon } from "@/lib/tool-catalog-icons";
 import { ToolCatalogCard } from "@/app/ui/catalogs/tool-catalog-card";
@@ -53,15 +53,15 @@ import {
 } from "@/lib/page-registry";
 import { lessons } from "@/lib/self-hosting-for-beginners";
 import { licenses } from "@/lib/software-licenses";
-import { AppShell, SidebarLabel } from "../ui/site/app-shell";
-import { Doodle } from "../ui/site/doodle";
-import { EntryHero } from "../ui/site/entry-hero";
-import { SidebarList } from "../ui/site/sidebar-list";
+import { AppShell, SidebarLabel } from "../../ui/site/app-shell";
+import { Doodle } from "../../ui/site/doodle";
+import { EntryHero } from "../../ui/site/entry-hero";
+import { SidebarList } from "../../ui/site/sidebar-list";
 import {
   sidebarPanelClassName,
   sidebarPanelHeadingClassName,
-} from "../ui/site/sidebar-panel";
-import { siteHeroStack127Art } from "./art/site--hero-stack127";
+} from "../../ui/site/sidebar-panel";
+import { siteHeroStack127Art } from "../art/site--hero-stack127";
 
 
 type HomeStat = {

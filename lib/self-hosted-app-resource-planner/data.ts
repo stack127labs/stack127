@@ -1,3 +1,5 @@
+import { plannerSearchPattern } from "@/lib/planner-search";
+import { boundedCache } from "@/lib/bounded-cache";
 import { unstable_cache } from "next/cache";
 import { getPool } from "@/lib/db";
 import type {
@@ -33,19 +35,18 @@ async function loadSelfHostedAppResourcePlannerIndex(query: string): Promise<Res
     from public.self_host_apps app
     left join public.self_host_app_resource_estimates resource on resource.app_id = app.id
     where app.published = true and app.self_hosting_status = 'self_hostable'
-      and (position($1 in lower(app.name)) > 0 or position($1 in lower(app.slug)) > 0)
+      and (lower(app.name) like $1 or lower(app.slug) like $1)
     order by app.name asc, app.slug asc
     limit 50
-  `, [query]);
+  `, [plannerSearchPattern(query)]);
   return result.rows.map((row) => ({
     slug: row.slug, name: row.name, hasRam: row.has_ram, hasStorage: row.has_storage,
   }));
 }
 
-export const getSelfHostedAppResourcePlannerIndex = unstable_cache(loadSelfHostedAppResourcePlannerIndex, ["stack127-resource-planner-index"], {
-  revalidate: 604800,
-  tags: ["stack127-self-host-apps"],
-});
+export const getSelfHostedAppResourcePlannerIndex = (query: string) => boundedCache(
+  "resource-planner-search", query, () => loadSelfHostedAppResourcePlannerIndex(query), ["stack127-self-host-apps"],
+);
 
 const plannerFields = `
       app.slug,
@@ -81,7 +82,7 @@ function toCatalogueEntry(row: PlannerRow): ResourcePlannerCatalogueEntry {
   };
 }
 
-export async function getSelfHostedAppResourcePlannerEntry(slug: string): Promise<ResourcePlannerCatalogueEntry | null> {
+export async function loadSelfHostedAppResourcePlannerEntry(slug: string): Promise<ResourcePlannerCatalogueEntry | null> {
   const result = await getPool().query<PlannerRow>(`
     select ${plannerFields}
     from public.self_host_apps app
@@ -92,7 +93,7 @@ export async function getSelfHostedAppResourcePlannerEntry(slug: string): Promis
   return result.rows[0] ? toCatalogueEntry(result.rows[0]) : null;
 }
 
-export async function getSelfHostedAppResourcePlannerCatalogue(): Promise<ResourcePlannerCatalogue> {
+async function loadSelfHostedAppResourcePlannerCatalogue(): Promise<ResourcePlannerCatalogue> {
   const result = await getPool().query<PlannerRow>(`
     select ${plannerFields}
     from public.self_host_apps app
@@ -105,3 +106,10 @@ export async function getSelfHostedAppResourcePlannerCatalogue(): Promise<Resour
   const entries = result.rows.map(toCatalogueEntry);
   return Object.fromEntries(entries.map((entry) => [entry.slug, entry]));
 }
+
+export const getSelfHostedAppResourcePlannerEntry = (slug: string) => unstable_cache(
+  () => loadSelfHostedAppResourcePlannerEntry(slug), ["stack127-resource-planner-app", slug],
+  { revalidate: 86400, tags: ["stack127-self-host-details", `stack127-self-host-app:${slug}`] },
+)();
+export const getSelfHostedAppResourcePlannerCatalogue = unstable_cache(loadSelfHostedAppResourcePlannerCatalogue,
+  ["stack127-resource-planner-catalogue"], { revalidate: 86400, tags: ["stack127-self-host-apps"] });

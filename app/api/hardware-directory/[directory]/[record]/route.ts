@@ -15,6 +15,6 @@ export async function GET(_request: Request, { params }: { params: Promise<{ dir
   }
 
   return NextResponse.json(detail, {
-    headers: { "Cache-Control": "public, max-age=3600, s-maxage=86400" },
+    headers: { "Cache-Control": "public, max-age=0, must-revalidate, s-maxage=86400" },
   });
 }

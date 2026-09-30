@@ -10,6 +10,6 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Search needs 2 to 80 characters." }, { status: 400, headers: { "Cache-Control": "no-store" } });
   }
   return NextResponse.json(await getSelfHostedAppResourcePlannerIndex(query), {
-    headers: { "Cache-Control": "public, max-age=600, s-maxage=86400" },
+    headers: { "Cache-Control": "public, max-age=0, must-revalidate, s-maxage=900" },
   });
 }

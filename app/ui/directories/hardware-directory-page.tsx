@@ -1,3 +1,4 @@
+import { directoryResultCache } from "@/lib/bounded-cache";
 import { StatePanel } from "@/app/ui/state-panel";
 import { Pagination } from "@/app/ui/pagination";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
@@ -60,10 +61,10 @@ function removeFilterHref(route: string, params: HardwareDirectorySearchParams, 
   return query ? `${route}?${query}` : route;
 }
 
-export function HardwareDirectoryPage({ config, params, snapshot }: { config: HardwareDirectoryConfig; params: HardwareDirectorySearchParams; snapshot: HardwareDirectorySnapshot }) {
+export async function HardwareDirectoryPage({ config, params, snapshot }: { config: HardwareDirectoryConfig; params: HardwareDirectorySearchParams; snapshot: HardwareDirectorySnapshot }) {
   const records = snapshot.records;
   const sort = getDirectorySort(params);
-  const filtered = sortHardwareRecords(filterHardwareRecords(records, params), sort);
+  const filtered = await directoryResultCache(config.route, params, async () => sortHardwareRecords(filterHardwareRecords(records, params), sort), []);
   const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
   const currentPage = Math.min(getDirectoryPage(params), totalPages);
   const pageRecords = filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize);

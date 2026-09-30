@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getPublishedSitemapPages, pathFromSlug } from "@/lib/page-registry";
 import { absoluteUrl } from "@/lib/seo";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pages = await getPublishedSitemapPages();

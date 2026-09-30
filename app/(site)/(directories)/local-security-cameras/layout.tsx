@@ -1,6 +1,7 @@
-import type { ReactNode } from "react";
 import "../../../ui/directories/directory.css";
+import { registryLayout } from "@/lib/registry-layout";
 
-export default function LocalSecurityCamerasLayout({ children }: { children: ReactNode }) {
-  return children;
-}
+const registry = registryLayout("/local-security-cameras", true);
+export const generateMetadata = registry.generateMetadata;
+export const revalidate = 604800;
+export default registry.Layout;

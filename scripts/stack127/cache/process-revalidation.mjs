@@ -1,160 +1,85 @@
-import { createHmac } from "node:crypto";
+import { createHmac, randomUUID } from "node:crypto";
 import pg from "pg";
 import { targetsForEvents } from "./targets.mjs";
+import { refreshTargets, cacheBodyDigest } from "./refresh.mjs";
 
 const { DATABASE_URL, CLOUDFLARE_API_TOKEN, CLOUDFLARE_ZONE_ID } = process.env;
-const siteUrl = (process.env.STACK127_SITE_URL || "https://stack127.com").replace(/\/$/, "");
-if (!DATABASE_URL || !CLOUDFLARE_API_TOKEN || !CLOUDFLARE_ZONE_ID) {
-  throw new Error("Database, Cloudflare, and revalidation credentials are required.");
-}
-
-const pool = new pg.Pool({ connectionString: DATABASE_URL, max: 2, connectionTimeoutMillis: 15000 });
-
-async function request(url, options = {}) {
-  const response = await fetch(url, { ...options, signal: AbortSignal.timeout(20000) });
-  if (!response.ok) throw new Error(`${new URL(url).pathname} returned HTTP ${response.status}`);
+if (!DATABASE_URL || !CLOUDFLARE_API_TOKEN || !CLOUDFLARE_ZONE_ID) throw new Error("Database and Cloudflare credentials are required.");
+const site = (process.env.STACK127_SITE_URL || "https://stack127.com").replace(/\/$/, "");
+const pool = new pg.Pool({ connectionString: DATABASE_URL, max: 2, connectionTimeoutMillis: 15000, statement_timeout: 15000 });
+const leaseId = randomUUID();
+const deadline = Date.now() + 90_000;
+let leased = false;
+let failure = null;
+async function request(url, options = {}, allowed404 = false) {
+  const response = await fetch(url, { ...options, signal: AbortSignal.timeout(Math.max(1, Math.min(20_000, deadline - Date.now()))) });
+  if (!response.ok && !(allowed404 && response.status === 404)) throw new Error(`Cache request failed: HTTP ${response.status} ${new URL(url).pathname}`);
   return response;
 }
-
-async function invalidateNext(targets) {
-  const result = await pool.query("select signing_key from public.stack127_cache_credentials where id = true");
-  const signingKey = result.rows[0]?.signing_key;
-  if (!signingKey) throw new Error("Cache signing key is missing from the database.");
-  const token = createHmac("sha256", signingKey).update("stack127-cache-revalidation-v1").digest("hex");
-  const paths = targets.paths.filter((path) => !path.endsWith(".xml"));
-  for (let index = 0; index < Math.max(paths.length, 1); index += 200) {
-    await request(`${siteUrl}/api/cache/revalidate`, {
-      method: "POST",
-      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ paths: paths.slice(index, index + 200), tags: index === 0 ? targets.nextTags : [] }),
-    });
-  }
-}
-
-async function purgeCloudflare(tags) {
-  for (let index = 0; index < tags.length; index += 100) {
-    const batch = tags.slice(index, index + 100);
-    const response = await request(`https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/purge_cache`, {
-      method: "POST",
-      headers: { Authorization: `Bearer ${CLOUDFLARE_API_TOKEN}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ tags: batch }),
-    });
-    const result = await response.json();
-    if (!result.success) throw new Error(`Cloudflare rejected a tag purge: ${JSON.stringify(result.errors ?? [])}`);
-  }
-}
-
-async function processEvents() {
-  const result = await pool.query(`
-    select id, entity_type, slug, created_at::text as created_at
-    from public.stack127_revalidation_events
-    order by created_at, id
-    limit 50
-  `);
-  const events = result.rows;
-  if (!events.length) return 0;
-  const appCount = await pool.query("select count(*)::int as count from public.stack127_revalidation_events where entity_type = 'self_host_app'");
-  let targetEvents = events;
-  if (appCount.rows[0].count > 100) {
-    const appEvents = await pool.query(`
-      select id, entity_type, slug, created_at::text as created_at
-      from public.stack127_revalidation_events
-      where entity_type = 'self_host_app'
-    `);
-    const seen = new Set(events.map((event) => String(event.id)));
-    events.push(...appEvents.rows.filter((event) => !seen.has(String(event.id))));
-    targetEvents = [
-      ...events.filter((event) => event.entity_type !== "self_host_app"),
-      { entity_type: "self_host_catalog", slug: "all" },
-    ];
-  }
-  // Catalog sidebars appear on every catalog page. A catalog page event also
-  // changes tool sidebars, so purge tool pages when a catalog is touched.
-  let catalogSlugs = [];
-  let toolSlugs = [];
-  if (targetEvents.some((event) => event.entity_type === "page")) {
-    const catalogs = await pool.query(`
-      select page.slug, page.is_published, catalog.page_id is not null as has_catalog_content
-      from public.stack127_pages page
-      left join public.stack127_tool_catalogs catalog on catalog.page_id = page.id
-      where page.page_family = 'catalog'
-    `);
-    catalogSlugs = catalogs.rows.filter((row) => row.is_published && row.has_catalog_content).map((row) => row.slug);
-    const catalogNames = new Set(catalogs.rows.map((row) => row.slug));
-    if (targetEvents.some((event) => event.entity_type === "page" && catalogNames.has(event.slug))) {
-      const tools = await pool.query(`
-        select slug from public.stack127_pages
-        where page_family = 'tool' and is_published
-      `);
-      toolSlugs = tools.rows.map((row) => row.slug);
-    }
-  }
-  const targets = targetsForEvents(targetEvents, catalogSlugs, toolSlugs);
-  try {
-    await invalidateNext(targets);
-    await purgeCloudflare(targets.edgeTags);
-    const client = await pool.connect();
-    try {
-      await client.query("begin");
-      for (const event of events) {
-        await client.query(
-          "delete from public.stack127_revalidation_events where id = $1 and created_at = $2",
-          [event.id, event.created_at],
-        );
-      }
-      for (const path of targets.warmPaths) {
-        await client.query(`
-          insert into public.stack127_cache_warm_events (path)
-          values ($1)
-          on conflict (path) do update set created_at = now(), attempts = 0
-        `, [path]);
-      }
-      await client.query("commit");
-    } catch (error) {
-      await client.query("rollback");
-      throw error;
-    } finally {
-      client.release();
-    }
-    return events.length;
-  } catch (error) {
-    await pool.query(`
-      update public.stack127_revalidation_events
-      set attempts = attempts + 1, last_error = $1
-      where id = any($2::bigint[])
-    `, [String(error).slice(0, 500), events.map((event) => event.id)]);
-    throw error;
-  }
-}
-
-async function warmPages() {
-  const result = await pool.query(`
-    select path, created_at::text as created_at from public.stack127_cache_warm_events
-    order by created_at limit 20
-  `);
-  const pending = result.rows;
-  for (let index = 0; index < pending.length; index += 4) {
-    await Promise.all(pending.slice(index, index + 4).map(async ({ path, created_at }) => {
-      try {
-        const response = await fetch(`${siteUrl}${path}`, { signal: AbortSignal.timeout(20000) });
-        if (!response.ok && response.status !== 404) throw new Error(`HTTP ${response.status}`);
-        await pool.query("delete from public.stack127_cache_warm_events where path = $1 and created_at = $2", [path, created_at]);
-      } catch (error) {
-        await pool.query("update public.stack127_cache_warm_events set attempts = attempts + 1 where path = $1 and created_at = $2", [path, created_at]);
-        console.warn(`Warm failed for ${path}: ${String(error)}`);
-      }
-    }));
-  }
-  return pending.length;
-}
-
 try {
-  const processed = await processEvents();
-  const warmed = await warmPages();
-  const pending = await pool.query("select count(*)::int as count from public.stack127_revalidation_events");
-  if (processed || warmed || pending.rows[0].count) {
-    console.log(JSON.stringify({ processed, warmed, pending: pending.rows[0].count }));
+  leased = (await pool.query(`update public.stack127_cache_worker_state set lease_id=$1,lease_until=now()+interval '150 seconds',last_run_at=now()
+    where id and (lease_until is null or lease_until<now()) returning id`, [leaseId])).rowCount > 0;
+  if (!leased) console.log("The Supabase worker is processing updates; no backup run is needed.");
+  else {
+    const { rows: credentials } = await pool.query("select signing_key from public.stack127_cache_credentials where id");
+    const token = createHmac("sha256", credentials[0].signing_key).update("stack127-cache-revalidation-v1").digest("hex");
+    const headers = { Authorization: `Bearer ${token}`, "Content-Type": "application/json" };
+    let processed = 0;
+    while (Date.now() < deadline) {
+      const { rows: events } = await pool.query(`select id::text,entity_type,slug,created_at::text from public.stack127_revalidation_events
+        where next_attempt_at<=now() and (created_at<=now()-interval '10 seconds' or first_queued_at<=now()-interval '60 seconds')
+        order by first_queued_at,id limit 1`);
+      if (!events.length) break;
+      const { rows: catalogs } = await pool.query(`select page.slug from public.stack127_pages page join public.stack127_tool_catalogs catalog on catalog.page_id=page.id where page.page_family='catalog' and page.is_published`);
+      const tools = events[0].entity_type === 'page' && catalogs.some(row => row.slug === events[0].slug)
+        ? (await pool.query("select slug from public.stack127_pages where page_family='tool' and is_published")).rows.map(row => row.slug) : [];
+      const targets = targetsForEvents(events, catalogs.map(row => row.slug), tools);
+      const { rows: versions } = await pool.query("select * from public.stack127_cache_source_revisions($1::text[], $2::text[])", [[events[0].entity_type], [events[0].slug]]);
+      try {
+        await refreshTargets(targets, {
+          invalidate: async () => {
+            const paths = targets.paths.filter(path => !path.endsWith('.xml'));
+            for (let i=0; i<Math.max(paths.length,1); i+=200) await request(`${site}/api/cache/revalidate`, {method:'POST',headers,body:JSON.stringify({paths:paths.slice(i,i+200),tags:i===0?targets.nextTags:[]})});
+          },
+          rebuild: async paths => {
+            const result = await (await request(`${site}/api/cache/refresh`, {method:'POST',headers,body:JSON.stringify({paths})})).json();
+            if (!Array.isArray(result.verified) || result.verified.length !== paths.length) throw new Error('Origin did not verify every path');
+            return result.verified;
+          },
+          purge: async tags => {
+            for (let i=0;i<tags.length;i+=100) {
+              const result = await (await request(`https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/purge_cache`,{method:'POST',headers:{Authorization:`Bearer ${CLOUDFLARE_API_TOKEN}`,'Content-Type':'application/json'},body:JSON.stringify({tags:tags.slice(i,i+100)})})).json();
+              if (!result.success) throw new Error('Cloudflare purge rejected');
+            }
+          },
+          warm: async proofs => Promise.all(proofs.map(async proof => {
+            const response = await request(`${site}${proof.path}`, {}, true);
+            const body = await response.text();
+            if (proof.digest && await cacheBodyDigest(body) !== proof.digest) throw new Error("Public API is stale");
+            if (response.status !== proof.status || (proof.revision && !body.includes(`name="stack127-content-revision" content="${proof.revision}"`))) throw new Error('Public warm returned stale content');
+          })),
+        });
+        const client = await pool.connect();
+        try {
+          await client.query('begin');
+          const event = events[0];
+          const removed = await client.query('delete from public.stack127_revalidation_events where id=$1 and created_at=$2::text::timestamptz returning id',[event.id,event.created_at]);
+          if (removed.rowCount) await client.query(`insert into public.stack127_cache_processed(entity_type,slug,fingerprint) values($1,$2,$3)
+            on conflict(entity_type,slug) do update set fingerprint=excluded.fingerprint,processed_at=now()`,[event.entity_type,event.slug,versions[0]?.fingerprint??'deleted']);
+          await client.query('commit'); processed += removed.rowCount;
+        } catch(error) { await client.query('rollback'); throw error; } finally {client.release();}
+      } catch(error) {
+        const event=events[0];
+        await pool.query(`update public.stack127_revalidation_events set attempts=attempts+1,last_error=$1,next_attempt_at=now()+case attempts when 0 then interval '15 seconds' when 1 then interval '1 minute' else interval '5 minutes' end
+          where id=$2 and created_at=$3::text::timestamptz`,[String(error).slice(0,500),event.id,event.created_at]);
+        throw error;
+      }
+    }
+    console.log(JSON.stringify({processed,pending:(await pool.query('select count(*)::int as count from public.stack127_revalidation_events')).rows[0].count}));
   }
-} finally {
+} catch(error) {failure=String(error).slice(0,500);throw error;}
+finally {
+  if(leased) await pool.query(`update public.stack127_cache_worker_state set lease_id=null,lease_until=null,last_error=$2,
+    last_success_at=case when $2::text is null then now() else last_success_at end where id and lease_id=$1`,[leaseId,failure]);
   await pool.end();
 }

@@ -357,7 +357,7 @@ async function loadSelfHostAppsStats(): Promise<SelfHostAppsStats> {
 }
 
 export const getSelfHostAppsStats = unstable_cache(loadSelfHostAppsStats, ["stack127-self-host-app-stats"], {
-  revalidate: 604800,
+  revalidate: 86400,
   tags: ["stack127-self-host-apps"],
 });
 
@@ -523,7 +523,7 @@ async function loadDirectoryAppIndexBatch(offset: number): Promise<DirectoryAppI
 }
 
 const getDirectoryAppIndexBatch = unstable_cache(loadDirectoryAppIndexBatch, ["stack127-directory-app-index-batch"], {
-  revalidate: 604800,
+  revalidate: 86400,
   tags: ["stack127-self-host-apps"],
 });
 
@@ -535,7 +535,7 @@ const getDirectoryAppIndexCount = unstable_cache(async () => {
   `);
   return Number(result.rows[0]?.app_count ?? 0);
 }, ["stack127-directory-app-index-count"], {
-  revalidate: 604800,
+  revalidate: 86400,
   tags: ["stack127-self-host-apps"],
 });
 
@@ -548,7 +548,7 @@ export async function getDirectoryAppIndex(): Promise<DirectoryAppIndex[]> {
   return batches.flat();
 }
 
-async function loadDirectoryAppsBySlugs(slugs: string[]): Promise<DirectoryApp[]> {
+export async function loadDirectoryAppsBySlugs(slugs: string[]): Promise<DirectoryApp[]> {
   const result = await getPool().query<
     Omit<DirectoryApp, "categories"> & { categories: unknown }
   >(
@@ -669,15 +669,19 @@ export async function getDirectoryAppsBySlugs(slugs: string[]): Promise<Director
     return [];
   }
 
-  const apps = await loadDirectoryAppsBySlugs(slugs);
-  const appsBySlug = new Map(apps.map((app) => [app.slug, app]));
+  const apps = await Promise.all(slugs.map(slug => unstable_cache(
+    async () => (await loadDirectoryAppsBySlugs([slug]))[0] ?? null,
+    ["stack127-self-host-app", slug],
+    { revalidate: 86400, tags: ["stack127-self-host-details", `stack127-self-host-app:${slug}`] },
+  )()));
+  const appsBySlug = new Map(apps.filter((app): app is DirectoryApp => Boolean(app)).map((app) => [app.slug, app]));
 
   return slugs
     .map((slug) => appsBySlug.get(slug))
     .filter((app): app is DirectoryApp => Boolean(app));
 }
 
-export async function getDirectoryLicenseCounts(): Promise<DirectoryLicenseCount[]> {
+async function loadDirectoryLicenseCounts(): Promise<DirectoryLicenseCount[]> {
   const result = await getPool().query<{
     count: number | string;
     license: string | null;
@@ -702,3 +706,7 @@ export async function getDirectoryLicenseCounts(): Promise<DirectoryLicenseCount
     license_spdx_id: row.license_spdx_id,
   }));
 }
+
+export const getDirectoryLicenseCounts = unstable_cache(loadDirectoryLicenseCounts, ["stack127-directory-license-counts"], {
+  revalidate: 86400, tags: ["stack127-self-host-apps"],
+});

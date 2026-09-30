@@ -1,3 +1,4 @@
+import { directoryResultCache } from "@/lib/bounded-cache";
 import { StatePanel } from "@/app/ui/state-panel";
 import { Pagination } from "@/app/ui/pagination";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
@@ -229,7 +230,7 @@ export default async function CliAppsPage({
   ]);
 
   const sort = getKnownValue(params, "sort", sortValues) || "popular";
-  const filteredApps = sortApps(filterApps(apps, params), sort);
+  const filteredApps = await directoryResultCache("cli-apps", params, async () => sortApps(filterApps(apps, params), sort), ["stack127-terminal-apps"]);
   const totalPages = Math.max(1, Math.ceil(filteredApps.length / pageSize));
   const currentPage = Math.min(getPage(params), totalPages);
   const startIndex = (currentPage - 1) * pageSize;

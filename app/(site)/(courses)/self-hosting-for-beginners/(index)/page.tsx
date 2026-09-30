@@ -1,7 +1,7 @@
 import { getLesson } from "@/lib/self-hosting-for-beginners";
 import { MarkerArt } from "@/app/ui/site/marker-art";
-import { Callout, Faq, LessonLink, LessonPage } from "./course";
-import { cloudOrHomeArt } from "./art/cloud-or-home";
+import { Callout, Faq, LessonLink, LessonPage } from "../course";
+import { cloudOrHomeArt } from "../art/cloud-or-home";
 
 const lesson = getLesson("");
 

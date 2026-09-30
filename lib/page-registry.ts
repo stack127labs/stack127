@@ -270,7 +270,7 @@ export const getPublishedSitemapPages = cache(unstable_cache(async () => {
   return [...pagesBySlug.values()].sort((left, right) =>
     left.slug.localeCompare(right.slug),
   );
-}, ["stack127-sitemap-pages"], { revalidate: 604800, tags: ["stack127-sitemap-pages"] }));
+}, ["stack127-sitemap-pages"], { revalidate: 3600, tags: ["stack127-sitemap-pages"] }));
 
 /**
  * Curated published pages for site-wide home navigation. URL depth is not
@@ -296,7 +296,7 @@ export const getMainPublishedPages = cache(unstable_cache(async () => {
       return result.rows;
     },
   });
-}, ["stack127-home-pages"], { revalidate: 604800, tags: ["stack127-home-pages"] }));
+}, ["stack127-home-pages"], { revalidate: 86400, tags: ["stack127-home-pages"] }));
 
 export function buildRegistryMetadata(state: PagePublicationState): Metadata {
   if (state.kind === "missing") {
@@ -340,6 +340,7 @@ export function buildRegistryMetadata(state: PagePublicationState): Metadata {
       index: state.index,
     },
     title: state.page.meta_title,
+    other: { "stack127-content-revision": new Date(state.page.row_updated_at).toISOString() },
     twitter: {
       card: "summary",
       description: state.page.meta_description,

@@ -1,3 +1,18 @@
+import pg from "pg";
+const longer = process.argv.includes("--long-ttl");
+if (longer) {
+  const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL, connectionTimeoutMillis: 15000 });
+  try {
+    const { rows } = await pool.query(`select healthy_since, last_check_at, last_reconcile_at,
+      healthy_since <= now() - interval '7 days' and last_check_at >= now() - interval '2 minutes'
+      and last_reconcile_at >= now() - interval '16 minutes'
+      and last_error is null and exists (select 1 from public.stack127_cache_worker_wake where function_url is not null)
+      and not exists (select 1 from public.stack127_revalidation_events where first_queued_at < now() - interval '2 minutes') as ready
+      from public.stack127_cache_observation where id`);
+    if (!rows[0]?.ready) throw new Error("Long cache times require seven consecutive reliable days; the gate is not ready.");
+    console.log(JSON.stringify({ gate: "passed", healthySince: rows[0].healthy_since }));
+  } finally { await pool.end(); }
+}
 const apply = process.argv.includes("--apply");
 const zone = process.env.CLOUDFLARE_ZONE_ID;
 const token = process.env.CLOUDFLARE_API_TOKEN;
@@ -39,16 +54,17 @@ async function save(setId, rules, definition, key) {
 }
 
 const htmlParameters = structuredClone(htmlResponse.action_parameters);
-htmlParameters["max-age"].value = 600;
-htmlParameters["s-maxage"].value = 86400;
+htmlParameters["max-age"].value = 0;
+htmlParameters["must-revalidate"].operation = "set";
+htmlParameters["s-maxage"].value = longer ? 604800 : 86400;
 responseRules = await save(responseSet.id, responseRules, {
   action: htmlResponse.action,
   expression: htmlResponse.expression,
-  description: "Public successful document HTML: browser 10 minutes, edge 1 day",
+  description: `Public successful document HTML: browser revalidates, edge ${longer ? "7 days" : "1 day"}`,
   action_parameters: htmlParameters,
 }, "Public successful document HTML") ?? responseRules;
 
-const detailExpression = detailRequest.expression.replace(
+const detailExpression = detailRequest.expression.includes('"/api/resource-planner-index"') ? detailRequest.expression : detailRequest.expression.replace(
   'starts_with(http.request.uri.path, "/api/self-host-apps/")',
   'starts_with(http.request.uri.path, "/api/self-host-apps/") or http.request.uri.path eq "/api/resource-planner-index"',
 );
@@ -72,7 +88,7 @@ const rscResponse = `${rscRequest.slice(0, -1)} and http.response.code eq 200 an
 responseRules = await save(responseSet.id, responseRules, {
   action: "set_cache_control",
   expression: rscResponse,
-  description: "Public successful RSC navigation: browser 10 minutes, edge 1 day",
+  description: `Public successful RSC navigation: browser revalidates, edge ${longer ? "7 days" : "1 day"}`,
   action_parameters: htmlParameters,
 }, "Public successful RSC navigation") ?? responseRules;
 
@@ -86,6 +102,44 @@ requestRules = await save(requestSet.id, requestRules, {
 responseRules = await save(responseSet.id, responseRules, {
   action: "set_cache_control",
   expression: `${sitemapRequest.slice(0, -1)} and http.response.code eq 200 and any(http.response.headers["content-type"][*] contains "xml"))`,
-  description: "Public successful sitemap: browser 10 minutes, edge 1 day",
-  action_parameters: htmlParameters,
+  description: "Public successful sitemap: browser revalidates, edge 1 hour",
+  action_parameters: { ...htmlParameters, "s-maxage": { ...htmlParameters["s-maxage"], value: 3600 } },
 }, "Public successful sitemap") ?? responseRules;
+
+const robotsRequest = `${sharedRequest.slice(0, -1)} and http.request.uri.path eq "/robots.txt")`;
+requestRules = await save(requestSet.id, requestRules, {
+  action: "set_cache_settings", expression: robotsRequest,
+  description: "Public robots: origin cache control",
+  action_parameters: { cache: true, edge_ttl: { mode: "bypass_by_default" }, browser_ttl: { mode: "respect_origin" } },
+}, "Public robots") ?? requestRules;
+responseRules = await save(responseSet.id, responseRules, {
+  action: "set_cache_control",
+  expression: `${robotsRequest.slice(0, -1)} and http.response.code eq 200 and any(http.response.headers["content-type"][*] contains "text/plain"))`,
+  description: "Public successful robots: browser revalidates, edge 1 hour",
+  action_parameters: { ...htmlParameters, "s-maxage": { ...htmlParameters["s-maxage"], value: 3600 } },
+}, "Public successful robots") ?? responseRules;
+
+// Later response rules override the content default with the actual route class.
+for (const [name, expression, ttl] of [
+  ["Public directory responses", 'any(http.response.headers["x-stack127-cache-class"][*] eq "directory")', 86400],
+  ["Public filtered responses", 'any(http.response.headers["x-stack127-cache-class"][*] eq "filters")', 900],
+]) {
+  responseRules = await save(responseSet.id, responseRules, {
+    action: "set_cache_control", expression: `(${sharedRequest.slice(1, -1)} and http.response.code eq 200 and not any(http.response.headers.names[*] eq "set-cookie") and not starts_with(http.request.uri.path, "/api/") and not starts_with(http.request.uri.path, "/_next/") and (any(http.response.headers["content-type"][*] contains "text/html") or any(http.response.headers["content-type"][*] contains "text/x-component")) and ${expression})`,
+    description: `${name}: browser revalidates, edge ${ttl} seconds`,
+    action_parameters: { ...htmlParameters, "s-maxage": { ...htmlParameters["s-maxage"], value: ttl } },
+  }, name) ?? responseRules;
+}
+const assets = requestRules.find(rule => rule.description?.startsWith("Mutable site icons:"));
+if (assets) {
+  const parameters = structuredClone(assets.action_parameters);
+  parameters.browser_ttl = { mode: "respect_origin" };
+  await save(requestSet.id, requestRules, { action: assets.action, expression: assets.expression,
+    description: "Mutable site icons: edge 30 days, browser revalidates", action_parameters: parameters,
+  }, "Mutable site icons");
+}
+if (longer && apply) {
+  const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
+  try { await pool.query("update public.stack127_cache_observation set long_ttl_enabled_at = now() where id"); }
+  finally { await pool.end(); }
+}

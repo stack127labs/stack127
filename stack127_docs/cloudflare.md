@@ -71,33 +71,55 @@ Its Web Server settings record `dokploy.stack127.com` as the host with HTTPS ena
 
 ## Caching
 
-Public documents use a 10-minute browser TTL and a one-day edge TTL. Successful HTML without `Set-Cookie` is cached at the edge. Next.js navigation responses (`text/x-component` with an `_rsc` query key) use separate cache rules and keep their full query string, so clicks can reuse the matching response. Cookies, authorization, error responses, and private API routes bypass these rules. Unpublished and missing pages remain uncacheable 404s.
+Public documents use `max-age=0, must-revalidate`: browsers check their saved copy each time. Successful public HTML and Next.js navigation data use separate Cloudflare cache entries. Cookies, authorization, private endpoints, live DNS/IP results, and errors bypass the public cache.
 
-The application adds `Cache-Tag` headers for public paths. Release deployment purges the `stack127-public` tag and warms primary routes. Database triggers coalesce publication, tool-content, app, category, and CLI changes in `public.stack127_revalidation_events`. The `cache-worker` Supabase Edge Function (`supabase/functions/cache-worker/`) processes the queue. It invalidates the Next.js data cache, purges affected Cloudflare tags, and warms changed paths from `public.stack127_cache_warm_events`. A signing key generated in `public.stack127_cache_credentials` authenticates both the database's call to the worker and the worker's call to the site, so no credential is copied into the app runtime.
+| Response | Edge time |
+|---|---:|
+| Content pages | 1 day during observation; 7 days after the reliability gate |
+| Homepage, directories, app and device details | 24 hours |
+| Search and filters, including planner search | 15 minutes |
+| Sitemap and robots | 1 hour |
+| Mutable icons, logos, and favicons | 30 days |
+| Versioned Next.js bundles | Existing immutable 1 year policy |
 
-How the worker runs:
+Query pages keep their canonical base URL and `noindex, follow`. `_rsc` alone is navigation data and does not make a page a filtered search. Navigation cache keys retain the complete query string. The domain registry (RDAP) cache stays at 24 hours for registered domains and 1 hour for unregistered domains.
 
-- A trigger on the queue wakes it through `pg_net` as soon as a change is queued, at most once every 5 seconds. A `pg_cron` job named `stack127-cache-worker` also wakes it every 30 seconds.
-- It waits until a change has been quiet for 10 seconds, so repeated changes during an import are grouped. No change waits more than 60 seconds.
-- More than 100 app changes in one batch become one full app catalog refresh.
-- After a failure it retries after 15 seconds, then 1 minute, then every 5 minutes.
-- Only one run works at a time, through the lease in `public.stack127_cache_worker_state`.
-- When a change has waited 5 minutes, it opens a GitHub issue titled "Cache updates are delayed" and closes it when the queue catches up. This needs the `GITHUB_ALERT_TOKEN` function secret.
+The app supplies `Cache-Tag` headers for public pages and mutable local assets. Releases purge `stack127-public` and `stack127-assets`, purge changed public file URLs, and warm primary routes. Registry-owned SEO and publication checks live in `lib/registry-layout.tsx`. Thin route layouts supply the public path, so pages without request-specific data can use the Next.js full-page cache. `scripts/stack127/cache/sync-registry-layouts.mjs` runs before development and builds to register new routes. Directory queries use shared tagged data and at most 500 recently used filter results per directory. Normal numbered pages share the complete default index.
 
-The worker only runs where `public.stack127_cache_worker_wake.function_url` is set. Development leaves it empty so the local preview watcher (`npm run stack127:cache:watch:local`) keeps its changes. Function secrets are `STACK127_SITE_URL`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ZONE_ID`, `GITHUB_ALERT_TOKEN`, and optionally `CACHE_WORKER_DRY_RUN=1`, which skips all outside calls. The release workflow deploys the function when it or `scripts/stack127/cache/targets.mjs` changes.
+Run one app instance. Its Next.js cache and bounded query cache are local to that instance; more instances need a shared cache and coordinated invalidation first.
 
-If published edits do not appear within 2 minutes, check the queue's pending rows and `last_error`, `public.stack127_cache_worker_state`, and the function logs in Supabase. Run `select public.stack127_wake_cache_worker(true);` to wake it by hand. Browser cache copies cannot be purged and can remain for up to 10 minutes after a change.
+Database triggers coalesce publication, tool, app, category, GitHub, and CLI changes in `public.stack127_revalidation_events`. The Supabase `cache-worker` processes each captured change in this order:
 
-Public detail APIs under `/api/shortcuts/`, `/api/hardware-directory/`, `/api/resource-planner-app/`, and `/api/self-host-apps/`, plus `/api/resource-planner-index`, opt into edge caching. Static detail responses use one hour in browsers and one day at the edge. Database-backed details and the planner index use 10 minutes in browsers and one day at the edge. Failed or unpublished responses use `no-store`. Health and private API endpoints remain dynamic.
+1. Invalidate matching Next.js tags, paths, and query results.
+2. Call the signed `/api/cache/refresh` endpoint. It loads pages inside the same app instance, checks their registry revision or current API data, and accepts a removed page only when it returns 404.
+3. Purge the affected Cloudflare tags.
+4. Fetch the public responses and check their revision or API digest again.
+5. Remove only the captured event version and store its source fingerprint in one database transaction. A newer edit remains queued.
 
-A cache rule covers mutable static site assets under `/app-icons/`, `/logos/`, and the favicon and app-icon files:
+There is no separately exposed origin URL. The signed bridge avoids receiving Cloudflare's old response when rebuilding pages. The signing key stays in `public.stack127_cache_credentials`; it is not copied into app runtime configuration.
 
-- Edge TTL: 30 days for successful responses.
-- Browser TTL: 1 day.
-- `300` through `499`: no edge cache.
-- `500` and above: no store.
+Worker settings:
 
-Next.js immutable assets under `/_next/static/` keep their existing long-lived immutable cache headers.
+- The queue trigger wakes it through `pg_net`, at most once every 5 seconds. Supabase Cron also wakes it every 30 seconds.
+- Repeated imports wait for 10 quiet seconds, with a maximum wait of 60 seconds. More than 20 app changes become one catalogue refresh, keeping direct detail checks within the run budget.
+- Failures retain the event and retry after 15 seconds, 1 minute, then every 5 minutes.
+- A 150-second database lease allows one processor at a time; each run has a 90-second work budget.
+- Every 15 minutes, source fingerprints are compared with acknowledged revisions to recover missed changes and deletions.
+- Waiting updates older than 5 minutes open a GitHub issue; recovery closes it. This requires the existing `GITHUB_ALERT_TOKEN` function secret.
+
+The worker runs only where `public.stack127_cache_worker_wake.function_url` is set. Development leaves it empty and uses `npm run stack127:cache:watch:local`. Function secrets include `SUPABASE_DB_URL`, `STACK127_SITE_URL`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ZONE_ID`, and `GITHUB_ALERT_TOKEN`. `CACHE_WORKER_DRY_RUN=1` skips refreshes and leaves events queued. The release deploys the function after the new app is live when the function or its shared cache scripts change.
+
+`public.stack127_cache_observation` records consecutive reliable operation. Errors, missed updates, updates waiting more than two minutes, and gaps in checks reset the clock. Run the status command with the production database environment:
+
+```bash
+node --env-file=.env.database scripts/stack127/cache/status.mjs
+```
+
+The maintenance workflow automatically skips its scheduled processor after one reliable day; manual dispatch still provides a backup and the shared lease prevents overlap. A later reliability failure can reactivate the backup. After seven reliable days it runs `configure-cloudflare.mjs --long-ttl --apply`; that script independently checks the gate before changing the content TTL. The scheduled workflow may run late, so this final policy change can happen after the seven-day mark. Scheduled checks remain; they do not serve or invalidate ordinary edits.
+
+For an immediate policy review or application, load `.env.deploy` and run `scripts/stack127/cache/configure-cloudflare.mjs`, adding `--apply` to write it. With `--long-ttl`, also load `.env.database`. Without that flag, content keeps the one-day observation policy. Never bypass the seven-day gate.
+
+If an edit is not live within two minutes, inspect the queue, worker state, observation table, and Supabase function logs. `select public.stack127_wake_cache_worker(true);` wakes the worker manually. The GitHub maintenance workflow is also a manual recovery route. Existing browser copies from the old policy must expire before they start checking each time.
 
 ## Security And Crawlers
 
@@ -175,7 +197,7 @@ curl -I 'https://dokploy.stack127.com/'
 Expected results:
 
 - `www` returns one `301` to the same path and query on the apex HTTPS host.
-- Repeated public HTML requests return `200`, `cache-control: max-age=600, s-maxage=86400, public`, and eventually `cf-cache-status: HIT`.
+- Repeated public HTML requests return `200`, browser `max-age=0, must-revalidate` and the edge TTL above, and eventually `cf-cache-status: HIT`.
 - Repeated RSC navigation requests with the same `_rsc` query key can become cache `HIT`. Requests with cookies or authorization, health checks, and 404s do not use the public cache.
 - A repeated static-asset request becomes a Cloudflare cache `HIT`.
 - Robots and sitemap remain public.

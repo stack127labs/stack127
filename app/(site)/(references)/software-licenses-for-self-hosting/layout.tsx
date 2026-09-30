@@ -1,6 +1,7 @@
 import "./software-licenses.css";
-import type { ReactNode } from "react";
+import { registryLayout } from "@/lib/registry-layout";
 
-export default function SoftwareLicensesLayout({ children }: { children: ReactNode }) {
-  return children;
-}
+const registry = registryLayout("/software-licenses-for-self-hosting", false);
+export const generateMetadata = registry.generateMetadata;
+export const revalidate = 604800;
+export default registry.Layout;

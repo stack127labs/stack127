@@ -84,6 +84,6 @@ async function loadTerminalApps(): Promise<TerminalApp[]> {
 }
 
 export const getTerminalApps = unstable_cache(loadTerminalApps, ["stack127-terminal-apps"], {
-  revalidate: 604800,
+  revalidate: 86400,
   tags: ["stack127-terminal-apps"],
 });

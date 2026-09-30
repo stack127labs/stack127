@@ -69,7 +69,9 @@
     "stack127:tool-page:catalogs:update": "node scripts/stack127/tool-pages/update-catalogs.mjs",
     "stack127:tool-page:version:update": "node scripts/stack127/tool-pages/update-version.mjs",
     "stack127:tool-page:repo:sync": "node scripts/stack127/tool-pages/record-repo-sync.mjs",
-    "stack127:deploy:preflight": "node scripts/stack127/deployment/preflight.mjs --check-git --check-cloudflare"
+    "stack127:deploy:preflight": "node scripts/stack127/deployment/preflight.mjs --check-git --check-cloudflare",
+    "prebuild": "node scripts/stack127/cache/sync-registry-layouts.mjs",
+    "predev": "node scripts/stack127/cache/sync-registry-layouts.mjs"
   },
   "dependencies": {
     "@namefi/dnssec-audit": "^2.1.1",

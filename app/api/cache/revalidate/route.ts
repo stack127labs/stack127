@@ -1,42 +1,17 @@
-import { createHmac, timingSafeEqual } from "node:crypto";
+import { invalidateBoundedCaches } from "@/lib/bounded-cache";
+import { cacheAuthorized } from "@/lib/cache-auth";
 import { revalidatePath, revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
-import { getPool } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 type Payload = { paths?: string[]; tags?: string[] };
 
-let signingKeyPromise: Promise<string> | null = null;
-
-function signingKey() {
-  if (!signingKeyPromise) {
-    signingKeyPromise = getPool().query<{ signing_key: string }>(
-      "select signing_key from public.stack127_cache_credentials where id = true",
-    ).then((result) => {
-      const key = result.rows[0]?.signing_key;
-      if (!key) throw new Error("Cache signing key is missing.");
-      return key;
-    }).catch((error) => {
-      signingKeyPromise = null;
-      throw error;
-    });
-  }
-  return signingKeyPromise;
-}
-
-async function authorized(request: Request) {
-  const key = await signingKey();
-  const expected = createHmac("sha256", key).update("stack127-cache-revalidation-v1").digest("hex");
-  const received = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "") ?? "";
-  return received.length === expected.length && timingSafeEqual(Buffer.from(received), Buffer.from(expected));
-}
-
 export async function POST(request: Request) {
   let isAuthorized: boolean;
   try {
-    isAuthorized = await authorized(request);
+    isAuthorized = await cacheAuthorized(request);
   } catch {
     return NextResponse.json({ error: "Cache authentication unavailable" }, { status: 503, headers: { "Cache-Control": "no-store" } });
   }
@@ -58,6 +33,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid targets" }, { status: 400 });
   }
 
+  invalidateBoundedCaches(tags);
   for (const tag of new Set(tags)) revalidateTag(tag, { expire: 0 });
   for (const path of new Set(paths)) revalidatePath(path);
   return NextResponse.json({ ok: true, paths: paths.length, tags: tags.length }, { headers: { "Cache-Control": "no-store" } });

@@ -33,5 +33,6 @@ test("a catalog change refreshes navigation on every catalog page", () => {
   assert.ok(targets.paths.includes("/dns-lookup"));
   assert.ok(targets.nextTags.includes("stack127-tool-catalog:storage-tools"));
   assert.ok(targets.nextTags.includes("stack127-tool-primary-catalogs"));
-  assert.ok(!targets.warmPaths.includes("/kdp-royalty-calculator"));
+  assert.ok(targets.verifyPaths.includes("/kdp-royalty-calculator"));
+  assert.ok(targets.warmPaths.includes("/kdp-royalty-calculator"));
 });

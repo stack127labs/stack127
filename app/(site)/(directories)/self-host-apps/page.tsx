@@ -1,3 +1,4 @@
+import { directoryResultCache } from "@/lib/bounded-cache";
 import { StatePanel } from "@/app/ui/state-panel";
 import { Pagination } from "@/app/ui/pagination";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
@@ -552,7 +553,7 @@ export default async function SelfHostAppsPage({
   const sort = getString(params, "sort") || "popular";
   const selectedRam = getKnownValue(params, "ram", ramTierOrder);
   const selectedStorage = getKnownValue(params, "storage", storageTierOrder);
-  const filteredApps = sortApps(filterApps(indexApps, params), sort, params);
+  const filteredApps = await directoryResultCache("self-host-apps", params, async () => sortApps(filterApps(indexApps, params), sort, params), ["stack127-self-host-apps"]);
   const totalPages = Math.max(1, Math.ceil(filteredApps.length / pageSize));
   const currentPage = Math.min(getPage(params), totalPages);
   const startIndex = (currentPage - 1) * pageSize;

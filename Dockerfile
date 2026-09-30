@@ -12,7 +12,7 @@ ENV STACK127_BUILD_SHA=$STACK127_BUILD_SHA
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN printf '%s\n' "$STACK127_BUILD_SHA" > /app/build-sha
-RUN npm run build
+RUN --mount=type=secret,id=stack127-database-env,target=/app/.env.production,required=true npm run build && rm -f /app/.next/standalone/.env*
 
 FROM base AS runner
 ARG STACK127_BUILD_SHA=unknown

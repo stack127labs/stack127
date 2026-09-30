@@ -32,6 +32,13 @@ const nextConfig: NextConfig = {
     "/z-wave-devices": ["./lib/hardware-directories/data/z-wave-devices.json"],
     "/zigbee-coordinators": ["./lib/hardware-directories/data/zigbee-coordinators.json"],
   },
+  async headers() {
+    const assets = ["/app-icons/:path*", "/logos/:path*", "/favicon.ico", "/favicon-:size.png", "/apple-touch-icon.png", "/android-chrome-:size.png"];
+    return assets.map(source => ({ source, headers: [
+      { key: "Cache-Control", value: "public, max-age=0, must-revalidate" },
+      { key: "Cache-Tag", value: "stack127-assets" },
+    ] }));
+  },
   async redirects() {
     return [
       ...legacyShortcutRedirects,

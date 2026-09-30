@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "*/5 * * * *"
   workflow_dispatch:
+    inputs:
+      configure_cache_policy:
+        description: "Apply the initial cache policy while the seven-day observation is pending."
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -24,9 +29,29 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - run: npm run stack127:cache:process
+      - name: Check worker reliability
+        id: reliability
+        run: node scripts/stack127/cache/status.mjs
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
+      - name: Scheduled fallback during the first reliable day, or manual backup
+        if: github.event_name == 'workflow_dispatch' || steps.reliability.outputs.backup_needed == 'true'
+        run: npm run stack127:cache:process
         env:
           DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID || secrets.CLOUDFLARE_ZONE_ID }}
           STACK127_SITE_URL: https://stack127.com
+      - name: Apply the initial cache policy when requested
+        if: inputs.configure_cache_policy == true && steps.reliability.outputs.long_ttl_enabled == 'false'
+        run: node scripts/stack127/cache/configure-cloudflare.mjs --apply
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID || secrets.CLOUDFLARE_ZONE_ID }}
+      - name: Enable longer cache times after seven reliable days
+        if: steps.reliability.outputs.long_ttl_ready == 'true'
+        run: node scripts/stack127/cache/configure-cloudflare.mjs --long-ttl --apply
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID || secrets.CLOUDFLARE_ZONE_ID }}

@@ -2,6 +2,7 @@
 // wakes this function when a change is queued and every 30 seconds after that.
 import postgres from "npm:postgres@3.4.7";
 import { targetsForEvents } from "../../../scripts/stack127/cache/targets.mjs";
+import { refreshTargets, cacheBodyDigest } from "../../../scripts/stack127/cache/refresh.mjs";
 
 declare const EdgeRuntime: { waitUntil(promise: Promise<unknown>): void };
 
@@ -13,11 +14,12 @@ const dryRun = env("CACHE_WORKER_DRY_RUN") === "1";
 const siteUrl = (env("STACK127_SITE_URL") || "https://stack127.com").replace(/\/$/, "");
 const alertRepo = env("GITHUB_ALERT_REPO") || "stack127labs/stack127";
 
-const runBudgetMs = 100_000;
+const runBudgetMs = 90_000;
+let deadline = Infinity;
 const leaseSeconds = 150;
 const alertAfterMinutes = 5;
 
-const sql = postgres(env("SUPABASE_DB_URL"), { max: 1, prepare: false, idle_timeout: 20 });
+const sql = postgres(env("SUPABASE_DB_URL"), { max: 1, prepare: false, idle_timeout: 20, connection: { statement_timeout: 15000 } });
 
 async function hmac(key: string, message: string) {
   const cryptoKey = await crypto.subtle.importKey(
@@ -42,7 +44,7 @@ async function signingKey() {
 }
 
 async function request(url: string, init: RequestInit = {}) {
-  const response = await fetch(url, { ...init, signal: AbortSignal.timeout(20_000) });
+  const response = await fetch(url, { ...init, signal: AbortSignal.timeout(Math.max(1, Math.min(20_000, deadline - Date.now()))) });
   if (!response.ok) throw new Error(`${new URL(url).pathname} returned HTTP ${response.status}`);
   return response;
 }
@@ -83,7 +85,7 @@ const ready = () => sql`
 
 async function readyEvents(): Promise<QueueEvent[]> {
   // Up to 2,000 app changes are taken at once so large imports collapse into
-  // one catalog refresh. Other changes are taken 500 at a time, oldest first.
+  // one catalog refresh. Other changes are taken one at a time, oldest first.
   const apps = await sql<QueueEvent[]>`
     select id::text, entity_type, slug, created_at::text as created_at
     from public.stack127_revalidation_events
@@ -96,7 +98,7 @@ async function readyEvents(): Promise<QueueEvent[]> {
     from public.stack127_revalidation_events
     where entity_type <> 'self_host_app' and ${ready()}
     order by first_queued_at, id
-    limit 500
+    limit 1
   `;
   return [...others, ...apps];
 }
@@ -114,7 +116,7 @@ async function secondsUntilNextReady(): Promise<number | null> {
 
 async function targetsFor(events: QueueEvent[]) {
   const apps = events.filter((event) => event.entity_type === "self_host_app");
-  const targetEvents = apps.length > 100
+  const targetEvents = apps.length > 20
     ? [...events.filter((event) => event.entity_type !== "self_host_app"), { entity_type: "self_host_catalog", slug: "all" }]
     : events;
 
@@ -147,74 +149,113 @@ const processedRows = (events: QueueEvent[], query = sql) => query`
      as input(id, created_at)) done
 `;
 
+async function fingerprints(events: QueueEvent[]) {
+  const revisions = await sql`select * from public.stack127_cache_source_revisions(
+    ${[...new Set(events.map(event => event.entity_type))]}::text[], ${events.map(event => event.slug)}::text[])`;
+  const source = new Map(revisions.map(row => [`${row.entity_type}:${row.slug}`, row.fingerprint]));
+  return events.map(event => ({ ...event, fingerprint: source.get(`${event.entity_type}:${event.slug}`) ?? "deleted" }));
+}
+
 async function processBatch(events: QueueEvent[], key: string) {
   const targets = await targetsFor(events);
+  const versions = await fingerprints(events);
+  const token = await hmac(key, "stack127-cache-revalidation-v1");
   try {
     if (dryRun) {
-      console.log(JSON.stringify({ dryRun: true, events: events.length, paths: targets.paths.length, edgeTags: targets.edgeTags.length }));
-    } else {
-      await invalidateNext(targets, key);
-      await purgeCloudflare(targets.edgeTags);
+      console.log(JSON.stringify({ dryRun: true, events: events.length, paths: targets.paths.length }));
+      return 0;
     }
+    await refreshTargets(targets, {
+      invalidate: () => invalidateNext(targets, key),
+      rebuild: async (paths: string[]) => {
+        const response = await request(`${siteUrl}/api/cache/refresh`, {
+          method: "POST", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+          body: JSON.stringify({ paths }),
+        });
+        const result = await response.json();
+        if (!Array.isArray(result.verified) || result.verified.length !== paths.length) throw new Error("Origin did not verify every path");
+        return result.verified;
+      },
+      purge: purgeCloudflare,
+      warm: async (proofs: Array<{ path: string; status: number; revision: string | null; digest: string | null }>) => {
+        await Promise.all(proofs.map(async proof => {
+          const response = await fetch(`${siteUrl}${proof.path}`, {
+            signal: AbortSignal.timeout(Math.max(1, Math.min(20_000, deadline - Date.now()))),
+          });
+          const body = await response.text();
+          if (response.status !== proof.status) throw new Error(`Public warm failed for ${proof.path}: HTTP ${response.status}`);
+          if (proof.digest && await cacheBodyDigest(body) !== proof.digest) throw new Error(`Public API is stale: ${proof.path}`);
+          if (proof.revision && !body.includes(`name="stack127-content-revision" content="${proof.revision}"`)) throw new Error(`Public content is stale: ${proof.path}`);
+        }));
+      },
+    });
   } catch (error) {
-    // Retry after 15 seconds, then 1 minute, then every 5 minutes. A change
-    // that arrived during this run is left alone so it is not delayed.
     await sql`
       update public.stack127_revalidation_events event set
         attempts = event.attempts + 1,
         last_error = ${String(error).slice(0, 500)},
         next_attempt_at = now() + case event.attempts
-          when 0 then interval '15 seconds'
-          when 1 then interval '1 minute'
-          else interval '5 minutes'
-        end
+          when 0 then interval '15 seconds' when 1 then interval '1 minute' else interval '5 minutes' end
       from ${processedRows(events)}
       where event.id = done.id and event.created_at = done.created_at
     `;
     throw error;
   }
-
-  // Only the processed version is removed. A change that arrived during this
-  // run has a newer created_at and stays queued.
-  return await sql.begin(async (tx) => {
+  return await sql.begin(async tx => {
+    // Both acknowledgement and fingerprint belong to the same processed version.
     const removed = await tx`
       delete from public.stack127_revalidation_events event
       using ${processedRows(events, tx)}
       where event.id = done.id and event.created_at = done.created_at
+      returning entity_type, slug
     `;
-    if (targets.warmPaths.length) {
-      await tx`
-        insert into public.stack127_cache_warm_events (path)
-        select unnest(${targets.warmPaths}::text[])
-        on conflict (path) do update set created_at = now(), attempts = 0
-      `;
-    }
+    const acknowledged = new Set(removed.map(row => `${row.entity_type}:${row.slug}`));
+    const done = versions.filter(version => acknowledged.has(`${version.entity_type}:${version.slug}`));
+    if (done.length) await tx`insert into public.stack127_cache_processed (entity_type, slug, fingerprint)
+      select * from unnest(${done.map(event => event.entity_type)}::text[], ${done.map(event => event.slug)}::text[], ${done.map(event => event.fingerprint)}::text[])
+      on conflict (entity_type, slug) do update set fingerprint = excluded.fingerprint, processed_at = now()`;
     return removed.count;
   });
 }
 
-async function warmPages() {
-  // Give up on a page after five failed loads. The next change queues it again.
-  await sql`delete from public.stack127_cache_warm_events where attempts >= 5`;
-  const pending = await sql`
-    select path, created_at::text as created_at from public.stack127_cache_warm_events
-    order by created_at limit 20
+async function reconcile() {
+  const [state] = await sql`select last_reconcile_at from public.stack127_cache_observation where id`;
+  if (state.last_reconcile_at && Date.now() - new Date(state.last_reconcile_at).getTime() < 900_000) return;
+  const recovered = await sql`
+    with sources as materialized (select * from public.stack127_cache_source_revisions()),
+    changes as (
+      select coalesce(source.entity_type, done.entity_type) as entity_type,
+        coalesce(source.slug, done.slug) as slug,
+        case when source.slug is null then 'deletion_reconcile' else 'revision_reconcile' end as reason
+      from sources source full join public.stack127_cache_processed done using (entity_type, slug)
+      where coalesce(source.fingerprint, 'deleted') is distinct from done.fingerprint
+    )
+    select public.stack127_enqueue_revalidation(changes.entity_type, changes.slug, changes.reason)
+    from changes
+    where not exists (select 1 from public.stack127_revalidation_events event
+        where event.entity_type = changes.entity_type and event.slug = changes.slug)
   `;
-  for (let index = 0; index < pending.length; index += 4) {
-    await Promise.all(pending.slice(index, index + 4).map(async ({ path, created_at }) => {
-      try {
-        if (!dryRun) {
-          const response = await fetch(`${siteUrl}${path}`, { signal: AbortSignal.timeout(20_000) });
-          if (!response.ok && response.status !== 404) throw new Error(`HTTP ${response.status}`);
-        }
-        await sql`delete from public.stack127_cache_warm_events where path = ${path} and created_at = ${created_at}::text::timestamptz`;
-      } catch (error) {
-        await sql`update public.stack127_cache_warm_events set attempts = attempts + 1 where path = ${path} and created_at = ${created_at}::text::timestamptz`;
-        console.warn(`Warm failed for ${path}: ${String(error)}`);
-      }
-    }));
+  const hadHistory = await sql`select 1 from public.stack127_cache_processed limit 1`;
+  if (hadHistory.length && recovered.length) {
+    await sql`update public.stack127_cache_observation set healthy_since = null, last_failure_at = now(),
+      last_error = 'The revision check recovered an update missing from the queue.' where id`;
   }
-  return pending.length;
+  await sql`update public.stack127_cache_observation set last_reconcile_at = now() where id`;
+}
+
+async function observe(lastError: string | null) {
+  // A late update, an error, or a gap in checks resets the seven-day clock.
+  await sql`update public.stack127_cache_observation set
+    healthy_since = case when ${lastError}::text is not null or
+      exists (select 1 from public.stack127_revalidation_events where first_queued_at < now() - interval '2 minutes')
+      then null
+      when last_check_at is null or last_check_at < now() - interval '2 minutes' then now()
+      else case when last_failure_at > healthy_since then now() else coalesce(healthy_since, now()) end end,
+    last_failure_at = case when ${lastError}::text is not null or
+      exists (select 1 from public.stack127_revalidation_events where first_queued_at < now() - interval '2 minutes')
+      then now() else last_failure_at end,
+    last_error = ${lastError}, last_check_at = now()
+    where id`;
 }
 
 async function github(path: string, body: unknown) {
@@ -279,28 +320,27 @@ async function run() {
 
   const started = Date.now();
   let processed = 0;
-  let warmed = 0;
   let lastError: string | null = null;
   try {
+    deadline = started + runBudgetMs;
     const key = await signingKey();
+    if (!dryRun) await reconcile();
     while (Date.now() - started < runBudgetMs) {
       const events = await readyEvents();
       if (events.length) {
         try {
           const removed = await processBatch(events, key);
-          // Every event was just read, so removing none means the worker would
-          // repeat the same batch forever.
-          if (!removed) throw new Error("A processed batch removed no queued changes.");
+          // Stop when every captured event was superseded while processing.
+          if (!removed) break; // a newer edit remains queued, or this is a dry run
           processed += removed;
         } catch (error) {
           lastError = String(error).slice(0, 500);
           console.error(`Cache refresh failed: ${lastError}`);
           break;
         }
-        warmed += await warmPages();
         continue;
       }
-      warmed += await warmPages();
+      // Old warm-only rows come from the manual backup. They never acknowledge changes.
       // Wait for changes that are still settling, if they are close.
       const wait = await secondsUntilNextReady();
       if (wait === null || wait > 15 || Date.now() - started + wait * 1000 > runBudgetMs) break;
@@ -311,6 +351,8 @@ async function run() {
     lastError = String(error).slice(0, 500);
     console.error(`Cache worker failed: ${lastError}`);
   } finally {
+    if (!dryRun) await observe(lastError);
+    deadline = Infinity;
     await sql`
       update public.stack127_cache_worker_state set
         lease_id = null,
@@ -320,8 +362,8 @@ async function run() {
       where id = true and lease_id = ${leaseId}
     `;
   }
-  if (processed || warmed || lastError) {
-    console.log(JSON.stringify({ processed, warmed, dryRun, error: lastError }));
+  if (processed || lastError) {
+    console.log(JSON.stringify({ processed, dryRun, error: lastError }));
   }
 }
 
