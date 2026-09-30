@@ -723,9 +723,11 @@
   background: transparent;
   border: 0;
   color: var(--color-text);
-  display: flex;
+  display: grid;
   font: inherit;
-  gap: var(--space-3);
+  gap: var(--space-1) var(--space-3);
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto;
   max-width: 100%;
   min-height: 44px;
   min-width: 0;
@@ -735,7 +737,29 @@
 }
 
 .disclosureButton svg {
+  grid-column: 1;
+  grid-row: 1 / span 2;
   transition: transform var(--motion-fast);
+}
+
+.disclosureLabel {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.disclosureSummary {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  font-weight: var(--weight-regular);
+  grid-column: 2;
+  grid-row: 2;
+  line-height: var(--line-body);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.disclosure[data-expanded] .disclosureSummary {
+  display: none;
 }
 
 .disclosure[data-expanded] .disclosureButton svg {
@@ -759,8 +783,21 @@
   gap: var(--space-4);
 }
 
-.repeatable > .button {
-  justify-self: start;
+.repeatableAdd {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-4);
+}
+
+.repeatableNote {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+}
+
+.repeatableNote[data-error="true"] {
+  color: var(--color-danger-text);
 }
 
 .repeatableRow {
@@ -768,6 +805,46 @@
   display: grid;
   gap: var(--space-4);
   grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.repeatableRow > button[aria-label] {
+  position: relative;
+}
+
+.repeatableRow > button[aria-label]::after {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  bottom: calc(100% + var(--space-2));
+  color: var(--color-text);
+  content: attr(aria-label);
+  font-size: var(--text-small);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-body);
+  max-width: min(16rem, calc(100vw - 2rem));
+  opacity: 0;
+  overflow-wrap: anywhere;
+  padding: var(--space-2) var(--space-3);
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  text-align: left;
+  visibility: hidden;
+  width: max-content;
+  z-index: 2;
+}
+
+.repeatableRow > button[aria-label]:hover::after,
+.repeatableRow > button[aria-label]:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 760px) {
+  .repeatableRow > button[aria-label]::after {
+    left: 0;
+    right: auto;
+  }
 }
 
 .repeatableContent {

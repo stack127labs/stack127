@@ -1,0 +1,130 @@
+.workbench {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-border-strong);
+  grid-column: 1 / -1;
+  margin-inline: calc(-1 * var(--container-gutter));
+  min-width: 0;
+  padding: var(--space-7) var(--container-gutter);
+  width: calc(100% + var(--container-gutter) + var(--container-gutter));
+}
+
+.content,
+.form,
+.periodFields,
+.amountGroup,
+.amountFields,
+.results {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.content {
+  gap: var(--space-7);
+  margin-inline: auto;
+  max-width: 68rem;
+}
+
+.periodFields {
+  align-items: start;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 0.46fr);
+}
+
+.amountGroup {
+  gap: var(--space-3);
+}
+
+.amountFields {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.periodFields > *,
+.amountFields > * {
+  min-width: 0;
+}
+
+.guidance,
+.reason {
+  margin: 0;
+}
+
+.guidance {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+}
+
+.results {
+  border-top: 1px solid var(--color-border);
+  gap: var(--space-4);
+  padding-top: var(--space-6);
+}
+
+.results output strong {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.resultDetail {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.division,
+.reason,
+.amountBasis {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.division {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.amountBasis {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.amountBasis > div {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  min-width: 0;
+}
+
+.amountBasis dt {
+  font-weight: var(--weight-semibold);
+}
+
+.amountBasis dd {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.reason {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+}
+
+@media (max-width: 760px) {
+  .workbench {
+    padding-block: var(--space-5);
+  }
+
+  .content {
+    gap: var(--space-6);
+  }
+
+  .periodFields,
+  .amountFields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

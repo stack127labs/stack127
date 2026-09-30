@@ -47,6 +47,7 @@ import {
 import {
   useEffect,
   useId,
+  useLayoutEffect,
   useRef,
   useState,
   type KeyboardEventHandler,
@@ -773,13 +774,26 @@ export function UiButton({ className = "", variant = "secondary", ...props }: Ui
   return <RacButton {...props} className={`${styles.button} ${styles[variant]} ${className}`} />;
 }
 
-export function UiDisclosure({ children, label }: { children: ReactNode; label: string }) {
+export function UiDisclosure({
+  children,
+  isExpanded,
+  label,
+  onExpandedChange,
+  summary,
+}: {
+  children: ReactNode;
+  isExpanded?: boolean;
+  label: string;
+  onExpandedChange?: (isExpanded: boolean) => void;
+  summary?: ReactNode;
+}) {
   return (
-    <Disclosure className={styles.disclosure}>
+    <Disclosure className={styles.disclosure} isExpanded={isExpanded} onExpandedChange={onExpandedChange}>
       <Heading className={styles.disclosureHeading}>
         <RacButton className={styles.disclosureButton} slot="trigger">
           <ChevronRight aria-hidden="true" size={17} />
-          {label}
+          <span className={styles.disclosureLabel}>{label}</span>
+          {summary ? <span className={styles.disclosureSummary}>{summary}</span> : null}
         </RacButton>
       </Heading>
       <DisclosurePanel className={styles.disclosurePanel}>{children}</DisclosurePanel>
@@ -788,6 +802,8 @@ export function UiDisclosure({ children, label }: { children: ReactNode; label: 
 }
 
 export function UiRepeatableList<T extends { id: string }>({
+  addDescription,
+  addDescriptionIsError = false,
   addDisabled = false,
   addLabel,
   ariaLabel,
@@ -797,6 +813,8 @@ export function UiRepeatableList<T extends { id: string }>({
   removeLabel,
   renderItem,
 }: {
+  addDescription?: string;
+  addDescriptionIsError?: boolean;
   addDisabled?: boolean;
   addLabel: string;
   ariaLabel: string;
@@ -807,32 +825,77 @@ export function UiRepeatableList<T extends { id: string }>({
   renderItem: (item: T, index: number) => ReactNode;
 }) {
   const previousCount = useRef(items.length);
+  const pendingRemovalIndex = useRef<number | null>(null);
   const rows = useRef<HTMLDivElement>(null);
+  const descriptionId = useId();
 
-  useEffect(() => {
-    if (items.length > previousCount.current) {
-      const lastRow = rows.current?.querySelector<HTMLElement>("[data-repeatable-row]:last-child input, [data-repeatable-row]:last-child button");
+  useLayoutEffect(() => {
+    const countChange = items.length - previousCount.current;
+    if (countChange > 0) {
+      const lastRow = rows.current?.querySelector<HTMLElement>(
+        "[data-repeatable-row]:last-child input:not([disabled]), [data-repeatable-row]:last-child button:not([disabled])",
+      );
       lastRow?.focus();
+    } else if (countChange < 0) {
+      const removeIndex = pendingRemovalIndex.current ?? items.length;
+      const rowIndex = Math.min(removeIndex, items.length - 1);
+      const row = rowIndex >= 0
+        ? rows.current?.querySelectorAll<HTMLElement>("[data-repeatable-row]")[rowIndex]
+        : null;
+      const focusTarget = row?.querySelector<HTMLElement>(
+        "input:not([disabled]), button:not([disabled])",
+      ) ?? rows.current?.parentElement?.querySelector<HTMLElement>("[data-repeatable-add]");
+      focusTarget?.focus();
     }
+    pendingRemovalIndex.current = null;
     previousCount.current = items.length;
   }, [items.length]);
 
   return (
     <section aria-label={ariaLabel} className={styles.repeatable}>
       <div className={styles.repeatableRows} ref={rows}>
-        {items.map((item, index) => (
-          <div className={styles.repeatableRow} data-repeatable-row key={item.id}>
-            <div className={styles.repeatableContent}>{renderItem(item, index)}</div>
-            <UiButton aria-label={removeLabel?.(item, index) ?? `Remove item ${index + 1}`} onPress={() => onRemove(item.id)} variant="icon">
-              <X aria-hidden="true" size={17} />
-            </UiButton>
-          </div>
-        ))}
+        {items.map((item, index) => {
+          const label = removeLabel?.(item, index) ?? `Remove item ${index + 1}`;
+          return (
+            <div className={styles.repeatableRow} data-repeatable-row key={item.id}>
+              <div className={styles.repeatableContent}>{renderItem(item, index)}</div>
+              <UiButton
+                aria-label={label}
+                onPress={() => {
+                  pendingRemovalIndex.current = index;
+                  onRemove(item.id);
+                }}
+                title={label}
+                variant="icon"
+              >
+                <X aria-hidden="true" size={17} />
+              </UiButton>
+            </div>
+          );
+        })}
       </div>
-      <UiButton isDisabled={addDisabled} onPress={onAdd} variant="secondary">
-        <Plus aria-hidden="true" size={17} />
-        {addLabel}
-      </UiButton>
+      <div className={styles.repeatableAdd}>
+        <UiButton
+          aria-describedby={addDescription ? descriptionId : undefined}
+          data-repeatable-add=""
+          isDisabled={addDisabled}
+          onPress={onAdd}
+          variant="secondary"
+        >
+          <Plus aria-hidden="true" size={17} />
+          {addLabel}
+        </UiButton>
+        {addDescription ? (
+          <span
+            className={styles.repeatableNote}
+            data-error={addDescriptionIsError ? "true" : undefined}
+            id={descriptionId}
+            role={addDescriptionIsError ? "alert" : undefined}
+          >
+            {addDescription}
+          </span>
+        ) : null}
+      </div>
     </section>
   );
 }

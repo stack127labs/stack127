@@ -1,0 +1,13 @@
+{
+  "id": "catalog--customer-churn-calculator",
+  "type": "toolSpot",
+  "takeaway": "One paying account leaves the opening group during the reporting period.",
+  "source": "Conceptual figure, no external data.",
+  "dataAsOf": "2026-09-30",
+  "width": 140,
+  "height": 110,
+  "seed": 30934,
+  "data": {
+    "motif": "customerChurn"
+  }
+}

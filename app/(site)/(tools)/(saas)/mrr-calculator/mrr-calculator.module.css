@@ -1,0 +1,169 @@
+.workbench {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-border-strong);
+  grid-column: 1 / -1;
+  margin-inline: calc(-1 * var(--container-gutter));
+  min-width: 0;
+  padding: var(--space-7) var(--container-gutter);
+  width: calc(100% + var(--container-gutter) + var(--container-gutter));
+}
+
+.content,
+.form,
+.group,
+.currencyGroup,
+.results {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.content {
+  gap: var(--space-7);
+  max-width: 88rem;
+}
+
+.currencyGroup {
+  gap: var(--space-3);
+  max-width: 28rem;
+}
+
+.group {
+  gap: var(--space-4);
+}
+
+.group h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.guidance,
+.initial,
+.qualification,
+.roundingNote {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+}
+
+.planList :global([data-repeatable-row]) {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-5);
+}
+
+.planList :global([data-repeatable-row]:last-child) {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.planContent {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.planTitle {
+  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+  margin: 0;
+}
+
+.planFields {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: minmax(10rem, 1.1fr) minmax(9rem, 0.9fr) minmax(12rem, 1.1fr) minmax(12rem, 1fr);
+  min-width: 0;
+}
+
+.planFields > * {
+  min-width: 0;
+}
+
+.results {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-6);
+}
+
+.arr {
+  margin: 0;
+}
+
+.arr > div {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.arr dt {
+  font-weight: var(--weight-semibold);
+}
+
+.arr dd {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-semibold);
+  margin: 0;
+}
+
+.tablePlan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.rowNumber,
+.price {
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.billedPrice {
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .results :global(table[aria-label="Monthly contribution by plan"] tbody th),
+  .results :global(table[aria-label="Monthly contribution by plan"] tbody td) {
+    grid-template-columns: minmax(8rem, 0.35fr) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 1040px) {
+  .planFields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .workbench {
+    padding-block: var(--space-5);
+  }
+
+  .content {
+    gap: var(--space-6);
+  }
+
+  .planFields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .planList :global([data-repeatable-row]) {
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .planList :global([data-repeatable-row]) > :global(button) {
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .billedPrice {
+    white-space: normal;
+  }
+}

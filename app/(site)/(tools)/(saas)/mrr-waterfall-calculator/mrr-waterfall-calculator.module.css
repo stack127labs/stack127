@@ -1,0 +1,214 @@
+.workbench {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-border-strong);
+  grid-column: 1 / -1;
+  margin-inline: calc(-1 * var(--container-gutter));
+  min-width: 0;
+  padding: var(--space-7) var(--container-gutter);
+  width: calc(100% + var(--container-gutter) + var(--container-gutter));
+}
+
+.content,
+.form,
+.amountsGroup,
+.movementGroup,
+.results,
+.waterfallRegion,
+.figure {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.content {
+  gap: var(--space-7);
+  margin-inline: auto;
+  max-width: 66rem;
+}
+
+.form {
+  gap: var(--space-6);
+}
+
+.periodFields {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: minmax(0, 1.1fr) minmax(12rem, 0.9fr);
+  max-width: 46rem;
+  min-width: 0;
+}
+
+.periodFields > *,
+.movementFields > * {
+  min-width: 0;
+}
+
+.amountsGroup {
+  gap: var(--space-6);
+}
+
+.amountHeading {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.amountHeading h2,
+.waterfallRegion > h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.amountHeading span {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.startingField {
+  max-width: 28rem;
+  min-width: 0;
+}
+
+.movementGroup {
+  gap: var(--space-4);
+}
+
+.movementGroup h3,
+.figure h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.movementFields {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.guidance {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: calc(-1 * var(--space-3)) 0 0;
+}
+
+.results {
+  border-top: 1px solid var(--color-border);
+  gap: var(--space-4);
+  padding-top: var(--space-6);
+}
+
+.results output strong {
+  overflow-wrap: normal;
+}
+
+.netNew {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.netNew span {
+  font-weight: var(--weight-semibold);
+}
+
+.money {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.waterfallRegion {
+  gap: var(--space-5);
+  margin-top: var(--space-3);
+}
+
+.figure {
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.chartViewport {
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.chartSvg {
+  display: block;
+  height: auto;
+  min-width: 53.75rem;
+  width: 100%;
+}
+
+.baseline {
+  stroke: var(--color-border-strong);
+  stroke-width: 1.5;
+}
+
+.connector {
+  stroke: var(--color-text-muted);
+  stroke-dasharray: 3 3;
+  stroke-width: 1;
+}
+
+.axisLabel,
+.stageLabel {
+  fill: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.anchorBar {
+  fill: var(--color-border-strong);
+}
+
+.additionBar {
+  fill: var(--color-data-cyan);
+}
+
+.reductionBar {
+  fill: var(--color-data-violet);
+}
+
+.zeroBar {
+  fill: var(--color-border);
+}
+
+.figure figcaption {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+}
+
+@media (max-width: 760px) {
+  .workbench {
+    padding-block: var(--space-5);
+  }
+
+  .content {
+    gap: var(--space-6);
+  }
+
+  .periodFields,
+  .movementFields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .chartSvg {
+    min-width: 53.75rem;
+  }
+}

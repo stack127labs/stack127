@@ -1,0 +1,115 @@
+
+.workbench {
+  min-width: 0;
+  width: 100%;
+}
+
+.content {
+  display: grid;
+  gap: var(--space-7);
+  margin-inline: auto;
+  max-width: 66rem;
+  min-width: 0;
+  padding: var(--space-7) var(--space-5);
+  width: 100%;
+}
+
+.form,
+.results {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.fieldGrid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.fieldGrid > * {
+  min-width: 0;
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.inputGroup,
+.optionalFields,
+.resultGroup {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.inputGroup h2,
+.resultGroup h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.inputGroup h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.helper,
+.formula,
+.note,
+.initial {
+  color: var(--color-text-muted);
+  line-height: var(--line-body);
+  margin: 0;
+}
+
+.helper {
+  font-size: var(--text-small);
+}
+
+.optionalFields {
+  gap: var(--space-7);
+}
+
+.results {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-6);
+}
+
+.formula {
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  overflow-wrap: anywhere;
+}
+
+.resultGroup {
+  gap: var(--space-4);
+}
+
+.note,
+.initial {
+  font-size: var(--text-small);
+}
+
+@media (max-width: 760px) {
+  .content {
+    gap: var(--space-6);
+    padding: var(--space-5);
+  }
+
+  .fieldGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .wide {
+    grid-column: auto;
+  }
+}

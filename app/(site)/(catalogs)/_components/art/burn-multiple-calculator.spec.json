@@ -1,0 +1,13 @@
+{
+  "id": "catalog--burn-multiple-calculator",
+  "type": "toolSpot",
+  "takeaway": "Net cash use is weighed against a rise in recurring-revenue run rate.",
+  "source": "Conceptual figure, no external data.",
+  "dataAsOf": "2026-09-30",
+  "width": 140,
+  "height": 110,
+  "seed": 30931,
+  "data": {
+    "motif": "burnMultiple"
+  }
+}

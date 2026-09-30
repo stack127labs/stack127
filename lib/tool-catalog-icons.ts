@@ -1,10 +1,10 @@
 import {
-  Activity, ArrowLeftRight, BadgeCheck, BookOpen, Building2, CalendarClock,
+  Activity, ArrowLeftRight, BadgeCheck, BookOpen, Building2, CalendarClock, Calculator,
   CalendarX, ChevronsRight, ClipboardList, Columns3, Database, FileClock,
   FileKey, FileSearch, GitBranch, Globe, HardDrive, HouseWifi, Image, Keyboard,
   Languages, Layers3, LayoutGrid, Network, RefreshCw, Route, Search,
-  Server, ServerCog, ShieldCheck, SquareTerminal, TrendingUp, UserSearch,
-  Wrench, type LucideIcon,
+  Server, ServerCog, ShieldCheck, SquareTerminal, TrendingDown, TrendingUp, UserSearch,
+  Users, Wrench, type LucideIcon,
 } from "lucide-react";
 
 const icons: Record<string, LucideIcon> = {
@@ -15,6 +15,7 @@ const icons: Record<string, LucideIcon> = {
   building2: Building2,
   "calendar-clock": CalendarClock,
   "calendar-x": CalendarX,
+  calculator: Calculator,
   "chevrons-right": ChevronsRight,
   "clipboard-list": ClipboardList,
   columns3: Columns3,
@@ -39,8 +40,10 @@ const icons: Record<string, LucideIcon> = {
   "server-cog": ServerCog,
   "shield-check": ShieldCheck,
   terminal: SquareTerminal,
+  "trending-down": TrendingDown,
   "trending-up": TrendingUp,
   "user-search": UserSearch,
+  users: Users,
   wrench: Wrench,
 };
 

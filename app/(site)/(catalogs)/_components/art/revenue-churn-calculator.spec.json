@@ -1,0 +1,13 @@
+{
+  "id": "catalog--revenue-churn-calculator",
+  "type": "toolSpot",
+  "takeaway": "A slice of the opening recurring-revenue base is missing at month end.",
+  "source": "Conceptual figure, no external data.",
+  "dataAsOf": "2026-09-30",
+  "width": 140,
+  "height": 110,
+  "seed": 30935,
+  "data": {
+    "motif": "revenueChurn"
+  }
+}

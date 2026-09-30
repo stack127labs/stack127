@@ -1,0 +1,124 @@
+.workbench {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-border-strong);
+  grid-column: 1 / -1;
+  margin-inline: calc(-1 * var(--container-gutter));
+  min-width: 0;
+  padding: var(--space-7) var(--container-gutter);
+  width: calc(100% + var(--container-gutter) + var(--container-gutter));
+}
+
+.content,
+.form,
+.amountGroup,
+.results,
+.breakdown {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.content {
+  gap: var(--space-7);
+  margin-inline: auto;
+  max-width: 66rem;
+}
+
+.form {
+  gap: var(--space-6);
+}
+
+.periodFields {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: minmax(0, 1.1fr) minmax(12rem, 0.9fr);
+  max-width: 46rem;
+  min-width: 0;
+}
+
+.periodFields > *,
+.lossFields > * {
+  min-width: 0;
+}
+
+.amountGroup {
+  gap: var(--space-4);
+}
+
+.amountHeading {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.amountHeading h2,
+.breakdown h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-heading);
+  margin: 0;
+}
+
+.amountHeading span {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  font-variant-numeric: tabular-nums;
+}
+
+.openingField {
+  max-width: 34rem;
+  min-width: 0;
+}
+
+.lossFields {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.guidance,
+.resultNote {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+}
+
+.guidance {
+  max-width: 58rem;
+}
+
+.results {
+  border-top: 1px solid var(--color-border);
+  gap: var(--space-6);
+  padding-top: var(--space-6);
+}
+
+.breakdown {
+  gap: var(--space-4);
+}
+
+.money {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .workbench {
+    padding-block: var(--space-5);
+  }
+
+  .content {
+    gap: var(--space-6);
+  }
+
+  .periodFields,
+  .lossFields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

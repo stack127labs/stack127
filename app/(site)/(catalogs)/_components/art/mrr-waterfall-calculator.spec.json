@@ -1,0 +1,13 @@
+{
+  "id": "catalog--mrr-waterfall-calculator",
+  "type": "toolSpot",
+  "takeaway": "Five signed movements carry an opening MRR balance to its closing level.",
+  "source": "Conceptual figure, no external data.",
+  "dataAsOf": "2026-09-30",
+  "width": 140,
+  "height": 110,
+  "seed": 30931,
+  "data": {
+    "motif": "mrrWaterfall"
+  }
+}

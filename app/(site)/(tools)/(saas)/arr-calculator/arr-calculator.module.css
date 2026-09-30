@@ -1,0 +1,65 @@
+.workbench {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-border-strong);
+  grid-column: 1 / -1;
+  margin-inline: calc(-1 * var(--container-gutter));
+  min-width: 0;
+  padding: var(--space-7) var(--container-gutter);
+  width: calc(100% + var(--container-gutter) + var(--container-gutter));
+}
+
+.content,
+.form,
+.results {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.content {
+  gap: var(--space-7);
+  margin-inline: auto;
+  max-width: 66rem;
+}
+
+.form {
+  gap: var(--space-5);
+}
+
+.form > :first-child {
+  max-width: 34rem;
+}
+
+.results {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-6);
+}
+
+.results output strong {
+  overflow-wrap: normal;
+}
+
+.basis,
+.qualification {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--line-body);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.basis {
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 760px) {
+  .workbench {
+    padding-block: var(--space-5);
+  }
+
+  .content {
+    gap: var(--space-6);
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "catalog--arpu-arpa-calculator",
+  "type": "toolSpot",
+  "takeaway": "One revenue amount is divided by a distinct group of people or accounts.",
+  "source": "Conceptual figure, no external data.",
+  "dataAsOf": "2026-09-30",
+  "width": 140,
+  "height": 110,
+  "seed": 30930,
+  "data": {
+    "motif": "revenuePerPopulation"
+  }
+}

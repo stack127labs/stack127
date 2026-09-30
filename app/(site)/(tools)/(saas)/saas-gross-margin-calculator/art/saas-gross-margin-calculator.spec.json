@@ -1,0 +1,13 @@
+{
+  "id": "saas-gross-margin-calculator--tool-spot",
+  "type": "toolSpot",
+  "takeaway": "Gross margin compares recognized revenue with the cost of delivering the service.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-30",
+  "width": 140,
+  "height": 110,
+  "seed": 279,
+  "data": {
+    "motif": "grossMargin"
+  }
+}

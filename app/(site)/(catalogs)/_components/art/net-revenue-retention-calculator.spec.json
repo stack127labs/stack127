@@ -1,0 +1,13 @@
+{
+  "id": "catalog--net-revenue-retention-calculator",
+  "type": "toolSpot",
+  "takeaway": "The opening customer group carries recurring revenue through gains and losses to its ending amount.",
+  "source": "Conceptual figure, no external data.",
+  "dataAsOf": "2026-09-30",
+  "width": 140,
+  "height": 110,
+  "seed": 30931,
+  "data": {
+    "motif": "cohortRetention"
+  }
+}

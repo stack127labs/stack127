@@ -1,0 +1,13 @@
+{
+  "id": "site--spot-saas-tools",
+  "type": "doodle",
+  "takeaway": "A month's recurring revenue movements lead from a starting figure to an end-of-month figure.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-30",
+  "width": 140,
+  "height": 120,
+  "seed": 41,
+  "data": {
+    "shape": "saasRevenue"
+  }
+}

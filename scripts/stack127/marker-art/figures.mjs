@@ -713,6 +713,14 @@ function drawStar(A, cx, cy, r, tone) {
 }
 
 const DOODLE_SHAPES = {
+  // one reporting month moves from a starting revenue column to its ending figure
+  saasRevenue(A) {
+    A.rect(18, 49, 34, 55, { stroke: "@ink" });
+    A.line(18, 65, 52, 65, { stroke: "@sub" });
+    A.arrow(61, 76, 83, 76, { tone: "@sub" });
+    A.rect(91, 42, 34, 62, { stroke: "@primary" });
+    A.line(91, 58, 125, 58, { stroke: "@primary" });
+  },
   // paper plane, dotted trail, one primary star: empty states and 404s
   spark(A) {
     A.polygon(
@@ -1020,6 +1028,230 @@ function toolSpot(spec, A) {
     A.line(cx + 17, cy, cx + 34, cy, { stroke: "@sub" });
     A.line(cx + 15, cy + 6, cx + 34, cy + 6, { stroke: "@sub" });
     drawIcon(A, "coin", cx + 47, cy, 19, "@primary");
+  } else if (d.motif === "customerChurn") {
+    // A small opening group remains together while one account moves out of it.
+    for (const [x, y] of [[26, 39], [49, 39], [26, 72], [49, 72]]) {
+      drawIcon(A, "user", x, y, 15, "@ink");
+    }
+    A.arrow(67, 55, 91, 55, { tone: "@sub" });
+    drawIcon(A, "user", 112, 55, 17, "@primary");
+    return;
+  } else if (d.motif === "revenueChurn") {
+    // A month-end opening base is shown beside its smaller remaining amount and one separated slice.
+    const baseline = 94;
+    A.rect(14, 28, 34, baseline - 28, {
+      stroke: "@ink",
+      fill: "@primary",
+      fillStyle: "solid",
+      roughness: 1.15,
+      strokeWidth: 1.8,
+    });
+    A.arrow(54, 60, 82, 60, { tone: "@sub" });
+    A.rect(98, 43, 30, baseline - 43, {
+      stroke: "@ink",
+      fill: "@ink",
+      fillStyle: "solid",
+      roughness: 1.15,
+      strokeWidth: 1.8,
+    });
+    A.rect(98, 28, 30, 11, {
+      stroke: "@sub",
+      fill: "@sub",
+      fillStyle: "solid",
+      roughness: 1.15,
+      strokeWidth: 1.6,
+    });
+    A.line(6, baseline, 134, baseline, { stroke: "@sub", strokeWidth: 1.4 });
+    return;
+  } else if (d.motif === "burnMultiple") {
+    // A cash stack tapers down beside one rising ARR step.
+    const bills = [
+      { x: 12, y: 34, width: 52 },
+      { x: 20, y: 48, width: 44 },
+      { x: 28, y: 62, width: 36 },
+    ];
+    for (const bill of bills) {
+      A.rect(bill.x, bill.y, bill.width, 17, {
+        stroke: "@ink",
+        fill: "@primary",
+        fillStyle: "solid",
+        roughness: 1.15,
+        strokeWidth: 1.7,
+      });
+    }
+    A.linearPath(
+      [
+        [76, 86],
+        [91, 86],
+        [91, 65],
+        [109, 65],
+        [109, 43],
+        [130, 43],
+      ],
+      { stroke: "@ink", strokeWidth: 3.2 },
+    );
+    return;
+  } else if (d.motif === "cohortRetention") {
+    // The opening group remains anchored across one gain and one loss.
+    const baseline = 93;
+    const bars = [
+      { x: 10, width: 16, top: 43, bottom: baseline, level: 43, anchor: true },
+      { x: 42, width: 14, top: 30, bottom: 43, level: 30 },
+      { x: 72, width: 14, top: 30, bottom: 41, level: 41 },
+      { x: 108, width: 16, top: 41, bottom: baseline, level: 41, anchor: true },
+    ];
+
+    // A shared bracket marks the same opening group across the interval.
+    A.line(17, 20, 17, 28, { stroke: "@sub", strokeWidth: 1.4 });
+    A.line(17, 20, 123, 20, { stroke: "@sub", strokeWidth: 1.4 });
+    A.line(123, 20, 123, 28, { stroke: "@sub", strokeWidth: 1.4 });
+
+    for (let index = 0; index < bars.length; index += 1) {
+      const bar = bars[index];
+      if (index > 0) {
+        const previous = bars[index - 1];
+        A.line(previous.x + previous.width, previous.level, bar.x, previous.level, {
+          stroke: "@sub",
+          strokeWidth: 1.5,
+        });
+      }
+      A.rect(bar.x, bar.top, bar.width, bar.bottom - bar.top, {
+        stroke: bar.anchor ? "@primary" : "@ink",
+        fill: bar.anchor ? "@primary" : "@sub",
+        fillStyle: "solid",
+        roughness: 1.15,
+        strokeWidth: 1.6,
+      });
+    }
+    A.line(5, baseline, 135, baseline, { stroke: "@sub", strokeWidth: 1.4 });
+    return;
+  } else if (d.motif === "mrrWaterfall") {
+    // Five movements carry an opening MRR balance back to an equal closing level.
+    const baseline = 93;
+    const bars = [
+      { x: 9, top: 46, bottom: baseline, level: 46, anchor: true },
+      { x: 27, top: 34, bottom: 46, level: 34 },
+      { x: 45, top: 26, bottom: 34, level: 26 },
+      { x: 63, top: 20, bottom: 26, level: 20 },
+      { x: 81, top: 20, bottom: 36, level: 36 },
+      { x: 99, top: 36, bottom: 46, level: 46 },
+      { x: 117, top: 46, bottom: baseline, level: 46, anchor: true },
+    ];
+
+    for (let index = 0; index < bars.length; index += 1) {
+      const bar = bars[index];
+      if (index > 0) {
+        const previous = bars[index - 1];
+        A.line(previous.x + 13, previous.level, bar.x, previous.level, {
+          stroke: "@sub",
+          strokeWidth: 1.5,
+        });
+      }
+      A.rect(bar.x, bar.top, 13, bar.bottom - bar.top, {
+        stroke: bar.anchor ? "@ink" : "@primary",
+        fill: bar.anchor ? "@ink" : "@primary",
+        fillStyle: "solid",
+        roughness: 1.15,
+        strokeWidth: 1.6,
+      });
+    }
+    A.line(5, baseline, 135, baseline, { stroke: "@sub", strokeWidth: 1.4 });
+    return;
+  } else if (d.motif === "monthlyNormalize") {
+    // Unequal billing plans converge into one monthly calendar figure.
+    A.line(11, 33, 35, 33, { stroke: "@sub" });
+    A.line(11, 54, 47, 54, { stroke: "@sub" });
+    A.line(11, 75, 29, 75, { stroke: "@sub" });
+    A.arrow(38, 33, 74, 43, { tone: "@sub", curve: -0.08 });
+    A.arrow(50, 54, 74, 55, { tone: "@sub" });
+    A.arrow(32, 75, 74, 66, { tone: "@sub", curve: 0.08 });
+    A.rect(82, 23, 46, 68, { stroke: "@ink" });
+    A.line(82, 40, 128, 40, { stroke: "@ink" });
+    A.line(94, 18, 94, 28, { stroke: "@ink" });
+    A.line(116, 18, 116, 28, { stroke: "@ink" });
+    A.rect(99, 53, 13, 26, { stroke: "@primary", fill: "@primary", fillStyle: "solid", hachureGap: 11, roughness: 1.2, strokeWidth: 1.8 });
+    A.line(93, 80, 119, 80, { stroke: "@ink" });
+    return;
+  } else if (d.motif === "grossMargin") {
+    // Recognized revenue and delivery cost stay side by side; cost is taller here to avoid implying every margin is positive.
+    const baseline = 92;
+    const revenueTop = 40;
+    const deliveryTop = 28;
+    A.rect(20, revenueTop, 38, baseline - revenueTop, {
+      stroke: "@ink",
+      fill: "@primary",
+      fillStyle: "solid",
+      roughness: 1.15,
+      strokeWidth: 1.8,
+    });
+    A.rect(82, deliveryTop, 38, baseline - deliveryTop, {
+      stroke: "@ink",
+      fill: "@primary",
+      fillStyle: "hachure",
+      hachureAngle: -45,
+      hachureGap: 8,
+      roughness: 1.15,
+      strokeWidth: 1.8,
+    });
+    A.line(70, deliveryTop, 70, revenueTop, { stroke: "@sub", strokeWidth: 1.4 });
+    A.line(70, deliveryTop, 82, deliveryTop, { stroke: "@sub", strokeWidth: 1.4 });
+    A.line(58, revenueTop, 70, revenueTop, { stroke: "@sub", strokeWidth: 1.4 });
+    return;
+  } else if (d.motif === "revenueBridge") {
+    // Two month-end revenue columns and one reading-direction arrow.
+    A.rect(15, 39, 35, 55, { stroke: "@ink" });
+    A.line(15, 68, 50, 68, { stroke: "@ink" });
+    A.arrow(58, 66, 80, 66, { tone: "@sub" });
+    A.rect(89, 39, 35, 55, { stroke: "@primary" });
+    A.line(89, 57, 124, 57, { stroke: "@primary" });
+    A.line(89, 75, 124, 75, { stroke: "@primary" });
+    return;
+  } else if (d.motif === "annualizeMonthly") {
+    // One monthly tile feeds an equal 3-by-4 grid for the annual run rate.
+    A.rect(11, 42, 26, 28, { stroke: "@sub" });
+    A.line(11, 50, 37, 50, { stroke: "@sub" });
+    A.rect(17, 56, 14, 9, { stroke: "@primary", fill: "@primary", fillStyle: "solid", roughness: 1.2, strokeWidth: 1.8 });
+    A.arrow(40, 56, 55, 56, { tone: "@sub" });
+
+    A.rect(60, 14, 70, 82, { stroke: "@ink" });
+    A.line(60, 30, 130, 30, { stroke: "@ink" });
+    A.line(74, 9, 74, 20, { stroke: "@ink" });
+    A.line(116, 9, 116, 20, { stroke: "@ink" });
+
+    const gridX = 62;
+    const gridY = 32;
+    const cellWidth = 66 / 3;
+    const cellHeight = 62 / 4;
+    for (let row = 0; row < 4; row += 1) {
+      for (let column = 0; column < 3; column += 1) {
+        A.rect(
+          gridX + column * cellWidth + 2,
+          gridY + row * cellHeight + 2,
+          cellWidth - 4,
+          cellHeight - 4,
+          { stroke: "@primary", fill: "@primary", fillStyle: "solid", roughness: 1.2, strokeWidth: 1.4 },
+        );
+      }
+    }
+    return;
+  } else if (d.motif === "revenuePerPopulation") {
+    // A revenue amount is divided by the people grouped inside one account.
+    A.rect(12, 20, 32, 18, {
+      stroke: "@sub",
+      fill: "@sub",
+      fillStyle: "solid",
+      roughness: 1.2,
+      strokeWidth: 1.8,
+    });
+    A.line(10, 53, 50, 53, { stroke: "@ink" });
+    A.arrow(52, 53, 65, 53, { tone: "@sub" });
+
+    A.rect(68, 17, 64, 78, { stroke: "@ink" });
+    A.line(68, 36, 132, 36, { stroke: "@ink" });
+    for (const x of [81, 100, 119]) {
+      drawIcon(A, "user", x, 63, 10, "@primary");
+    }
+    return;
   } else {
     drawIcon(A, d.icon, cx, cy, Math.min(A.w, A.h) * 0.48, "@ink");
   }

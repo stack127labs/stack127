@@ -1,0 +1,14 @@
+
+{
+  "id": "saas-metrics-calculator--tool-spot",
+  "type": "toolSpot",
+  "takeaway": "A month's recurring-revenue movements resolve into one end-of-month figure.",
+  "source": "conceptual figure, no external data",
+  "dataAsOf": "2026-09-30",
+  "width": 140,
+  "height": 110,
+  "seed": 271,
+  "data": {
+    "motif": "revenueBridge"
+  }
+}

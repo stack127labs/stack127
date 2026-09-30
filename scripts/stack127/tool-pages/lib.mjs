@@ -130,6 +130,8 @@ export async function lockToolPage(client, slug) {
         page.slug,
         page.is_published,
         page.updated_at,
+        page.meta_title,
+        page.meta_description,
         tool.title,
         tool.intro_markdown,
         tool.usage_markdown,

@@ -16,6 +16,14 @@ const usageFile = args["usage-file"] === true ? requireArg(args, "usage-file") :
 const usageMarkdown = usageFile
   ? readRequiredText(usageFile, "Usage Markdown")
   : null;
+const metaTitle = args["meta-title"] === undefined ? null : requireArg(args, "meta-title").trim();
+const metaDescription = args["meta-description"] === undefined ? null : requireArg(args, "meta-description").trim();
+if ((metaTitle === null) !== (metaDescription === null)) {
+  throw new Error("Pass --meta-title and --meta-description together");
+}
+if (metaTitle !== null && (!metaTitle || !metaDescription)) {
+  throw new Error("SEO title and description must not be empty");
+}
 const requestedTitle = args.title === true ? null : args.title;
 
 validateToolMarkdown({
@@ -27,10 +35,12 @@ validateToolMarkdown({
 const result = await runMutation(args, async (client) => {
   const page = await lockToolPage(client, slug);
   const title = requestedTitle?.trim() || page.title;
-  const changed = title !== page.title
+  const contentChanged = title !== page.title
     || introMarkdown !== page.intro_markdown
     || (usageMarkdown !== null && usageMarkdown !== page.usage_markdown)
     || contentMarkdown !== page.content_markdown;
+  const metadataChanged = metaTitle !== null && (metaTitle !== page.meta_title || metaDescription !== page.meta_description);
+  const changed = contentChanged || metadataChanged;
 
   if (!changed) {
     return {
@@ -38,24 +48,43 @@ const result = await runMutation(args, async (client) => {
       changed: false,
       content_revision: page.content_revision,
       tool_version: page.tool_version,
+      meta_title: page.meta_title,
+      meta_description: page.meta_description,
     };
   }
 
-  const updated = await client.query(
-    usageMarkdown === null
-      ? `update public.stack127_tool_pages set title = $2, intro_markdown = $3, content_markdown = $4, content_revision = content_revision + 1 where page_id = $1 returning content_revision, tool_version`
-      : `update public.stack127_tool_pages set title = $2, intro_markdown = $3, usage_markdown = $4, content_markdown = $5, content_revision = content_revision + 1 where page_id = $1 returning content_revision, tool_version`,
-    usageMarkdown === null
-      ? [page.id, title, introMarkdown, contentMarkdown]
-      : [page.id, title, introMarkdown, usageMarkdown, contentMarkdown],
-  );
+  let contentRevision = page.content_revision;
+  if (contentChanged) {
+    const updated = await client.query(
+      usageMarkdown === null
+        ? `update public.stack127_tool_pages set title = $2, intro_markdown = $3, content_markdown = $4, content_revision = content_revision + 1 where page_id = $1 returning content_revision`
+        : `update public.stack127_tool_pages set title = $2, intro_markdown = $3, usage_markdown = $4, content_markdown = $5, content_revision = content_revision + 1 where page_id = $1 returning content_revision`,
+      usageMarkdown === null
+        ? [page.id, title, introMarkdown, contentMarkdown]
+        : [page.id, title, introMarkdown, usageMarkdown, contentMarkdown],
+    );
+    contentRevision = updated.rows[0].content_revision;
+  }
+  if (metadataChanged) {
+    await client.query(`
+      update public.stack127_pages
+      set meta_title = $2,
+          meta_description = $3,
+          updated_at = case when is_published then now() else null end
+      where id = $1
+    `, [page.id, metaTitle, metaDescription]);
+  }
 
   return {
     slug,
     changed: true,
-    content_revision_before: page.content_revision,
-    content_revision_after: updated.rows[0].content_revision,
-    tool_version: updated.rows[0].tool_version,
+    content_changed: contentChanged,
+    metadata_changed: metadataChanged,
+    content_revision_before: contentChanged ? page.content_revision : null,
+    content_revision_after: contentRevision,
+    tool_version: page.tool_version,
+    meta_title: metaTitle ?? page.meta_title,
+    meta_description: metaDescription ?? page.meta_description,
   };
 });
 
