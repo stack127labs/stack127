@@ -25,7 +25,7 @@ The workflow:
 6. Deploys that image through the Dokploy API.
 7. Confirms the live health endpoint reports the exact commit.
 8. Confirms the homepage, `robots.txt`, and `sitemap.xml` return valid responses.
-9. Purges public Cloudflare cache tags and warms primary routes. Database edits between releases are handled by the scheduled cache-maintenance workflow described in `cloudflare.md`.
+9. Purges public Cloudflare cache tags and warms primary routes. Database edits between releases are handled by the `cache-worker` Supabase Edge Function described in `cloudflare.md`. The workflow also deploys that function when it changes.
 
 Normal releases should finish in about three to five minutes when GitHub, GHCR, and Dokploy caches are warm. Provider queue and image-transfer time can extend that.
 

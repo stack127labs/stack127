@@ -73,7 +73,20 @@ Its Web Server settings record `dokploy.stack127.com` as the host with HTTPS ena
 
 Public documents use a 10-minute browser TTL and a one-day edge TTL. Successful HTML without `Set-Cookie` is cached at the edge. Next.js navigation responses (`text/x-component` with an `_rsc` query key) use separate cache rules and keep their full query string, so clicks can reuse the matching response. Cookies, authorization, error responses, and private API routes bypass these rules. Unpublished and missing pages remain uncacheable 404s.
 
-The application adds `Cache-Tag` headers for public paths. Release deployment purges the `stack127-public` tag and warms primary routes. Database triggers coalesce publication, tool-content, app, category, and CLI changes in `public.stack127_revalidation_events`. The scheduled `Stack127 Cache Maintenance` workflow runs every five minutes, invalidates the Next.js data cache, purges affected Cloudflare tags, and warms changed paths from `public.stack127_cache_warm_events`. A signing key generated in `public.stack127_cache_credentials` authenticates the revalidation call without copying a credential into the app runtime. The queue is safe to retry; check its pending count and workflow logs if published edits do not appear after a few minutes. Browser cache copies cannot be purged and can remain for up to 10 minutes after a change.
+The application adds `Cache-Tag` headers for public paths. Release deployment purges the `stack127-public` tag and warms primary routes. Database triggers coalesce publication, tool-content, app, category, and CLI changes in `public.stack127_revalidation_events`. The `cache-worker` Supabase Edge Function (`supabase/functions/cache-worker/`) processes the queue. It invalidates the Next.js data cache, purges affected Cloudflare tags, and warms changed paths from `public.stack127_cache_warm_events`. A signing key generated in `public.stack127_cache_credentials` authenticates both the database's call to the worker and the worker's call to the site, so no credential is copied into the app runtime.
+
+How the worker runs:
+
+- A trigger on the queue wakes it through `pg_net` as soon as a change is queued, at most once every 5 seconds. A `pg_cron` job named `stack127-cache-worker` also wakes it every 30 seconds.
+- It waits until a change has been quiet for 10 seconds, so repeated changes during an import are grouped. No change waits more than 60 seconds.
+- More than 100 app changes in one batch become one full app catalog refresh.
+- After a failure it retries after 15 seconds, then 1 minute, then every 5 minutes.
+- Only one run works at a time, through the lease in `public.stack127_cache_worker_state`.
+- When a change has waited 5 minutes, it opens a GitHub issue titled "Cache updates are delayed" and closes it when the queue catches up. This needs the `GITHUB_ALERT_TOKEN` function secret.
+
+The worker only runs where `public.stack127_cache_worker_wake.function_url` is set. Development leaves it empty so the local preview watcher (`npm run stack127:cache:watch:local`) keeps its changes. Function secrets are `STACK127_SITE_URL`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ZONE_ID`, `GITHUB_ALERT_TOKEN`, and optionally `CACHE_WORKER_DRY_RUN=1`, which skips all outside calls. The release workflow deploys the function when it or `scripts/stack127/cache/targets.mjs` changes.
+
+If published edits do not appear within 2 minutes, check the queue's pending rows and `last_error`, `public.stack127_cache_worker_state`, and the function logs in Supabase. Run `select public.stack127_wake_cache_worker(true);` to wake it by hand. Browser cache copies cannot be purged and can remain for up to 10 minutes after a change.
 
 Public detail APIs under `/api/shortcuts/`, `/api/hardware-directory/`, `/api/resource-planner-app/`, and `/api/self-host-apps/`, plus `/api/resource-planner-index`, opt into edge caching. Static detail responses use one hour in browsers and one day at the edge. Database-backed details and the planner index use 10 minutes in browsers and one day at the edge. Failed or unpublished responses use `no-store`. Health and private API endpoints remain dynamic.
 

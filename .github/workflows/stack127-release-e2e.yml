@@ -90,15 +90,24 @@ jobs:
           base="${{ github.event.before }}"
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ -z "$base" ] || [[ "$base" =~ ^0+$ ]]; then
             echo 'run=true' >> "$GITHUB_OUTPUT"
+            echo 'functions=true' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           # Removing a historical migration file does not change production schema.
-          elif git diff --quiet "$base" "$RELEASE_SHA" --diff-filter=AM -- supabase/migrations; then
+          if git diff --quiet "$base" "$RELEASE_SHA" --diff-filter=AM -- supabase/migrations; then
             echo 'run=false' >> "$GITHUB_OUTPUT"
           else
             echo 'run=true' >> "$GITHUB_OUTPUT"
           fi
+          # The cache worker bundles the shared cache target rules.
+          if git diff --quiet "$base" "$RELEASE_SHA" -- supabase/functions scripts/stack127/cache/targets.mjs; then
+            echo 'functions=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'functions=true' >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Install Supabase CLI
-        if: steps.migrations.outputs.run == 'true'
+        if: steps.migrations.outputs.run == 'true' || steps.migrations.outputs.functions == 'true'
         uses: supabase/setup-cli@v1
         with:
           version: latest
@@ -108,6 +117,18 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_POOLER_URL || secrets.DATABASE_URL }}
         run: supabase --yes db push --db-url "$DATABASE_URL" --include-all
+
+      - name: Deploy Supabase Edge Functions
+        if: steps.migrations.outputs.functions == 'true'
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_PROJECT_REF: ${{ vars.SUPABASE_PROJECT_REF }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$SUPABASE_ACCESS_TOKEN"
+          test -n "$SUPABASE_PROJECT_REF"
+          supabase functions deploy cache-worker --project-ref "$SUPABASE_PROJECT_REF" --use-api --no-verify-jwt
 
       - name: Run production target preflight
         run: npm run stack127:deploy:preflight -- --env-file "$RUNNER_TEMP/stack127-deploy.env"
