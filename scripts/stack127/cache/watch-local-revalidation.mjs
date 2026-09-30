@@ -2,14 +2,21 @@ import { createHmac } from "node:crypto";
 import pg from "pg";
 import { targetsForEvents } from "./targets.mjs";
 
-const developmentRef = "phhrfvmncpqqmmgruktx";
+const developmentRef = "yzasonowwlvritqicatj";
 const direct = new URL(process.env.DATABASE_URL ?? "postgresql://invalid:invalid@invalid/invalid");
 const api = new URL(process.env.SUPABASE_URL ?? "https://invalid/");
 const connectionString = process.env.DATABASE_POOLER_URL || process.env.DATABASE_URL;
+const connection = connectionString
+  ? new URL(connectionString)
+  : new URL("postgresql://invalid:invalid@invalid/invalid");
+const connectionUser = decodeURIComponent(connection.username);
+const developmentDirect = connection.hostname === `db.${developmentRef}.supabase.co`;
+const developmentPooler = connection.hostname === "aws-0-ap-northeast-2.pooler.supabase.com"
+  && connectionUser.includes(developmentRef);
 if (process.env.NODE_ENV === "production"
   || direct.hostname !== `db.${developmentRef}.supabase.co`
   || api.hostname !== `${developmentRef}.supabase.co`
-  || !connectionString) {
+  || (!developmentDirect && !developmentPooler)) {
   throw new Error("Local cache watcher requires the managed development project in .env.local.");
 }
 
