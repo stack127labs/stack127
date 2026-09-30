@@ -18,6 +18,13 @@ test("shared GitHub facts also refresh CLI data and all cached app details", () 
   assert.ok(t.edgeTags.includes("self-host-detail"));
 });
 
+test("unpublishing the planner also removes cached search and detail API responses", () => {
+  const targets = targetsForEvents([{ entity_type: "page", slug: "self-hosted-app-resource-planner" }]);
+  assert.ok(targets.paths.includes("/api/resource-planner-index"));
+  assert.ok(targets.edgeTags.includes("page:api:resource-planner-index"));
+  assert.ok(targets.edgeTags.includes("self-host-detail"));
+});
+
 test("Cloudflare is cleared only after the origin has verified fresh content", async () => {
   const calls = [];
   await refreshTargets({ verifyPaths: ["/about"], edgeTags: ["page:about"] }, {

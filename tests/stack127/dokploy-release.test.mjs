@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import {
   assertLiveSmokeResponse,
   assertUncachedNotFound,
+  assertBrowserRevalidation,
   deploymentId,
   deploymentState,
   extractDeploymentRecords,
@@ -16,6 +17,15 @@ test("release checks reject missing pages cached by either cache layer", () => {
   assert.doesNotThrow(() => assertUncachedNotFound(safe));
   for (const change of [{ edgeCache: "HIT" }, { nextCache: "HIT" }, { cacheControl: "public, s-maxage=604800" }, { status: 200 }]) {
     assert.throws(() => assertUncachedNotFound({ ...safe, ...change }), /uncached 404/);
+  }
+});
+
+test("release checks reject stale browser policies and private edge hits", () => {
+  const safe = { status: 200, cacheControl: "max-age=0, must-revalidate, s-maxage=86400", edgeCache: "DYNAMIC", navigationTtl: "30" };
+  assert.doesNotThrow(() => assertBrowserRevalidation(safe));
+  assert.doesNotThrow(() => assertBrowserRevalidation({ ...safe, status: 304 }));
+  for (const change of [{ edgeCache: "HIT" }, { navigationTtl: "300" }, { cacheControl: "max-age=600" }, { status: 500 }]) {
+    assert.throws(() => assertBrowserRevalidation({ ...safe, ...change }), /browsers must revalidate/);
   }
 });
 

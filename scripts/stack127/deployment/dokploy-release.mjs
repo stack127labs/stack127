@@ -239,13 +239,13 @@ async function waitForDeployment(config, expectedId) {
   throw new Error(`Timed out waiting for Dokploy deployment (${lastDescription}).`);
 }
 
-async function siteRequest(url) {
+async function siteRequest(url, headers = {}) {
   let response;
   try {
     response = await fetch(url, {
       redirect: "follow",
       signal: AbortSignal.timeout(defaultSiteTimeoutMs),
-      headers: { accept: "text/html,application/json,text/plain,application/xml" },
+      headers: { accept: "text/html,application/json,text/plain,application/xml", ...headers },
     });
   } catch (error) {
     throw new Error(`Live site request failed for ${url}: ${error instanceof Error ? error.message : String(error)}`);
@@ -279,6 +279,14 @@ export function assertUncachedNotFound({ status, cacheControl, edgeCache, nextCa
   if (status !== 404 || !/(?:^|,)\s*no-store(?:\s*,|\s*$)/i.test(cacheControl ?? "") ||
     edgeCache === "HIT" || nextCache === "HIT") {
     throw new Error("Missing pages must return an uncached 404.");
+  }
+}
+
+export function assertBrowserRevalidation({ status, cacheControl, edgeCache, navigationTtl }) {
+  if (![200, 304].includes(status) || !/(?:^|,)\s*max-age=0(?:\s*,|\s*$)/i.test(cacheControl ?? "") ||
+    !/(?:^|,)\s*must-revalidate(?:\s*,|\s*$)/i.test(cacheControl ?? "") || edgeCache === "HIT" ||
+    (navigationTtl != null && (!Number.isFinite(Number(navigationTtl)) || Number(navigationTtl) > 30))) {
+    throw new Error("Document browsers must revalidate, and cookies must bypass the edge cache.");
   }
 }
 
@@ -336,6 +344,14 @@ async function verifyLiveSite(config) {
       nextCache: missing.response.headers.get("x-nextjs-cache") });
   }
   console.log("Live smoke passed: repeated missing pages are not cached.");
+  const cookieHeaders = { cookie: "stack127_release_check=1" };
+  const document = await siteRequest(`${config.siteUrl}/about`, cookieHeaders);
+  const etag = document.response.headers.get("etag");
+  const documents = [document, await siteRequest(`${config.siteUrl}/about`, { ...cookieHeaders, "if-none-match": etag || "*" })];
+  for (const result of documents) assertBrowserRevalidation({ status: result.response.status,
+    cacheControl: result.response.headers.get("cache-control"), edgeCache: result.response.headers.get("cf-cache-status"),
+    navigationTtl: result.response.headers.get("x-nextjs-stale-time") });
+  console.log("Live smoke passed: browsers revalidate with cookies and conditional requests.");
 }
 
 async function main() {

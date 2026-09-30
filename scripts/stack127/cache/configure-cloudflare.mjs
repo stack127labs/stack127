@@ -143,6 +143,14 @@ if (assets) {
 // ISR can give generated 404s a content TTL. Errors must override that policy.
 const errorParameters = Object.fromEntries(Object.keys(htmlParameters).map(key => [key, { operation: key === "no-store" ? "set" : "remove" }]));
 errorParameters["no-store"] = { operation: "set" };
+// Browser checks also apply when cookies make the edge bypass the document.
+responseRules = await save(responseSet.id, responseRules, {
+  action: "set_cache_control",
+  expression: '(http.host eq "stack127.com" and http.request.method in {"GET" "HEAD"} and http.response.code in {200 304} and not starts_with(http.request.uri.path, "/api/") and not starts_with(http.request.uri.path, "/_next/") and (http.request.uri.path.extension eq "" or http.request.uri.path in {"/robots.txt" "/sitemap.xml"}) and not any(http.response.headers.names[*] eq "set-cookie"))',
+  description: "Public document browsers: check each time",
+  action_parameters: { "max-age": { operation: "set", value: 0 }, "must-revalidate": { operation: "set" },
+    "stale-while-revalidate": { operation: "remove" }, "stale-if-error": { operation: "remove" } },
+}, "Public document browsers") ?? responseRules;
 await save(responseSet.id, responseRules, {
   action: "set_cache_control",
   expression: '(http.host eq "stack127.com" and http.response.code ge 400)',

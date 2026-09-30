@@ -82,6 +82,8 @@ Public documents use `max-age=0, must-revalidate`: browsers check their saved co
 | Mutable icons, logos, and favicons | 30 days |
 | Versioned Next.js bundles | Existing immutable 1 year policy |
 
+Browser revalidation also applies to successful documents with cookies and to 304 responses. Cookies and authorization still bypass the edge cache. New client navigations reuse a page for at most 30 seconds instead of five minutes; browser Back/Forward keeps its normal history behavior.
+
 Query pages keep their canonical base URL and `noindex, follow`. `_rsc` alone is navigation data and does not make a page a filtered search. Navigation cache keys retain the complete query string. The domain registry (RDAP) cache stays at 24 hours for registered domains and 1 hour for unregistered domains.
 
 The app supplies `Cache-Tag` headers for public pages and mutable local assets. Releases purge `stack127-public` and `stack127-assets`, purge changed public file URLs, and warm primary routes. Registry-owned SEO lives in `lib/registry-layout.tsx`. The proxy checks the existing tagged publication cache before serving a page; a missing or unpublished exact slug uses the shared dynamic 404 page, which neither cache layer stores. Thin route layouts supply the public path, so pages without request-specific data can use the Next.js full-page cache. `scripts/stack127/cache/sync-registry-layouts.mjs` runs before development and builds to register new routes. Directory queries use shared tagged data and at most 500 recently used filter results per directory. Normal numbered pages share the complete default index.

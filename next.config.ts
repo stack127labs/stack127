@@ -24,6 +24,7 @@ const nextConfig: NextConfig = {
     ],
   },
   output: "standalone",
+  experimental: { staleTimes: { dynamic: 0, static: 30 } },
   outputFileTracingIncludes: {
     "/api/hardware-directory/[directory]/[record]": ["./lib/hardware-directories/data/*.json"],
     "/local-security-cameras": ["./lib/hardware-directories/data/local-security-cameras.json"],

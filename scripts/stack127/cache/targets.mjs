@@ -24,6 +24,7 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
       nextTags.add("stack127-home-pages");
       nextTags.add("stack127-sitemap-pages");
       if (slug === "self-host-apps" || slug === "self-hosted-app-resource-planner") edgeTags.add("self-host-detail");
+      if (slug === "self-hosted-app-resource-planner") addPage("/api/resource-planner-index", false);
       addPage("/");
       paths.add("/sitemap.xml");
       warmPaths.add("/sitemap.xml");
