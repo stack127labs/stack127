@@ -2,23 +2,13 @@
 
 Route: `/<slug>`
 
-## Research
+Research: [research.md](research.md)
 
-### User job
+Opus starts this file from the research. Link to research instead of copying it.
 
-What the user needs to decide or produce.
+## Why people will choose this tool
 
-### Competitor patterns
-
-Record the useful common patterns, clear gaps, and direct URLs. Stop when additional competitors repeat what is already known.
-
-### Technical facts and sources
-
-List verified formulas, standards, units, limits, source precedence, and primary URLs. Mark unknowns plainly.
-
-### Opportunity and blockers
-
-State how stack127 can be more useful. Record any paid API, maintained dataset, account, background job, or approval needed.
+What the searcher is really trying to decide. Where the top results fail them. The specific things this tool does better, such as a clearer answer, honest unknowns, edge cases handled, worked examples, or dated sources. Keep it to a short list the builders and writer can check against.
 
 ## Product
 
@@ -30,13 +20,17 @@ Define the primary user, main job, delivered answer, launch scope, and exclusion
 
 Define inputs, parsing, units, bounds, formulas or source precedence, rounding, output, invalid states, unknowns, partial results, privacy, and security.
 
+### Backend contract
+
+The exact handoff between Luna's backend and Opus's frontend. List each exported function or API route with its file path, inputs and types, output shape, errors and unknown values, and timeouts or caching. Name any data script, migration, or dataset. The frontend calls the backend only through this contract.
+
 ### Known examples
 
 Add a small set of independently calculated normal, boundary, and invalid examples.
 
 ### Ownership
 
-List the route, engine, component, styles, focused test, script, and content row.
+List the backend files Luna builds (engine, API routes, scripts, focused test, preview row) and the frontend files Opus builds (route page, components, styles, card art).
 
 ### Catalog placement
 
@@ -50,9 +44,13 @@ For a new tool, brief its catalog `toolSpot` marker art: one visual takeaway, a 
 
 State the user question, minimum inputs, primary action, lead answer, and supporting result order.
 
-### Components and states
+### Components
 
-List reused or new controls from `stack127_docs/shared-ui.md` and the initial, valid, invalid, loading, empty, partial, failure, retry, reset, restored, and long-value states that apply.
+List every existing shared component the frontend uses, with its import path. List any new or improved shared components built during planning, with what each one is for. List the tool-specific components the frontend will build, with a short description.
+
+### States
+
+List the initial, valid, invalid, loading, empty, partial, failure, retry, reset, restored, and long-value states that apply.
 
 ### Responsive and accessible behavior
 
@@ -60,36 +58,28 @@ Describe desktop and mobile order, containment, table or chart behavior, keyboar
 
 ## Content
 
-Follow `stack127_docs/writing-style.md` for writing, visual choices, and SEO wording.
+The writing session fills this section with `skills/stack127/tools/stack127-tool-writing/SKILL.md`. Page copy uses existing components only.
 
-Use the Page structure section of `skills/stack127/tools/stack127-tool-writing/SKILL.md` to prepare the writing directions below.
+### Search intent and title
 
-### Search intent and metadata direction
+The main query, what the searcher wants, the visible title, and the SEO title and description direction.
 
-State the query intent, reader state, page-title direction using the tool title pattern, and SEO title and description direction.
+### Reader questions
 
-### Page promise
+The questions the page must answer, from research. For each, say where it is answered: the tool result, intro, usage, or content.
 
-State what the reader should understand or accomplish after using the page. Keep this about the reader's outcome; Product already defines the tool's contract.
+### Outline
 
-### Content completeness map
+Plan each part from the Page structure section of `skills/stack127/tools/stack127-tool-writing/SKILL.md`:
 
-Map the important user questions to the tool result, introduction, usage guide, or supporting content. For each question, say what the writer must explain and what the UI already answers. Keep the map short enough to guide the page without repeating the Interface section.
+- Intro: what the reader gets, who it is for, what they need ready.
+- Usage: only the steps that need explaining, how to read the result, and one worked example.
+- Content: question headings in order, what each answers, and the format for each (table, list, chart, example, formula, note, warning, or marker art) from `stack127_docs/writing-style.md`.
 
-### Recommended outline and formats
+### Facts, limits, and sources
 
-Propose headings and each section's purpose, not finished copy. Name useful callouts, formulas, examples, tables, charts, and marker art with the syntax in `stack127_docs/shared-ui.md` so the writer knows what the page can render.
+Which facts the page states, their sources, and any data date. Claims the writer must avoid because the tool does not support them.
 
-Describe the introduction's reader situation, basic solution, and connection to the tool. Specify whether it includes a simple formula or introduces a principle whose calculation and worked example follow usage.
+### Next step
 
-### Concepts and result interpretation
-
-For each concept that needs explanation, give one accurate example, its caveat, and the source. Define result terms that a reader could misunderstand, including what an unknown or example value does and does not mean. Omit this section when the tool's result needs no extra explanation.
-
-### Usage, limits, and next step
-
-Plan one real task, meaningful input choices, result reading, invalid-input recovery, and the next useful action. Name claims the writer must avoid, especially claims that exceed the tool's actual behavior. Do not narrate routine button clicks or repeat live result values.
-
-### Source roles and links
-
-Point to the verified Research sources and say which claims each controls. Include useful internal and external links and any source date or freshness limit. Avoid copying the full source list when the same links are already in Research.
+Related stack127 tools or pages to link, and why.

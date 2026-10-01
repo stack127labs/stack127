@@ -32,7 +32,7 @@ The interface contract must decide:
 - behavior for real states, long values, desktop, and narrow screens;
 - observable `UI-` acceptance criteria.
 
-In the full tool pipeline, the Astra product-planning session continues into interface planning only after the main agent accepts the product gate. The builder implements the reviewed contract and does not privately add controls, result regions, explanatory sentences, or visualizations. Test design traces both product `R` requirements and interface `UI-` requirements. Independent QA must judge the rendered result without relying on the builder's explanation.
+In the full tool pipeline, the Opus planning session plans the interface and later builds the frontend itself, on top of the backend Luna builds. It does not add controls, result regions, explanatory sentences, or visualizations outside the reviewed plan without updating the spec. The independent audit judges the rendered result without relying on the builder's explanation.
 
 ## Reading order
 

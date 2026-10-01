@@ -107,7 +107,7 @@ Examples:
 
 ```text
 skills/self-host-apps/enrichment/
-skills/stack127/tools/stack127-tool-build/
+skills/stack127/tools/stack127-tool-backend/
 ```
 
 Sitewide skills live at:

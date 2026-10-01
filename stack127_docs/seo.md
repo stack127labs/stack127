@@ -1,6 +1,6 @@
 # Stack127 SEO
 
-Use [writing-style.md](writing-style.md) when writing titles, descriptions, and other public words. This document covers metadata storage and publication behavior.
+Use [writing-style.md](writing-style.md) when writing headings, titles, descriptions, and other public words. This document covers metadata storage and publication behavior.
 
 ## Base URL
 

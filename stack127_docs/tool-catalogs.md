@@ -23,7 +23,7 @@ Catalog sidebars list every published catalog in navigation order and highlight 
 4. Review the tool's `card_name`, `card_description`, `card_icon_key`, and `card_art_key` in `stack127_tool_pages`. New tool rows inherit the registry label and search description until the card is edited. Every new tool gets its own spec-backed `toolSpot` marker drawing, generated before integration and registered in `lib/tool-catalog-art.ts`. Use `icon` only as a temporary fallback for an existing card awaiting reviewed art. Keep card copy short and task focused.
 5. Publish the catalog registry row after its copy and visible tools are ready. It then enters the homepage and sitemap automatically. Check its desktop and mobile page, links, title, canonical, and public dates.
 
-For a new tool, the product plan names its primary catalog, any secondary catalogs, and a specific card art brief. The build worker generates and registers the drawing. The writing worker supplies one card name and description shared across catalogs. The integration worker applies the card fields and memberships to development together:
+For a new tool, the product plan names its primary catalog, any secondary catalogs, and a specific card art brief. The Opus frontend step generates and registers the drawing. The Opus writing session supplies one card name and description shared across catalogs. The integration worker applies the card fields and memberships to development together:
 
 ```bash
 npm run stack127:tool-page:catalogs:update -- \

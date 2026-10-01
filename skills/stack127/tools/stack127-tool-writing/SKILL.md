@@ -1,40 +1,104 @@
 ---
 name: stack127-tool-writing
-description: Write the title, page copy, interface words, and SEO text for a finished stack127 tool using the shared writing guide.
+description: Plan and write, or rewrite, the content, title, page copy, interface words, and SEO text for a stack127 tool page so anyone can follow it. Use for new tools and for simplifying or rewriting live tool pages.
 ---
 
 # stack127 tool writing
 
-Read `stack127_docs/writing-style.md`, `stack127_docs/shared-ui.md`, and the tool's ready `tool-spec.md`. Verify claims against the implemented tool and its sources.
+Read `stack127_docs/writing-style.md` for how to write and search wording, and `stack127_docs/shared-ui.md` for components and their syntax. Read `content_docs/<slug>/research.md` and `tool-spec.md` when they exist. Check every claim against the tool and its sources.
 
 ## When to use it
 
-Run after `$stack127-tool-content-seo` has completed the spec, as the normal writing stage in the tool pipeline. It also handles standalone tool-copy requests. Check that the planned claims match the finished tool before drafting.
+In the tool pipeline, Opus runs this skill in its own Claude Code writing session after the tool is built. Plan the Content section first, then write in the same session.
+
+It also handles rewrites of live tool pages. Read the current title, intro, usage, and content from `public.stack127_tool_pages`. Use the tool once and read its code for the exact rules and messages. Keep every fact, limit, and useful source. Write drafts to temporary files outside the repo unless the user asks to apply them. Skip the spec step for a rewrite.
+
+## Win the search
+
+The page should be the best answer for the searcher. Before planning, answer three questions from the research or, for a rewrite, from a quick look at the top results:
+
+1. What is the searcher really trying to decide or produce?
+2. Where do the top results fail them?
+3. What will this page do better?
+
+Then:
+
+- Put the tool and its answer before explanations.
+- Cover what others skip: edge cases, wrong inputs, data dates, and "People also ask" questions no one answers well.
+- Show a worked example with real numbers.
+- Be honest about limits. Say what the tool can't tell you and when a result is an estimate.
+- Use primary sources and say when the data was checked.
+- Add at least one useful thing the top results don't have.
+
+## Plan first
+
+In the pipeline, write the plan in the Content section of `content_docs/<slug>/tool-spec.md`.
+
+1. Use the finished tool once with a real example. Note what the result shows and what a reader might misread.
+2. List the questions searchers ask, from research. Drop ones that don't help this reader.
+3. Map each question to where it is answered: the tool result, intro, usage, or content.
+4. Outline the page with the structure below. Name each content heading as the question it answers, and pick a format for each from `writing-style.md`.
+5. Note the facts the page states, their sources, claims to avoid, and the next stack127 pages to link.
+
+Refer to facts in the research instead of copying them.
 
 ## Page structure
 
-| Part | What it should do |
-| --- | --- |
-| Title | Use "Tool name: the question it answers or the outcome it helps with." Choose words people naturally search for. |
-| Introduction | Establish the reader's situation and explain the basic solution. Include a simple formula with enough context to calculate the answer, then explain how the tool helps apply it. Make the introduction useful on its own. |
-| Usage | Help readers choose inputs and understand the result. |
-| Supporting content | Follow usage with the explanation the reader still needs. If a formula requires several steps or assumptions, introduce its principle briefly above the tool and explain the calculation here with a worked example. |
+| Part | Where it shows | What to write |
+| --- | --- | --- |
+| Title | Page heading | "Tool name: the question it answers", in words people search for. Example: "KDP payment date calculator: when will KDP pay you?" |
+| Intro | Above the tool | 2 to 3 sentences. What you get, and what to have ready. No history or filler. |
+| Usage | After the tool | Steps that need explaining, how to read the result, and one worked example. |
+| Content | After usage | Short sections with question headings, each answered in its first sentence. |
 
-For example:
+### Usage steps
 
-- Domain age checker: how old is a domain?
-- KDP payment date calculator: when will KDP pay you?
+Every step must tell the reader something the form doesn't.
 
-Distinguish exact answers, estimates, and rules of thumb. For lookups and checks, explain what is checked and what the result can tell the reader. Give each explanation one clear home so later sections build on it instead of repeating it.
+- Cut: "Pick the format." "Select Calculate."
+- Keep: where to find a number, what a term means, which choice to pick when unsure.
 
-When a note, warning, formula, example, table, or chart helps, use the supported Markdown syntax in `stack127_docs/shared-ui.md`. Keep ordinary steps and links in normal Markdown.
+Beginners should be able to follow along without reading steps that only name buttons.
 
-## Final readability pass
+### Content sections
 
-After factual and missing-copy corrections, stay in the same writing session for a separate final pass over the title, introduction, usage, supporting content, interface words, and SEO text. Make the page simple for a general reader to follow. Keep every useful detail, limitation, and distinction. Explain difficult ideas in plain words and add a short example where it makes the idea easier to grasp. Cut repetition and avoid stretching a simple point.
+Pick only what this tool's readers need, roughly in this order:
 
-Read the result as public-facing copy. Remove research notes, source labels, citation markers, and insider wording from the page text. Keep useful links to sources where they help the reader. If the main agent finds a copy problem on the rendered page, revise it in this same session and return the corrected words for integration.
+1. How it works: the rule or formula, with an example. For lookups and checks, what is checked and where the data comes from.
+2. What the result means, including good, bad, and unusual results. Use benchmarks only with a source.
+3. Common mistakes and edge cases.
+4. Related questions people search, from research.
+5. What the tool doesn't cover, and next stack127 tools.
+
+Keep each section to 1 to 3 short paragraphs, or one table, list, or visual with a line or two around it.
+
+## Keep it short and visual
+
+- Show first. Use a table, list, chart, example, formula, note, or warning when it shows the idea better than a paragraph. See the format table in `writing-style.md`.
+- Use marker art only for a concept that needs a picture, such as a flow or a rough relationship. Use at most one or two per page. Request it through the marker art skills; don't invent figure references.
+- Use only existing components. Page copy never needs a new one.
+- Say each idea once. The intro, usage, and content must not repeat each other.
+- Say whether a number is exact, an estimate, or a rule of thumb.
+- For lookups and checks, say what the result can and cannot tell the reader.
+- A rewrite should not be longer than the current page unless it adds something the reader was missing. Say what you added in the handoff.
+
+## Final pass
+
+After corrections, reread everything as a first-time visitor. Cut repetition, padding, and steps that only name buttons. Keep every useful detail and limit. Remove research notes, source labels, citation markers, and insider wording. Keep source links that help the reader.
+
+If the main agent finds a problem on the rendered page, fix it in the same session and return the corrected words.
 
 ## Hand off the copy
 
-Put the introduction, usage, and supporting content in separate temporary Markdown files outside the repo. Return their absolute paths with the visible title, any interface-word changes, SEO title and description, a short tool card name and task-focused card description, and sources for factual claims. The card words belong to the tool row and appear in every assigned catalog. The integration worker uses this draft; it does not wait for a manual rewrite. Keep the spec as planning, not a second live copy. Content integration and publication use their own workflows.
+Put the intro, usage, and content in separate temporary Markdown files outside the repo. In the pipeline, apply interface-word changes in the frontend code yourself, since Opus owns the frontend. For a standalone rewrite, list suggested interface words instead.
+
+Return:
+
+- the file paths and word counts before and after;
+- the visible title, SEO title, and SEO description;
+- a short card name and task-focused card description, which appear in every assigned catalog;
+- interface words changed or suggested;
+- any marker art you suggest;
+- sources for factual claims.
+
+Keep the spec as planning, not a second live copy.

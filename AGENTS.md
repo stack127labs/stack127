@@ -36,7 +36,7 @@ stack127 publishes tools, directories, references, courses, and useful content f
 ## Files
 
 - Page docs live in `content_docs/<slug>/`.
-- Content pages use `brief.md`. Tools use one `tool-spec.md`.
+- Content pages use `brief.md`. Tools use `research.md` and `tool-spec.md`.
 - Sitewide operating docs live in `stack127_docs/`.
 - Page scripts live in `scripts/<slug>/`. Shared scripts live in `scripts/stack127/`.
 - Never commit secrets, generated `.next` output, test output, or temporary logs.
@@ -59,10 +59,12 @@ Read `stack127_docs/quality-workflow.md`.
 - General page work: `skills/stack127/page-build/SKILL.md`.
 - Tool pipeline: `stack127_docs/tool-pipeline.md` and skills under `skills/stack127/tools/`.
 - Existing tool review: `skills/stack127/tools/stack127-tool-audit/SKILL.md`.
+- Tool page copy, including rewrites of live pages: `skills/stack127/tools/stack127-tool-writing/SKILL.md`, with `stack127_docs/writing-style.md` and `stack127_docs/shared-ui.md`. Use these repo files instead of any personal or synced copy skill.
 - Production release: `skills/stack127/stack127-release-e2e/SKILL.md`.
 - Self-host app work: skills under `skills/self-host-apps/`.
 - Generated cover images: `skills/stack127/cover-image-intake/SKILL.md`.
 - `.agents/skills` is a symlink adapter to the canonical `skills/` folder.
+- `.claude/skills` holds one symlink per skill folder, because Claude Code only finds skills one level deep. When you add or rename a skill, add or update its link there.
 
 ## Homelab
 

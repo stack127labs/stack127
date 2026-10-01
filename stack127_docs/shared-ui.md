@@ -38,7 +38,7 @@ import { Callout } from "@/app/ui/callout";
 
 The development gallery shows reusable controls, results, content blocks, cards, and directory filters. It links to real pages for full layouts. The TypeScript props beside each component are the full API; the table above helps choose the right one.
 
-Use the existing component when its behavior fits. Extend it when the need is shared across page types. Keep calculations, data sources, and unusual interactions with their owning page or tool. Static displays belong in server-renderable modules; interactive controls live in client modules.
+Use the existing component when its behavior fits. Page copy and content pages use existing components only. New or extended shared components come from the Opus planning step for a tool, when the need is shared across page types. Keep calculations, data sources, and unusual interactions with their owning page or tool. Static displays belong in server-renderable modules; interactive controls live in client modules.
 
 ## Navigation and feedback
 

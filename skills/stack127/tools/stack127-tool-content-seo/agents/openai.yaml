@@ -1,4 +1,0 @@
-interface:
-  display_name: "stack127 Tool Content SEO"
-  short_description: "Plan complete tool content and search intent"
-  default_prompt: "Use $stack127-tool-content-seo to plan complete, concise content and SEO coverage for this tool without drafting the final page prose."

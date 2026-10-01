@@ -1,4 +1,0 @@
-interface:
-  display_name: "stack127 Tool Build"
-  short_description: "Build and verify one stack127 tool UI"
-  default_prompt: "Use $stack127-tool-build to implement the tool from tool-spec.md, add focused correctness tests, and verify the real desktop and mobile interaction."
