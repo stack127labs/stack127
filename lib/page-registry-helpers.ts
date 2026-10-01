@@ -5,18 +5,12 @@ export const homePageSlugs = [
   "epp-status-codes",
   "keyboard-shortcuts",
   "labs",
-  "local-security-cameras",
-  "matter-devices",
-  "nut-compatible-ups",
   "privacy",
   "self-host-apps",
   "self-hosting-for-beginners",
   "software-licenses-for-self-hosting",
   "terms",
   "tld-directory",
-  "z-wave-devices",
-  "zigbee-coordinators",
-  "zigbee-devices",
 ] as const;
 
 const homePageSlugSet = new Set<string>(homePageSlugs);

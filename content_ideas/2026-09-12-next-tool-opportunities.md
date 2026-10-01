@@ -72,7 +72,7 @@ Target queries: `rsync exclude not working`, `rsync include exclude`, `rsync fil
 
 ## 3. Home Assistant MQTT discovery checker
 
-- [ ] Research and build `/mqtt-discovery-checker`.
+Retired on October 1, 2026. Home automation tools are outside the current product focus.
 
 **User problem.** An MQTT message reaches the broker, but Home Assistant does not create the expected device or entity. The user needs to find a malformed topic or payload without repeated publish-and-restart attempts.
 

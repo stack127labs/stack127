@@ -48,12 +48,6 @@
     "purpose": "Owns the guarded managed-development preview helper for /self-hosted-app-resource-planner."
   },
   {
-    "surface": "home-assistant-energy-entity-checker",
-    "folder": "scripts/home-assistant-energy-entity-checker",
-    "manifest": "scripts/home-assistant-energy-entity-checker/scripts.json",
-    "purpose": "Owns the guarded local preview helper for /home-assistant-energy-entity-checker."
-  },
-  {
     "surface": "nginx-proxy-pass-calculator",
     "folder": "scripts/nginx-proxy-pass-calculator",
     "manifest": "scripts/nginx-proxy-pass-calculator/scripts.json",
@@ -148,12 +142,6 @@
     "folder": "scripts/rsync-filter-tester",
     "manifest": "scripts/rsync-filter-tester/scripts.json",
     "purpose": "Owns retained audit probes for /rsync-filter-tester."
-  },
-  {
-    "surface": "mqtt-discovery-checker",
-    "folder": "scripts/mqtt-discovery-checker",
-    "manifest": "scripts/mqtt-discovery-checker/scripts.json",
-    "purpose": "Owns retained audit probes for /mqtt-discovery-checker."
   },
   {
     "surface": "lxc-idmap-checker",

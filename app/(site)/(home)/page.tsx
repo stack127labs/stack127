@@ -1,23 +1,12 @@
 import { PageCanvas } from "@/app/ui/site/page-canvas";
-import { siteSpotLocalSecurityCamerasArt } from "../art/site--spot-local-security-cameras";
-import { siteSpotNutCompatibleUpsArt } from "../art/site--spot-nut-compatible-ups";
-import { siteSpotZigbeeCoordinatorsArt } from "../art/site--spot-zigbee-coordinators";
-import { siteSpotZigbeeDevicesArt } from "../art/site--spot-zigbee-devices";
-import { siteSpotMatterDevicesArt } from "../art/site--spot-matter-devices";
-import { siteSpotZWaveDevicesArt } from "../art/site--spot-z-wave-devices";
 import {
   BookOpen,
-  BatteryCharging,
-  Camera,
   Globe,
   HardDrive,
   Keyboard,
   FlaskConical,
-  Radio,
-  RadioTower,
   ListChecks,
   Scale,
-  HouseWifi,
   SquareTerminal,
   type LucideIcon,
 } from "lucide-react";
@@ -33,8 +22,6 @@ import { siteSpotSelfHostAppsArt } from "../art/site--spot-self-host-apps";
 import { eppStatusArt } from "../(catalogs)/_components/art/epp-status";
 import { tldDirectoryArt } from "../(catalogs)/_components/art/tld-directory";
 import { getTerminalApps } from "@/lib/terminal-apps";
-import { getHardwareDirectoryCount } from "@/lib/hardware-directories";
-import { getZigbeeDevices } from "@/lib/zigbee-devices";
 import { shortcutAppCatalog } from "@/lib/shortcuts/catalog.generated";
 import { STATUS_CODES } from "@/lib/domain/status-codes";
 import tldDirectory from "@/lib/domain/data/tld-directory.json";
@@ -77,27 +64,15 @@ const pageIcons: Record<string, LucideIcon> = {
   "cli-apps": SquareTerminal,
   "epp-status-codes": ListChecks,
   "labs": FlaskConical,
-  "local-security-cameras": Camera,
-  "matter-devices": HouseWifi,
-  "nut-compatible-ups": BatteryCharging,
   "self-host-apps": HardDrive,
   "keyboard-shortcuts": Keyboard,
   "self-hosting-for-beginners": BookOpen,
   "software-licenses-for-self-hosting": Scale,
   "tld-directory": Globe,
-  "z-wave-devices": Radio,
-  "zigbee-coordinators": RadioTower,
-  "zigbee-devices": RadioTower,
 };
 
 /** Marker spot per feature page: the card's visual one-liner. */
 const pageArt: Record<string, string> = {
-  "local-security-cameras": siteSpotLocalSecurityCamerasArt,
-  "nut-compatible-ups": siteSpotNutCompatibleUpsArt,
-  "zigbee-coordinators": siteSpotZigbeeCoordinatorsArt,
-  "zigbee-devices": siteSpotZigbeeDevicesArt,
-  "matter-devices": siteSpotMatterDevicesArt,
-  "z-wave-devices": siteSpotZWaveDevicesArt,
   "cli-apps": siteSpotCliAppsArt,
   "epp-status-codes": eppStatusArt,
   "keyboard-shortcuts": siteSpotKeyboardShortcutsArt,
@@ -141,12 +116,6 @@ async function buildCardStats(
   const metric = (label: string, count: number): HomeStat => ({ label, value: count.toLocaleString("en-US") });
   switch (page.slug) {
     case "cli-apps": return [metric("apps", (await getTerminalApps()).length)];
-    case "zigbee-devices": return [metric("devices", getZigbeeDevices().length)];
-    case "zigbee-coordinators": return [metric("coordinators", await getHardwareDirectoryCount(page.slug))];
-    case "local-security-cameras": return [metric("cameras", await getHardwareDirectoryCount(page.slug))];
-    case "nut-compatible-ups": return [metric("UPS models", await getHardwareDirectoryCount(page.slug))];
-    case "z-wave-devices":
-    case "matter-devices": return [metric("devices", await getHardwareDirectoryCount(page.slug))];
     case "keyboard-shortcuts": return [metric("apps", shortcutAppCatalog.length), metric("shortcuts", shortcutAppCatalog.reduce((total, app) => total + app.shortcutCount, 0))];
     case "epp-status-codes": return [metric("status codes", STATUS_CODES.length)];
     case "tld-directory": return [metric("domain extensions", tldDirectory.rows.length)];

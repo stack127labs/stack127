@@ -105,7 +105,7 @@ Sidebars that list things use `SidebarList` from `app/ui/site/sidebar-list.tsx`:
 
 Tool catalog sidebars link between published tool catalogs and mark the current catalog. Individual tools belong in the catalog's main cards, not a duplicate sidebar list. Individual tool pages keep their family tool navigation.
 
-The homepage lists published top-level directories, tool catalogs, and references, plus the course and Labs collection. It does not list individual tools or individual reference sheets. Each card shows a meaningful count from its destination's data. New top-level collections need a home entry, identity icon, metric, and coverage test.
+The homepage lists published tool catalogs, selected software directories and references, plus the self-hosting course and Labs. Hardware directories remain published but stay off the homepage cards and sidebar. It does not list individual tools or individual reference sheets. Each card shows a meaningful count from its destination's data. New homepage collections need an identity icon, metric, and marker spot.
 
 Each feature page has one identity icon, used in three places: its sidebar row, its home card title, and through `PageTitleIcon` (`app/ui/site/page-title-icon.tsx`) beside its h1. The h1 treatment is an unboxed, em-sized icon in `--color-accent-text`, aligned optically with the title. Feature pages also carry one marker spot doodle on their home card; the spot says what the page is in one drawing.
 

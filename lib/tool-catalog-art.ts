@@ -37,7 +37,6 @@ import { kdpRoyaltyCalculatorArt } from "@/app/(site)/(catalogs)/_components/art
 import { kdpToolsArt } from "@/app/(site)/(catalogs)/_components/art/kdp-tools";
 import { kindleUnlimitedKenpEarningsCalculatorArt } from "@/app/(site)/(catalogs)/_components/art/kindle-unlimited-kenp-earnings-calculator";
 import { lxcIdmapCheckerArt } from "@/app/(site)/(catalogs)/_components/art/lxc-idmap-checker";
-import { mqttDiscoveryCheckerArt } from "@/app/(site)/(catalogs)/_components/art/mqtt-discovery-checker";
 import { mrrCalculatorArt } from "@/app/(site)/(catalogs)/_components/art/mrr-calculator";
 import { mrrWaterfallCalculatorArt } from "@/app/(site)/(catalogs)/_components/art/mrr-waterfall-calculator";
 import { multiTldArt } from "@/app/(site)/(catalogs)/_components/art/multi-tld";
@@ -68,7 +67,6 @@ import { saasMetricsCalculatorArt } from "@/app/(site)/(tools)/(saas)/saas-metri
 import { siteSpotDnsToolsArt } from "@/app/(site)/art/site--spot-dns-tools";
 import { siteSpotDockerignoreArt } from "@/app/(site)/art/site--spot-dockerignore";
 import { siteSpotDomainToolsArt } from "@/app/(site)/art/site--spot-domain-tools";
-import { siteSpotHomeAssistantEnergyArt } from "@/app/(site)/art/site--spot-home-assistant-energy";
 import { siteSpotKeyboardShortcutsArt } from "@/app/(site)/art/site--spot-keyboard-shortcuts";
 import { siteSpotLabsArt } from "@/app/(site)/art/site--spot-labs";
 import { siteSpotNfsFirewallArt } from "@/app/(site)/art/site--spot-nfs-firewall";
@@ -105,8 +103,6 @@ const art: Record<string, string> = {
   "domain-tools": siteSpotDomainToolsArt,
   "drive-reliability": driveReliabilityArt,
   "epp-status": eppStatusArt,
-  "home-assistant-energy-entity-checker": siteSpotHomeAssistantEnergyArt,
-  "home-automation-tools": siteSpotHomeAssistantEnergyArt,
   "hosting-cloud-tools": siteSpotSelfHostAppsArt,
   "ip-asn-lookup": ipAsnLookupArt,
   "kdp-backend-keywords-builder": kdpBackendKeywordsBuilderArt,
@@ -125,7 +121,6 @@ const art: Record<string, string> = {
   "kdp-tools": kdpToolsArt,
   "kindle-unlimited-kenp-earnings-calculator": kindleUnlimitedKenpEarningsCalculatorArt,
   "lxc-idmap-checker": lxcIdmapCheckerArt,
-  "mqtt-discovery-checker": mqttDiscoveryCheckerArt,
   "mrr-calculator": mrrCalculatorArt,
   "mrr-waterfall-calculator": mrrWaterfallCalculatorArt,
   "multi-tld": multiTldArt,

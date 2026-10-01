@@ -60,7 +60,7 @@ The exact approved set and its metadata come from `public.stack127_pages`. The s
 - core, legal, and collection pages: `/`, `/about`, `/privacy`, `/terms`, `/self-host-apps`, `/dns-tools`, `/domain-tools`, and `/software-licenses-for-self-hosting`;
 - flat DNS tools: `/dns-lookup`, `/dns-trace`, `/dns-change-checker`, `/nameserver-checker`, `/dnssec-checker`, `/soa-checker`, and `/caa-checker`;
 - flat domain tools and references: `/domain-age`, `/domain-availability`, `/domain-expiry`, `/domain-lookup`, `/domain-owner`, `/domain-registrar`, `/domain-report`, `/epp-status-codes`, `/multi-tld-availability`, `/punycode-converter`, `/tld-directory`, and `/transfer-readiness`;
-- standalone technical tools: `/dockerignore-tester`, `/home-assistant-energy-entity-checker`, `/nginx-proxy-pass-calculator`, and `/nfs-firewall-rules`;
+- standalone technical tools: `/dockerignore-tester`, `/nginx-proxy-pass-calculator`, and `/nfs-firewall-rules`;
 - the `/self-hosting-for-beginners` course root and its exact published lesson routes.
 
 The storage collection and its flat calculators, including the RAIDZ Expansion Planner, are published at flat canonical routes. Historical or collection-prefixed nested tool URLs permanently redirect to their flat canonical paths and never appear in the sitemap.

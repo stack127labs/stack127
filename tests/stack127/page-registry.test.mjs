@@ -28,7 +28,6 @@ test("isMainPageSlug accepts only published root pages", () => {
   assert.equal(isMainPageSlug("about"), true);
   assert.equal(isMainPageSlug("dns-lookup"), false);
   assert.equal(isMainPageSlug("dockerignore-tester"), false);
-  assert.equal(isMainPageSlug("home-assistant-energy-entity-checker"), false);
   assert.equal(isMainPageSlug("nginx-proxy-pass-calculator"), false);
   assert.equal(isMainPageSlug("nfs-firewall-rules"), false);
   assert.equal(isHomePageSlug("storage-tools"), false);
@@ -49,7 +48,6 @@ test("isHomeFeaturePage excludes legal and about utility pages", () => {
   );
   for (const slug of [
     "dockerignore-tester",
-    "home-assistant-energy-entity-checker",
     "nginx-proxy-pass-calculator",
     "nfs-firewall-rules",
   ]) {
@@ -97,4 +95,27 @@ test("isHomeVisiblePage excludes retired Immich page entries", () => {
     }),
     true,
   );
+});
+
+test("hardware directories stay off homepage navigation and cards", () => {
+  for (const slug of [
+    "local-security-cameras",
+    "matter-devices",
+    "nut-compatible-ups",
+    "z-wave-devices",
+    "zigbee-coordinators",
+    "zigbee-devices",
+  ]) {
+    assert.equal(isHomeVisiblePage({ slug }), false, slug);
+    assert.equal(isHomeFeaturePage({ slug, page_type: "CollectionPage" }), false, slug);
+  }
+
+  for (const [slug, page_type] of [
+    ["self-host-apps", "CollectionPage"],
+    ["cli-apps", "CollectionPage"],
+    ["self-hosting-for-beginners", "Course"],
+  ]) {
+    assert.equal(isHomeVisiblePage({ slug }), true, slug);
+    assert.equal(isHomeFeaturePage({ slug, page_type }), true, slug);
+  }
 });

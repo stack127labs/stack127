@@ -340,7 +340,7 @@ No marker art, screenshot, or chart is justified. The service-and-direction tabl
 - `scripts/nfs-firewall-rules/preview-local-page.mjs`: guarded local-only preview that restores publication state.
 - `scripts/nfs-firewall-rules/scripts.json`: route script ownership.
 
-Use no new production dependency. The engine should remain auditable TypeScript. Compare the workbench width, controls, table treatment, and mobile result with `/home-assistant-energy-entity-checker`, `/nginx-proxy-pass-calculator`, and `/dockerignore-tester` before styling.
+Use no new production dependency. The engine should remain auditable TypeScript. Compare the workbench width, controls, table treatment, and mobile result with `/nginx-proxy-pass-calculator` and `/dockerignore-tester` before styling.
 
 ### Accessibility, privacy, security, and performance
 
