@@ -6,7 +6,7 @@ import styles from "./app-fact-card.module.css";
 export const appFactCardClassName = styles.card;
 
 type CardCategory = { name: string; icon_key?: string | null };
-type CardFact = { label: string; value: string; icon: LucideIcon; estimated?: boolean };
+type CardFact = { label: string; value: string; icon: LucideIcon };
 
 export function AppFactCardContent({
   name, image, categories, summary, facts, status,
@@ -49,10 +49,10 @@ export function AppFactCardContent({
 export function AppCardFacts({ facts }: { facts: CardFact[] }) {
   return (
       <dl className={styles.facts} data-card-facts>
-        {facts.map(({ label, value, icon: Icon, estimated }) => (
+        {facts.map(({ label, value, icon: Icon }) => (
           <div key={label}>
             <dt><Icon aria-hidden="true" size={14} />{label}</dt>
-            <dd>{value}{estimated && <span className={styles.estimate}>estimated</span>}</dd>
+            <dd>{value}</dd>
           </div>
         ))}
       </dl>

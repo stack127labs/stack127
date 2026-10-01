@@ -131,7 +131,9 @@ export type DirectoryAppIndex = Pick<
 > & {
   install_methods: string[];
   ram_estimate_min_mb: number | null;
+  ram_estimate_max_mb: number | null;
   storage_estimate_min_gb: number | null;
+  storage_estimate_max_gb: number | null;
 };
 
 export type SelfHostAppsStats = {
@@ -476,7 +478,9 @@ async function loadDirectoryAppIndexBatch(offset: number): Promise<DirectoryAppI
         app.popularity_score::float8 as popularity_score,
         app.surfaces,
         resource_estimate.ram_estimate_min_mb::float8 as ram_estimate_min_mb,
+        resource_estimate.ram_estimate_max_mb::float8 as ram_estimate_max_mb,
         resource_estimate.storage_estimate_min_gb::float8 as storage_estimate_min_gb,
+        resource_estimate.storage_estimate_max_gb::float8 as storage_estimate_max_gb,
         coalesce(
           array(
             select distinct install_method.value ->> 'method'

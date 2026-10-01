@@ -36,7 +36,7 @@ type AppFact = [label: string, value: string, Icon: LucideIcon];
 
 function formatDate(value: Date | string | null) {
   if (!value) {
-    return "not published";
+    return "unknown";
   }
 
   return new Intl.DateTimeFormat("en", {
@@ -52,7 +52,7 @@ function formatLatestRelease(app: DirectoryApp) {
   const publishedAt = app.release_published_at ?? app.github_latest_release_at;
 
   if (!version) {
-    return app.github_last_commit_at ? `No tagged release · commit ${formatDate(app.github_last_commit_at)}` : "No tagged release published";
+    return app.github_last_commit_at ? `No tagged release · commit ${formatDate(app.github_last_commit_at)}` : "unknown";
   }
 
   if (!publishedAt) {
@@ -63,30 +63,40 @@ function formatLatestRelease(app: DirectoryApp) {
 }
 
 export function formatComposeSupport(app: DirectoryApp) {
-  if (app.compose_support === null) return app.compose_researched ? "not published" : "not checked";
+  if (app.compose_support === null) return "unknown";
   return app.compose_support ? "yes" : "no";
 }
 
 function formatRamRequirement(app: DirectoryApp) {
-  if (app.ram_min_mb !== null && app.ram_recommended_mb !== null) {
-    return `${app.ram_min_mb} MB min · ${app.ram_recommended_mb} MB recommended`;
-  }
-  if (app.ram_min_mb !== null) return `${app.ram_min_mb} MB minimum`;
-  if (app.ram_recommended_mb !== null) return `${app.ram_recommended_mb} MB recommended`;
-  if (app.ram_default_limit_mb !== null) return `${app.ram_default_limit_mb} MB package cap`;
   const estimate = app.resource_estimates?.ram;
   if (estimate) return formatEstimateRange(estimate);
-  return app.ram_researched ? "not published" : "not checked";
+  return "estimate unavailable";
 }
 
 function formatStorageRequirement(app: DirectoryApp) {
-  if (app.storage_min_gb !== null) return `${app.storage_min_gb} GB minimum`;
   const estimate = app.resource_estimates?.storage;
   if (estimate) return formatEstimateRange(estimate);
-  if (app.storage_profile === "depends") return "depends on retained data";
-  if (app.storage_profile !== "unknown") return `${app.storage_profile} workload profile`;
-  if (app.persistent_storage) return "persistent storage, size not published";
-  return app.storage_researched ? "not published" : "not checked";
+  return "estimate unavailable";
+}
+
+function documentationLinkLabel(url: string, isInstallLink: boolean, sourceCodeUrl: string | null) {
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.toLowerCase();
+    if (host === "forums.unraid.net" || host === "forums.lime-technology.com") return "Community support";
+    if (host === "hub.docker.com") return "Docker image page";
+    if (host === "apps.yunohost.org") return "YunoHost app page";
+    if (host === "apps.truenas.com") return "TrueNAS app page";
+    if (host === "github.com" && /\/(issues|discussions)(\/|$)/i.test(parsed.pathname)) return "Project discussion";
+    const clean = (value: string) => value.replace(/#.*$/, "").replace(/\/+$/, "");
+    if (sourceCodeUrl && clean(url) === clean(sourceCodeUrl)) return "Project page";
+    if (/\/README(?:\.(?:md|rst|txt))?$/i.test(parsed.pathname) || /installation-development-setup/i.test(parsed.pathname)) {
+      return "Project docs";
+    }
+  } catch {
+    // A malformed URL should not prevent the rest of the app details from rendering.
+  }
+  return isInstallLink ? "Install guide" : "Project docs";
 }
 
 function formatEstimateNumber(value: number, unit: "mb" | "gb") {
@@ -101,22 +111,22 @@ function formatEstimateNumber(value: number, unit: "mb" | "gb") {
 function formatEstimateRange(estimate: DirectoryApp["resource_estimates"][string]) {
   const minimum = formatEstimateNumber(estimate.estimate_min, estimate.unit);
   const maximum = formatEstimateNumber(estimate.estimate_max, estimate.unit);
-  return minimum === maximum ? `${minimum} (estimated)` : `${minimum}–${maximum} (estimated)`;
+  return minimum === maximum ? minimum : `${minimum} to ${maximum}`;
 }
 
 function formatDockerSupport(app: DirectoryApp) {
   if (app.docker_support !== "unknown") return app.docker_support;
-  return app.docker_researched ? "not published" : "not checked";
+  return "unknown";
 }
 
 function formatContainerImage(app: DirectoryApp) {
   if (app.docker_image) return app.docker_image;
-  return app.docker_image_researched ? "not published" : "not checked";
+  return "unknown";
 }
 
 function formatPlatforms(surfaces: string[]) {
   if (surfaces.length === 0) {
-    return "not published";
+    return "unknown";
   }
 
   const labels: Record<string, string> = {
@@ -183,8 +193,8 @@ function AppDetailsOverlay({
       ["database", formatDatabaseRequirement(app), Database],
     ] },
     { heading: "Resources and access", facts: [
-      ["ram", formatRamRequirement(app), Server],
-      ["storage", formatStorageRequirement(app), HardDrive],
+      ["Est. RAM", formatRamRequirement(app), Server],
+      ["Est. Storage", formatStorageRequirement(app), HardDrive],
       ["surfaces", formatPlatforms(app.surfaces), MonitorSmartphone],
       ["repository checked", formatDate(app.github_checked_at), CalendarClock],
     ] },
@@ -275,7 +285,11 @@ function AppDetailsOverlay({
         {app.install_docs_url || app.docs_url ? (
           <div className="app-detail-docs-link">
             <a href={app.install_docs_url ?? app.docs_url ?? ""} rel="noreferrer" target="_blank">
-              Install and usage docs
+              {documentationLinkLabel(
+                app.install_docs_url ?? app.docs_url ?? "",
+                Boolean(app.install_docs_url),
+                app.source_code_url,
+              )}
               <ArrowRight aria-hidden="true" size={14} strokeWidth={2.2} />
             </a>
           </div>

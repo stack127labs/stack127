@@ -8,14 +8,18 @@ export type DirectoryAppCardData = Pick<DirectoryApp,
   "release_published_at" | "github_last_commit_at"
 > & {
   ram_estimate_min_mb: number | null;
+  ram_estimate_max_mb: number | null;
   storage_estimate_min_gb: number | null;
+  storage_estimate_max_gb: number | null;
   ram_estimated: boolean;
   storage_estimated: boolean;
 };
 
 export function directoryAppCard(app: DirectoryAppIndex): DirectoryAppCardData {
   const ram = app.ram_estimate_min_mb;
+  const ramMax = app.ram_estimate_max_mb;
   const storage = app.storage_estimate_min_gb;
+  const storageMax = app.storage_estimate_max_gb;
   return {
     slug: app.slug,
     name: app.name,
@@ -37,8 +41,10 @@ export function directoryAppCard(app: DirectoryAppIndex): DirectoryAppCardData {
     release_published_at: app.release_published_at,
     github_last_commit_at: app.github_last_commit_at,
     ram_estimate_min_mb: ram,
+    ram_estimate_max_mb: ramMax,
     storage_estimate_min_gb: storage,
-    ram_estimated: app.ram_min_mb === null && app.ram_recommended_mb === null && app.ram_default_limit_mb === null && ram !== null,
-    storage_estimated: app.storage_min_gb === null && storage !== null,
+    storage_estimate_max_gb: storageMax,
+    ram_estimated: ram !== null,
+    storage_estimated: storage !== null,
   };
 }

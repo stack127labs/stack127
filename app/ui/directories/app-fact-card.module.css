@@ -85,7 +85,6 @@
 .facts dt { display: flex; align-items: flex-start; gap: var(--space-2); color: var(--color-text-muted); }
 .facts dt svg { flex: 0 0 14px; margin-top: 4px; }
 .facts dd { min-width: 0; margin: 0; font-family: var(--font-mono); color: var(--color-text); }
-.estimate { display: block; color: var(--color-text-muted); font-family: var(--font-sans); }
 .srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 
 @media (max-width: 400px) {

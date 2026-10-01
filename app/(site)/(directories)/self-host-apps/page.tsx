@@ -225,8 +225,8 @@ function compareBySort(a: DirectoryAppIndex, b: DirectoryAppIndex, sort: string)
   }
 
   if (sort === "lowest-ram") {
-    return (a.ram_min_mb ?? Number.MAX_SAFE_INTEGER) -
-      (b.ram_min_mb ?? Number.MAX_SAFE_INTEGER);
+    return (a.ram_estimate_min_mb ?? Number.MAX_SAFE_INTEGER) -
+      (b.ram_estimate_min_mb ?? Number.MAX_SAFE_INTEGER);
   }
 
   if (sort === "healthy") {
@@ -721,10 +721,8 @@ export default async function SelfHostAppsPage({
               Self-host <mark>apps that fit</mark> your server, storage, and setup comfort
             </h1>
             <p>
-              Compare open-source, source-available, and closed-source apps by purpose, deployment,
-              hardware needs, price, and maintenance. Estimated ranges are planning guidance, not
-              publisher requirements. “Not published” means the official source was checked but
-              did not state a value; “not checked” marks work still to do.
+              Browse open-source, source-available, and closed-source apps by purpose, setup,
+              resource needs, price, and maintenance.
             </p>
           </PageHeader>
         </EntryHero>

@@ -7,13 +7,14 @@ import { AppFactCardContent, appFactCardClassName } from "./app-fact-card";
 
 export function getRamTier(app: DirectoryApp | DirectoryAppIndex | DirectoryAppCardData) {
   const estimate = "ram_estimate_min_mb" in app ? app.ram_estimate_min_mb : app.resource_estimates?.ram;
-  const estimatedRam = typeof estimate === "number" ? estimate : estimate
-    ? estimate.unit === "gb" ? estimate.estimate_min * 1024 : estimate.estimate_min
-    : null;
-  const ram = app.ram_min_mb ?? app.ram_recommended_mb ?? app.ram_default_limit_mb ?? estimatedRam;
+  const ram = typeof estimate === "number"
+    ? estimate
+    : estimate
+      ? estimate.unit === "gb" ? estimate.estimate_min * 1024 : estimate.estimate_min
+      : null;
 
   if (ram === null) {
-    return app.ram_researched ? "not published" : "not checked";
+    return "estimate unavailable";
   }
 
   if (ram < 1024) {
@@ -33,10 +34,9 @@ export function getRamTier(app: DirectoryApp | DirectoryAppIndex | DirectoryAppC
 
 export function getStorageTier(app: DirectoryApp | DirectoryAppIndex | DirectoryAppCardData) {
   const estimate = "storage_estimate_min_gb" in app ? app.storage_estimate_min_gb : app.resource_estimates?.storage?.estimate_min;
-  const storage = app.storage_min_gb ?? estimate ?? null;
+  const storage = estimate ?? null;
   if (storage === null) {
-    if (app.storage_profile !== "unknown") return app.storage_profile;
-    return app.storage_researched ? "not published" : "not checked";
+    return "estimate unavailable";
   }
   if (storage < 1) return "tiny";
   if (storage < 10) return "low";
@@ -44,17 +44,56 @@ export function getStorageTier(app: DirectoryApp | DirectoryAppIndex | Directory
   return "high";
 }
 
-export function hasRamEstimate(app: DirectoryApp | DirectoryAppCardData) {
-  if ("ram_estimated" in app) return app.ram_estimated;
-  return app.ram_min_mb === null &&
-    app.ram_recommended_mb === null &&
-    app.ram_default_limit_mb === null &&
-    Boolean(app.resource_estimates?.ram);
+function formatEstimateRange(minimum: number, maximum: number, resource: "ram" | "storage") {
+  const format = (value: number) => {
+    if (resource === "ram") {
+      if (value >= 1024) {
+        return `${new Intl.NumberFormat("en", { maximumFractionDigits: 1 }).format(value / 1024)} GB`;
+      }
+      return `${new Intl.NumberFormat("en", { maximumFractionDigits: 0 }).format(value)} MB`;
+    }
+    return `${new Intl.NumberFormat("en", { maximumFractionDigits: 1 }).format(value)} GB`;
+  };
+
+  const formattedMinimum = format(minimum);
+  const formattedMaximum = format(maximum);
+  return formattedMinimum === formattedMaximum
+    ? formattedMinimum
+    : `${formattedMinimum} to ${formattedMaximum}`;
 }
 
-export function hasStorageEstimate(app: DirectoryApp | DirectoryAppCardData) {
-  if ("storage_estimated" in app) return app.storage_estimated;
-  return app.storage_min_gb === null && Boolean(app.resource_estimates?.storage);
+function formatRamEstimate(app: DirectoryApp | DirectoryAppIndex | DirectoryAppCardData) {
+  if ("ram_estimate_min_mb" in app) {
+    const minimum = app.ram_estimate_min_mb;
+    if (minimum === null) return "estimate unavailable";
+    return formatEstimateRange(minimum, app.ram_estimate_max_mb ?? minimum, "ram");
+  }
+
+  const estimate = app.resource_estimates.ram;
+  if (!estimate) return "estimate unavailable";
+  const megabytesPerUnit = estimate.unit === "gb" ? 1024 : 1;
+  return formatEstimateRange(
+    estimate.estimate_min * megabytesPerUnit,
+    estimate.estimate_max * megabytesPerUnit,
+    "ram",
+  );
+}
+
+function formatStorageEstimate(app: DirectoryApp | DirectoryAppIndex | DirectoryAppCardData) {
+  if ("storage_estimate_min_gb" in app) {
+    const minimum = app.storage_estimate_min_gb;
+    if (minimum === null) return "estimate unavailable";
+    return formatEstimateRange(minimum, app.storage_estimate_max_gb ?? minimum, "storage");
+  }
+
+  const estimate = app.resource_estimates.storage;
+  if (!estimate) return "estimate unavailable";
+  const gigabytesPerUnit = estimate.unit === "mb" ? 1 / 1024 : 1;
+  return formatEstimateRange(
+    estimate.estimate_min * gigabytesPerUnit,
+    estimate.estimate_max * gigabytesPerUnit,
+    "storage",
+  );
 }
 
 export function hasMobileApp(app: Pick<DirectoryApp, "surfaces">) {
@@ -91,7 +130,7 @@ function priceLabel(app: Pick<DirectoryApp, "pricing_model">) {
 
 export function formatCardDate(value: Date | string | null) {
   if (!value) {
-    return "not published";
+    return "unknown";
   }
 
   return new Intl.DateTimeFormat("en", {
@@ -104,7 +143,7 @@ export function formatCardDate(value: Date | string | null) {
 
 export function formatDatabaseRequirement(app: DirectoryApp) {
   if (app.requires_database === null) {
-    return app.database_researched ? "not published" : "not checked";
+    return "unknown";
   }
 
   if (app.database_types.length > 0) {
@@ -233,8 +272,8 @@ export function DirectoryAppCard({
       facts={[
         { label: "Source", value: sourceModelLabel(app), icon: Code2 },
         { label: "Pricing", value: priceLabel(app), icon: WalletCards },
-        { label: "RAM", value: getRamTier(app), icon: MemoryStick, estimated: hasRamEstimate(app) },
-        { label: "Storage", value: getStorageTier(app), icon: HardDrive, estimated: hasStorageEstimate(app) },
+        { label: "Est. RAM", value: formatRamEstimate(app), icon: MemoryStick },
+        { label: "Est. Storage", value: formatStorageEstimate(app), icon: HardDrive },
         { label: "Last update", value: formatCardDate(app.release_published_at ?? app.github_last_commit_at), icon: CalendarDays },
       ]}
     />
