@@ -52,6 +52,10 @@ function formatEstimateRange(minimum: number, maximum: number, resource: "ram" |
       }
       return `${new Intl.NumberFormat("en", { maximumFractionDigits: 0 }).format(value)} MB`;
     }
+    if (value > 0 && value < 1) {
+      const megabytes = value * 1024;
+      return megabytes < 1 ? "<1 MB" : `${new Intl.NumberFormat("en", { maximumFractionDigits: 0 }).format(megabytes)} MB`;
+    }
     return `${new Intl.NumberFormat("en", { maximumFractionDigits: 1 }).format(value)} GB`;
   };
 

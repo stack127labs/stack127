@@ -105,6 +105,11 @@ function formatEstimateNumber(value: number, unit: "mb" | "gb") {
     return `${new Intl.NumberFormat("en", { maximumFractionDigits: 1 }).format(gigabytes)} GB`;
   }
 
+  if (unit === "gb" && value > 0 && value < 1) {
+    const megabytes = value * 1024;
+    return megabytes < 1 ? "<1 MB" : `${new Intl.NumberFormat("en", { maximumFractionDigits: 0 }).format(megabytes)} MB`;
+  }
+
   return `${new Intl.NumberFormat("en", { maximumFractionDigits: 1 }).format(value)} ${unit.toUpperCase()}`;
 }
 
